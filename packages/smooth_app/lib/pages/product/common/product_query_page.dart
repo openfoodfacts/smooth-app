@@ -138,6 +138,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       ScaffoldMessenger(
         key: _scaffoldKeyEmpty,
         child: Scaffold(
+          backgroundColor: widget.mainColor.withAlpha(32),
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
@@ -150,22 +151,20 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                       pinned: true,
                       elevation: 0,
                       automaticallyImplyLeading: false,
-                      title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            _getBackArrow(context, widget.mainColor),
-                          ]),
+                      leading: _BackButton(
+                        color: widget.mainColor,
+                      ),
                       flexibleSpace: LayoutBuilder(builder:
                           (BuildContext context, BoxConstraints constraints) {
                         return FlexibleSpaceBar(
-                            centerTitle: true,
-                            title: Text(
-                              widget.name,
-                              textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1!
-                                  .copyWith(color: widget.mainColor),
-                            ),
-                            background: _getHero(screenSize, themeData));
+                          centerTitle: true,
+                          title: Text(
+                            widget.name,
+                            textAlign: TextAlign.center,
+                            style: themeData.textTheme.headline1!
+                                .copyWith(color: widget.mainColor),
+                          ),
+                        );
                       })),
                 ],
               ),
@@ -183,6 +182,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       ScaffoldMessenger(
         key: _scaffoldKeyNotEmpty,
         child: Scaffold(
+          backgroundColor: widget.mainColor.withAlpha(32),
           floatingActionButton: Row(
             mainAxisAlignment: _showBackToTopButton
                 ? MainAxisAlignment.spaceBetween
@@ -241,47 +241,43 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                       pinned: true,
                       elevation: 0,
                       automaticallyImplyLeading: false,
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          _getBackArrow(context, widget.mainColor),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 24.0),
-                            child: TextButton.icon(
-                              icon: Icon(
-                                Icons.filter_list,
-                                color: widget.mainColor,
-                              ),
-                              label: Text(AppLocalizations.of(context).filter,
-                                  style: themeData.textTheme.subtitle1!
-                                      .copyWith(color: widget.mainColor)),
-                              style: TextButton.styleFrom(
-                                primary: widget.mainColor,
-                                textStyle: TextStyle(
-                                  color: widget.mainColor,
-                                ),
-                              ),
-                              onPressed: () {
-                                showCupertinoModalBottomSheet<Widget>(
-                                  expand: false,
-                                  context: context,
-                                  backgroundColor: Colors.transparent,
-                                  bounce: true,
-                                  builder: (BuildContext context) =>
-                                      GroupQueryFilterView(
-                                    categories: _model.categories,
-                                    categoriesList: _model.sortedCategories,
-                                    callback: (String category) {
-                                      _model.selectCategory(category);
-                                      setState(() {});
-                                    },
-                                  ),
-                                );
-                              },
+                      leading: _BackButton(
+                        color: widget.mainColor,
+                      ),
+                      actions: <Widget>[
+                        TextButton.icon(
+                          icon: Icon(
+                            Icons.filter_list,
+                            color: widget.mainColor,
+                          ),
+                          label: Text(AppLocalizations.of(context).filter,
+                              style: themeData.textTheme.subtitle1!
+                                  .copyWith(color: widget.mainColor)),
+                          style: TextButton.styleFrom(
+                            primary: widget.mainColor,
+                            textStyle: TextStyle(
+                              color: widget.mainColor,
                             ),
                           ),
-                        ],
-                      ),
+                          onPressed: () {
+                            showCupertinoModalBottomSheet<Widget>(
+                              expand: false,
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              bounce: true,
+                              builder: (BuildContext context) =>
+                                  GroupQueryFilterView(
+                                categories: _model.categories,
+                                categoriesList: _model.sortedCategories,
+                                callback: (String category) {
+                                  _model.selectCategory(category);
+                                  setState(() {});
+                                },
+                              ),
+                            );
+                          },
+                        )
+                      ],
                       flexibleSpace: LayoutBuilder(
                         builder: (
                           BuildContext context,
@@ -388,10 +384,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       tag: widget.heroTag,
       child: Container(
         width: screenSize.width,
-        height: screenSize.height,
-        decoration: BoxDecoration(
-          color: widget.mainColor.withAlpha(32),
-        ),
+        height: double.infinity,
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 96.0),
       ));
 
@@ -472,18 +465,6 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     );
   }
 
-  static Widget _getBackArrow(final BuildContext context, final Color color) =>
-      Padding(
-        padding: const EdgeInsets.only(top: 28.0),
-        child: IconButton(
-          splashColor: color,
-          icon: Icon(
-            ConstantIcons.instance.getBackIcon(),
-            color: color,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-      );
   void retryConnection() {
     setState(() {
       _model = ProductQueryModel(widget.productListSupplier);
@@ -504,5 +485,31 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   void _scrollToTop() {
     _scrollController.animateTo(0,
         duration: const Duration(seconds: 3), curve: Curves.linear);
+  }
+}
+
+class _BackButton extends StatelessWidget {
+  const _BackButton({
+    required this.color,
+    this.onPressed,
+    Key? key,
+  }) : super(key: key);
+
+  final Color color;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(ConstantIcons.instance.getBackIcon()),
+      color: color,
+      onPressed: () {
+        if (onPressed != null) {
+          onPressed!();
+        } else {
+          Navigator.maybePop(context);
+        }
+      },
+    );
   }
 }
