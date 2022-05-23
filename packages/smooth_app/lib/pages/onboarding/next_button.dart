@@ -38,7 +38,6 @@ class NextButton extends StatelessWidget {
               backgroundColor: Theme.of(context).cardColor,
               shape: const RoundedRectangleBorder(
                   borderRadius: ANGULAR_BORDER_RADIUS),
-              primary: const Color.fromRGBO(75, 0, 130, 1.0),
             ),
             onPressed: () async {
               await OnboardingLoader(localDatabase)

@@ -31,10 +31,14 @@ abstract class AbstractUserPreferences {
   String getTitleString();
 
   /// Title of the header, always visible.
+  ///
+  /// With [Flexible] for overflow management.
   @protected
-  Widget getTitle() => Text(
-        getTitleString(),
-        style: themeData.textTheme.headline2,
+  Widget getTitle() => Flexible(
+        child: Text(
+          getTitleString(),
+          style: themeData.textTheme.headline2,
+        ),
       );
 
   /// Subtitle of the header, always visible.

@@ -5,8 +5,9 @@ import 'package:flutter/services.dart';
 class NativeDataImporter {
   const NativeDataImporter._();
 
-  /// Method channel with two features:
+  /// Method channel with three features:
   /// - getUser
+  /// - getHistory
   /// - clearOldData
   static const MethodChannel methodChannel = MethodChannel('data_importer');
 
@@ -29,6 +30,11 @@ class NativeDataImporter {
       }
     }
     return null;
+  }
+
+  /// Returns a list of barcodes (only on iOS)
+  static Future<dynamic> getHistory() {
+    return methodChannel.invokeMethod<dynamic>('getHistory');
   }
 
   /// Unused feature (for now) which clears unused data from V1

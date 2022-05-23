@@ -27,7 +27,7 @@
     <application
             android:label="OpenFoodFacts"
             android:name="${applicationName}"
-            android:icon="@mipmap/launcher_icon"
+            android:icon="@mipmap/ic_launcher"
             android:allowBackup="true"
             android:fullBackupContent="@xml/backup_scheme"
             android:hasFragileUserData="true" tools:targetApi="q">
