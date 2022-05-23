@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 /// API URL: [https://world.openfoodfacts.org/files/tagline/tagline-off.json]
 Future<TagLineItem?> fetchTagLine(String locale) {
   assert(locale.isNotEmpty);
-  locale = locale.substring(0, 2);
 
   return http
       .get(
@@ -37,9 +36,12 @@ class _TagLine {
           ),
         );
 
+  /// Taglines by their locale
   final Map<String, TagLineItem> _items;
 
-  TagLineItem? operator [](String key) => _items[key];
+  /// Find a tagline with its locale
+  TagLineItem? operator [](String key) =>
+      _items[key] ?? _items[key.substring(0, 2)];
 }
 
 class TagLineItem {
