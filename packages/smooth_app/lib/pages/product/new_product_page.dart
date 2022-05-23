@@ -82,7 +82,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
       ),
       floatingActionButton: scrollingUp
           ? FloatingActionButton(
-              backgroundColor: colorScheme.primary,
               onPressed: () {
                 Navigator.maybePop(context);
               },

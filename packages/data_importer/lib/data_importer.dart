@@ -75,13 +75,13 @@ class ApplicationDataImporter {
   Future<bool> requireCredentialsMigration() {
     return storage
         .read(key: _KEY_CREDENTIALS_MIGRATION_STATUS)
-        .then((String? value) => value == _MIGRATION_STATUS_SUCCESS);
+        .then((String? value) => value != _MIGRATION_STATUS_SUCCESS);
   }
 
   Future<bool> requireListsMigration() {
     return storage
         .read(key: _KEY_LISTS_MIGRATION_STATUS)
-        .then((String? value) => value == _MIGRATION_STATUS_SUCCESS);
+        .then((String? value) => value != _MIGRATION_STATUS_SUCCESS);
   }
 
   Future<int> get currentRetriesCount {
@@ -145,7 +145,13 @@ class ApplicationDataImporter {
         final ImportableUserData? importLists =
             await platformImporter.importLists();
         if (importLists != null) {
-          await importer.importLists(importLists.toUserData(MAX_HISTORY_ITEMS));
+          final bool res = await importer.importLists(
+            importLists.toUserData(MAX_HISTORY_ITEMS),
+          );
+
+          if (!res) {
+            throw Exception('Migration failed!');
+          }
         }
       } catch (err) {
         await _markListsMigrationAsFailed(err);

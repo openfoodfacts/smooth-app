@@ -121,7 +121,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     if (widget.type == null) {
       children.add(UserPreferencesListTile(
         title: Text(
-          'Lists',
+          appLocalizations.user_list_all_title,
           style: themeData.textTheme.headline2,
         ),
         onTap: () async => Navigator.push<void>(

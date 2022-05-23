@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:data_importer_shared/data_importer_shared.dart';
 
 class ImportableUser {
@@ -24,7 +26,8 @@ class ImportableUserData {
   final ImportableUserLists? lists;
 
   UserListsData toUserData(int maxHistoryLength) => UserListsData(
-      history?.sublist(0, maxHistoryLength),
+      history?.sublist(
+          0, history != null ? math.min(history!.length, maxHistoryLength) : 0),
       lists?.map<UserList>(
         (ImportableUserList list) {
           return list.toUserList();

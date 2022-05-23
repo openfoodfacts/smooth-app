@@ -300,9 +300,11 @@ packages:
   device_preview:
     dependency: "direct main"
     description:
-      name: device_preview
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: device_preview
+      ref: HEAD
+      resolved-ref: "73c91514e5ab092bb7f911acc8a447e07e751120"
+      url: "https://github.com/monkeydaichan/flutter_device_preview.git"
+    source: git
     version: "1.0.0"
   fake_async:
     dependency: transitive
@@ -337,6 +339,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_colorpicker:
+    dependency: "direct main"
+    description:
+      name: flutter_colorpicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   flutter_driver:
     dependency: "direct dev"
     description: flutter
@@ -774,7 +783,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.16.0"
+    version: "1.17.0"
   package_config:
     dependency: transitive
     description:

@@ -1,8 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -82,70 +79,29 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             ],
           ),
         ),
-        StatefulBuilder(
-          builder:
-              (BuildContext context, void Function(VoidCallback fn) setState) {
-            final bool shouldColorThemeShown;
-
-            final ThemeMode themeMode =
-                context.select<ThemeProvider, ThemeMode>(
-                    (ThemeProvider value) => value.currentThemeMode);
-
-            switch (themeMode) {
-              case ThemeMode.light:
-                shouldColorThemeShown = true;
-                break;
-              case ThemeMode.dark:
-                shouldColorThemeShown = false;
-                break;
-              case ThemeMode.system:
-                final SingletonFlutterWindow window =
-                    WidgetsBinding.instance.window;
-
-                shouldColorThemeShown =
-                    window.platformBrightness == Brightness.light;
-
-                // This callback is called every time the brightness changes.
-                window.onPlatformBrightnessChanged = () {
-                  setState(() {});
-                };
-                break;
-            }
-
-            if (!shouldColorThemeShown) {
-              return const SizedBox.shrink();
-            }
-
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-                  child: Text(
-                    appLocalizations.main_app_color,
-                    style: themeData.textTheme.headline4,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: LARGE_SPACE,
-                    vertical: VERY_SMALL_SPACE,
-                  ),
-                  child: Wrap(
-                    spacing: 8.0,
-                    children: List<Widget>.generate(
-                      _ORDERED_COLOR_TAGS.length,
-                      (final int index) => _getColorButton(
-                        themeData.colorScheme,
-                        _ORDERED_COLOR_TAGS[index],
-                        themeProvider,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+          child: Text(
+            appLocalizations.main_app_color,
+            style: themeData.textTheme.headline4,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: VERY_SMALL_SPACE,
+          ),
+          child: Wrap(
+            spacing: 8.0,
+            children: List<Widget>.generate(
+              _ORDERED_COLOR_TAGS.length,
+              (final int index) => _getColorButton(
+                themeData.colorScheme,
+                _ORDERED_COLOR_TAGS[index],
+                themeProvider,
+              ),
+            ),
+          ),
         ),
       ];
 
@@ -155,7 +111,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
     final ThemeProvider themeProvider,
   ) =>
       TextButton(
-        onPressed: () async => themeProvider.setColorTag(colorTag),
+        onPressed: () async =>
+            themeProvider.setColor(SmoothTheme.MATERIAL_COLORS[colorTag]!),
         style: TextButton.styleFrom(
           backgroundColor: SmoothTheme.getColor(
             colorScheme,

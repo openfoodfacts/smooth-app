@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -22,11 +23,12 @@ class _AllUserProductListState extends State<AllUserProductList> {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ThemeData themeData = Theme.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<String> userLists = daoProductList.getUserLists();
     return Scaffold(
-      appBar: AppBar(title: const Text('Lists')),
+      appBar: AppBar(title: Text(appLocalizations.user_list_all_title)),
       body: userLists.isEmpty
-          ? const Center(child: Text('No user list'))
+          ? Center(child: Text(appLocalizations.user_list_all_empty))
           : ListView.builder(
               itemCount: userLists.length,
               itemBuilder: (final BuildContext context, final int index) {
@@ -38,7 +40,7 @@ class _AllUserProductListState extends State<AllUserProductList> {
                     userList,
                     style: themeData.textTheme.headline4,
                   ),
-                  subtitle: Text('$length product(s)'),
+                  subtitle: Text(appLocalizations.user_list_length(length)),
                   icon: Icon(ConstantIcons.instance.getForwardIcon()),
                   onTap: () async {
                     await daoProductList.get(productList);
@@ -68,7 +70,6 @@ class _AllUserProductListState extends State<AllUserProductList> {
               },
             ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
         onPressed: () async {
           final ProductList? newProductList =
               await ProductListUserDialogHelper(daoProductList)
@@ -78,6 +79,7 @@ class _AllUserProductListState extends State<AllUserProductList> {
           }
           setState(() {});
         },
+        child: const Icon(Icons.add),
       ),
     );
   }

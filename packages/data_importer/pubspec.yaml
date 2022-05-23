@@ -20,9 +20,6 @@ dependencies:
       url: 'https://github.com/g123k/sqflite_android_only.git'
       path: 'sqflite'
 
-  # Realm plugin (only for iOS)
-  realm: 0.2.1+alpha
-
   flutter_secure_storage: ^5.0.2
   path: ^1.8.0
 
