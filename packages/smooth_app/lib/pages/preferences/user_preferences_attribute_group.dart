@@ -4,7 +4,6 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/animations/smooth_animated_collapse_arrow.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
@@ -96,8 +95,8 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
         subtitle: getSubtitle(),
         isCompactTitle: true,
         icon: collapsed!
-            ? const SmoothAnimatedCollapseArrow(collapsed: true)
-            : null,
+            ? const Icon(Icons.keyboard_arrow_right)
+            : const Icon(Icons.keyboard_arrow_down),
       );
 
   bool _isCollapsed() => userPreferences.activeAttributeGroup != group.id;
