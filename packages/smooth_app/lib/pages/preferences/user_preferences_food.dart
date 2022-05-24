@@ -55,6 +55,9 @@ class UserPreferencesFood extends AbstractUserPreferences {
         title: Text(appLocalizations.reset_food_prefs),
         onTap: () => _confirmReset(context),
       ),
+      ListTile(
+        title: Text(appLocalizations.myPreferences_food_comment),
+      ),
     ];
     for (final AttributeGroup group in groups) {
       final AbstractUserPreferences abstractUserPreferences =

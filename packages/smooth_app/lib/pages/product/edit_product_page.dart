@@ -54,13 +54,16 @@ class _EditProductPageState extends State<EditProductPage> {
               subtitle:
                   appLocalizations.edit_product_form_item_details_subtitle,
               onTap: () async {
-                await Navigator.push<bool>(
+                final bool? refreshed = await Navigator.push<bool>(
                   context,
                   MaterialPageRoute<bool>(
                     builder: (BuildContext context) =>
                         AddBasicDetailsPage(widget.product),
                   ),
                 );
+                if (refreshed ?? false) {
+                  _changes++;
+                }
               },
             ),
             _ListTitleItem(

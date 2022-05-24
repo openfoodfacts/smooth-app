@@ -40,17 +40,57 @@
     "learnMore": "מידע נוסף",
     "@learnMore": {},
     "general_confirmation": "להמשיך?",
-    "incompatible": "אין תאימות",
-    "@incompatible": {
-        "description": "Short label for product list view: the product is incompatible with your preferences"
-    },
-    "compatible": "תואם",
-    "@compatible": {
-        "description": "Short label for product list view: the product is compatible with your preferences"
-    },
     "unknown": "לא ידוע",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
+    "match_very_good": "התאמה טובה מאוד",
+    "@match_very_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: very good match"
+    },
+    "match_good": "התאמה טובה",
+    "@match_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: good match"
+    },
+    "match_poor": "התאמה גרועה",
+    "@match_poor": {
+        "description": "Label for product page regarding product compatibility with the user preferences: poor match"
+    },
+    "match_may_not": "אולי אין התאמה",
+    "@match_may_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: may not match"
+    },
+    "match_does_not": "אינו תואם",
+    "@match_does_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: does not match"
+    },
+    "match_unknown": "התאמה לא ידועה",
+    "@match_unknown": {
+        "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
+    },
+    "match_short_very_good": "התאמה טובה מאוד",
+    "@match_short_very_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
+    },
+    "match_short_good": "התאמה טובה",
+    "@match_short_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
+    },
+    "match_short_poor": "התאמה גרועה",
+    "@match_short_poor": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
+    },
+    "match_short_may_not": "אולי אין התאמה",
+    "@match_short_may_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
+    },
+    "match_short_does_not": "אינו תואם",
+    "@match_short_does_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
+    },
+    "match_short_unknown": "התאמה לא ידועה",
+    "@match_short_unknown": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
     "licenses": "רישיונות",
     "@licenses": {},
@@ -292,6 +332,7 @@
     "myPreferences_settings_subtitle": "מצב כהה, ערכת עיצוב…",
     "myPreferences_food_title": "העדפות מזון",
     "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
+    "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
     "confirmResetPreferences": "לאפס את העדפות המזון שלך?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -574,18 +615,6 @@
         "description": "Clears a product list"
     },
     "really_clear": "למחוק את הרשימה הזאת?",
-    "product_compatibility_unknown": "תאימות לא ידועה",
-    "@product_compatibility_unknown": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_incompatible": "אינו תואם",
-    "@product_compatibility_incompatible": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "התאמה טובה",
-    "@product_compatibility_good": {
-        "description": "Product compatibility summary title"
-    },
     "@Plural": {},
     "pct_match": "‎{percent}%‎ התאמה",
     "@pct_match": {
@@ -1006,8 +1035,8 @@
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
-    "dev_preferences_migration_title": "Data migration from V1",
-    "dev_preferences_migration_subtitle": "Status: {status}",
+    "dev_preferences_migration_title": "המרת נתונים מגרסה 1",
+    "dev_preferences_migration_subtitle": "מצב: {status}",
     "@dev_preferences_migration_subtitle": {
         "placeholders": {
             "status": {
@@ -1015,12 +1044,12 @@
             }
         }
     },
-    "dev_preferences_migration_status_already_done": "success or fresh install",
-    "dev_preferences_migration_status_success": "success",
-    "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
-    "dev_preferences_migration_status_required": "required (click to start)",
-    "dev_preferences_migration_status_not_started": "unknown",
+    "dev_preferences_migration_status_already_done": "הצלחה או התקנה מאפס",
+    "dev_preferences_migration_status_success": "הצלחה",
+    "dev_preferences_migration_status_error": "שגיאה",
+    "dev_preferences_migration_status_in_progress": "בתהליך",
+    "dev_preferences_migration_status_required": "נחוץ (ללחוץ כדי להפעיל)",
+    "dev_preferences_migration_status_not_started": "לא ידוע",
     "dev_preferences_import_history_title": "ייבוא היסטוריה",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
@@ -1032,27 +1061,6 @@
     "dev_preferences_import_history_result_success": "בוצע",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
-    },
-    "dev_mode_matching_mode_title": "החלפה בין התאמה נוקשה לגמישה",
-    "@dev_mode_matching_mode_title": {
-        "description": "User dev preferences - Matching mode - Title"
-    },
-    "dev_mode_matching_mode_subtitle": "רמת ההתאמה הנוכחית היא {mode}",
-    "@dev_mode_matching_mode_subtitle": {
-        "description": "User dev preferences - Matching mode - Subtitle",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "dev_mode_matching_mode_value_strong": "נוקשה",
-    "@dev_mode_matching_mode_value_strong": {
-        "description": "User dev preferences - Matching mode - Value - Strong"
-    },
-    "dev_mode_matching_mode_value_lenient": "גמיש",
-    "@dev_mode_matching_mode_value_lenient": {
-        "description": "User dev preferences - Matching mode - Value - Lenient"
     },
     "dev_mode_scan_mode_title": "מצב סריקה",
     "@dev_mode_scan_mode_title": {
@@ -1199,6 +1207,21 @@
             "id": {
                 "type": "String"
             }
+        }
+    },
+    "user_list_all_title": "רשימות",
+    "@user_list_all_title": {
+        "description": "Title about the user lists in the user preferences"
+    },
+    "user_list_all_empty": "כאן ניתן ליצור את הרשימה הראשונה שלך!",
+    "@user_list_all_empty": {
+        "description": "Small message when there are no user lists"
+    },
+    "user_list_length": "{count,plural, one {} two {שני מוצרים} many {{count} מוצרים} =0{רשימה ריקה} =1{מוצר אחד} other{{count} מוצרים}}",
+    "@user_list_length": {
+        "description": "Length of a user product list",
+        "placeholders": {
+            "count": {}
         }
     }
 }

@@ -32,7 +32,7 @@ dependencies:
   latlong2: ^0.8.1
   matomo_forever: ^1.0.0+1
   modal_bottom_sheet: ^2.0.1
-  openfoodfacts: ^1.16.0
+  openfoodfacts: ^1.17.0
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
   package_info_plus: ^1.4.2
@@ -88,19 +88,38 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/app/smoothie-icon.1200x1200.png"
-  adaptive_icon_background: "#00ccff"
+  image_path: "assets/app/release_icon_transparent_1152x1152.png"
+  adaptive_icon_background: "#FFFFFF"
   # Only the inner 72x72dp of the 108x108dp adaptive icon is shown
   # (extra padding of 18dp on all sides is used for visual effects)
   # https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive
-  adaptive_icon_foreground: "assets/app/smoothie-icon-transparent.android-adaptive.1080x1080.png"
+  adaptive_icon_foreground: "assets/app/release_icon_transparent_70pct_1152x1152.png"
 
 # 'flutter pub run flutter_native_splash:create' to update
 flutter_native_splash:
-  image: assets/app/smoothie-icon-transparent.1200x1200.png
-  color: "00ccff"
-  image_dark: assets/app/smoothie-icon-transparent.1200x1200.png
-  color_dark: "004455"
+  color: "#FFFFFF"
+  color_dark: "#333333"
+  #It must be a png file and should be sized for 4x pixel density.
+  image: "assets/app/release_icon_transparent_1152x1152.png"
+
+  # The branding property allows you to specify an image used as branding in the splash screen.
+  # It must be a png file. Currently, it is only supported for Android < v12 and iOS.
+  # 200dp width and 80dp height.
+  branding: assets/app/splashscreen_branding.png
+  branding_dark: assets/app/splashscreen_branding_dark.png
+
+
+
+  # https://developer.android.com/guide/topics/ui/splash-screen
+  android_12:
+    # Please note that the splash screen will be clipped to a circle on the center of the screen.
+    # App icon with an icon background: This should be 960×960 pixels, and fit within a circle
+    # 640 pixels in diameter.
+    # App icon without an icon background: This should be 1152×1152 pixels, and fit within a circle
+    # 768 pixels in diameter.
+    image: "assets/app/release_icon_transparent_70pct_1152x1152.png"
+    icon_background_color: "#FFFFFF"
+    icon_background_color_dark: "#333333"
 
 flutter:
   uses-material-design: true
