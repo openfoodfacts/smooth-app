@@ -322,7 +322,7 @@ class _EditIngredientsBody extends StatelessWidget {
                             SmoothActionButton(
                               text: appLocalizations.cancel,
                               onPressed: () {
-                                Navigator.pop(context);
+                                Navigator.pop(context, false);
                               },
                             ),
                             const SizedBox(width: LARGE_SPACE),
@@ -331,7 +331,7 @@ class _EditIngredientsBody extends StatelessWidget {
                               onPressed: () async {
                                 await onSubmitField();
                                 //ignore: use_build_context_synchronously
-                                Navigator.pop(context);
+                                Navigator.pop(context, true);
                               },
                             ),
                           ]),
