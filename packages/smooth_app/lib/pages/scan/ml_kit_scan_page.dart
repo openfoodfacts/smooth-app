@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
@@ -11,6 +12,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
@@ -70,9 +72,13 @@ class MLKitScannerPageState
 
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
-  CameraController? _controller;
   CameraDescription? _camera;
+
+  /// Camera preview scale
   double _previewScale = 1.0;
+
+  /// Allow to detect if we have to recompute the [_previewScale]
+  BoxConstraints? _contentConstraints;
 
   /// Flag used to prevent the camera from being initialized.
   /// When set to [false], [_startLiveStream] can be called.
@@ -106,8 +112,10 @@ class MLKitScannerPageState
     // all entry points
     return LifeCycleManager(
       onStart: _startLiveFeed,
-      onResume: _startLiveFeed,
-      onPause: () => _stopImageStream(fromPauseEvent: true),
+      onResume: _onResumeImageStream,
+      onVisible: () => _onResumeImageStream(forceStartPreview: true),
+      onPause: _onPauseImageStream,
+      onInvisible: _onPauseImageStream,
       child: _buildScannerWidget(),
     );
   }
@@ -115,58 +123,75 @@ class MLKitScannerPageState
   Widget _buildScannerWidget() {
     // Showing the black scanner background + the icon when the scanner is
     // loading or stopped
-    if (isCameraNotInitialized) {
+    if (!isCameraInitialized) {
       return const SizedBox.shrink();
     }
 
-    final Size size = MediaQuery.of(context).size;
-    // From: https://stackoverflow.com/questions/49946153/flutter-camera-appears-stretched/61487358#61487358:
-    // calculate scale depending on screen and camera ratios
-    // this is actually size.aspectRatio / (1 / camera.aspectRatio)
-    // because camera preview size is received as landscape
-    // but we're calculating for portrait orientation
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        _computePreviewScale(constraints);
+
+        return Transform.scale(
+          scale: _previewScale,
+          child: Center(
+            key: ValueKey<bool>(stoppingCamera),
+            child: CameraPreview(
+              _controller!,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _computePreviewScale(BoxConstraints constraints) {
+    // Only recompute if necessary
+    if (_contentConstraints == constraints) {
+      return;
+    }
+
+    final Size size = constraints.biggest;
+
+    final double previewWidth;
+    final double previewHeight;
+
     _previewScale = size.aspectRatio * _controller!.value.aspectRatio;
 
     if (_previewScale < 1.0) {
       // To prevent scaling down, invert the value
       _previewScale = 1.0 / _previewScale;
+    } else if (_previewScale == 1.0) {
+      // Same aspect ratio, but may still require scale up / down
+      if (_camera?.sensorOrientation == 90) {
+        previewWidth = _controller!.value.previewSize!.height;
+        previewHeight = _controller!.value.previewSize!.width;
+      } else {
+        previewWidth = _controller!.value.previewSize!.width;
+        previewHeight = _controller!.value.previewSize!.height;
+      }
+
+      _previewScale = math.max(
+        size.width / previewWidth,
+        size.height / previewHeight,
+      );
     } else {
       // Scale up the size if the preview doesn't take the full width or height
       _previewScale = _controller!.value.aspectRatio - size.aspectRatio;
     }
 
-    return Transform.scale(
-      scale: _previewScale,
-      child: Center(
-        key: ValueKey<bool>(stoppingCamera),
-        child: CameraPreview(
-          _controller!,
-        ),
-      ),
-    );
+    _contentConstraints = constraints;
   }
 
-  bool get isCameraNotInitialized {
-    return _controller == null ||
-        _controller!.value.isInitialized == false ||
-        stoppingCamera ||
-        _controller!.value.isPreviewPaused ||
-        !_controller!.value.isStreamingImages;
-  }
+  bool get isCameraInitialized => _controller?.isInitialized == true;
 
   Future<void> _startLiveFeed() async {
-    if (_controller != null || _camera == null) {
+    if (_camera == null) {
       return;
+    } else if (_controller != null) {
+      return _onResumeImageStream();
     }
 
     stoppingCamera = false;
-
-    _controller = CameraController(
-      _camera!,
-      ResolutionPreset.medium,
-      enableAudio: false,
-      imageFormatGroup: ImageFormatGroup.yuv420,
-    );
 
     // If the controller is initialized update the UI.
     _barcodeDecoder ??= MLKitScanDecoder(
@@ -177,46 +202,49 @@ class MLKitScannerPageState
         ),
       ),
     );
-    _controller?.addListener(_cameraListener);
 
-    // Restart the subscription if necessary
-    if (_streamSubscription?.isPaused == true) {
-      _streamSubscription!.resume();
-    } else {
-      _subject
-          .throttleTime(
-            Duration(
-              milliseconds:
-                  _averageProcessingTime.average(_defaultProcessingTime) *
-                      _processingTimeWindows,
-            ),
-          )
-          .asyncMap((CameraImage image) async {
-            final DateTime start = DateTime.now();
+    CameraHelper.initController(
+      SmoothCameraController(
+        _camera!,
+        ResolutionPreset.medium,
+        enableAudio: false,
+        imageFormatGroup: ImageFormatGroup.yuv420,
+      ),
+    );
 
-            final List<String?>? res =
-                await _barcodeDecoder?.processImage(image);
+    _controller!.addListener(_cameraListener);
 
-            _averageProcessingTime.add(
-              DateTime.now().difference(start).inMilliseconds,
-            );
+    _subject
+        .throttleTime(
+          Duration(
+            milliseconds:
+                _averageProcessingTime.average(_defaultProcessingTime) *
+                    _processingTimeWindows,
+          ),
+        )
+        .asyncMap((CameraImage image) async {
+          final DateTime start = DateTime.now();
 
-            return res;
-          })
-          .where(
-            (List<String?>? barcodes) => barcodes?.isNotEmpty == true,
-          )
-          .cast<List<String>>()
-          .listen(_onNewBarcodeDetected);
-    }
+          final List<String?>? res = await _barcodeDecoder?.processImage(image);
+
+          _averageProcessingTime.add(
+            DateTime.now().difference(start).inMilliseconds,
+          );
+
+          return res;
+        })
+        .where(
+          (List<String?>? barcodes) => barcodes?.isNotEmpty == true,
+        )
+        .cast<List<String>>()
+        .listen(_onNewBarcodeDetected);
 
     try {
-      await _controller?.initialize();
-      await _controller?.setFocusMode(FocusMode.auto);
-      await _controller?.setFocusPoint(_focusPoint);
-      await _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
-      await _controller?.startImageStream(
-        (CameraImage image) => _subject.add(image),
+      await _controller?.init(
+        focusMode: FocusMode.auto,
+        focusPoint: _focusPoint,
+        deviceOrientation: DeviceOrientation.portraitUp,
+        onAvailable: (CameraImage image) => _subject.add(image),
       );
     } on CameraException catch (e) {
       if (kDebugMode) {
@@ -231,40 +259,77 @@ class MLKitScannerPageState
   Future<void> _onNewBarcodeDetected(List<String> barcodes) async {
     for (final String barcode in barcodes) {
       if (await _model.onScan(barcode)) {
+        // Both are Future methods, but it doesn't matter to wait here
         HapticFeedback.lightImpact();
+        _userPreferences.setFirstScanAchieved();
       }
     }
   }
 
   void _cameraListener() {
+    _redrawScreen();
+
     if (_controller?.value.hasError == true) {
-      // TODO(M123): Handle errors better
-      debugPrint(_controller!.value.errorDescription);
+      // May happen if another application claims the camera
+      // In that case, we have to destroy everything
+      if (_controller!.value.isClosed) {
+        _stopImageStream();
+      } else {
+        // TODO(M123): Handle errors better
+        debugPrint(_controller!.value.errorDescription);
+      }
     }
   }
 
-  Future<void> _stopImageStream({bool fromPauseEvent = false}) async {
+  Future<void> _onPauseImageStream() async {
+    if (stoppingCamera) {
+      return;
+    }
+
+    _streamSubscription?.pause();
+    await _controller?.pausePreview();
+  }
+
+  Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
+    if (stoppingCamera ||
+        (!forceStartPreview && ScreenVisibilityDetector.invisible(context))) {
+      return;
+    }
+
+    // Relaunch the controller if it was destroyed in background
+    if (_controller == null) {
+      return _startLiveFeed();
+    }
+
+    if (_streamSubscription?.isPaused == true) {
+      _streamSubscription!.resume();
+    }
+
+    await _controller?.resumePreviewIfNecessary();
+    stoppingCamera = false;
+  }
+
+  Future<void> _stopImageStream() async {
     if (stoppingCamera) {
       return;
     }
 
     stoppingCamera = true;
+    await _controller?.pausePreview();
+
     _redrawScreen();
 
     _controller?.removeListener(_cameraListener);
-
-    if (fromPauseEvent) {
-      _streamSubscription?.pause();
-    } else {
-      await _streamSubscription?.cancel();
-    }
+    await _controller?.pausePreview();
+    await _streamSubscription?.cancel();
 
     await _controller?.dispose();
     await _barcodeDecoder?.dispose();
+    CameraHelper.destroyControllerInstance();
 
     _barcodeDecoder = null;
-    _controller = null;
 
+    stoppingCamera = false;
     _restartCameraIfNecessary();
   }
 
@@ -305,7 +370,7 @@ class MLKitScannerPageState
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
-    _stopImageStream(fromPauseEvent: false);
+    _stopImageStream();
     super.dispose();
   }
 
@@ -320,4 +385,6 @@ class MLKitScannerPageState
       return Offset(0.5, 0.25 / _previewScale);
     }
   }
+
+  SmoothCameraController? get _controller => CameraHelper.controller;
 }

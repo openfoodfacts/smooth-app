@@ -1,0 +1,40 @@
+name: data_importer
+description: Data importer from V1
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+  flutter: ">=2.5.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  data_importer_shared:
+    path: ../data_importer_shared
+
+  # Custom SQLite plugin only with the Android impl
+  sqflite:
+    git:
+      url: 'https://github.com/g123k/sqflite_android_only.git'
+      path: 'sqflite'
+
+  flutter_secure_storage: ^5.0.2
+  path: ^1.8.0
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  flutter_driver:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+    
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: org.openfoodfacts.off.data_importer
+        pluginClass: DataImporterPlugin
+      ios:
+        pluginClass: DataImporterPlugin

@@ -4,7 +4,7 @@ on:
   push:
     branches: [ crowdin-trigger ]
   schedule:
-  - cron: "0 22 * * *"
+  - cron: "0 19 * * *"
 jobs:
   synchronize-with-crowdin:
     runs-on: ubuntu-latest

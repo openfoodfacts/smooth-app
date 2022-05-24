@@ -1,7 +1,7 @@
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
 /// Tabs where ranked products are displayed
 enum MatchTab {
@@ -12,41 +12,43 @@ enum MatchTab {
 }
 
 class SmoothItModel {
-  final Map<MatchTab, List<MatchedProduct>> _categorizedProducts =
-      <MatchTab, List<MatchedProduct>>{};
+  final Map<MatchTab, List<MatchedProductV2>> _categorizedProducts =
+      <MatchTab, List<MatchedProductV2>>{};
 
   void refresh(
     final List<Product> products,
     final ProductPreferences productPreferences,
     final UserPreferences userPreferences,
   ) {
-    final List<MatchedProduct> allProducts = MatchedProduct.sort(
+    final List<MatchedProductV2> allProducts = MatchedProductV2.sort(
       products,
       productPreferences,
-      userPreferences,
     );
     _categorizedProducts.clear();
     _categorizedProducts[MatchTab.ALL] = allProducts;
-    for (final MatchedProduct matchedProduct in allProducts) {
+    for (final MatchedProductV2 matchedProduct in allProducts) {
       final MatchTab matchTab = _getMatchTab(matchedProduct);
       if (_categorizedProducts[matchTab] == null) {
-        _categorizedProducts[matchTab] = <MatchedProduct>[];
+        _categorizedProducts[matchTab] = <MatchedProductV2>[];
       }
       _categorizedProducts[matchTab]!.add(matchedProduct);
     }
   }
 
-  List<MatchedProduct> getMatchedProducts(final MatchTab matchTab) =>
-      _categorizedProducts[matchTab] ?? <MatchedProduct>[];
+  List<MatchedProductV2> getMatchedProducts(final MatchTab matchTab) =>
+      _categorizedProducts[matchTab] ?? <MatchedProductV2>[];
 
-  static MatchTab _getMatchTab(final MatchedProduct matchedProduct) {
-    if ((matchedProduct.status == null) ||
-        (matchedProduct.status == MatchedProductStatus.UNKNOWN)) {
-      return MatchTab.MAYBE;
+  static MatchTab _getMatchTab(final MatchedProductV2 matchedProduct) {
+    switch (matchedProduct.status) {
+      case MatchedProductStatusV2.VERY_GOOD_MATCH:
+      case MatchedProductStatusV2.GOOD_MATCH:
+      case MatchedProductStatusV2.POOR_MATCH:
+        return MatchTab.YES;
+      case MatchedProductStatusV2.MAY_NOT_MATCH:
+      case MatchedProductStatusV2.UNKNOWN_MATCH:
+        return MatchTab.MAYBE;
+      case MatchedProductStatusV2.DOES_NOT_MATCH:
+        return MatchTab.NO;
     }
-    if (matchedProduct.status == MatchedProductStatus.YES) {
-      return MatchTab.YES;
-    }
-    return MatchTab.NO;
   }
 }

@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
@@ -23,8 +24,8 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
-import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/question_page.dart';
@@ -331,10 +332,9 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
-    final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
+    final MatchedProductV2 matchedProduct = MatchedProductV2(
       widget._product,
       widget._productPreferences,
-      context.watch<UserPreferences>(),
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
@@ -350,15 +350,40 @@ class _SummaryCardState extends State<SummaryCard> {
         ),
       ),
       alignment: Alignment.topLeft,
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: Center(
-        child: Text(
-          helper.getHeaderText(AppLocalizations.of(context)),
-          style: Theme.of(context)
-              .textTheme
-              .subtitle1!
-              .apply(color: helper.getHeaderForegroundColor(isDarkMode)),
-        ),
+      padding: const EdgeInsets.symmetric(
+          vertical: SMALL_SPACE, horizontal: SMALL_SPACE),
+      child: Row(
+        children: <Widget>[
+          const Icon(
+            Icons.settings,
+            color: Colors.transparent,
+          ),
+          Expanded(
+            child: Center(
+              child: Text(
+                helper.getHeaderText(AppLocalizations.of(context)),
+                style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                      color: helper.getHeaderForegroundColor(isDarkMode),
+                    ),
+              ),
+            ),
+          ),
+          IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            icon: const Icon(
+              Icons.settings,
+            ),
+            onPressed: () async => Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => const UserPreferencesPage(
+                  type: PreferencePageType.FOOD,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -533,7 +558,7 @@ class _SummaryCardState extends State<SummaryCard> {
                   ),
                 );
               },
-              child: SmoothCard(
+              child: SmoothCard.angular(
                 margin: EdgeInsets.zero,
                 color: Theme.of(context).colorScheme.primary,
                 elevation: 0,

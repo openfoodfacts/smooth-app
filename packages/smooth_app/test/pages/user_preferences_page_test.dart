@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
@@ -11,6 +12,12 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 import '../utils/goldens.dart';
 import '../utils/mocks.dart';
+
+Map<String, Color> colorsMap = <String, Color>{
+  'blue': Colors.lightBlue,
+  'brown': Colors.brown,
+  'green': Colors.green,
+};
 
 void main() {
   group('UserPreferencesPage looks as expected', () {
@@ -28,7 +35,7 @@ void main() {
           late ThemeProvider themeProvider;
 
           SharedPreferences.setMockInitialValues(mockSharedPreferences(
-            colorTag: color,
+            color: colorsMap[color]!,
             themeDark: themeDark,
           ));
 

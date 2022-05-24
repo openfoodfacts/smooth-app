@@ -31,10 +31,14 @@ abstract class AbstractUserPreferences {
   String getTitleString();
 
   /// Title of the header, always visible.
+  ///
+  /// With [Flexible] for overflow management.
   @protected
-  Widget getTitle() => Text(
-        getTitleString(),
-        style: themeData.textTheme.headline2,
+  Widget getTitle() => Flexible(
+        child: Text(
+          getTitleString(),
+          style: themeData.textTheme.headline2,
+        ),
       );
 
   /// Subtitle of the header, always visible.
@@ -93,10 +97,10 @@ abstract class AbstractUserPreferences {
 
   /// Returns a slightly different version of [getContent] for the onboarding.
   List<Widget> getOnboardingContent() {
-    final List<Widget> result = <Widget>[];
-    result.add(getHeaderHelper(null));
-    result.addAll(getBody());
-    return result;
+    return <Widget>[
+      getHeaderHelper(null),
+      ...getBody(),
+    ];
   }
 
   /// Returns the action when we tap on the header.
