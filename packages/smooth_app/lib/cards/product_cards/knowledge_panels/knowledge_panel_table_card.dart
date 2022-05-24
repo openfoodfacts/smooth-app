@@ -88,8 +88,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         children: <Widget>[
           for (List<Widget> row in rowsWidgets)
             Row(
-              children: row,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: row,
             )
         ],
       );
@@ -274,13 +274,17 @@ class _TableCellWidgetState extends State<TableCellWidget> {
     if (widget.cell.color != null) {
       style = style.apply(color: widget.cell.color);
     }
-    if (!widget.cell.isHeader || widget.cell.columnGroup!.columns.length == 1) {
-      return _buildHtmlCell(padding, style);
+    if (widget.cell.isHeader && widget.cell.columnGroup!.columns.length == 1) {
+      return _buildHtmlCell(padding, style, isSelectable: false);
+    } else if (!widget.cell.isHeader ||
+        widget.cell.columnGroup!.columns.length == 1) {
+      return _buildHtmlCell(padding, style, isSelectable: true);
     }
     return _buildDropDownColumnHeader(padding, style);
   }
 
-  Widget _buildHtmlCell(EdgeInsets padding, TextStyle style) {
+  Widget _buildHtmlCell(EdgeInsets padding, TextStyle style,
+      {required bool isSelectable}) {
     String cellText = widget.cell.text;
     if (!_isExpanded) {
       const String htmlStyle = '''
@@ -301,6 +305,7 @@ class _TableCellWidgetState extends State<TableCellWidget> {
           child: SmoothHtmlWidget(
             cellText,
             textStyle: style,
+            isSelectable: isSelectable,
           ),
         ),
       ),

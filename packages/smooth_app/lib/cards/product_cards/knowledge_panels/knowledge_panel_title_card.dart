@@ -53,9 +53,9 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         children: <Widget>[
           ...iconWidget,
           Expanded(
-              flex: IconWidgetSizer.getRemainingWidgetFlex(),
-              child: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
+            flex: IconWidgetSizer.getRemainingWidgetFlex(),
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
                 return Wrap(
                   direction: Axis.vertical,
                   children: <Widget>[
@@ -74,7 +74,12 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                       ),
                   ],
                 );
-              })),
+              },
+            ),
+          ),
+          const Icon(
+            Icons.keyboard_arrow_down_outlined,
+          ),
         ],
       ),
     );

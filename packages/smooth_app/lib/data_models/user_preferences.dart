@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
@@ -18,7 +20,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_INIT = 'init';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
-  static const String _TAG_THEME_COLOR_TAG = 'themeColorTag';
+  static const String _TAG_THEME_CUSTOM_COLOR = 'customColorTag';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
@@ -27,6 +29,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
+  static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -65,11 +68,12 @@ class UserPreferences extends ChangeNotifier {
   bool get analyticsReports =>
       _sharedPreferences.getBool(_TAG_ANALYTICS_REPORTS) ?? true;
 
-  Future<void> setThemeColorTag(final String colorTag) async =>
-      _sharedPreferences.setString(_TAG_THEME_COLOR_TAG, colorTag);
+  Future<void> setCustomColor(final Color color) async => _sharedPreferences
+      .setString(_TAG_THEME_CUSTOM_COLOR, color.toPreferencesString);
 
-  String get themeColorTag =>
-      _sharedPreferences.getString(_TAG_THEME_COLOR_TAG) ?? 'COLOR_TAG_BLUE';
+  Color? get customColor => ColorExtension.fromPreferencesString(
+      _sharedPreferences.getString(_TAG_THEME_CUSTOM_COLOR));
+
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
   Future<void> setUserCountry(final String countryCode) async =>
@@ -88,6 +92,30 @@ class UserPreferences extends ChangeNotifier {
         ? OnboardingPage.NOT_STARTED
         : OnboardingPage.values[pageIndex];
   }
+
+  Future<void> setFirstScanAchieved() async {
+    if (isFirstScan) {
+      await _sharedPreferences.setBool(_TAG_IS_FIRST_SCAN, false);
+      notifyListeners();
+    }
+  }
+
+  bool get isFirstScan =>
+      _sharedPreferences.getBool(_TAG_IS_FIRST_SCAN) ?? true;
+
+  Future<void> setAppLanguageCode(String? languageCode) async {
+    if (languageCode == null) {
+      await _sharedPreferences
+          .remove(UserPreferencesDevMode.userPreferencesAppLanguageCode);
+    } else {
+      await setDevModeString(
+          UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+    }
+    notifyListeners();
+  }
+
+  String? get appLanguageCode =>
+      getDevModeString(UserPreferencesDevMode.userPreferencesAppLanguageCode);
 
   String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
 

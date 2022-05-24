@@ -9,10 +9,10 @@ import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 
 /// Builds "knowledge panels" panels.
 ///
@@ -124,38 +124,47 @@ class KnowledgePanelsBuilder {
         final bool nutritionAddOrUpdate = product.statesTags
                 ?.contains('en:nutrition-facts-to-be-completed') ??
             false;
-        final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-        knowledgePanelElementWidgets.add(
-          addPanelButton(
-            nutritionAddOrUpdate
-                ? appLocalizations.score_add_missing_nutrition_facts
-                : appLocalizations.score_update_nutrition_facts,
-            iconData: nutritionAddOrUpdate ? Icons.add : Icons.edit,
-            onPressed: () async {
-              final OrderedNutrientsCache? cache =
-                  await OrderedNutrientsCache.getCache(context);
-              if (cache == null) {
-                return;
-              }
-              final bool? refreshed = await Navigator.push<bool>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => NutritionPageLoaded(
-                    product,
-                    cache.orderedNutrients,
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        if (nutritionAddOrUpdate) {
+          knowledgePanelElementWidgets.add(
+            addPanelButton(
+              nutritionAddOrUpdate
+                  ? appLocalizations.score_add_missing_nutrition_facts
+                  : appLocalizations.score_update_nutrition_facts,
+              iconData: nutritionAddOrUpdate ? Icons.add : Icons.edit,
+              onPressed: () async {
+                final OrderedNutrientsCache? cache =
+                    await OrderedNutrientsCache.getCache(context);
+                if (cache == null) {
+                  return;
+                }
+                //ignore: use_build_context_synchronously
+                final bool? refreshed = await Navigator.push<bool>(
+                  context,
+                  MaterialPageRoute<bool>(
+                    builder: (BuildContext context) => NutritionPageLoaded(
+                      product,
+                      cache.orderedNutrients,
+                    ),
                   ),
-                ),
-              );
-              if (refreshed ?? false) {
-                setState?.call();
-              }
-              // TODO(monsieurtanuki): refresh the data if changed
-            },
-          ),
-        );
-        if (context.read<UserPreferences>().getFlag(
-                UserPreferencesDevMode.userPreferencesFlagEditIngredients) ??
-            false) {
+                );
+                if (refreshed ?? false) {
+                  setState?.call();
+                }
+                // TODO(monsieurtanuki): refresh the data if changed
+              },
+            ),
+          );
+        }
+
+        final bool needEditIngredients = context
+                .read<UserPreferences>()
+                .getFlag(UserPreferencesDevMode
+                    .userPreferencesFlagEditIngredients) ??
+            false;
+        if ((product.ingredientsText == null ||
+                product.ingredientsText!.isEmpty) &&
+            needEditIngredients) {
           // When the flag is removed, this should be the following:
           // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
           knowledgePanelElementWidgets.add(

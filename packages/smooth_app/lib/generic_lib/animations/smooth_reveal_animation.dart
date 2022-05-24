@@ -53,11 +53,11 @@ class _SmoothRevealAnimationState extends State<SmoothRevealAnimation>
   @override
   Widget build(BuildContext context) {
     return FadeTransition(
+      opacity: _animationController,
       child: SlideTransition(
         position: _animationOffset,
         child: widget.child,
       ),
-      opacity: _animationController,
     );
   }
 }

@@ -12,7 +12,7 @@ class ScanExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.of(context).size;
     return Stack(
       children: <Widget>[
@@ -77,11 +77,11 @@ class ScanExample extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     SvgPicture.asset(
-                      'assets/onboarding/nutriscore-a-no-bg.svg',
+                      'assets/cache/nutriscore-a.svg',
                       width: 80,
                     ),
                     SvgPicture.asset(
-                      'assets/onboarding/ecoscore-a-no-bg.svg',
+                      'assets/cache/ecoscore-a.svg',
                       width: 80,
                     ),
                   ],

@@ -18,7 +18,7 @@ class NextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     // Side padding is 8% of total width.
@@ -38,11 +38,11 @@ class NextButton extends StatelessWidget {
               backgroundColor: Theme.of(context).cardColor,
               shape: const RoundedRectangleBorder(
                   borderRadius: ANGULAR_BORDER_RADIUS),
-              primary: const Color.fromRGBO(75, 0, 130, 1.0),
             ),
             onPressed: () async {
               await OnboardingLoader(localDatabase)
                   .runAtNextTime(currentPage, context);
+              //ignore: use_build_context_synchronously
               OnboardingFlowNavigator(userPreferences).navigateToPage(
                   context, OnboardingFlowNavigator.getNextPage(currentPage));
             },

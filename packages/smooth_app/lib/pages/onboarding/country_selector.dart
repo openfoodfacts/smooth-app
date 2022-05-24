@@ -13,6 +13,7 @@ class CountrySelector extends StatefulWidget {
   const CountrySelector({
     required this.initialCountryCode,
   });
+
   final String? initialCountryCode;
 
   @override
@@ -48,8 +49,8 @@ class _CountrySelectorState extends State<CountrySelector> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
-    final TextEditingController _countryController = TextEditingController();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final TextEditingController countryController = TextEditingController();
     return FutureBuilder<void>(
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
@@ -79,7 +80,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                             SmoothTextFormField(
                               type: TextFieldTypes.PLAIN_TEXT,
                               prefixIcon: const Icon(Icons.search),
-                              controller: _countryController,
+                              controller: countryController,
                               onChanged: (String? query) {
                                 setState(
                                   () {
@@ -95,25 +96,37 @@ class _CountrySelectorState extends State<CountrySelector> {
                                                     query.toLowerCase(),
                                                   ),
                                         )
-                                        .toList();
+                                        .toList(growable: false);
                                   },
                                 );
                               },
                               hintText: appLocalizations.search,
                             ),
                             Expanded(
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: filteredList.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final Country country = filteredList[index];
-                                  return ListTile(
-                                    title: Text(country.name),
-                                    onTap: () {
-                                      Navigator.of(context).pop(country);
-                                    },
-                                  );
-                                },
+                              child: Scrollbar(
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: filteredList.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final Country country = filteredList[index];
+                                    final bool isSelected =
+                                        country == _chosenValue;
+                                    return ListTile(
+                                      title: Text(
+                                        country.name,
+                                        style: TextStyle(
+                                          fontWeight: isSelected
+                                              ? FontWeight.bold
+                                              : null,
+                                        ),
+                                      ),
+                                      onTap: () {
+                                        Navigator.of(context).pop(country);
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                           ],

@@ -7,6 +7,7 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 Future<void> openPersonalizedRankingPage(BuildContext context) async {
   final ContinuousScanModel model = context.read<ContinuousScanModel>();
   await model.refreshProductList();
+  //ignore: use_build_context_synchronously
   await Navigator.push<Widget>(
     context,
     MaterialPageRoute<Widget>(

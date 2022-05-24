@@ -51,7 +51,7 @@ class PageManagerState extends State<PageManager> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     _tabs = <Widget>[
       _buildOffstageNavigator(BottomNavigationTab.Profile),
       _buildOffstageNavigator(BottomNavigationTab.Scan),
