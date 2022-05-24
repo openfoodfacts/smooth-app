@@ -259,7 +259,9 @@ class MLKitScannerPageState
   Future<void> _onNewBarcodeDetected(List<String> barcodes) async {
     for (final String barcode in barcodes) {
       if (await _model.onScan(barcode)) {
+        // Both are Future methods, but it doesn't matter to wait here
         HapticFeedback.lightImpact();
+        _userPreferences.setFirstScanAchieved();
       }
     }
   }
