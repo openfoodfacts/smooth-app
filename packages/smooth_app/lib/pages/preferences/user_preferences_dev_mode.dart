@@ -47,7 +47,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesTestEnvHost = '__testEnvHost';
-  static const String userPreferencesFlagStrongMatching = '__lenientMatching';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
@@ -251,26 +250,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               ),
             );
             localDatabase.notifyListeners();
-          },
-        ),
-        ListTile(
-          title: Text(
-            appLocalizations.dev_mode_matching_mode_title,
-          ),
-          subtitle: Text(
-            appLocalizations.dev_mode_matching_mode_subtitle(
-              (userPreferences.getFlag(userPreferencesFlagStrongMatching) ??
-                      false)
-                  ? appLocalizations.dev_mode_matching_mode_value_strong
-                  : appLocalizations.dev_mode_matching_mode_value_lenient,
-            ),
-          ),
-          onTap: () async {
-            await userPreferences.setFlag(
-                userPreferencesFlagStrongMatching,
-                !(userPreferences.getFlag(userPreferencesFlagStrongMatching) ??
-                    false));
-            setState(() {});
           },
         ),
         ListTile(
