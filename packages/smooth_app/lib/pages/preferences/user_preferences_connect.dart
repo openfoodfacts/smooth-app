@@ -48,7 +48,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         ),
         _getListTile(
           title: appLocalizations.blog,
-          url: 'https://en.blog.openfoodfacts.org',
+          url: 'https://blog.openfoodfacts.org',
         ),
         _getListTile(
           title: appLocalizations.support_join_slack,
