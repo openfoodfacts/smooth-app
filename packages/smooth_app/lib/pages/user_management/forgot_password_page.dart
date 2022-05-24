@@ -3,7 +3,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -33,7 +35,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   String _message = '';
 
   Future<void> _resetPassword() async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!_formKey.currentState!.validate()) {
       return;
     }
@@ -67,7 +69,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
     final bool isDarkMode =
@@ -146,19 +148,27 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           if (_devModeCounter >= 10) {
                             if (userPreferences.devMode == 0) {
                               showDialog<void>(
+                                barrierDismissible: false,
                                 context: context,
-                                builder: (BuildContext context) => AlertDialog(
-                                  title: const Text('Ready for the dev mode?'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      child: Text(appLocalizations.yes),
+                                builder: (BuildContext context) =>
+                                    SmoothAlertDialog(
+                                  body: Text(
+                                    appLocalizations
+                                        .enable_dev_mode_dialog_title,
+                                  ),
+                                  actions: <SmoothActionButton>[
+                                    SmoothActionButton(
+                                      text: appLocalizations.yes,
                                       onPressed: () async {
                                         await userPreferences.setDevMode(1);
+                                        if (!mounted) {
+                                          return;
+                                        }
                                         Navigator.pop(context);
                                       },
                                     ),
-                                    TextButton(
-                                      child: Text(appLocalizations.no),
+                                    SmoothActionButton(
+                                      text: appLocalizations.no,
                                       onPressed: () => Navigator.pop(context),
                                     )
                                   ],
@@ -180,15 +190,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         Navigator.pop(context);
                       }
                     },
-                    child: Text(
-                      _send
-                          ? appLocalizations.close
-                          : appLocalizations.send_reset_password_mail,
-                      style: theme.textTheme.bodyText2?.copyWith(
-                        fontSize: 18.0,
-                        color: theme.colorScheme.surface,
-                      ),
-                    ),
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all<Size>(
                         Size(size.width * 0.5, theme.buttonTheme.height + 10),
@@ -197,6 +198,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         const RoundedRectangleBorder(
                           borderRadius: CIRCULAR_BORDER_RADIUS,
                         ),
+                      ),
+                    ),
+                    child: Text(
+                      _send
+                          ? appLocalizations.close
+                          : appLocalizations.send_reset_password_mail,
+                      style: theme.textTheme.bodyText2?.copyWith(
+                        fontSize: 18.0,
+                        color: theme.colorScheme.surface,
                       ),
                     ),
                   ),

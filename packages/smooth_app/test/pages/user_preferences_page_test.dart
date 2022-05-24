@@ -1,16 +1,23 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/pages/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 import '../utils/goldens.dart';
 import '../utils/mocks.dart';
+
+Map<String, Color> colorsMap = <String, Color>{
+  'blue': Colors.lightBlue,
+  'brown': Colors.brown,
+  'green': Colors.green,
+};
 
 void main() {
   group('UserPreferencesPage looks as expected', () {
@@ -23,29 +30,29 @@ void main() {
           final HttpOverrides? priorOverrides = HttpOverrides.current;
           HttpOverrides.global = MockHttpOverrides();
 
-          late UserPreferences _userPreferences;
-          late ProductPreferences _productPreferences;
-          late ThemeProvider _themeProvider;
+          late UserPreferences userPreferences;
+          late ProductPreferences productPreferences;
+          late ThemeProvider themeProvider;
 
           SharedPreferences.setMockInitialValues(mockSharedPreferences(
-            colorTag: color,
+            color: colorsMap[color]!,
             themeDark: themeDark,
           ));
 
-          _userPreferences = await UserPreferences.getUserPreferences();
-          _productPreferences = ProductPreferences(ProductPreferencesSelection(
-            setImportance: _userPreferences.setImportance,
-            getImportance: _userPreferences.getImportance,
-            notify: () => _productPreferences.notifyListeners(),
+          userPreferences = await UserPreferences.getUserPreferences();
+          productPreferences = ProductPreferences(ProductPreferencesSelection(
+            setImportance: userPreferences.setImportance,
+            getImportance: userPreferences.getImportance,
+            notify: () => productPreferences.notifyListeners(),
           ));
-          await _productPreferences.init(PlatformAssetBundle());
-          await _userPreferences.init(_productPreferences);
-          _themeProvider = ThemeProvider(_userPreferences);
+          await productPreferences.init(PlatformAssetBundle());
+          await userPreferences.init(productPreferences);
+          themeProvider = ThemeProvider(userPreferences);
 
           await tester.pumpWidget(MockSmoothApp(
-            _userPreferences,
-            _productPreferences,
-            _themeProvider,
+            userPreferences,
+            productPreferences,
+            themeProvider,
             const UserPreferencesPage(),
           ));
           await tester.pump();

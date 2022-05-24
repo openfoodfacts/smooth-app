@@ -13,7 +13,7 @@ class SmoothSimpleButton extends StatelessWidget {
   });
 
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double minWidth;
   final double height;
   final BorderRadius borderRadius;
@@ -25,16 +25,16 @@ class SmoothSimpleButton extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     return MaterialButton(
       color: buttonColor ?? themeData.colorScheme.primary,
-      child: Padding(
-        padding: padding,
-        child: child,
-      ),
       height: height,
       minWidth: minWidth,
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
       ),
-      onPressed: () => onPressed(),
+      onPressed: onPressed,
+      child: Padding(
+        padding: padding,
+        child: child,
+      ),
     );
   }
 }

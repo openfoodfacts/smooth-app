@@ -12,7 +12,7 @@ Future<bool> uploadCapturedPicture(
   required ImageField imageField,
   required Uri imageUri,
 }) async {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final SendImage image = SendImage(
     lang: ProductQuery.getLanguage(),
     barcode: barcode,
@@ -34,6 +34,7 @@ Future<bool> uploadCapturedPicture(
     );
     return false;
   }
+  //ignore: use_build_context_synchronously
   await _updateContinuousScanModel(context, barcode);
   return true;
 }

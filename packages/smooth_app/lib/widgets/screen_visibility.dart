@@ -16,6 +16,8 @@ class ScreenVisibilityDetector extends StatefulWidget {
 
   static bool visible(BuildContext context) =>
       context.read<ScreenVisibility>().isVisible;
+
+  static bool invisible(BuildContext context) => !visible(context);
 }
 
 class _ScreenVisibilityDetectorState extends State<ScreenVisibilityDetector> {

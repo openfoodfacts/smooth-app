@@ -18,7 +18,7 @@ class ProductImageCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<ProductImageData> allProductImagesData = <ProductImageData>[
       ProductImageData(
         imageField: ImageField.FRONT,

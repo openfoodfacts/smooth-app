@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -11,7 +12,6 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
-import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 
@@ -38,12 +38,13 @@ class SmoothProductCardFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final Size screenSize = MediaQuery.of(context).size;
-
+    final ThemeData themeData = Theme.of(context);
+    final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
     final List<String> excludedAttributeIds =
         userPreferences.getExcludedAttributeIds();
     final List<Widget> scores = <Widget>[];
@@ -56,10 +57,9 @@ class SmoothProductCardFound extends StatelessWidget {
     for (final Attribute attribute in attributes) {
       scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
     }
-    final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
+    final MatchedProductV2 matchedProduct = MatchedProductV2(
       product,
       productPreferences,
-      userPreferences,
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
@@ -101,25 +101,27 @@ class SmoothProductCardFound extends StatelessWidget {
                       Text(
                         getProductName(product, appLocalizations),
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headline4,
+                        style: themeData.textTheme.headline4,
                       ),
                       Text(
                         product.brands ?? appLocalizations.unknownBrand,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.subtitle1,
+                        style: themeData.textTheme.subtitle1,
                       ),
                       Row(
                         children: <Widget>[
                           Icon(
                             Icons.circle,
                             size: 15,
-                            color: helper.getBackgroundColor(),
+                            color: helper.getButtonColor(isDarkMode),
                           ),
                           const Padding(
                               padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
                           Text(
                             helper.getSubtitle(appLocalizations),
-                            style: Theme.of(context).textTheme.bodyText2,
+                            style: themeData.textTheme.bodyText2!.apply(
+                                color: helper
+                                    .getButtonForegroundColor(isDarkMode)),
                           ),
                         ],
                       ),

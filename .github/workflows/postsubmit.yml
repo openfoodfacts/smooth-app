@@ -1,6 +1,9 @@
 name: SmoothApp Post-Submit Tests
 
-on: push
+on: 
+  push:
+    branches:
+      - "develop"
     
 jobs:
   build:
@@ -24,7 +27,7 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: flutter2.10 #change this to force refresh cache
+          cache-key: flutter3.00 # change this to force refresh cache
           
       - run: flutter --version
       
@@ -43,14 +46,7 @@ jobs:
       # Run tests
       - name: Run Tests with coverage
         run: ci/testing.sh
-      
-      - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v3
-        with:
-          fail_ci_if_error: false
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          verbose: true
-      
+            
       # Build apk.
       - name: Build APK
         run: flutter build apk --debug

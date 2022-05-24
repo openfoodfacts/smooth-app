@@ -49,16 +49,13 @@ class SmoothViewFinderState extends State<SmoothViewFinder>
 
 class _Painter extends CustomPainter {
   _Painter({
-    this.cornerStrokeWidth = 3.0,
-    this.cornerSize = 18.0,
-    this.lineWidth = 1.0,
     required this.lineLength,
     required this.lineOpacity,
   });
 
-  final double cornerStrokeWidth;
-  final double cornerSize;
-  final double lineWidth;
+  final double cornerStrokeWidth = 3.0;
+  final double cornerSize = 18.0;
+  final double lineWidth = 1.0;
   final double lineLength;
   final double lineOpacity;
 

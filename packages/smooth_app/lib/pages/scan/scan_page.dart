@@ -6,15 +6,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
-import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/pages/scan/scanner_overlay.dart';
-import 'package:smooth_app/pages/user_preferences_dev_mode.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 class ScanPage extends StatefulWidget {
@@ -72,17 +71,8 @@ class _ScanPageBackgroundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<PermissionListener>(
       builder: (BuildContext context, PermissionListener listener, _) {
-        final UserPreferences userPreferences = context.read<UserPreferences>();
-
         if (listener.value.isGranted) {
-          if (userPreferences.getFlag(
-                UserPreferencesDevMode.userPreferencesFlagUseMLKit,
-              ) ??
-              true) {
-            return const MLKitScannerPage();
-          } else {
-            return const ContinuousScanPage();
-          }
+          return const MLKitScannerPage();
         } else {
           return const SizedBox();
         }
@@ -101,7 +91,7 @@ class _ScanPageTopWidget extends StatelessWidget {
         if (listener.value.isGranted) {
           return const ScannerVisorWidget();
         } else {
-          final AppLocalizations localizations = AppLocalizations.of(context)!;
+          final AppLocalizations localizations = AppLocalizations.of(context);
 
           return SafeArea(
             child: LayoutBuilder(
@@ -142,7 +132,7 @@ class _ScanPageTopWidget extends StatelessWidget {
                                 ),
                                 child: Text(
                                   localizations.permission_photo_denied_message(
-                                    localizations.app_name,
+                                    APP_NAME,
                                   ),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
@@ -178,8 +168,7 @@ class _ScanPageTopWidget extends StatelessWidget {
       return showDialog(
           context: context,
           builder: (BuildContext context) {
-            final AppLocalizations localizations =
-                AppLocalizations.of(context)!;
+            final AppLocalizations localizations = AppLocalizations.of(context);
 
             return SmoothAlertDialog(
               title:
