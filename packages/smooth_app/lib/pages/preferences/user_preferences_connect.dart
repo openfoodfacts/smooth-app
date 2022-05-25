@@ -40,11 +40,11 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   List<Widget> getBody() => <Widget>[
         _getListTile(
           title: appLocalizations.instagram,
-          url: 'https://instagram.com/open.food.facts',
+          url: appLocalizations.instagram_link,
         ),
         _getListTile(
           title: appLocalizations.twitter,
-          url: 'https://www.twitter.com/openfoodfacts',
+          url: appLocalizations.twitter_link,
         ),
         _getListTile(
           title: appLocalizations.blog,
