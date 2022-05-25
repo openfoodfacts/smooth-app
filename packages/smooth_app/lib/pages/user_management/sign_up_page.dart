@@ -39,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   bool _disagreed = false;
 
   @override
-  String get traceTitle => 'forgot_password_page';
+  String get traceTitle => 'sign_up_page';
 
   @override
   Widget build(BuildContext context) {

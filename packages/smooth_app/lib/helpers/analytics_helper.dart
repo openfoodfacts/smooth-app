@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-//ignore: implementation_imports
-import 'package:matomo_tracker/src/visitor.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -92,14 +90,14 @@ class AnalyticsHelper {
       MatomoTracker.instance.trackEvent(
         name: _scanAction,
         action: 'Scanned',
-        eventValue: int.tryParse(barcode),
+        eventValue: _formatBarcode(barcode),
       );
 
   static void trackProductPageOpen({required Product product}) =>
       MatomoTracker.instance.trackEvent(
         name: _productPageAction,
         action: 'opened',
-        eventValue: int.tryParse(product.barcode!),
+        eventValue: _formatBarcode(product.barcode!),
       );
 
   static void trackKnowledgePanelOpen() => MatomoTracker.instance.trackEvent(
@@ -133,4 +131,13 @@ class AnalyticsHelper {
 
   static void trackOpenLink({required String url}) =>
       MatomoTracker.instance.trackOutlink(url);
+
+  static int _formatBarcode(String barcode) {
+    const int fallback = 000000000;
+    try {
+      return int.tryParse(barcode) ?? fallback;
+    } on FormatException {
+      return fallback;
+    }
+  }
 }
