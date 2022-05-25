@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -88,13 +89,15 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 ),
               ],
             ),
-            positiveAction: SmoothActionButton(
-              onPressed: () {
-                Navigator.of(context, rootNavigator: true).pop('dialog');
-              },
-              text: appLocalizations.okay,
-              minWidth: 100,
-            ),
+            actions: <SmoothActionButton>[
+              SmoothActionButton(
+                onPressed: () {
+                  Navigator.of(context, rootNavigator: true).pop('dialog');
+                },
+                text: appLocalizations.okay,
+                minWidth: 100,
+              ),
+            ],
           );
         },
       );
@@ -137,11 +140,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 )
               ],
             ),
-            positiveAction: SmoothActionButton(
-              onPressed: () => Navigator.pop(context),
-              text: appLocalizations.okay,
-              minWidth: 100,
-            ),
+            actions: <SmoothActionButton>[
+              SmoothActionButton(
+                onPressed: () => Navigator.pop(context),
+                text: appLocalizations.okay,
+                minWidth: 100,
+              ),
+            ],
           );
         },
       );
@@ -164,12 +169,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 ),
               ],
             ),
-            positiveAction: SmoothActionButton(
-              onPressed: () => LaunchUrlHelper.launchURL(
-                  'https://translate.openfoodfacts.org/', false),
-              text: appLocalizations.contribute_translate_link_text,
-              minWidth: 200,
-            ),
+            actions: <SmoothActionButton>[
+              SmoothActionButton(
+                onPressed: () => LaunchUrlHelper.launchURL(
+                    'https://translate.openfoodfacts.org/', false),
+                text: appLocalizations.contribute_translate_link_text,
+                minWidth: 200,
+              ),
+            ],
           );
         },
       );
@@ -225,12 +232,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 return const CircularProgressIndicator();
               },
             ),
-            positiveAction: SmoothActionButton(
-              onPressed: () => LaunchUrlHelper.launchURL(
-                  'https://github.com/openfoodfacts/smooth-app', false),
-              text: AppLocalizations.of(context).contribute,
-              minWidth: 200,
-            ),
+            actions: <SmoothActionButton>[
+              SmoothActionButton(
+                onPressed: () => LaunchUrlHelper.launchURL(
+                    'https://github.com/openfoodfacts/smooth-app', false),
+                text: AppLocalizations.of(context).contribute,
+                minWidth: 200,
+              ),
+            ],
           );
         },
       );

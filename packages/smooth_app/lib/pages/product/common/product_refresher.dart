@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 
@@ -32,10 +33,12 @@ class ProductRefresher {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(appLocalizations.nutrition_page_update_done),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        actions: <SmoothActionButton>[
+          SmoothActionButton(
+            text: appLocalizations.okay,
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ],
       ),
     );
     return true;

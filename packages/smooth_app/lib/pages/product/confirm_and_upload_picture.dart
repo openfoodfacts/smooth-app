@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 
@@ -57,46 +57,50 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
-                child: SmoothActionButtonsBar(
-                  positiveAction: SmoothActionButton(
-                      text: appLocalizations.retake_photo_button_label,
-                      onPressed: () async {
-                        final File? retakenPhoto =
-                            await startImageCropping(context);
-                        if (retakenPhoto == null) {
-                          if (!mounted) {
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    SmoothActionButton(
+                        text: appLocalizations.retake_photo_button_label,
+                        onPressed: () async {
+                          final File? retakenPhoto =
+                              await startImageCropping(context);
+                          if (retakenPhoto == null) {
+                            if (!mounted) {
+                              return;
+                            }
+                            // User chose not to upload the image.
+                            Navigator.pop(context);
                             return;
                           }
-                          // User chose not to upload the image.
-                          Navigator.pop(context);
+                          setState(() {
+                            photo = retakenPhoto;
+                          });
+                          retakenPhoto.delete();
+                        }),
+                    SmoothActionButton(
+                      text: _getConfirmButtonText(
+                        context,
+                        widget.imageType,
+                      ),
+                      onPressed: () async {
+                        final bool isPhotoUploaded =
+                            await uploadCapturedPicture(
+                          context,
+                          barcode: widget.barcode,
+                          imageField: widget.imageType,
+                          imageUri: photo.uri,
+                        );
+                        if (!mounted) {
                           return;
                         }
-                        setState(() {
-                          photo = retakenPhoto;
-                        });
-                        retakenPhoto.delete();
-                      }),
-                  negativeAction: SmoothActionButton(
-                    text: _getConfirmButtonText(
-                      context,
-                      widget.imageType,
+                        Navigator.pop(
+                          context,
+                          isPhotoUploaded ? photo : null,
+                        );
+                      },
                     ),
-                    onPressed: () async {
-                      final bool isPhotoUploaded = await uploadCapturedPicture(
-                        context,
-                        barcode: widget.barcode,
-                        imageField: widget.imageType,
-                        imageUri: photo.uri,
-                      );
-                      if (!mounted) {
-                        return;
-                      }
-                      Navigator.pop(
-                        context,
-                        isPhotoUploaded ? photo : null,
-                      );
-                    },
-                  ),
+                  ],
                 ),
               ),
             ),

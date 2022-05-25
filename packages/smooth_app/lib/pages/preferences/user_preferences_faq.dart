@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -67,81 +67,79 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         icon: icon ?? const Icon(Icons.open_in_new),
       );
 
-  static const String _iconAssetPath = 'assets/app/release_icon.svg';
-
   Future<void> _about() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
     showDialog<void>(
       context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          body: Column(
-            children: <Widget>[
-              ListTile(
-                leading: SvgPicture.asset(
-                  _iconAssetPath,
-                ),
-                title: FittedBox(
-                  child: Text(
-                    packageInfo.appName,
-                    style: themeData.textTheme.headline1,
-                  ),
-                ),
-                subtitle: Text(
-                  '${packageInfo.version}+${packageInfo.buildNumber}',
-                  style: themeData.textTheme.subtitle2,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        body: Column(
+          children: <Widget>[
+            ListTile(
+              leading: Image.asset('assets/app/smoothie-icon.1200x1200.png'),
+              title: FittedBox(
+                child: Text(
+                  packageInfo.appName,
+                  style: themeData.textTheme.headline1,
                 ),
               ),
-              Divider(color: themeData.colorScheme.onSurface),
-              const SizedBox(height: 20),
-              Text(appLocalizations.whatIsOff),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  TextButton(
-                    onPressed: () => LaunchUrlHelper.launchURL(
-                        'https://openfoodfacts.org/who-we-are', true),
-                    child: Text(
-                      appLocalizations.learnMore,
-                      style: const TextStyle(
-                        color: Colors.blue,
-                      ),
+              subtitle: Text(
+                '${packageInfo.version}+${packageInfo.buildNumber}',
+                style: themeData.textTheme.subtitle2,
+              ),
+            ),
+            Divider(color: themeData.colorScheme.onSurface),
+            const SizedBox(height: 20),
+            Text(appLocalizations.whatIsOff),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextButton(
+                  onPressed: () => LaunchUrlHelper.launchURL(
+                      'https://openfoodfacts.org/who-we-are', true),
+                  child: Text(
+                    appLocalizations.learnMore,
+                    style: const TextStyle(
+                      color: Colors.blue,
                     ),
                   ),
-                  TextButton(
-                    onPressed: () => LaunchUrlHelper.launchURL(
-                        'https://openfoodfacts.org/terms-of-use', true),
-                    child: Text(
-                      appLocalizations.termsOfUse,
-                      style: const TextStyle(
-                        color: Colors.blue,
-                      ),
+                ),
+                TextButton(
+                  onPressed: () => LaunchUrlHelper.launchURL(
+                      'https://openfoodfacts.org/terms-of-use', true),
+                  child: Text(
+                    appLocalizations.termsOfUse,
+                    style: const TextStyle(
+                      color: Colors.blue,
                     ),
-                  )
-                ],
-              )
-            ],
-          ),
-          positiveAction: SmoothActionButton(
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+        actions: <SmoothActionButton>[
+          SmoothActionButton(
             onPressed: () async {
               showLicensePage(
                 context: context,
                 applicationName: packageInfo.appName,
                 applicationVersion: packageInfo.version,
-                applicationIcon: SvgPicture.asset(
-                  _iconAssetPath,
+                applicationIcon: Image.asset(
+                  'assets/app/smoothie-icon.1200x1200.png',
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
               );
             },
             text: appLocalizations.licenses,
+            minWidth: 100,
           ),
-          negativeAction: SmoothActionButton(
+          SmoothActionButton(
             onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
             text: appLocalizations.okay,
+            minWidth: 100,
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 }

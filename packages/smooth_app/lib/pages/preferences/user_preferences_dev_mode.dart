@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
@@ -409,12 +410,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               onColorChanged: changeColor,
             ),
           ),
-          positiveAction: SmoothActionButton(
-            text: 'Got it',
-            onPressed: () {
-              Navigator.of(context).pop(true);
-            },
-          ),
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
+              text: 'Got it',
+              onPressed: () {
+                Navigator.of(context).pop(true);
+              },
+            ),
+          ],
         );
       },
     );

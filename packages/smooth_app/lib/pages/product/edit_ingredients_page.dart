@@ -8,8 +8,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -252,11 +252,9 @@ class _EditIngredientsBody extends StatelessWidget {
 
   Widget _getExtraitIngredientsBtn(AppLocalizations appLocalizations) {
     if (hasImageProvider || imageIngredientsUrl != null) {
-      return SmoothActionButtonsBar.single(
-        action: SmoothActionButton(
-          text: appLocalizations.edit_ingredients_extrait_ingredients_btn_text,
-          onPressed: () => onTapGetImage(false),
-        ),
+      return SmoothActionButton(
+        text: appLocalizations.edit_ingredients_extrait_ingredients_btn_text,
+        onPressed: () => onTapGetImage(false),
       );
     }
     return Container();
@@ -278,12 +276,10 @@ class _EditIngredientsBody extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(
                     bottom: LARGE_SPACE, right: SMALL_SPACE),
-                child: SmoothActionButtonsBar(
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations
-                        .edit_ingredients_refresh_photo_btn_text,
-                    onPressed: () => onTapGetImage(true),
-                  ),
+                child: SmoothActionButton(
+                  text:
+                      appLocalizations.edit_ingredients_refresh_photo_btn_text,
+                  onPressed: () => onTapGetImage(true),
                 ),
               ),
             ),
@@ -320,22 +316,25 @@ class _EditIngredientsBody extends StatelessWidget {
                       Text(appLocalizations.ingredients_editing_instructions,
                           style: Theme.of(context).textTheme.caption),
                       const SizedBox(height: MEDIUM_SPACE),
-                      SmoothActionButtonsBar(
-                        negativeAction: SmoothActionButton(
-                          text: appLocalizations.cancel,
-                          onPressed: () {
-                            Navigator.pop(context, false);
-                          },
-                        ),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.save,
-                          onPressed: () async {
-                            await onSubmitField();
-                            //ignore: use_build_context_synchronously
-                            Navigator.pop(context, true);
-                          },
-                        ),
-                      ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SmoothActionButton(
+                              text: appLocalizations.cancel,
+                              onPressed: () {
+                                Navigator.pop(context, false);
+                              },
+                            ),
+                            const SizedBox(width: LARGE_SPACE),
+                            SmoothActionButton(
+                              text: appLocalizations.save,
+                              onPressed: () async {
+                                await onSubmitField();
+                                //ignore: use_build_context_synchronously
+                                Navigator.pop(context, true);
+                              },
+                            ),
+                          ]),
                       const SizedBox(height: MEDIUM_SPACE),
                     ],
                   ),

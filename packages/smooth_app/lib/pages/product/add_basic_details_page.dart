@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -10,9 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
-
   final Product product;
-
   @override
   State<AddBasicDetailsPage> createState() => _AddBasicDetailsPageState();
 }
@@ -24,7 +23,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   @override
   void initState() {
     super.initState();
@@ -105,31 +103,35 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   ],
                 ),
               ),
-            SmoothActionButtonsBar(
-              negativeAction: SmoothActionButton(
-                text: appLocalizations.cancel,
-                onPressed: () => Navigator.pop(context),
-              ),
-              positiveAction: SmoothActionButton(
-                  text: appLocalizations.save,
-                  onPressed: () async {
-                    if (!_formKey.currentState!.validate()) {
-                      return;
-                    }
-                    final Status? status = await _saveData();
-                    if (status == null || status.error != null) {
-                      _errorMessageAlert(
-                          appLocalizations.basic_details_add_error);
-                      return;
-                    }
-                    if (!mounted) {
-                      return;
-                    }
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content:
-                            Text(appLocalizations.basic_details_add_success)));
-                    Navigator.pop(context, true);
-                  }),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SmoothActionButton(
+                  text: appLocalizations.cancel,
+                  onPressed: () => Navigator.pop(context),
+                ),
+                SmoothActionButton(
+                    text: appLocalizations.save,
+                    onPressed: () async {
+                      if (!_formKey.currentState!.validate()) {
+                        return;
+                      }
+                      final Status? status = await _saveData();
+                      if (status == null || status.error != null) {
+                        _errormessageAlert(
+                            appLocalizations.basic_details_add_error);
+                        return;
+                      }
+                      if (!mounted) {
+                        return;
+                      }
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(
+                              appLocalizations.basic_details_add_success)));
+                      Navigator.pop(context, true);
+                    }),
+              ],
             ),
           ],
         ),
@@ -137,17 +139,19 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     );
   }
 
-  void _errorMessageAlert(final String message) => showDialog<void>(
+  void _errormessageAlert(final String message) => showDialog<void>(
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
           body: ListTile(
             leading: const Icon(Icons.error_outline, color: Colors.red),
             title: Text(message),
           ),
-          positiveAction: SmoothActionButton(
-            text: AppLocalizations.of(context).close,
-            onPressed: () => Navigator.pop(context),
-          ),
+          actions: <SmoothActionButton>[
+            SmoothActionButton(
+              text: AppLocalizations.of(context).close,
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
         ),
       );
 

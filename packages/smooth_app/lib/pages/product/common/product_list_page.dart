@@ -8,6 +8,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -75,24 +76,26 @@ class _ProductListPageState extends State<ProductListPage> {
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
                               body: Text(appLocalizations.confirm_clear),
-                              positiveAction: SmoothActionButton(
-                                onPressed: () async {
-                                  daoProductList.clear(productList);
-                                  await daoProductList.get(productList);
-                                  setState(() {});
-                                  if (!mounted) {
-                                    return;
-                                  }
-                                  Navigator.of(context).pop();
-                                },
-                                text: appLocalizations.yes,
-                              ),
-                              negativeAction: SmoothActionButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                text: appLocalizations.no,
-                              ),
+                              actions: <SmoothActionButton>[
+                                SmoothActionButton(
+                                  onPressed: () async {
+                                    daoProductList.clear(productList);
+                                    await daoProductList.get(productList);
+                                    setState(() {});
+                                    if (!mounted) {
+                                      return;
+                                    }
+                                    Navigator.of(context).pop();
+                                  },
+                                  text: appLocalizations.yes,
+                                ),
+                                SmoothActionButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  text: appLocalizations.no,
+                                ),
+                              ],
                             );
                           },
                         );

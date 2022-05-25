@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -323,10 +324,11 @@ class _SignUpPageState extends State<SignUpPage> {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(AppLocalizations.of(context).sign_up_page_action_ok),
-        positiveAction: SmoothActionButton(
-          text: AppLocalizations.of(context).okay,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        actions: <SmoothActionButton>[
+          SmoothActionButton(
+              text: AppLocalizations.of(context).okay,
+              onPressed: () => Navigator.of(context).pop()),
+        ],
       ),
     );
     if (!mounted) {

@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
@@ -54,10 +55,12 @@ class AttributeButton extends StatelessWidget {
                     appLocalizations.importance_label(
                         attribute.name.toString(), importanceId),
                   ),
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations.close,
-                    onPressed: () => Navigator.pop(context),
-                  ),
+                  actions: <SmoothActionButton>[
+                    SmoothActionButton(
+                      text: appLocalizations.close,
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ],
                 ),
               );
             },
@@ -113,10 +116,12 @@ class AttributeButton extends StatelessWidget {
                             AppLocalizations.of(context);
                         return SmoothAlertDialog(
                           body: Text(info),
-                          positiveAction: SmoothActionButton(
-                            text: appLocalizations.close,
-                            onPressed: () => Navigator.pop(context),
-                          ),
+                          actions: <SmoothActionButton>[
+                            SmoothActionButton(
+                              text: appLocalizations.close,
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                          ],
                         );
                       },
                     ),
