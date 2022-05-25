@@ -18,6 +18,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -239,6 +240,8 @@ class _SearchCardTagLine extends StatelessWidget {
             return const _SearchCardTagLineDefaultText();
           }
 
+          final ThemeProvider themeProvider = context.read<ThemeProvider>();
+
           return FutureBuilder<TagLineItem?>(
             future: fetchTagLine(Platform.localeName),
             builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
@@ -266,7 +269,7 @@ class _SearchCardTagLine extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18.0,
                       height: 1.5,
-                      color: Theme.of(context).primaryColor,
+                      color: themeProvider.color,
                     ),
                   ),
                 );
