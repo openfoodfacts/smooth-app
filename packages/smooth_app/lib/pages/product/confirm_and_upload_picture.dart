@@ -79,10 +79,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           retakenPhoto.delete();
                         }),
                     SmoothActionButton(
-                      text: _getConfirmButtonText(
-                        context,
-                        widget.imageType,
-                      ),
+                      text: appLocalizations.confirm_button_label,
                       onPressed: () async {
                         final bool isPhotoUploaded =
                             await uploadCapturedPicture(
@@ -123,22 +120,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
         return appLocalizations.recycling_photo_title;
       case ImageField.OTHER:
         return appLocalizations.other_interesting_photo_title;
-    }
-  }
-
-  String _getConfirmButtonText(BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    switch (imageType) {
-      case ImageField.FRONT:
-        return appLocalizations.confirm_button_label;
-      case ImageField.INGREDIENTS:
-        return appLocalizations.confirm_ingredients_photo_button_label;
-      case ImageField.NUTRITION:
-        return appLocalizations.confirm_nutritional_facts_photo_button_label;
-      case ImageField.PACKAGING:
-        return appLocalizations.confirm_recycling_photo_button_label;
-      case ImageField.OTHER:
-        return appLocalizations.confirm_other_interesting_photo_button_label;
     }
   }
 }
