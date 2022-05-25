@@ -98,178 +98,195 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       ),
       body: Form(
         key: _formKey,
-        child: Container(
-          alignment: Alignment.topCenter,
-          child: SizedBox(
-            width: size.width * 0.7,
-            child: AutofillGroup(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Spacer(flex: 4),
-
-                  Text(
-                    appLocalizations.sign_in_text,
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.headline1?.copyWith(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w700,
-                      color: theme.colorScheme.onSurface,
-                    ),
-                  ),
-
-                  const Spacer(flex: 8),
-
-                  if (_wrongCredentials) ...<Widget>[
-                    SmoothCard(
-                      padding: const EdgeInsets.all(10.0),
-                      color: Colors.red,
-                      child: Text(appLocalizations.incorrect_credentials),
-                    ),
-                    const Spacer(
-                      flex: 1,
-                    )
-                  ],
-
-                  //Login
-                  SmoothTextFormField(
-                    type: TextFieldTypes.PLAIN_TEXT,
-                    controller: userIdController,
-                    hintText: appLocalizations.username_or_email,
-                    textColor: _customGrey,
-                    backgroundColor: _textFieldBackgroundColor,
-                    prefixIcon: const Icon(Icons.person),
-                    enabled: !_runningQuery,
-                    // Moves focus to the next field
-                    textInputAction: TextInputAction.next,
-                    autofillHints: const <String>[
-                      AutofillHints.username,
-                      AutofillHints.email,
-                    ],
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return appLocalizations.login_page_username_or_email;
-                      }
-                      return null;
-                    },
-                  ),
-
-                  const Spacer(flex: 1),
-
-                  //Password
-                  SmoothTextFormField(
-                    type: TextFieldTypes.PASSWORD,
-                    controller: passwordController,
-                    hintText: appLocalizations.password,
-                    textColor: _customGrey,
-                    backgroundColor: _textFieldBackgroundColor,
-                    prefixIcon: const Icon(Icons.vpn_key),
-                    enabled: !_runningQuery,
-                    textInputAction: TextInputAction.done, // Hides the keyboard
-                    autofillHints: const <String>[
-                      AutofillHints.password,
-                    ],
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return appLocalizations.login_page_password_error_empty;
-                      }
-                      return null;
-                    },
-                  ),
-
-                  const Spacer(flex: 6),
-
-                  //Sign in button
-                  ElevatedButton(
-                    onPressed: () => _login(context),
-                    style: ButtonStyle(
-                      minimumSize: MaterialStateProperty.all<Size>(
-                        Size(size.width * 0.5, theme.buttonTheme.height + 10),
-                      ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                          borderRadius: CIRCULAR_BORDER_RADIUS,
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            child: Container(
+              alignment: Alignment.topCenter,
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(
+                horizontal: size.width * 0.15,
+                vertical: size.width * 0.05,
+              ),
+              child: AutofillGroup(
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(
+                        appLocalizations.sign_in_text,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.headline1?.copyWith(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w700,
+                          color: theme.colorScheme.onSurface,
                         ),
                       ),
-                    ),
-                    child: Text(
-                      appLocalizations.sign_in,
-                      style: theme.textTheme.bodyText2?.copyWith(
-                        fontSize: 18.0,
-                        color: theme.colorScheme.surface,
-                      ),
-                    ),
-                  ),
 
-                  //Forgot password
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) =>
-                              const ForgotPasswordPage(),
+                      const SizedBox(
+                        height: LARGE_SPACE * 3,
+                      ),
+
+                      if (_wrongCredentials) ...<Widget>[
+                        SmoothCard(
+                          padding: const EdgeInsets.all(10.0),
+                          color: Colors.red,
+                          child: Text(appLocalizations.incorrect_credentials),
                         ),
-                      );
-                    },
-                    child: Text(
-                      appLocalizations.forgot_password,
-                      style: theme.textTheme.bodyText2?.copyWith(
-                        fontSize: 18.0,
-                        color: theme.colorScheme.primary,
-                      ),
-                    ),
-                  ),
-
-                  const Spacer(flex: 4),
-
-                  //Open register page
-                  SizedBox(
-                    height: size.height * 0.06,
-                    child: OutlinedButton(
-                      onPressed: () async {
-                        final bool? registered = await Navigator.push<bool>(
-                          context,
-                          MaterialPageRoute<bool>(
-                            builder: (BuildContext context) =>
-                                const SignUpPage(),
-                          ),
-                        );
-                        if (registered == true) {
-                          if (!mounted) {
-                            return;
+                        const Spacer(
+                          flex: 1,
+                        )
+                      ],
+                      //Login
+                      SmoothTextFormField(
+                        type: TextFieldTypes.PLAIN_TEXT,
+                        controller: userIdController,
+                        hintText: appLocalizations.username_or_email,
+                        textColor: _customGrey,
+                        backgroundColor: _textFieldBackgroundColor,
+                        prefixIcon: const Icon(Icons.person),
+                        enabled: !_runningQuery,
+                        // Moves focus to the next field
+                        textInputAction: TextInputAction.next,
+                        autofillHints: const <String>[
+                          AutofillHints.username,
+                          AutofillHints.email,
+                        ],
+                        validator: (String? value) {
+                          if (value == null || value.isEmpty) {
+                            return appLocalizations
+                                .login_page_username_or_email;
                           }
-                          Navigator.of(context).pop();
-                        }
-                      },
-                      style: ButtonStyle(
-                        side: MaterialStateProperty.all<BorderSide>(
-                          BorderSide(
-                              color: theme.colorScheme.primary, width: 2.0),
+                          return null;
+                        },
+                      ),
+
+                      const SizedBox(
+                        height: LARGE_SPACE,
+                      ),
+
+                      //Password
+                      SmoothTextFormField(
+                        type: TextFieldTypes.PASSWORD,
+                        controller: passwordController,
+                        hintText: appLocalizations.password,
+                        textColor: _customGrey,
+                        backgroundColor: _textFieldBackgroundColor,
+                        prefixIcon: const Icon(Icons.vpn_key),
+                        enabled: !_runningQuery,
+                        textInputAction: TextInputAction.done,
+                        // Hides the keyboard
+                        autofillHints: const <String>[
+                          AutofillHints.password,
+                        ],
+                        validator: (String? value) {
+                          if (value == null || value.isEmpty) {
+                            return appLocalizations
+                                .login_page_password_error_empty;
+                          }
+                          return null;
+                        },
+                      ),
+
+                      const SizedBox(
+                        height: LARGE_SPACE * 1.5,
+                      ),
+
+                      //Sign in button
+                      ElevatedButton(
+                        onPressed: () => _login(context),
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(
+                            Size(size.width * 0.5,
+                                theme.buttonTheme.height + 10),
+                          ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            const RoundedRectangleBorder(
+                              borderRadius: CIRCULAR_BORDER_RADIUS,
+                            ),
+                          ),
                         ),
-                        minimumSize: MaterialStateProperty.all<Size>(
-                          Size(size.width * 0.5, theme.buttonTheme.height),
-                        ),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          const RoundedRectangleBorder(
-                            borderRadius: CIRCULAR_BORDER_RADIUS,
+                        child: Text(
+                          appLocalizations.sign_in,
+                          style: theme.textTheme.bodyText2?.copyWith(
+                            fontSize: 18.0,
+                            color: theme.colorScheme.surface,
                           ),
                         ),
                       ),
-                      child: Text(
-                        appLocalizations.create_account,
-                        style: theme.textTheme.bodyText2?.copyWith(
-                          fontSize: 18.0,
-                          color: theme.colorScheme.primary,
+
+                      //Forgot password
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute<Widget>(
+                              builder: (BuildContext context) =>
+                                  const ForgotPasswordPage(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          appLocalizations.forgot_password,
+                          style: theme.textTheme.bodyText2?.copyWith(
+                            fontSize: 18.0,
+                            color: theme.colorScheme.primary,
+                          ),
                         ),
                       ),
-                    ),
-                  ),
 
-                  const Spacer(flex: 4),
-                ],
+                      const SizedBox(
+                        height: LARGE_SPACE,
+                      ),
+
+                      //Open register page
+                      SizedBox(
+                        height: size.height * 0.06,
+                        child: OutlinedButton(
+                          onPressed: () async {
+                            final bool? registered = await Navigator.push<bool>(
+                              context,
+                              MaterialPageRoute<bool>(
+                                builder: (BuildContext context) =>
+                                    const SignUpPage(),
+                              ),
+                            );
+                            if (registered == true) {
+                              if (!mounted) {
+                                return;
+                              }
+                              Navigator.of(context).pop();
+                            }
+                          },
+                          style: ButtonStyle(
+                            side: MaterialStateProperty.all<BorderSide>(
+                              BorderSide(
+                                  color: theme.colorScheme.primary, width: 2.0),
+                            ),
+                            minimumSize: MaterialStateProperty.all<Size>(
+                              Size(size.width * 0.5, theme.buttonTheme.height),
+                            ),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              const RoundedRectangleBorder(
+                                borderRadius: CIRCULAR_BORDER_RADIUS,
+                              ),
+                            ),
+                          ),
+                          child: Text(
+                            appLocalizations.create_account,
+                            style: theme.textTheme.bodyText2?.copyWith(
+                              fontSize: 18.0,
+                              color: theme.colorScheme.primary,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),

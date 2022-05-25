@@ -22,7 +22,6 @@ class _AllUserProductListState extends State<AllUserProductList> {
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<String> userLists = daoProductList.getUserLists();
     return Scaffold(
@@ -36,10 +35,7 @@ class _AllUserProductListState extends State<AllUserProductList> {
                 final ProductList productList = ProductList.user(userList);
                 final int length = daoProductList.getLength(productList);
                 return UserPreferencesListTile(
-                  title: Text(
-                    userList,
-                    style: themeData.textTheme.headline4,
-                  ),
+                  title: Text(userList),
                   subtitle: Text(appLocalizations.user_list_length(length)),
                   icon: Icon(ConstantIcons.instance.getForwardIcon()),
                   onTap: () async {
