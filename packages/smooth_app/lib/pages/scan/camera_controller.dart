@@ -68,8 +68,10 @@ class SmoothCameraController extends CameraController {
 
   @override
   Future<void> pausePreview() async {
-    await super.pausePreview();
-    _isPaused = true;
+    if (_isInitialized) {
+      await super.pausePreview();
+      _isPaused = true;
+    }
   }
 
   Future<void> resumePreviewIfNecessary() async {

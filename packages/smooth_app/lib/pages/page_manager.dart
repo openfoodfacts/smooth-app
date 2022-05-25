@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
+import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum BottomNavigationTab {
@@ -118,13 +120,16 @@ class PageManagerState extends State<PageManager> {
   }
 
   Widget _buildOffstageNavigator(BottomNavigationTab tabItem) {
-    final bool offstage = _currentPage != tabItem;
     return Offstage(
-      offstage: offstage,
-      child: TabNavigator(
-        offstage: offstage,
-        navigatorKey: _navigatorKeys[tabItem]!,
-        tabItem: tabItem,
+      offstage: _currentPage != tabItem,
+      child: Provider<BottomNavigationTab>.value(
+        value: _currentPage,
+        child: ScreenVisibilityDetector(
+          child: TabNavigator(
+            navigatorKey: _navigatorKeys[tabItem]!,
+            tabItem: tabItem,
+          ),
+        ),
       ),
     );
   }
