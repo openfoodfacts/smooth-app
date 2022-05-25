@@ -179,18 +179,16 @@ class _ScanPageTopWidget extends StatelessWidget {
                   height: 1.6,
                 ),
               ),
-              actions: <SmoothActionButton>[
-                SmoothActionButton(
-                  text: localizations
-                      .permission_photo_denied_dialog_settings_button_cancel,
-                  onPressed: () => Navigator.of(context).pop(false),
-                ),
-                SmoothActionButton(
-                  text: localizations
-                      .permission_photo_denied_dialog_settings_button_open,
-                  onPressed: () => Navigator.of(context).pop(true),
-                ),
-              ],
+              negativeAction: SmoothActionButton(
+                text: localizations
+                    .permission_photo_denied_dialog_settings_button_cancel,
+                onPressed: () => Navigator.of(context).pop(false),
+              ),
+              positiveAction: SmoothActionButton(
+                text: localizations
+                    .permission_photo_denied_dialog_settings_button_open,
+                onPressed: () => Navigator.of(context).pop(true),
+              ),
             );
           });
     });

@@ -11,7 +11,9 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
+
   final Product product;
+
   @override
   State<AddBasicDetailsPage> createState() => _AddBasicDetailsPageState();
 }
@@ -23,6 +25,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -146,12 +149,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
             leading: const Icon(Icons.error_outline, color: Colors.red),
             title: Text(message),
           ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: AppLocalizations.of(context).close,
-              onPressed: () => Navigator.pop(context),
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: AppLocalizations.of(context).close,
+            onPressed: () => Navigator.pop(context),
+          ),
         ),
       );
 

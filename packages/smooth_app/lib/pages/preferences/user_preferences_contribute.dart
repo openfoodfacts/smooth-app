@@ -89,15 +89,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 ),
               ],
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                onPressed: () {
-                  Navigator.of(context, rootNavigator: true).pop('dialog');
-                },
-                text: appLocalizations.okay,
-                minWidth: 100,
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop('dialog');
+              },
+              text: appLocalizations.okay,
+              minWidth: 100,
+            ),
           );
         },
       );
@@ -140,13 +138,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 )
               ],
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                onPressed: () => Navigator.pop(context),
-                text: appLocalizations.okay,
-                minWidth: 100,
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              onPressed: () => Navigator.pop(context),
+              text: appLocalizations.okay,
+              minWidth: 100,
+            ),
           );
         },
       );
@@ -169,14 +165,12 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 ),
               ],
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                onPressed: () => LaunchUrlHelper.launchURL(
-                    'https://translate.openfoodfacts.org/', false),
-                text: appLocalizations.contribute_translate_link_text,
-                minWidth: 200,
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              onPressed: () => LaunchUrlHelper.launchURL(
+                  'https://translate.openfoodfacts.org/', false),
+              text: appLocalizations.contribute_translate_link_text,
+              minWidth: 200,
+            ),
           );
         },
       );
@@ -232,14 +226,12 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 return const CircularProgressIndicator();
               },
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                onPressed: () => LaunchUrlHelper.launchURL(
-                    'https://github.com/openfoodfacts/smooth-app', false),
-                text: AppLocalizations.of(context).contribute,
-                minWidth: 200,
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              onPressed: () => LaunchUrlHelper.launchURL(
+                  'https://github.com/openfoodfacts/smooth-app', false),
+              text: AppLocalizations.of(context).contribute,
+              minWidth: 200,
+            ),
           );
         },
       );

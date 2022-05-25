@@ -156,22 +156,20 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                     appLocalizations
                                         .enable_dev_mode_dialog_title,
                                   ),
-                                  actions: <SmoothActionButton>[
-                                    SmoothActionButton(
-                                      text: appLocalizations.yes,
-                                      onPressed: () async {
-                                        await userPreferences.setDevMode(1);
-                                        if (!mounted) {
-                                          return;
-                                        }
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                    SmoothActionButton(
-                                      text: appLocalizations.no,
-                                      onPressed: () => Navigator.pop(context),
-                                    )
-                                  ],
+                                  positiveAction: SmoothActionButton(
+                                    text: appLocalizations.yes,
+                                    onPressed: () async {
+                                      await userPreferences.setDevMode(1);
+                                      if (!mounted) {
+                                        return;
+                                      }
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  negativeAction: SmoothActionButton(
+                                    text: appLocalizations.no,
+                                    onPressed: () => Navigator.pop(context),
+                                  ),
                                 ),
                               );
                             }

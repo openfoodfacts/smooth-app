@@ -410,14 +410,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               onColorChanged: changeColor,
             ),
           ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: 'Got it',
-              onPressed: () {
-                Navigator.of(context).pop(true);
-              },
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: 'Got it',
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
+          ),
         );
       },
     );

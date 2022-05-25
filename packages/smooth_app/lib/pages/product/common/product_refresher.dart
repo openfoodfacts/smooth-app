@@ -33,12 +33,10 @@ class ProductRefresher {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(appLocalizations.nutrition_page_update_done),
-        actions: <SmoothActionButton>[
-          SmoothActionButton(
-            text: appLocalizations.okay,
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ],
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.okay,
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
     );
     return true;

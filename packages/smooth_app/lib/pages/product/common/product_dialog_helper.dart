@@ -53,22 +53,19 @@ class ProductDialogHelper {
                   ? AppLocalizations.of(context).could_not_refresh
                   : '${AppLocalizations.of(context).no_product_found}: $barcode',
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                text: AppLocalizations.of(context).close,
-                onPressed: () => Navigator.pop(context),
-              ),
-              SmoothActionButton(
-                text: AppLocalizations.of(context).contribute,
-                onPressed: () => Navigator.push<bool?>(
-                  context,
-                  MaterialPageRoute<bool?>(
-                    builder: (BuildContext context) =>
-                        AddNewProductPage(barcode),
-                  ),
+            positiveAction: SmoothActionButton(
+              text: AppLocalizations.of(context).contribute,
+              onPressed: () => Navigator.push<bool?>(
+                context,
+                MaterialPageRoute<bool?>(
+                  builder: (BuildContext context) => AddNewProductPage(barcode),
                 ),
               ),
-            ],
+            ),
+            negativeAction: SmoothActionButton(
+              text: AppLocalizations.of(context).close,
+              onPressed: () => Navigator.pop(context),
+            ),
           );
         },
       );
@@ -82,12 +79,10 @@ class ProductDialogHelper {
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
           body: getErrorMessage(message),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: AppLocalizations.of(context).close,
-              onPressed: () => Navigator.pop(context),
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: AppLocalizations.of(context).close,
+            onPressed: () => Navigator.pop(context),
+          ),
         ),
       );
 

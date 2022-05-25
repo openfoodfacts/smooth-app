@@ -88,21 +88,19 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           body: Text(
             localizations.sign_out_confirmation,
           ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: localizations.yes,
-              onPressed: () async {
-                context.read<UserManagementProvider>().logout();
-                Navigator.pop(context);
-              },
-            ),
-            SmoothActionButton(
-              text: localizations.no,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: localizations.yes,
+            onPressed: () async {
+              context.read<UserManagementProvider>().logout();
+              Navigator.pop(context);
+            },
+          ),
+          negativeAction: SmoothActionButton(
+            text: localizations.no,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         );
       },
     );

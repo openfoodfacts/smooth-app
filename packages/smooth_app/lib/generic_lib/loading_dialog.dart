@@ -47,12 +47,10 @@ class LoadingDialog<T> {
                 title ?? appLocalizations.loading_dialog_default_error_message,
               ),
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                text: appLocalizations.close,
-                onPressed: () => Navigator.maybePop(context),
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.close,
+              onPressed: () => Navigator.maybePop(context),
+            ),
           );
         },
       );
@@ -111,12 +109,10 @@ class LoadingDialog<T> {
           );
         },
       ),
-      actions: <SmoothActionButton>[
-        SmoothActionButton(
-          text: appLocalizations.stop,
-          onPressed: () => _popDialog(context, null),
-        ),
-      ],
+      positiveAction: SmoothActionButton(
+        text: appLocalizations.stop,
+        onPressed: () => _popDialog(context, null),
+      ),
     );
   }
 }

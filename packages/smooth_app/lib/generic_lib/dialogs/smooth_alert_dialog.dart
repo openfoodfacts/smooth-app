@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
+/// Custom Dialog to use in the app
 ///
-///	Open by calling
-///
-///showDialog<void>(
+/// showDialog<void>(
 ///        context: context,
 ///        builder: (BuildContext context) {
 ///          return SmoothAlertDialog(...)
 ///	}
 ///)
 ///
+/// If only one action button is provided, simply pass a [positiveAction]
 
 class SmoothAlertDialog extends StatelessWidget {
   /// The most simple alert dialog: no fancy effects.
   const SmoothAlertDialog({
     this.title,
     required this.body,
-    required this.actions,
+    this.positiveAction,
+    this.neutralAction,
+    this.negativeAction,
   })  : close = false,
         maxHeight = null,
         _simpleMode = true;
@@ -29,21 +31,25 @@ class SmoothAlertDialog extends StatelessWidget {
     this.close = true,
     this.maxHeight,
     required this.body,
-    this.actions,
+    this.positiveAction,
+    this.neutralAction,
+    this.negativeAction,
   }) : _simpleMode = false;
 
   final String? title;
   final bool close;
   final double? maxHeight;
   final Widget body;
-  final List<SmoothActionButton>? actions;
+  final SmoothActionButton? positiveAction;
+  final SmoothActionButton? neutralAction;
+  final SmoothActionButton? negativeAction;
   final bool _simpleMode;
 
   @override
   Widget build(BuildContext context) {
     final Widget content = _buildContent(context);
     return AlertDialog(
-      elevation: 4,
+      elevation: 4.0,
       shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
       content: _simpleMode
           ? content
@@ -52,39 +58,38 @@ class SmoothAlertDialog extends StatelessWidget {
                   BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
               child: content,
             ),
-      actions: actions == null
-          ? null
-          : <Widget>[
-              SizedBox(
-                height: 58,
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: actions!,
-                ),
-              ),
-            ],
+      actions: _buildActions(context),
     );
   }
 
-  Widget _buildCross(final bool isPlaceHolder, final BuildContext context) {
-    if (close) {
-      return Visibility(
-        maintainSize: true,
-        maintainAnimation: true,
-        maintainState: true,
-        visible: !isPlaceHolder,
-        child: InkWell(
-          child: const Icon(
-            Icons.close,
-            size: 29,
-          ),
-          onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
-        ),
-      );
+  /// Generates Actions buttons with:
+  /// In LTR mode: Negative - Neutral - Positive
+  /// In RTL mode: Positive - Neutral - Negative
+  List<Widget>? _buildActions(BuildContext context) {
+    if (positiveAction == null &&
+        neutralAction != null &&
+        negativeAction != null) {
+      return null;
+    }
+
+    final Size size = Size(
+      MediaQuery.of(context).size.width / 3,
+      36.0,
+    );
+
+    final List<Widget> actions = <Widget>[
+      if (negativeAction != null)
+        SizedBox.fromSize(size: size, child: negativeAction),
+      if (neutralAction != null)
+        SizedBox.fromSize(size: size, child: neutralAction),
+      if (positiveAction != null)
+        SizedBox.fromSize(size: size, child: positiveAction),
+    ];
+
+    if (Directionality.of(context) == TextDirection.rtl) {
+      return actions.reversed.toList(growable: false);
     } else {
-      return Container();
+      return actions;
     }
   }
 
@@ -121,4 +126,24 @@ class SmoothAlertDialog extends StatelessWidget {
             Expanded(child: SingleChildScrollView(child: body)),
         ],
       );
+
+  Widget _buildCross(final bool isPlaceHolder, final BuildContext context) {
+    if (close) {
+      return Visibility(
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: !isPlaceHolder,
+        child: InkWell(
+          child: const Icon(
+            Icons.close,
+            size: 29.0,
+          ),
+          onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
+        ),
+      );
+    } else {
+      return const SizedBox.shrink();
+    }
+  }
 }

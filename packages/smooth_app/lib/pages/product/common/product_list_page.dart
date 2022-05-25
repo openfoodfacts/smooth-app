@@ -76,26 +76,24 @@ class _ProductListPageState extends State<ProductListPage> {
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
                               body: Text(appLocalizations.confirm_clear),
-                              actions: <SmoothActionButton>[
-                                SmoothActionButton(
-                                  onPressed: () async {
-                                    daoProductList.clear(productList);
-                                    await daoProductList.get(productList);
-                                    setState(() {});
-                                    if (!mounted) {
-                                      return;
-                                    }
-                                    Navigator.of(context).pop();
-                                  },
-                                  text: appLocalizations.yes,
-                                ),
-                                SmoothActionButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  text: appLocalizations.no,
-                                ),
-                              ],
+                              positiveAction: SmoothActionButton(
+                                onPressed: () async {
+                                  daoProductList.clear(productList);
+                                  await daoProductList.get(productList);
+                                  setState(() {});
+                                  if (!mounted) {
+                                    return;
+                                  }
+                                  Navigator.of(context).pop();
+                                },
+                                text: appLocalizations.yes,
+                              ),
+                              negativeAction: SmoothActionButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                text: appLocalizations.no,
+                              ),
                             );
                           },
                         );

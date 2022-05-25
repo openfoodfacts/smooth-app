@@ -132,12 +132,10 @@ class _CountrySelectorState extends State<CountrySelector> {
                           ],
                         ),
                       ),
-                      actions: <SmoothActionButton>[
-                        SmoothActionButton(
-                          onPressed: () => Navigator.pop(context),
-                          text: appLocalizations.cancel,
-                        ),
-                      ],
+                      positiveAction: SmoothActionButton(
+                        onPressed: () => Navigator.pop(context),
+                        text: appLocalizations.cancel,
+                      ),
                     );
                   },
                 );

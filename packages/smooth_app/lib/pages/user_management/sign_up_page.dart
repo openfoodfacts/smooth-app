@@ -324,11 +324,10 @@ class _SignUpPageState extends State<SignUpPage> {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(AppLocalizations.of(context).sign_up_page_action_ok),
-        actions: <SmoothActionButton>[
-          SmoothActionButton(
-              text: AppLocalizations.of(context).okay,
-              onPressed: () => Navigator.of(context).pop()),
-        ],
+        positiveAction: SmoothActionButton(
+          text: AppLocalizations.of(context).okay,
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
     );
     if (!mounted) {

@@ -55,12 +55,10 @@ class AttributeButton extends StatelessWidget {
                     appLocalizations.importance_label(
                         attribute.name.toString(), importanceId),
                   ),
-                  actions: <SmoothActionButton>[
-                    SmoothActionButton(
-                      text: appLocalizations.close,
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                  ],
+                  positiveAction: SmoothActionButton(
+                    text: appLocalizations.close,
+                    onPressed: () => Navigator.pop(context),
+                  ),
                 ),
               );
             },
@@ -116,12 +114,10 @@ class AttributeButton extends StatelessWidget {
                             AppLocalizations.of(context);
                         return SmoothAlertDialog(
                           body: Text(info),
-                          actions: <SmoothActionButton>[
-                            SmoothActionButton(
-                              text: appLocalizations.close,
-                              onPressed: () => Navigator.pop(context),
-                            ),
-                          ],
+                          positiveAction: SmoothActionButton(
+                            text: appLocalizations.close,
+                            onPressed: () => Navigator.pop(context),
+                          ),
                         );
                       },
                     ),

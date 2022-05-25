@@ -117,28 +117,26 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             )
           ],
         ),
-        actions: <SmoothActionButton>[
-          SmoothActionButton(
-            onPressed: () async {
-              showLicensePage(
-                context: context,
-                applicationName: packageInfo.appName,
-                applicationVersion: packageInfo.version,
-                applicationIcon: Image.asset(
-                  'assets/app/smoothie-icon.1200x1200.png',
-                  height: MediaQuery.of(context).size.height * 0.1,
-                ),
-              );
-            },
-            text: appLocalizations.licenses,
-            minWidth: 100,
-          ),
-          SmoothActionButton(
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
-            text: appLocalizations.okay,
-            minWidth: 100,
-          ),
-        ],
+        positiveAction: SmoothActionButton(
+          onPressed: () async {
+            showLicensePage(
+              context: context,
+              applicationName: packageInfo.appName,
+              applicationVersion: packageInfo.version,
+              applicationIcon: Image.asset(
+                'assets/app/smoothie-icon.1200x1200.png',
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+            );
+          },
+          text: appLocalizations.licenses,
+          minWidth: 100,
+        ),
+        negativeAction: SmoothActionButton(
+          onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
+          text: appLocalizations.okay,
+          minWidth: 100,
+        ),
       ),
     );
   }
