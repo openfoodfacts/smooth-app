@@ -30,3 +30,7 @@ class UserManagementHelper {
 extension UserManagementTextController on TextEditingController {
   String get trimmedText => text.trim();
 }
+
+extension UserManagementEmail on String {
+  bool get isEmail => UserManagementHelper._emailRegex.hasMatch(this);
+}

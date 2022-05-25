@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
@@ -29,13 +30,16 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, TraceableClientMixin {
   int _currentQuestionIndex = 0;
   InsightAnnotation? _lastAnswer;
 
   static const Color _noBackground = Colors.redAccent;
   static const Color _yesBackground = Colors.lightGreen;
   static const Color _yesNoTextColor = Colors.white;
+
+  @override
+  String get traceTitle => 'robotoff_question_page';
 
   @override
   Widget build(BuildContext context) {

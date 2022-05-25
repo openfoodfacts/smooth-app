@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
@@ -37,12 +38,18 @@ class ProductPage extends StatefulWidget {
   State<ProductPage> createState() => _ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> {
+class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late Product _product;
   late ProductPreferences _productPreferences;
   late ScrollController _scrollController;
   bool _mustScrollToTheEnd = false;
   bool scrollingUp = true;
+
+  @override
+  String get traceName => '${widget.product.barcode} is the product barcode';
+
+  @override
+  String get traceTitle => 'product_page';
 
   @override
   void initState() {

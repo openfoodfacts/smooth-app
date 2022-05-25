@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +40,8 @@ class ProductQueryPage extends StatefulWidget {
   State<ProductQueryPage> createState() => _ProductQueryPageState();
 }
 
-class _ProductQueryPageState extends State<ProductQueryPage> {
+class _ProductQueryPageState extends State<ProductQueryPage>
+    with TraceableClientMixin {
   // we have to use GlobalKey's for SnackBar's because of nested Scaffold's:
   // not the 2 Scaffold's here but one of them and the one on top (PageManager)
   final GlobalKey<ScaffoldMessengerState> _scaffoldKeyEmpty =
@@ -51,6 +53,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
 
   late ProductQueryModel _model;
   int? _lastUpdate;
+
+  @override
+  String get traceTitle => 'search_page';
 
   @override
   void initState() {

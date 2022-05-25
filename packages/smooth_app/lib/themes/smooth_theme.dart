@@ -140,6 +140,7 @@ class SmoothTheme {
         color: brightness == Brightness.dark ? null : myColorScheme.primary,
       ),
       toggleableActiveColor: myColorScheme.primary,
+      dividerColor: const Color(0xFFdfdfdf),
     );
   }
 
@@ -151,6 +152,7 @@ class SmoothTheme {
     headline2: TextStyle(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
+      color: Colors.black,
     ),
     headline3: TextStyle(
       fontSize: 18.0,
@@ -159,6 +161,7 @@ class SmoothTheme {
     headline4: TextStyle(
       fontSize: 16.0,
       fontWeight: FontWeight.bold,
+      color: Colors.black,
     ),
     bodyText2: TextStyle(
       fontSize: 14,

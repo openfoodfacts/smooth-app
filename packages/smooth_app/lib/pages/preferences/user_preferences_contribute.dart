@@ -239,7 +239,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     final Icon? icon,
   }) =>
       UserPreferencesListTile(
-        title: Text(title, style: themeData.textTheme.headline4),
+        title: Text(title),
         onTap: onTap,
         icon: icon ?? getForwardIcon(),
       );

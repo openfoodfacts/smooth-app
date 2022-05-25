@@ -1,0 +1,24 @@
+name: "Check for Xcode Updates"
+
+on:
+  # Allow to be run manually
+  workflow_dispatch:
+
+  # Run at 8am UTC daily
+  schedule:
+    - cron: "0 8 * * *"
+
+jobs:
+  update-xcode-versions:
+    name: Check for Xcode Updates
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.UPDATE_XCODE_VERSIONS_GITHUB_TOKEN }} # A token that can update workflows, required to push changes to workflow files
+
+      - name: Update Xcode Versions
+        uses: josephduffy/update-xcode-version-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }} # Required to create pull requests, can be the default token provided by GitHub Actions
+          xcode-versions-file: .github/xcode-versions.yml # Default, not required, but can be changed

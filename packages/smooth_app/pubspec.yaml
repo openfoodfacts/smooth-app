@@ -30,7 +30,11 @@ dependencies:
   image_picker: ^0.8.5+3
   iso_countries: 2.1.0
   latlong2: ^0.8.1
-  matomo_forever: ^1.0.0+1
+  # Currently using the fork of M123-dev with additional features, to be switched back when PR is merged
+  matomo_tracker:
+    git:
+      url: 'https://github.com/M123-dev/matomo-tracker.git'
+      ref: 'fix-Export-visitor-file'
   modal_bottom_sheet: ^2.0.1
   openfoodfacts: ^1.17.0
   #  openfoodfacts:
