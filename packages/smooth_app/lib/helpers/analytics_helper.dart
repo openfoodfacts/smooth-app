@@ -71,19 +71,25 @@ class AnalyticsHelper {
       setAnalyticsReports(false);
       return;
     }
-    MatomoTracker.instance.initialize(
-      url: 'https://analytics.openfoodfacts.org/matomo.php',
-      siteId: 2,
-      visitorId: uuid,
-    );
-    MatomoTracker.instance.visitor = Visitor(
-      id: uuid,
-      userId: OpenFoodAPIConfiguration.globalUser?.userId,
-    );
+
+    try {
+      MatomoTracker.instance.initialize(
+        url: 'https://analytics.openfoodfacts.org/matomo.php',
+        siteId: 2,
+        visitorId: uuid,
+      );
+      MatomoTracker.instance.visitor = Visitor(
+        id: uuid,
+        userId: OpenFoodAPIConfiguration.globalUser?.userId,
+      );
+    } catch (err) {
+      // With Hot Reload, this may trigger a late field already initialized
+    }
   }
 
+  /// A UUID must be at least one 16 characters
   static String? get uuid =>
-      kDebugMode ? 'smoothie-debug' : OpenFoodAPIConfiguration.uuid;
+      kDebugMode ? 'smoothie-debug--' : OpenFoodAPIConfiguration.uuid;
 
   // TODO(m123): Matomo removes leading 0 from the barcode
   static void trackScannedProduct({required String barcode}) =>
