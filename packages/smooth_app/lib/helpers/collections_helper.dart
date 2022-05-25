@@ -87,3 +87,32 @@ extension IterableExtensions<T> on Iterable<T> {
     return null;
   }
 }
+
+extension MapStringKeyExtensions<V> on Map<String, V> {
+  String? keyStartingWith(String key, {bool ignoreCase = false}) {
+    final String searchKey;
+
+    if (ignoreCase) {
+      searchKey = key.toLowerCase();
+    } else {
+      searchKey = key;
+    }
+
+    for (String mapKey in keys) {
+      if (ignoreCase) {
+        mapKey = mapKey.toLowerCase();
+      }
+
+      print('$mapKey / $searchKey');
+      if (mapKey.startsWith(searchKey)) {
+        return mapKey;
+      }
+    }
+    return null;
+  }
+
+  V? getValueByKeyStartWith(String key, {bool ignoreCase = false}) {
+    final String? mapKey = keyStartingWith(key, ignoreCase: ignoreCase);
+    return this[mapKey];
+  }
+}

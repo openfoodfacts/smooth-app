@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:smooth_app/helpers/collections_helper.dart';
 
 /// A tagline is the text displayed on the homepage
 /// It may contain a link to an external resource
@@ -16,11 +17,12 @@ Future<TagLineItem?> fetchTagLine(String locale) {
           '/files/tagline/tagline-off.json',
         ),
       )
-      .then((http.Response value) =>
-          _TagLine.fromJSON(jsonDecode(value.body) as List<dynamic>))
       .then(
-          (_TagLine tagLine) => tagLine._items[locale] ?? tagLine._items['en'])
-      .catchError((dynamic err) => null);
+          (http.Response value) => const Utf8Decoder().convert(value.bodyBytes))
+      .then((String value) =>
+          _TagLine.fromJSON(jsonDecode(value) as List<dynamic>))
+      .then((_TagLine tagLine) => tagLine[locale] ?? tagLine['en'])
+      .catchError((dynamic err) => print(err));
 }
 
 class _TagLine {
@@ -29,7 +31,8 @@ class _TagLine {
           json.map(
             (dynamic element) {
               return MapEntry<String, TagLineItem>(
-                (element as Map<dynamic, dynamic>)['language'] as String,
+                ((element as Map<dynamic, dynamic>)['language'] as String)
+                    .toLowerCase(),
                 TagLineItem._fromJSON(element['data'] as Map<dynamic, dynamic>),
               );
             },
@@ -40,8 +43,24 @@ class _TagLine {
   final Map<String, TagLineItem> _items;
 
   /// Finds a tagline with its locale
-  TagLineItem? operator [](String key) =>
-      _items[key] ?? _items[key.substring(0, 2)];
+  TagLineItem? operator [](String key) {
+    final String locale = key.toLowerCase();
+
+    // Let's try with the full locale
+    if (_items.containsKey(locale)) {
+      return _items[locale];
+    }
+
+    // Let's try with the language only (eg => fr_FR to fr)
+    final String languageCode = locale.substring(0, 2);
+
+    if (_items.containsKey(languageCode)) {
+      return _items[languageCode];
+    } else {
+      // Finally let's try with a subset (eg => no fr_BE but fr_FR)
+      return _items.getValueByKeyStartWith(languageCode, ignoreCase: true);
+    }
+  }
 }
 
 class TagLineItem {
