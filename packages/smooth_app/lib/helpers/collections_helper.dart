@@ -103,7 +103,6 @@ extension MapStringKeyExtensions<V> on Map<String, V> {
         mapKey = mapKey.toLowerCase();
       }
 
-      print('$mapKey / $searchKey');
       if (mapKey.startsWith(searchKey)) {
         return mapKey;
       }

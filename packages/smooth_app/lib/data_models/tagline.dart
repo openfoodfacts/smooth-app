@@ -22,7 +22,7 @@ Future<TagLineItem?> fetchTagLine(String locale) {
       .then((String value) =>
           _TagLine.fromJSON(jsonDecode(value) as List<dynamic>))
       .then((_TagLine tagLine) => tagLine[locale] ?? tagLine['en'])
-      .catchError((dynamic err) => print(err));
+      .catchError((dynamic err) => null);
 }
 
 class _TagLine {
