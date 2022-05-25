@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -75,7 +75,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         body: Column(
           children: <Widget>[
             ListTile(
-              leading: Image.asset('assets/app/smoothie-icon.1200x1200.png'),
+              leading: SvgPicture.asset(
+                'assets/app/release_icon.svg',
+              ),
               title: FittedBox(
                 child: Text(
                   packageInfo.appName,
@@ -123,19 +125,17 @@ class UserPreferencesFaq extends AbstractUserPreferences {
               context: context,
               applicationName: packageInfo.appName,
               applicationVersion: packageInfo.version,
-              applicationIcon: Image.asset(
-                'assets/app/smoothie-icon.1200x1200.png',
+              applicationIcon: SvgPicture.asset(
+                'assets/app/release_icon.svg',
                 height: MediaQuery.of(context).size.height * 0.1,
               ),
             );
           },
           text: appLocalizations.licenses,
-          minWidth: 100,
         ),
         negativeAction: SmoothActionButton(
           onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
           text: appLocalizations.okay,
-          minWidth: 100,
         ),
       ),
     );

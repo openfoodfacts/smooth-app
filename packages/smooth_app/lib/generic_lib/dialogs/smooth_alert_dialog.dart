@@ -1,15 +1,18 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// Custom Dialog to use in the app
 ///
+/// ```dart
 /// showDialog<void>(
 ///        context: context,
 ///        builder: (BuildContext context) {
 ///          return SmoothAlertDialog(...)
-///	}
-///)
+///	       }
+/// )
+/// ```
 ///
 /// If only one action button is provided, simply pass a [positiveAction]
 
@@ -58,39 +61,13 @@ class SmoothAlertDialog extends StatelessWidget {
                   BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
               child: content,
             ),
-      actions: _buildActions(context),
+      actions: _buildActions(
+        context,
+        positiveAction: positiveAction,
+        neutralAction: neutralAction,
+        negativeAction: negativeAction,
+      ),
     );
-  }
-
-  /// Generates Actions buttons with:
-  /// In LTR mode: Negative - Neutral - Positive
-  /// In RTL mode: Positive - Neutral - Negative
-  List<Widget>? _buildActions(BuildContext context) {
-    if (positiveAction == null &&
-        neutralAction != null &&
-        negativeAction != null) {
-      return null;
-    }
-
-    final Size size = Size(
-      MediaQuery.of(context).size.width / 3,
-      36.0,
-    );
-
-    final List<Widget> actions = <Widget>[
-      if (negativeAction != null)
-        SizedBox.fromSize(size: size, child: negativeAction),
-      if (neutralAction != null)
-        SizedBox.fromSize(size: size, child: neutralAction),
-      if (positiveAction != null)
-        SizedBox.fromSize(size: size, child: positiveAction),
-    ];
-
-    if (Directionality.of(context) == TextDirection.rtl) {
-      return actions.reversed.toList(growable: false);
-    } else {
-      return actions;
-    }
   }
 
   Widget _buildContent(final BuildContext context) => Column(
@@ -145,5 +122,163 @@ class SmoothAlertDialog extends StatelessWidget {
     } else {
       return const SizedBox.shrink();
     }
+  }
+}
+
+class SmoothActionButtonsBar extends StatelessWidget {
+  const SmoothActionButtonsBar({
+    this.positiveAction,
+    this.neutralAction,
+    this.negativeAction,
+    Key? key,
+  })  : assert(
+            positiveAction != null ||
+                neutralAction != null ||
+                negativeAction != null,
+            'At least one action must be passed!'),
+        super(key: key);
+
+  final SmoothActionButton? positiveAction;
+  final SmoothActionButton? neutralAction;
+  final SmoothActionButton? negativeAction;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: _buildActions(
+        context,
+        positiveAction: positiveAction,
+        neutralAction: neutralAction,
+        negativeAction: negativeAction,
+      )!,
+    );
+  }
+}
+
+/// Generates Actions buttons with:
+/// In LTR mode: Negative - Neutral - Positive
+/// In RTL mode: Positive - Neutral - Negative
+List<Widget>? _buildActions(
+  BuildContext context, {
+  SmoothActionButton? positiveAction,
+  SmoothActionButton? neutralAction,
+  SmoothActionButton? negativeAction,
+}) {
+  if (positiveAction == null &&
+      neutralAction == null &&
+      negativeAction == null) {
+    return null;
+  }
+
+  final Size size = Size(
+    MediaQuery.of(context).size.width / 3,
+    36.0,
+  );
+
+  final List<Widget> actions = <Widget>[
+    if (negativeAction != null)
+      SizedBox.fromSize(
+        size: size,
+        child: _SmoothActionFlatButton(
+          buttonData: negativeAction,
+        ),
+      ),
+    if (neutralAction != null)
+      SizedBox.fromSize(
+        size: size,
+        child: _SmoothActionFlatButton(
+          buttonData: neutralAction,
+        ),
+      ),
+    if (positiveAction != null)
+      SizedBox.fromSize(
+        size: size,
+        child: _SmoothActionElevatedButton(
+          buttonData: positiveAction,
+        ),
+      ),
+  ];
+
+  if (Directionality.of(context) == TextDirection.rtl) {
+    return actions.reversed.toList(growable: false);
+  } else {
+    return actions;
+  }
+}
+
+class SmoothActionButton {
+  SmoothActionButton({
+    required this.text,
+    required this.onPressed,
+    this.minWidth = 15,
+    this.height = 20,
+  }) : assert(text.isNotEmpty);
+
+  final String text;
+  final VoidCallback? onPressed;
+  final double minWidth;
+  final double height;
+}
+
+class _SmoothActionElevatedButton extends StatelessWidget {
+  const _SmoothActionElevatedButton({
+    required this.buttonData,
+  });
+
+  final SmoothActionButton buttonData;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    return SmoothSimpleButton(
+      onPressed: buttonData.onPressed,
+      height: buttonData.height,
+      minWidth: buttonData.minWidth,
+      child: AutoSizeText(
+        buttonData.text.toUpperCase(),
+        style: themeData.textTheme.bodyText2!
+            .copyWith(color: themeData.colorScheme.onPrimary),
+        maxLines: 1,
+      ),
+    );
+  }
+}
+
+class _SmoothActionFlatButton extends StatelessWidget {
+  const _SmoothActionFlatButton({
+    required this.buttonData,
+  });
+
+  final SmoothActionButton buttonData;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+
+    return Theme(
+      data: themeData.copyWith(
+        buttonTheme: const ButtonThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+          ),
+        ),
+      ),
+      child: TextButton(
+        onPressed: buttonData.onPressed,
+        style: TextButton.styleFrom(
+          shape: const RoundedRectangleBorder(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+          ),
+          textStyle: themeData.textTheme.bodyText2!
+              .copyWith(color: themeData.colorScheme.onPrimary),
+        ),
+        child: AutoSizeText(
+          buttonData.text.toUpperCase(),
+          maxLines: 1,
+        ),
+      ),
+    );
   }
 }

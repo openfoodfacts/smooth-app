@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -143,9 +142,12 @@ class _ScanPageTopWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SmoothActionButton(
-                            text: localizations.permission_photo_denied_button,
-                            onPressed: () => _askPermission(context),
+                          SmoothActionButtonsBar(
+                            positiveAction: SmoothActionButton(
+                              text:
+                                  localizations.permission_photo_denied_button,
+                              onPressed: () => _askPermission(context),
+                            ),
                           ),
                         ],
                       ),
