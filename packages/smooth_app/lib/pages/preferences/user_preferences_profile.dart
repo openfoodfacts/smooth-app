@@ -5,7 +5,6 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -88,21 +87,19 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           body: Text(
             localizations.sign_out_confirmation,
           ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: localizations.yes,
-              onPressed: () async {
-                context.read<UserManagementProvider>().logout();
-                Navigator.pop(context);
-              },
-            ),
-            SmoothActionButton(
-              text: localizations.no,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: localizations.yes,
+            onPressed: () async {
+              context.read<UserManagementProvider>().logout();
+              Navigator.pop(context);
+            },
+          ),
+          negativeAction: SmoothActionButton(
+            text: localizations.no,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         );
       },
     );
