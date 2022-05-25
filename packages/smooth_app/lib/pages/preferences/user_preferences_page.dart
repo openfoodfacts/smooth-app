@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -38,7 +39,11 @@ class UserPreferencesPage extends StatefulWidget {
   State<UserPreferencesPage> createState() => _UserPreferencesPageState();
 }
 
-class _UserPreferencesPageState extends State<UserPreferencesPage> {
+class _UserPreferencesPageState extends State<UserPreferencesPage>
+    with TraceableClientMixin {
+  @override
+  String get traceTitle => 'user_preferences_page';
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);

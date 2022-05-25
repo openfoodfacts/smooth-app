@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -19,7 +20,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
   static const Color _customGrey = Colors.grey;
   static Color _textFieldBackgroundColor =
       const Color.fromARGB(255, 240, 240, 240);
@@ -63,6 +64,9 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
   }
+
+  @override
+  String get traceTitle => 'login_page';
 
   @override
   void dispose() {

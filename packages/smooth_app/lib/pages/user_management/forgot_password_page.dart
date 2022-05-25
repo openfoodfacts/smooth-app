@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -16,7 +17,8 @@ class ForgotPasswordPage extends StatefulWidget {
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
 }
 
-class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage>
+    with TraceableClientMixin {
   int _devModeCounter = 0;
 
   static Color _textFieldBackgroundColor = const Color.fromARGB(
@@ -58,6 +60,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     }
     setState(() => _runningQuery = false);
   }
+
+  @override
+  String get traceTitle => 'forgot_password_page';
 
   @override
   void dispose() {

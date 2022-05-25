@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -19,7 +20,7 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   static const double space = 10;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -35,6 +36,9 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _agree = false;
   bool _subscribe = false;
   bool _disagreed = false;
+
+  @override
+  String get traceTitle => 'sign_up_page';
 
   @override
   Widget build(BuildContext context) {
