@@ -151,9 +151,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
-          return SmoothAlertDialog.advanced(
+          return SmoothAlertDialog(
             title: appLocalizations.contribute_translate_header,
-            maxHeight: MediaQuery.of(context).size.height * 0.25,
             body: Column(
               children: <Widget>[
                 Text(
@@ -168,7 +167,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://translate.openfoodfacts.org/', false),
               text: appLocalizations.contribute_translate_link_text,
-              minWidth: 200,
             ),
           );
         },

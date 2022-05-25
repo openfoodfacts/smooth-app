@@ -174,14 +174,16 @@ List<Widget>? _buildActions(
   SmoothActionButton? neutralAction,
   SmoothActionButton? negativeAction,
 }) {
-  if (positiveAction == null &&
-      neutralAction == null &&
-      negativeAction == null) {
+  final int count = (positiveAction != null ? 1 : 0) +
+      (neutralAction != null ? 1 : 0) +
+      (negativeAction != null ? 1 : 0);
+
+  if (count == 0) {
     return null;
   }
 
   final Size size = Size(
-    MediaQuery.of(context).size.width / 3,
+    MediaQuery.of(context).size.width / (count == 1 ? 1.5 : count),
     36.0,
   );
 
