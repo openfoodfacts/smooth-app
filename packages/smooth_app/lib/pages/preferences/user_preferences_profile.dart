@@ -40,7 +40,7 @@ class UserPreferencesProfile extends AbstractUserPreferences {
 
   @override
   Widget getTitle() => Text(
-        appLocalizations.myPreferences_profile_title,
+        getTitleString(),
         style: themeData.textTheme.headline2,
       );
 
