@@ -343,7 +343,7 @@
     },
     "ranking_tab_all": "Todos",
     "ranking_subtitle_match_yes": "Uma ótima combinação para você",
-    "ranking_subtitle_match_no": "Uma combinação muita pobre",
+    "ranking_subtitle_match_no": "Uma combinação muito pobre",
     "ranking_subtitle_match_maybe": "Combinação desconhecida",
     "reloaded_with_new_preferences": "Recarregado com suas novas preferências",
     "@reloaded_with_new_preferences": {
@@ -371,7 +371,7 @@
         "description": "Top meta-entry on a category filter"
     },
     "category_search": "(pesquisa de categoria)",
-    "filter": "Filtrar",
+    "filter": "Filtro",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
@@ -383,7 +383,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Toque para ver mais informações...",
+    "tab_for_more": "Clique para ver mais informações...",
     "@Product": {},
     "product": "Produto",
     "@product": {},
@@ -412,7 +412,7 @@
     },
     "nutrition": "Nutrição",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Tem certeza que quer sair antes de salvar?",
+    "nutrition_page_close_confirmation": "Tem certeza que quer sair sem salvar?",
     "nutrition_facts_photo": "Foto de informações nutricionais",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -427,25 +427,25 @@
     "@missing_product": {},
     "add_product_take_photos": "Fotografe a embalagem para adicionar este produto ao Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Por favor, tire algumas fotos e o mecanismo Open Food Facts pode resolver o resto!",
+    "add_product_take_photos_descriptive": "Por favor, tire algumas fotos e o Open Food Facts pode resolver o resto!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Adicione informações sobre o produto",
     "@add_product_information_button_label": {},
     "new_product": "Novo produto",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Foto frontal do produto",
+    "front_packaging_photo_button_label": "Foto da frente do produto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirmar upload frontal da foto do produto",
+    "confirm_front_packaging_photo_button_label": "Confirmar o envio da foto do produto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Confirmar",
     "front_packaging_photo_title": "Foto frontal da embalagem",
-    "ingredients_photo_title": "Foto de ingredientes",
+    "ingredients_photo_title": "Foto dos ingredientes",
     "nutritional_facts_photo_title": "Foto das informações nutricionais",
     "recycling_photo_title": "Foto de Reciclagem",
     "other_interesting_photo_title": "Outra foto interessante",
-    "front_photo_uploaded": "Foto inicial enviada",
+    "front_photo_uploaded": "Foto frontal enviada",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto de ingredientes",
     "@ingredients_photo_button_label": {},

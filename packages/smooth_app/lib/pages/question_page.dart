@@ -7,8 +7,8 @@ import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
@@ -401,17 +401,19 @@ class CongratsWidget extends StatelessWidget {
                   }
                   return Column(
                     children: <Widget>[
-                      SmoothActionButton(
-                        text: appLocalizations.sign_in,
-                        onPressed: () async {
-                          Navigator.maybePop<Widget>(context);
-                          await Navigator.push<Widget>(
-                            context,
-                            MaterialPageRoute<Widget>(
-                              builder: (_) => const LoginPage(),
-                            ),
-                          );
-                        },
+                      SmoothActionButtonsBar.single(
+                        action: SmoothActionButton(
+                          text: appLocalizations.sign_in,
+                          onPressed: () async {
+                            Navigator.maybePop<Widget>(context);
+                            await Navigator.push<Widget>(
+                              context,
+                              MaterialPageRoute<Widget>(
+                                builder: (_) => const LoginPage(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                       Padding(
                         padding:
