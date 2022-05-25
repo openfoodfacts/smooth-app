@@ -12,8 +12,8 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -359,22 +359,25 @@ class _ProductPageState extends State<ProductPage> {
     final List<Widget> children = <Widget>[];
     for (final String productListName in productListNames) {
       children.add(
-        SmoothActionButton(
-          text: productListName,
-          onPressed: () async {
-            final ProductList productList = ProductList.user(productListName);
-            await daoProductList.get(productList);
-            if (!mounted) {
-              return;
-            }
-            await Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => ProductListPage(productList),
-              ),
-            );
-            setState(() {});
-          },
+        SmoothActionButtonsBar(
+          positiveAction: SmoothActionButton(
+            text: productListName,
+            onPressed: () async {
+              final ProductList productList = ProductList.user(productListName);
+              await daoProductList.get(productList);
+              if (!mounted) {
+                return;
+              }
+              await Navigator.push<void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) =>
+                      ProductListPage(productList),
+                ),
+              );
+              setState(() {});
+            },
+          ),
         ),
       );
     }

@@ -142,8 +142,8 @@ class _ScanPageTopWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SmoothActionButtonsBar(
-                            positiveAction: SmoothActionButton(
+                          SmoothActionButtonsBar.single(
+                            action: SmoothActionButton(
                               text:
                                   localizations.permission_photo_denied_button,
                               onPressed: () => _askPermission(context),

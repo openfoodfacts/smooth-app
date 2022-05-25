@@ -67,77 +67,81 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         icon: icon ?? const Icon(Icons.open_in_new),
       );
 
+  static const String _iconAssetPath = 'assets/app/release_icon.svg';
+
   Future<void> _about() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
     showDialog<void>(
       context: context,
-      builder: (BuildContext context) => SmoothAlertDialog(
-        body: Column(
-          children: <Widget>[
-            ListTile(
-              leading: SvgPicture.asset(
-                'assets/app/release_icon.svg',
-              ),
-              title: FittedBox(
-                child: Text(
-                  packageInfo.appName,
-                  style: themeData.textTheme.headline1,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          body: Column(
+            children: <Widget>[
+              ListTile(
+                leading: SvgPicture.asset(
+                  _iconAssetPath,
                 ),
-              ),
-              subtitle: Text(
-                '${packageInfo.version}+${packageInfo.buildNumber}',
-                style: themeData.textTheme.subtitle2,
-              ),
-            ),
-            Divider(color: themeData.colorScheme.onSurface),
-            const SizedBox(height: 20),
-            Text(appLocalizations.whatIsOff),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextButton(
-                  onPressed: () => LaunchUrlHelper.launchURL(
-                      'https://openfoodfacts.org/who-we-are', true),
+                title: FittedBox(
                   child: Text(
-                    appLocalizations.learnMore,
-                    style: const TextStyle(
-                      color: Colors.blue,
-                    ),
+                    packageInfo.appName,
+                    style: themeData.textTheme.headline1,
                   ),
                 ),
-                TextButton(
-                  onPressed: () => LaunchUrlHelper.launchURL(
-                      'https://openfoodfacts.org/terms-of-use', true),
-                  child: Text(
-                    appLocalizations.termsOfUse,
-                    style: const TextStyle(
-                      color: Colors.blue,
+                subtitle: Text(
+                  '${packageInfo.version}+${packageInfo.buildNumber}',
+                  style: themeData.textTheme.subtitle2,
+                ),
+              ),
+              Divider(color: themeData.colorScheme.onSurface),
+              const SizedBox(height: 20),
+              Text(appLocalizations.whatIsOff),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextButton(
+                    onPressed: () => LaunchUrlHelper.launchURL(
+                        'https://openfoodfacts.org/who-we-are', true),
+                    child: Text(
+                      appLocalizations.learnMore,
+                      style: const TextStyle(
+                        color: Colors.blue,
+                      ),
                     ),
                   ),
-                )
-              ],
-            )
-          ],
-        ),
-        positiveAction: SmoothActionButton(
-          onPressed: () async {
-            showLicensePage(
-              context: context,
-              applicationName: packageInfo.appName,
-              applicationVersion: packageInfo.version,
-              applicationIcon: SvgPicture.asset(
-                'assets/app/release_icon.svg',
-                height: MediaQuery.of(context).size.height * 0.1,
-              ),
-            );
-          },
-          text: appLocalizations.licenses,
-        ),
-        negativeAction: SmoothActionButton(
-          onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
-          text: appLocalizations.okay,
-        ),
-      ),
+                  TextButton(
+                    onPressed: () => LaunchUrlHelper.launchURL(
+                        'https://openfoodfacts.org/terms-of-use', true),
+                    child: Text(
+                      appLocalizations.termsOfUse,
+                      style: const TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+          positiveAction: SmoothActionButton(
+            onPressed: () async {
+              showLicensePage(
+                context: context,
+                applicationName: packageInfo.appName,
+                applicationVersion: packageInfo.version,
+                applicationIcon: SvgPicture.asset(
+                  _iconAssetPath,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                ),
+              );
+            },
+            text: appLocalizations.licenses,
+          ),
+          negativeAction: SmoothActionButton(
+            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
+            text: appLocalizations.okay,
+          ),
+        );
+      },
     );
   }
 }
