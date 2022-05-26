@@ -93,7 +93,7 @@ packages:
       name: camera_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.6"
+    version: "2.2.0"
   camera_web:
     dependency: transitive
     description:
@@ -654,10 +654,10 @@ packages:
     description:
       path: "."
       ref: fix-Export-visitor-file
-      resolved-ref: "60b17bd325e74ae3c469aae6d7e38a4a57ac558e"
+      resolved-ref: "97304dea26875677ace1cc89e12c352e2572ba67"
       url: "https://github.com/M123-dev/matomo-tracker.git"
     source: git
-    version: "1.1.0"
+    version: "1.1.1"
   meta:
     dependency: transitive
     description:

@@ -126,6 +126,7 @@ class SmoothTheme {
     }
 
     return ThemeData(
+      fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: myColorScheme.onSurface,
@@ -151,35 +152,34 @@ class SmoothTheme {
   }
 
   static const TextTheme _TEXT_THEME = TextTheme(
-    headline1: TextStyle(
-      fontSize: 28.0,
-      fontWeight: FontWeight.bold,
-    ),
-    headline2: TextStyle(
-      fontSize: 24.0,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-    ),
-    headline3: TextStyle(
-      fontSize: 18.0,
-      fontWeight: FontWeight.bold,
-    ),
-    headline4: TextStyle(
-      fontSize: 16.0,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-    ),
-    bodyText2: TextStyle(
-      fontSize: 14,
-      letterSpacing: 0.5,
-    ),
-    subtitle1: TextStyle(
-      fontSize: 14.0,
-    ),
-    subtitle2: TextStyle(
-      fontSize: 12.0,
-    ),
-  );
+      headline1: TextStyle(
+        fontSize: 28.0,
+        fontWeight: FontWeight.bold,
+      ),
+      headline2: TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      headline3: TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+      ),
+      headline4: TextStyle(
+        fontSize: 16.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      bodyText2: TextStyle(
+        fontSize: 14,
+        letterSpacing: 0.5,
+      ),
+      subtitle1: TextStyle(
+        fontSize: 14.0,
+      ),
+      subtitle2: TextStyle(
+        fontSize: 12.0,
+      ));
 
   static MaterialColor getMaterialColorFromColor(Color color) {
     final Map<int, Color> colorShades = <int, Color>{
