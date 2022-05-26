@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:smooth_app/helpers/collections_helper.dart';
@@ -6,7 +7,8 @@ import 'package:smooth_app/helpers/collections_helper.dart';
 /// A tagline is the text displayed on the homepage
 /// It may contain a link to an external resource
 /// No cache is expected here
-/// API URL: [https://world.openfoodfacts.org/files/tagline/tagline-off.json]
+/// API URL: [https://world.openfoodfacts.org/files/tagline-off-ios-v2.json] or
+/// [https://world.openfoodfacts.org/files/tagline-off-android-v2.json]
 Future<TagLineItem?> fetchTagLine(String locale) {
   assert(locale.isNotEmpty);
 
@@ -14,7 +16,7 @@ Future<TagLineItem?> fetchTagLine(String locale) {
       .get(
         Uri.https(
           'world.openfoodfacts.org',
-          '/files/tagline/tagline-off.json',
+          _tagLineUrl,
         ),
       )
       .then(
@@ -23,6 +25,15 @@ Future<TagLineItem?> fetchTagLine(String locale) {
           _TagLine.fromJSON(jsonDecode(value) as List<dynamic>))
       .then((_TagLine tagLine) => tagLine[locale] ?? tagLine['en'])
       .catchError((dynamic err) => null);
+}
+
+/// Based on the platform, the URL may differ
+String get _tagLineUrl {
+  if (Platform.isIOS || Platform.isMacOS) {
+    return 'files/tagline-off-ios-v2.json';
+  } else {
+    return '/files/tagline-off-android-v2.json';
+  }
 }
 
 class _TagLine {
