@@ -195,7 +195,7 @@
     "sign_up_page_username_error_empty": "Vă rugăm să introduceți un nume de utilizator",
     "sign_up_page_username_error_invalid": "Vă rugăm să introduceți un nume de utilizator valid",
     "sign_up_page_username_description": "Numele de utilizator nu poate conține spații, majuscule sau caractere speciale",
-    "sign_up_page_username_length_invalid": "Numele de utilizator trebuie să aibă mai puțin de {value} caractere",
+    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -433,9 +433,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Produs Nou",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Poza din față a produsului",
+    "front_packaging_photo_button_label": "Product front photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirmați încărcarea fotografiei din față a produsului",
+    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -449,10 +449,6 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto ingrediente",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirmați fotografia cu ingredientele",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "Fotografia cu ingredientele încărcată",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "Imposibil de încărcat nutrienții din cache",
@@ -460,26 +456,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Introduceți informații nutriționale",
     "nutritional_facts_added": "Date nutriționale adăugate",
-    "confirm_nutritional_facts_photo_button_label": "Confirmați fotografia cu informațiile nutriționale",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
     "nutritional_facts_photo_uploaded": "Fotografie cu informații nutriționale încărcate",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Fotografia cu informații despre reciclare",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirmați fotografia cu informațiile despre reciclare",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "Fotografia despre reciclare încărcată",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Alte fotografii interesante",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirmați fotografia",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
     "other_photo_uploaded": "Diverse fotografii încărcate",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Refaceți",
@@ -672,7 +656,9 @@
     "retry_button_label": "Reîncercați",
     "connect_with_us": "Conectați-vă cu noi",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "Întrebări frecvente",
     "discover": "Descoperiți",
@@ -753,6 +739,33 @@
     "account_delete": "Ștergere cont",
     "@account_delete": {
         "description": "Delete account button (user profile)"
+    },
+    "user_profile": "Account",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "Bine ați venit!",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "Welcome {id}!",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
     },
     "email_subject_account_deletion": "Ștergere cont",
     "@email_subject_account_deletion": {
@@ -908,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Numele nu poate fi lăsat necompletat",
+    "user_list_name_error_empty": "Name is mandatory",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -974,7 +987,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Adresa URL de bază curentă a mediului de testare este {url}",
+    "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1006,10 +1019,6 @@
     "dev_preferences_export_history_title": "Export istoric",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Resetați limba aplicației",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "excepție",
     "@dev_preferences_export_history_progress_error": {
@@ -1066,7 +1075,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Modul de scanare curent este:\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1079,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Excludeți Ecoscore",
+    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1188,6 +1197,15 @@
     "add_basic_details_brand_name_error": "Vă rugăm să introduceți numele mărcii",
     "quantity": "Cantitatea și greutatea",
     "barcode": "Cod de bare",
+    "barcode_barcode": "Barcode: {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "basic_details_add_success": "Detalii de bază adăugate cu succes",
     "basic_details_add_error": "Nu se pot adăuga detalii de bază. Vă rugăm să încercați din nou după ceva timp",
     "@basic_details_add_error": {
