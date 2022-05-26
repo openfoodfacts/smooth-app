@@ -41,7 +41,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.basic_details)),
       body: Form(
