@@ -12,7 +12,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_contribute.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_faq.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
