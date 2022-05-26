@@ -28,6 +28,7 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
               cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
                 knowledgePanel.titleElement!,
               ),
+              isClickable: isClickable,
             ),
           ],
         );

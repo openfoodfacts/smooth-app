@@ -18,12 +18,14 @@ class ScoreCard extends StatelessWidget {
   const ScoreCard({
     required this.description,
     required this.cardEvaluation,
+    required this.isClickable,
     this.iconUrl,
   });
 
   final String? iconUrl;
   final String description;
   final CardEvaluation cardEvaluation;
+  final bool isClickable;
 
   @override
   Widget build(BuildContext context) {
@@ -66,9 +68,10 @@ class ScoreCard extends StatelessWidget {
               ),
             ),
           ),
-          const Icon(
-            Icons.keyboard_arrow_left,
-          ),
+          if (isClickable)
+            const Icon(
+              Icons.keyboard_arrow_down,
+            ),
         ],
       ),
     );
