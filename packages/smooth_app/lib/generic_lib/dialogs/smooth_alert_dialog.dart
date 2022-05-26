@@ -280,8 +280,10 @@ class _SmoothActionElevatedButton extends StatelessWidget {
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
         maxLines: buttonData.lines ?? 2,
-        style: themeData.textTheme.bodyText2!
-            .copyWith(color: themeData.colorScheme.onPrimary),
+        style: themeData.textTheme.bodyText2!.copyWith(
+          color: themeData.colorScheme.onPrimary,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
@@ -320,6 +322,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
           child: Center(
             child: AutoSizeText(
               buttonData.text.toUpperCase(),
+              style: const TextStyle(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               maxLines: buttonData.lines ?? 2,
