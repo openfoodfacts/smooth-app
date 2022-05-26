@@ -8,6 +8,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
@@ -31,6 +32,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 late bool _screenshots;
 
 Future<void> main({final bool screenshots = false}) async {
+  GoogleFonts.config.allowRuntimeFetching = false;
   // Adding google font licenses
   LicenseRegistry.addLicense(() async* {
     final String license = await rootBundle.loadString('google_fonts/OFL.txt');
