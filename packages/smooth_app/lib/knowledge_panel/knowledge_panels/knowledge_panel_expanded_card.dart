@@ -18,7 +18,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> elementWidgets = <Widget>[];
-    elementWidgets.add(KnowledgePanelSummaryCard(panel));
+    elementWidgets.add(KnowledgePanelSummaryCard(panel, isClickable: false));
     for (final KnowledgePanelElement element
         in panel.elements ?? <KnowledgePanelElement>[]) {
       elementWidgets.add(

@@ -338,7 +338,6 @@ class _SummaryCardState extends State<SummaryCard> {
               description:
                   attribute.descriptionShort ?? attribute.description ?? '',
               cardEvaluation: getCardEvaluationFromAttribute(attribute),
-              showArrow: allowClicking,
             ),
           ),
         );
@@ -349,7 +348,6 @@ class _SummaryCardState extends State<SummaryCard> {
             description:
                 attribute.descriptionShort ?? attribute.description ?? '',
             cardEvaluation: getCardEvaluationFromAttribute(attribute),
-            showArrow: allowClicking,
           ),
         );
       }

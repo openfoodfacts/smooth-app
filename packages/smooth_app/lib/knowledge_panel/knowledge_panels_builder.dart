@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 /// Builds "knowledge panels" panels.
 ///
 /// Panels display large data like all health data or environment data.
+/// This is to be used publicly in the app
 class KnowledgePanelsBuilder {
   const KnowledgePanelsBuilder({
     this.setState,
@@ -104,20 +105,24 @@ class KnowledgePanelsBuilder {
     // [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
     final List<Widget> knowledgePanelElementWidgets = <Widget>[];
     if (context != null) {
-      knowledgePanelElementWidgets.add(Padding(
-        padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
-        child: Text(
-          rootPanel.titleElement!.title,
-          style: Theme.of(context).textTheme.headline3,
+      knowledgePanelElementWidgets.add(
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
+          child: Text(
+            rootPanel.titleElement!.title,
+            style: Theme.of(context).textTheme.headline3,
+          ),
         ),
-      ));
+      );
     }
     for (final KnowledgePanelElement knowledgePanelElement
         in rootPanel.elements ?? <KnowledgePanelElement>[]) {
-      knowledgePanelElementWidgets.add(KnowledgePanelElementCard(
-        knowledgePanelElement: knowledgePanelElement,
-        allPanels: knowledgePanels,
-      ));
+      knowledgePanelElementWidgets.add(
+        KnowledgePanelElementCard(
+          knowledgePanelElement: knowledgePanelElement,
+          allPanels: knowledgePanels,
+        ),
+      );
     }
     if (product != null && context != null) {
       if (panelId == 'health_card') {

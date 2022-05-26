@@ -26,7 +26,7 @@ class KnowledgePanelCard extends StatelessWidget {
     return InkWell(
       child: KnowledgePanelSummaryCard(
         panel,
-        allowClicking: true,
+        isClickable: true,
       ),
       onTap: () {
         Navigator.push<Widget>(

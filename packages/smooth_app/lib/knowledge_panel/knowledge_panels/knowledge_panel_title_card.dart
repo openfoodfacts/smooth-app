@@ -8,11 +8,13 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
     required this.knowledgePanelTitleElement,
+    required this.isClickable,
     this.evaluation,
   });
 
   final TitleElement knowledgePanelTitleElement;
   final Evaluation? evaluation;
+  final bool isClickable;
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +79,10 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               },
             ),
           ),
-          const Icon(
-            Icons.keyboard_arrow_down_outlined,
-          ),
+          if (isClickable)
+            const Icon(
+              Icons.keyboard_arrow_down_outlined,
+            ),
         ],
       ),
     );
