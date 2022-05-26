@@ -131,7 +131,13 @@ class SmoothTheme {
         selectedItemColor: myColorScheme.onSurface,
         unselectedItemColor: myColorScheme.onSurface,
       ),
-      textTheme: _TEXT_THEME,
+      textTheme: brightness == Brightness.dark
+          ? _TEXT_THEME.copyWith(
+              headline2: _TEXT_THEME.headline2?.copyWith(color: Colors.white),
+              headline4: _TEXT_THEME.headline4?.copyWith(color: Colors.white),
+              bodyText2: _TEXT_THEME.bodyText2?.copyWith(color: Colors.white),
+            )
+          : _TEXT_THEME,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: myColorScheme.secondary,
         foregroundColor: myColorScheme.onSecondary,
