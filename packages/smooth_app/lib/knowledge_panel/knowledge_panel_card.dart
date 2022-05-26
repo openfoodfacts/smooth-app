@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_summary_card.dart';
@@ -25,9 +24,11 @@ class KnowledgePanelCard extends StatelessWidget {
       );
     }
     return InkWell(
-      child: KnowledgePanelSummaryCard(panel),
+      child: KnowledgePanelSummaryCard(
+        panel,
+        allowClicking: true,
+      ),
       onTap: () {
-        AnalyticsHelper.trackKnowledgePanelOpen();
         Navigator.push<Widget>(
           context,
           MaterialPageRoute<Widget>(

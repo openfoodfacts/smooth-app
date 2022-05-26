@@ -76,6 +76,8 @@ class SummaryCard extends StatefulWidget {
 }
 
 class _SummaryCardState extends State<SummaryCard> {
+  late final bool allowClicking;
+
   // Number of Rows that will be printed in the SummaryCard, initialized to a
   // very high number for infinite rows.
   int totalPrintableRows = 10000;
@@ -87,6 +89,7 @@ class _SummaryCardState extends State<SummaryCard> {
   @override
   void initState() {
     super.initState();
+    allowClicking = !widget.isFullVersion;
   }
 
   @override
@@ -312,7 +315,20 @@ class _SummaryCardState extends State<SummaryCard> {
           widget.isFullVersion,
           isRemovable: widget.isRemovable,
         ),
-        for (final Attribute attribute in scoreAttributes)
+        ...getAttributes(scoreAttributes),
+        if (widget.isFullVersion) _buildProductQuestionsWidget(),
+        attributesContainer,
+        ...summaryCardButtons,
+      ],
+    );
+  }
+
+  List<Widget> getAttributes(List<Attribute> scoreAttributes) {
+    final List<Widget> attributes = <Widget>[];
+
+    for (final Attribute attribute in scoreAttributes) {
+      if (widget.isFullVersion) {
+        attributes.add(
           InkWell(
             onTap: () async => openFullKnowledgePanel(
               attribute: attribute,
@@ -322,13 +338,23 @@ class _SummaryCardState extends State<SummaryCard> {
               description:
                   attribute.descriptionShort ?? attribute.description ?? '',
               cardEvaluation: getCardEvaluationFromAttribute(attribute),
+              showArrow: allowClicking,
             ),
           ),
-        if (widget.isFullVersion) _buildProductQuestionsWidget(),
-        attributesContainer,
-        ...summaryCardButtons,
-      ],
-    );
+        );
+      } else {
+        attributes.add(
+          ScoreCard(
+            iconUrl: attribute.iconUrl,
+            description:
+                attribute.descriptionShort ?? attribute.description ?? '',
+            cardEvaluation: getCardEvaluationFromAttribute(attribute),
+            showArrow: allowClicking,
+          ),
+        );
+      }
+    }
+    return attributes;
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {

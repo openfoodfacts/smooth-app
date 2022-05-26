@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panel_card.dart';
 
 class KnowledgePanelGroupCard extends StatelessWidget {
   const KnowledgePanelGroupCard({
