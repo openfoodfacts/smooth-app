@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
@@ -7,93 +9,100 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 /// Welcome page for first time users.
 class WelcomePage extends StatelessWidget {
-  const WelcomePage();
+  const WelcomePage(this.backgroundColor);
+
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextStyle headlineStyle =
-        Theme.of(context).textTheme.headline2!.apply(color: Colors.white);
-    final TextStyle bodyTextStyle =
-        Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white);
-    // Side padding is 8% of total width.
-    final double sidePadding = MediaQuery.of(context).size.width * .08;
+    final TextStyle headlineStyle = Theme.of(context).textTheme.headline2!;
+    final TextStyle bodyTextStyle = Theme.of(context).textTheme.bodyText1!;
+    final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Column(children: <Widget>[
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: sidePadding,
-            ),
+      backgroundColor: backgroundColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Spacer(flex: 1),
-                Flexible(
-                  flex: 4,
-                  child: Text(
-                    appLocalizations.whatIsOff,
-                    style: headlineStyle,
-                  ),
+                SizedBox(height: screenSize.height * .05),
+                SvgPicture.asset(
+                  'assets/onboarding/title.svg',
+                  height: screenSize.height * .10,
                 ),
-                Flexible(
-                  flex: 3,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                          start: SMALL_SPACE,
-                        ),
-                        child: Text(
-                          appLocalizations.country_chooser_label,
-                          style: bodyTextStyle,
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                            LARGE_SPACE,
-                          ),
-                          color: Theme.of(context).cardColor,
-                        ),
-                        margin:
-                            const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-                        child: CountrySelector(
-                          initialCountryCode: WidgetsBinding
-                              .instance.window.locale.countryCode
-                              ?.toLowerCase(),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                          start: SMALL_SPACE,
-                          bottom: VERY_SMALL_SPACE,
-                        ),
-                        child: Text(
-                          appLocalizations.country_selection_explanation,
-                          style: bodyTextStyle,
-                        ),
-                      ),
-                    ],
+                SvgPicture.asset(
+                  'assets/onboarding/globe.svg',
+                  height: screenSize.height * .30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  child: SizedBox(
+                    height: screenSize.height * .15,
+                    child: AutoSizeText(
+                      appLocalizations.whatIsOff,
+                      style: headlineStyle,
+                      maxLines: 3,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-        ),
-        const Align(
-          alignment: Alignment.bottomCenter,
-          child: NextButton(OnboardingPage.WELCOME),
-        ),
-      ]),
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  appLocalizations.country_chooser_label,
+                  style: bodyTextStyle,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      LARGE_SPACE,
+                    ),
+                    color: Theme.of(context).cardColor,
+                  ),
+                  margin: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+                  child: CountrySelector(
+                    initialCountryCode: WidgetsBinding
+                        .instance.window.locale.countryCode
+                        ?.toLowerCase(),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: SMALL_SPACE,
+                    bottom: VERY_SMALL_SPACE,
+                  ),
+                  child: Text(
+                    appLocalizations.country_selection_explanation,
+                    style: bodyTextStyle,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          NextButton(
+            OnboardingPage.WELCOME,
+            backgroundColor: backgroundColor,
+          ),
+        ],
+      ),
     );
   }
 }

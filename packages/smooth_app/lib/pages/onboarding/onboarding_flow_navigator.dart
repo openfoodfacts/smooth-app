@@ -10,7 +10,6 @@ import 'package:smooth_app/pages/onboarding/scan_example.dart';
 import 'package:smooth_app/pages/onboarding/welcome_page.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
 
 enum OnboardingPage {
   NOT_STARTED,
@@ -57,7 +56,7 @@ class OnboardingFlowNavigator {
     }
   }
 
-  static OnboardingPage _getPrevPage(OnboardingPage currentPage) {
+  static OnboardingPage getPrevPage(OnboardingPage currentPage) {
     switch (currentPage) {
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.WELCOME:
@@ -93,24 +92,56 @@ class OnboardingFlowNavigator {
     switch (page) {
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.WELCOME:
-        return const WelcomePage();
+        return WelcomePage(getBackgroundColor(page));
       case OnboardingPage.SCAN_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
-            context, page, const ScanExample());
+          context,
+          page,
+          ScanExample(getBackgroundColor(page)),
+        );
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
-            context, page, SampleHealthCardPage(localDatabase));
+          context,
+          page,
+          SampleHealthCardPage(localDatabase, getBackgroundColor(page)),
+        );
       case OnboardingPage.ECO_CARD_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
-            context, page, SampleEcoCardPage(localDatabase));
+          context,
+          page,
+          SampleEcoCardPage(localDatabase, getBackgroundColor(page)),
+        );
       case OnboardingPage.PREFERENCES_PAGE:
         return _wrapWidgetInCustomBackNavigator(
-            context, page, PreferencesPage(localDatabase));
+          context,
+          page,
+          PreferencesPage(localDatabase, getBackgroundColor(page)),
+        );
       case OnboardingPage.CONSENT_PAGE:
         return _wrapWidgetInCustomBackNavigator(
             context, page, const ConsentAnalytics());
       case OnboardingPage.ONBOARDING_COMPLETE:
         return InheritedDataManager(child: PageManager());
+    }
+  }
+
+  Color getBackgroundColor(final OnboardingPage page) {
+    switch (page) {
+      case OnboardingPage.NOT_STARTED:
+      case OnboardingPage.WELCOME:
+        return const Color(0xFFFCFCFC);
+      case OnboardingPage.SCAN_EXAMPLE:
+        return const Color(0xFFE3F6FF);
+      case OnboardingPage.HEALTH_CARD_EXAMPLE:
+        return const Color(0xFFFFF1D1);
+      case OnboardingPage.ECO_CARD_EXAMPLE:
+        return const Color(0xFFE3F6DE);
+      case OnboardingPage.PREFERENCES_PAGE:
+        return const Color(0xFFEBF1FF);
+      case OnboardingPage.CONSENT_PAGE:
+        return const Color(0xFFFCFCFC);
+      case OnboardingPage.ONBOARDING_COMPLETE:
+        return const Color(0xFFFCFCFC);
     }
   }
 
@@ -122,13 +153,6 @@ class OnboardingFlowNavigator {
       child: Builder(
         builder: (BuildContext context) => Scaffold(
           body: widget,
-          appBar: AppBar(
-            leading: IconButton(
-              icon: Icon(ConstantIcons.instance.getBackIcon()),
-              onPressed: () =>
-                  navigateToPage(context, _getPrevPage(currentPage)),
-            ),
-          ),
         ),
       ),
     );
