@@ -62,7 +62,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      '${appLocalizations.barcode}: ${widget.product.barcode!}',
+                      appLocalizations.barcode_barcode(widget.product.barcode),
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
