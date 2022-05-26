@@ -32,7 +32,8 @@ import 'package:smooth_app/themes/theme_provider.dart';
 late bool _screenshots;
 
 Future<void> main({final bool screenshots = false}) async {
-  GoogleFonts.config.allowRuntimeFetching = false;
+  // We can disable this when https://github.com/material-foundation/google-fonts-flutter/issues/247 is fixed
+  GoogleFonts.config.allowRuntimeFetching = true;
   // Adding google font licenses
   LicenseRegistry.addLicense(() async* {
     final String license = await rootBundle.loadString('google_fonts/OFL.txt');
