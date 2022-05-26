@@ -6,15 +6,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/scan/continuous_scan_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/pages/scan/scanner_overlay.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
@@ -73,17 +70,8 @@ class _ScanPageBackgroundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<PermissionListener>(
       builder: (BuildContext context, PermissionListener listener, _) {
-        final UserPreferences userPreferences = context.read<UserPreferences>();
-
         if (listener.value.isGranted) {
-          if (userPreferences.getFlag(
-                UserPreferencesDevMode.userPreferencesFlagUseMLKit,
-              ) ??
-              true) {
-            return const MLKitScannerPage();
-          } else {
-            return const ContinuousScanPage();
-          }
+          return const MLKitScannerPage();
         } else {
           return const SizedBox();
         }
@@ -154,9 +142,12 @@ class _ScanPageTopWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SmoothActionButton(
-                            text: localizations.permission_photo_denied_button,
-                            onPressed: () => _askPermission(context),
+                          SmoothActionButtonsBar.single(
+                            action: SmoothActionButton(
+                              text:
+                                  localizations.permission_photo_denied_button,
+                              onPressed: () => _askPermission(context),
+                            ),
                           ),
                         ],
                       ),
@@ -190,18 +181,18 @@ class _ScanPageTopWidget extends StatelessWidget {
                   height: 1.6,
                 ),
               ),
-              actions: <SmoothActionButton>[
-                SmoothActionButton(
-                  text: localizations
-                      .permission_photo_denied_dialog_settings_button_cancel,
-                  onPressed: () => Navigator.of(context).pop(false),
-                ),
-                SmoothActionButton(
-                  text: localizations
-                      .permission_photo_denied_dialog_settings_button_open,
-                  onPressed: () => Navigator.of(context).pop(true),
-                ),
-              ],
+              negativeAction: SmoothActionButton(
+                text: localizations
+                    .permission_photo_denied_dialog_settings_button_cancel,
+                onPressed: () => Navigator.of(context).pop(false),
+                lines: 2,
+              ),
+              positiveAction: SmoothActionButton(
+                text: localizations
+                    .permission_photo_denied_dialog_settings_button_open,
+                onPressed: () => Navigator.of(context).pop(true),
+                lines: 2,
+              ),
             );
           });
     });

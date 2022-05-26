@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
@@ -12,8 +13,8 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -37,7 +38,7 @@ class ProductPage extends StatefulWidget {
   State<ProductPage> createState() => _ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> {
+class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late Product _product;
   late ProductPreferences _productPreferences;
   late ScrollController _scrollController;
@@ -45,11 +46,17 @@ class _ProductPageState extends State<ProductPage> {
   bool scrollingUp = true;
 
   @override
+  String get traceName => '${widget.product.barcode} is the product barcode';
+
+  @override
+  String get traceTitle => 'product_page';
+
+  @override
   void initState() {
     super.initState();
     _product = widget.product;
     _scrollController = ScrollController();
-    _updateLocalDatabaseWithProductHistory(context, _product);
+    _updateLocalDatabaseWithProductHistory(context, false);
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
@@ -67,7 +74,7 @@ class _ProductPageState extends State<ProductPage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
-    return Scaffold(
+    final Scaffold scaffold = Scaffold(
       backgroundColor: SmoothTheme.getColor(
         colorScheme,
         materialColor,
@@ -75,7 +82,6 @@ class _ProductPageState extends State<ProductPage> {
       ),
       floatingActionButton: scrollingUp
           ? FloatingActionButton(
-              backgroundColor: colorScheme.primary,
               onPressed: () {
                 Navigator.maybePop(context);
               },
@@ -108,6 +114,13 @@ class _ProductPageState extends State<ProductPage> {
               child: _buildProductBody(context)),
         ],
       ),
+    );
+    return WillPopScope(
+      onWillPop: () async {
+        _updateLocalDatabaseWithProductHistory(context, true);
+        return true;
+      },
+      child: scaffold,
     );
   }
 
@@ -142,17 +155,23 @@ class _ProductPageState extends State<ProductPage> {
         ),
       );
       setState(() => _product = fetchedProduct.product!);
-      await _updateLocalDatabaseWithProductHistory(context, _product);
     } else {
       productDialogHelper.openError(fetchedProduct);
     }
   }
 
-  Future<void> _updateLocalDatabaseWithProductHistory(
-      BuildContext context, Product product) async {
+  void _updateLocalDatabaseWithProductHistory(
+    final BuildContext context,
+    final bool notify,
+  ) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    DaoProductList(localDatabase).push(ProductList.history(), product.barcode!);
-    localDatabase.notifyListeners();
+    DaoProductList(localDatabase).push(
+      ProductList.history(),
+      _product.barcode!,
+    );
+    if (notify) {
+      localDatabase.notifyListeners();
+    }
   }
 
   Widget _buildProductBody(BuildContext context) {
@@ -347,22 +366,25 @@ class _ProductPageState extends State<ProductPage> {
     final List<Widget> children = <Widget>[];
     for (final String productListName in productListNames) {
       children.add(
-        SmoothActionButton(
-          text: productListName,
-          onPressed: () async {
-            final ProductList productList = ProductList.user(productListName);
-            await daoProductList.get(productList);
-            if (!mounted) {
-              return;
-            }
-            await Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => ProductListPage(productList),
-              ),
-            );
-            setState(() {});
-          },
+        SmoothActionButtonsBar(
+          positiveAction: SmoothActionButton(
+            text: productListName,
+            onPressed: () async {
+              final ProductList productList = ProductList.user(productListName);
+              await daoProductList.get(productList);
+              if (!mounted) {
+                return;
+              }
+              await Navigator.push<void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) =>
+                      ProductListPage(productList),
+                ),
+              );
+              setState(() {});
+            },
+          ),
         ),
       );
     }

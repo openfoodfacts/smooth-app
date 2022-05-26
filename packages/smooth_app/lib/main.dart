@@ -22,6 +22,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -59,6 +60,7 @@ class SmoothApp extends StatefulWidget {
   State<SmoothApp> createState() => _SmoothAppState();
 }
 
+late SmoothAppDataImporter _appDataImporter;
 late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
@@ -85,6 +87,7 @@ Future<bool> _init1() async {
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
+  _appDataImporter = SmoothAppDataImporter(_localDatabase);
   await _continuousScanModel.load(_localDatabase);
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
@@ -96,7 +99,6 @@ Future<bool> _init1() async {
   );
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
-  AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);
   _themeProvider = ThemeProvider(_userPreferences);
   ProductQuery.setQueryType(_userPreferences);
@@ -176,6 +178,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ThemeProvider>(_themeProvider),
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
+            provide<SmoothAppDataImporter>(_appDataImporter),
           ],
           builder: _buildApp,
         );
@@ -200,11 +203,11 @@ class _SmoothAppState extends State<SmoothApp> {
       ],
       theme: SmoothTheme.getThemeData(
         Brightness.light,
-        themeProvider.colorTag,
+        themeProvider,
       ),
       darkTheme: SmoothTheme.getThemeData(
         Brightness.dark,
-        themeProvider.colorTag,
+        themeProvider,
       ),
       themeMode: themeProvider.currentThemeMode,
       home: SmoothAppGetLanguage(appWidget),
@@ -237,8 +240,8 @@ class SmoothAppGetLanguage extends StatelessWidget {
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);
 
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    AnalyticsHelper.trackStart(localDatabase, context);
+    // The migration requires the language to be set in the app
+    _appDataImporter.startMigrationAsync();
 
     return appWidget;
   }

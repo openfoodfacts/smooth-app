@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -11,7 +10,9 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
+
   final Product product;
+
   @override
   State<AddBasicDetailsPage> createState() => _AddBasicDetailsPageState();
 }
@@ -23,6 +24,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -39,7 +41,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.basic_details)),
       body: Form(
@@ -62,10 +63,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   children: <Widget>[
                     Text(
                       '${appLocalizations.barcode}: ${widget.product.barcode!}',
-                      style: TextStyle(
-                        color: colorScheme.onBackground,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                     SizedBox(height: _heightSpace),
                     SmoothTextFormField(
@@ -103,15 +103,16 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   ],
                 ),
               ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SmoothActionButton(
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: LARGE_SPACE,
+              ),
+              child: SmoothActionButtonsBar(
+                negativeAction: SmoothActionButton(
                   text: appLocalizations.cancel,
                   onPressed: () => Navigator.pop(context),
                 ),
-                SmoothActionButton(
+                positiveAction: SmoothActionButton(
                     text: appLocalizations.save,
                     onPressed: () async {
                       if (!_formKey.currentState!.validate()) {
@@ -119,7 +120,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       }
                       final Status? status = await _saveData();
                       if (status == null || status.error != null) {
-                        _errormessageAlert(
+                        _errorMessageAlert(
                             appLocalizations.basic_details_add_error);
                         return;
                       }
@@ -131,7 +132,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                               appLocalizations.basic_details_add_success)));
                       Navigator.pop(context, true);
                     }),
-              ],
+              ),
             ),
           ],
         ),
@@ -139,19 +140,17 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     );
   }
 
-  void _errormessageAlert(final String message) => showDialog<void>(
+  void _errorMessageAlert(final String message) => showDialog<void>(
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
           body: ListTile(
             leading: const Icon(Icons.error_outline, color: Colors.red),
             title: Text(message),
           ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: AppLocalizations.of(context).close,
-              onPressed: () => Navigator.pop(context),
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: AppLocalizations.of(context).close,
+            onPressed: () => Navigator.pop(context),
+          ),
         ),
       );
 

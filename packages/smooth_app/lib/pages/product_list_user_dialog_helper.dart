@@ -31,6 +31,7 @@ class ProductListUserDialogHelper {
             type: TextFieldTypes.PLAIN_TEXT,
             controller: textEditingController,
             hintText: appLocalizations.user_list_name_hint,
+            autofocus: true,
             textInputAction: TextInputAction.done,
             validator: (String? value) {
               final List<String> lists = daoProductList.getUserLists();

@@ -27,9 +27,7 @@ class KnowledgePanelCard extends StatelessWidget {
     return InkWell(
       child: KnowledgePanelSummaryCard(panel),
       onTap: () {
-        AnalyticsHelper.trackKnowledgePanelOpen(
-          knowledgePanelName: panel.titleElement.toString(),
-        );
+        AnalyticsHelper.trackKnowledgePanelOpen();
         Navigator.push<Widget>(
           context,
           MaterialPageRoute<Widget>(

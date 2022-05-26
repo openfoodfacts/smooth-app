@@ -1,4 +1,4 @@
-<img height='175' src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg" align="left" hspace="1" vspace="1">
+<img height='175' src="https://en.blog.openfoodfacts.org/images/EXE_LOGO_OFF_RVB_Plan_de_travail_1_copie_0_t.jpg" align="left" hspace="1" vspace="1">
 
 # Open Food Facts - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
@@ -39,11 +39,11 @@ We are always looking for new contributors, if you're willing to help please let
 ## Wiki & Doc 
 - [Project Smoothie - Open Food Facts wiki](https://wiki.openfoodfacts.org/Project_Smoothie)
 - [Documentation (from code), on GitHub Pages](https://openfoodfacts.github.io/smooth-app/)
-- [Smoothie GitHub wiki](https://github.com/openfoodfacts/smooth-app/wiki)
-- [Smoothie marketing automation repository](https://github.com/openfoodfacts/fastlane-descriptions-smoothie/pulls)
+- [Project Smoothie GitHub wiki](https://github.com/openfoodfacts/smooth-app/wiki)
+- [Project Smoothie marketing automation repository](https://github.com/openfoodfacts/fastlane-descriptions-smoothie/pulls)
 - [UX mockups are located here](https://www.figma.com/file/lhRhMulB4Ek9NYDWl3FxAo/Fellowship-Jam-file?node-id=12%3A358). Please be aware that some of them have not been validated, so don't rush in implementing them. 
 - [Continuous Integration documentation](.github/workflows/README.md)
-- [Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
+- [Project Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
 - Private app signing for iOS certificates repository - please ask @teolemon
 ## V1 Roadmap
 - [ ] Minimal editing/addition value proposition
@@ -79,4 +79,4 @@ In order to build the application, make sure you are in the packages/smooth_app 
 ![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
 
 ## Thank you
-Smooth_app is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
+The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 

@@ -8,7 +8,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -16,12 +18,14 @@ import 'package:smooth_app/themes/theme_provider.dart';
 class MockSmoothApp extends StatelessWidget {
   const MockSmoothApp(
     this.userPreferences,
+    this.userManagementProvider,
     this.productPreferences,
     this.themeProvider,
     this.child,
   );
 
   final UserPreferences userPreferences;
+  final UserManagementProvider userManagementProvider;
   final ProductPreferences productPreferences;
   final ThemeProvider themeProvider;
   final Widget child;
@@ -34,17 +38,19 @@ class MockSmoothApp extends StatelessWidget {
           ChangeNotifierProvider<ProductPreferences>.value(
               value: productPreferences),
           ChangeNotifierProvider<ThemeProvider>.value(value: themeProvider),
+          ChangeNotifierProvider<UserManagementProvider>.value(
+              value: userManagementProvider),
         ],
         child: MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           theme: SmoothTheme.getThemeData(
             Brightness.light,
-            themeProvider.colorTag,
+            themeProvider,
           ),
           darkTheme: SmoothTheme.getThemeData(
             Brightness.dark,
-            themeProvider.colorTag,
+            themeProvider,
           ),
           themeMode: themeProvider.currentThemeMode,
           home: child,
@@ -53,14 +59,14 @@ class MockSmoothApp extends StatelessWidget {
 }
 
 Map<String, Object> mockSharedPreferences({
-  String colorTag = 'blue',
+  Color color = Colors.lightBlue,
   bool init = true,
   bool themeDark = false,
 }) =>
     <String, Object>{
       // Configured by test
       'init': init,
-      'themeColorTag': colorTag,
+      'customColorTag': color.toPreferencesString,
       'currentThemeMode': themeDark ? 'Dark' : 'Light',
 
       // Very important by default
