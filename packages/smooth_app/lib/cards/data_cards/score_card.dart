@@ -5,6 +5,8 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
+import '../../themes/constant_icons.dart';
+
 enum CardEvaluation {
   UNKNOWN,
   VERY_BAD,
@@ -68,10 +70,7 @@ class ScoreCard extends StatelessWidget {
               ),
             ),
           ),
-          if (isClickable)
-            const Icon(
-              Icons.keyboard_arrow_down,
-            ),
+          if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
         ],
       ),
     );
