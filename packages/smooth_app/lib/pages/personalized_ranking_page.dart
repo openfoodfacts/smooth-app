@@ -90,7 +90,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: colorScheme.background,
-          foregroundColor: colorScheme.onBackground,
           bottom: TabBar(
             unselectedLabelStyle: const TextStyle(
               fontSize: 15,
