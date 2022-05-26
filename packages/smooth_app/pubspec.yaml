@@ -87,6 +87,10 @@ dev_dependencies:
   path_provider_platform_interface: ^2.0.4
   plugin_platform_interface: ^2.1.2
 
+dependency_overrides:
+  path: 1.8.0
+  meta: 1.7.0
+
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
   android: "launcher_icon"
