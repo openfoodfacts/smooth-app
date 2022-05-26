@@ -64,10 +64,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   children: <Widget>[
                     Text(
                       '${appLocalizations.barcode}: ${widget.product.barcode!}',
-                      style: TextStyle(
-                        color: colorScheme.onBackground,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                     SizedBox(height: _heightSpace),
                     SmoothTextFormField(
@@ -105,31 +104,36 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   ],
                 ),
               ),
-            SmoothActionButtonsBar(
-              negativeAction: SmoothActionButton(
-                text: appLocalizations.cancel,
-                onPressed: () => Navigator.pop(context),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: LARGE_SPACE,
               ),
-              positiveAction: SmoothActionButton(
-                  text: appLocalizations.save,
-                  onPressed: () async {
-                    if (!_formKey.currentState!.validate()) {
-                      return;
-                    }
-                    final Status? status = await _saveData();
-                    if (status == null || status.error != null) {
-                      _errorMessageAlert(
-                          appLocalizations.basic_details_add_error);
-                      return;
-                    }
-                    if (!mounted) {
-                      return;
-                    }
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content:
-                            Text(appLocalizations.basic_details_add_success)));
-                    Navigator.pop(context, true);
-                  }),
+              child: SmoothActionButtonsBar(
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.cancel,
+                  onPressed: () => Navigator.pop(context),
+                ),
+                positiveAction: SmoothActionButton(
+                    text: appLocalizations.save,
+                    onPressed: () async {
+                      if (!_formKey.currentState!.validate()) {
+                        return;
+                      }
+                      final Status? status = await _saveData();
+                      if (status == null || status.error != null) {
+                        _errorMessageAlert(
+                            appLocalizations.basic_details_add_error);
+                        return;
+                      }
+                      if (!mounted) {
+                        return;
+                      }
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(
+                              appLocalizations.basic_details_add_success)));
+                      Navigator.pop(context, true);
+                    }),
+              ),
             ),
           ],
         ),
