@@ -49,7 +49,7 @@ abstract class AbstractUserPreferences {
         child: getHeaderHelper(false),
       );
 
-  Icon getForwardIcon() => Icon(ConstantIcons.instance.getForwardIcon());
+  Icon? getForwardIcon() => Icon(ConstantIcons.instance.getForwardIcon());
 
   /// Returns the tappable header.
   @protected
@@ -87,7 +87,6 @@ abstract class AbstractUserPreferences {
   }
 
   /// Returns the action when we tap on the header.
-  @protected
   Future<void> runHeaderAction() async => Navigator.push<Widget>(
         context,
         MaterialPageRoute<Widget>(

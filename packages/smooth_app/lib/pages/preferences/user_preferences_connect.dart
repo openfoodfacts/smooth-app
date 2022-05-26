@@ -40,15 +40,15 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   List<Widget> getBody() => <Widget>[
         _getListTile(
           title: appLocalizations.instagram,
-          url: 'https://instagram.com/open.food.facts',
+          url: appLocalizations.instagram_link,
         ),
         _getListTile(
           title: appLocalizations.twitter,
-          url: 'https://www.twitter.com/openfoodfacts',
+          url: appLocalizations.twitter_link,
         ),
         _getListTile(
           title: appLocalizations.blog,
-          url: 'https://en.blog.openfoodfacts.org',
+          url: 'https://blog.openfoodfacts.org',
         ),
         _getListTile(
           title: appLocalizations.support_join_slack,
@@ -76,7 +76,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
     final VoidCallback? onTap,
   }) =>
       UserPreferencesListTile(
-        title: Text(title, style: themeData.textTheme.headline4),
+        title: Text(title),
         onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
         icon: const Icon(Icons.open_in_new),
       );

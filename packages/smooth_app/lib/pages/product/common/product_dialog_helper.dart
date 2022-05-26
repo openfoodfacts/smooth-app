@@ -5,7 +5,6 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/barcode_product_query.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
@@ -53,22 +52,19 @@ class ProductDialogHelper {
                   ? AppLocalizations.of(context).could_not_refresh
                   : '${AppLocalizations.of(context).no_product_found}: $barcode',
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                text: AppLocalizations.of(context).close,
-                onPressed: () => Navigator.pop(context),
-              ),
-              SmoothActionButton(
-                text: AppLocalizations.of(context).contribute,
-                onPressed: () => Navigator.push<bool?>(
-                  context,
-                  MaterialPageRoute<bool?>(
-                    builder: (BuildContext context) =>
-                        AddNewProductPage(barcode),
-                  ),
+            positiveAction: SmoothActionButton(
+              text: AppLocalizations.of(context).contribute,
+              onPressed: () => Navigator.push<bool?>(
+                context,
+                MaterialPageRoute<bool?>(
+                  builder: (BuildContext context) => AddNewProductPage(barcode),
                 ),
               ),
-            ],
+            ),
+            negativeAction: SmoothActionButton(
+              text: AppLocalizations.of(context).close,
+              onPressed: () => Navigator.pop(context),
+            ),
           );
         },
       );
@@ -82,12 +78,10 @@ class ProductDialogHelper {
         context: context,
         builder: (BuildContext context) => SmoothAlertDialog(
           body: getErrorMessage(message),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: AppLocalizations.of(context).close,
-              onPressed: () => Navigator.pop(context),
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: AppLocalizations.of(context).close,
+            onPressed: () => Navigator.pop(context),
+          ),
         ),
       );
 

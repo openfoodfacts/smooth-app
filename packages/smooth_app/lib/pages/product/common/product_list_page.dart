@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +9,6 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -27,7 +27,8 @@ class ProductListPage extends StatefulWidget {
   State<ProductListPage> createState() => _ProductListPageState();
 }
 
-class _ProductListPageState extends State<ProductListPage> {
+class _ProductListPageState extends State<ProductListPage>
+    with TraceableClientMixin {
   late ProductList productList;
   bool first = true;
   final Set<String> _selectedBarcodes = <String>{};
@@ -35,6 +36,13 @@ class _ProductListPageState extends State<ProductListPage> {
 
   static const String _popupActionClear = 'clear';
   static const String _popupActionRename = 'rename';
+
+  @override
+  String get traceName =>
+      'Opened list page ${widget.productList.listType} / ${widget.productList.getParametersKey()}';
+
+  @override
+  String get traceTitle => 'list_page';
 
   @override
   Widget build(BuildContext context) {
@@ -76,26 +84,24 @@ class _ProductListPageState extends State<ProductListPage> {
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
                               body: Text(appLocalizations.confirm_clear),
-                              actions: <SmoothActionButton>[
-                                SmoothActionButton(
-                                  onPressed: () async {
-                                    daoProductList.clear(productList);
-                                    await daoProductList.get(productList);
-                                    setState(() {});
-                                    if (!mounted) {
-                                      return;
-                                    }
-                                    Navigator.of(context).pop();
-                                  },
-                                  text: appLocalizations.yes,
-                                ),
-                                SmoothActionButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  text: appLocalizations.no,
-                                ),
-                              ],
+                              positiveAction: SmoothActionButton(
+                                onPressed: () async {
+                                  daoProductList.clear(productList);
+                                  await daoProductList.get(productList);
+                                  setState(() {});
+                                  if (!mounted) {
+                                    return;
+                                  }
+                                  Navigator.of(context).pop();
+                                },
+                                text: appLocalizations.yes,
+                              ),
+                              negativeAction: SmoothActionButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                text: appLocalizations.no,
+                              ),
                             );
                           },
                         );

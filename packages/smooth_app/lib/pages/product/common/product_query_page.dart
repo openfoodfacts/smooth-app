@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +40,8 @@ class ProductQueryPage extends StatefulWidget {
   State<ProductQueryPage> createState() => _ProductQueryPageState();
 }
 
-class _ProductQueryPageState extends State<ProductQueryPage> {
+class _ProductQueryPageState extends State<ProductQueryPage>
+    with TraceableClientMixin {
   // we have to use GlobalKey's for SnackBar's because of nested Scaffold's:
   // not the 2 Scaffold's here but one of them and the one on top (PageManager)
   final GlobalKey<ScaffoldMessengerState> _scaffoldKeyEmpty =
@@ -51,6 +53,9 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
 
   late ProductQueryModel _model;
   int? _lastUpdate;
+
+  @override
+  String get traceTitle => 'search_page';
 
   @override
   void initState() {
@@ -138,6 +143,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       ScaffoldMessenger(
         key: _scaffoldKeyEmpty,
         child: Scaffold(
+          backgroundColor: widget.mainColor.withAlpha(32),
           body: Stack(
             children: <Widget>[
               _getHero(screenSize, themeData),
@@ -150,22 +156,20 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                       pinned: true,
                       elevation: 0,
                       automaticallyImplyLeading: false,
-                      title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            _getBackArrow(context, widget.mainColor),
-                          ]),
+                      leading: _BackButton(
+                        color: widget.mainColor,
+                      ),
                       flexibleSpace: LayoutBuilder(builder:
                           (BuildContext context, BoxConstraints constraints) {
                         return FlexibleSpaceBar(
-                            centerTitle: true,
-                            title: Text(
-                              widget.name,
-                              textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1!
-                                  .copyWith(color: widget.mainColor),
-                            ),
-                            background: _getHero(screenSize, themeData));
+                          centerTitle: true,
+                          title: Text(
+                            widget.name,
+                            textAlign: TextAlign.center,
+                            style: themeData.textTheme.headline1!
+                                .copyWith(color: widget.mainColor),
+                          ),
+                        );
                       })),
                 ],
               ),
@@ -183,6 +187,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       ScaffoldMessenger(
         key: _scaffoldKeyNotEmpty,
         child: Scaffold(
+          backgroundColor: widget.mainColor.withAlpha(32),
           floatingActionButton: Row(
             mainAxisAlignment: _showBackToTopButton
                 ? MainAxisAlignment.spaceBetween
@@ -241,47 +246,43 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
                       pinned: true,
                       elevation: 0,
                       automaticallyImplyLeading: false,
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          _getBackArrow(context, widget.mainColor),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 24.0),
-                            child: TextButton.icon(
-                              icon: Icon(
-                                Icons.filter_list,
-                                color: widget.mainColor,
-                              ),
-                              label: Text(AppLocalizations.of(context).filter,
-                                  style: themeData.textTheme.subtitle1!
-                                      .copyWith(color: widget.mainColor)),
-                              style: TextButton.styleFrom(
-                                primary: widget.mainColor,
-                                textStyle: TextStyle(
-                                  color: widget.mainColor,
-                                ),
-                              ),
-                              onPressed: () {
-                                showCupertinoModalBottomSheet<Widget>(
-                                  expand: false,
-                                  context: context,
-                                  backgroundColor: Colors.transparent,
-                                  bounce: true,
-                                  builder: (BuildContext context) =>
-                                      GroupQueryFilterView(
-                                    categories: _model.categories,
-                                    categoriesList: _model.sortedCategories,
-                                    callback: (String category) {
-                                      _model.selectCategory(category);
-                                      setState(() {});
-                                    },
-                                  ),
-                                );
-                              },
+                      leading: _BackButton(
+                        color: widget.mainColor,
+                      ),
+                      actions: <Widget>[
+                        TextButton.icon(
+                          icon: Icon(
+                            Icons.filter_list,
+                            color: widget.mainColor,
+                          ),
+                          label: Text(AppLocalizations.of(context).filter,
+                              style: themeData.textTheme.subtitle1!
+                                  .copyWith(color: widget.mainColor)),
+                          style: TextButton.styleFrom(
+                            primary: widget.mainColor,
+                            textStyle: TextStyle(
+                              color: widget.mainColor,
                             ),
                           ),
-                        ],
-                      ),
+                          onPressed: () {
+                            showCupertinoModalBottomSheet<Widget>(
+                              expand: false,
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              bounce: true,
+                              builder: (BuildContext context) =>
+                                  GroupQueryFilterView(
+                                categories: _model.categories,
+                                categoriesList: _model.sortedCategories,
+                                callback: (String category) {
+                                  _model.selectCategory(category);
+                                  setState(() {});
+                                },
+                              ),
+                            );
+                          },
+                        )
+                      ],
                       flexibleSpace: LayoutBuilder(
                         builder: (
                           BuildContext context,
@@ -388,10 +389,7 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
       tag: widget.heroTag,
       child: Container(
         width: screenSize.width,
-        height: screenSize.height,
-        decoration: BoxDecoration(
-          color: widget.mainColor.withAlpha(32),
-        ),
+        height: double.infinity,
         padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 96.0),
       ));
 
@@ -472,18 +470,6 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
     );
   }
 
-  static Widget _getBackArrow(final BuildContext context, final Color color) =>
-      Padding(
-        padding: const EdgeInsets.only(top: 28.0),
-        child: IconButton(
-          splashColor: color,
-          icon: Icon(
-            ConstantIcons.instance.getBackIcon(),
-            color: color,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-      );
   void retryConnection() {
     setState(() {
       _model = ProductQueryModel(widget.productListSupplier);
@@ -504,5 +490,25 @@ class _ProductQueryPageState extends State<ProductQueryPage> {
   void _scrollToTop() {
     _scrollController.animateTo(0,
         duration: const Duration(seconds: 3), curve: Curves.linear);
+  }
+}
+
+class _BackButton extends StatelessWidget {
+  const _BackButton({
+    required this.color,
+    Key? key,
+  }) : super(key: key);
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(ConstantIcons.instance.getBackIcon()),
+      color: color,
+      onPressed: () {
+        Navigator.maybePop(context);
+      },
+    );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
@@ -12,8 +13,8 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -37,12 +38,18 @@ class ProductPage extends StatefulWidget {
   State<ProductPage> createState() => _ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> {
+class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late Product _product;
   late ProductPreferences _productPreferences;
   late ScrollController _scrollController;
   bool _mustScrollToTheEnd = false;
   bool scrollingUp = true;
+
+  @override
+  String get traceName => '${widget.product.barcode} is the product barcode';
+
+  @override
+  String get traceTitle => 'product_page';
 
   @override
   void initState() {
@@ -359,22 +366,25 @@ class _ProductPageState extends State<ProductPage> {
     final List<Widget> children = <Widget>[];
     for (final String productListName in productListNames) {
       children.add(
-        SmoothActionButton(
-          text: productListName,
-          onPressed: () async {
-            final ProductList productList = ProductList.user(productListName);
-            await daoProductList.get(productList);
-            if (!mounted) {
-              return;
-            }
-            await Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => ProductListPage(productList),
-              ),
-            );
-            setState(() {});
-          },
+        SmoothActionButtonsBar(
+          positiveAction: SmoothActionButton(
+            text: productListName,
+            onPressed: () async {
+              final ProductList productList = ProductList.user(productListName);
+              await daoProductList.get(productList);
+              if (!mounted) {
+                return;
+              }
+              await Navigator.push<void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) =>
+                      ProductListPage(productList),
+                ),
+              );
+              setState(() {});
+            },
+          ),
         ),
       );
     }

@@ -5,6 +5,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
@@ -41,7 +42,11 @@ class _MLKitScannerPageContent extends LifecycleAwareStatefulWidget {
 }
 
 class MLKitScannerPageState
-    extends LifecycleAwareState<_MLKitScannerPageContent> {
+    extends LifecycleAwareState<_MLKitScannerPageContent>
+    with TraceableClientMixin {
+  @override
+  String get traceTitle => 'ml_kit_scan_page';
+
   /// If the camera is being closed (when [stoppingCamera] == true) and this
   /// Widget is visible again, we add a post frame callback to detect if the
   /// Widget is still visible
@@ -259,7 +264,9 @@ class MLKitScannerPageState
   Future<void> _onNewBarcodeDetected(List<String> barcodes) async {
     for (final String barcode in barcodes) {
       if (await _model.onScan(barcode)) {
+        // Both are Future methods, but it doesn't matter to wait here
         HapticFeedback.lightImpact();
+        _userPreferences.setFirstScanAchieved();
       }
     }
   }

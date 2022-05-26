@@ -45,6 +45,7 @@ class SmoothTheme {
     final ColorDestination colorDestination,
   ) =>
       instance.getColorImpl(colorScheme, materialColor, colorDestination);
+
   static MaterialColor getMaterialColor(
     final BuildContext context,
   ) =>
@@ -118,7 +119,7 @@ class SmoothTheme {
 
     // TODO(Marvin): Remove when we have a fixed color
     // Fix for current standart color (LightBlue) text color being black not white on certain areas
-    if (themeProvider.color == const Color(0xff03a9f4)) {
+    if (themeProvider.color.isSimilarTo(const Color(0xFF03A9F4))) {
       myColorScheme = myColorScheme.copyWith(
         onPrimary: Colors.white,
       );
@@ -139,6 +140,7 @@ class SmoothTheme {
         color: brightness == Brightness.dark ? null : myColorScheme.primary,
       ),
       toggleableActiveColor: myColorScheme.primary,
+      dividerColor: const Color(0xFFdfdfdf),
     );
   }
 
@@ -150,6 +152,7 @@ class SmoothTheme {
     headline2: TextStyle(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
+      color: Colors.black,
     ),
     headline3: TextStyle(
       fontSize: 18.0,
@@ -158,6 +161,7 @@ class SmoothTheme {
     headline4: TextStyle(
       fontSize: 16.0,
       fontWeight: FontWeight.bold,
+      color: Colors.black,
     ),
     bodyText2: TextStyle(
       fontSize: 14,
@@ -197,5 +201,14 @@ class SmoothTheme {
             .clamp(0.0, 1.0));
 
     return hslDark.toColor();
+  }
+}
+
+extension _ColorExtension on Color {
+  bool isSimilarTo(Color color) {
+    return alpha == color.alpha &&
+        red == color.red &&
+        green == color.green &&
+        blue == color.blue;
   }
 }
