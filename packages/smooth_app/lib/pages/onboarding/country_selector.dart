@@ -71,65 +71,60 @@ class _CountrySelectorState extends State<CountrySelector> {
                     return SmoothAlertDialog.advanced(
                       close: false,
                       maxHeight: MediaQuery.of(context).size.height,
-                      body: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        child: Column(
-                          children: <Widget>[
-                            SmoothTextFormField(
-                              type: TextFieldTypes.PLAIN_TEXT,
-                              prefixIcon: const Icon(Icons.search),
-                              controller: countryController,
-                              onChanged: (String? query) {
-                                setState(
-                                  () {
-                                    filteredList = _countryList
-                                        .where(
-                                          (Country item) =>
-                                              item.name.toLowerCase().contains(
-                                                    query!.toLowerCase(),
-                                                  ) |
-                                              item.countryCode
-                                                  .toLowerCase()
-                                                  .contains(
-                                                    query.toLowerCase(),
-                                                  ),
-                                        )
-                                        .toList(growable: false);
-                                  },
-                                );
-                              },
-                              hintText: appLocalizations.search,
-                            ),
-                            Expanded(
-                              child: Scrollbar(
-                                child: ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: filteredList.length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    final Country country = filteredList[index];
-                                    final bool isSelected =
-                                        country == _chosenValue;
-                                    return ListTile(
-                                      title: Text(
-                                        country.name,
-                                        style: TextStyle(
-                                          fontWeight: isSelected
-                                              ? FontWeight.bold
-                                              : null,
-                                        ),
+                      body: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          SmoothTextFormField(
+                            type: TextFieldTypes.PLAIN_TEXT,
+                            prefixIcon: const Icon(Icons.search),
+                            controller: countryController,
+                            onChanged: (String? query) {
+                              setState(
+                                () {
+                                  filteredList = _countryList
+                                      .where(
+                                        (Country item) =>
+                                            item.name.toLowerCase().contains(
+                                                  query!.toLowerCase(),
+                                                ) |
+                                            item.countryCode
+                                                .toLowerCase()
+                                                .contains(
+                                                  query.toLowerCase(),
+                                                ),
+                                      )
+                                      .toList(growable: false);
+                                },
+                              );
+                            },
+                            hintText: appLocalizations.search,
+                          ),
+                          Expanded(
+                            child: Scrollbar(
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: filteredList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final Country country = filteredList[index];
+                                  final bool isSelected =
+                                      country == _chosenValue;
+                                  return ListTile(
+                                    title: Text(
+                                      country.name,
+                                      style: TextStyle(
+                                        fontWeight:
+                                            isSelected ? FontWeight.bold : null,
                                       ),
-                                      onTap: () {
-                                        Navigator.of(context).pop(country);
-                                      },
-                                    );
-                                  },
-                                ),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pop(country);
+                                    },
+                                  );
+                                },
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       positiveAction: SmoothActionButton(
                         onPressed: () => Navigator.pop(context),

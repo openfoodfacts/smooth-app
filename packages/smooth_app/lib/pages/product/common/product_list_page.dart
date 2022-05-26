@@ -71,7 +71,6 @@ class _ProductListPageState extends State<ProductListPage>
       appBar: AppBar(
         elevation: 0,
         backgroundColor: colorScheme.background,
-        foregroundColor: colorScheme.onBackground,
         actions: _selectionMode
             ? null
             : <Widget>[
@@ -243,7 +242,7 @@ class _ProductListPageState extends State<ProductListPage>
                           }
                         },
                       );
-                  final Widget child = GestureDetector(
+                  final Widget child = InkWell(
                     onTap: _selectionMode ? onTap : null,
                     child: Container(
                       padding: EdgeInsets.symmetric(

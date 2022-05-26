@@ -48,21 +48,58 @@ class SmoothAlertDialog extends StatelessWidget {
   final SmoothActionButton? negativeAction;
   final bool _simpleMode;
 
+  static const EdgeInsets _contentPadding =
+      EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0);
+
   @override
   Widget build(BuildContext context) {
     final Widget content = _buildContent(context);
-    return AlertDialog(
+
+    return Dialog(
       elevation: 4.0,
       shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-      content: _simpleMode
-          ? content
-          : ConstrainedBox(
-              constraints:
-                  BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
-              child: content,
-            ),
-      actions: _buildActions(
-        context,
+      child: Padding(
+        padding: _contentPadding,
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            final bool actions = hasActions;
+
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                if (_simpleMode)
+                  content
+                else
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: double.infinity,
+                      maxHeight:
+                          constraints.maxHeight - (actions ? 100.0 : 0.0),
+                    ),
+                    child: content,
+                  ),
+                if (actions)
+                  if (_simpleMode)
+                    _buildBottomBar()
+                  else
+                    Expanded(
+                      child: _buildBottomBar(),
+                    )
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Padding _buildBottomBar() {
+    return Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: _contentPadding.bottom,
+        start: 8.0,
+      ),
+      child: SmoothActionButtonsBar(
         positiveAction: positiveAction,
         neutralAction: neutralAction,
         negativeAction: negativeAction,
@@ -70,12 +107,15 @@ class SmoothAlertDialog extends StatelessWidget {
     );
   }
 
+  bool get hasActions =>
+      positiveAction != null || neutralAction != null || negativeAction != null;
+
   Widget _buildContent(final BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           if (title != null) ...<Widget>[
             SizedBox(
-              height: 32,
+              height: 32.0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -97,10 +137,7 @@ class SmoothAlertDialog extends StatelessWidget {
             Divider(color: Theme.of(context).colorScheme.onBackground),
             const SizedBox(height: 12),
           ],
-          if (_simpleMode)
-            body
-          else
-            Expanded(child: SingleChildScrollView(child: body)),
+          if (_simpleMode) body else Expanded(child: body),
         ],
       );
 
@@ -182,29 +219,21 @@ List<Widget>? _buildActions(
     return null;
   }
 
-  final Size size = Size(
-    MediaQuery.of(context).size.width / (count == 1 ? 1.5 : count),
-    36.0,
-  );
-
   final List<Widget> actions = <Widget>[
     if (negativeAction != null)
-      SizedBox.fromSize(
-        size: size,
+      Expanded(
         child: _SmoothActionFlatButton(
           buttonData: negativeAction,
         ),
       ),
     if (neutralAction != null)
-      SizedBox.fromSize(
-        size: size,
+      Expanded(
         child: _SmoothActionFlatButton(
           buttonData: neutralAction,
         ),
       ),
     if (positiveAction != null)
-      SizedBox.fromSize(
-        size: size,
+      Expanded(
         child: _SmoothActionElevatedButton(
           buttonData: positiveAction,
         ),
@@ -222,14 +251,16 @@ class SmoothActionButton {
   SmoothActionButton({
     required this.text,
     required this.onPressed,
-    this.minWidth = 15,
-    this.height = 20,
+    this.minWidth,
+    this.height,
+    this.lines,
   }) : assert(text.isNotEmpty);
 
   final String text;
   final VoidCallback? onPressed;
-  final double minWidth;
-  final double height;
+  final int? lines;
+  final double? minWidth;
+  final double? height;
 }
 
 class _SmoothActionElevatedButton extends StatelessWidget {
@@ -244,13 +275,13 @@ class _SmoothActionElevatedButton extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     return SmoothSimpleButton(
       onPressed: buttonData.onPressed,
-      height: buttonData.height,
-      minWidth: buttonData.minWidth,
       child: AutoSizeText(
         buttonData.text.toUpperCase(),
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
+        maxLines: buttonData.lines ?? 2,
         style: themeData.textTheme.bodyText2!
             .copyWith(color: themeData.colorScheme.onPrimary),
-        maxLines: 1,
       ),
     );
   }
@@ -284,9 +315,16 @@ class _SmoothActionFlatButton extends StatelessWidget {
           textStyle: themeData.textTheme.bodyText2!
               .copyWith(color: themeData.colorScheme.onPrimary),
         ),
-        child: AutoSizeText(
-          buttonData.text.toUpperCase(),
-          maxLines: 1,
+        child: SizedBox(
+          height: buttonData.lines != null ? 20.0 * buttonData.lines! : null,
+          child: Center(
+            child: AutoSizeText(
+              buttonData.text.toUpperCase(),
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: buttonData.lines ?? 2,
+            ),
+          ),
         ),
       ),
     );
