@@ -74,7 +74,6 @@ dependencies:
     path: ../data_importer_shared
   data_importer:
     path: ../data_importer
-  google_fonts: ^3.0.1
 
 dev_dependencies:
   integration_test:
@@ -130,6 +129,11 @@ flutter:
   uses-material-design: true
   generate: true
 
+  fonts:
+    - family: PlusJakartaSans
+      fonts:
+        - asset: assets/plus_jakarta_sans_regular/PlusJakartaSans-Regular.ttf
+
   assets:
     - assets/actions/
     - assets/app/
@@ -146,4 +150,4 @@ flutter:
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/
-    - google_fonts/
+    - assets/plus_jakarta_sans_regular/

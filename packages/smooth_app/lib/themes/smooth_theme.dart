@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -127,18 +126,19 @@ class SmoothTheme {
     }
 
     return ThemeData(
+      fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: myColorScheme.onSurface,
         unselectedItemColor: myColorScheme.onSurface,
       ),
       textTheme: brightness == Brightness.dark
-          ? _textTheme.copyWith(
-              headline2: _textTheme.headline2?.copyWith(color: Colors.white),
-              headline4: _textTheme.headline4?.copyWith(color: Colors.white),
-              bodyText2: _textTheme.bodyText2?.copyWith(color: Colors.white),
+          ? _TEXT_THEME.copyWith(
+              headline2: _TEXT_THEME.headline2?.copyWith(color: Colors.white),
+              headline4: _TEXT_THEME.headline4?.copyWith(color: Colors.white),
+              bodyText2: _TEXT_THEME.bodyText2?.copyWith(color: Colors.white),
             )
-          : _textTheme,
+          : _TEXT_THEME,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: myColorScheme.secondary,
         foregroundColor: myColorScheme.onSecondary,
@@ -151,10 +151,7 @@ class SmoothTheme {
     );
   }
 
-  static final TextTheme _textTheme =
-      GoogleFonts.plusJakartaSansTextTheme(_BASIC_TEXT_THEME);
-
-  static const TextTheme _BASIC_TEXT_THEME = TextTheme(
+  static const TextTheme _TEXT_THEME = TextTheme(
       headline1: TextStyle(
         fontSize: 28.0,
         fontWeight: FontWeight.bold,
