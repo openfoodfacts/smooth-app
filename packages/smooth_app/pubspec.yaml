@@ -74,6 +74,7 @@ dependencies:
     path: ../data_importer_shared
   data_importer:
     path: ../data_importer
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   integration_test:
@@ -145,3 +146,4 @@ flutter:
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/
+    - google_fonts/

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -132,12 +133,12 @@ class SmoothTheme {
         unselectedItemColor: myColorScheme.onSurface,
       ),
       textTheme: brightness == Brightness.dark
-          ? _TEXT_THEME.copyWith(
-              headline2: _TEXT_THEME.headline2?.copyWith(color: Colors.white),
-              headline4: _TEXT_THEME.headline4?.copyWith(color: Colors.white),
-              bodyText2: _TEXT_THEME.bodyText2?.copyWith(color: Colors.white),
+          ? _textTheme.copyWith(
+              headline2: _textTheme.headline2?.copyWith(color: Colors.white),
+              headline4: _textTheme.headline4?.copyWith(color: Colors.white),
+              bodyText2: _textTheme.bodyText2?.copyWith(color: Colors.white),
             )
-          : _TEXT_THEME,
+          : _textTheme,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: myColorScheme.secondary,
         foregroundColor: myColorScheme.onSecondary,
@@ -150,36 +151,38 @@ class SmoothTheme {
     );
   }
 
-  static const TextTheme _TEXT_THEME = TextTheme(
-    headline1: TextStyle(
-      fontSize: 28.0,
-      fontWeight: FontWeight.bold,
-    ),
-    headline2: TextStyle(
-      fontSize: 24.0,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-    ),
-    headline3: TextStyle(
-      fontSize: 18.0,
-      fontWeight: FontWeight.bold,
-    ),
-    headline4: TextStyle(
-      fontSize: 16.0,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-    ),
-    bodyText2: TextStyle(
-      fontSize: 14,
-      letterSpacing: 0.5,
-    ),
-    subtitle1: TextStyle(
-      fontSize: 14.0,
-    ),
-    subtitle2: TextStyle(
-      fontSize: 12.0,
-    ),
-  );
+  static final TextTheme _textTheme =
+      GoogleFonts.plusJakartaSansTextTheme(_BASIC_TEXT_THEME);
+
+  static const TextTheme _BASIC_TEXT_THEME = TextTheme(
+      headline1: TextStyle(
+        fontSize: 28.0,
+        fontWeight: FontWeight.bold,
+      ),
+      headline2: TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      headline3: TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+      ),
+      headline4: TextStyle(
+        fontSize: 16.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      bodyText2: TextStyle(
+        fontSize: 14,
+        letterSpacing: 0.5,
+      ),
+      subtitle1: TextStyle(
+        fontSize: 14.0,
+      ),
+      subtitle2: TextStyle(
+        fontSize: 12.0,
+      ));
 
   static MaterialColor getMaterialColorFromColor(Color color) {
     final Map<int, Color> colorShades = <int, Color>{
