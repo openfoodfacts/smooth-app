@@ -12,6 +12,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
@@ -19,21 +20,8 @@ import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
-class MLKitScannerPage extends StatelessWidget {
+class MLKitScannerPage extends LifecycleAwareStatefulWidget {
   const MLKitScannerPage({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const ScreenVisibilityDetector(
-      child: _MLKitScannerPageContent(),
-    );
-  }
-}
-
-class _MLKitScannerPageContent extends LifecycleAwareStatefulWidget {
-  const _MLKitScannerPageContent({
     Key? key,
   }) : super(key: key);
 
@@ -41,12 +29,8 @@ class _MLKitScannerPageContent extends LifecycleAwareStatefulWidget {
   MLKitScannerPageState createState() => MLKitScannerPageState();
 }
 
-class MLKitScannerPageState
-    extends LifecycleAwareState<_MLKitScannerPageContent>
+class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     with TraceableClientMixin {
-  @override
-  String get traceTitle => 'ml_kit_scan_page';
-
   /// If the camera is being closed (when [stoppingCamera] == true) and this
   /// Widget is visible again, we add a post frame callback to detect if the
   /// Widget is still visible
@@ -89,6 +73,13 @@ class MLKitScannerPageState
   /// When set to [false], [_startLiveStream] can be called.
   bool stoppingCamera = false;
 
+  /// Flag used to determine when the app is resumed, the controller is disposed
+  /// (another app acquired the camera in background), but the current tab is
+  /// not the Scan.
+  ///
+  /// The next time this tab is visible, we will force relaunching the camera.
+  bool pendingResume = false;
+
   @override
   void initState() {
     super.initState();
@@ -113,23 +104,36 @@ class MLKitScannerPageState
 
   @override
   Widget build(BuildContext context) {
-    // [_startLiveFeed] is called both with [onResume] and [onPause] to cover
-    // all entry points
-    return LifeCycleManager(
-      onStart: _startLiveFeed,
-      onResume: _onResumeImageStream,
-      onVisible: () => _onResumeImageStream(forceStartPreview: true),
-      onPause: _onPauseImageStream,
-      onInvisible: _onPauseImageStream,
-      child: _buildScannerWidget(),
+    return Consumer<BottomNavigationTab>(
+      builder: (BuildContext context, BottomNavigationTab tab, Widget? child) {
+        if (pendingResume && tab == BottomNavigationTab.Scan) {
+          pendingResume = false;
+          _onResumeImageStream();
+        }
+
+        return child!;
+      },
+      // [_startLiveFeed] is called both with [onResume] and [onPause] to cover
+      // all entry points
+      child: LifeCycleManager(
+        onStart: _startLiveFeed,
+        onResume: _onResumeImageStream,
+        onVisible: () => _onResumeImageStream(forceStartPreview: true),
+        onPause: _onPauseImageStream,
+        onInvisible: _onPauseImageStream,
+        child: _buildScannerWidget(),
+      ),
     );
   }
 
   Widget _buildScannerWidget() {
-    // Showing the black scanner background + the icon when the scanner is
-    // loading or stopped
+    // Showing a black scanner background when the camera is not initialized
     if (!isCameraInitialized) {
-      return const SizedBox.shrink();
+      return const SizedBox.expand(
+        child: ColoredBox(
+          color: Colors.black,
+        ),
+      );
     }
 
     return LayoutBuilder(
@@ -230,13 +234,19 @@ class MLKitScannerPageState
         .asyncMap((CameraImage image) async {
           final DateTime start = DateTime.now();
 
-          final List<String?>? res = await _barcodeDecoder?.processImage(image);
+          try {
+            final List<String?>? res =
+                await _barcodeDecoder?.processImage(image);
 
-          _averageProcessingTime.add(
-            DateTime.now().difference(start).inMilliseconds,
-          );
+            _averageProcessingTime.add(
+              DateTime.now().difference(start).inMilliseconds,
+            );
 
-          return res;
+            return res;
+          } catch (err) {
+            // Isolate is stopped
+            return <String>[];
+          }
         })
         .where(
           (List<String?>? barcodes) => barcodes?.isNotEmpty == true,
@@ -301,9 +311,21 @@ class MLKitScannerPageState
       return;
     }
 
+    final BottomNavigationTab tab = Provider.of<BottomNavigationTab>(
+      context,
+      listen: false,
+    );
+
+    // On visibility == true, may call us, but we have to ensure that this tab
+    // is visible
+    if (tab != BottomNavigationTab.Scan) {
+      pendingResume = _controller?.isInitialized != true;
+      return;
+    }
+
     // Relaunch the controller if it was destroyed in background
-    if (_controller == null) {
-      return _startLiveFeed();
+    if (_controller?.isInitialized != true) {
+      return _stopImageStream();
     }
 
     if (_streamSubscription?.isPaused == true) {
@@ -325,7 +347,6 @@ class MLKitScannerPageState
     _redrawScreen();
 
     _controller?.removeListener(_cameraListener);
-    await _controller?.pausePreview();
     await _streamSubscription?.cancel();
 
     await _controller?.dispose();
@@ -392,4 +413,7 @@ class MLKitScannerPageState
   }
 
   SmoothCameraController? get _controller => CameraHelper.controller;
+
+  @override
+  String get traceTitle => 'ml_kit_scan_page';
 }

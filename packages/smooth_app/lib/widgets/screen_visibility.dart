@@ -25,13 +25,13 @@ class _ScreenVisibilityDetectorState extends State<ScreenVisibilityDetector> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ScreenVisibility>.value(
-      value: _notifier,
-      child: VisibilityDetector(
-        key: const ValueKey<String>('ScreenVisibility'),
-        onVisibilityChanged: (VisibilityInfo info) {
-          _notifier.updateValue(info);
-        },
+    return VisibilityDetector(
+      key: const ValueKey<String>('ScreenVisibility'),
+      onVisibilityChanged: (VisibilityInfo info) {
+        _notifier.updateValue(info);
+      },
+      child: ChangeNotifierProvider<ScreenVisibility>.value(
+        value: _notifier,
         child: widget.child,
       ),
     );

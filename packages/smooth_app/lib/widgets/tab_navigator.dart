@@ -8,11 +8,10 @@ class TabNavigator extends StatelessWidget {
   const TabNavigator({
     required this.navigatorKey,
     required this.tabItem,
-    required this.offstage,
   });
+
   final GlobalKey<NavigatorState> navigatorKey;
   final BottomNavigationTab tabItem;
-  final bool offstage;
 
   @override
   Widget build(BuildContext context) {
