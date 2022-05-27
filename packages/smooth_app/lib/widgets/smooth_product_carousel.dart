@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +11,16 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart'
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/tagline.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
@@ -188,10 +196,8 @@ class SearchCard extends StatelessWidget {
               ),
               maxLines: 2,
             ),
-            Text(
-              localizations.searchPanelHeader,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 18.0),
+            const Flexible(
+              child: _SearchCardTagLine(),
             ),
             SearchField(
               onFocus: () => _openSearchPage(context),
@@ -209,6 +215,84 @@ class SearchCard extends StatelessWidget {
       MaterialPageRoute<Widget>(
         builder: (_) => SearchPage(),
       ),
+    );
+  }
+}
+
+/// Text between "Welcome on OFF" and the search button
+/// Until the first scan, a generic message is displayed via
+/// [_SearchCardTagLineDefaultText]
+///
+/// After that initial scan, the tagline will displayed if possible,
+/// or [_SearchCardTagLineDefaultText] in all cases (loading, error…)
+class _SearchCardTagLine extends StatelessWidget {
+  const _SearchCardTagLine({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
+      child: Consumer<UserPreferences>(
+        builder: (BuildContext context, UserPreferences preferences, _) {
+          if (preferences.isFirstScan) {
+            return const _SearchCardTagLineDefaultText();
+          }
+
+          final ThemeProvider themeProvider = context.read<ThemeProvider>();
+
+          return FutureBuilder<TagLineItem?>(
+            future: fetchTagLine(Platform.localeName),
+            builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
+              if (data.data == null) {
+                return const _SearchCardTagLineDefaultText();
+              } else {
+                return InkWell(
+                  borderRadius: ANGULAR_BORDER_RADIUS,
+                  onTap: data.data!.hasLink
+                      ? () async {
+                          if (await canLaunchUrlString(data.data!.url)) {
+                            await launchUrl(
+                              Uri.parse(data.data!.url),
+                              // forms.gle links are not handled by the WebView
+                              mode: LaunchMode.externalApplication,
+                            );
+                          }
+                        }
+                      : null,
+                  child: Text(
+                    data.data!.message,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 5,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      height: 1.5,
+                      color: themeProvider.color,
+                    ),
+                  ),
+                );
+              }
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _SearchCardTagLineDefaultText extends StatelessWidget {
+  const _SearchCardTagLineDefaultText({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+
+    return Text(
+      localizations.searchPanelHeader,
+      textAlign: TextAlign.center,
+      style: const TextStyle(fontSize: 18.0),
     );
   }
 }

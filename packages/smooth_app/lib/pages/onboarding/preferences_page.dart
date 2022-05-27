@@ -115,28 +115,21 @@ class _HelperState extends State<_Helper> {
         themeData: Theme.of(context),
       ).getOnboardingContent(),
     );
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-              // bottom padding is very large because [NextButton] is stacked on top of the page.
-              padding: const EdgeInsets.only(
-                top: LARGE_SPACE,
-                bottom: VERY_LARGE_SPACE * 5,
-              ),
-              itemCount: pageData.length,
-              itemBuilder: (BuildContext context, int position) {
-                return pageData[position];
-              },
-            ),
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: ListView.builder(
+            padding: const EdgeInsets.only(top: LARGE_SPACE),
+            itemCount: pageData.length,
+            itemBuilder: (BuildContext context, int position) =>
+                pageData[position],
           ),
-          const Align(
-            alignment: Alignment.bottomCenter,
-            child: NextButton(OnboardingPage.PREFERENCES_PAGE),
-          ),
-        ],
-      ),
+        ),
+        const Align(
+          alignment: Alignment.bottomCenter,
+          child: NextButton(OnboardingPage.PREFERENCES_PAGE),
+        ),
+      ],
     );
   }
 

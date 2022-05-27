@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -10,7 +12,6 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/smooth_matched_product.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
   const PersonalizedRankingPage({
@@ -26,7 +27,8 @@ class PersonalizedRankingPage extends StatefulWidget {
       _PersonalizedRankingPageState();
 }
 
-class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
+class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
+    with TraceableClientMixin {
   static const Map<MatchTab, Color> _COLORS = <MatchTab, Color>{
     MatchTab.YES: Colors.green,
     MatchTab.MAYBE: Colors.grey,
@@ -44,6 +46,13 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
   final SmoothItModel _model = SmoothItModel();
 
   @override
+  String get traceName =>
+      'Opened personalized ranking page with ${widget.products.length} products'; // optional
+
+  @override
+  String get traceTitle => 'personalized_ranking_page';
+
+  @override
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
@@ -59,10 +68,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Color> colors = <Color>[];
     final List<String> titles = <String>[];
-    final List<List<MatchedProduct>> matchedProductsList =
-        <List<MatchedProduct>>[];
+    final List<List<MatchedProductV2>> matchedProductsList =
+        <List<MatchedProductV2>>[];
     for (final MatchTab matchTab in _ORDERED_MATCH_TABS) {
-      final List<MatchedProduct> products = _model.getMatchedProducts(matchTab);
+      final List<MatchedProductV2> products =
+          _model.getMatchedProducts(matchTab);
       matchedProductsList.add(products);
       titles.add(
         matchTab == MatchTab.ALL
@@ -72,13 +82,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       colors.add(_COLORS[matchTab]!);
     }
 
-    AnalyticsHelper.trackPersonalizedRanking(
-      title: widget.title,
-      products: matchedProductsList[0].length,
-      goodProducts: matchedProductsList[1].length,
-      badProducts: matchedProductsList[2].length,
-      unknownProducts: matchedProductsList[3].length,
-    );
+    AnalyticsHelper.trackPersonalizedRanking();
 
     return DefaultTabController(
       length: _ORDERED_MATCH_TABS.length,
@@ -86,7 +90,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: colorScheme.background,
-          foregroundColor: colorScheme.onBackground,
           bottom: TabBar(
             unselectedLabelStyle: const TextStyle(
               fontSize: 15,
@@ -144,7 +147,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
   }
 
   Widget _buildSmoothProductCard(
-    final MatchedProduct matchedProduct,
+    final MatchedProductV2 matchedProduct,
     final DaoProductList daoProductList,
     final AppLocalizations appLocalizations,
   ) =>
@@ -189,7 +192,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
 
   Widget _getStickyHeader(
     final MatchTab matchTab,
-    final List<MatchedProduct> matchedProducts,
+    final List<MatchedProductV2> matchedProducts,
     final AppLocalizations appLocalizations,
     final DaoProductList daoProductList,
   ) {

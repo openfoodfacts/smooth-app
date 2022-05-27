@@ -10,7 +10,6 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
@@ -47,7 +46,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesTestEnvHost = '__testEnvHost';
-  static const String userPreferencesFlagStrongMatching = '__lenientMatching';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
@@ -255,26 +253,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         ListTile(
           title: Text(
-            appLocalizations.dev_mode_matching_mode_title,
-          ),
-          subtitle: Text(
-            appLocalizations.dev_mode_matching_mode_subtitle(
-              (userPreferences.getFlag(userPreferencesFlagStrongMatching) ??
-                      false)
-                  ? appLocalizations.dev_mode_matching_mode_value_strong
-                  : appLocalizations.dev_mode_matching_mode_value_lenient,
-            ),
-          ),
-          onTap: () async {
-            await userPreferences.setFlag(
-                userPreferencesFlagStrongMatching,
-                !(userPreferences.getFlag(userPreferencesFlagStrongMatching) ??
-                    false));
-            setState(() {});
-          },
-        ),
-        ListTile(
-          title: Text(
             appLocalizations.dev_mode_scan_mode_title,
           ),
           subtitle: Text(
@@ -365,9 +343,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
         ),
         ListTile(
-          title: Text(
-            appLocalizations.dev_preferences_reset_app_language,
-          ),
+          // Do not translate
+          title: const Text('Reset App Language'),
           onTap: () async {
             await userPreferences.setAppLanguageCode(null);
             setState(() {});
@@ -431,14 +408,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               onColorChanged: changeColor,
             ),
           ),
-          actions: <SmoothActionButton>[
-            SmoothActionButton(
-              text: 'Got it',
-              onPressed: () {
-                Navigator.of(context).pop(true);
-              },
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: 'Got it',
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
+          ),
         );
       },
     );

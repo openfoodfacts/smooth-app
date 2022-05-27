@@ -45,6 +45,7 @@ class SmoothTheme {
     final ColorDestination colorDestination,
   ) =>
       instance.getColorImpl(colorScheme, materialColor, colorDestination);
+
   static MaterialColor getMaterialColor(
     final BuildContext context,
   ) =>
@@ -118,19 +119,26 @@ class SmoothTheme {
 
     // TODO(Marvin): Remove when we have a fixed color
     // Fix for current standart color (LightBlue) text color being black not white on certain areas
-    if (themeProvider.color == const Color(0xff03a9f4)) {
+    if (themeProvider.color.isSimilarTo(const Color(0xFF03A9F4))) {
       myColorScheme = myColorScheme.copyWith(
         onPrimary: Colors.white,
       );
     }
 
     return ThemeData(
+      fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: myColorScheme.onSurface,
         unselectedItemColor: myColorScheme.onSurface,
       ),
-      textTheme: _TEXT_THEME,
+      textTheme: brightness == Brightness.dark
+          ? _TEXT_THEME.copyWith(
+              headline2: _TEXT_THEME.headline2?.copyWith(color: Colors.white),
+              headline4: _TEXT_THEME.headline4?.copyWith(color: Colors.white),
+              bodyText2: _TEXT_THEME.bodyText2?.copyWith(color: Colors.white),
+            )
+          : _TEXT_THEME,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: myColorScheme.secondary,
         foregroundColor: myColorScheme.onSecondary,
@@ -139,37 +147,39 @@ class SmoothTheme {
         color: brightness == Brightness.dark ? null : myColorScheme.primary,
       ),
       toggleableActiveColor: myColorScheme.primary,
+      dividerColor: const Color(0xFFdfdfdf),
     );
   }
 
   static const TextTheme _TEXT_THEME = TextTheme(
-    headline1: TextStyle(
-      fontSize: 28.0,
-      fontWeight: FontWeight.bold,
-    ),
-    headline2: TextStyle(
-      fontSize: 24.0,
-      fontWeight: FontWeight.bold,
-    ),
-    headline3: TextStyle(
-      fontSize: 18.0,
-      fontWeight: FontWeight.bold,
-    ),
-    headline4: TextStyle(
-      fontSize: 16.0,
-      fontWeight: FontWeight.bold,
-    ),
-    bodyText2: TextStyle(
-      fontSize: 14,
-      letterSpacing: 0.5,
-    ),
-    subtitle1: TextStyle(
-      fontSize: 14.0,
-    ),
-    subtitle2: TextStyle(
-      fontSize: 12.0,
-    ),
-  );
+      headline1: TextStyle(
+        fontSize: 28.0,
+        fontWeight: FontWeight.bold,
+      ),
+      headline2: TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      headline3: TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+      ),
+      headline4: TextStyle(
+        fontSize: 16.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      bodyText2: TextStyle(
+        fontSize: 14,
+        letterSpacing: 0.5,
+      ),
+      subtitle1: TextStyle(
+        fontSize: 14.0,
+      ),
+      subtitle2: TextStyle(
+        fontSize: 12.0,
+      ));
 
   static MaterialColor getMaterialColorFromColor(Color color) {
     final Map<int, Color> colorShades = <int, Color>{
@@ -197,5 +207,14 @@ class SmoothTheme {
             .clamp(0.0, 1.0));
 
     return hslDark.toColor();
+  }
+}
+
+extension _ColorExtension on Color {
+  bool isSimilarTo(Color color) {
+    return alpha == color.alpha &&
+        red == color.red &&
+        green == color.green &&
+        blue == color.blue;
   }
 }

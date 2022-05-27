@@ -4,10 +4,10 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -23,8 +23,8 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
-import 'package:smooth_app/helpers/smooth_matched_product.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -76,6 +76,8 @@ class SummaryCard extends StatefulWidget {
 }
 
 class _SummaryCardState extends State<SummaryCard> {
+  late final bool allowClicking;
+
   // Number of Rows that will be printed in the SummaryCard, initialized to a
   // very high number for infinite rows.
   int totalPrintableRows = 10000;
@@ -87,6 +89,7 @@ class _SummaryCardState extends State<SummaryCard> {
   @override
   void initState() {
     super.initState();
+    allowClicking = !widget.isFullVersion;
   }
 
   @override
@@ -312,7 +315,20 @@ class _SummaryCardState extends State<SummaryCard> {
           widget.isFullVersion,
           isRemovable: widget.isRemovable,
         ),
-        for (final Attribute attribute in scoreAttributes)
+        ...getAttributes(scoreAttributes),
+        if (widget.isFullVersion) _buildProductQuestionsWidget(),
+        attributesContainer,
+        ...summaryCardButtons,
+      ],
+    );
+  }
+
+  List<Widget> getAttributes(List<Attribute> scoreAttributes) {
+    final List<Widget> attributes = <Widget>[];
+
+    for (final Attribute attribute in scoreAttributes) {
+      if (widget.isFullVersion) {
+        attributes.add(
           InkWell(
             onTap: () async => openFullKnowledgePanel(
               attribute: attribute,
@@ -322,20 +338,29 @@ class _SummaryCardState extends State<SummaryCard> {
               description:
                   attribute.descriptionShort ?? attribute.description ?? '',
               cardEvaluation: getCardEvaluationFromAttribute(attribute),
+              isClickable: true,
             ),
           ),
-        if (widget.isFullVersion) _buildProductQuestionsWidget(),
-        attributesContainer,
-        ...summaryCardButtons,
-      ],
-    );
+        );
+      } else {
+        attributes.add(
+          ScoreCard(
+            iconUrl: attribute.iconUrl,
+            description:
+                attribute.descriptionShort ?? attribute.description ?? '',
+            cardEvaluation: getCardEvaluationFromAttribute(attribute),
+            isClickable: false,
+          ),
+        );
+      }
+    }
+    return attributes;
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {
-    final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
+    final MatchedProductV2 matchedProduct = MatchedProductV2(
       widget._product,
       widget._productPreferences,
-      context.watch<UserPreferences>(),
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
@@ -361,8 +386,12 @@ class _SummaryCardState extends State<SummaryCard> {
           ),
           Expanded(
             child: Center(
-              child: Text(helper.getHeaderText(AppLocalizations.of(context)),
-                  style: Theme.of(context).textTheme.subtitle1),
+              child: Text(
+                helper.getHeaderText(AppLocalizations.of(context)),
+                style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                      color: helper.getHeaderForegroundColor(isDarkMode),
+                    ),
+              ),
             ),
           ),
           IconButton(
@@ -555,7 +584,7 @@ class _SummaryCardState extends State<SummaryCard> {
                   ),
                 );
               },
-              child: SmoothCard(
+              child: SmoothCard.angular(
                 margin: EdgeInsets.zero,
                 color: Theme.of(context).colorScheme.primary,
                 elevation: 0,
