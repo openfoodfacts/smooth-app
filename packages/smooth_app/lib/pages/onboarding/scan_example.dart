@@ -8,96 +8,54 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 /// Example explanation on how to scan a product.
 class ScanExample extends StatelessWidget {
-  const ScanExample();
+  const ScanExample(this.backgroundColor);
+
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.of(context).size;
-    return Stack(
-      children: <Widget>[
-        Container(
-          color: const Color.fromARGB(255, 225, 208, 208),
-          height: screenSize.height,
-        ),
-        Column(
-          children: <Widget>[
-            Flexible(
-              flex: 8,
-              child: Stack(
-                children: <Widget>[
-                  Positioned(
-                    top: -screenSize.height / 8,
-                    left: screenSize.width / 16,
-                    child: Transform.rotate(
-                      // We rotate the container with this angle in order to
-                      // correctly align the rotation to the svg.
-                      angle: -0.22828907, // 13.08 degrees
-                      child: Container(
-                        color: const Color.fromARGB(255, 3, 129, 65),
-                        width: screenSize.width,
-                        height: screenSize.height / 2,
-                      ),
+    return Container(
+      color: backgroundColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SvgPicture.asset(
+                  'assets/onboarding/scan.svg',
+                  height: screenSize.height * .50,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  child: SizedBox(
+                    height: screenSize.height * .15,
+                    child: AutoSizeText(
+                      appLocalizations.offUtility,
+                      maxLines: 2,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline1!
+                          .apply(color: const Color.fromARGB(255, 51, 51, 51)),
                     ),
                   ),
-                  Positioned(
-                    top: screenSize.height / 8,
-                    left: screenSize.width / 8,
-                    child: SvgPicture.asset(
-                      'assets/onboarding/scan_example.svg',
-                      width: screenSize.width / 2,
-                      height: screenSize.height / 4,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Flexible(
-              flex: 3,
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: screenSize.width / 10, right: MEDIUM_SPACE),
-                child: AutoSizeText(
-                  appLocalizations.offUtility,
-                  maxLines: 2,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline1!
-                      .apply(color: const Color.fromARGB(255, 51, 51, 51)),
                 ),
-              ),
+              ],
             ),
-            const Spacer(flex: 1),
-            Flexible(
-              flex: 1,
-              child: Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: screenSize.width / 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    SvgPicture.asset(
-                      'assets/cache/nutriscore-a.svg',
-                      width: 80,
-                    ),
-                    SvgPicture.asset(
-                      'assets/cache/ecoscore-a.svg',
-                      width: 80,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const Spacer(flex: 2),
-          ],
-        ),
-        const Positioned(
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: NextButton(OnboardingPage.SCAN_EXAMPLE),
           ),
-        ),
-      ],
+          NextButton(
+            OnboardingPage.SCAN_EXAMPLE,
+            backgroundColor: backgroundColor,
+          ),
+        ],
+      ),
     );
   }
 }
