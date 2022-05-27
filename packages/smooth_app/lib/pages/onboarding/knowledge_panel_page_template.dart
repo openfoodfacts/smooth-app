@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
@@ -11,7 +12,6 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({
@@ -19,6 +19,8 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
     required this.page,
     required this.panelId,
     required this.localDatabase,
+    required this.backgroundColor,
+    required this.svgAsset,
   });
 
   final String headerTitle;
@@ -28,6 +30,8 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
   final String panelId;
 
   final LocalDatabase localDatabase;
+  final Color backgroundColor;
+  final String svgAsset;
 
   @override
   State<KnowledgePanelPageTemplate> createState() =>
@@ -55,71 +59,73 @@ class _KnowledgePanelPageTemplateState
   }
 
   @override
-  Widget build(BuildContext context) {
-    final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
-    return FutureBuilder<void>(
-      future: _initFuture,
-      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-        if (snapshot.hasError) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          return Text(
-            appLocalizations.knowledge_panel_page_loading_error(snapshot.error),
-          );
-        }
-        if (snapshot.connectionState != ConnectionState.done) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        final Widget knowledgePanelWidget =
-            const KnowledgePanelsBuilder().buildSingle(
-          _knowledgePanels,
-          widget.panelId,
-          context: context,
-        )!;
-        return Scaffold(
-          body: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              ListView(
-                // bottom padding is very large because [NextButton] is stacked on top of the page.
-                padding: const EdgeInsets.only(
-                  top: LARGE_SPACE,
-                  right: LARGE_SPACE,
-                  left: LARGE_SPACE,
-                  bottom: VERY_LARGE_SPACE * 5,
-                ),
-                shrinkWrap: true,
+  Widget build(BuildContext context) => FutureBuilder<void>(
+        future: _initFuture,
+        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+          if (snapshot.hasError) {
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context);
+            return Text(
+              appLocalizations
+                  .knowledge_panel_page_loading_error(snapshot.error),
+            );
+          }
+          if (snapshot.connectionState != ConnectionState.done) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          final Widget knowledgePanelWidget =
+              const KnowledgePanelsBuilder().buildSingle(
+            _knowledgePanels,
+            widget.panelId,
+            context: context,
+          )!;
+          return Container(
+            color: widget.backgroundColor,
+            child: SafeArea(
+              child: Stack(
+                fit: StackFit.expand,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: LARGE_SPACE,
+                  ListView(
+                    // bottom padding is very large because [NextButton] is stacked on top of the page.
+                    padding: const EdgeInsets.only(
+                      top: LARGE_SPACE,
+                      right: LARGE_SPACE,
+                      left: LARGE_SPACE,
+                      bottom: VERY_LARGE_SPACE * 5,
                     ),
-                    child: Text(
-                      widget.headerTitle,
-                      style: Theme.of(context).textTheme.displayMedium,
+                    shrinkWrap: true,
+                    children: <Widget>[
+                      SvgPicture.asset(
+                        widget.svgAsset,
+                        height: MediaQuery.of(context).size.height * .25,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: LARGE_SPACE,
+                        ),
+                        child: Text(
+                          widget.headerTitle,
+                          style: Theme.of(context).textTheme.displayMedium,
+                        ),
+                      ),
+                      KnowledgePanelProductCards(
+                          <Widget>[knowledgePanelWidget]),
+                    ],
+                  ),
+                  ..._buildHintPopup(),
+                  Positioned(
+                    bottom: 0,
+                    child: NextButton(
+                      widget.page,
+                      backgroundColor: widget.backgroundColor,
                     ),
                   ),
-                  KnowledgePanelProductCards(<Widget>[knowledgePanelWidget]),
                 ],
               ),
-              ..._buildHintPopup(),
-              Positioned(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: NextButton(widget.page),
-                ),
-              ),
-            ],
-          ),
-          backgroundColor: SmoothTheme.getColor(
-            Theme.of(context).colorScheme,
-            materialColor,
-            ColorDestination.SURFACE_BACKGROUND,
-          ),
-        );
-      },
-    );
-  }
+            ),
+          );
+        },
+      );
 
   List<Widget> _buildHintPopup() {
     final Widget hintPopup = InkWell(
