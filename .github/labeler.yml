@@ -85,7 +85,6 @@ User management:
 - packages/smooth_app/lib/pages/user_management/sign_up_page.dart
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 - packages/smooth_app/lib/pages/user_preferences_settings.dart
-- packages/smooth_app/lib/pages/user_preferences_profile.dart
 - packages/smooth_app/lib/pages/user_preferences_food.dart
 - packages/smooth_app/lib/pages/user_preferences_dev_mode.dart
 - packages/smooth_app/lib/pages/user_preferences_attribute_group.dart

@@ -30,6 +30,9 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
   static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
 
+  /// Attribute group that is not collapsed
+  static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
       return;
@@ -170,4 +173,11 @@ class UserPreferences extends ChangeNotifier {
 
   String? getDevModeString(final String tag) =>
       _sharedPreferences.getString(tag);
+
+  Future<void> setActiveAttributeGroup(final String value) async =>
+      _sharedPreferences.setString(_TAG_ACTIVE_ATTRIBUTE_GROUP, value);
+
+  String get activeAttributeGroup =>
+      _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
+      'nutritional_quality'; // TODO(monsieurtanuki): relatively safe but not nice to put a hard-coded value (even when highly probable)
 }
