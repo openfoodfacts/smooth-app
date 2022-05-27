@@ -147,15 +147,11 @@ class _SmoothAppState extends State<SmoothApp> {
     if (!mounted) {
       return false;
     }
+    AnalyticsHelper.initMatomo(_screenshots);
     await _productPreferences.init(DefaultAssetBundle.of(context));
     if (!_screenshots) {
       await _userPreferences.init(_productPreferences);
     }
-
-    if (!mounted) {
-      return false;
-    }
-    AnalyticsHelper.initMatomo(context, _screenshots);
     return true;
   }
 

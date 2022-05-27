@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -63,7 +62,6 @@ class AnalyticsHelper {
   }
 
   static void initMatomo(
-    final BuildContext context,
     final bool screenshotMode,
   ) {
     if (screenshotMode) {
