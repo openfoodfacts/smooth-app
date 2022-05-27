@@ -66,9 +66,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
-          return SmoothAlertDialog.advanced(
-            close: false,
-            maxHeight: MediaQuery.of(context).size.height * 0.35,
+          return SmoothAlertDialog(
             title: appLocalizations.contribute_improve_header,
             body: Column(
               children: <Widget>[
@@ -104,9 +102,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
-          return SmoothAlertDialog.advanced(
-            close: false,
-            maxHeight: MediaQuery.of(context).size.height * 0.35,
+          return SmoothAlertDialog(
             title: appLocalizations.contribute_sw_development,
             body: Column(
               children: <Widget>[
@@ -180,9 +176,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   Future<void> _contributors() => showDialog<void>(
         context: context,
         builder: (BuildContext context) {
-          return SmoothAlertDialog.advanced(
+          return SmoothAlertDialog(
             title: AppLocalizations.of(context).contributors,
-            maxHeight: MediaQuery.of(context).size.height * 0.45,
             body: FutureBuilder<http.Response>(
               future: http.get(
                 Uri.https(
@@ -195,28 +190,40 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 if (snap.hasData) {
                   final List<dynamic> contributors =
                       jsonDecode(snap.data!.body) as List<dynamic>;
-                  return Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: contributors.map((dynamic contributorsData) {
-                      final ContributorsModel contributor =
-                          ContributorsModel.fromJson(
-                              contributorsData as Map<String, dynamic>);
-                      return Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: InkWell(
-                          onTap: () {
-                            LaunchUrlHelper.launchURL(
-                                contributor.profilePath, false);
-                          },
-                          child: CircleAvatar(
-                            foregroundImage:
-                                NetworkImage(contributor.avatarUrl),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.primary,
+                  return SingleChildScrollView(
+                    child: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: contributors.map((dynamic contributorsData) {
+                        final ContributorsModel contributor =
+                            ContributorsModel.fromJson(
+                                contributorsData as Map<String, dynamic>);
+                        return Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: InkWell(
+                            customBorder: const CircleBorder(),
+                            onTap: () {
+                              LaunchUrlHelper.launchURL(
+                                contributor.profilePath,
+                                false,
+                              );
+                            },
+                            child: Ink(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    contributor.avatarUrl,
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              width: 40.0,
+                              height: 40.0,
+                            ),
                           ),
-                        ),
-                      );
-                    }).toList(growable: false),
+                        );
+                      }).toList(growable: false),
+                    ),
                   );
                 }
 
@@ -224,6 +231,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               },
             ),
             positiveAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop('dialog');
+              },
+              text: appLocalizations.close,
+              minWidth: 100,
+            ),
+            negativeAction: SmoothActionButton(
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://github.com/openfoodfacts/smooth-app', false),
               text: AppLocalizations.of(context).contribute,

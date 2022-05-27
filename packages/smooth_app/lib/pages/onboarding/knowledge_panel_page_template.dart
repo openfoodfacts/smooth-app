@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
@@ -58,67 +58,67 @@ class _KnowledgePanelPageTemplateState
   Widget build(BuildContext context) {
     final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
     return FutureBuilder<void>(
-        future: _initFuture,
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          if (snapshot.hasError) {
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
-            return Text(
-              appLocalizations
-                  .knowledge_panel_page_loading_error(snapshot.error),
-            );
-          }
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          final Widget knowledgePanelWidget =
-              const KnowledgePanelsBuilder().buildSingle(
-            _knowledgePanels,
-            widget.panelId,
-            context: context,
-          )!;
-          return Scaffold(
-            body: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                ListView(
-                  // bottom padding is very large because [NextButton] is stacked on top of the page.
-                  padding: const EdgeInsets.only(
-                    top: LARGE_SPACE,
-                    right: LARGE_SPACE,
-                    left: LARGE_SPACE,
-                    bottom: VERY_LARGE_SPACE * 5,
-                  ),
-                  shrinkWrap: true,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: LARGE_SPACE,
-                      ),
-                      child: Text(
-                        widget.headerTitle,
-                        style: Theme.of(context).textTheme.displayMedium,
-                      ),
-                    ),
-                    KnowledgePanelProductCards(<Widget>[knowledgePanelWidget]),
-                  ],
-                ),
-                ..._buildHintPopup(),
-                Positioned(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: NextButton(widget.page),
-                  ),
-                ),
-              ],
-            ),
-            backgroundColor: SmoothTheme.getColor(
-              Theme.of(context).colorScheme,
-              materialColor,
-              ColorDestination.SURFACE_BACKGROUND,
-            ),
+      future: _initFuture,
+      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+        if (snapshot.hasError) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          return Text(
+            appLocalizations.knowledge_panel_page_loading_error(snapshot.error),
           );
-        });
+        }
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        final Widget knowledgePanelWidget =
+            const KnowledgePanelsBuilder().buildSingle(
+          _knowledgePanels,
+          widget.panelId,
+          context: context,
+        )!;
+        return Scaffold(
+          body: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              ListView(
+                // bottom padding is very large because [NextButton] is stacked on top of the page.
+                padding: const EdgeInsets.only(
+                  top: LARGE_SPACE,
+                  right: LARGE_SPACE,
+                  left: LARGE_SPACE,
+                  bottom: VERY_LARGE_SPACE * 5,
+                ),
+                shrinkWrap: true,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: LARGE_SPACE,
+                    ),
+                    child: Text(
+                      widget.headerTitle,
+                      style: Theme.of(context).textTheme.displayMedium,
+                    ),
+                  ),
+                  KnowledgePanelProductCards(<Widget>[knowledgePanelWidget]),
+                ],
+              ),
+              ..._buildHintPopup(),
+              Positioned(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: NextButton(widget.page),
+                ),
+              ),
+            ],
+          ),
+          backgroundColor: SmoothTheme.getColor(
+            Theme.of(context).colorScheme,
+            materialColor,
+            ColorDestination.SURFACE_BACKGROUND,
+          ),
+        );
+      },
+    );
   }
 
   List<Widget> _buildHintPopup() {

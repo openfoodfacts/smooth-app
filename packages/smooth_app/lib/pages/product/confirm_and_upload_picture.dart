@@ -58,7 +58,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
                 child: SmoothActionButtonsBar(
-                  positiveAction: SmoothActionButton(
+                  negativeAction: SmoothActionButton(
                       text: appLocalizations.retake_photo_button_label,
                       onPressed: () async {
                         final File? retakenPhoto =
@@ -76,7 +76,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         });
                         retakenPhoto.delete();
                       }),
-                  negativeAction: SmoothActionButton(
+                  positiveAction: SmoothActionButton(
                     text: appLocalizations.confirm_button_label,
                     onPressed: () async {
                       final bool isPhotoUploaded = await uploadCapturedPicture(

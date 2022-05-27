@@ -5,6 +5,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:openfoodfacts/model/UserAgent.dart';
@@ -30,6 +31,16 @@ import 'package:smooth_app/themes/theme_provider.dart';
 late bool _screenshots;
 
 Future<void> main({final bool screenshots = false}) async {
+  // Adding google font licenses
+  LicenseRegistry.addLicense(() async* {
+    final String license =
+        await rootBundle.loadString('assets/plus_jakarta_sans_regular/OFL.txt');
+    yield LicenseEntryWithLineBreaks(
+      <String>['plus_jakarta_sans_regular'],
+      license,
+    );
+  });
+
   _screenshots = screenshots;
   if (_screenshots) {
     await _init1();
@@ -45,10 +56,12 @@ Future<void> main({final bool screenshots = false}) async {
       appRunner: () => runApp(const SmoothApp()),
     );
   } else {
-    runApp(DevicePreview(
-      enabled: true,
-      builder: (_) => const SmoothApp(),
-    ));
+    runApp(
+      DevicePreview(
+        enabled: true,
+        builder: (_) => const SmoothApp(),
+      ),
+    );
   }
 }
 

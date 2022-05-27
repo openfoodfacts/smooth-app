@@ -123,6 +123,10 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             ],
           ),
           positiveAction: SmoothActionButton(
+            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
+            text: appLocalizations.okay,
+          ),
+          negativeAction: SmoothActionButton(
             onPressed: () async {
               showLicensePage(
                 context: context,
@@ -135,10 +139,6 @@ class UserPreferencesFaq extends AbstractUserPreferences {
               );
             },
             text: appLocalizations.licenses,
-          ),
-          negativeAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
-            text: appLocalizations.okay,
           ),
         );
       },

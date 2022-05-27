@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_card.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_group_card.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_table_card.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_world_map_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
   const KnowledgePanelElementCard({
