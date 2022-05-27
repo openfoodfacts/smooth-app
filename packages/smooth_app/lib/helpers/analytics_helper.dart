@@ -73,14 +73,14 @@ class AnalyticsHelper {
     }
 
     try {
+      MatomoTracker.instance.visitor = Visitor(
+        id: uuid,
+        userId: OpenFoodAPIConfiguration.globalUser?.userId,
+      );
       MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: 2,
         visitorId: uuid,
-      );
-      MatomoTracker.instance.visitor = Visitor(
-        id: uuid,
-        userId: OpenFoodAPIConfiguration.globalUser?.userId,
       );
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized
