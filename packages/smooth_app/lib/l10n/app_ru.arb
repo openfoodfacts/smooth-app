@@ -195,7 +195,7 @@
     "sign_up_page_username_error_empty": "Введите имя пользователя",
     "sign_up_page_username_error_invalid": "Пожалуйста, введите корректное имя пользователя",
     "sign_up_page_username_description": "Имя пользователя не может содержать пробелы, заглавные буквы или специальные символы",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Имя пользователя не может быть длиннее {value} символов",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -433,9 +433,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Новый продукт",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product front photo",
+    "front_packaging_photo_button_label": "Фотография лицевой стороны продукта",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
+    "confirm_front_packaging_photo_button_label": "Подтвердить загрузку фотографии лицевой стороны продукта",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -921,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Name is mandatory",
+    "user_list_name_error_empty": "Поле \"Имя\" является обязательным",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },

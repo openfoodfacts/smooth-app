@@ -195,7 +195,7 @@
     "sign_up_page_username_error_empty": "ユーザー名を入力してください",
     "sign_up_page_username_error_invalid": "有効なユーザー名を入力してください",
     "sign_up_page_username_description": "ユーザー名にスペース、大文字、または特殊文字を含めることはできません",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "ユーザー名は {value} 文字を超えることはできません",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -433,9 +433,9 @@
     "@add_product_information_button_label": {},
     "new_product": "新しい製品",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product front photo",
+    "front_packaging_photo_button_label": "製品の正面写真",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
+    "confirm_front_packaging_photo_button_label": "製品の正面写真のアップロードを確認する",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -921,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Name is mandatory",
+    "user_list_name_error_empty": "名前は必須です",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -987,7 +987,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
+    "dev_preferences_test_environment_subtitle": "現在のテスト環境のベースURL： {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1075,7 +1075,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "現在のスキャンモードは次のとおりです： \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1088,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
+    "dev_mode_hide_ecoscore_title": "EcoScoreを除外する",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1197,7 +1197,7 @@
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
     "barcode": "バーコード",
-    "barcode_barcode": "Barcode: {barcode}",
+    "barcode_barcode": "バーコード： {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
         "placeholders": {
