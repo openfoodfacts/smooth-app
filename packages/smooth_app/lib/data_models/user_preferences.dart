@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 
@@ -20,7 +19,6 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_INIT = 'init';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
-  static const String _TAG_THEME_CUSTOM_COLOR = 'customColorTag';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
@@ -69,15 +67,6 @@ class UserPreferences extends ChangeNotifier {
 
   bool get crashReports =>
       _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? true;
-
-  Future<void> setCustomColor(final Color color) async {
-    await _sharedPreferences.setString(
-        _TAG_THEME_CUSTOM_COLOR, color.toPreferencesString);
-    notifyListeners();
-  }
-
-  Color? get customColor => ColorExtension.fromPreferencesString(
-      _sharedPreferences.getString(_TAG_THEME_CUSTOM_COLOR));
 
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';

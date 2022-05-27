@@ -27,7 +27,6 @@ import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage(this.product);
@@ -71,15 +70,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     });
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
-    final ThemeData themeData = Theme.of(context);
-    final ColorScheme colorScheme = themeData.colorScheme;
-    final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
     final Scaffold scaffold = Scaffold(
-      backgroundColor: SmoothTheme.getColor(
-        colorScheme,
-        materialColor,
-        ColorDestination.SURFACE_BACKGROUND,
-      ),
       floatingActionButton: scrollingUp
           ? FloatingActionButton(
               onPressed: () {

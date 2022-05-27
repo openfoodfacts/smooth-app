@@ -8,7 +8,6 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
@@ -29,12 +28,6 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         );
 
   final ThemeProvider themeProvider;
-
-  static const List<String> _ORDERED_COLOR_TAGS = <String>[
-    SmoothTheme.COLOR_TAG_BLUE,
-    SmoothTheme.COLOR_TAG_GREEN,
-    SmoothTheme.COLOR_TAG_BROWN,
-  ];
 
   @override
   PreferencePageType? getPreferencePageType() => PreferencePageType.SETTINGS;
@@ -85,63 +78,10 @@ class UserPreferencesSettings extends AbstractUserPreferences {
           ),
         ),
         const UserPreferencesListItemDivider(),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: LARGE_SPACE,
-            vertical: MEDIUM_SPACE,
-          ),
-          child: Text(
-            appLocalizations.main_app_color,
-            style: themeData.textTheme.headline4,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: LARGE_SPACE,
-            vertical: VERY_SMALL_SPACE,
-          ),
-          child: Wrap(
-            spacing: 8.0,
-            children: List<Widget>.generate(
-              _ORDERED_COLOR_TAGS.length,
-              (final int index) => _getColorButton(
-                themeData.colorScheme,
-                _ORDERED_COLOR_TAGS[index],
-                themeProvider,
-              ),
-            ),
-          ),
-        ),
-        const UserPreferencesListItemDivider(),
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
       ];
-
-  Widget _getColorButton(
-    final ColorScheme colorScheme,
-    final String colorTag,
-    final ThemeProvider themeProvider,
-  ) =>
-      TextButton(
-        onPressed: () async =>
-            themeProvider.setColor(SmoothTheme.MATERIAL_COLORS[colorTag]!),
-        style: TextButton.styleFrom(
-          backgroundColor: SmoothTheme.getColor(
-            colorScheme,
-            SmoothTheme.MATERIAL_COLORS[colorTag]!,
-            ColorDestination.BUTTON_BACKGROUND,
-          ),
-        ),
-        child: Icon(
-          Icons.palette,
-          color: SmoothTheme.getColor(
-            colorScheme,
-            SmoothTheme.MATERIAL_COLORS[colorTag]!,
-            ColorDestination.BUTTON_FOREGROUND,
-          ),
-        ),
-      );
 }
 
 class _SendAnonymousDataSetting extends StatelessWidget {
