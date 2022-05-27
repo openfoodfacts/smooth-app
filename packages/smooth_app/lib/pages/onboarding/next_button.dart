@@ -67,7 +67,7 @@ class NextButton extends StatelessWidget {
                   ),
                 ),
               ConstrainedBox(
-                constraints: const BoxConstraints.tightFor(height: 48),
+                constraints: const BoxConstraints.tightFor(height: MINIMUM_TARGET_SIZE),
                 child: ElevatedButton(
                   onPressed: () async {
                     await OnboardingLoader(localDatabase)
