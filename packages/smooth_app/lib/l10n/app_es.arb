@@ -40,17 +40,57 @@
     "learnMore": "Saber más",
     "@learnMore": {},
     "general_confirmation": "¿Estás seguro?",
-    "incompatible": "Incompatible",
-    "@incompatible": {
-        "description": "Short label for product list view: the product is incompatible with your preferences"
-    },
-    "compatible": "Compatible",
-    "@compatible": {
-        "description": "Short label for product list view: the product is compatible with your preferences"
-    },
     "unknown": "Desconocido",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
+    "match_very_good": "Gran coincidencia",
+    "@match_very_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: very good match"
+    },
+    "match_good": "Buena coincidencia",
+    "@match_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: good match"
+    },
+    "match_poor": "Mala coincidencia",
+    "@match_poor": {
+        "description": "Label for product page regarding product compatibility with the user preferences: poor match"
+    },
+    "match_may_not": "Puede que no coincida",
+    "@match_may_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: may not match"
+    },
+    "match_does_not": "No coincide",
+    "@match_does_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: does not match"
+    },
+    "match_unknown": "Coincidencia desconocida",
+    "@match_unknown": {
+        "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
+    },
+    "match_short_very_good": "Gran coincidencia",
+    "@match_short_very_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
+    },
+    "match_short_good": "Buena coincidencia",
+    "@match_short_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
+    },
+    "match_short_poor": "Mala coincidencia",
+    "@match_short_poor": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
+    },
+    "match_short_may_not": "Puede que no coincida",
+    "@match_short_may_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
+    },
+    "match_short_does_not": "No coincide",
+    "@match_short_does_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
+    },
+    "match_short_unknown": "Coincidencia desconocida",
+    "@match_short_unknown": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
     "licenses": "Licencias",
     "@licenses": {},
@@ -292,7 +332,7 @@
     "myPreferences_settings_subtitle": "Modo oscuro, tema, ...",
     "myPreferences_food_title": "Preferencias alimentarias",
     "myPreferences_food_subtitle": "Elige qué tipo de información alimentaria es más importante para ti.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Elija qué información sobre los alimentos es más importante para usted, con el fin de clasificar los alimentos según sus preferencias, vea la información que le interesa primero y obtenga un resumen de compatibilidad. Esas preferencias de alimentos permanecen en tu dispositivo y no están asociadas con tu cuenta de colaborador de Open Food Facts si tienes una.",
     "confirmResetPreferences": "¿Quieres restablecer tus preferencias alimentarias?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -575,18 +615,6 @@
         "description": "Clears a product list"
     },
     "really_clear": "¿Realmente quieres eliminar esta lista?",
-    "product_compatibility_unknown": "Compatibilidad desconocida",
-    "@product_compatibility_unknown": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_incompatible": "No coincide",
-    "@product_compatibility_incompatible": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "Buena coincidencia",
-    "@product_compatibility_good": {
-        "description": "Product compatibility summary title"
-    },
     "@Plural": {},
     "pct_match": "{percent}% de coincidencia",
     "@pct_match": {
@@ -1033,27 +1061,6 @@
     "dev_preferences_import_history_result_success": "Hecho",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
-    },
-    "dev_mode_matching_mode_title": "Cambiar entre coincidencia fuerte e indulgente",
-    "@dev_mode_matching_mode_title": {
-        "description": "User dev preferences - Matching mode - Title"
-    },
-    "dev_mode_matching_mode_subtitle": "El nivel de coincidencia actual es {mode}",
-    "@dev_mode_matching_mode_subtitle": {
-        "description": "User dev preferences - Matching mode - Subtitle",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "dev_mode_matching_mode_value_strong": "Fuerte",
-    "@dev_mode_matching_mode_value_strong": {
-        "description": "User dev preferences - Matching mode - Value - Strong"
-    },
-    "dev_mode_matching_mode_value_lenient": "Indulgente",
-    "@dev_mode_matching_mode_value_lenient": {
-        "description": "User dev preferences - Matching mode - Value - Lenient"
     },
     "dev_mode_scan_mode_title": "Modo de escaneo",
     "@dev_mode_scan_mode_title": {

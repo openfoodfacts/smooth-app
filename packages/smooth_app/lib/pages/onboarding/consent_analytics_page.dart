@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 class ConsentAnalytics extends StatelessWidget {
@@ -79,7 +80,7 @@ class ConsentAnalytics extends StatelessWidget {
     BuildContext context,
   ) async {
     await userPreferences.setCrashReports(accept);
-    await userPreferences.setAnalyticsReports(accept);
+    AnalyticsHelper.setAnalyticsReports(accept);
     //ignore: use_build_context_synchronously
     await OnboardingLoader(localDatabase).runAtNextTime(
       OnboardingPage.CONSENT_PAGE,

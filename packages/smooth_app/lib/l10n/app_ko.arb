@@ -40,17 +40,57 @@
     "learnMore": "더보기",
     "@learnMore": {},
     "general_confirmation": "확실한가요?",
-    "incompatible": "부적합",
-    "@incompatible": {
-        "description": "Short label for product list view: the product is incompatible with your preferences"
-    },
-    "compatible": "적합",
-    "@compatible": {
-        "description": "Short label for product list view: the product is compatible with your preferences"
-    },
     "unknown": "알 수 없음",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
+    "match_very_good": "Very good match",
+    "@match_very_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: very good match"
+    },
+    "match_good": "Good match",
+    "@match_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: good match"
+    },
+    "match_poor": "Poor match",
+    "@match_poor": {
+        "description": "Label for product page regarding product compatibility with the user preferences: poor match"
+    },
+    "match_may_not": "May not match",
+    "@match_may_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: may not match"
+    },
+    "match_does_not": "Does not match",
+    "@match_does_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: does not match"
+    },
+    "match_unknown": "호환성 알 수 없음",
+    "@match_unknown": {
+        "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
+    },
+    "match_short_very_good": "Very good match",
+    "@match_short_very_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
+    },
+    "match_short_good": "Good match",
+    "@match_short_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
+    },
+    "match_short_poor": "Poor match",
+    "@match_short_poor": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
+    },
+    "match_short_may_not": "May not match",
+    "@match_short_may_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
+    },
+    "match_short_does_not": "Does not match",
+    "@match_short_does_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
+    },
+    "match_short_unknown": "호환성 알 수 없음",
+    "@match_short_unknown": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
     "licenses": "라이센스",
     "@licenses": {},
@@ -575,18 +615,6 @@
         "description": "Clears a product list"
     },
     "really_clear": "정말로 목록을 삭제하시겠습니까?",
-    "product_compatibility_unknown": "적합성 알 수 없음",
-    "@product_compatibility_unknown": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_incompatible": "Does not match",
-    "@product_compatibility_incompatible": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "적합",
-    "@product_compatibility_good": {
-        "description": "Product compatibility summary title"
-    },
     "@Plural": {},
     "pct_match": "{percent}% match",
     "@pct_match": {
@@ -1033,27 +1061,6 @@
     "dev_preferences_import_history_result_success": "완료",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
-    },
-    "dev_mode_matching_mode_title": "Switch between strong and lenient matching",
-    "@dev_mode_matching_mode_title": {
-        "description": "User dev preferences - Matching mode - Title"
-    },
-    "dev_mode_matching_mode_subtitle": "Current matching level is {mode}",
-    "@dev_mode_matching_mode_subtitle": {
-        "description": "User dev preferences - Matching mode - Subtitle",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "dev_mode_matching_mode_value_strong": "Strong",
-    "@dev_mode_matching_mode_value_strong": {
-        "description": "User dev preferences - Matching mode - Value - Strong"
-    },
-    "dev_mode_matching_mode_value_lenient": "Lenient",
-    "@dev_mode_matching_mode_value_lenient": {
-        "description": "User dev preferences - Matching mode - Value - Lenient"
     },
     "dev_mode_scan_mode_title": "Scan Mode",
     "@dev_mode_scan_mode_title": {

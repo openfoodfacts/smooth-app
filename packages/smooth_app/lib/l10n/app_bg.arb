@@ -40,17 +40,57 @@
     "learnMore": "Научи повече",
     "@learnMore": {},
     "general_confirmation": "Сигурен ли си?",
-    "incompatible": "Несъвместимо",
-    "@incompatible": {
-        "description": "Short label for product list view: the product is incompatible with your preferences"
-    },
-    "compatible": "Съвместимо",
-    "@compatible": {
-        "description": "Short label for product list view: the product is compatible with your preferences"
-    },
     "unknown": "Неизвестно",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
+    "match_very_good": "Много добро съвпадение",
+    "@match_very_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: very good match"
+    },
+    "match_good": "Добро съвпадение",
+    "@match_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: good match"
+    },
+    "match_poor": "Лошо съвпадение",
+    "@match_poor": {
+        "description": "Label for product page regarding product compatibility with the user preferences: poor match"
+    },
+    "match_may_not": "Може да не съвпада",
+    "@match_may_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: may not match"
+    },
+    "match_does_not": "Не съвпада",
+    "@match_does_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: does not match"
+    },
+    "match_unknown": "Неизвестно съвпадение",
+    "@match_unknown": {
+        "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
+    },
+    "match_short_very_good": "Много добро съвпадение",
+    "@match_short_very_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
+    },
+    "match_short_good": "Добро съвпадение",
+    "@match_short_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
+    },
+    "match_short_poor": "Лошо съвпадение",
+    "@match_short_poor": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
+    },
+    "match_short_may_not": "Може да не съвпада",
+    "@match_short_may_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
+    },
+    "match_short_does_not": "Не съвпада",
+    "@match_short_does_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
+    },
+    "match_short_unknown": "Неизвестно съвпадение",
+    "@match_short_unknown": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
     "licenses": "Лицензи",
     "@licenses": {},
@@ -292,7 +332,7 @@
     "myPreferences_settings_subtitle": "Тъмен режим, Тема, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Избери коя информация за храната е най-важна за теб, за да класираш храната според твоите предпочитания. Виж информацията, която те интересува и получи обобщение за съвместимост. Тези предпочитания за храна остават на твоето устройство и не са свързани с твоят акаунт на сътрудник в Open Food Facts, ако имаш такъв.",
     "confirmResetPreferences": "Нулиране на твоите хранителни предпочитания?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -575,18 +615,6 @@
         "description": "Clears a product list"
     },
     "really_clear": "Наистина ли желаеш да изтриеш този списък?",
-    "product_compatibility_unknown": "Неизвестна съвместимост",
-    "@product_compatibility_unknown": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_incompatible": "Не съвпада",
-    "@product_compatibility_incompatible": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "Добро съвпадение",
-    "@product_compatibility_good": {
-        "description": "Product compatibility summary title"
-    },
     "@Plural": {},
     "pct_match": "{percent}% съвпадение",
     "@pct_match": {
@@ -1033,27 +1061,6 @@
     "dev_preferences_import_history_result_success": "Готово",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
-    },
-    "dev_mode_matching_mode_title": "Switch between strong and lenient matching",
-    "@dev_mode_matching_mode_title": {
-        "description": "User dev preferences - Matching mode - Title"
-    },
-    "dev_mode_matching_mode_subtitle": "Текущото ниво на съвпадение е {mode}",
-    "@dev_mode_matching_mode_subtitle": {
-        "description": "User dev preferences - Matching mode - Subtitle",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "dev_mode_matching_mode_value_strong": "Силно",
-    "@dev_mode_matching_mode_value_strong": {
-        "description": "User dev preferences - Matching mode - Value - Strong"
-    },
-    "dev_mode_matching_mode_value_lenient": "Снизходително",
-    "@dev_mode_matching_mode_value_lenient": {
-        "description": "User dev preferences - Matching mode - Value - Lenient"
     },
     "dev_mode_scan_mode_title": "Режим на сканиране",
     "@dev_mode_scan_mode_title": {

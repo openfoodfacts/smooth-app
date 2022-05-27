@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,8 @@ class PersonalizedRankingPage extends StatefulWidget {
       _PersonalizedRankingPageState();
 }
 
-class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
+class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
+    with TraceableClientMixin {
   static const Map<MatchTab, Color> _COLORS = <MatchTab, Color>{
     MatchTab.YES: Colors.green,
     MatchTab.MAYBE: Colors.grey,
@@ -42,6 +44,13 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
   ];
 
   final SmoothItModel _model = SmoothItModel();
+
+  @override
+  String get traceName =>
+      'Opened personalized ranking page with ${widget.products.length} products'; // optional
+
+  @override
+  String get traceTitle => 'personalized_ranking_page';
 
   @override
   Widget build(BuildContext context) {
@@ -73,13 +82,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       colors.add(_COLORS[matchTab]!);
     }
 
-    AnalyticsHelper.trackPersonalizedRanking(
-      title: widget.title,
-      products: matchedProductsList[0].length,
-      goodProducts: matchedProductsList[1].length,
-      badProducts: matchedProductsList[2].length,
-      unknownProducts: matchedProductsList[3].length,
-    );
+    AnalyticsHelper.trackPersonalizedRanking();
 
     return DefaultTabController(
       length: _ORDERED_MATCH_TABS.length,
@@ -87,7 +90,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: colorScheme.background,
-          foregroundColor: colorScheme.onBackground,
           bottom: TabBar(
             unselectedLabelStyle: const TextStyle(
               fontSize: 15,

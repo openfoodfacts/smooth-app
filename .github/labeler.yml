@@ -1,11 +1,11 @@
-# Add 'label1' to any changes within 'example' folder or any subfolders
+# Add labels to any any pull request with changes to the specified paths
 android:
 - packages/smooth_app/android/**/*
 
 assets cache:
 - packages/smooth_app/assets/cache/
 
-dependancies:
+dependencies:
 - packages/smooth_app/pubspec.yaml
 
 ios:

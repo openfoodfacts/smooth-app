@@ -4,15 +4,18 @@ import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
     required this.knowledgePanelTitleElement,
+    required this.isClickable,
     this.evaluation,
   });
 
   final TitleElement knowledgePanelTitleElement;
   final Evaluation? evaluation;
+  final bool isClickable;
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +80,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               },
             ),
           ),
-          const Icon(
-            Icons.keyboard_arrow_down_outlined,
-          ),
+          if (isClickable)
+            if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
         ],
       ),
     );
