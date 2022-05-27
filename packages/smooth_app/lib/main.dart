@@ -197,8 +197,13 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final OnboardingPage lastVisitedOnboardingPage =
+        _userPreferences.lastVisitedOnboardingPage;
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
-        .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
+        .getPageWidget(context, lastVisitedOnboardingPage);
+    final bool isOnboardingComplete =
+        OnboardingFlowNavigator.isOnboardingComplete(lastVisitedOnboardingPage);
+    themeProvider.setOnboardingComplete(isOnboardingComplete);
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
 
