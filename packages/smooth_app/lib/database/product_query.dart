@@ -42,7 +42,7 @@ abstract class ProductQuery {
       '_'
       '${getCountry()!.iso2Code.toUpperCase()}';
 
-  static const String _UUID_NAME = 'UUID_NAME';
+  static const String _UUID_NAME = 'UUID_NAME_REV_1';
 
   /// Sets the uuid id as "final variable", for instance for API queries.
   ///
@@ -52,7 +52,8 @@ abstract class ProductQuery {
     String? uuid = await uuidString.get(_UUID_NAME);
 
     if (uuid == null) {
-      uuid = const Uuid().v4();
+      // Crop down to 16 letters for matomo
+      uuid = const Uuid().v4().replaceAll('-', '').substring(0, 16);
       uuidString.put(_UUID_NAME, uuid);
     }
     OpenFoodAPIConfiguration.uuid = uuid;
