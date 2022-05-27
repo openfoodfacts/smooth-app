@@ -119,7 +119,10 @@ class OnboardingFlowNavigator {
         );
       case OnboardingPage.CONSENT_PAGE:
         return _wrapWidgetInCustomBackNavigator(
-            context, page, const ConsentAnalytics());
+          context,
+          page,
+          ConsentAnalytics(getBackgroundColor(page)),
+        );
       case OnboardingPage.ONBOARDING_COMPLETE:
         return InheritedDataManager(child: PageManager());
     }
@@ -139,9 +142,10 @@ class OnboardingFlowNavigator {
       case OnboardingPage.PREFERENCES_PAGE:
         return const Color(0xFFEBF1FF);
       case OnboardingPage.CONSENT_PAGE:
-        return const Color(0xFFFCFCFC);
+        return const Color(0xFFFFF2DF);
       case OnboardingPage.ONBOARDING_COMPLETE:
-        return const Color(0xFFFCFCFC);
+        // whatever, it's not used
+        return Colors.black;
     }
   }
 
