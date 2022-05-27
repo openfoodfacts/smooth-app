@@ -149,7 +149,7 @@ class ConsentAnalytics extends StatelessWidget {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     return ConstrainedBox(
-      constraints: const BoxConstraints.tightFor(height: 48),
+      constraints: const BoxConstraints.tightFor(height: MINIMUM_TARGET_SIZE),
       child: ElevatedButton(
         onPressed: () {
           _analyticsLogic(
