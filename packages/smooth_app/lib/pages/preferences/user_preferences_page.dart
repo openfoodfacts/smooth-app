@@ -12,13 +12,11 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_faq.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_profile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 enum PreferencePageType {
-  PROFILE,
   FOOD,
   DEV_MODE,
   SETTINGS,
@@ -50,14 +48,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
 
     AbstractUserPreferences getUserPreferences(final PreferencePageType type) {
       switch (type) {
-        case PreferencePageType.PROFILE:
-          return UserPreferencesProfile(
-            setState: setState,
-            context: context,
-            userPreferences: userPreferences,
-            appLocalizations: appLocalizations,
-            themeData: themeData,
-          );
         case PreferencePageType.FOOD:
           return UserPreferencesFood(
             productPreferences: productPreferences,
@@ -128,7 +118,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage> {
         icon: Icon(ConstantIcons.instance.getForwardIcon()),
       ));
       final List<PreferencePageType> items = <PreferencePageType>[
-        PreferencePageType.PROFILE,
         PreferencePageType.FOOD,
         PreferencePageType.SETTINGS,
         PreferencePageType.CONTRIBUTE,
