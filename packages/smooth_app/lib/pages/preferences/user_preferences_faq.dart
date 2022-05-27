@@ -36,6 +36,10 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   @override
   List<Widget> getBody() => <Widget>[
+        SvgPicture.asset(
+          'assets/preferences/faq.svg',
+          height: MediaQuery.of(context).size.height * .20,
+        ),
         _getListTile(
           title: appLocalizations.faq,
           url: 'https://support.openfoodfacts.org/help',
