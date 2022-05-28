@@ -11,7 +11,7 @@ class SmoothTheme {
     final Brightness brightness,
     final ThemeProvider themeProvider,
   ) {
-    late final ColorScheme myColorScheme;
+    final ColorScheme myColorScheme;
 
     if (brightness == Brightness.light) {
       myColorScheme = lightColorScheme;
