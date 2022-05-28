@@ -49,8 +49,8 @@ class AnalyticsHelper {
   static void setCrashReports(final bool crashReports) =>
       _crashReports = crashReports;
 
-  static void setAnalyticsReports(final bool allow) {
-    MatomoTracker.instance.setOptOut(optout: !allow);
+  static Future<void> setAnalyticsReports(final bool allow) async {
+    await MatomoTracker.instance.setOptOut(optout: !allow);
   }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
