@@ -6,7 +6,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
+import 'package:smooth_app/pages/preferences/attribute_group_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
@@ -45,7 +45,12 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
       );
 
   @override
-  Widget? getSubtitle() => null;
+  Widget? getSubtitle() =>
+      null; // TODO(monsieurtanuki): useless here, we should refactor, one day
+
+  @override
+  IconData getLeadingIconData() => Icons
+      .question_mark; // TODO(monsieurtanuki): useless here, we should refactor, one day
 
   @override
   List<Widget> getBody() {
@@ -90,10 +95,8 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
       _isCollapsed() ? super.getHeader() : getHeaderHelper(false);
 
   @override
-  Widget getHeaderHelper(final bool? collapsed) => UserPreferencesListTile(
+  Widget getHeaderHelper(final bool? collapsed) => AttributeGroupListTile(
         title: getTitle(),
-        subtitle: getSubtitle(),
-        isCompactTitle: true,
         icon: collapsed!
             ? const Icon(Icons.keyboard_arrow_right)
             : const Icon(Icons.keyboard_arrow_down),

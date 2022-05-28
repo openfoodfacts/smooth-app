@@ -29,14 +29,13 @@ class UserPreferencesUserLists extends AbstractUserPreferences {
   PreferencePageType? getPreferencePageType() => PreferencePageType.LISTS;
 
   @override
-  Widget? getSubtitle() {
-    return null;
-  }
+  Widget? getSubtitle() => null;
 
   @override
-  String getTitleString() {
-    return appLocalizations.user_list_all_title;
-  }
+  String getTitleString() => appLocalizations.user_list_all_title;
+
+  @override
+  IconData getLeadingIconData() => Icons.playlist_add_check;
 
   @override
   Future<void> runHeaderAction() => Navigator.push<void>(
