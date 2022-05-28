@@ -36,6 +36,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    File? retakenPhoto;
     // Picture is captured, show it to the user one last time and ask for
     // confirmation before uploading. Also present an option to retake the
     // picture as sometimes the picture can be blurry.
@@ -59,23 +60,24 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                 padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
                 child: SmoothActionButtonsBar(
                   negativeAction: SmoothActionButton(
-                      text: appLocalizations.retake_photo_button_label,
-                      onPressed: () async {
-                        final File? retakenPhoto =
-                            await startImageCropping(context);
-                        if (retakenPhoto == null) {
-                          if (!mounted) {
-                            return;
-                          }
-                          // User chose not to upload the image.
-                          Navigator.pop(context);
+                    text: appLocalizations.retake_photo_button_label,
+                    onPressed: () async {
+                      retakenPhoto = await startImageCropping(context);
+                      if (retakenPhoto == null) {
+                        if (!mounted) {
                           return;
                         }
-                        setState(() {
-                          photo = retakenPhoto;
-                        });
-                        retakenPhoto.delete();
-                      }),
+                        // User chose not to upload the image.
+                        Navigator.pop(context);
+                        return;
+                      }
+                      setState(
+                        () {
+                          photo = retakenPhoto!;
+                        },
+                      );
+                    },
+                  ),
                   positiveAction: SmoothActionButton(
                     text: appLocalizations.confirm_button_label,
                     onPressed: () async {
@@ -88,6 +90,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                       if (!mounted) {
                         return;
                       }
+                      retakenPhoto?.delete();
                       Navigator.pop(
                         context,
                         isPhotoUploaded ? photo : null,
