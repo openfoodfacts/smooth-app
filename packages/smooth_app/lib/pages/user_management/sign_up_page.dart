@@ -48,13 +48,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          appLocalizations.sign_up_page_title,
-          style: TextStyle(color: theme.colorScheme.onBackground),
-        ),
+        title: Text(appLocalizations.sign_up_page_title),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.primary),
       ),
       body: Form(
         onChanged: () => setState(() {}),
@@ -190,8 +186,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 text: TextSpan(
                   children: <InlineSpan>[
                     TextSpan(
-                      text: appLocalizations.sign_up_page_agree_text,
-                      style: TextStyle(color: theme.colorScheme.onBackground),
+                      // additional space needed because of the next text span
+                      text: '${appLocalizations.sign_up_page_agree_text} ',
                     ),
                     TextSpan(
                       style: const TextStyle(
