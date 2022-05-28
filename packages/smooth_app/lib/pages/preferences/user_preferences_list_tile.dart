@@ -25,7 +25,7 @@ class UserPreferencesListTile extends StatelessWidget {
   ) =>
       Icon(
         iconData,
-        color: Theme.of(context).colorScheme.onBackground,
+        color: Theme.of(context).colorScheme.onSurface,
       );
 
   @override
