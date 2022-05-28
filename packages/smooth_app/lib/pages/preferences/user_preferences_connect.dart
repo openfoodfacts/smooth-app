@@ -67,13 +67,12 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           title: appLocalizations.blog,
           url: 'https://blog.openfoodfacts.org',
           leading:
-              const Icon(Icons.help), // TODO(monsieurtanuki): which icon data?
+              UserPreferencesListTile.getTintedIcon(Icons.newspaper, context),
         ),
         _getListTile(
           title: appLocalizations.support_join_slack,
           url: 'https://slack.openfoodfacts.org/',
-          leading:
-              const Icon(Icons.help), // TODO(monsieurtanuki): which icon data?
+          leading: UserPreferencesListTile.getTintedIcon(Icons.forum, context),
         ),
         _getListTile(
           title: appLocalizations.support_via_email,
