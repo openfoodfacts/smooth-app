@@ -152,6 +152,7 @@ flutter:
     - assets/misc/
     - assets/navigation/
     - assets/onboarding/
+    - assets/preferences/
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/
