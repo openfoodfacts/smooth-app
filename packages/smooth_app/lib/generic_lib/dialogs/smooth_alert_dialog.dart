@@ -191,7 +191,6 @@ class SmoothActionButtonsBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: _buildActions(
         context,
         positiveAction: positiveAction,
@@ -319,14 +318,12 @@ class _SmoothActionFlatButton extends StatelessWidget {
         ),
         child: SizedBox(
           height: buttonData.lines != null ? 20.0 * buttonData.lines! : null,
-          child: Center(
-            child: AutoSizeText(
-              buttonData.text.toUpperCase(),
-              style: const TextStyle(fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: buttonData.lines ?? 2,
-            ),
+          child: AutoSizeText(
+            buttonData.text.toUpperCase(),
+            style: const TextStyle(fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: buttonData.lines ?? 2,
           ),
         ),
       ),
