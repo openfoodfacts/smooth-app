@@ -78,6 +78,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     }
   }
 
+  @override
+  IconData getLeadingIconData() => Icons.face;
+
   // No arrow
   @override
   Icon? getForwardIcon() {

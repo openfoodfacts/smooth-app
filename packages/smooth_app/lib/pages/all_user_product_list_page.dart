@@ -37,7 +37,7 @@ class _AllUserProductListState extends State<AllUserProductList> {
                 return UserPreferencesListTile(
                   title: Text(userList),
                   subtitle: Text(appLocalizations.user_list_length(length)),
-                  icon: Icon(ConstantIcons.instance.getForwardIcon()),
+                  trailing: Icon(ConstantIcons.instance.getForwardIcon()),
                   onTap: () async {
                     await daoProductList.get(productList);
                     if (!mounted) {
