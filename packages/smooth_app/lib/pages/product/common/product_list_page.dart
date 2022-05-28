@@ -160,6 +160,7 @@ class _ProductListPageState extends State<ProductListPage>
                   padding: const EdgeInsets.all(VERY_LARGE_SPACE),
                   child: Text(
                     appLocalizations.product_list_empty_message,
+                    textAlign: TextAlign.center,
                     style: themeData.textTheme.bodyText2?.apply(
                       color: colorScheme.onSurface,
                     ),
