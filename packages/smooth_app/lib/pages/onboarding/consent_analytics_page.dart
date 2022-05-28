@@ -9,6 +9,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ConsentAnalytics extends StatelessWidget {
   const ConsentAnalytics(this.backgroundColor);
@@ -78,9 +79,11 @@ class ConsentAnalytics extends StatelessWidget {
     UserPreferences userPreferences,
     LocalDatabase localDatabase,
     BuildContext context,
+    final ThemeProvider themeProvider,
   ) async {
     await userPreferences.setCrashReports(accept);
     AnalyticsHelper.setAnalyticsReports(accept);
+    themeProvider.finishOnboarding();
     //ignore: use_build_context_synchronously
     await OnboardingLoader(localDatabase).runAtNextTime(
       OnboardingPage.CONSENT_PAGE,
@@ -148,17 +151,17 @@ class ConsentAnalytics extends StatelessWidget {
   ) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     return ConstrainedBox(
       constraints: const BoxConstraints.tightFor(height: MINIMUM_TARGET_SIZE),
       child: ElevatedButton(
-        onPressed: () {
-          _analyticsLogic(
-            isAccepted,
-            userPreferences,
-            localDatabase,
-            context,
-          );
-        },
+        onPressed: () async => _analyticsLogic(
+          isAccepted,
+          userPreferences,
+          localDatabase,
+          context,
+          themeProvider,
+        ),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(backgroundColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(

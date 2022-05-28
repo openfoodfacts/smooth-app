@@ -76,6 +76,21 @@ class OnboardingFlowNavigator {
     }
   }
 
+  static bool isOnboardingComplete(final OnboardingPage currentPage) {
+    switch (currentPage) {
+      case OnboardingPage.NOT_STARTED:
+      case OnboardingPage.WELCOME:
+      case OnboardingPage.SCAN_EXAMPLE:
+      case OnboardingPage.HEALTH_CARD_EXAMPLE:
+      case OnboardingPage.ECO_CARD_EXAMPLE:
+      case OnboardingPage.PREFERENCES_PAGE:
+      case OnboardingPage.CONSENT_PAGE:
+        return false;
+      case OnboardingPage.ONBOARDING_COMPLETE:
+        return true;
+    }
+  }
+
   void navigateToPage(BuildContext context, OnboardingPage page) {
     _userPreferences.setLastVisitedOnboardingPage(page);
     _historyOnboardingNav.add(page);
