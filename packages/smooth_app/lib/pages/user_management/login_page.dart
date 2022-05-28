@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -114,6 +115,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
+                      SvgPicture.asset(
+                        'assets/preferences/login.svg',
+                        height: MediaQuery.of(context).size.height * .15,
+                      ),
                       Text(
                         appLocalizations.sign_in_text,
                         textAlign: TextAlign.center,

@@ -147,12 +147,12 @@ flutter:
     - assets/categories/
     - assets/cacheTintable/
     - assets/data/
-    - assets/home/
     - assets/labels/
     - assets/metadata/
     - assets/misc/
     - assets/navigation/
     - assets/onboarding/
+    - assets/preferences/
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/

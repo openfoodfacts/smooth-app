@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -65,6 +66,12 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
       ];
 
+      children.add(
+        SvgPicture.asset(
+          'assets/preferences/main.svg',
+          height: MediaQuery.of(context).size.height * .20,
+        ),
+      );
       for (final PreferencePageType type in items) {
         children.add(
           getUserPreferences(

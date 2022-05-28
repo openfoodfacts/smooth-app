@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
@@ -67,11 +68,11 @@ class _ProductListPageState extends State<ProductListPage>
       case ProductListType.HTTP_SEARCH_KEYWORDS:
         dismissible = false;
     }
+    final bool enableClear = products.isNotEmpty;
+    final bool enableRename = productList.listType == ProductListType.USER;
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: colorScheme.background,
-        actions: _selectionMode
+        actions: _selectionMode || !(enableClear || enableRename)
             ? null
             : <Widget>[
                 PopupMenuButton<String>(
@@ -119,11 +120,12 @@ class _ProductListPageState extends State<ProductListPage>
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    PopupMenuItem<String>(
-                      value: _popupActionClear,
-                      child: Text(appLocalizations.user_list_popup_clear),
-                    ),
-                    if (productList.listType == ProductListType.USER)
+                    if (enableClear)
+                      PopupMenuItem<String>(
+                        value: _popupActionClear,
+                        child: Text(appLocalizations.user_list_popup_clear),
+                      ),
+                    if (enableRename)
                       PopupMenuItem<String>(
                         value: _popupActionRename,
                         child: Text(appLocalizations.user_list_popup_rename),
@@ -131,76 +133,23 @@ class _ProductListPageState extends State<ProductListPage>
                   ],
                 )
               ],
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            if (_selectionMode)
-              ElevatedButton(
-                onPressed: _selectedBarcodes.length >=
-                        2 // compare button is enabled only if 2 or more products have been selected
-                    ? () async {
-                        final List<Product> list = <Product>[];
-                        for (final Product product in products) {
-                          if (_selectedBarcodes.contains(product.barcode)) {
-                            list.add(product);
-                          }
-                        }
-                        await Navigator.push<Widget>(
-                          context,
-                          MaterialPageRoute<Widget>(
-                            builder: (BuildContext context) =>
-                                PersonalizedRankingPage(
-                              products: list,
-                              title: appLocalizations.product_list_your_ranking,
-                            ),
-                          ),
-                        );
-                        setState(() => _selectionMode = false);
-                      }
-                    : null,
-                child: Text(
-                  appLocalizations.plural_compare_x_products(
-                    _selectedBarcodes.length,
-                  ),
-                ),
-              ),
-            if (_selectionMode)
-              ElevatedButton(
-                onPressed: () => setState(() => _selectionMode = false),
-                child: Text(appLocalizations.cancel),
-              ),
-            if (!_selectionMode)
-              Flexible(
-                child: Text(
-                  ProductQueryPageHelper.getProductListLabel(
-                    productList,
-                    context,
-                    verbose: false,
-                  ),
-                  overflow: TextOverflow.fade,
-                ),
-              ),
-            if ((!_selectionMode) && products.isNotEmpty)
-              Flexible(
-                child: ElevatedButton(
-                  child: Text(appLocalizations.compare_products_mode),
-                  onPressed: () => setState(() => _selectionMode = true),
-                ),
-              ),
-          ],
+        title: Text(
+          ProductQueryPageHelper.getProductListLabel(
+            productList,
+            context,
+            verbose: false,
+          ),
+          overflow: TextOverflow.fade,
+          //style: TextStyle(color: Colors.black),
         ),
       ),
-      body: products.isEmpty &&
-              (productList.listType == ProductListType.HISTORY ||
-                  productList.listType == ProductListType.SCAN_SESSION)
+      body: products.isEmpty
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Icon(
-                  Icons.find_in_page_rounded,
-                  color: colorScheme.primary,
-                  size: VERY_LARGE_SPACE * 10,
-                  semanticLabel: appLocalizations.product_list_empty_icon_desc,
+                SvgPicture.asset(
+                  'assets/misc/empty-list.svg',
+                  height: MediaQuery.of(context).size.height * .4,
                 ),
                 Text(
                   appLocalizations.product_list_empty_title,
@@ -227,94 +176,110 @@ class _ProductListPageState extends State<ProductListPage>
                 localDatabase,
                 appLocalizations,
               ),
-              child: ListView.builder(
-                itemCount: products.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final Product product = products[index];
-                  final String barcode = product.barcode!;
-                  final bool selected = _selectedBarcodes.contains(barcode);
-                  void onTap() => setState(
-                        () {
-                          if (selected) {
-                            _selectedBarcodes.remove(barcode);
-                          } else {
-                            _selectedBarcodes.add(barcode);
-                          }
-                        },
-                      );
-                  final Widget child = InkWell(
-                    onTap: _selectionMode ? onTap : null,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: _selectionMode ? 0 : 12.0,
-                        vertical: 8.0,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          if (_selectionMode)
-                            Icon(
-                              selected
-                                  ? Icons.check_box
-                                  : Icons.check_box_outline_blank,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(SMALL_SPACE),
+                    child: _buildActionBar(products),
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: products.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final Product product = products[index];
+                        final String barcode = product.barcode!;
+                        final bool selected =
+                            _selectedBarcodes.contains(barcode);
+                        void onTap() => setState(
+                              () {
+                                if (selected) {
+                                  _selectedBarcodes.remove(barcode);
+                                } else {
+                                  _selectedBarcodes.add(barcode);
+                                }
+                              },
+                            );
+                        final Widget child = InkWell(
+                          onTap: _selectionMode ? onTap : null,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: _selectionMode ? 0 : 12.0,
+                              vertical: 8.0,
                             ),
-                          Expanded(
-                            child: ProductListItemSimple(
-                              product: product,
-                              onTap: _selectionMode ? onTap : null,
-                              onLongPress: !_selectionMode
-                                  ? () => setState(() => _selectionMode = true)
-                                  : null,
+                            child: Row(
+                              children: <Widget>[
+                                if (_selectionMode)
+                                  Icon(
+                                    selected
+                                        ? Icons.check_box
+                                        : Icons.check_box_outline_blank,
+                                  ),
+                                Expanded(
+                                  child: ProductListItemSimple(
+                                    product: product,
+                                    onTap: _selectionMode ? onTap : null,
+                                    onLongPress: !_selectionMode
+                                        ? () => setState(
+                                            () => _selectionMode = true)
+                                        : null,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                  if (dismissible) {
-                    return Dismissible(
-                      direction: DismissDirection.endToStart,
-                      background: Container(
-                        alignment: Alignment.centerRight,
-                        margin: const EdgeInsets.symmetric(vertical: 14),
-                        color: RED_COLOR,
-                        padding: const EdgeInsets.only(right: 30),
-                        child: const Icon(
-                          Icons.delete,
-                          color: Colors.white,
-                        ),
-                      ),
-                      key: Key(product.barcode!),
-                      onDismissed: (final DismissDirection direction) async {
-                        final bool removed =
-                            productList.remove(product.barcode!);
-                        if (removed) {
-                          daoProductList.put(productList);
-                          _selectedBarcodes.remove(product.barcode);
-                          setState(() => products.removeAt(index));
-                        }
-                        if (!mounted) {
-                          return;
-                        }
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              removed
-                                  ? appLocalizations.product_removed_history
-                                  : appLocalizations.product_could_not_remove,
-                            ),
-                            duration: const Duration(seconds: 3),
                           ),
                         );
-                        // TODO(monsieurtanuki): add a snackbar ("put back the food")
+                        if (dismissible) {
+                          return Dismissible(
+                            direction: DismissDirection.endToStart,
+                            background: Container(
+                              alignment: Alignment.centerRight,
+                              margin: const EdgeInsets.symmetric(vertical: 14),
+                              color: RED_COLOR,
+                              padding: const EdgeInsets.only(right: 30),
+                              child: const Icon(
+                                Icons.delete,
+                                color: Colors.white,
+                              ),
+                            ),
+                            key: Key(product.barcode!),
+                            onDismissed:
+                                (final DismissDirection direction) async {
+                              final bool removed =
+                                  productList.remove(product.barcode!);
+                              if (removed) {
+                                daoProductList.put(productList);
+                                _selectedBarcodes.remove(product.barcode);
+                                setState(() => products.removeAt(index));
+                              }
+                              if (!mounted) {
+                                return;
+                              }
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    removed
+                                        ? appLocalizations
+                                            .product_removed_history
+                                        : appLocalizations
+                                            .product_could_not_remove,
+                                  ),
+                                  duration: const Duration(seconds: 3),
+                                ),
+                              );
+                              // TODO(monsieurtanuki): add a snackbar ("put back the food")
+                            },
+                            child: child,
+                          );
+                        }
+                        return Container(
+                          key: Key(product.barcode!),
+                          child: child,
+                        );
                       },
-                      child: child,
-                    );
-                  }
-                  return Container(
-                    key: Key(product.barcode!),
-                    child: child,
-                  );
-                },
+                    ),
+                  ),
+                ],
               ),
             ),
     );
@@ -385,5 +350,58 @@ class _ProductListPageState extends State<ProductListPage>
       //
     }
     return false;
+  }
+
+  Widget _buildActionBar(final List<Product> products) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if (_selectionMode) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          ElevatedButton(
+            onPressed: _selectedBarcodes.length >=
+                    2 // compare button is enabled only if 2 or more products have been selected
+                ? () async {
+                    final List<Product> list = <Product>[];
+                    for (final Product product in products) {
+                      if (_selectedBarcodes.contains(product.barcode)) {
+                        list.add(product);
+                      }
+                    }
+                    await Navigator.push<Widget>(
+                      context,
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) =>
+                            PersonalizedRankingPage(
+                          products: list,
+                          title: appLocalizations.product_list_your_ranking,
+                        ),
+                      ),
+                    );
+                    setState(() => _selectionMode = false);
+                  }
+                : null,
+            child: Text(
+              appLocalizations.plural_compare_x_products(
+                _selectedBarcodes.length,
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () => setState(() => _selectionMode = false),
+            child: Text(appLocalizations.cancel),
+          ),
+        ],
+      );
+    }
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: () => setState(() => _selectionMode = true),
+          child: Text(appLocalizations.compare_products_mode),
+        ),
+      ],
+    );
   }
 }

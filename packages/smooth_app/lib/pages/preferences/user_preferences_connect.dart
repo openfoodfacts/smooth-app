@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mailto/mailto.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -38,6 +39,10 @@ class UserPreferencesConnect extends AbstractUserPreferences {
 
   @override
   List<Widget> getBody() => <Widget>[
+        SvgPicture.asset(
+          'assets/preferences/contact.svg',
+          height: MediaQuery.of(context).size.height * .20,
+        ),
         _getListTile(
           title: appLocalizations.instagram,
           url: appLocalizations.instagram_link,
