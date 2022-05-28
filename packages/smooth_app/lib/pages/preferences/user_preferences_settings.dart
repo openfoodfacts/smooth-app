@@ -47,6 +47,9 @@ class UserPreferencesSettings extends AbstractUserPreferences {
       Text(appLocalizations.myPreferences_settings_subtitle);
 
   @override
+  IconData getLeadingIconData() => Icons.handyman;
+
+  @override
   List<Widget> getBody() => <Widget>[
         Padding(
           padding: const EdgeInsets.symmetric(

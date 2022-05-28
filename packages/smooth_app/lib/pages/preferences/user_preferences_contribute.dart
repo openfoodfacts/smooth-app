@@ -38,6 +38,9 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   Widget? getSubtitle() => null;
 
   @override
+  IconData getLeadingIconData() => Icons.emoji_people;
+
+  @override
   List<Widget> getBody() => <Widget>[
         SvgPicture.asset(
           'assets/preferences/contribute.svg',
@@ -46,23 +49,29 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         _getListTile(
           appLocalizations.contribute_improve_header,
           () => _contribute(),
+          Icons.data_saver_on,
         ),
         _getListTile(
           appLocalizations.contribute_sw_development,
           () => _develop(),
+          Icons.app_shortcut,
         ),
         _getListTile(
           appLocalizations.contribute_translate_header,
           () => _translate(),
+          Icons.translate,
         ),
         _getListTile(
           appLocalizations.contribute_donate_header,
           () => _donate(),
-          icon: const Icon(Icons.open_in_new),
+          Icons.volunteer_activism,
+          icon:
+              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         ),
         _getListTile(
           appLocalizations.contributors,
           () => _contributors(),
+          Icons.emoji_people,
         ),
       ];
 
@@ -254,12 +263,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
 
   Widget _getListTile(
     final String title,
-    final VoidCallback onTap, {
+    final VoidCallback onTap,
+    final IconData leading, {
     final Icon? icon,
   }) =>
       UserPreferencesListTile(
         title: Text(title),
         onTap: onTap,
-        icon: icon ?? getForwardIcon(),
+        trailing: icon ?? getForwardIcon(),
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
       );
 }

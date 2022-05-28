@@ -47,6 +47,9 @@ class UserPreferencesFood extends AbstractUserPreferences {
   Widget? getSubtitle() => Text(appLocalizations.myPreferences_food_subtitle);
 
   @override
+  IconData getLeadingIconData() => Icons.ramen_dining;
+
+  @override
   List<Widget> getBody() {
     final List<Widget> result = <Widget>[
       // we don't want this on the onboarding

@@ -35,6 +35,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   Widget? getSubtitle() => null;
 
   @override
+  IconData getLeadingIconData() => Icons.question_mark;
+
+  @override
   List<Widget> getBody() => <Widget>[
         SvgPicture.asset(
           'assets/preferences/faq.svg',
@@ -42,18 +45,22 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         ),
         _getListTile(
           title: appLocalizations.faq,
+          leading: Icons.question_mark,
           url: 'https://support.openfoodfacts.org/help',
         ),
         _getListTile(
           title: appLocalizations.discover,
+          leading: Icons.travel_explore,
           url: 'https://world.openfoodfacts.org/discover',
         ),
         _getListTile(
           title: appLocalizations.how_to_contribute,
+          leading: Icons.volunteer_activism,
           url: 'https://world.openfoodfacts.org/contribute',
         ),
         _getListTile(
           title: appLocalizations.about_this_app,
+          leading: Icons.info,
           onTap: () async => _about(),
           icon: getForwardIcon(),
         ),
@@ -61,6 +68,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   Widget _getListTile({
     required final String title,
+    required final IconData leading,
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
@@ -68,7 +76,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
       UserPreferencesListTile(
         title: Text(title),
         onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
-        icon: icon ?? const Icon(Icons.open_in_new),
+        trailing: icon ??
+            UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
       );
 
   static const String _iconAssetPath = 'assets/app/release_icon.svg';
