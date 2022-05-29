@@ -195,7 +195,7 @@
     "sign_up_page_username_error_empty": "Lütfen bir kullanıcı adı girin",
     "sign_up_page_username_error_invalid": "Lütfen Geçerli Bir Kullanıcı Adı Girin",
     "sign_up_page_username_description": "Kullanıcı adı boşluk, büyük harf veya özel karakter içeremez",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Kullanıcı adı {value} karakterden fazla olamaz",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -327,7 +327,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Profiliniz",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
     "myPreferences_settings_title": "Uygulama Ayarları",
     "myPreferences_settings_subtitle": "Karanlık mod, Tema, ...",
     "myPreferences_food_title": "Yiyecek tercihleri",
