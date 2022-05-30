@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -17,7 +17,8 @@ class ForgotPasswordPage extends StatefulWidget {
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
 }
 
-class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage>
+    with TraceableClientMixin {
   int _devModeCounter = 0;
 
   static Color _textFieldBackgroundColor = const Color.fromARGB(
@@ -59,6 +60,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     }
     setState(() => _runningQuery = false);
   }
+
+  @override
+  String get traceTitle => 'forgot_password_page';
 
   @override
   void dispose() {
@@ -156,22 +160,20 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                     appLocalizations
                                         .enable_dev_mode_dialog_title,
                                   ),
-                                  actions: <SmoothActionButton>[
-                                    SmoothActionButton(
-                                      text: appLocalizations.yes,
-                                      onPressed: () async {
-                                        await userPreferences.setDevMode(1);
-                                        if (!mounted) {
-                                          return;
-                                        }
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                    SmoothActionButton(
-                                      text: appLocalizations.no,
-                                      onPressed: () => Navigator.pop(context),
-                                    )
-                                  ],
+                                  positiveAction: SmoothActionButton(
+                                    text: appLocalizations.yes,
+                                    onPressed: () async {
+                                      await userPreferences.setDevMode(1);
+                                      if (!mounted) {
+                                        return;
+                                      }
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  negativeAction: SmoothActionButton(
+                                    text: appLocalizations.no,
+                                    onPressed: () => Navigator.pop(context),
+                                  ),
                                 ),
                               );
                             }

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panels_builder.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/pages/product/knowledge_panel_product_cards.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({
@@ -19,6 +19,8 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
     required this.page,
     required this.panelId,
     required this.localDatabase,
+    required this.backgroundColor,
+    required this.svgAsset,
   });
 
   final String headerTitle;
@@ -28,6 +30,8 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
   final String panelId;
 
   final LocalDatabase localDatabase;
+  final Color backgroundColor;
+  final String svgAsset;
 
   @override
   State<KnowledgePanelPageTemplate> createState() =>
@@ -55,9 +59,7 @@ class _KnowledgePanelPageTemplateState
   }
 
   @override
-  Widget build(BuildContext context) {
-    final MaterialColor materialColor = SmoothTheme.getMaterialColor(context);
-    return FutureBuilder<void>(
+  Widget build(BuildContext context) => FutureBuilder<void>(
         future: _initFuture,
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.hasError) {
@@ -77,49 +79,53 @@ class _KnowledgePanelPageTemplateState
             widget.panelId,
             context: context,
           )!;
-          return Scaffold(
-            body: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                ListView(
-                  // bottom padding is very large because [NextButton] is stacked on top of the page.
-                  padding: const EdgeInsets.only(
-                    top: LARGE_SPACE,
-                    right: LARGE_SPACE,
-                    left: LARGE_SPACE,
-                    bottom: VERY_LARGE_SPACE * 5,
-                  ),
-                  shrinkWrap: true,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: LARGE_SPACE,
-                      ),
-                      child: Text(
-                        widget.headerTitle,
-                        style: Theme.of(context).textTheme.displayMedium,
-                      ),
+          return Container(
+            color: widget.backgroundColor,
+            child: SafeArea(
+              child: Stack(
+                fit: StackFit.expand,
+                children: <Widget>[
+                  ListView(
+                    // bottom padding is very large because [NextButton] is stacked on top of the page.
+                    padding: const EdgeInsets.only(
+                      top: LARGE_SPACE,
+                      right: LARGE_SPACE,
+                      left: LARGE_SPACE,
+                      bottom: VERY_LARGE_SPACE * 5,
                     ),
-                    KnowledgePanelProductCards(<Widget>[knowledgePanelWidget]),
-                  ],
-                ),
-                ..._buildHintPopup(),
-                Positioned(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: NextButton(widget.page),
+                    shrinkWrap: true,
+                    children: <Widget>[
+                      SvgPicture.asset(
+                        widget.svgAsset,
+                        height: MediaQuery.of(context).size.height * .25,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: LARGE_SPACE,
+                        ),
+                        child: Text(
+                          widget.headerTitle,
+                          style: Theme.of(context).textTheme.displayMedium,
+                        ),
+                      ),
+                      KnowledgePanelProductCards(
+                          <Widget>[knowledgePanelWidget]),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            backgroundColor: SmoothTheme.getColor(
-              Theme.of(context).colorScheme,
-              materialColor,
-              ColorDestination.SURFACE_BACKGROUND,
+                  ..._buildHintPopup(),
+                  Positioned(
+                    bottom: 0,
+                    child: NextButton(
+                      widget.page,
+                      backgroundColor: widget.backgroundColor,
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
-        });
-  }
+        },
+      );
 
   List<Widget> _buildHintPopup() {
     final Widget hintPopup = InkWell(

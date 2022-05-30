@@ -435,7 +435,7 @@
     "@new_product": {},
     "front_packaging_photo_button_label": "Produktforsidefoto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Bekræft upload af Produktforsidefoto",
+    "confirm_front_packaging_photo_button_label": "Bekræft upload af produktforsidefoto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -449,10 +449,6 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingrediensfoto",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Bekræft Ingrediensfoto",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "Ingrediensfoto uploadet",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "Kan ikke indlæse næringsstoffer fra cache",
@@ -460,26 +456,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Angiv ernæringsfakta",
     "nutritional_facts_added": "Næringsfakta tilføjet",
-    "confirm_nutritional_facts_photo_button_label": "Bekræft næringsfaktafoto",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
     "nutritional_facts_photo_uploaded": "Næringsfaktafoto uploadet",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Genbrugsoplysningsfoto",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Bekræft Genbrugsoplysningsfoto",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "Genbrugsoplysningsfoto uploadet",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Andre interessante fotos",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Bekræft foto",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
     "other_photo_uploaded": "Div. foto uploadet",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Tag igen",
@@ -672,7 +656,9 @@
     "retry_button_label": "Forsøg igen",
     "connect_with_us": "Kom i forbindelse med os",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
     "discover": "Opdag",
@@ -753,6 +739,33 @@
     "account_delete": "Slet konto",
     "@account_delete": {
         "description": "Delete account button (user profile)"
+    },
+    "user_profile": "Konto",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "Velkommen!",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "Log ind eller tilmeld for at deltage i OFF-fællesskabet",
+    "user_profile_title_id_email": "OFF-login: {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "Velkommen {id}!",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
     },
     "email_subject_account_deletion": "Slet konto",
     "@email_subject_account_deletion": {
@@ -974,7 +987,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Basis-URL for aktuelle testmiljø: {url}",
+    "dev_preferences_test_environment_subtitle": "Basis-URL til aktuel test-env: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1006,10 +1019,6 @@
     "dev_preferences_export_history_title": "Eksportér historik",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Nulstil app-sprog",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "undtagelse",
     "@dev_preferences_export_history_progress_error": {
@@ -1066,7 +1075,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Aktuel scanningstilstand er: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Aktuel skanningstilstand er: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1079,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Udeluk ØkoScore",
+    "dev_mode_hide_ecoscore_title": "Undtag ØkoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1188,6 +1197,15 @@
     "add_basic_details_brand_name_error": "Angiv mærkenavnet",
     "quantity": "Mængde og vægt",
     "barcode": "Stregkode",
+    "barcode_barcode": "Stregkode: {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "basic_details_add_success": "Basisoplydninger tilføjet",
     "basic_details_add_error": "Kan ikke tilføje basisoplydninger. Forsøg igen om lidt",
     "@basic_details_add_error": {

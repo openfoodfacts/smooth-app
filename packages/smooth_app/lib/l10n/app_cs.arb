@@ -195,7 +195,7 @@
     "sign_up_page_username_error_empty": "Prosím, zadejte své uživatelské jméno",
     "sign_up_page_username_error_invalid": "Zadejte prosím platné uživatelské jméno",
     "sign_up_page_username_description": "Uživatelské jméno nesmí obsahovat mezery, velká písmena ani speciální znaky",
-    "sign_up_page_username_length_invalid": "Uživatelské jméno musí mít méně než {value} znaků",
+    "sign_up_page_username_length_invalid": "Uživatelské jméno nesmí přesáhnout {value} znaků",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -280,7 +280,7 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Kód pro každý produkt Open Food Facts je k dispozici na GitHubu. Můžete znovu použít kód (je to open source) a pomoci nám jej vylepšit, pro každého na celé planetě.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Můžete se připojit k chatovací místnosti Open Food Facts Slack, což je preferovaný způsob, kde klást otázky.",
     "@contribute_develop_text_2": {},
@@ -327,12 +327,12 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Váš profil",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Spravujte svůj účet přispěvatele Open Food Facts.",
     "myPreferences_settings_title": "Nastavení aplikace",
     "myPreferences_settings_subtitle": "Tmavý režim, téma,...",
     "myPreferences_food_title": "Předvolby jídla",
     "myPreferences_food_subtitle": "Vyberte si, které informace o jídle jsou pro vás nejdůležitější.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Vyberte si, na kterých informacích o potravinách vám nejvíce záleží, abyste mohli seřadit potraviny podle svých preferencí, prohlédněte si informace, které vás zajímají, jako první a získejte přehled kompatibility. Tyto preference jídla zůstanou ve vašem zařízení a nejsou spojeny s vaším účtem přispěvatele Open Food Facts, pokud jej máte.",
     "confirmResetPreferences": "Obnovit předvolby jídla?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -435,7 +435,7 @@
     "@new_product": {},
     "front_packaging_photo_button_label": "Přední fotka produktu",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Potvrďte nahrání přední fotografie produktu",
+    "confirm_front_packaging_photo_button_label": "Potvrdit nahrání přední fotky produktu",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -449,10 +449,6 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Fotografie ingrediencí",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Potvrdit fotografii ingrediencí",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "Fotografie ingrediencí nahrána",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "Nelze načíst živiny z mezipaměti",
@@ -460,26 +456,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Zadejte fakta o výživě",
     "nutritional_facts_added": "Byly přidány údaje o výživě",
-    "confirm_nutritional_facts_photo_button_label": "Potvrďte fotografie nutričních údajů",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
     "nutritional_facts_photo_uploaded": "Fotografie nutričních údajů byla nahrána",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Informační fotografie o recyklaci",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Potvrďte foto s informacemi o recyklaci",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "Nahrána fotografie recyklace",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Další zajímavé fotky",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Potvrdit fotku",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
     "other_photo_uploaded": "Různé fotografie nahrány",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Pořídit znovu",
@@ -672,7 +656,9 @@
     "retry_button_label": "Opakovat",
     "connect_with_us": "Spojte se s námi",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "Často kladené otázky",
     "discover": "Zjistit víc",
@@ -753,6 +739,33 @@
     "account_delete": "Smazat účet",
     "@account_delete": {
         "description": "Delete account button (user profile)"
+    },
+    "user_profile": "Účet",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "Vítejte!",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "Přihlaste se nebo se zaregistrujte a připojte se ke komunitě Open Food Facts",
+    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "Vítejte {id}!",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
     },
     "email_subject_account_deletion": "Smazat účet",
     "@email_subject_account_deletion": {
@@ -865,7 +878,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "completed_basic_details_btn_text": "Complete basic details",
+    "completed_basic_details_btn_text": "Kompletní základní detaily",
     "not_implemented_snackbar_text": "Zatím neimplementováno",
     "category_picker_page_appbar_text": "Kategorie",
     "edit_ingredients_extrait_ingredients_btn_text": "Aut. rozpoznat složení",
@@ -908,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Název nemůže být prázdný",
+    "user_list_name_error_empty": "Název je povinný",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -974,7 +987,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Aktuální základní adresa URL testovacího prostředí je {url}",
+    "dev_preferences_test_environment_subtitle": "Základní URL pro aktuální testovací prostředí: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1006,10 +1019,6 @@
     "dev_preferences_export_history_title": "Historie exportu",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Obnovit jazyk aplikace",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "výjimka",
     "@dev_preferences_export_history_progress_error": {
@@ -1066,7 +1075,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Aktuální režim skenování je:\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Aktuální režim skenování je: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1079,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Vyloučit Ecoscore",
+    "dev_mode_hide_ecoscore_title": "Vyloučit EcoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1173,7 +1182,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Complete basic details",
+    "summary_card_button_add_basic_details": "Kompletní základní detaily",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
@@ -1188,6 +1197,15 @@
     "add_basic_details_brand_name_error": "Zadejte název značky",
     "quantity": "Množství a hmotnost",
     "barcode": "Čárový kód",
+    "barcode_barcode": "Čárový kód: {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "basic_details_add_success": "Základní detaily byly úspěšně přidány",
     "basic_details_add_error": "Nelze přidat základní podrobnosti. Zkuste to znovu po nějaké době",
     "@basic_details_add_error": {

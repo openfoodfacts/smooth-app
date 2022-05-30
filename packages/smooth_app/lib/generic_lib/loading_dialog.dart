@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 /// Dialog with a stop button, while a future is running.
@@ -41,18 +42,23 @@ class LoadingDialog<T> {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
           return SmoothAlertDialog(
-            body: ListTile(
-              leading: const Icon(Icons.error),
-              title: Text(
-                title ?? appLocalizations.loading_dialog_default_error_message,
-              ),
+            body: Column(
+              children: <Widget>[
+                SvgPicture.asset(
+                  'assets/misc/error.svg',
+                  width: MINIMUM_TOUCH_SIZE * 2,
+                ),
+                Text(
+                  title ??
+                      appLocalizations.loading_dialog_default_error_message,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                text: appLocalizations.close,
-                onPressed: () => Navigator.maybePop(context),
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.close,
+              onPressed: () => Navigator.maybePop(context),
+            ),
           );
         },
       );
@@ -111,12 +117,10 @@ class LoadingDialog<T> {
           );
         },
       ),
-      actions: <SmoothActionButton>[
-        SmoothActionButton(
-          text: appLocalizations.stop,
-          onPressed: () => _popDialog(context, null),
-        ),
-      ],
+      positiveAction: SmoothActionButton(
+        text: appLocalizations.stop,
+        onPressed: () => _popDialog(context, null),
+      ),
     );
   }
 }

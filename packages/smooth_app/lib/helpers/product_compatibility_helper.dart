@@ -24,7 +24,8 @@ class ProductCompatibilityHelper {
     }
   }
 
-  Color getHeaderForegroundColor(bool darkMode) => Colors.black;
+  Color getHeaderForegroundColor(bool darkMode) =>
+      darkMode ? Colors.white : Colors.black;
 
   Color getButtonForegroundColor(bool darkMode) =>
       getHeaderForegroundColor(darkMode);

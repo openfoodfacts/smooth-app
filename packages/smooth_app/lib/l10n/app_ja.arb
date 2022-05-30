@@ -195,7 +195,7 @@
     "sign_up_page_username_error_empty": "ユーザー名を入力してください",
     "sign_up_page_username_error_invalid": "有効なユーザー名を入力してください",
     "sign_up_page_username_description": "ユーザー名にスペース、大文字、または特殊文字を含めることはできません",
-    "sign_up_page_username_length_invalid": "ユーザー名は最低{{count}} 文字以上にしてください",
+    "sign_up_page_username_length_invalid": "ユーザー名は {value} 文字を超えることはできません",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -449,10 +449,6 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "原材料一覧",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "原材料の写真を確認",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "原材料の写真がアップロードされました",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "キャッシュから栄養素を読み込むことができません",
@@ -460,26 +456,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "栄養成分を入力する",
     "nutritional_facts_added": "栄養成分を追加されました。",
-    "confirm_nutritional_facts_photo_button_label": "栄養成分の写真を確認",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
     "nutritional_facts_photo_uploaded": "栄養成分の写真がアップロードされました",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "リサイクル情報の写真",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "リサイクル情報の写真を確認",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "リサイクル写真がアップロードされました",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "その他の興味深い写真",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "写真を確認",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
     "other_photo_uploaded": "その他の写真がアップロードされました",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "撮り直し",
@@ -672,7 +656,9 @@
     "retry_button_label": "再試行",
     "connect_with_us": "私たちとつながる",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "ブログ",
     "faq": "FAQ",
     "discover": "見つける",
@@ -753,6 +739,33 @@
     "account_delete": "Delete account",
     "@account_delete": {
         "description": "Delete account button (user profile)"
+    },
+    "user_profile": "アカウント",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "ようこそ！",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "ログインする。または登録して Open Food Facts コミュニティに参加する",
+    "user_profile_title_id_email": "Open Food Factsログイン： {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "{id} さん、ようこそ！",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
     },
     "email_subject_account_deletion": "Delete account",
     "@email_subject_account_deletion": {
@@ -908,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "The name cannot be empty",
+    "user_list_name_error_empty": "名前は必須です",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -974,7 +987,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Current base URL of test env is {url}",
+    "dev_preferences_test_environment_subtitle": "現在のテスト環境のベースURL： {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1006,10 +1019,6 @@
     "dev_preferences_export_history_title": "Export History",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Reset App Language",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "exception",
     "@dev_preferences_export_history_progress_error": {
@@ -1066,7 +1075,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is :\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "現在のスキャンモードは次のとおりです： \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1079,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Ecoscore",
+    "dev_mode_hide_ecoscore_title": "EcoScoreを除外する",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1188,6 +1197,15 @@
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
     "barcode": "バーコード",
+    "barcode_barcode": "バーコード： {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "basic_details_add_success": "Basic details added succesfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
     "@basic_details_add_error": {
