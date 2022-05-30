@@ -71,6 +71,13 @@ class _ProductListPageState extends State<ProductListPage>
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
     return Scaffold(
+      floatingActionButton: _selectionMode || products.length <= 1
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: () => setState(() => _selectionMode = true),
+              label: Text(appLocalizations.compare_products_mode),
+              icon: const Icon(Icons.compare_arrows),
+            ),
       appBar: AppBar(
         actions: _selectionMode || !(enableClear || enableRename)
             ? null
@@ -180,10 +187,11 @@ class _ProductListPageState extends State<ProductListPage>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(SMALL_SPACE),
-                    child: _buildActionBar(products),
-                  ),
+                  if (_selectionMode)
+                    Padding(
+                      padding: const EdgeInsets.all(SMALL_SPACE),
+                      child: _buildCompareBar(products, appLocalizations),
+                    ),
                   Expanded(
                     child: ListView.builder(
                       itemCount: products.length,
@@ -353,10 +361,11 @@ class _ProductListPageState extends State<ProductListPage>
     return false;
   }
 
-  Widget _buildActionBar(final List<Product> products) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (_selectionMode) {
-      return Row(
+  Widget _buildCompareBar(
+    final List<Product> products,
+    final AppLocalizations appLocalizations,
+  ) =>
+      Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           ElevatedButton(
@@ -394,15 +403,4 @@ class _ProductListPageState extends State<ProductListPage>
           ),
         ],
       );
-    }
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        ElevatedButton(
-          onPressed: () => setState(() => _selectionMode = true),
-          child: Text(appLocalizations.compare_products_mode),
-        ),
-      ],
-    );
-  }
 }
