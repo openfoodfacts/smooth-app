@@ -40,6 +40,7 @@ dependencies:
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
   package_info_plus: ^1.4.2
+  device_info_plus: ^3.2.3
   permission_handler: ^9.2.0
   photo_view: ^0.14.0
   uuid: ^3.0.6
@@ -151,6 +152,7 @@ flutter:
     - assets/metadata/
     - assets/misc/
     - assets/navigation/
+    - assets/network/cert.pem
     - assets/onboarding/
     - assets/preferences/
     - assets/product/
