@@ -42,11 +42,13 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   IconData getLeadingIconData() => Icons.alternate_email;
 
   @override
+  String? getHeaderAsset() => 'assets/preferences/contact.svg';
+
+  @override
+  Color? getHeaderColor() => const Color(0xFFDDE7FF);
+
+  @override
   List<Widget> getBody() => <Widget>[
-        SvgPicture.asset(
-          'assets/preferences/contact.svg',
-          height: MediaQuery.of(context).size.height * .20,
-        ),
         _getListTile(
           title: appLocalizations.instagram,
           url: appLocalizations.instagram_link,
