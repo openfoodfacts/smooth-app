@@ -213,7 +213,7 @@
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "условията за ползване и принос на Open Food Facts",
+    "sign_up_page_terms_text": " условията за ползване и принос на Open Food Facts",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -225,7 +225,7 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "Когато създаваш нов профил, приемането на Условията за ползване е задължително, въпреки това, анонимни приноси могат да се правят чрез приложението",
+    "sign_up_page_agree_error_invalid": "Когато създаваш нов профил, приемането на условията за ползване е задължително, но въпреки това, анонимни приноси могат все пак да се правят чрез приложението",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
@@ -1028,7 +1028,7 @@
     "@dev_preferences_export_history_progress_found": {
         "description": "User dev preferences - Export history - Item - Found"
     },
-    "dev_preferences_export_history_progress_not_found": "product NOT found",
+    "dev_preferences_export_history_progress_not_found": "продуктът НЕ е намерен",
     "@dev_preferences_export_history_progress_not_found": {
         "description": "User dev preferences - Export history - Item - Not found"
     },
@@ -1045,7 +1045,7 @@
         "description": "User dev preferences - Negative button label"
     },
     "dev_preferences_migration_title": "Миграция на данните от V1",
-    "dev_preferences_migration_subtitle": "Status: {status}",
+    "dev_preferences_migration_subtitle": "Статус: {status}",
     "@dev_preferences_migration_subtitle": {
         "placeholders": {
             "status": {
@@ -1054,7 +1054,7 @@
         }
     },
     "dev_preferences_migration_status_already_done": "success or fresh install",
-    "dev_preferences_migration_status_success": "success",
+    "dev_preferences_migration_status_success": "успешно",
     "dev_preferences_migration_status_error": "грешка",
     "dev_preferences_migration_status_in_progress": "in progress",
     "dev_preferences_migration_status_required": "задължително (щракни, за да започнеш)",
@@ -1152,7 +1152,7 @@
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "условията за ползване и принос на Open Food Facts",
+    "signup_page_terms_of_use_line2": " условията за ползване и принос на Open Food Facts",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
