@@ -27,6 +27,6 @@ for dir in $(find "$REPO_DIR" -type d -not -path "*/.dart_tool/*"); do
 done
 
 # Run Spider to generate resources
-cd packages/smooth-app
+cd "$REPO_DIR"/packages/smooth_app
 flutter pub global activate spider
 spider build --verbose
