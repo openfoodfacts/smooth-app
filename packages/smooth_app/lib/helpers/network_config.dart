@@ -37,8 +37,9 @@ Future<void> _importSSLCertificate() async {
     }
   }
 
-  final ByteData data =
-      await PlatformAssetBundle().load('assets/network/cert.pem');
+  final ByteData data = await PlatformAssetBundle().load(
+    'assets/network/cert.pem',
+  );
 
   SecurityContext.defaultContext.setTrustedCertificatesBytes(
     data.buffer.asUint8List(),
@@ -51,6 +52,7 @@ class _AndroidHttpOverrides extends HttpOverrides {
   HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
       ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
+          (X509Certificate cert, String host, int port) =>
+              host.contains('openfoodfacts.org');
   }
 }
