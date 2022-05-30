@@ -5,6 +5,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:openfoodfacts/model/UserAgent.dart';
@@ -30,6 +31,16 @@ import 'package:smooth_app/themes/theme_provider.dart';
 late bool _screenshots;
 
 Future<void> main({final bool screenshots = false}) async {
+  // Adding google font licenses
+  LicenseRegistry.addLicense(() async* {
+    final String license =
+        await rootBundle.loadString('assets/plus_jakarta_sans_regular/OFL.txt');
+    yield LicenseEntryWithLineBreaks(
+      <String>['plus_jakarta_sans_regular'],
+      license,
+    );
+  });
+
   _screenshots = screenshots;
   if (_screenshots) {
     await _init1();
@@ -45,10 +56,12 @@ Future<void> main({final bool screenshots = false}) async {
       appRunner: () => runApp(const SmoothApp()),
     );
   } else {
-    runApp(DevicePreview(
-      enabled: true,
-      builder: (_) => const SmoothApp(),
-    ));
+    runApp(
+      DevicePreview(
+        enabled: true,
+        builder: (_) => const SmoothApp(),
+      ),
+    );
   }
 }
 
@@ -99,7 +112,6 @@ Future<bool> _init1() async {
   );
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
-  AnalyticsHelper.setAnalyticsReports(_userPreferences.analyticsReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);
   _themeProvider = ThemeProvider(_userPreferences);
   ProductQuery.setQueryType(_userPreferences);
@@ -135,15 +147,11 @@ class _SmoothAppState extends State<SmoothApp> {
     if (!mounted) {
       return false;
     }
+    AnalyticsHelper.initMatomo(_screenshots);
     await _productPreferences.init(DefaultAssetBundle.of(context));
     if (!_screenshots) {
       await _userPreferences.init(_productPreferences);
     }
-
-    if (!mounted) {
-      return false;
-    }
-    AnalyticsHelper.initMatomo(context, _screenshots);
     return true;
   }
 
@@ -189,8 +197,13 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final OnboardingPage lastVisitedOnboardingPage =
+        _userPreferences.lastVisitedOnboardingPage;
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
-        .getPageWidget(context, _userPreferences.lastVisitedOnboardingPage);
+        .getPageWidget(context, lastVisitedOnboardingPage);
+    final bool isOnboardingComplete =
+        OnboardingFlowNavigator.isOnboardingComplete(lastVisitedOnboardingPage);
+    themeProvider.setOnboardingComplete(isOnboardingComplete);
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
 
@@ -240,9 +253,6 @@ class SmoothAppGetLanguage extends StatelessWidget {
     final String languageCode = Localizations.localeOf(context).languageCode;
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);
-
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    AnalyticsHelper.trackStart(localDatabase, context);
 
     // The migration requires the language to be set in the app
     _appDataImporter.startMigrationAsync();

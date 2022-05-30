@@ -10,16 +10,29 @@ class ThemeProvider with ChangeNotifier {
   ThemeProvider(this._userPreferences);
 
   final UserPreferences _userPreferences;
+  // The onboarding needs the light mode.
+  bool _forceLight = false;
 
-  String get currentTheme => _userPreferences.currentTheme;
+  String get currentTheme =>
+      _forceLight ? THEME_LIGHT : _userPreferences.currentTheme;
+
+  void setOnboardingComplete(final bool onboardingComplete) {
+    _forceLight = !onboardingComplete;
+  }
+
+  void finishOnboarding() {
+    setOnboardingComplete(true);
+    notifyListeners();
+  }
 
   ThemeMode get currentThemeMode {
-    if (_userPreferences.currentTheme == THEME_SYSTEM_DEFAULT) {
-      return ThemeMode.system;
-    } else if (_userPreferences.currentTheme == THEME_LIGHT) {
-      return ThemeMode.light;
-    } else {
-      return ThemeMode.dark;
+    switch (currentTheme) {
+      case THEME_SYSTEM_DEFAULT:
+        return ThemeMode.system;
+      case THEME_LIGHT:
+        return ThemeMode.light;
+      default:
+        return ThemeMode.dark;
     }
   }
 

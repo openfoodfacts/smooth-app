@@ -40,17 +40,57 @@
     "learnMore": "Saber más",
     "@learnMore": {},
     "general_confirmation": "¿Estás seguro?",
-    "incompatible": "Incompatible",
-    "@incompatible": {
-        "description": "Short label for product list view: the product is incompatible with your preferences"
-    },
-    "compatible": "Compatible",
-    "@compatible": {
-        "description": "Short label for product list view: the product is compatible with your preferences"
-    },
     "unknown": "Desconocido",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
+    "match_very_good": "Gran coincidencia",
+    "@match_very_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: very good match"
+    },
+    "match_good": "Buena coincidencia",
+    "@match_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: good match"
+    },
+    "match_poor": "Mala coincidencia",
+    "@match_poor": {
+        "description": "Label for product page regarding product compatibility with the user preferences: poor match"
+    },
+    "match_may_not": "Puede que no coincida",
+    "@match_may_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: may not match"
+    },
+    "match_does_not": "No coincide",
+    "@match_does_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: does not match"
+    },
+    "match_unknown": "Coincidencia desconocida",
+    "@match_unknown": {
+        "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
+    },
+    "match_short_very_good": "Gran coincidencia",
+    "@match_short_very_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
+    },
+    "match_short_good": "Buena coincidencia",
+    "@match_short_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
+    },
+    "match_short_poor": "Mala coincidencia",
+    "@match_short_poor": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
+    },
+    "match_short_may_not": "Puede que no coincida",
+    "@match_short_may_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
+    },
+    "match_short_does_not": "No coincide",
+    "@match_short_does_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
+    },
+    "match_short_unknown": "Coincidencia desconocida",
+    "@match_short_unknown": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
     "licenses": "Licencias",
     "@licenses": {},
@@ -155,7 +195,7 @@
     "sign_up_page_username_error_empty": "Por favor, introduce un nombre de usuario",
     "sign_up_page_username_error_invalid": "Por favor, introduce un nombre de usuario válido",
     "sign_up_page_username_description": "El nombre de usuario no puede contener espacios, mayúsculas o caracteres especiales",
-    "sign_up_page_username_length_invalid": "El nombre de usuario no puede contener más de {value} caracteres",
+    "sign_up_page_username_length_invalid": "El nombre de usuario no puede exceder los {value} caracteres",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -292,7 +332,7 @@
     "myPreferences_settings_subtitle": "Modo oscuro, tema, ...",
     "myPreferences_food_title": "Preferencias alimentarias",
     "myPreferences_food_subtitle": "Elige qué tipo de información alimentaria es más importante para ti.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Elija qué información sobre los alimentos es más importante para usted, con el fin de clasificar los alimentos según sus preferencias, vea la información que le interesa primero y obtenga un resumen de compatibilidad. Esas preferencias de alimentos permanecen en tu dispositivo y no están asociadas con tu cuenta de colaborador de Open Food Facts si tienes una.",
     "confirmResetPreferences": "¿Quieres restablecer tus preferencias alimentarias?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -395,7 +435,7 @@
     "@new_product": {},
     "front_packaging_photo_button_label": "Foto frontal del producto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirmar la carga de la foto frontal del producto",
+    "confirm_front_packaging_photo_button_label": "Confirme la carga de la foto frontal del producto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -409,10 +449,6 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto de los ingredientes",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Confirma foto de ingredientes",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "Foto de los ingredientes subida",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "Imposible cargar los nutrientes desde el caché",
@@ -420,26 +456,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Introducir información nutricional",
     "nutritional_facts_added": "Información nutricional añadida",
-    "confirm_nutritional_facts_photo_button_label": "Confirmar imagen sobre información nutricional",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
     "nutritional_facts_photo_uploaded": "Imagen de información nutricional cargada",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto de información de reciclaje",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Confirmar foto de información de reciclaje",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "Foto de reciclaje subida",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Otras fotos interesantes",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Confirmar foto",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
     "other_photo_uploaded": "Foto miscelánea cargada",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Repetir foto",
@@ -575,18 +599,6 @@
         "description": "Clears a product list"
     },
     "really_clear": "¿Realmente quieres eliminar esta lista?",
-    "product_compatibility_unknown": "Compatibilidad desconocida",
-    "@product_compatibility_unknown": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_incompatible": "No coincide",
-    "@product_compatibility_incompatible": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "Buena coincidencia",
-    "@product_compatibility_good": {
-        "description": "Product compatibility summary title"
-    },
     "@Plural": {},
     "pct_match": "{percent}% de coincidencia",
     "@pct_match": {
@@ -644,7 +656,9 @@
     "retry_button_label": "Reintentar",
     "connect_with_us": "Conecta con nosotros",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
     "discover": "Descubrir",
@@ -725,6 +739,33 @@
     "account_delete": "Eliminar cuenta",
     "@account_delete": {
         "description": "Delete account button (user profile)"
+    },
+    "user_profile": "Cuenta",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "¡Te damos la bienvenida!",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "Inicie sesión o regístrese para unirse a la comunidad Open Food Facts",
+    "user_profile_title_id_email": "Inicio de sesión de Open Food Facts: {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "¡Bienvenido {id}!",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
     },
     "email_subject_account_deletion": "Eliminar cuenta",
     "@email_subject_account_deletion": {
@@ -880,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "El nombre no puede estar vacío",
+    "user_list_name_error_empty": "El nombre es obligatorio",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -946,7 +987,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "La URL base actual del entorno de prueba es {url}",
+    "dev_preferences_test_environment_subtitle": "URL base para el entorno de prueba actual: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -978,10 +1019,6 @@
     "dev_preferences_export_history_title": "Exportar historial",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Restablecer idioma de la aplicación",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "excepción",
     "@dev_preferences_export_history_progress_error": {
@@ -1034,27 +1071,6 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_matching_mode_title": "Cambiar entre coincidencia fuerte e indulgente",
-    "@dev_mode_matching_mode_title": {
-        "description": "User dev preferences - Matching mode - Title"
-    },
-    "dev_mode_matching_mode_subtitle": "El nivel de coincidencia actual es {mode}",
-    "@dev_mode_matching_mode_subtitle": {
-        "description": "User dev preferences - Matching mode - Subtitle",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "dev_mode_matching_mode_value_strong": "Fuerte",
-    "@dev_mode_matching_mode_value_strong": {
-        "description": "User dev preferences - Matching mode - Value - Strong"
-    },
-    "dev_mode_matching_mode_value_lenient": "Indulgente",
-    "@dev_mode_matching_mode_value_lenient": {
-        "description": "User dev preferences - Matching mode - Value - Lenient"
-    },
     "dev_mode_scan_mode_title": "Modo de escaneo",
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
@@ -1072,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Excluir Ecoscore",
+    "dev_mode_hide_ecoscore_title": "Excluir EcoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1181,6 +1197,15 @@
     "add_basic_details_brand_name_error": "Por favor, introduce el nombre de la marca",
     "quantity": "Cantidad y peso",
     "barcode": "Código de barras",
+    "barcode_barcode": "Código de barras: {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "basic_details_add_success": "Detalles básicos añadidos con éxito",
     "basic_details_add_error": "No se pueden agregar detalles básicos. Vuelva a intentarlo después de un tiempo.",
     "@basic_details_add_error": {

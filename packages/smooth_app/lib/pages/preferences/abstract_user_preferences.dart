@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/animations/smooth_animated_collapse_arrow.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -31,30 +30,25 @@ abstract class AbstractUserPreferences {
   String getTitleString();
 
   /// Title of the header, always visible.
-  ///
-  /// With [Flexible] for overflow management.
   @protected
-  Widget getTitle() => Flexible(
-        child: Text(
-          getTitleString(),
-          style: themeData.textTheme.headline2,
-        ),
+  Widget getTitle() => Text(
+        getTitleString(),
+        style: themeData.textTheme.headline2,
       );
 
   /// Subtitle of the header, always visible.
   @protected
   Widget? getSubtitle();
 
-  /// Should the expand/collapse icon be next to the title.
-  @protected
-  bool isCompactTitle() => false;
-
   Widget getOnlyHeader() => InkWell(
         onTap: () async => runHeaderAction(),
         child: getHeaderHelper(false),
       );
 
-  Icon getForwardIcon() => Icon(ConstantIcons.instance.getForwardIcon());
+  Icon? getForwardIcon() => UserPreferencesListTile.getTintedIcon(
+        ConstantIcons.instance.getForwardIcon(),
+        context,
+      );
 
   /// Returns the tappable header.
   @protected
@@ -68,13 +62,13 @@ abstract class AbstractUserPreferences {
   Widget getHeaderHelper(final bool? collapsed) => UserPreferencesListTile(
         title: getTitle(),
         subtitle: getSubtitle(),
-        isCompactTitle: isCompactTitle(),
-        icon: isCompactTitle()
-            ? SmoothAnimatedCollapseArrow(collapsed: collapsed!)
-            : collapsed != null
-                ? getForwardIcon()
-                : null,
+        trailing: collapsed != null ? getForwardIcon() : null,
+        leading: UserPreferencesListTile.getTintedIcon(
+            getLeadingIconData(), context),
       );
+
+  @protected
+  IconData getLeadingIconData();
 
   /// Body of the content.
   @protected
@@ -95,16 +89,7 @@ abstract class AbstractUserPreferences {
     return result;
   }
 
-  /// Returns a slightly different version of [getContent] for the onboarding.
-  List<Widget> getOnboardingContent() {
-    return <Widget>[
-      getHeaderHelper(null),
-      ...getBody(),
-    ];
-  }
-
   /// Returns the action when we tap on the header.
-  @protected
   Future<void> runHeaderAction() async => Navigator.push<Widget>(
         context,
         MaterialPageRoute<Widget>(

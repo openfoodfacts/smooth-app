@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -38,27 +38,40 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   Widget? getSubtitle() => null;
 
   @override
+  IconData getLeadingIconData() => Icons.emoji_people;
+
+  @override
   List<Widget> getBody() => <Widget>[
+        SvgPicture.asset(
+          'assets/preferences/contribute.svg',
+          height: MediaQuery.of(context).size.height * .20,
+        ),
         _getListTile(
           appLocalizations.contribute_improve_header,
           () => _contribute(),
+          Icons.data_saver_on,
         ),
         _getListTile(
           appLocalizations.contribute_sw_development,
           () => _develop(),
+          Icons.app_shortcut,
         ),
         _getListTile(
           appLocalizations.contribute_translate_header,
           () => _translate(),
+          Icons.translate,
         ),
         _getListTile(
           appLocalizations.contribute_donate_header,
           () => _donate(),
-          icon: const Icon(Icons.open_in_new),
+          Icons.volunteer_activism,
+          icon:
+              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         ),
         _getListTile(
           appLocalizations.contributors,
           () => _contributors(),
+          Icons.emoji_people,
         ),
       ];
 
@@ -67,9 +80,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
-          return SmoothAlertDialog.advanced(
-            close: false,
-            maxHeight: MediaQuery.of(context).size.height * 0.35,
+          return SmoothAlertDialog(
             title: appLocalizations.contribute_improve_header,
             body: Column(
               children: <Widget>[
@@ -89,15 +100,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 ),
               ],
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                onPressed: () {
-                  Navigator.of(context, rootNavigator: true).pop('dialog');
-                },
-                text: appLocalizations.okay,
-                minWidth: 100,
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop('dialog');
+              },
+              text: appLocalizations.okay,
+              minWidth: 100,
+            ),
           );
         },
       );
@@ -107,9 +116,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
-          return SmoothAlertDialog.advanced(
-            close: false,
-            maxHeight: MediaQuery.of(context).size.height * 0.35,
+          return SmoothAlertDialog(
             title: appLocalizations.contribute_sw_development,
             body: Column(
               children: <Widget>[
@@ -140,13 +147,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 )
               ],
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                onPressed: () => Navigator.pop(context),
-                text: appLocalizations.okay,
-                minWidth: 100,
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              onPressed: () => Navigator.pop(context),
+              text: appLocalizations.okay,
+              minWidth: 100,
+            ),
           );
         },
       );
@@ -156,9 +161,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
-          return SmoothAlertDialog.advanced(
+          return SmoothAlertDialog(
             title: appLocalizations.contribute_translate_header,
-            maxHeight: MediaQuery.of(context).size.height * 0.25,
             body: Column(
               children: <Widget>[
                 Text(
@@ -169,14 +173,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 ),
               ],
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                onPressed: () => LaunchUrlHelper.launchURL(
-                    'https://translate.openfoodfacts.org/', false),
-                text: appLocalizations.contribute_translate_link_text,
-                minWidth: 200,
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              onPressed: () => LaunchUrlHelper.launchURL(
+                  'https://translate.openfoodfacts.org/', false),
+              text: appLocalizations.contribute_translate_link_text,
+            ),
           );
         },
       );
@@ -189,9 +190,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   Future<void> _contributors() => showDialog<void>(
         context: context,
         builder: (BuildContext context) {
-          return SmoothAlertDialog.advanced(
+          return SmoothAlertDialog(
             title: AppLocalizations.of(context).contributors,
-            maxHeight: MediaQuery.of(context).size.height * 0.45,
             body: FutureBuilder<http.Response>(
               future: http.get(
                 Uri.https(
@@ -204,54 +204,73 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 if (snap.hasData) {
                   final List<dynamic> contributors =
                       jsonDecode(snap.data!.body) as List<dynamic>;
-                  return Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: contributors.map((dynamic contributorsData) {
-                      final ContributorsModel contributor =
-                          ContributorsModel.fromJson(
-                              contributorsData as Map<String, dynamic>);
-                      return Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: InkWell(
-                          onTap: () {
-                            LaunchUrlHelper.launchURL(
-                                contributor.profilePath, false);
-                          },
-                          child: CircleAvatar(
-                            foregroundImage:
-                                NetworkImage(contributor.avatarUrl),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.primary,
+                  return SingleChildScrollView(
+                    child: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: contributors.map((dynamic contributorsData) {
+                        final ContributorsModel contributor =
+                            ContributorsModel.fromJson(
+                                contributorsData as Map<String, dynamic>);
+                        return Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: InkWell(
+                            customBorder: const CircleBorder(),
+                            onTap: () {
+                              LaunchUrlHelper.launchURL(
+                                contributor.profilePath,
+                                false,
+                              );
+                            },
+                            child: Ink(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    contributor.avatarUrl,
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              width: 40.0,
+                              height: 40.0,
+                            ),
                           ),
-                        ),
-                      );
-                    }).toList(growable: false),
+                        );
+                      }).toList(growable: false),
+                    ),
                   );
                 }
 
                 return const CircularProgressIndicator();
               },
             ),
-            actions: <SmoothActionButton>[
-              SmoothActionButton(
-                onPressed: () => LaunchUrlHelper.launchURL(
-                    'https://github.com/openfoodfacts/smooth-app', false),
-                text: AppLocalizations.of(context).contribute,
-                minWidth: 200,
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop('dialog');
+              },
+              text: appLocalizations.close,
+              minWidth: 100,
+            ),
+            negativeAction: SmoothActionButton(
+              onPressed: () => LaunchUrlHelper.launchURL(
+                  'https://github.com/openfoodfacts/smooth-app', false),
+              text: AppLocalizations.of(context).contribute,
+              minWidth: 200,
+            ),
           );
         },
       );
 
   Widget _getListTile(
     final String title,
-    final VoidCallback onTap, {
+    final VoidCallback onTap,
+    final IconData leading, {
     final Icon? icon,
   }) =>
       UserPreferencesListTile(
-        title: Text(title, style: themeData.textTheme.headline4),
+        title: Text(title),
         onTap: onTap,
-        icon: icon ?? getForwardIcon(),
+        trailing: icon ?? getForwardIcon(),
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
       );
 }

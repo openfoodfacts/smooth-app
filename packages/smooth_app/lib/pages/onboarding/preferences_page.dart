@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
@@ -14,9 +15,10 @@ import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 
 class PreferencesPage extends StatefulWidget {
-  const PreferencesPage(this._localDatabase) : super();
+  const PreferencesPage(this._localDatabase, this.backgroundColor) : super();
 
   final LocalDatabase _localDatabase;
+  final Color backgroundColor;
 
   @override
   State<PreferencesPage> createState() => _PreferencesPageState();
@@ -51,16 +53,17 @@ class _PreferencesPageState extends State<PreferencesPage> {
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator());
           }
-          return _Helper(_product);
+          return _Helper(_product, widget.backgroundColor);
         },
       );
 }
 
 // In order to avoid to reload the product when refreshing the preferences.
 class _Helper extends StatefulWidget {
-  const _Helper(this.product);
+  const _Helper(this.product, this.backgroundColor);
 
   final Product product;
+  final Color backgroundColor;
 
   @override
   State<_Helper> createState() => _HelperState();
@@ -76,6 +79,10 @@ class _HelperState extends State<_Helper> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> pageData = <Widget>[
+      SvgPicture.asset(
+        'assets/onboarding/preferences.svg',
+        height: MediaQuery.of(context).size.height * .25,
+      ),
       Padding(
         padding: const EdgeInsets.only(
           right: LARGE_SPACE,
@@ -115,27 +122,27 @@ class _HelperState extends State<_Helper> {
         themeData: Theme.of(context),
       ).getOnboardingContent(),
     );
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-              // bottom padding is very large because [NextButton] is stacked on top of the page.
-              padding: const EdgeInsets.only(
-                top: LARGE_SPACE,
-                bottom: VERY_LARGE_SPACE * 5,
-              ),
+    return Container(
+      color: widget.backgroundColor,
+      child: SafeArea(
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            ListView.builder(
+              padding: const EdgeInsets.only(top: LARGE_SPACE),
               itemCount: pageData.length,
-              itemBuilder: (BuildContext context, int position) {
-                return pageData[position];
-              },
+              itemBuilder: (BuildContext context, int position) =>
+                  pageData[position],
             ),
-          ),
-          const Align(
-            alignment: Alignment.bottomCenter,
-            child: NextButton(OnboardingPage.PREFERENCES_PAGE),
-          ),
-        ],
+            Positioned(
+              bottom: 0,
+              child: NextButton(
+                OnboardingPage.PREFERENCES_PAGE,
+                backgroundColor: widget.backgroundColor,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

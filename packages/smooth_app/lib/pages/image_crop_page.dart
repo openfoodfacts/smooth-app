@@ -54,5 +54,9 @@ Future<File?> startImageCropping(BuildContext context,
       ),
     ],
   );
-  return File(croppedFile!.path);
+  //attempting to create a file from a null path will throw an exception so return null if that happens
+  if (croppedFile == null) {
+    return null;
+  }
+  return File(croppedFile.path);
 }

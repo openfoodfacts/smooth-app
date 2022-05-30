@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -41,6 +45,10 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   @override
   Widget? getSubtitle() =>
       Text(appLocalizations.myPreferences_settings_subtitle);
+
+  @override
+  IconData getLeadingIconData() => Icons.handyman;
+
   @override
   List<Widget> getBody() => <Widget>[
         Padding(
@@ -79,8 +87,12 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             ],
           ),
         ),
+        const UserPreferencesListItemDivider(),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: MEDIUM_SPACE,
+          ),
           child: Text(
             appLocalizations.main_app_color,
             style: themeData.textTheme.headline4,
@@ -103,6 +115,10 @@ class UserPreferencesSettings extends AbstractUserPreferences {
             ),
           ),
         ),
+        const UserPreferencesListItemDivider(),
+        const _CrashReportingSetting(),
+        const UserPreferencesListItemDivider(),
+        const _SendAnonymousDataSetting(),
       ];
 
   Widget _getColorButton(
@@ -129,4 +145,49 @@ class UserPreferencesSettings extends AbstractUserPreferences {
           ),
         ),
       );
+}
+
+class _SendAnonymousDataSetting extends StatefulWidget {
+  const _SendAnonymousDataSetting({Key? key}) : super(key: key);
+
+  @override
+  State<_SendAnonymousDataSetting> createState() =>
+      _SendAnonymousDataSettingState();
+}
+
+class _SendAnonymousDataSettingState extends State<_SendAnonymousDataSetting> {
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.send_anonymous_data_toggle_title,
+      subtitle: appLocalizations.send_anonymous_data_toggle_subtitle,
+      value: !MatomoTracker.instance.getOptOut(),
+      onChanged: (final bool allow) async {
+        await AnalyticsHelper.setAnalyticsReports(allow);
+        setState(() {});
+      },
+    );
+  }
+}
+
+class _CrashReportingSetting extends StatelessWidget {
+  const _CrashReportingSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.crash_reporting_toggle_title,
+      subtitle: appLocalizations.crash_reporting_toggle_subtitle,
+      value: userPreferences.crashReports,
+      onChanged: (final bool value) async {
+        await userPreferences.setCrashReports(value);
+        AnalyticsHelper.setCrashReports(value);
+      },
+    );
+  }
 }

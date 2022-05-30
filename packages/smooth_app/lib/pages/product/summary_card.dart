@@ -8,7 +8,6 @@ import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
-import 'package:smooth_app/cards/product_cards/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -25,6 +24,7 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -77,6 +77,8 @@ class SummaryCard extends StatefulWidget {
 }
 
 class _SummaryCardState extends State<SummaryCard> {
+  late final bool allowClicking;
+
   // Number of Rows that will be printed in the SummaryCard, initialized to a
   // very high number for infinite rows.
   int totalPrintableRows = 10000;
@@ -88,6 +90,7 @@ class _SummaryCardState extends State<SummaryCard> {
   @override
   void initState() {
     super.initState();
+    allowClicking = !widget.isFullVersion;
   }
 
   @override
@@ -326,7 +329,20 @@ class _SummaryCardState extends State<SummaryCard> {
           widget.isFullVersion,
           isRemovable: widget.isRemovable,
         ),
-        for (final Attribute attribute in scoreAttributes)
+        ...getAttributes(scoreAttributes),
+        if (widget.isFullVersion) _buildProductQuestionsWidget(),
+        attributesContainer,
+        ...summaryCardButtons,
+      ],
+    );
+  }
+
+  List<Widget> getAttributes(List<Attribute> scoreAttributes) {
+    final List<Widget> attributes = <Widget>[];
+
+    for (final Attribute attribute in scoreAttributes) {
+      if (widget.isFullVersion) {
+        attributes.add(
           InkWell(
             onTap: widget.isFullVersion
                 ? () async => openFullKnowledgePanel(
@@ -341,11 +357,20 @@ class _SummaryCardState extends State<SummaryCard> {
               isClickable: widget.isFullVersion,
             ),
           ),
-        if (widget.isFullVersion) _buildProductQuestionsWidget(),
-        attributesContainer,
-        ...summaryCardButtons,
-      ],
-    );
+        );
+      } else {
+        attributes.add(
+          ScoreCard(
+            iconUrl: attribute.iconUrl,
+            description:
+                attribute.descriptionShort ?? attribute.description ?? '',
+            cardEvaluation: getCardEvaluationFromAttribute(attribute),
+            isClickable: false,
+          ),
+        );
+      }
+    }
+    return attributes;
   }
 
   Widget _buildProductCompatibilityHeader(BuildContext context) {

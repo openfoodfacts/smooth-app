@@ -40,17 +40,57 @@
     "learnMore": "Daha fazla bilgi edin",
     "@learnMore": {},
     "general_confirmation": "Emin misiniz?",
-    "incompatible": "Uyumsuz",
-    "@incompatible": {
-        "description": "Short label for product list view: the product is incompatible with your preferences"
-    },
-    "compatible": "Uyumlu",
-    "@compatible": {
-        "description": "Short label for product list view: the product is compatible with your preferences"
-    },
     "unknown": "Bilinmeyen",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
+    },
+    "match_very_good": "Very good match",
+    "@match_very_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: very good match"
+    },
+    "match_good": "Good match",
+    "@match_good": {
+        "description": "Label for product page regarding product compatibility with the user preferences: good match"
+    },
+    "match_poor": "Poor match",
+    "@match_poor": {
+        "description": "Label for product page regarding product compatibility with the user preferences: poor match"
+    },
+    "match_may_not": "May not match",
+    "@match_may_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: may not match"
+    },
+    "match_does_not": "Eşleşmiyor",
+    "@match_does_not": {
+        "description": "Label for product page regarding product compatibility with the user preferences: does not match"
+    },
+    "match_unknown": "Bilinmeyen eşleşme",
+    "@match_unknown": {
+        "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
+    },
+    "match_short_very_good": "Very good match",
+    "@match_short_very_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
+    },
+    "match_short_good": "Good match",
+    "@match_short_good": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
+    },
+    "match_short_poor": "Poor match",
+    "@match_short_poor": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
+    },
+    "match_short_may_not": "May not match",
+    "@match_short_may_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
+    },
+    "match_short_does_not": "Eşleşmiyor",
+    "@match_short_does_not": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
+    },
+    "match_short_unknown": "Bilinmeyen eşleşme",
+    "@match_short_unknown": {
+        "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
     "licenses": "Lisanslar",
     "@licenses": {},
@@ -155,7 +195,7 @@
     "sign_up_page_username_error_empty": "Lütfen bir kullanıcı adı girin",
     "sign_up_page_username_error_invalid": "Lütfen Geçerli Bir Kullanıcı Adı Girin",
     "sign_up_page_username_description": "Kullanıcı adı boşluk, büyük harf veya özel karakter içeremez",
-    "sign_up_page_username_length_invalid": "Kullanıcı adı {value} karakterden az olmalıdır",
+    "sign_up_page_username_length_invalid": "Kullanıcı adı {value} karakterden fazla olamaz",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -287,7 +327,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Profiliniz",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
     "myPreferences_settings_title": "Uygulama Ayarları",
     "myPreferences_settings_subtitle": "Karanlık mod, Tema, ...",
     "myPreferences_food_title": "Yiyecek tercihleri",
@@ -393,9 +433,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Yeni ürün",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Ürünün önden bir fotoğrafı",
+    "front_packaging_photo_button_label": "Product front photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Yüklediğin fotoğrafı onayla",
+    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -409,10 +449,6 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "İçindekiler fotoğarafı",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "İçindekiler fotoğrafını doğrulayın",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "\"İçindekiler\" fotoğrafı yüklendi",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "Besin değerleri önbellekten yüklenemiyor",
@@ -420,26 +456,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Besin değerleri gir",
     "nutritional_facts_added": "Besin değerleri eklendi",
-    "confirm_nutritional_facts_photo_button_label": "Besin değerleri fotoğrafını onayla",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
     "nutritional_facts_photo_uploaded": "\"Besin değerleri\" fotoğrafı yüklendi",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Geri dönüşüm bilgisi fotoğrafı",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Geri dönüşüm bilgisi fotoğrafını onayla",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "Geri dönüşüm fotoğrafı yüklendi",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Diğer ilginç fotoğraflar",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Fotoğrafı onayla",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
     "other_photo_uploaded": "Fotoğraf yüklendi",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Yeniden çek",
@@ -575,18 +599,6 @@
         "description": "Clears a product list"
     },
     "really_clear": "Bu listeyi silmek istediğinize emin misiniz?",
-    "product_compatibility_unknown": "Uyumluluk bilimiyor",
-    "@product_compatibility_unknown": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_incompatible": "Eşleşmiyor",
-    "@product_compatibility_incompatible": {
-        "description": "Product compatibility summary title"
-    },
-    "product_compatibility_good": "İyi Eşleşme",
-    "@product_compatibility_good": {
-        "description": "Product compatibility summary title"
-    },
     "@Plural": {},
     "pct_match": "{percent}% eşleşme",
     "@pct_match": {
@@ -644,7 +656,9 @@
     "retry_button_label": "Tekrar dene",
     "connect_with_us": "Connect with us",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
     "discover": "Keşfet",
@@ -725,6 +739,33 @@
     "account_delete": "Delete account",
     "@account_delete": {
         "description": "Delete account button (user profile)"
+    },
+    "user_profile": "Account",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "Hoşgeldiniz!",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "Welcome {id}!",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
     },
     "email_subject_account_deletion": "Delete account",
     "@email_subject_account_deletion": {
@@ -880,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "İsim boş bırakılamaz",
+    "user_list_name_error_empty": "Name is mandatory",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -946,7 +987,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Current base URL of test env is {url}",
+    "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -978,10 +1019,6 @@
     "dev_preferences_export_history_title": "Export History",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Reset App Language",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "exception",
     "@dev_preferences_export_history_progress_error": {
@@ -1034,32 +1071,11 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_matching_mode_title": "Switch between strong and lenient matching",
-    "@dev_mode_matching_mode_title": {
-        "description": "User dev preferences - Matching mode - Title"
-    },
-    "dev_mode_matching_mode_subtitle": "Current matching level is {mode}",
-    "@dev_mode_matching_mode_subtitle": {
-        "description": "User dev preferences - Matching mode - Subtitle",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "dev_mode_matching_mode_value_strong": "Strong",
-    "@dev_mode_matching_mode_value_strong": {
-        "description": "User dev preferences - Matching mode - Value - Strong"
-    },
-    "dev_mode_matching_mode_value_lenient": "Lenient",
-    "@dev_mode_matching_mode_value_lenient": {
-        "description": "User dev preferences - Matching mode - Value - Lenient"
-    },
     "dev_mode_scan_mode_title": "Scan Mode",
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is :\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1072,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Ecoscore",
+    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1181,6 +1197,15 @@
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
     "barcode": "Barkod",
+    "barcode_barcode": "Barcode: {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "basic_details_add_success": "Basic details added succesfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
     "@basic_details_add_error": {

@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 
@@ -36,6 +36,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    File? retakenPhoto;
     // Picture is captured, show it to the user one last time and ask for
     // confirmation before uploading. Also present an option to retake the
     // picture as sometimes the picture can be blurry.
@@ -57,50 +58,45 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    SmoothActionButton(
-                        text: appLocalizations.retake_photo_button_label,
-                        onPressed: () async {
-                          final File? retakenPhoto =
-                              await startImageCropping(context);
-                          if (retakenPhoto == null) {
-                            if (!mounted) {
-                              return;
-                            }
-                            // User chose not to upload the image.
-                            Navigator.pop(context);
-                            return;
-                          }
-                          setState(() {
-                            photo = retakenPhoto;
-                          });
-                          retakenPhoto.delete();
-                        }),
-                    SmoothActionButton(
-                      text: _getConfirmButtonText(
-                        context,
-                        widget.imageType,
-                      ),
-                      onPressed: () async {
-                        final bool isPhotoUploaded =
-                            await uploadCapturedPicture(
-                          context,
-                          barcode: widget.barcode,
-                          imageField: widget.imageType,
-                          imageUri: photo.uri,
-                        );
+                child: SmoothActionButtonsBar(
+                  negativeAction: SmoothActionButton(
+                    text: appLocalizations.retake_photo_button_label,
+                    onPressed: () async {
+                      retakenPhoto = await startImageCropping(context);
+                      if (retakenPhoto == null) {
                         if (!mounted) {
                           return;
                         }
-                        Navigator.pop(
-                          context,
-                          isPhotoUploaded ? photo : null,
-                        );
-                      },
-                    ),
-                  ],
+                        // User chose not to upload the image.
+                        Navigator.pop(context);
+                        return;
+                      }
+                      setState(
+                        () {
+                          photo = retakenPhoto!;
+                        },
+                      );
+                    },
+                  ),
+                  positiveAction: SmoothActionButton(
+                    text: appLocalizations.confirm_button_label,
+                    onPressed: () async {
+                      final bool isPhotoUploaded = await uploadCapturedPicture(
+                        context,
+                        barcode: widget.barcode,
+                        imageField: widget.imageType,
+                        imageUri: photo.uri,
+                      );
+                      if (!mounted) {
+                        return;
+                      }
+                      retakenPhoto?.delete();
+                      Navigator.pop(
+                        context,
+                        isPhotoUploaded ? photo : null,
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
@@ -123,22 +119,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
         return appLocalizations.recycling_photo_title;
       case ImageField.OTHER:
         return appLocalizations.other_interesting_photo_title;
-    }
-  }
-
-  String _getConfirmButtonText(BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    switch (imageType) {
-      case ImageField.FRONT:
-        return appLocalizations.confirm_button_label;
-      case ImageField.INGREDIENTS:
-        return appLocalizations.confirm_ingredients_photo_button_label;
-      case ImageField.NUTRITION:
-        return appLocalizations.confirm_nutritional_facts_photo_button_label;
-      case ImageField.PACKAGING:
-        return appLocalizations.confirm_recycling_photo_button_label;
-      case ImageField.OTHER:
-        return appLocalizations.confirm_other_interesting_photo_button_label;
     }
   }
 }

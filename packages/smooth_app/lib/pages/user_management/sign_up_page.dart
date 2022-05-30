@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -20,7 +20,7 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   static const double space = 10;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -38,6 +38,9 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _disagreed = false;
 
   @override
+  String get traceTitle => 'sign_up_page';
+
+  @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -45,13 +48,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          appLocalizations.sign_up_page_title,
-          style: TextStyle(color: theme.colorScheme.onBackground),
-        ),
+        title: Text(appLocalizations.sign_up_page_title),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.primary),
       ),
       body: Form(
         onChanged: () => setState(() {}),
@@ -187,8 +186,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 text: TextSpan(
                   children: <InlineSpan>[
                     TextSpan(
-                      text: appLocalizations.sign_up_page_agree_text,
-                      style: TextStyle(color: theme.colorScheme.onBackground),
+                      // additional space needed because of the next text span
+                      text: '${appLocalizations.sign_up_page_agree_text} ',
                     ),
                     TextSpan(
                       style: const TextStyle(
@@ -324,11 +323,10 @@ class _SignUpPageState extends State<SignUpPage> {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(AppLocalizations.of(context).sign_up_page_action_ok),
-        actions: <SmoothActionButton>[
-          SmoothActionButton(
-              text: AppLocalizations.of(context).okay,
-              onPressed: () => Navigator.of(context).pop()),
-        ],
+        positiveAction: SmoothActionButton(
+          text: AppLocalizations.of(context).okay,
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
     );
     if (!mounted) {

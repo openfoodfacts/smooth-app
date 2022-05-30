@@ -27,8 +27,11 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
-  static const String _TAG_ANALYTICS_REPORTS = 'analytics_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
+  static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
+
+  /// Attribute group that is not collapsed
+  static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -44,45 +47,54 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setImportance(
     final String attributeId,
     final String importanceId,
-  ) async =>
-      _sharedPreferences.setString(
-          _getImportanceTag(attributeId), importanceId);
+  ) async {
+    await _sharedPreferences.setString(
+        _getImportanceTag(attributeId), importanceId);
+    notifyListeners();
+  }
 
   String getImportance(final String attributeId) =>
       _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
       PreferenceImportance.ID_NOT_IMPORTANT;
 
-  Future<void> setTheme(final String theme) async =>
-      _sharedPreferences.setString(_TAG_CURRENT_THEME_MODE, theme);
+  Future<void> setTheme(final String theme) async {
+    await _sharedPreferences.setString(_TAG_CURRENT_THEME_MODE, theme);
+    notifyListeners();
+  }
 
-  Future<void> setCrashReports(final bool state) async =>
-      _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
+  Future<void> setCrashReports(final bool state) async {
+    await _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
+    notifyListeners();
+  }
 
   bool get crashReports =>
       _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? true;
 
-  Future<void> setAnalyticsReports(final bool state) async =>
-      _sharedPreferences.setBool(_TAG_ANALYTICS_REPORTS, state);
-
-  bool get analyticsReports =>
-      _sharedPreferences.getBool(_TAG_ANALYTICS_REPORTS) ?? true;
-
-  Future<void> setCustomColor(final Color color) async => _sharedPreferences
-      .setString(_TAG_THEME_CUSTOM_COLOR, color.toPreferencesString);
+  Future<void> setCustomColor(final Color color) async {
+    await _sharedPreferences.setString(
+        _TAG_THEME_CUSTOM_COLOR, color.toPreferencesString);
+    notifyListeners();
+  }
 
   Color? get customColor => ColorExtension.fromPreferencesString(
       _sharedPreferences.getString(_TAG_THEME_CUSTOM_COLOR));
 
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
-  Future<void> setUserCountry(final String countryCode) async =>
-      _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
+
+  Future<void> setUserCountry(final String countryCode) async {
+    await _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
+    notifyListeners();
+  }
 
   String? get userCountryCode =>
       _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
 
-  Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async =>
-      _sharedPreferences.setInt(_TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);
+  Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async {
+    await _sharedPreferences.setInt(
+        _TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);
+    notifyListeners();
+  }
 
   OnboardingPage get lastVisitedOnboardingPage {
     final int? pageIndex =
@@ -91,6 +103,16 @@ class UserPreferences extends ChangeNotifier {
         ? OnboardingPage.NOT_STARTED
         : OnboardingPage.values[pageIndex];
   }
+
+  Future<void> setFirstScanAchieved() async {
+    if (isFirstScan) {
+      await _sharedPreferences.setBool(_TAG_IS_FIRST_SCAN, false);
+      notifyListeners();
+    }
+  }
+
+  bool get isFirstScan =>
+      _sharedPreferences.getBool(_TAG_IS_FIRST_SCAN) ?? true;
 
   Future<void> setAppLanguageCode(String? languageCode) async {
     if (languageCode == null) {
@@ -111,10 +133,12 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setFlag(
     final String key,
     final bool? value,
-  ) async =>
-      value == null
-          ? await _sharedPreferences.remove(_getFlagTag(key))
-          : await _sharedPreferences.setBool(_getFlagTag(key), value);
+  ) async {
+    value == null
+        ? await _sharedPreferences.remove(_getFlagTag(key))
+        : await _sharedPreferences.setBool(_getFlagTag(key), value);
+    notifyListeners();
+  }
 
   bool? getFlag(final String key) =>
       _sharedPreferences.getBool(_getFlagTag(key));
@@ -123,22 +147,37 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS) ??
       <String>[];
 
-  Future<void> setExcludedAttributeIds(final List<String> value) async =>
-      _sharedPreferences.setStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS, value);
+  Future<void> setExcludedAttributeIds(final List<String> value) async {
+    await _sharedPreferences.setStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS, value);
+    notifyListeners();
+  }
 
-  Future<void> setDevMode(final int value) async =>
-      _sharedPreferences.setInt(_TAG_DEV_MODE, value);
+  Future<void> setDevMode(final int value) async {
+    await _sharedPreferences.setInt(_TAG_DEV_MODE, value);
+    notifyListeners();
+  }
 
   int get devMode => _sharedPreferences.getInt(_TAG_DEV_MODE) ?? 0;
 
-  Future<void> setDevModeIndex(final String tag, final int index) async =>
-      _sharedPreferences.setInt(tag, index);
+  Future<void> setDevModeIndex(final String tag, final int index) async {
+    await _sharedPreferences.setInt(tag, index);
+    notifyListeners();
+  }
 
   int? getDevModeIndex(final String tag) => _sharedPreferences.getInt(tag);
 
-  Future<void> setDevModeString(final String tag, final String value) async =>
-      _sharedPreferences.setString(tag, value);
+  Future<void> setDevModeString(final String tag, final String value) async {
+    await _sharedPreferences.setString(tag, value);
+    notifyListeners();
+  }
 
   String? getDevModeString(final String tag) =>
       _sharedPreferences.getString(tag);
+
+  Future<void> setActiveAttributeGroup(final String value) async =>
+      _sharedPreferences.setString(_TAG_ACTIVE_ATTRIBUTE_GROUP, value);
+
+  String get activeAttributeGroup =>
+      _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
+      'nutritional_quality'; // TODO(monsieurtanuki): relatively safe but not nice to put a hard-coded value (even when highly probable)
 }
