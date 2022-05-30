@@ -39,7 +39,7 @@ class WelcomePage extends StatelessWidget {
                 ),
                 SvgPicture.asset(
                   'assets/onboarding/globe.svg',
-                  height: screenSize.height * .30,
+                  height: screenSize.height * .20,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: SMALL_SPACE),

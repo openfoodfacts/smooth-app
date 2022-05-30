@@ -98,4 +98,12 @@ abstract class AbstractUserPreferences {
           ),
         ),
       );
+
+  /// Svg asset for the header.
+  ///
+  /// E.g.: `'assets/preferences/main.svg'`
+  String? getHeaderAsset() => null;
+
+  /// Color for the header.
+  Color? getHeaderColor() => null;
 }

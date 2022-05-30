@@ -195,7 +195,7 @@
     "sign_up_page_username_error_empty": "Моля, въведи потребителско име",
     "sign_up_page_username_error_invalid": "Въведи валидно потребителско име",
     "sign_up_page_username_description": "Потребителското име не може да съдържа интервали, главни или специални знаци",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Потребителското име не може да надвишава {value} знака",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -433,9 +433,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Нов продукт",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product front photo",
+    "front_packaging_photo_button_label": "Снимка на продукта отпред",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
+    "confirm_front_packaging_photo_button_label": "Потвърди качването на снимката на предната страна на продукта",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -740,7 +740,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "user_profile": "Account",
+    "user_profile": "Профил",
     "@user_profile": {
         "description": "User account (if connected)"
     },
@@ -748,7 +748,7 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_subtitle_guest": "Влез или се регистрирай, за да се присъединиш към общността на Open Food Facts",
     "user_profile_title_id_email": "Open Food Facts login: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
@@ -758,7 +758,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "Добре дошъл {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -921,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Name is mandatory",
+    "user_list_name_error_empty": "Името е задължително",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -1075,7 +1075,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Текущият режим на сканиране е: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1088,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
+    "dev_mode_hide_ecoscore_title": "Изключи EcoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1197,7 +1197,7 @@
     "add_basic_details_brand_name_error": "Моля, въведи името на марката",
     "quantity": "Количество и тегло",
     "barcode": "Баркод",
-    "barcode_barcode": "Barcode: {barcode}",
+    "barcode_barcode": "Баркод: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
         "placeholders": {

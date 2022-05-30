@@ -54,6 +54,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final List<Widget> children = <Widget>[];
     final bool addDividers;
 
+    final String? headerAsset;
+    final Color? headerColor;
     if (widget.type == null) {
       final List<PreferencePageType> items = <PreferencePageType>[
         PreferencePageType.ACCOUNT,
@@ -66,12 +68,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
       ];
 
-      children.add(
-        SvgPicture.asset(
-          'assets/preferences/main.svg',
-          height: MediaQuery.of(context).size.height * .20,
-        ),
-      );
       for (final PreferencePageType type in items) {
         children.add(
           getUserPreferences(
@@ -80,6 +76,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           ).getOnlyHeader(),
         );
       }
+      headerAsset = 'assets/preferences/main.svg';
+      headerColor = const Color(0xFFEBF1FF);
 
       appBarTitle = appLocalizations.myPreferences;
       addDividers = true;
@@ -93,6 +91,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       children.addAll(abstractUserPreferences.getContent(withHeader: false));
       appBarTitle = abstractUserPreferences.getTitleString();
       addDividers = false;
+
+      headerAsset = abstractUserPreferences.getHeaderAsset();
+      headerColor = abstractUserPreferences.getHeaderColor();
     }
 
     const EdgeInsets padding = EdgeInsets.only(top: MEDIUM_SPACE);
@@ -114,10 +115,27 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       );
     }
 
+    final MediaQueryData mediaQueryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(title: Text(appBarTitle)),
       body: Scrollbar(
-        child: list,
+        child: Column(
+          children: <Widget>[
+            if (headerAsset != null)
+              Container(
+                width: mediaQueryData.size.width,
+                padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? null
+                    : headerColor,
+                child: SvgPicture.asset(
+                  headerAsset,
+                  height: mediaQueryData.size.height * .20,
+                ),
+              ),
+            Expanded(child: list),
+          ],
+        ),
       ),
     );
   }

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -41,11 +40,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   IconData getLeadingIconData() => Icons.emoji_people;
 
   @override
+  String? getHeaderAsset() => 'assets/preferences/contribute.svg';
+
+  @override
+  Color? getHeaderColor() => const Color(0xFFFFF2DF);
+
+  @override
   List<Widget> getBody() => <Widget>[
-        SvgPicture.asset(
-          'assets/preferences/contribute.svg',
-          height: MediaQuery.of(context).size.height * .20,
-        ),
         _getListTile(
           appLocalizations.contribute_improve_header,
           () => _contribute(),

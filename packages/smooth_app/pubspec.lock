@@ -207,7 +207,7 @@ packages:
     source: hosted
     version: "1.0.0"
   device_info_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: device_info_plus
       url: "https://pub.dartlang.org"
@@ -341,7 +341,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -797,7 +797,7 @@ packages:
       name: path_provider_linux
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.6"
+    version: "2.1.7"
   path_provider_macos:
     dependency: transitive
     description:
@@ -818,7 +818,7 @@ packages:
       name: path_provider_windows
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.6"
+    version: "2.0.7"
   percent_indicator:
     dependency: "direct main"
     description:
@@ -944,7 +944,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.27.3"
+    version: "0.27.4"
   sentry:
     dependency: transitive
     description:
