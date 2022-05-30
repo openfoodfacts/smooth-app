@@ -104,28 +104,41 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           if (!mounted) {
             return;
           }
-
-          final File? newImage =
-              await startImageCropping(context, existingImage: imageFile);
-          if (newImage == null) {
-            return;
-          }
-
-          // ignore: use_build_context_synchronously
-          await Navigator.push<File?>(
-            context,
-            MaterialPageRoute<File?>(
-              builder: (BuildContext context) => ConfirmAndUploadPicture(
-                barcode: widget.barcode!,
-                imageType: currentImage.imageField,
-                initialPhoto: newImage,
+          // if there is no phot just open the crop page
+          if (currentImage.imageUrl == null) {
+            final File? newImage =
+                await startImageCropping(context, existingImage: imageFile);
+            if (newImage == null) {
+              return;
+            }
+            // ignore: use_build_context_synchronously
+            await Navigator.push<File?>(
+              context,
+              MaterialPageRoute<File?>(
+                builder: (BuildContext context) => ConfirmAndUploadPicture(
+                  barcode: widget.barcode!,
+                  imageType: currentImage.imageField,
+                  initialPhoto: newImage,
+                ),
               ),
-            ),
-          );
+            );
 
-          newImage.delete();
+            newImage.delete();
+          } else {
+            // ignore: use_build_context_synchronously
+            await Navigator.push<File?>(
+              context,
+              MaterialPageRoute<File?>(
+                builder: (BuildContext context) => ConfirmAndUploadPicture(
+                  barcode: widget.barcode!,
+                  imageType: currentImage.imageField,
+                  initialPhoto: imageFile,
+                ),
+              ),
+            );
+          }
         },
-        child: const Icon(Icons.crop),
+        child: const Icon(Icons.edit),
       ),
       body: PhotoViewGallery.builder(
         pageController: _controller,
