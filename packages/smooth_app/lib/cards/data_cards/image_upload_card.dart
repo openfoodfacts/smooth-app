@@ -71,7 +71,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             ),
           );
         } else {
-          widget.onUpload(context);
+          await widget.onUpload(context);
         }
       }
     }
@@ -83,9 +83,14 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
-    if ((_imageProvider == null) &&
-        (widget.productImageData.imageUrl != null)) {
+    if (widget.productImageData.imageUrl != null) {
       _imageProvider = NetworkImage(widget.productImageData.imageUrl!);
+    } else {
+      if (_imageProvider != null) {
+        //Refresh when image has been deselected on server side
+        _imageProvider = null;
+        _imageFullProvider = null;
+      }
     }
 
     if (_imageProvider != null) {
@@ -104,7 +109,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             },
           ),
         ),
-        onTap: () {
+        onTap: () async {
           // if _imageFullProvider is null, we are displaying a small network image in the carousel
           // we need to load the full resolution image
 
@@ -114,9 +119,9 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             _imageFullProvider = NetworkImage(imageFullUrl);
           }
 
-          Navigator.push<Widget>(
+          final bool? refreshed = await Navigator.push<bool>(
             context,
-            MaterialPageRoute<Widget>(
+            MaterialPageRoute<bool>(
               builder: (BuildContext context) => ProductImageGalleryView(
                 productImageData: widget.productImageData,
                 allProductImagesData: widget.allProductImagesData,
@@ -125,6 +130,12 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
               ),
             ),
           );
+          if (!mounted) {
+            return;
+          }
+          if (refreshed ?? false) {
+            widget.onUpload(context);
+          }
         },
       );
     } else {

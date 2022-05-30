@@ -141,13 +141,13 @@ class _ProductPageState extends State<ProductPage> {
       return;
     }
     if (fetchedProduct.status == FetchedProductStatus.ok) {
+      setState(() => _product = fetchedProduct.product!);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(appLocalizations.product_refreshed),
           duration: const Duration(seconds: 2),
         ),
       );
-      setState(() => _product = fetchedProduct.product!);
     } else {
       productDialogHelper.openError(fetchedProduct);
     }
