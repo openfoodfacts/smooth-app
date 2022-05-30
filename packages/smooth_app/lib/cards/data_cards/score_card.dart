@@ -21,7 +21,6 @@ class ScoreCard extends StatelessWidget {
     required this.cardEvaluation,
     required this.isClickable,
     this.iconUrl,
-    this.isClickable = true,
   });
 
   final String? iconUrl;
