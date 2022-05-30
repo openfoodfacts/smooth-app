@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 
 class SmoothProductImage extends StatelessWidget {
   const SmoothProductImage({
@@ -38,7 +39,7 @@ class SmoothProductImage extends StatelessWidget {
           ),
           child: Center(
             child: SvgPicture.asset(
-              'assets/product/product_not_found.svg',
+              SmoothVectorialImages.productNotFound,
               fit: BoxFit.cover,
             ),
           ),

@@ -25,6 +25,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/themes/smooth_fonts.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -33,8 +34,7 @@ late bool _screenshots;
 Future<void> main({final bool screenshots = false}) async {
   // Adding google font licenses
   LicenseRegistry.addLicense(() async* {
-    final String license =
-        await rootBundle.loadString('assets/plus_jakarta_sans_regular/OFL.txt');
+    final String license = await rootBundle.loadString(SmoothFonts.ofl);
     yield LicenseEntryWithLineBreaks(
       <String>['plus_jakarta_sans_regular'],
       license,

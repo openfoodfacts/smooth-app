@@ -78,5 +78,16 @@ In order to build the application, make sure you are in the packages/smooth_app 
 
 ![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
 
+## Add resources/assets
+
+If you want to add some assets to this project, please ensure to add them to the `assets` folder.
+Then launch the following command:
+
+```shell
+cd packages/smooth_app
+flutter pub global activate spider
+spider build --watch --verbose
+```
+
 ## Thank you
 The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 

@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 // TODO(M123-dev): Handle colors better
@@ -116,7 +117,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       SvgPicture.asset(
-                        'assets/preferences/login.svg',
+                        SmoothVectorialImages.login,
                         height: MediaQuery.of(context).size.height * .15,
                       ),
                       Text(

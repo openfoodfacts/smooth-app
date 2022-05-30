@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 
 /// Display of "Contribute" for the preferences page.
 class UserPreferencesContribute extends AbstractUserPreferences {
@@ -43,7 +44,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   @override
   List<Widget> getBody() => <Widget>[
         SvgPicture.asset(
-          'assets/preferences/contribute.svg',
+          SmoothVectorialImages.contribute,
           height: MediaQuery.of(context).size.height * .20,
         ),
         _getListTile(

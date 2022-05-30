@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -148,7 +149,7 @@ class _ProductListPageState extends State<ProductListPage>
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SvgPicture.asset(
-                  'assets/misc/empty-list.svg',
+                  SmoothVectorialImages.emptyList,
                   height: MediaQuery.of(context).size.height * .4,
                 ),
                 Text(

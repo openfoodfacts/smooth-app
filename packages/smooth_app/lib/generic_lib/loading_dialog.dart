@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 
 /// Dialog with a stop button, while a future is running.
 ///
@@ -45,7 +46,7 @@ class LoadingDialog<T> {
             body: Column(
               children: <Widget>[
                 SvgPicture.asset(
-                  'assets/misc/error.svg',
+                  SmoothVectorialImages.error,
                   width: MINIMUM_TOUCH_SIZE * 2,
                 ),
                 Text(

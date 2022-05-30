@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 enum PreferencePageType {
@@ -68,7 +69,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
 
       children.add(
         SvgPicture.asset(
-          'assets/preferences/main.svg',
+          SmoothVectorialImages.main,
           height: MediaQuery.of(context).size.height * .20,
         ),
       );

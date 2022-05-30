@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/knowledge_panel_page_template.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 
 class SampleHealthCardPage extends StatelessWidget {
   const SampleHealthCardPage(this._localDatabase, this.backgroundColor);
@@ -17,6 +18,6 @@ class SampleHealthCardPage extends StatelessWidget {
         panelId: 'health_card',
         localDatabase: _localDatabase,
         backgroundColor: backgroundColor,
-        svgAsset: 'assets/onboarding/health.svg',
+        svgAsset: SmoothVectorialImages.health,
       );
 }

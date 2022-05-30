@@ -13,6 +13,7 @@ import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 
 class PreferencesPage extends StatefulWidget {
   const PreferencesPage(this._localDatabase, this.backgroundColor) : super();
@@ -80,7 +81,7 @@ class _HelperState extends State<_Helper> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> pageData = <Widget>[
       SvgPicture.asset(
-        'assets/onboarding/preferences.svg',
+        SmoothVectorialImages.preferences,
         height: MediaQuery.of(context).size.height * .25,
       ),
       Padding(

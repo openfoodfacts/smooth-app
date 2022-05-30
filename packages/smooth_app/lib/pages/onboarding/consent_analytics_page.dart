@@ -9,6 +9,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ConsentAnalytics extends StatelessWidget {
@@ -34,7 +35,7 @@ class ConsentAnalytics extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 SvgPicture.asset(
-                  'assets/onboarding/analytics.svg',
+                  SmoothVectorialImages.analytics,
                   width: screenSize.width * .50,
                 ),
                 Padding(

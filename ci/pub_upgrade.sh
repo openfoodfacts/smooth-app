@@ -26,3 +26,7 @@ for dir in $(find "$REPO_DIR" -type d -not -path "*/.dart_tool/*"); do
   pub_upgrade "$dir"
 done
 
+# Run Spider to generate resources
+cd packages/smooth-app
+flutter pub global activate spider
+spider build --verbose

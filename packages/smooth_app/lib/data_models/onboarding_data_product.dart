@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/abstract_onboarding_data.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/themes/smooth_data.dart';
 
 /// Helper around a product we download, store and reuse at onboarding.
 class OnboardingDataProduct extends AbstractOnboardingData<Product> {
@@ -20,7 +21,7 @@ class OnboardingDataProduct extends AbstractOnboardingData<Product> {
       : this(
           localDatabase,
           ProductQuery.fields,
-          'assets/onboarding/sample_product_data.json',
+          SmoothData.sampleProductData,
         );
 
   final List<ProductField> fields;

@@ -1,0 +1,71 @@
+# Install Spider with: flutter pub global activate spider
+# Then the generator: spider build --watch --verbose
+no_comments: true
+package: themes
+export: false
+
+groups:
+  - paths:
+      - assets/actions
+      - assets/app
+      - assets/cache
+      - assets/cacheTintable
+      - assets/categories
+      - assets/data
+      - assets/icons
+      - assets/ikonate_bold
+      - assets/ikonate_thin
+      - assets/labels
+      - assets/metadata
+      - assets/misc
+      - assets/navigation
+      - assets/onboarding
+      - assets/preferences
+      - assets/product
+    class_name: SmoothStaticImages
+    types: [ .png, .webp ]
+
+  - paths:
+      - assets/actions
+      - assets/app
+      - assets/cache
+      - assets/cacheTintable
+      - assets/categories
+      - assets/data
+      - assets/icons
+      - assets/ikonate_bold
+      - assets/ikonate_thin
+      - assets/labels
+      - assets/metadata
+      - assets/misc
+      - assets/navigation
+      - assets/onboarding
+      - assets/preferences
+      - assets/product
+    class_name: SmoothVectorialImages
+    types: [ .svg ]
+
+  - paths:
+      - assets/actions
+      - assets/app
+      - assets/cache
+      - assets/cacheTintable
+      - assets/categories
+      - assets/data
+      - assets/icons
+      - assets/ikonate_bold
+      - assets/ikonate_thin
+      - assets/labels
+      - assets/metadata
+      - assets/misc
+      - assets/navigation
+      - assets/onboarding
+      - assets/preferences
+      - assets/product
+    class_name: SmoothData
+    types: [ .json ]
+
+  - paths:
+      - assets/plus_jakarta_sans_regular
+    class_name: SmoothFonts
+    types: [ .txt, .ttf ]

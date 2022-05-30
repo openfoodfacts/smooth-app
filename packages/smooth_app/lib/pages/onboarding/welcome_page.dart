@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 
 /// Welcome page for first time users.
 class WelcomePage extends StatelessWidget {
@@ -34,11 +35,11 @@ class WelcomePage extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: screenSize.height * .05),
                 SvgPicture.asset(
-                  'assets/onboarding/title.svg',
+                  SmoothVectorialImages.title,
                   height: screenSize.height * .10,
                 ),
                 SvgPicture.asset(
-                  'assets/onboarding/globe.svg',
+                  SmoothVectorialImages.globe,
                   height: screenSize.height * .30,
                 ),
                 Padding(

@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/themes/smooth_vectorial_images.dart';
 
 /// Example explanation on how to scan a product.
 class ScanExample extends StatelessWidget {
@@ -30,7 +31,7 @@ class ScanExample extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 SvgPicture.asset(
-                  'assets/onboarding/scan.svg',
+                  SmoothVectorialImages.scan,
                   height: screenSize.height * .50,
                 ),
                 Padding(
