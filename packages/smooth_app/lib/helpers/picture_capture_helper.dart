@@ -44,3 +44,26 @@ Future<void> _updateContinuousScanModel(
   final ContinuousScanModel model = context.read<ContinuousScanModel>();
   await model.onCreateProduct(barcode);
 }
+
+String getImageUploadedMessage(
+    ImageField imageField, AppLocalizations appLocalizations) {
+  String message = '';
+  switch (imageField) {
+    case ImageField.FRONT:
+      message = appLocalizations.front_photo_uploaded;
+      break;
+    case ImageField.INGREDIENTS:
+      message = appLocalizations.ingredients_photo_uploaded;
+      break;
+    case ImageField.NUTRITION:
+      message = appLocalizations.nutritional_facts_photo_uploaded;
+      break;
+    case ImageField.PACKAGING:
+      message = appLocalizations.recycling_photo_uploaded;
+      break;
+    case ImageField.OTHER:
+      message = appLocalizations.other_photo_uploaded;
+      break;
+  }
+  return message;
+}

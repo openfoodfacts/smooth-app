@@ -69,64 +69,27 @@ class _EditProductPageState extends State<EditProductPage> {
               },
             ),
             _ListTitleItem(
-                title: appLocalizations.edit_product_form_item_photos_title,
-                subtitle:
-                    appLocalizations.edit_product_form_item_photos_subtitle,
-                onTap: () async {
-                  final List<ProductImageData> allProductImagesData =
-                      <ProductImageData>[
-                    // if (widget.product.imageFrontUrl != null)
-                    ProductImageData(
-                      imageField: ImageField.FRONT,
-                      imageUrl: widget.product.imageFrontUrl,
-                      title: appLocalizations.product,
-                      buttonText: appLocalizations.front_photo,
+              title: appLocalizations.edit_product_form_item_photos_title,
+              subtitle: appLocalizations.edit_product_form_item_photos_subtitle,
+              onTap: () async {
+                final List<ProductImageData> allProductImagesData =
+                    getAllProductImagesData(widget.product, appLocalizations);
+                final bool? refreshed = await Navigator.push<bool>(
+                  context,
+                  MaterialPageRoute<bool>(
+                    builder: (BuildContext context) => ProductImageGalleryView(
+                      productImageData: allProductImagesData.first,
+                      allProductImagesData: allProductImagesData,
+                      title: allProductImagesData.first.title,
+                      barcode: widget.product.barcode,
                     ),
-                    // if (widget.product.imageIngredientsUrl != null)
-                    ProductImageData(
-                      imageField: ImageField.INGREDIENTS,
-                      imageUrl: widget.product.imageIngredientsUrl,
-                      title: appLocalizations.ingredients,
-                      buttonText: appLocalizations.ingredients_photo,
-                    ),
-                    // if (widget.product.imageNutritionUrl != null)
-                    ProductImageData(
-                      imageField: ImageField.NUTRITION,
-                      imageUrl: widget.product.imageNutritionUrl,
-                      title: appLocalizations.nutrition,
-                      buttonText: appLocalizations.nutrition_facts_photo,
-                    ),
-                    //if (widget.product.imagePackagingUrl != null)
-                    ProductImageData(
-                      imageField: ImageField.PACKAGING,
-                      imageUrl: widget.product.imagePackagingUrl,
-                      title: appLocalizations.packaging_information,
-                      buttonText: appLocalizations.packaging_information_photo,
-                    ),
-                    ProductImageData(
-                      imageField: ImageField.OTHER,
-                      imageUrl: null,
-                      title: appLocalizations.more_photos,
-                      buttonText: appLocalizations.packaging_information_photo,
-                    ),
-                  ];
-
-                  final bool? refreshed = await Navigator.push<bool>(
-                    context,
-                    MaterialPageRoute<bool>(
-                      builder: (BuildContext context) =>
-                          ProductImageGalleryView(
-                        productImageData: allProductImagesData[0],
-                        allProductImagesData: allProductImagesData,
-                        title: allProductImagesData[0].title,
-                        barcode: widget.product.barcode,
-                      ),
-                    ),
-                  );
-                  if (refreshed ?? false) {
-                    _changes++;
-                  }
-                }),
+                  ),
+                );
+                if (refreshed ?? false) {
+                  _changes++;
+                }
+              },
+            ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_labels_title,
               subtitle: appLocalizations.edit_product_form_item_labels_subtitle,

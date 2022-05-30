@@ -134,7 +134,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             return;
           }
           if (refreshed ?? false) {
-            widget.onUpload(context);
+            await widget.onUpload(context);
           }
         },
       );

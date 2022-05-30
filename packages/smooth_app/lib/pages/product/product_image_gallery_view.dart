@@ -1,9 +1,10 @@
+// ignore_for_file: cast_nullable_to_non_nullable
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
@@ -158,57 +159,45 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     return imageFile;
   }
 
-  Future<void> _getImage(int index) async {
-    final File? croppedImageFile = await startImageCropping(context);
-    if (croppedImageFile != null) {
-      setState(() {
-        allProductImageProviders[index] = FileImage(croppedImageFile);
-      });
-      if (!mounted) {
-        return;
-      }
-      final bool isUploaded = await uploadCapturedPicture(
-        context,
-        barcode: widget
-            .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
-        imageField: _productImageDataCurrent.imageField,
-        imageUri: croppedImageFile.uri,
-      );
-
-      if (isUploaded) {
-        _isRefreshed = true;
-        if (!mounted) {
-          return;
-        }
-        if (_productImageDataCurrent.imageField == ImageField.OTHER) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(appLocalizations.other_photo_uploaded),
-              duration: const Duration(seconds: 3),
-            ),
-          );
-        } else {
-          // ignore: use_build_context_synchronously
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text("Photo uploaded!"),
-              duration: Duration(seconds: 3),
-            ),
-          );
-        }
-      }
-    }
-  }
-
   FloatingActionButton _buildAddFloatingActionButton() {
     return FloatingActionButton(
       backgroundColor: Theme.of(context).colorScheme.primary,
       onPressed: () async {
         final int? currentIndex = _controller.page?.toInt();
         if (currentIndex != null) {
-          await _getImage(currentIndex);
+          final File? croppedImageFile = await startImageCropping(context);
+          if (croppedImageFile != null) {
+            setState(() {
+              allProductImageProviders[currentIndex] =
+                  FileImage(croppedImageFile);
+            });
+            if (!mounted) {
+              return;
+            }
+            final bool isUploaded = await uploadCapturedPicture(
+              context,
+              barcode: widget.barcode!,
+              imageField: _productImageDataCurrent.imageField,
+              imageUri: croppedImageFile.uri,
+            );
+
+            if (isUploaded) {
+              _isRefreshed = true;
+              if (!mounted) {
+                return;
+              }
+              final AppLocalizations appLocalizations =
+                  AppLocalizations.of(context);
+              final String message = getImageUploadedMessage(
+                  _productImageDataCurrent.imageField, appLocalizations);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(message),
+                  duration: const Duration(seconds: 3),
+                ),
+              );
+            }
+          }
         }
       },
       child: const Icon(Icons.add_a_photo),
@@ -264,7 +253,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             allProductImageProviders[currentIndex] = FileImage(photoUploaded);
           });
         }
-        newImage.delete();
       },
       child: const Icon(Icons.crop),
     );
