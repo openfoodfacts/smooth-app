@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -53,6 +54,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final List<Widget> children = <Widget>[];
     final bool addDividers;
 
+    final String? headerAsset;
+    final Color? headerColor;
     if (widget.type == null) {
       final List<PreferencePageType> items = <PreferencePageType>[
         PreferencePageType.ACCOUNT,
@@ -73,6 +76,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           ).getOnlyHeader(),
         );
       }
+      headerAsset = 'assets/preferences/main.svg';
+      headerColor = const Color(0xFFEBF1FF);
 
       appBarTitle = appLocalizations.myPreferences;
       addDividers = true;
@@ -86,6 +91,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       children.addAll(abstractUserPreferences.getContent(withHeader: false));
       appBarTitle = abstractUserPreferences.getTitleString();
       addDividers = false;
+
+      headerAsset = abstractUserPreferences.getHeaderAsset();
+      headerColor = abstractUserPreferences.getHeaderColor();
     }
 
     const EdgeInsets padding = EdgeInsets.only(top: MEDIUM_SPACE);
@@ -107,10 +115,27 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       );
     }
 
+    final MediaQueryData mediaQueryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(title: Text(appBarTitle)),
       body: Scrollbar(
-        child: list,
+        child: Column(
+          children: <Widget>[
+            if (headerAsset != null)
+              Container(
+                width: mediaQueryData.size.width,
+                padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? null
+                    : headerColor,
+                child: SvgPicture.asset(
+                  headerAsset,
+                  height: mediaQueryData.size.height * .20,
+                ),
+              ),
+            Expanded(child: list),
+          ],
+        ),
       ),
     );
   }

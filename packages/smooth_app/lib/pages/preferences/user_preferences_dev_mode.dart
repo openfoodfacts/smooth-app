@@ -78,6 +78,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   Widget? getSubtitle() => null;
 
   @override
+  IconData getLeadingIconData() => Icons.settings;
+
+  @override
   List<Widget> getBody() => <Widget>[
         ListTile(
           title: Text(

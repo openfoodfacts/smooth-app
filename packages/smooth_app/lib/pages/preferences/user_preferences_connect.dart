@@ -2,9 +2,11 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mailto/mailto.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
@@ -37,25 +39,46 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   Widget? getSubtitle() => null;
 
   @override
+  IconData getLeadingIconData() => Icons.alternate_email;
+
+  @override
+  String? getHeaderAsset() => 'assets/preferences/contact.svg';
+
+  @override
+  Color? getHeaderColor() => const Color(0xFFDDE7FF);
+
+  @override
   List<Widget> getBody() => <Widget>[
         _getListTile(
           title: appLocalizations.instagram,
           url: appLocalizations.instagram_link,
+          leading: SvgPicture.asset(
+            'assets/preferences/instagram-camera.svg',
+            width: DEFAULT_ICON_SIZE,
+          ),
         ),
         _getListTile(
           title: appLocalizations.twitter,
           url: appLocalizations.twitter_link,
+          leading: SvgPicture.asset(
+            'assets/preferences/twitter-bird.svg',
+            width: DEFAULT_ICON_SIZE,
+          ),
         ),
         _getListTile(
           title: appLocalizations.blog,
           url: 'https://blog.openfoodfacts.org',
+          leading:
+              UserPreferencesListTile.getTintedIcon(Icons.newspaper, context),
         ),
         _getListTile(
           title: appLocalizations.support_join_slack,
           url: 'https://slack.openfoodfacts.org/',
+          leading: UserPreferencesListTile.getTintedIcon(Icons.forum, context),
         ),
         _getListTile(
           title: appLocalizations.support_via_email,
+          leading: UserPreferencesListTile.getTintedIcon(Icons.drafts, context),
           onTap: () async {
             final PackageInfo packageInfo = await PackageInfo.fromPlatform();
             final Mailto mailtoLink = Mailto(
@@ -72,12 +95,15 @@ class UserPreferencesConnect extends AbstractUserPreferences {
 
   Widget _getListTile({
     required final String title,
+    required Widget leading,
     final String? url,
     final VoidCallback? onTap,
   }) =>
       UserPreferencesListTile(
         title: Text(title),
         onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
-        icon: const Icon(Icons.open_in_new),
+        trailing:
+            UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+        leading: leading,
       );
 }

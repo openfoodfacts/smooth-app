@@ -30,14 +30,10 @@ abstract class AbstractUserPreferences {
   String getTitleString();
 
   /// Title of the header, always visible.
-  ///
-  /// With [Flexible] for overflow management.
   @protected
-  Widget getTitle() => Flexible(
-        child: Text(
-          getTitleString(),
-          style: themeData.textTheme.headline2,
-        ),
+  Widget getTitle() => Text(
+        getTitleString(),
+        style: themeData.textTheme.headline2,
       );
 
   /// Subtitle of the header, always visible.
@@ -49,7 +45,10 @@ abstract class AbstractUserPreferences {
         child: getHeaderHelper(false),
       );
 
-  Icon? getForwardIcon() => Icon(ConstantIcons.instance.getForwardIcon());
+  Icon? getForwardIcon() => UserPreferencesListTile.getTintedIcon(
+        ConstantIcons.instance.getForwardIcon(),
+        context,
+      );
 
   /// Returns the tappable header.
   @protected
@@ -63,9 +62,13 @@ abstract class AbstractUserPreferences {
   Widget getHeaderHelper(final bool? collapsed) => UserPreferencesListTile(
         title: getTitle(),
         subtitle: getSubtitle(),
-        isCompactTitle: false,
-        icon: collapsed != null ? getForwardIcon() : null,
+        trailing: collapsed != null ? getForwardIcon() : null,
+        leading: UserPreferencesListTile.getTintedIcon(
+            getLeadingIconData(), context),
       );
+
+  @protected
+  IconData getLeadingIconData();
 
   /// Body of the content.
   @protected
@@ -95,4 +98,12 @@ abstract class AbstractUserPreferences {
           ),
         ),
       );
+
+  /// Svg asset for the header.
+  ///
+  /// E.g.: `'assets/preferences/main.svg'`
+  String? getHeaderAsset() => null;
+
+  /// Color for the header.
+  Color? getHeaderColor() => null;
 }

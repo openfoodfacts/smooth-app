@@ -170,7 +170,7 @@ packages:
       name: csslib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.17.1"
+    version: "0.17.2"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -646,8 +646,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: fix-Export-visitor-file
-      resolved-ref: "97304dea26875677ace1cc89e12c352e2572ba67"
+      ref: fix-Allow-await-for-async-tasks
+      resolved-ref: "87c9c7dfa8604c52f261f9bd0fc1fe5846a2b9a5"
       url: "https://github.com/M123-dev/matomo-tracker.git"
     source: git
     version: "1.1.1"

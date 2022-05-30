@@ -40,6 +40,9 @@ class UserPreferencesSettings extends AbstractUserPreferences {
       Text(appLocalizations.myPreferences_settings_subtitle);
 
   @override
+  IconData getLeadingIconData() => Icons.handyman;
+
+  @override
   List<Widget> getBody() => <Widget>[
         Padding(
           padding: const EdgeInsets.symmetric(
@@ -84,9 +87,15 @@ class UserPreferencesSettings extends AbstractUserPreferences {
       ];
 }
 
-class _SendAnonymousDataSetting extends StatelessWidget {
+class _SendAnonymousDataSetting extends StatefulWidget {
   const _SendAnonymousDataSetting({Key? key}) : super(key: key);
 
+  @override
+  State<_SendAnonymousDataSetting> createState() =>
+      _SendAnonymousDataSettingState();
+}
+
+class _SendAnonymousDataSettingState extends State<_SendAnonymousDataSetting> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -94,9 +103,10 @@ class _SendAnonymousDataSetting extends StatelessWidget {
     return UserPreferencesSwitchItem(
       title: appLocalizations.send_anonymous_data_toggle_title,
       subtitle: appLocalizations.send_anonymous_data_toggle_subtitle,
-      value: MatomoTracker.instance.getOptOut(),
-      onChanged: (final bool value) async {
-        AnalyticsHelper.setAnalyticsReports(value);
+      value: !MatomoTracker.instance.getOptOut(),
+      onChanged: (final bool allow) async {
+        await AnalyticsHelper.setAnalyticsReports(allow);
+        setState(() {});
       },
     );
   }
