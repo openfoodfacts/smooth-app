@@ -173,11 +173,17 @@ class SearchCard extends StatelessWidget {
 
   final double height;
 
+  static const double OPACITY = 0.85;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
+    final ThemeData themeData = Theme.of(context);
+    final bool isDarkmode = themeData.brightness == Brightness.dark;
     return SmoothCard(
-      color: Theme.of(context).colorScheme.background.withOpacity(0.85),
+      color: Theme.of(context).brightness == Brightness.light
+          ? Colors.white.withOpacity(OPACITY)
+          : Colors.black.withOpacity(OPACITY),
       elevation: 0,
       padding: SmoothProductCarousel.carouselItemHorizontalPadding,
       child: SizedBox(
@@ -201,6 +207,12 @@ class SearchCard extends StatelessWidget {
             SearchField(
               onFocus: () => _openSearchPage(context),
               showClearButton: false,
+              backgroundColor: isDarkmode
+                  ? Colors.white10
+                  : const Color.fromARGB(255, 240, 240, 240)
+                      .withOpacity(OPACITY),
+              foregroundColor:
+                  themeData.colorScheme.onSurface.withOpacity(OPACITY),
             ),
           ],
         ),

@@ -10,9 +10,6 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
-
-// TODO(M123-dev): Handle colors better
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -22,10 +19,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
-  static const Color _customGrey = Colors.grey;
-  static Color _textFieldBackgroundColor =
-      const Color.fromARGB(255, 240, 240, 240);
-
   bool _runningQuery = false;
   bool _wrongCredentials = false;
 
@@ -81,13 +74,6 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
-    final bool isDarkMode =
-        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
-
-    // Needs to be changed
-    if (isDarkMode) {
-      _textFieldBackgroundColor = Colors.white10;
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -125,7 +111,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         style: theme.textTheme.headline1?.copyWith(
                           fontSize: 20.0,
                           fontWeight: FontWeight.w700,
-                          color: theme.colorScheme.onSurface,
+                          color: theme.colorScheme.onBackground,
                         ),
                       ),
 
@@ -148,8 +134,6 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         type: TextFieldTypes.PLAIN_TEXT,
                         controller: userIdController,
                         hintText: appLocalizations.username_or_email,
-                        textColor: _customGrey,
-                        backgroundColor: _textFieldBackgroundColor,
                         prefixIcon: const Icon(Icons.person),
                         enabled: !_runningQuery,
                         // Moves focus to the next field
@@ -176,8 +160,6 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         type: TextFieldTypes.PASSWORD,
                         controller: passwordController,
                         hintText: appLocalizations.password,
-                        textColor: _customGrey,
-                        backgroundColor: _textFieldBackgroundColor,
                         prefixIcon: const Icon(Icons.vpn_key),
                         enabled: !_runningQuery,
                         textInputAction: TextInputAction.done,
@@ -217,7 +199,8 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           appLocalizations.sign_in,
                           style: theme.textTheme.bodyText2?.copyWith(
                             fontSize: 18.0,
-                            color: theme.colorScheme.surface,
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.onPrimary,
                           ),
                         ),
                       ),

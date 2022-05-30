@@ -20,12 +20,17 @@ class SmoothTheme {
     }
 
     return ThemeData(
+      primaryColor: const Color(0xFF341100),
       fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedItemColor: myColorScheme.onSurface,
-        unselectedItemColor: myColorScheme.onSurface,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedItemColor: myColorScheme.primary,
       ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: myColorScheme.primary,
+          foregroundColor: myColorScheme.onPrimary),
       textTheme: brightness == Brightness.dark
           ? _TEXT_THEME.copyWith(
               headline2: _TEXT_THEME.headline2?.copyWith(color: Colors.white),
@@ -33,15 +38,18 @@ class SmoothTheme {
               bodyText2: _TEXT_THEME.bodyText2?.copyWith(color: Colors.white),
             )
           : _TEXT_THEME,
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: myColorScheme.secondary,
-        foregroundColor: myColorScheme.onSecondary,
-      ),
       appBarTheme: AppBarTheme(
-        color: brightness == Brightness.dark ? null : myColorScheme.primary,
+        color: myColorScheme.background,
+        foregroundColor: myColorScheme.onBackground,
       ),
       toggleableActiveColor: myColorScheme.primary,
       dividerColor: const Color(0xFFdfdfdf),
+      inputDecorationTheme: InputDecorationTheme(
+        fillColor: myColorScheme.secondary,
+      ),
+      iconTheme: IconThemeData(
+        color: myColorScheme.onBackground,
+      ),
     );
   }
 

@@ -25,7 +25,6 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     return SmoothSimpleButton(
       minWidth: double.infinity,
       padding: padding ?? const EdgeInsets.all(10),
-      buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
       onPressed: onPressed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

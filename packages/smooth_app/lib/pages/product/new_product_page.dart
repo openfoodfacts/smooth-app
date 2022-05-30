@@ -63,6 +63,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_mustScrollToTheEnd) {
         _scrollToTheEnd();
@@ -76,9 +77,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               onPressed: () {
                 Navigator.maybePop(context);
               },
+              backgroundColor: themeData.primaryColor,
+              foregroundColor: Colors.white,
               child: Icon(
                 ConstantIcons.instance.getBackIcon(),
-                color: Colors.white,
               ),
             )
           : null,
