@@ -30,6 +30,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   void initState() {
     super.initState();
     photo = widget.initialPhoto;
+    setState(() {
+      photo = widget.initialPhoto;
+    });
   }
 
   @override
@@ -43,13 +46,27 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(_getAppBarTitle(context, widget.imageType)),
+        leading: BackButton(
+          onPressed: () {
+            if (retakenPhoto == null) {
+              retakenPhoto!.delete();
+              photo.delete();
+              Navigator.pop(
+                context,
+              );
+            } else {
+              photo.delete();
+              Navigator.pop(context);
+            }
+          },
+        ),
       ),
       body: Stack(
         children: <Widget>[
           Positioned(
             child: Align(
               alignment: Alignment.center,
-              child: Image.file(photo),
+              child: Image.file(widget.initialPhoto),
             ),
           ),
           Positioned(
@@ -83,7 +100,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           },
                         );
                       },
-                      label: Text(appLocalizations.retake_photo_button_label),
+                      label: Text(
+                        appLocalizations.retake_photo_button_label,
+                      ),
                     ),
                     OutlinedButton.icon(
                       icon: const Icon(Icons.edit),
@@ -109,7 +128,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           },
                         );
                       },
-                      label: const Text('Edit'),
+                      label: Text(
+                        appLocalizations.edit_photo_button_label,
+                      ),
                     ),
                     OutlinedButton.icon(
                       icon: const Icon(Icons.check),

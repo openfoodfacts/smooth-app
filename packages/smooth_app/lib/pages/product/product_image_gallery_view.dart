@@ -104,7 +104,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           if (!mounted) {
             return;
           }
-          // if there is no phot just open the crop page
+          // if there is no photo just open the crop page
           if (currentImage.imageUrl == null) {
             final File? newImage =
                 await startImageCropping(context, existingImage: imageFile);
