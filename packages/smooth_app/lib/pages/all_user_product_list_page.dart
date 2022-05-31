@@ -99,8 +99,8 @@ class _AllUserProductListState extends State<AllUserProductList> {
           setState(() {});
         },
         label: Row(
-          children:  <Widget>[
-           const Icon(Icons.add),
+          children: <Widget>[
+            const Icon(Icons.add),
             Text(appLocalizations.add_list_label),
           ],
         ),
