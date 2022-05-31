@@ -363,9 +363,11 @@ class _SummaryCardState extends State<SummaryCard> {
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper(matchedProduct);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDarkMode =
         Theme.of(context).colorScheme.brightness == Brightness.dark;
-    return Container(
+
+    return Ink(
       decoration: BoxDecoration(
         color: helper.getHeaderBackgroundColor(isDarkMode),
         // Ensure that the header has the same circular radius as the SmoothCard.
@@ -374,36 +376,44 @@ class _SummaryCardState extends State<SummaryCard> {
           topRight: ROUNDED_RADIUS,
         ),
       ),
-      alignment: Alignment.topLeft,
-      padding: const EdgeInsets.symmetric(
-          vertical: SMALL_SPACE, horizontal: SMALL_SPACE),
       child: Row(
         children: <Widget>[
-          const Icon(
-            Icons.settings,
-            color: Colors.transparent,
+          // Fake icon
+          const SizedBox(
+            width: kMinInteractiveDimension,
           ),
           Expanded(
             child: Center(
-              child: Text(
-                helper.getHeaderText(AppLocalizations.of(context)),
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                      color: helper.getHeaderForegroundColor(isDarkMode),
-                    ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: SMALL_SPACE,
+                  horizontal: SMALL_SPACE,
+                ),
+                child: Text(
+                  helper.getHeaderText(AppLocalizations.of(context)),
+                  style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                        color: helper.getHeaderForegroundColor(isDarkMode),
+                      ),
+                ),
               ),
             ),
           ),
-          IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            icon: const Icon(
-              Icons.settings,
-            ),
-            onPressed: () async => Navigator.push<Widget>(
+          InkWell(
+            borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
+            onTap: () async => Navigator.push<Widget>(
               context,
               MaterialPageRoute<Widget>(
                 builder: (BuildContext context) => const UserPreferencesPage(
                   type: PreferencePageType.FOOD,
+                ),
+              ),
+            ),
+            child: Tooltip(
+              message: appLocalizations.open_food_preferences_tooltip,
+              child: const SizedBox.square(
+                dimension: kMinInteractiveDimension,
+                child: Icon(
+                  Icons.settings,
                 ),
               ),
             ),

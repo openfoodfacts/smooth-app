@@ -1241,5 +1241,9 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "open_food_preferences_tooltip": "Edit your food preferences",
+    "@open_food_preferences_tooltip": {
+        "description": "Tooltip (message displayed on long press) to open the user food preferences"
     }
 }
