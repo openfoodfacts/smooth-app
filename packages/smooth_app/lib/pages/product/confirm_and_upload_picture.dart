@@ -29,6 +29,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   @override
   void initState() {
     super.initState();
+    //clear cache or the cached image will be shwon in File(photo)
     imageCache.clear();
     photo = widget.initialPhoto;
   }
