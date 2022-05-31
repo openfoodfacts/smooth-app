@@ -1241,5 +1241,9 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "add_list_label": "Add list",
+    "@add_list_label": {
+        "description": "Label for the add list button"
     }
 }
