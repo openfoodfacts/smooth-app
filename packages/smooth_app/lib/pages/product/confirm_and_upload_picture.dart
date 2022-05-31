@@ -30,15 +30,21 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   void initState() {
     super.initState();
     photo = widget.initialPhoto;
-    setState(() {
-      photo = widget.initialPhoto;
-    });
+    print(widget.initialPhoto);
+  }
+
+// create a destructor to dispose the controller
+  @override
+  void dispose() {
+    photo.delete();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     File? retakenPhoto;
+
     // Picture is captured, show it to the user one last time and ask for
     // confirmation before uploading. Also present an option to retake the
     // picture as sometimes the picture can be blurry.
@@ -49,12 +55,13 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
         leading: BackButton(
           onPressed: () {
             if (retakenPhoto == null) {
-              retakenPhoto!.delete();
+              retakenPhoto?.delete();
               photo.delete();
               Navigator.pop(
                 context,
               );
             } else {
+              retakenPhoto?.delete();
               photo.delete();
               Navigator.pop(context);
             }
@@ -66,7 +73,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
           Positioned(
             child: Align(
               alignment: Alignment.center,
-              child: Image.file(widget.initialPhoto),
+              child: Image.file(photo),
             ),
           ),
           Positioned(
