@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="BrandingImage" translatesAutoresizingMaskIntoConstraints="NO" id="Uyq-Kz-ftE">
-                                <rect key="frame" x="64" y="879" width="300" height="47"/>
+                                <rect key="frame" x="64" y="859" width="300" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="cRI-ZT-5VA"/>
                                     <constraint firstAttribute="width" constant="300" id="zpg-RX-ox3"/>
@@ -44,7 +44,7 @@
                             <constraint firstAttribute="trailing" secondItem="YRO-k0-Ey4" secondAttribute="trailing" id="TQA-XW-tRk"/>
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="duK-uY-Gun"/>
                             <constraint firstItem="tWc-Dq-wcI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="kV7-tw-vXt"/>
-                            <constraint firstAttribute="bottom" secondItem="Uyq-Kz-ftE" secondAttribute="bottom" id="wi0-Jc-imV"/>
+                            <constraint firstAttribute="bottom" secondItem="Uyq-Kz-ftE" secondAttribute="bottom" constant="20" id="wi0-Jc-imV"/>
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xPn-NY-SIU"/>
                         </constraints>
                     </view>
