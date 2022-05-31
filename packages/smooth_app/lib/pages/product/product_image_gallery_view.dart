@@ -44,7 +44,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         images.add(element);
       }
     }
-
     _controller = PageController(
       initialPage: widget.allProductImagesData.indexOf(
         images.firstWhere((ProductImageData element) =>
@@ -84,7 +83,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () async {
           final int? currentIndex = _controller.page?.toInt();
-          print('The index that was passed is $currentIndex');
           if (currentIndex == null && currentIndex! >= images.length) {
             return;
           }
@@ -107,8 +105,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           }
           // if there is no photo just open the crop page
           if (currentImage.imageUrl == null) {
-            final File? newImage =
-                await startImageCropping(context);
+            final File? newImage = await startImageCropping(context);
             if (newImage == null) {
               return;
             }
@@ -123,12 +120,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 ),
               ),
             );
-
             newImage.delete();
           } else {
-            // ignore: use_build_context_synchronously
-            print(" the image was already uploaded");
-            print("the image url is ${currentImage.imageUrl}");
             await Navigator.push<File?>(
               context,
               MaterialPageRoute<File?>(
@@ -187,7 +180,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     final Directory tempDirectory = await getTemporaryDirectory();
     final File imageFile = await File('${tempDirectory.path}/editing_image')
         .writeAsBytes(response.bodyBytes);
-
     return imageFile;
   }
 }

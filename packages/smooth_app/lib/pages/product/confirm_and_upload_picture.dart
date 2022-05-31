@@ -29,15 +29,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   @override
   void initState() {
     super.initState();
+    imageCache.clear();
     photo = widget.initialPhoto;
-    print(widget.initialPhoto);
-  }
-
-// create a destructor to dispose the controller
-  @override
-  void dispose() {
-    photo.delete();
-    super.dispose();
   }
 
   @override
@@ -52,21 +45,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(_getAppBarTitle(context, widget.imageType)),
-        leading: BackButton(
-          onPressed: () {
-            if (retakenPhoto == null) {
-              retakenPhoto?.delete();
-              photo.delete();
-              Navigator.pop(
-                context,
-              );
-            } else {
-              retakenPhoto?.delete();
-              photo.delete();
-              Navigator.pop(context);
-            }
-          },
-        ),
       ),
       body: Stack(
         children: <Widget>[
