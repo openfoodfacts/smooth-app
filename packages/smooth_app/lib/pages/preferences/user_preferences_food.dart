@@ -50,6 +50,12 @@ class UserPreferencesFood extends AbstractUserPreferences {
   IconData getLeadingIconData() => Icons.ramen_dining;
 
   @override
+  String? getHeaderAsset() => 'assets/onboarding/preferences.svg';
+
+  @override
+  Color? getHeaderColor() => const Color(0xFFEBF1FF);
+
+  @override
   List<Widget> getBody() {
     final List<Widget> result = <Widget>[
       // we don't want this on the onboarding

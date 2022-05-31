@@ -21,8 +21,8 @@
             android:drawable="@drawable/logo_text"
             android:gravity="bottom|center_horizontal">
         <size
-                android:width="80px"
-                android:height="200px"/>
+                android:width="200px"
+                android:height="80px"/>
     </item>
 
 </layer-list>
