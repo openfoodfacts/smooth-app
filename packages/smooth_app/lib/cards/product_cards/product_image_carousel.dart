@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 
 class ProductImageCarousel extends StatelessWidget {
   const ProductImageCarousel(
@@ -19,38 +19,8 @@ class ProductImageCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<ProductImageData> allProductImagesData = <ProductImageData>[
-      ProductImageData(
-        imageField: ImageField.FRONT,
-        imageUrl: product.imageFrontUrl,
-        title: appLocalizations.product,
-        buttonText: appLocalizations.front_photo,
-      ),
-      ProductImageData(
-        imageField: ImageField.INGREDIENTS,
-        imageUrl: product.imageIngredientsUrl,
-        title: appLocalizations.ingredients,
-        buttonText: appLocalizations.ingredients_photo,
-      ),
-      ProductImageData(
-        imageField: ImageField.NUTRITION,
-        imageUrl: product.imageNutritionUrl,
-        title: appLocalizations.nutrition,
-        buttonText: appLocalizations.nutrition_facts_photo,
-      ),
-      ProductImageData(
-        imageField: ImageField.PACKAGING,
-        imageUrl: product.imagePackagingUrl,
-        title: appLocalizations.packaging_information,
-        buttonText: appLocalizations.packaging_information_photo,
-      ),
-      ProductImageData(
-        imageField: ImageField.OTHER,
-        imageUrl: null,
-        title: appLocalizations.more_photos,
-        buttonText: appLocalizations.more_photos,
-      ),
-    ];
+    final List<ProductImageData> allProductImagesData =
+        getAllProductImagesData(product, appLocalizations);
 
     return SizedBox(
       height: height,
