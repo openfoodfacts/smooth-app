@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -148,6 +149,11 @@ class _ProductListPageState extends State<ProductListPage>
           ),
           overflow: TextOverflow.fade,
           //style: TextStyle(color: Colors.black),
+        ),
+        // Force a light status bar
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
         ),
       ),
       body: products.isEmpty
