@@ -50,6 +50,10 @@ class SmoothTheme {
       iconTheme: IconThemeData(
         color: myColorScheme.onBackground,
       ),
+      snackBarTheme: SnackBarThemeData(
+        contentTextStyle:
+            _TEXT_THEME.bodyText2?.copyWith(color: myColorScheme.onBackground),
+      ),
     );
   }
 

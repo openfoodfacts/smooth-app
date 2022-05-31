@@ -77,6 +77,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               onPressed: () {
                 Navigator.maybePop(context);
               },
+              // Hardcoded fixed colors here as the product page back button should
+              // stay the same color all the time
               backgroundColor: themeData.primaryColor,
               foregroundColor: Colors.white,
               child: Icon(

@@ -95,7 +95,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                     style: theme.textTheme.headline1?.copyWith(
                       fontSize: 25.0,
                       fontWeight: FontWeight.w700,
-                      color: theme.colorScheme.onBackground,
                     ),
                   ),
                   const Spacer(flex: 1),
