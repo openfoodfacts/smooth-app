@@ -317,8 +317,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     );
 
     // On visibility == true, may call us, but we have to ensure that this tab
-    // is visible
-    if (tab != BottomNavigationTab.Scan) {
+    // is visible AND displays the camera (canPop returns false in that case)
+    if (tab != BottomNavigationTab.Scan || Navigator.of(context).canPop()) {
       pendingResume = _controller?.isInitialized != true;
       return;
     }
