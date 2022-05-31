@@ -96,8 +96,10 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     if (_isUserConnected(readOnly: true)) {
       return super.runHeaderAction();
     } else {
-      return Navigator.push<dynamic>(
+      return Navigator.of(
         context,
+        rootNavigator: true,
+      ).push<dynamic>(
         MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const LoginPage(),
         ),
@@ -131,8 +133,10 @@ class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
         Center(
           child: ElevatedButton(
             onPressed: () async {
-              Navigator.push<dynamic>(
+              Navigator.of(
                 context,
+                rootNavigator: true,
+              ).push<dynamic>(
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => const LoginPage(),
                 ),
@@ -260,8 +264,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         Center(
           child: ElevatedButton(
             onPressed: () async {
-              Navigator.push<dynamic>(
+              Navigator.of(
                 context,
+                rootNavigator: true,
+              ).push<dynamic>(
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => const LoginPage(),
                 ),
