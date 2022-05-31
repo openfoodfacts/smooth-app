@@ -1,3 +1,5 @@
+// ignore_for_file: cast_nullable_to_non_nullable
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -9,8 +11,10 @@ import 'package:photo_view/photo_view_gallery.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_gauge.dart';
+import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductImageGalleryView extends StatefulWidget {
   const ProductImageGalleryView({
@@ -33,15 +37,22 @@ class ProductImageGalleryView extends StatefulWidget {
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   late final PageController _controller;
   late final List<ProductImageData> images = <ProductImageData>[];
+  final List<ImageProvider?> allProductImageProviders = <ImageProvider?>[];
   late String title;
+  bool _hasPhoto = true;
+  bool _isRefreshed = false;
+  late ProductImageData _productImageDataCurrent;
 
   @override
   void initState() {
     title = widget.title;
 
     for (final ProductImageData element in widget.allProductImagesData) {
+      images.add(element);
       if (element.imageUrl != null) {
-        images.add(element);
+        allProductImageProviders.add(NetworkImage(element.imageUrl!));
+      } else {
+        allProductImageProviders.add(null);
       }
     }
 
@@ -51,6 +62,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             element.imageUrl == widget.productImageData.imageUrl),
       ),
     );
+    _productImageDataCurrent = widget.productImageData;
     super.initState();
   }
 
@@ -75,69 +87,39 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(title),
-      ),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text(title),
+          leading: IconButton(
+            icon: Icon(ConstantIcons.instance.getBackIcon()),
+            onPressed: () {
+              Navigator.maybePop(context, _isRefreshed);
+            },
+          )),
       backgroundColor: Colors.black,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: () async {
-          final int? currentIndex = _controller.page?.toInt();
-          if (currentIndex == null && currentIndex! >= images.length) {
-            return;
-          }
-
-          final ProductImageData currentImage = images[currentIndex];
-          if (currentImage.imageUrl == null) {
-            return;
-          }
-
-          final File? imageFile = await LoadingDialog.run<File>(
-              context: context,
-              future: _getCurrentImageFile(currentImage.imageUrl!));
-
-          if (imageFile == null) {
-            return;
-          }
-
-          if (!mounted) {
-            return;
-          }
-
-          final File? newImage =
-              await startImageCropping(context, existingImage: imageFile);
-          if (newImage == null) {
-            return;
-          }
-
-          // ignore: use_build_context_synchronously
-          await Navigator.push<File?>(
-            context,
-            MaterialPageRoute<File?>(
-              builder: (BuildContext context) => ConfirmAndUploadPicture(
-                barcode: widget.barcode!,
-                imageType: currentImage.imageField,
-                initialPhoto: newImage,
-              ),
-            ),
-          );
-
-          newImage.delete();
-        },
-        child: const Icon(Icons.crop),
-      ),
+      floatingActionButton: _hasPhoto
+          ? _buildCropFloatingActionButton()
+          : _buildAddFloatingActionButton(),
       body: PhotoViewGallery.builder(
         pageController: _controller,
         scrollPhysics: const BouncingScrollPhysics(),
         builder: (BuildContext context, int index) {
+          if (allProductImageProviders[index] == null) {
+            if (images[index].imageUrl != null) {
+              allProductImageProviders[index] =
+                  NetworkImage(images[index].imageUrl!);
+            } else {
+              return PhotoViewGalleryPageOptions.customChild(
+                  child: Container());
+            }
+          }
           return PhotoViewGalleryPageOptions(
-            imageProvider: NetworkImage(images[index].imageUrl!),
+            imageProvider: allProductImageProviders[index],
             initialScale: PhotoViewComputedScale.contained * 0.8,
             minScale: PhotoViewComputedScale.contained * 0.8,
             maxScale: PhotoViewComputedScale.covered * 1.1,
             heroAttributes:
-                PhotoViewHeroAttributes(tag: images[index].imageUrl!),
+                PhotoViewHeroAttributes(tag: images[index].imageUrl ?? ''),
           );
         },
         itemCount: images.length,
@@ -160,6 +142,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         onPageChanged: (int index) {
           setState(() {
             title = images[index].title;
+            _hasPhoto = images[index].imageUrl != null;
+            _productImageDataCurrent = images[index];
           });
         },
       ),
@@ -173,5 +157,104 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         .writeAsBytes(response.bodyBytes);
 
     return imageFile;
+  }
+
+  FloatingActionButton _buildAddFloatingActionButton() {
+    return FloatingActionButton(
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      onPressed: () async {
+        final int? currentIndex = _controller.page?.toInt();
+        if (currentIndex != null) {
+          final File? croppedImageFile = await startImageCropping(context);
+          if (croppedImageFile != null) {
+            setState(() {
+              allProductImageProviders[currentIndex] =
+                  FileImage(croppedImageFile);
+            });
+            if (!mounted) {
+              return;
+            }
+            final bool isUploaded = await uploadCapturedPicture(
+              context,
+              barcode: widget.barcode!,
+              imageField: _productImageDataCurrent.imageField,
+              imageUri: croppedImageFile.uri,
+            );
+
+            if (isUploaded) {
+              _isRefreshed = true;
+              if (!mounted) {
+                return;
+              }
+              final AppLocalizations appLocalizations =
+                  AppLocalizations.of(context);
+              final String message = getImageUploadedMessage(
+                  _productImageDataCurrent.imageField, appLocalizations);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(message),
+                  duration: const Duration(seconds: 3),
+                ),
+              );
+            }
+          }
+        }
+      },
+      child: const Icon(Icons.add_a_photo),
+    );
+  }
+
+  FloatingActionButton _buildCropFloatingActionButton() {
+    return FloatingActionButton(
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      onPressed: () async {
+        final int? currentIndex = _controller.page?.toInt();
+        if (currentIndex == null && currentIndex! >= images.length) {
+          return;
+        }
+
+        final ProductImageData currentImage = images[currentIndex];
+        if (currentImage.imageUrl == null) {
+          return;
+        }
+
+        final File? imageFile = await LoadingDialog.run<File>(
+            context: context,
+            future: _getCurrentImageFile(currentImage.imageUrl!));
+
+        if (imageFile == null) {
+          return;
+        }
+
+        if (!mounted) {
+          return;
+        }
+
+        final File? newImage =
+            await startImageCropping(context, existingImage: imageFile);
+        if (newImage == null) {
+          return;
+        }
+
+        // ignore: use_build_context_synchronously
+        final File? photoUploaded = await Navigator.push<File?>(
+          context,
+          MaterialPageRoute<File?>(
+            builder: (BuildContext context) => ConfirmAndUploadPicture(
+              barcode: widget.barcode!,
+              imageType: currentImage.imageField,
+              initialPhoto: newImage,
+            ),
+          ),
+        );
+        if (photoUploaded != null) {
+          _isRefreshed = true;
+          setState(() {
+            allProductImageProviders[currentIndex] = FileImage(photoUploaded);
+          });
+        }
+      },
+      child: const Icon(Icons.crop),
+    );
   }
 }
