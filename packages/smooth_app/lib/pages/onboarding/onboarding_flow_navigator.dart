@@ -4,6 +4,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/consent_analytics_page.dart';
 import 'package:smooth_app/pages/onboarding/preferences_page.dart';
+import 'package:smooth_app/pages/onboarding/reinvention_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_eco_card_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_health_card_page.dart';
 import 'package:smooth_app/pages/onboarding/scan_example.dart';
@@ -13,6 +14,7 @@ import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 
 enum OnboardingPage {
   NOT_STARTED,
+  REINVENTION,
   WELCOME,
   SCAN_EXAMPLE,
   HEALTH_CARD_EXAMPLE,
@@ -38,6 +40,8 @@ class OnboardingFlowNavigator {
   static OnboardingPage getNextPage(OnboardingPage currentPage) {
     switch (currentPage) {
       case OnboardingPage.NOT_STARTED:
+        return OnboardingPage.REINVENTION;
+      case OnboardingPage.REINVENTION:
         return OnboardingPage.WELCOME;
       case OnboardingPage.WELCOME:
         return OnboardingPage.SCAN_EXAMPLE;
@@ -59,8 +63,10 @@ class OnboardingFlowNavigator {
   static OnboardingPage getPrevPage(OnboardingPage currentPage) {
     switch (currentPage) {
       case OnboardingPage.NOT_STARTED:
-      case OnboardingPage.WELCOME:
+      case OnboardingPage.REINVENTION:
         return OnboardingPage.NOT_STARTED;
+      case OnboardingPage.WELCOME:
+        return OnboardingPage.REINVENTION;
       case OnboardingPage.SCAN_EXAMPLE:
         return OnboardingPage.WELCOME;
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
@@ -79,6 +85,7 @@ class OnboardingFlowNavigator {
   static bool isOnboardingComplete(final OnboardingPage currentPage) {
     switch (currentPage) {
       case OnboardingPage.NOT_STARTED:
+      case OnboardingPage.REINVENTION:
       case OnboardingPage.WELCOME:
       case OnboardingPage.SCAN_EXAMPLE:
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
@@ -106,6 +113,8 @@ class OnboardingFlowNavigator {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     switch (page) {
       case OnboardingPage.NOT_STARTED:
+      case OnboardingPage.REINVENTION:
+        return const ReinventionPage();
       case OnboardingPage.WELCOME:
         return WelcomePage(getBackgroundColor(page));
       case OnboardingPage.SCAN_EXAMPLE:
@@ -146,6 +155,8 @@ class OnboardingFlowNavigator {
   Color getBackgroundColor(final OnboardingPage page) {
     switch (page) {
       case OnboardingPage.NOT_STARTED:
+      case OnboardingPage.REINVENTION:
+        return const Color(0xFFDFF4FF);
       case OnboardingPage.WELCOME:
         return const Color(0xFFFCFCFC);
       case OnboardingPage.SCAN_EXAMPLE:
