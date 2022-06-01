@@ -8,7 +8,9 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
 /// Onboarding page: "reinvention"
 class ReinventionPage extends StatelessWidget {
-  const ReinventionPage();
+  const ReinventionPage(this.backgroundColor);
+
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,79 +23,71 @@ class ReinventionPage extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.red,
-      body: Stack(
-        children: <Widget>[
-          SizedBox(
-            width: screenSize.width,
-            height: screenSize.height,
-            child: SvgPicture.asset(
-              'assets/onboarding/reinvention.svg',
-              width: screenSize.width,
-              height: screenSize.height,
-              // TODO(monsieurtanuki): I had to stretch the svg, it would be better to extract just the bottom half and fill the top with background color
-              fit: BoxFit.fill,
-            ),
-          ),
-          SafeArea(
-            child: SizedBox(
-              width: screenSize.width,
-              height: screenSize.height * .5, // only top half of the screen
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                    height: screenSize.height * .15,
-                    child: Padding(
-                      padding: const EdgeInsets.all(SMALL_SPACE),
-                      child: Center(
-                        child: AutoSizeText(
-                          appLocalizations.onboarding_reinventing_text1,
-                          style: headlineStyle,
-                          maxLines: 3,
-                          textAlign: TextAlign.center,
-                        ),
+      backgroundColor: backgroundColor,
+      body: SafeArea(
+        child: Stack(
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Flexible(
+                  flex: 30,
+                  child: Padding(
+                    padding: const EdgeInsets.all(SMALL_SPACE),
+                    child: Center(
+                      child: AutoSizeText(
+                        appLocalizations.onboarding_reinventing_text1,
+                        style: headlineStyle,
+                        maxLines: 3,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: screenSize.height * .07,
-                    child: SvgPicture.asset(
-                      'assets/onboarding/birthday-cake.svg',
-                      height: screenSize.height * .07,
-                    ),
+                ),
+                Flexible(
+                  flex: 15,
+                  child: SvgPicture.asset(
+                    'assets/onboarding/birthday-cake.svg',
                   ),
-                  SizedBox(
-                    height: screenSize.height * .15,
-                    child: Padding(
-                      padding: const EdgeInsets.all(SMALL_SPACE),
-                      child: Center(
-                        child: AutoSizeText(
-                          appLocalizations.onboarding_reinventing_text2,
-                          style: headlineStyle,
-                          maxLines: 3,
-                          textAlign: TextAlign.center,
-                        ),
+                ),
+                Flexible(
+                  flex: 30,
+                  child: Padding(
+                    padding: const EdgeInsets.all(SMALL_SPACE),
+                    child: Center(
+                      child: AutoSizeText(
+                        appLocalizations.onboarding_reinventing_text2,
+                        style: headlineStyle,
+                        maxLines: 3,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                  SvgPicture.asset(
+                ),
+                Flexible(
+                  flex: 25,
+                  child: SvgPicture.asset(
                     'assets/onboarding/title.svg',
-                    height: screenSize.height * .10,
                   ),
-                ],
+                ),
+                SvgPicture.asset(
+                  // supposed to be a square or something like that
+                  // at least not too tall
+                  'assets/onboarding/reinvention.svg',
+                  width: screenSize.width,
+                ),
+              ],
+            ),
+            const Positioned(
+              bottom: 0,
+              child: NextButton(
+                OnboardingPage.REINVENTION,
+                backgroundColor: null,
               ),
             ),
-          ),
-          const Positioned(
-            bottom: 0,
-            child: NextButton(
-              OnboardingPage.REINVENTION,
-              backgroundColor: null,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

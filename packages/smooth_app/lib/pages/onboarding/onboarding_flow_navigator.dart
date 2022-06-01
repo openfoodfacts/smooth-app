@@ -114,7 +114,7 @@ class OnboardingFlowNavigator {
     switch (page) {
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.REINVENTION:
-        return const ReinventionPage();
+        return ReinventionPage(getBackgroundColor(page));
       case OnboardingPage.WELCOME:
         return WelcomePage(getBackgroundColor(page));
       case OnboardingPage.SCAN_EXAMPLE:
