@@ -363,7 +363,6 @@ class _SummaryCardState extends State<SummaryCard> {
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.product(matchedProduct);
-        ProductCompatibilityHelper(matchedProduct);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDarkMode =
         Theme.of(context).colorScheme.brightness == Brightness.dark;
