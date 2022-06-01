@@ -55,7 +55,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         allProductImageProviders.add(null);
       }
     }
-
     _controller = PageController(
       initialPage: widget.allProductImagesData.indexOf(
         images.firstWhere((ProductImageData element) =>
@@ -98,8 +97,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           )),
       backgroundColor: Colors.black,
       floatingActionButton: _hasPhoto
-          ? _buildCropFloatingActionButton()
-          : _buildAddFloatingActionButton(),
+          ? _buildEditFloatingActionButton(
+              appLocalizations.edit_photo_button_label)
+          : _buildAddFloatingActionButton(
+              appLocalizations.add_photo_button_label),
       body: PhotoViewGallery.builder(
         pageController: _controller,
         scrollPhysics: const BouncingScrollPhysics(),
@@ -155,57 +156,56 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     final Directory tempDirectory = await getTemporaryDirectory();
     final File imageFile = await File('${tempDirectory.path}/editing_image')
         .writeAsBytes(response.bodyBytes);
-
     return imageFile;
   }
 
-  FloatingActionButton _buildAddFloatingActionButton() {
-    return FloatingActionButton(
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      onPressed: () async {
-        final int? currentIndex = _controller.page?.toInt();
-        if (currentIndex != null) {
-          final File? croppedImageFile = await startImageCropping(context);
-          if (croppedImageFile != null) {
-            setState(() {
-              allProductImageProviders[currentIndex] =
-                  FileImage(croppedImageFile);
-            });
-            if (!mounted) {
-              return;
-            }
-            final bool isUploaded = await uploadCapturedPicture(
-              context,
-              barcode: widget.barcode!,
-              imageField: _productImageDataCurrent.imageField,
-              imageUri: croppedImageFile.uri,
-            );
-
-            if (isUploaded) {
-              _isRefreshed = true;
+  FloatingActionButton _buildAddFloatingActionButton(String labelText) {
+    return FloatingActionButton.extended(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onPressed: () async {
+          final int? currentIndex = _controller.page?.toInt();
+          if (currentIndex != null) {
+            final File? croppedImageFile = await startImageCropping(context);
+            if (croppedImageFile != null) {
+              setState(() {
+                allProductImageProviders[currentIndex] =
+                    FileImage(croppedImageFile);
+              });
               if (!mounted) {
                 return;
               }
-              final AppLocalizations appLocalizations =
-                  AppLocalizations.of(context);
-              final String message = getImageUploadedMessage(
-                  _productImageDataCurrent.imageField, appLocalizations);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(message),
-                  duration: const Duration(seconds: 3),
-                ),
+              final bool isUploaded = await uploadCapturedPicture(
+                context,
+                barcode: widget.barcode!,
+                imageField: _productImageDataCurrent.imageField,
+                imageUri: croppedImageFile.uri,
               );
+
+              if (isUploaded) {
+                _isRefreshed = true;
+                if (!mounted) {
+                  return;
+                }
+                final AppLocalizations appLocalizations =
+                    AppLocalizations.of(context);
+                final String message = getImageUploadedMessage(
+                    _productImageDataCurrent.imageField, appLocalizations);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(message),
+                    duration: const Duration(seconds: 3),
+                  ),
+                );
+              }
             }
           }
-        }
-      },
-      child: const Icon(Icons.add_a_photo),
-    );
+        },
+        icon: const Icon(Icons.add_a_photo),
+        label: Text(labelText));
   }
 
-  FloatingActionButton _buildCropFloatingActionButton() {
-    return FloatingActionButton(
+  FloatingActionButton _buildEditFloatingActionButton(String labelText) {
+    return FloatingActionButton.extended(
       backgroundColor: Theme.of(context).colorScheme.primary,
       onPressed: () async {
         final int? currentIndex = _controller.page?.toInt();
@@ -254,7 +254,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           });
         }
       },
-      child: const Icon(Icons.crop),
+      label: Text(labelText),
+      icon: const Icon(Icons.edit),
     );
   }
 }

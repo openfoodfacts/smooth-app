@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 
@@ -30,13 +29,17 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   @override
   void initState() {
     super.initState();
+    //clear cache or the cached image will be shwon in File(photo)
+    imageCache.clear();
     photo = widget.initialPhoto;
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData themeData = Theme.of(context);
     File? retakenPhoto;
+
     // Picture is captured, show it to the user one last time and ask for
     // confirmation before uploading. Also present an option to retake the
     // picture as sometimes the picture can be blurry.
@@ -58,44 +61,104 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
-                child: SmoothActionButtonsBar(
-                  negativeAction: SmoothActionButton(
-                    text: appLocalizations.retake_photo_button_label,
-                    textColor: Colors.white,
-                    onPressed: () async {
-                      retakenPhoto = await startImageCropping(context);
-                      if (retakenPhoto == null) {
+                child: ButtonBar(
+                  alignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.camera),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          themeData.colorScheme.secondary,
+                        ),
+                        shape: MaterialStateProperty.all(
+                          const RoundedRectangleBorder(
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                          ),
+                        ),
+                        minimumSize: MaterialStateProperty.all(
+                          Size(
+                            width,
+                            height,
+                          ),
+                        ),
+                      ),
+                      onPressed: () async {
+                        retakenPhoto = await startImageCropping(context);
+                        if (retakenPhoto == null) {
+                          if (!mounted) {
+                            return;
+                          }
+                          // User chose not to upload the image.
+                          Navigator.pop(context);
+                          return;
+                        }
+                        setState(
+                          () {
+                            photo = retakenPhoto!;
+                          },
+                        );
+                      },
+                      label: Text(
+                        appLocalizations.retake_photo_button_label,
+                      ),
+                    ),
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.edit),
+                      style: OutlinedButton.styleFrom(
+                        primary: Colors.white,
+                        backgroundColor:
+                            Theme.of(context).appBarTheme.backgroundColor,
+                      ),
+                      onPressed: () async {
+                        retakenPhoto = await startImageCropping(context,
+                            existingImage: photo);
+                        if (retakenPhoto == null) {
+                          if (!mounted) {
+                            return;
+                          }
+                          // User chose not to upload the image.
+                          Navigator.pop(context);
+                          return;
+                        }
+                        setState(
+                          () {
+                            photo = retakenPhoto!;
+                          },
+                        );
+                      },
+                      label: Text(
+                        appLocalizations.edit_photo_button_label,
+                      ),
+                    ),
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.check),
+                      style: OutlinedButton.styleFrom(
+                        primary: Colors.white,
+                        backgroundColor:
+                            Theme.of(context).appBarTheme.backgroundColor,
+                      ),
+                      onPressed: () async {
+                        final bool isPhotoUploaded =
+                            await uploadCapturedPicture(
+                          context,
+                          barcode: widget.barcode,
+                          imageField: widget.imageType,
+                          imageUri: photo.uri,
+                        );
                         if (!mounted) {
                           return;
                         }
-                        // User chose not to upload the image.
-                        Navigator.pop(context);
-                        return;
-                      }
-                      setState(() {
-                        photo = retakenPhoto!;
-                      });
-                    },
-                  ),
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations.confirm_button_label,
-                    onPressed: () async {
-                      final bool isPhotoUploaded = await uploadCapturedPicture(
-                        context,
-                        barcode: widget.barcode,
-                        imageField: widget.imageType,
-                        imageUri: photo.uri,
-                      );
-                      if (!mounted) {
-                        return;
-                      }
-                      retakenPhoto?.delete();
-                      Navigator.pop(
-                        context,
-                        isPhotoUploaded ? photo : null,
-                      );
-                    },
-                  ),
+                        retakenPhoto?.delete();
+                        Navigator.pop(
+                          context,
+                          isPhotoUploaded ? photo : null,
+                        );
+                      },
+                      label: Text(
+                        appLocalizations.confirm_button_label,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
