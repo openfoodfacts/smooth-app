@@ -13,10 +13,14 @@ class NextButton extends StatelessWidget {
   // we need a Key for the test/screenshots
   const NextButton(
     this.currentPage, {
-    this.backgroundColor,
+    required this.backgroundColor,
   }) : super(key: const Key('next'));
 
   final OnboardingPage currentPage;
+
+  /// Color of the background where we put the buttons.
+  ///
+  /// If null, transparent background and no visible divider.
   final Color? backgroundColor;
 
   @override
@@ -36,7 +40,7 @@ class NextButton extends StatelessWidget {
         Container(
           height: SMALL_SPACE,
           width: screenSize.width,
-          color: LIGHT_GREY_COLOR,
+          color: backgroundColor == null ? null : LIGHT_GREY_COLOR,
         ),
         Container(
           padding: EdgeInsets.symmetric(
