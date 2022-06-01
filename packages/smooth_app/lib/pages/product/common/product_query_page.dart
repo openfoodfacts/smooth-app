@@ -220,6 +220,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                         onPressed: () {
                           _scrollToTop();
                         },
+                        tooltip: appLocalizations.go_back_to_top,
                         child: Icon(
                           Icons.arrow_upward,
                           color: widget.mainColor,
@@ -236,148 +237,152 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               _getHero(screenSize, themeData),
               RefreshIndicator(
                 onRefresh: () => refreshList(),
-                child: CustomScrollView(
-                  controller: _scrollController,
-                  slivers: <Widget>[
-                    SliverAppBar(
-                      backgroundColor: themeData.scaffoldBackgroundColor,
-                      expandedHeight: screenSize.height * 0.15,
-                      collapsedHeight: screenSize.height * 0.09,
-                      pinned: true,
-                      elevation: 0,
-                      automaticallyImplyLeading: false,
-                      leading: _BackButton(
-                        color: widget.mainColor,
-                      ),
-                      actions: <Widget>[
-                        TextButton.icon(
-                          icon: Icon(
-                            Icons.filter_list,
-                            color: widget.mainColor,
-                          ),
-                          label: Text(AppLocalizations.of(context).filter,
-                              style: themeData.textTheme.subtitle1!
-                                  .copyWith(color: widget.mainColor)),
-                          style: TextButton.styleFrom(
-                            primary: widget.mainColor,
-                            textStyle: TextStyle(
+                child: Scrollbar(
+                  child: CustomScrollView(
+                    controller: _scrollController,
+                    slivers: <Widget>[
+                      SliverAppBar(
+                        backgroundColor: themeData.scaffoldBackgroundColor,
+                        expandedHeight: screenSize.height * 0.15,
+                        collapsedHeight: screenSize.height * 0.09,
+                        pinned: true,
+                        elevation: 0,
+                        automaticallyImplyLeading: false,
+                        leading: _BackButton(
+                          color: widget.mainColor,
+                        ),
+                        actions: <Widget>[
+                          TextButton.icon(
+                            icon: Icon(
+                              Icons.filter_list,
                               color: widget.mainColor,
                             ),
-                          ),
-                          onPressed: () {
-                            showCupertinoModalBottomSheet<Widget>(
-                              expand: false,
-                              context: context,
-                              backgroundColor: Colors.transparent,
-                              bounce: true,
-                              builder: (BuildContext context) =>
-                                  GroupQueryFilterView(
-                                categories: _model.categories,
-                                categoriesList: _model.sortedCategories,
-                                callback: (String category) {
-                                  _model.selectCategory(category);
-                                  setState(() {});
-                                },
+                            label: Text(appLocalizations.filter,
+                                style: themeData.textTheme.subtitle1!
+                                    .copyWith(color: widget.mainColor)),
+                            style: TextButton.styleFrom(
+                              primary: widget.mainColor,
+                              textStyle: TextStyle(
+                                color: widget.mainColor,
                               ),
-                            );
-                          },
-                        )
-                      ],
-                      flexibleSpace: LayoutBuilder(
-                        builder: (
-                          BuildContext context,
-                          BoxConstraints constraints,
-                        ) =>
-                            FlexibleSpaceBar(
-                          centerTitle: true,
-                          title: SizedBox(
-                            width: screenSize.width * 0.55,
-                            child: AutoSizeText(
-                              widget.name,
-                              textAlign: TextAlign.center,
-                              style: themeData.textTheme.headline1!
-                                  .copyWith(color: widget.mainColor),
-                              maxLines: 1,
+                            ),
+                            onPressed: () {
+                              showCupertinoModalBottomSheet<Widget>(
+                                expand: false,
+                                context: context,
+                                backgroundColor: Colors.transparent,
+                                bounce: true,
+                                builder: (BuildContext context) =>
+                                    GroupQueryFilterView(
+                                  categories: _model.categories,
+                                  categoriesList: _model.sortedCategories,
+                                  callback: (String category) {
+                                    _model.selectCategory(category);
+                                    setState(() {});
+                                  },
+                                ),
+                              );
+                            },
+                          )
+                        ],
+                        flexibleSpace: LayoutBuilder(
+                          builder: (
+                            BuildContext context,
+                            BoxConstraints constraints,
+                          ) =>
+                              FlexibleSpaceBar(
+                            centerTitle: true,
+                            title: SizedBox(
+                              width: screenSize.width * 0.55,
+                              child: AutoSizeText(
+                                widget.name,
+                                textAlign: TextAlign.center,
+                                style: themeData.textTheme.headline1!
+                                    .copyWith(color: widget.mainColor),
+                                maxLines: 1,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) {
-                          if (index >= _model.displayProducts!.length) {
-                            // final button
-                            final int already = _model.displayProducts!.length;
-                            final int totalSize =
-                                _model.supplier.partialProductList.totalSize;
-                            final int next = max(
-                              0,
-                              min(
-                                _model.supplier.productQuery.pageSize,
-                                totalSize - already,
-                              ),
-                            );
-                            final Widget child;
-                            if (next == 0) {
-                              child = Text(
-                                appLocalizations.product_search_no_more_results(
-                                  totalSize,
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                            if (index >= _model.displayProducts!.length) {
+                              // final button
+                              final int already =
+                                  _model.displayProducts!.length;
+                              final int totalSize =
+                                  _model.supplier.partialProductList.totalSize;
+                              final int next = max(
+                                0,
+                                min(
+                                  _model.supplier.productQuery.pageSize,
+                                  totalSize - already,
                                 ),
                               );
-                            } else {
-                              child = ElevatedButton.icon(
-                                icon: const Icon(Icons.download_rounded),
-                                label: Text(
+                              final Widget child;
+                              if (next == 0) {
+                                child = Text(
                                   appLocalizations
-                                      .product_search_button_download_more(
-                                    next,
-                                    already,
+                                      .product_search_no_more_results(
                                     totalSize,
                                   ),
-                                ),
-                                onPressed: () async {
-                                  final bool? error =
-                                      await LoadingDialog.run<bool>(
-                                    context: context,
-                                    future: _model.loadNextPage(),
-                                  );
-                                  if (error != true) {
-                                    await LoadingDialog.error(
+                                );
+                              } else {
+                                child = ElevatedButton.icon(
+                                  icon: const Icon(Icons.download_rounded),
+                                  label: Text(
+                                    appLocalizations
+                                        .product_search_button_download_more(
+                                      next,
+                                      already,
+                                      totalSize,
+                                    ),
+                                  ),
+                                  onPressed: () async {
+                                    final bool? error =
+                                        await LoadingDialog.run<bool>(
                                       context: context,
-                                      title: _model.loadingError,
+                                      future: _model.loadNextPage(),
                                     );
-                                  }
-                                },
+                                    if (error != true) {
+                                      await LoadingDialog.error(
+                                        context: context,
+                                        title: _model.loadingError,
+                                      );
+                                    }
+                                  },
+                                );
+                              }
+                              return Padding(
+                                padding: const EdgeInsets.only(
+                                    bottom: 90.0, left: 20, right: 20),
+                                child: child,
                               );
                             }
+                            final Product product =
+                                _model.displayProducts![index];
                             return Padding(
-                              padding: const EdgeInsets.only(
-                                  bottom: 90.0, left: 20, right: 20),
-                              child: child,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0,
+                                vertical: 8.0,
+                              ),
+                              child: SmoothProductCardFound(
+                                heroTag: product.barcode!,
+                                product: product,
+                                elevation:
+                                    themeData.brightness == Brightness.light
+                                        ? 0.0
+                                        : 4.0,
+                              ).build(context),
                             );
-                          }
-                          final Product product =
-                              _model.displayProducts![index];
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12.0,
-                              vertical: 8.0,
-                            ),
-                            child: SmoothProductCardFound(
-                              heroTag: product.barcode!,
-                              product: product,
-                              elevation:
-                                  themeData.brightness == Brightness.light
-                                      ? 0.0
-                                      : 4.0,
-                            ).build(context),
-                          );
-                        },
-                        childCount: _model.displayProducts!.length + 1,
+                          },
+                          childCount: _model.displayProducts!.length + 1,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -488,8 +493,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   }
 
   void _scrollToTop() {
-    _scrollController.animateTo(0,
-        duration: const Duration(seconds: 3), curve: Curves.linear);
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(seconds: 3),
+      curve: Curves.linear,
+    );
   }
 }
 
@@ -506,6 +514,7 @@ class _BackButton extends StatelessWidget {
     return IconButton(
       icon: Icon(ConstantIcons.instance.getBackIcon()),
       color: color,
+      tooltip: MaterialLocalizations.of(context).backButtonTooltip,
       onPressed: () {
         Navigator.maybePop(context);
       },

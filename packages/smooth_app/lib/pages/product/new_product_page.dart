@@ -81,6 +81,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               // stay the same color all the time
               backgroundColor: themeData.primaryColor,
               foregroundColor: Colors.white,
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
               child: Icon(
                 ConstantIcons.instance.getBackIcon(),
               ),

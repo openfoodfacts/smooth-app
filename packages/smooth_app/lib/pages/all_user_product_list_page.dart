@@ -31,23 +31,25 @@ class _AllUserProductListState extends State<AllUserProductList> {
     return Scaffold(
       appBar: AppBar(title: Text(appLocalizations.user_list_all_title)),
       body: userLists.isEmpty
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SvgPicture.asset(
-                  'assets/misc/empty-list.svg',
-                  height: MediaQuery.of(context).size.height * .4,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(SMALL_SPACE),
-                  child: AutoSizeText(
-                    appLocalizations.user_list_all_empty,
-                    style: themeData.textTheme.headline1,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    'assets/misc/empty-list.svg',
+                    height: MediaQuery.of(context).size.height * .4,
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(SMALL_SPACE),
+                    child: AutoSizeText(
+                      appLocalizations.user_list_all_empty,
+                      style: themeData.textTheme.headline1,
+                      textAlign: TextAlign.center,
+                      maxLines: 1,
+                    ),
+                  ),
+                ],
+              ),
             )
           : ListView.builder(
               itemCount: userLists.length,
@@ -86,7 +88,7 @@ class _AllUserProductListState extends State<AllUserProductList> {
                 );
               },
             ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           final ProductList? newProductList =
               await ProductListUserDialogHelper(daoProductList)
@@ -96,7 +98,12 @@ class _AllUserProductListState extends State<AllUserProductList> {
           }
           setState(() {});
         },
-        child: const Icon(Icons.add),
+        label: Row(
+          children: <Widget>[
+            const Icon(Icons.add),
+            Text(appLocalizations.add_list_label),
+          ],
+        ),
       ),
     );
   }

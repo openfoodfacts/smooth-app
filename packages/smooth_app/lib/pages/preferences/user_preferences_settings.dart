@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
@@ -81,10 +82,33 @@ class UserPreferencesSettings extends AbstractUserPreferences {
           ),
         ),
         const UserPreferencesListItemDivider(),
+        const _CountryPickerSetting(),
+        const UserPreferencesListItemDivider(),
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
       ];
+}
+
+class _CountryPickerSetting extends StatelessWidget {
+  const _CountryPickerSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return ListTile(
+      title: Text(
+        appLocalizations.country_chooser_label,
+        style: Theme.of(context).textTheme.headline4,
+      ),
+      subtitle: CountrySelector(
+        initialCountryCode: userPreferences.userCountryCode,
+      ),
+      minVerticalPadding: MEDIUM_SPACE,
+    );
+  }
 }
 
 class _SendAnonymousDataSetting extends StatefulWidget {
