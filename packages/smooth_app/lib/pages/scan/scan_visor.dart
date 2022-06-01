@@ -29,10 +29,9 @@ class _Painter extends CustomPainter {
   static const double _fullCornerSize = 31.0;
   static const double _halfCornerSize = _fullCornerSize / 2;
   static const Radius _borderRadius = Radius.circular(_halfCornerSize);
-  static const double cornerStrokeWidth = 3.0;
 
   final Paint _paint = Paint()
-    ..strokeWidth = cornerStrokeWidth
+    ..strokeWidth = 3.0
     ..color = Colors.white
     ..style = PaintingStyle.stroke;
 
