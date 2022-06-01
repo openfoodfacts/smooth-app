@@ -54,6 +54,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final List<Widget> children = <Widget>[];
     final bool addDividers;
 
+    final String? headerAsset;
+    final Color? headerColor;
     if (widget.type == null) {
       final List<PreferencePageType> items = <PreferencePageType>[
         PreferencePageType.ACCOUNT,
@@ -66,12 +68,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
       ];
 
-      children.add(
-        SvgPicture.asset(
-          'assets/preferences/main.svg',
-          height: MediaQuery.of(context).size.height * .20,
-        ),
-      );
       for (final PreferencePageType type in items) {
         children.add(
           getUserPreferences(
@@ -80,6 +76,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           ).getOnlyHeader(),
         );
       }
+      headerAsset = 'assets/preferences/main.svg';
+      headerColor = const Color(0xFFEBF1FF);
 
       appBarTitle = appLocalizations.myPreferences;
       addDividers = true;
@@ -93,11 +91,13 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       children.addAll(abstractUserPreferences.getContent(withHeader: false));
       appBarTitle = abstractUserPreferences.getTitleString();
       addDividers = false;
+
+      headerAsset = abstractUserPreferences.getHeaderAsset();
+      headerColor = abstractUserPreferences.getHeaderColor();
     }
 
     const EdgeInsets padding = EdgeInsets.only(top: MEDIUM_SPACE);
-    Widget list;
-
+    final ListView list;
     if (addDividers) {
       list = ListView.separated(
         padding: padding,
@@ -114,10 +114,52 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       );
     }
 
+    if (headerAsset == null) {
+      return Scaffold(
+        appBar: AppBar(title: Text(appBarTitle)),
+        body: Scrollbar(child: list),
+      );
+    }
+    final MediaQueryData mediaQueryData = MediaQuery.of(context);
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+    // TODO(monsieurtanuki): experimental - find a better value
+    const double titleHeightInExpandedMode = 50;
+    final double backgroundHeight = mediaQueryData.size.height * .20;
+    // TODO(monsieurtanuki): get rid of explicit foregroundColor when appbartheme colors are correct
+    final Color? foregroundColor = dark ? null : Colors.black;
     return Scaffold(
-      appBar: AppBar(title: Text(appBarTitle)),
-      body: Scrollbar(
-        child: list,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            pinned: true,
+            snap: false,
+            floating: false,
+            stretch: true,
+            backgroundColor: dark ? null : headerColor,
+            expandedHeight: backgroundHeight + titleHeightInExpandedMode,
+            foregroundColor: foregroundColor,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                appBarTitle,
+                style: TextStyle(color: foregroundColor),
+              ),
+              background: Padding(
+                padding:
+                    const EdgeInsets.only(bottom: titleHeightInExpandedMode),
+                child: SvgPicture.asset(
+                  headerAsset,
+                  height: backgroundHeight,
+                ),
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) => children[index],
+              childCount: children.length,
+            ),
+          ),
+        ],
       ),
     );
   }

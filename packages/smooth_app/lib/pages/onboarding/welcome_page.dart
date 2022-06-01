@@ -39,7 +39,7 @@ class WelcomePage extends StatelessWidget {
                 ),
                 SvgPicture.asset(
                   'assets/onboarding/globe.svg',
-                  height: screenSize.height * .30,
+                  height: screenSize.height * .20,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: SMALL_SPACE),
@@ -66,22 +66,22 @@ class WelcomePage extends StatelessWidget {
                   appLocalizations.country_chooser_label,
                   style: bodyTextStyle,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 1,
+                      ),
+                      borderRadius: ANGULAR_BORDER_RADIUS,
+                      color: Theme.of(context).cardColor,
                     ),
-                    borderRadius: BorderRadius.circular(
-                      LARGE_SPACE,
+                    child: CountrySelector(
+                      initialCountryCode: WidgetsBinding
+                          .instance.window.locale.countryCode
+                          ?.toLowerCase(),
                     ),
-                    color: Theme.of(context).cardColor,
-                  ),
-                  margin: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-                  child: CountrySelector(
-                    initialCountryCode: WidgetsBinding
-                        .instance.window.locale.countryCode
-                        ?.toLowerCase(),
                   ),
                 ),
                 Padding(

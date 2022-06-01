@@ -85,6 +85,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               onPressed: () {
                 Navigator.maybePop(context);
               },
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
               child: Icon(
                 ConstantIcons.instance.getBackIcon(),
                 color: Colors.white,
@@ -148,13 +149,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
       return;
     }
     if (fetchedProduct.status == FetchedProductStatus.ok) {
+      setState(() => _product = fetchedProduct.product!);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(appLocalizations.product_refreshed),
           duration: const Duration(seconds: 2),
         ),
       );
-      setState(() => _product = fetchedProduct.product!);
     } else {
       productDialogHelper.openError(fetchedProduct);
     }

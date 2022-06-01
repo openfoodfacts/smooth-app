@@ -38,11 +38,13 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   IconData getLeadingIconData() => Icons.question_mark;
 
   @override
+  String? getHeaderAsset() => 'assets/preferences/faq.svg';
+
+  @override
+  Color? getHeaderColor() => const Color(0xFFDFF7E8);
+
+  @override
   List<Widget> getBody() => <Widget>[
-        SvgPicture.asset(
-          'assets/preferences/faq.svg',
-          height: MediaQuery.of(context).size.height * .20,
-        ),
         _getListTile(
           title: appLocalizations.faq,
           leading: Icons.question_mark,

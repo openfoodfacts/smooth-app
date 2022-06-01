@@ -106,7 +106,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   Widget build(BuildContext context) {
     return Consumer<BottomNavigationTab>(
       builder: (BuildContext context, BottomNavigationTab tab, Widget? child) {
-        if (pendingResume && tab == BottomNavigationTab.Scan) {
+        if (pendingResume &&
+            tab == BottomNavigationTab.Scan &&
+            Navigator.of(context).canPop()) {
           pendingResume = false;
           _onResumeImageStream();
         }
@@ -266,6 +268,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         // TODO(M123): Show error message
         debugPrint(e.toString());
       }
+    } on FlutterError catch (e) {
+      if (kDebugMode) {
+        debugPrint(e.toString());
+      }
     }
 
     _redrawScreen();
@@ -317,8 +323,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     );
 
     // On visibility == true, may call us, but we have to ensure that this tab
-    // is visible
-    if (tab != BottomNavigationTab.Scan) {
+    // is visible AND displays the camera (canPop returns false in that case)
+    if (tab != BottomNavigationTab.Scan || Navigator.of(context).canPop()) {
       pendingResume = _controller?.isInitialized != true;
       return;
     }
