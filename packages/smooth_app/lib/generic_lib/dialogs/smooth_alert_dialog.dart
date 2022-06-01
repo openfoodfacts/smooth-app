@@ -280,7 +280,6 @@ class _SmoothActionElevatedButton extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
         maxLines: buttonData.lines ?? 2,
         style: themeData.textTheme.bodyText2!.copyWith(
-          color: themeData.colorScheme.onPrimary,
           fontWeight: FontWeight.bold,
         ),
       ),
