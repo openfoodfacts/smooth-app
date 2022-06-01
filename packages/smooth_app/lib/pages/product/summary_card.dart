@@ -362,7 +362,7 @@ class _SummaryCardState extends State<SummaryCard> {
       widget._productPreferences,
     );
     final ProductCompatibilityHelper helper =
-        ProductCompatibilityHelper(matchedProduct);
+        ProductCompatibilityHelper.product(matchedProduct);
     final bool isDarkMode =
         Theme.of(context).colorScheme.brightness == Brightness.dark;
     return Container(
