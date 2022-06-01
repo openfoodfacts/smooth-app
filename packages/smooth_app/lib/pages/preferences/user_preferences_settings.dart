@@ -105,6 +105,7 @@ class _CountryPickerSetting extends StatelessWidget {
       ),
       subtitle: CountrySelector(
         initialCountryCode: userPreferences.userCountryCode,
+        textStyle: Theme.of(context).textTheme.bodyText2,
       ),
       minVerticalPadding: MEDIUM_SPACE,
     );

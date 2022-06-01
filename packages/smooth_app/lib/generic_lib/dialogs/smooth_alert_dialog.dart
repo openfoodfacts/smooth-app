@@ -253,6 +253,7 @@ class SmoothActionButton {
     this.minWidth,
     this.height,
     this.lines,
+    this.textColor,
   }) : assert(text.isNotEmpty);
 
   final String text;
@@ -260,6 +261,7 @@ class SmoothActionButton {
   final int? lines;
   final double? minWidth;
   final double? height;
+  final Color? textColor;
 }
 
 class _SmoothActionElevatedButton extends StatelessWidget {
@@ -281,6 +283,7 @@ class _SmoothActionElevatedButton extends StatelessWidget {
         maxLines: buttonData.lines ?? 2,
         style: themeData.textTheme.bodyText2!.copyWith(
           fontWeight: FontWeight.bold,
+          color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
         ),
       ),
     );
@@ -312,14 +315,18 @@ class _SmoothActionFlatButton extends StatelessWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: ROUNDED_BORDER_RADIUS,
           ),
-          textStyle: themeData.textTheme.bodyText2!
-              .copyWith(color: themeData.colorScheme.onPrimary),
+          textStyle: themeData.textTheme.bodyText2!.copyWith(
+            color: themeData.colorScheme.onPrimary,
+          ),
         ),
         child: SizedBox(
           height: buttonData.lines != null ? 20.0 * buttonData.lines! : null,
           child: AutoSizeText(
             buttonData.text.toUpperCase(),
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: buttonData.textColor ?? themeData.colorScheme.primary,
+            ),
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             maxLines: buttonData.lines ?? 2,

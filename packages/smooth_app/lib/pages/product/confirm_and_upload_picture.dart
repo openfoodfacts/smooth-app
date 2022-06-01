@@ -61,6 +61,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                 child: SmoothActionButtonsBar(
                   negativeAction: SmoothActionButton(
                     text: appLocalizations.retake_photo_button_label,
+                    textColor: Colors.white,
                     onPressed: () async {
                       retakenPhoto = await startImageCropping(context);
                       if (retakenPhoto == null) {
@@ -71,11 +72,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         Navigator.pop(context);
                         return;
                       }
-                      setState(
-                        () {
-                          photo = retakenPhoto!;
-                        },
-                      );
+                      setState(() {
+                        photo = retakenPhoto!;
+                      });
                     },
                   ),
                   positiveAction: SmoothActionButton(
