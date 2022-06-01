@@ -195,7 +195,7 @@
     "sign_up_page_username_error_empty": "Vă rugăm să introduceți un nume de utilizator",
     "sign_up_page_username_error_invalid": "Vă rugăm să introduceți un nume de utilizator valid",
     "sign_up_page_username_description": "Numele de utilizator nu poate conține spații, majuscule sau caractere speciale",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Numele de utilizator nu poate depăși {value} caractere",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -433,9 +433,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Produs Nou",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product front photo",
+    "front_packaging_photo_button_label": "Fotografia din față a produsului",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
+    "confirm_front_packaging_photo_button_label": "Confirmă încărcarea fotografiei din față a produsului",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -740,7 +740,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "user_profile": "Account",
+    "user_profile": "Cont",
     "@user_profile": {
         "description": "User account (if connected)"
     },
@@ -748,8 +748,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Conectați-vă sau înscrieți-vă pentru a vă alătura comunității Open Food Facts",
+    "user_profile_title_id_email": "Conectare Open Food Facts: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -758,7 +758,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "Bun venit {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -921,7 +921,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Name is mandatory",
+    "user_list_name_error_empty": "Numele este obligatoriu",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -987,7 +987,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
+    "dev_preferences_test_environment_subtitle": "Adresa URL de bază pentru mediul de testare curent: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1075,7 +1075,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Modul de scanare curent este: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1088,7 +1088,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
+    "dev_mode_hide_ecoscore_title": "Excludeți EcoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1197,7 +1197,7 @@
     "add_basic_details_brand_name_error": "Vă rugăm să introduceți numele mărcii",
     "quantity": "Cantitatea și greutatea",
     "barcode": "Cod de bare",
-    "barcode_barcode": "Barcode: {barcode}",
+    "barcode_barcode": "Cod de bare: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
         "placeholders": {

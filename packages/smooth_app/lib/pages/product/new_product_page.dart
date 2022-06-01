@@ -85,6 +85,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               onPressed: () {
                 Navigator.maybePop(context);
               },
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
               child: Icon(
                 ConstantIcons.instance.getBackIcon(),
                 color: Colors.white,

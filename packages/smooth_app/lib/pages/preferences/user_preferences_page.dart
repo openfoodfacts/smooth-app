@@ -117,7 +117,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     if (headerAsset == null) {
       return Scaffold(
         appBar: AppBar(title: Text(appBarTitle)),
-        body: list,
+        body: Scrollbar(child: list),
       );
     }
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
