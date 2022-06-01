@@ -79,63 +79,67 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         title: Text(title),
       ),
       backgroundColor: Colors.black,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: () async {
-          final int? currentIndex = _controller.page?.toInt();
-          if (currentIndex == null && currentIndex! >= images.length) {
-            return;
-          }
-
-          final ProductImageData currentImage = images[currentIndex];
-          if (currentImage.imageUrl == null) {
-            return;
-          }
-
-          final File? imageFile = await LoadingDialog.run<File>(
-              context: context,
-              future: _getCurrentImageFile(currentImage.imageUrl!));
-
-          if (imageFile == null) {
-            return;
-          }
-
-          if (!mounted) {
-            return;
-          }
-          // if there is no photo just open the crop page
-          if (currentImage.imageUrl == null) {
-            final File? newImage = await startImageCropping(context);
-            if (newImage == null) {
+      floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          onPressed: () async {
+            final int? currentIndex = _controller.page?.toInt();
+            if (currentIndex == null && currentIndex! >= images.length) {
               return;
             }
-            // ignore: use_build_context_synchronously
-            await Navigator.push<File?>(
-              context,
-              MaterialPageRoute<File?>(
-                builder: (BuildContext context) => ConfirmAndUploadPicture(
-                  barcode: widget.barcode!,
-                  imageType: currentImage.imageField,
-                  initialPhoto: newImage,
+
+            final ProductImageData currentImage = images[currentIndex];
+            if (currentImage.imageUrl == null) {
+              return;
+            }
+
+            final File? imageFile = await LoadingDialog.run<File>(
+                context: context,
+                future: _getCurrentImageFile(currentImage.imageUrl!));
+
+            if (imageFile == null) {
+              return;
+            }
+
+            if (!mounted) {
+              return;
+            }
+            // if there is no photo just open the crop page
+            if (currentImage.imageUrl == null) {
+              final File? newImage = await startImageCropping(context);
+              if (newImage == null) {
+                return;
+              }
+              // ignore: use_build_context_synchronously
+              await Navigator.push<File?>(
+                context,
+                MaterialPageRoute<File?>(
+                  builder: (BuildContext context) => ConfirmAndUploadPicture(
+                    barcode: widget.barcode!,
+                    imageType: currentImage.imageField,
+                    initialPhoto: newImage,
+                  ),
                 ),
-              ),
-            );
-            newImage.delete();
-          } else {
-            await Navigator.push<File?>(
-              context,
-              MaterialPageRoute<File?>(
-                builder: (BuildContext context) => ConfirmAndUploadPicture(
-                  barcode: widget.barcode!,
-                  imageType: currentImage.imageField,
-                  initialPhoto: imageFile,
+              );
+              newImage.delete();
+            } else {
+              await Navigator.push<File?>(
+                context,
+                MaterialPageRoute<File?>(
+                  builder: (BuildContext context) => ConfirmAndUploadPicture(
+                    barcode: widget.barcode!,
+                    imageType: currentImage.imageField,
+                    initialPhoto: imageFile,
+                  ),
                 ),
-              ),
-            );
-          }
-        },
-        child: const Icon(Icons.edit),
-      ),
+              );
+            }
+          },
+          label: Row(
+            children: <Widget>[
+              const Icon(Icons.edit),
+              Text(appLocalizations.edit_photo_button_label)
+            ],
+          )),
       body: PhotoViewGallery.builder(
         pageController: _controller,
         scrollPhysics: const BouncingScrollPhysics(),
