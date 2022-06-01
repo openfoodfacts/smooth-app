@@ -9,7 +9,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
-import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
@@ -96,8 +95,10 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     if (_isUserConnected(readOnly: true)) {
       return super.runHeaderAction();
     } else {
-      return Navigator.push<dynamic>(
+      return Navigator.of(
         context,
+        rootNavigator: true,
+      ).push<dynamic>(
         MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const LoginPage(),
         ),
@@ -131,8 +132,10 @@ class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
         Center(
           child: ElevatedButton(
             onPressed: () async {
-              Navigator.push<dynamic>(
+              Navigator.of(
                 context,
+                rootNavigator: true,
+              ).push<dynamic>(
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => const LoginPage(),
                 ),
@@ -180,9 +183,10 @@ class UserPreferencesSection extends StatefulWidget {
 }
 
 class _UserPreferencesPageState extends State<UserPreferencesSection> {
-  void _confirmLogout(BuildContext context) {
+  Future<bool?> _confirmLogout(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    showDialog<void>(
+
+    return showDialog<bool>(
       context: context,
       builder: (BuildContext context) {
         return SmoothAlertDialog(
@@ -194,7 +198,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             text: localizations.yes,
             onPressed: () async {
               context.read<UserManagementProvider>().logout();
-              Navigator.pop(context);
+              Navigator.pop(context, true);
             },
           ),
           negativeAction: SmoothActionButton(
@@ -218,13 +222,13 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
 
-    final List<Widget> result = <Widget>[];
+    final List<Widget> result;
 
     if (OpenFoodAPIConfiguration.globalUser != null) {
       // Credentials
       final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
 
-      result.addAll(<Widget>[
+      result = <Widget>[
         ListTile(
           onTap: () async => LaunchUrlHelper.launchURL(
             'https://openfoodfacts.org/editor/$userId',
@@ -235,7 +239,11 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         ),
         const UserPreferencesListItemDivider(),
         ListTile(
-          onTap: () => _confirmLogout(context),
+          onTap: () async {
+            if (await _confirmLogout(context) == true) {
+              Navigator.pop(context);
+            }
+          },
           title: Text(appLocalizations.sign_out),
           leading: const Icon(Icons.clear),
         ),
@@ -253,15 +261,17 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           leading: const Icon(Icons.delete),
         ),
         const UserPreferencesListItemDivider(),
-      ]);
+      ];
     } else {
       // No credentials
-      result.add(
+      result = <Widget>[
         Center(
           child: ElevatedButton(
             onPressed: () async {
-              Navigator.push<dynamic>(
+              Navigator.of(
                 context,
+                rootNavigator: true,
+              ).push<dynamic>(
                 MaterialPageRoute<dynamic>(
                   builder: (BuildContext context) => const LoginPage(),
                 ),
@@ -286,13 +296,8 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             ),
           ),
         ),
-      );
+      ];
     }
-    result.add(
-      CountrySelector(
-        initialCountryCode: widget.userPreferences.userCountryCode,
-      ),
-    );
 
     return Column(children: result);
   }

@@ -117,11 +117,17 @@ class SmoothProductCardFound extends StatelessWidget {
                           ),
                           const Padding(
                               padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-                          Text(
-                            helper.getSubtitle(appLocalizations),
-                            style: themeData.textTheme.bodyText2!.apply(
-                                color: helper
-                                    .getButtonForegroundColor(isDarkMode)),
+                          Expanded(
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              alignment: AlignmentDirectional.centerStart,
+                              child: Text(
+                                helper.getSubtitle(appLocalizations),
+                                style: themeData.textTheme.bodyText2!.apply(
+                                    color: helper
+                                        .getButtonForegroundColor(isDarkMode)),
+                              ),
+                            ),
                           ),
                         ],
                       ),

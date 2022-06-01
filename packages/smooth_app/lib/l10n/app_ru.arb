@@ -35,7 +35,7 @@
     "@error_occurred": {},
     "featureInProgress": "Мы все еще работаем над этой функцией, следите за обновлениями",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Посмотреть в Интернете",
     "@label_web": {},
     "learnMore": "Докладніше",
     "@learnMore": {},
@@ -105,7 +105,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Выбирайте еду, которая полезна для вас и для планеты.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },

@@ -1,12 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 
 /// Page where we can indirectly edit all data about a product.
 class EditProductPage extends StatefulWidget {
@@ -69,6 +71,24 @@ class _EditProductPageState extends State<EditProductPage> {
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_photos_title,
               subtitle: appLocalizations.edit_product_form_item_photos_subtitle,
+              onTap: () async {
+                final List<ProductImageData> allProductImagesData =
+                    getAllProductImagesData(widget.product, appLocalizations);
+                final bool? refreshed = await Navigator.push<bool>(
+                  context,
+                  MaterialPageRoute<bool>(
+                    builder: (BuildContext context) => ProductImageGalleryView(
+                      productImageData: allProductImagesData.first,
+                      allProductImagesData: allProductImagesData,
+                      title: allProductImagesData.first.title,
+                      barcode: widget.product.barcode,
+                    ),
+                  ),
+                );
+                if (refreshed ?? false) {
+                  _changes++;
+                }
+              },
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_labels_title,

@@ -97,8 +97,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     }
 
     const EdgeInsets padding = EdgeInsets.only(top: MEDIUM_SPACE);
-    Widget list;
-
+    final ListView list;
     if (addDividers) {
       list = ListView.separated(
         padding: padding,
@@ -115,27 +114,52 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       );
     }
 
+    if (headerAsset == null) {
+      return Scaffold(
+        appBar: AppBar(title: Text(appBarTitle)),
+        body: Scrollbar(child: list),
+      );
+    }
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+    // TODO(monsieurtanuki): experimental - find a better value
+    const double titleHeightInExpandedMode = 50;
+    final double backgroundHeight = mediaQueryData.size.height * .20;
+    // TODO(monsieurtanuki): get rid of explicit foregroundColor when appbartheme colors are correct
+    final Color? foregroundColor = dark ? null : Colors.black;
     return Scaffold(
-      appBar: AppBar(title: Text(appBarTitle)),
-      body: Scrollbar(
-        child: Column(
-          children: <Widget>[
-            if (headerAsset != null)
-              Container(
-                width: mediaQueryData.size.width,
-                padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? null
-                    : headerColor,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            pinned: true,
+            snap: false,
+            floating: false,
+            stretch: true,
+            backgroundColor: dark ? null : headerColor,
+            expandedHeight: backgroundHeight + titleHeightInExpandedMode,
+            foregroundColor: foregroundColor,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                appBarTitle,
+                style: TextStyle(color: foregroundColor),
+              ),
+              background: Padding(
+                padding:
+                    const EdgeInsets.only(bottom: titleHeightInExpandedMode),
                 child: SvgPicture.asset(
                   headerAsset,
-                  height: mediaQueryData.size.height * .20,
+                  height: backgroundHeight,
                 ),
               ),
-            Expanded(child: list),
-          ],
-        ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) => children[index],
+              childCount: children.length,
+            ),
+          ),
+        ],
       ),
     );
   }
