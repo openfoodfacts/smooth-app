@@ -1196,7 +1196,7 @@
         "description": "Summary card - Button to add details about the product"
     },
     "edit_photo_button_label": "Edit",
-   "@edit_photo_button_label": {
+    "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
     "category_picker_screen_title": "Categories",
