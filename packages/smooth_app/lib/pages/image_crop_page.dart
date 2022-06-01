@@ -8,7 +8,6 @@ import 'package:image_picker/image_picker.dart';
 Future<File?> startImageCropping(BuildContext context,
     {File? existingImage}) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
   late XFile? pickedXFile;
   if (existingImage == null) {

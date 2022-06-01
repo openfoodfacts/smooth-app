@@ -68,17 +68,11 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                       icon: const Icon(Icons.camera),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                          themeData.colorScheme.secondary,
+                          themeData.colorScheme.background,
                         ),
                         shape: MaterialStateProperty.all(
                           const RoundedRectangleBorder(
                             borderRadius: ROUNDED_BORDER_RADIUS,
-                          ),
-                        ),
-                        minimumSize: MaterialStateProperty.all(
-                          Size(
-                            width,
-                            height,
                           ),
                         ),
                       ),
@@ -104,10 +98,15 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                     ),
                     OutlinedButton.icon(
                       icon: const Icon(Icons.edit),
-                      style: OutlinedButton.styleFrom(
-                        primary: Colors.white,
-                        backgroundColor:
-                            Theme.of(context).appBarTheme.backgroundColor,
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          themeData.colorScheme.background,
+                        ),
+                        shape: MaterialStateProperty.all(
+                          const RoundedRectangleBorder(
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                          ),
+                        ),
                       ),
                       onPressed: () async {
                         retakenPhoto = await startImageCropping(context,
@@ -132,10 +131,15 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                     ),
                     OutlinedButton.icon(
                       icon: const Icon(Icons.check),
-                      style: OutlinedButton.styleFrom(
-                        primary: Colors.white,
-                        backgroundColor:
-                            Theme.of(context).appBarTheme.backgroundColor,
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          themeData.colorScheme.background,
+                        ),
+                        shape: MaterialStateProperty.all(
+                          const RoundedRectangleBorder(
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                          ),
+                        ),
                       ),
                       onPressed: () async {
                         final bool isPhotoUploaded =
