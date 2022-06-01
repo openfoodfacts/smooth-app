@@ -12,6 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "go_back_to_top": "Go back to top",
     "save": "Save",
     "save_confirmation": "Are you sure you want to save?",
     "skip": "Skip",
