@@ -17,6 +17,7 @@ extension StringExt on String {
 
   /// Removes a character by giving its position
   String removeCharacterAt(int position) {
+    assert(position >= 0 && position < length);
     return substring(0, position) + substring(position + 1);
   }
 }
