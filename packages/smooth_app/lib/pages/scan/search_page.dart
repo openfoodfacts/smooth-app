@@ -112,11 +112,15 @@ class SearchField extends StatefulWidget {
     this.autofocus = false,
     this.showClearButton = true,
     this.onFocus,
+    this.backgroundColor,
+    this.foregroundColor,
   });
 
   final bool autofocus;
   final bool showClearButton;
   final void Function()? onFocus;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
 
   @override
   State<SearchField> createState() => _SearchFieldState();
@@ -155,6 +159,10 @@ class _SearchFieldState extends State<SearchField> {
       focusNode: _focusNode,
       onSubmitted: (String query) => _performSearch(context, query),
       decoration: InputDecoration(
+        fillColor: widget.backgroundColor,
+        labelStyle: Theme.of(context).textTheme.bodyText2?.copyWith(
+              color: widget.foregroundColor,
+            ),
         filled: true,
         border: const OutlineInputBorder(
           borderRadius: CIRCULAR_BORDER_RADIUS,

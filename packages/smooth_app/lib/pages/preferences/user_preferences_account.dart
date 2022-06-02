@@ -155,7 +155,8 @@ class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
               appLocalizations.sign_in,
               style: theme.textTheme.bodyText2?.copyWith(
                 fontSize: 18.0,
-                color: theme.colorScheme.surface,
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onPrimary,
               ),
             ),
           ),
@@ -291,7 +292,8 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
               appLocalizations.sign_in,
               style: theme.textTheme.bodyText2?.copyWith(
                 fontSize: 18.0,
-                color: theme.colorScheme.surface,
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onPrimary,
               ),
             ),
           ),

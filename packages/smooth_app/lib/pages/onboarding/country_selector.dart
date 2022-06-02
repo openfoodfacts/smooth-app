@@ -12,9 +12,11 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 class CountrySelector extends StatefulWidget {
   const CountrySelector({
     required this.initialCountryCode,
+    this.textStyle,
   });
 
   final String? initialCountryCode;
+  final TextStyle? textStyle;
 
   @override
   State<CountrySelector> createState() => _CountrySelectorState();
@@ -154,7 +156,8 @@ class _CountrySelectorState extends State<CountrySelector> {
               leading: const Icon(Icons.public),
               title: Text(
                 _chosenValue.name,
-                style: Theme.of(context).textTheme.headline3,
+                style:
+                    widget.textStyle ?? Theme.of(context).textTheme.headline3,
               ),
               trailing: const Icon(Icons.arrow_drop_down),
             ),

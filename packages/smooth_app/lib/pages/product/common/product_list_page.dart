@@ -167,7 +167,7 @@ class _ProductListPageState extends State<ProductListPage>
                 Text(
                   appLocalizations.product_list_empty_title,
                   style: themeData.textTheme.headlineLarge
-                      ?.apply(color: colorScheme.onSurface),
+                      ?.apply(color: colorScheme.onBackground),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(VERY_LARGE_SPACE),
@@ -175,7 +175,7 @@ class _ProductListPageState extends State<ProductListPage>
                     appLocalizations.product_list_empty_message,
                     textAlign: TextAlign.center,
                     style: themeData.textTheme.bodyText2?.apply(
-                      color: colorScheme.onSurface,
+                      color: colorScheme.onBackground,
                     ),
                   ),
                 )
