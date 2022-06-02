@@ -129,9 +129,9 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           color: Colors.red,
                           child: Text(appLocalizations.incorrect_credentials),
                         ),
-                        const Spacer(
-                          flex: 1,
-                        )
+                        const SizedBox(
+                          height: LARGE_SPACE * 2,
+                        ),
                       ],
                       //Login
                       SmoothTextFormField(
