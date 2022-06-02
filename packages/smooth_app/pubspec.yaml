@@ -34,7 +34,7 @@ dependencies:
   matomo_tracker:
     git:
       url: 'https://github.com/M123-dev/matomo-tracker.git'
-      ref: 'fix-Allow-await-for-async-tasks'
+      ref: 'fix-country'
   modal_bottom_sheet: ^2.0.1
   openfoodfacts: ^1.17.1
   #  openfoodfacts:
@@ -159,3 +159,4 @@ flutter:
     - assets/ikonate_thin/
     - assets/ikonate_bold/
     - assets/plus_jakarta_sans_regular/
+    - assets/icons/visor_icon.svg

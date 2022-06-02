@@ -129,43 +129,45 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     // TODO(monsieurtanuki): get rid of explicit foregroundColor when appbartheme colors are correct
     final Color? foregroundColor = dark ? null : Colors.black;
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            pinned: true,
-            snap: false,
-            floating: false,
-            stretch: true,
-            backgroundColor: dark ? null : headerColor,
-            expandedHeight: backgroundHeight + titleHeightInExpandedMode,
-            foregroundColor: foregroundColor,
-            // Force a light status bar
-            systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarIconBrightness: Brightness.light,
-              statusBarBrightness: Brightness.dark,
-            ),
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                appBarTitle,
-                style: TextStyle(color: foregroundColor),
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              pinned: true,
+              snap: false,
+              floating: false,
+              stretch: true,
+              backgroundColor: dark ? null : headerColor,
+              expandedHeight: backgroundHeight + titleHeightInExpandedMode,
+              foregroundColor: foregroundColor,
+              // Force a light status bar
+              systemOverlayStyle: const SystemUiOverlayStyle(
+                statusBarIconBrightness: Brightness.light,
+                statusBarBrightness: Brightness.dark,
               ),
-              background: Padding(
-                padding:
-                    const EdgeInsets.only(bottom: titleHeightInExpandedMode),
-                child: SvgPicture.asset(
-                  headerAsset,
-                  height: backgroundHeight,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  appBarTitle,
+                  style: TextStyle(color: foregroundColor),
+                ),
+                background: Padding(
+                  padding:
+                      const EdgeInsets.only(bottom: titleHeightInExpandedMode),
+                  child: SvgPicture.asset(
+                    headerAsset,
+                    height: backgroundHeight,
+                  ),
                 ),
               ),
             ),
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) => children[index],
-              childCount: children.length,
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) => children[index],
+                childCount: children.length,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
