@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +14,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 
@@ -175,6 +178,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       autofillHints: const <String>[AutofillHints.transactionAmount],
       inputFormatters: <TextInputFormatter>[
         FilteringTextInputFormatter.allow(_decimalRegExp),
+        _DecimalSeparatorRewriter(_numberFormat),
       ],
       validator: (String? value) {
         if (value == null || value.trim().isEmpty) {
@@ -481,5 +485,80 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     //else form is not edited just return false
     return false;
+  }
+}
+
+/// Custom formatter for text field, where only one decimal separator is allowed
+/// This separator is based on [NumberFormat], so it can be "." or "," depending
+/// on the user's language
+///
+/// Also, if a separator is already displayed, it will be move to the new
+/// position
+class _DecimalSeparatorRewriter extends TextInputFormatter {
+  _DecimalSeparatorRewriter(NumberFormat format)
+      : _decimalSeparator = format.symbols.DECIMAL_SEP,
+        _separatorToReplace = _findSeparatorToReplace(format);
+
+  final String _decimalSeparator;
+  final String _separatorToReplace;
+
+  static String _findSeparatorToReplace(NumberFormat format) {
+    switch (format.symbols.DECIMAL_SEP) {
+      case '.':
+        return ',';
+      default:
+        return '.';
+    }
+  }
+
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    String newTextValue = newValue.text;
+
+    // Replace all invalid separators
+    if (newTextValue.contains(_separatorToReplace)) {
+      newTextValue = newTextValue.replaceAll(
+        _separatorToReplace,
+        _decimalSeparator,
+      );
+    }
+
+    // If there is more than one separator, move to the new one
+    final int initialSeparatorPosition =
+        oldValue.text.indexOf(_decimalSeparator);
+    final List<int> separatorPositions =
+        newTextValue.indexesOf(_decimalSeparator);
+
+    int oldBaseSelectionPosition = newValue.selection.baseOffset;
+    int oldExtentSelectionPosition = newValue.selection.extentOffset;
+
+    if (separatorPositions.length > 1) {
+      // Move to the new separator
+      if (separatorPositions[0] == initialSeparatorPosition) {
+        newTextValue = newTextValue.removeCharacterAt(initialSeparatorPosition);
+
+        // Move the cursor to the new position
+        if (oldBaseSelectionPosition == oldExtentSelectionPosition &&
+            separatorPositions[1] == (oldExtentSelectionPosition - 1)) {
+          oldBaseSelectionPosition--;
+          oldExtentSelectionPosition--;
+        }
+      } else {
+        newTextValue = newTextValue.removeCharacterAt(separatorPositions[1]);
+      }
+    }
+
+    final int newTextLength = newTextValue.length;
+
+    return newValue.copyWith(
+      text: newTextValue,
+      selection: newValue.selection.copyWith(
+        baseOffset: math.min(oldBaseSelectionPosition, newTextLength),
+        extentOffset: math.min(oldExtentSelectionPosition, newTextLength),
+      ),
+    );
   }
 }
