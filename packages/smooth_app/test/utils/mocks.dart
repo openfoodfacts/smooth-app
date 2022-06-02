@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -66,7 +65,6 @@ Map<String, Object> mockSharedPreferences({
     <String, Object>{
       // Configured by test
       'init': init,
-      'customColorTag': color.toPreferencesString,
       'currentThemeMode': themeDark ? 'Dark' : 'Light',
 
       // Very important by default

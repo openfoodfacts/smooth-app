@@ -277,7 +277,10 @@ class _EditIngredientsBody extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: Padding(
                 padding: const EdgeInsets.only(
-                    bottom: LARGE_SPACE, right: SMALL_SPACE),
+                  bottom: LARGE_SPACE,
+                  right: LARGE_SPACE,
+                  left: LARGE_SPACE,
+                ),
                 child: SmoothActionButtonsBar(
                   positiveAction: SmoothActionButton(
                     text: appLocalizations
@@ -308,7 +311,7 @@ class _EditIngredientsBody extends StatelessWidget {
                         enabled: !updatingIngredients,
                         controller: controller,
                         decoration: const InputDecoration(
-                          border: OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: ANGULAR_BORDER_RADIUS,
                           ),
                         ),

@@ -4,17 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 Future<File?> startImageCropping(BuildContext context,
     {File? existingImage}) async {
-  final bool isDarktheme =
-      Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
-  final Color? themeColor = isDarktheme
-      ? Colors.black
-      : Theme.of(context).appBarTheme.backgroundColor;
-  final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   late XFile? pickedXFile;
@@ -39,15 +31,15 @@ Future<File?> startImageCropping(BuildContext context,
     ],
     uiSettings: <PlatformUiSettings>[
       AndroidUiSettings(
-        toolbarTitle: appLocalizations.product_edit_photo_title,
         initAspectRatio: CropAspectRatioPreset.original,
         lockAspectRatio: false,
-        statusBarColor: themeColor,
-        toolbarColor: themeColor,
-        toolbarWidgetColor: widgetColor,
-        //ignore: use_build_context_synchronously
-        activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
-        backgroundColor: themeColor,
+        toolbarTitle: appLocalizations.product_edit_photo_title,
+        // They all need to be the same for dark/light mode as we can't change
+        // the background color and the action bar color
+        statusBarColor: Colors.black,
+        toolbarWidgetColor: Colors.black,
+        backgroundColor: Colors.black,
+        activeControlsWidgetColor: const Color(0xFF85746C),
       ),
       IOSUiSettings(
         minimumAspectRatio: 1.0,

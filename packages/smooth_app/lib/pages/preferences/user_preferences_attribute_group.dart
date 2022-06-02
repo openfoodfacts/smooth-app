@@ -8,7 +8,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/attribute_group_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
@@ -58,22 +57,14 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
     if (group.warning != null) {
       result.add(
         Container(
-          color: SmoothTheme.getColor(
-            Theme.of(context).colorScheme,
-            WARNING_COLOR,
-            ColorDestination.BUTTON_BACKGROUND,
-          ),
+          color: Theme.of(context).colorScheme.error,
           width: double.infinity,
           padding: const EdgeInsets.all(LARGE_SPACE),
           margin: const EdgeInsets.all(LARGE_SPACE),
           child: Text(
             group.warning ?? appLocalizations.unknown,
             style: TextStyle(
-              color: SmoothTheme.getColor(
-                Theme.of(context).colorScheme,
-                WARNING_COLOR,
-                ColorDestination.BUTTON_FOREGROUND,
-              ),
+              color: Theme.of(context).colorScheme.onError,
             ),
           ),
         ),

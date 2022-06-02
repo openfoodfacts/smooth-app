@@ -188,6 +188,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                     TextSpan(
                       // additional space needed because of the next text span
                       text: '${appLocalizations.sign_up_page_agree_text} ',
+                      style: theme.textTheme.bodyText2
+                          ?.copyWith(color: theme.colorScheme.onBackground),
                     ),
                     TextSpan(
                       style: const TextStyle(
@@ -275,7 +277,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 appLocalizations.sign_up_page_action_button,
                 style: theme.textTheme.bodyText2?.copyWith(
                   fontSize: 18.0,
-                  color: theme.colorScheme.surface,
+                  color: theme.colorScheme.onPrimary,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),

@@ -64,7 +64,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   Text(
                     appLocalizations.new_product,
                     style: themeData.textTheme.headline1!
-                        .apply(color: themeData.colorScheme.onSurface),
+                        .apply(color: themeData.colorScheme.onBackground),
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: VERY_LARGE_SPACE),
@@ -72,7 +72,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   Text(
                     appLocalizations.add_product_take_photos_descriptive,
                     style: themeData.textTheme.bodyText1!
-                        .apply(color: themeData.colorScheme.onSurface),
+                        .apply(color: themeData.colorScheme.onBackground),
                   ),
                   ..._buildImageCaptureRows(context),
                   _buildNutritionInputButton(),
@@ -82,7 +82,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             ),
             Positioned(
               child: Align(
-                alignment: Alignment.topRight,
+                alignment: Alignment.bottomCenter,
                 child: SmoothActionButtonsBar.single(
                   action: SmoothActionButton(
                     text: appLocalizations.finish,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 const String THEME_SYSTEM_DEFAULT = 'System Default';
 const String THEME_LIGHT = 'Light';
@@ -37,28 +36,12 @@ class ThemeProvider with ChangeNotifier {
   }
 
   Future<void> setTheme(String value) async {
+    assert(value != THEME_LIGHT || value != THEME_DARK);
     await _userPreferences.setTheme(value);
-    notifyListeners();
-  }
-
-  Color get color => _userPreferences.customColor ?? Colors.lightBlue;
-
-  MaterialColor get customMaterialColor =>
-      SmoothTheme.getMaterialColorFromColor(color);
-
-  Future<void> setColor(final Color newColor) async {
-    if (color == newColor) {
-      return;
-    }
-    await _userPreferences.setCustomColor(newColor);
     notifyListeners();
   }
 
   bool isDarkMode(BuildContext context) {
     return MediaQuery.platformBrightnessOf(context) == Brightness.dark;
   }
-
-  MaterialColor materialColor(BuildContext context) => isDarkMode(context)
-      ? Colors.grey
-      : SmoothTheme.getMaterialColorFromColor(color);
 }

@@ -60,8 +60,6 @@ class PageManagerState extends State<PageManager> {
       _buildOffstageNavigator(BottomNavigationTab.History),
     ];
 
-    final ThemeData themeData = Theme.of(context);
-    final bool brightnessCheck = themeData.brightness == Brightness.light;
     return WillPopScope(
       onWillPop: () async {
         final bool isFirstRouteInCurrentTab =
@@ -78,11 +76,6 @@ class PageManagerState extends State<PageManager> {
       child: Scaffold(
         body: Stack(children: _tabs),
         bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: brightnessCheck ? Colors.black : Colors.grey,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedItemColor: Colors.white,
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           onTap: (int index) {
             final InheritedDataManagerState inheritedDataManager =
                 InheritedDataManager.of(context);
