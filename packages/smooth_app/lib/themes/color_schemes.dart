@@ -4,7 +4,7 @@ const Color seed = Color(0xFF99460D);
 
 const ColorScheme lightColorScheme = ColorScheme(
   brightness: Brightness.light,
-  primary: Color(0xFF341100),
+  primary: Color.fromRGBO(133, 116, 108, 1.0),
   onPrimary: Color(0xFFFFFFFF),
   secondary: Color(0xFFEDE0DB),
   onSecondary: Color(0xFF000000),
