@@ -8,7 +8,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
@@ -20,13 +19,6 @@ class ForgotPasswordPage extends StatefulWidget {
 class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     with TraceableClientMixin {
   int _devModeCounter = 0;
-
-  static Color _textFieldBackgroundColor = const Color.fromARGB(
-    255,
-    240,
-    240,
-    240,
-  );
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _userIdController = TextEditingController();
@@ -76,13 +68,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
-    final bool isDarkMode =
-        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
-
-    // Needs to be changed
-    if (isDarkMode) {
-      _textFieldBackgroundColor = Colors.white10;
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -110,7 +95,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                     style: theme.textTheme.headline1?.copyWith(
                       fontSize: 25.0,
                       fontWeight: FontWeight.w700,
-                      color: theme.colorScheme.onSurface,
                     ),
                   ),
                   const Spacer(flex: 1),
@@ -137,8 +121,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                       controller: _userIdController,
                       hintText: appLocalizations.username_or_email,
                       hintTextFontSize: 15.0,
-                      textColor: Colors.grey,
-                      backgroundColor: _textFieldBackgroundColor,
                       enabled: !_runningQuery,
                       prefixIcon: const Icon(Icons.email),
                       textInputAction: TextInputAction.done,
@@ -208,7 +190,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                           : appLocalizations.send_reset_password_mail,
                       style: theme.textTheme.bodyText2?.copyWith(
                         fontSize: 18.0,
-                        color: theme.colorScheme.surface,
+                        color: theme.colorScheme.onPrimary,
                       ),
                     ),
                   ),

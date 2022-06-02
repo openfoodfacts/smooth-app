@@ -6,7 +6,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 class KnowledgePanelPage extends StatefulWidget {
   const KnowledgePanelPage({
@@ -33,13 +32,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   @override
   Widget build(BuildContext context) {
     AnalyticsHelper.trackKnowledgePanelOpen();
-    final ThemeData themeData = Theme.of(context);
     return Scaffold(
-      backgroundColor: SmoothTheme.getColor(
-        themeData.colorScheme,
-        SmoothTheme.getMaterialColor(context),
-        ColorDestination.SURFACE_BACKGROUND,
-      ),
       appBar: AppBar(
         title: widget.panel.titleElement == null
             ? null

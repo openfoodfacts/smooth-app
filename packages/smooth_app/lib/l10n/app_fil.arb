@@ -12,6 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "go_back_to_top": "Go back to top",
     "save": "I-save",
     "save_confirmation": "Are you sure you want to save?",
     "skip": "Skip",
@@ -700,6 +701,14 @@
             }
         }
     },
+    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "@onboarding_reinventing_text1": {
+        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    },
+    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "@onboarding_reinventing_text2": {
+        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
+    },
     "onboarding_welcome_loading_dialog_title": "Loading your first example product",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1186,6 +1195,10 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
+    "edit_photo_button_label": "Pamatnugutan",
+    "@edit_photo_button_label": {
+        "description": "Edit photo button label"
+    },
     "category_picker_screen_title": "Mga Kategorya",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1241,5 +1254,17 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "add_list_label": "Add list",
+    "@add_list_label": {
+        "description": "Label for the add list button"
+    },
+    "open_food_preferences_tooltip": "Edit your food preferences",
+    "@open_food_preferences_tooltip": {
+        "description": "Tooltip (message displayed on long press) to open the user food preferences"
+    },
+    "add_photo_button_label": "Add photo",
+    "@add_photo_button_label": {
+        "description": "Label for the add photo button"
     }
 }

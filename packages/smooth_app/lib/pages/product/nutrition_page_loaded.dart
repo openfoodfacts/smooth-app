@@ -160,7 +160,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        border: const UnderlineInputBorder(),
+        enabledBorder: const UnderlineInputBorder(),
         labelText: orderedNutrient.name,
       ),
       keyboardType: const TextInputType.numberWithOptions(
@@ -199,6 +199,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
 
   Widget _getUnitCell(final OrderedNutrient orderedNutrient) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final Unit unit = _nutritionContainer.getUnit(orderedNutrient.id);
     return ElevatedButton(
       onPressed: NutritionContainer.isEditableWeight(orderedNutrient)
@@ -206,6 +207,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 () => _nutritionContainer.setNextWeightUnit(orderedNutrient),
               )
           : null,
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+          (Set<MaterialState> states) {
+            if (states.contains(MaterialState.disabled)) {
+              return Colors.grey;
+            }
+            return colorScheme.primary;
+          },
+        ),
+      ),
       child: Text(
         _getUnitLabel(unit),
         style: const TextStyle(fontWeight: FontWeight.bold),
@@ -222,7 +233,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
-          border: const UnderlineInputBorder(),
+          enabledBorder: const UnderlineInputBorder(),
           labelText: appLocalizations.nutrition_page_serving_size,
         ),
         textInputAction: TextInputAction.next,
@@ -260,12 +271,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               value: _unspecified,
               onChanged: (final bool value) =>
                   setState(() => _unspecified = !_unspecified),
+              trackColor: MaterialStateProperty.all(
+                  Theme.of(context).colorScheme.onPrimary),
             ),
             SizedBox(
               width: getColumnSizeFromContext(context, 0.6),
               child: AutoSizeText(
                 localizations.nutrition_page_unspecified,
-                style: Theme.of(context).primaryTextTheme.bodyText1,
+                style: Theme.of(context).primaryTextTheme.bodyText2?.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -297,7 +312,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                           TextField(
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.search),
-                              border: const UnderlineInputBorder(),
+                              enabledBorder: const UnderlineInputBorder(),
                               labelText: appLocalizations.search,
                             ),
                             onChanged: (String query) {

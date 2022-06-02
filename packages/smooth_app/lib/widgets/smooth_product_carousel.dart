@@ -18,7 +18,6 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -174,11 +173,17 @@ class SearchCard extends StatelessWidget {
 
   final double height;
 
+  static const double OPACITY = 0.85;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
+    final ThemeData themeData = Theme.of(context);
+    final bool isDarkmode = themeData.brightness == Brightness.dark;
     return SmoothCard(
-      color: Theme.of(context).colorScheme.background.withOpacity(0.85),
+      color: Theme.of(context).brightness == Brightness.light
+          ? Colors.white.withOpacity(OPACITY)
+          : Colors.black.withOpacity(OPACITY),
       elevation: 0,
       padding: SmoothProductCarousel.carouselItemHorizontalPadding,
       child: SizedBox(
@@ -202,6 +207,12 @@ class SearchCard extends StatelessWidget {
             SearchField(
               onFocus: () => _openSearchPage(context),
               showClearButton: false,
+              backgroundColor: isDarkmode
+                  ? Colors.white10
+                  : const Color.fromARGB(255, 240, 240, 240)
+                      .withOpacity(OPACITY),
+              foregroundColor:
+                  themeData.colorScheme.onSurface.withOpacity(OPACITY),
             ),
           ],
         ),
@@ -240,8 +251,6 @@ class _SearchCardTagLine extends StatelessWidget {
             return const _SearchCardTagLineDefaultText();
           }
 
-          final ThemeProvider themeProvider = context.read<ThemeProvider>();
-
           return FutureBuilder<TagLineItem?>(
             future: fetchTagLine(Platform.localeName),
             builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
@@ -269,7 +278,7 @@ class _SearchCardTagLine extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18.0,
                       height: 1.5,
-                      color: themeProvider.color,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 );

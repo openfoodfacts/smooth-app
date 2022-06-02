@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 
 /// Typical action button for Smoothie
 class SmoothChip extends StatelessWidget {
@@ -20,20 +19,8 @@ class SmoothChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Color? foregroundColor = materialColor == null
-        ? null
-        : SmoothTheme.getColor(
-            colorScheme,
-            materialColor!,
-            ColorDestination.BUTTON_FOREGROUND,
-          );
-    final Color? backgroundColor = materialColor == null
-        ? null
-        : SmoothTheme.getColor(
-            colorScheme,
-            materialColor!,
-            ColorDestination.BUTTON_BACKGROUND,
-          );
+    final Color foregroundColor = colorScheme.onPrimaryContainer;
+    final Color backgroundColor = colorScheme.primaryContainer;
     final Widget? text = label == null
         ? null
         : Text(label!, style: TextStyle(color: foregroundColor));

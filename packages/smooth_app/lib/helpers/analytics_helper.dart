@@ -61,9 +61,9 @@ class AnalyticsHelper {
     return event;
   }
 
-  static void initMatomo(
+  static Future<void> initMatomo(
     final bool screenshotMode,
-  ) {
+  ) async {
     if (screenshotMode) {
       setCrashReports(false);
       setAnalyticsReports(false);
@@ -71,7 +71,7 @@ class AnalyticsHelper {
     }
 
     try {
-      MatomoTracker.instance.initialize(
+      await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: 2,
         visitorId: uuid,

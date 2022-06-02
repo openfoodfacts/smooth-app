@@ -34,7 +34,7 @@ dependencies:
   matomo_tracker:
     git:
       url: 'https://github.com/M123-dev/matomo-tracker.git'
-      ref: 'fix-Allow-await-for-async-tasks'
+      ref: 'fix-country'
   modal_bottom_sheet: ^2.0.1
   openfoodfacts: ^1.17.1
   #  openfoodfacts:
@@ -70,7 +70,6 @@ dependencies:
   collection: ^1.16.0
   path: ^1.8.0 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
   path_provider: ^2.0.10
-  flutter_colorpicker: ^1.0.3
   data_importer_shared:
     path: ../data_importer_shared
   data_importer:
@@ -159,3 +158,4 @@ flutter:
     - assets/ikonate_thin/
     - assets/ikonate_bold/
     - assets/plus_jakarta_sans_regular/
+    - assets/icons/visor_icon.svg

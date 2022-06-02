@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_view_finder.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
