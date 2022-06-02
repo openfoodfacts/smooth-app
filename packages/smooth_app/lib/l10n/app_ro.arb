@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "Profilul tău",
     "myPreferences_profile_subtitle": "Gestionați-vă contul de colaborator Open Food Facts.",
     "myPreferences_settings_title": "Setările aplicației",
-    "myPreferences_settings_subtitle": "Tema, Modul Întunecat, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Preferințe alimentare",
     "myPreferences_food_subtitle": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs.",
     "myPreferences_food_comment": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs., pentru a clasifica alimentele în funcție de preferințele dvs., vedeți mai întâi informațiile care vă interesează și obțineți un rezumat de compatibilitate. Aceste preferințe alimentare rămân pe dispozitivul dvs. și nu sunt asociate cu contul dvs. de colaborator Open Food Facts, dacă aveți unul.",
@@ -664,10 +664,6 @@
     "faq": "Întrebări frecvente",
     "discover": "Descoperiți",
     "how_to_contribute": "Cum să contribuiți",
-    "main_app_color": "Temă",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Puteți atinge orice parte a cardului pentru a obține mai multe detalii despre ceea ce vedeți. Încearcă acum!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"

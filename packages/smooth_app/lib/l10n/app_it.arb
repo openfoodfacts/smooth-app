@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Torna all'inizio",
     "save": "Salva",
     "save_confirmation": "Sei sicuro di voler salvare?",
     "skip": "Salta",
@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "Il Tuo Profilo",
     "myPreferences_profile_subtitle": "Gestisci il tuo account collaboratore di Open Food Facts.",
     "myPreferences_settings_title": "Impostazioni dell'App",
-    "myPreferences_settings_subtitle": "Modalità scura, Tema, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Preferenze Alimentari",
     "myPreferences_food_subtitle": "Scegli quali informazioni alimentari sono più importanti per te.",
     "myPreferences_food_comment": "Scegli quali informazioni sul cibo conta di più per te, al fine di classificare il cibo in base alle tue preferenze, vedere le informazioni che ti interessano in primo luogo e ottenere un riepilogo di compatibilità. Quelle preferenze alimentari rimangono sul tuo dispositivo e non sono associate al tuo account contributore di Open Food Facts, se ne hai uno.",
@@ -664,10 +664,6 @@
     "faq": "FAQ",
     "discover": "Scopri",
     "how_to_contribute": "Come Contribuire",
-    "main_app_color": "Tema",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Puoi toccare su qualsiasi parte della scheda per ottenere ulteriori dettagli su ciò che vedi. Provaci adesso!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -701,11 +697,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "Abbiamo inventato\nl'app di scansione collaborativa\nnel 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "Mentre giriamo 10,\nlo stiamo reinventando\nda zero!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -749,7 +745,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "user_profile": "Account",
+    "user_profile": "Profilo",
     "@user_profile": {
         "description": "User account (if connected)"
     },
@@ -757,8 +753,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Accedi o iscriviti per unirti alla community di Open Food Facts",
+    "user_profile_title_id_email": "Accesso di Open Food Facts: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -767,7 +763,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "Benvenuto {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -1255,7 +1251,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Aggiungi elenco",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1263,7 +1259,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Aggiungi foto",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     }

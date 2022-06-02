@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "Votre profil",
     "myPreferences_profile_subtitle": "Gérez votre compte contributeur Open Food Facts.",
     "myPreferences_settings_title": "Paramètres de l'application",
-    "myPreferences_settings_subtitle": "Mode sombre, Thème, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Préférences alimentaires",
     "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
     "myPreferences_food_comment": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité. Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
@@ -664,10 +664,6 @@
     "faq": "FAQ",
     "discover": "Découvrir",
     "how_to_contribute": "Comment contribuer",
-    "main_app_color": "Couleur principale de l'application",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Vous pouvez appuyer sur n'importe quelle partie de la carte pour obtenir plus de détails sur ce que vous voyez. Essayez dès maintenant!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -701,11 +697,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Nous avons inventé\nl'appli de scan\ncollaboratif en 2012",
+    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "10 ans après,\nnous la réinventons\ncomplètement !",
+    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },

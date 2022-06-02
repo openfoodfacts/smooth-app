@@ -243,11 +243,11 @@
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Тъмно",
+    "darkmode_dark": "Тъмен",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch (dark)"
     },
-    "darkmode_light": "Светло",
+    "darkmode_light": "Светъл",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "Профил",
     "myPreferences_profile_subtitle": "Управлявай своя акаунт на сътрудник в Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
-    "myPreferences_settings_subtitle": "Тъмен режим, Тема, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
     "myPreferences_food_comment": "Избери коя информация за храната е най-важна за теб, за да класираш храната според твоите предпочитания. Виж информацията, която те интересува и получи обобщение за съвместимост. Тези предпочитания за храна остават на твоето устройство и не са свързани с твоят акаунт на сътрудник в Open Food Facts, ако имаш такъв.",
@@ -664,10 +664,6 @@
     "faq": "ЧЗВ",
     "discover": "Открий",
     "how_to_contribute": "Как да допринесеш",
-    "main_app_color": "Тема",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Можеш да докоснеш всяка част от картата, за да получиш повече подробности за това, което виждаш. Опитай сега!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -758,7 +754,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Влез или се регистрирай, за да се присъединиш към общността на Open Food Facts",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_title_id_email": "Off потребител: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1255,7 +1251,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Добави списък",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1263,7 +1259,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Добави снимка",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     }
