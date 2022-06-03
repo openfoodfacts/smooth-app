@@ -31,12 +31,13 @@ class ScannerVisorWidget extends StatelessWidget {
 class ScanVisorPainter extends CustomPainter {
   ScanVisorPainter();
 
+  static const double _strokeWidth = 3.0;
   static const double _fullCornerSize = 31.0;
   static const double _halfCornerSize = _fullCornerSize / 2;
   static const Radius _borderRadius = Radius.circular(_halfCornerSize);
 
   final Paint _paint = Paint()
-    ..strokeWidth = 3.0
+    ..strokeWidth = _strokeWidth
     ..color = Colors.white
     ..style = PaintingStyle.stroke;
 
@@ -53,6 +54,13 @@ class ScanVisorPainter extends CustomPainter {
   /// [includeLineBetweenCorners] will draw lines between each corner, instead
   /// of moving the cursor
   static Path getPath(Rect rect, bool includeLineBetweenCorners) {
+    final double bottomPosition;
+    if (includeLineBetweenCorners) {
+      bottomPosition = rect.bottom - _strokeWidth;
+    } else {
+      bottomPosition = rect.bottom;
+    }
+
     final Path path = Path()
       // Top left
       ..moveTo(rect.left, rect.top + _fullCornerSize)
@@ -80,33 +88,33 @@ class ScanVisorPainter extends CustomPainter {
 
     // Bottom right
     if (includeLineBetweenCorners) {
-      path.lineTo(rect.right, rect.bottom - _fullCornerSize);
+      path.lineTo(rect.right, bottomPosition - _fullCornerSize);
     } else {
-      path.moveTo(rect.right, rect.bottom - _fullCornerSize);
+      path.moveTo(rect.right, bottomPosition - _fullCornerSize);
     }
 
     path
-      ..lineTo(rect.right, rect.bottom - _halfCornerSize)
+      ..lineTo(rect.right, bottomPosition - _halfCornerSize)
       ..arcToPoint(
-        Offset(rect.right - _halfCornerSize, rect.bottom),
+        Offset(rect.right - _halfCornerSize, bottomPosition),
         radius: _borderRadius,
       )
-      ..lineTo(rect.right - _fullCornerSize, rect.bottom);
+      ..lineTo(rect.right - _fullCornerSize, bottomPosition);
 
     // Bottom left
     if (includeLineBetweenCorners) {
-      path.lineTo(rect.left + _fullCornerSize, rect.bottom);
+      path.lineTo(rect.left + _fullCornerSize, bottomPosition);
     } else {
-      path.moveTo(rect.left + _fullCornerSize, rect.bottom);
+      path.moveTo(rect.left + _fullCornerSize, bottomPosition);
     }
 
     path
-      ..lineTo(rect.left + _halfCornerSize, rect.bottom)
+      ..lineTo(rect.left + _halfCornerSize, bottomPosition)
       ..arcToPoint(
-        Offset(rect.left, rect.bottom - _halfCornerSize),
+        Offset(rect.left, bottomPosition - _halfCornerSize),
         radius: _borderRadius,
       )
-      ..lineTo(rect.left, rect.bottom - _fullCornerSize);
+      ..lineTo(rect.left, bottomPosition - _fullCornerSize);
 
     if (includeLineBetweenCorners) {
       path.lineTo(rect.left, rect.top + _halfCornerSize);
