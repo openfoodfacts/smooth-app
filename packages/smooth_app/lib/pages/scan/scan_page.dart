@@ -81,6 +81,7 @@ class _ScanPageBackgroundWidget extends StatelessWidget {
   }
 }
 
+/// A semi-transparent Widget where the visor is fully visible
 class _ScanPageForegroundWidget extends StatelessWidget {
   const _ScanPageForegroundWidget({Key? key}) : super(key: key);
 
@@ -92,12 +93,8 @@ class _ScanPageForegroundWidget extends StatelessWidget {
         return CustomPaint(
           painter: _ScanPageForegroundPainter(
             visorSize: ScannerVisorWidget.getSize(context),
-            visorXStart: MediaQuery.of(context).padding.top,
-            visorYStart: MediaQuery.of(context).size.height *
-                ScannerOverlay.carouselHeightPct,
           ),
         );
-        return const ScannerVisorWidget();
       } else {
         return const SizedBox.shrink();
       }
@@ -108,16 +105,10 @@ class _ScanPageForegroundWidget extends StatelessWidget {
 class _ScanPageForegroundPainter extends CustomPainter {
   _ScanPageForegroundPainter({
     required this.visorSize,
-    required this.visorXStart,
-    required this.visorYStart,
-  })  : assert(visorXStart >= 0),
-        assert(visorYStart >= 0),
-        _paint = Paint()..color = Colors.black.withOpacity(0.3);
+  }) : _paint = Paint()..color = Colors.black.withOpacity(0.3);
 
   final Paint _paint;
   final Size visorSize;
-  final double visorXStart;
-  final double visorYStart;
 
   @override
   void paint(Canvas canvas, Size size) {

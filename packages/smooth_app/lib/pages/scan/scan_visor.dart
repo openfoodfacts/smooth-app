@@ -21,6 +21,7 @@ class ScannerVisorWidget extends StatelessWidget {
     );
   }
 
+  /// Returns the Size of the visor
   static Size getSize(BuildContext context) => Size(
         MediaQuery.of(context).size.width * 0.8,
         150.0,
@@ -48,6 +49,9 @@ class ScanVisorPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 
+  /// Returns a path to draw the visor
+  /// [includeLineBetweenCorners] will draw lines between each corner, instead
+  /// of moving the cursor
   static Path getPath(Rect rect, bool includeLineBetweenCorners) {
     final Path path = Path()
       // Top left

@@ -7,10 +7,13 @@ import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 /// This builds all the essential widgets which are displayed above the camera
-/// preview, like the [SmoothProductCarousel], the [SmoothViewFinder] and the
-/// clear and compare buttons row.
+/// preview, like the [SmoothProductCarousel], the [ScannerVisorWidget] and the
+/// clear / compare buttons row.
 ///
-/// The camera preview should be passed to [backgroundChild].
+/// Widgets are built in this Z-order:
+/// 1 - [backgroundChild]
+/// 2 - [foregroundChild]
+/// 3 - [topChild]
 class ScannerOverlay extends StatelessWidget {
   const ScannerOverlay({
     required this.topChild,
