@@ -243,14 +243,24 @@ class _SummaryCardState extends State<SummaryCard> {
     String? categoryTag;
     String? categoryLabel;
     if (widget._product.categoriesTags?.isNotEmpty ?? false) {
-      categoryTag = widget._product.categoriesTags!.last;
-      if (widget
-              ._product
-              .categoriesTagsInLanguages?[ProductQuery.getLanguage()!]
-              ?.isNotEmpty ??
-          false) {
-        categoryLabel = widget._product
-            .categoriesTagsInLanguages![ProductQuery.getLanguage()!]!.last;
+      // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
+      const Set<String> blackListedCategories = <String>{
+        'fr:vegan',
+      };
+      int index = widget._product.categoriesTags!.length - 1;
+      // TODO(monsieurtanuki): should be widget._product.comparedToCategory, when ready
+      // cf. https://github.com/openfoodfacts/openfoodfacts-dart/pull/474
+      // looking for the most detailed non blacklisted category
+      categoryTag = widget._product.categoriesTags![index];
+      while (blackListedCategories.contains(categoryTag) && index > 0) {
+        index--;
+        categoryTag = widget._product.categoriesTags![index];
+      }
+
+      final List<String>? labels = widget
+          ._product.categoriesTagsInLanguages?[ProductQuery.getLanguage()!];
+      if (labels != null && labels.length >= index) {
+        categoryLabel = labels[index];
       }
     }
     final List<String> statesTags =
@@ -278,9 +288,7 @@ class _SummaryCardState extends State<SummaryCard> {
               heroTag: 'search_bar',
               name: categoryLabel!,
               localDatabase: localDatabase,
-              productQuery: CategoryProductQuery(
-                widget._product.categoriesTags!.last,
-              ),
+              productQuery: CategoryProductQuery(categoryTag!),
               context: context,
             ),
           ),
