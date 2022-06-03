@@ -754,7 +754,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Влез или се регистрирай, за да се присъединиш към общността на Open Food Facts",
-    "user_profile_title_id_email": "Off потребител: {email}",
+    "user_profile_title_id_email": "Open Food Facts потребител: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
