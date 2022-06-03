@@ -101,12 +101,20 @@ class OnboardingFlowNavigator {
   void navigateToPage(BuildContext context, OnboardingPage page) {
     _userPreferences.setLastVisitedOnboardingPage(page);
     _historyOnboardingNav.add(page);
-    Navigator.push<Widget>(
-      context,
-      MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => getPageWidget(context, page),
-      ),
+
+    final MaterialPageRoute<Widget> route = MaterialPageRoute<Widget>(
+      builder: (BuildContext context) => getPageWidget(context, page),
     );
+
+    if (page == OnboardingPage.ONBOARDING_COMPLETE) {
+      Navigator.pushAndRemoveUntil(
+        context,
+        route,
+        (Route<dynamic> route) => false,
+      );
+    } else {
+      Navigator.push<Widget>(context, route);
+    }
   }
 
   Widget getPageWidget(BuildContext context, OnboardingPage page) {
@@ -188,7 +196,7 @@ class OnboardingFlowNavigator {
     );
   }
 
-  static bool isOnboradingPagedInHistory(OnboardingPage page) {
+  static bool isOnboardingPagedInHistory(OnboardingPage page) {
     bool exists = false;
     if (_historyOnboardingNav.isNotEmpty) {
       final int indexPage = _historyOnboardingNav.indexOf(page);
