@@ -55,6 +55,7 @@ class _ScanPageState extends State<ScanPage> {
           ),
           child: const ScannerOverlay(
             backgroundChild: _ScanPageBackgroundWidget(),
+            foregroundChild: _ScanPageForegroundWidget(),
             topChild: _ScanPageTopWidget(),
           ),
         ),
@@ -78,6 +79,71 @@ class _ScanPageBackgroundWidget extends StatelessWidget {
       },
     );
   }
+}
+
+class _ScanPageForegroundWidget extends StatelessWidget {
+  const _ScanPageForegroundWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<PermissionListener>(
+        builder: (BuildContext context, PermissionListener listener, _) {
+      if (listener.value.isGranted) {
+        return CustomPaint(
+          painter: _ScanPageForegroundPainter(
+            visorSize: ScannerVisorWidget.getSize(context),
+            visorXStart: MediaQuery.of(context).padding.top,
+            visorYStart: MediaQuery.of(context).size.height *
+                ScannerOverlay.carouselHeightPct,
+          ),
+        );
+        return const ScannerVisorWidget();
+      } else {
+        return const SizedBox.shrink();
+      }
+    });
+  }
+}
+
+class _ScanPageForegroundPainter extends CustomPainter {
+  _ScanPageForegroundPainter({
+    required this.visorSize,
+    required this.visorXStart,
+    required this.visorYStart,
+  })  : assert(visorXStart >= 0),
+        assert(visorYStart >= 0),
+        _paint = Paint()..color = Colors.black.withOpacity(0.3);
+
+  final Paint _paint;
+  final Size visorSize;
+  final double visorXStart;
+  final double visorYStart;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Path path = Path.combine(
+      PathOperation.difference,
+      Path()
+        ..lineTo(size.width, 0)
+        ..lineTo(size.width, size.height)
+        ..lineTo(0, size.height)
+        ..close(),
+      ScanVisorPainter.getPath(
+        Rect.fromLTWH(
+          (size.width - visorSize.width) / 2,
+          0,
+          visorSize.width,
+          visorSize.height,
+        ),
+        true,
+      ).shift(Offset(0, visorSize.height / 2)),
+    );
+
+    canvas.drawPath(path, _paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 class _ScanPageTopWidget extends StatelessWidget {
