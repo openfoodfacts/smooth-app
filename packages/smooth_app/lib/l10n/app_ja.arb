@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "トップに戻る",
     "save": "保存",
     "save_confirmation": "保存してもよろしいですか？",
     "skip": "Skip",
@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "あなたのプロフィール",
     "myPreferences_profile_subtitle": "OpenFoodFactsコントリビューターアカウントを管理します。",
     "myPreferences_settings_title": "アプリ設定",
-    "myPreferences_settings_subtitle": "ダークモード、テーマ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "食品設定",
     "myPreferences_food_subtitle": "あなたにとって最も重要な食品に関する情報を選択してください。",
     "myPreferences_food_comment": "あなたの好みに応じて食品をランク付けするために、食品に関するどの情報が最も重要かを選択し、一番気になる情報を確認して、互換性のサマリーを取得してください。これらの食品の好みはデバイスに保存され、OpenFoodFactsの寄稿者アカウントには関連付けられません。",
@@ -664,10 +664,6 @@
     "faq": "FAQ",
     "discover": "見つける",
     "how_to_contribute": "貢献方法",
-    "main_app_color": "テーマ",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "カードの任意の部分をタップすると、表示内容の詳細が表示されます。今すぐお試しください！",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -701,7 +697,7 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "2012年にスキャンアプリを開発しました。",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
@@ -1255,7 +1251,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "リストを追加",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1263,7 +1259,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "写真を追加",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     }

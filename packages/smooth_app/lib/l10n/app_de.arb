@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Zurück zum Anfang",
     "save": "Speichern",
     "save_confirmation": "Möchten Sie wirklich speichern?",
     "skip": "Überspringen",
@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "Mein Profil",
     "myPreferences_profile_subtitle": "Verwalten Sie Ihr Open Food Facts Mitwirkenden-Konto.",
     "myPreferences_settings_title": "App-Einstellungen",
-    "myPreferences_settings_subtitle": "Dunkler Modus, Farbschema, …",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Lebensmittelvorlieben",
     "myPreferences_food_subtitle": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind.",
     "myPreferences_food_comment": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind, um Lebensmittel nach Ihren Vorlieben zu ordnen, die für Sie wichtigen Informationen zuerst zu sehen und eine Kompatibilitätsübersicht zu erhalten. Diese Lebensmittelpräferenzen verbleiben auf Ihrem Gerät und werden nicht mit Ihrem Open Food Facts-Mitarbeiterkonto verknüpft, falls Sie eines eingerichtet haben.",
@@ -664,10 +664,6 @@
     "faq": "Häufig gestellte Fragen",
     "discover": "Entdecken",
     "how_to_contribute": "Wie Sie beitragen können",
-    "main_app_color": "Farbschema",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Sie können auf einen beliebigen Teil tippen, um mehr Details zu sehen. Probieren Sie es jetzt aus!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -701,11 +697,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "Wir haben 2012 die\nApp für kollaboratives\nScannen erfunden",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "Anlässlich unseres\n10-jährigen Bestehens\nerfinden wir es von Grund auf neu!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -1255,7 +1251,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Liste hinzufügen",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1263,7 +1259,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Foto hinzufügen",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     }

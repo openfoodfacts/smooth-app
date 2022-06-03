@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Retur til toppen",
     "save": "Gem",
     "save_confirmation": "Sikker på, at du vil gemme?",
     "skip": "Spring over",
@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "Din profil",
     "myPreferences_profile_subtitle": "Håndtér din OFF-bidragsyderkonto.",
     "myPreferences_settings_title": "App-indstillinger",
-    "myPreferences_settings_subtitle": "Mørk tilstand, tema,...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Fødevarepræferencer",
     "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
     "myPreferences_food_comment": "Vælg de fødevareoplysninger med størst betydning for dig, for at kunne rangere dem efter dine præferencer, se de oplysninger, du finder interessante, først samt få en kompatibilitetsoversigt. Disse fødevarepræferencer forbliver lokale og tilknyttes ikke OFF-bidragsyderkontoen, såfremt du har én.",
@@ -664,10 +664,6 @@
     "faq": "FAQ",
     "discover": "Opdag",
     "how_to_contribute": "Sådan bidrager man",
-    "main_app_color": "Tema",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Tryk på enhver del af kortet for yderligere detaljer om, hvad der ses. Prøv det nu!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -701,11 +697,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "Vi opfandt\nden kollaborative\nskannings-app i 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "Da vi fylder 10 år,\nvi genopfinder den\nfra bunden!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -1255,7 +1251,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Tilføj liste",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1263,7 +1259,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Tilføj foto",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     }

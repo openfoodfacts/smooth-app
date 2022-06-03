@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "Your Profile",
     "myPreferences_profile_subtitle": "Beheer uw Open Food Facts-bijdragersaccount.",
     "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als je er een hebt.",
@@ -664,10 +664,6 @@
     "faq": "FAQ",
     "discover": "Ontdek",
     "how_to_contribute": "How to Contribute",
-    "main_app_color": "Theme",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
