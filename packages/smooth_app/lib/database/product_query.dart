@@ -105,6 +105,7 @@ abstract class ProductQuery {
         ProductField.LABELS_TAGS,
         ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.ENVIRONMENT_IMPACT_LEVELS,
+        ProductField.COMPARED_TO_CATEGORY,
         ProductField.CATEGORIES_TAGS,
         ProductField.CATEGORIES_TAGS_IN_LANGUAGES,
         ProductField.LANGUAGE,

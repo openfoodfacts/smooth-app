@@ -177,7 +177,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   dart_style:
     dependency: transitive
     description:
@@ -531,7 +531,7 @@ packages:
       name: image_picker_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.4+13"
+    version: "0.8.5"
   image_picker_for_web:
     dependency: transitive
     description:
@@ -692,7 +692,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.17.1"
+    version: "1.18.0"
   package_config:
     dependency: transitive
     description:

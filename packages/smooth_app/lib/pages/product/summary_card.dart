@@ -240,27 +240,37 @@ class _SummaryCardState extends State<SummaryCard> {
       margin: const EdgeInsets.only(bottom: 16),
       child: Column(children: displayedGroups),
     );
+    // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
+    const Set<String> blackListedCategories = <String>{
+      'fr:vegan',
+    };
     String? categoryTag;
     String? categoryLabel;
-    if (widget._product.categoriesTags?.isNotEmpty ?? false) {
-      // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
-      const Set<String> blackListedCategories = <String>{
-        'fr:vegan',
-      };
-      int index = widget._product.categoriesTags!.length - 1;
-      // TODO(monsieurtanuki): should be widget._product.comparedToCategory, when ready
-      // cf. https://github.com/openfoodfacts/openfoodfacts-dart/pull/474
-      // looking for the most detailed non blacklisted category
-      categoryTag = widget._product.categoriesTags![index];
-      while (blackListedCategories.contains(categoryTag) && index > 0) {
-        index--;
-        categoryTag = widget._product.categoriesTags![index];
+    final List<String>? labels =
+        widget._product.categoriesTagsInLanguages?[ProductQuery.getLanguage()!];
+    final List<String>? tags = widget._product.categoriesTags;
+    if (tags != null &&
+        labels != null &&
+        tags.isNotEmpty &&
+        tags.length == labels.length) {
+      categoryTag = widget._product.comparedToCategory;
+      if (categoryTag == null || blackListedCategories.contains(categoryTag)) {
+        // fallback algorithm
+        int index = tags.length - 1;
+        // cf. https://github.com/openfoodfacts/openfoodfacts-dart/pull/474
+        // looking for the most detailed non blacklisted category
+        categoryTag = tags[index];
+        while (blackListedCategories.contains(categoryTag) && index > 0) {
+          index--;
+          categoryTag = tags[index];
+        }
       }
-
-      final List<String>? labels = widget
-          ._product.categoriesTagsInLanguages?[ProductQuery.getLanguage()!];
-      if (labels != null && labels.length >= index) {
-        categoryLabel = labels[index];
+      if (categoryTag != null) {
+        for (int i = 0; i < tags.length; i++) {
+          if (categoryTag == tags[i]) {
+            categoryLabel = labels[i];
+          }
+        }
       }
     }
     final List<String> statesTags =
