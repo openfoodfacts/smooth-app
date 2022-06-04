@@ -144,6 +144,8 @@ class SearchField extends StatefulWidget {
 
 class _SearchFieldState extends State<SearchField> {
   final FocusNode _focusNode = FocusNode();
+  late TextEditingController _controller;
+
   bool _isEmpty = true;
 
   static const Duration _animationDuration = Duration(milliseconds: 100);
@@ -158,6 +160,20 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    try {
+      _controller = Provider.of<TextEditingController>(context);
+    } catch (err) {
+      _controller = TextEditingController();
+    }
+
+    _controller.removeListener(_handleTextChange);
+    _controller.addListener(_handleTextChange);
+  }
+
+  @override
   void dispose() {
     _focusNode.dispose();
     super.dispose();
@@ -167,17 +183,15 @@ class _SearchFieldState extends State<SearchField> {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
-    TextEditingController controller;
-
     try {
-      controller = Provider.of<TextEditingController>(context);
+      _controller = Provider.of<TextEditingController>(context);
     } catch (err) {
-      controller = TextEditingController();
+      _controller = TextEditingController();
     }
 
     return TextField(
       textInputAction: TextInputAction.search,
-      controller: controller,
+      controller: _controller,
       focusNode: _focusNode,
       onSubmitted: (String query) => _performSearch(context, query),
       decoration: InputDecoration(
@@ -192,18 +206,17 @@ class _SearchFieldState extends State<SearchField> {
         ),
         contentPadding: const EdgeInsets.all(20.0),
         hintText: localizations.search,
-        suffixIcon:
-            widget.showClearButton ? _buildClearButton(controller) : null,
+        suffixIcon: widget.showClearButton ? _buildClearButton() : null,
       ),
       style: const TextStyle(fontSize: 24.0),
     );
   }
 
-  Widget _buildClearButton(TextEditingController controller) {
+  Widget _buildClearButton() {
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
       child: IconButton(
-        onPressed: () => _handleClear(controller),
+        onPressed: _handleClear,
         icon: AnimatedCrossFade(
           duration: _animationDuration,
           crossFadeState:
@@ -217,12 +230,12 @@ class _SearchFieldState extends State<SearchField> {
     );
   }
 
-  void _handleTextChange(TextEditingController textController) {
+  void _handleTextChange() {
     //Only rebuild the widget if the text length is 0 or 1 as we only check if
     //the text length is empty or not
-    if (textController.text.isEmpty || textController.text.length == 1) {
+    if (_controller.text.isEmpty || _controller.text.length == 1) {
       setState(() {
-        _isEmpty = textController.text.isEmpty;
+        _isEmpty = _controller.text.isEmpty;
       });
     }
   }
@@ -234,11 +247,11 @@ class _SearchFieldState extends State<SearchField> {
     }
   }
 
-  void _handleClear(TextEditingController textController) {
+  void _handleClear() {
     if (_isEmpty) {
       Navigator.pop(context);
     } else {
-      textController.clear();
+      _controller.clear();
     }
   }
 }
