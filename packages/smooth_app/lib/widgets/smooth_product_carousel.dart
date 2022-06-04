@@ -260,18 +260,21 @@ class _SearchCardTagLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
-      child: Consumer<UserPreferences>(
-        builder: (BuildContext context, UserPreferences preferences, _) {
-          if (preferences.isFirstScan) {
-            return const _SearchCardTagLineDefaultText();
-          }
+      child: DefaultTextStyle.merge(
+        style: const TextStyle(
+          fontSize: 16.0,
+          height: 1.22,
+        ),
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 5,
+        child: Consumer<UserPreferences>(
+          builder: (BuildContext context, UserPreferences preferences, _) {
+            if (preferences.isFirstScan) {
+              return const _SearchCardTagLineDefaultText();
+            }
 
-          return DefaultTextStyle(
-            style: const TextStyle(
-              fontSize: 16.0,
-              height: 1.22,
-            ),
-            child: FutureBuilder<TagLineItem?>(
+            return FutureBuilder<TagLineItem?>(
               future: fetchTagLine(Platform.localeName),
               builder:
                   (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
@@ -293,9 +296,6 @@ class _SearchCardTagLine extends StatelessWidget {
                         : null,
                     child: Text(
                       data.data!.message,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 5,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -303,9 +303,9 @@ class _SearchCardTagLine extends StatelessWidget {
                   );
                 }
               },
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
@@ -318,10 +318,13 @@ class _SearchCardTagLineDefaultText extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return Text(
-      localizations.searchPanelHeader,
-      textAlign: TextAlign.center,
-      style: const TextStyle(fontSize: 18.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10.0,
+      ),
+      child: Text(
+        localizations.searchPanelHeader,
+      ),
     );
   }
 }
