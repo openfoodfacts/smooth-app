@@ -7,17 +7,22 @@ import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 /// This builds all the essential widgets which are displayed above the camera
-/// preview, like the [SmoothProductCarousel], the [SmoothViewFinder] and the
-/// clear and compare buttons row.
+/// preview, like the [SmoothProductCarousel], the [ScannerVisorWidget] and the
+/// clear / compare buttons row.
 ///
-/// The camera preview should be passed to [backgroundChild].
+/// Widgets are built in this Z-order:
+/// 1 - [backgroundChild]
+/// 2 - [foregroundChild]
+/// 3 - [topChild]
 class ScannerOverlay extends StatelessWidget {
   const ScannerOverlay({
     required this.topChild,
+    this.foregroundChild,
     this.backgroundChild,
   });
 
   final Widget? backgroundChild;
+  final Widget? foregroundChild;
   final Widget topChild;
 
   static const double carouselHeightPct = 0.55;
@@ -38,6 +43,7 @@ class ScannerOverlay extends StatelessWidget {
       ),
       children: <Widget>[
         _background,
+        if (foregroundChild != null) _foreground!,
         _topItem,
         _actions,
         _carousel,
@@ -58,6 +64,17 @@ class ScannerOverlay extends StatelessWidget {
         animationCurve: Curves.easeInOutBack,
         child: backgroundChild!,
       ),
+    );
+  }
+
+  Widget? get _foreground {
+    if (foregroundChild == null) {
+      return null;
+    }
+
+    return LayoutId(
+      id: _LayoutIds.foreground,
+      child: foregroundChild!,
     );
   }
 
@@ -106,7 +123,7 @@ class ScannerOverlay extends StatelessWidget {
   }
 }
 
-enum _LayoutIds { background, actions, topItem, carousel }
+enum _LayoutIds { background, foreground, actions, topItem, carousel }
 
 class _ScannerOverlayDelegate extends MultiChildLayoutDelegate {
   _ScannerOverlayDelegate({
@@ -122,6 +139,7 @@ class _ScannerOverlayDelegate extends MultiChildLayoutDelegate {
   @override
   void performLayout(Size size) {
     _layoutBackground(size);
+    _layoutForeground(size);
     final double carouselHeight = _layoutAndPositionCarousel(size);
     final double actionsHeight = _layoutAndPositionActions(size);
 
@@ -141,6 +159,19 @@ class _ScannerOverlayDelegate extends MultiChildLayoutDelegate {
         maxHeight: size.height,
       ),
     );
+  }
+
+  /// Foreground: Take the full width
+  void _layoutForeground(Size size) {
+    if (hasChild(_LayoutIds.foreground)) {
+      layoutChild(
+        _LayoutIds.foreground,
+        BoxConstraints.expand(
+          width: size.width,
+          height: size.height,
+        ),
+      );
+    }
   }
 
   /// Product carousel: bottom of the screen
