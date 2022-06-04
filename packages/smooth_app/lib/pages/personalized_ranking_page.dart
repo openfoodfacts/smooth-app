@@ -35,11 +35,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   @override
   String get traceTitle => 'personalized_ranking_page';
 
-  static const int _backgroundAlpha = 102;
+  static const int _backgroundAlpha = 51;
 
   // TODO(monsieurtanuki): to be removed when we agree on a layout
-  final bool _coloredBackground = true;
+  final bool _coloredBackground = false;
   final bool _withSubHeaders = true;
+  final bool _coloredCard = true;
 
   @override
   Widget build(BuildContext context) {
@@ -113,15 +114,20 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.status(status);
     return Container(
-      color:
-          helper.getHeaderBackgroundColor(darkMode).withAlpha(_backgroundAlpha),
+      color: _coloredBackground
+          ? helper
+              .getHeaderBackgroundColor(darkMode)
+              .withAlpha(_backgroundAlpha)
+          : null,
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(SMALL_SPACE),
           child: Text(
             helper.getHeaderText(appLocalizations),
             style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                  color: helper.getHeaderForegroundColor(darkMode),
+                  color: _coloredBackground
+                      ? helper.getHeaderForegroundColor(darkMode)
+                      : null,
                 ),
           ),
         ),
@@ -167,17 +173,26 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
           color: _coloredBackground
-              ? ProductCompatibilityHelper.status(matchedProduct.status)
-                  .getHeaderBackgroundColor(darkMode)
-                  .withAlpha(_backgroundAlpha)
+              ? _getBackgroundColor(matchedProduct.status, darkMode)
               : null,
           child: SmoothProductCardFound(
             heroTag: matchedProduct.product.barcode!,
             product: matchedProduct.product,
             elevation: 4.0,
+            backgroundColor: _coloredCard
+                ? _getBackgroundColor(matchedProduct.status, darkMode)
+                : null,
           ),
         ),
       );
+
+  Color? _getBackgroundColor(
+    final MatchedProductStatusV2 status,
+    final bool darkMode,
+  ) =>
+      ProductCompatibilityHelper.status(status)
+          .getHeaderBackgroundColor(darkMode)
+          .withAlpha(_backgroundAlpha);
 }
 
 /// Virtual item in the list: either a product or a status header
