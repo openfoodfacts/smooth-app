@@ -36,7 +36,7 @@ dependencies:
       url: 'https://github.com/M123-dev/matomo-tracker.git'
       ref: 'fix-country'
   modal_bottom_sheet: ^2.0.1
-  openfoodfacts: ^1.17.1
+  openfoodfacts: ^1.18.0
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
   package_info_plus: ^1.4.2
