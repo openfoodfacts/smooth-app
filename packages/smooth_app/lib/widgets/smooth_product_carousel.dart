@@ -294,7 +294,7 @@ class _SearchCardTagLine extends StatelessWidget {
                             }
                           }
                         : null,
-                    child: Text(
+                    child: AutoSizeText(
                       data.data!.message,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
@@ -322,7 +322,7 @@ class _SearchCardTagLineDefaultText extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
       ),
-      child: Text(
+      child: AutoSizeText(
         localizations.searchPanelHeader,
       ),
     );
