@@ -199,7 +199,9 @@ class SearchCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             SvgPicture.asset(
-              'assets/app/release_icon_transparent_no_border.svg',
+              Theme.of(context).brightness == Brightness.light
+                  ? 'assets/app/release_icon_light_transparent_no_border.svg'
+                  : 'assets/app/release_icon_dark_transparent_no_border.svg',
               width: height * 0.2,
               height: height * 0.2,
             ),
