@@ -62,7 +62,7 @@ class SmoothProductCardFound extends StatelessWidget {
       productPreferences,
     );
     final ProductCompatibilityHelper helper =
-        ProductCompatibilityHelper(matchedProduct);
+        ProductCompatibilityHelper.product(matchedProduct);
     return GestureDetector(
       onTap: onTap ??
           () async {
