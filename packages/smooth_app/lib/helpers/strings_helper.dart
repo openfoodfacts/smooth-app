@@ -33,4 +33,16 @@ extension StringExtensions on String {
     assert(position >= 0 && position < length);
     return substring(0, position) + substring(position + 1);
   }
+
+  String replaceAllIgnoreFirst(Pattern from, String replace) {
+    bool isFirst = true;
+    return replaceAllMapped(from, (Match match) {
+      if (isFirst) {
+        isFirst = false;
+        return match.input.substring(match.start, match.end);
+      } else {
+        return replace;
+      }
+    });
+  }
 }

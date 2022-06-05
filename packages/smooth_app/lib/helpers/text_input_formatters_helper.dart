@@ -70,12 +70,18 @@ class DecimalSeparatorRewriter extends TextInputFormatter {
     TextSelection newValueTextSelection,
   ) {
     final int initialSeparatorPosition = oldText.indexOf(_decimalSeparator);
-    final List<int> separatorPositions = newText.indexesOf(_decimalSeparator);
+    List<int> separatorPositions = newText.indexesOf(_decimalSeparator);
 
     int oldBaseSelectionPosition = newValueTextSelection.baseOffset;
     int oldExtentSelectionPosition = newValueTextSelection.extentOffset;
 
-    if (separatorPositions.length > 1) {
+    // If there is more than one separator, only keep the first one
+    if (separatorPositions.length > 2) {
+      newText = newText.replaceAllIgnoreFirst(_decimalSeparator, '');
+      separatorPositions = newText.indexesOf(_decimalSeparator);
+    }
+
+    if (separatorPositions.length == 2) {
       // Move to the new separator
       if (separatorPositions[0] == initialSeparatorPosition) {
         newText = newText.removeCharacterAt(initialSeparatorPosition);
@@ -138,4 +144,9 @@ class MoveSeparatorResult {
   @override
   int get hashCode =>
       newText.hashCode ^ newBasePosition.hashCode ^ newExtentPosition.hashCode;
+
+  @override
+  String toString() {
+    return 'MoveSeparatorResult{newText: $newText, newBasePosition: $newBasePosition, newExtentPosition: $newExtentPosition}';
+  }
 }

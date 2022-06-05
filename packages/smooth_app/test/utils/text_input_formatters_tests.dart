@@ -104,6 +104,63 @@ void main() {
             newExtentPosition: 0,
           )));
     });
+
+    test('Multiples separators', () {
+      final DecimalSeparatorRewriter rewriter =
+          DecimalSeparatorRewriter(_commaDecimalSeparator);
+
+      expect(
+          rewriter.moveSeparator(
+            '1234',
+            '1,234,',
+            TextSelection.fromPosition(
+              const TextPosition(offset: 0),
+            ),
+          ),
+          equals(const MoveSeparatorResult(
+            newText: '1,234',
+            newBasePosition: 0,
+            newExtentPosition: 0,
+          )));
+    });
+
+    test('Multiples separators', () {
+      final DecimalSeparatorRewriter rewriter =
+          DecimalSeparatorRewriter(_commaDecimalSeparator);
+
+      expect(
+          rewriter.moveSeparator(
+            '1,234',
+            '1,234,',
+            TextSelection.fromPosition(
+              const TextPosition(offset: 0),
+            ),
+          ),
+          equals(const MoveSeparatorResult(
+            newText: '1234,',
+            newBasePosition: 0,
+            newExtentPosition: 0,
+          )));
+    });
+
+    test('Multiples separators', () {
+      final DecimalSeparatorRewriter rewriter =
+          DecimalSeparatorRewriter(_commaDecimalSeparator);
+
+      expect(
+          rewriter.moveSeparator(
+            '1,234',
+            '1,2,34,',
+            TextSelection.fromPosition(
+              const TextPosition(offset: 0),
+            ),
+          ),
+          equals(const MoveSeparatorResult(
+            newText: '1,234',
+            newBasePosition: 0,
+            newExtentPosition: 0,
+          )));
+    });
   });
 }
 

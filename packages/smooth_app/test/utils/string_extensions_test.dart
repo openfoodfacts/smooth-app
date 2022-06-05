@@ -91,4 +91,30 @@ void main() {
       ),
     );
   });
+
+  group('replaceAllIgnoreFirst tests', () {
+    test(
+      'No replacement (first)',
+      () => expect(
+        '123.4'.replaceAllIgnoreFirst('.', ''),
+        equals('123.4'),
+      ),
+    );
+
+    test(
+      '1 replacement',
+      () => expect(
+        '1.23.4'.replaceAllIgnoreFirst('.', ''),
+        equals('1.234'),
+      ),
+    );
+
+    test(
+      '2 replacements',
+      () => expect(
+        '1.2.3.4'.replaceAllIgnoreFirst('.', ''),
+        equals('1.234'),
+      ),
+    );
+  });
 }
