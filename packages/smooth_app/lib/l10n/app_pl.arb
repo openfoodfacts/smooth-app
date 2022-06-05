@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Powrót do góry",
     "save": "Zapisz",
     "save_confirmation": "Na pewno chcesz zapisać?",
     "skip": "Pomiń",
@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "Profil",
     "myPreferences_profile_subtitle": "Zarządzaj swoim kontem współtwórcy Open Food Facts.",
     "myPreferences_settings_title": "Ustawienia",
-    "myPreferences_settings_subtitle": "Tryb ciemny, motyw, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Preferencje żywieniowe",
     "myPreferences_food_subtitle": "Wybierz, które preferencje żywieniowe są dla Ciebie najważniejsze.",
     "myPreferences_food_comment": "Wybierz, które informacje o jedzeniu są dla Ciebie najważniejsze, aby uszeregować żywność zgodnie z własnymi preferencjami, najpierw zobacz informacje, na których Ci zależy, i uzyskaj podsumowanie zgodności. Te preferencje żywieniowe pozostają na Twoim urządzeniu i nie są powiązane z Twoim kontem współtwórcy Open Food Facts, jeśli je posiadasz.",
@@ -664,10 +664,6 @@
     "faq": "Najczęściej zadawane pytania (FAQ)",
     "discover": "Odkryj",
     "how_to_contribute": "Jak mogę pomóc",
-    "main_app_color": "Motyw",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -1255,7 +1251,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Dodaj listę",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1263,7 +1259,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Dodaj zdjęcie",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     }

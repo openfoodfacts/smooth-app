@@ -240,17 +240,37 @@ class _SummaryCardState extends State<SummaryCard> {
       margin: const EdgeInsets.only(bottom: 16),
       child: Column(children: displayedGroups),
     );
+    // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
+    const Set<String> blackListedCategories = <String>{
+      'fr:vegan',
+    };
     String? categoryTag;
     String? categoryLabel;
-    if (widget._product.categoriesTags?.isNotEmpty ?? false) {
-      categoryTag = widget._product.categoriesTags!.last;
-      if (widget
-              ._product
-              .categoriesTagsInLanguages?[ProductQuery.getLanguage()!]
-              ?.isNotEmpty ??
-          false) {
-        categoryLabel = widget._product
-            .categoriesTagsInLanguages![ProductQuery.getLanguage()!]!.last;
+    final List<String>? labels =
+        widget._product.categoriesTagsInLanguages?[ProductQuery.getLanguage()!];
+    final List<String>? tags = widget._product.categoriesTags;
+    if (tags != null &&
+        labels != null &&
+        tags.isNotEmpty &&
+        tags.length == labels.length) {
+      categoryTag = widget._product.comparedToCategory;
+      if (categoryTag == null || blackListedCategories.contains(categoryTag)) {
+        // fallback algorithm
+        int index = tags.length - 1;
+        // cf. https://github.com/openfoodfacts/openfoodfacts-dart/pull/474
+        // looking for the most detailed non blacklisted category
+        categoryTag = tags[index];
+        while (blackListedCategories.contains(categoryTag) && index > 0) {
+          index--;
+          categoryTag = tags[index];
+        }
+      }
+      if (categoryTag != null) {
+        for (int i = 0; i < tags.length; i++) {
+          if (categoryTag == tags[i]) {
+            categoryLabel = labels[i];
+          }
+        }
       }
     }
     final List<String> statesTags =
@@ -278,9 +298,7 @@ class _SummaryCardState extends State<SummaryCard> {
               heroTag: 'search_bar',
               name: categoryLabel!,
               localDatabase: localDatabase,
-              productQuery: CategoryProductQuery(
-                widget._product.categoriesTags!.last,
-              ),
+              productQuery: CategoryProductQuery(categoryTag!),
               context: context,
             ),
           ),
@@ -571,6 +589,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return FutureBuilder<List<RobotoffQuestion>>(
         future: _loadProductQuestions(),
         builder: (
@@ -607,13 +626,23 @@ class _SummaryCardState extends State<SummaryCard> {
                       // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
                       Text(
                         '🏅 ${appLocalizations.tap_to_answer}',
-                        style: Theme.of(context).primaryTextTheme.bodyLarge,
+                        style: Theme.of(context)
+                            .primaryTextTheme
+                            .bodyLarge!
+                            .copyWith(
+                              color: isDarkMode ? Colors.black : WHITE_COLOR,
+                            ),
                       ),
                       Container(
                         padding: const EdgeInsets.only(top: SMALL_SPACE),
                         child: Text(
                           appLocalizations.contribute_to_get_rewards,
-                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .bodyText2!
+                              .copyWith(
+                                color: isDarkMode ? Colors.black : WHITE_COLOR,
+                              ),
                         ),
                       ),
                     ],

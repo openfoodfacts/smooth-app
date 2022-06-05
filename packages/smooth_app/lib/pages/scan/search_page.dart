@@ -85,25 +85,41 @@ Future<void> _onSubmittedText(
       context: context,
     );
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
+  @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  final TextEditingController _searchTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0.0),
-      body: Column(
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.all(10.0),
-            child: SearchField(autofocus: true),
-          ),
-          Expanded(
-            child: SearchHistoryView(
-              onTap: (String query) => _performSearch(context, query),
+      body: ChangeNotifierProvider<TextEditingController>(
+        create: (_) => _searchTextController,
+        child: Column(
+          children: <Widget>[
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SearchField(autofocus: true),
             ),
-          ),
-        ],
+            Expanded(
+              child: SearchHistoryView(
+                onTap: (String query) => _performSearch(context, query),
+              ),
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _searchTextController.dispose();
+    super.dispose();
   }
 }
 
@@ -127,8 +143,9 @@ class SearchField extends StatefulWidget {
 }
 
 class _SearchFieldState extends State<SearchField> {
-  final TextEditingController _textController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
+  late TextEditingController _controller;
+
   bool _isEmpty = true;
 
   static const Duration _animationDuration = Duration(milliseconds: 100);
@@ -136,7 +153,6 @@ class _SearchFieldState extends State<SearchField> {
   @override
   void initState() {
     super.initState();
-    _textController.addListener(_handleTextChange);
     _focusNode.addListener(_handleFocusChange);
     if (widget.autofocus) {
       _focusNode.requestFocus();
@@ -144,8 +160,21 @@ class _SearchFieldState extends State<SearchField> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    try {
+      _controller = Provider.of<TextEditingController>(context);
+    } catch (err) {
+      _controller = TextEditingController();
+    }
+
+    _controller.removeListener(_handleTextChange);
+    _controller.addListener(_handleTextChange);
+  }
+
+  @override
   void dispose() {
-    _textController.dispose();
     _focusNode.dispose();
     super.dispose();
   }
@@ -153,9 +182,16 @@ class _SearchFieldState extends State<SearchField> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
+
+    try {
+      _controller = Provider.of<TextEditingController>(context);
+    } catch (err) {
+      _controller = TextEditingController();
+    }
+
     return TextField(
       textInputAction: TextInputAction.search,
-      controller: _textController,
+      controller: _controller,
       focusNode: _focusNode,
       onSubmitted: (String query) => _performSearch(context, query),
       decoration: InputDecoration(
@@ -197,9 +233,9 @@ class _SearchFieldState extends State<SearchField> {
   void _handleTextChange() {
     //Only rebuild the widget if the text length is 0 or 1 as we only check if
     //the text length is empty or not
-    if (_textController.text.isEmpty || _textController.text.length == 1) {
+    if (_controller.text.isEmpty || _controller.text.length == 1) {
       setState(() {
-        _isEmpty = _textController.text.isEmpty;
+        _isEmpty = _controller.text.isEmpty;
       });
     }
   }
@@ -215,7 +251,7 @@ class _SearchFieldState extends State<SearchField> {
     if (_isEmpty) {
       Navigator.pop(context);
     } else {
-      _textController.clear();
+      _controller.clear();
     }
   }
 }

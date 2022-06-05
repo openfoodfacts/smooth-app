@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "חזרה למעלה",
     "save": "שמירה",
     "save_confirmation": "לשמור?",
     "skip": "דילוג",
@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "הפרופיל שלך",
     "myPreferences_profile_subtitle": "ניהול חשבון התרומה שלך ב־Open Food Facts.",
     "myPreferences_settings_title": "הגדרות היישומון",
-    "myPreferences_settings_subtitle": "מצב כהה, ערכת עיצוב…",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "העדפות מזון",
     "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
     "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
@@ -664,10 +664,6 @@
     "faq": "שו״ת",
     "discover": "לגלות",
     "how_to_contribute": "כיצד לתרום",
-    "main_app_color": "ערכת עיצוב",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "ניתן לחלק בכל אחד מחלקי הכרטיס לקבלת פרטים נוספים על מה שמופיע. כדאי לנסות!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -701,11 +697,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "המצאנו\nאת יישומון\nהסריקה השיתופי ב־2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "לרגל יום ההולדת\nהעשירי אנחנו מחדשים\nאותו לגמרי מאפס!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -1255,7 +1251,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "הוספת רשימה",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1263,7 +1259,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "הוספת תמונה",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     }

@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "El vostre perfil",
     "myPreferences_profile_subtitle": "Gestiona el compte de col·laborador d'Open Food Facts.",
     "myPreferences_settings_title": "Configuració de l'App",
-    "myPreferences_settings_subtitle": "Dark mode, Theme, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Preferències alimentàries",
     "myPreferences_food_subtitle": "Triau quina informació dels aliments us importa més.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -664,10 +664,6 @@
     "faq": "FAQ",
     "discover": "Descobrir",
     "how_to_contribute": "How to Contribute",
-    "main_app_color": "Theme",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"

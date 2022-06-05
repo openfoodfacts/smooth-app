@@ -149,9 +149,9 @@ class _KnowledgePanelPageTemplateState
     );
     final List<Widget> hitPopup = <Widget>[];
     if (!_isHintDismissed &&
-        !OnboardingFlowNavigator.isOnboradingPagedInHistory(
+        !OnboardingFlowNavigator.isOnboardingPagedInHistory(
             OnboardingPage.HEALTH_CARD_EXAMPLE) &&
-        !OnboardingFlowNavigator.isOnboradingPagedInHistory(
+        !OnboardingFlowNavigator.isOnboardingPagedInHistory(
             OnboardingPage.ECO_CARD_EXAMPLE)) {
       hitPopup.add(InkWell(
         child: const DecoratedBox(

@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "맨 위로 돌아가기",
     "save": "저장",
     "save_confirmation": "정말로 저장하시겠습니까?",
     "skip": "건너뛰기",
@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "내 프로필",
     "myPreferences_profile_subtitle": "Open Food Facts 기여자 계정을 관리합니다.",
     "myPreferences_settings_title": "앱 설정",
-    "myPreferences_settings_subtitle": "다크 모드, 테마, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "식품 설정",
     "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -664,10 +664,6 @@
     "faq": "FAQ",
     "discover": "둘러보기",
     "how_to_contribute": "How to Contribute",
-    "main_app_color": "테마",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "카드의 아무 부분이나 눌러서 상세 정보를 볼 수 있습니다. 지금 해보세요!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -701,11 +697,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "2012년에\n협업을 위한\n스캔 앱을 개발했습니다",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "10년이 되어감에 따라,\n스캔 앱을 처음부터\n다시 개발해나가고 있습니다!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -1255,7 +1251,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "목록 추가",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1263,7 +1259,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "사진 추가",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     }
