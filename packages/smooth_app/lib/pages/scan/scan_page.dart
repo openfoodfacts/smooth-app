@@ -87,28 +87,44 @@ class _ScanPageForegroundWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<PermissionListener>(
-        builder: (BuildContext context, PermissionListener listener, _) {
-      if (listener.value.isGranted) {
-        return CustomPaint(
-          painter: _ScanPageForegroundPainter(
-            visorSize: ScannerVisorWidget.getSize(context),
-          ),
-        );
-      } else {
-        return const SizedBox.shrink();
-      }
-    });
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return Consumer<PermissionListener>(
+            builder: (BuildContext context, PermissionListener listener, _) {
+          if (listener.value.isGranted) {
+            return CustomPaint(
+              painter: _ScanPageForegroundPainter(
+                visorSize: ScannerVisorWidget.getSize(context),
+                carouselHeight:
+                    constraints.maxHeight * ScannerOverlay.carouselHeightPct,
+                contentHeight: constraints.maxHeight,
+                topOffset: MediaQuery.of(context).viewPadding.top,
+              ),
+            );
+          } else {
+            return const SizedBox.shrink();
+          }
+        });
+      },
+    );
   }
 }
 
 class _ScanPageForegroundPainter extends CustomPainter {
   _ScanPageForegroundPainter({
     required this.visorSize,
-  }) : _paint = Paint()..color = Colors.black.withOpacity(0.3);
+    required this.topOffset,
+    required double carouselHeight,
+    required double contentHeight,
+  })  : availableHeightBeforeCarousel =
+            contentHeight - carouselHeight - topOffset,
+        _paint = Paint()..color = Colors.black.withOpacity(0.3);
+
+  final Size visorSize;
+  final double topOffset;
+  final double availableHeightBeforeCarousel;
 
   final Paint _paint;
-  final Size visorSize;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -127,7 +143,16 @@ class _ScanPageForegroundPainter extends CustomPainter {
           visorSize.height,
         ),
         true,
-      ).shift(Offset(0, visorSize.height / 2)),
+      ).shift(
+        Offset(
+          0,
+          topOffset +
+              ((availableHeightBeforeCarousel -
+                      visorSize.height +
+                      ScanVisorPainter.strokeWidth) /
+                  2),
+        ),
+      ),
     );
 
     canvas.drawPath(path, _paint);
