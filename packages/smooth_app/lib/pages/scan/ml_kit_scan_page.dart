@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
@@ -331,6 +332,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
     // Relaunch the controller if it was destroyed in background
     if (_controller?.isInitialized != true) {
+      if (_controller?.isBeingInitialized == true) {
+        // Just wait
+        return;
+      }
       return _stopImageStream();
     }
 
@@ -380,7 +385,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     if (mounted && ScreenVisibilityDetector.visible(context)) {
       final DateTime referentialTime = DateTime.now();
 
-      WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Force redraw screen (a post frame should never be triggered otherwise)
+      setStateSafe(() {});
+
+      SchedulerBinding.instance.addPostFrameCallback((_) {
         final int diff =
             DateTime.now().difference(referentialTime).inMilliseconds;
 

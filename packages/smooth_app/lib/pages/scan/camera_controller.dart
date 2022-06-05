@@ -14,6 +14,7 @@ class SmoothCameraController extends CameraController {
     ImageFormatGroup? imageFormatGroup,
   })  : _isPaused = false,
         _isInitialized = false,
+        _isBeingInitialized = false,
         super(
           description,
           resolutionPreset,
@@ -27,6 +28,9 @@ class SmoothCameraController extends CameraController {
   /// Status of the controller
   bool _isInitialized;
 
+  /// Indicates if the [init] method is in progress
+  bool _isBeingInitialized;
+
   /// Listen to camera closed events
   StreamSubscription<CameraClosingEvent>? _closeListener;
 
@@ -36,7 +40,8 @@ class SmoothCameraController extends CameraController {
     required DeviceOrientation deviceOrientation,
     required onLatestImageAvailable onAvailable,
   }) async {
-    if (!_isInitialized) {
+    if (!_isInitialized && !_isBeingInitialized) {
+      _isBeingInitialized = true;
       await initialize();
       await setFocusMode(focusMode);
       await setFocusPoint(focusPoint);
@@ -44,6 +49,7 @@ class SmoothCameraController extends CameraController {
       await lockCaptureOrientation(deviceOrientation);
       await startImageStream(onAvailable);
       _isInitialized = true;
+      _isBeingInitialized = false;
 
       _closeListener = CameraPlatform.instance
           .onCameraClosing(cameraId)
@@ -105,6 +111,8 @@ class SmoothCameraController extends CameraController {
   bool get isPaused => _isPaused;
 
   bool get isInitialized => _isInitialized;
+
+  bool get isBeingInitialized => _isBeingInitialized;
 }
 
 extension CameraValueExtension on CameraValue {
