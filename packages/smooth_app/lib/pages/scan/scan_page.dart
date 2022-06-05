@@ -116,7 +116,8 @@ class _ScanPageForegroundPainter extends CustomPainter {
     required this.topOffset,
     required double carouselHeight,
     required double contentHeight,
-  })  : availableHeightBeforeCarousel = contentHeight - carouselHeight,
+  })  : availableHeightBeforeCarousel =
+            contentHeight - carouselHeight - topOffset,
         _paint = Paint()..color = Colors.black.withOpacity(0.3);
 
   final Size visorSize;
@@ -145,7 +146,11 @@ class _ScanPageForegroundPainter extends CustomPainter {
       ).shift(
         Offset(
           0,
-          ((availableHeightBeforeCarousel - topOffset) / 2) - topOffset,
+          topOffset +
+              ((availableHeightBeforeCarousel -
+                      visorSize.height +
+                      ScanVisorPainter.strokeWidth) /
+                  2),
         ),
       ),
     );
