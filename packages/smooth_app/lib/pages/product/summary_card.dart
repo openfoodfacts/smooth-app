@@ -589,6 +589,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return FutureBuilder<List<RobotoffQuestion>>(
         future: _loadProductQuestions(),
         builder: (
@@ -625,13 +626,23 @@ class _SummaryCardState extends State<SummaryCard> {
                       // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
                       Text(
                         '🏅 ${appLocalizations.tap_to_answer}',
-                        style: Theme.of(context).primaryTextTheme.bodyLarge,
+                        style: Theme.of(context)
+                            .primaryTextTheme
+                            .bodyLarge!
+                            .copyWith(
+                              color: isDarkMode ? Colors.black : WHITE_COLOR,
+                            ),
                       ),
                       Container(
                         padding: const EdgeInsets.only(top: SMALL_SPACE),
                         child: Text(
                           appLocalizations.contribute_to_get_rewards,
-                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .bodyText2!
+                              .copyWith(
+                                color: isDarkMode ? Colors.black : WHITE_COLOR,
+                              ),
                         ),
                       ),
                     ],
