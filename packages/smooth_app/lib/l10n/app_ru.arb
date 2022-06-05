@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Вернуться к началу",
     "save": "Сохранить",
     "save_confirmation": "Вы уверены, что хотите сохранить?",
     "skip": "Пропустить",
@@ -328,12 +328,12 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Ваш профиль",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Управление учетной записью участника Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "Темный режим, Аналитика, ...",
     "myPreferences_food_title": "Предпочтения в еде",
     "myPreferences_food_subtitle": "Выберите, какая информация о еде представляет для вас наибольший интерес.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Выберите, какую информацию о питании больше всего для вас, чтобы ранжировать еду в соответствии с вашими предпочтениями, ознакомьтесь с интересующей Вас информацией и получите сводку по совместимости. Эти настройки питания остаются на вашем устройстве, и не связаны с вашим аккаунтом участника Open Food Facts если он у вас есть.",
     "confirmResetPreferences": "Сбросить предпочтения?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -452,26 +452,26 @@
     "@ingredients_photo_button_label": {},
     "ingredients_photo_uploaded": "Фото ингредиентов загружено",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+    "nutrition_cache_loading_error": "Не удается загрузить питательные вещества из кэша",
     "nutritional_facts_photo_button_label": "Фото информации о пищевой ценности",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Input nutrition facts",
-    "nutritional_facts_added": "Nutrition facts added",
+    "nutritional_facts_input_button_label": "Введите данные о пищевой ценности",
+    "nutritional_facts_added": "Добавлены факты о пищевой ценности",
     "nutritional_facts_photo_uploaded": "Фото информации о пищевой ценности загружено",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Информационное фото по переработке",
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Фотография утилизации загружена",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Другие интересные фото",
     "@other_interesting_photo_button_label": {},
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Разное фото загружены",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Переснять",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Выберите фотографию",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
@@ -487,7 +487,7 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Загрузка листа ингредиентов в Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
