@@ -1,13 +1,22 @@
-extension StringExt on String {
-  /// Returns a list containing all positions of the [charCode]
-  List<int> indexesOf(String charCode) {
+extension StringExtensions on String {
+  /// Returns a list containing all positions of a [charCode]
+  /// By default, the case is taken into account.
+  /// Set [ignoreCase] to true, to disable the case verification.
+  List<int> indexesOf(
+    String charCode, {
+    bool ignoreCase = false,
+  }) {
     assert(charCode.length == 1);
+    if (ignoreCase) {
+      charCode = charCode.toLowerCase();
+    }
 
     final List<int> positions = <int>[];
     int i = 0;
 
     for (; i != length; i++) {
-      if (this[i] == charCode) {
+      if ((ignoreCase && this[i].toLowerCase() == charCode) ||
+          this[i] == charCode) {
         positions.add(i);
       }
     }
