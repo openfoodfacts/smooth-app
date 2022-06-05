@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
@@ -31,6 +32,10 @@ class _EditProductPageState extends State<EditProductPage> {
         title: AutoSizeText(
           getProductName(widget.product, appLocalizations),
           maxLines: 2,
+        ),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
         ),
       ),
       body: WillPopScope(

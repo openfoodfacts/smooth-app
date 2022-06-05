@@ -99,6 +99,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               icon: const Icon(Icons.check),
             )
           ],
+          systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.light,
+            statusBarBrightness: Brightness.dark,
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(
