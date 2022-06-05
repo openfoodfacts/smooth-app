@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_gauge.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
@@ -87,6 +88,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
           backgroundColor: Colors.transparent,
+          foregroundColor: WHITE_COLOR,
           elevation: 0,
           title: Text(title),
           leading: IconButton(
