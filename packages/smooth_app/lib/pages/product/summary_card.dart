@@ -380,7 +380,7 @@ class _SummaryCardState extends State<SummaryCard> {
       widget._productPreferences,
     );
     final ProductCompatibilityHelper helper =
-        ProductCompatibilityHelper(matchedProduct);
+        ProductCompatibilityHelper.product(matchedProduct);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDarkMode =
         Theme.of(context).colorScheme.brightness == Brightness.dark;
@@ -408,7 +408,7 @@ class _SummaryCardState extends State<SummaryCard> {
                   horizontal: SMALL_SPACE,
                 ),
                 child: Text(
-                  helper.getHeaderText(AppLocalizations.of(context)),
+                  helper.getHeaderText(appLocalizations),
                   style: Theme.of(context).textTheme.subtitle1?.copyWith(
                         color: helper.getHeaderForegroundColor(isDarkMode),
                       ),

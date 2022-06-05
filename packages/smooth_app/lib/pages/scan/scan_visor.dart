@@ -31,13 +31,13 @@ class ScannerVisorWidget extends StatelessWidget {
 class ScanVisorPainter extends CustomPainter {
   ScanVisorPainter();
 
-  static const double _strokeWidth = 3.0;
+  static const double strokeWidth = 3.0;
   static const double _fullCornerSize = 31.0;
   static const double _halfCornerSize = _fullCornerSize / 2;
   static const Radius _borderRadius = Radius.circular(_halfCornerSize);
 
   final Paint _paint = Paint()
-    ..strokeWidth = _strokeWidth
+    ..strokeWidth = strokeWidth
     ..color = Colors.white
     ..style = PaintingStyle.stroke;
 
@@ -56,7 +56,7 @@ class ScanVisorPainter extends CustomPainter {
   static Path getPath(Rect rect, bool includeLineBetweenCorners) {
     final double bottomPosition;
     if (includeLineBetweenCorners) {
-      bottomPosition = rect.bottom - _strokeWidth;
+      bottomPosition = rect.bottom - strokeWidth;
     } else {
       bottomPosition = rect.bottom;
     }

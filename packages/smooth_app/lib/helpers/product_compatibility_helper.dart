@@ -4,9 +4,12 @@ import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class ProductCompatibilityHelper {
-  const ProductCompatibilityHelper(this.matchedProduct);
+  ProductCompatibilityHelper.product(final MatchedProductV2 product)
+      : status = product.status;
 
-  final MatchedProductV2 matchedProduct;
+  const ProductCompatibilityHelper.status(this.status);
+
+  final MatchedProductStatusV2 status;
 
   Color getHeaderBackgroundColor(bool darkMode) {
     if (darkMode) {
@@ -33,7 +36,7 @@ class ProductCompatibilityHelper {
   // According to color contrast tool https://material.io/resources/color
   // on all those background colors the best is to write in black.
   Color _getDarkColors() {
-    switch (matchedProduct.status) {
+    switch (status) {
       case MatchedProductStatusV2.VERY_GOOD_MATCH:
         return DARK_GREEN_COLOR;
       case MatchedProductStatusV2.GOOD_MATCH:
@@ -55,7 +58,7 @@ class ProductCompatibilityHelper {
   }
 
   String getHeaderText(final AppLocalizations appLocalizations) {
-    switch (matchedProduct.status) {
+    switch (status) {
       case MatchedProductStatusV2.VERY_GOOD_MATCH:
         return appLocalizations.match_very_good;
       case MatchedProductStatusV2.GOOD_MATCH:
@@ -72,7 +75,7 @@ class ProductCompatibilityHelper {
   }
 
   String getSubtitle(final AppLocalizations appLocalizations) {
-    switch (matchedProduct.status) {
+    switch (status) {
       case MatchedProductStatusV2.VERY_GOOD_MATCH:
         return appLocalizations.match_short_very_good;
       case MatchedProductStatusV2.GOOD_MATCH:

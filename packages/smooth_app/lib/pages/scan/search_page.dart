@@ -204,11 +204,14 @@ class _SearchFieldState extends State<SearchField> {
           borderRadius: CIRCULAR_BORDER_RADIUS,
           borderSide: BorderSide.none,
         ),
-        contentPadding: const EdgeInsets.all(20.0),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 25.0,
+          vertical: 17.0,
+        ),
         hintText: localizations.search,
         suffixIcon: widget.showClearButton ? _buildClearButton() : null,
       ),
-      style: const TextStyle(fontSize: 24.0),
+      style: const TextStyle(fontSize: 18.0),
     );
   }
 

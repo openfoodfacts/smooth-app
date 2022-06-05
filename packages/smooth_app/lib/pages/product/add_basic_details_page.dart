@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
@@ -42,7 +43,13 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: Text(appLocalizations.basic_details)),
+      appBar: AppBar(
+        title: Text(appLocalizations.basic_details),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
+        ),
+      ),
       body: Form(
         key: _formKey,
         child: ListView(
