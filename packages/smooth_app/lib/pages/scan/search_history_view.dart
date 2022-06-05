@@ -50,9 +50,29 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
           _handleDismissed(context, query),
       background: Container(color: RED_COLOR),
       child: ListTile(
-        leading: const SizedBox(
-          height: double.infinity, // Vertically center the icon.
+        leading: const Padding(
+          padding: EdgeInsets.only(top: 4.0),
           child: Icon(Icons.search, size: 18.0),
+        ),
+        trailing: InkWell(
+          customBorder: const CircleBorder(),
+          onTap: () {
+            final TextEditingController controller =
+                Provider.of<TextEditingController>(
+              context,
+              listen: false,
+            );
+
+            controller.text = query;
+            controller.selection =
+                TextSelection.fromPosition(TextPosition(offset: query.length));
+
+            Focus.maybeOf(context)?.requestFocus();
+          },
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(Icons.edit, size: 18.0),
+          ),
         ),
         minLeadingWidth: 10,
         title: Text(query, style: const TextStyle(fontSize: 20.0)),
