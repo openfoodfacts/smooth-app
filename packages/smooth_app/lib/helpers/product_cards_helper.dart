@@ -118,7 +118,7 @@ List<ProductImageData> getAllProductImagesData(
       imageField: ImageField.OTHER,
       imageUrl: null,
       title: appLocalizations.more_photos,
-      buttonText: appLocalizations.packaging_information_photo,
+      buttonText: appLocalizations.more_photos,
     ),
   ];
   return allProductImagesData;
