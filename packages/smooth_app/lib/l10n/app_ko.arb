@@ -330,7 +330,7 @@
     "myPreferences_profile_title": "내 프로필",
     "myPreferences_profile_subtitle": "Open Food Facts 기여자 계정을 관리합니다.",
     "myPreferences_settings_title": "앱 설정",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "다크 모드, 분석, ...",
     "myPreferences_food_title": "식품 설정",
     "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
