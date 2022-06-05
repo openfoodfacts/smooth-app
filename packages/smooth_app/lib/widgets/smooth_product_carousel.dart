@@ -4,6 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
@@ -28,9 +29,14 @@ class SmoothProductCarousel extends StatefulWidget {
 
   final bool containSearchCard;
 
-  static const EdgeInsets carouselItemHorizontalPadding =
-      EdgeInsets.symmetric(horizontal: 20.0);
-  static const EdgeInsets carouselItemInternalPadding =
+  static const EdgeInsetsGeometry carouselItemHorizontalPadding =
+      EdgeInsetsDirectional.only(
+    top: 16.0,
+    start: 20.0,
+    end: 20.0,
+    bottom: 20.0,
+  );
+  static const EdgeInsetsGeometry carouselItemInternalPadding =
       EdgeInsets.symmetric(horizontal: 2.0);
   static const double carouselViewPortFraction = 0.91;
 
@@ -189,19 +195,30 @@ class SearchCard extends StatelessWidget {
       child: SizedBox(
         height: height,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            SvgPicture.asset(
+              Theme.of(context).brightness == Brightness.light
+                  ? 'assets/app/release_icon_light_transparent_no_border.svg'
+                  : 'assets/app/release_icon_dark_transparent_no_border.svg',
+              width: height * 0.2,
+              height: height * 0.2,
+            ),
             AutoSizeText(
               localizations.welcomeToOpenFoodFacts,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 36.0,
+                fontSize: 26.0,
                 fontWeight: FontWeight.bold,
+                height: 1.25,
               ),
               maxLines: 2,
             ),
-            const Flexible(
+            SizedBox(
+              height: height * 0.05,
+            ),
+            const Expanded(
               child: _SearchCardTagLine(),
             ),
             SearchField(
@@ -245,47 +262,52 @@ class _SearchCardTagLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
-      child: Consumer<UserPreferences>(
-        builder: (BuildContext context, UserPreferences preferences, _) {
-          if (preferences.isFirstScan) {
-            return const _SearchCardTagLineDefaultText();
-          }
+      child: DefaultTextStyle.merge(
+        style: const TextStyle(
+          fontSize: 16.0,
+          height: 1.22,
+        ),
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 5,
+        child: Consumer<UserPreferences>(
+          builder: (BuildContext context, UserPreferences preferences, _) {
+            if (preferences.isFirstScan) {
+              return const _SearchCardTagLineDefaultText();
+            }
 
-          return FutureBuilder<TagLineItem?>(
-            future: fetchTagLine(Platform.localeName),
-            builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
-              if (data.data == null) {
-                return const _SearchCardTagLineDefaultText();
-              } else {
-                return InkWell(
-                  borderRadius: ANGULAR_BORDER_RADIUS,
-                  onTap: data.data!.hasLink
-                      ? () async {
-                          if (await canLaunchUrlString(data.data!.url)) {
-                            await launchUrl(
-                              Uri.parse(data.data!.url),
-                              // forms.gle links are not handled by the WebView
-                              mode: LaunchMode.externalApplication,
-                            );
+            return FutureBuilder<TagLineItem?>(
+              future: fetchTagLine(Platform.localeName),
+              builder:
+                  (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
+                if (data.data == null) {
+                  return const _SearchCardTagLineDefaultText();
+                } else {
+                  return InkWell(
+                    borderRadius: ANGULAR_BORDER_RADIUS,
+                    onTap: data.data!.hasLink
+                        ? () async {
+                            if (await canLaunchUrlString(data.data!.url)) {
+                              await launchUrl(
+                                Uri.parse(data.data!.url),
+                                // forms.gle links are not handled by the WebView
+                                mode: LaunchMode.externalApplication,
+                              );
+                            }
                           }
-                        }
-                      : null,
-                  child: Text(
-                    data.data!.message,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 5,
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      height: 1.5,
-                      color: Theme.of(context).colorScheme.primary,
+                        : null,
+                    child: AutoSizeText(
+                      data.data!.message,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
                     ),
-                  ),
-                );
-              }
-            },
-          );
-        },
+                  );
+                }
+              },
+            );
+          },
+        ),
       ),
     );
   }
@@ -298,10 +320,13 @@ class _SearchCardTagLineDefaultText extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return Text(
-      localizations.searchPanelHeader,
-      textAlign: TextAlign.center,
-      style: const TextStyle(fontSize: 18.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10.0,
+      ),
+      child: AutoSizeText(
+        localizations.searchPanelHeader,
+      ),
     );
   }
 }
