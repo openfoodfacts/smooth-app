@@ -29,6 +29,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
   static const String _TAG_SCAN_CAMERA_RESOLUTION_PRESET =
       'camera_resolution_preset';
+  static const String _TAG_PLAY_CAMERA_SCAN_SOUND = 'camera_scan_sound';
 
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
@@ -149,6 +150,14 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setUseVeryHighResolutionPreset(bool enableFeature) async {
     await _sharedPreferences.setBool(
         _TAG_SCAN_CAMERA_RESOLUTION_PRESET, enableFeature);
+    notifyListeners();
+  }
+
+  bool get playCameraSound =>
+      _sharedPreferences.getBool(_TAG_PLAY_CAMERA_SCAN_SOUND) ?? false;
+
+  Future<void> setPlayCameraSound(bool playSound) async {
+    await _sharedPreferences.setBool(_TAG_PLAY_CAMERA_SCAN_SOUND, playSound);
     notifyListeners();
   }
 

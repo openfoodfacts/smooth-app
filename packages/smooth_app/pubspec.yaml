@@ -56,6 +56,7 @@ dependencies:
       ref: 'camera_fix_debug'
       path: 'packages/camera/camera'
   camera_platform_interface: any
+  audioplayers: ^0.20.1
   percent_indicator: ^4.2.2
   mailto: ^2.0.0
   flutter_native_splash: ^2.2.1
@@ -143,6 +144,7 @@ flutter:
   assets:
     - assets/actions/
     - assets/app/
+    - assets/audio/
     - assets/cache/
     - assets/categories/
     - assets/cacheTintable/
