@@ -18,7 +18,6 @@ class SmoothErrorCard extends StatefulWidget {
 
 class _SmoothErrorCardState extends State<SmoothErrorCard> {
   late AppLocalizations _appLocalizations;
-  final TextStyle _buttonsTextStyle = const TextStyle(color: Colors.white);
   bool _showErrorText = false;
 
   final double _horizontalPaddingButtons = VERY_LARGE_SPACE * 4;
@@ -37,10 +36,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
       child: SmoothSimpleButton(
         onPressed: widget.tryAgainFunction,
         minWidth: double.infinity,
-        child: Text(
-          _appLocalizations.try_again,
-          style: _buttonsTextStyle,
-        ),
+        child: Text(_appLocalizations.try_again),
       ),
     );
   }
@@ -98,10 +94,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
       child: SmoothSimpleButton(
         onPressed: _setShowErrorText,
         minWidth: double.infinity,
-        child: Text(
-          _appLocalizations.learnMore,
-          style: _buttonsTextStyle,
-        ),
+        child: Text(_appLocalizations.learnMore),
       ),
     );
   }

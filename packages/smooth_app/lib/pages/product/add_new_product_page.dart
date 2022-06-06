@@ -48,7 +48,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(automaticallyImplyLeading: !_isProductLoaded),
+      appBar: AppBar(
+          title: Text(appLocalizations.new_product),
+          automaticallyImplyLeading: !_isProductLoaded),
       body: Padding(
         padding: const EdgeInsets.only(
           top: VERY_LARGE_SPACE,
@@ -61,14 +63,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
-                    appLocalizations.new_product,
-                    style: themeData.textTheme.headline1!
-                        .apply(color: themeData.colorScheme.onBackground),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: VERY_LARGE_SPACE),
-                  ),
                   Text(
                     appLocalizations.add_product_take_photos_descriptive,
                     style: themeData.textTheme.bodyText1!
