@@ -8,7 +8,7 @@ class ScannerVisorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
+      children: <Widget>[
         SizedBox.fromSize(
           size: getSize(context),
           child: CustomPaint(
