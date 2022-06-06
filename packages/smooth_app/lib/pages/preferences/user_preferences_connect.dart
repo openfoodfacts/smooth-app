@@ -79,7 +79,6 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           title: appLocalizations.support_via_email,
           leading: UserPreferencesListTile.getTintedIcon(Icons.drafts, context),
           onTap: () async {
-            final PackageInfo packageInfo = await PackageInfo.fromPlatform();
             final Mailto mailtoLink = Mailto(
               to: <String>['contact@openfoodfacts.org'],
 // This shouldn't be translated as its a debug message to OpenFoodFacts
