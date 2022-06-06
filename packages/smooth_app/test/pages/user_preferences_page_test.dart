@@ -10,8 +10,8 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-import '../utils/goldens.dart';
-import '../utils/mocks.dart';
+import '../tests_utils/goldens.dart';
+import '../tests_utils/mocks.dart';
 
 void main() {
   group('UserPreferencesPage looks as expected', () {

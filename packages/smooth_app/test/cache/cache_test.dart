@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:smooth_app/cache/files/file_cache_manager.dart';
 
-import '../utils/path_provider_mock.dart';
+import '../tests_utils/path_provider_mock.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
