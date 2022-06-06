@@ -186,9 +186,6 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         size.width / previewWidth,
         size.height / previewHeight,
       );
-    } else {
-      // Scale up the size if the preview doesn't take the full width or height
-      _previewScale = _controller!.value.aspectRatio - size.aspectRatio;
     }
 
     _contentConstraints = constraints;
