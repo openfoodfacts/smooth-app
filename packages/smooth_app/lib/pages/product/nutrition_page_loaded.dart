@@ -12,6 +12,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 
@@ -172,9 +173,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         decimal: true,
       ),
       textInputAction: TextInputAction.next,
-      autofillHints: const <String>[AutofillHints.transactionAmount],
       inputFormatters: <TextInputFormatter>[
         FilteringTextInputFormatter.allow(_decimalRegExp),
+        DecimalSeparatorRewriter(_numberFormat),
       ],
       validator: (String? value) {
         if (value == null || value.trim().isEmpty) {
