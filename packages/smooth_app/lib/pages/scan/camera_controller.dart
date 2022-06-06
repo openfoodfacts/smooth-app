@@ -10,7 +10,6 @@ class SmoothCameraController extends CameraController {
   SmoothCameraController(
     CameraDescription description,
     ResolutionPreset resolutionPreset, {
-    bool? enableAudio,
     ImageFormatGroup? imageFormatGroup,
   })  : _isPaused = false,
         _isInitialized = false,
@@ -18,7 +17,7 @@ class SmoothCameraController extends CameraController {
         super(
           description,
           resolutionPreset,
-          enableAudio: enableAudio ?? true,
+          enableAudio: false,
           imageFormatGroup: imageFormatGroup,
         );
 
