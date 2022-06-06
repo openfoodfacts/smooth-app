@@ -10,7 +10,6 @@ class ProductQueryPageHelper {
   Future<void> openBestChoice({
     required final PagedProductQuery productQuery,
     required final LocalDatabase localDatabase,
-    required final Color color,
     required final String heroTag,
     required final String name,
     required final BuildContext context,
@@ -27,7 +26,6 @@ class ProductQueryPageHelper {
         builder: (BuildContext context) => ProductQueryPage(
           productListSupplier: supplier,
           heroTag: heroTag,
-          mainColor: color,
           name: name,
           lastUpdate: supplier.timestamp,
         ),

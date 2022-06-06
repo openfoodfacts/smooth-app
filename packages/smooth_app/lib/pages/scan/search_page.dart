@@ -77,7 +77,6 @@ Future<void> _onSubmittedText(
   final LocalDatabase localDatabase,
 ) async =>
     ProductQueryPageHelper().openBestChoice(
-      color: Colors.deepPurple,
       heroTag: 'search_bar',
       name: value,
       localDatabase: localDatabase,
