@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   /// A time window is the average time decodings took
   final AverageList<int> _averageProcessingTime = AverageList<int>();
+  final AudioCache _musicPlayer = AudioCache(prefix: 'assets/audio/');
 
   /// Subject notifying when a new image is available
   PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
@@ -282,6 +284,14 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       if (await _model.onScan(barcode)) {
         // Both are Future methods, but it doesn't matter to wait here
         HapticFeedback.lightImpact();
+
+        if (_userPreferences.playCameraSound) {
+          _musicPlayer.play(
+            'beep.ogg',
+            mode: PlayerMode.LOW_LATENCY,
+            volume: 0.5,
+          );
+        }
         _userPreferences.setFirstScanAchieved();
       }
     }
@@ -410,6 +420,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
     _stopImageStream();
+    _musicPlayer.clearAll();
     super.dispose();
   }
 

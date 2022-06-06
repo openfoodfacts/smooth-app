@@ -86,6 +86,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         const UserPreferencesListItemDivider(),
         const _CameraHighResolutionPresetSetting(),
         const UserPreferencesListItemDivider(),
+        const _CameraPlayScanSoundSetting(),
+        const UserPreferencesListItemDivider(),
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
@@ -173,6 +175,25 @@ class _CameraHighResolutionPresetSetting extends StatelessWidget {
       value: userPreferences.useVeryHighResolutionPreset,
       onChanged: (final bool value) async {
         await userPreferences.setUseVeryHighResolutionPreset(value);
+      },
+    );
+  }
+}
+
+class _CameraPlayScanSoundSetting extends StatelessWidget {
+  const _CameraPlayScanSoundSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.camera_play_sound_title,
+      subtitle: appLocalizations.camera_play_sound_subtitle,
+      value: userPreferences.playCameraSound,
+      onChanged: (final bool value) async {
+        await userPreferences.setPlayCameraSound(value);
       },
     );
   }

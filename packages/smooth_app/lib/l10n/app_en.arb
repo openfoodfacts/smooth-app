@@ -793,6 +793,14 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
+    "camera_play_sound_title": "Play camera sound",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
+    },
     "crash_reporting_toggle_title": "Crash reporting",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
