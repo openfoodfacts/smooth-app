@@ -10,6 +10,8 @@ import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
+import 'package:smooth_app/pages/product/simple_input_page.dart';
+import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
 /// Page where we can indirectly edit all data about a product.
 class EditProductPage extends StatefulWidget {
@@ -23,6 +25,13 @@ class EditProductPage extends StatefulWidget {
 
 class _EditProductPageState extends State<EditProductPage> {
   int _changes = 0;
+  late Product _product;
+
+  @override
+  void initState() {
+    super.initState();
+    _product = widget.product;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +39,7 @@ class _EditProductPageState extends State<EditProductPage> {
     return Scaffold(
       appBar: AppBar(
         title: AutoSizeText(
-          getProductName(widget.product, appLocalizations),
+          getProductName(_product, appLocalizations),
           maxLines: 2,
         ),
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -52,9 +61,8 @@ class _EditProductPageState extends State<EditProductPage> {
               title: Text(
                 appLocalizations.edit_product_form_item_barcode,
               ),
-              subtitle: widget.product.barcode == null
-                  ? null
-                  : Text(widget.product.barcode!),
+              subtitle:
+                  _product.barcode == null ? null : Text(_product.barcode!),
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_details_title,
@@ -65,7 +73,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   context,
                   MaterialPageRoute<bool>(
                     builder: (BuildContext context) =>
-                        AddBasicDetailsPage(widget.product),
+                        AddBasicDetailsPage(_product),
                   ),
                 );
                 if (refreshed ?? false) {
@@ -78,7 +86,7 @@ class _EditProductPageState extends State<EditProductPage> {
               subtitle: appLocalizations.edit_product_form_item_photos_subtitle,
               onTap: () async {
                 final List<ProductImageData> allProductImagesData =
-                    getAllProductImagesData(widget.product, appLocalizations);
+                    getAllProductImagesData(_product, appLocalizations);
                 final bool? refreshed = await Navigator.push<bool>(
                   context,
                   MaterialPageRoute<bool>(
@@ -86,7 +94,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       productImageData: allProductImagesData.first,
                       allProductImagesData: allProductImagesData,
                       title: allProductImagesData.first.title,
-                      barcode: widget.product.barcode,
+                      barcode: _product.barcode,
                     ),
                   ),
                 );
@@ -106,7 +114,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   context,
                   MaterialPageRoute<bool>(
                     builder: (BuildContext context) => EditIngredientsPage(
-                      product: widget.product,
+                      product: _product,
                     ),
                   ),
                 );
@@ -117,6 +125,26 @@ class _EditProductPageState extends State<EditProductPage> {
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_packaging_title,
+            ),
+            _ListTitleItem(
+              title: 'Stores', // TODO(monsieurtanuki): translate
+              onTap: () async {
+                final Product? refreshed = await Navigator.push<Product>(
+                  context,
+                  MaterialPageRoute<Product>(
+                    builder: (BuildContext context) => SimpleInputPage(
+                      SimpleInputPageStoreHelper(
+                        _product,
+                        appLocalizations,
+                      ),
+                    ),
+                  ),
+                );
+                if (refreshed != null) {
+                  _product = refreshed;
+                }
+                return;
+              },
             ),
             _ListTitleItem(
               title:
@@ -136,7 +164,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   context,
                   MaterialPageRoute<bool>(
                     builder: (BuildContext context) => NutritionPageLoaded(
-                      widget.product,
+                      _product,
                       cache.orderedNutrients,
                     ),
                   ),
@@ -145,7 +173,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   _changes++;
                 }
               },
-            )
+            ),
           ],
         ),
       ),
