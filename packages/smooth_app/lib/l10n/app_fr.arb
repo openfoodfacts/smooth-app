@@ -697,11 +697,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Nous avons inventé\nl'appli de scan\ncollaboratif en 2012",
+    "onboarding_reinventing_text1": "Nous avons inventé\nl'app de scan collaborative\nen 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "10 ans après,\nnous la réinventons\ncomplètement !",
+    "onboarding_reinventing_text2": "Alors que nous avons 10 ans,\nnous le réinventons\nde zéro !",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -784,6 +784,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "@camera_high_resolution_preset_toggle_title": {
+        "description": "Title for the Camera high resolution toggle"
+    },
+    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "@camera_high_resolution_preset_toggle_subtitle": {
+        "description": "SubTitle for the Camera high resolution toggle"
     },
     "crash_reporting_toggle_title": "Rapport de plantage",
     "@crash_reporting_toggle_title": {
