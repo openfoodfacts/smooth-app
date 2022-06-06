@@ -53,6 +53,7 @@ class SmoothTheme {
       snackBarTheme: SnackBarThemeData(
         contentTextStyle:
             _TEXT_THEME.bodyText2?.copyWith(color: myColorScheme.onBackground),
+        actionTextColor: myColorScheme.onBackground,
       ),
     );
   }
