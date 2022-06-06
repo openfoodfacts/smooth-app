@@ -84,14 +84,14 @@ class UserPreferencesConnect extends AbstractUserPreferences {
               to: <String>['contact@openfoodfacts.org'],
 // This shouldn't be translated as its a debug message to OpenFoodFacts
               subject: 'Smoothie help',
-              body: await emailBody,
+              body: await _emailBody,
             );
             await launchUrl(Uri.parse('$mailtoLink'));
           },
         ),
       ];
 
-  Future<String> get emailBody async {
+  Future<String> get _emailBody async {
     final StringBuffer buffer = StringBuffer('\n\n----\n');
     final BaseDeviceInfo deviceInfo = await DeviceInfoPlugin().deviceInfo;
 
