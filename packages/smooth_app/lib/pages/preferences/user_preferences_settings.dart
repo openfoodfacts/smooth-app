@@ -84,6 +84,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         const UserPreferencesListItemDivider(),
         const _CountryPickerSetting(),
         const UserPreferencesListItemDivider(),
+        const _CameraHighResolutionPresetSetting(),
+        const UserPreferencesListItemDivider(),
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
@@ -152,6 +154,25 @@ class _CrashReportingSetting extends StatelessWidget {
       onChanged: (final bool value) async {
         await userPreferences.setCrashReports(value);
         AnalyticsHelper.setCrashReports(value);
+      },
+    );
+  }
+}
+
+class _CameraHighResolutionPresetSetting extends StatelessWidget {
+  const _CameraHighResolutionPresetSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.camera_high_resolution_preset_toggle_title,
+      subtitle: appLocalizations.camera_high_resolution_preset_toggle_subtitle,
+      value: userPreferences.useVeryHighResolutionPreset,
+      onChanged: (final bool value) async {
+        await userPreferences.setUseVeryHighResolutionPreset(value);
       },
     );
   }
