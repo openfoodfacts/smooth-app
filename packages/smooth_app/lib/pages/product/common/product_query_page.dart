@@ -187,12 +187,15 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: FloatingActionButton(
-                        backgroundColor: Colors.white,
+                        backgroundColor: themeData.colorScheme.secondary,
                         onPressed: () {
                           _scrollToTop();
                         },
                         tooltip: appLocalizations.go_back_to_top,
-                        child: const Icon(Icons.arrow_upward),
+                        child: Icon(
+                          Icons.arrow_upward,
+                          color: themeData.colorScheme.onSecondary,
+                        ),
                       ),
                     ),
                   ),
@@ -309,11 +312,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                               child: SmoothProductCardFound(
                                 heroTag: product.barcode!,
                                 product: product,
-                                elevation:
-                                    themeData.brightness == Brightness.light
-                                        ? 0.0
-                                        : 4.0,
-                              ).build(context),
+                              ),
                             );
                           },
                           childCount: _model.displayProducts!.length + 1,
