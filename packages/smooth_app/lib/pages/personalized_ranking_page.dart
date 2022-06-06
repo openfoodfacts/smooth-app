@@ -37,11 +37,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 
   static const int _backgroundAlpha = 51;
 
-  // TODO(monsieurtanuki): to be removed when we agree on a layout
-  final bool _coloredBackground = false;
-  final bool _withSubHeaders = true;
-  final bool _coloredCard = true;
-
   @override
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
@@ -59,11 +54,9 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     MatchedProductStatusV2? status;
     final List<_VirtualItem> list = <_VirtualItem>[];
     for (final MatchedProductV2 product in allProducts) {
-      if (_withSubHeaders) {
-        if (status == null || status != product.status) {
-          status = product.status;
-          list.add(_VirtualItem.status(status));
-        }
+      if (status == null || status != product.status) {
+        status = product.status;
+        list.add(_VirtualItem.status(status));
       }
       list.add(_VirtualItem.product(product));
     }
@@ -113,23 +106,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   ) {
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.status(status);
-    return Container(
-      color: _coloredBackground
-          ? helper
-              .getHeaderBackgroundColor(darkMode)
-              .withAlpha(_backgroundAlpha)
-          : null,
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Text(
-            helper.getHeaderText(appLocalizations),
-            style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                  color: _coloredBackground
-                      ? helper.getHeaderForegroundColor(darkMode)
-                      : null,
-                ),
-          ),
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(SMALL_SPACE),
+        child: Text(
+          helper.getHeaderText(appLocalizations),
+          style: Theme.of(context).textTheme.subtitle1,
         ),
       ),
     );
@@ -170,29 +152,18 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
             ),
           );
         },
-        child: Container(
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-          color: _coloredBackground
-              ? _getBackgroundColor(matchedProduct.status, darkMode)
-              : null,
           child: SmoothProductCardFound(
             heroTag: matchedProduct.product.barcode!,
             product: matchedProduct.product,
             elevation: 4.0,
-            backgroundColor: _coloredCard
-                ? _getBackgroundColor(matchedProduct.status, darkMode)
-                : null,
+            backgroundColor: ProductCompatibilityHelper.product(matchedProduct)
+                .getHeaderBackgroundColor(darkMode)
+                .withAlpha(_backgroundAlpha),
           ),
         ),
       );
-
-  Color? _getBackgroundColor(
-    final MatchedProductStatusV2 status,
-    final bool darkMode,
-  ) =>
-      ProductCompatibilityHelper.status(status)
-          .getHeaderBackgroundColor(darkMode)
-          .withAlpha(_backgroundAlpha);
 }
 
 /// Virtual item in the list: either a product or a status header
