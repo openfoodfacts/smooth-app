@@ -148,12 +148,12 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   Future<void> _updateIngredientsText(String ingredientsText) async {
     widget.product.ingredientsText = ingredientsText;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool savedAndRefreshed = await ProductRefresher().saveAndRefresh(
+    final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
       context: context,
       localDatabase: localDatabase,
       product: widget.product,
     );
-    if (savedAndRefreshed) {
+    if (savedAndRefreshed != null) {
       if (!mounted) {
         return;
       }
