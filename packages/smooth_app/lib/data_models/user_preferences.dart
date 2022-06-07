@@ -29,6 +29,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
   static const String _TAG_SCAN_CAMERA_RESOLUTION_PRESET =
       'camera_resolution_preset';
+  static const String _TAG_USE_FLASH_WITH_CAMERA = 'enable_flash_with_camera';
   static const String _TAG_PLAY_CAMERA_SCAN_SOUND = 'camera_scan_sound';
 
   /// Attribute group that is not collapsed
@@ -134,6 +135,14 @@ class UserPreferences extends ChangeNotifier {
 
   bool? getFlag(final String key) =>
       _sharedPreferences.getBool(_getFlagTag(key));
+
+  bool get useFlashWithCamera =>
+      _sharedPreferences.getBool(_TAG_USE_FLASH_WITH_CAMERA) ?? false;
+
+  Future<void> setUseFlashWithCamera(final bool useFlash) async {
+    await _sharedPreferences.setBool(_TAG_USE_FLASH_WITH_CAMERA, useFlash);
+    notifyListeners();
+  }
 
   List<String> getExcludedAttributeIds() =>
       _sharedPreferences.getStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS) ??

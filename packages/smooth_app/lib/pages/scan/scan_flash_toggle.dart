@@ -1,35 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/pages/scan/scan_flash_toggle.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 
-class ScannerVisorWidget extends StatelessWidget {
-  const ScannerVisorWidget({Key? key}) : super(key: key);
+class ScannerFlashToggleWidget extends StatelessWidget {
+  const ScannerFlashToggleWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        SizedBox.fromSize(
-          size: getSize(context),
-          child: CustomPaint(
-            painter: ScanVisorPainter(),
-            child: Center(
-              child: SvgPicture.asset(
-                'assets/icons/visor_icon.svg',
-                width: 35.0,
-                height: 32.0,
-              ),
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Selector<UserPreferences, bool>(
+        selector: (_, UserPreferences prefs) => prefs.useFlashWithCamera,
+        builder: (BuildContext context, bool value, _) {
+          return Tooltip(
+            message: value
+                ? appLocalizations.camera_disable_flash
+                : appLocalizations.camera_enable_flash,
+            decoration: BoxDecoration(
+              color: value ? Colors.red : Colors.green,
+              borderRadius: ANGULAR_BORDER_RADIUS,
             ),
-          ),
-        ),
-        Positioned.directional(
-          textDirection: Directionality.of(context),
-          end: 0.0,
-          bottom: 0.0,
-          child: const ScannerFlashToggleWidget(),
-        )
-      ],
-    );
+            child: InkWell(
+              customBorder: const CircleBorder(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 6.0,
+                  vertical: 8.0,
+                ),
+                child: Icon(
+                  value ? Icons.flash_on : Icons.flash_off,
+                  size: 20.0,
+                  color: Colors.white,
+                ),
+              ),
+              onTap: () async {
+                await HapticFeedback.selectionClick();
+                await CameraHelper.controller?.enableFlash(!value);
+              },
+            ),
+          );
+        });
   }
 
   /// Returns the Size of the visor
