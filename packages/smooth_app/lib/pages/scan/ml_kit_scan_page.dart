@@ -216,6 +216,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
     CameraHelper.initController(
       SmoothCameraController(
+        _userPreferences,
         _camera!,
         _userPreferences.useVeryHighResolutionPreset
             ? ResolutionPreset.veryHigh

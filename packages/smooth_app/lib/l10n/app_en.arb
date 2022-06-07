@@ -971,6 +971,14 @@
             }
         }
     },
+    "camera_enable_flash": "Enable flash",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "Disable flash",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
+    },
     "category_picker_no_category_found_button": "Back",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"

@@ -4,10 +4,12 @@ import 'package:camera/camera.dart';
 import 'package:camera_platform_interface/camera_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 
 /// A lifecycle-aware [CameraController]
 class SmoothCameraController extends CameraController {
   SmoothCameraController(
+    this.preferences,
     CameraDescription description,
     ResolutionPreset resolutionPreset, {
     ImageFormatGroup? imageFormatGroup,
@@ -20,6 +22,8 @@ class SmoothCameraController extends CameraController {
           enableAudio: false,
           imageFormatGroup: imageFormatGroup,
         );
+
+  final UserPreferences preferences;
 
   /// Status of the preview
   bool _isPaused;
@@ -38,6 +42,7 @@ class SmoothCameraController extends CameraController {
     required Offset focusPoint,
     required DeviceOrientation deviceOrientation,
     required onLatestImageAvailable onAvailable,
+    bool? enableTorch,
   }) async {
     if (!_isInitialized && !_isBeingInitialized) {
       _isBeingInitialized = true;
@@ -47,6 +52,7 @@ class SmoothCameraController extends CameraController {
       await setExposurePoint(focusPoint);
       await lockCaptureOrientation(deviceOrientation);
       await startImageStream(onAvailable);
+      await enableFlash(enableTorch ?? preferences.useFlashWithCamera);
       _isInitialized = true;
       _isBeingInitialized = false;
 
@@ -74,6 +80,7 @@ class SmoothCameraController extends CameraController {
   @override
   Future<void> pausePreview() async {
     if (_isInitialized) {
+      await _pauseFlash();
       await super.pausePreview();
       _isPaused = true;
     }
@@ -90,7 +97,40 @@ class SmoothCameraController extends CameraController {
   @override
   Future<void> resumePreview() async {
     await super.resumePreview();
+    await _resumeFlash();
     _isPaused = false;
+  }
+
+  Future<void> _resumeFlash() async {
+    if (preferences.useFlashWithCamera) {
+      return enableFlash(preferences.useFlashWithCamera);
+    }
+  }
+
+  Future<void> _pauseFlash() {
+    // Don't persist value to preferences
+    return setFlashMode(FlashMode.off).then(
+      // A slight delay is required as the native part doesn't wait here
+      (_) => Future<void>.delayed(
+        const Duration(milliseconds: 250),
+      ),
+    );
+  }
+
+  Future<void> enableFlash(bool enable) async {
+    await setFlashMode(enable ? FlashMode.torch : FlashMode.off);
+    await preferences.setUseFlashWithCamera(enable);
+  }
+
+  /// Please use [enableFlash] instead
+  @protected
+  @override
+  Future<void> setFlashMode(FlashMode mode) {
+    return super.setFlashMode(mode);
+  }
+
+  bool get isFlashModeEnabled {
+    return value.flashMode == FlashMode.torch;
   }
 
   @override
