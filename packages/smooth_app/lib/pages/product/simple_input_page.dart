@@ -10,7 +10,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
-/// Simple input page: we have a list of labels, we add, we remove, we save.
+/// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
   const SimpleInputPage(this.helper) : super();
 
@@ -41,20 +41,17 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         final bool? pleaseSave = await showDialog<bool>(
           context: context,
           builder: (final BuildContext context) => SmoothAlertDialog(
+            close: true,
             body:
-                const Text('You are about to leave this page without saving.'),
+                Text(appLocalizations.edit_product_form_item_exit_confirmation),
             title: widget.helper.getTitle(),
             negativeAction: SmoothActionButton(
-              text: 'Ignore',
+              text: appLocalizations.ignore,
               onPressed: () => Navigator.pop(context, false),
             ),
             positiveAction: SmoothActionButton(
-              text: 'Save',
+              text: appLocalizations.save,
               onPressed: () => Navigator.pop(context, true),
-            ),
-            neutralAction: SmoothActionButton(
-              text: 'Cancel',
-              onPressed: () => Navigator.pop(context, null),
             ),
           ),
         );
@@ -96,13 +93,13 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 widget.helper.getTitle(),
                 style: themeData.textTheme.headline1,
               ),
-              const SizedBox(height: LARGE_SPACE),
-              Text(widget.helper.getAddTitle()),
+              if (widget.helper.getSubtitle() != null)
+                Text(widget.helper.getSubtitle()!),
               Row(
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: () {
-                      if (widget.helper.addLabel(_controller.text)) {
+                      if (widget.helper.addTerm(_controller.text)) {
                         setState(() => _controller.text = '');
                       }
                     },
@@ -137,14 +134,14 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 spacing: LARGE_SPACE,
                 runSpacing: VERY_SMALL_SPACE,
                 children: List<Widget>.generate(
-                  widget.helper.getLabels().length,
+                  widget.helper.terms.length,
                   (final int index) {
-                    final String label = widget.helper.getLabels()[index];
+                    final String term = widget.helper.terms[index];
                     return ElevatedButton.icon(
                       icon: const Icon(Icons.clear),
-                      label: Text(label),
+                      label: Text(term),
                       onPressed: () async {
-                        if (widget.helper.removeLabel(label)) {
+                        if (widget.helper.removeTerm(term)) {
                           setState(() {});
                         }
                       },

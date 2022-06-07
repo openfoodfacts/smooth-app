@@ -24,8 +24,8 @@ class SmoothAlertDialog extends StatelessWidget {
     this.positiveAction,
     this.neutralAction,
     this.negativeAction,
-  })  : close = false,
-        maxHeight = null,
+    this.close = false,
+  })  : maxHeight = null,
         _simpleMode = true;
 
   /// Advanced alert dialog with fancy effects.
@@ -153,7 +153,7 @@ class SmoothAlertDialog extends StatelessWidget {
             Icons.close,
             size: 29.0,
           ),
-          onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
+          onTap: () => Navigator.of(context, rootNavigator: true).pop(),
         ),
       );
     } else {

@@ -1,56 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/database/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
 ///
-/// * we retrieve the initial list of labels.
-/// * we add a label to the list.
-/// * we remove a label from the list.
+/// * we retrieve the initial list of terms.
+/// * we add a term to the list.
+/// * we remove a term from the list.
 abstract class AbstractSimpleInputPageHelper {
   AbstractSimpleInputPageHelper(
     this.product,
     this.appLocalizations,
   ) {
-    _labels = initLabels();
+    _language = ProductQuery.getLanguage()!;
+    _terms = initTerms();
   }
 
   final Product product;
   final AppLocalizations appLocalizations;
+  late final OpenFoodFactsLanguage _language;
 
-  /// Labels as they were initially then edited by the user.
-  late List<String> _labels;
+  /// Terms as they were initially then edited by the user.
+  late List<String> _terms;
 
-  /// "Have the labels been changed?"
+  /// "Have the terms been changed?"
   bool _changed = false;
 
-  /// Returns the labels as they were initially in the product.
+  /// Returns the terms as they were initially in the product.
   @protected
-  List<String> initLabels();
+  List<String> initTerms();
 
-  /// Returns the current labels to be displayed.
-  List<String> getLabels() => _labels;
+  /// Returns the current terms to be displayed.
+  List<String> get terms => _terms;
 
-  /// Returns true if the label was not in the list and then was added.
-  bool addLabel(String label) {
-    label = label.trim();
-    if (label.isEmpty) {
+  /// Returns true if the term was not in the list and then was added.
+  bool addTerm(String term) {
+    term = term.trim();
+    if (term.isEmpty) {
       return false;
     }
-    if (_labels.contains(label)) {
+    if (_terms.contains(term)) {
       return false;
     }
-    _labels.add(label);
+    _terms.add(term);
     _changed = true;
     return true;
   }
 
-  /// Returns true if the label was in the list and then was removed.
+  /// Returns true if the term was in the list and then was removed.
   ///
   /// The things we build the interface, very unlikely to return false,
   /// as we remove existing items.
-  bool removeLabel(final String label) {
-    if (_labels.remove(label)) {
+  bool removeTerm(final String term) {
+    if (_terms.remove(term)) {
       _changed = true;
       return true;
     }
@@ -60,8 +63,8 @@ abstract class AbstractSimpleInputPageHelper {
   /// Returns the title on the main "edit product" page.
   String getTitle();
 
-  /// Returns the title of the "add" paragraph.
-  String getAddTitle();
+  /// Returns the subtitle on the main "edit product" page.
+  String? getSubtitle() => null;
 
   /// Returns the hint of the "add" text field.
   String getAddHint();
@@ -79,21 +82,6 @@ abstract class AbstractSimpleInputPageHelper {
     changeProduct(changedProduct);
     return changedProduct;
   }
-
-  List<String> _splitString(final String? input) {
-    if (input == null) {
-      return <String>[];
-    }
-    final List<String> result = input.split(',');
-    for (int i = 0; i < result.length; i++) {
-      final int pos = result[i].indexOf(':');
-      if (pos == 2) {
-        // we get rid of the language, e.g. 'fr:Sac'
-        result[i] = result[i].substring(pos + 1);
-      }
-    }
-    return result;
-  }
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -107,18 +95,80 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
         );
 
   @override
-  List<String> initLabels() => _splitString(product.stores);
+  List<String> initTerms() => _splitString(product.stores);
 
   @override
   void changeProduct(final Product changedProduct) =>
-      changedProduct.stores = _labels.join(',');
+      changedProduct.stores = terms.join(', ');
 
   @override
-  String getTitle() => 'Stores'; // TODO(monsieurtanuki): translate
+  String getTitle() => appLocalizations.edit_product_form_item_stores_title;
 
   @override
-  String getAddTitle() => 'Add a store'; // TODO(monsieurtanuki): translate
+  String getAddHint() => appLocalizations.edit_product_form_item_stores_hint;
+
+  List<String> _splitString(String? input) {
+    if (input == null) {
+      return <String>[];
+    }
+    input = input.trim();
+    if (input.isEmpty) {
+      return <String>[];
+    }
+    return input.split(',');
+  }
+}
+
+/// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
+  SimpleInputPageLabelHelper(
+    final Product product,
+    final AppLocalizations appLocalizations,
+  ) : super(
+          product,
+          appLocalizations,
+        );
+
+  final Map<String, String> _termToTags = <String, String>{};
 
   @override
-  String getAddHint() => 'store'; // TODO(monsieurtanuki): translate
+  List<String> initTerms() {
+    if (product.labelsTags != null && product.labelsTagsInLanguages != null) {
+      final List<String>? translations =
+          product.labelsTagsInLanguages![_language];
+      if (translations != null &&
+          translations.length == product.labelsTags!.length) {
+        for (int i = 0; i < translations.length; i++) {
+          _termToTags[translations[i]] = product.labelsTags![i];
+        }
+        return List<String>.from(translations);
+      }
+    }
+    return <String>[];
+  }
+
+  @override
+  void changeProduct(final Product changedProduct) {
+    final StringBuffer result = StringBuffer();
+    for (int i = 0; i < terms.length; i++) {
+      final String term = terms[i];
+      String? tag = _termToTags[term];
+      tag ??= '${_language.code}:$term';
+      if (i > 0) {
+        result.write(', ');
+      }
+      result.write(tag);
+    }
+    changedProduct.labels = result.toString();
+  }
+
+  @override
+  String getTitle() => appLocalizations.edit_product_form_item_labels_title;
+
+  @override
+  String getSubtitle() =>
+      appLocalizations.edit_product_form_item_labels_subtitle;
+
+  @override
+  String getAddHint() => appLocalizations.edit_product_form_item_labels_hint;
 }
