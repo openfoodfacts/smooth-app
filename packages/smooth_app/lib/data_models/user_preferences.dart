@@ -28,7 +28,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
   static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
   static const String _TAG_SCAN_CAMERA_RESOLUTION_PRESET =
-    'camera_resolution_preset';
+      'camera_resolution_preset';
   static const String _TAG_USE_FLASH_WITH_CAMERA = 'enable_flash_with_camera';
   static const String _TAG_PLAY_CAMERA_SCAN_SOUND = 'camera_scan_sound';
 
