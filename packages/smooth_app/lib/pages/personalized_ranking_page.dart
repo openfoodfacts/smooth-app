@@ -157,7 +157,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
           child: SmoothProductCardFound(
             heroTag: matchedProduct.product.barcode!,
             product: matchedProduct.product,
-            elevation: 4.0,
             backgroundColor: ProductCompatibilityHelper.product(matchedProduct)
                 .getHeaderBackgroundColor(darkMode)
                 .withAlpha(_backgroundAlpha),

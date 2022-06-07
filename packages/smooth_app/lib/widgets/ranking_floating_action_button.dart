@@ -6,11 +6,9 @@ import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 /// Floating Action Button dedicated to Personal Ranking
 class RankingFloatingActionButton extends StatelessWidget {
   const RankingFloatingActionButton({
-    required this.color,
     required this.onPressed,
   });
 
-  final Color color;
   final VoidCallback onPressed;
 
   static const IconData rankingIconData = Icons.emoji_events_outlined;
@@ -26,15 +24,8 @@ class RankingFloatingActionButton extends StatelessWidget {
             SizedBox(width: MediaQuery.of(context).size.width * 0.09),
             FloatingActionButton.extended(
               elevation: 12.0,
-              icon: Icon(
-                rankingIconData,
-                color: color,
-              ),
-              label: Text(
-                AppLocalizations.of(context).myPersonalizedRanking,
-                style: TextStyle(color: color),
-              ),
-              backgroundColor: Colors.white,
+              icon: const Icon(rankingIconData),
+              label: Text(AppLocalizations.of(context).myPersonalizedRanking),
               onPressed: onPressed,
             ),
           ],
