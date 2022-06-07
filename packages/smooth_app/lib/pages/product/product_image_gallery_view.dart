@@ -43,6 +43,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   bool _hasPhoto = true;
   bool _isRefreshed = false;
   late ProductImageData _productImageDataCurrent;
+  int _currentIndex = 0;
 
   @override
   void initState() {
@@ -103,52 +104,146 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
               appLocalizations.edit_photo_button_label)
           : _buildAddFloatingActionButton(
               appLocalizations.add_photo_button_label),
-      body: PhotoViewGallery.builder(
-        pageController: _controller,
-        scrollPhysics: const BouncingScrollPhysics(),
-        builder: (BuildContext context, int index) {
-          if (allProductImageProviders[index] == null) {
-            if (images[index].imageUrl != null) {
-              allProductImageProviders[index] =
-                  NetworkImage(images[index].imageUrl!);
-            } else {
-              return PhotoViewGalleryPageOptions.customChild(
-                  child: Container());
-            }
-          }
-          return PhotoViewGalleryPageOptions(
-            imageProvider: allProductImageProviders[index],
-            initialScale: PhotoViewComputedScale.contained * 0.8,
-            minScale: PhotoViewComputedScale.contained * 0.8,
-            maxScale: PhotoViewComputedScale.covered * 1.1,
-            heroAttributes:
-                PhotoViewHeroAttributes(tag: images[index].imageUrl ?? ''),
-          );
-        },
-        itemCount: images.length,
-        loadingBuilder:
-            (final BuildContext context, final ImageChunkEvent? event) {
-          return Center(
-            child: SmoothGauge(
-              color: Theme.of(context).colorScheme.onBackground,
-              value: event == null ||
-                      event.expectedTotalBytes == null ||
-                      event.expectedTotalBytes == 0
-                  ? 0
-                  : event.cumulativeBytesLoaded / event.expectedTotalBytes!,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          ConstrainedBox(
+            constraints: BoxConstraints.tight(
+              Size(double.infinity, MediaQuery.of(context).size.height / 2),
             ),
-          );
-        },
-        backgroundDecoration: const BoxDecoration(
-          color: Colors.black,
-        ),
-        onPageChanged: (int index) {
-          setState(() {
-            title = images[index].title;
-            _hasPhoto = images[index].imageUrl != null;
-            _productImageDataCurrent = images[index];
-          });
-        },
+            child: PhotoViewGallery.builder(
+              pageController: _controller,
+              scrollPhysics: const BouncingScrollPhysics(),
+              builder: (BuildContext context, int index) {
+                if (allProductImageProviders[index] == null) {
+                  if (images[index].imageUrl != null) {
+                    allProductImageProviders[index] =
+                        NetworkImage(images[index].imageUrl!);
+                  } else {
+                    return PhotoViewGalleryPageOptions.customChild(
+                      child: InkWell(
+                        onTap: () async {
+                          final int? currentIndex = _controller.page?.toInt();
+                          if (currentIndex != null) {
+                            final File? croppedImageFile =
+                                await startImageCropping(context);
+                            if (croppedImageFile != null) {
+                              setState(() {
+                                allProductImageProviders[currentIndex] =
+                                    FileImage(croppedImageFile);
+                              });
+                              if (!mounted) {
+                                return;
+                              }
+                              final bool isUploaded =
+                                  await uploadCapturedPicture(
+                                context,
+                                barcode: widget.barcode!,
+                                imageField: _productImageDataCurrent.imageField,
+                                imageUri: croppedImageFile.uri,
+                              );
+
+                              if (isUploaded) {
+                                _isRefreshed = true;
+                                if (!mounted) {
+                                  return;
+                                }
+                                final AppLocalizations appLocalizations =
+                                    AppLocalizations.of(context);
+                                final String message = getImageUploadedMessage(
+                                    _productImageDataCurrent.imageField,
+                                    appLocalizations);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(message),
+                                    duration: const Duration(seconds: 3),
+                                  ),
+                                );
+                              }
+                            }
+                          }
+                        },
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              const Icon(
+                                Icons.add_a_photo,
+                                size: 100,
+                                color: WHITE_COLOR,
+                              ),
+                              Text(
+                                appLocalizations.add_photo_button_label,
+                                style: const TextStyle(
+                                  color: WHITE_COLOR,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                }
+                return PhotoViewGalleryPageOptions(
+                  imageProvider: allProductImageProviders[index],
+                  initialScale: PhotoViewComputedScale.contained * 0.8,
+                  minScale: PhotoViewComputedScale.contained * 0.8,
+                  maxScale: PhotoViewComputedScale.covered * 1.1,
+                  heroAttributes: PhotoViewHeroAttributes(
+                      tag: images[index].imageUrl ?? ''),
+                );
+              },
+              itemCount: images.length,
+              loadingBuilder:
+                  (final BuildContext context, final ImageChunkEvent? event) {
+                return Center(
+                  child: SmoothGauge(
+                    color: Theme.of(context).colorScheme.onBackground,
+                    value: event == null ||
+                            event.expectedTotalBytes == null ||
+                            event.expectedTotalBytes == 0
+                        ? 0
+                        : event.cumulativeBytesLoaded /
+                            event.expectedTotalBytes!,
+                  ),
+                );
+              },
+              backgroundDecoration: const BoxDecoration(
+                color: Colors.black,
+              ),
+              onPageChanged: (int index) {
+                setState(
+                  () {
+                    title = images[index].title;
+                    _hasPhoto = images[index].imageUrl != null;
+                    _productImageDataCurrent = images[index];
+                    _currentIndex = index;
+                  },
+                );
+              },
+            ),
+          ),
+          SizedBox(
+            height: 15,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  margin: const EdgeInsets.all(3),
+                  width: 15,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color:
+                        index == _currentIndex ? WHITE_COLOR : FAIR_GREY_COLOR,
+                  ),
+                );
+              },
+              itemCount: images.length,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -232,12 +327,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           return;
         }
 
-        final File? newImage =
-            await startImageCropping(context, existingImage: imageFile);
-        if (newImage == null) {
-          return;
-        }
-
         // ignore: use_build_context_synchronously
         final File? photoUploaded = await Navigator.push<File?>(
           context,
@@ -245,7 +334,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             builder: (BuildContext context) => ConfirmAndUploadPicture(
               barcode: widget.barcode!,
               imageType: currentImage.imageField,
-              initialPhoto: newImage,
+              initialPhoto: imageFile,
             ),
           ),
         );
