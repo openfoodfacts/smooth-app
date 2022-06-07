@@ -119,9 +119,10 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   }
 }
 
-/// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
-class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
-  SimpleInputPageLabelHelper(
+/// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
+abstract class AbstractSimpleInputPageInLanguageHelper
+    extends AbstractSimpleInputPageHelper {
+  AbstractSimpleInputPageInLanguageHelper(
     final Product product,
     final AppLocalizations appLocalizations,
   ) : super(
@@ -131,15 +132,34 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 
   final Map<String, String> _termToTags = <String, String>{};
 
+  /// Returns the value of the tags list of field for a product.
+  ///
+  /// E.g. `product.categoriesTags`
+  @protected
+  List<String>? getTags();
+
+  /// Returns the value of the translations of a field for a product.
+  ///
+  /// E.g. `product.categoriesTagsInLanguages`
+  @protected
+  Map<OpenFoodFactsLanguage, List<String>>? getInLanguages();
+
+  /// Sets the value of a field for a product.
+  ///
+  /// e.g. `product.categories = value`
+  @protected
+  void setValue(final Product changedProduct, final String value);
+
   @override
   List<String> initTerms() {
-    if (product.labelsTags != null && product.labelsTagsInLanguages != null) {
-      final List<String>? translations =
-          product.labelsTagsInLanguages![_language];
-      if (translations != null &&
-          translations.length == product.labelsTags!.length) {
+    final List<String>? tags = getTags();
+    final Map<OpenFoodFactsLanguage, List<String>>? inLanguages =
+        getInLanguages();
+    if (tags != null && inLanguages != null) {
+      final List<String>? translations = inLanguages[_language];
+      if (translations != null && translations.length == tags.length) {
         for (int i = 0; i < translations.length; i++) {
-          _termToTags[translations[i]] = product.labelsTags![i];
+          _termToTags[translations[i]] = tags[i];
         }
         return List<String>.from(translations);
       }
@@ -159,8 +179,31 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       }
       result.write(tag);
     }
-    changedProduct.labels = result.toString();
+    setValue(changedProduct, result.toString());
   }
+}
+
+/// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageLabelHelper
+    extends AbstractSimpleInputPageInLanguageHelper {
+  SimpleInputPageLabelHelper(
+    final Product product,
+    final AppLocalizations appLocalizations,
+  ) : super(
+          product,
+          appLocalizations,
+        );
+
+  @override
+  List<String>? getTags() => product.labelsTags;
+
+  @override
+  Map<OpenFoodFactsLanguage, List<String>>? getInLanguages() =>
+      product.labelsTagsInLanguages;
+
+  @override
+  void setValue(final Product changedProduct, final String value) =>
+      changedProduct.labels = value;
 
   @override
   String getTitle() => appLocalizations.edit_product_form_item_labels_title;
@@ -171,4 +214,34 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 
   @override
   String getAddHint() => appLocalizations.edit_product_form_item_labels_hint;
+}
+
+/// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageCategoryHelper
+    extends AbstractSimpleInputPageInLanguageHelper {
+  SimpleInputPageCategoryHelper(
+    final Product product,
+    final AppLocalizations appLocalizations,
+  ) : super(
+          product,
+          appLocalizations,
+        );
+
+  @override
+  List<String>? getTags() => product.categoriesTags;
+
+  @override
+  Map<OpenFoodFactsLanguage, List<String>>? getInLanguages() =>
+      product.categoriesTagsInLanguages;
+
+  @override
+  void setValue(final Product changedProduct, final String value) =>
+      changedProduct.categories = value;
+
+  @override
+  String getTitle() => appLocalizations.edit_product_form_item_categories_title;
+
+  @override
+  String getAddHint() =>
+      appLocalizations.edit_product_form_item_categories_hint;
 }
