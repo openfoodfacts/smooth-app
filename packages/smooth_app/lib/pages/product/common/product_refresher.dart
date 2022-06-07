@@ -72,4 +72,49 @@ class ProductRefresher {
     }
     return false;
   }
+
+  Future<bool> fetchAndRefresh({
+    required final BuildContext context,
+    required final LocalDatabase localDatabase,
+    required final String barcode,
+  }) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool? savedAndRefreshed = await LoadingDialog.run<bool>(
+      future: _fetchAndRefresh(localDatabase, barcode),
+      context: context,
+      title: appLocalizations.nutrition_page_update_running,
+    );
+    if (savedAndRefreshed == null) {
+      return false;
+    }
+    if (!savedAndRefreshed) {
+      await LoadingDialog.error(context: context);
+      return false;
+    }
+    return true;
+  }
+
+  Future<bool> _fetchAndRefresh(
+    final LocalDatabase localDatabase,
+    final String barcode,
+  ) async {
+    try {
+      final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+        barcode,
+        fields: ProductQuery.fields,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
+      );
+      final ProductResult result = await OpenFoodAPIClient.getProduct(
+        configuration,
+      );
+      if (result.product != null) {
+        await DaoProduct(localDatabase).put(result.product!);
+        return true;
+      }
+    } catch (e) {
+      //
+    }
+    return false;
+  }
 }

@@ -8,12 +8,15 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_gauge.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
@@ -188,6 +191,16 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 if (!mounted) {
                   return;
                 }
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
+                await ProductRefresher().fetchAndRefresh(
+                  context: context,
+                  localDatabase: localDatabase,
+                  barcode: widget.barcode!,
+                );
+                if (!mounted) {
+                  return;
+                }
                 final AppLocalizations appLocalizations =
                     AppLocalizations.of(context);
                 final String message = getImageUploadedMessage(
@@ -251,6 +264,18 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         );
         if (photoUploaded != null) {
           _isRefreshed = true;
+          if (!mounted) {
+            return;
+          }
+          final LocalDatabase localDatabase = context.read<LocalDatabase>();
+          await ProductRefresher().fetchAndRefresh(
+            context: context,
+            localDatabase: localDatabase,
+            barcode: widget.barcode!,
+          );
+          if (!mounted) {
+            return;
+          }
           setState(() {
             allProductImageProviders[currentIndex] = FileImage(photoUploaded);
           });
