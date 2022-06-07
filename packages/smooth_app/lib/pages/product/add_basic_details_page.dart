@@ -4,13 +4,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
@@ -45,6 +45,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocalizations.basic_details),
@@ -128,40 +129,22 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       if (!_formKey.currentState!.validate()) {
                         return;
                       }
-                      final Status? status = await _saveData();
-                      if (status == null || status.error != null) {
-                        _errorMessageAlert(
-                            appLocalizations.basic_details_add_error);
-                        return;
+                      final bool savedAndRefreshed =
+                          await _saveData(localDatabase);
+                      if (savedAndRefreshed) {
+                        if (!mounted) {
+                          return;
+                        }
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                                appLocalizations.basic_details_add_success)));
+                        Navigator.pop(context, true);
                       } else {
                         if (!mounted) {
                           return;
                         }
-                        final Product product = Product(
-                            productName: _productNameController.text,
-                            quantity: _weightController.text,
-                            brands: _brandNameController.text);
-                        final LocalDatabase localDatabase =
-                            context.read<LocalDatabase>();
-                        final bool savedAndRefreshed =
-                            await ProductRefresher().saveAndRefresh(
-                          context: context,
-                          localDatabase: localDatabase,
-                          product: product,
-                        );
-                        if (savedAndRefreshed) {
-                          if (!mounted) {
-                            return;
-                          }
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text(
-                                  appLocalizations.basic_details_add_success)));
-                        }
+                        Navigator.pop(context);
                       }
-                      if (!mounted) {
-                        return;
-                      }
-                      Navigator.pop(context, true);
                     }),
               ),
             ),
@@ -185,7 +168,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         ),
       );
 
-  Future<Status?> _saveData() async {
+  Future<bool> _saveData(LocalDatabase localDatabase) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Product product = Product(
       productName: _productNameController.text,
@@ -201,6 +184,23 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       ),
       title: appLocalizations.nutrition_page_update_running,
     );
-    return status;
+    if (status == null || status.error != null) {
+      _errorMessageAlert(appLocalizations.basic_details_add_error);
+      return false;
+    } else {
+      final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+        widget.product.barcode!,
+        fields: ProductQuery.fields,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
+      );
+      final ProductResult result = await OpenFoodAPIClient.getProduct(
+        configuration,
+      );
+      if (result.product != null) {
+        await DaoProduct(localDatabase).put(result.product!);
+      }
+    }
+    return true;
   }
 }
