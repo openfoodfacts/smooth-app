@@ -103,9 +103,8 @@ class _EditProductPageState extends State<EditProductPage> {
                 }
               },
             ),
-            _ListTitleItem(
-              title: appLocalizations.edit_product_form_item_labels_title,
-              subtitle: appLocalizations.edit_product_form_item_labels_subtitle,
+            _getSimpleListTileItem(
+              SimpleInputPageLabelHelper(_product, appLocalizations),
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_ingredients_title,
@@ -126,25 +125,8 @@ class _EditProductPageState extends State<EditProductPage> {
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_packaging_title,
             ),
-            _ListTitleItem(
-              title: 'Stores', // TODO(monsieurtanuki): translate
-              onTap: () async {
-                final Product? refreshed = await Navigator.push<Product>(
-                  context,
-                  MaterialPageRoute<Product>(
-                    builder: (BuildContext context) => SimpleInputPage(
-                      SimpleInputPageStoreHelper(
-                        _product,
-                        appLocalizations,
-                      ),
-                    ),
-                  ),
-                );
-                if (refreshed != null) {
-                  _product = refreshed;
-                }
-                return;
-              },
+            _getSimpleListTileItem(
+              SimpleInputPageStoreHelper(_product, appLocalizations),
             ),
             _ListTitleItem(
               title:
@@ -179,6 +161,24 @@ class _EditProductPageState extends State<EditProductPage> {
       ),
     );
   }
+
+  Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) =>
+      _ListTitleItem(
+        title: helper.getTitle(),
+        subtitle: helper.getSubtitle(),
+        onTap: () async {
+          final Product? refreshed = await Navigator.push<Product>(
+            context,
+            MaterialPageRoute<Product>(
+              builder: (BuildContext context) => SimpleInputPage(helper),
+            ),
+          );
+          if (refreshed != null) {
+            _product = refreshed;
+          }
+          setState(() {});
+        },
+      );
 }
 
 class _ListTitleItem extends StatelessWidget {
