@@ -98,23 +98,20 @@ class ProductRefresher {
     final LocalDatabase localDatabase,
     final String barcode,
   ) async {
-    try {
-      final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-        barcode,
-        fields: ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-      );
-      final ProductResult result = await OpenFoodAPIClient.getProduct(
-        configuration,
-      );
-      if (result.product != null) {
-        await DaoProduct(localDatabase).put(result.product!);
-        return true;
-      }
-    } catch (e) {
-      //
+    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+      barcode,
+      fields: ProductQuery.fields,
+      language: ProductQuery.getLanguage(),
+      country: ProductQuery.getCountry(),
+    );
+    final ProductResult result = await OpenFoodAPIClient.getProduct(
+      configuration,
+    );
+    if (result.product != null) {
+      await DaoProduct(localDatabase).put(result.product!);
+      return true;
     }
+
     return false;
   }
 }
