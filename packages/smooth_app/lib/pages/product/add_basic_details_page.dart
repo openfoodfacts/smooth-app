@@ -137,17 +137,17 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         if (!mounted) {
                           return;
                         }
-                        widget.product.productName =
-                            _productNameController.text;
-                        widget.product.quantity = _weightController.text;
-                        widget.product.brands = _brandNameController.text;
+                        final Product product = Product(
+                            productName: _productNameController.text,
+                            quantity: _weightController.text,
+                            brands: _brandNameController.text);
                         final LocalDatabase localDatabase =
                             context.read<LocalDatabase>();
                         final bool savedAndRefreshed =
                             await ProductRefresher().saveAndRefresh(
                           context: context,
                           localDatabase: localDatabase,
-                          product: widget.product,
+                          product: product,
                         );
                         if (savedAndRefreshed) {
                           if (!mounted) {
