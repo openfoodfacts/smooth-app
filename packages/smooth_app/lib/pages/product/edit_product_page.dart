@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
@@ -23,14 +26,22 @@ class EditProductPage extends StatefulWidget {
 
 class _EditProductPageState extends State<EditProductPage> {
   int _changes = 0;
+  late Product _product;
+
+  @override
+  void initState() {
+    super.initState();
+    _product = widget.product;
+  }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: AutoSizeText(
-          getProductName(widget.product, appLocalizations),
+          getProductName(_product, appLocalizations),
           maxLines: 2,
         ),
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -52,9 +63,8 @@ class _EditProductPageState extends State<EditProductPage> {
               title: Text(
                 appLocalizations.edit_product_form_item_barcode,
               ),
-              subtitle: widget.product.barcode == null
-                  ? null
-                  : Text(widget.product.barcode!),
+              subtitle:
+                  _product.barcode == null ? null : Text(_product.barcode!),
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_details_title,
@@ -65,11 +75,12 @@ class _EditProductPageState extends State<EditProductPage> {
                   context,
                   MaterialPageRoute<bool>(
                     builder: (BuildContext context) =>
-                        AddBasicDetailsPage(widget.product),
+                        AddBasicDetailsPage(_product),
                   ),
                 );
                 if (refreshed ?? false) {
                   _changes++;
+                  await _refreshProduct();
                 }
               },
             ),
@@ -78,7 +89,7 @@ class _EditProductPageState extends State<EditProductPage> {
               subtitle: appLocalizations.edit_product_form_item_photos_subtitle,
               onTap: () async {
                 final List<ProductImageData> allProductImagesData =
-                    getAllProductImagesData(widget.product, appLocalizations);
+                    getAllProductImagesData(_product, appLocalizations);
                 final bool? refreshed = await Navigator.push<bool>(
                   context,
                   MaterialPageRoute<bool>(
@@ -86,12 +97,13 @@ class _EditProductPageState extends State<EditProductPage> {
                       productImageData: allProductImagesData.first,
                       allProductImagesData: allProductImagesData,
                       title: allProductImagesData.first.title,
-                      barcode: widget.product.barcode,
+                      barcode: _product.barcode,
                     ),
                   ),
                 );
                 if (refreshed ?? false) {
                   _changes++;
+                  await _refreshProduct();
                 }
               },
             ),
@@ -106,12 +118,13 @@ class _EditProductPageState extends State<EditProductPage> {
                   context,
                   MaterialPageRoute<bool>(
                     builder: (BuildContext context) => EditIngredientsPage(
-                      product: widget.product,
+                      product: _product,
                     ),
                   ),
                 );
                 if (refreshed ?? false) {
                   _changes++;
+                  await _refreshProduct();
                 }
               },
             ),
@@ -136,13 +149,14 @@ class _EditProductPageState extends State<EditProductPage> {
                   context,
                   MaterialPageRoute<bool>(
                     builder: (BuildContext context) => NutritionPageLoaded(
-                      widget.product,
+                      _product,
                       cache.orderedNutrients,
                     ),
                   ),
                 );
                 if (refreshed ?? false) {
                   _changes++;
+                  await _refreshProduct();
                 }
               },
             )
@@ -150,6 +164,15 @@ class _EditProductPageState extends State<EditProductPage> {
         ),
       ),
     );
+  }
+
+  Future<void> _refreshProduct() async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final Product? refreshedProduct =
+        await DaoProduct(localDatabase).get(_product.barcode ?? '');
+    if (refreshedProduct != null) {
+      _product = refreshedProduct;
+    }
   }
 }
 

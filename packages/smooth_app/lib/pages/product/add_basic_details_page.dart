@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
@@ -130,13 +133,34 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         _errorMessageAlert(
                             appLocalizations.basic_details_add_error);
                         return;
+                      } else {
+                        if (!mounted) {
+                          return;
+                        }
+                        widget.product.productName =
+                            _productNameController.text;
+                        widget.product.quantity = _weightController.text;
+                        widget.product.brands = _brandNameController.text;
+                        final LocalDatabase localDatabase =
+                            context.read<LocalDatabase>();
+                        final bool savedAndRefreshed =
+                            await ProductRefresher().saveAndRefresh(
+                          context: context,
+                          localDatabase: localDatabase,
+                          product: widget.product,
+                        );
+                        if (savedAndRefreshed) {
+                          if (!mounted) {
+                            return;
+                          }
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(
+                                  appLocalizations.basic_details_add_success)));
+                        }
                       }
                       if (!mounted) {
                         return;
                       }
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                              appLocalizations.basic_details_add_success)));
                       Navigator.pop(context, true);
                     }),
               ),
