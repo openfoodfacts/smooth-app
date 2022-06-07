@@ -455,12 +455,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     // minimal product: we only want to save the nutrients
     final Product inputProduct = _nutritionContainer.getProduct();
 
-    final bool savedAndRefreshed = await ProductRefresher().saveAndRefresh(
+    final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
       context: context,
       localDatabase: localDatabase,
       product: inputProduct,
     );
-    if (savedAndRefreshed) {
+    if (savedAndRefreshed != null) {
       if (!mounted) {
         return;
       }

@@ -9,24 +9,26 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
-  Future<bool> saveAndRefresh({
+  /// Returns a saved and refreshed [Product] if successful, or null.
+  Future<Product?> saveAndRefresh({
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     required final Product product,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool? savedAndRefreshed = await LoadingDialog.run<bool>(
+    final _MetaProductRefresher? savedAndRefreshed =
+        await LoadingDialog.run<_MetaProductRefresher>(
       future: _saveAndRefresh(product, localDatabase),
       context: context,
       title: appLocalizations.nutrition_page_update_running,
     );
     if (savedAndRefreshed == null) {
       // probably the end user stopped the dialog
-      return false;
+      return null;
     }
-    if (!savedAndRefreshed) {
+    if (savedAndRefreshed.product == null) {
       await LoadingDialog.error(context: context);
-      return false;
+      return null;
     }
     await showDialog<void>(
       context: context,
@@ -38,11 +40,11 @@ class ProductRefresher {
         ),
       ),
     );
-    return true;
+    return savedAndRefreshed.product;
   }
 
   /// Saves a product on the BE and refreshes the local database
-  Future<bool> _saveAndRefresh(
+  Future<_MetaProductRefresher> _saveAndRefresh(
     final Product inputProduct,
     final LocalDatabase localDatabase,
   ) async {
@@ -52,7 +54,7 @@ class ProductRefresher {
         inputProduct,
       );
       if (status.error != null) {
-        return false;
+        return _MetaProductRefresher.error(status.error);
       }
       final ProductQueryConfiguration configuration = ProductQueryConfiguration(
         inputProduct.barcode!,
@@ -65,12 +67,13 @@ class ProductRefresher {
       );
       if (result.product != null) {
         await DaoProduct(localDatabase).put(result.product!);
-        return true;
+        localDatabase.notifyListeners();
+        return _MetaProductRefresher.product(result.product);
       }
     } catch (e) {
       //
     }
-    return false;
+    return const _MetaProductRefresher.error(null);
   }
 
   Future<bool> fetchAndRefresh({
@@ -114,4 +117,12 @@ class ProductRefresher {
 
     return false;
   }
+}
+
+class _MetaProductRefresher {
+  const _MetaProductRefresher.error(this.error) : product = null;
+  const _MetaProductRefresher.product(this.product) : error = null;
+
+  final String? error;
+  final Product? product;
 }

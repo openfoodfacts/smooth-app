@@ -12,9 +12,9 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Kembali ke atas",
     "save": "menyimpan ",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Apa Anda yakin ingin menyimpan?",
     "skip": "Skip",
     "cancel": "Batalkan",
     "@cancel": {},
@@ -36,7 +36,7 @@
     "@error_occurred": {},
     "featureInProgress": "Kami masih mengerjakan fitur ini, pantau terus",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Lihat di web",
     "@label_web": {},
     "learnMore": "Pelajari lebih lanjut",
     "@learnMore": {},
@@ -784,6 +784,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "@camera_high_resolution_preset_toggle_title": {
+        "description": "Title for the Camera high resolution toggle"
+    },
+    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "@camera_high_resolution_preset_toggle_subtitle": {
+        "description": "SubTitle for the Camera high resolution toggle"
     },
     "crash_reporting_toggle_title": "Pelaporan kerusakan",
     "@crash_reporting_toggle_title": {

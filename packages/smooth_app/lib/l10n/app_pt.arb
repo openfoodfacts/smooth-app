@@ -785,6 +785,14 @@
             }
         }
     },
+    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "@camera_high_resolution_preset_toggle_title": {
+        "description": "Title for the Camera high resolution toggle"
+    },
+    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "@camera_high_resolution_preset_toggle_subtitle": {
+        "description": "SubTitle for the Camera high resolution toggle"
+    },
     "crash_reporting_toggle_title": "Relatório de erro",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"

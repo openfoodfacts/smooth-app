@@ -18,6 +18,10 @@
     "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
+    "ignore": "Ignore",
+    "@ignore": {
+        "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
+    },
     "close": "Close",
     "@close": {},
     "no": "No",
@@ -879,6 +883,19 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
+    "edit_product_form_item_labels_hint": "label",
+    "@edit_product_form_item_labels_hint": {
+        "description": "Product edition - Labels - input textfield hint"
+    },
+    "edit_product_form_item_stores_title": "Stores",
+    "@edit_product_form_item_stores_title": {
+        "description": "Product edition - Stores - Title"
+    },
+    "edit_product_form_item_stores_hint": "label",
+    "@edit_product_form_item_stores_hint": {
+        "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_ingredients_title": "Ingredients & Origins",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -970,6 +987,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_enable_flash": "Enable flash",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "Disable flash",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
     },
     "category_picker_no_category_found_button": "Back",
     "@category_picker_no_category_found_button": {

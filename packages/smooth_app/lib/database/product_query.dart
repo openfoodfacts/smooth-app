@@ -95,6 +95,7 @@ abstract class ProductQuery {
         ProductField.SELECTED_IMAGE,
         ProductField.QUANTITY,
         ProductField.SERVING_SIZE,
+        ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
         ProductField.NUTRIMENTS,
         ProductField.NUTRIENT_LEVELS,

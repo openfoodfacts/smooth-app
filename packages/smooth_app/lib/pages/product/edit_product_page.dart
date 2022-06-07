@@ -13,6 +13,8 @@ import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
+import 'package:smooth_app/pages/product/simple_input_page.dart';
+import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
 /// Page where we can indirectly edit all data about a product.
 class EditProductPage extends StatefulWidget {
@@ -107,9 +109,8 @@ class _EditProductPageState extends State<EditProductPage> {
                 }
               },
             ),
-            _ListTitleItem(
-              title: appLocalizations.edit_product_form_item_labels_title,
-              subtitle: appLocalizations.edit_product_form_item_labels_subtitle,
+            _getSimpleListTileItem(
+              SimpleInputPageLabelHelper(_product, appLocalizations),
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_ingredients_title,
@@ -130,6 +131,9 @@ class _EditProductPageState extends State<EditProductPage> {
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_packaging_title,
+            ),
+            _getSimpleListTileItem(
+              SimpleInputPageStoreHelper(_product, appLocalizations),
             ),
             _ListTitleItem(
               title:
@@ -159,7 +163,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   await _refreshProduct();
                 }
               },
-            )
+            ),
           ],
         ),
       ),
@@ -174,6 +178,24 @@ class _EditProductPageState extends State<EditProductPage> {
       _product = refreshedProduct;
     }
   }
+
+  Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) =>
+      _ListTitleItem(
+        title: helper.getTitle(),
+        subtitle: helper.getSubtitle(),
+        onTap: () async {
+          final Product? refreshed = await Navigator.push<Product>(
+            context,
+            MaterialPageRoute<Product>(
+              builder: (BuildContext context) => SimpleInputPage(helper),
+            ),
+          );
+          if (refreshed != null) {
+            _product = refreshed;
+          }
+          setState(() {});
+        },
+      );
 }
 
 class _ListTitleItem extends StatelessWidget {

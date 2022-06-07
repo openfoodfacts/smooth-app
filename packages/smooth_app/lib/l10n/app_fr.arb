@@ -18,6 +18,10 @@
     "skip": "Ignorer",
     "cancel": "Annuler",
     "@cancel": {},
+    "ignore": "Ignorer",
+    "@ignore": {
+        "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
+    },
     "close": "Fermer",
     "@close": {},
     "no": "Non",
@@ -785,6 +789,14 @@
             }
         }
     },
+    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "@camera_high_resolution_preset_toggle_title": {
+        "description": "Title for the Camera high resolution toggle"
+    },
+    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "@camera_high_resolution_preset_toggle_subtitle": {
+        "description": "SubTitle for the Camera high resolution toggle"
+    },
     "crash_reporting_toggle_title": "Rapport de plantage",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
@@ -863,6 +875,19 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
+    "edit_product_form_item_labels_hint": "label",
+    "@edit_product_form_item_labels_hint": {
+        "description": "Product edition - Labels - input textfield hint"
+    },
+    "edit_product_form_item_stores_title": "Magasins",
+    "@edit_product_form_item_stores_title": {
+        "description": "Product edition - Stores - Title"
+    },
+    "edit_product_form_item_stores_hint": "magasin",
+    "@edit_product_form_item_stores_hint": {
+        "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "Voulez-vous sauver vos modifications avant de quitter cette page ?",
     "edit_product_form_item_ingredients_title": "Ingrédients & Origines",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
