@@ -19,21 +19,16 @@ class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
     required this.product,
     required this.heroTag,
-    this.elevation = 0.0,
     this.backgroundColor,
-    this.handle,
     this.onLongPress,
-    this.refresh,
     this.onTap,
   });
 
   final Product product;
   final String heroTag;
-  final double elevation;
+  static const double elevation = 4.0;
   final Color? backgroundColor;
-  final Widget? handle;
   final VoidCallback? onLongPress;
-  final VoidCallback? refresh;
   final VoidCallback? onTap;
 
   @override
@@ -72,7 +67,6 @@ class SmoothProductCardFound extends StatelessWidget {
                 builder: (BuildContext context) => ProductPage(product),
               ),
             );
-            refresh?.call();
           },
       onLongPress: () {
         onLongPress?.call();
