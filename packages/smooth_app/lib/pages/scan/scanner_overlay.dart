@@ -15,7 +15,7 @@ import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 /// 2 - [foregroundChild]
 /// 3 - [topChild]
 class ScannerOverlay extends StatelessWidget {
-  const ScannerOverlay({
+  ScannerOverlay({
     required this.topChild,
     this.foregroundChild,
     this.backgroundChild,
@@ -31,23 +31,31 @@ class ScannerOverlay extends StatelessWidget {
   static const double scannerHeightPct = 0.33;
   static const double buttonRowHeightPx = 48;
 
+  /// A key allowing access to the [ScannerVisorWidget]
+  /// Accessible via [Provider.of] method
+  final GlobalKey<ScannerVisorWidgetState> _visorKey =
+      GlobalKey<ScannerVisorWidgetState>();
+
   @override
   Widget build(BuildContext context) {
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
 
-    return CustomMultiChildLayout(
-      delegate: _ScannerOverlayDelegate(
-        devicePadding: MediaQuery.of(context).padding,
-        visibleActions: model.getBarcodes().isNotEmpty,
-        hasVisor: _topItem is ScannerVisorWidget,
+    return Provider<GlobalKey<ScannerVisorWidgetState>>(
+      create: (_) => _visorKey,
+      child: CustomMultiChildLayout(
+        delegate: _ScannerOverlayDelegate(
+          devicePadding: MediaQuery.of(context).padding,
+          visibleActions: model.getBarcodes().isNotEmpty,
+          hasVisor: _topItem is ScannerVisorWidget,
+        ),
+        children: <Widget>[
+          _background,
+          if (foregroundChild != null) _foreground!,
+          _topItem,
+          _actions,
+          _carousel,
+        ],
       ),
-      children: <Widget>[
-        _background,
-        if (foregroundChild != null) _foreground!,
-        _topItem,
-        _actions,
-        _carousel,
-      ],
     );
   }
 

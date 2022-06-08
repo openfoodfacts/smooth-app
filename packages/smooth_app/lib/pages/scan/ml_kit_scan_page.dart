@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
+import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
@@ -259,12 +260,21 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         .listen(_onNewBarcodeDetected);
 
     try {
+      final _FocusPoint point = _focusPoint;
+
       await _controller?.init(
         focusMode: FocusMode.auto,
-        focusPoint: _focusPoint,
+        focusPoint: point.offset,
         deviceOrientation: DeviceOrientation.portraitUp,
         onAvailable: (CameraImage image) => _subject.add(image),
       );
+
+      // If the Widget tree isn't ready, wait for the first frame
+      if (!point.precise) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _controller?.setFocusPoint(_focusPoint.offset);
+        });
+      }
     } on CameraException catch (e) {
       if (kDebugMode) {
         // TODO(M123): Show error message
@@ -425,19 +435,50 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   /// Whatever the scan mode is, we always want the focus point to be on
-  /// "half-top" of the screen
-  Offset get _focusPoint {
-    if (_previewScale == 1.0) {
-      return const Offset(0.5, 0.25);
+  /// the middle of the [ScannerVisorWidget]
+  _FocusPoint get _focusPoint {
+    final double? preciseY;
+
+    if (mounted) {
+      final GlobalKey<ScannerVisorWidgetState> key =
+          Provider.of<GlobalKey<ScannerVisorWidgetState>>(context,
+              listen: false);
+
+      final Offset? visorOffset =
+          (key.currentContext?.findRenderObject() as RenderBox?)
+              ?.localToGlobal(Offset.zero);
+
+      if (visorOffset != null) {
+        preciseY = (visorOffset.dy +
+                (ScannerVisorWidget.getSize(context).height) / 2) /
+            MediaQuery.of(context).size.height;
+      } else {
+        preciseY = null;
+      }
     } else {
-      // Since we use a [Alignment.topCenter] alignment for the preview, we
-      // have to recompute the position of the focus point
-      return Offset(0.5, 0.25 / _previewScale);
+      preciseY = null;
     }
+
+    return _FocusPoint(
+      offset: Offset(0.5, preciseY ?? 0.25 / _previewScale),
+      precise: preciseY != null,
+    );
   }
 
   SmoothCameraController? get _controller => CameraHelper.controller;
 
   @override
   String get traceTitle => 'ml_kit_scan_page';
+}
+
+/// Provides the position to the center of the visor
+/// [precise] is [true] when the computation is based on the Widget coordinates
+class _FocusPoint {
+  _FocusPoint({
+    required this.offset,
+    required this.precise,
+  });
+
+  final Offset offset;
+  final bool precise;
 }

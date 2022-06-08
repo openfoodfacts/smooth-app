@@ -53,10 +53,10 @@ class _ScanPageState extends State<ScanPage> {
           create: (_) => PermissionListener(
             permission: Permission.camera,
           ),
-          child: const ScannerOverlay(
-            backgroundChild: _ScanPageBackgroundWidget(),
-            foregroundChild: _ScanPageForegroundWidget(),
-            topChild: _ScanPageTopWidget(),
+          child: ScannerOverlay(
+            backgroundChild: const _ScanPageBackgroundWidget(),
+            foregroundChild: const _ScanPageForegroundWidget(),
+            topChild: const _ScanPageTopWidget(),
           ),
         ),
       ),
