@@ -903,7 +903,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation": "Voulez-vous sauver vos modifications avant de quitter cette page ?",
     "edit_product_form_item_ingredients_title": "Ingrédients & Origines",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
