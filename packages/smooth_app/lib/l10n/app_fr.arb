@@ -143,6 +143,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_in_mandatory": "Pour cette fonctionnalité nous avons besoin que vous soyez connecté.",
     "sign_out": "Se déconnecter",
     "@sign_out": {
         "description": "Button label: For sign out"
