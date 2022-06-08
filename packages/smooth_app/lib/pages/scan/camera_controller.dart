@@ -86,7 +86,12 @@ class SmoothCameraController extends CameraController {
         // Camera already disposed
       }
 
-      await super.pausePreview();
+      try {
+        await super.pausePreview();
+      } catch (exception) {
+        // Camera already disposed
+      }
+
       _isPaused = true;
     }
   }
