@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/scan/scan_flash_toggle.dart';
 
-class ScannerVisorWidget extends StatelessWidget {
+/// This Widget is a [StatefulWidget], as it uses a [GlobalKey] to allow an
+/// external access
+class ScannerVisorWidget extends StatefulWidget {
   const ScannerVisorWidget({Key? key}) : super(key: key);
 
   @override
+  State<ScannerVisorWidget> createState() => ScannerVisorWidgetState();
+
+  /// Returns the Size of the visor
+  static Size getSize(BuildContext context) => Size(
+        MediaQuery.of(context).size.width * 0.8,
+        150.0,
+      );
+}
+
+class ScannerVisorWidgetState extends State<ScannerVisorWidget> {
+  @override
   Widget build(BuildContext context) {
     return Stack(
+      key: Provider.of<GlobalKey<ScannerVisorWidgetState>>(context),
       children: <Widget>[
         SizedBox.fromSize(
-          size: getSize(context),
+          size: ScannerVisorWidget.getSize(context),
           child: CustomPaint(
             painter: ScanVisorPainter(),
             child: Center(
@@ -31,12 +46,6 @@ class ScannerVisorWidget extends StatelessWidget {
       ],
     );
   }
-
-  /// Returns the Size of the visor
-  static Size getSize(BuildContext context) => Size(
-        MediaQuery.of(context).size.width * 0.8,
-        150.0,
-      );
 }
 
 class ScanVisorPainter extends CustomPainter {

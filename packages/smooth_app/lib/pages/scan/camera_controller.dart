@@ -41,6 +41,8 @@ class SmoothCameraController extends CameraController {
   /// Listen to camera closed events
   StreamSubscription<CameraClosingEvent>? _closeListener;
 
+  Offset? _focusPoint;
+
   Future<void> init({
     required FocusMode focusMode,
     required Offset focusPoint,
@@ -52,8 +54,8 @@ class SmoothCameraController extends CameraController {
       _isBeingInitialized = true;
       await initialize();
       await setFocusMode(focusMode);
-      await setFocusPoint(focusPoint);
       await setExposurePoint(focusPoint);
+      await setFocusPoint(focusPoint);
       await lockCaptureOrientation(deviceOrientation);
       await startImageStream(onAvailable);
       await enableFlash(enableTorch ?? preferences.useFlashWithCamera);
@@ -110,6 +112,7 @@ class SmoothCameraController extends CameraController {
   Future<void> resumePreview() async {
     await super.resumePreview();
     await _resumeFlash();
+    await refocus();
     _isPaused = false;
   }
 
@@ -149,6 +152,18 @@ class SmoothCameraController extends CameraController {
   Future<void> stopImageStream() async {
     await super.stopImageStream();
     _isPaused = false;
+  }
+
+  @override
+  Future<void> setFocusPoint(Offset? point) async {
+    await setExposurePoint(point);
+    await super.setFocusPoint(point);
+    _focusPoint = point;
+  }
+
+  /// Force the focus to the latest call to [setFocusPoint].
+  Future<void> refocus() async {
+    return setFocusPoint(_focusPoint);
   }
 
   @override
