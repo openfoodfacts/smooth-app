@@ -6,21 +6,63 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/pages/user_management/login_page.dart';
 
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
+  /// Checks if the user is logged in and opens a "please log in" dialog if not.
+  Future<bool> checkIfLoggedIn(final BuildContext context) async {
+    if (ProductQuery.isLoggedIn()) {
+      return true;
+    }
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    await showDialog<void>(
+      context: context,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        body: Text(appLocalizations.sign_in_mandatory),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.sign_in,
+          onPressed: () async {
+            Navigator.of(context).pop(); // remove dialog
+            await Navigator.of(
+              context,
+              rootNavigator: true,
+            ).push<dynamic>(
+              MaterialPageRoute<dynamic>(
+                builder: (BuildContext context) => const LoginPage(),
+              ),
+            );
+          },
+        ),
+        neutralAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
+    );
+    return false;
+  }
+
   /// Returns a saved and refreshed [Product] if successful, or null.
   Future<Product?> saveAndRefresh({
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     required final Product product,
+    // most of the time, we need the user to be signed in.
+    final bool isLoggedInMandatory = true,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if (isLoggedInMandatory) {
+      if (!await checkIfLoggedIn(context)) {
+        return null;
+      }
+    }
     final _MetaProductRefresher? savedAndRefreshed =
         await LoadingDialog.run<_MetaProductRefresher>(
       future: _saveAndRefresh(product, localDatabase),
       context: context,
-      title: appLocalizations.nutrition_page_update_running,
+      title: appLocalizations
+          .nutrition_page_update_running, // TODO(monsieurtanuki): title as method parameter
     );
     if (savedAndRefreshed == null) {
       // probably the end user stopped the dialog
@@ -33,7 +75,8 @@ class ProductRefresher {
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(appLocalizations.nutrition_page_update_done),
+        body: Text(appLocalizations
+            .nutrition_page_update_done), // TODO(monsieurtanuki): title as method parameter
         positiveAction: SmoothActionButton(
           text: appLocalizations.okay,
           onPressed: () => Navigator.of(context).pop(),

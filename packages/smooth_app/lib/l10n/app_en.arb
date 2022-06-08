@@ -143,6 +143,10 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
+    },
     "sign_out": "Sign out",
     "@sign_out": {
         "description": "Button label: For sign out"
