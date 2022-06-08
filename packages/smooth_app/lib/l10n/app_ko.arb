@@ -18,7 +18,7 @@
     "skip": "건너뛰기",
     "cancel": "취소",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "무시",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -142,6 +142,10 @@
     "sign_in": "가입하기",
     "@sign_in": {
         "description": "Button label: For sign in"
+    },
+    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
     },
     "sign_out": "로그아웃",
     "@sign_out": {
@@ -797,11 +801,11 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_play_sound_title": "Play camera sound",
+    "camera_play_sound_title": "Play a sound on scan",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "스캔을 성공할 때마다 신호음이 울립니다",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
@@ -903,7 +907,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation": "페이지를 나가기 전에 변경 사항을 저장하시겠습니까?",
     "edit_product_form_item_ingredients_title": "성분 및 원산지",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -996,11 +1000,11 @@
             }
         }
     },
-    "camera_enable_flash": "Enable flash",
+    "camera_enable_flash": "플래시 켜기",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Disable flash",
+    "camera_disable_flash": "플래시 끄기",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },

@@ -18,7 +18,7 @@
     "skip": "Ignorer",
     "cancel": "Annuler",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ignorer",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -143,7 +143,10 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "Pour cette fonctionnalité nous avons besoin que vous soyez connecté.",
+    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
+    },
     "sign_out": "Se déconnecter",
     "@sign_out": {
         "description": "Button label: For sign out"
@@ -798,11 +801,11 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_play_sound_title": "Play camera sound",
+    "camera_play_sound_title": "Play a sound on scan",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "Bipper à chaque scan réussi",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
@@ -904,7 +907,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Voulez-vous sauver vos modifications avant de quitter cette page ?",
+    "edit_product_form_item_exit_confirmation": "Souhaitez-vous enregistrer vos modifications avant de quitter cette page ?",
     "edit_product_form_item_ingredients_title": "Ingrédients & Origines",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -997,11 +1000,11 @@
             }
         }
     },
-    "camera_enable_flash": "Enable flash",
+    "camera_enable_flash": "Activer le flash",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Disable flash",
+    "camera_disable_flash": "Désactiver le flash",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
