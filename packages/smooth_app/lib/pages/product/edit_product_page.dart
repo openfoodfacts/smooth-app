@@ -199,23 +199,12 @@ class _ListTitleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return ListTile(
       onTap: onTap,
       title: Text(title),
       subtitle: subtitle == null ? null : Text(subtitle!),
       leading: ElevatedButton(
         onPressed: onTap,
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.disabled)) {
-                return Colors.grey;
-              }
-              return colorScheme.primary;
-            },
-          ),
-        ),
         child: Text(appLocalizations.edit_product_form_save),
       ),
     );
