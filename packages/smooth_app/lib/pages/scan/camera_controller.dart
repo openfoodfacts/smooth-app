@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:camera_platform_interface/camera_platform_interface.dart';
@@ -7,6 +8,9 @@ import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 
 /// A lifecycle-aware [CameraController]
+/// On Android it supports pause/resume feed
+/// On iOS, pausing the feed will dispose the controller instead, as the camera
+/// indicator stays on
 class SmoothCameraController extends CameraController {
   SmoothCameraController(
     this.preferences,
@@ -79,6 +83,10 @@ class SmoothCameraController extends CameraController {
 
   @override
   Future<void> pausePreview() async {
+    if (!isPauseResumePreviewSupported) {
+      throw UnimplementedError('This feature is not supported!');
+    }
+
     if (_isInitialized) {
       await _pauseFlash();
       await super.pausePreview();
@@ -87,6 +95,10 @@ class SmoothCameraController extends CameraController {
   }
 
   Future<void> resumePreviewIfNecessary() async {
+    if (!isPauseResumePreviewSupported) {
+      throw UnimplementedError('This feature is not supported!');
+    }
+
     if (_isPaused) {
       return resumePreview();
     }
@@ -152,6 +164,8 @@ class SmoothCameraController extends CameraController {
   bool get isInitialized => _isInitialized;
 
   bool get isBeingInitialized => _isBeingInitialized;
+
+  bool get isPauseResumePreviewSupported => !Platform.isIOS;
 }
 
 extension CameraValueExtension on CameraValue {

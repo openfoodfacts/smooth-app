@@ -317,8 +317,13 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       return;
     }
 
-    _streamSubscription?.pause();
-    await _controller?.pausePreview();
+    if (_controller != null &&
+        _controller!.isPauseResumePreviewSupported != true) {
+      await _stopImageStream(autoRestart: false);
+    } else {
+      _streamSubscription?.pause();
+      await _controller?.pausePreview();
+    }
   }
 
   Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
@@ -352,17 +357,22 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       _streamSubscription!.resume();
     }
 
-    await _controller?.resumePreviewIfNecessary();
+    if (_controller?.isPauseResumePreviewSupported == true) {
+      await _controller?.resumePreviewIfNecessary();
+    }
     stoppingCamera = false;
   }
 
-  Future<void> _stopImageStream() async {
+  Future<void> _stopImageStream({bool autoRestart = true}) async {
     if (stoppingCamera) {
       return;
     }
 
     stoppingCamera = true;
-    await _controller?.pausePreview();
+
+    if (_controller?.isPauseResumePreviewSupported == true) {
+      await _controller?.pausePreview();
+    }
 
     _redrawScreen();
 
@@ -376,7 +386,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     _barcodeDecoder = null;
 
     stoppingCamera = false;
-    _restartCameraIfNecessary();
+
+    if (autoRestart) {
+      _restartCameraIfNecessary();
+    }
   }
 
   void _redrawScreen() {
