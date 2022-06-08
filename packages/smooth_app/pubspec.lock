@@ -699,7 +699,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.18.0"
+    version: "1.18.1"
   package_config:
     dependency: transitive
     description:
