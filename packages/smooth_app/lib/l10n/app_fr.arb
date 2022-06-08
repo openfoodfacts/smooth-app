@@ -18,7 +18,7 @@
     "skip": "Ignorer",
     "cancel": "Annuler",
     "@cancel": {},
-    "ignore": "Ignorer",
+    "ignore": "Ignore",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -701,7 +701,7 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Nous avons inventé\nl'appli de scan\ncollaboratif en 2012",
+    "onboarding_reinventing_text1": "Nous avons inventé\nl'appli de scan\ncollaborative en 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
@@ -789,13 +789,21 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "camera_high_resolution_preset_toggle_title": "Mode haute performance de l'appareil photo",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Lorsqu'il est activé, la qualité de décodage des codes-barres devrait être meilleure, mais peut avoir un impact sur les performances et la durée de vie de la batterie. Nécessite un redémarrage de l'application.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
+    },
+    "camera_play_sound_title": "Play camera sound",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
     },
     "crash_reporting_toggle_title": "Rapport de plantage",
     "@crash_reporting_toggle_title": {
@@ -895,7 +903,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Voulez-vous sauver vos modifications avant de quitter cette page ?",
+    "edit_product_form_item_exit_confirmation": "Voulez-vous sauver vos modifications avant de quitter cette page ?",
     "edit_product_form_item_ingredients_title": "Ingrédients & Origines",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -987,6 +995,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_enable_flash": "Enable flash",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "Disable flash",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
     },
     "category_picker_no_category_found_button": "Retour",
     "@category_picker_no_category_found_button": {
