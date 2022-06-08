@@ -28,6 +28,16 @@ class SmoothTheme {
         showUnselectedLabels: false,
         selectedItemColor: myColorScheme.primary,
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) =>
+                states.contains(MaterialState.disabled)
+                    ? Colors.grey
+                    : myColorScheme.primary,
+          ),
+        ),
+      ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: myColorScheme.primary,
           foregroundColor: myColorScheme.onPrimary),
