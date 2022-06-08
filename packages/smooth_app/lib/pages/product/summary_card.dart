@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
@@ -23,6 +24,7 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
@@ -720,10 +722,14 @@ class _SummaryCardState extends State<SummaryCard> {
       return;
     }
 
+    final KnowledgePanelPanelGroupElement? group =
+        KnowledgePanelGroupCard.groupElementOf(context);
+
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
         builder: (BuildContext context) => KnowledgePanelPage(
+          groupElement: group,
           panel: knowledgePanel,
           allPanels: widget._product.knowledgePanels!,
         ),

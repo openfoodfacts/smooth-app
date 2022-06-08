@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -11,10 +12,12 @@ class KnowledgePanelPage extends StatefulWidget {
   const KnowledgePanelPage({
     required this.panel,
     required this.allPanels,
+    this.groupElement,
   });
 
   final KnowledgePanel panel;
   final KnowledgePanels allPanels;
+  final KnowledgePanelPanelGroupElement? groupElement;
 
   @override
   State<KnowledgePanelPage> createState() => _KnowledgePanelPageState();
@@ -32,11 +35,10 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   @override
   Widget build(BuildContext context) {
     AnalyticsHelper.trackKnowledgePanelOpen();
+
     return Scaffold(
       appBar: AppBar(
-        title: widget.panel.titleElement == null
-            ? null
-            : Text(widget.panel.titleElement!.title),
+        title: Text(_title),
       ),
       body: SingleChildScrollView(
         child: SmoothCard(
@@ -50,5 +52,15 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
         ),
       ),
     );
+  }
+
+  String get _title {
+    if (widget.groupElement?.title.isNotEmpty == true) {
+      return widget.groupElement!.title;
+    } else if (widget.panel.titleElement?.title.isNotEmpty == true) {
+      return widget.panel.titleElement!.title;
+    } else {
+      return '';
+    }
   }
 }

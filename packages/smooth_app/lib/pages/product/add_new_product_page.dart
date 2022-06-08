@@ -80,8 +80,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                 child: SmoothActionButtonsBar.single(
                   action: SmoothActionButton(
                     text: appLocalizations.finish,
-                    onPressed: () {
-                      Navigator.maybePop(
+                    onPressed: () async {
+                      await Navigator.maybePop(
                           context, _isProductLoaded ? widget.barcode : null);
                     },
                   ),
