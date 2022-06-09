@@ -156,11 +156,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         return SmoothProductCardNotFound(
           barcode: barcode,
           callback: (String? barcodeLoaded) async {
-            // Remove the "Add New Product" card. The user may have added it
-            // already.
-            if (barcodeLoaded == null) {
-              _model.getBarcodes().remove(barcode);
-            } else {
+            if (barcodeLoaded != null) {
               await _model.refresh();
             }
             setState(() {});
