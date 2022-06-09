@@ -95,7 +95,7 @@ class _HelperState extends State<_Helper> {
         ),
       ),
       Container(
-        height: _isProductExpanded ? null : 150,
+        height: _isProductExpanded ? null : 180,
         padding: const EdgeInsets.only(
           bottom: LARGE_SPACE,
           right: LARGE_SPACE,
@@ -108,6 +108,7 @@ class _HelperState extends State<_Helper> {
             productPreferences,
             isFullVersion: _isProductExpanded,
             isRemovable: false,
+            isSettingClickable: false,
           ),
         ),
       ),
