@@ -411,9 +411,9 @@
     },
     "ingredients": "Sestavine",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Ohranite prvotni vrstni red. Navedite odstotek, kjer je možnost. Ločite z vejico ali vezajem, uporabite oklepaje za sestavine izdelka in navedite alergene med podčrtaji.",
-    "ingredients_editing_error": "Sestavine ni mogoče shraniti.",
-    "ingredients_editing_image_error": "Slike sestavine ni bilo mogoče shraniti.",
+    "ingredients_editing_instructions": "Ohranite prvotni vrstni red. Navedite odstotek, kjer je to mogoče. Ločite z vejico ali vezajem, uporabite oklepaje za sestavine izdelka in navedite alergene med podčrtaji.",
+    "ingredients_editing_error": "Sestavin ni mogoče shraniti.",
+    "ingredients_editing_image_error": "Slike sestavin ni bilo mogoče shraniti.",
     "ingredients_editing_title": "Uredite sestavine",
     "ingredients_photo": "Slike sestavin",
     "@ingredients_photo": {
@@ -442,7 +442,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Nov izdelek",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Sprednja slika izdelka",
+    "front_packaging_photo_button_label": "Fotografija sprednjega dela izdelka",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Potrdite naloženo sprednjo fotografijo izdelka",
     "@confirm_front_packaging_photo_button_label": {
@@ -452,8 +452,8 @@
     "front_packaging_photo_title": "Fotografija sprednje embalaže",
     "ingredients_photo_title": "Slika sestavin",
     "nutritional_facts_photo_title": "Slika hranilnih vrednosti",
-    "recycling_photo_title": "Fotografija reciklaže",
-    "other_interesting_photo_title": "Druge relevantne fotografije",
+    "recycling_photo_title": "Fotografija recikliranja",
+    "other_interesting_photo_title": "Druge fotografije",
     "front_photo_uploaded": "Sprednja fotografija je naložena",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Slike sestavin",
@@ -467,11 +467,11 @@
     "nutritional_facts_added": "Hranilne vrednosti so dodane",
     "nutritional_facts_photo_uploaded": "Slika hranilnih vrednosti je naložena",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Slika z informacijami o reciklaži",
+    "recycling_photo_button_label": "Slika z informacijami o recikliranju",
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Fotografija recikliranja je bila naložena",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Ostale relevantne fotografije",
+    "other_interesting_photo_button_label": "Ostale fotografije",
     "@other_interesting_photo_button_label": {},
     "other_photo_uploaded": "Razna fotografija je naložena",
     "@other_photo_uploaded": {},
@@ -512,7 +512,7 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Dodaj manjkajoče sestavine",
-    "score_add_missing_nutrition_facts": "Dodaj manjkajoče hranilne vredbosti",
+    "score_add_missing_nutrition_facts": "Dodaj manjkajoče hranilne vrednosti",
     "score_add_missing_product_category": "Dodaj manjkajočo kategorijo izdelka",
     "score_update_nutrition_facts": "Posodobi hranilne vrednosti",
     "nutrition_page_title": "Dejstva o hranilni vrednosti",
@@ -524,7 +524,7 @@
     "nutrition_page_invalid_number": "Neveljavna številka",
     "nutrition_page_update_running": "Posodabljanje izdelka na strežniku...",
     "nutrition_page_update_done": "Izdelek posodobljen!",
-    "more_photos": "Ostale relevantne fotografije",
+    "more_photos": "Ostale fotografije",
     "@more_photos": {},
     "no_product_found": "Ni zadetkov",
     "@no_product_found": {},
@@ -535,7 +535,7 @@
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_refreshed": "Izdelki osveženi",
+    "product_refreshed": "Izdelki so osveženi",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
@@ -567,7 +567,7 @@
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "Nutri-Score za ta izdelek ni mogoče izračunati, kar je lahko posledica npr. nestandardne kategorije. Če to štejeta za napako, nas prosim kontaktirajte.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-Score za ta izdelek ni mogoče izračunati, kar je lahko posledica npr. nestandardne kategorije. Če to štejete za napako, nas prosim kontaktirajte.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
@@ -609,7 +609,7 @@
     },
     "really_clear": "Ali res želite izbrisati ta seznam?",
     "@Plural": {},
-    "pct_match": "{percent}% ujemanja",
+    "pct_match": "{percent}% ujemanje",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
@@ -688,7 +688,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "authorize_button_label": "Odobri",
+    "authorize_button_label": "Pooblasti",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
@@ -705,11 +705,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Kooperativno aplikacijo\nza skeniranje smo\nizumili v 2012",
+    "onboarding_reinventing_text1": "Kooperativno aplikacijo\nza skeniranje smo\nizumili leta 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "Ker smo dopolnili 10\nbomo izumli vse na novo\nod pete do glave!",
+    "onboarding_reinventing_text2": "Ker smo dopolnili 10\nbomo preoblikovali vse na novo\nod glave do pete!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -717,7 +717,7 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "product_list_your_ranking": "Vaša uvrstitev",
+    "product_list_your_ranking": "Vaša razvrstitev",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
@@ -737,7 +737,7 @@
     "@product_list_reloading_in_progress": {
         "description": "Message to show while loading previous scanned items"
     },
-    "product_list_reloading_success": "Osveževanje izdelkov končana",
+    "product_list_reloading_success": "Osvežitev izdelka je končana",
     "@product_list_reloading_success": {
         "description": "Message to show once previous scanned items are loaded"
     },
@@ -813,7 +813,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "Ko je omogočeno, se poročila o zrušitvah samodejno pošljejo v za sledenje napakam Open Food Facts. Na ta način je mogoče popravljati napake in s tem, izboljšati aplikacijo.",
+    "crash_reporting_toggle_subtitle": "Ko je omogočeno, se poročila o zrušitvah samodejno pošljejo v sistem za sledenje napakam Open Food Facts. Na ta način je mogoče popravljati napake in s tem, izboljšati aplikacijo.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1256,7 +1256,7 @@
     "product_name": "Ime izdelka",
     "add_basic_details_product_name_error": "Prosimo, vnesite ime izdelka",
     "brand_name": "Blagovna znamka",
-    "add_basic_details_brand_name_error": "Vnesite blsgovno znamko",
+    "add_basic_details_brand_name_error": "Vnesite blagovno znamko",
     "quantity": "Količina in teža",
     "barcode": "Črtna koda",
     "barcode_barcode": "Črtna koda: {barcode}",
