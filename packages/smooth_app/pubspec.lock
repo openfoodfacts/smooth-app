@@ -90,7 +90,7 @@ packages:
     description:
       path: "packages/camera/camera"
       ref: camera_fix_debug
-      resolved-ref: f67835a36bf1ae1584606b0ca690a3e09250c2ee
+      resolved-ref: e4f9261368b212142710df541134e0a9e1fbd5c8
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.9.6"
