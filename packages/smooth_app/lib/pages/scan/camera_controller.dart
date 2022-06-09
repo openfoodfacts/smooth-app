@@ -90,8 +90,18 @@ class SmoothCameraController extends CameraController {
     }
 
     if (_isInitialized) {
-      await _pauseFlash();
-      await super.pausePreview();
+      try {
+        await _pauseFlash();
+      } catch (exception) {
+        // Camera already disposed
+      }
+
+      try {
+        await super.pausePreview();
+      } catch (exception) {
+        // Camera already disposed
+      }
+
       _isPaused = true;
     }
   }
