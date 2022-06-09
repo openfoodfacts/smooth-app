@@ -12,6 +12,7 @@ jobs:
         shell: bash
 
     strategy:
+      fail-fast: false
       matrix:
         flutter_channel: [stable, beta]
 
