@@ -22,9 +22,9 @@ jobs:
       - name: Setup flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          channel: ${{ matrix.flutter_channel }}
           cache: true
-          cache-key: flutter3.0.1-${{ env.FLUTTER_CHANNEL }} # change this to force refresh cache
+          cache-key: flutter3.0.1-${{ matrix.flutter_channel }} # change this to force refresh cache
 
       - name: Print flutter version
         run: flutter --version
