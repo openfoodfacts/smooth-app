@@ -1317,7 +1317,7 @@
         "description": "Label for the add photo button"
     },
     "camera_paused_dialog_title": "Camera paused",
-    "camera_paused_dialog_content": "To optimize the battery life of your phone, the scanner has been automatically turned off after {min} min of inactivity",
+    "camera_paused_dialog_content": "To save energy, the scanner has been automatically turned off after {min} min of inactivity",
     "@camera_paused_dialog_content": {
         "placeholders": {
             "min": {}
