@@ -302,6 +302,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   Future<void> _onNewBarcodeDetected(List<String> barcodes) async {
+    bool barcodeAdded = false;
+
     for (final String barcode in barcodes) {
       if (await _model.onScan(barcode)) {
         // Both are Future methods, but it doesn't matter to wait here
@@ -315,7 +317,12 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
           );
         }
         _userPreferences.setFirstScanAchieved();
+        barcodeAdded = true;
       }
+    }
+
+    if (barcodeAdded) {
+      _startTimerForInactivity();
     }
   }
 
@@ -499,6 +506,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   SmoothCameraController? get _controller => CameraHelper.controller;
 
+  /// Starts (or restarts) the timer for inactivity
   void _startTimerForInactivity() {
     _stopTimerForInactivity();
 
