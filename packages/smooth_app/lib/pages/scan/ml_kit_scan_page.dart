@@ -134,7 +134,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   Widget _buildScannerWidget() {
     // Showing a black scanner background when the camera is not initialized
-    if (!isCameraInitialized) {
+    if (!isCameraReady) {
       return const SizedBox.expand(
         child: ColoredBox(
           color: Colors.black,
@@ -195,6 +195,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   bool get isCameraInitialized => _controller?.isInitialized == true;
+
+  bool get isCameraReady => _controller?.canShowPreview == true;
 
   Future<void> _startLiveFeed() async {
     if (_camera == null) {
@@ -390,9 +392,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     await _streamSubscription?.cancel();
 
     await _controller?.dispose();
-    await _barcodeDecoder?.dispose();
     CameraHelper.destroyControllerInstance();
 
+    await _barcodeDecoder?.dispose();
     _barcodeDecoder = null;
 
     stoppingCamera = false;
