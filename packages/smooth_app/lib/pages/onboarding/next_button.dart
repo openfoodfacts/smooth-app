@@ -35,6 +35,7 @@ class NextButton extends StatelessWidget {
         OnboardingFlowNavigator(userPreferences);
     final OnboardingPage previousPage =
         OnboardingFlowNavigator.getPrevPage(currentPage);
+    final bool hasPrevious = previousPage != OnboardingPage.NOT_STARTED;
     return Column(
       children: <Widget>[
         Container(
@@ -50,10 +51,12 @@ class NextButton extends StatelessWidget {
           width: screenSize.width,
           color: backgroundColor,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: hasPrevious
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              if (previousPage != OnboardingPage.NOT_STARTED)
+              if (hasPrevious)
                 Padding(
                   padding: const EdgeInsets.only(right: LARGE_SPACE),
                   child: ElevatedButton(
