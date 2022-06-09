@@ -17,9 +17,8 @@ class SmoothCameraController extends CameraController {
     CameraDescription description,
     ResolutionPreset resolutionPreset, {
     ImageFormatGroup? imageFormatGroup,
-  })  : _isPaused = false,
-        _isInitialized = false,
-        _isBeingInitialized = false,
+  })  : _state = _CameraState.notInitialized,
+        _hasAPendingResume = false,
         super(
           description,
           resolutionPreset,
@@ -30,13 +29,11 @@ class SmoothCameraController extends CameraController {
   final UserPreferences preferences;
 
   /// Status of the preview
-  bool _isPaused;
+  _CameraState _state;
 
-  /// Status of the controller
-  bool _isInitialized;
-
-  /// Indicates if the [init] method is in progress
-  bool _isBeingInitialized;
+  /// Flag to indicate that the [resumePreview] method was called, but
+  /// [pausePreview] was still processing
+  bool _hasAPendingResume;
 
   /// Listen to camera closed events
   StreamSubscription<CameraClosingEvent>? _closeListener;
@@ -50,8 +47,8 @@ class SmoothCameraController extends CameraController {
     required onLatestImageAvailable onAvailable,
     bool? enableTorch,
   }) async {
-    if (!_isInitialized && !_isBeingInitialized) {
-      _isBeingInitialized = true;
+    if (!isInitialized) {
+      _updateState(_CameraState.beingInitialized);
       await initialize();
       await setFocusMode(focusMode);
       await setExposurePoint(focusPoint);
@@ -59,14 +56,16 @@ class SmoothCameraController extends CameraController {
       await lockCaptureOrientation(deviceOrientation);
       await startImageStream(onAvailable);
       await enableFlash(enableTorch ?? preferences.useFlashWithCamera);
-      _isInitialized = true;
-      _isBeingInitialized = false;
+      _updateState(_CameraState.initialized);
+      _hasAPendingResume = false;
 
       _closeListener = CameraPlatform.instance
           .onCameraClosing(cameraId)
           .listen((CameraClosingEvent event) async {
         value = value.markAsClosed();
       });
+
+      _updateState(_CameraState.resumed);
     }
   }
 
@@ -79,7 +78,6 @@ class SmoothCameraController extends CameraController {
   Future<void> startImageStream(onLatestImageAvailable onAvailable) {
     final Future<void> startImageStreamResult =
         super.startImageStream(onAvailable);
-    _isPaused = false;
     return startImageStreamResult;
   }
 
@@ -89,7 +87,9 @@ class SmoothCameraController extends CameraController {
       throw UnimplementedError('This feature is not supported!');
     }
 
-    if (_isInitialized) {
+    if (_state != _CameraState.beingPaused) {
+      _updateState(_CameraState.beingPaused);
+
       try {
         await _pauseFlash();
       } catch (exception) {
@@ -102,17 +102,26 @@ class SmoothCameraController extends CameraController {
         // Camera already disposed
       }
 
-      _isPaused = true;
-      notifyListeners();
+      _updateState(_CameraState.paused);
+
+      // If the pause process took too long, resume the camera if necessary
+      if (_hasAPendingResume) {
+        _hasAPendingResume = false;
+        resumePreviewIfNecessary();
+      }
     }
   }
 
   Future<void> resumePreviewIfNecessary() async {
     if (!isPauseResumePreviewSupported) {
       throw UnimplementedError('This feature is not supported!');
-    }
-
-    if (_isPaused) {
+    } else if (_state == _CameraState.beingPaused) {
+      // The pause process can sometimes be too long, in that case, we just for
+      // it to be finished
+      _hasAPendingResume = true;
+      debugPrint('Preview not paused, will be restarted later…');
+      return;
+    } else if (_state == _CameraState.paused) {
       return resumePreview();
     }
   }
@@ -121,10 +130,11 @@ class SmoothCameraController extends CameraController {
   @protected
   @override
   Future<void> resumePreview() async {
+    _updateState(_CameraState.beingResumed);
     await super.resumePreview();
     await _resumeFlash();
     await refocus();
-    _isPaused = false;
+    _updateState(_CameraState.resumed);
     notifyListeners();
   }
 
@@ -163,14 +173,22 @@ class SmoothCameraController extends CameraController {
   @override
   Future<void> stopImageStream() async {
     await super.stopImageStream();
-    _isPaused = false;
+    _updateState(_CameraState.stopped);
   }
 
   @override
   Future<void> setFocusPoint(Offset? point) async {
-    await setExposurePoint(point);
+    await setExposurePointSafe(point);
     await super.setFocusPoint(point);
     _focusPoint = point;
+  }
+
+  /// This method may fail on some devices, but as it's not mandatory, we can
+  /// ignore Exceptions
+  Future<void> setExposurePointSafe(Offset? point) async {
+    try {
+      return super.setExposurePoint(point);
+    } catch (_) {}
   }
 
   /// Force the focus to the latest call to [setFocusPoint].
@@ -180,17 +198,36 @@ class SmoothCameraController extends CameraController {
 
   @override
   Future<void> dispose() async {
+    _updateState(_CameraState.isBeingDisposed);
     _closeListener?.cancel();
-    _isInitialized = false;
     await super.dispose();
-    _isPaused = false;
+    _updateState(_CameraState.disposed);
   }
 
-  bool get isPaused => _isPaused;
+  void _updateState(_CameraState newState) {
+    if (newState != _state) {
+      _state = newState;
+      debugPrint('New camera state = $_state');
 
-  bool get isInitialized => _isInitialized;
+      // Notify the UI to ensure a setState is called
+      if (_state == _CameraState.resumed) {
+        notifyListeners();
+      }
+    }
+  }
 
-  bool get isBeingInitialized => _isBeingInitialized;
+  bool get isPaused => _state == _CameraState.paused;
+
+  bool get isInitialized => !<_CameraState>[
+        _CameraState.notInitialized,
+        _CameraState.beingInitialized,
+        _CameraState.isBeingDisposed,
+        _CameraState.disposed,
+      ].contains(_state);
+
+  bool get canShowPreview => isInitialized && _state == _CameraState.resumed;
+
+  bool get isBeingInitialized => _state == _CameraState.beingInitialized;
 
   bool get isPauseResumePreviewSupported => !Platform.isIOS;
 }
@@ -203,4 +240,17 @@ extension CameraValueExtension on CameraValue {
       );
 
   bool get isClosed => errorDescription == _cameraClosedDescription;
+}
+
+enum _CameraState {
+  notInitialized,
+  beingInitialized,
+  initialized,
+  beingPaused,
+  paused,
+  beingResumed,
+  resumed,
+  stopped,
+  isBeingDisposed,
+  disposed,
 }
