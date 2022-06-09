@@ -90,9 +90,20 @@ class SmoothCameraController extends CameraController {
     }
 
     if (_isInitialized) {
-      await _pauseFlash();
-      await super.pausePreview();
+      try {
+        await _pauseFlash();
+      } catch (exception) {
+        // Camera already disposed
+      }
+
+      try {
+        await super.pausePreview();
+      } catch (exception) {
+        // Camera already disposed
+      }
+
       _isPaused = true;
+      notifyListeners();
     }
   }
 
@@ -114,6 +125,7 @@ class SmoothCameraController extends CameraController {
     await _resumeFlash();
     await refocus();
     _isPaused = false;
+    notifyListeners();
   }
 
   Future<void> _resumeFlash() async {

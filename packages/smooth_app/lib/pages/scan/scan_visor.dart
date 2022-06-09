@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/scan/scan_flash_toggle.dart';
 
 /// This Widget is a [StatefulWidget], as it uses a [GlobalKey] to allow an
@@ -20,20 +21,41 @@ class ScannerVisorWidget extends StatefulWidget {
 
 class ScannerVisorWidgetState extends State<ScannerVisorWidget> {
   @override
+  void initState() {
+    super.initState();
+
+    if (mounted) {
+      CameraHelper.controller?.addListener(onCameraChanged);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final bool isPaused = CameraHelper.controller?.isPaused ?? false;
+
     return Stack(
       key: Provider.of<GlobalKey<ScannerVisorWidgetState>>(context),
       children: <Widget>[
-        SizedBox.fromSize(
-          size: ScannerVisorWidget.getSize(context),
+        GestureDetector(
+          onTap: isPaused
+              ? () {
+                  CameraHelper.controller?.resumePreviewIfNecessary();
+                }
+              : null,
           child: CustomPaint(
             painter: ScanVisorPainter(),
             child: Center(
-              child: SvgPicture.asset(
-                'assets/icons/visor_icon.svg',
-                width: 35.0,
-                height: 32.0,
-              ),
+              child: isPaused
+                  ? const Icon(
+                      Icons.pause_circle_outline,
+                      color: Colors.white,
+                      size: 40.0,
+                    )
+                  : SvgPicture.asset(
+                      'assets/icons/visor_icon.svg',
+                      width: 35.0,
+                      height: 32.0,
+                    ),
             ),
           ),
         ),
@@ -41,10 +63,23 @@ class ScannerVisorWidgetState extends State<ScannerVisorWidget> {
           textDirection: Directionality.of(context),
           end: 0.0,
           bottom: 0.0,
-          child: const ScannerFlashToggleWidget(),
+          child: Offstage(
+            offstage: isPaused,
+            child: const ScannerFlashToggleWidget(),
+          ),
         )
       ],
     );
+  }
+
+  void onCameraChanged() {
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    CameraHelper.controller?.removeListener(onCameraChanged);
+    super.dispose();
   }
 }
 
