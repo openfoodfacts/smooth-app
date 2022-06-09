@@ -94,6 +94,12 @@ class NutritionContainer {
         servingSize: _servingSize,
       );
 
+  void updateProduct(Product product) {
+    product.barcode = _barcode;
+    product.nutriments = _getNutriments();
+    product.servingSize = _servingSize;
+  }
+
   /// Converts all the data to a [Nutriments].
   Nutriments _getNutriments() {
     /// Converts a (weight) value to grams (before sending a value to the BE)

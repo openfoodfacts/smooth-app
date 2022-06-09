@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
@@ -86,7 +85,6 @@ class _EditProductPageState extends State<EditProductPage> {
                 );
                 if (refreshed ?? false) {
                   _changes++;
-                  await _refreshProduct();
                 }
               },
             ),
@@ -112,7 +110,21 @@ class _EditProductPageState extends State<EditProductPage> {
                 );
                 if (refreshed ?? false) {
                   _changes++;
-                  await _refreshProduct();
+                  //Refetch product if needed for new urls
+                  if (!mounted) {
+                    return;
+                  }
+                  final LocalDatabase localDatabase =
+                      context.read<LocalDatabase>();
+                  final Product? refreshedProduct =
+                      await ProductRefresher().fetchAndRefresh(
+                    context: context,
+                    localDatabase: localDatabase,
+                    barcode: _product.barcode!,
+                  );
+                  if (refreshedProduct != null) {
+                    _product = refreshedProduct;
+                  }
                 }
               },
             ),
@@ -135,7 +147,6 @@ class _EditProductPageState extends State<EditProductPage> {
                 );
                 if (refreshed ?? false) {
                   _changes++;
-                  await _refreshProduct();
                 }
               },
             ),
@@ -176,7 +187,6 @@ class _EditProductPageState extends State<EditProductPage> {
                 );
                 if (refreshed ?? false) {
                   _changes++;
-                  await _refreshProduct();
                 }
               },
             ),
@@ -184,15 +194,6 @@ class _EditProductPageState extends State<EditProductPage> {
         ),
       ),
     );
-  }
-
-  Future<void> _refreshProduct() async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final Product? refreshedProduct =
-        await DaoProduct(localDatabase).get(_product.barcode ?? '');
-    if (refreshedProduct != null) {
-      _product = refreshedProduct;
-    }
   }
 
   Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) =>

@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
@@ -286,16 +287,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 if (!mounted) {
                   return;
                 }
-                final LocalDatabase localDatabase =
-                    context.read<LocalDatabase>();
-                await ProductRefresher().fetchAndRefresh(
-                  context: context,
-                  localDatabase: localDatabase,
-                  barcode: widget.barcode!,
-                );
-                if (!mounted) {
-                  return;
-                }
                 final AppLocalizations appLocalizations =
                     AppLocalizations.of(context);
                 final String message = getImageUploadedMessage(
@@ -356,15 +347,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           if (!mounted) {
             return;
           }
-          final LocalDatabase localDatabase = context.read<LocalDatabase>();
-          await ProductRefresher().fetchAndRefresh(
-            context: context,
-            localDatabase: localDatabase,
-            barcode: widget.barcode!,
-          );
-          if (!mounted) {
-            return;
-          }
+
           setState(() {
             allProductImageProviders[currentIndex] = FileImage(photoUploaded);
           });

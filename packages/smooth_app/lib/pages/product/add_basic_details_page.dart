@@ -4,13 +4,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
@@ -130,7 +128,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         return;
                       }
                       final bool savedAndRefreshed =
-                          await _saveData(localDatabase);
+                          await _saveData(localDatabase, widget.product);
                       if (savedAndRefreshed) {
                         if (!mounted) {
                           return;
@@ -168,39 +166,23 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         ),
       );
 
-  Future<bool> _saveData(LocalDatabase localDatabase) async {
+  Future<bool> _saveData(
+      LocalDatabase localDatabase, Product inputProduct) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Product product = Product(
-      productName: _productNameController.text,
-      quantity: _weightController.text,
-      brands: _brandNameController.text,
-      barcode: widget.product.barcode,
-    );
-    final Status? status = await LoadingDialog.run<Status>(
+    inputProduct.productName = _productNameController.text;
+    inputProduct.quantity = _weightController.text;
+    inputProduct.brands = _brandNameController.text;
+    inputProduct.barcode = widget.product.barcode;
+    final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
       context: context,
-      future: OpenFoodAPIClient.saveProduct(
-        ProductQuery.getUser(),
-        product,
-      ),
-      title: appLocalizations.nutrition_page_update_running,
+      localDatabase: localDatabase,
+      product: inputProduct,
     );
-    if (status == null || status.error != null) {
+    if (savedAndRefreshed != null) {
+      return true;
+    } else {
       _errorMessageAlert(appLocalizations.basic_details_add_error);
       return false;
-    } else {
-      final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-        widget.product.barcode!,
-        fields: ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-      );
-      final ProductResult result = await OpenFoodAPIClient.getProduct(
-        configuration,
-      );
-      if (result.product != null) {
-        await DaoProduct(localDatabase).put(result.product!);
-      }
     }
-    return true;
   }
 }

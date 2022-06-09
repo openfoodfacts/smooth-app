@@ -119,28 +119,29 @@ class ProductRefresher {
     return const _MetaProductRefresher.error(null);
   }
 
-  Future<bool> fetchAndRefresh({
+  Future<Product?> fetchAndRefresh({
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     required final String barcode,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool? savedAndRefreshed = await LoadingDialog.run<bool>(
+    final _MetaProductRefresher? fetchAndRefreshed =
+        await LoadingDialog.run<_MetaProductRefresher>(
       future: _fetchAndRefresh(localDatabase, barcode),
       context: context,
       title: appLocalizations.nutrition_page_update_running,
     );
-    if (savedAndRefreshed == null) {
-      return false;
+    if (fetchAndRefreshed == null) {
+      return null;
     }
-    if (!savedAndRefreshed) {
+    if (fetchAndRefreshed.product == null) {
       await LoadingDialog.error(context: context);
-      return false;
+      return null;
     }
-    return true;
+    return fetchAndRefreshed.product;
   }
 
-  Future<bool> _fetchAndRefresh(
+  Future<_MetaProductRefresher> _fetchAndRefresh(
     final LocalDatabase localDatabase,
     final String barcode,
   ) async {
@@ -155,10 +156,10 @@ class ProductRefresher {
     );
     if (result.product != null) {
       await DaoProduct(localDatabase).put(result.product!);
-      return true;
+      localDatabase.notifyListeners();
+      return _MetaProductRefresher.product(result.product);
     }
-
-    return false;
+    return const _MetaProductRefresher.error(null);
   }
 }
 
