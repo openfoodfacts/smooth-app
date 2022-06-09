@@ -123,10 +123,10 @@ class ConsentAnalytics extends StatelessWidget {
       OnboardingBottomButton(
         onPressed: () async => _analyticsLogic(
           isAccepted,
-          context.watch<UserPreferences>(),
-          context.watch<LocalDatabase>(),
+          context.read<UserPreferences>(),
+          context.read<LocalDatabase>(),
           context,
-          context.watch<ThemeProvider>(),
+          context.read<ThemeProvider>(),
         ),
         backgroundColor: backgroundColor,
         foregroundColor: foregroundColor,
