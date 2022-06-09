@@ -1,16 +1,23 @@
-name: SmoothApp Post-Submit Tests
+name: Post-Submit Tests
 
-on: 
+on:
   push:
     branches:
       - "develop"
-    
+
+env:
+  JAVA_VERSION: 17
+  FLUTTER_CHANNEL: stable
+
 jobs:
   build:
+    name: Build and test
     runs-on: ubuntu-latest
+
     defaults:
       run:
         shell: bash
+
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3
@@ -18,42 +25,36 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v3.3.0
         with:
-          distribution: 'zulu'
-          java-version: 11
-      
+          distribution: "zulu"
+          java-version: ${{ env.JAVA_VERSION }}
+
       # Setup flutter
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          channel: ${{ env.FLUTTER_CHANNEL }}
           cache: true
-          cache-key: flutter3.0.1 # change this to force refresh cache
-          
+          cache-key: flutter3.0.1-${{ env.FLUTTER_CHANNEL }} # change this to force refresh cache
+
       - run: flutter --version
-      
-      # Get dependencies.
+
       - name: Get dependencies
         run: ci/pub_upgrade.sh
 
-      # Check for formatting issues
-      - name: Check for formatting issues (run "flutter format . ")
+      - name: Check for formatting issues
         run: flutter format --set-exit-if-changed .
-      
-      # analyze Dart for errors
+
       - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings .
-      
-      # Run tests
+
       - name: Run Tests with coverage
         run: ci/testing.sh
-            
-      # Build apk.
+
       - name: Build APK
         run: flutter build apk --debug
         working-directory: ./packages/smooth_app
-      
-      # Upload generated apk to the artifacts.
-      - name: Upload APK
+
+      - name: Upload APK to GitHub artifacts
         uses: actions/upload-artifact@v3
         with:
           name: release-apk
