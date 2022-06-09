@@ -47,6 +47,11 @@ class SmoothProductCardNotFound extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyText2,
               ),
+              Text(
+                '(${appLocalizations.barcode_barcode(barcode)})',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               Padding(
                 padding: const EdgeInsets.only(top: LARGE_SPACE),
                 child: SmoothLargeButtonWithIcon(

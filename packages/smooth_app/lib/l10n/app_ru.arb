@@ -18,6 +18,10 @@
     "skip": "Пропустить",
     "cancel": "Отмена",
     "@cancel": {},
+    "ignore": "ПРОПУСТИТЬ",
+    "@ignore": {
+        "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
+    },
     "close": "Закрыть",
     "@close": {},
     "no": "Нет",
@@ -138,6 +142,10 @@
     "sign_in": "Войти",
     "@sign_in": {
         "description": "Button label: For sign in"
+    },
+    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
     },
     "sign_out": "Выйти",
     "@sign_out": {
@@ -789,9 +797,17 @@
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Когда включено, качество декодирования штрих-кодов должно быть лучше, но может повлиять на производительность и срок службы батареи. Требуется перезапуск приложения.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
+    },
+    "camera_play_sound_title": "Play a sound on scan",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
     },
     "crash_reporting_toggle_title": "Отчеты об ошибках",
     "@crash_reporting_toggle_title": {
@@ -871,6 +887,27 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
+    "edit_product_form_item_labels_hint": "маркировка",
+    "@edit_product_form_item_labels_hint": {
+        "description": "Product edition - Labels - input textfield hint"
+    },
+    "edit_product_form_item_stores_title": "Магазины",
+    "@edit_product_form_item_stores_title": {
+        "description": "Product edition - Stores - Title"
+    },
+    "edit_product_form_item_stores_hint": "магазин",
+    "@edit_product_form_item_stores_hint": {
+        "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_categories_title": "Категории",
+    "@edit_product_form_item_categories_title": {
+        "description": "Product edition - Categories - Title"
+    },
+    "edit_product_form_item_categories_hint": "категория",
+    "@edit_product_form_item_categories_hint": {
+        "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_ingredients_title": "Ингредиенты и происхождение",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -962,6 +999,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_enable_flash": "Enable flash",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "Disable flash",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
     },
     "category_picker_no_category_found_button": "Назад",
     "@category_picker_no_category_found_button": {

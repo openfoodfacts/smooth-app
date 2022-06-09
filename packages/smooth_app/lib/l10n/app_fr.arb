@@ -143,6 +143,10 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_in_mandatory": "Pour cette fonctionnalité, vous devez vous connecter.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
+    },
     "sign_out": "Se déconnecter",
     "@sign_out": {
         "description": "Button label: For sign out"
@@ -701,7 +705,7 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Nous avons inventé\nl'appli de scan\ncollaboratif en 2012",
+    "onboarding_reinventing_text1": "Nous avons inventé\nl'appli de scan\ncollaborative en 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
@@ -789,13 +793,21 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "camera_high_resolution_preset_toggle_title": "Mode haute performance de l'appareil photo",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Lorsqu'il est activé, la qualité de décodage des codes-barres devrait être meilleure, mais peut avoir un impact sur les performances et la durée de vie de la batterie. Nécessite un redémarrage de l'application.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
+    },
+    "camera_play_sound_title": "Jouer un son lors du scan",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "Bipper à chaque scan réussi",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
     },
     "crash_reporting_toggle_title": "Rapport de plantage",
     "@crash_reporting_toggle_title": {
@@ -887,7 +899,15 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Voulez-vous sauver vos modifications avant de quitter cette page ?",
+    "edit_product_form_item_categories_title": "Catégories",
+    "@edit_product_form_item_categories_title": {
+        "description": "Product edition - Categories - Title"
+    },
+    "edit_product_form_item_categories_hint": "catégorie",
+    "@edit_product_form_item_categories_hint": {
+        "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "Souhaitez-vous enregistrer vos modifications avant de quitter cette page ?",
     "edit_product_form_item_ingredients_title": "Ingrédients & Origines",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -979,6 +999,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_enable_flash": "Activer le flash",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "Désactiver le flash",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
     },
     "category_picker_no_category_found_button": "Retour",
     "@category_picker_no_category_found_button": {

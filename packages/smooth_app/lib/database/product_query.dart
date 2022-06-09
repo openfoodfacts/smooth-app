@@ -67,6 +67,8 @@ abstract class ProductQuery {
         comment: 'Test user for project smoothie',
       );
 
+  static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
+
   /// Sets the query type according to the current [UserPreferences]
   static void setQueryType(final UserPreferences userPreferences) {
     OpenFoodAPIConfiguration.globalQueryType = userPreferences

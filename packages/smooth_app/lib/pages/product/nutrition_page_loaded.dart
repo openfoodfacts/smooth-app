@@ -204,7 +204,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
 
   Widget _getUnitCell(final OrderedNutrient orderedNutrient) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final Unit unit = _nutritionContainer.getUnit(orderedNutrient.id);
     return ElevatedButton(
       onPressed: NutritionContainer.isEditableWeight(orderedNutrient)
@@ -212,16 +211,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 () => _nutritionContainer.setNextWeightUnit(orderedNutrient),
               )
           : null,
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-            if (states.contains(MaterialState.disabled)) {
-              return Colors.grey;
-            }
-            return colorScheme.primary;
-          },
-        ),
-      ),
       child: Text(
         _getUnitLabel(unit),
         style: const TextStyle(fontWeight: FontWeight.bold),

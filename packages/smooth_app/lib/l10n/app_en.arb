@@ -143,6 +143,10 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
+    },
     "sign_out": "Sign out",
     "@sign_out": {
         "description": "Button label: For sign out"
@@ -797,7 +801,7 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_play_sound_title": "Play camera sound",
+    "camera_play_sound_title": "Play a sound on scan",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
@@ -891,9 +895,17 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "label",
+    "edit_product_form_item_stores_hint": "store",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_categories_title": "Categories",
+    "@edit_product_form_item_categories_title": {
+        "description": "Product edition - Categories - Title"
+    },
+    "edit_product_form_item_categories_hint": "category",
+    "@edit_product_form_item_categories_hint": {
+        "description": "Product edition - Categories - input textfield hint"
     },
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_ingredients_title": "Ingredients & Origins",
@@ -1303,5 +1315,14 @@
     "add_photo_button_label": "Add photo",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
-    }
+    },
+    "camera_paused_dialog_title": "Camera paused",
+    "camera_paused_dialog_content": "To save energy, the scanner has been automatically turned off after {min} min of inactivity",
+    "@camera_paused_dialog_content": {
+        "placeholders": {
+            "min": {}
+        }
+    },
+    "camera_paused_dialog_positive_label": "Restart camera",
+    "camera_paused_dialog_negative_label": "Stay paused"
 }

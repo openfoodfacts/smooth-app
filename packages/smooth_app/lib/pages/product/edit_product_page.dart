@@ -9,6 +9,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
@@ -73,6 +74,9 @@ class _EditProductPageState extends State<EditProductPage> {
               subtitle:
                   appLocalizations.edit_product_form_item_details_subtitle,
               onTap: () async {
+                if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                  return;
+                }
                 final bool? refreshed = await Navigator.push<bool>(
                   context,
                   MaterialPageRoute<bool>(
@@ -90,6 +94,9 @@ class _EditProductPageState extends State<EditProductPage> {
               title: appLocalizations.edit_product_form_item_photos_title,
               subtitle: appLocalizations.edit_product_form_item_photos_subtitle,
               onTap: () async {
+                if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                  return;
+                }
                 final List<ProductImageData> allProductImagesData =
                     getAllProductImagesData(_product, appLocalizations);
                 final bool? refreshed = await Navigator.push<bool>(
@@ -115,6 +122,9 @@ class _EditProductPageState extends State<EditProductPage> {
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_ingredients_title,
               onTap: () async {
+                if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                  return;
+                }
                 final bool? refreshed = await Navigator.push<bool>(
                   context,
                   MaterialPageRoute<bool>(
@@ -135,12 +145,18 @@ class _EditProductPageState extends State<EditProductPage> {
             _getSimpleListTileItem(
               SimpleInputPageStoreHelper(_product, appLocalizations),
             ),
+            _getSimpleListTileItem(
+              SimpleInputPageCategoryHelper(_product, appLocalizations),
+            ),
             _ListTitleItem(
               title:
                   appLocalizations.edit_product_form_item_nutrition_facts_title,
               subtitle: appLocalizations
                   .edit_product_form_item_nutrition_facts_subtitle,
               onTap: () async {
+                if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                  return;
+                }
                 final OrderedNutrientsCache? cache =
                     await OrderedNutrientsCache.getCache(context);
                 if (cache == null) {
@@ -184,6 +200,9 @@ class _EditProductPageState extends State<EditProductPage> {
         title: helper.getTitle(),
         subtitle: helper.getSubtitle(),
         onTap: () async {
+          if (!await ProductRefresher().checkIfLoggedIn(context)) {
+            return;
+          }
           final Product? refreshed = await Navigator.push<Product>(
             context,
             MaterialPageRoute<Product>(
@@ -213,23 +232,12 @@ class _ListTitleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     return ListTile(
       onTap: onTap,
       title: Text(title),
       subtitle: subtitle == null ? null : Text(subtitle!),
       leading: ElevatedButton(
         onPressed: onTap,
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.disabled)) {
-                return Colors.grey;
-              }
-              return colorScheme.primary;
-            },
-          ),
-        ),
         child: Text(appLocalizations.edit_product_form_save),
       ),
     );

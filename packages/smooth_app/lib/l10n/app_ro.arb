@@ -18,6 +18,10 @@
     "skip": "Omitere",
     "cancel": "Anulare",
     "@cancel": {},
+    "ignore": "Ignoră",
+    "@ignore": {
+        "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
+    },
     "close": "Închidere",
     "@close": {},
     "no": "Nu",
@@ -138,6 +142,10 @@
     "sign_in": "Conectare",
     "@sign_in": {
         "description": "Button label: For sign in"
+    },
+    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
     },
     "sign_out": "Deconectare",
     "@sign_out": {
@@ -785,13 +793,21 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "camera_high_resolution_preset_toggle_title": "Mod cameră de înaltă performanță",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Când este activată, calitatea decodării codurilor de bare ar trebui să fie mai bună, dar poate afecta performanța și durata de viață a bateriei. Necesită o repornire a aplicației.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
+    },
+    "camera_play_sound_title": "Play a sound on scan",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "Va fi un semnal sonor la fiecare scanare reușită",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
     },
     "crash_reporting_toggle_title": "Rapoarte erori",
     "@crash_reporting_toggle_title": {
@@ -871,6 +887,27 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
+    "edit_product_form_item_labels_hint": "eticheta",
+    "@edit_product_form_item_labels_hint": {
+        "description": "Product edition - Labels - input textfield hint"
+    },
+    "edit_product_form_item_stores_title": "Magazine",
+    "@edit_product_form_item_stores_title": {
+        "description": "Product edition - Stores - Title"
+    },
+    "edit_product_form_item_stores_hint": "magazin",
+    "@edit_product_form_item_stores_hint": {
+        "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_categories_title": "Categorii",
+    "@edit_product_form_item_categories_title": {
+        "description": "Product edition - Categories - Title"
+    },
+    "edit_product_form_item_categories_hint": "categorie",
+    "@edit_product_form_item_categories_hint": {
+        "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "Doriți să salvați modificările înainte de a părăsi această pagină?",
     "edit_product_form_item_ingredients_title": "Ingrediente și Origini",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -962,6 +999,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_enable_flash": "Activați blițul",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "Dezactivați blițul",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
     },
     "category_picker_no_category_found_button": "Înapoi",
     "@category_picker_no_category_found_button": {

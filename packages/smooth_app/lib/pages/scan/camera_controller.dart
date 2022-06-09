@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:camera_platform_interface/camera_platform_interface.dart';
@@ -7,6 +8,9 @@ import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 
 /// A lifecycle-aware [CameraController]
+/// On Android it supports pause/resume feed
+/// On iOS, pausing the feed will dispose the controller instead, as the camera
+/// indicator stays on
 class SmoothCameraController extends CameraController {
   SmoothCameraController(
     this.preferences,
@@ -37,6 +41,8 @@ class SmoothCameraController extends CameraController {
   /// Listen to camera closed events
   StreamSubscription<CameraClosingEvent>? _closeListener;
 
+  Offset? _focusPoint;
+
   Future<void> init({
     required FocusMode focusMode,
     required Offset focusPoint,
@@ -48,8 +54,8 @@ class SmoothCameraController extends CameraController {
       _isBeingInitialized = true;
       await initialize();
       await setFocusMode(focusMode);
-      await setFocusPoint(focusPoint);
       await setExposurePoint(focusPoint);
+      await setFocusPoint(focusPoint);
       await lockCaptureOrientation(deviceOrientation);
       await startImageStream(onAvailable);
       await enableFlash(enableTorch ?? preferences.useFlashWithCamera);
@@ -79,14 +85,33 @@ class SmoothCameraController extends CameraController {
 
   @override
   Future<void> pausePreview() async {
+    if (!isPauseResumePreviewSupported) {
+      throw UnimplementedError('This feature is not supported!');
+    }
+
     if (_isInitialized) {
-      await _pauseFlash();
-      await super.pausePreview();
+      try {
+        await _pauseFlash();
+      } catch (exception) {
+        // Camera already disposed
+      }
+
+      try {
+        await super.pausePreview();
+      } catch (exception) {
+        // Camera already disposed
+      }
+
       _isPaused = true;
+      notifyListeners();
     }
   }
 
   Future<void> resumePreviewIfNecessary() async {
+    if (!isPauseResumePreviewSupported) {
+      throw UnimplementedError('This feature is not supported!');
+    }
+
     if (_isPaused) {
       return resumePreview();
     }
@@ -98,7 +123,9 @@ class SmoothCameraController extends CameraController {
   Future<void> resumePreview() async {
     await super.resumePreview();
     await _resumeFlash();
+    await refocus();
     _isPaused = false;
+    notifyListeners();
   }
 
   Future<void> _resumeFlash() async {
@@ -140,6 +167,18 @@ class SmoothCameraController extends CameraController {
   }
 
   @override
+  Future<void> setFocusPoint(Offset? point) async {
+    await setExposurePoint(point);
+    await super.setFocusPoint(point);
+    _focusPoint = point;
+  }
+
+  /// Force the focus to the latest call to [setFocusPoint].
+  Future<void> refocus() async {
+    return setFocusPoint(_focusPoint);
+  }
+
+  @override
   Future<void> dispose() async {
     _closeListener?.cancel();
     _isInitialized = false;
@@ -152,6 +191,8 @@ class SmoothCameraController extends CameraController {
   bool get isInitialized => _isInitialized;
 
   bool get isBeingInitialized => _isBeingInitialized;
+
+  bool get isPauseResumePreviewSupported => !Platform.isIOS;
 }
 
 extension CameraValueExtension on CameraValue {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_summary_card.dart';
 
@@ -23,6 +25,10 @@ class KnowledgePanelCard extends StatelessWidget {
         allPanels: allPanels,
       );
     }
+
+    final KnowledgePanelPanelGroupElement? group =
+        KnowledgePanelGroupCard.groupElementOf(context);
+
     return InkWell(
       child: KnowledgePanelSummaryCard(
         panel,
@@ -33,6 +39,7 @@ class KnowledgePanelCard extends StatelessWidget {
           context,
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) => KnowledgePanelPage(
+              groupElement: group,
               panel: panel,
               allPanels: allPanels,
             ),
