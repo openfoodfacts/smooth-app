@@ -76,15 +76,19 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                final Product? refreshedProduct =
+                    await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) =>
                         AddBasicDetailsPage(_product),
                   ),
                 );
-                if (refreshed ?? false) {
+                if (refreshedProduct != null) {
                   _changes++;
+                  setState(() {
+                    _product = refreshedProduct;
+                  });
                 }
               },
             ),
@@ -110,7 +114,7 @@ class _EditProductPageState extends State<EditProductPage> {
                 );
                 if (refreshed ?? false) {
                   _changes++;
-                  //Refetch product if needed for new urls
+                  //Refetch product if needed for new urls, since no product in ProductImageGalleryView
                   if (!mounted) {
                     return;
                   }
@@ -137,16 +141,20 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                final Product? refreshedProduct =
+                    await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) => EditIngredientsPage(
                       product: _product,
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
+                if (refreshedProduct != null) {
                   _changes++;
+                  setState(() {
+                    _product = refreshedProduct;
+                  });
                 }
               },
             ),
@@ -176,17 +184,21 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!mounted) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                final Product? refreshedProduct =
+                    await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) => NutritionPageLoaded(
                       _product,
                       cache.orderedNutrients,
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
+                if (refreshedProduct != null) {
                   _changes++;
+                  setState(() {
+                    _product = refreshedProduct;
+                  });
                 }
               },
             ),

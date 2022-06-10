@@ -26,17 +26,19 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late Product _product;
 
   @override
   void initState() {
     super.initState();
+    _product = widget.product;
     _initializeProduct();
   }
 
   void _initializeProduct() {
-    _productNameController.text = widget.product.productName ?? '';
-    _weightController.text = widget.product.quantity ?? '';
-    _brandNameController.text = widget.product.brands ?? '';
+    _productNameController.text = _product.productName ?? '';
+    _weightController.text = _product.quantity ?? '';
+    _brandNameController.text = _product.brands ?? '';
   }
 
   @override
@@ -59,19 +61,19 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
             Align(
               alignment: Alignment.topLeft,
               child: ProductImageCarousel(
-                widget.product,
+                _product,
                 height: size.height * 0.20,
                 onUpload: (_) {},
               ),
             ),
             SizedBox(height: _heightSpace),
-            if (widget.product.barcode != null)
+            if (_product.barcode != null)
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
                 child: Column(
                   children: <Widget>[
                     Text(
-                      appLocalizations.barcode_barcode(widget.product.barcode!),
+                      appLocalizations.barcode_barcode(_product.barcode!),
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
@@ -127,16 +129,19 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       if (!_formKey.currentState!.validate()) {
                         return;
                       }
-                      final bool savedAndRefreshed =
-                          await _saveData(localDatabase, widget.product);
-                      if (savedAndRefreshed) {
+                      final Product? refreshedProduct =
+                          await _saveData(localDatabase);
+                      if (refreshedProduct != null) {
+                        setState(() {
+                          _product = refreshedProduct;
+                        });
                         if (!mounted) {
                           return;
                         }
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content: Text(
                                 appLocalizations.basic_details_add_success)));
-                        Navigator.pop(context, true);
+                        Navigator.pop(context, _product);
                       } else {
                         if (!mounted) {
                           return;
@@ -152,37 +157,17 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     );
   }
 
-  void _errorMessageAlert(final String message) => showDialog<void>(
-        context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          body: ListTile(
-            leading: const Icon(Icons.error_outline, color: Colors.red),
-            title: Text(message),
-          ),
-          positiveAction: SmoothActionButton(
-            text: AppLocalizations.of(context).close,
-            onPressed: () => Navigator.pop(context),
-          ),
-        ),
-      );
-
-  Future<bool> _saveData(
-      LocalDatabase localDatabase, Product inputProduct) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    inputProduct.productName = _productNameController.text;
-    inputProduct.quantity = _weightController.text;
-    inputProduct.brands = _brandNameController.text;
-    inputProduct.barcode = widget.product.barcode;
+  Future<Product?> _saveData(LocalDatabase localDatabase) async {
     final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
       context: context,
       localDatabase: localDatabase,
-      product: inputProduct,
+      product: Product(
+        productName: _productNameController.text,
+        quantity: _weightController.text,
+        brands: _brandNameController.text,
+        barcode: _product.barcode,
+      ),
     );
-    if (savedAndRefreshed != null) {
-      return true;
-    } else {
-      _errorMessageAlert(appLocalizations.basic_details_add_error);
-      return false;
-    }
+    return savedAndRefreshed;
   }
 }

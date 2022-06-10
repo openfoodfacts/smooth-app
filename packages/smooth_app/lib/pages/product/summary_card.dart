@@ -313,9 +313,9 @@ class _SummaryCardState extends State<SummaryCard> {
           addPanelButton(
             localizations.completed_basic_details_btn_text,
             onPressed: () async {
-              await Navigator.push<bool>(
+              await Navigator.push<Product?>(
                 context,
-                MaterialPageRoute<bool>(
+                MaterialPageRoute<Product>(
                   builder: (BuildContext context) =>
                       AddBasicDetailsPage(widget._product),
                 ),
