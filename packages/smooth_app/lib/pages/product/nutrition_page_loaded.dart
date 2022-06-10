@@ -50,13 +50,15 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   final Map<String, TextEditingController> _controllers =
       <String, TextEditingController>{};
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late Product _product;
 
   @override
   void initState() {
     super.initState();
+    _product = widget.product;
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
-      product: widget.product,
+      product: _product,
     );
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
   }
@@ -383,13 +385,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 child: Text(localizations.cancel.toUpperCase()),
                 // returns false to onWillPop after the alert dialog is closed with cancel button
                 //blocking return to the previous screen
-                onPressed: () => Navigator.pop(context, false),
+                onPressed: () => Navigator.pop(context),
               ),
               TextButton(
                 child: Text(localizations.okay.toUpperCase()),
                 // returns true to onWillPop after the alert dialog is closed with close button
                 //letting return to the previous screen
-                onPressed: () => Navigator.pop(context, true),
+                onPressed: () => Navigator.pop(context, _product),
               ),
             ],
           ),
@@ -432,7 +434,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         false;
 
     if (shouldSave) {
-      _save(localDatabase);
+      await _save(localDatabase);
     }
   }
 
@@ -449,12 +451,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       localDatabase: localDatabase,
       product: inputProduct,
     );
-    if (savedAndRefreshed != null) {
-      if (!mounted) {
-        return;
-      }
-      Navigator.of(context).pop(true);
+    if (!mounted) {
+      return;
     }
+    Navigator.of(context).pop(savedAndRefreshed);
   }
 
   bool _isEdited() {
