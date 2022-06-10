@@ -338,7 +338,7 @@
     "myPreferences_profile_title": "Профил",
     "myPreferences_profile_subtitle": "Управлявай своя акаунт на сътрудник в Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "Тъмен режим, Анализ, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
     "myPreferences_food_comment": "Избери коя информация за храната е най-важна за теб, за да класираш храната според твоите предпочитания. Виж информацията, която те интересува и получи обобщение за съвместимост. Тези предпочитания за храна остават на твоето устройство и не са свързани с твоят акаунт на сътрудник в Open Food Facts, ако имаш такъв.",
@@ -1111,10 +1111,10 @@
             }
         }
     },
-    "dev_preferences_migration_status_already_done": "success or fresh install",
+    "dev_preferences_migration_status_already_done": "успешно или ново инсталиране",
     "dev_preferences_migration_status_success": "успешно",
     "dev_preferences_migration_status_error": "грешка",
-    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_in_progress": "в ход",
     "dev_preferences_migration_status_required": "задължително (щракни, за да започнеш)",
     "dev_preferences_migration_status_not_started": "неизвестно",
     "dev_preferences_import_history_title": "Импортирай историята",
