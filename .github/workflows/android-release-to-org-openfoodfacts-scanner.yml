@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - 'release/*'
+
+env:
+  JAVA_VERSION: 17
+  RUBY_VERSION: 3.0.2
     
 jobs:
   deploy_android:
@@ -23,13 +27,13 @@ jobs:
         uses: actions/setup-java@v3.1.1
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: ${{ env.JAVA_VERSION }}
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: 3.0.2
+          ruby-version: ${{ env.RUBY_VERSION }}
 
       - name: Decrypt API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls

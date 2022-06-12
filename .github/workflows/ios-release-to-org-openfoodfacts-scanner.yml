@@ -5,6 +5,10 @@ on:
     branches:
       - 'release/*'
 
+env:
+  JAVA_VERSION: 17
+  RUBY_VERSION: 3.0.2
+ 
 jobs:
   testflight-release:
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
@@ -24,13 +28,13 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: 3.0.2
+          ruby-version: ${{ env.RUBY_VERSION }}
       
       - name: Setup Java JDK
         uses: actions/setup-java@v3.1.1
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: ${{ env.JAVA_VERSION }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
