@@ -45,7 +45,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   bool scrollingUp = true;
 
   @override
-  String get traceName => '${widget.product.barcode} is the product barcode';
+  String get traceName => 'Opened product_page';
 
   @override
   String get traceTitle => 'product_page';

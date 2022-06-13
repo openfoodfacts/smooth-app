@@ -695,8 +695,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: fix-country
-      resolved-ref: "81a612f3f4087763c0233d722b232781ddcf2be5"
+      ref: fix-event-sending
+      resolved-ref: "8de93595eff55be1c1df4f9fd53bbb79b11c5745"
       url: "https://github.com/M123-dev/matomo-tracker.git"
     source: git
     version: "1.1.1"

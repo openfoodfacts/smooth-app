@@ -56,6 +56,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   String get traceTitle => 'search_page';
 
   @override
+  String get traceName => 'Opened search_page';
+
+  @override
   void initState() {
     super.initState();
     _lastUpdate = widget.lastUpdate;

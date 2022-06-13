@@ -108,6 +108,12 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   @override
+  String get traceTitle => 'ml_kit_scan_page';
+
+  @override
+  String get traceName => 'Opened ml_kit_scan_page';
+
+  @override
   Widget build(BuildContext context) {
     return Consumer<BottomNavigationTab>(
       builder: (BuildContext context, BottomNavigationTab tab, Widget? child) {
@@ -483,9 +489,6 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   SmoothCameraController? get _controller => CameraHelper.controller;
-
-  @override
-  String get traceTitle => 'ml_kit_scan_page';
 }
 
 /// Provides the position to the center of the visor
