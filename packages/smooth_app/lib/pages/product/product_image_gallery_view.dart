@@ -340,6 +340,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         );
         if (photoUploaded != null) {
           _isRefreshed = true;
+          if (!mounted) {
+            return;
+          }
+
           setState(() {
             allProductImageProviders[currentIndex] = FileImage(photoUploaded);
           });

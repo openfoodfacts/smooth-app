@@ -12,13 +12,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Върни се горе",
     "save": "Запис",
     "save_confirmation": "Сигурен ли си, че искаш да запазиш?",
     "skip": "Пропусни",
     "cancel": "Отмени",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Игнорирай",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -143,7 +143,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "За тази функция трябва да влезеш в своя профил.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -338,7 +338,7 @@
     "myPreferences_profile_title": "Профил",
     "myPreferences_profile_subtitle": "Управлявай своя акаунт на сътрудник в Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "Тъмен режим, Анализ, ...",
     "myPreferences_food_title": "Хранителни предпочитания",
     "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
     "myPreferences_food_comment": "Избери коя информация за храната е най-важна за теб, за да класираш храната според твоите предпочитания. Виж информацията, която те интересува и получи обобщение за съвместимост. Тези предпочитания за храна остават на твоето устройство и не са свързани с твоят акаунт на сътрудник в Open Food Facts, ако имаш такъв.",
@@ -705,11 +705,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "Измислихме приложението\nза съвместно сканиране \nпрез 2012 г.",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "10 години по-късно\nго преоткриваме\nот самото начало!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -793,19 +793,19 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "camera_high_resolution_preset_toggle_title": "Режим на висока производителност на камерата",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Когато е включено, качеството на декодиране на баркодове трябва да е по-добро, но може да повлияе на производителността и живота на батерията. Изисква рестартиране на приложението.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_play_sound_title": "Play a sound on scan",
+    "camera_play_sound_title": "Възпроизвеждане на звук при сканиране",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "Звуков сигнал при всяко успешно сканиране",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
@@ -907,7 +907,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation": "Искаш ли да запазиш промените, преди да напуснеш тази страница?",
     "edit_product_form_item_ingredients_title": "Съставки и произход",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1000,11 +1000,11 @@
             }
         }
     },
-    "camera_enable_flash": "Enable flash",
+    "camera_enable_flash": "Включи светкавицата",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Disable flash",
+    "camera_disable_flash": "Изключи светкавицата",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
@@ -1111,10 +1111,10 @@
             }
         }
     },
-    "dev_preferences_migration_status_already_done": "success or fresh install",
+    "dev_preferences_migration_status_already_done": "успешно или ново инсталиране",
     "dev_preferences_migration_status_success": "успешно",
     "dev_preferences_migration_status_error": "грешка",
-    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_in_progress": "в ход",
     "dev_preferences_migration_status_required": "задължително (щракни, за да започнеш)",
     "dev_preferences_migration_status_not_started": "неизвестно",
     "dev_preferences_import_history_title": "Импортирай историята",

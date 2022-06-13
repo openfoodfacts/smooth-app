@@ -118,6 +118,49 @@ class ProductRefresher {
     }
     return const _MetaProductRefresher.error(null);
   }
+
+  Future<Product?> fetchAndRefresh({
+    required final BuildContext context,
+    required final LocalDatabase localDatabase,
+    required final String barcode,
+  }) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final _MetaProductRefresher? fetchAndRefreshed =
+        await LoadingDialog.run<_MetaProductRefresher>(
+      future: _fetchAndRefresh(localDatabase, barcode),
+      context: context,
+      title: appLocalizations.nutrition_page_update_running,
+    );
+    if (fetchAndRefreshed == null) {
+      return null;
+    }
+    if (fetchAndRefreshed.product == null) {
+      await LoadingDialog.error(context: context);
+      return null;
+    }
+    return fetchAndRefreshed.product;
+  }
+
+  Future<_MetaProductRefresher> _fetchAndRefresh(
+    final LocalDatabase localDatabase,
+    final String barcode,
+  ) async {
+    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+      barcode,
+      fields: ProductQuery.fields,
+      language: ProductQuery.getLanguage(),
+      country: ProductQuery.getCountry(),
+    );
+    final ProductResult result = await OpenFoodAPIClient.getProduct(
+      configuration,
+    );
+    if (result.product != null) {
+      await DaoProduct(localDatabase).put(result.product!);
+      localDatabase.notifyListeners();
+      return _MetaProductRefresher.product(result.product);
+    }
+    return const _MetaProductRefresher.error(null);
+  }
 }
 
 class _MetaProductRefresher {

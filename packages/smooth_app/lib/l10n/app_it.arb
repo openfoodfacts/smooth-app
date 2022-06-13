@@ -143,7 +143,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Per quella funzione abbiamo bisogno che tu acceda.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -797,11 +797,11 @@
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Se abilitata, la qualità della decodifica dei codici a barre dovrebbe essere migliore, ma potrebbe influire sulle prestazioni e sulla durata della batteria. Richiede il riavvio dell'applicazione.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_play_sound_title": "Play a sound on scan",
+    "camera_play_sound_title": "Riproduci un suono durante la scansione",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },

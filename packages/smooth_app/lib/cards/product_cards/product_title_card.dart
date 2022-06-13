@@ -52,9 +52,9 @@ class ProductTitleCard extends StatelessWidget {
         onTap: (getProductName(product, appLocalizations) ==
                 appLocalizations.unknownProductName)
             ? () async {
-                await Navigator.push<bool>(
+                await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) =>
                         AddBasicDetailsPage(product),
                   ),
