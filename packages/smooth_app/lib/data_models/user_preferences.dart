@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/scan/camera_controller.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
@@ -26,11 +27,21 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
+
+  /// Camera preferences
+  // Detect if a first successful scan was achieved (condition to show the
+  // tagline)
   static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
+  // Which preset to use
   static const String _TAG_SCAN_CAMERA_RESOLUTION_PRESET =
       'camera_resolution_preset';
+  // Use the flash/torch with the camera
   static const String _TAG_USE_FLASH_WITH_CAMERA = 'enable_flash_with_camera';
+  // Play sound when decoding a barcode
   static const String _TAG_PLAY_CAMERA_SCAN_SOUND = 'camera_scan_sound';
+  // Which algorithm to use with the camera (Android only)
+  static const String _TAG_CAMERA_FOCUS_POINT_ALGORITHM =
+      'camera_focus_point_algorithm';
 
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
@@ -136,14 +147,6 @@ class UserPreferences extends ChangeNotifier {
   bool? getFlag(final String key) =>
       _sharedPreferences.getBool(_getFlagTag(key));
 
-  bool get useFlashWithCamera =>
-      _sharedPreferences.getBool(_TAG_USE_FLASH_WITH_CAMERA) ?? false;
-
-  Future<void> setUseFlashWithCamera(final bool useFlash) async {
-    await _sharedPreferences.setBool(_TAG_USE_FLASH_WITH_CAMERA, useFlash);
-    notifyListeners();
-  }
-
   List<String> getExcludedAttributeIds() =>
       _sharedPreferences.getStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS) ??
       <String>[];
@@ -153,8 +156,13 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool get useVeryHighResolutionPreset =>
-      _sharedPreferences.getBool(_TAG_SCAN_CAMERA_RESOLUTION_PRESET) ?? false;
+  bool get useFlashWithCamera =>
+      _sharedPreferences.getBool(_TAG_USE_FLASH_WITH_CAMERA) ?? false;
+
+  Future<void> setUseFlashWithCamera(final bool useFlash) async {
+    await _sharedPreferences.setBool(_TAG_USE_FLASH_WITH_CAMERA, useFlash);
+    notifyListeners();
+  }
 
   Future<void> setUseVeryHighResolutionPreset(bool enableFeature) async {
     await _sharedPreferences.setBool(
@@ -162,13 +170,27 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool get playCameraSound =>
-      _sharedPreferences.getBool(_TAG_PLAY_CAMERA_SCAN_SOUND) ?? false;
+  bool get useVeryHighResolutionPreset =>
+      _sharedPreferences.getBool(_TAG_SCAN_CAMERA_RESOLUTION_PRESET) ?? false;
 
   Future<void> setPlayCameraSound(bool playSound) async {
     await _sharedPreferences.setBool(_TAG_PLAY_CAMERA_SCAN_SOUND, playSound);
     notifyListeners();
   }
+
+  bool get playCameraSound =>
+      _sharedPreferences.getBool(_TAG_PLAY_CAMERA_SCAN_SOUND) ?? false;
+
+  Future<void> setCameraFocusAlgorithm(
+      CameraFocusPointAlgorithm algorithm) async {
+    await _sharedPreferences.setInt(
+        _TAG_CAMERA_FOCUS_POINT_ALGORITHM, algorithm.index);
+    notifyListeners();
+  }
+
+  CameraFocusPointAlgorithm get cameraFocusPointAlgorithm =>
+      CameraFocusPointAlgorithm.values[
+          _sharedPreferences.getInt(_TAG_CAMERA_FOCUS_POINT_ALGORITHM) ?? 0];
 
   Future<void> setDevMode(final int value) async {
     await _sharedPreferences.setInt(_TAG_DEV_MODE, value);

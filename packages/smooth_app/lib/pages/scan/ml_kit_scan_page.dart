@@ -104,6 +104,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     // Relaunch the feed after a hot reload
     if (_controller == null) {
       _startLiveFeed();
+    } else {
+      _controller!.updateFocusPointAlgorithm(
+        _userPreferences.cameraFocusPointAlgorithm,
+      );
     }
   }
 
@@ -275,7 +279,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       // If the Widget tree isn't ready, wait for the first frame
       if (!point.precise) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          _controller?.setFocusPoint(_focusPoint.offset);
+          _controller?.setFocusPointTo(
+            _focusPoint.offset,
+            _userPreferences.cameraFocusPointAlgorithm,
+          );
         });
       }
     } on CameraException catch (e) {
