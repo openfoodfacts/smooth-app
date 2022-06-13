@@ -54,7 +54,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   /// A time window is the average time decodings took
   final AverageList<int> _averageProcessingTime = AverageList<int>();
-  final AudioCache _musicPlayer = AudioCache(prefix: 'assets/audio/');
+
+  final AudioPlayer _musicPlayer = AudioPlayer();
 
   /// Subject notifying when a new image is available
   PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
@@ -299,8 +300,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
         if (_userPreferences.playCameraSound) {
           _musicPlayer.play(
-            'beep.ogg',
-            mode: PlayerMode.LOW_LATENCY,
+            AssetSource('assets/audio/beep.org'),
+            mode: PlayerMode.lowLatency,
             volume: 0.5,
           );
         }
@@ -445,7 +446,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
     _stopImageStream();
-    _musicPlayer.clearAll();
+    _musicPlayer.stop();
+    _musicPlayer.dispose();
     super.dispose();
   }
 
