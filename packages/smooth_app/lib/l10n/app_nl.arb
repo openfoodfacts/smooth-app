@@ -12,13 +12,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Terug naar boven",
     "save": "Bewaar",
     "save_confirmation": "Are you sure you want to save?",
     "skip": "Overslaan",
     "cancel": "Annuleer",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Negeren",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -143,7 +143,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Voor deze functie moet u zich aanmelden.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -204,7 +204,7 @@
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
     "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Gebruikersnaam mag niet langer zijn dan {value} tekens",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -338,7 +338,7 @@
     "myPreferences_profile_title": "Your Profile",
     "myPreferences_profile_subtitle": "Beheer uw Open Food Facts-bijdragersaccount.",
     "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "Donkere modus, Analytics, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als je er een hebt.",
@@ -442,9 +442,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Nieuw Product",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product front photo",
+    "front_packaging_photo_button_label": "Afbeelding voorzijde van product",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
+    "confirm_front_packaging_photo_button_label": "Bevestig de upload van de voorzijde van het product",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -705,7 +705,7 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "We hebben in 2012\nde collaboratieve\nscan-app uitgevonden",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
@@ -761,7 +761,7 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_subtitle_guest": "Log in of meld je aan om lid te worden van de Open Food Facts gemeenschap",
     "user_profile_title_id_email": "Open Food Facts login: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
@@ -771,7 +771,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "Welkom {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -793,19 +793,19 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "camera_high_resolution_preset_toggle_title": "Hoge prestatie-modus van de camera",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Indien ingeschakeld, zou de coderingskwaliteit van streepjescodes beter moeten zijn, maar dit kan van invloed zijn op de prestaties en de levensduur van de batterij. Vereist een herstart van de applicatie.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_play_sound_title": "Play a sound on scan",
+    "camera_play_sound_title": "Een geluid afspelen bij scannen",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "Piept bij elke geslaagde scan",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
@@ -907,7 +907,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation": "Wilt u de wijzigingen opslaan voor het verlaten van deze pagina?",
     "edit_product_form_item_ingredients_title": "Ingredients & Origins",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -971,7 +971,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Name is mandatory",
+    "user_list_name_error_empty": "Naam is verplicht!",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -1000,11 +1000,11 @@
             }
         }
     },
-    "camera_enable_flash": "Enable flash",
+    "camera_enable_flash": "Schakel flitser in",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Disable flash",
+    "camera_disable_flash": "Flitser uitschakelen",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
@@ -1045,7 +1045,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
+    "dev_preferences_test_environment_subtitle": "Basis-URL voor huidige testomgeving: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1133,7 +1133,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Huidige scanmodus is: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1146,7 +1146,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
+    "dev_mode_hide_ecoscore_title": "EcoScore uitsluiten",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1259,7 +1259,7 @@
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
     "barcode": "Streepjescode",
-    "barcode_barcode": "Barcode: {barcode}",
+    "barcode_barcode": "Streepjescode: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
         "placeholders": {
@@ -1293,7 +1293,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list!",
+    "user_list_all_empty": "Maak je eerste lijst!",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
