@@ -49,13 +49,19 @@ dependencies:
   sentry_flutter: ^6.5.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   url_launcher: ^6.1.3
   visibility_detector: ^0.3.3
-  # Until the PR is merged, we have a fork of the camera plugin: https://github.com/openfoodfacts/smooth-app/issues/1892
+
+  # Camera (custom implementation for Android)
   camera:
     git:
       url: 'https://github.com/g123k/plugins.git'
-      ref: 'camera_fix_debug'
+      ref: 'smooth_camera'
       path: 'packages/camera/camera'
-  camera_platform_interface: any
+  camera_platform_interface:
+    git:
+      url: 'https://github.com/g123k/plugins.git'
+      ref: 'smooth_camera'
+      path: 'packages/camera/camera_platform_interface'
+      
   audioplayers: ^1.0.0
   percent_indicator: ^4.2.2
   mailto: ^2.0.0
