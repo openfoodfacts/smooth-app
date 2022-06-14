@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -62,7 +63,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
       ListTile(
         leading: const Icon(Icons.rotate_left),
         title: Text(appLocalizations.reset_food_prefs),
-        onTap: () => _confirmReset(context),
+        onTap: () async => _confirmReset(),
       ),
     ];
     result.addAll(_getOnboardingBody());
@@ -79,31 +80,25 @@ class UserPreferencesFood extends AbstractUserPreferences {
     return result;
   }
 
-  void _confirmReset(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-    showDialog<void>(
+  Future<void> _confirmReset() async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    await showDialog<void>(
       context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(localizations.confirmResetPreferences),
-          actions: <Widget>[
-            TextButton(
-              child: Text(localizations.yes),
-              onPressed: () async {
-                await context.read<ProductPreferences>().resetImportances();
-                //ignore: use_build_context_synchronously
-                Navigator.pop(context);
-              },
-            ),
-            TextButton(
-              child: Text(localizations.no),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            )
-          ],
-        );
-      },
+      builder: (BuildContext context) => SmoothAlertDialog(
+        body: Text(appLocalizations.confirmResetPreferences),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.yes,
+          onPressed: () async {
+            await context.read<ProductPreferences>().resetImportances();
+            //ignore: use_build_context_synchronously
+            Navigator.pop(context);
+          },
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.no,
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
     );
   }
 

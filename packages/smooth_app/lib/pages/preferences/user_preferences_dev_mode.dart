@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -195,25 +196,20 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 ),
               );
             }
-            showDialog<void>(
+            await showDialog<void>(
               context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: Text(
-                  appLocalizations.dev_preferences_export_history_dialog_title,
-                ),
-                content: SizedBox(
+              builder: (BuildContext context) => SmoothAlertDialog(
+                title: appLocalizations
+                    .dev_preferences_export_history_dialog_title,
+                body: SizedBox(
                   height: 400,
                   width: 300,
                   child: ListView(children: children),
                 ),
-                actions: <Widget>[
-                  ElevatedButton(
-                    child: Text(
-                      appLocalizations.dev_preferences_button_positive,
-                    ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ],
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.okay,
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
             );
           },
@@ -259,11 +255,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async {
             final DevModeScanMode? scanMode = await showDialog<DevModeScanMode>(
               context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: Text(
-                  appLocalizations.dev_mode_scan_mode_dialog_title,
-                ),
-                content: SizedBox(
+              builder: (BuildContext context) => SmoothAlertDialog(
+                title: appLocalizations.dev_mode_scan_mode_dialog_title,
+                body: SizedBox(
                   height: 400,
                   width: 300,
                   child: ListView.builder(
@@ -278,14 +272,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                     },
                   ),
                 ),
-                actions: <Widget>[
-                  ElevatedButton(
-                    child: Text(
-                      appLocalizations.dev_preferences_button_negative,
-                    ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ],
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.dev_preferences_button_negative,
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
             );
             if (scanMode != null) {
@@ -384,25 +374,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             OpenFoodAPIConfiguration.uriTestHost;
     final bool? result = await showDialog<bool>(
       context: context,
-      builder: (final BuildContext context) => AlertDialog(
-        title: Text(
-          appLocalizations.dev_preferences_test_environment_dialog_title,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.dev_preferences_test_environment_dialog_title,
+        body: TextField(controller: _textFieldController),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.pop(context, false),
         ),
-        content: TextField(controller: _textFieldController),
-        actions: <Widget>[
-          TextButton(
-            child: Text(
-              appLocalizations.dev_preferences_button_negative,
-            ),
-            onPressed: () => Navigator.pop(context, false),
-          ),
-          ElevatedButton(
-            child: Text(
-              appLocalizations.dev_preferences_button_positive,
-            ),
-            onPressed: () => Navigator.pop(context, true),
-          ),
-        ],
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.okay,
+          onPressed: () => Navigator.pop(context, true),
+        ),
       ),
     );
     if (result == true) {

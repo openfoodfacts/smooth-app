@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
 
 void main() {
@@ -135,8 +136,8 @@ class _ExampleAppState extends State<ExampleApp> {
           .pop(name.isNotEmpty ? FruitCategory(Fruit(name)) : null);
     }
 
-    return AlertDialog(
-      content: TextField(
+    return SmoothAlertDialog(
+      body: TextField(
         autofocus: true,
         controller: controller,
         decoration: const InputDecoration(
@@ -144,16 +145,14 @@ class _ExampleAppState extends State<ExampleApp> {
         ),
         onSubmitted: addCategory,
       ),
-      actions: <Widget>[
-        TextButton(
-          child: const Text('OK'),
-          onPressed: () => addCategory(controller.text),
-        ),
-        TextButton(
-          child: const Text('Cancel'),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ],
+      positiveAction: SmoothActionButton(
+        text: 'OK',
+        onPressed: () => addCategory(controller.text),
+      ),
+      negativeAction: SmoothActionButton(
+        text: 'Cancel',
+        onPressed: () => Navigator.of(context).pop(),
+      ),
     );
   }
 
