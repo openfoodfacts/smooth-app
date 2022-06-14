@@ -690,7 +690,7 @@
     },
     "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
     "@contact_form_body_android": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "Contact form content for Android devices",
         "placeholders": {
             "sdkInt": {
                 "type": "int?"
@@ -714,7 +714,7 @@
     },
     "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
     "@contact_form_body_ios": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "Contact form content for iOS devices",
         "placeholders": {
             "version": {
                 "type": "String?"
