@@ -93,24 +93,33 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   Future<String> get _emailBody async {
     final StringBuffer buffer = StringBuffer('\n\n----\n');
     final BaseDeviceInfo deviceInfo = await DeviceInfoPlugin().deviceInfo;
+    final String deviceText;
 
     if (deviceInfo is AndroidDeviceInfo) {
-      buffer.writeln(
-          'OS: Android (SDK Int: ${deviceInfo.version.sdkInt} / Release: ${deviceInfo.version.release})');
-      buffer.writeln('Model: ${deviceInfo.model}');
-      buffer.writeln('Product: ${deviceInfo.product}');
-      buffer.writeln('Device: ${deviceInfo.device}');
-      buffer.writeln('Brand: ${deviceInfo.brand}');
+      deviceText = appLocalizations.contact_form_body_android(
+        deviceInfo.version.sdkInt,
+        deviceInfo.version.release,
+        deviceInfo.model,
+        deviceInfo.product,
+        deviceInfo.device,
+        deviceInfo.brand,
+      );
     } else if (deviceInfo is IosDeviceInfo) {
-      buffer.writeln('OS: iOS (${deviceInfo.systemVersion})');
-      buffer.writeln('Model: ${deviceInfo.model}');
-      buffer.writeln('Localized model: ${deviceInfo.localizedModel}');
+      deviceText = appLocalizations.contact_form_body_ios(
+        deviceInfo.systemVersion,
+        deviceInfo.model,
+        deviceInfo.localizedModel,
+      );
+    } else {
+      deviceText = '';
     }
 
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    buffer.writeln('App version: ${packageInfo.version}');
-    buffer.writeln('App build number: ${packageInfo.buildNumber}');
-    buffer.writeln('App package name: ${packageInfo.packageName}');
+
+    buffer.writeln(
+      appLocalizations.contact_form_body(deviceText, packageInfo.version,
+          packageInfo.buildNumber, packageInfo.packageName),
+    );
 
     return buffer.toString();
   }

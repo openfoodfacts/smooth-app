@@ -688,6 +688,63 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "@contact_form_body_android": {
+        "description": "Source field within a text knowledge panel.",
+        "placeholders": {
+            "sdkInt": {
+                "type": "int?"
+            },
+            "release": {
+                "type": "String?"
+            },
+            "model": {
+                "type": "String?"
+            },
+            "product": {
+                "type": "String?"
+            },
+            "device": {
+                "type": "String?"
+            },
+            "brand": {
+                "type": "String?"
+            }
+        }
+    },
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "@contact_form_body_ios": {
+        "description": "Source field within a text knowledge panel.",
+        "placeholders": {
+            "version": {
+                "type": "String?"
+            },
+            "model": {
+                "type": "String?"
+            },
+            "localizedModel": {
+                "type": "String?"
+            }
+        }
+    },
+    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "@contact_form_body": {
+        "description": "Source field within a text knowledge panel.",
+        "placeholders": {
+            "osContent": {
+                "type": "String"
+            },
+            "appVersion": {
+                "type": "String"
+            },
+            "appBuildNumber": {
+                "type": "String"
+            },
+            "appPackageName": {
+                "type": "String"
+            }
+        }
+    },
     "authorize_button_label": "Authorize",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
