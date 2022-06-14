@@ -106,7 +106,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenido a Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts es una organización global sin fines de lucro impulsada por comunidades locales.",
+    "whatIsOff": "Open Food Facts es una organización global sin ánimo de lucro impulsada por comunidades locales.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -793,7 +793,13 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Modo de alto rendimiento de la cámara",
+    "settings_app_app": "Application",
+    "settings_app_data": "Privacy & monitoring",
+    "settings_app_camera": "Camera",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "High performance mode",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -801,6 +807,28 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
+    "camera_focus_point_algorithm_title": "Focus mode",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "Automático",
+    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
     "camera_play_sound_title": "Reproducir un sonido al escanear",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -1277,7 +1305,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
-    "importance_label": "{name} importancia: {id}",
+    "importance_label": "Importancia {name}: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {

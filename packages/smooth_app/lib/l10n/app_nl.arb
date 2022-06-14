@@ -13,7 +13,7 @@
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "go_back_to_top": "Terug naar boven",
-    "save": "Opslaan",
+    "save": "Bewaar",
     "save_confirmation": "Are you sure you want to save?",
     "skip": "Overslaan",
     "cancel": "Annuleer",
@@ -164,7 +164,7 @@
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
-    "reset_password": "Wachtwoord resetten",
+    "reset_password": "Paswoord resetten",
     "@reset_password": {
         "description": "Forgot password page title"
     },
@@ -195,7 +195,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Naam",
+    "sign_up_page_display_name_hint": "Naam:",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail is required",
@@ -267,7 +267,7 @@
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Medewerkers",
+    "contributors": "Gebruikers",
     "support": "Ondersteuning",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
@@ -350,7 +350,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "Alles",
+    "ranking_tab_all": "Alle",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Onbekende overeenkomst",
@@ -375,7 +375,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "Alles",
+    "category_all": "Alle",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -793,7 +793,13 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Hoge prestatie-modus van de camera",
+    "settings_app_app": "Application",
+    "settings_app_data": "Privacy & monitoring",
+    "settings_app_camera": "Camera",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "High performance mode",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -801,6 +807,28 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
+    "camera_focus_point_algorithm_title": "Focus mode",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "Auto",
+    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
     "camera_play_sound_title": "Een geluid afspelen bij scannen",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -825,7 +853,7 @@
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
-    "product_edit_photo_title": "Foto bewerken",
+    "product_edit_photo_title": "Foto Bewerken",
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
@@ -931,7 +959,7 @@
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
     "category_picker_page_appbar_text": "Categorieën",
-    "edit_ingredients_extrait_ingredients_btn_text": "Herken de ingrediënten",
+    "edit_ingredients_extrait_ingredients_btn_text": "Extract ingrediënten",
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
