@@ -93,7 +93,7 @@ class ProductRefresher {
   ) async {
     try {
       final Status status = await OpenFoodAPIClient.saveProduct(
-        ProductQuery.getUser(),
+        ProductQuery.getUser(withAppInfo: true),
         inputProduct,
       );
       if (status.error != null) {
