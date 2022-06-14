@@ -35,13 +35,9 @@ abstract class AbstractOnboardingData<T> {
 
   /// Downloads data and store it locally.
   Future<void> downloadData() async {
-    try {
-      final String string = await downloadDataString();
-      final DaoString daoString = DaoString(_localDatabase);
-      await daoString.put(_getDatabaseKey(), string);
-    } catch (e) {
-      //
-    }
+    final String string = await downloadDataString();
+    final DaoString daoString = DaoString(_localDatabase);
+    await daoString.put(_getDatabaseKey(), string);
   }
 
   /// Converts a string into the expected object, even null.

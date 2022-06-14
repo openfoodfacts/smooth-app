@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -37,6 +39,7 @@ class _EditProductPageState extends State<EditProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: AutoSizeText(
@@ -73,15 +76,19 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                final Product? refreshedProduct =
+                    await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) =>
                         AddBasicDetailsPage(_product),
                   ),
                 );
-                if (refreshed ?? false) {
+                if (refreshedProduct != null) {
                   _changes++;
+                  setState(() {
+                    _product = refreshedProduct;
+                  });
                 }
               },
             ),
@@ -107,6 +114,21 @@ class _EditProductPageState extends State<EditProductPage> {
                 );
                 if (refreshed ?? false) {
                   _changes++;
+                  //Refetch product if needed for new urls, since no product in ProductImageGalleryView
+                  if (!mounted) {
+                    return;
+                  }
+                  final LocalDatabase localDatabase =
+                      context.read<LocalDatabase>();
+                  final Product? refreshedProduct =
+                      await ProductRefresher().fetchAndRefresh(
+                    context: context,
+                    localDatabase: localDatabase,
+                    barcode: _product.barcode!,
+                  );
+                  if (refreshedProduct != null) {
+                    _product = refreshedProduct;
+                  }
                 }
               },
             ),
@@ -119,16 +141,20 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                final Product? refreshedProduct =
+                    await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) => EditIngredientsPage(
                       product: _product,
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
+                if (refreshedProduct != null) {
                   _changes++;
+                  setState(() {
+                    _product = refreshedProduct;
+                  });
                 }
               },
             ),
@@ -158,17 +184,21 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!mounted) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                final Product? refreshedProduct =
+                    await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) => NutritionPageLoaded(
                       _product,
                       cache.orderedNutrients,
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
+                if (refreshedProduct != null) {
                   _changes++;
+                  setState(() {
+                    _product = refreshedProduct;
+                  });
                 }
               },
             ),

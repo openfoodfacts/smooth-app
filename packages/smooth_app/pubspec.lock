@@ -49,7 +49,49 @@ packages:
       name: audioplayers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.20.1"
+    version: "1.0.0"
+  audioplayers_android:
+    dependency: transitive
+    description:
+      name: audioplayers_android
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_darwin:
+    dependency: transitive
+    description:
+      name: audioplayers_darwin
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_linux:
+    dependency: transitive
+    description:
+      name: audioplayers_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_platform_interface:
+    dependency: transitive
+    description:
+      name: audioplayers_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_web:
+    dependency: transitive
+    description:
+      name: audioplayers_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_windows:
+    dependency: transitive
+    description:
+      name: audioplayers_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   auto_size_text:
     dependency: "direct main"
     description:
@@ -89,24 +131,28 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/camera/camera"
-      ref: camera_fix_debug
-      resolved-ref: f67835a36bf1ae1584606b0ca690a3e09250c2ee
+      ref: smooth_camera
+      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.9.6"
   camera_platform_interface:
     dependency: "direct main"
     description:
-      name: camera_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0"
+      path: "packages/camera/camera_platform_interface"
+      ref: smooth_camera
+      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      url: "https://github.com/g123k/plugins.git"
+    source: git
+    version: "2.1.6"
   camera_web:
     dependency: transitive
     description:
-      name: camera_web
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "packages/camera/camera_web"
+      ref: smooth_camera
+      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      url: "https://github.com/g123k/plugins.git"
+    source: git
     version: "0.2.1+6"
   carousel_slider:
     dependency: "direct main"
@@ -341,7 +387,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.3"
+    version: "2.2.3+1"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -468,7 +514,7 @@ packages:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   hive_flutter:
     dependency: "direct main"
     description:
