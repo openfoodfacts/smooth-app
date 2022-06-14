@@ -34,7 +34,7 @@ dependencies:
   matomo_tracker:
     git:
       url: 'https://github.com/M123-dev/matomo-tracker.git'
-      ref: 'fix-country'
+      ref: 'fix-event-sending'
   modal_bottom_sheet: ^2.0.1
   openfoodfacts: ^1.18.1
   #  openfoodfacts:

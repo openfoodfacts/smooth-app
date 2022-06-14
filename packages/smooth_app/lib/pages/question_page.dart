@@ -44,6 +44,9 @@ class _QuestionPageState extends State<QuestionPage>
   String get traceTitle => 'robotoff_question_page';
 
   @override
+  String get traceName => 'Opened robotoff_question_page';
+
+  @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
