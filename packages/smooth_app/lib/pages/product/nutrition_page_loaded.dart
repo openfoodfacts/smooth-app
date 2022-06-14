@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -90,6 +91,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
 
     return WillPopScope(
+      //return a boolean to decide whether to return to previous page or not
+      onWillPop: () => _showCancelPopup(localizations),
       child: Scaffold(
         appBar: AppBar(
           title: AutoSizeText(
@@ -118,8 +121,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           ),
         ),
       ),
-      //return a boolean to decide whether to return to previous page or not
-      onWillPop: () => _showCancelPopup(localizations),
     );
   }
 
@@ -301,9 +302,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 return StatefulBuilder(
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
-                    return AlertDialog(
-                      title: Text(appLocalizations.nutrition_page_add_nutrient),
-                      content: Column(
+                    return SmoothAlertDialog.advanced(
+                      title: appLocalizations.nutrition_page_add_nutrient,
+                      body: Column(
                         children: <Widget>[
                           TextField(
                             decoration: InputDecoration(
@@ -340,12 +341,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                           ),
                         ],
                       ),
-                      actions: <Widget>[
-                        ElevatedButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: Text(appLocalizations.cancel),
-                        ),
-                      ],
+                      negativeAction: SmoothActionButton(
+                        onPressed: () => Navigator.pop(context),
+                        text: appLocalizations.cancel,
+                      ),
                     );
                   },
                 );
@@ -366,7 +365,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
-  Future<bool> _showCancelPopup(AppLocalizations localizations) async {
+  Future<bool> _showCancelPopup(final AppLocalizations appLocalizations) async {
     //if no changes made then returns true to the onWillPop
     // allowing it to let the user return back to previous screen
     if (!_isEdited()) {
@@ -374,26 +373,21 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     return await showDialog<bool>(
           context: context,
-          builder: (BuildContext context) => AlertDialog(
-            shape: const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
+          builder: (BuildContext context) => SmoothAlertDialog(
+            title: appLocalizations.general_confirmation,
+            body: Text(appLocalizations.nutrition_page_close_confirmation),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.cancel,
+              // returns false to onWillPop after the alert dialog is closed with cancel button
+              //blocking return to the previous screen
+              onPressed: () => Navigator.pop(context),
             ),
-            title: Text(localizations.general_confirmation),
-            content: Text(localizations.nutrition_page_close_confirmation),
-            actions: <TextButton>[
-              TextButton(
-                child: Text(localizations.cancel.toUpperCase()),
-                // returns false to onWillPop after the alert dialog is closed with cancel button
-                //blocking return to the previous screen
-                onPressed: () => Navigator.pop(context),
-              ),
-              TextButton(
-                child: Text(localizations.okay.toUpperCase()),
-                // returns true to onWillPop after the alert dialog is closed with close button
-                //letting return to the previous screen
-                onPressed: () => Navigator.pop(context, _product),
-              ),
-            ],
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.okay,
+              // returns true to onWillPop after the alert dialog is closed with close button
+              //letting return to the previous screen
+              onPressed: () => Navigator.pop(context, true),
+            ),
           ),
         ) ??
         // in case alert dialog is closed, a false is return
@@ -411,26 +405,24 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   Future<void> _showSavePopup(
-      AppLocalizations localizations, LocalDatabase localDatabase) async {
+    final AppLocalizations appLocalizations,
+    final LocalDatabase localDatabase,
+  ) async {
     final bool shouldSave = await showDialog<bool>(
-            context: context,
-            builder: (BuildContext context) => AlertDialog(
-                  title: Text(localizations.general_confirmation),
-                  content: Text(localizations.save_confirmation),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: ROUNDED_BORDER_RADIUS,
-                  ),
-                  actions: <TextButton>[
-                    TextButton(
-                      child: Text(localizations.cancel.toUpperCase()),
-                      onPressed: () => Navigator.pop(context, false),
-                    ),
-                    TextButton(
-                      child: Text(localizations.save.toUpperCase()),
-                      onPressed: () => Navigator.pop(context, true),
-                    ),
-                  ],
-                )) ??
+          context: context,
+          builder: (BuildContext context) => SmoothAlertDialog(
+            title: appLocalizations.general_confirmation,
+            body: Text(appLocalizations.save_confirmation),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.pop(context, false),
+            ),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.save.toUpperCase(),
+              onPressed: () => Navigator.pop(context, true),
+            ),
+          ),
+        ) ??
         false;
 
     if (shouldSave) {
@@ -445,16 +437,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     // minimal product: we only want to save the nutrients
     final Product inputProduct = _nutritionContainer.getProduct();
-
-    final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
+    await ProductRefresher().saveAndRefresh(
       context: context,
       localDatabase: localDatabase,
       product: inputProduct,
     );
-    if (!mounted) {
-      return;
-    }
-    Navigator.of(context).pop(savedAndRefreshed);
   }
 
   bool _isEdited() {
