@@ -793,7 +793,13 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Mode haute performance de l'appareil photo",
+    "settings_app_app": "Application",
+    "settings_app_data": "Confidentialité et télémetrie",
+    "settings_app_camera": "Caméra",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "Mode haute performance",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -801,6 +807,28 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
+    "camera_focus_point_algorithm_title": "Mode de mise au point",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "Mode actuel : {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "Automatique",
+    "camera_focus_point_algorithm_value_auto_description": "Laissez le système choisir automatiquement entre les modes rapide et garanti.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Mode rapide",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "Un paramétrage recommandé aux appareils récents.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Mode garanti",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "Si le mode rapide ne fonctionne pas, cela devrait résoudre vos problèmes de mise au point.",
     "camera_play_sound_title": "Jouer un son lors du scan",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
