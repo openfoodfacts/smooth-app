@@ -1,4 +1,4 @@
-<img height='175' src="https://en.blog.openfoodfacts.org/images/EXE_LOGO_OFF_RVB_Plan_de_travail_1_copie_0_t.jpg" align="left" hspace="1" vspace="1">
+<img height='175' src="https://static.openfoodfacts.org/images/misc/mobileapp/new_openfoodfacts_app_en_light_3_screenshots.png" align="left" hspace="1" vspace="1">
 
 # Open Food Facts - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
