@@ -1,9 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -293,6 +295,20 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     }
   }
 
+  Future<void> _shareProduct() async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    // We need to provide a sharePositionOrigin to make the plugin work on ipad
+    final RenderBox? box = context.findRenderObject() as RenderBox?;
+    // TODO(m123): Move this to off-dart
+    final String url =
+        'https://www.${userPreferences.userCountryCode?.toLowerCase()}${userPreferences.userCountryCode != null ? '.' : ''}openfoodfacts.org/product/${widget.product.barcode!}';
+    Share.share(
+      appLocalizations.share_product_text(url),
+      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+    );
+  }
+
   Widget _buildActionBar(final AppLocalizations appLocalizations) => Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: Row(
@@ -323,6 +339,11 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                 }
               },
             ),
+            _buildActionBarItem(
+              ConstantIcons.instance.getShareIcon(),
+              appLocalizations.share,
+              _shareProduct,
+            ),
           ],
         ),
       );
@@ -334,23 +355,25 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   ) {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        ElevatedButton(
-          onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-            shape: const CircleBorder(),
-            padding: const EdgeInsets.all(
-                18), // TODO(monsieurtanuki): cf. FloatingActionButton
-            primary: colorScheme.primary,
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          ElevatedButton(
+            onPressed: onPressed,
+            style: ElevatedButton.styleFrom(
+              shape: const CircleBorder(),
+              padding: const EdgeInsets.all(
+                  18), // TODO(monsieurtanuki): cf. FloatingActionButton
+              primary: colorScheme.primary,
+            ),
+            child: Icon(iconData, color: colorScheme.onPrimary),
           ),
-          child: Icon(iconData, color: colorScheme.onPrimary),
-        ),
-        const SizedBox(height: VERY_SMALL_SPACE),
-        Text(label),
-      ],
+          const SizedBox(height: VERY_SMALL_SPACE),
+          AutoSizeText(label, textAlign: TextAlign.center),
+        ],
+      ),
     );
   }
 

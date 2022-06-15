@@ -81,6 +81,7 @@ dependencies:
     path: ../data_importer_shared
   data_importer:
     path: ../data_importer
+  share_plus: ^4.0.8
 
 dev_dependencies:
   integration_test:
