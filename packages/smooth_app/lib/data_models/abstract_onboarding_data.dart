@@ -30,7 +30,6 @@ abstract class AbstractOnboardingData<T> {
   ///
   /// Typical use case: data we downloaded just for the onboarding,
   /// that we can clear after the onboarding.
-  /// Returns true if error thrown while loading
   Future<void> clear() async =>
       DaoString(_localDatabase).put(_getDatabaseKey(), null);
 
