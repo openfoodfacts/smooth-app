@@ -24,8 +24,10 @@ class AnalyticsHelper {
 
   static const String _scanAction = 'scanned product';
   static const String _productPageAction = 'opened product page';
-  static const String _knowledgePanelAction = 'opened knowledge panel page';
   static const String _personalizedRankingAction = 'personalized ranking';
+  static const String _loginAction = 'logged in';
+  static const String _registerAction = 'register';
+  static const String _userManagmentCategory = 'user management';
 
   static String latestSearch = '';
 
@@ -92,26 +94,26 @@ class AnalyticsHelper {
   // TODO(m123): Matomo removes leading 0 from the barcode
   static void trackScannedProduct({required String barcode}) =>
       MatomoTracker.instance.trackEvent(
-        name: _scanAction,
+        eventName: _scanAction,
+        eventCategory: 'Scan',
         action: 'Scanned',
         eventValue: _formatBarcode(barcode),
       );
 
   static void trackProductPageOpen({required Product product}) =>
       MatomoTracker.instance.trackEvent(
-        name: _productPageAction,
+        eventName: _productPageAction,
         action: 'opened',
+        eventCategory: 'Page',
         eventValue: _formatBarcode(product.barcode!),
       );
 
-  static void trackKnowledgePanelOpen() => MatomoTracker.instance.trackEvent(
-        name: _knowledgePanelAction,
+  static void trackPersonalizedRanking(int count) =>
+      MatomoTracker.instance.trackEvent(
+        eventName: _personalizedRankingAction,
         action: 'opened',
-      );
-
-  static void trackPersonalizedRanking() => MatomoTracker.instance.trackEvent(
-        name: _personalizedRankingAction,
-        action: 'opened',
+        eventCategory: 'Page',
+        eventValue: count,
       );
 
   static void trackSearch({
@@ -135,6 +137,12 @@ class AnalyticsHelper {
 
   static void trackOpenLink({required String url}) =>
       MatomoTracker.instance.trackOutlink(url);
+
+  static void trackLogin() => MatomoTracker.instance
+      .trackEvent(action: _loginAction, eventCategory: _userManagmentCategory);
+
+  static void trackRegister() => MatomoTracker.instance.trackEvent(
+      action: _registerAction, eventCategory: _userManagmentCategory);
 
   static int _formatBarcode(String barcode) {
     const int fallback = 000000000;
