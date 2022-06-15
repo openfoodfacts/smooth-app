@@ -40,7 +40,7 @@ class OnboardingLoader {
     }
   }
 
-  /// Actual download of all data
+  /// Actual download of all data.
   Future<void> _downloadData() async =>
       OnboardingDataProduct.forProduct(_localDatabase).downloadData();
 
