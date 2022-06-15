@@ -34,7 +34,7 @@ class ProductRefresher {
             );
           },
         ),
-        neutralAction: SmoothActionButton(
+        negativeAction: SmoothActionButton(
           text: appLocalizations.cancel,
           onPressed: () => Navigator.of(context).pop(),
         ),
