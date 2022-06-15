@@ -15,13 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## Android
 
-### android closed_beta
+### android internal
 
 ```sh
-[bundle exec] fastlane android closed_beta
+[bundle exec] fastlane android internal
 ```
 
-Deploy to closed beta track
+Deploy to internal track on Google Play Store.
 
 ### android setVersion
 
