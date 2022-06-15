@@ -1355,5 +1355,18 @@
     "gallery_source_label": "Gallery",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "share": "Share",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
     }
 }
