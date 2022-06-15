@@ -1,4 +1,7 @@
-<img height="100" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
+<picture>
+  <source srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.svg" media="(prefers-color-scheme: dark)">
+  <img height="100" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
+</picture>
 
 # Open Food Facts - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
