@@ -1,5 +1,6 @@
 <picture>
-  <source srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.svg" media="(prefers-color-scheme: dark)">
+  <source media="(prefers-color-scheme: dark)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
   <img height="100" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
 </picture>
 
