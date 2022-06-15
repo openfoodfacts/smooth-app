@@ -296,13 +296,16 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Future<void> _shareProduct() async {
+    AnalyticsHelper.trackShareProduct(barcode: widget.product.barcode!);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.read<UserPreferences>();
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
-    // TODO(m123): Move this to off-dart
-    final String url =
-        'https://www.${userPreferences.userCountryCode?.toLowerCase()}${userPreferences.userCountryCode != null ? '.' : ''}openfoodfacts.org/product/${widget.product.barcode!}';
+    final String url = OpenFoodAPIClient.getProductUri(
+      widget.product.barcode!,
+      replaceSubdomain: true,
+      country: ProductQuery.getCountry(),
+    ).toString();
+
     Share.share(
       appLocalizations.share_product_text(url),
       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
