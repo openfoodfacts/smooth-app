@@ -30,14 +30,20 @@ abstract class AbstractOnboardingData<T> {
   ///
   /// Typical use case: data we downloaded just for the onboarding,
   /// that we can clear after the onboarding.
+  /// Returns true if error thrown while loading
   Future<void> clear() async =>
       DaoString(_localDatabase).put(_getDatabaseKey(), null);
 
   /// Downloads data and store it locally.
-  Future<void> downloadData() async {
-    final String string = await downloadDataString();
-    final DaoString daoString = DaoString(_localDatabase);
-    await daoString.put(_getDatabaseKey(), string);
+  Future<bool> downloadData() async {
+    try {
+      final String string = await downloadDataString();
+      final DaoString daoString = DaoString(_localDatabase);
+      await daoString.put(_getDatabaseKey(), string);
+      return false;
+    } catch (e) {
+      return true;
+    }
   }
 
   /// Converts a string into the expected object, even null.
