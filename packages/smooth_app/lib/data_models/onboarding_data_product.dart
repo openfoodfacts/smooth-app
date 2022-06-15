@@ -42,9 +42,7 @@ class OnboardingDataProduct extends AbstractOnboardingData<Product> {
           language: ProductQuery.getLanguage(),
           country: ProductQuery.getCountry(),
         ),
-      ).timeout(const Duration(seconds: 5), onTimeout: () {
-        throw Exception('Timeout');
-      });
+      ).timeout(const Duration(seconds: 5));
 
   @override
   String getAssetPath() => assetPath;

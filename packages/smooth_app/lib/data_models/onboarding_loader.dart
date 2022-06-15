@@ -18,20 +18,13 @@ class OnboardingLoader {
   ) async {
     switch (page) {
       case OnboardingPage.WELCOME:
-        final bool? error = await LoadingDialog.run<bool>(
+        await LoadingDialog.run<void>(
           context: context,
           future: _downloadData(),
           title: AppLocalizations.of(context)
               .onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
-        if (error ?? false) {
-          await LoadingDialog.error(
-              context: context,
-              // ignore: use_build_context_synchronously
-              title: AppLocalizations.of(context)
-                  .onboarding_welcome_loading_error_title);
-        }
         return;
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.REINVENTION:
@@ -48,7 +41,7 @@ class OnboardingLoader {
   }
 
   /// Actual download of all data, returns true if error thrown
-  Future<bool> _downloadData() async =>
+  Future<void> _downloadData() async =>
       OnboardingDataProduct.forProduct(_localDatabase).downloadData();
 
   /// Unloads all data that are no longer required.

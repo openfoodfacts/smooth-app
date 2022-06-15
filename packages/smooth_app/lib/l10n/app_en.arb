@@ -717,10 +717,6 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error_title": "Unable to load your example product",
-    "@onboarding_welcome_loading_error_title": {
-        "description": "Title for the onboarding loading error dialog"
-    },
     "product_list_your_ranking": "Your ranking",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
