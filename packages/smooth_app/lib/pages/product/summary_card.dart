@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
@@ -23,6 +24,7 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
@@ -49,6 +51,7 @@ class SummaryCard extends StatefulWidget {
     this.showUnansweredQuestions = false,
     this.refreshProductCallback,
     this.isRemovable = true,
+    this.isSettingClickable = true,
   });
 
   final Product _product;
@@ -66,6 +69,9 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, there will be a button to remove the product from the carousel.
   final bool isRemovable;
+
+  /// If true, the icon setting will be clickable.
+  final bool isSettingClickable;
 
   /// Callback to refresh the product when necessary.
   final Function(BuildContext)? refreshProductCallback;
@@ -311,9 +317,9 @@ class _SummaryCardState extends State<SummaryCard> {
           addPanelButton(
             localizations.completed_basic_details_btn_text,
             onPressed: () async {
-              await Navigator.push<bool>(
+              await Navigator.push<Product?>(
                 context,
-                MaterialPageRoute<bool>(
+                MaterialPageRoute<Product>(
                   builder: (BuildContext context) =>
                       AddBasicDetailsPage(widget._product),
                 ),
@@ -417,16 +423,22 @@ class _SummaryCardState extends State<SummaryCard> {
           ),
           InkWell(
             borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
-            onTap: () async => Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => const UserPreferencesPage(
-                  type: PreferencePageType.FOOD,
-                ),
-              ),
-            ),
+            onTap: widget.isSettingClickable
+                ? () async => Navigator.push<Widget>(
+                      context,
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) =>
+                            const UserPreferencesPage(
+                          type: PreferencePageType.FOOD,
+                        ),
+                      ),
+                    )
+                : null,
             child: Tooltip(
               message: appLocalizations.open_food_preferences_tooltip,
+              triggerMode: widget.isSettingClickable
+                  ? TooltipTriggerMode.longPress
+                  : TooltipTriggerMode.tap,
               child: const SizedBox.square(
                 dimension: kMinInteractiveDimension,
                 child: Icon(
@@ -720,10 +732,14 @@ class _SummaryCardState extends State<SummaryCard> {
       return;
     }
 
+    final KnowledgePanelPanelGroupElement? group =
+        KnowledgePanelGroupCard.groupElementOf(context);
+
     Navigator.push<Widget>(
       context,
       MaterialPageRoute<Widget>(
         builder: (BuildContext context) => KnowledgePanelPage(
+          groupElement: group,
           panel: knowledgePanel,
           allPanels: widget._product.knowledgePanels!,
         ),

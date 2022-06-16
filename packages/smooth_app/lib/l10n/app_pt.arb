@@ -18,7 +18,7 @@
     "skip": "Pular",
     "cancel": "Cancelar",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ignorar",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -142,6 +142,10 @@
     "sign_in": "Iniciar sessão",
     "@sign_in": {
         "description": "Button label: For sign in"
+    },
+    "sign_in_mandatory": "Para usar esse recurso, precisamos que você faça login.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
     },
     "sign_out": "Sair",
     "@sign_out": {
@@ -789,7 +793,13 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Modo de alta performance",
+    "settings_app_app": "Application",
+    "settings_app_data": "Privacy & monitoring",
+    "settings_app_camera": "Camera",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "High performance mode",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -797,11 +807,33 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_play_sound_title": "Play camera sound",
+    "camera_focus_point_algorithm_title": "Focus mode",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "Automático",
+    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_play_sound_title": "Emitir um som durante o escaneamento",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "Emite um alerta sonoro a cada escaneamento bem-sucedido",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
@@ -903,7 +935,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation": "Deseja salvar suas alterações antes de sair desta página?",
     "edit_product_form_item_ingredients_title": "Ingredientes e origens",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -996,11 +1028,11 @@
             }
         }
     },
-    "camera_enable_flash": "Enable flash",
+    "camera_enable_flash": "Ativar flash",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Disable flash",
+    "camera_disable_flash": "Desativar flash",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },

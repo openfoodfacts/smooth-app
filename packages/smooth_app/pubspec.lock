@@ -49,7 +49,49 @@ packages:
       name: audioplayers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.20.1"
+    version: "1.0.0"
+  audioplayers_android:
+    dependency: transitive
+    description:
+      name: audioplayers_android
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_darwin:
+    dependency: transitive
+    description:
+      name: audioplayers_darwin
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_linux:
+    dependency: transitive
+    description:
+      name: audioplayers_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_platform_interface:
+    dependency: transitive
+    description:
+      name: audioplayers_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_web:
+    dependency: transitive
+    description:
+      name: audioplayers_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  audioplayers_windows:
+    dependency: transitive
+    description:
+      name: audioplayers_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   auto_size_text:
     dependency: "direct main"
     description:
@@ -89,24 +131,28 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/camera/camera"
-      ref: camera_fix_debug
-      resolved-ref: f67835a36bf1ae1584606b0ca690a3e09250c2ee
+      ref: smooth_camera
+      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.9.6"
   camera_platform_interface:
     dependency: "direct main"
     description:
-      name: camera_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0"
+      path: "packages/camera/camera_platform_interface"
+      ref: smooth_camera
+      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      url: "https://github.com/g123k/plugins.git"
+    source: git
+    version: "2.1.6"
   camera_web:
     dependency: transitive
     description:
-      name: camera_web
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "packages/camera/camera_web"
+      ref: smooth_camera
+      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      url: "https://github.com/g123k/plugins.git"
+    source: git
     version: "0.2.1+6"
   carousel_slider:
     dependency: "direct main"
@@ -341,7 +387,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.3"
+    version: "2.2.3+1"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -468,7 +514,7 @@ packages:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   hive_flutter:
     dependency: "direct main"
     description:
@@ -653,8 +699,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: fix-country
-      resolved-ref: "81a612f3f4087763c0233d722b232781ddcf2be5"
+      ref: fix-event-sending
+      resolved-ref: "8de93595eff55be1c1df4f9fd53bbb79b11c5745"
       url: "https://github.com/M123-dev/matomo-tracker.git"
     source: git
     version: "1.1.1"
@@ -672,6 +718,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  mime:
+    dependency: transitive
+    description:
+      name: mime
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   mockito:
     dependency: "direct dev"
     description:
@@ -966,6 +1019,48 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.5.1"
+  share_plus:
+    dependency: "direct main"
+    description:
+      name: share_plus
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.8"
+  share_plus_linux:
+    dependency: transitive
+    description:
+      name: share_plus_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
+  share_plus_macos:
+    dependency: transitive
+    description:
+      name: share_plus_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
+  share_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: share_plus_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.3"
+  share_plus_web:
+    dependency: transitive
+    description:
+      name: share_plus_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
+  share_plus_windows:
+    dependency: transitive
+    description:
+      name: share_plus_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -1042,13 +1137,11 @@ packages:
     source: hosted
     version: "1.8.2"
   sqflite:
-    dependency: transitive
+    dependency: "direct main"
     description:
-      path: sqflite
-      ref: HEAD
-      resolved-ref: "81b305f07755647c90c4c8a1841f030c0dea39b3"
-      url: "https://github.com/g123k/sqflite_android_only.git"
-    source: git
+      name: sqflite
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "2.0.2+1"
   sqflite_common:
     dependency: transitive

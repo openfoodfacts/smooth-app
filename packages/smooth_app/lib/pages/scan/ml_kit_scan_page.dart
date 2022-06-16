@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
+import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
@@ -53,7 +54,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   /// A time window is the average time decodings took
   final AverageList<int> _averageProcessingTime = AverageList<int>();
-  final AudioCache _musicPlayer = AudioCache(prefix: 'assets/audio/');
+
+  final AudioPlayer _musicPlayer = AudioPlayer();
 
   /// Subject notifying when a new image is available
   PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
@@ -102,8 +104,18 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     // Relaunch the feed after a hot reload
     if (_controller == null) {
       _startLiveFeed();
+    } else {
+      _controller!.updateFocusPointAlgorithm(
+        _userPreferences.cameraFocusPointAlgorithm,
+      );
     }
   }
+
+  @override
+  String get traceTitle => 'ml_kit_scan_page';
+
+  @override
+  String get traceName => 'Opened ml_kit_scan_page';
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +145,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   Widget _buildScannerWidget() {
     // Showing a black scanner background when the camera is not initialized
-    if (!isCameraInitialized) {
+    if (!isCameraReady) {
       return const SizedBox.expand(
         child: ColoredBox(
           color: Colors.black,
@@ -194,6 +206,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   bool get isCameraInitialized => _controller?.isInitialized == true;
+
+  bool get isCameraReady => _controller?.canShowPreview == true;
 
   Future<void> _startLiveFeed() async {
     if (_camera == null) {
@@ -259,12 +273,24 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         .listen(_onNewBarcodeDetected);
 
     try {
+      final _FocusPoint point = _focusPoint;
+
       await _controller?.init(
         focusMode: FocusMode.auto,
-        focusPoint: _focusPoint,
+        focusPoint: point.offset,
         deviceOrientation: DeviceOrientation.portraitUp,
         onAvailable: (CameraImage image) => _subject.add(image),
       );
+
+      // If the Widget tree isn't ready, wait for the first frame
+      if (!point.precise) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _controller?.setFocusPointTo(
+            _focusPoint.offset,
+            _userPreferences.cameraFocusPointAlgorithm,
+          );
+        });
+      }
     } on CameraException catch (e) {
       if (kDebugMode) {
         // TODO(M123): Show error message
@@ -287,8 +313,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
         if (_userPreferences.playCameraSound) {
           _musicPlayer.play(
-            'beep.ogg',
-            mode: PlayerMode.LOW_LATENCY,
+            AssetSource('assets/audio/beep.org'),
+            mode: PlayerMode.lowLatency,
             volume: 0.5,
           );
         }
@@ -317,8 +343,13 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       return;
     }
 
-    _streamSubscription?.pause();
-    await _controller?.pausePreview();
+    if (_controller != null &&
+        _controller!.isPauseResumePreviewSupported != true) {
+      await _stopImageStream(autoRestart: false);
+    } else {
+      _streamSubscription?.pause();
+      await _controller?.pausePreview();
+    }
   }
 
   Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
@@ -352,17 +383,22 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       _streamSubscription!.resume();
     }
 
-    await _controller?.resumePreviewIfNecessary();
+    if (_controller?.isPauseResumePreviewSupported == true) {
+      await _controller?.resumePreviewIfNecessary();
+    }
     stoppingCamera = false;
   }
 
-  Future<void> _stopImageStream() async {
+  Future<void> _stopImageStream({bool autoRestart = true}) async {
     if (stoppingCamera) {
       return;
     }
 
     stoppingCamera = true;
-    await _controller?.pausePreview();
+
+    if (_controller?.isPauseResumePreviewSupported == true) {
+      await _controller?.pausePreview();
+    }
 
     _redrawScreen();
 
@@ -370,13 +406,16 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     await _streamSubscription?.cancel();
 
     await _controller?.dispose();
-    await _barcodeDecoder?.dispose();
     CameraHelper.destroyControllerInstance();
 
+    await _barcodeDecoder?.dispose();
     _barcodeDecoder = null;
 
     stoppingCamera = false;
-    _restartCameraIfNecessary();
+
+    if (autoRestart) {
+      _restartCameraIfNecessary();
+    }
   }
 
   void _redrawScreen() {
@@ -420,24 +459,53 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
     _stopImageStream();
-    _musicPlayer.clearAll();
+    _musicPlayer.stop();
+    _musicPlayer.dispose();
     super.dispose();
   }
 
   /// Whatever the scan mode is, we always want the focus point to be on
-  /// "half-top" of the screen
-  Offset get _focusPoint {
-    if (_previewScale == 1.0) {
-      return const Offset(0.5, 0.25);
+  /// the middle of the [ScannerVisorWidget]
+  _FocusPoint get _focusPoint {
+    final double? preciseY;
+
+    if (mounted) {
+      final GlobalKey<ScannerVisorWidgetState> key =
+          Provider.of<GlobalKey<ScannerVisorWidgetState>>(context,
+              listen: false);
+
+      final Offset? visorOffset =
+          (key.currentContext?.findRenderObject() as RenderBox?)
+              ?.localToGlobal(Offset.zero);
+
+      if (visorOffset != null) {
+        preciseY = (visorOffset.dy +
+                (ScannerVisorWidget.getSize(context).height) / 2) /
+            MediaQuery.of(context).size.height;
+      } else {
+        preciseY = null;
+      }
     } else {
-      // Since we use a [Alignment.topCenter] alignment for the preview, we
-      // have to recompute the position of the focus point
-      return Offset(0.5, 0.25 / _previewScale);
+      preciseY = null;
     }
+
+    return _FocusPoint(
+      offset: Offset(0.5, preciseY ?? 0.25 / _previewScale),
+      precise: preciseY != null,
+    );
   }
 
   SmoothCameraController? get _controller => CameraHelper.controller;
+}
 
-  @override
-  String get traceTitle => 'ml_kit_scan_page';
+/// Provides the position to the center of the visor
+/// [precise] is [true] when the computation is based on the Widget coordinates
+class _FocusPoint {
+  _FocusPoint({
+    required this.offset,
+    required this.precise,
+  });
+
+  final Offset offset;
+  final bool precise;
 }

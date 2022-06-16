@@ -80,8 +80,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                 child: SmoothActionButtonsBar.single(
                   action: SmoothActionButton(
                     text: appLocalizations.finish,
-                    onPressed: () {
-                      Navigator.maybePop(
+                    onPressed: () async {
+                      await Navigator.maybePop(
                           context, _isProductLoaded ? widget.barcode : null);
                     },
                   ),
@@ -263,19 +263,18 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (!mounted) {
             return;
           }
-          final bool result = await Navigator.push<bool>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => NutritionPageLoaded(
-                    Product(barcode: widget.barcode),
-                    cache.orderedNutrients,
-                  ),
-                ),
-              ) ??
-              false;
+          final Product? result = await Navigator.push<Product?>(
+            context,
+            MaterialPageRoute<Product>(
+              builder: (BuildContext context) => NutritionPageLoaded(
+                Product(barcode: widget.barcode),
+                cache.orderedNutrients,
+              ),
+            ),
+          );
 
           setState(() {
-            _nutritionFactsAdded = result;
+            _nutritionFactsAdded = result != null;
           });
         },
       ),
@@ -314,17 +313,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
         onPressed: () async {
-          final bool result = await Navigator.push<bool>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => AddBasicDetailsPage(
-                    Product(barcode: widget.barcode),
-                  ),
-                ),
-              ) ??
-              false;
+          final Product? result = await Navigator.push<Product?>(
+            context,
+            MaterialPageRoute<Product>(
+              builder: (BuildContext context) => AddBasicDetailsPage(
+                Product(barcode: widget.barcode),
+              ),
+            ),
+          );
           setState(() {
-            _basicDetailsAdded = result;
+            _basicDetailsAdded = result != null;
           });
         },
       ),

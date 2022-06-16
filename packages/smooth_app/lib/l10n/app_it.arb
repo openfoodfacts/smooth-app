@@ -18,7 +18,7 @@
     "skip": "Salta",
     "cancel": "Annulla",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ignora",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -142,6 +142,10 @@
     "sign_in": "Accedi",
     "@sign_in": {
         "description": "Button label: For sign in"
+    },
+    "sign_in_mandatory": "Per quella funzione abbiamo bisogno che tu acceda.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
     },
     "sign_out": "Disconnettiti",
     "@sign_out": {
@@ -789,19 +793,47 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Modalità telecamera ad alte prestazioni",
+    "settings_app_app": "Application",
+    "settings_app_data": "Privacy & monitoring",
+    "settings_app_camera": "Camera",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "High performance mode",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Se abilitata, la qualità della decodifica dei codici a barre dovrebbe essere migliore, ma potrebbe influire sulle prestazioni e sulla durata della batteria. Richiede il riavvio dell'applicazione.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_play_sound_title": "Play camera sound",
+    "camera_focus_point_algorithm_title": "Focus mode",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "Auto",
+    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_play_sound_title": "Riproduci un suono durante la scansione",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "Emette un segnale acustico ad ogni scansione riuscita",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
@@ -903,7 +935,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation": "Salvare le modifiche prima di lasciare questa pagina?",
     "edit_product_form_item_ingredients_title": "Ingredienti & Origini",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -996,11 +1028,11 @@
             }
         }
     },
-    "camera_enable_flash": "Enable flash",
+    "camera_enable_flash": "Abilita flash",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Disable flash",
+    "camera_disable_flash": "Disabilita flash",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },

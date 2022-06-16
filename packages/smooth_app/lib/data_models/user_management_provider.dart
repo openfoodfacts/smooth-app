@@ -61,10 +61,10 @@ class UserManagementProvider with ChangeNotifier {
 
   /// Checks if any credentials exist in storage
   Future<bool> credentialsInStorage() async {
-    final bool userId = await DaoSecuredString.contains(key: _USER_ID);
-    final bool password = await DaoSecuredString.contains(key: _PASSWORD);
+    final String? userId = await DaoSecuredString.get(_USER_ID);
+    final String? password = await DaoSecuredString.get(_PASSWORD);
 
-    return userId && password;
+    return userId != null && password != null;
   }
 
   /// Saves user to storage

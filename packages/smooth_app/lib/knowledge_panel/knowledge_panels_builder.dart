@@ -144,16 +144,16 @@ class KnowledgePanelsBuilder {
                   return;
                 }
                 //ignore: use_build_context_synchronously
-                final bool? refreshed = await Navigator.push<bool>(
+                final Product? refreshedProduct = await Navigator.push<Product>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) => NutritionPageLoaded(
                       product,
                       cache.orderedNutrients,
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
+                if (refreshedProduct != null) {
                   setState?.call();
                 }
                 // TODO(monsieurtanuki): refresh the data if changed

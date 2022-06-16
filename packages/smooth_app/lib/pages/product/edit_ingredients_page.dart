@@ -36,11 +36,13 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   ImageProvider? _imageProvider;
   bool _updatingImage = false;
   bool _updatingIngredients = false;
+  late Product _product;
 
   @override
   void initState() {
     super.initState();
-    _controller.text = widget.product.ingredientsText ?? '';
+    _product = widget.product;
+    _controller.text = _product.ingredientsText ?? '';
   }
 
   Future<void> _onSubmitField() async {
@@ -111,7 +113,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       }
       isUploaded = await uploadCapturedPicture(
         context,
-        barcode: widget.product.barcode!,
+        barcode: _product.barcode!,
         imageField: ImageField.INGREDIENTS,
         imageUri: croppedImageFile.uri,
       );
@@ -130,7 +132,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     // Get the ingredients from the image.
     final OcrIngredientsResult ingredientsResult =
         await OpenFoodAPIClient.extractIngredients(
-            user, widget.product.barcode!, language!);
+            user, _product.barcode!, language!);
 
     final String? nextIngredients = ingredientsResult.ingredientsTextFromImage;
     if (nextIngredients == null || nextIngredients.isEmpty) {
@@ -146,12 +148,12 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   }
 
   Future<void> _updateIngredientsText(String ingredientsText) async {
-    widget.product.ingredientsText = ingredientsText;
+    _product.ingredientsText = ingredientsText;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
       context: context,
       localDatabase: localDatabase,
-      product: widget.product,
+      product: _product,
     );
     if (savedAndRefreshed != null) {
       if (!mounted) {
@@ -177,11 +179,11 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
         ),
       );
     } else {
-      if (widget.product.imageIngredientsUrl != null) {
+      if (_product.imageIngredientsUrl != null) {
         children.add(ConstrainedBox(
           constraints: const BoxConstraints.expand(),
-          child: _buildZoomableImage(
-              NetworkImage(widget.product.imageIngredientsUrl!)),
+          child:
+              _buildZoomableImage(NetworkImage(_product.imageIngredientsUrl!)),
         ));
       } else {
         children.add(Container(color: Colors.white));
@@ -195,11 +197,12 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     } else {
       children.add(_EditIngredientsBody(
         controller: _controller,
-        imageIngredientsUrl: widget.product.imageIngredientsUrl,
+        imageIngredientsUrl: _product.imageIngredientsUrl,
         onTapGetImage: _onTapGetImage,
         onSubmitField: _onSubmitField,
         updatingIngredients: _updatingIngredients,
         hasImageProvider: _imageProvider != null,
+        product: _product,
       ));
     }
 
@@ -246,6 +249,7 @@ class _EditIngredientsBody extends StatelessWidget {
     required this.onTapGetImage,
     required this.updatingIngredients,
     required this.hasImageProvider,
+    required this.product,
   }) : super(key: key);
 
   final TextEditingController controller;
@@ -254,6 +258,7 @@ class _EditIngredientsBody extends StatelessWidget {
   final Future<void> Function(bool) onTapGetImage;
   final Future<void> Function() onSubmitField;
   final bool hasImageProvider;
+  final Product product;
 
   Widget _getExtraitIngredientsBtn(AppLocalizations appLocalizations) {
     if (hasImageProvider || imageIngredientsUrl != null) {
@@ -332,7 +337,7 @@ class _EditIngredientsBody extends StatelessWidget {
                         negativeAction: SmoothActionButton(
                           text: appLocalizations.cancel,
                           onPressed: () {
-                            Navigator.pop(context, false);
+                            Navigator.pop(context);
                           },
                         ),
                         positiveAction: SmoothActionButton(
@@ -340,7 +345,7 @@ class _EditIngredientsBody extends StatelessWidget {
                           onPressed: () async {
                             await onSubmitField();
                             //ignore: use_build_context_synchronously
-                            Navigator.pop(context, true);
+                            Navigator.pop(context, product);
                           },
                         ),
                       ),
