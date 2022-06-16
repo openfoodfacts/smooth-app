@@ -8,7 +8,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 Future<File?> startImageCropping(BuildContext context,
     {File? existingImage,
     bool showoptionDialog = false,
-     bool chooseFromGallery = false}) async {
+    bool chooseFromGallery = false}) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   late XFile? pickedXFile;
   if (existingImage == null) {

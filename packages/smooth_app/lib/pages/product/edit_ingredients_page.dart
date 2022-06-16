@@ -97,7 +97,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   Future<void> _getImage(bool isNewImage) async {
     bool isUploaded = true;
     if (isNewImage) {
-      final File? croppedImageFile = await startImageCropping(context,showoptionDialog: true);
+      final File? croppedImageFile =
+          await startImageCropping(context, showoptionDialog: true);
 
       // If the user cancels.
       if (croppedImageFile == null) {
