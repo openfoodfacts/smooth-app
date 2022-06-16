@@ -102,14 +102,21 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       // "other photos" uploaded by the user.
       if (imageType == ImageField.OTHER) {
         rows.add(_buildAddImageButton(context, imageType));
+        for (final File image in _uploadedImages[imageType]!) {
+          rows.add(_buildImageUploadedRow(context, imageType, image));
+        }
         continue;
       }
 
       // Everything else can only be uploaded once
       if (_isImageUploadedForType(imageType)) {
-        for (final File image in _uploadedImages[imageType]!) {
-          rows.add(_buildImageUploadedRow(context, imageType, image));
-        }
+        rows.add(
+          _buildImageUploadedRow(
+            context,
+            imageType,
+            _uploadedImages[imageType]![0],
+          ),
+        );
       } else {
         rows.add(_buildAddImageButton(context, imageType));
       }
