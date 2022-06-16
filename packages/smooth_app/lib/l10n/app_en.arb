@@ -1368,5 +1368,14 @@
                 "type": "String"
             }
         }
+    },
+    "capture" : "Capture New",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+
+    "choose_from_gallery": "Choose from gallery",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

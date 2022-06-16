@@ -61,8 +61,10 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
-                child: ButtonBar(
-                  alignment: MainAxisAlignment.spaceEvenly,
+                child: Wrap(
+                  spacing: MEDIUM_SPACE,
+                  alignment: WrapAlignment.center,
+                  // alignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     OutlinedButton.icon(
                       icon: const Icon(Icons.camera),
@@ -77,7 +79,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        retakenPhoto = await startImageCropping(context, chooseFromGallery: false);
+                        retakenPhoto = await startImageCropping(context,
+                            chooseFromGallery: false);
                         if (retakenPhoto == null) {
                           if (!mounted) {
                             return;
@@ -92,11 +95,10 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           },
                         );
                       },
-                      label: Text(
-                        appLocalizations.settings_app_camera
-                      ),
-                    )        ,    OutlinedButton.icon(
-                      icon: const Icon(Icons.folder),
+                      label: Text(appLocalizations.capture),
+                    ),
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.photo_sharp),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                           themeData.colorScheme.background,
@@ -108,7 +110,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        retakenPhoto = await startImageCropping(context, chooseFromGallery: true);
+                        retakenPhoto = await startImageCropping(context,
+                            chooseFromGallery: true);
                         if (retakenPhoto == null) {
                           if (!mounted) {
                             return;
@@ -123,9 +126,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           },
                         );
                       },
-                      label: Text(
-                        appLocalizations.gallery_source_label
-                      ),
+                      label: Text(appLocalizations.choose_from_gallery),
                     ),
                     OutlinedButton.icon(
                       icon: const Icon(Icons.edit),
