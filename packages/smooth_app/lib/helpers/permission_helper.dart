@@ -5,11 +5,13 @@ import 'package:permission_handler/permission_handler.dart';
 class PermissionListener extends ValueNotifier<DevicePermission> {
   PermissionListener({
     required this.permission,
-  }) : super(DevicePermission._initial(permission)) {
+  })  : _status = _DevicePermissionStatus.initial,
+        super(DevicePermission._initial(permission)) {
     checkPermission();
   }
 
   final Permission permission;
+  _DevicePermissionStatus _status;
 
   Future<void> checkPermission() async {
     value = DevicePermission._(
@@ -23,6 +25,13 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
   Future<void> askPermission(
     Future<bool?> Function() onRationaleNotAvailable,
   ) async {
+    // Prevent multiples calls to this method
+    if (_status == _DevicePermissionStatus.asked) {
+      return;
+    }
+
+    _status = _DevicePermissionStatus.asked;
+
     final bool showRationale = await permission.shouldShowRequestRationale;
 
     if (showRationale) {
@@ -32,9 +41,11 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
 
       if (shouldOpenSettings == true) {
         await openAppSettings();
-        return checkPermission();
+        await checkPermission();
       }
     }
+
+    _status = _DevicePermissionStatus.answered;
   }
 
   void _onNewPermissionStatus(PermissionStatus status) {
@@ -90,4 +101,15 @@ enum DevicePermissionStatus {
   restricted,
   limited,
   permanentlyDenied,
+}
+
+/// Enum allowing to track the status of the [askPermission] method
+enum _DevicePermissionStatus {
+  // Never called
+  initial,
+  // Call in progress
+  asked,
+  // Finished
+  // /!\ it doesn't mean the permission is granted
+  answered,
 }
