@@ -137,6 +137,7 @@ class SearchField extends StatefulWidget {
 
 class _SearchFieldState extends State<SearchField> {
   final FocusNode _focusNode = FocusNode();
+  // https://github.com/openfoodfacts/smooth-app/pull/2219
   late TextEditingController _controller;
 
   bool _isEmpty = true;
