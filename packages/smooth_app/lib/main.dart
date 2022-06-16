@@ -22,6 +22,7 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -86,6 +87,7 @@ Future<bool> _init1() async {
     return false;
   }
 
+  await SmoothServices().init();
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();

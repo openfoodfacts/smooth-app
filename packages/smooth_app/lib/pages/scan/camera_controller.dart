@@ -6,6 +6,7 @@ import 'package:camera_platform_interface/camera_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// A lifecycle-aware [CameraController]
 /// On Android it supports pause/resume feed
@@ -71,9 +72,12 @@ class SmoothCameraController extends CameraController {
           .onCameraClosing(cameraId)
           .listen((CameraClosingEvent event) async {
         value = value.markAsClosed();
+        Logs.d('Camera closed!');
       });
 
       _updateState(_CameraState.resumed);
+    } else {
+      Logs.w('Controller already initialized!');
     }
   }
 
@@ -127,7 +131,7 @@ class SmoothCameraController extends CameraController {
       // The pause process can sometimes be too long, in that case, we just for
       // it to be finished
       _hasAPendingResume = true;
-      debugPrint('Preview not paused, will be restarted later…');
+      Logs.d('Preview not paused, will be restarted later…');
       return;
     } else if (_state == _CameraState.paused) {
       return resumePreview();
@@ -247,7 +251,7 @@ class SmoothCameraController extends CameraController {
   void _updateState(_CameraState newState) {
     if (newState != _state) {
       _state = newState;
-      debugPrint('New camera state = $_state');
+      Logs.d('New camera state = $_state');
 
       // Notify the UI to ensure a setState is called
       if (_state == _CameraState.resumed) {

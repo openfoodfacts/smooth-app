@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mailto/mailto.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -13,7 +13,6 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
@@ -251,12 +250,13 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         const UserPreferencesListItemDivider(),
         ListTile(
           onTap: () async {
-            final Mailto mailtoLink = Mailto(
-              to: <String>['contact@openfoodfacts.org'],
-              subject: appLocalizations.email_subject_account_deletion,
+            final Email email = Email(
               body: appLocalizations.email_body_account_deletion(userId),
+              subject: appLocalizations.email_subject_account_deletion,
+              recipients: <String>['contact@openfoodfacts.org'],
             );
-            await launchUrl(Uri.parse('$mailtoLink'));
+
+            await FlutterEmailSender.send(email);
           },
           title: Text(appLocalizations.account_delete),
           leading: const Icon(Icons.delete),

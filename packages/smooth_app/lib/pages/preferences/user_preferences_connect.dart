@@ -1,16 +1,17 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mailto/mailto.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// Display of "Connect" for the preferences page.
 class UserPreferencesConnect extends AbstractUserPreferences {
@@ -79,13 +80,33 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           title: appLocalizations.support_via_email,
           leading: UserPreferencesListTile.getTintedIcon(Icons.drafts, context),
           onTap: () async {
-            final Mailto mailtoLink = Mailto(
-              to: <String>['contact@openfoodfacts.org'],
-// This shouldn't be translated as its a debug message to OpenFoodFacts
-              subject: 'Smoothie help',
+            final bool? includeLogs = await showDialog<bool>(
+                context: context,
+                builder: (BuildContext context) {
+                  return SmoothAlertDialog(
+                    title: appLocalizations
+                        .support_via_email_include_logs_dialog_title,
+                    body: Text(
+                      appLocalizations
+                          .support_via_email_include_logs_dialog_body,
+                    ),
+                    positiveAction: SmoothActionButton(
+                        text: appLocalizations.yes,
+                        onPressed: () => Navigator.of(context).pop(true)),
+                    negativeAction: SmoothActionButton(
+                        text: appLocalizations.no,
+                        onPressed: () => Navigator.of(context).pop(false)),
+                  );
+                });
+
+            final Email email = Email(
               body: await _emailBody,
+              subject: 'Smoothie help',
+              recipients: <String>['contact@openfoodfacts.org'],
+              attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
             );
-            await launchUrl(Uri.parse('$mailtoLink'));
+
+            await FlutterEmailSender.send(email);
           },
         ),
       ];
