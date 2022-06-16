@@ -1137,13 +1137,11 @@ packages:
     source: hosted
     version: "1.8.2"
   sqflite:
-    dependency: transitive
+    dependency: "direct main"
     description:
-      path: sqflite
-      ref: HEAD
-      resolved-ref: "81b305f07755647c90c4c8a1841f030c0dea39b3"
-      url: "https://github.com/g123k/sqflite_android_only.git"
-    source: git
+      name: sqflite
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "2.0.2+1"
   sqflite_common:
     dependency: transitive
