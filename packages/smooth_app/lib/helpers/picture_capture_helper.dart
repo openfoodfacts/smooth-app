@@ -22,7 +22,7 @@ Future<bool> uploadCapturedPicture(
   final Status? result = await LoadingDialog.run<Status>(
     context: context,
     future: OpenFoodAPIClient.addProductImage(
-      ProductQuery.getUser(withAppInfo: true),
+      ProductQuery.getUser(),
       image,
     ),
     title: appLocalizations.uploading_image,

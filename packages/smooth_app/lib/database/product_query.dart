@@ -59,21 +59,13 @@ abstract class ProductQuery {
     OpenFoodAPIConfiguration.uuid = uuid;
   }
 
-  static User getUser({
-    bool withAppInfo = false,
-  }) {
-    final User user = OpenFoodAPIConfiguration.globalUser ??
-        const User(
-          userId: 'smoothie-app',
-          password: 'strawberrybanana',
-          comment: 'Test user for project smoothie',
-        );
-    return User(
-      userId: user.userId,
-      password: user.password,
-      comment: withAppInfo ? _getAppInfo(user) : user.comment,
-    );
-  }
+  static User getUser() =>
+      OpenFoodAPIConfiguration.globalUser ??
+      const User(
+        userId: 'smoothie-app',
+        password: 'strawberrybanana',
+        comment: 'Test user for project smoothie',
+      );
 
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
@@ -131,33 +123,4 @@ abstract class ProductQuery {
   Future<SearchResult> getSearchResult();
 
   ProductList getProductList();
-
-  static String _getAppInfo(
-    User user, {
-    bool withName = true,
-    bool withVersion = true,
-    bool withSystem = true,
-  }) {
-    String appInfo = '';
-    const String infoDelimiter = ' - ';
-    if (user.comment != null) {
-      appInfo += infoDelimiter;
-      appInfo += user.comment!;
-    }
-    if (OpenFoodAPIConfiguration.userAgent != null) {
-      if (withName) {
-        appInfo += infoDelimiter;
-        appInfo += OpenFoodAPIConfiguration.userAgent!.name.toString();
-      }
-      if (withVersion) {
-        appInfo += infoDelimiter;
-        appInfo += OpenFoodAPIConfiguration.userAgent!.version.toString();
-      }
-      if (withSystem) {
-        appInfo += infoDelimiter;
-        appInfo += OpenFoodAPIConfiguration.userAgent!.system.toString();
-      }
-    }
-    return appInfo;
-  }
 }
