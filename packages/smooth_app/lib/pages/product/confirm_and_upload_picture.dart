@@ -77,7 +77,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        retakenPhoto = await startImageCropping(context);
+                        retakenPhoto = await startImageCropping(context, chooseFromGallery: false);
                         if (retakenPhoto == null) {
                           if (!mounted) {
                             return;
@@ -93,7 +93,38 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         );
                       },
                       label: Text(
-                        appLocalizations.retake_photo_button_label,
+                        appLocalizations.settings_app_camera
+                      ),
+                    )        ,    OutlinedButton.icon(
+                      icon: const Icon(Icons.folder),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          themeData.colorScheme.background,
+                        ),
+                        shape: MaterialStateProperty.all(
+                          const RoundedRectangleBorder(
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                          ),
+                        ),
+                      ),
+                      onPressed: () async {
+                        retakenPhoto = await startImageCropping(context, chooseFromGallery: true);
+                        if (retakenPhoto == null) {
+                          if (!mounted) {
+                            return;
+                          }
+                          // User chose not to upload the image.
+                          Navigator.pop(context);
+                          return;
+                        }
+                        setState(
+                          () {
+                            photo = retakenPhoto!;
+                          },
+                        );
+                      },
+                      label: Text(
+                        appLocalizations.gallery_source_label
                       ),
                     ),
                     OutlinedButton.icon(

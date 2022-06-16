@@ -6,41 +6,55 @@ import 'package:image_picker/image_picker.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 Future<File?> startImageCropping(BuildContext context,
-    {File? existingImage}) async {
+    {File? existingImage,
+    bool showoptionDialog = false,
+     bool chooseFromGallery = false}) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   late XFile? pickedXFile;
   if (existingImage == null) {
     final ImagePicker picker = ImagePicker();
     // open a dialog to ask the user if they want to take a picture or select one from the gallery
-    pickedXFile = await showDialog<XFile>(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          title: appLocalizations.choose_image_source_title,
-          body: Text(appLocalizations.choose_image_source_body),
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.settings_app_camera,
-            onPressed: () async {
-              final XFile? pickedFile = await picker.pickImage(
-                source: ImageSource.camera,
-              );
-              // ignore: use_build_context_synchronously
-              Navigator.pop(context, pickedFile);
-            },
-          ),
-          negativeAction: SmoothActionButton(
-            text: appLocalizations.gallery_source_label,
-            onPressed: () async {
-              final XFile? pickedFile = await picker.pickImage(
-                source: ImageSource.gallery,
-              );
-              // ignore: use_build_context_synchronously
-              Navigator.pop(context, pickedFile);
-            },
-          ),
+    if (showoptionDialog) {
+      pickedXFile = await showDialog<XFile>(
+        context: context,
+        builder: (BuildContext context) {
+          return SmoothAlertDialog(
+            title: appLocalizations.choose_image_source_title,
+            body: Text(appLocalizations.choose_image_source_body),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.settings_app_camera,
+              onPressed: () async {
+                final XFile? pickedFile = await picker.pickImage(
+                  source: ImageSource.camera,
+                );
+                // ignore: use_build_context_synchronously
+                Navigator.pop(context, pickedFile);
+              },
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.gallery_source_label,
+              onPressed: () async {
+                final XFile? pickedFile = await picker.pickImage(
+                  source: ImageSource.gallery,
+                );
+                // ignore: use_build_context_synchronously
+                Navigator.pop(context, pickedFile);
+              },
+            ),
+          );
+        },
+      );
+    } else {
+      if (chooseFromGallery) {
+        pickedXFile = await picker.pickImage(
+          source: ImageSource.gallery,
         );
-      },
-    );
+      } else {
+        pickedXFile = await picker.pickImage(
+          source: ImageSource.camera,
+        );
+      }
+    }
     if (pickedXFile == null) {
       return null;
     }
