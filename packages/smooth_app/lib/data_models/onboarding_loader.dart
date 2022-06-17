@@ -26,7 +26,7 @@ class OnboardingLoader {
               .onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
-        if (downloaded == null || !downloaded) {
+        if (downloaded != true) {
           //ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
