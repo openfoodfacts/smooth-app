@@ -302,7 +302,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 return StatefulBuilder(
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
-                    return SmoothAlertDialog.advanced(
+                    return SmoothAlertDialog(
+                      close: true,
                       title: appLocalizations.nutrition_page_add_nutrient,
                       body: Column(
                         children: <Widget>[
@@ -325,19 +326,17 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                               );
                             },
                           ),
-                          Expanded(
-                            child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: filteredList.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final OrderedNutrient nutrient =
-                                      filteredList[index];
-                                  return ListTile(
-                                    title: Text(nutrient.name!),
-                                    onTap: () =>
-                                        Navigator.of(context).pop(nutrient),
-                                  );
-                                }),
+                          ...List<ListTile>.generate(
+                            filteredList.length,
+                            (int index) {
+                              final OrderedNutrient nutrient =
+                                  filteredList[index];
+                              return ListTile(
+                                title: Text(nutrient.name!),
+                                onTap: () =>
+                                    Navigator.of(context).pop(nutrient),
+                              );
+                            },
                           ),
                         ],
                       ),

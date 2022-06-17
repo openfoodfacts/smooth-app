@@ -14,11 +14,7 @@ dependencies:
   data_importer_shared:
     path: ../data_importer_shared
 
-  # Custom SQLite plugin only with the Android impl
-  sqflite:
-    git:
-      url: 'https://github.com/g123k/sqflite_android_only.git'
-      path: 'sqflite'
+  sqflite: ^2.0.2+1
 
   flutter_secure_storage: ^5.0.2
   path: ^1.8.0

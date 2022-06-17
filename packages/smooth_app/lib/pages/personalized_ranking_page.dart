@@ -29,8 +29,7 @@ class PersonalizedRankingPage extends StatefulWidget {
 class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     with TraceableClientMixin {
   @override
-  String get traceName =>
-      'Opened personalized ranking page with ${widget.products.length} products'; // optional
+  String get traceName => 'Opened personalized ranking page'; // optional
 
   @override
   String get traceTitle => 'personalized_ranking_page';
@@ -49,7 +48,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    AnalyticsHelper.trackPersonalizedRanking();
+    AnalyticsHelper.trackPersonalizedRanking(widget.products.length);
 
     MatchedProductStatusV2? status;
     final List<_VirtualItem> list = <_VirtualItem>[];
