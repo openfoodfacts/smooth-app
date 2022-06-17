@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
@@ -58,6 +59,27 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
           _getProductFromQueryResult(row);
     }
     return result;
+  }
+
+  Future<int> clearAll() async {
+    final int count = await localDatabase.database.delete(TABLE_PRODUCT);
+    return count;
+  }
+
+  Future<double> getSize() async {
+    final String path = localDatabase.database.path;
+    final File file = File(path);
+    final double size = file.lengthSync() / 1024 / 1024;
+    return double.parse(
+      size.floor().toStringAsFixed(
+            2,
+          ),
+    );
+  }
+
+  Future<int?> getLength() async {
+    return Sqflite.firstIntValue(await localDatabase.database
+        .rawQuery('SELECT COUNT(*) FROM $TABLE_PRODUCT'));
   }
 
   Future<void> put(final Product product) async => putAll(<Product>[product]);
