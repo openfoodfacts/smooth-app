@@ -12,6 +12,7 @@ import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
+import 'package:smooth_app/pages/offline_data.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
@@ -139,6 +140,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           title: const Text('Change camera post frame callback duration'),
           onTap: () async => _changeCameraPostFrameCallbackDuration(),
+        ),
+        ListTile(
+          title: const Text('Offline Mode'),
+          onTap: () {
+            Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context) => const OfflineDataScreen(),
+              ),
+            );
+          },
         ),
         SwitchListTile(
           title: Text(
