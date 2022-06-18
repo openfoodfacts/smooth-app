@@ -9,8 +9,7 @@ class AndroidDatabaseImporter {
   const AndroidDatabaseImporter._();
 
   static Future<ImportableUserData?> extract() async {
-    final String databasesPath = await getDatabasesPath();
-    final String path = join(databasesPath, 'open_food_facts');
+    final String path = await _getDatabasePath();
 
     if (!File(path).existsSync()) {
       return null;
@@ -32,6 +31,12 @@ class AndroidDatabaseImporter {
       history: history,
       lists: lists,
     );
+  }
+
+  static Future<String> _getDatabasePath() async {
+    final String databasesPath = await getDatabasesPath();
+    final String path = join(databasesPath, 'open_food_facts');
+    return path;
   }
 
   static Future<ImportableProductList> _listProductsFromHistory(
@@ -99,5 +104,17 @@ class AndroidDatabaseImporter {
     }
 
     return barcodes;
+  }
+
+  static Future<bool> removeDatabase() {
+    return _getDatabasePath().then((String path) async {
+      final File file = File(path);
+
+      if (file.existsSync()) {
+        await file.delete();
+      }
+
+      return true;
+    }).onError((Object? error, StackTrace stackTrace) => false);
   }
 }
