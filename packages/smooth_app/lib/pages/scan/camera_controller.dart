@@ -14,16 +14,13 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 class SmoothCameraController extends CameraController {
   SmoothCameraController(
     this.preferences,
-    CameraDescription description,
-    ResolutionPreset resolutionPreset, {
-    ImageFormatGroup? imageFormatGroup,
+    super.description,
+    super.resolutionPreset, {
+    super.imageFormatGroup,
   })  : _state = _CameraState.notInitialized,
         _hasAPendingResume = false,
         super(
-          description,
-          resolutionPreset,
           enableAudio: false,
-          imageFormatGroup: imageFormatGroup,
         );
 
   final UserPreferences preferences;

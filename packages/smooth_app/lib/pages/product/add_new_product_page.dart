@@ -26,8 +26,9 @@ const List<ImageField> _SORTED_IMAGE_FIELD_LIST = <ImageField>[
 
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage(
-    this.barcode,
-  );
+    this.barcode, {
+    super.key,
+  });
 
   final String barcode;
 

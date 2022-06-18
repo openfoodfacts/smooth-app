@@ -4,8 +4,11 @@ import 'package:fwfh_selectable_text/fwfh_selectable_text.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 
 class SmoothHtmlWidget extends StatelessWidget {
-  const SmoothHtmlWidget(this.htmlString,
-      {this.textStyle, this.isSelectable = true});
+  const SmoothHtmlWidget(
+    this.htmlString, {
+    this.textStyle,
+    this.isSelectable = true,
+  });
 
   final String htmlString;
   final TextStyle? textStyle;

@@ -19,7 +19,11 @@ import 'package:smooth_app/pages/product/nutrition_container.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
-  const NutritionPageLoaded(this.product, this.orderedNutrients);
+  const NutritionPageLoaded(
+    this.product,
+    this.orderedNutrients, {
+    super.key,
+  });
 
   final Product product;
   final OrderedNutrients orderedNutrients;

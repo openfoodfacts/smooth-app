@@ -123,10 +123,9 @@ class SmoothActionButtonsBar extends StatelessWidget {
   const SmoothActionButtonsBar({
     this.positiveAction,
     this.negativeAction,
-    Key? key,
-  })  : assert(positiveAction != null || negativeAction != null,
-            'At least one action must be passed!'),
-        super(key: key);
+    super.key,
+  }) : assert(positiveAction != null || negativeAction != null,
+            'At least one action must be passed!');
 
   const SmoothActionButtonsBar.single({
     required SmoothActionButton action,

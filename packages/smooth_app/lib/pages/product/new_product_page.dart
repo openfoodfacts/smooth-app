@@ -30,7 +30,10 @@ import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage(this.product);
+  const ProductPage(
+    this.product, {
+    super.key,
+  });
 
   final Product product;
 

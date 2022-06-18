@@ -25,8 +25,8 @@ import 'package:smooth_app/widgets/screen_visibility.dart';
 
 class MLKitScannerPage extends LifecycleAwareStatefulWidget {
   const MLKitScannerPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   MLKitScannerPageState createState() => MLKitScannerPageState();

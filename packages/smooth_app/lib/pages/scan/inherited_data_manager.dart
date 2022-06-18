@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class InheritedDataManager extends StatefulWidget {
   const InheritedDataManager({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

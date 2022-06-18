@@ -12,7 +12,10 @@ import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
-  const SimpleInputPage(this.helper) : super();
+  const SimpleInputPage(
+    this.helper, {
+    super.key,
+  });
 
   final AbstractSimpleInputPageHelper helper;
 

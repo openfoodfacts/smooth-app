@@ -19,7 +19,10 @@ import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
 /// Page where we can indirectly edit all data about a product.
 class EditProductPage extends StatefulWidget {
-  const EditProductPage(this.product);
+  const EditProductPage(
+    this.product, {
+    super.key,
+  });
 
   final Product product;
 

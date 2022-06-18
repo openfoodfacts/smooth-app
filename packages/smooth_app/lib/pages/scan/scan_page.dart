@@ -17,7 +17,9 @@ import 'package:smooth_app/pages/scan/scanner_overlay.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 class ScanPage extends StatefulWidget {
-  const ScanPage();
+  const ScanPage({
+    super.key,
+  });
 
   @override
   State<ScanPage> createState() => _ScanPageState();

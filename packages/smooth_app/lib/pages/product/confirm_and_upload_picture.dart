@@ -12,6 +12,7 @@ class ConfirmAndUploadPicture extends StatefulWidget {
     required this.barcode,
     required this.imageType,
     required this.initialPhoto,
+    super.key,
   });
 
   final ImageField imageType;

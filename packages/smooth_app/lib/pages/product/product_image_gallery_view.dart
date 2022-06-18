@@ -19,6 +19,7 @@ import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductImageGalleryView extends StatefulWidget {
   const ProductImageGalleryView({
+    super.key,
     this.barcode,
     required this.title,
     required this.productImageData,

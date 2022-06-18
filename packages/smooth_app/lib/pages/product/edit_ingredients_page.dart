@@ -20,9 +20,9 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 /// ingredients.
 class EditIngredientsPage extends StatefulWidget {
   const EditIngredientsPage({
-    Key? key,
+    super.key,
     required this.product,
-  }) : super(key: key);
+  });
 
   final Product product;
 
