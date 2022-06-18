@@ -30,19 +30,28 @@ enum ProductListType {
 }
 
 extension ProductListTypeExtension on ProductListType {
-  static const Map<ProductListType, String> _keys = <ProductListType, String>{
-    ProductListType.HTTP_SEARCH_KEYWORDS: 'http/search/keywords',
-    ProductListType.HTTP_SEARCH_CATEGORY: 'http/search/category',
-    ProductListType.HTTP_USER_CONTRIBUTOR: 'http/user/contributor',
-    ProductListType.HTTP_USER_INFORMER: 'http/user/informer',
-    ProductListType.HTTP_USER_PHOTOGRAPHER: 'http/user/photographer',
-    ProductListType.HTTP_USER_TO_BE_COMPLETED: 'http/user/to_be_completed',
-    ProductListType.SCAN_SESSION: 'scan_session',
-    ProductListType.HISTORY: 'history',
-    ProductListType.USER: 'user',
-  };
-
-  String get key => _keys[this]!;
+  String get key {
+    switch (this) {
+      case ProductListType.HTTP_SEARCH_KEYWORDS:
+        return 'http/search/keywords';
+      case ProductListType.HTTP_SEARCH_CATEGORY:
+        return 'http/search/category';
+      case ProductListType.SCAN_SESSION:
+        return 'scan_session';
+      case ProductListType.HTTP_USER_CONTRIBUTOR:
+        return 'http/user/contributor';
+      case ProductListType.HTTP_USER_INFORMER:
+        return 'http/user/informer';
+      case ProductListType.HTTP_USER_PHOTOGRAPHER:
+        return 'http/user/photographer';
+      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+        return 'http/user/to_be_completed';
+      case ProductListType.HISTORY:
+        return 'history';
+      case ProductListType.USER:
+        return 'user';
+    }
+  }
 }
 
 class ProductList {

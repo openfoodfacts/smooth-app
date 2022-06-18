@@ -251,7 +251,7 @@ packages:
       name: device_frame
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.1.0"
   device_info_plus:
     dependency: "direct main"
     description:
@@ -297,12 +297,10 @@ packages:
   device_preview:
     dependency: "direct main"
     description:
-      path: device_preview
-      ref: HEAD
-      resolved-ref: "73c91514e5ab092bb7f911acc8a447e07e751120"
-      url: "https://github.com/monkeydaichan/flutter_device_preview.git"
-    source: git
-    version: "1.0.0"
+      name: device_preview
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   fake_async:
     dependency: transitive
     description:
@@ -460,7 +458,7 @@ packages:
       name: freezed_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "2.0.3"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter

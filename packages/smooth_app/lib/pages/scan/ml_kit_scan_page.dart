@@ -241,7 +241,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     // If the controller is initialized update the UI.
     _barcodeDecoder ??= MLKitScanDecoder(
       camera: _camera!,
-      scanMode: DevModeScanModeExtension.fromIndex(
+      scanMode: DevModeScanMode.fromIndex(
         _userPreferences.getDevModeIndex(
           UserPreferencesDevMode.userPreferencesEnumScanMode,
         ),

@@ -303,10 +303,8 @@ enum CameraFocusPointAlgorithm {
   // Quicker algorithm, but may not work on old / Samsung devices
   newAlgorithm,
   // Old algorithm, which let more time between each focuses
-  oldAlgorithm,
-}
+  oldAlgorithm;
 
-extension CameraFocusPointAlgorithmExtension on CameraFocusPointAlgorithm {
   FocusPointMode get mode {
     switch (this) {
       case CameraFocusPointAlgorithm.newAlgorithm:
