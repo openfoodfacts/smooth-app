@@ -693,22 +693,28 @@
         "description": "Contact form content for Android devices",
         "placeholders": {
             "sdkInt": {
-                "type": "int?"
+                "type": "int?",
+                "description": "SDK Int = Version of Android SDK"
             },
             "release": {
-                "type": "String?"
+                "type": "String?",
+                "description": "Name of the release"
             },
             "model": {
-                "type": "String?"
+                "type": "String?",
+                "description": "Model of the device"
             },
             "product": {
-                "type": "String?"
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
             },
             "device": {
-                "type": "String?"
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
             },
             "brand": {
-                "type": "String?"
+                "type": "String?",
+                "description": "Brand of the device (eg: Samsung)"
             }
         }
     },
@@ -717,31 +723,38 @@
         "description": "Contact form content for iOS devices",
         "placeholders": {
             "version": {
-                "type": "String?"
+                "type": "String?",
+                "description": "Version of IOS (eg : 15)"
             },
             "model": {
-                "type": "String?"
+                "type": "String?",
+                "description": "Name of the iPhone"
             },
             "localizedModel": {
-                "type": "String?"
+                "type": "String?",
+                "description": "Localized name of the iPhone"
             }
         }
     },
     "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
     "@contact_form_body": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "Contact form content",
         "placeholders": {
             "osContent": {
-                "type": "String"
+                "type": "String",
+                "description": "Content from contact_form_body_ios key (on iOS) or contact_form_body_android (on Android)"
             },
             "appVersion": {
-                "type": "String"
+                "type": "String",
+                "description": "Version name of the app (eg: 1.0.0)"
             },
             "appBuildNumber": {
-                "type": "String"
+                "type": "String",
+                "description": "Version code of the app (a number)"
             },
             "appPackageName": {
-                "type": "String"
+                "type": "String",
+                "description": "Name/package of the app"
             }
         }
     },
