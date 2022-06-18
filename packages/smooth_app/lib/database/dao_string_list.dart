@@ -43,4 +43,8 @@ class DaoStringList extends AbstractDao {
     }
     return false;
   }
+
+  Future<int> removeAll() async {
+    return _getBox().clear();
+  }
 }
