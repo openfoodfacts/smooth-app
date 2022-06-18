@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:smooth_app/database/bulk_manager.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DaoProduct extends AbstractSqlDao implements BulkDeletable {
@@ -151,5 +153,38 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     final Map<String, dynamic> decodedJson =
         json.decode(encodedJson) as Map<String, dynamic>;
     return Product.fromJson(decodedJson);
+  }
+
+  Future<void> getFreshLocalDataBase() async {
+    final List<String> barcodes = await getAllKeys();
+    // crate a product list
+    final ProductListQueryConfiguration configuration =
+        ProductListQueryConfiguration(
+      barcodes,
+      fields: ProductQuery.fields,
+      language: ProductQuery.getLanguage(),
+      country: ProductQuery.getCountry(),
+    );
+    final User user = ProductQuery.getUser();
+    final SearchResult products =
+        await OpenFoodAPIClient.getProductList(user, configuration);
+    final List<Product>? productList = products.products;
+    // final List<Product> products = <Product>[];
+    // for (final String element in barcodes) {
+    //   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+    //     element,
+    //     fields: ProductQuery.fields,
+    //     language: ProductQuery.getLanguage(),
+    //     country: ProductQuery.getCountry(),
+    //   );
+    //   final ProductResult result;
+    //   try {
+    //     result = await OpenFoodAPIClient.getProduct(configuration);
+    //     products.add(result.product!);
+    //   } catch (e) {
+    //     debugPrint(e.toString());
+    //   }
+    // }
+    await putAll(productList!);
   }
 }
