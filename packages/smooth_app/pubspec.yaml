@@ -86,7 +86,6 @@ dependencies:
 
   # Logs
   fimber: ^0.6.6
-  fimber_io: ^0.6.6
 
 dev_dependencies:
   integration_test:

@@ -1,20 +1,20 @@
 import 'dart:io';
 
-import 'package:fimber_io/fimber_io.dart';
+import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:smooth_app/services/logs/fimber/files_fimber_tree.dart';
-import 'package:smooth_app/services/logs/fimber/sentry_fimber_tree.dart';
+import 'package:smooth_app/services/logs/fimber/fimber_helper.dart';
+import 'package:smooth_app/services/logs/fimber/trees/debug_fimber_tree.dart';
+import 'package:smooth_app/services/logs/fimber/trees/file_fimber_tree.dart';
+import 'package:smooth_app/services/logs/fimber/trees/sentry_fimber_tree.dart';
+import 'package:smooth_app/services/logs/smooth_log_levels.dart';
 import 'package:smooth_app/services/logs/smooth_logs_service.dart';
 
 /// On debug builds: device logs + file (all levels)
 /// On release builds : device logs (only errors), sentry (all levels) and
 /// file (only errors & info)
 class FimberLogImpl implements AppLogService {
-  static const List<String> _allLogLevels = <String>['E', 'I', 'D', 'V', 'W'];
-  static const List<String> _prodLogLevels = <String>['E', 'I'];
-
   // Link to a file tree impl (required for exporting logs)
   late FileFimberTree _fileTree;
 
@@ -27,30 +27,30 @@ class FimberLogImpl implements AppLogService {
         ),
       );
       _fileTree = FileFimberTree(
-        DataSize.mega(1),
-        filenamePrefix: await _filesPrefix,
-        logLevels: _prodLogLevels,
+        outputFile: await _fileName,
+        logLevels: LogLevels.prodLogLevels,
       );
       Fimber.plantTree(
-        SentryFimberTree(logLevels: _allLogLevels),
+        SentryFimberTree(logLevels: LogLevels.allLogLevels),
       );
     } else {
       Fimber.plantTree(
-        DebugTree(logLevels: _allLogLevels),
+        DebugFimberTree(
+          logLevels: LogLevels.allLogLevels,
+        ),
       );
 
       _fileTree = FileFimberTree(
-        DataSize.mega(1),
-        filenamePrefix: await _filesPrefix,
-        logLevels: _allLogLevels,
+        outputFile: await _fileName,
+        logLevels: LogLevels.allLogLevels,
       );
     }
 
     Fimber.plantTree(_fileTree);
   }
 
-  Future<String> get _filesPrefix => _filesDirectory
-      .then((Directory dir) => join(dir.absolute.path, 'app_logs'));
+  Future<File> get _fileName => _filesDirectory
+      .then((Directory dir) => File(join(dir.absolute.path, 'app_logs.log')));
 
   Future<Directory> get _filesDirectory => getApplicationSupportDirectory()
       .then((Directory dir) => Directory(join(dir.absolute.path, 'logs')))
@@ -103,20 +103,7 @@ class FimberLogImpl implements AppLogService {
         tag: tag ?? _generateTag(), ex: ex, stacktrace: stacktrace);
   }
 
-  String _getFimberLogLevel(LogLevel level) {
-    switch (level) {
-      case LogLevel.verbose:
-        return 'V';
-      case LogLevel.debug:
-        return 'D';
-      case LogLevel.info:
-        return 'I';
-      case LogLevel.warning:
-        return 'W';
-      case LogLevel.error:
-        return 'E';
-    }
-  }
+  String _getFimberLogLevel(LogLevel level) => level.fimberLevel;
 
   String _generateTag() {
     return StackTrace.current.toString().split('\n')[4].split('.')[0];
@@ -124,6 +111,8 @@ class FimberLogImpl implements AppLogService {
 
   @override
   List<String> get logFilesPaths {
-    return <String>[_fileTree.outputFileName];
+    return <String>[
+      _fileTree.outputFile.absolute.path,
+    ];
   }
 }

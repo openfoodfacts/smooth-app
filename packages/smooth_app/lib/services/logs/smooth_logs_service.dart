@@ -1,5 +1,6 @@
 /// Please use this file for import statements, as it allows to easily change
 /// the logging solution
+import 'package:smooth_app/services/logs/smooth_log_levels.dart';
 import 'package:smooth_app/services/smooth_service.dart';
 
 class LogsService extends SmoothService<AppLogService> {
@@ -131,12 +132,4 @@ abstract class AppLogService implements SmoothServiceImpl {
   });
 
   List<String> get logFilesPaths;
-}
-
-enum LogLevel {
-  debug,
-  error,
-  info,
-  verbose,
-  warning,
 }

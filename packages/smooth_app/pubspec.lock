@@ -338,13 +338,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.6"
-  fimber_io:
-    dependency: "direct main"
-    description:
-      name: fimber_io
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.6"
   fixnum:
     dependency: transitive
     description:
