@@ -33,7 +33,7 @@ class _SvgAsyncAssetState extends State<SvgAsyncAsset> {
         return await rootBundle.loadString(cachedFilename.startsWith('packages')
             ? cachedFilename
             : 'packages/smooth_app/$cachedFilename');
-      } catch (e, trace) {
+      } catch (e) {
         //
       }
     }
