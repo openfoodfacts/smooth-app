@@ -64,7 +64,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                 child: Wrap(
                   spacing: MEDIUM_SPACE,
                   alignment: WrapAlignment.center,
-                  // alignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     OutlinedButton.icon(
                       icon: const Icon(Icons.camera),
