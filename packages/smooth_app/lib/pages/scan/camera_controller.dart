@@ -262,6 +262,7 @@ class SmoothCameraController extends CameraController {
       return super.buildPreview();
     } catch (err) {
       if (err is CameraException && err.code == 'Disposed CameraController') {
+        _updateState(_CameraState.disposed);
         // Just ignore the issue, a new Controller will be created
         // Issue reproducible on iOS
       }
