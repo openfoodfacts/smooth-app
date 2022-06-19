@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
@@ -12,6 +11,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({
@@ -96,7 +96,7 @@ class _KnowledgePanelPageTemplateState
                         flex: 1,
                         child: ListView(
                           children: <Widget>[
-                            SvgPicture.asset(
+                            SmoothImage(
                               widget.svgAsset,
                               height: MediaQuery.of(context).size.height * .25,
                             ),

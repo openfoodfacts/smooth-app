@@ -1,0 +1,3 @@
+class SmoothStaticImages {
+  SmoothStaticImages._();
+}

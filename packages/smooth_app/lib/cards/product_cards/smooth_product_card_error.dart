@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 
 /// Product Card when an exception is caught
 class SmoothProductCardError extends StatelessWidget {
@@ -32,9 +32,9 @@ class SmoothProductCardError extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SvgPicture.asset(
+          const Padding(
+            padding: EdgeInsets.all(SMALL_SPACE),
+            child: SmoothImage(
               'assets/misc/error.svg',
               width: MINIMUM_TOUCH_SIZE * 2,
             ),

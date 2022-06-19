@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 
 class SmoothErrorCard extends StatefulWidget {
   const SmoothErrorCard({
@@ -132,7 +132,7 @@ class _SmoothErrorCardState extends State<SmoothErrorCard> {
   }
 
   Widget _getErrorSvg() {
-    return SvgPicture.asset(
+    return const SmoothImage(
       'assets/misc/error.svg',
       width: MINIMUM_TOUCH_SIZE * 2,
     );

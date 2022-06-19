@@ -52,6 +52,7 @@ class SvgCache extends AbstractCache {
           ? Colors.white
           : Colors.black;
     }
+
     return SvgPicture.network(
       iconUrl!,
       color: forcedColor,

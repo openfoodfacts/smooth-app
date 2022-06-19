@@ -38,9 +38,9 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   static const String _DEFAULT_LANGUAGE_CODE = 'en';
   static String _getImportanceAssetPath(final String languageCode) =>
-      'assets/metadata/init_preferences_$languageCode.json';
+      'packages/smooth_app/assets/metadata/init_preferences_$languageCode.json';
   static String _getAttributeAssetPath(final String languageCode) =>
-      'assets/metadata/init_attribute_groups_$languageCode.json';
+      'packages/smooth_app/assets/metadata/init_attribute_groups_$languageCode.json';
 
   /// Inits with the best available not-network references.
   ///

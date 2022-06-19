@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 
 /// Display of "FAQ" for the preferences page.
 class UserPreferencesFaq extends AbstractUserPreferences {
@@ -104,7 +104,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  SvgPicture.asset(
+                  SmoothImage(
                     logo,
                     width: data.size.width * 0.1,
                   ),
@@ -187,7 +187,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                 context: context,
                 applicationName: packageInfo.appName,
                 applicationVersion: packageInfo.version,
-                applicationIcon: SvgPicture.asset(
+                applicationIcon: SmoothImage(
                   logo,
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),

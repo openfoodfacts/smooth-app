@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/scan/scan_flash_toggle.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 
 /// This Widget is a [StatefulWidget], as it uses a [GlobalKey] to allow an
 /// external access
@@ -35,8 +35,8 @@ class ScannerVisorWidgetState extends State<ScannerVisorWidget> {
           size: ScannerVisorWidget.getSize(context),
           child: CustomPaint(
             painter: ScanVisorPainter(),
-            child: Center(
-              child: SvgPicture.asset(
+            child: const Center(
+              child: SmoothImage(
                 'assets/icons/visor_icon.svg',
                 width: 35.0,
                 height: 32.0,

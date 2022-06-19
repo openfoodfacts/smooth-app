@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
@@ -13,6 +12,7 @@ import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 
 class PreferencesPage extends StatefulWidget {
   const PreferencesPage(this._localDatabase, this.backgroundColor) : super();
@@ -79,7 +79,7 @@ class _HelperState extends State<_Helper> {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> pageData = <Widget>[
-      SvgPicture.asset(
+      SmoothImage(
         'assets/onboarding/preferences.svg',
         height: MediaQuery.of(context).size.height * .25,
       ),

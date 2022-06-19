@@ -1,0 +1,3 @@
+class SmoothVectorialImages {
+  SmoothVectorialImages._();
+}

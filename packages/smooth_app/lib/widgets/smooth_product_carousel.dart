@@ -4,7 +4,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
@@ -19,6 +18,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -202,12 +202,11 @@ class SearchCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SvgPicture.asset(
+            SmoothImage.square(
               Theme.of(context).brightness == Brightness.light
                   ? 'assets/app/release_icon_light_transparent_no_border.svg'
                   : 'assets/app/release_icon_dark_transparent_no_border.svg',
-              width: height * 0.2,
-              height: height * 0.2,
+              size: height * 0.2,
             ),
             AutoSizeText(
               localizations.welcomeToOpenFoodFacts,

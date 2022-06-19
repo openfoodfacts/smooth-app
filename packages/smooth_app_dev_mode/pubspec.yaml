@@ -1,0 +1,28 @@
+name: smooth_app_dev_mode
+description: A variant of smooth_app with "debug/dev" dependencies
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+  flutter: ">=2.5.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  smooth_app:
+    path: ../smooth_app
+  device_preview: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+dependency_overrides:
+  path: 1.8.0
+  meta: 1.7.0
+
+flutter:
+  uses-material-design: true
+  generate: true

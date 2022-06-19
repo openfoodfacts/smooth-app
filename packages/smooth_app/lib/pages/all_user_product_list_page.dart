@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page that lists all user product lists.
@@ -36,8 +36,8 @@ class _AllUserProductListState extends State<AllUserProductList> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/misc/empty-list.svg',
+                  SmoothImage(
+                    'packages/smooth_app/assets/misc/empty-list.svg',
                     height: MediaQuery.of(context).size.height * .4,
                   ),
                   Padding(

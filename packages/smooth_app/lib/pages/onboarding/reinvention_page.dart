@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Onboarding page: "reinvention"
@@ -46,10 +46,10 @@ class ReinventionPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Flexible(
+                const Flexible(
                   flex: 15,
-                  child: SvgPicture.asset(
-                    'assets/onboarding/birthday-cake.svg',
+                  child: SmoothImage(
+                    'packages/smooth_app/assets/onboarding/birthday-cake.svg',
                   ),
                 ),
                 Flexible(
@@ -66,13 +66,13 @@ class ReinventionPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Flexible(
+                const Flexible(
                   flex: 25,
-                  child: SvgPicture.asset(
+                  child: SmoothImage(
                     'assets/onboarding/title.svg',
                   ),
                 ),
-                SvgPicture.asset(
+                SmoothImage(
                   // supposed to be a square or something like that
                   // at least not too tall
                   'assets/onboarding/reinvention.svg',

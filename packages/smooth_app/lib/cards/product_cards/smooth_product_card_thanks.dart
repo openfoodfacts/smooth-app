@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 
 class SmoothProductCardThanks extends StatelessWidget {
   const SmoothProductCardThanks();
@@ -28,8 +28,8 @@ class SmoothProductCardThanks extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SvgPicture.asset(
+            children: const <Widget>[
+              SmoothImage(
                 'assets/misc/checkmark.svg',
                 width: 36.0,
                 height: 36.0,

@@ -30,8 +30,10 @@ class _SvgAsyncAssetState extends State<SvgAsyncAsset> {
     for (final String cachedFilename
         in widget.assetCacheHelper.cachedFilenames) {
       try {
-        return await rootBundle.loadString(cachedFilename);
-      } catch (e) {
+        return await rootBundle.loadString(cachedFilename.startsWith('packages')
+            ? cachedFilename
+            : 'packages/smooth_app/$cachedFilename');
+      } catch (e, trace) {
         //
       }
     }

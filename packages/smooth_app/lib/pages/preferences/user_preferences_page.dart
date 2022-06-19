@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -17,6 +16,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 enum PreferencePageType {
@@ -155,7 +155,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
               background: Padding(
                 padding:
                     const EdgeInsets.only(bottom: titleHeightInExpandedMode),
-                child: SvgPicture.asset(
+                child: SmoothImage(
                   headerAsset,
                   height: backgroundHeight,
                 ),

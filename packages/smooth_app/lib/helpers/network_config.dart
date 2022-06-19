@@ -72,7 +72,7 @@ Future<void> _importSSLCertificate() async {
   }
 
   final ByteData data = await PlatformAssetBundle().load(
-    'assets/network/cert.pem',
+    'packages/smooth_app/assets/network/cert.pem',
   );
 
   SecurityContext.defaultContext.setTrustedCertificatesBytes(

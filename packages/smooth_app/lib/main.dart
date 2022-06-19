@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -32,11 +31,15 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 late bool _screenshots;
 
-Future<void> main({final bool screenshots = false}) async {
+Future<void> main({
+  final bool screenshots = false,
+  WidgetBuilder? appBuilder,
+}) async {
   // Adding google font licenses
   LicenseRegistry.addLicense(() async* {
-    final String license =
-        await rootBundle.loadString('assets/plus_jakarta_sans_regular/OFL.txt');
+    final String license = await rootBundle.loadString(
+      'packages/smooth_app/assets/plus_jakarta_sans_regular/OFL.txt',
+    );
     yield LicenseEntryWithLineBreaks(
       <String>['plus_jakarta_sans_regular'],
       license,
@@ -55,14 +58,13 @@ Future<void> main({final bool screenshots = false}) async {
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () => runApp(const SmoothApp()),
+      appRunner: () => runApp(
+        appBuilder != null ? Builder(builder: appBuilder) : const SmoothApp(),
+      ),
     );
   } else {
     runApp(
-      DevicePreview(
-        enabled: true,
-        builder: (_) => const SmoothApp(),
-      ),
+      appBuilder != null ? Builder(builder: appBuilder) : const SmoothApp(),
     );
   }
 }

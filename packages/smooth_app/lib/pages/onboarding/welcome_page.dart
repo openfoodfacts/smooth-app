@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Welcome page for first time users.
@@ -34,11 +34,11 @@ class WelcomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 SizedBox(height: screenSize.height * .05),
-                SvgPicture.asset(
+                SmoothImage(
                   'assets/onboarding/title.svg',
                   height: screenSize.height * .10,
                 ),
-                SvgPicture.asset(
+                SmoothImage(
                   'assets/onboarding/globe.svg',
                   height: screenSize.height * .20,
                 ),

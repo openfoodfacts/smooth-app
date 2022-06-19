@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 
 class SmoothProductImage extends StatelessWidget {
   const SmoothProductImage({
@@ -34,8 +34,8 @@ class SmoothProductImage extends StatelessWidget {
           decoration: const BoxDecoration(
             borderRadius: ROUNDED_BORDER_RADIUS,
           ),
-          child: Center(
-            child: SvgPicture.asset(
+          child: const Center(
+            child: SmoothImage(
               'assets/product/product_not_found.svg',
               fit: BoxFit.cover,
             ),

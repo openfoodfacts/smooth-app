@@ -49,12 +49,13 @@ abstract class AbstractCache extends StatelessWidget {
 
   /// Returns the path to the asset cached file (not tintable version).
   @protected
-  String getCacheFilename(final String filename) => 'assets/cache/$filename';
+  String getCacheFilename(final String filename) =>
+      'packages/smooth_app/assets/cache/$filename';
 
   /// Returns the path to the asset cached tintable file.
   @protected
   String getCacheTintableFilename(final String filename) =>
-      'assets/cacheTintable/$filename';
+      'packages/smooth_app/assets/cacheTintable/$filename';
 
   /// Returns the simple filename of the icon url (without the full path).
   @protected

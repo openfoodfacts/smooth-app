@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
+import 'package:smooth_app/widgets/smooth_image.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class LoginPage extends StatefulWidget {
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         height: LARGE_SPACE * 2,
                       ),
 
-                      SvgPicture.asset(
+                      SmoothImage(
                         'assets/preferences/login.svg',
                         height: MediaQuery.of(context).size.height * .15,
                       ),
