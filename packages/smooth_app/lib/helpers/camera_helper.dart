@@ -15,6 +15,15 @@ class CameraHelper {
     _cameras = await availableCameras();
   }
 
+  /// Returns if the device has at least one camera
+  static bool get hasACamera {
+    if (_cameras == null) {
+      throw Exception('Please call [init] before!');
+    } else {
+      return _cameras!.isNotEmpty;
+    }
+  }
+
   /// Find the most relevant camera to use if none of these criteria are met,
   /// the default value of [_cameraIndex] will be used to select the first
   /// camera in the global cameras list.
