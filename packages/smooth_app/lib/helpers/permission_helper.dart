@@ -11,7 +11,7 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
   }
 
   final Permission permission;
-  _DevicePermissionStatus _status;
+  _DevicePermissionStatus _status = _DevicePermissionStatus.initial;
 
   Future<void> checkPermission() async {
     value = DevicePermission._(
