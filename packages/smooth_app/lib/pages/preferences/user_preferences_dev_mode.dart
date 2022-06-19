@@ -281,7 +281,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             if (scanMode != null) {
               await userPreferences.setDevModeIndex(
                 userPreferencesEnumScanMode,
-                scanMode.indice,
+                scanMode.idx,
               );
               setState(() {});
             }
@@ -461,7 +461,7 @@ enum DevModeScanMode {
     }
   }
 
-  int get indice {
+  int get idx {
     switch (this) {
       case DevModeScanMode.CAMERA_ONLY:
         return 4;
