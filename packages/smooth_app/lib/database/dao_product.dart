@@ -155,36 +155,28 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     return Product.fromJson(decodedJson);
   }
 
-  Future<void> getFreshLocalDataBase() async {
-    final List<String> barcodes = await getAllKeys();
-    // crate a product list
-    final ProductListQueryConfiguration configuration =
-        ProductListQueryConfiguration(
-      barcodes,
-      fields: ProductQuery.fields,
-      language: ProductQuery.getLanguage(),
-      country: ProductQuery.getCountry(),
-    );
-    final User user = ProductQuery.getUser();
-    final SearchResult products =
-        await OpenFoodAPIClient.getProductList(user, configuration);
-    final List<Product>? productList = products.products;
-    // final List<Product> products = <Product>[];
-    // for (final String element in barcodes) {
-    //   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-    //     element,
-    //     fields: ProductQuery.fields,
-    //     language: ProductQuery.getLanguage(),
-    //     country: ProductQuery.getCountry(),
-    //   );
-    //   final ProductResult result;
-    //   try {
-    //     result = await OpenFoodAPIClient.getProduct(configuration);
-    //     products.add(result.product!);
-    //   } catch (e) {
-    //     debugPrint(e.toString());
-    //   }
-    // }
-    await putAll(productList!);
+  Future<String> getFreshLocalDataBase() async {
+    try {
+      final List<String> barcodes = await getAllKeys();
+      if (barcodes.isEmpty) {
+        return 'List is Empty\nNothing to Refresh';
+      }
+      final ProductListQueryConfiguration configuration =
+          ProductListQueryConfiguration(
+        barcodes,
+        fields: ProductQuery.fields,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
+      );
+      final User user = ProductQuery.getUser();
+      // TODO(ashaman999): find a better way to do this not sure at what length it will break
+      final SearchResult products =
+          await OpenFoodAPIClient.getProductList(user, configuration);
+      final List<Product>? productList = products.products;
+      await putAll(productList!);
+      return 'OK';
+    } catch (e) {
+      return 'Error: $e';
+    }
   }
 }
