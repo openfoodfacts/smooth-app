@@ -240,6 +240,12 @@ class SmoothAppGetLanguage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO(monsieurtanuki): refactor removing the `SmoothAppGetLanguage` layer?
+    // will refresh each time the language changes
+    context.select(
+      (final UserPreferences userPreferences) =>
+          userPreferences.appLanguageCode,
+    );
     final String languageCode = Localizations.localeOf(context).languageCode;
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);
