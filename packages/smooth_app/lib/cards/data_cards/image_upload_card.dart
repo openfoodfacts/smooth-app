@@ -31,7 +31,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       _imageFullProvider; // Full resolution image to display in image page
 
   Future<void> _getImage() async {
-    final File? croppedImageFile = await startImageCropping(context);
+    final File? croppedImageFile =
+        await startImageCropping(context, showoptionDialog: true);
 
     if (croppedImageFile != null) {
       if (widget.productImageData.imageField != ImageField.OTHER) {

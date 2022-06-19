@@ -7,6 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/OcrIngredientsResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -21,11 +22,9 @@ class EditIngredientsPage extends StatefulWidget {
   const EditIngredientsPage({
     Key? key,
     required this.product,
-    this.refreshProductCallback,
   }) : super(key: key);
 
   final Product product;
-  final Function(BuildContext)? refreshProductCallback;
 
   @override
   State<EditIngredientsPage> createState() => _EditIngredientsPageState();
@@ -97,7 +96,8 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
   Future<void> _getImage(bool isNewImage) async {
     bool isUploaded = true;
     if (isNewImage) {
-      final File? croppedImageFile = await startImageCropping(context);
+      final File? croppedImageFile =
+          await startImageCropping(context, showoptionDialog: true);
 
       // If the user cancels.
       if (croppedImageFile == null) {
@@ -147,22 +147,16 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
     }
   }
 
-  Future<void> _updateIngredientsText(String ingredientsText) async {
-    _product.ingredientsText = ingredientsText;
+  Future<bool> _updateIngredientsText(final String ingredientsText) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
+    return ProductRefresher().saveAndRefresh(
       context: context,
       localDatabase: localDatabase,
-      product: _product,
+      product: Product(
+        barcode: _product.barcode,
+        ingredientsText: ingredientsText,
+      ),
     );
-    if (savedAndRefreshed != null) {
-      if (!mounted) {
-        return;
-      }
-      await widget.refreshProductCallback?.call(context);
-    } else {
-      throw Exception("Couldn't save the product.");
-    }
   }
 
   @override
@@ -206,7 +200,7 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       ));
     }
 
-    return Scaffold(
+    final Scaffold scaffold = Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(appLocalizations.ingredients_editing_title),
@@ -227,6 +221,19 @@ class _EditIngredientsPageState extends State<EditIngredientsPage> {
       body: Stack(
         children: children,
       ),
+    );
+    return Consumer<UpToDateProductProvider>(
+      builder: (
+        final BuildContext context,
+        final UpToDateProductProvider provider,
+        final Widget? child,
+      ) {
+        final Product? refreshedProduct = provider.get(_product);
+        if (refreshedProduct != null) {
+          _product = refreshedProduct;
+        }
+        return scaffold;
+      },
     );
   }
 

@@ -81,6 +81,18 @@ class ProductQueryPageHelper {
       case ProductListType.HTTP_SEARCH_CATEGORY:
         return '${productList.parameters}'
             '${verbose ? ' ${appLocalizations.category_search}' : ''}';
+      case ProductListType.HTTP_USER_CONTRIBUTOR:
+        return '${productList.parameters}'
+            '${verbose ? ' as a contributor' : ''}'; // TODO(monsieurtanuki): translate
+      case ProductListType.HTTP_USER_INFORMER:
+        return '${productList.parameters}'
+            '${verbose ? ' as an informer' : ''}'; // TODO(monsieurtanuki): translate
+      case ProductListType.HTTP_USER_PHOTOGRAPHER:
+        return '${productList.parameters}'
+            '${verbose ? ' as a photographer' : ''}'; // TODO(monsieurtanuki): translate
+      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+        return '${productList.parameters}'
+            '${verbose ? ' to be completed' : ''}'; // TODO(monsieurtanuki): translate
       case ProductListType.SCAN_SESSION:
         return appLocalizations.scan;
       case ProductListType.HISTORY:

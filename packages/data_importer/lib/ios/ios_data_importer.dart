@@ -24,4 +24,9 @@ class IOSDataImporter implements PlatformDataImporter {
   Future<ImportableUser?> importUser() async {
     return NativeDataImporter.getUser();
   }
+
+  @override
+  Future<bool> deleteOldDataOnDevice() {
+    return NativeDataImporter.clearOldData();
+  }
 }

@@ -161,12 +161,12 @@ class _CategoryPickerPageState extends State<CategoryPickerPage> {
       tag
     ]; // TODO(monsieurtanuki): is the last leaf good enough or should we go down to the roots?
 
-    final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
+    final bool savedAndRefreshed = await ProductRefresher().saveAndRefresh(
       context: context,
       localDatabase: localDatabase,
       product: product,
     );
-    if (savedAndRefreshed != null) {
+    if (savedAndRefreshed) {
       if (!mounted) {
         return;
       }

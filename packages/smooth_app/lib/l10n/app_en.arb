@@ -717,6 +717,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "Your ranking",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -1344,6 +1348,18 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "choose_image_source_title": "Choose image source",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Please choose a image source",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Gallery",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
     "share": "Share",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
@@ -1356,5 +1372,14 @@
                 "type": "String"
             }
         }
+    },
+    "capture" : "Capture New",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+
+    "choose_from_gallery": "Choose from gallery",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }
