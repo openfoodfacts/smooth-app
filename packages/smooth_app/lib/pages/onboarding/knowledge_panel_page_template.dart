@@ -85,41 +85,40 @@ class _KnowledgePanelPageTemplateState
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
-                  ListView(
-                    // bottom padding is very large because [NextButton] is stacked on top of the page.
-                    padding: const EdgeInsets.only(
-                      top: LARGE_SPACE,
-                      right: LARGE_SPACE,
-                      left: LARGE_SPACE,
-                      bottom: VERY_LARGE_SPACE * 5,
-                    ),
-                    shrinkWrap: true,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SvgPicture.asset(
-                        widget.svgAsset,
-                        height: MediaQuery.of(context).size.height * .25,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: LARGE_SPACE,
+                      Flexible(
+                        flex: 1,
+                        child: ListView(
+                          children: <Widget>[
+                            SvgPicture.asset(
+                              widget.svgAsset,
+                              height: MediaQuery.of(context).size.height * .25,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: LARGE_SPACE,
+                              ),
+                              child: Text(
+                                widget.headerTitle,
+                                style:
+                                    Theme.of(context).textTheme.displayMedium,
+                              ),
+                            ),
+                            KnowledgePanelProductCards(
+                                <Widget>[knowledgePanelWidget]),
+                          ],
                         ),
-                        child: Text(
-                          widget.headerTitle,
-                          style: Theme.of(context).textTheme.displayMedium,
-                        ),
                       ),
-                      KnowledgePanelProductCards(
-                          <Widget>[knowledgePanelWidget]),
+                      NextButton(
+                        widget.page,
+                        backgroundColor: widget.backgroundColor,
+                      ),
                     ],
                   ),
                   ..._buildHintPopup(),
-                  Positioned(
-                    bottom: 0,
-                    child: NextButton(
-                      widget.page,
-                      backgroundColor: widget.backgroundColor,
-                    ),
-                  ),
                 ],
               ),
             ),
