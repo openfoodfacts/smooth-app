@@ -37,8 +37,11 @@ class NativeDataImporter {
     return methodChannel.invokeMethod<dynamic>('getHistory');
   }
 
-  /// Unused feature (for now) which clears unused data from V1
-  static Future<void> clearOldData() {
-    return methodChannel.invokeMethod<dynamic>('clearOldData');
+  /// Remove old data (only used on new migration processes)
+  static Future<bool> clearOldData() {
+    return methodChannel
+        .invokeMethod<bool>('clearOldData')
+        .then((bool? value) => value ?? false)
+        .onError((Object? error, StackTrace stackTrace) => false);
   }
 }

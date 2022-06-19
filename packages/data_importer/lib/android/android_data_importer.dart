@@ -16,4 +16,12 @@ class AndroidDataImporter implements PlatformDataImporter {
   Future<ImportableUser?> importUser() {
     return NativeDataImporter.getUser();
   }
+
+  @override
+  Future<bool> deleteOldDataOnDevice() async {
+    return Future.wait<bool>(<Future<bool>>[
+      AndroidDatabaseImporter.removeDatabase(),
+      NativeDataImporter.clearOldData()
+    ]).then((List<bool> value) => !value.contains(false));
+  }
 }
