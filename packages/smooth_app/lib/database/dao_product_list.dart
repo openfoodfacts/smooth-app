@@ -199,7 +199,6 @@ class DaoProductList extends AbstractDao {
 
   void updateTimeStamp(final ProductList productList) {
     // TODO(ashaman999): update the timestamp for all the entries with the current timestamp
-
   }
 
   void clear(final ProductList productList) {
@@ -294,8 +293,10 @@ class DaoProductList extends AbstractDao {
     return result;
   }
 
-  Future<void> clearAll() async {
-    await _getBox().clear();
+  // returns the number of items cleared from the box
+  Future<int> clearAll() async {
+    final int clearedItems = await _getBox().clear();
+    return clearedItems;
   }
 
   /// Returns a write-safe copy of [_BarcodeList] barcodes.

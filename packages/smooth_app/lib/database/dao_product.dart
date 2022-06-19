@@ -63,25 +63,24 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     return result;
   }
 
+  // returns the no of rows deleted/effected from the table
   Future<int> clearAll() async {
     final int count = await localDatabase.database.delete(TABLE_PRODUCT);
     return count;
   }
 
+  //returns the approximate size of the database in MB
   Future<double> getSize() async {
     final String path = localDatabase.database.path;
     final File file = File(path);
     final double size = file.lengthSync() / 1024 / 1024;
-    return double.parse(
-      size.floor().toStringAsFixed(
-            2,
-          ),
-    );
+    return double.parse(size.floor().toStringAsFixed(2));
   }
 
-  Future<int?> getLength() async {
+  Future<int> getLength() async {
     return Sqflite.firstIntValue(await localDatabase.database
-        .rawQuery('SELECT COUNT(*) FROM $TABLE_PRODUCT'));
+            .rawQuery('SELECT COUNT(*) FROM $TABLE_PRODUCT')) ??
+        0;
   }
 
   Future<void> put(final Product product) async => putAll(<Product>[product]);
