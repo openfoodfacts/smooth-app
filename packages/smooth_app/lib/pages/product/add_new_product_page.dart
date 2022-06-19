@@ -102,20 +102,23 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       // "other photos" uploaded by the user.
       if (imageType == ImageField.OTHER) {
         rows.add(_buildAddImageButton(context, imageType));
-        continue;
-      }
-      // Everything else can only be uploaded once, skip building the
-      // "Add Image button" if an image for this type is already uploaded.
-      if (!_isImageUploadedForType(imageType)) {
-        rows.add(_buildAddImageButton(context, imageType));
-      }
-    }
-    // Now build rows for images that are already uploaded.
-    for (final ImageField imageType in ImageField.values) {
-      if (_isImageUploadedForType(imageType)) {
         for (final File image in _uploadedImages[imageType]!) {
           rows.add(_buildImageUploadedRow(context, imageType, image));
         }
+        continue;
+      }
+
+      // Everything else can only be uploaded once
+      if (_isImageUploadedForType(imageType)) {
+        rows.add(
+          _buildImageUploadedRow(
+            context,
+            imageType,
+            _uploadedImages[imageType]![0],
+          ),
+        );
+      } else {
+        rows.add(_buildAddImageButton(context, imageType));
       }
     }
     return rows;

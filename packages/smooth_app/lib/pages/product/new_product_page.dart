@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
-import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -21,10 +21,8 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/product/category_cache.dart';
-import 'package:smooth_app/pages/product/category_picker_page.dart';
-import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
@@ -90,27 +88,32 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             )
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-      body: Stack(
-        children: <Widget>[
-          NotificationListener<UserScrollNotification>(
-              onNotification: (UserScrollNotification notification) {
-                if (notification.direction == ScrollDirection.forward) {
-                  if (!scrollingUp) {
-                    setState(() {
-                      scrollingUp = true;
-                    });
-                  }
-                } else if (notification.direction == ScrollDirection.reverse) {
-                  if (scrollingUp) {
-                    setState(() {
-                      scrollingUp = false;
-                    });
-                  }
-                }
-                return true;
-              },
-              child: _buildProductBody(context)),
-        ],
+      body: NotificationListener<UserScrollNotification>(
+        onNotification: (UserScrollNotification notification) {
+          if (notification.direction == ScrollDirection.forward) {
+            if (!scrollingUp) {
+              setState(() => scrollingUp = true);
+            }
+          } else if (notification.direction == ScrollDirection.reverse) {
+            if (scrollingUp) {
+              setState(() => scrollingUp = false);
+            }
+          }
+          return true;
+        },
+        child: Consumer<UpToDateProductProvider>(
+          builder: (
+            final BuildContext context,
+            final UpToDateProductProvider provider,
+            final Widget? child,
+          ) {
+            final Product? refreshedProduct = provider.get(_product);
+            if (refreshedProduct != null) {
+              _product = refreshedProduct;
+            }
+            return _buildProductBody(context);
+          },
+        ),
       ),
     );
     return WillPopScope(
@@ -131,31 +134,23 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     _mustScrollToTheEnd = false;
   }
 
-  Future<void> _refreshProduct(BuildContext context) async {
+  Future<bool> _refreshProduct(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ProductDialogHelper productDialogHelper = ProductDialogHelper(
-      barcode: _product.barcode!,
+    final bool result = await ProductRefresher().fetchAndRefresh(
       context: context,
       localDatabase: localDatabase,
-      refresh: true,
+      barcode: _product.barcode!,
     );
-    final FetchedProduct fetchedProduct =
-        await productDialogHelper.openUniqueProductSearch();
-    if (!mounted) {
-      return;
-    }
-    if (fetchedProduct.status == FetchedProductStatus.ok) {
-      setState(() => _product = fetchedProduct.product!);
+    if (mounted && result) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(appLocalizations.product_refreshed),
           duration: const Duration(seconds: 2),
         ),
       );
-    } else {
-      productDialogHelper.openError(fetchedProduct);
     }
+    return result;
   }
 
   void _updateLocalDatabaseWithProductHistory(
@@ -177,7 +172,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final List<String> productListNames =
-        daoProductList.getUserLists(withBarcode: widget.product.barcode);
+        daoProductList.getUserLists(withBarcode: _product.barcode);
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(
@@ -203,7 +198,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                 _productPreferences,
                 isFullVersion: true,
                 showUnansweredQuestions: true,
-                refreshProductCallback: _refreshProduct,
               ),
             ),
           ),
@@ -219,47 +213,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                   UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
               false)
             ElevatedButton(
-              onPressed: () async {
-                if (_product.categoriesTags == null) {
-                  // TODO(monsieurtanuki): that's another story: how to set an initial category?
-                  return;
-                }
-                if (_product.categoriesTags!.length < 2) {
-                  // TODO(monsieurtanuki): no father, we need to do something with roots
-                  return;
-                }
-                final String currentTag = _product
-                    .categoriesTags![_product.categoriesTags!.length - 1];
-                final String fatherTag = _product
-                    .categoriesTags![_product.categoriesTags!.length - 2];
-                final CategoryCache categoryCache =
-                    CategoryCache(ProductQuery.getLanguage()!);
-                final Map<String, TaxonomyCategory>? siblingsData =
-                    await categoryCache.getCategorySiblingsAndFather(
-                  fatherTag: fatherTag,
-                );
-                if (siblingsData == null) {
-                  // TODO(monsieurtanuki): what shall we do?
-                  return;
-                }
-                if (!mounted) {
-                  return;
-                }
-                final String? newTag = await Navigator.push<String>(
-                  context,
-                  MaterialPageRoute<String>(
-                    builder: (BuildContext context) => CategoryPickerPage(
-                      barcode: _product.barcode!,
-                      initialMap: siblingsData,
-                      initialTree: _product.categoriesTags!,
-                      categoryCache: categoryCache,
-                    ),
-                  ),
-                );
-                if (newTag != null && newTag != currentTag) {
-                  setState(() {});
-                }
-              },
+              onPressed: () {},
               child: const Text('Additional Button'),
             ),
         ],
@@ -268,18 +222,19 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Widget _buildKnowledgePanelCards() {
-    final List<Widget> knowledgePanelWidgets;
-    if (_product.knowledgePanels == null) {
-      knowledgePanelWidgets = <Widget>[];
-    } else {
-      knowledgePanelWidgets = KnowledgePanelsBuilder(
-        setState: () => setState(() {}),
-        refreshProductCallback: _refreshProduct,
-      ).buildAll(
-        _product.knowledgePanels!,
-        context: context,
-        product: _product,
-      );
+    final List<Widget> knowledgePanelWidgets = <Widget>[];
+    if (_product.knowledgePanels != null) {
+      final List<KnowledgePanelElement> elements =
+          KnowledgePanelWidget.getPanelElements(_product.knowledgePanels!);
+      for (final KnowledgePanelElement panelElement in elements) {
+        knowledgePanelWidgets.add(
+          KnowledgePanelWidget(
+            panelElement: panelElement,
+            knowledgePanels: _product.knowledgePanels!,
+            product: _product,
+          ),
+        );
+      }
     }
     return KnowledgePanelProductCards(knowledgePanelWidgets);
   }
@@ -326,21 +281,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             _buildActionBarItem(
               Icons.edit,
               appLocalizations.edit_product_label,
-              () async {
-                final bool? refreshed = await Navigator.push<bool>(
-                  context,
-                  MaterialPageRoute<bool>(
-                    builder: (BuildContext context) =>
-                        EditProductPage(_product),
-                  ),
-                );
-                if (refreshed == true) {
-                  if (!mounted) {
-                    return;
-                  }
-                  await _refreshProduct(context);
-                }
-              },
+              () async => Navigator.push<bool>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => EditProductPage(_product),
+                ),
+              ),
             ),
             _buildActionBarItem(
               ConstantIcons.instance.getShareIcon(),

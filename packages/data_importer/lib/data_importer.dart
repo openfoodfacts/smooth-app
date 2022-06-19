@@ -21,7 +21,10 @@ class ApplicationDataImporter {
 
   /// In the case where we want to change the migration, we store the current
   /// version
-  static const int _MIGRATION_VERSION = 1;
+  /// V1 = initial version, where all data was kept on the device
+  /// V2 = second version, where all data is wiped (if the process is successful)
+  static const int _MIGRATION_CURRENT_VERSION = 2;
+  static const int _MIGRATION_INITIAL_VERSION = 1;
 
   static const String _MIGRATION_STATUS_SUCCESS = 'success';
   static const String _MIGRATION_STATUS_ERROR = 'error';
@@ -68,8 +71,17 @@ class ApplicationDataImporter {
 
   /// The credentials migration is not mandatory, since the user may have
   /// changed its password
-  Future<bool> requireMigration() {
-    return requireListsMigration();
+  Future<bool> requireMigration() async {
+    final int version = await _getMigrationVersion();
+
+    if (version == _MIGRATION_INITIAL_VERSION) {
+      // A previous migration was successful, but data is still on the device
+      await _resetRetriesCount();
+      return true;
+    }
+
+    return version < _MIGRATION_CURRENT_VERSION &&
+        (await requireListsMigration());
   }
 
   Future<bool> requireCredentialsMigration() {
@@ -121,20 +133,31 @@ class ApplicationDataImporter {
       try {
         final PlatformDataImporter platformImporter = PlatformDataImporter();
 
-        /// Import credentials first
-        try {
-          await startUserCredentialsMigration(platformImporter);
-        } catch (err) {
-          // Non blocking error (eg: changed password)
+        if (await _getMigrationVersion() < _MIGRATION_INITIAL_VERSION) {
+          /// Import credentials first
+          try {
+            await startUserCredentialsMigration(platformImporter);
+          } catch (err) {
+            // Non blocking error (eg: changed password)
+          }
+
+          await startListsMigration(platformImporter);
         }
 
-        await startListsMigration(platformImporter);
-        await _markMigrationAsSuccessful();
+        if (await _deleteDataOnDevice(platformImporter) == true) {
+          await _markMigrationAsSuccessful();
+        } else {
+          await _onMigrationError();
+        }
       } catch (err) {
-        await _incrementRetriesCount();
-        await _markMigrationAsFailed(err);
+        await _onMigrationError(err: err);
       }
     }
+  }
+
+  Future<void> _onMigrationError({dynamic err}) async {
+    await _incrementRetriesCount();
+    await _markMigrationAsFailed(err);
   }
 
   Future<void> startListsMigration(
@@ -176,6 +199,9 @@ class ApplicationDataImporter {
       }
     }
   }
+
+  Future<bool> _deleteDataOnDevice(PlatformDataImporter platformImporter) =>
+      platformImporter.deleteOldDataOnDevice();
 
   Future<List<void>> _markMigrationAsSuccessful() {
     return Future.wait(<Future<void>>[
@@ -251,7 +277,16 @@ class ApplicationDataImporter {
   Future<void> _saveMigrationVersion() async {
     return storage.write(
       key: _KEY_MIGRATION_VERSION,
-      value: _MIGRATION_VERSION.toString(),
+      value: _MIGRATION_CURRENT_VERSION.toString(),
     );
+  }
+
+  /// Returns the current migration version
+  /// If no migration was achieved, it will return 0
+  Future<int> _getMigrationVersion() async {
+    return int.parse(await storage.read(
+          key: _KEY_MIGRATION_VERSION,
+        ) ??
+        '0');
   }
 }
