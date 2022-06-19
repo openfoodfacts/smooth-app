@@ -51,7 +51,6 @@ class SummaryCard extends StatefulWidget {
   const SummaryCard(
     this._product,
     this._productPreferences, {
-    super.key,
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.isRemovable = true,

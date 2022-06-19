@@ -15,9 +15,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 /// Sign Up Page. Pop's true if the sign up was successful.
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({
-    super.key,
-  });
+  const SignUpPage();
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();

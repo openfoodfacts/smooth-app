@@ -9,7 +9,6 @@ class ProductListItemSimple extends StatelessWidget {
     required this.product,
     this.onTap,
     this.onLongPress,
-    super.key,
   });
 
   final Product product;

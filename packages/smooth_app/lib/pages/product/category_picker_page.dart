@@ -14,7 +14,6 @@ class CategoryPickerPage extends StatefulWidget {
     required this.initialMap,
     required this.initialTree,
     required this.categoryCache,
-    super.key,
   }) {
     initialTag = initialTree[initialTree.length - 1];
     initialFatherTag = initialTree[initialTree.length - 2];

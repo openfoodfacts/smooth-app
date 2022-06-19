@@ -11,10 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
-  const AddBasicDetailsPage(
-    this.product, {
-    super.key,
-  });
+  const AddBasicDetailsPage(this.product);
 
   final Product product;
 

@@ -7,9 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 
 class ScannerFlashToggleWidget extends StatelessWidget {
-  const ScannerFlashToggleWidget({
-    super.key,
-  });
+  const ScannerFlashToggleWidget();
 
   @override
   Widget build(BuildContext context) {

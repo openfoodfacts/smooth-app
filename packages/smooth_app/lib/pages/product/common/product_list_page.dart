@@ -22,10 +22,7 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 
 class ProductListPage extends StatefulWidget {
-  const ProductListPage(
-    this.productList, {
-    super.key,
-  });
+  const ProductListPage(this.productList);
 
   final ProductList productList;
 

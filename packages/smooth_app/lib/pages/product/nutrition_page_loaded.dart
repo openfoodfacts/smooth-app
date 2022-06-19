@@ -21,9 +21,8 @@ import 'package:smooth_app/pages/product/nutrition_container.dart';
 class NutritionPageLoaded extends StatefulWidget {
   const NutritionPageLoaded(
     this.product,
-    this.orderedNutrients, {
-    super.key,
-  });
+    this.orderedNutrients,
+  );
 
   final Product product;
   final OrderedNutrients orderedNutrients;
