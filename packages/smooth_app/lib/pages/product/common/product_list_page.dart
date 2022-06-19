@@ -68,6 +68,10 @@ class _ProductListPageState extends State<ProductListPage>
         break;
       case ProductListType.HTTP_SEARCH_CATEGORY:
       case ProductListType.HTTP_SEARCH_KEYWORDS:
+      case ProductListType.HTTP_USER_CONTRIBUTOR:
+      case ProductListType.HTTP_USER_INFORMER:
+      case ProductListType.HTTP_USER_PHOTOGRAPHER:
+      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
         dismissible = false;
     }
     final bool enableClear = products.isNotEmpty;
