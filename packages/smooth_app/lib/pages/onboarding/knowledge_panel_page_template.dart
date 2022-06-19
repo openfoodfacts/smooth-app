@@ -73,12 +73,13 @@ class _KnowledgePanelPageTemplateState
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator());
           }
-          final Widget knowledgePanelWidget =
-              const KnowledgePanelsBuilder().buildSingle(
-            _knowledgePanels,
-            widget.panelId,
-            context: context,
-          )!;
+          final Widget knowledgePanelWidget = KnowledgePanelWidget(
+            panelElement: KnowledgePanelWidget.getPanelElement(
+              _knowledgePanels,
+              widget.panelId,
+            )!,
+            knowledgePanels: _knowledgePanels,
+          );
           return Container(
             color: widget.backgroundColor,
             child: SafeArea(

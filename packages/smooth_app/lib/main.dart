@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
@@ -76,6 +77,8 @@ late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
+final UpToDateProductProvider _upToDateProductProvider =
+    UpToDateProductProvider();
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -178,6 +181,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
+            provide<UpToDateProductProvider>(_upToDateProductProvider),
           ],
           builder: _buildApp,
         );
