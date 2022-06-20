@@ -1226,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Products I added",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Products I edited",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Products I photographed",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Products that need to be completed",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"

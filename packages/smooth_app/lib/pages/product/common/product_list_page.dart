@@ -147,11 +147,7 @@ class _ProductListPageState extends State<ProductListPage>
                 )
               ],
         title: Text(
-          ProductQueryPageHelper.getProductListLabel(
-            productList,
-            context,
-            verbose: false,
-          ),
+          ProductQueryPageHelper.getProductListLabel(productList, context),
           overflow: TextOverflow.fade,
           //style: TextStyle(color: Colors.black),
         ),
