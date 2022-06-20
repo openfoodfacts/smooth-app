@@ -15,7 +15,8 @@ enum ScannedProductState {
   LOADING,
   THANKS,
   CACHED,
-  ERROR,
+  ERROR_INTERNET,
+  ERROR_INVALID_CODE,
 }
 
 class ContinuousScanModel with ChangeNotifier {
@@ -193,7 +194,10 @@ class ContinuousScanModel with ChangeNotifier {
         _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
         return;
       case FetchedProductStatus.internetError:
-        _setBarcodeState(barcode, ScannedProductState.ERROR);
+        _setBarcodeState(barcode, ScannedProductState.ERROR_INTERNET);
+        return;
+      case FetchedProductStatus.codeInvalid:
+        _setBarcodeState(barcode, ScannedProductState.ERROR_INVALID_CODE);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
@@ -213,7 +217,10 @@ class ContinuousScanModel with ChangeNotifier {
         _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
         return;
       case FetchedProductStatus.internetError:
-        _setBarcodeState(barcode, ScannedProductState.ERROR);
+        _setBarcodeState(barcode, ScannedProductState.ERROR_INTERNET);
+        return;
+      case FetchedProductStatus.codeInvalid:
+        _setBarcodeState(barcode, ScannedProductState.ERROR_INVALID_CODE);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing

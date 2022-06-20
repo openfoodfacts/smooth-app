@@ -8,9 +8,13 @@ import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 
 /// Product Card when an exception is caught
 class SmoothProductCardError extends StatelessWidget {
-  const SmoothProductCardError({required this.barcode});
+  const SmoothProductCardError({
+    required this.barcode,
+    required this.errorType,
+  });
 
   final String barcode;
+  final ScannedProductState errorType;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +50,10 @@ class SmoothProductCardError extends StatelessWidget {
             height: 12.0,
           ),
           ProductDialogHelper.getErrorMessage(
-            appLocalizations.product_internet_error,
+            _getErrorMessage(
+              errorType,
+              appLocalizations,
+            ),
           ),
           const SizedBox(
             height: 12.0,
@@ -62,5 +69,19 @@ class SmoothProductCardError extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String _getErrorMessage(
+    ScannedProductState errorType,
+    AppLocalizations appLocalizations,
+  ) {
+    switch (errorType) {
+      case ScannedProductState.ERROR_INVALID_CODE:
+        return appLocalizations.barcode_invalid_error;
+      case ScannedProductState.ERROR_INTERNET:
+        return appLocalizations.product_internet_error;
+      default:
+        return appLocalizations.error_occurred;
+    }
   }
 }
