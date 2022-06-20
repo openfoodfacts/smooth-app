@@ -55,7 +55,27 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   /// A time window is the average time decodings took
   final AverageList<int> _averageProcessingTime = AverageList<int>();
 
-  final AudioPlayer _musicPlayer = AudioPlayer();
+  final AudioPlayer _musicPlayer = AudioPlayer(playerId: '1')
+    ..setSourceAsset('audio/beep.ogg')
+    ..setPlayerMode(PlayerMode.lowLatency)
+    ..setAudioContext(
+      AudioContext(
+        android: AudioContextAndroid(
+          isSpeakerphoneOn: false,
+          stayAwake: false,
+          contentType: AndroidContentType.sonification,
+          usageType: AndroidUsageType.notificationEvent,
+          audioFocus: AndroidAudioFocus.gainTransientExclusive,
+        ),
+        iOS: AudioContextIOS(
+          defaultToSpeaker: false,
+          category: AVAudioSessionCategory.soloAmbient,
+          options: <AVAudioSessionOptions>[
+            AVAudioSessionOptions.mixWithOthers,
+          ],
+        ),
+      ),
+    );
 
   /// Subject notifying when a new image is available
   PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
@@ -312,12 +332,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         HapticFeedback.lightImpact();
 
         if (_userPreferences.playCameraSound) {
-          _musicPlayer.play(
-            AssetSource('assets/audio/beep.org'),
-            mode: PlayerMode.lowLatency,
-            volume: 0.5,
-          );
+          await _musicPlayer.stop();
+          await _musicPlayer.resume();
         }
+
         _userPreferences.setFirstScanAchieved();
       }
     }
