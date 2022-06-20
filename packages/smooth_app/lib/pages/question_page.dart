@@ -379,8 +379,11 @@ class _QuestionPageState extends State<QuestionPage>
 }
 
 class CongratsWidget extends StatelessWidget {
-  const CongratsWidget(this._anonymousAnnotationList, {Key? key})
-      : super(key: key);
+  const CongratsWidget(
+    this._anonymousAnnotationList, {
+    super.key,
+  });
+
   final Map<String, InsightAnnotation> _anonymousAnnotationList;
 
   @override

@@ -7,7 +7,9 @@ import 'package:smooth_app/pages/scan/scan_flash_toggle.dart';
 /// This Widget is a [StatefulWidget], as it uses a [GlobalKey] to allow an
 /// external access
 class ScannerVisorWidget extends StatefulWidget {
-  const ScannerVisorWidget({Key? key}) : super(key: key);
+  const ScannerVisorWidget({
+    super.key,
+  });
 
   @override
   State<ScannerVisorWidget> createState() => ScannerVisorWidgetState();

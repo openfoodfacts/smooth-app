@@ -25,8 +25,8 @@ import 'package:smooth_app/widgets/screen_visibility.dart';
 
 class MLKitScannerPage extends LifecycleAwareStatefulWidget {
   const MLKitScannerPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   MLKitScannerPageState createState() => MLKitScannerPageState();
@@ -241,7 +241,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     // If the controller is initialized update the UI.
     _barcodeDecoder ??= MLKitScanDecoder(
       camera: _camera!,
-      scanMode: DevModeScanModeExtension.fromIndex(
+      scanMode: DevModeScanMode.fromIndex(
         _userPreferences.getDevModeIndex(
           UserPreferencesDevMode.userPreferencesEnumScanMode,
         ),
