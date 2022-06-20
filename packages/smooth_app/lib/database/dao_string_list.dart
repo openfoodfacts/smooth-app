@@ -44,9 +44,6 @@ class DaoStringList extends AbstractDao {
     return false;
   }
 
-  // returns the number of items removed from the box
-  Future<int> removeAll() async {
-    final int count = await _getBox().clear();
-    return count;
-  }
+  // Returns the number of items removed from the box
+  Future<int> removeAll() async => _getBox().clear();
 }

@@ -1,29 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class OfflineDataScreen extends StatefulWidget {
-  const OfflineDataScreen();
+class OfflineDataPage extends StatefulWidget {
+  const OfflineDataPage();
   @override
-  State<OfflineDataScreen> createState() => _OfflineDataScreenState();
+  State<OfflineDataPage> createState() => _OfflineDataPageState();
 }
 
-int length = 0;
-double size = 0;
+int _length = 0;
+double _size = 0;
 
 // TODO(ashaman999): update all the applocalizations
-class _OfflineDataScreenState extends State<OfflineDataScreen> {
-  Future<void> _refreshDetials(DaoProduct daoProduct) async {
-    length = await daoProduct.getLength();
-    size = await daoProduct.getSize();
+class _OfflineDataPageState extends State<OfflineDataPage> {
+  Future<void> _refreshDetails(DaoProduct daoProduct) async {
+    _length = await daoProduct.getLength();
+    _size = await daoProduct.getSize();
     setState(() {});
+  }
+
+  Future<String> _refreshLocalDatabase(DaoProduct daoproduct) async {
+    final List<String> barcodes = await daoproduct.getAllKeys();
+    if (barcodes.isEmpty) {
+      return 'List is Empty,Nothing to Refresh';
+    }
+    try {
+      final User user = ProductQuery.getUser();
+      // TODO(ashaman999): find a better way to do this
+      //Found that the max number of the barcodes i can query is 24
+      final List<Product> productList = <Product>[];
+      List<String> chunks = <String>[];
+      for (int i = 0; i < barcodes.length; i += 24) {
+        if (i + 24 < barcodes.length) {
+          chunks = barcodes.sublist(i, i + 24);
+        } else {
+          chunks = barcodes.sublist(i, barcodes.length);
+        }
+        final ProductListQueryConfiguration configuration =
+            ProductListQueryConfiguration(
+          chunks,
+          fields: ProductQuery.fields,
+          language: ProductQuery.getLanguage(),
+          country: ProductQuery.getCountry(),
+        );
+        final SearchResult products =
+            await OpenFoodAPIClient.getProductList(user, configuration);
+        productList.addAll(products.products!);
+        chunks.clear();
+      }
+      await daoproduct.putAll(productList);
+      return 'Refreshed ${productList.length} products';
+    } catch (e) {
+      return 'Refresh failed: $e';
+    }
   }
 
   @override
@@ -40,7 +79,9 @@ class _OfflineDataScreenState extends State<OfflineDataScreen> {
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () async {
-            await _refreshDetials(daoProduct);
+            // just reload the screen
+
+            await _refreshDetails(daoProduct);
           },
           child: CustomScrollView(
             slivers: <Widget>[
@@ -88,7 +129,8 @@ class _OfflineDataScreenState extends State<OfflineDataScreen> {
                               '${snapshot.data} products available for immediate scanning',
                             );
                           } else {
-                            return const Text('Loading...');
+                            return Text(
+                                '$_length products available for immediate scanning');
                           }
                         },
                       ),
@@ -109,20 +151,18 @@ class _OfflineDataScreenState extends State<OfflineDataScreen> {
                     UserPreferencesListTile(
                       trailing: const Icon(Icons.refresh),
                       onTap: () async {
-                        String? status = await LoadingDialog.run<String>(
-                          context: context,
-                          future: daoProduct.getFreshLocalDataBase(),
-                          title: 'Refreshing \n This may take a while',
-                          dismissible: true,
-                        );
-                        if (status == 'OK') {
-                          status = '$length items refreshed';
-                        }
+                        final String status = await LoadingDialog.run<String>(
+                              context: context,
+                              future: _refreshLocalDatabase(daoProduct),
+                              title: 'Refreshing \n This may take a while',
+                              dismissible: true,
+                            ) ??
+                            'Refresh Cancelled';
                         // TODO(ashaman999): dapproductlist.updateTimestamp();
                         // ignore: use_build_context_synchronously
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text(status!),
+                            content: Text(status),
                           ),
                         );
                       },
@@ -136,17 +176,17 @@ class _OfflineDataScreenState extends State<OfflineDataScreen> {
                     UserPreferencesListTile(
                       trailing: const Icon(Icons.delete),
                       onTap: () async {
+                        await daoProductList.clearAll();
                         final int noOdDeletedProducts =
                             await daoProduct.clearAll();
-                        await daoProductList.clearAll();
-                        await _refreshDetials(daoProduct);
                         // ignore: use_build_context_synchronously
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                                '$noOdDeletedProducts products deleted, freed $size Mb'),
+                                '$noOdDeletedProducts products deleted, freed $_size Mb'),
                           ),
                         );
+                        await _refreshDetails(daoProduct);
                       },
                       title: const Text(
                         'Clear Offline Data',

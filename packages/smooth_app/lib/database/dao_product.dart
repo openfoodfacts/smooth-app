@@ -2,12 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:smooth_app/database/bulk_manager.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DaoProduct extends AbstractSqlDao implements BulkDeletable {
@@ -63,18 +61,20 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     return result;
   }
 
-  // returns the no of rows deleted/effected from the table
+  // Returns the no of rows deleted/effected from the table
   Future<int> clearAll() async {
-    final int count = await localDatabase.database.delete(TABLE_PRODUCT);
-    return count;
+   
+        
+    final int rowsDeleted = await localDatabase.database.delete(TABLE_PRODUCT);
+    return rowsDeleted;
   }
 
-  //returns the approximate size of the database in MB
+  //Returns the approximate size of the database in MB
   Future<double> getSize() async {
     final String path = localDatabase.database.path;
     final File file = File(path);
     final double size = file.lengthSync() / 1024 / 1024;
-    return double.parse(size.floor().toStringAsFixed(2));
+    return double.parse(size.toStringAsFixed(1));
   }
 
   Future<int> getLength() async {
@@ -152,30 +152,5 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     final Map<String, dynamic> decodedJson =
         json.decode(encodedJson) as Map<String, dynamic>;
     return Product.fromJson(decodedJson);
-  }
-
-  Future<String> getFreshLocalDataBase() async {
-    try {
-      final List<String> barcodes = await getAllKeys();
-      if (barcodes.isEmpty) {
-        return 'List is Empty\nNothing to Refresh';
-      }
-      final ProductListQueryConfiguration configuration =
-          ProductListQueryConfiguration(
-        barcodes,
-        fields: ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-      );
-      final User user = ProductQuery.getUser();
-      // TODO(ashaman999): find a better way to do this not sure at what length it will break
-      final SearchResult products =
-          await OpenFoodAPIClient.getProductList(user, configuration);
-      final List<Product>? productList = products.products;
-      await putAll(productList!);
-      return 'OK';
-    } catch (e) {
-      return 'Error: $e';
-    }
   }
 }
