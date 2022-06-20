@@ -253,6 +253,21 @@ class SmoothCameraController extends CameraController {
     }
   }
 
+  @override
+  Widget buildPreview() {
+    try {
+      return super.buildPreview();
+    } catch (err) {
+      if (err is CameraException && err.code == 'Disposed CameraController') {
+        _updateState(_CameraState.disposed);
+        // Just ignore the issue, a new Controller will be created
+        // Issue reproducible on iOS
+      }
+
+      return const SizedBox.shrink();
+    }
+  }
+
   bool get isPaused => _state == _CameraState.paused;
 
   bool get isInitialized => !<_CameraState>[
