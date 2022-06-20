@@ -717,6 +717,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "내 순위",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -793,13 +797,13 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "애플리케이션",
+    "settings_app_data": "개인정보 및 추적",
+    "settings_app_camera": "카메라",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "고성능 모드",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -807,11 +811,11 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_focus_point_algorithm_title": "Focus mode",
+    "camera_focus_point_algorithm_title": "집중 모드",
     "@camera_focus_point_algorithm_title": {
         "description": "Title for the Camera focus mode (Android only)"
     },
-    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "camera_focus_point_algorithm_subtitle": "현재 모드: {mode}\n{reason}",
     "@camera_focus_point_algorithm_subtitle": {
         "description": "SubTitle for the Camera focus mode (Android only)",
         "placeholders": {
@@ -824,11 +828,11 @@
         }
     },
     "camera_focus_point_algorithm_value_auto_label": "자동",
-    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_focus_point_algorithm_value_auto_description": "시스템이 자동으로 고속 모드와 안전 모드를 전환하도록 합니다.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "고속 모드",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "최신 기기에 권장되는 모드입니다.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "안전 모드",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "고속 모드가 동작하지 않을 때 안전 모드를 사용하면 문제가 해결될 수 있습니다.",
     "camera_play_sound_title": "스캔 시 소리 재생",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -1301,7 +1305,7 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "정말로 지우시겠습니까?",
+    "confirm_clear": "전체 내역을 삭제하려고 합니다. 계속하시겠습니까?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1343,5 +1347,38 @@
     "add_photo_button_label": "사진 추가",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "Choose image source",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Please choose a image source",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Gallery",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "공유하기",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Open Food Facts에서 상품을 확인하세요: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "Capture New",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "Choose from gallery",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

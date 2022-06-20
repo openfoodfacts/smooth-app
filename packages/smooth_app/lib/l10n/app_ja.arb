@@ -717,6 +717,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "今ご使用の言語では、見本となる商品がないようです",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "Your ranking",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -793,13 +797,13 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "申し込み方法",
+    "settings_app_data": "プライバシーと監視",
+    "settings_app_camera": "カメラ",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "高パフォーマンスモード",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -807,11 +811,11 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_focus_point_algorithm_title": "Focus mode",
+    "camera_focus_point_algorithm_title": "フォーカスモード",
     "@camera_focus_point_algorithm_title": {
         "description": "Title for the Camera focus mode (Android only)"
     },
-    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "camera_focus_point_algorithm_subtitle": "現在のモード： {mode}\n{reason}",
     "@camera_focus_point_algorithm_subtitle": {
         "description": "SubTitle for the Camera focus mode (Android only)",
         "placeholders": {
@@ -824,11 +828,11 @@
         }
     },
     "camera_focus_point_algorithm_value_auto_label": "自動",
-    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_focus_point_algorithm_value_auto_description": "システムに高速モードとセーフモードのどちらかを自動的に選択させます。",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "高速モード",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "最近のデバイスに推奨されるモードです。",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "セーフモード",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "高速モードが機能しない場合は、これでフォーカスの問題が解決するはずです。",
     "camera_play_sound_title": "スキャン時にサウンドを再生する",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -1301,7 +1305,7 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "本当に消去してよろしいですか？",
+    "confirm_clear": "You're about to delete your entire history, are you sure you want to continue?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1343,5 +1347,38 @@
     "add_photo_button_label": "写真を追加",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "画像ソースを選択",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "画像ソースを選択してください",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "ギャラリー",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "共有",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Open Food Facts でこの製品を見る:",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "新しくキャプチャする",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "ギャラリーから選択する",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

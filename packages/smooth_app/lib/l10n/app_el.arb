@@ -18,7 +18,7 @@
     "skip": "Skip",
     "cancel": "Ακύρωση",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Αγνόηση",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -143,7 +143,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Για αυτήν τη δυνατότητα, πρέπει να συνδεθείτε.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -204,7 +204,7 @@
     "sign_up_page_username_error_empty": "Παρακαλώ εισάγετε ένα όνομα χρήστη",
     "sign_up_page_username_error_invalid": "Παρακαλώ εισάγετε ένα έγκυρο όνομα χρήστη",
     "sign_up_page_username_description": "Το όνομα χρήστη δεν μπορεί να περιέχει κενά, κεφαλαία ή ειδικούς χαρακτήρες",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Το όνομα χρήστη δεν μπορεί να είναι μεγαλύτερο από {value} χαρακτήρες",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -276,7 +276,7 @@
     "support_via_email": "Στείλτε μας e-mail",
     "termsOfUse": "Όροι χρήσης",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Σχετικά με αυτή την εφαρμογή",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -305,7 +305,7 @@
     },
     "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
     "@contribute_improve_text": {},
-    "contribute_translate_header": "Translate",
+    "contribute_translate_header": "Μετάφρασε",
     "@contribute_translate_header": {
         "description": "Button label + pop up window title: Shows information about helping by translating"
     },
@@ -331,13 +331,13 @@
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
     "@Personal preferences": {},
-    "myPreferences": "My preferences",
+    "myPreferences": "Οι προτιμήσεις μου",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_title": "Το Προφίλ Σου",
     "myPreferences_profile_subtitle": "Διαχειριστείτε τον λογαριασμό χρήστη Open Food Facts.",
-    "myPreferences_settings_title": "App Settings",
+    "myPreferences_settings_title": "Ρυθμίσεις Εφαρμογής",
     "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
@@ -359,7 +359,7 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Προφίλ",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -380,7 +380,7 @@
         "description": "Top meta-entry on a category filter"
     },
     "category_search": "(category search)",
-    "filter": "Filter",
+    "filter": "Φίλτρο",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
@@ -404,8 +404,8 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
-    "front_photo": "Front photo",
+    "image": "Εικόνα",
+    "front_photo": "Μπροστινή φωτογραφία",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
@@ -579,7 +579,7 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Παρακαλούμε επιλέξτε μια χώρα",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
@@ -595,7 +595,7 @@
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_could_not_remove": "Δεν ήταν δυνατή η αφαίρεση του προϊόντος",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
@@ -717,6 +717,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "Η κατάταξή σας",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -753,7 +757,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "user_profile": "Account",
+    "user_profile": "Λογαριασμός",
     "@user_profile": {
         "description": "User account (if connected)"
     },
@@ -793,13 +797,13 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "Εφαρμογή",
+    "settings_app_data": "Απόρρητο και παρακολούθηση",
+    "settings_app_camera": "Φωτογραφική μηχανή",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "Λειτουργία υψηλής απόδοσης",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -807,11 +811,11 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_focus_point_algorithm_title": "Focus mode",
+    "camera_focus_point_algorithm_title": "Λειτουργία εστίασης",
     "@camera_focus_point_algorithm_title": {
         "description": "Title for the Camera focus mode (Android only)"
     },
-    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "camera_focus_point_algorithm_subtitle": "Τρέχουσα λειτουργία: {mode}\n{reason}",
     "@camera_focus_point_algorithm_subtitle": {
         "description": "SubTitle for the Camera focus mode (Android only)",
         "placeholders": {
@@ -824,11 +828,11 @@
         }
     },
     "camera_focus_point_algorithm_value_auto_label": "Auto",
-    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_focus_point_algorithm_value_auto_description": "Αφήστε το σύστημα να επιλέξει αυτόματα μεταξύ γρήγορης και ασφαλούς λειτουργίας.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Γρήγορη λειτουργία",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "Λειτουργία που συνιστάται για συσκευές που συνδέθηκαν πρόσφατα.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Ασφαλής Λειτουργία",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "Αν η γρήγορη λειτουργία δε λειτουργεί, αυτό θα πρέπει να επιλύσει τα προβλήματα εστίασής σας.",
     "camera_play_sound_title": "Play a sound on scan",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -1011,7 +1015,7 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "try_again": "Try Again",
+    "try_again": "Προσπαθήστε Ξανά",
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
@@ -1140,9 +1144,9 @@
         }
     },
     "dev_preferences_migration_status_already_done": "success or fresh install",
-    "dev_preferences_migration_status_success": "success",
-    "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_success": "επιτυχία",
+    "dev_preferences_migration_status_error": "σφάλμα",
+    "dev_preferences_migration_status_in_progress": "σε εξέλιξη",
     "dev_preferences_migration_status_required": "required (click to start)",
     "dev_preferences_migration_status_not_started": "unknown",
     "dev_preferences_import_history_title": "Import History",
@@ -1281,7 +1285,7 @@
         "description": "Categories picker screen title"
     },
     "basic_details": "Basic Details",
-    "product_name": "Product Name",
+    "product_name": "Όνομα Προϊόντος",
     "add_basic_details_product_name_error": "Please enter the product name",
     "brand_name": "Brand name",
     "add_basic_details_brand_name_error": "Please enter the brand name",
@@ -1301,7 +1305,7 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Do you really want to clear?",
+    "confirm_clear": "Πρόκειται να διαγράψετε ολόκληρο το ιστορικό σας, είστε βέβαιοι ότι θέλετε να συνεχίσετε;",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1332,7 +1336,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Προσθήκη λίστας",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1340,8 +1344,41 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Προσθήκη Φωτογραφίας",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "Choose image source",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Please choose a image source",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Gallery",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "Κοινοποίηση",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Δείτε αυτό το προϊόν στο Open Food Facts: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "Capture New",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "Choose from gallery",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

@@ -511,13 +511,13 @@
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
-    "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_ingredients": "Добавить недостающие ингридиенты",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Пищевая ценность",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_100g": "на 100 грамм",
     "nutrition_page_per_serving": "на порцию",
     "nutrition_page_add_nutrient": "Добавить питательное вещество",
     "nutrition_page_serving_size": "Размер порции",
@@ -717,6 +717,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "Ваш рейтинг",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -771,7 +775,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "Добро пожаловать, {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -793,13 +797,13 @@
             }
         }
     },
-    "settings_app_app": "Application",
+    "settings_app_app": "Приложение",
     "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_camera": "Камера",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "Высокопроизводительный режим",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -807,7 +811,7 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_focus_point_algorithm_title": "Focus mode",
+    "camera_focus_point_algorithm_title": "Режим фокусировки",
     "@camera_focus_point_algorithm_title": {
         "description": "Title for the Camera focus mode (Android only)"
     },
@@ -825,9 +829,9 @@
     },
     "camera_focus_point_algorithm_value_auto_label": "Авто",
     "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Быстрый режим",
     "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Безопасный режим",
     "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
     "camera_play_sound_title": "Play a sound on scan",
     "@camera_play_sound_title": {
@@ -1011,11 +1015,11 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "try_again": "Try Again",
+    "try_again": "Попробуйте снова",
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
-    "there_was_an_error": "There was an error",
+    "there_was_an_error": "Ошибка",
     "@there_was_an_error": {
         "description": "Label that presents a error"
     },
@@ -1028,11 +1032,11 @@
             }
         }
     },
-    "camera_enable_flash": "Enable flash",
+    "camera_enable_flash": "Включить фонарь",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Disable flash",
+    "camera_disable_flash": "Выключить фонарь",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
@@ -1040,7 +1044,7 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "dev_preferences_screen_title": "DEV Mode",
+    "dev_preferences_screen_title": "Режим отладки",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
@@ -1301,7 +1305,7 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Вы действительно хотите очистить?",
+    "confirm_clear": "Вы собираетесь удалить всю вашу историю. Вы действительно хотите продолжить?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1343,5 +1347,38 @@
     "add_photo_button_label": "Add photo",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "Choose image source",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Please choose a image source",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Gallery",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "Поделиться",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "Capture New",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "Choose from gallery",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }
