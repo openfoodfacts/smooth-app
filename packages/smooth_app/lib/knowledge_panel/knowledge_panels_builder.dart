@@ -14,124 +14,51 @@ import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 
-/// Builds "knowledge panels" panels.
-///
-/// Panels display large data like all health data or environment data.
-/// This is to be used publicly in the app
-class KnowledgePanelsBuilder {
-  const KnowledgePanelsBuilder({
-    this.setState,
-    this.refreshProductCallback,
+/// "Knowledge Panel" widget.
+class KnowledgePanelWidget extends StatelessWidget {
+  const KnowledgePanelWidget({
+    required this.panelElement,
+    required this.knowledgePanels,
+    this.product,
   });
 
-  /// Would for instance refresh the product page.
-  final VoidCallback? setState;
+  final KnowledgePanelElement panelElement;
+  final KnowledgePanels knowledgePanels;
+  final Product? product;
 
-  /// Callback to refresh the product when necessary.
-  final Function(BuildContext)? refreshProductCallback;
-
-  /// Builds all panels.
-  ///
-  /// Typical use case: product page.
-  List<Widget> buildAll(
-    KnowledgePanels knowledgePanels, {
-    final Product? product,
-    final BuildContext? context,
-  }) {
-    final List<Widget> rootPanelWidgets = <Widget>[];
-    if (knowledgePanels.panelIdToPanelMap['root'] == null) {
-      return rootPanelWidgets;
-    }
-    if (knowledgePanels.panelIdToPanelMap['root']!.elements == null) {
-      return rootPanelWidgets;
-    }
-    for (final KnowledgePanelElement panelElement
-        in knowledgePanels.panelIdToPanelMap['root']!.elements!) {
-      if (panelElement.elementType != KnowledgePanelElementType.PANEL) {
-        continue;
-      }
-      rootPanelWidgets.add(
-        _buildPanel(
-          panelElement,
-          knowledgePanels,
-          context: context,
-          product: product,
-        ),
-      );
-    }
-    return rootPanelWidgets;
-  }
-
-  /// Builds a single panel, if available.
-  ///
-  /// Typical use case so far: onboarding, where we focus on one panel only.
-  Widget? buildSingle(
-    final KnowledgePanels knowledgePanels,
-    final String panelId, {
-    final BuildContext? context,
-  }) {
-    if (knowledgePanels.panelIdToPanelMap['root'] == null) {
-      return null;
-    }
-    if (knowledgePanels.panelIdToPanelMap['root']!.elements == null) {
-      return null;
-    }
-    for (final KnowledgePanelElement panelElement
-        in knowledgePanels.panelIdToPanelMap['root']!.elements!) {
-      if (panelElement.elementType != KnowledgePanelElementType.PANEL) {
-        continue;
-      }
-      if (panelId != panelElement.panelElement!.panelId) {
-        continue;
-      }
-      return _buildPanel(
-        panelElement,
-        knowledgePanels,
-        context: context,
-      );
-    }
-    return null;
-  }
-
-  Widget _buildPanel(
-    final KnowledgePanelElement panelElement,
-    final KnowledgePanels knowledgePanels, {
-    final Product? product,
-    final BuildContext? context,
-  }) {
+  @override
+  Widget build(BuildContext context) {
     final String panelId = panelElement.panelElement!.panelId;
     final KnowledgePanel rootPanel =
         knowledgePanels.panelIdToPanelMap[panelId]!;
     // [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
-    final List<Widget> knowledgePanelElementWidgets = <Widget>[];
-    if (context != null) {
-      knowledgePanelElementWidgets.add(
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
-          child: Text(
-            rootPanel.titleElement!.title,
-            style: Theme.of(context).textTheme.headline3,
-          ),
+    final List<Widget> children = <Widget>[];
+    children.add(
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
+        child: Text(
+          rootPanel.titleElement!.title,
+          style: Theme.of(context).textTheme.headline3,
         ),
-      );
-    }
+      ),
+    );
     for (final KnowledgePanelElement knowledgePanelElement
         in rootPanel.elements ?? <KnowledgePanelElement>[]) {
-      knowledgePanelElementWidgets.add(
+      children.add(
         KnowledgePanelElementCard(
           knowledgePanelElement: knowledgePanelElement,
           allPanels: knowledgePanels,
         ),
       );
     }
-    if (product != null && context != null) {
+    if (product != null) {
       if (panelId == 'health_card') {
-        final bool nutritionAddOrUpdate = product.statesTags
+        final bool nutritionAddOrUpdate = product!.statesTags
                 ?.contains('en:nutrition-facts-to-be-completed') ??
             false;
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         if (nutritionAddOrUpdate) {
-          knowledgePanelElementWidgets.add(
+          children.add(
             addPanelButton(
               nutritionAddOrUpdate
                   ? appLocalizations.score_add_missing_nutrition_facts
@@ -144,19 +71,15 @@ class KnowledgePanelsBuilder {
                   return;
                 }
                 //ignore: use_build_context_synchronously
-                final Product? refreshedProduct = await Navigator.push<Product>(
+                await Navigator.push<Product>(
                   context,
                   MaterialPageRoute<Product>(
                     builder: (BuildContext context) => NutritionPageLoaded(
-                      product,
+                      product!,
                       cache.orderedNutrients,
                     ),
                   ),
                 );
-                if (refreshedProduct != null) {
-                  setState?.call();
-                }
-                // TODO(monsieurtanuki): refresh the data if changed
               },
             ),
           );
@@ -167,20 +90,19 @@ class KnowledgePanelsBuilder {
                 .getFlag(UserPreferencesDevMode
                     .userPreferencesFlagEditIngredients) ??
             false;
-        if ((product.ingredientsText == null ||
-                product.ingredientsText!.isEmpty) &&
+        if ((product!.ingredientsText == null ||
+                product!.ingredientsText!.isEmpty) &&
             needEditIngredients) {
           // When the flag is removed, this should be the following:
           // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
-          knowledgePanelElementWidgets.add(
+          children.add(
             addPanelButton(
               appLocalizations.score_add_missing_ingredients,
               onPressed: () async => Navigator.push<bool>(
                 context,
                 MaterialPageRoute<bool>(
                   builder: (BuildContext context) => EditIngredientsPage(
-                    product: product,
-                    refreshProductCallback: refreshProductCallback,
+                    product: product!,
                   ),
                 ),
               ),
@@ -191,7 +113,52 @@ class KnowledgePanelsBuilder {
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: knowledgePanelElementWidgets,
+      children: children,
     );
+  }
+
+  /// Returns all the panel elements, in option only the one matching [panelId].
+  static List<KnowledgePanelElement> getPanelElements(
+    final KnowledgePanels knowledgePanels, {
+    final String? panelId,
+  }) {
+    final List<KnowledgePanelElement> result = <KnowledgePanelElement>[];
+    if (knowledgePanels.panelIdToPanelMap['root'] == null) {
+      return result;
+    }
+    if (knowledgePanels.panelIdToPanelMap['root']!.elements == null) {
+      return result;
+    }
+    for (final KnowledgePanelElement panelElement
+        in knowledgePanels.panelIdToPanelMap['root']!.elements!) {
+      if (panelElement.elementType != KnowledgePanelElementType.PANEL) {
+        continue;
+      }
+      // no filter
+      if (panelId == null) {
+        result.add(panelElement);
+      } else {
+        if (panelId == panelElement.panelElement!.panelId) {
+          result.add(panelElement);
+          return result;
+        }
+      }
+    }
+    return result;
+  }
+
+  /// Returns the unique panel element that matches [panelId], or `null`.
+  static KnowledgePanelElement? getPanelElement(
+    final KnowledgePanels knowledgePanels,
+    final String panelId,
+  ) {
+    final List<KnowledgePanelElement> elements = getPanelElements(
+      knowledgePanels,
+      panelId: panelId,
+    );
+    if (elements.length != 1) {
+      return null;
+    }
+    return elements.first;
   }
 }

@@ -25,6 +25,7 @@ class AnalyticsHelper {
   static const String _scanAction = 'scanned product';
   static const String _productPageAction = 'opened product page';
   static const String _personalizedRankingAction = 'personalized ranking';
+  static const String _shareProductActionn = 'shared product';
   static const String _loginAction = 'logged in';
   static const String _registerAction = 'register';
   static const String _userManagmentCategory = 'user management';
@@ -137,6 +138,14 @@ class AnalyticsHelper {
 
   static void trackOpenLink({required String url}) =>
       MatomoTracker.instance.trackOutlink(url);
+
+  static void trackShareProduct({required String barcode}) =>
+      MatomoTracker.instance.trackEvent(
+        eventName: _shareProductActionn,
+        action: 'shared',
+        eventCategory: 'product page',
+        eventValue: int.tryParse(barcode),
+      );
 
   static void trackLogin() => MatomoTracker.instance
       .trackEvent(action: _loginAction, eventCategory: _userManagmentCategory);

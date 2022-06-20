@@ -312,10 +312,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 Localizations.localeOf(context).toString(),
             elevation: 16,
             isExpanded: true,
-            onChanged: (String? languageCode) async {
-              await userPreferences.setAppLanguageCode(languageCode);
-              setState(() {});
-            },
+            onChanged: (String? languageCode) async =>
+                userPreferences.setAppLanguageCode(languageCode),
             items: _supportedLanguageCodes.map((Locale locale) {
               final String localeString = locale.toString();
               return DropdownMenuItem<String>(
@@ -328,10 +326,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           // Do not translate
           title: const Text('Reset App Language'),
-          onTap: () async {
-            await userPreferences.setAppLanguageCode(null);
-            setState(() {});
-          },
+          onTap: () async => userPreferences.setAppLanguageCode(null),
         ),
       ];
 

@@ -63,6 +63,16 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   /// Refreshes the references with network data.
   Future<void> refresh(final String languageCode) async {
+    if (daoString != null) {
+      final String? latestLanguage =
+          await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
+      if (latestLanguage == null || latestLanguage != languageCode) {
+        // we restart from scratch
+        // typical use-case: language change
+        _isNetwork = false;
+        _isDownloading = false;
+      }
+    }
     if (_isNetwork) {
       return;
     }

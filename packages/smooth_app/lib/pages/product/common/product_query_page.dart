@@ -425,9 +425,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final ProductListSupplier? refreshSupplier =
         widget.productListSupplier.getRefreshSupplier();
     setState(
-      () {
-        _model = ProductQueryModel(refreshSupplier!);
-      },
+      // How do we refresh a supplier that has no refresher? With itself.
+      () => _model =
+          ProductQueryModel(refreshSupplier ?? widget.productListSupplier),
     );
     return;
   }

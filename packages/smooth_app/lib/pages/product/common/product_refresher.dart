@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
@@ -34,7 +36,7 @@ class ProductRefresher {
             );
           },
         ),
-        neutralAction: SmoothActionButton(
+        negativeAction: SmoothActionButton(
           text: appLocalizations.cancel,
           onPressed: () => Navigator.of(context).pop(),
         ),
@@ -43,18 +45,20 @@ class ProductRefresher {
     return false;
   }
 
-  /// Returns a saved and refreshed [Product] if successful, or null.
-  Future<Product?> saveAndRefresh({
+  /// Returns true if successfully saved and refreshed a [Product].
+  Future<bool> saveAndRefresh({
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     required final Product product,
     // most of the time, we need the user to be signed in.
     final bool isLoggedInMandatory = true,
   }) async {
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (isLoggedInMandatory) {
       if (!await checkIfLoggedIn(context)) {
-        return null;
+        return false;
       }
     }
     final _MetaProductRefresher? savedAndRefreshed =
@@ -66,12 +70,13 @@ class ProductRefresher {
     );
     if (savedAndRefreshed == null) {
       // probably the end user stopped the dialog
-      return null;
+      return false;
     }
     if (savedAndRefreshed.product == null) {
       await LoadingDialog.error(context: context);
-      return null;
+      return false;
     }
+    provider.set(savedAndRefreshed.product!);
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
@@ -83,9 +88,11 @@ class ProductRefresher {
         ),
       ),
     );
-    return savedAndRefreshed.product;
+    return true;
   }
 
+  // TODO(monsieurtanuki): reuse _refresh
+  // TODO(monsieurtanuki): check if try/catch is appropriate
   /// Saves a product on the BE and refreshes the local database
   Future<_MetaProductRefresher> _saveAndRefresh(
     final Product inputProduct,
@@ -119,11 +126,13 @@ class ProductRefresher {
     return const _MetaProductRefresher.error(null);
   }
 
-  Future<Product?> fetchAndRefresh({
+  Future<bool> fetchAndRefresh({
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     required final String barcode,
   }) async {
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final _MetaProductRefresher? fetchAndRefreshed =
         await LoadingDialog.run<_MetaProductRefresher>(
@@ -132,13 +141,14 @@ class ProductRefresher {
       title: appLocalizations.nutrition_page_update_running,
     );
     if (fetchAndRefreshed == null) {
-      return null;
+      return false;
     }
     if (fetchAndRefreshed.product == null) {
       await LoadingDialog.error(context: context);
-      return null;
+      return false;
     }
-    return fetchAndRefreshed.product;
+    provider.set(fetchAndRefreshed.product!);
+    return true;
   }
 
   Future<_MetaProductRefresher> _fetchAndRefresh(
