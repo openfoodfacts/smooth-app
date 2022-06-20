@@ -246,7 +246,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
           subtitle: Text(
             appLocalizations
-                .dev_mode_scan_mode_subtitle(DevModeScanModeExtension.fromIndex(
+                .dev_mode_scan_mode_subtitle(DevModeScanMode.fromIndex(
               userPreferences.getDevModeIndex(
                 userPreferencesEnumScanMode,
               ),
@@ -281,7 +281,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             if (scanMode != null) {
               await userPreferences.setDevModeIndex(
                 userPreferencesEnumScanMode,
-                scanMode.index,
+                scanMode.idx,
               );
               setState(() {});
             }
@@ -427,32 +427,24 @@ enum DevModeScanMode {
   PREPROCESS_FULL_IMAGE,
   PREPROCESS_HALF_IMAGE,
   SCAN_FULL_IMAGE,
-  SCAN_HALF_IMAGE,
-}
+  SCAN_HALF_IMAGE;
 
-extension DevModeScanModeExtension on DevModeScanMode {
-  static const DevModeScanMode defaultScanMode =
-      DevModeScanMode.SCAN_FULL_IMAGE;
+  static DevModeScanMode get defaultScanMode => DevModeScanMode.SCAN_FULL_IMAGE;
 
-  static const Map<DevModeScanMode, String> _labels = <DevModeScanMode, String>{
-    DevModeScanMode.CAMERA_ONLY: 'Only camera stream, no scanning',
-    DevModeScanMode.PREPROCESS_FULL_IMAGE:
-        'Camera stream and full image preprocessing, no scanning',
-    DevModeScanMode.PREPROCESS_HALF_IMAGE:
-        'Camera stream and half image preprocessing, no scanning',
-    DevModeScanMode.SCAN_FULL_IMAGE: 'Full image scanning',
-    DevModeScanMode.SCAN_HALF_IMAGE: 'Half image scanning',
-  };
-
-  static const Map<DevModeScanMode, int> _indices = <DevModeScanMode, int>{
-    DevModeScanMode.CAMERA_ONLY: 4,
-    DevModeScanMode.PREPROCESS_FULL_IMAGE: 3,
-    DevModeScanMode.PREPROCESS_HALF_IMAGE: 2,
-    DevModeScanMode.SCAN_FULL_IMAGE: 0,
-    DevModeScanMode.SCAN_HALF_IMAGE: 1,
-  };
-
-  String get label => _labels[this]!;
+  String get label {
+    switch (this) {
+      case DevModeScanMode.CAMERA_ONLY:
+        return 'Only camera stream, no scanning';
+      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
+        return 'Camera stream and full image preprocessing, no scanning';
+      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
+        return 'Camera stream and half image preprocessing, no scanning';
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+        return 'Full image scanning';
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+        return 'Half image scanning';
+    }
+  }
 
   String localizedLabel(AppLocalizations appLocalizations) {
     switch (this) {
@@ -469,7 +461,20 @@ extension DevModeScanModeExtension on DevModeScanMode {
     }
   }
 
-  int get index => _indices[this]!;
+  int get idx {
+    switch (this) {
+      case DevModeScanMode.CAMERA_ONLY:
+        return 4;
+      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
+        return 3;
+      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
+        return 2;
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+        return 0;
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+        return 1;
+    }
+  }
 
   static DevModeScanMode fromIndex(final int? index) {
     if (index == null) {

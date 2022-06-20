@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
@@ -91,7 +92,8 @@ class _ScanPageForegroundWidget extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         return Consumer<PermissionListener>(
             builder: (BuildContext context, PermissionListener listener, _) {
-          if (listener.value.isGranted) {
+          // If permission is granted && the device has a camera
+          if (listener.value.isGranted && CameraHelper.hasACamera) {
             return CustomPaint(
               painter: _ScanPageForegroundPainter(
                 visorSize: ScannerVisorWidget.getSize(context),

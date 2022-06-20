@@ -7,17 +7,12 @@ import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 /// Widget that displays a svg from network (and cache while waiting).
 class SvgCache extends AbstractCache {
   const SvgCache(
-    final String? iconUrl, {
-    final double? width,
-    final double? height,
+    super.iconUrl, {
+    super.width,
+    super.height,
     this.color,
-    final bool displayAssetWhileWaiting = true,
-  }) : super(
-          iconUrl,
-          width: width,
-          height: height,
-          displayAssetWhileWaiting: displayAssetWhileWaiting,
-        );
+    super.displayAssetWhileWaiting = true,
+  });
 
   final Color? color;
 

@@ -11,9 +11,9 @@ import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
 /// Use CameraController with imageFormatGroup: ImageFormatGroup.yuv420
 class CameraImageFullGetter extends AbstractCameraImageGetter {
   CameraImageFullGetter(
-    final CameraImage cameraImage,
-    final CameraDescription cameraDescription,
-  ) : super(cameraImage, cameraDescription);
+    super.cameraImage,
+    super.cameraDescription,
+  );
 
   @override
   Size getSize() => Size(
