@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/contributor_product_query.dart';
 import 'package:smooth_app/database/informer_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/paged_user_product_query.dart';
 import 'package:smooth_app/database/photographer_product_query.dart';
 import 'package:smooth_app/database/to_be_completed_product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -237,56 +238,40 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
 
       result = <Widget>[
-        ListTile(
-          onTap: () async => ProductQueryPageHelper().openBestChoice(
-            heroTag: 'contributor',
-            name: userId,
-            localDatabase: localDatabase,
-            productQuery: ContributorProductQuery(userId),
-            context: context,
-          ),
-          title:
-              const Text('Products I added'), // TODO(monsieurtanuki): translate
-          leading: const Icon(Icons.add_circle_outline),
+        _buildUserProductQueryTile(
+          productQuery: ContributorProductQuery(userId),
+          title: appLocalizations.user_search_contributor_title,
+          iconData: Icons.add_circle_outline,
+          heroTag: 'contributor',
+          context: context,
+          localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
-        ListTile(
-          onTap: () async => ProductQueryPageHelper().openBestChoice(
-            heroTag: 'informer',
-            name: userId,
-            localDatabase: localDatabase,
-            productQuery: InformerProductQuery(userId),
-            context: context,
-          ),
-          title: const Text(
-              'Products I informed?'), // TODO(monsieurtanuki): translate
-          leading: const Icon(Icons.edit),
+        _buildUserProductQueryTile(
+          productQuery: InformerProductQuery(userId),
+          title: appLocalizations.user_search_informer_title,
+          iconData: Icons.edit,
+          heroTag: 'informer',
+          context: context,
+          localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
-        ListTile(
-          onTap: () async => ProductQueryPageHelper().openBestChoice(
-            heroTag: 'photographer',
-            name: userId,
-            localDatabase: localDatabase,
-            productQuery: PhotographerProductQuery(userId),
-            context: context,
-          ),
-          title: const Text(
-              'Products I photographed'), // TODO(monsieurtanuki): translate
-          leading: const Icon(Icons.add_a_photo),
+        _buildUserProductQueryTile(
+          productQuery: PhotographerProductQuery(userId),
+          title: appLocalizations.user_search_photographer_title,
+          iconData: Icons.add_a_photo,
+          heroTag: 'photographer',
+          context: context,
+          localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
-        ListTile(
-          onTap: () async => ProductQueryPageHelper().openBestChoice(
-            heroTag: 'to_be_completed',
-            name: userId,
-            localDatabase: localDatabase,
-            productQuery: ToBeCompletedProductQuery(userId),
-            context: context,
-          ),
-          title: const Text(
-              'Products that need to be completed'), // TODO(monsieurtanuki): translate
-          leading: const Icon(Icons.more_horiz),
+        _buildUserProductQueryTile(
+          productQuery: ToBeCompletedProductQuery(userId),
+          title: appLocalizations.user_search_to_be_completed_title,
+          iconData: Icons.more_horiz,
+          heroTag: 'to_be_completed',
+          context: context,
+          localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
         ListTile(
@@ -362,4 +347,24 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
     return Column(children: result);
   }
+
+  Widget _buildUserProductQueryTile({
+    required final PagedUserProductQuery productQuery,
+    required final String title,
+    required final IconData iconData,
+    required final String heroTag,
+    required final BuildContext context,
+    required final LocalDatabase localDatabase,
+  }) =>
+      ListTile(
+        onTap: () async => ProductQueryPageHelper().openBestChoice(
+          heroTag: heroTag,
+          name: title,
+          localDatabase: localDatabase,
+          productQuery: productQuery,
+          context: context,
+        ),
+        title: Text(title),
+        leading: Icon(iconData),
+      );
 }
