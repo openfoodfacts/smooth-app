@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page that lists all user product lists.
 class AllUserProductList extends StatefulWidget {
@@ -28,7 +29,7 @@ class _AllUserProductListState extends State<AllUserProductList> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     final List<String> userLists = daoProductList.getUserLists();
-    return Scaffold(
+    return SmoothScaffold(
       appBar: AppBar(title: Text(appLocalizations.user_list_all_title)),
       body: userLists.isEmpty
           ? Center(

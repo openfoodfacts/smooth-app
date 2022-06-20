@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 void main() {
   const String errorMessageTest = 'error message test';
@@ -44,7 +45,7 @@ void main() {
       MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         locale: const Locale('en'),
-        home: Scaffold(
+        home: SmoothScaffold(
           body: SmoothErrorCard(
             errorMessage: errorMessageTest,
             tryAgainFunction: tryAgainFunctionTest,

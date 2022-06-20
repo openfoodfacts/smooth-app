@@ -16,6 +16,7 @@ import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -34,7 +35,7 @@ class NutritionPageLoaded extends StatefulWidget {
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   // we admit both decimal points
   // anyway, the keyboard will only show one
-  static final RegExp _decimalRegExp = RegExp(r'[0-9,.]');
+  static final RegExp _decimalRegExp = RegExp(r'[\d,.]');
 
   late final NumberFormat _numberFormat;
   late final NutritionContainer _nutritionContainer;
@@ -92,7 +93,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
-      child: Scaffold(
+      child: SmoothScaffold(
         appBar: AppBar(
           title: AutoSizeText(
             appLocalizations.nutrition_page_title,
