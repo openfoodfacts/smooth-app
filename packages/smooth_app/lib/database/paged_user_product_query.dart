@@ -33,12 +33,17 @@ abstract class PagedUserProductQuery extends PagedProductQuery {
     final int pageNumber,
     final QueryType? queryType,
   ) async {
+    final List<String> fields = convertFieldsToStrings(
+      ProductQuery.fields,
+      <OpenFoodFactsLanguage>[ProductQuery.getLanguage()!],
+    );
     final Uri uri = UriHelper.getUri(
       path: path,
       queryType: queryType,
       queryParameters: <String, String>{
         'page_size': '$pageSize',
         'page': '$pageNumber',
+        'fields': fields.join(','),
       },
     );
     final Response response = await HttpHelper().doGetRequest(
