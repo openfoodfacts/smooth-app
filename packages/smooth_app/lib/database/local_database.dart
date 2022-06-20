@@ -32,15 +32,7 @@ class LocalDatabase extends ChangeNotifier {
 
   static Future<LocalDatabase> getLocalDatabase() async {
     // sql from there
-    final String databasesRootPath;
-    if (defaultTargetPlatform == TargetPlatform.iOS) {
-      // as suggested in https://pub.dev/documentation/sqflite/latest/sqflite/getDatabasesPath.html
-      final Directory directory = await getLibraryDirectory();
-      databasesRootPath = directory.path;
-    } else {
-      databasesRootPath = await getDatabasesPath();
-    }
-    final String databasePath = join(databasesRootPath, 'smoothie.db');
+    final String databasePath = await _getDatabasePath();
     final Database database = await openDatabase(
       databasePath,
       version: 1,
@@ -71,6 +63,18 @@ class LocalDatabase extends ChangeNotifier {
     await _migrate(localDatabase);
 
     return localDatabase;
+  }
+
+  static Future<String> _getDatabasePath() async {
+    final String databasesRootPath;
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      // as suggested in https://pub.dev/documentation/sqflite/latest/sqflite/getDatabasesPath.html
+      final Directory directory = await getLibraryDirectory();
+      databasesRootPath = directory.path;
+    } else {
+      databasesRootPath = await getDatabasesPath();
+    }
+    return join(databasesRootPath, 'smoothie.db');
   }
 
   static Future<void> _migrate(final LocalDatabase localDatabase) async {
@@ -118,5 +122,13 @@ class LocalDatabase extends ChangeNotifier {
     final int newVersion,
   ) async {
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
+  }
+
+  //Returns the approximate size of the database in MB
+  Future<double> getSize() async {
+    final String path = await _getDatabasePath();
+    final File file = File(path);
+    final double size = file.lengthSync() / 1024 / 1024;
+    return double.parse(size.toStringAsFixed(1));
   }
 }

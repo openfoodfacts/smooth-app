@@ -8,6 +8,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -18,14 +19,9 @@ class OfflineDataPage extends StatefulWidget {
   State<OfflineDataPage> createState() => _OfflineDataPageState();
 }
 
-int _length = 0;
-double _size = 0;
-
 // TODO(ashaman999): update all the applocalizations
 class _OfflineDataPageState extends State<OfflineDataPage> {
-  Future<void> _refreshDetails(DaoProduct daoProduct) async {
-    _length = await daoProduct.getLength();
-    _size = await daoProduct.getSize();
+  Future<void> _refreshDetails() async {
     setState(() {});
   }
 
@@ -36,7 +32,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     }
     try {
       final User user = ProductQuery.getUser();
-      // TODO(ashaman999): find a better way to do this
+      // TODO(ashaman999): find a better way to do this and background this task later on
       //Found that the max number of the barcodes i can query is 24
       final List<Product> productList = <Product>[];
       List<String> chunks = <String>[];
@@ -67,9 +63,10 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
 
   @override
   Widget build(BuildContext context) {
-    final DaoProduct daoProduct = DaoProduct(context.watch<LocalDatabase>());
-    final DaoProductList daoProductList =
-        DaoProductList(context.watch<LocalDatabase>());
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final bool dark = Theme.of(context).brightness == Brightness.dark;
     const double titleHeightInExpandedMode = 50;
@@ -81,7 +78,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
           onRefresh: () async {
             // just reload the screen
 
-            await _refreshDetails(daoProduct);
+            await _refreshDetails();
           },
           child: CustomScrollView(
             slivers: <Widget>[
@@ -129,15 +126,16 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                               '${snapshot.data} products available for immediate scanning',
                             );
                           } else {
-                            return Text(
-                                '$_length products available for immediate scanning');
+                            return const Text('Loading...');
                           }
                         },
                       ),
                       trailing: FutureBuilder<double>(
-                        future: daoProduct.getSize(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<double> snapshot) {
+                        future: localDatabase.getSize(),
+                        builder: (
+                          BuildContext context,
+                          AsyncSnapshot<double> snapshot,
+                        ) {
                           if (snapshot.hasData) {
                             return Text(
                               '${snapshot.data} MB',
@@ -159,7 +157,9 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                             ) ??
                             'Refresh Cancelled';
                         // TODO(ashaman999): dapproductlist.updateTimestamp();
-                        // ignore: use_build_context_synchronously
+                        if (!mounted) {
+                          return;
+                        }
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(status),
@@ -176,17 +176,46 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                     UserPreferencesListTile(
                       trailing: const Icon(Icons.delete),
                       onTap: () async {
-                        await daoProductList.clearAll();
-                        final int noOdDeletedProducts =
-                            await daoProduct.clearAll();
-                        // ignore: use_build_context_synchronously
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                                '$noOdDeletedProducts products deleted, freed $_size Mb'),
-                          ),
-                        );
-                        await _refreshDetails(daoProduct);
+                        //show a dialog to confirm the deletion
+                        final bool confirmed = await showDialog<bool>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return SmoothAlertDialog(
+                                  title: 'Confirm Deletion?',
+                                  body: const Text(
+                                      'This process cannot be reverse, do you wish to continue'),
+                                  positiveAction: SmoothActionButton(
+                                    onPressed: () async {
+                                      Navigator.pop(context, true);
+                                    },
+                                    text: 'Okay',
+                                  ),
+                                  negativeAction: SmoothActionButton(
+                                    onPressed: () async {
+                                      Navigator.pop(context, false);
+                                    },
+                                    text: 'Cancel',
+                                  ),
+                                );
+                              },
+                            ) ??
+                            false;
+                        if (confirmed) {
+                          final double size = await localDatabase.getSize();
+                          await daoProductList.clearAll();
+                          final int noOdDeletedProducts =
+                              await daoProduct.clearAll();
+                          if (!mounted) {
+                            return;
+                          }
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                  '$noOdDeletedProducts products deleted, freed $size Mb'),
+                            ),
+                          );
+                          await _refreshDetails();
+                        }
                       },
                       title: const Text(
                         'Clear Offline Data',

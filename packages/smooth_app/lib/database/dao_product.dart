@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
@@ -65,14 +64,6 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   Future<int> clearAll() async {
     final int rowsDeleted = await localDatabase.database.delete(TABLE_PRODUCT);
     return rowsDeleted;
-  }
-
-  //Returns the approximate size of the database in MB
-  Future<double> getSize() async {
-    final String path = localDatabase.database.path;
-    final File file = File(path);
-    final double size = file.lengthSync() / 1024 / 1024;
-    return double.parse(size.toStringAsFixed(1));
   }
 
   Future<int> getLength() async {
