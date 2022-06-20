@@ -63,8 +63,6 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
 
   // Returns the no of rows deleted/effected from the table
   Future<int> clearAll() async {
-   
-        
     final int rowsDeleted = await localDatabase.database.delete(TABLE_PRODUCT);
     return rowsDeleted;
   }
