@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 
 class PermissionListener extends ValueNotifier<DevicePermission> {
   PermissionListener({
@@ -14,12 +15,21 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
   _DevicePermissionStatus _status = _DevicePermissionStatus.initial;
 
   Future<void> checkPermission() async {
-    value = DevicePermission._(
-      permission,
-      DevicePermissionStatus.checking,
-    );
+    /// If a device doesn't have a camera, let's pretend the permission is
+    /// granted
+    if (permission == Permission.camera && !CameraHelper.hasACamera) {
+      value = DevicePermission._(
+        permission,
+        DevicePermissionStatus.granted,
+      );
+    } else {
+      value = DevicePermission._(
+        permission,
+        DevicePermissionStatus.checking,
+      );
 
-    _onNewPermissionStatus(await permission.request());
+      _onNewPermissionStatus(await permission.request());
+    }
   }
 
   Future<void> askPermission(
