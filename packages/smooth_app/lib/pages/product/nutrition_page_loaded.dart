@@ -36,7 +36,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   late final NumberFormat _numberFormat;
   late final NutritionContainer _nutritionContainer;
 
-  bool _unspecified = false; // TODO(monsieurtanuki): fetch that data from API?
+  late bool _noNutritionData;
   // If true then serving, if false then 100g.
   bool _servingOr100g = false;
 
@@ -57,11 +57,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   void initState() {
     super.initState();
     _product = widget.product;
-    _nutritionContainer = NutritionContainer(
-      orderedNutrients: widget.orderedNutrients,
-      product: _product,
-    );
+    _nutritionContainer = _getFreshContainer();
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
+    _noNutritionData = _product.noNutritionData ?? false;
   }
 
   @override
@@ -74,40 +72,75 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Widget> children = <Widget>[];
-    children.add(_switchNoNutrition(localizations));
-    if (!_unspecified) {
-      children.add(_getServingField(localizations));
-      children.add(_getServingSwitch(localizations));
+    children.add(_switchNoNutrition(appLocalizations));
+    if (!_noNutritionData) {
+      children.add(_getServingField(appLocalizations));
+      children.add(_getServingSwitch(appLocalizations));
       for (final OrderedNutrient orderedNutrient
           in _nutritionContainer.getDisplayableNutrients()) {
         children.add(
-          _getNutrientRow(localizations, orderedNutrient),
+          _getNutrientRow(appLocalizations, orderedNutrient),
         );
       }
-      children.add(_addNutrientButton(localizations));
+      children.add(_addNutrientButton(appLocalizations));
     }
 
     return WillPopScope(
-      //return a boolean to decide whether to return to previous page or not
-      onWillPop: () => _showCancelPopup(localizations),
+      onWillPop: () async {
+        if (!_isEdited()) {
+          return true;
+        }
+        final bool? pleaseSave = await showDialog<bool>(
+          context: context,
+          builder: (final BuildContext context) => SmoothAlertDialog(
+            close: true,
+            body:
+                Text(appLocalizations.edit_product_form_item_exit_confirmation),
+            title: appLocalizations.nutrition_page_title,
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.ignore,
+              onPressed: () => Navigator.pop(context, false),
+            ),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.save,
+              onPressed: () => Navigator.pop(context, true),
+            ),
+          ),
+        );
+        if (pleaseSave == null) {
+          return false;
+        }
+        if (pleaseSave == false) {
+          return true;
+        }
+        if (!mounted) {
+          return false;
+        }
+        final Product? changedProduct = _getChangedProduct();
+        if (changedProduct == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              // here I cheat and I reuse the only invalid case.
+              content: Text(appLocalizations.nutrition_page_invalid_number),
+            ),
+          );
+          return false;
+        }
+        // if it fails, we stay on the same page
+        return ProductRefresher().saveAndRefresh(
+          context: context,
+          localDatabase: localDatabase,
+          product: changedProduct,
+        );
+      },
       child: Scaffold(
         appBar: AppBar(
           title: AutoSizeText(
-            localizations.nutrition_page_title,
+            appLocalizations.nutrition_page_title,
             maxLines: 2,
-          ),
-          actions: <Widget>[
-            IconButton(
-              onPressed: () => _validateAndSave(localizations, localDatabase),
-              icon: const Icon(Icons.check),
-            )
-          ],
-          systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarIconBrightness: Brightness.light,
-            statusBarBrightness: Brightness.dark,
           ),
         ),
         body: Padding(
@@ -265,9 +298,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Switch(
-              value: _unspecified,
+              value: _noNutritionData,
               onChanged: (final bool value) =>
-                  setState(() => _unspecified = !_unspecified),
+                  setState(() => _noNutritionData = !_noNutritionData),
               trackColor: MaterialStateProperty.all(
                   Theme.of(context).colorScheme.onPrimary),
             ),
@@ -364,85 +397,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
-  Future<bool> _showCancelPopup(final AppLocalizations appLocalizations) async {
-    //if no changes made then returns true to the onWillPop
-    // allowing it to let the user return back to previous screen
-    if (!_isEdited()) {
-      return true;
-    }
-    return await showDialog<bool>(
-          context: context,
-          builder: (BuildContext context) => SmoothAlertDialog(
-            title: appLocalizations.general_confirmation,
-            body: Text(appLocalizations.nutrition_page_close_confirmation),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.cancel,
-              // returns false to onWillPop after the alert dialog is closed with cancel button
-              //blocking return to the previous screen
-              onPressed: () => Navigator.pop(context),
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.okay,
-              // returns true to onWillPop after the alert dialog is closed with close button
-              //letting return to the previous screen
-              onPressed: () => Navigator.pop(context, true),
-            ),
-          ),
-        ) ??
-        // in case alert dialog is closed, a false is return
-        // blocking the return to the previous screen
-        false;
-  }
-
-  Future<void> _validateAndSave(final AppLocalizations localizations,
-      final LocalDatabase localDatabase) async {
-    if (!_formKey.currentState!.validate()) {
-      return;
-    }
-
-    await _showSavePopup(localizations, localDatabase);
-  }
-
-  Future<void> _showSavePopup(
-    final AppLocalizations appLocalizations,
-    final LocalDatabase localDatabase,
-  ) async {
-    final bool shouldSave = await showDialog<bool>(
-          context: context,
-          builder: (BuildContext context) => SmoothAlertDialog(
-            title: appLocalizations.general_confirmation,
-            body: Text(appLocalizations.save_confirmation),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.cancel,
-              onPressed: () => Navigator.pop(context, false),
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.save.toUpperCase(),
-              onPressed: () => Navigator.pop(context, true),
-            ),
-          ),
-        ) ??
-        false;
-
-    if (shouldSave) {
-      await _save(localDatabase);
-    }
-  }
-
-  Future<void> _save(final LocalDatabase localDatabase) async {
-    for (final String key in _controllers.keys) {
-      final TextEditingController controller = _controllers[key]!;
-      _nutritionContainer.setControllerText(key, controller.text);
-    }
-    // minimal product: we only want to save the nutrients
-    final Product inputProduct = _nutritionContainer.getProduct();
-    await ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: inputProduct,
-    );
-  }
-
   bool _isEdited() {
     for (final String key in _controllers.keys) {
       final TextEditingController controller = _controllers[key]!;
@@ -455,7 +409,30 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         }
       }
     }
+    if (_nutritionContainer.noNutritionData != _noNutritionData) {
+      return true;
+    }
     //else form is not edited just return false
     return false;
   }
+
+  Product? _getChangedProduct() {
+    if (!_formKey.currentState!.validate()) {
+      return null;
+    }
+    // We use a separate fresh container here.
+    // If something breaks while saving, we won't get a half written object.
+    final NutritionContainer output = _getFreshContainer();
+    for (final String key in _controllers.keys) {
+      final TextEditingController controller = _controllers[key]!;
+      output.setControllerText(key, controller.text);
+    }
+    output.noNutritionData = _noNutritionData;
+    return output.getProduct();
+  }
+
+  NutritionContainer _getFreshContainer() => NutritionContainer(
+        orderedNutrients: widget.orderedNutrients,
+        product: _product,
+      );
 }

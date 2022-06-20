@@ -19,6 +19,7 @@ class NutritionContainer {
     }
     _servingSize = product.servingSize;
     _barcode = product.barcode!;
+    noNutritionData = product.noNutritionData ?? false;
   }
 
   static const String _energyId = 'energy';
@@ -66,6 +67,8 @@ class NutritionContainer {
 
   late final String _barcode;
 
+  late bool noNutritionData;
+
   /// Returns the not interesting nutrients, for a "Please add me!" list.
   Iterable<OrderedNutrient> getLeftoverNutrients() => _nutrients.where(
         (final OrderedNutrient element) => _isNotRelevant(element),
@@ -90,6 +93,7 @@ class NutritionContainer {
   /// Returns a [Product] with only nutrients data.
   Product getProduct() => Product(
         barcode: _barcode,
+        noNutritionData: noNutritionData,
         nutriments: _getNutriments(),
         servingSize: _servingSize,
       );
