@@ -106,3 +106,4 @@ In order to build the application, make sure you are in the packages/smooth_app 
 
 ## Thank you
 The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
+
