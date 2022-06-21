@@ -16,15 +16,27 @@ class OnboardingLoader {
     final OnboardingPage page,
     final BuildContext context,
   ) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (page) {
       case OnboardingPage.WELCOME:
-        await LoadingDialog.run<void>(
+        final bool? downloaded = await LoadingDialog.run<bool>(
           context: context,
           future: _downloadData(),
           title: AppLocalizations.of(context)
               .onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
+        if (downloaded != true) {
+          //ignore: use_build_context_synchronously
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(appLocalizations.onboarding_welcome_loading_error),
+              duration: const Duration(seconds: 2),
+              behavior: SnackBarBehavior.floating,
+              elevation: 0,
+            ),
+          );
+        }
         return;
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.REINVENTION:
@@ -41,7 +53,7 @@ class OnboardingLoader {
   }
 
   /// Actual download of all data.
-  Future<void> _downloadData() async =>
+  Future<bool> _downloadData() async =>
       OnboardingDataProduct.forProduct(_localDatabase).downloadData();
 
   /// Unloads all data that are no longer required.

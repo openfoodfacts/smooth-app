@@ -6,16 +6,11 @@ import 'package:smooth_app/cards/category_cards/raster_async_asset.dart';
 /// Widget that displays a png/jpeg from network (and cache while waiting).
 class RasterCache extends AbstractCache {
   const RasterCache(
-    final String iconUrl, {
-    final double? width,
-    final double? height,
-    final bool displayAssetWhileWaiting = true,
-  }) : super(
-          iconUrl,
-          width: width,
-          height: height,
-          displayAssetWhileWaiting: displayAssetWhileWaiting,
-        );
+    super.iconUrl, {
+    super.width,
+    super.height,
+    super.displayAssetWhileWaiting = true,
+  });
 
   @override
   Widget build(BuildContext context) {

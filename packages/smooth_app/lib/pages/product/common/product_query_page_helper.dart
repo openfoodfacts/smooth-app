@@ -71,22 +71,23 @@ class ProductQueryPageHelper {
   }
 
   static String getProductListLabel(
-      final ProductList productList, final BuildContext context,
-      {final bool verbose = true}) {
+    final ProductList productList,
+    final BuildContext context,
+  ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (productList.listType) {
       case ProductListType.HTTP_SEARCH_KEYWORDS:
-        return '${productList.parameters}'
-            '${verbose ? ' ${appLocalizations.category_search}' : ''}';
       case ProductListType.HTTP_SEARCH_CATEGORY:
-        return '${productList.parameters}'
-            '${verbose ? ' ${appLocalizations.category_search}' : ''}';
+      case ProductListType.HTTP_USER_CONTRIBUTOR:
+      case ProductListType.HTTP_USER_INFORMER:
+      case ProductListType.HTTP_USER_PHOTOGRAPHER:
+      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+      case ProductListType.USER:
+        return productList.parameters;
       case ProductListType.SCAN_SESSION:
         return appLocalizations.scan;
       case ProductListType.HISTORY:
         return appLocalizations.recently_seen_products;
-      case ProductListType.USER:
-        return productList.parameters;
     }
   }
 }

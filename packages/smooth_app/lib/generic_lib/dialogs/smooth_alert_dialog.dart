@@ -123,10 +123,9 @@ class SmoothActionButtonsBar extends StatelessWidget {
   const SmoothActionButtonsBar({
     this.positiveAction,
     this.negativeAction,
-    Key? key,
-  })  : assert(positiveAction != null || negativeAction != null,
-            'At least one action must be passed!'),
-        super(key: key);
+    super.key,
+  }) : assert(positiveAction != null || negativeAction != null,
+            'At least one action must be passed!');
 
   const SmoothActionButtonsBar.single({
     required SmoothActionButton action,
@@ -216,14 +215,17 @@ class _SmoothActionElevatedButton extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     return SmoothSimpleButton(
       onPressed: buttonData.onPressed,
-      child: Text(
-        buttonData.text.toUpperCase(),
-        textAlign: TextAlign.center,
-        overflow: TextOverflow.ellipsis,
-        maxLines: buttonData.lines ?? 2,
-        style: themeData.textTheme.bodyText2!.copyWith(
-          fontWeight: FontWeight.bold,
-          color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+      // if fitted box not used then even the one word text overflows into next line,
+      child: FittedBox(
+        child: Text(
+          buttonData.text.toUpperCase(),
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          maxLines: buttonData.lines ?? 2,
+          style: themeData.textTheme.bodyText2!.copyWith(
+            fontWeight: FontWeight.bold,
+            color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+          ),
         ),
       ),
     );
@@ -261,15 +263,17 @@ class _SmoothActionFlatButton extends StatelessWidget {
         ),
         child: SizedBox(
           height: buttonData.lines != null ? 20.0 * buttonData.lines! : null,
-          child: Text(
-            buttonData.text.toUpperCase(),
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: buttonData.textColor ?? themeData.colorScheme.primary,
+          child: FittedBox(
+            child: Text(
+              buttonData.text.toUpperCase(),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: buttonData.textColor ?? themeData.colorScheme.primary,
+              ),
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: buttonData.lines ?? 2,
             ),
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            maxLines: buttonData.lines ?? 2,
           ),
         ),
       ),

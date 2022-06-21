@@ -17,4 +17,5 @@ abstract class PlatformDataImporter {
 
   Future<ImportableUser?> importUser();
   Future<ImportableUserData?> importLists();
+  Future<bool> deleteOldDataOnDevice();
 }

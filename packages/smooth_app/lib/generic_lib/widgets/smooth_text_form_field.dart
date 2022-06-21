@@ -8,7 +8,7 @@ enum TextFieldTypes {
 
 class SmoothTextFormField extends StatefulWidget {
   const SmoothTextFormField({
-    Key? key,
+    super.key,
     required this.type,
     required this.controller,
     this.enabled,
@@ -21,7 +21,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.textInputType,
     this.onChanged,
     this.autofocus,
-  }) : super(key: key);
+  });
 
   final TextFieldTypes type;
   final TextEditingController? controller;

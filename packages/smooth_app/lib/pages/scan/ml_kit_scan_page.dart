@@ -25,8 +25,8 @@ import 'package:smooth_app/widgets/screen_visibility.dart';
 
 class MLKitScannerPage extends LifecycleAwareStatefulWidget {
   const MLKitScannerPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   MLKitScannerPageState createState() => MLKitScannerPageState();
@@ -55,7 +55,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   /// A time window is the average time decodings took
   final AverageList<int> _averageProcessingTime = AverageList<int>();
 
-  final AudioPlayer _musicPlayer = AudioPlayer();
+  /// Audio player to play the beep sound on scan
+  /// This attribute is only initialized when a camera is available AND the
+  /// setting is set to ON
+  AudioPlayer? _musicPlayer;
 
   /// Subject notifying when a new image is available
   PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
@@ -89,7 +92,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   void initState() {
     super.initState();
     _camera = CameraHelper.findBestCamera();
-    _subject = PublishSubject<CameraImage>();
+
+    if (_camera != null) {
+      _subject = PublishSubject<CameraImage>();
+    }
   }
 
   @override
@@ -221,7 +227,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     // If the controller is initialized update the UI.
     _barcodeDecoder ??= MLKitScanDecoder(
       camera: _camera!,
-      scanMode: DevModeScanModeExtension.fromIndex(
+      scanMode: DevModeScanMode.fromIndex(
         _userPreferences.getDevModeIndex(
           UserPreferencesDevMode.userPreferencesEnumScanMode,
         ),
@@ -312,12 +318,11 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         HapticFeedback.lightImpact();
 
         if (_userPreferences.playCameraSound) {
-          _musicPlayer.play(
-            AssetSource('assets/audio/beep.org'),
-            mode: PlayerMode.lowLatency,
-            volume: 0.5,
-          );
+          await _initSoundManagerIfNecessary();
+          await _musicPlayer!.stop();
+          await _musicPlayer!.resume();
         }
+
         _userPreferences.setFirstScanAchieved();
       }
     }
@@ -350,6 +355,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       _streamSubscription?.pause();
       await _controller?.pausePreview();
     }
+
+    await _disposeSoundManager();
   }
 
   Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
@@ -454,13 +461,48 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       ) ??
       MLKitScannerPageState.postFrameCallbackStandardDelay;
 
+  /// Only initialize the "beep" player when needed
+  /// (at least one camera available + settings set to ON)
+  Future<void> _initSoundManagerIfNecessary() async {
+    if (_musicPlayer != null) {
+      return;
+    }
+
+    _musicPlayer = AudioPlayer(playerId: '1');
+    await _musicPlayer!.setSourceAsset('audio/beep.ogg');
+    await _musicPlayer!.setPlayerMode(PlayerMode.lowLatency);
+    await _musicPlayer!.setAudioContext(
+      AudioContext(
+        android: AudioContextAndroid(
+          isSpeakerphoneOn: false,
+          stayAwake: false,
+          contentType: AndroidContentType.sonification,
+          usageType: AndroidUsageType.notificationEvent,
+          audioFocus: AndroidAudioFocus.gainTransientExclusive,
+        ),
+        iOS: AudioContextIOS(
+          defaultToSpeaker: false,
+          category: AVAudioSessionCategory.soloAmbient,
+          options: <AVAudioSessionOptions>[
+            AVAudioSessionOptions.mixWithOthers,
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _disposeSoundManager() async {
+    await _musicPlayer?.release();
+    await _musicPlayer?.dispose();
+    _musicPlayer = null;
+  }
+
   @override
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
     _stopImageStream();
-    _musicPlayer.stop();
-    _musicPlayer.dispose();
+    _disposeSoundManager();
     super.dispose();
   }
 
