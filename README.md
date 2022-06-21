@@ -49,19 +49,41 @@ We are always looking for new contributors, if you're willing to help please let
 - [Continuous Integration documentation](.github/workflows/README.md)
 - [Project Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
 - Private app signing for iOS certificates repository - please ask @teolemon
-## V1 Roadmap
-- [ ] Minimal editing/addition value proposition
-- [ ] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)
+
+## V1 Roadmap (We're aiming for a May 23rd 2022 release, to be in time for a media launch around June 10th, and a high-profile presence at Vivatech on June 15th)
+- [*] We should be able to ship the Smoothie code to the main listing on Android and iOS
+- [*] The app should be able to scan very well
+- [*] Minimal Road to Scores (you should be able to get Nutri-Score and Eco-Score on any unknown/uncomplete product in 2 minutes, using editing and/or product addition
+  - [*] Initial photo taking, good ingredient extraction, Nutrition input, Category input (TODO)
+- [ ] Personalization system that does not feel weird during setup, where people understand consequence, and where ranking match their expectations even in stretch cases (lack of data on some product, selecting Nutri-Score and all Low-in Nutrients…), where red-lines are clearly shown (allergens) with potential caveats, where solutions are proposed and warning issued in case of lack of data.
+- [*] Database migration for existing Android and iOS users (minimum: history, credentials, if possible with allergen alerts, lists)
+- [*] A Welcome scan card that can broadcast a message from the Open Food Facts team per country/language (Tagline)
+- [*] On-page photo refresh capabilities (Not working well)
+- [ ] Revamped settings that are less cluttered, and can make way in the future for things the user will go see more often.
+- [*] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)
+
+## V1.1 - Later Roadmap
+- [ ] Speedup image upload
+- [ ] Fix HTTP header and contribution comments
+- [ ] Add power edit mode that concatenates all the editable things for faster contribution
+- [ ] Add a list of things to do contribution wise on the product (via KP or natively)
+- [ ] Clarify the alternative product proposition
+- [ ] Allow to switch languages
+- [ ] Allow to expand search results to the world
+- [ ] Reintroduce the portion calculator
 
 ## V2 - Later Roadmap
-### Screenshot automation (High priority)
-- [ ] [Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)](https://github.com/openfoodfacts/smooth-app/issues/217)
+
 
 ### Gamification
 - [ ] User management + Small point system for contributions
 
 ### Scanning
 - [ ] [Add offline scanning to ensure results in all conditions](https://github.com/openfoodfacts/smooth-app/issues/18)
+
+
+### Screenshot automation (nice to have)
+- [ ] [Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)](https://github.com/openfoodfacts/smooth-app/issues/217)
 
 ## Building
 

@@ -24,8 +24,8 @@ class SmoothTheme {
       fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         selectedItemColor: myColorScheme.primary,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
