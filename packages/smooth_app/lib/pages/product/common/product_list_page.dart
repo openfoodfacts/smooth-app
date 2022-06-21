@@ -20,6 +20,7 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -162,29 +163,34 @@ class _ProductListPageState extends State<ProductListPage>
         ),
       ),
       body: products.isEmpty
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SvgPicture.asset(
-                  'assets/misc/empty-list.svg',
-                  height: MediaQuery.of(context).size.height * .4,
-                ),
-                Text(
-                  appLocalizations.product_list_empty_title,
-                  style: themeData.textTheme.headlineLarge
-                      ?.apply(color: colorScheme.onBackground),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                  child: Text(
-                    appLocalizations.product_list_empty_message,
-                    textAlign: TextAlign.center,
-                    style: themeData.textTheme.bodyText2?.apply(
-                      color: colorScheme.onBackground,
-                    ),
+          ? GestureDetector(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    'assets/misc/empty-list.svg',
+                    height: MediaQuery.of(context).size.height * .4,
                   ),
-                )
-              ],
+                  Text(
+                    appLocalizations.product_list_empty_title,
+                    style: themeData.textTheme.headlineLarge
+                        ?.apply(color: colorScheme.onBackground),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                    child: Text(
+                      appLocalizations.product_list_empty_message,
+                      textAlign: TextAlign.center,
+                      style: themeData.textTheme.bodyText2?.apply(
+                        color: colorScheme.onBackground,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              onTap: () {
+                InheritedDataManager.of(context).resetShowSearchCard(true);
+              },
             )
           : RefreshIndicator(
               //if it is in selectmode then refresh indicator is not shown

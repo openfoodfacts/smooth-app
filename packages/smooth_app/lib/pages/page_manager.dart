@@ -52,6 +52,17 @@ class PageManagerState extends State<PageManager> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final InheritedDataManagerState inheritedDataManager =
+        InheritedDataManager.of(context);
+    if (inheritedDataManager.showSearchCard &&
+        _currentPage != BottomNavigationTab.Scan) {
+      _currentPage = BottomNavigationTab.Scan;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     _tabs = <Widget>[
