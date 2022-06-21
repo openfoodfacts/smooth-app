@@ -114,9 +114,7 @@ class _EditProductPageState extends State<EditProductPage> {
                 );
               },
             ),
-            _getSimpleListTileItem(
-              SimpleInputPageLabelHelper(_product, appLocalizations),
-            ),
+            _getSimpleListTileItem(SimpleInputPageLabelHelper()),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_ingredients_title,
               onTap: () async {
@@ -136,12 +134,8 @@ class _EditProductPageState extends State<EditProductPage> {
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_packaging_title,
             ),
-            _getSimpleListTileItem(
-              SimpleInputPageStoreHelper(_product, appLocalizations),
-            ),
-            _getSimpleListTileItem(
-              SimpleInputPageCategoryHelper(_product, appLocalizations),
-            ),
+            _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+            _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
             _ListTitleItem(
               title:
                   appLocalizations.edit_product_form_item_nutrition_facts_title,
@@ -187,22 +181,27 @@ class _EditProductPageState extends State<EditProductPage> {
     );
   }
 
-  Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) =>
-      _ListTitleItem(
-        title: helper.getTitle(),
-        subtitle: helper.getSubtitle(),
-        onTap: () async {
-          if (!await ProductRefresher().checkIfLoggedIn(context)) {
-            return;
-          }
-          await Navigator.push<Product>(
-            context,
-            MaterialPageRoute<Product>(
-              builder: (BuildContext context) => SimpleInputPage(helper),
+  Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return _ListTitleItem(
+      title: helper.getTitle(appLocalizations),
+      subtitle: helper.getSubtitle(appLocalizations),
+      onTap: () async {
+        if (!await ProductRefresher().checkIfLoggedIn(context)) {
+          return;
+        }
+        await Navigator.push<Product>(
+          context,
+          MaterialPageRoute<Product>(
+            builder: (BuildContext context) => SimpleInputPage(
+              helper: helper,
+              product: _product,
             ),
-          );
-        },
-      );
+          ),
+        );
+      },
+    );
+  }
 }
 
 class _ListTitleItem extends StatelessWidget {

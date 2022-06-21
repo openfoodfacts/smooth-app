@@ -12,9 +12,13 @@ import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
-  const SimpleInputPage(this.helper);
+  const SimpleInputPage({
+    required this.helper,
+    required this.product,
+  });
 
   final AbstractSimpleInputPageHelper helper;
+  final Product product;
 
   @override
   State<SimpleInputPage> createState() => _SimpleInputPageState();
@@ -22,6 +26,12 @@ class SimpleInputPage extends StatefulWidget {
 
 class _SimpleInputPageState extends State<SimpleInputPage> {
   final TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    widget.helper.reInit(widget.product);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +50,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
             close: true,
             body:
                 Text(appLocalizations.edit_product_form_item_exit_confirmation),
-            title: widget.helper.getTitle(),
+            title: widget.helper.getTitle(appLocalizations),
             negativeAction: SmoothActionButton(
               text: appLocalizations.ignore,
               onPressed: () => Navigator.pop(context, false),
@@ -76,11 +86,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
           child: ListView(
             children: <Widget>[
               Text(
-                widget.helper.getTitle(),
+                widget.helper.getTitle(appLocalizations),
                 style: themeData.textTheme.headline1,
               ),
-              if (widget.helper.getSubtitle() != null)
-                Text(widget.helper.getSubtitle()!),
+              if (widget.helper.getSubtitle(appLocalizations) != null)
+                Text(widget.helper.getSubtitle(appLocalizations)!),
               Row(
                 children: <Widget>[
                   ElevatedButton(
@@ -106,7 +116,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                             horizontal: SMALL_SPACE,
                             vertical: SMALL_SPACE,
                           ),
-                          hintText: widget.helper.getAddHint(),
+                          hintText: widget.helper.getAddHint(appLocalizations),
                         ),
                         controller: _controller,
                       ),
