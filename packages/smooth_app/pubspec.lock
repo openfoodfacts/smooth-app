@@ -125,7 +125,7 @@ packages:
     description:
       path: "packages/camera/camera"
       ref: smooth_camera
-      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      resolved-ref: bea3b8e065b89ee80f85f2c20ada24e21facf531
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.9.6"
@@ -134,7 +134,7 @@ packages:
     description:
       path: "packages/camera/camera_platform_interface"
       ref: smooth_camera
-      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      resolved-ref: bea3b8e065b89ee80f85f2c20ada24e21facf531
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "2.1.6"
@@ -143,7 +143,7 @@ packages:
     description:
       path: "packages/camera/camera_web"
       ref: smooth_camera
-      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      resolved-ref: bea3b8e065b89ee80f85f2c20ada24e21facf531
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.2.1+6"
@@ -1009,7 +1009,7 @@ packages:
       name: share_plus
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.8"
+    version: "4.0.9"
   share_plus_linux:
     dependency: transitive
     description:
