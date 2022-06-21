@@ -59,6 +59,7 @@ class PageManagerState extends State<PageManager> {
     if (inheritedDataManager.showSearchCard &&
         _currentPage != BottomNavigationTab.Scan) {
       _currentPage = BottomNavigationTab.Scan;
+      _selectTab(_currentPage, 1);
     }
   }
 
