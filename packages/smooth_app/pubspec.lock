@@ -353,13 +353,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.3"
-  flutter_lints:
-    dependency: "direct main"
-    description:
-      name: flutter_lints
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.1"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -644,13 +637,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
-  lints:
-    dependency: transitive
-    description:
-      name: lints
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   lists:
     dependency: transitive
     description:
@@ -744,6 +730,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.18.2"
+  openfoodfacts_flutter_lints:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: d4ebb93e19ef8398171c841975038818a43f61cc
+      url: "https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git"
+    source: git
+    version: "1.0.0"
   package_config:
     dependency: transitive
     description:
@@ -995,14 +990,14 @@ packages:
       name: sentry
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.5.1"
+    version: "6.6.0"
   sentry_flutter:
     dependency: "direct main"
     description:
       name: sentry_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.5.1"
+    version: "6.6.0"
   share_plus:
     dependency: "direct main"
     description:
