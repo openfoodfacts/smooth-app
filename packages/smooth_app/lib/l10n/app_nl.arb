@@ -65,7 +65,7 @@
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
-    "match_does_not": "Does not match",
+    "match_does_not": "Komt niet overeen",
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
@@ -89,7 +89,7 @@
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
-    "match_short_does_not": "Does not match",
+    "match_short_does_not": "Komt niet overeen",
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
@@ -1226,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Products I added",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Products I edited",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Products I photographed",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Products that need to be completed",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Foto opnieuw maken",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1300,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "Ongeldige barcode",
     "basic_details_add_success": "Basisgegevens succesvol toegevoegd",
     "basic_details_add_error": "Kan basisgegevens niet toevoegen. Probeer het later opnieuw",
     "@basic_details_add_error": {

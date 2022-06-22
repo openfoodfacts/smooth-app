@@ -4,7 +4,7 @@
     "@yes": {},
     "add": "Añadir",
     "@add": {},
-    "okay": "OK",
+    "okay": "Vale",
     "@okay": {},
     "applyButtonText": "Aplicar",
     "@applyButtonText": {},
@@ -38,7 +38,7 @@
     "@error": {},
     "error_occurred": "Se ha producido un error",
     "@error_occurred": {},
-    "featureInProgress": "Todavía estamos trabajando en esta función, mantente atento",
+    "featureInProgress": "Todavía estamos trabajando en esta función, estad atentos",
     "@featureInProgress": {},
     "label_web": "Ver en la web",
     "@label_web": {},
@@ -49,51 +49,51 @@
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "match_very_good": "Gran coincidencia",
+    "match_very_good": "Muy recomendable",
     "@match_very_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: very good match"
     },
-    "match_good": "Buena coincidencia",
+    "match_good": "Recomendable",
     "@match_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: good match"
     },
-    "match_poor": "Mala coincidencia",
+    "match_poor": "Poco recomendable",
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
-    "match_may_not": "Puede que no coincida",
+    "match_may_not": "Poca información",
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
-    "match_does_not": "No coincide",
+    "match_does_not": "No recomendable",
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "Coincidencia desconocida",
+    "match_unknown": "Sin información suficiente",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
-    "match_short_very_good": "Gran coincidencia",
+    "match_short_very_good": "Muy recomendable",
     "@match_short_very_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
     },
-    "match_short_good": "Buena coincidencia",
+    "match_short_good": "Recomendable",
     "@match_short_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
     },
-    "match_short_poor": "Mala coincidencia",
+    "match_short_poor": "Poco recomendable",
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
-    "match_short_may_not": "Puede que no coincida",
+    "match_short_may_not": "Poca información",
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
-    "match_short_does_not": "No coincide",
+    "match_short_does_not": "No recomendable",
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "Coincidencia desconocida",
+    "match_short_unknown": "Sin información suficiente",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
@@ -259,7 +259,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "Predeterminado del sistema",
+    "darkmode_system_default": "Automático",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
@@ -353,7 +353,7 @@
     "ranking_tab_all": "Todo",
     "ranking_subtitle_match_yes": "Una buena opción para ti",
     "ranking_subtitle_match_no": "Muy poco adecuado",
-    "ranking_subtitle_match_maybe": "Coincidencia desconocida",
+    "ranking_subtitle_match_maybe": "Sin información suficiente",
     "reloaded_with_new_preferences": "Actualizado con tus nuevas preferencias",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -465,7 +465,7 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Introducir información nutricional",
     "nutritional_facts_added": "Información nutricional añadida",
-    "nutritional_facts_photo_uploaded": "Imagen de información nutricional cargada",
+    "nutritional_facts_photo_uploaded": "Se ha subido la foto con información nutricional",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto de información de reciclaje",
     "@recycling_photo_button_label": {},
@@ -551,7 +551,7 @@
     "@Product Addition": {},
     "added_product_thanks": "¡Gracias por añadir este producto!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Comparar con la categoría",
+    "product_search_same_category": "Comparar con otros del mismo tipo",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
@@ -579,7 +579,7 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Por favor, selecciona un país",
+    "country_chooser_label": "Elige un país",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
@@ -609,7 +609,7 @@
     },
     "really_clear": "¿Realmente quieres eliminar esta lista?",
     "@Plural": {},
-    "pct_match": "{percent} % de coincidencia",
+    "pct_match": "coincide un {percent}%",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
@@ -669,7 +669,7 @@
     "twitter": "Twitter",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
-    "faq": "FAQ",
+    "faq": "Preguntas frecuentes",
     "discover": "Descubrir",
     "how_to_contribute": "Cómo contribuir",
     "hint_knowledge_panel_message": "Toca cualquier parte de la tarjeta para obtener más detalles sobre lo que ves. ¡Pruébalo ahora!",
@@ -709,7 +709,7 @@
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "Al cumplir\ndiez añitos nos\nreinventamos",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -749,7 +749,7 @@
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
-    "loading_dialog_default_error_message": "No se pudo descargar los datos",
+    "loading_dialog_default_error_message": "No se han podido descargar los datos",
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
@@ -841,11 +841,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "crash_reporting_toggle_title": "Reporta un error o falla",
+    "crash_reporting_toggle_title": "Informar de fallos",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "Cuando está habilitado, los informes de fallas se envían automáticamente al sistema de seguimiento de errores de Open Food Facts, para que los errores se puedan corregir y, por lo tanto, mejorar la aplicación.",
+    "crash_reporting_toggle_subtitle": "Al activarlo, los informes de errores se envían automáticamente al sistema de seguimiento de Open Food Facts para que podamos corregirlos y mejorar la aplicación.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1226,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Productos que he añadido",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Productos que he editado",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Productos que he fotografiado",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Productos todavía incompletos",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Volver a hacer la foto",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1300,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "Código de barras no válido",
     "basic_details_add_success": "Detalles básicos añadidos con éxito",
     "basic_details_add_error": "No se pueden agregar detalles básicos. Vuelva a intentarlo después de un tiempo.",
     "@basic_details_add_error": {

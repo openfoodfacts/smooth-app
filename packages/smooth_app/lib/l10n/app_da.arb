@@ -1226,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Produkter, jeg tilføjede",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Produkter, jeg redigerede",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Produkter, jeg fotograferede",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Produkter, som mangler færdiggørelse",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Tag foto igen",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1300,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "Ugyldig stregkode",
     "basic_details_add_success": "Basisoplydninger tilføjet",
     "basic_details_add_error": "Kan ikke tilføje basisoplydninger. Forsøg igen om lidt",
     "@basic_details_add_error": {

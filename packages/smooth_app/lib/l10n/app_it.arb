@@ -1226,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Prodotti che ho aggiunto",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Prodotti che ho modificato",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Prodotti che ho fotografato",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Prodotti che devono essere completati",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Riscatta la foto",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1300,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "Codice a barre non valido",
     "basic_details_add_success": "Dettagli di base aggiunti correttamente",
     "basic_details_add_error": "Impossibile aggiungere i dettagli di base. Si prega di riprovare dopo un po' di tempo",
     "@basic_details_add_error": {

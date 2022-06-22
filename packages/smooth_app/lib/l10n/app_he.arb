@@ -1226,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "מוצרים שהוספתי",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "מוצרים שערכתי",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "מוצרים שצילמתי",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "מוצרים שדורשים השלמה",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "צילום תמונה מחדש",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1300,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "ברקוד שגוי",
     "basic_details_add_success": "פרטים בסיסיים נוספו בהצלחה",
     "basic_details_add_error": "לא ניתן להוסיף פרטים בסיסיים. נא לנסות שוב אחר כך",
     "@basic_details_add_error": {
