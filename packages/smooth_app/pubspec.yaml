@@ -12,7 +12,6 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_lints: ^2.0.1
 
   carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.5
@@ -92,6 +91,9 @@ dev_dependencies:
   mockito: ^5.2.0
   path_provider_platform_interface: ^2.0.4
   plugin_platform_interface: ^2.1.2
+  flutter_lints: ^2.0.1
+  openfoodfacts_flutter_lints:
+    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 
 dependency_overrides:
   path: 1.8.0
