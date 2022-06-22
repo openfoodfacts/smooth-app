@@ -1316,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "Invalid barcode",
     "basic_details_add_success": "Basic details added succesfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
     "@basic_details_add_error": {
