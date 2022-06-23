@@ -8,6 +8,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 enum ScannedProductState {
   FOUND,
@@ -57,7 +58,7 @@ class ContinuousScanModel with ChangeNotifier {
       }
       return this;
     } catch (e) {
-      debugPrint('exception: $e');
+      Logs.e('Load database error', ex: e);
     }
     return null;
   }
@@ -78,7 +79,7 @@ class ContinuousScanModel with ChangeNotifier {
       }
       return true;
     } catch (e) {
-      debugPrint('exception: $e');
+      Logs.e('Refresh database error', ex: e);
     }
     return false;
   }

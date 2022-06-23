@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
@@ -48,7 +49,7 @@ class UserManagementProvider with ChangeNotifier {
       /// manually overwritten from an external apk.
       DaoSecuredString.remove(key: _USER_ID);
       DaoSecuredString.remove(key: _PASSWORD);
-      debugPrint('Credentials query failed, you have been logged out');
+      Logs.e('Credentials query failed, you have been logged out');
     }
 
     if (userId == null || password == null) {

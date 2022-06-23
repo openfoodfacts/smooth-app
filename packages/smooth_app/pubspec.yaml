@@ -61,7 +61,7 @@ dependencies:
       
   audioplayers: ^1.0.0
   percent_indicator: ^4.2.2
-  mailto: ^2.0.0
+  flutter_email_sender: ^5.1.0
   flutter_native_splash: ^2.2.3+1
   google_mlkit_barcode_scanning: ^0.3.0
   image_cropper: ^2.0.3
@@ -79,6 +79,7 @@ dependencies:
   data_importer:
     path: ../data_importer
   share_plus: ^4.0.8
+  fimber: ^0.6.6
 
 dev_dependencies:
   integration_test:
