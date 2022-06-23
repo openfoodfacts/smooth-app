@@ -140,6 +140,12 @@ class _EditProductPageState extends State<EditProductPage> {
               SimpleInputPageStoreHelper(_product, appLocalizations),
             ),
             _getSimpleListTileItem(
+              SimpleInputPageEmbCodeHelper(_product, appLocalizations),
+            ),
+            _getSimpleListTileItem(
+              SimpleInputPageCountryHelper(_product, appLocalizations),
+            ),
+            _getSimpleListTileItem(
               SimpleInputPageCategoryHelper(_product, appLocalizations),
             ),
             _ListTitleItem(

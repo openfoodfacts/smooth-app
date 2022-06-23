@@ -102,6 +102,8 @@ class ProductRefresher {
       final Status status = await OpenFoodAPIClient.saveProduct(
         ProductQuery.getUser(),
         inputProduct,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
       );
       if (status.error != null) {
         return _MetaProductRefresher.error(status.error);

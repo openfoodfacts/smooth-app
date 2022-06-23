@@ -118,6 +118,10 @@ abstract class ProductQuery {
         ProductField.ECOSCORE_GRADE,
         ProductField.ECOSCORE_SCORE,
         ProductField.KNOWLEDGE_PANELS,
+        ProductField.COUNTRIES,
+        ProductField.COUNTRIES_TAGS,
+        ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
+        ProductField.EMB_CODES,
       ];
 
   Future<SearchResult> getSearchResult();

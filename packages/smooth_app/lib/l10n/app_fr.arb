@@ -931,6 +931,30 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_countries_title": "Pays de vente",
+    "@edit_product_form_item_countries_title": {
+        "description": "Product edition - Countries - Title"
+    },
+    "edit_product_form_item_countries_hint": "Espagne",
+    "@edit_product_form_item_countries_hint": {
+        "description": "Product edition - Countries - input textfield hint"
+    },
+    "edit_product_form_item_countries_explanations": "Pays dans lesquels le produit est largement distribué (hors magasins spécialisés dans l'import).",
+    "@edit_product_form_item_countries_examples": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_emb_codes_title": "Code de traçabilité",
+    "@edit_product_form_item_emb_codes_title": {
+        "description": "Product edition - EMB Codes - Title"
+    },
+    "edit_product_form_item_emb_codes_hint": "EMB 53062",
+    "@edit_product_form_item_emb_codes_hint": {
+        "description": "Product edition - EMB Codes - input textfield hint"
+    },
+    "edit_product_form_item_emb_codes_explanations": "En Europe, le code est une ellipse contenant les deux initiales du pays suivies par un nombre et CE.\nExemples : EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_examples": {
+        "description": "Product edition - EMB Codes - explanations"
+    },
     "edit_product_form_item_categories_title": "Catégories",
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
