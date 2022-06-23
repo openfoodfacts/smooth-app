@@ -27,6 +27,8 @@ abstract class AbstractSimpleInputPageHelper {
   /// "Have the terms been changed?"
   bool _changed = false;
 
+  final String _separator = ',';
+
   /// Returns the terms as they were initially in the product.
   @protected
   List<String> initTerms();
@@ -69,6 +71,9 @@ abstract class AbstractSimpleInputPageHelper {
   /// Returns the hint of the "add" text field.
   String getAddHint();
 
+  /// Returns additional examples about the "add" text field.
+  String? getAddExplanations() => null;
+
   /// Impacts a product in order to take the changes into account.
   @protected
   void changeProduct(final Product changedProduct);
@@ -81,6 +86,18 @@ abstract class AbstractSimpleInputPageHelper {
     final Product changedProduct = Product(barcode: product.barcode);
     changeProduct(changedProduct);
     return changedProduct;
+  }
+
+  @protected
+  List<String> splitString(String? input) {
+    if (input == null) {
+      return <String>[];
+    }
+    input = input.trim();
+    if (input.isEmpty) {
+      return <String>[];
+    }
+    return input.split(_separator);
   }
 }
 
@@ -95,28 +112,45 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
         );
 
   @override
-  List<String> initTerms() => _splitString(product.stores);
+  List<String> initTerms() => splitString(product.stores);
 
   @override
   void changeProduct(final Product changedProduct) =>
-      changedProduct.stores = terms.join(', ');
+      changedProduct.stores = terms.join(_separator);
 
   @override
   String getTitle() => appLocalizations.edit_product_form_item_stores_title;
 
   @override
   String getAddHint() => appLocalizations.edit_product_form_item_stores_hint;
+}
 
-  List<String> _splitString(String? input) {
-    if (input == null) {
-      return <String>[];
-    }
-    input = input.trim();
-    if (input.isEmpty) {
-      return <String>[];
-    }
-    return input.split(',');
-  }
+/// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
+  SimpleInputPageEmbCodeHelper(
+    final Product product,
+    final AppLocalizations appLocalizations,
+  ) : super(
+          product,
+          appLocalizations,
+        );
+
+  @override
+  List<String> initTerms() => splitString(product.embCodes);
+
+  @override
+  void changeProduct(final Product changedProduct) =>
+      changedProduct.embCodes = terms.join(_separator);
+
+  @override
+  String getTitle() => appLocalizations.edit_product_form_item_emb_codes_title;
+
+  @override
+  String getAddHint() => appLocalizations.edit_product_form_item_emb_codes_hint;
+
+  @override
+  String getAddExplanations() =>
+      appLocalizations.edit_product_form_item_emb_codes_explanations;
 }
 
 /// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
@@ -175,7 +209,7 @@ abstract class AbstractSimpleInputPageInLanguageHelper
       String? tag = _termToTags[term];
       tag ??= '${_language.code}:$term';
       if (i > 0) {
-        result.write(', ');
+        result.write(_separator);
       }
       result.write(tag);
     }
@@ -244,4 +278,37 @@ class SimpleInputPageCategoryHelper
   @override
   String getAddHint() =>
       appLocalizations.edit_product_form_item_categories_hint;
+}
+
+/// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageCountryHelper
+    extends AbstractSimpleInputPageInLanguageHelper {
+  SimpleInputPageCountryHelper(
+    final Product product,
+    final AppLocalizations appLocalizations,
+  ) : super(
+          product,
+          appLocalizations,
+        );
+
+  @override
+  List<String>? getTags() => product.countriesTags;
+
+  @override
+  Map<OpenFoodFactsLanguage, List<String>>? getInLanguages() =>
+      product.countriesTagsInLanguages;
+
+  @override
+  void setValue(final Product changedProduct, final String value) =>
+      changedProduct.countries = value;
+
+  @override
+  String getTitle() => appLocalizations.edit_product_form_item_countries_title;
+
+  @override
+  String getAddHint() => appLocalizations.edit_product_form_item_countries_hint;
+
+  @override
+  String getAddExplanations() =>
+      appLocalizations.edit_product_form_item_countries_explanations;
 }

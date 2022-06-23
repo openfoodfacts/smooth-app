@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// Asset cache helper class
 class AssetCacheHelper {
@@ -25,7 +26,7 @@ class AssetCacheHelper {
         height: height ?? width,
       );
 
-  void notFound() => debugPrint(
+  void notFound() => Logs.d(
       'please download $url and put it in asset somewhere like $cachedFilenames');
 
   Exception loadException() =>

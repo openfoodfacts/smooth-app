@@ -717,7 +717,7 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "onboarding_welcome_loading_error": "Zdá se, že ve vašem jazyce neexistuje žádný příklad produktu",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
@@ -798,7 +798,7 @@
         }
     },
     "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
+    "settings_app_data": "Soukromí a monitorování",
     "settings_app_camera": "Fotoaparát",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
@@ -832,7 +832,7 @@
     "camera_focus_point_algorithm_value_new_algorithm_label": "Rychlý režim",
     "camera_focus_point_algorithm_value_new_algorithm_description": "Režim doporučený pro nedávná zařízení.",
     "camera_focus_point_algorithm_value_old_algorithm_label": "Bezpečný režim",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "Pokud rychlý režim nefunguje, mělo by to vyřešit vaše problémy se zaměřením.",
     "camera_play_sound_title": "Přehrát zvuk při skenování",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -1226,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Produkty, které jsem přidal",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Produkty, které jsem upravoval",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Produkty, které jsem nafotil",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Produkty, které je třeba dokončit",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Znovu pořídit fotografii",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1300,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "Neplatný čárový kód",
     "basic_details_add_success": "Základní detaily byly úspěšně přidány",
     "basic_details_add_error": "Nelze přidat základní podrobnosti. Zkuste to znovu po nějaké době",
     "@basic_details_add_error": {

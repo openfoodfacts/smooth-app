@@ -1226,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Produsele pe care le-am adăugat",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Produsele pe care le-am editat",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Produsele pe care le-am fotografiat",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Produse care trebuie completate",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Refaceți fotografia",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1300,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "Cod de bare nevalid",
     "basic_details_add_success": "Detalii de bază adăugate cu succes",
     "basic_details_add_error": "Nu se pot adăuga detalii de bază. Vă rugăm să încercați din nou după ceva timp",
     "@basic_details_add_error": {
