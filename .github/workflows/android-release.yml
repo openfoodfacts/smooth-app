@@ -19,7 +19,7 @@ jobs:
         run: echo ${{ env.RELEASE_VERSION }}
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.3.0
+        uses: actions/setup-java@v3.4.0
         with:
           distribution: 'zulu'
           java-version: 11
