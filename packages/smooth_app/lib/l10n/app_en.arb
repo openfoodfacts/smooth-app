@@ -933,7 +933,7 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
-    "edit_product_form_item_countries_title": "Countries where sold",
+    "edit_product_form_item_countries_title": "Country",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
