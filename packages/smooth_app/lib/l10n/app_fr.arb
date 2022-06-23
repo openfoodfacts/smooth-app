@@ -717,7 +717,7 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "onboarding_welcome_loading_error": "Il semble qu'il n'y ait pas de produit exemple dans votre langue",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
@@ -1316,6 +1316,7 @@
             }
         }
     },
+    "barcode_invalid_error": "Code-barres invalide",
     "basic_details_add_success": "Information de base ajoutée avec succès",
     "basic_details_add_error": "Impossible d'ajouter l'information de base. Veuillez réessayer après un certain temps",
     "@basic_details_add_error": {
@@ -1364,15 +1365,15 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "choose_image_source_title": "Choose image source",
+    "choose_image_source_title": "Choisissez la source de l'image",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "Please choose a image source",
+    "choose_image_source_body": "Veuillez choisir la source de l'image",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },
-    "gallery_source_label": "Gallery",
+    "gallery_source_label": "Galerie",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
@@ -1389,11 +1390,11 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "En prendre une autre",
     "@capture": {
         "description": "Button label for taking a photo"
     },
-    "choose_from_gallery": "Choose from gallery",
+    "choose_from_gallery": "Choisir depuis la galerie",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
     }
