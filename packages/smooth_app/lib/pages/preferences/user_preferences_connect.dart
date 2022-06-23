@@ -90,6 +90,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
                       appLocalizations
                           .support_via_email_include_logs_dialog_body,
                     ),
+                    close: true,
                     positiveAction: SmoothActionButton(
                         text: appLocalizations.yes,
                         onPressed: () => Navigator.of(context).pop(true)),
