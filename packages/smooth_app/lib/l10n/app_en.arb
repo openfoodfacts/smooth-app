@@ -949,7 +949,7 @@
     },
     "edit_product_form_item_emb_codes_hint": "EMB 53062",
     "@edit_product_form_item_emb_codes_hint": {
-        "description": "Product edition - EMB Codes - input textfield hint"
+        "description": "Product edition - Traceability Codes - input textfield hint"
     },
     "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
