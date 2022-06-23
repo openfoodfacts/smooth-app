@@ -83,8 +83,6 @@ dependencies:
   data_importer:
     path: ../data_importer
   share_plus: ^4.0.8
-
-  # Logs
   fimber: ^0.6.6
 
 dev_dependencies:
