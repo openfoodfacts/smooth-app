@@ -945,7 +945,7 @@
     },
     "edit_product_form_item_emb_codes_title": "Traceability codes",
     "@edit_product_form_item_emb_codes_title": {
-        "description": "Product edition - EMB Codes - Title"
+        "description": "Product edition - Traceability codes - Title"
     },
     "edit_product_form_item_emb_codes_hint": "EMB 53062",
     "@edit_product_form_item_emb_codes_hint": {
