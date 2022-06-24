@@ -73,7 +73,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<Widget> children = <Widget>[];
     children.add(_switchNoNutrition(appLocalizations));
     if (!_noNutritionData) {
@@ -89,53 +88,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
 
     return WillPopScope(
-      onWillPop: () async {
-        if (!_isEdited()) {
-          return true;
-        }
-        final bool? pleaseSave = await showDialog<bool>(
-          context: context,
-          builder: (final BuildContext context) => SmoothAlertDialog(
-            close: true,
-            body:
-                Text(appLocalizations.edit_product_form_item_exit_confirmation),
-            title: appLocalizations.nutrition_page_title,
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.ignore,
-              onPressed: () => Navigator.pop(context, false),
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.save,
-              onPressed: () => Navigator.pop(context, true),
-            ),
-          ),
-        );
-        if (pleaseSave == null) {
-          return false;
-        }
-        if (pleaseSave == false) {
-          return true;
-        }
-        if (!mounted) {
-          return false;
-        }
-        final Product? changedProduct = _getChangedProduct();
-        if (changedProduct == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              // here I cheat and I reuse the only invalid case.
-              content: Text(appLocalizations.nutrition_page_invalid_number),
-            ),
-          );
-          return false;
-        }
-        // if it fails, we stay on the same page
-        return ProductRefresher().saveAndRefresh(
-          context: context,
-          localDatabase: localDatabase,
-          product: changedProduct,
-        );
-      },
+      onWillPop: () async => _mayExitPage(saving: false),
       child: Scaffold(
         appBar: AppBar(
           title: AutoSizeText(
@@ -148,9 +101,32 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             horizontal: LARGE_SPACE,
             vertical: SMALL_SPACE,
           ),
-          child: Form(
-            key: _formKey,
-            child: ListView(children: children),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Flexible(
+                flex: 1,
+                child: Form(
+                  key: _formKey,
+                  child: ListView(children: children),
+                ),
+              ),
+              SmoothActionButtonsBar(
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.save,
+                  onPressed: () async => _exitPage(
+                    await _mayExitPage(saving: true),
+                  ),
+                ),
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.cancel,
+                  onPressed: () async => _exitPage(
+                    await _mayExitPage(saving: false),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -397,16 +373,17 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         label: Text(appLocalizations.nutrition_page_add_nutrient),
       );
 
+  /// Returns `true` if any value differs between form and container.
   bool _isEdited() {
     for (final String key in _controllers.keys) {
       final TextEditingController controller = _controllers[key]!;
-      if (_nutritionContainer.getValue(key) != null) {
-        if (_numberFormat.format(_nutritionContainer.getValue(key)) !=
-            controller.value.text) {
-          //if any controller is not equal to the value in the container
-          // then the form is edited, return true
+      if (_nutritionContainer.getValue(key) == null) {
+        if (controller.value.text != '') {
           return true;
         }
+      } else if (_numberFormat.format(_nutritionContainer.getValue(key)) !=
+          controller.value.text) {
+        return true;
       }
     }
     if (_nutritionContainer.noNutritionData != _noNutritionData) {
@@ -435,4 +412,65 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         orderedNutrients: widget.orderedNutrients,
         product: _product,
       );
+
+  /// Exits the page if the [flag] is `true`.
+  void _exitPage(final bool flag) {
+    if (flag) {
+      Navigator.of(context).pop();
+    }
+  }
+
+  /// Returns `true` if we should really exit the page.
+  ///
+  /// Parameter [saving] tells about the context: are we leaving the page,
+  /// or have we clicked on the "save" button?
+  Future<bool> _mayExitPage({required final bool saving}) async {
+    if (!_isEdited()) {
+      return true;
+    }
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    if (!saving) {
+      final bool? pleaseSave = await showDialog<bool>(
+        context: context,
+        builder: (final BuildContext context) => SmoothAlertDialog(
+          close: true,
+          body: Text(appLocalizations.edit_product_form_item_exit_confirmation),
+          title: appLocalizations.nutrition_page_title,
+          negativeAction: SmoothActionButton(
+            text: appLocalizations.ignore,
+            onPressed: () => Navigator.pop(context, false),
+          ),
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.save,
+            onPressed: () => Navigator.pop(context, true),
+          ),
+        ),
+      );
+      if (pleaseSave == null) {
+        return false;
+      }
+      if (pleaseSave == false) {
+        return true;
+      }
+    }
+    final Product? changedProduct = _getChangedProduct();
+    if (changedProduct == null) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            // here I cheat and I reuse the only invalid case.
+            content: Text(appLocalizations.nutrition_page_invalid_number),
+          ),
+        );
+      }
+      return false;
+    }
+    // if it fails, we stay on the same page
+    return ProductRefresher().saveAndRefresh(
+      context: context,
+      localDatabase: localDatabase,
+      product: changedProduct,
+    );
+  }
 }
