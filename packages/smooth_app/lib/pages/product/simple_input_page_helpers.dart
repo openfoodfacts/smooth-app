@@ -70,7 +70,7 @@ abstract class AbstractSimpleInputPageHelper {
   String getAddHint(final AppLocalizations appLocalizations);
 
   /// Returns additional examples about the "add" text field.
-  String? getAddExplanations() => null;
+  String? getAddExplanations(final AppLocalizations appLocalizations) => null;
 
   /// Impacts a product in order to take the changes into account.
   @protected
@@ -115,17 +115,10 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_hint;
+}
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
-  SimpleInputPageEmbCodeHelper(
-    final Product product,
-    final AppLocalizations appLocalizations,
-  ) : super(
-          product,
-          appLocalizations,
-        );
-
   @override
   List<String> initTerms() => splitString(product.embCodes);
 
@@ -134,13 +127,15 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
       changedProduct.embCodes = terms.join(_separator);
 
   @override
-  String getTitle() => appLocalizations.edit_product_form_item_emb_codes_title;
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_emb_codes_title;
 
   @override
-  String getAddHint() => appLocalizations.edit_product_form_item_emb_codes_hint;
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_emb_codes_hint;
 
   @override
-  String getAddExplanations() =>
+  String getAddExplanations(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_explanations;
 }
 
@@ -255,14 +250,6 @@ class SimpleInputPageCategoryHelper
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper
     extends AbstractSimpleInputPageInLanguageHelper {
-  SimpleInputPageCountryHelper(
-    final Product product,
-    final AppLocalizations appLocalizations,
-  ) : super(
-          product,
-          appLocalizations,
-        );
-
   @override
   List<String>? getTags() => product.countriesTags;
 
@@ -275,12 +262,14 @@ class SimpleInputPageCountryHelper
       changedProduct.countries = value;
 
   @override
-  String getTitle() => appLocalizations.edit_product_form_item_countries_title;
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_countries_title;
 
   @override
-  String getAddHint() => appLocalizations.edit_product_form_item_countries_hint;
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_countries_hint;
 
   @override
-  String getAddExplanations() =>
+  String getAddExplanations(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_explanations;
 }

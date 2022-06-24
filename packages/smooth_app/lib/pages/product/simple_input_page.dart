@@ -124,8 +124,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                   ),
                 ],
               ),
-              if (widget.helper.getAddExplanations() != null)
-                Text(widget.helper.getAddExplanations()!),
+              if (widget.helper.getAddExplanations(appLocalizations) != null)
+                Text(widget.helper.getAddExplanations(appLocalizations)!),
               Divider(color: themeData.colorScheme.onBackground),
               Wrap(
                 direction: Axis.horizontal,
