@@ -717,6 +717,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "כנראה שאין מוצר לדוגמה בשפה שלך",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "הדירוג שלך",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -793,13 +797,13 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "יישום",
+    "settings_app_data": "פרטיות וניטור",
+    "settings_app_camera": "מצלמה",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "מצב ביצועים גבוהים",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -807,11 +811,11 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_focus_point_algorithm_title": "Focus mode",
+    "camera_focus_point_algorithm_title": "מצב מיקוד",
     "@camera_focus_point_algorithm_title": {
         "description": "Title for the Camera focus mode (Android only)"
     },
-    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "camera_focus_point_algorithm_subtitle": "מצב נוכחי: {mode}\n{reason}",
     "@camera_focus_point_algorithm_subtitle": {
         "description": "SubTitle for the Camera focus mode (Android only)",
         "placeholders": {
@@ -824,11 +828,11 @@
         }
     },
     "camera_focus_point_algorithm_value_auto_label": "אוטומטית",
-    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_focus_point_algorithm_value_auto_description": "לאפשר למערכת לבחור בין המצבים מהיר לבטוח אוטומטית.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "מצב מהיר",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "מצב שמומלץ למכשירים עדכניים.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "מצב בטוח",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "אם מצב מהיר לא עובד, מצב זה אמור לפתור את בעיית המיקוד שלך.",
     "camera_play_sound_title": "השמעת צליל בסריקה",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -1222,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "מוצרים שהוספתי",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "מוצרים שערכתי",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "מוצרים שצילמתי",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "מוצרים שדורשים השלמה",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "צילום תמונה מחדש",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1296,12 +1316,13 @@
             }
         }
     },
+    "barcode_invalid_error": "ברקוד שגוי",
     "basic_details_add_success": "פרטים בסיסיים נוספו בהצלחה",
     "basic_details_add_error": "לא ניתן להוסיף פרטים בסיסיים. נא לנסות שוב אחר כך",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "למחוק?",
+    "confirm_clear": "פעולה זו תמחק את כל ההיסטוריה שלך, להמשיך?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1343,5 +1364,38 @@
     "add_photo_button_label": "הוספת תמונה",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "בחירת מקור תמונה",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "נא לבחור מקור תמונה",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "גלריה",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "שיתוף",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "  מזמינים אותך להסתכל על המוצר הזה ב־Open Food Facts‏: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "לצלם חדשה",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "בחירה מהגלריה",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

@@ -717,6 +717,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "Parece que não tem nenhum produto- exemplo em seu idioma",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "Sua classificação",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -793,13 +797,13 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "Aplicativo",
+    "settings_app_data": "Privacidade e monitoramento",
+    "settings_app_camera": "Câmera",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "Modo de alto desempenho",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -807,11 +811,11 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_focus_point_algorithm_title": "Focus mode",
+    "camera_focus_point_algorithm_title": "Modo de foco",
     "@camera_focus_point_algorithm_title": {
         "description": "Title for the Camera focus mode (Android only)"
     },
-    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "camera_focus_point_algorithm_subtitle": "Modo atual: {mode}\n{reason}",
     "@camera_focus_point_algorithm_subtitle": {
         "description": "SubTitle for the Camera focus mode (Android only)",
         "placeholders": {
@@ -824,11 +828,11 @@
         }
     },
     "camera_focus_point_algorithm_value_auto_label": "Automático",
-    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_focus_point_algorithm_value_auto_description": "Deixe o sistema escolher automaticamente entre os modos rápido e seguro.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Modo rápido",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "Um modo recomendado para dispositivos recentes.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Modo seguro",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "Se o modo rápido não funcionar, isto deve resolver seus problemas de foco.",
     "camera_play_sound_title": "Emitir um som durante o escaneamento",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -1222,6 +1226,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Produtos que adicionei",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Produtos que editei",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Produtos que fotografei",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Produtos que precisam ser completados",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1296,12 +1316,13 @@
             }
         }
     },
+    "barcode_invalid_error": "Código de barras inválido",
     "basic_details_add_success": "Detalhes básicos adicionados com sucesso",
     "basic_details_add_error": "Não foi possível adicionar detalhes básicos. Por favor, tente novamente depois de algum tempo",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Você realmente quer limpar?",
+    "confirm_clear": "Você está prestes a excluir todo o seu histórico. Tem certeza de que deseja continuar?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1343,5 +1364,38 @@
     "add_photo_button_label": "Adicionar foto",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "Escolha a fonte da imagem",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Por favor, escolha uma fonte de imagem",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Galeria",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "Partilhar",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Dê uma olhada neste produto no Open Food Facts: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "Capturar Novo",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "Escolher da galeria",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

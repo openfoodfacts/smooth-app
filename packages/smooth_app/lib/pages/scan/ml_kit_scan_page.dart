@@ -3,7 +3,6 @@ import 'dart:math' as math;
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:camera/camera.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +19,7 @@ import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
@@ -298,14 +298,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         });
       }
     } on CameraException catch (e) {
-      if (kDebugMode) {
-        // TODO(M123): Show error message
-        debugPrint(e.toString());
-      }
+      // TODO(M123): Show error message
+      Logs.d('On camera error', ex: e);
     } on FlutterError catch (e) {
-      if (kDebugMode) {
-        debugPrint(e.toString());
-      }
+      Logs.d('On camera (Flutter part) error', ex: e);
     }
 
     _redrawScreen();
@@ -338,7 +334,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         _stopImageStream();
       } else {
         // TODO(M123): Handle errors better
-        debugPrint(_controller!.value.errorDescription);
+        Logs.e(
+          'On camera controller error : ${_controller!.value.errorDescription}',
+        );
       }
     }
   }

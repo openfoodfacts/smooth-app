@@ -125,7 +125,7 @@ packages:
     description:
       path: "packages/camera/camera"
       ref: smooth_camera
-      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      resolved-ref: bea3b8e065b89ee80f85f2c20ada24e21facf531
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.9.6"
@@ -134,7 +134,7 @@ packages:
     description:
       path: "packages/camera/camera_platform_interface"
       ref: smooth_camera
-      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      resolved-ref: bea3b8e065b89ee80f85f2c20ada24e21facf531
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "2.1.6"
@@ -143,7 +143,7 @@ packages:
     description:
       path: "packages/camera/camera_web"
       ref: smooth_camera
-      resolved-ref: "5935f7ab6e661f59b2abfad27a012aecd19a6f0c"
+      resolved-ref: bea3b8e065b89ee80f85f2c20ada24e21facf531
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.2.1+6"
@@ -322,6 +322,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.2"
+  fimber:
+    dependency: "direct main"
+    description:
+      name: fimber
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.6"
   fixnum:
     dependency: transitive
     description:
@@ -339,6 +346,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_email_sender:
+    dependency: "direct main"
+    description:
+      name: flutter_email_sender
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.1.0"
   flutter_isolate:
     dependency: "direct main"
     description:
@@ -354,7 +368,7 @@ packages:
     source: hosted
     version: "0.9.3"
   flutter_lints:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_lints
       url: "https://pub.dartlang.org"
@@ -665,13 +679,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
-  mailto:
-    dependency: "direct main"
-    description:
-      name: mailto
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   matcher:
     dependency: transitive
     description:
@@ -743,7 +750,16 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.18.2"
+    version: "1.19.0"
+  openfoodfacts_flutter_lints:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: d4ebb93e19ef8398171c841975038818a43f61cc
+      url: "https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git"
+    source: git
+    version: "1.0.0"
   package_config:
     dependency: transitive
     description:
@@ -995,21 +1011,21 @@ packages:
       name: sentry
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.5.1"
+    version: "6.6.0"
   sentry_flutter:
     dependency: "direct main"
     description:
       name: sentry_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.5.1"
+    version: "6.6.0"
   share_plus:
     dependency: "direct main"
     description:
       name: share_plus
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.8"
+    version: "4.0.9"
   share_plus_linux:
     dependency: transitive
     description:

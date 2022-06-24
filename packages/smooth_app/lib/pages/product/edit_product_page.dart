@@ -135,6 +135,8 @@ class _EditProductPageState extends State<EditProductPage> {
               title: appLocalizations.edit_product_form_item_packaging_title,
             ),
             _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+            _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
+            _getSimpleListTileItem(SimpleInputPageCountryHelper()),
             _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
             _ListTitleItem(
               title:

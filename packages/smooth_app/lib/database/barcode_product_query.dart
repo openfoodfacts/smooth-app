@@ -36,6 +36,10 @@ class BarcodeProductQuery {
         return FetchedProduct(product);
       }
     }
+    if (barcode.trim().isNotEmpty &&
+        (result.barcode == null || result.barcode!.isEmpty)) {
+      return FetchedProduct.error(FetchedProductStatus.codeInvalid);
+    }
     return FetchedProduct.error(FetchedProductStatus.internetNotFound);
   }
 }
