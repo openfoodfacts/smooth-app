@@ -339,7 +339,9 @@ class _ProductListPageState extends State<ProductListPage>
   ) async {
     final bool? done = await LoadingDialog.run<bool>(
       context: context,
-      title: appLocalizations.product_list_reloading_in_progress,
+      title: appLocalizations.product_list_reloading_in_progress_multiple(
+        products.length,
+      ),
       future: _reloadProducts(products, localDatabase),
     );
     switch (done) {
@@ -351,7 +353,11 @@ class _ProductListPageState extends State<ProductListPage>
         }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(appLocalizations.product_list_reloading_success),
+            content: Text(
+              appLocalizations.product_list_reloading_success_multiple(
+                products.length,
+              ),
+            ),
             duration: const Duration(seconds: 2),
           ),
         );
