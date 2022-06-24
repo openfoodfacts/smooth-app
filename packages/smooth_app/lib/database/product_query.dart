@@ -99,6 +99,7 @@ abstract class ProductQuery {
         ProductField.SERVING_SIZE,
         ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
+        ProductField.NO_NUTRITION_DATA,
         ProductField.NUTRIMENTS,
         ProductField.NUTRIENT_LEVELS,
         ProductField.NUTRIMENT_ENERGY_UNIT,

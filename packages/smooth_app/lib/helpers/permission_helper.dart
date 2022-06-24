@@ -7,12 +7,19 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
   PermissionListener({
     required this.permission,
   })  : _status = _DevicePermissionStatus.initial,
-        super(DevicePermission._initial(permission)) {
-    checkPermission();
-  }
+        super(DevicePermission._initial(permission));
 
   final Permission permission;
   _DevicePermissionStatus _status = _DevicePermissionStatus.initial;
+
+  @override
+  void addListener(VoidCallback listener) {
+    super.addListener(listener);
+
+    if (_status == _DevicePermissionStatus.initial) {
+      checkPermission();
+    }
+  }
 
   Future<void> checkPermission() async {
     /// If a device doesn't have a camera, let's pretend the permission is

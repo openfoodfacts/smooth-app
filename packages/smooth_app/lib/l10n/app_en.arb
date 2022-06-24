@@ -44,7 +44,6 @@
     "@label_web": {},
     "learnMore": "Learn more",
     "@learnMore": {},
-    "general_confirmation": "Are you sure?",
     "unknown": "Unknown",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -423,7 +422,6 @@
     },
     "nutrition": "Nutrition",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Are you sure you want to close without saving?",
     "nutrition_facts_photo": "Nutrition facts photo",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -1009,7 +1007,7 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
-    "edit_product_form_item_countries_title": "Countries where sold",
+    "edit_product_form_item_countries_title": "Country",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },

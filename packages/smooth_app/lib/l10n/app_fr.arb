@@ -274,6 +274,8 @@
     },
     "support_join_slack": "Demandez de l'aide sur notre canal Slack",
     "support_via_email": "Envoyez-nous un courriel",
+    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Conditions d'utilisation",
     "@termsOfUse": {},
     "about_this_app": "À propos de cette appli",
@@ -940,16 +942,16 @@
         "description": "Product edition - Countries - input textfield hint"
     },
     "edit_product_form_item_countries_explanations": "Pays dans lesquels le produit est largement distribué (hors magasins spécialisés dans l'import).",
-    "@edit_product_form_item_countries_examples": {
+    "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_emb_codes_title": "Code de traçabilité",
+    "edit_product_form_item_emb_codes_title": "Codes de traçabilité",
     "@edit_product_form_item_emb_codes_title": {
-        "description": "Product edition - EMB Codes - Title"
+        "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "EMB 53062",
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_hint": {
-        "description": "Product edition - EMB Codes - input textfield hint"
+        "description": "Product edition - Traceability Codes - input textfield hint"
     },
     "edit_product_form_item_emb_codes_explanations": "En Europe, le code est une ellipse contenant les deux initiales du pays suivies par un nombre et CE.\nExemples : EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
