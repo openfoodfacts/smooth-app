@@ -274,6 +274,8 @@
     },
     "support_join_slack": "Paprašykite pagalbos mūsų „Slack“ kanale",
     "support_via_email": "Atsiųskite mums el. laišką",
+    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Naudojimo sąlygos",
     "@termsOfUse": {},
     "about_this_app": "Apie šią programėlę",
@@ -930,6 +932,30 @@
     "edit_product_form_item_stores_hint": "parduotuvė",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_countries_title": "Country",
+    "@edit_product_form_item_countries_title": {
+        "description": "Product edition - Countries - Title"
+    },
+    "edit_product_form_item_countries_hint": "Spain",
+    "@edit_product_form_item_countries_hint": {
+        "description": "Product edition - Countries - input textfield hint"
+    },
+    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "@edit_product_form_item_countries_explanations": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_emb_codes_title": "Atsekamumo kodai",
+    "@edit_product_form_item_emb_codes_title": {
+        "description": "Product edition - Traceability codes - Title"
+    },
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_hint": {
+        "description": "Product edition - Traceability Codes - input textfield hint"
+    },
+    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_examples": {
+        "description": "Product edition - EMB Codes - explanations"
     },
     "edit_product_form_item_categories_title": "Kategorijos",
     "@edit_product_form_item_categories_title": {

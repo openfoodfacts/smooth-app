@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Επιστροφή στην κορυφή",
     "save": "Αποθήκευση",
     "save_confirmation": "Είστε βέβαιοι ότι θέλετε να αποθηκεύσετε;",
     "skip": "Skip",
@@ -173,7 +173,7 @@
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "reset_password_done": "Ένα e-mail που περιέχει ένα σύνδεσμο για την αλλαγή του κωδικού σας έχει σταλεί στη διεύθυνση e-mail που είναι συνδεδεμένη με τον λογαριασμό σας. Παρακαλώ ελέγξτε και τον φάκελο των ανεπιθύμητων (spam)",
     "send_reset_password_mail": "Αλλαγή κωδικού",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -218,11 +218,11 @@
     "sign_up_page_confirm_password_hint": "Επιβεβαίωση Κωδικού Πρόσβασης",
     "sign_up_page_confirm_password_error_empty": "Επιβεβαιώστε τον κωδικό πρόσβασης",
     "sign_up_page_confirm_password_error_invalid": "Οι κωδικοί πρόσβασης δεν ταιριάζουν",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Συμφωνώ με",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "τους όρους χρήσης και διαμοιρασμού του Open Food Facts",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -255,7 +255,7 @@
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch (dark)"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "Ανοιχτόχρωμο",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
@@ -263,7 +263,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Ευχαριστούμε για τη συμβολή σας!",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -272,8 +272,10 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
+    "support_join_slack": "Ζητήστε βοήθεια στο κανάλι μας στο Slack",
     "support_via_email": "Στείλτε μας e-mail",
+    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Όροι χρήσης",
     "@termsOfUse": {},
     "about_this_app": "Σχετικά με αυτή την εφαρμογή",
@@ -285,13 +287,13 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Ανάπτυξη λογισμικού",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Ο κωδικός για κάθε προϊόν του Open Food Facts είναι διαθέσιμος στο GitHub. Μπορείτε να χρησιμοποιήσετε ξανά τον κώδικα (ανοιχτού κώδικα) και να μας βοηθήσετε να τον βελτιώσουμε, για όλους, σε όλο τον πλανήτη.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Μπορείτε να εγγραφείτε στο Open Food Facts Slack chatroom που είναι ο προτιμώμενος τρόπος για να κάνετε ερωτήσεις.",
     "@contribute_develop_text_2": {},
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
@@ -299,21 +301,21 @@
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "Βελτίωση",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Η βάση δεδομένων είναι ο πυρήνας του έργου. Είναι εύκολο και πολύ γρήγορο να βοηθήσετε. Μπορείτε να κάνετε λήψη της εφαρμογής για κινητά και να αρχίσετε να προσθέτετε ή να βελτιώνετε προϊόντα.\n\nΕκτός αυτού, ο ιστότοπος Open Food Facts προσφέρει πολλούς τρόπους συνεισφοράς: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Μετάφρασε",
     "@contribute_translate_header": {
         "description": "Button label + pop up window title: Shows information about helping by translating"
     },
-    "contribute_translate_link_text": "Start Translating",
+    "contribute_translate_link_text": "Ξεκινήστε τη μετάφραση",
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Το Open Food Facts είναι ένα παγκόσμιο project, που περιλαμβάνει προϊόντα από περισσότερες από 160 χώρες. Το Open Food Facts είναι μεταφρασμένο σε δεκάδες γλώσσες, με συνεχώς εξελισσόμενο περιεχόμενο.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Translations is one of the key tasks of the project",
     "@contribute_translate_text_2": {},
@@ -931,6 +933,30 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_countries_title": "Χώρες όπου πωλείται",
+    "@edit_product_form_item_countries_title": {
+        "description": "Product edition - Countries - Title"
+    },
+    "edit_product_form_item_countries_hint": "Spain",
+    "@edit_product_form_item_countries_hint": {
+        "description": "Product edition - Countries - input textfield hint"
+    },
+    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "@edit_product_form_item_countries_explanations": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_emb_codes_title": "Traceability codes",
+    "@edit_product_form_item_emb_codes_title": {
+        "description": "Product edition - Traceability codes - Title"
+    },
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_hint": {
+        "description": "Product edition - Traceability Codes - input textfield hint"
+    },
+    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_examples": {
+        "description": "Product edition - EMB Codes - explanations"
+    },
     "edit_product_form_item_categories_title": "Κατηγορίες",
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
@@ -1258,7 +1284,7 @@
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "terms of use and contribution",
+    "signup_page_terms_of_use_line2": "τους όρους χρήσης και διαμοιρασμού του Open Food Facts",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
