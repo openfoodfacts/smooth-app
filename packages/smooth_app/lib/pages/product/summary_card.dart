@@ -760,10 +760,8 @@ class _SummaryCardState extends State<SummaryCard> {
       context,
       MaterialPageRoute<Product>(
         builder: (BuildContext context) => SimpleInputPage(
-          SimpleInputPageCategoryHelper(
-            _product,
-            AppLocalizations.of(context),
-          ),
+          helper: SimpleInputPageCategoryHelper(),
+          product: _product,
         ),
       ),
     );
