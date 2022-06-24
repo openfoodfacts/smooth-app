@@ -173,8 +173,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        final bool isPhotoUploaded =
-                            await uploadCapturedPicture(
+                        // final bool isPhotoUploaded =
+                        await uploadCapturedPicture(
                           context,
                           barcode: widget.barcode,
                           imageField: widget.imageType,
@@ -183,10 +183,19 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         if (!mounted) {
                           return;
                         }
-                        retakenPhoto?.delete();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Photo upload queued,the image will be uploaded automatically',
+                            ),
+                          ),
+                        );
+                        if (!mounted) {
+                          return;
+                        }
+                        // retakenPhoto?.delete();
                         Navigator.pop(
                           context,
-                          isPhotoUploaded ? photo : null,
                         );
                       },
                       label: Text(

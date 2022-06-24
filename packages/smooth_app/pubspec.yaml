@@ -80,6 +80,7 @@ dependencies:
     path: ../data_importer
   share_plus: ^4.0.8
   fimber: ^0.6.6
+  workmanager: ^0.5.0
 
 dev_dependencies:
   integration_test:

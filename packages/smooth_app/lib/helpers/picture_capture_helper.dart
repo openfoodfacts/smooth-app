@@ -1,10 +1,83 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:workmanager/workmanager.dart';
+
+@pragma(
+    'vm:entry-point') // Mandatory if the App is obfuscated or using Flutter 3.1+
+void callbackDispatcher() {
+  Workmanager().executeTask(
+    (String task, Map<String, dynamic>? inputData) async {
+      // make a counter with task as key as it is unique for each task
+      final int counter = inputData!['counter'] as int;
+      // if task is greate than 4 , that means it has been executed 5 times
+      if (counter > 5) {
+        // returns true to let platform know that the task is completed
+        return Future<bool>.value(true);
+      }
+      Duration duration;
+      switch (counter) {
+        case 0:
+          duration = const Duration(seconds: 30);
+          break;
+        case 1:
+          duration = const Duration(minutes: 1);
+          break;
+        case 2:
+          duration = const Duration(minutes: 30);
+          break;
+        case 3:
+          duration = const Duration(hours: 1);
+          break;
+        case 4:
+          duration = const Duration(hours: 6);
+          break;
+        default:
+          duration = const Duration(days: 1);
+          break;
+      }
+      bool shouldRetry = false;
+      try {
+        final SendImage image = SendImage(
+          lang: ProductQuery.getLanguage(),
+          barcode: inputData['barcode'].toString(),
+          imageField:
+              ImageFieldExtension.getType(inputData['imageField'].toString()),
+          imageUri: Uri.parse(inputData['imageUri'].toString()),
+        );
+        final Status result = await OpenFoodAPIClient.addProductImage(
+          ProductQuery.getUser(),
+          image,
+        );
+        shouldRetry = result.error != null || result.status != 'status ok';
+      } catch (e) {
+        shouldRetry = true;
+        debugPrint(e.toString());
+      }
+      if (shouldRetry) {
+        inputData['counter'] = counter + 1;
+        Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+        Workmanager().registerOneOffTask(
+          task,
+          'ImageUploadWorker',
+          constraints: Constraints(
+            networkType: NetworkType.connected,
+            requiresBatteryNotLow: true,
+          ),
+          inputData: inputData,
+          initialDelay: duration,
+        );
+        return Future<bool>.error('Failed and it will try again');
+      } else {
+        return Future<bool>.value(true);
+      }
+    },
+  );
+}
 
 Future<bool> uploadCapturedPicture(
   BuildContext context, {
@@ -12,28 +85,29 @@ Future<bool> uploadCapturedPicture(
   required ImageField imageField,
   required Uri imageUri,
 }) async {
+  // ignore: unused_local_variable
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final SendImage image = SendImage(
-    lang: ProductQuery.getLanguage(),
-    barcode: barcode,
-    imageField: imageField,
-    imageUri: imageUri,
-  );
-  final Status? result = await LoadingDialog.run<Status>(
-    context: context,
-    future: OpenFoodAPIClient.addProductImage(
-      ProductQuery.getUser(),
-      image,
+  final Map<String, dynamic> inputData = <String, dynamic>{
+    'barcode': barcode,
+    'imageField': imageField.value,
+    'imageUri': File(imageUri.path).path,
+    'counter': 0,
+  };
+  await Workmanager().initialize(
+      callbackDispatcher, // The top level function, aka callbackDispatcher
+      isInDebugMode:
+          true // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
+      );
+  final String uniqueId = 'ImageUploader_${barcode}_${imageField.value}';
+  await Workmanager().registerOneOffTask(
+    uniqueId,
+    'ImageUploadWorker',
+    constraints: Constraints(
+      networkType: NetworkType.connected,
+      requiresBatteryNotLow: true,
     ),
-    title: appLocalizations.uploading_image,
+    inputData: inputData,
   );
-  if (result == null || result.error != null || result.status != 'status ok') {
-    await LoadingDialog.error(
-      context: context,
-      title: appLocalizations.error_occurred,
-    );
-    return false;
-  }
   //ignore: use_build_context_synchronously
   await _updateContinuousScanModel(context, barcode);
   return true;
