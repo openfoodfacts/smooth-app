@@ -312,7 +312,7 @@ class DaoProductList extends AbstractDao {
     await _getBox().delete(key);
   }
 
-  Future<void> updateTimeStampForAKey(String key)async{
+  Future<void> updateTimeStampForAKey(String key) async {
     final _BarcodeList? list = _getBox().get(key);
     if (list == null) {
       return;
