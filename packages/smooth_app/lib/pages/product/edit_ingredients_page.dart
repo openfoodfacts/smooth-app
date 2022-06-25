@@ -8,6 +8,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -171,13 +173,14 @@ class _EditOcrPageState extends State<EditOcrPage> {
       );
     } else {
       children.add(
-        _helper.getOcrWidget(
+        _OcrWidget(
           controller: _controller,
           onTapGetImage: _onTapGetImage,
           onSubmitField: _onSubmitField,
           updatingText: _updatingText,
-          imageProvider: _imageProvider,
+          hasImageProvider: _imageProvider != null,
           product: _product,
+          helper: _helper,
         ),
       );
     }
@@ -225,6 +228,120 @@ class _EditOcrPageState extends State<EditOcrPage> {
       minScale: 0.1,
       maxScale: 5,
       child: Image(fit: BoxFit.contain, image: imageSource),
+    );
+  }
+}
+
+class _OcrWidget extends StatelessWidget {
+  const _OcrWidget({
+    required this.controller,
+    required this.onSubmitField,
+    required this.onTapGetImage,
+    required this.updatingText,
+    required this.hasImageProvider,
+    required this.product,
+    required this.helper,
+  });
+
+  final TextEditingController controller;
+  final bool updatingText;
+  final Future<void> Function(bool) onTapGetImage;
+  final Future<void> Function() onSubmitField;
+  final bool hasImageProvider;
+  final Product product;
+  final OcrHelper helper;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return Align(
+      alignment: Alignment.bottomLeft,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Flexible(
+            flex: 1,
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  bottom: LARGE_SPACE,
+                  right: LARGE_SPACE,
+                  left: LARGE_SPACE,
+                ),
+                child: SmoothActionButtonsBar(
+                  positiveAction: SmoothActionButton(
+                    text: helper.getActionRefreshPhoto(appLocalizations),
+                    onPressed: () => onTapGetImage(true),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Flexible(
+            flex: 1,
+            child: SingleChildScrollView(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.background,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: ANGULAR_RADIUS,
+                      topRight: ANGULAR_RADIUS,
+                    )),
+                child: Padding(
+                  padding: const EdgeInsets.all(LARGE_SPACE),
+                  child: Column(
+                    children: <Widget>[
+                      if (hasImageProvider ||
+                          helper.getImageUrl(product) != null)
+                        SmoothActionButtonsBar.single(
+                          action: SmoothActionButton(
+                            text: helper.getActionExtractText(appLocalizations),
+                            onPressed: () => onTapGetImage(false),
+                          ),
+                        ),
+                      const SizedBox(height: MEDIUM_SPACE),
+                      TextField(
+                        enabled: !updatingText,
+                        controller: controller,
+                        decoration: const InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: ANGULAR_BORDER_RADIUS,
+                          ),
+                        ),
+                        maxLines: null,
+                        textInputAction: TextInputAction.done,
+                        onSubmitted: (_) => onSubmitField,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      Text(
+                        helper.getInstructions(appLocalizations),
+                        style: Theme.of(context).textTheme.caption,
+                      ),
+                      const SizedBox(height: MEDIUM_SPACE),
+                      SmoothActionButtonsBar(
+                        negativeAction: SmoothActionButton(
+                          text: appLocalizations.cancel,
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                        positiveAction: SmoothActionButton(
+                          text: appLocalizations.save,
+                          onPressed: () async {
+                            await onSubmitField();
+                            //ignore: use_build_context_synchronously
+                            Navigator.pop(context, product);
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: MEDIUM_SPACE),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
