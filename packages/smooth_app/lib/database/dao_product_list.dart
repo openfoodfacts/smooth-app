@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// "Total size" fake value for lists that are not partial/paged.
 const int _uselessTotalSizeValue = 0;
@@ -160,10 +160,10 @@ class DaoProductList extends AbstractDao {
           barcodes.add(barcode);
           products[barcode] = product;
         } else {
-          debugPrint('unexpected: unknown product for $barcode');
+          Logs.e('unexpected: unknown product for $barcode');
         }
       } catch (e) {
-        debugPrint('unexpected: exception for product $barcode');
+        Logs.e('unexpected: unknown product for $barcode', ex: e);
       }
     }
     productList.set(barcodes, products);

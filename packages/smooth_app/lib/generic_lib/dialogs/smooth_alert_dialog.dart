@@ -1,99 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
+/// Custom Dialog to use in the app
 ///
-///	Open by calling
-///
-///showDialog<void>(
+/// ```dart
+/// showDialog<void>(
 ///        context: context,
 ///        builder: (BuildContext context) {
 ///          return SmoothAlertDialog(...)
-///	}
-///)
+///	       }
+/// )
+/// ```
 ///
+/// If only one action button is provided, simply pass a [positiveAction]
 
 class SmoothAlertDialog extends StatelessWidget {
-  /// The most simple alert dialog: no fancy effects.
   const SmoothAlertDialog({
     this.title,
     required this.body,
-    required this.actions,
-  })  : close = false,
-        maxHeight = null,
-        _simpleMode = true;
-
-  /// Advanced alert dialog with fancy effects.
-  const SmoothAlertDialog.advanced({
-    this.title,
-    this.close = true,
-    this.maxHeight,
-    required this.body,
-    this.actions,
-  }) : _simpleMode = false;
+    this.positiveAction,
+    this.negativeAction,
+    this.close = false,
+  });
 
   final String? title;
   final bool close;
-  final double? maxHeight;
   final Widget body;
-  final List<SmoothActionButton>? actions;
-  final bool _simpleMode;
+  final SmoothActionButton? positiveAction;
+  final SmoothActionButton? negativeAction;
+
+  static const EdgeInsets _contentPadding =
+      EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0);
 
   @override
   Widget build(BuildContext context) {
     final Widget content = _buildContent(context);
+
     return AlertDialog(
-      elevation: 4,
+      scrollable: true,
+      elevation: 4.0,
       shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-      content: _simpleMode
-          ? content
-          : ConstrainedBox(
-              constraints:
-                  BoxConstraints(maxHeight: maxHeight ?? double.infinity * 0.5),
-              child: content,
-            ),
-      actions: actions == null
-          ? null
-          : <Widget>[
-              SizedBox(
-                height: 58,
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: actions!,
-                ),
-              ),
-            ],
+      content: Padding(
+        padding: _contentPadding,
+        child: Column(
+          children: <Widget>[
+            content,
+            if (hasActions) _buildBottomBar(),
+          ],
+        ),
+      ),
     );
   }
 
-  Widget _buildCross(final bool isPlaceHolder, final BuildContext context) {
-    if (close) {
-      return Visibility(
-        maintainSize: true,
-        maintainAnimation: true,
-        maintainState: true,
-        visible: !isPlaceHolder,
-        child: InkWell(
-          child: const Icon(
-            Icons.close,
-            size: 29,
-          ),
-          onTap: () => Navigator.of(context, rootNavigator: true).pop('dialog'),
-        ),
-      );
-    } else {
-      return Container();
-    }
+  Padding _buildBottomBar() {
+    return Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: _contentPadding.bottom,
+        start: 8.0,
+      ),
+      child: SmoothActionButtonsBar(
+        positiveAction: positiveAction,
+        negativeAction: negativeAction,
+      ),
+    );
   }
 
+  bool get hasActions => positiveAction != null || negativeAction != null;
+
   Widget _buildContent(final BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           if (title != null) ...<Widget>[
             SizedBox(
-              height: 32,
+              height: 32.0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -115,10 +94,189 @@ class SmoothAlertDialog extends StatelessWidget {
             Divider(color: Theme.of(context).colorScheme.onBackground),
             const SizedBox(height: 12),
           ],
-          if (_simpleMode)
-            body
-          else
-            Expanded(child: SingleChildScrollView(child: body)),
+          body,
         ],
       );
+
+  Widget _buildCross(final bool isPlaceHolder, final BuildContext context) {
+    if (close) {
+      return Visibility(
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: !isPlaceHolder,
+        child: InkWell(
+          child: const Icon(
+            Icons.close,
+            size: 29.0,
+          ),
+          onTap: () => Navigator.of(context, rootNavigator: true).pop(),
+        ),
+      );
+    } else {
+      return const SizedBox.shrink();
+    }
+  }
+}
+
+class SmoothActionButtonsBar extends StatelessWidget {
+  const SmoothActionButtonsBar({
+    this.positiveAction,
+    this.negativeAction,
+    super.key,
+  }) : assert(positiveAction != null || negativeAction != null,
+            'At least one action must be passed!');
+
+  const SmoothActionButtonsBar.single({
+    required SmoothActionButton action,
+    Key? key,
+  }) : this(
+          positiveAction: action,
+          key: key,
+        );
+
+  final SmoothActionButton? positiveAction;
+  final SmoothActionButton? negativeAction;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: _buildActions(
+        context,
+        positiveAction: positiveAction,
+        negativeAction: negativeAction,
+      )!,
+    );
+  }
+}
+
+/// Generates Actions buttons with:
+/// In LTR mode: Negative - Positive
+/// In RTL mode: Positive - Negative
+List<Widget>? _buildActions(
+  BuildContext context, {
+  SmoothActionButton? positiveAction,
+  SmoothActionButton? negativeAction,
+}) {
+  if (positiveAction == null && negativeAction == null) {
+    return null;
+  }
+
+  final List<Widget> actions = <Widget>[
+    if (negativeAction != null)
+      Expanded(
+        child: _SmoothActionFlatButton(
+          buttonData: negativeAction,
+        ),
+      ),
+    if (positiveAction != null)
+      Expanded(
+        child: _SmoothActionElevatedButton(
+          buttonData: positiveAction,
+        ),
+      ),
+  ];
+
+  if (Directionality.of(context) == TextDirection.rtl) {
+    return actions.reversed.toList(growable: false);
+  } else {
+    return actions;
+  }
+}
+
+class SmoothActionButton {
+  SmoothActionButton({
+    required this.text,
+    required this.onPressed,
+    this.minWidth,
+    this.height,
+    this.lines,
+    this.textColor,
+  }) : assert(text.isNotEmpty);
+
+  final String text;
+  final VoidCallback? onPressed;
+  final int? lines;
+  final double? minWidth;
+  final double? height;
+  final Color? textColor;
+}
+
+class _SmoothActionElevatedButton extends StatelessWidget {
+  const _SmoothActionElevatedButton({
+    required this.buttonData,
+  });
+
+  final SmoothActionButton buttonData;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    return SmoothSimpleButton(
+      onPressed: buttonData.onPressed,
+      // if fitted box not used then even the one word text overflows into next line,
+      child: FittedBox(
+        child: Text(
+          buttonData.text.toUpperCase(),
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          maxLines: buttonData.lines ?? 2,
+          style: themeData.textTheme.bodyText2!.copyWith(
+            fontWeight: FontWeight.bold,
+            color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SmoothActionFlatButton extends StatelessWidget {
+  const _SmoothActionFlatButton({
+    required this.buttonData,
+  });
+
+  final SmoothActionButton buttonData;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+
+    return Theme(
+      data: themeData.copyWith(
+        buttonTheme: const ButtonThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+          ),
+        ),
+      ),
+      child: TextButton(
+        onPressed: buttonData.onPressed,
+        style: TextButton.styleFrom(
+          shape: const RoundedRectangleBorder(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+          ),
+          textStyle: themeData.textTheme.bodyText2!.copyWith(
+            color: themeData.colorScheme.onPrimary,
+          ),
+        ),
+        child: SizedBox(
+          height: buttonData.lines != null ? 20.0 * buttonData.lines! : null,
+          child: FittedBox(
+            child: Text(
+              buttonData.text.toUpperCase(),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: buttonData.textColor ?? themeData.colorScheme.primary,
+              ),
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: buttonData.lines ?? 2,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

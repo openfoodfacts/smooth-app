@@ -227,12 +227,17 @@ class _MLKitScanDecoderIsolate {
 
     final CameraImage image = CameraImage.fromPlatformData(message);
     final InputImage cropImage = _cropImage(image);
+    final double imageHeight =
+        cropImage.inputImageData?.size.longestSide ?? double.infinity;
 
     final List<Barcode> barcodes =
         await _barcodeScanner.processImage(cropImage);
 
     port.send(
       barcodes
+          // Only accepts barcodes on half-top of the image
+          .where((Barcode barcode) =>
+              (barcode.boundingBox?.top ?? 0.0) <= imageHeight * 0.5)
           .map((Barcode barcode) => _changeBarcodeType(barcode))
           .where((String? barcode) => barcode?.isNotEmpty == true)
           .cast<String>()

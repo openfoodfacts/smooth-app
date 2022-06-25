@@ -1,0 +1,76 @@
+name: Google Play release
+
+on:
+  push:
+    branches:
+      - 'release/*'
+    
+jobs:
+  deploy_android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Version
+        run: echo ${{ env.RELEASE_VERSION }}
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.4.0
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: 3.0.2
+
+      - name: Decrypt API JSON file
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
+        env:
+          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+          cache-key: flutter3.0.1 # change this to force refresh cache
+      - run: flutter --version
+
+      - name: Get dependencies
+        run: ci/pub_upgrade.sh
+
+      - name: Bump version
+        uses: maierj/fastlane-action@v2.2.1
+        with:
+          lane: setVersion
+          subdirectory: packages/smooth_app/android
+        env:
+          VERSION_NAME: ${{ env.RELEASE_VERSION }}
+
+      - name: Build AAB
+        run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
+        env:
+         SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
+         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
+         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+
+      - name: Release AAB
+        uses: maierj/fastlane-action@v2.2.1
+        with:
+          lane: closed_beta
+          subdirectory: packages/smooth_app/android
+        env:
+         SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
+         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
+         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+

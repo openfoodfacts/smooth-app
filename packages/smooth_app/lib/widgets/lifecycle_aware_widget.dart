@@ -13,7 +13,7 @@ abstract class LifecycleAwareStatefulWidget extends StatefulWidget {
 }
 
 class _LifecycleAwareStatefulElement extends StatefulElement {
-  _LifecycleAwareStatefulElement(StatefulWidget widget) : super(widget);
+  _LifecycleAwareStatefulElement(super.widget);
 
   @override
   LifecycleAwareState<StatefulWidget> get state =>

@@ -1,61 +1,93 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ConsentAnalytics extends StatelessWidget {
-  const ConsentAnalytics({Key? key}) : super(key: key);
+  const ConsentAnalytics(this.backgroundColor);
+
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.analytics,
-                size: size.width * 0.4,
-              ),
-              SizedBox(height: size.height * 0.02),
-              Center(
-                child: Text(
-                  appLocalizations.consent_analytics_title,
-                  style: Theme.of(context).textTheme.titleLarge,
+    return Container(
+      color: backgroundColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SvgPicture.asset(
+                  'assets/onboarding/analytics.svg',
+                  width: screenSize.width * .50,
                 ),
-              ),
-              SizedBox(height: size.height * 0.04),
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxWidth: size.width * 0.8,
+                Padding(
+                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  child: AutoSizeText(
+                    appLocalizations.consent_analytics_title,
+                    maxLines: 2,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline1!
+                        .apply(color: const Color.fromARGB(255, 51, 51, 51)),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                child: Text(
-                  appLocalizations.consent_analytics_body1,
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  child: AutoSizeText(
+                    appLocalizations.consent_analytics_body1,
+                    maxLines: 3,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
-              SizedBox(height: size.height * 0.02),
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxWidth: size.width * 0.8,
+                Padding(
+                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  child: AutoSizeText(
+                    appLocalizations.consent_analytics_body2,
+                    maxLines: 3,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                child: Text(
-                  appLocalizations.consent_analytics_body2,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+          OnboardingBottomBar(
+            leftButton: _buildButton(
+              context,
+              appLocalizations.refuse_button_label,
+              false,
+              const Color(0xFFA08D84),
+              Colors.white,
+            ),
+            rightButton: _buildButton(
+              context,
+              appLocalizations.authorize_button_label,
+              true,
+              Colors.white,
+              Colors.black,
+            ),
+            backgroundColor: backgroundColor,
+          ),
+        ],
       ),
-      bottomNavigationBar: _buildBottomAppBar(context, appLocalizations),
     );
   }
 
@@ -64,9 +96,11 @@ class ConsentAnalytics extends StatelessWidget {
     UserPreferences userPreferences,
     LocalDatabase localDatabase,
     BuildContext context,
+    final ThemeProvider themeProvider,
   ) async {
     await userPreferences.setCrashReports(accept);
-    await userPreferences.setAnalyticsReports(accept);
+    AnalyticsHelper.setAnalyticsReports(accept);
+    themeProvider.finishOnboarding();
     //ignore: use_build_context_synchronously
     await OnboardingLoader(localDatabase).runAtNextTime(
       OnboardingPage.CONSENT_PAGE,
@@ -79,58 +113,23 @@ class ConsentAnalytics extends StatelessWidget {
     );
   }
 
-  BottomAppBar _buildBottomAppBar(
-      BuildContext context, AppLocalizations appLocalizations) {
-    return BottomAppBar(
-      child: ButtonBar(
-        alignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          _buildButton(
-            context,
-            appLocalizations.refuse_button_label,
-            const Icon(
-              Icons.close_rounded,
-            ),
-            false,
-          ),
-          _buildButton(
-            context,
-            appLocalizations.authorize_button_label,
-            const Icon(
-              Icons.check_rounded,
-            ),
-            true,
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildButton(
-    BuildContext context,
-    String label,
-    Icon icon,
-    bool isAccepted,
-  ) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    return TextButton.icon(
-      style: ButtonStyle(
-        padding: MaterialStateProperty.all<EdgeInsets>(
-            const EdgeInsets.symmetric(
-                horizontal: VERY_LARGE_SPACE, vertical: SMALL_SPACE)),
-      ),
-      onPressed: () {
-        _analyticsLogic(
+    final BuildContext context,
+    final String label,
+    final bool isAccepted,
+    final Color backgroundColor,
+    final Color foregroundColor,
+  ) =>
+      OnboardingBottomButton(
+        onPressed: () async => _analyticsLogic(
           isAccepted,
-          userPreferences,
-          localDatabase,
+          context.read<UserPreferences>(),
+          context.read<LocalDatabase>(),
           context,
-        );
-      },
-      icon: icon,
-      label: Text(label),
-    );
-  }
+          context.read<ThemeProvider>(),
+        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        label: label,
+      );
 }

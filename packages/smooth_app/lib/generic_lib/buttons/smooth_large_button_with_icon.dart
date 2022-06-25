@@ -1,8 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothLargeButtonWithIcon extends StatelessWidget {
   const SmoothLargeButtonWithIcon({
@@ -20,21 +18,17 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    final bool isDarkMode =
-        Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
     return SmoothSimpleButton(
       minWidth: double.infinity,
       padding: padding ?? const EdgeInsets.all(10),
-      buttonColor: isDarkMode ? Colors.grey : const Color(0xffeaf5fb),
       onPressed: onPressed,
+      buttonColor: themeData.colorScheme.secondary,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Icon(
             icon,
-            color: isDarkMode
-                ? Theme.of(context).colorScheme.onPrimary
-                : Colors.blue,
+            color: themeData.colorScheme.onSecondary,
           ),
           const Spacer(),
           Expanded(
@@ -43,9 +37,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
               text,
               maxLines: 2,
               style: themeData.textTheme.bodyText2!.copyWith(
-                color: isDarkMode
-                    ? Theme.of(context).colorScheme.onPrimary
-                    : Colors.blue,
+                color: themeData.colorScheme.onSecondary,
               ),
             ),
           ),

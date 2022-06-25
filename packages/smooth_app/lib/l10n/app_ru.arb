@@ -12,11 +12,16 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "go_back_to_top": "Вернуться к началу",
     "save": "Сохранить",
     "save_confirmation": "Вы уверены, что хотите сохранить?",
     "skip": "Пропустить",
     "cancel": "Отмена",
     "@cancel": {},
+    "ignore": "ПРОПУСТИТЬ",
+    "@ignore": {
+        "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
+    },
     "close": "Закрыть",
     "@close": {},
     "no": "Нет",
@@ -35,11 +40,10 @@
     "@error_occurred": {},
     "featureInProgress": "Мы все еще работаем над этой функцией, следите за обновлениями",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Посмотреть в Интернете",
     "@label_web": {},
     "learnMore": "Докладніше",
     "@learnMore": {},
-    "general_confirmation": "Вы уверены?",
     "unknown": "Неизвестный",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -105,7 +109,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Выбирайте еду, которая полезна для вас и для планеты.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -137,6 +141,10 @@
     "sign_in": "Войти",
     "@sign_in": {
         "description": "Button label: For sign in"
+    },
+    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
     },
     "sign_out": "Выйти",
     "@sign_out": {
@@ -195,7 +203,7 @@
     "sign_up_page_username_error_empty": "Введите имя пользователя",
     "sign_up_page_username_error_invalid": "Пожалуйста, введите корректное имя пользователя",
     "sign_up_page_username_description": "Имя пользователя не может содержать пробелы, заглавные буквы или специальные символы",
-    "sign_up_page_username_length_invalid": "В имени пользователя должно быть менее {value} символов",
+    "sign_up_page_username_length_invalid": "Имя пользователя не может быть длиннее {value} символов",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -265,6 +273,8 @@
     },
     "support_join_slack": "Попросите о помощи в нашем канале Slack",
     "support_via_email": "Отправьте нам электронное письмо",
+    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Условия использования",
     "@termsOfUse": {},
     "about_this_app": "О приложении",
@@ -327,12 +337,12 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Ваш профиль",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Управление учетной записью участника Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
-    "myPreferences_settings_subtitle": "Ночной режим, тема, ...",
+    "myPreferences_settings_subtitle": "Темный режим, Аналитика, ...",
     "myPreferences_food_title": "Предпочтения в еде",
     "myPreferences_food_subtitle": "Выберите, какая информация о еде представляет для вас наибольший интерес.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Выберите, какую информацию о питании больше всего для вас, чтобы ранжировать еду в соответствии с вашими предпочтениями, ознакомьтесь с интересующей Вас информацией и получите сводку по совместимости. Эти настройки питания остаются на вашем устройстве, и не связаны с вашим аккаунтом участника Open Food Facts если он у вас есть.",
     "confirmResetPreferences": "Сбросить предпочтения?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -412,7 +422,6 @@
     },
     "nutrition": "Пищевая ценность",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Вы уверены, что хотите закрыть без сохранения?",
     "nutrition_facts_photo": "Фото информации о пищевой ценности",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -433,9 +442,9 @@
     "@add_product_information_button_label": {},
     "new_product": "Новый продукт",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Фронтальная фотография продукта",
+    "front_packaging_photo_button_label": "Фотография лицевой стороны продукта",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Подтвердите загрузку передней фотографии продукта",
+    "confirm_front_packaging_photo_button_label": "Подтвердить загрузку фотографии лицевой стороны продукта",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -449,44 +458,28 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Фото состава",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Подтвердить фото ингредиентов",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "Фото ингредиентов загружено",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+    "nutrition_cache_loading_error": "Не удается загрузить питательные вещества из кэша",
     "nutritional_facts_photo_button_label": "Фото информации о пищевой ценности",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Input nutrition facts",
-    "nutritional_facts_added": "Nutrition facts added",
-    "confirm_nutritional_facts_photo_button_label": "Подтвердите фото пищевой ценности",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
+    "nutritional_facts_input_button_label": "Введите данные о пищевой ценности",
+    "nutritional_facts_added": "Добавлены факты о пищевой ценности",
     "nutritional_facts_photo_uploaded": "Фото информации о пищевой ценности загружено",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Информационное фото по переработке",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Подтвердите фотографию по переработке",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "Фотография утилизации загружена",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Другие интересные фото",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Подтвердить",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Разное фото загружены",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Переснять",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Выберите фотографию",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
@@ -502,7 +495,7 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Загрузка листа ингредиентов в Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
@@ -518,13 +511,13 @@
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
-    "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_ingredients": "Добавить недостающие ингридиенты",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Пищевая ценность",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_100g": "на 100 грамм",
     "nutrition_page_per_serving": "на порцию",
     "nutrition_page_add_nutrient": "Добавить питательное вещество",
     "nutrition_page_serving_size": "Размер порции",
@@ -672,15 +665,13 @@
     "retry_button_label": "Повтор",
     "connect_with_us": "Мы в соцсетях",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Блог",
     "faq": "FAQ",
     "discover": "О проекте",
     "how_to_contribute": "Как помочь проекту",
-    "main_app_color": "Тема",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Вы можете нажать на любую часть карточки, чтобы получить более подробную информацию о том, что вы видите. Попробуйте сейчас!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -696,6 +687,76 @@
     "consent_analytics_body2": "Если вы передумаете, эту опцию можно включить и отключить в настройках в любое время.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
+    },
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "@contact_form_body_android": {
+        "description": "Contact form content for Android devices",
+        "placeholders": {
+            "sdkInt": {
+                "type": "int?",
+                "description": "SDK Int = Version of Android SDK"
+            },
+            "release": {
+                "type": "String?",
+                "description": "Name of the release"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Model of the device"
+            },
+            "product": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "device": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "brand": {
+                "type": "String?",
+                "description": "Brand of the device (eg: Samsung)"
+            }
+        }
+    },
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "@contact_form_body_ios": {
+        "description": "Contact form content for iOS devices",
+        "placeholders": {
+            "version": {
+                "type": "String?",
+                "description": "Version of IOS (eg : 15)"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Name of the iPhone"
+            },
+            "localizedModel": {
+                "type": "String?",
+                "description": "Localized name of the iPhone"
+            }
+        }
+    },
+    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "@contact_form_body": {
+        "description": "Contact form content",
+        "placeholders": {
+            "osContent": {
+                "type": "String",
+                "description": "Content from contact_form_body_ios key (on iOS) or contact_form_body_android (on Android)"
+            },
+            "appVersion": {
+                "type": "String",
+                "description": "Version name of the app (eg: 1.0.0)"
+            },
+            "appBuildNumber": {
+                "type": "String",
+                "description": "Version code of the app (a number)"
+            },
+            "appPackageName": {
+                "type": "String",
+                "description": "Name/package of the app"
+            }
+        }
     },
     "authorize_button_label": "Войти",
     "@authorize": {
@@ -714,9 +775,21 @@
             }
         }
     },
+    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "@onboarding_reinventing_text1": {
+        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    },
+    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "@onboarding_reinventing_text2": {
+        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
+    },
     "onboarding_welcome_loading_dialog_title": "Loading your first example product",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
+    },
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
     },
     "product_list_your_ranking": "Ваш рейтинг",
     "@product_list_your_ranking": {
@@ -734,13 +807,19 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Идет обновление продуктов в вашей истории",
-    "@product_list_reloading_in_progress": {
-        "description": "Message to show while loading previous scanned items"
+    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "@product_list_reloading_in_progress_multiple": {
+        "description": "Message to show while loading previous scanned items",
+        "placeholders": {
+            "count": {}
+        }
     },
-    "product_list_reloading_success": "Обновление продуктов завершено",
-    "@product_list_reloading_success": {
-        "description": "Message to show once previous scanned items are loaded"
+    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "@product_list_reloading_success_multiple": {
+        "description": "Message to show once previous scanned items are loaded",
+        "placeholders": {
+            "count": {}
+        }
     },
     "loading_dialog_default_title": "Загрузка данных",
     "@loading_dialog_default_title": {
@@ -754,6 +833,33 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
+    "user_profile": "Учётная запись",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "Добро пожаловать!",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "Добро пожаловать, {id}!",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
+    },
     "email_subject_account_deletion": "Удалить учётную запись",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
@@ -766,6 +872,50 @@
                 "type": "String"
             }
         }
+    },
+    "settings_app_app": "Приложение",
+    "settings_app_data": "Privacy & monitoring",
+    "settings_app_camera": "Камера",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "Высокопроизводительный режим",
+    "@camera_high_resolution_preset_toggle_title": {
+        "description": "Title for the Camera high resolution toggle"
+    },
+    "camera_high_resolution_preset_toggle_subtitle": "Когда включено, качество декодирования штрих-кодов должно быть лучше, но может повлиять на производительность и срок службы батареи. Требуется перезапуск приложения.",
+    "@camera_high_resolution_preset_toggle_subtitle": {
+        "description": "SubTitle for the Camera high resolution toggle"
+    },
+    "camera_focus_point_algorithm_title": "Режим фокусировки",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "Авто",
+    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Быстрый режим",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Безопасный режим",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_play_sound_title": "Play a sound on scan",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
     },
     "crash_reporting_toggle_title": "Отчеты об ошибках",
     "@crash_reporting_toggle_title": {
@@ -845,6 +995,51 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
+    "edit_product_form_item_labels_hint": "маркировка",
+    "@edit_product_form_item_labels_hint": {
+        "description": "Product edition - Labels - input textfield hint"
+    },
+    "edit_product_form_item_stores_title": "Магазины",
+    "@edit_product_form_item_stores_title": {
+        "description": "Product edition - Stores - Title"
+    },
+    "edit_product_form_item_stores_hint": "магазин",
+    "@edit_product_form_item_stores_hint": {
+        "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_countries_title": "Страна",
+    "@edit_product_form_item_countries_title": {
+        "description": "Product edition - Countries - Title"
+    },
+    "edit_product_form_item_countries_hint": "Spain",
+    "@edit_product_form_item_countries_hint": {
+        "description": "Product edition - Countries - input textfield hint"
+    },
+    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "@edit_product_form_item_countries_explanations": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_emb_codes_title": "Traceability codes",
+    "@edit_product_form_item_emb_codes_title": {
+        "description": "Product edition - Traceability codes - Title"
+    },
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_hint": {
+        "description": "Product edition - Traceability Codes - input textfield hint"
+    },
+    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_examples": {
+        "description": "Product edition - EMB Codes - explanations"
+    },
+    "edit_product_form_item_categories_title": "Категории",
+    "@edit_product_form_item_categories_title": {
+        "description": "Product edition - Categories - Title"
+    },
+    "edit_product_form_item_categories_hint": "категория",
+    "@edit_product_form_item_categories_hint": {
+        "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_ingredients_title": "Ингредиенты и происхождение",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -908,7 +1103,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Название не может быть пустым",
+    "user_list_name_error_empty": "Поле \"Имя\" является обязательным",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -920,11 +1115,11 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "try_again": "Try Again",
+    "try_again": "Попробуйте снова",
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
-    "there_was_an_error": "There was an error",
+    "there_was_an_error": "Ошибка",
     "@there_was_an_error": {
         "description": "Label that presents a error"
     },
@@ -937,11 +1132,19 @@
             }
         }
     },
+    "camera_enable_flash": "Включить фонарь",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "Выключить фонарь",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
+    },
     "category_picker_no_category_found_button": "Назад",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "dev_preferences_screen_title": "DEV Mode",
+    "dev_preferences_screen_title": "Режим отладки",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
@@ -974,7 +1177,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Current base URL of test env is {url}",
+    "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1006,10 +1209,6 @@
     "dev_preferences_export_history_title": "Export History",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Reset App Language",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "exception",
     "@dev_preferences_export_history_progress_error": {
@@ -1066,7 +1265,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is :\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1079,7 +1278,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Ecoscore",
+    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1126,6 +1325,22 @@
                 "type": "int"
             }
         }
+    },
+    "user_search_contributor_title": "Products I added",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Products I edited",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Products I photographed",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Products that need to be completed",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
     },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
@@ -1177,6 +1392,10 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
+    "edit_photo_button_label": "Изменить",
+    "@edit_photo_button_label": {
+        "description": "Edit photo button label"
+    },
     "category_picker_screen_title": "Категории",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1188,12 +1407,22 @@
     "add_basic_details_brand_name_error": "Пожалуйста, введите название бренда",
     "quantity": "Quantity and weight",
     "barcode": "Штрих-код",
+    "barcode_barcode": "Barcode: {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "barcode_invalid_error": "Неверный штрихкод",
     "basic_details_add_success": "Основные сведения успешно добавлены",
     "basic_details_add_error": "Не удалось добавить основные сведения. Повторите попытку через некоторое время",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Вы действительно хотите очистить?",
+    "confirm_clear": "Вы собираетесь удалить всю вашу историю. Вы действительно хотите продолжить?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1223,5 +1452,50 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "add_list_label": "Add list",
+    "@add_list_label": {
+        "description": "Label for the add list button"
+    },
+    "open_food_preferences_tooltip": "Изменить Ваши предпочтения в еде",
+    "@open_food_preferences_tooltip": {
+        "description": "Tooltip (message displayed on long press) to open the user food preferences"
+    },
+    "add_photo_button_label": "Add photo",
+    "@add_photo_button_label": {
+        "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "Choose image source",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Please choose a image source",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Gallery",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "Поделиться",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "Capture New",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "Choose from gallery",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

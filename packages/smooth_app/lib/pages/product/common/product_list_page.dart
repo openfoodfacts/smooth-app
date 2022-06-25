@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -17,6 +20,7 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -27,14 +31,26 @@ class ProductListPage extends StatefulWidget {
   State<ProductListPage> createState() => _ProductListPageState();
 }
 
-class _ProductListPageState extends State<ProductListPage> {
+class _ProductListPageState extends State<ProductListPage>
+    with TraceableClientMixin {
   late ProductList productList;
-  bool first = true;
   final Set<String> _selectedBarcodes = <String>{};
   bool _selectionMode = false;
 
   static const String _popupActionClear = 'clear';
   static const String _popupActionRename = 'rename';
+
+  @override
+  String get traceName => 'Opened list_page ${widget.productList.listType}';
+
+  @override
+  String get traceTitle => 'list_page';
+
+  @override
+  void initState() {
+    super.initState();
+    productList = widget.productList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +59,6 @@ class _ProductListPageState extends State<ProductListPage> {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (first) {
-      first = false;
-      productList = widget.productList;
-    }
     final List<Product> products = productList.getList();
     final bool dismissible;
     switch (productList.listType) {
@@ -57,14 +69,24 @@ class _ProductListPageState extends State<ProductListPage> {
         break;
       case ProductListType.HTTP_SEARCH_CATEGORY:
       case ProductListType.HTTP_SEARCH_KEYWORDS:
+      case ProductListType.HTTP_USER_CONTRIBUTOR:
+      case ProductListType.HTTP_USER_INFORMER:
+      case ProductListType.HTTP_USER_PHOTOGRAPHER:
+      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
         dismissible = false;
     }
+    final bool enableClear = products.isNotEmpty;
+    final bool enableRename = productList.listType == ProductListType.USER;
     return Scaffold(
+      floatingActionButton: _selectionMode || products.length <= 1
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: () => setState(() => _selectionMode = true),
+              label: Text(appLocalizations.compare_products_mode),
+              icon: const Icon(Icons.compare_arrows),
+            ),
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: colorScheme.background,
-        foregroundColor: colorScheme.onBackground,
-        actions: _selectionMode
+        actions: _selectionMode || !(enableClear || enableRename)
             ? null
             : <Widget>[
                 PopupMenuButton<String>(
@@ -76,26 +98,24 @@ class _ProductListPageState extends State<ProductListPage> {
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
                               body: Text(appLocalizations.confirm_clear),
-                              actions: <SmoothActionButton>[
-                                SmoothActionButton(
-                                  onPressed: () async {
-                                    daoProductList.clear(productList);
-                                    await daoProductList.get(productList);
-                                    setState(() {});
-                                    if (!mounted) {
-                                      return;
-                                    }
-                                    Navigator.of(context).pop();
-                                  },
-                                  text: appLocalizations.yes,
-                                ),
-                                SmoothActionButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  text: appLocalizations.no,
-                                ),
-                              ],
+                              positiveAction: SmoothActionButton(
+                                onPressed: () async {
+                                  daoProductList.clear(productList);
+                                  await daoProductList.get(productList);
+                                  setState(() {});
+                                  if (!mounted) {
+                                    return;
+                                  }
+                                  Navigator.of(context).pop();
+                                },
+                                text: appLocalizations.yes,
+                              ),
+                              negativeAction: SmoothActionButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                text: appLocalizations.no,
+                              ),
                             );
                           },
                         );
@@ -114,11 +134,12 @@ class _ProductListPageState extends State<ProductListPage> {
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    PopupMenuItem<String>(
-                      value: _popupActionClear,
-                      child: Text(appLocalizations.user_list_popup_clear),
-                    ),
-                    if (productList.listType == ProductListType.USER)
+                    if (enableClear)
+                      PopupMenuItem<String>(
+                        value: _popupActionClear,
+                        child: Text(appLocalizations.user_list_popup_clear),
+                      ),
+                    if (enableRename)
                       PopupMenuItem<String>(
                         value: _popupActionRename,
                         child: Text(appLocalizations.user_list_popup_rename),
@@ -126,92 +147,46 @@ class _ProductListPageState extends State<ProductListPage> {
                   ],
                 )
               ],
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            if (_selectionMode)
-              ElevatedButton(
-                onPressed: _selectedBarcodes.length >=
-                        2 // compare button is enabled only if 2 or more products have been selected
-                    ? () async {
-                        final List<Product> list = <Product>[];
-                        for (final Product product in products) {
-                          if (_selectedBarcodes.contains(product.barcode)) {
-                            list.add(product);
-                          }
-                        }
-                        await Navigator.push<Widget>(
-                          context,
-                          MaterialPageRoute<Widget>(
-                            builder: (BuildContext context) =>
-                                PersonalizedRankingPage(
-                              products: list,
-                              title: appLocalizations.product_list_your_ranking,
-                            ),
-                          ),
-                        );
-                        setState(() => _selectionMode = false);
-                      }
-                    : null,
-                child: Text(
-                  appLocalizations.plural_compare_x_products(
-                    _selectedBarcodes.length,
-                  ),
-                ),
-              ),
-            if (_selectionMode)
-              ElevatedButton(
-                onPressed: () => setState(() => _selectionMode = false),
-                child: Text(appLocalizations.cancel),
-              ),
-            if (!_selectionMode)
-              Flexible(
-                child: Text(
-                  ProductQueryPageHelper.getProductListLabel(
-                    productList,
-                    context,
-                    verbose: false,
-                  ),
-                  overflow: TextOverflow.fade,
-                ),
-              ),
-            if ((!_selectionMode) && products.isNotEmpty)
-              Flexible(
-                child: ElevatedButton(
-                  child: Text(appLocalizations.compare_products_mode),
-                  onPressed: () => setState(() => _selectionMode = true),
-                ),
-              ),
-          ],
+        title: Text(
+          ProductQueryPageHelper.getProductListLabel(productList, context),
+          overflow: TextOverflow.fade,
+          //style: TextStyle(color: Colors.black),
+        ),
+        // Force a light status bar
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
         ),
       ),
-      body: products.isEmpty &&
-              (productList.listType == ProductListType.HISTORY ||
-                  productList.listType == ProductListType.SCAN_SESSION)
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(
-                  Icons.find_in_page_rounded,
-                  color: colorScheme.primary,
-                  size: VERY_LARGE_SPACE * 10,
-                  semanticLabel: appLocalizations.product_list_empty_icon_desc,
-                ),
-                Text(
-                  appLocalizations.product_list_empty_title,
-                  style: themeData.textTheme.headlineLarge
-                      ?.apply(color: colorScheme.onSurface),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                  child: Text(
-                    appLocalizations.product_list_empty_message,
-                    style: themeData.textTheme.bodyText2?.apply(
-                      color: colorScheme.onSurface,
-                    ),
+      body: products.isEmpty
+          ? GestureDetector(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    'assets/misc/empty-list.svg',
+                    height: MediaQuery.of(context).size.height * .4,
                   ),
-                )
-              ],
+                  Text(
+                    appLocalizations.product_list_empty_title,
+                    style: themeData.textTheme.headlineLarge
+                        ?.apply(color: colorScheme.onBackground),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                    child: Text(
+                      appLocalizations.product_list_empty_message,
+                      textAlign: TextAlign.center,
+                      style: themeData.textTheme.bodyText2?.apply(
+                        color: colorScheme.onBackground,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              onTap: () {
+                InheritedDataManager.of(context).resetShowSearchCard(true);
+              },
             )
           : RefreshIndicator(
               //if it is in selectmode then refresh indicator is not shown
@@ -222,96 +197,137 @@ class _ProductListPageState extends State<ProductListPage> {
                 localDatabase,
                 appLocalizations,
               ),
-              child: ListView.builder(
-                itemCount: products.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final Product product = products[index];
-                  final String barcode = product.barcode!;
-                  final bool selected = _selectedBarcodes.contains(barcode);
-                  void onTap() => setState(
-                        () {
-                          if (selected) {
-                            _selectedBarcodes.remove(barcode);
-                          } else {
-                            _selectedBarcodes.add(barcode);
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  if (_selectionMode)
+                    Padding(
+                      padding: const EdgeInsets.all(SMALL_SPACE),
+                      child: _buildCompareBar(products, appLocalizations),
+                    ),
+                  Expanded(
+                    child: Consumer<UpToDateProductProvider>(
+                      builder: (
+                        _,
+                        final UpToDateProductProvider provider,
+                        __,
+                      ) =>
+                          ListView.builder(
+                        itemCount: products.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          Product product = products[index];
+                          final Product? refreshedProduct =
+                              provider.get(product);
+                          if (refreshedProduct != null) {
+                            product = refreshedProduct;
+                            productList.refresh(product);
                           }
+                          return _buildItem(
+                            dismissible,
+                            products,
+                            index,
+                            localDatabase,
+                            appLocalizations,
+                            refreshedProduct,
+                          );
                         },
-                      );
-                  final Widget child = GestureDetector(
-                    onTap: _selectionMode ? onTap : null,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: _selectionMode ? 0 : 12.0,
-                        vertical: 8.0,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          if (_selectionMode)
-                            Icon(
-                              selected
-                                  ? Icons.check_box
-                                  : Icons.check_box_outline_blank,
-                            ),
-                          Expanded(
-                            child: ProductListItemSimple(
-                              product: product,
-                              onTap: _selectionMode ? onTap : null,
-                              onLongPress: !_selectionMode
-                                  ? () => setState(() => _selectionMode = true)
-                                  : null,
-                            ),
-                          ),
-                        ],
                       ),
                     ),
-                  );
-                  if (dismissible) {
-                    return Dismissible(
-                      direction: DismissDirection.endToStart,
-                      background: Container(
-                        alignment: Alignment.centerRight,
-                        margin: const EdgeInsets.symmetric(vertical: 14),
-                        color: RED_COLOR,
-                        padding: const EdgeInsets.only(right: 30),
-                        child: const Icon(
-                          Icons.delete,
-                          color: Colors.white,
-                        ),
-                      ),
-                      key: Key(product.barcode!),
-                      onDismissed: (final DismissDirection direction) async {
-                        final bool removed =
-                            productList.remove(product.barcode!);
-                        if (removed) {
-                          daoProductList.put(productList);
-                          _selectedBarcodes.remove(product.barcode);
-                          setState(() => products.removeAt(index));
-                        }
-                        if (!mounted) {
-                          return;
-                        }
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              removed
-                                  ? appLocalizations.product_removed_history
-                                  : appLocalizations.product_could_not_remove,
-                            ),
-                            duration: const Duration(seconds: 3),
-                          ),
-                        );
-                        // TODO(monsieurtanuki): add a snackbar ("put back the food")
-                      },
-                      child: child,
-                    );
-                  }
-                  return Container(
-                    key: Key(product.barcode!),
-                    child: child,
-                  );
-                },
+                  ),
+                ],
               ),
             ),
+    );
+  }
+
+  Widget _buildItem(
+    final bool dismissible,
+    final List<Product> products,
+    final int index,
+    final LocalDatabase localDatabase,
+    final AppLocalizations appLocalizations,
+    final Product? refreshedProduct,
+  ) {
+    final Product product = refreshedProduct ?? products[index];
+    final String barcode = product.barcode!;
+    final bool selected = _selectedBarcodes.contains(barcode);
+    void onTap() => setState(
+          () {
+            if (selected) {
+              _selectedBarcodes.remove(barcode);
+            } else {
+              _selectedBarcodes.add(barcode);
+            }
+          },
+        );
+    final Widget child = InkWell(
+      onTap: _selectionMode ? onTap : null,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: _selectionMode ? 0 : 12.0,
+          vertical: 8.0,
+        ),
+        child: Row(
+          children: <Widget>[
+            if (_selectionMode)
+              Icon(
+                selected ? Icons.check_box : Icons.check_box_outline_blank,
+              ),
+            Expanded(
+              child: ProductListItemSimple(
+                product: product,
+                onTap: _selectionMode ? onTap : null,
+                onLongPress: !_selectionMode
+                    ? () => setState(() => _selectionMode = true)
+                    : null,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (dismissible) {
+      return Dismissible(
+        direction: DismissDirection.endToStart,
+        background: Container(
+          alignment: Alignment.centerRight,
+          margin: const EdgeInsets.symmetric(vertical: 14),
+          color: RED_COLOR,
+          padding: const EdgeInsets.only(right: 30),
+          child: const Icon(
+            Icons.delete,
+            color: Colors.white,
+          ),
+        ),
+        key: Key(product.barcode!),
+        onDismissed: (final DismissDirection direction) async {
+          final bool removed = productList.remove(product.barcode!);
+          if (removed) {
+            DaoProductList(localDatabase).put(productList);
+            _selectedBarcodes.remove(product.barcode);
+            setState(() => products.removeAt(index));
+          }
+          if (!mounted) {
+            return;
+          }
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                removed
+                    ? appLocalizations.product_removed_history
+                    : appLocalizations.product_could_not_remove,
+              ),
+              duration: const Duration(seconds: 3),
+            ),
+          );
+          // TODO(monsieurtanuki): add a snackbar ("put back the food")
+        },
+        child: child,
+      );
+    }
+    return Container(
+      key: Key(product.barcode!),
+      child: child,
     );
   }
 
@@ -323,7 +339,9 @@ class _ProductListPageState extends State<ProductListPage> {
   ) async {
     final bool? done = await LoadingDialog.run<bool>(
       context: context,
-      title: appLocalizations.product_list_reloading_in_progress,
+      title: appLocalizations.product_list_reloading_in_progress_multiple(
+        products.length,
+      ),
       future: _reloadProducts(products, localDatabase),
     );
     switch (done) {
@@ -335,7 +353,11 @@ class _ProductListPageState extends State<ProductListPage> {
         }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(appLocalizations.product_list_reloading_success),
+            content: Text(
+              appLocalizations.product_list_reloading_success_multiple(
+                products.length,
+              ),
+            ),
             duration: const Duration(seconds: 2),
           ),
         );
@@ -381,4 +403,47 @@ class _ProductListPageState extends State<ProductListPage> {
     }
     return false;
   }
+
+  Widget _buildCompareBar(
+    final List<Product> products,
+    final AppLocalizations appLocalizations,
+  ) =>
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          ElevatedButton(
+            onPressed: _selectedBarcodes.length >=
+                    2 // compare button is enabled only if 2 or more products have been selected
+                ? () async {
+                    final List<Product> list = <Product>[];
+                    for (final Product product in products) {
+                      if (_selectedBarcodes.contains(product.barcode)) {
+                        list.add(product);
+                      }
+                    }
+                    await Navigator.push<Widget>(
+                      context,
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) =>
+                            PersonalizedRankingPage(
+                          products: list,
+                          title: appLocalizations.product_list_your_ranking,
+                        ),
+                      ),
+                    );
+                    setState(() => _selectionMode = false);
+                  }
+                : null,
+            child: Text(
+              appLocalizations.plural_compare_x_products(
+                _selectedBarcodes.length,
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () => setState(() => _selectionMode = false),
+            child: Text(appLocalizations.cancel),
+          ),
+        ],
+      );
 }

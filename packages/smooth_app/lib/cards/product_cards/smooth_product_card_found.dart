@@ -19,21 +19,16 @@ class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
     required this.product,
     required this.heroTag,
-    this.elevation = 0.0,
     this.backgroundColor,
-    this.handle,
     this.onLongPress,
-    this.refresh,
     this.onTap,
   });
 
   final Product product;
   final String heroTag;
-  final double elevation;
+  static const double elevation = 4.0;
   final Color? backgroundColor;
-  final Widget? handle;
   final VoidCallback? onLongPress;
-  final VoidCallback? refresh;
   final VoidCallback? onTap;
 
   @override
@@ -62,7 +57,7 @@ class SmoothProductCardFound extends StatelessWidget {
       productPreferences,
     );
     final ProductCompatibilityHelper helper =
-        ProductCompatibilityHelper(matchedProduct);
+        ProductCompatibilityHelper.product(matchedProduct);
     return GestureDetector(
       onTap: onTap ??
           () async {
@@ -72,7 +67,6 @@ class SmoothProductCardFound extends StatelessWidget {
                 builder: (BuildContext context) => ProductPage(product),
               ),
             );
-            refresh?.call();
           },
       onLongPress: () {
         onLongPress?.call();
@@ -117,11 +111,17 @@ class SmoothProductCardFound extends StatelessWidget {
                           ),
                           const Padding(
                               padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-                          Text(
-                            helper.getSubtitle(appLocalizations),
-                            style: themeData.textTheme.bodyText2!.apply(
-                                color: helper
-                                    .getButtonForegroundColor(isDarkMode)),
+                          Expanded(
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              alignment: AlignmentDirectional.centerStart,
+                              child: Text(
+                                helper.getSubtitle(appLocalizations),
+                                style: themeData.textTheme.bodyText2!.apply(
+                                    color: helper
+                                        .getButtonForegroundColor(isDarkMode)),
+                              ),
+                            ),
                           ),
                         ],
                       ),

@@ -8,9 +8,13 @@ class SmoothProductCardLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: themeData.brightness == Brightness.light
+            ? Colors.white
+            : Colors.black,
         borderRadius: ROUNDED_BORDER_RADIUS,
       ),
       child: Column(

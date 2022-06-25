@@ -1,28 +1,60 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 Future<File?> startImageCropping(BuildContext context,
-    {File? existingImage}) async {
-  final bool isDarktheme =
-      Provider.of<ThemeProvider>(context, listen: false).isDarkMode(context);
-  final Color? themeColor = isDarktheme
-      ? Colors.black
-      : Theme.of(context).appBarTheme.backgroundColor;
-  final Color widgetColor = isDarktheme ? Colors.white : Colors.black;
+    {File? existingImage,
+    bool showoptionDialog = false,
+    bool chooseFromGallery = false}) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
   late XFile? pickedXFile;
   if (existingImage == null) {
     final ImagePicker picker = ImagePicker();
-    pickedXFile = await picker.pickImage(
-      source: ImageSource.camera,
-    );
+    // open a dialog to ask the user if they want to take a picture or select one from the gallery
+    if (showoptionDialog) {
+      pickedXFile = await showDialog<XFile>(
+        context: context,
+        builder: (BuildContext context) {
+          return SmoothAlertDialog(
+            title: appLocalizations.choose_image_source_title,
+            body: Text(appLocalizations.choose_image_source_body),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.settings_app_camera,
+              onPressed: () async {
+                final XFile? pickedFile = await picker.pickImage(
+                  source: ImageSource.camera,
+                );
+                // ignore: use_build_context_synchronously
+                Navigator.pop(context, pickedFile);
+              },
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.gallery_source_label,
+              onPressed: () async {
+                final XFile? pickedFile = await picker.pickImage(
+                  source: ImageSource.gallery,
+                );
+                // ignore: use_build_context_synchronously
+                Navigator.pop(context, pickedFile);
+              },
+            ),
+          );
+        },
+      );
+    } else {
+      if (chooseFromGallery) {
+        pickedXFile = await picker.pickImage(
+          source: ImageSource.gallery,
+        );
+      } else {
+        pickedXFile = await picker.pickImage(
+          source: ImageSource.camera,
+        );
+      }
+    }
     if (pickedXFile == null) {
       return null;
     }
@@ -39,20 +71,24 @@ Future<File?> startImageCropping(BuildContext context,
     ],
     uiSettings: <PlatformUiSettings>[
       AndroidUiSettings(
-        toolbarTitle: appLocalizations.product_edit_photo_title,
         initAspectRatio: CropAspectRatioPreset.original,
         lockAspectRatio: false,
-        statusBarColor: themeColor,
-        toolbarColor: themeColor,
-        toolbarWidgetColor: widgetColor,
-        //ignore: use_build_context_synchronously
-        activeControlsWidgetColor: Theme.of(context).colorScheme.primary,
-        backgroundColor: themeColor,
+        toolbarTitle: appLocalizations.product_edit_photo_title,
+        // They all need to be the same for dark/light mode as we can't change
+        // the background color and the action bar color
+        statusBarColor: Colors.black,
+        toolbarWidgetColor: Colors.black,
+        backgroundColor: Colors.black,
+        activeControlsWidgetColor: const Color(0xFF85746C),
       ),
       IOSUiSettings(
         minimumAspectRatio: 1.0,
       ),
     ],
   );
-  return File(croppedFile!.path);
+  //attempting to create a file from a null path will throw an exception so return null if that happens
+  if (croppedFile == null) {
+    return null;
+  }
+  return File(croppedFile.path);
 }

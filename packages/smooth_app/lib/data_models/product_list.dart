@@ -15,18 +15,43 @@ enum ProductListType {
 
   /// End-user product list
   USER,
+
+  /// End-user as a contributor
+  HTTP_USER_CONTRIBUTOR,
+
+  /// End-user as an informer
+  HTTP_USER_INFORMER,
+
+  /// End-user as a photographer
+  HTTP_USER_PHOTOGRAPHER,
+
+  /// End-user for products to be completed
+  HTTP_USER_TO_BE_COMPLETED,
 }
 
 extension ProductListTypeExtension on ProductListType {
-  static const Map<ProductListType, String> _keys = <ProductListType, String>{
-    ProductListType.HTTP_SEARCH_KEYWORDS: 'http/search/keywords',
-    ProductListType.HTTP_SEARCH_CATEGORY: 'http/search/category',
-    ProductListType.SCAN_SESSION: 'scan_session',
-    ProductListType.HISTORY: 'history',
-    ProductListType.USER: 'user',
-  };
-
-  String get key => _keys[this]!;
+  String get key {
+    switch (this) {
+      case ProductListType.HTTP_SEARCH_KEYWORDS:
+        return 'http/search/keywords';
+      case ProductListType.HTTP_SEARCH_CATEGORY:
+        return 'http/search/category';
+      case ProductListType.SCAN_SESSION:
+        return 'scan_session';
+      case ProductListType.HTTP_USER_CONTRIBUTOR:
+        return 'http/user/contributor';
+      case ProductListType.HTTP_USER_INFORMER:
+        return 'http/user/informer';
+      case ProductListType.HTTP_USER_PHOTOGRAPHER:
+        return 'http/user/photographer';
+      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+        return 'http/user/to_be_completed';
+      case ProductListType.HISTORY:
+        return 'history';
+      case ProductListType.USER:
+        return 'user';
+    }
+  }
 }
 
 class ProductList {
@@ -55,6 +80,50 @@ class ProductList {
   }) : this._(
           listType: ProductListType.HTTP_SEARCH_CATEGORY,
           parameters: category,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+
+  ProductList.contributor(
+    final String userId, {
+    required int pageSize,
+    required int pageNumber,
+  }) : this._(
+          listType: ProductListType.HTTP_USER_CONTRIBUTOR,
+          parameters: userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+
+  ProductList.informer(
+    final String userId, {
+    required int pageSize,
+    required int pageNumber,
+  }) : this._(
+          listType: ProductListType.HTTP_USER_INFORMER,
+          parameters: userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+
+  ProductList.photographer(
+    final String userId, {
+    required int pageSize,
+    required int pageNumber,
+  }) : this._(
+          listType: ProductListType.HTTP_USER_PHOTOGRAPHER,
+          parameters: userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+
+  ProductList.toBeCompleted(
+    final String userId, {
+    required int pageSize,
+    required int pageNumber,
+  }) : this._(
+          listType: ProductListType.HTTP_USER_TO_BE_COMPLETED,
+          parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
         );
@@ -151,6 +220,10 @@ class ProductList {
     switch (listType) {
       case ProductListType.HTTP_SEARCH_KEYWORDS:
       case ProductListType.HTTP_SEARCH_CATEGORY:
+      case ProductListType.HTTP_USER_CONTRIBUTOR:
+      case ProductListType.HTTP_USER_INFORMER:
+      case ProductListType.HTTP_USER_PHOTOGRAPHER:
+      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
       case ProductListType.USER:
         return false;
       case ProductListType.SCAN_SESSION:
@@ -167,6 +240,10 @@ class ProductList {
         return parameters;
       case ProductListType.HTTP_SEARCH_KEYWORDS:
       case ProductListType.HTTP_SEARCH_CATEGORY:
+      case ProductListType.HTTP_USER_CONTRIBUTOR:
+      case ProductListType.HTTP_USER_INFORMER:
+      case ProductListType.HTTP_USER_PHOTOGRAPHER:
+      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
         return '$parameters,$pageSize,$pageNumber';
     }
   }

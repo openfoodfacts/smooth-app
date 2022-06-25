@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
@@ -7,8 +8,8 @@ import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
@@ -29,13 +30,21 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, TraceableClientMixin {
   int _currentQuestionIndex = 0;
+  final Map<String, InsightAnnotation> _anonymousAnnotationList =
+      <String, InsightAnnotation>{};
   InsightAnnotation? _lastAnswer;
 
   static const Color _noBackground = Colors.redAccent;
   static const Color _yesBackground = Colors.lightGreen;
   static const Color _yesNoTextColor = Colors.white;
+
+  @override
+  String get traceTitle => 'robotoff_question_page';
+
+  @override
+  String get traceName => 'Opened robotoff_question_page';
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +126,7 @@ class _QuestionPageState extends State<QuestionPage>
   Widget _buildWidget(BuildContext context, int currentQuestionIndex) {
     final List<RobotoffQuestion> questions = widget.questions;
     if (questions.length == currentQuestionIndex) {
-      return const CongratsWidget();
+      return CongratsWidget(_anonymousAnnotationList);
     }
     return Column(
       children: <Widget>[
@@ -342,6 +351,9 @@ class _QuestionPageState extends State<QuestionPage>
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
+    if (OpenFoodAPIConfiguration.globalUser == null && insightId != null) {
+      _anonymousAnnotationList.putIfAbsent(insightId, () => insightAnnotation);
+    }
     await LoadingDialog.run<Status>(
       context: context,
       title: appLocalizations.saving_answer,
@@ -367,7 +379,12 @@ class _QuestionPageState extends State<QuestionPage>
 }
 
 class CongratsWidget extends StatelessWidget {
-  const CongratsWidget({Key? key}) : super(key: key);
+  const CongratsWidget(
+    this._anonymousAnnotationList, {
+    super.key,
+  });
+
+  final Map<String, InsightAnnotation> _anonymousAnnotationList;
 
   @override
   Widget build(BuildContext context) {
@@ -401,17 +418,26 @@ class CongratsWidget extends StatelessWidget {
                   }
                   return Column(
                     children: <Widget>[
-                      SmoothActionButton(
-                        text: appLocalizations.sign_in,
-                        onPressed: () async {
-                          Navigator.maybePop<Widget>(context);
-                          await Navigator.push<Widget>(
-                            context,
-                            MaterialPageRoute<Widget>(
-                              builder: (_) => const LoginPage(),
-                            ),
-                          );
-                        },
+                      SmoothActionButtonsBar.single(
+                        action: SmoothActionButton(
+                          text: appLocalizations.sign_in,
+                          onPressed: () async {
+                            await Navigator.push<Widget>(
+                              context,
+                              MaterialPageRoute<Widget>(
+                                builder: (_) => const LoginPage(),
+                              ),
+                            );
+                            if (OpenFoodAPIConfiguration.globalUser != null) {
+                              await LoadingDialog.run<void>(
+                                context: context,
+                                title: appLocalizations.saving_answer,
+                                future: _postInsightAnnotations(
+                                    _anonymousAnnotationList),
+                              );
+                            }
+                          },
+                        ),
                       ),
                       Padding(
                         padding:
@@ -435,5 +461,18 @@ class CongratsWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _postInsightAnnotations(
+      Map<String, InsightAnnotation> annotationList) async {
+    annotationList
+        .forEach((String insightId, InsightAnnotation insightAnnotation) async {
+      await OpenFoodAPIClient.postInsightAnnotation(
+        insightId,
+        insightAnnotation,
+        deviceId: OpenFoodAPIConfiguration.uuid,
+        user: OpenFoodAPIConfiguration.globalUser,
+      );
+    });
   }
 }

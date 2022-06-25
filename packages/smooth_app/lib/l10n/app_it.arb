@@ -12,11 +12,16 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "go_back_to_top": "Torna all'inizio",
     "save": "Salva",
     "save_confirmation": "Sei sicuro di voler salvare?",
     "skip": "Salta",
     "cancel": "Annulla",
     "@cancel": {},
+    "ignore": "Ignora",
+    "@ignore": {
+        "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
+    },
     "close": "Chiudi",
     "@close": {},
     "no": "No",
@@ -39,7 +44,6 @@
     "@label_web": {},
     "learnMore": "Ulteriori informazioni",
     "@learnMore": {},
-    "general_confirmation": "Sei sicuro?",
     "unknown": "Sconosciuto",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -138,6 +142,10 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_in_mandatory": "Per quella funzione abbiamo bisogno che tu acceda.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
+    },
     "sign_out": "Disconnettiti",
     "@sign_out": {
         "description": "Button label: For sign out"
@@ -195,7 +203,7 @@
     "sign_up_page_username_error_empty": "Sei pregato di inserire un nome utente",
     "sign_up_page_username_error_invalid": "Sei pregato di inserire un nome utente valido",
     "sign_up_page_username_description": "Il nome utente non può contenere spazi, maiuscole o caratteri speciali",
-    "sign_up_page_username_length_invalid": "Il nome utente deve contenere meno di {value} caratteri",
+    "sign_up_page_username_length_invalid": "Il nome utente non può superare {value} caratteri",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -265,6 +273,8 @@
     },
     "support_join_slack": "Chiedi aiuto nel nostro canale di Slack",
     "support_via_email": "Inviaci un'email",
+    "support_via_email_include_logs_dialog_title": "Inviare i log dell'app?",
+    "support_via_email_include_logs_dialog_body": "Desideri includere i log dell'app in allegato alla tua e-mail?",
     "termsOfUse": "Termini d'utilizzo",
     "@termsOfUse": {},
     "about_this_app": "Su quest'app",
@@ -329,7 +339,7 @@
     "myPreferences_profile_title": "Il Tuo Profilo",
     "myPreferences_profile_subtitle": "Gestisci il tuo account collaboratore di Open Food Facts.",
     "myPreferences_settings_title": "Impostazioni dell'App",
-    "myPreferences_settings_subtitle": "Modalità scura, Tema, ...",
+    "myPreferences_settings_subtitle": "Modalità oscura, Analitica, ...",
     "myPreferences_food_title": "Preferenze Alimentari",
     "myPreferences_food_subtitle": "Scegli quali informazioni alimentari sono più importanti per te.",
     "myPreferences_food_comment": "Scegli quali informazioni sul cibo conta di più per te, al fine di classificare il cibo in base alle tue preferenze, vedere le informazioni che ti interessano in primo luogo e ottenere un riepilogo di compatibilità. Quelle preferenze alimentari rimangono sul tuo dispositivo e non sono associate al tuo account contributore di Open Food Facts, se ne hai uno.",
@@ -412,7 +422,6 @@
     },
     "nutrition": "Nutrizione",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Sei sicuro di voler chiudere senza salvare?",
     "nutrition_facts_photo": "Foto valori nutrizionali",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -435,7 +444,7 @@
     "@new_product": {},
     "front_packaging_photo_button_label": "Foto frontale del prodotto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Conferma caricamento foto frontale del prodotto",
+    "confirm_front_packaging_photo_button_label": "Conferma il caricamento della foto frontale del Prodotto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -449,10 +458,6 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto degli ingredienti",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "Conferma la foto degli ingredienti",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "Foto degli ingredienti caricata",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "Impossibile caricare i nutrienti dalla cache",
@@ -460,26 +465,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Inserisci i valori nutrizionali",
     "nutritional_facts_added": "Valori nutrizionali aggiunti",
-    "confirm_nutritional_facts_photo_button_label": "Conferma la foto dei valori nutrizionali",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
     "nutritional_facts_photo_uploaded": "Foto dei valori nutrizionali caricata",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto delle informazioni di riciclaggio",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "Conferma la foto delle informazioni di riciclaggio",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "Foto di riciclaggio caricata",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Altre foto interessanti",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "Conferma foto",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
     "other_photo_uploaded": "Foto varie caricate",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Ri-scatta",
@@ -672,15 +665,13 @@
     "retry_button_label": "Riprova",
     "connect_with_us": "Connettiti con noi",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
     "discover": "Scopri",
     "how_to_contribute": "Come Contribuire",
-    "main_app_color": "Tema",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "Puoi toccare su qualsiasi parte della scheda per ottenere ulteriori dettagli su ciò che vedi. Provaci adesso!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -696,6 +687,76 @@
     "consent_analytics_body2": "Se cambi idea, quest'opzione può essere abilitata e disabilitata in qualsiasi momento dalle impostazioni.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
+    },
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "@contact_form_body_android": {
+        "description": "Contact form content for Android devices",
+        "placeholders": {
+            "sdkInt": {
+                "type": "int?",
+                "description": "SDK Int = Version of Android SDK"
+            },
+            "release": {
+                "type": "String?",
+                "description": "Name of the release"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Model of the device"
+            },
+            "product": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "device": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "brand": {
+                "type": "String?",
+                "description": "Brand of the device (eg: Samsung)"
+            }
+        }
+    },
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "@contact_form_body_ios": {
+        "description": "Contact form content for iOS devices",
+        "placeholders": {
+            "version": {
+                "type": "String?",
+                "description": "Version of IOS (eg : 15)"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Name of the iPhone"
+            },
+            "localizedModel": {
+                "type": "String?",
+                "description": "Localized name of the iPhone"
+            }
+        }
+    },
+    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "@contact_form_body": {
+        "description": "Contact form content",
+        "placeholders": {
+            "osContent": {
+                "type": "String",
+                "description": "Content from contact_form_body_ios key (on iOS) or contact_form_body_android (on Android)"
+            },
+            "appVersion": {
+                "type": "String",
+                "description": "Version name of the app (eg: 1.0.0)"
+            },
+            "appBuildNumber": {
+                "type": "String",
+                "description": "Version code of the app (a number)"
+            },
+            "appPackageName": {
+                "type": "String",
+                "description": "Name/package of the app"
+            }
+        }
     },
     "authorize_button_label": "Autorizza",
     "@authorize": {
@@ -714,9 +775,21 @@
             }
         }
     },
+    "onboarding_reinventing_text1": "Abbiamo inventato\nl'app di scansione collaborativa\nnel 2012",
+    "@onboarding_reinventing_text1": {
+        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    },
+    "onboarding_reinventing_text2": "Mentre giriamo 10,\nlo stiamo reinventando\nda zero!",
+    "@onboarding_reinventing_text2": {
+        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
+    },
     "onboarding_welcome_loading_dialog_title": "Caricamento del tuo primo prodotto d'esempio",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
+    },
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
     },
     "product_list_your_ranking": "La tua posizione",
     "@product_list_your_ranking": {
@@ -734,13 +807,19 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Ricaricando i prodotti nella tua Cronologia",
-    "@product_list_reloading_in_progress": {
-        "description": "Message to show while loading previous scanned items"
+    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "@product_list_reloading_in_progress_multiple": {
+        "description": "Message to show while loading previous scanned items",
+        "placeholders": {
+            "count": {}
+        }
     },
-    "product_list_reloading_success": "Ricaricamento del prodotto completato",
-    "@product_list_reloading_success": {
-        "description": "Message to show once previous scanned items are loaded"
+    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "@product_list_reloading_success_multiple": {
+        "description": "Message to show once previous scanned items are loaded",
+        "placeholders": {
+            "count": {}
+        }
     },
     "loading_dialog_default_title": "Scaricamento dati",
     "@loading_dialog_default_title": {
@@ -754,6 +833,33 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
+    "user_profile": "Profilo",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "Benvenuto!",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "Accedi o iscriviti per unirti alla community di Open Food Facts",
+    "user_profile_title_id_email": "Accesso di Open Food Facts: {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "Benvenuto {id}!",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
+    },
     "email_subject_account_deletion": "Elimina account",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
@@ -766,6 +872,50 @@
                 "type": "String"
             }
         }
+    },
+    "settings_app_app": "Applicazione",
+    "settings_app_data": "Privacy & monitoraggio",
+    "settings_app_camera": "Fotocamera",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "Modalità ad alte prestazioni",
+    "@camera_high_resolution_preset_toggle_title": {
+        "description": "Title for the Camera high resolution toggle"
+    },
+    "camera_high_resolution_preset_toggle_subtitle": "Se abilitata, la qualità della decodifica dei codici a barre dovrebbe essere migliore, ma potrebbe influire sulle prestazioni e sulla durata della batteria. Richiede il riavvio dell'applicazione.",
+    "@camera_high_resolution_preset_toggle_subtitle": {
+        "description": "SubTitle for the Camera high resolution toggle"
+    },
+    "camera_focus_point_algorithm_title": "Modalità concentrazione",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "Modalità corrente: {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "Auto",
+    "camera_focus_point_algorithm_value_auto_description": "Lascia che il sistema scelga automaticamente tra modalità veloce e sicura.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Modalità veloce",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "Una modalità consigliata per i dispositivi recenti.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Modalità sicura",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "Se la modalità veloce non funziona, questo dovrebbe risolvere i tuoi problemi di messa a fuoco.",
+    "camera_play_sound_title": "Riproduci un suono durante la scansione",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "Emette un segnale acustico ad ogni scansione riuscita",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
     },
     "crash_reporting_toggle_title": "Segnala crash",
     "@crash_reporting_toggle_title": {
@@ -845,6 +995,51 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
+    "edit_product_form_item_labels_hint": "etichetta",
+    "@edit_product_form_item_labels_hint": {
+        "description": "Product edition - Labels - input textfield hint"
+    },
+    "edit_product_form_item_stores_title": "Negozi",
+    "@edit_product_form_item_stores_title": {
+        "description": "Product edition - Stores - Title"
+    },
+    "edit_product_form_item_stores_hint": "negozio",
+    "@edit_product_form_item_stores_hint": {
+        "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_countries_title": "Paese",
+    "@edit_product_form_item_countries_title": {
+        "description": "Product edition - Countries - Title"
+    },
+    "edit_product_form_item_countries_hint": "Spagna",
+    "@edit_product_form_item_countries_hint": {
+        "description": "Product edition - Countries - input textfield hint"
+    },
+    "edit_product_form_item_countries_explanations": "Paesi in cui il prodotto è ampiamente disponibile (esclusi i negozi specializzati in prodotti esteri).",
+    "@edit_product_form_item_countries_explanations": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_emb_codes_title": "Codici di tracciabilità",
+    "@edit_product_form_item_emb_codes_title": {
+        "description": "Product edition - Traceability codes - Title"
+    },
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_hint": {
+        "description": "Product edition - Traceability Codes - input textfield hint"
+    },
+    "edit_product_form_item_emb_codes_explanations": "In Europa, codificare in un'ellisse con le 2 iniziali del paese seguite da un numero e CE.\nEsempi: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_examples": {
+        "description": "Product edition - EMB Codes - explanations"
+    },
+    "edit_product_form_item_categories_title": "Categorie",
+    "@edit_product_form_item_categories_title": {
+        "description": "Product edition - Categories - Title"
+    },
+    "edit_product_form_item_categories_hint": "categoria",
+    "@edit_product_form_item_categories_hint": {
+        "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "Salvare le modifiche prima di lasciare questa pagina?",
     "edit_product_form_item_ingredients_title": "Ingredienti & Origini",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -908,7 +1103,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Il nome non può essere vuoto",
+    "user_list_name_error_empty": "Il nome è obbligatorio",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -936,6 +1131,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_enable_flash": "Abilita flash",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "Disabilita flash",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
     },
     "category_picker_no_category_found_button": "Indietro",
     "@category_picker_no_category_found_button": {
@@ -974,7 +1177,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "L'URL di base corrente del test env è {url}",
+    "dev_preferences_test_environment_subtitle": "URL di base per l'ambiente di test corrente: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1006,10 +1209,6 @@
     "dev_preferences_export_history_title": "Esporta Cronologia",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Reset App Language",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "eccezione",
     "@dev_preferences_export_history_progress_error": {
@@ -1066,7 +1265,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "La modalità di scansione corrente è :\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "La modalità di scansione corrente è: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1079,7 +1278,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Escludi Ecoscore",
+    "dev_mode_hide_ecoscore_title": "Escludi EcoScore",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1126,6 +1325,22 @@
                 "type": "int"
             }
         }
+    },
+    "user_search_contributor_title": "Prodotti che ho aggiunto",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Prodotti che ho modificato",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Prodotti che ho fotografato",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Prodotti che devono essere completati",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
     },
     "edit_product_action_retake_picture": "Riscatta la foto",
     "@edit_product_action_retake_picture": {
@@ -1177,6 +1392,10 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
+    "edit_photo_button_label": "Modifica",
+    "@edit_photo_button_label": {
+        "description": "Edit photo button label"
+    },
     "category_picker_screen_title": "Categorie",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1188,12 +1407,22 @@
     "add_basic_details_brand_name_error": "Sei pregato di inserire il nome del marchio",
     "quantity": "Quantità e peso",
     "barcode": "Codice a Barre",
+    "barcode_barcode": "Codice a barre: {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "barcode_invalid_error": "Codice a barre non valido",
     "basic_details_add_success": "Dettagli di base aggiunti correttamente",
     "basic_details_add_error": "Impossibile aggiungere i dettagli di base. Si prega di riprovare dopo un po' di tempo",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Vuoi davvero cancellare?",
+    "confirm_clear": "You're about to delete your entire history, are you sure you want to continue?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1223,5 +1452,50 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "add_list_label": "Aggiungi elenco",
+    "@add_list_label": {
+        "description": "Label for the add list button"
+    },
+    "open_food_preferences_tooltip": "Modifica le tue preferenze alimentari",
+    "@open_food_preferences_tooltip": {
+        "description": "Tooltip (message displayed on long press) to open the user food preferences"
+    },
+    "add_photo_button_label": "Aggiungi foto",
+    "@add_photo_button_label": {
+        "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "Scegli sorgente immagine",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Scegliere una sorgente immagine",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Galleria",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "Condividi",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Dai un'occhiata a questo prodotto su Open Food Facts: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "Cattura Nuovo",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "Scegli dalla galleria",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

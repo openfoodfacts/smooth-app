@@ -12,11 +12,16 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "go_back_to_top": "トップに戻る",
     "save": "保存",
     "save_confirmation": "保存してもよろしいですか？",
     "skip": "Skip",
     "cancel": "取消",
     "@cancel": {},
+    "ignore": "無視",
+    "@ignore": {
+        "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
+    },
     "close": "閉じる",
     "@close": {},
     "no": "いいえ",
@@ -39,7 +44,6 @@
     "@label_web": {},
     "learnMore": "詳細",
     "@learnMore": {},
-    "general_confirmation": "本当によろしいですか？",
     "unknown": "不明",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -138,6 +142,10 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
+    "sign_in_mandatory": "その機能については、サインインする必要があります。",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
+    },
     "sign_out": "サインアウト",
     "@sign_out": {
         "description": "Button label: For sign out"
@@ -195,7 +203,7 @@
     "sign_up_page_username_error_empty": "ユーザー名を入力してください",
     "sign_up_page_username_error_invalid": "有効なユーザー名を入力してください",
     "sign_up_page_username_description": "ユーザー名にスペース、大文字、または特殊文字を含めることはできません",
-    "sign_up_page_username_length_invalid": "ユーザー名は最低{{count}} 文字以上にしてください",
+    "sign_up_page_username_length_invalid": "ユーザー名は {value} 文字を超えることはできません",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -265,6 +273,8 @@
     },
     "support_join_slack": "不明点はSlackチャンネルで",
     "support_via_email": "私たちにメールを送信",
+    "support_via_email_include_logs_dialog_title": "アプリのログを送信しますか？",
+    "support_via_email_include_logs_dialog_body": "電子メールの添付ファイルにアプリケーションログを含めますか？",
     "termsOfUse": "利用規約",
     "@termsOfUse": {},
     "about_this_app": "このアプリについて",
@@ -329,7 +339,7 @@
     "myPreferences_profile_title": "あなたのプロフィール",
     "myPreferences_profile_subtitle": "OpenFoodFactsコントリビューターアカウントを管理します。",
     "myPreferences_settings_title": "アプリ設定",
-    "myPreferences_settings_subtitle": "ダークモード、テーマ...",
+    "myPreferences_settings_subtitle": "ダークモード、アナリティクス、..。",
     "myPreferences_food_title": "食品設定",
     "myPreferences_food_subtitle": "あなたにとって最も重要な食品に関する情報を選択してください。",
     "myPreferences_food_comment": "あなたの好みに応じて食品をランク付けするために、食品に関するどの情報が最も重要かを選択し、一番気になる情報を確認して、互換性のサマリーを取得してください。これらの食品の好みはデバイスに保存され、OpenFoodFactsの寄稿者アカウントには関連付けられません。",
@@ -412,7 +422,6 @@
     },
     "nutrition": "栄養",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "保存していないデータがあります。処理を続行しますか？",
     "nutrition_facts_photo": "栄養成分表",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -449,10 +458,6 @@
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "原材料一覧",
     "@ingredients_photo_button_label": {},
-    "confirm_ingredients_photo_button_label": "原材料の写真を確認",
-    "@confirm_ingredients_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of ingredients that user just took."
-    },
     "ingredients_photo_uploaded": "原材料の写真がアップロードされました",
     "@ingredients_photo_uploaded": {},
     "nutrition_cache_loading_error": "キャッシュから栄養素を読み込むことができません",
@@ -460,26 +465,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "栄養成分を入力する",
     "nutritional_facts_added": "栄養成分を追加されました。",
-    "confirm_nutritional_facts_photo_button_label": "栄養成分の写真を確認",
-    "@confirm_nutritional_facts_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of nutritional facts that user just took."
-    },
     "nutritional_facts_photo_uploaded": "栄養成分の写真がアップロードされました",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "リサイクル情報の写真",
     "@recycling_photo_button_label": {},
-    "confirm_recycling_photo_button_label": "リサイクル情報の写真を確認",
-    "@confirm_recycling_photo_button_label": {
-        "description": "Button clicking on which confirms the picture of recycling information that user just took."
-    },
     "recycling_photo_uploaded": "リサイクル写真がアップロードされました",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "その他の興味深い写真",
     "@other_interesting_photo_button_label": {},
-    "confirm_other_interesting_photo_button_label": "写真を確認",
-    "@confirm_other_interesting_photo_button_label": {
-        "description": "Button clicking on which confirms a miscellaneous photo of the product."
-    },
     "other_photo_uploaded": "その他の写真がアップロードされました",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "撮り直し",
@@ -672,15 +665,13 @@
     "retry_button_label": "再試行",
     "connect_with_us": "私たちとつながる",
     "instagram": "Instagram",
+    "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
+    "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "ブログ",
     "faq": "FAQ",
     "discover": "見つける",
     "how_to_contribute": "貢献方法",
-    "main_app_color": "テーマ",
-    "@main_app_color": {
-        "description": "Heading for the section to pick the main app color"
-    },
     "hint_knowledge_panel_message": "カードの任意の部分をタップすると、表示内容の詳細が表示されます。今すぐお試しください！",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -696,6 +687,76 @@
     "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
+    },
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "@contact_form_body_android": {
+        "description": "Contact form content for Android devices",
+        "placeholders": {
+            "sdkInt": {
+                "type": "int?",
+                "description": "SDK Int = Version of Android SDK"
+            },
+            "release": {
+                "type": "String?",
+                "description": "Name of the release"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Model of the device"
+            },
+            "product": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "device": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "brand": {
+                "type": "String?",
+                "description": "Brand of the device (eg: Samsung)"
+            }
+        }
+    },
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "@contact_form_body_ios": {
+        "description": "Contact form content for iOS devices",
+        "placeholders": {
+            "version": {
+                "type": "String?",
+                "description": "Version of IOS (eg : 15)"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Name of the iPhone"
+            },
+            "localizedModel": {
+                "type": "String?",
+                "description": "Localized name of the iPhone"
+            }
+        }
+    },
+    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "@contact_form_body": {
+        "description": "Contact form content",
+        "placeholders": {
+            "osContent": {
+                "type": "String",
+                "description": "Content from contact_form_body_ios key (on iOS) or contact_form_body_android (on Android)"
+            },
+            "appVersion": {
+                "type": "String",
+                "description": "Version name of the app (eg: 1.0.0)"
+            },
+            "appBuildNumber": {
+                "type": "String",
+                "description": "Version code of the app (a number)"
+            },
+            "appPackageName": {
+                "type": "String",
+                "description": "Name/package of the app"
+            }
+        }
     },
     "authorize_button_label": "承認する",
     "@authorize": {
@@ -714,9 +775,21 @@
             }
         }
     },
+    "onboarding_reinventing_text1": "2012年にスキャンアプリを開発しました。",
+    "@onboarding_reinventing_text1": {
+        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    },
+    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "@onboarding_reinventing_text2": {
+        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
+    },
     "onboarding_welcome_loading_dialog_title": "Loading your first example product",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
+    },
+    "onboarding_welcome_loading_error": "今ご使用の言語では、見本となる商品がないようです",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
     },
     "product_list_your_ranking": "Your ranking",
     "@product_list_your_ranking": {
@@ -734,13 +807,19 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
-    "@product_list_reloading_in_progress": {
-        "description": "Message to show while loading previous scanned items"
+    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "@product_list_reloading_in_progress_multiple": {
+        "description": "Message to show while loading previous scanned items",
+        "placeholders": {
+            "count": {}
+        }
     },
-    "product_list_reloading_success": "Product refresh complete",
-    "@product_list_reloading_success": {
-        "description": "Message to show once previous scanned items are loaded"
+    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "@product_list_reloading_success_multiple": {
+        "description": "Message to show once previous scanned items are loaded",
+        "placeholders": {
+            "count": {}
+        }
     },
     "loading_dialog_default_title": "Downloading data",
     "@loading_dialog_default_title": {
@@ -754,6 +833,33 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
+    "user_profile": "アカウント",
+    "@user_profile": {
+        "description": "User account (if connected)"
+    },
+    "user_profile_title_guest": "ようこそ！",
+    "@user_profile_title_guest": {
+        "description": "When the user is not connected"
+    },
+    "user_profile_subtitle_guest": "ログインする。または登録して Open Food Facts コミュニティに参加する",
+    "user_profile_title_id_email": "Open Food Factsログイン： {email}",
+    "@user_profile_title_id_email": {
+        "description": "User login (when it's an email)",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "user_profile_title_id_default": "{id} さん、ようこそ！",
+    "@user_profile_title_id_default": {
+        "description": "User login (when it's an id)",
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
+    },
     "email_subject_account_deletion": "Delete account",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
@@ -766,6 +872,50 @@
                 "type": "String"
             }
         }
+    },
+    "settings_app_app": "申し込み方法",
+    "settings_app_data": "プライバシーと監視",
+    "settings_app_camera": "カメラ",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "高パフォーマンスモード",
+    "@camera_high_resolution_preset_toggle_title": {
+        "description": "Title for the Camera high resolution toggle"
+    },
+    "camera_high_resolution_preset_toggle_subtitle": "有効にすると、バーコードのデコード品質は向上しますが、パフォーマンスとバッテリー寿命に影響を与える可能性があります。アプリケーションを再起動する必要があります。",
+    "@camera_high_resolution_preset_toggle_subtitle": {
+        "description": "SubTitle for the Camera high resolution toggle"
+    },
+    "camera_focus_point_algorithm_title": "フォーカスモード",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "現在のモード： {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "自動",
+    "camera_focus_point_algorithm_value_auto_description": "システムに高速モードとセーフモードのどちらかを自動的に選択させます。",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "高速モード",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "最近のデバイスに推奨されるモードです。",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "セーフモード",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "高速モードが機能しない場合は、これでフォーカスの問題が解決するはずです。",
+    "camera_play_sound_title": "スキャン時にサウンドを再生する",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "スキャンが成功するたびにビープ音が鳴ります",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
     },
     "crash_reporting_toggle_title": "Crash reporting",
     "@crash_reporting_toggle_title": {
@@ -845,6 +995,51 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
+    "edit_product_form_item_labels_hint": "ラベル",
+    "@edit_product_form_item_labels_hint": {
+        "description": "Product edition - Labels - input textfield hint"
+    },
+    "edit_product_form_item_stores_title": "店舗",
+    "@edit_product_form_item_stores_title": {
+        "description": "Product edition - Stores - Title"
+    },
+    "edit_product_form_item_stores_hint": "店舗",
+    "@edit_product_form_item_stores_hint": {
+        "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_countries_title": "国",
+    "@edit_product_form_item_countries_title": {
+        "description": "Product edition - Countries - Title"
+    },
+    "edit_product_form_item_countries_hint": "Spain",
+    "@edit_product_form_item_countries_hint": {
+        "description": "Product edition - Countries - input textfield hint"
+    },
+    "edit_product_form_item_countries_explanations": "製品が広く入手できる国（外国製品を専門とする店舗を除く）。",
+    "@edit_product_form_item_countries_explanations": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_emb_codes_title": "追跡可能性コード",
+    "@edit_product_form_item_emb_codes_title": {
+        "description": "Product edition - Traceability codes - Title"
+    },
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_hint": {
+        "description": "Product edition - Traceability Codes - input textfield hint"
+    },
+    "edit_product_form_item_emb_codes_explanations": "ヨーロッパでは、楕円形の 2 つの国の頭文字に数字と CE が続きます。\nEMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_examples": {
+        "description": "Product edition - EMB Codes - explanations"
+    },
+    "edit_product_form_item_categories_title": "カテゴリー",
+    "@edit_product_form_item_categories_title": {
+        "description": "Product edition - Categories - Title"
+    },
+    "edit_product_form_item_categories_hint": "カテゴリー",
+    "@edit_product_form_item_categories_hint": {
+        "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "このページを去る前に変更を保存しますか?",
     "edit_product_form_item_ingredients_title": "Ingredients & Origins",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -908,7 +1103,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "The name cannot be empty",
+    "user_list_name_error_empty": "名前は必須です",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -936,6 +1131,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_enable_flash": "フラッシュを有効にします",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "フラッシュを無効にする",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
     },
     "category_picker_no_category_found_button": "戻る",
     "@category_picker_no_category_found_button": {
@@ -974,7 +1177,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Current base URL of test env is {url}",
+    "dev_preferences_test_environment_subtitle": "現在のテスト環境のベースURL： {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1006,10 +1209,6 @@
     "dev_preferences_export_history_title": "Export History",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
-    },
-    "dev_preferences_reset_app_language": "Reset App Language",
-    "@dev_preferences_reset_app_language": {
-        "description": "User dev preferences - Reset App Language - Title"
     },
     "dev_preferences_export_history_progress_error": "exception",
     "@dev_preferences_export_history_progress_error": {
@@ -1066,7 +1265,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is :\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "現在のスキャンモードは次のとおりです： \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1079,7 +1278,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Ecoscore",
+    "dev_mode_hide_ecoscore_title": "EcoScoreを除外する",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1126,6 +1325,22 @@
                 "type": "int"
             }
         }
+    },
+    "user_search_contributor_title": "追加された商品",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "自分が編集した製品",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "私が撮影した製品",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "完了が必要な製品",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
     },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
@@ -1177,6 +1392,10 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
+    "edit_photo_button_label": "編集",
+    "@edit_photo_button_label": {
+        "description": "Edit photo button label"
+    },
     "category_picker_screen_title": "カテゴリー",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1188,12 +1407,22 @@
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
     "barcode": "バーコード",
+    "barcode_barcode": "バーコード： {barcode}",
+    "@barcode_barcode": {
+        "description": "Displaying the raw barcode with label",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "barcode_invalid_error": "無効なバーコード",
     "basic_details_add_success": "Basic details added succesfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "本当に消去してよろしいですか？",
+    "confirm_clear": "You're about to delete your entire history, are you sure you want to continue?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1223,5 +1452,50 @@
         "placeholders": {
             "count": {}
         }
+    },
+    "add_list_label": "リストを追加",
+    "@add_list_label": {
+        "description": "Label for the add list button"
+    },
+    "open_food_preferences_tooltip": "Edit your food preferences",
+    "@open_food_preferences_tooltip": {
+        "description": "Tooltip (message displayed on long press) to open the user food preferences"
+    },
+    "add_photo_button_label": "写真を追加",
+    "@add_photo_button_label": {
+        "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "画像ソースを選択",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "画像ソースを選択してください",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "ギャラリー",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "共有",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Open Food Facts でこの製品を見る:",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "新しくキャプチャする",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "ギャラリーから選択する",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

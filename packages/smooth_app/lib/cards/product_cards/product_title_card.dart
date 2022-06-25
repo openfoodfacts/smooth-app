@@ -49,17 +49,18 @@ class ProductTitleCard extends StatelessWidget {
     return Align(
       alignment: Alignment.topLeft,
       child: InkWell(
-        onTap: () async {
-          if (getProductName(product, appLocalizations) ==
-              appLocalizations.unknownProductName) {
-            await Navigator.push<bool>(
-              context,
-              MaterialPageRoute<bool>(
-                builder: (BuildContext context) => AddBasicDetailsPage(product),
-              ),
-            );
-          }
-        },
+        onTap: (getProductName(product, appLocalizations) ==
+                appLocalizations.unknownProductName)
+            ? () async {
+                await Navigator.push<Product?>(
+                  context,
+                  MaterialPageRoute<Product>(
+                    builder: (BuildContext context) =>
+                        AddBasicDetailsPage(product),
+                  ),
+                );
+              }
+            : null,
         child: ListTile(
           dense: dense,
           contentPadding: EdgeInsets.zero,

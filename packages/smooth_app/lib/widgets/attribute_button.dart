@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
@@ -41,29 +40,10 @@ class AttributeButton extends StatelessWidget {
       children.add(
         Expanded(
           child: InkWell(
-            onTap: () async {
-              await productPreferences.setImportance(
-                  attribute.id!, importanceId);
-
-              final AppLocalizations appLocalizations =
-                  //ignore: use_build_context_synchronously
-                  AppLocalizations.of(context);
-              await showDialog<void>(
-                context: context,
-                builder: (BuildContext context) => SmoothAlertDialog(
-                  body: Text(
-                    appLocalizations.importance_label(
-                        attribute.name.toString(), importanceId),
-                  ),
-                  actions: <SmoothActionButton>[
-                    SmoothActionButton(
-                      text: appLocalizations.close,
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                  ],
-                ),
-              );
-            },
+            onTap: () async => productPreferences.setImportance(
+              attribute.id!,
+              importanceId,
+            ),
             child: Container(
               width: importanceWidth,
               constraints: const BoxConstraints(minHeight: MINIMUM_TARGET_SIZE),
@@ -116,12 +96,10 @@ class AttributeButton extends StatelessWidget {
                             AppLocalizations.of(context);
                         return SmoothAlertDialog(
                           body: Text(info),
-                          actions: <SmoothActionButton>[
-                            SmoothActionButton(
-                              text: appLocalizations.close,
-                              onPressed: () => Navigator.pop(context),
-                            ),
-                          ],
+                          positiveAction: SmoothActionButton(
+                            text: appLocalizations.close,
+                            onPressed: () => Navigator.pop(context),
+                          ),
                         );
                       },
                     ),

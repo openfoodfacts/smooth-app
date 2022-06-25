@@ -4,6 +4,8 @@ import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -46,15 +48,76 @@ class UserPreferencesFood extends AbstractUserPreferences {
   Widget? getSubtitle() => Text(appLocalizations.myPreferences_food_subtitle);
 
   @override
+  IconData getLeadingIconData() => Icons.ramen_dining;
+
+  @override
+  String? getHeaderAsset() => 'assets/onboarding/preferences.svg';
+
+  @override
+  Color? getHeaderColor() => const Color(0xFFEBF1FF);
+
+  @override
   List<Widget> getBody() {
-    final List<AttributeGroup> groups =
-        _reorderGroups(productPreferences.attributeGroups!);
     final List<Widget> result = <Widget>[
+      // we don't want this on the onboarding
       ListTile(
         leading: const Icon(Icons.rotate_left),
         title: Text(appLocalizations.reset_food_prefs),
-        onTap: () => _confirmReset(context),
+        onTap: () async => _confirmReset(),
       ),
+    ];
+    result.addAll(_getOnboardingBody());
+    return result;
+  }
+
+  List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {
+    final List<AttributeGroup> result = <AttributeGroup>[];
+    for (final String id in _ORDERED_ATTRIBUTE_GROUP_IDS) {
+      result.addAll(groups.where((AttributeGroup g) => g.id == id));
+    }
+    result.addAll(groups.where(
+        (AttributeGroup g) => !_ORDERED_ATTRIBUTE_GROUP_IDS.contains(g.id)));
+    return result;
+  }
+
+  Future<void> _confirmReset() async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    await showDialog<void>(
+      context: context,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        body: Text(appLocalizations.confirmResetPreferences),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.yes,
+          onPressed: () async {
+            await context.read<ProductPreferences>().resetImportances();
+            //ignore: use_build_context_synchronously
+            Navigator.pop(context);
+          },
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.no,
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+    );
+  }
+
+  /// Returns a slightly different version of [getContent] for the onboarding.
+  List<Widget> getOnboardingContent() => <Widget>[
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+          child: Text(
+            getTitleString(),
+            style: themeData.textTheme.headline2,
+          ),
+        ),
+        ..._getOnboardingBody(),
+      ];
+
+  List<Widget> _getOnboardingBody() {
+    final List<AttributeGroup> groups =
+        _reorderGroups(productPreferences.attributeGroups!);
+    final List<Widget> result = <Widget>[
       ListTile(
         title: Text(appLocalizations.myPreferences_food_comment),
       ),
@@ -74,43 +137,5 @@ class UserPreferencesFood extends AbstractUserPreferences {
       result.addAll(abstractUserPreferences.getContent());
     }
     return result;
-  }
-
-  List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {
-    final List<AttributeGroup> result = <AttributeGroup>[];
-    for (final String id in _ORDERED_ATTRIBUTE_GROUP_IDS) {
-      result.addAll(groups.where((AttributeGroup g) => g.id == id));
-    }
-    result.addAll(groups.where(
-        (AttributeGroup g) => !_ORDERED_ATTRIBUTE_GROUP_IDS.contains(g.id)));
-    return result;
-  }
-
-  void _confirmReset(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-    showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(localizations.confirmResetPreferences),
-          actions: <Widget>[
-            TextButton(
-              child: Text(localizations.yes),
-              onPressed: () async {
-                await context.read<ProductPreferences>().resetImportances();
-                //ignore: use_build_context_synchronously
-                Navigator.pop(context);
-              },
-            ),
-            TextButton(
-              child: Text(localizations.no),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            )
-          ],
-        );
-      },
-    );
   }
 }

@@ -8,22 +8,20 @@ enum TextFieldTypes {
 
 class SmoothTextFormField extends StatefulWidget {
   const SmoothTextFormField({
-    Key? key,
+    super.key,
     required this.type,
     required this.controller,
     this.enabled,
     this.textInputAction,
     this.validator,
     this.autofillHints,
-    this.textColor,
-    this.backgroundColor,
     required this.hintText,
     this.hintTextFontSize,
     this.prefixIcon,
     this.textInputType,
     this.onChanged,
     this.autofocus,
-  }) : super(key: key);
+  });
 
   final TextFieldTypes type;
   final TextEditingController? controller;
@@ -33,9 +31,7 @@ class SmoothTextFormField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
   final Iterable<String>? autofillHints;
-  final Color? textColor;
   final double? hintTextFontSize;
-  final Color? backgroundColor;
   final TextInputType? textInputType;
   final void Function(String?)? onChanged;
   final bool? autofocus;
@@ -85,12 +81,10 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         prefixIcon: widget.prefixIcon,
         filled: true,
         hintStyle: TextStyle(
-          color: widget.textColor,
           fontSize: widget.hintTextFontSize ?? 20.0,
           overflow: TextOverflow.ellipsis,
         ),
         hintText: widget.hintText,
-        fillColor: widget.backgroundColor,
         border: const OutlineInputBorder(
           borderRadius: CIRCULAR_BORDER_RADIUS,
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_action_button.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 /// Generic value editor
@@ -80,17 +79,15 @@ class _UserPreferencesEditValueDialogState<T>
         textAlign: widget.textAlignment ?? TextAlign.start,
         keyboardType: widget.keyboardType ?? TextInputType.text,
       ),
-      actions: <SmoothActionButton>[
-        SmoothActionButton(
-          text: appLocalizations.cancel,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed:
-              _isValid ? () => Navigator.of(context).pop(_currentValue) : null,
-        )
-      ],
+      negativeAction: SmoothActionButton(
+        text: appLocalizations.cancel,
+        onPressed: () => Navigator.of(context).pop(),
+      ),
+      positiveAction: SmoothActionButton(
+        text: appLocalizations.okay,
+        onPressed:
+            _isValid ? () => Navigator.of(context).pop(_currentValue) : null,
+      ),
     );
   }
 }

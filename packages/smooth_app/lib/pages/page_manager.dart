@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
+import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum BottomNavigationTab {
@@ -50,6 +52,18 @@ class PageManagerState extends State<PageManager> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final InheritedDataManagerState inheritedDataManager =
+        InheritedDataManager.of(context);
+    if (inheritedDataManager.showSearchCard &&
+        _currentPage != BottomNavigationTab.Scan) {
+      _currentPage = BottomNavigationTab.Scan;
+      _selectTab(_currentPage, 1);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     _tabs = <Widget>[
@@ -58,8 +72,6 @@ class PageManagerState extends State<PageManager> {
       _buildOffstageNavigator(BottomNavigationTab.History),
     ];
 
-    final ThemeData themeData = Theme.of(context);
-    final bool brightnessCheck = themeData.brightness == Brightness.light;
     return WillPopScope(
       onWillPop: () async {
         final bool isFirstRouteInCurrentTab =
@@ -76,11 +88,6 @@ class PageManagerState extends State<PageManager> {
       child: Scaffold(
         body: Stack(children: _tabs),
         bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: brightnessCheck ? Colors.black : Colors.grey,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedItemColor: Colors.white,
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           onTap: (int index) {
             final InheritedDataManagerState inheritedDataManager =
                 InheritedDataManager.of(context);
@@ -118,13 +125,16 @@ class PageManagerState extends State<PageManager> {
   }
 
   Widget _buildOffstageNavigator(BottomNavigationTab tabItem) {
-    final bool offstage = _currentPage != tabItem;
     return Offstage(
-      offstage: offstage,
-      child: TabNavigator(
-        offstage: offstage,
-        navigatorKey: _navigatorKeys[tabItem]!,
-        tabItem: tabItem,
+      offstage: _currentPage != tabItem,
+      child: Provider<BottomNavigationTab>.value(
+        value: _currentPage,
+        child: ScreenVisibilityDetector(
+          child: TabNavigator(
+            navigatorKey: _navigatorKeys[tabItem]!,
+            tabItem: tabItem,
+          ),
+        ),
       ),
     );
   }

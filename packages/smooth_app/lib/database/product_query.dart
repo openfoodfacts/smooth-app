@@ -42,7 +42,7 @@ abstract class ProductQuery {
       '_'
       '${getCountry()!.iso2Code.toUpperCase()}';
 
-  static const String _UUID_NAME = 'UUID_NAME';
+  static const String _UUID_NAME = 'UUID_NAME_REV_1';
 
   /// Sets the uuid id as "final variable", for instance for API queries.
   ///
@@ -52,7 +52,8 @@ abstract class ProductQuery {
     String? uuid = await uuidString.get(_UUID_NAME);
 
     if (uuid == null) {
-      uuid = const Uuid().v4();
+      // Crop down to 16 letters for matomo
+      uuid = const Uuid().v4().replaceAll('-', '').substring(0, 16);
       uuidString.put(_UUID_NAME, uuid);
     }
     OpenFoodAPIConfiguration.uuid = uuid;
@@ -65,6 +66,8 @@ abstract class ProductQuery {
         password: 'strawberrybanana',
         comment: 'Test user for project smoothie',
       );
+
+  static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
   static void setQueryType(final UserPreferences userPreferences) {
@@ -94,7 +97,9 @@ abstract class ProductQuery {
         ProductField.SELECTED_IMAGE,
         ProductField.QUANTITY,
         ProductField.SERVING_SIZE,
+        ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
+        ProductField.NO_NUTRITION_DATA,
         ProductField.NUTRIMENTS,
         ProductField.NUTRIENT_LEVELS,
         ProductField.NUTRIMENT_ENERGY_UNIT,
@@ -104,6 +109,7 @@ abstract class ProductQuery {
         ProductField.LABELS_TAGS,
         ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.ENVIRONMENT_IMPACT_LEVELS,
+        ProductField.COMPARED_TO_CATEGORY,
         ProductField.CATEGORIES_TAGS,
         ProductField.CATEGORIES_TAGS_IN_LANGUAGES,
         ProductField.LANGUAGE,
@@ -113,6 +119,10 @@ abstract class ProductQuery {
         ProductField.ECOSCORE_GRADE,
         ProductField.ECOSCORE_SCORE,
         ProductField.KNOWLEDGE_PANELS,
+        ProductField.COUNTRIES,
+        ProductField.COUNTRIES_TAGS,
+        ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
+        ProductField.EMB_CODES,
       ];
 
   Future<SearchResult> getSearchResult();

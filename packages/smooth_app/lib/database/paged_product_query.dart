@@ -1,4 +1,3 @@
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 /// Paged product query (with [pageSize] and [pageNumber]).
@@ -16,22 +15,4 @@ abstract class PagedProductQuery implements ProductQuery {
   void toNextPage() => _pageNumber++;
 
   void toTopPage() => _pageNumber = _startPageNumber;
-
-  Parameter getParameter();
-
-  @override
-  Future<SearchResult> getSearchResult() async =>
-      OpenFoodAPIClient.searchProducts(
-        ProductQuery.getUser(),
-        ProductSearchQueryConfiguration(
-          fields: ProductQuery.fields,
-          parametersList: <Parameter>[
-            PageSize(size: pageSize),
-            PageNumber(page: _pageNumber),
-            getParameter(),
-          ],
-          language: ProductQuery.getLanguage(),
-          country: ProductQuery.getCountry(),
-        ),
-      );
 }
