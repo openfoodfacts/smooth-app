@@ -32,6 +32,8 @@ class QuestionPage extends StatefulWidget {
 class _QuestionPageState extends State<QuestionPage>
     with SingleTickerProviderStateMixin, TraceableClientMixin {
   int _currentQuestionIndex = 0;
+  final Map<String, InsightAnnotation> _anonymousAnnotationList =
+      <String, InsightAnnotation>{};
   InsightAnnotation? _lastAnswer;
 
   static const Color _noBackground = Colors.redAccent;
@@ -40,6 +42,9 @@ class _QuestionPageState extends State<QuestionPage>
 
   @override
   String get traceTitle => 'robotoff_question_page';
+
+  @override
+  String get traceName => 'Opened robotoff_question_page';
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +126,7 @@ class _QuestionPageState extends State<QuestionPage>
   Widget _buildWidget(BuildContext context, int currentQuestionIndex) {
     final List<RobotoffQuestion> questions = widget.questions;
     if (questions.length == currentQuestionIndex) {
-      return const CongratsWidget();
+      return CongratsWidget(_anonymousAnnotationList);
     }
     return Column(
       children: <Widget>[
@@ -346,6 +351,9 @@ class _QuestionPageState extends State<QuestionPage>
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
+    if (OpenFoodAPIConfiguration.globalUser == null && insightId != null) {
+      _anonymousAnnotationList.putIfAbsent(insightId, () => insightAnnotation);
+    }
     await LoadingDialog.run<Status>(
       context: context,
       title: appLocalizations.saving_answer,
@@ -371,7 +379,12 @@ class _QuestionPageState extends State<QuestionPage>
 }
 
 class CongratsWidget extends StatelessWidget {
-  const CongratsWidget({Key? key}) : super(key: key);
+  const CongratsWidget(
+    this._anonymousAnnotationList, {
+    super.key,
+  });
+
+  final Map<String, InsightAnnotation> _anonymousAnnotationList;
 
   @override
   Widget build(BuildContext context) {
@@ -409,13 +422,20 @@ class CongratsWidget extends StatelessWidget {
                         action: SmoothActionButton(
                           text: appLocalizations.sign_in,
                           onPressed: () async {
-                            Navigator.maybePop<Widget>(context);
                             await Navigator.push<Widget>(
                               context,
                               MaterialPageRoute<Widget>(
                                 builder: (_) => const LoginPage(),
                               ),
                             );
+                            if (OpenFoodAPIConfiguration.globalUser != null) {
+                              await LoadingDialog.run<void>(
+                                context: context,
+                                title: appLocalizations.saving_answer,
+                                future: _postInsightAnnotations(
+                                    _anonymousAnnotationList),
+                              );
+                            }
                           },
                         ),
                       ),
@@ -441,5 +461,18 @@ class CongratsWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _postInsightAnnotations(
+      Map<String, InsightAnnotation> annotationList) async {
+    annotationList
+        .forEach((String insightId, InsightAnnotation insightAnnotation) async {
+      await OpenFoodAPIClient.postInsightAnnotation(
+        insightId,
+        insightAnnotation,
+        deviceId: OpenFoodAPIConfiguration.uuid,
+        user: OpenFoodAPIConfiguration.globalUser,
+      );
+    });
   }
 }

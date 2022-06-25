@@ -3,12 +3,12 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
@@ -49,15 +49,10 @@ class _ScanPageState extends State<ScanPage> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
-        body: ChangeNotifierProvider<PermissionListener>(
-          create: (_) => PermissionListener(
-            permission: Permission.camera,
-          ),
-          child: const ScannerOverlay(
-            backgroundChild: _ScanPageBackgroundWidget(),
-            foregroundChild: _ScanPageForegroundWidget(),
-            topChild: _ScanPageTopWidget(),
-          ),
+        body: ScannerOverlay(
+          backgroundChild: const _ScanPageBackgroundWidget(),
+          foregroundChild: const _ScanPageForegroundWidget(),
+          topChild: const _ScanPageTopWidget(),
         ),
       ),
     );
@@ -91,7 +86,8 @@ class _ScanPageForegroundWidget extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         return Consumer<PermissionListener>(
             builder: (BuildContext context, PermissionListener listener, _) {
-          if (listener.value.isGranted) {
+          // If permission is granted && the device has a camera
+          if (listener.value.isGranted && CameraHelper.hasACamera) {
             return CustomPaint(
               painter: _ScanPageForegroundPainter(
                 visorSize: ScannerVisorWidget.getSize(context),

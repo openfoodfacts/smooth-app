@@ -99,18 +99,10 @@ class LoadingDialog<T> {
       body: FutureBuilder<T>(
         future: future,
         builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            // Now it's either hasError or successful.
-            // We cannot check hasData because data can be null or void.
-            if (snapshot.hasError) {
-              return ListTile(
-                title: Text(appLocalizations.error_occurred),
-              );
-            }
+          if (snapshot.hasError || snapshot.hasData) {
             _popDialog(context, snapshot.data);
-            // whatever, anyway we've just pop'ed
-            return Container();
           }
+
           return ListTile(
             leading: const CircularProgressIndicator(),
             title: Text(title),

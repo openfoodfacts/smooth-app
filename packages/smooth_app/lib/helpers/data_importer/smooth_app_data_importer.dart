@@ -113,10 +113,8 @@ enum SmoothAppDataImporterStatus {
   required,
 
   /// No migration started (call [_checkStatus] to update)
-  notStarted,
-}
+  notStarted;
 
-extension SmoothAppDataImporterStatusExtension on SmoothAppDataImporterStatus {
   String printableLabel(AppLocalizations appLocalizations) {
     switch (this) {
       case SmoothAppDataImporterStatus.alreadyDone:

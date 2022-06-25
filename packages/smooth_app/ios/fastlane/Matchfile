@@ -1,7 +1,7 @@
 git_url("https://github.com/openfoodfacts/ios-certificates")
 storage_mode("git")
 type("appstore")
-app_identifier "org.openfoodfacts.app"
+app_identifier "org.openfoodfacts.scanner"
 
 #username ENV["APPLE_ID"]
 #team_id ENV["TEAM_ID"]

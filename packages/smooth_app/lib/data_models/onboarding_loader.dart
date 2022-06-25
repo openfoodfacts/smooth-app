@@ -12,19 +12,33 @@ class OnboardingLoader {
   final LocalDatabase _localDatabase;
 
   /// To be called first thing when we click on "next" during onboarding.
+  ///
+  /// The [page] parameter refers to the current page (before the next).
   Future<void> runAtNextTime(
     final OnboardingPage page,
     final BuildContext context,
   ) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (page) {
       case OnboardingPage.WELCOME:
-        await LoadingDialog.run<void>(
+        final bool? downloaded = await LoadingDialog.run<bool>(
           context: context,
           future: _downloadData(),
           title: AppLocalizations.of(context)
               .onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
+        if (downloaded != true) {
+          //ignore: use_build_context_synchronously
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(appLocalizations.onboarding_welcome_loading_error),
+              duration: const Duration(seconds: 2),
+              behavior: SnackBarBehavior.floating,
+              elevation: 0,
+            ),
+          );
+        }
         return;
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.REINVENTION:
@@ -32,16 +46,20 @@ class OnboardingLoader {
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
+        // nothing special to do
+        return;
       case OnboardingPage.CONSENT_PAGE:
+        // that was the last page of onboarding: after that, we clean up
+        await _unloadData();
         return;
       case OnboardingPage.ONBOARDING_COMPLETE:
-        await _unloadData();
+        // will never happen: we never click "next" on a "complete" page
         return;
     }
   }
 
   /// Actual download of all data.
-  Future<void> _downloadData() async =>
+  Future<bool> _downloadData() async =>
       OnboardingDataProduct.forProduct(_localDatabase).downloadData();
 
   /// Unloads all data that are no longer required.

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mailto/mailto.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/contributor_product_query.dart';
+import 'package:smooth_app/database/informer_product_query.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/paged_user_product_query.dart';
+import 'package:smooth_app/database/photographer_product_query.dart';
+import 'package:smooth_app/database/to_be_completed_product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
@@ -12,8 +18,8 @@ import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
@@ -218,6 +224,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     // We need to listen to reflect login's from outside of the preferences page
     // e.g. question card, ...
     context.watch<UserManagementProvider>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
 
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -230,6 +237,42 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
 
       result = <Widget>[
+        _buildUserProductQueryTile(
+          productQuery: ContributorProductQuery(userId),
+          title: appLocalizations.user_search_contributor_title,
+          iconData: Icons.add_circle_outline,
+          heroTag: 'contributor',
+          context: context,
+          localDatabase: localDatabase,
+        ),
+        const UserPreferencesListItemDivider(),
+        _buildUserProductQueryTile(
+          productQuery: InformerProductQuery(userId),
+          title: appLocalizations.user_search_informer_title,
+          iconData: Icons.edit,
+          heroTag: 'informer',
+          context: context,
+          localDatabase: localDatabase,
+        ),
+        const UserPreferencesListItemDivider(),
+        _buildUserProductQueryTile(
+          productQuery: PhotographerProductQuery(userId),
+          title: appLocalizations.user_search_photographer_title,
+          iconData: Icons.add_a_photo,
+          heroTag: 'photographer',
+          context: context,
+          localDatabase: localDatabase,
+        ),
+        const UserPreferencesListItemDivider(),
+        _buildUserProductQueryTile(
+          productQuery: ToBeCompletedProductQuery(userId),
+          title: appLocalizations.user_search_to_be_completed_title,
+          iconData: Icons.more_horiz,
+          heroTag: 'to_be_completed',
+          context: context,
+          localDatabase: localDatabase,
+        ),
+        const UserPreferencesListItemDivider(),
         ListTile(
           onTap: () async => LaunchUrlHelper.launchURL(
             'https://openfoodfacts.org/editor/$userId',
@@ -251,12 +294,13 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         const UserPreferencesListItemDivider(),
         ListTile(
           onTap: () async {
-            final Mailto mailtoLink = Mailto(
-              to: <String>['contact@openfoodfacts.org'],
-              subject: appLocalizations.email_subject_account_deletion,
+            final Email email = Email(
               body: appLocalizations.email_body_account_deletion(userId),
+              subject: appLocalizations.email_subject_account_deletion,
+              recipients: <String>['contact@openfoodfacts.org'],
             );
-            await launchUrl(Uri.parse('$mailtoLink'));
+
+            await FlutterEmailSender.send(email);
           },
           title: Text(appLocalizations.account_delete),
           leading: const Icon(Icons.delete),
@@ -303,4 +347,24 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
     return Column(children: result);
   }
+
+  Widget _buildUserProductQueryTile({
+    required final PagedUserProductQuery productQuery,
+    required final String title,
+    required final IconData iconData,
+    required final String heroTag,
+    required final BuildContext context,
+    required final LocalDatabase localDatabase,
+  }) =>
+      ListTile(
+        onTap: () async => ProductQueryPageHelper().openBestChoice(
+          heroTag: heroTag,
+          name: title,
+          localDatabase: localDatabase,
+          productQuery: productQuery,
+          context: context,
+        ),
+        title: Text(title),
+        leading: Icon(iconData),
+      );
 }

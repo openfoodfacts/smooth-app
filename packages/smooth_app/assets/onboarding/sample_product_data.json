@@ -191,7 +191,7 @@
         "id": "vegan",
         "match": 100,
         "name": "Vegan",
-        "panel_id": "ingredients_analysis_en-vegan",
+        "panel_id": "ingredients_analysis_en:vegan",
         "status": "known",
         "title": "Vegan"
       }, {
@@ -200,7 +200,7 @@
         "id": "vegetarian",
         "match": 100,
         "name": "Vegetarian",
-        "panel_id": "ingredients_analysis_en-vegetarian",
+        "panel_id": "ingredients_analysis_en:vegetarian",
         "status": "known",
         "title": "Vegetarian"
       }, {
@@ -209,7 +209,7 @@
         "id": "palm_oil_free",
         "match": 100,
         "name": "Palm oil free",
-        "panel_id": "ingredients_analysis_en-palm-oil-free",
+        "panel_id": "ingredients_analysis_en:palm-oil-free",
         "status": "known",
         "title": "Palm oil free"
       }],
@@ -1118,7 +1118,7 @@
         "elements": [{
           "element_type": "panel_group",
           "panel_group_element": {
-            "panel_ids": ["nutriscore", "physical_activities", "nutrition_facts_table"],
+            "panel_ids": ["nutriscore", "nutrition_facts_table"],
             "title": ""
           }
         }, {
@@ -1136,7 +1136,7 @@
         }, {
           "element_type": "panel_group",
           "panel_group_element": {
-            "panel_ids": ["ingredients_analysis"],
+            "panel_ids": ["ingredients_analysis", "ingredients_analysis_details"],
             "title": "Ingredients analysis"
           }
         }],
@@ -1159,10 +1159,16 @@
             "lc": "en"
           }
         }],
-        "expanded": true,
+        "evaluation": "unknown",
+        "expand_for": "large",
+        "expanded": false,
         "level": "info",
-        "topics": ["health"],
-        "type": "inline"
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/ingredients.svg",
+          "title": "7 ingredients"
+        },
+        "topics": ["health"]
       },
       "ingredients_analysis": {
         "elements": [{
@@ -1191,11 +1197,39 @@
         "topics": ["health"],
         "type": "inline"
       },
+      "ingredients_analysis_details": {
+        "elements": [{
+          "element_type": "text",
+          "text_element": {
+            "html": "<span>Butternut squash</span> 50%, <span>water</span>, <span>carrots</span> 10%, <span>sweet potato</span>, <span>leeks</span>, <span>potatoes</span>, <span>salt</span>"
+          }
+        }, {
+          "element_type": "text",
+          "text_element": {
+            "html": "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent_max:&nbsp;45</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;8</li>\n</ol>\n"
+          }
+        }, {
+          "element_type": "text",
+          "text_element": {
+            "html": ""
+          }
+        }],
+        "evaluation": "unknown",
+        "level": "info",
+        "size": "small",
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_size": "small",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/off-magnifying-glass.svg",
+          "title": "Details of the analysis of the ingredients"
+        },
+        "topics": ["health"]
+      },
       "ingredients_analysis_en:palm-oil-free": {
         "elements": [{
           "element_type": "text",
           "text_element": {
-            "html": "\n                \n                    No ingredients containing palm oil detected\n                    \n                    \n                    \n                \n                    ",
+            "html": "\n                \n                    No ingredients containing palm oil detected\n                    \n                \n                    ",
             "type": "summary"
           }
         }],
@@ -1214,7 +1248,7 @@
         "elements": [{
           "element_type": "text",
           "text_element": {
-            "html": "\n                \n                    No non-vegan ingredients\n                    \n                    \n                    \n                \n                    ",
+            "html": "\n                \n                    No non-vegan ingredients\n                    \n                \n                    ",
             "type": "summary"
           }
         }],
@@ -1233,7 +1267,7 @@
         "elements": [{
           "element_type": "text",
           "text_element": {
-            "html": "\n                \n                    No non-vegetarian ingredients detected\n                    \n                    \n                    \n                \n                    ",
+            "html": "\n                \n                    No non-vegetarian ingredients detected\n                    \n                \n                    ",
             "type": "summary"
           }
         }],
@@ -1294,7 +1328,7 @@
         "elements": [{
           "element_type": "text",
           "text_element": {
-            "html": "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 60%\n                    ",
+            "html": "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 60\n                    ",
             "type": "warning"
           }
         }, {
@@ -1358,7 +1392,7 @@
                 "text": "0.5 g"
               }, {
                 "evaluation": "good",
-                "text": "-68%"
+                "text": "-67%"
               }]
             }, {
               "values": [{
@@ -1369,7 +1403,7 @@
                 "text": "0.2 g"
               }, {
                 "evaluation": "good",
-                "text": "-35%"
+                "text": "-28%"
               }]
             }, {
               "values": [{
@@ -1380,7 +1414,7 @@
                 "text": "0.4 g"
               }, {
                 "evaluation": "good",
-                "text": "-33%"
+                "text": "-34%"
               }]
             }, {
               "values": [{
@@ -1401,7 +1435,7 @@
                 "text": "3 g"
               }, {
                 "evaluation": "good",
-                "text": "+134%"
+                "text": "+131%"
               }]
             }, {
               "values": [{
@@ -1423,7 +1457,7 @@
                 "text": "1 g"
               }, {
                 "evaluation": "bad",
-                "text": "-34%"
+                "text": "-36%"
               }]
             }, {
               "values": [{
@@ -1439,10 +1473,16 @@
             "title": "Nutrition facts"
           }
         }],
-        "expanded": true,
+        "evaluation": "unknown",
+        "expand_for": "large",
+        "expanded": false,
         "level": "info",
-        "topics": ["health"],
-        "type": "inline"
+        "title_element": {
+          "icon_color_from_evaluation": true,
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/scale-balance.svg",
+          "title": "Nutrition facts"
+        },
+        "topics": ["health"]
       },
       "origins_of_ingredients": {
         "elements": [{
@@ -1507,59 +1547,6 @@
           "title": "Packaging with a low impact"
         },
         "topics": ["environment"]
-      },
-      "physical_activities": {
-        "elements": [{
-          "element_type": "text",
-          "text_element": {
-            "evaluation": "good",
-            "html": "\n                        <strong>Swimming:</strong> 4 min \n                        ",
-            "icon_alt": "Swimming",
-            "icon_color_from_evaluation": true,
-            "icon_url": "https://static.openfoodfacts.org/images/icons/dist/activity-swimming.svg",
-            "type": "summary",
-            "valign": "middle"
-          }
-        }, {
-          "element_type": "text",
-          "text_element": {
-            "evaluation": "good",
-            "html": "\n                        <strong>Bicycling:</strong> 3 min \n                        ",
-            "icon_alt": "Bicycling",
-            "icon_color_from_evaluation": true,
-            "icon_url": "https://static.openfoodfacts.org/images/icons/dist/activity-bicycling.svg",
-            "type": "summary",
-            "valign": "middle"
-          }
-        }, {
-          "element_type": "text",
-          "text_element": {
-            "evaluation": "good",
-            "html": "\n                        <strong>Running:</strong> 2 min \n                        ",
-            "icon_alt": "Running",
-            "icon_color_from_evaluation": true,
-            "icon_url": "https://static.openfoodfacts.org/images/icons/dist/activity-running.svg",
-            "type": "summary",
-            "valign": "middle"
-          }
-        }, {
-          "element_type": "text",
-          "text_element": {
-            "html": "\n                    <p>Energy expenditure for a person weighting 70 kg / 154 lb</p>\n                    ",
-            "icon_color_from_evaluation": true,
-            "type": "summary"
-          }
-        }],
-        "evaluation": "good",
-        "expanded": false,
-        "level": "info",
-        "title_element": {
-          "icon_color_from_evaluation": true,
-          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/activity-walking.svg",
-          "subtitle": "Equal to walking 7 minutes or 700 steps",
-          "title": "120 kJ per 100g"
-        },
-        "topics": ["health"]
       },
       "root": {
         "elements": [{

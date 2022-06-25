@@ -99,6 +99,9 @@ class ProductDialogHelper {
       case FetchedProductStatus.internetNotFound:
         _openProductNotFoundDialog();
         return;
+      case FetchedProductStatus.codeInvalid:
+        _openErrorMessage(appLocalizations.barcode_invalid_error);
+        return;
     }
   }
 }

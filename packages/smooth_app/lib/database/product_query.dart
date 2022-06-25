@@ -67,6 +67,8 @@ abstract class ProductQuery {
         comment: 'Test user for project smoothie',
       );
 
+  static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
+
   /// Sets the query type according to the current [UserPreferences]
   static void setQueryType(final UserPreferences userPreferences) {
     OpenFoodAPIConfiguration.globalQueryType = userPreferences
@@ -97,6 +99,7 @@ abstract class ProductQuery {
         ProductField.SERVING_SIZE,
         ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
+        ProductField.NO_NUTRITION_DATA,
         ProductField.NUTRIMENTS,
         ProductField.NUTRIENT_LEVELS,
         ProductField.NUTRIMENT_ENERGY_UNIT,
@@ -116,6 +119,10 @@ abstract class ProductQuery {
         ProductField.ECOSCORE_GRADE,
         ProductField.ECOSCORE_SCORE,
         ProductField.KNOWLEDGE_PANELS,
+        ProductField.COUNTRIES,
+        ProductField.COUNTRIES_TAGS,
+        ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
+        ProductField.EMB_CODES,
       ];
 
   Future<SearchResult> getSearchResult();

@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 
@@ -17,15 +18,14 @@ class ProductListUserDialogHelper {
     final BuildContext context,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     final TextEditingController textEditingController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     final String? title = await showDialog<String>(
       context: context,
-      builder: (final BuildContext context) => AlertDialog(
-        title: Text(appLocalizations.user_list_dialog_new_title),
-        content: Form(
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.user_list_dialog_new_title,
+        body: Form(
           key: formKey,
           child: SmoothTextFormField(
             type: TextFieldTypes.PLAIN_TEXT,
@@ -45,21 +45,19 @@ class ProductListUserDialogHelper {
             },
           ),
         ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(appLocalizations.cancel),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              if (!formKey.currentState!.validate()) {
-                return;
-              }
-              Navigator.pop(context, textEditingController.text);
-            },
-            child: Text(appLocalizations.okay),
-          ),
-        ],
+        negativeAction: SmoothActionButton(
+          onPressed: () => Navigator.pop(context),
+          text: appLocalizations.cancel,
+        ),
+        positiveAction: SmoothActionButton(
+          onPressed: () {
+            if (!formKey.currentState!.validate()) {
+              return;
+            }
+            Navigator.pop(context, textEditingController.text);
+          },
+          text: appLocalizations.okay,
+        ),
       ),
     );
     if (title == null) {
@@ -87,42 +85,30 @@ class ProductListUserDialogHelper {
       context: context,
       builder: (final BuildContext context) => StatefulBuilder(
         builder:
-            (BuildContext context, void Function(VoidCallback fn) setState) =>
-                AlertDialog(
-          title: Text(getProductName(product, appLocalizations)),
-          content: StatefulBuilder(
-            builder: (BuildContext context,
-                void Function(VoidCallback fn) setState) {
-              final List<Widget> children = <Widget>[];
-              for (final String name in all) {
-                children.add(
-                  ListTile(
-                    leading: Icon(
-                      newWithBarcode.contains(name)
-                          ? Icons.check_box
-                          : Icons.check_box_outline_blank,
-                    ),
-                    title: Text(name),
-                    onTap: () => setState(
-                      () => newWithBarcode.contains(name)
-                          ? newWithBarcode.remove(name)
-                          : newWithBarcode.add(name),
-                    ),
-                  ),
-                );
-              }
-              return ListView(
-                shrinkWrap: true,
-                children: children,
-              );
-            },
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(appLocalizations.cancel),
-            ),
-            ElevatedButton(
+            (BuildContext context, void Function(VoidCallback fn) setState) {
+          final List<Widget> children = <Widget>[];
+          for (final String name in all) {
+            children.add(
+              ListTile(
+                leading: Icon(
+                  newWithBarcode.contains(name)
+                      ? Icons.check_box
+                      : Icons.check_box_outline_blank,
+                ),
+                title: Text(name),
+                onTap: () => setState(
+                  () => newWithBarcode.contains(name)
+                      ? newWithBarcode.remove(name)
+                      : newWithBarcode.add(name),
+                ),
+              ),
+            );
+          }
+          return SmoothAlertDialog(
+            close: true,
+            title: getProductName(product, appLocalizations),
+            body: Column(children: children),
+            negativeAction: SmoothActionButton(
               onPressed: () async {
                 final ProductList? productList =
                     await showCreateUserListDialog(context);
@@ -132,14 +118,14 @@ class ProductListUserDialogHelper {
                   setState(() => addedLists = true);
                 }
               },
-              child: Text(appLocalizations.user_list_button_new),
+              text: appLocalizations.user_list_button_new,
             ),
-            ElevatedButton(
+            positiveAction: SmoothActionButton(
               onPressed: () => Navigator.pop(context, true),
-              child: Text(appLocalizations.okay),
+              text: appLocalizations.okay,
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
     if (addedLists == false && result != true) {
@@ -174,9 +160,9 @@ class ProductListUserDialogHelper {
     textEditingController.text = initialName;
     final String? newName = await showDialog<String>(
       context: context,
-      builder: (final BuildContext context) => AlertDialog(
-        title: Text(appLocalizations.user_list_dialog_rename_title),
-        content: Form(
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.user_list_dialog_rename_title,
+        body: Form(
           key: formKey,
           child: SmoothTextFormField(
             type: TextFieldTypes.PLAIN_TEXT,
@@ -198,21 +184,19 @@ class ProductListUserDialogHelper {
             },
           ),
         ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(appLocalizations.cancel),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              if (!formKey.currentState!.validate()) {
-                return;
-              }
-              Navigator.pop(context, textEditingController.text);
-            },
-            child: Text(appLocalizations.okay),
-          ),
-        ],
+        negativeAction: SmoothActionButton(
+          onPressed: () => Navigator.pop(context),
+          text: appLocalizations.cancel,
+        ),
+        positiveAction: SmoothActionButton(
+          onPressed: () {
+            if (!formKey.currentState!.validate()) {
+              return;
+            }
+            Navigator.pop(context, textEditingController.text);
+          },
+          text: appLocalizations.okay,
+        ),
       ),
     );
     if (newName == null) {
@@ -230,21 +214,19 @@ class ProductListUserDialogHelper {
 
     final bool? deleted = await showDialog<bool>(
       context: context,
-      builder: (final BuildContext context) => AlertDialog(
-        title: const Text('Delete list?'),
-        content: Text(productList.parameters),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(appLocalizations.cancel),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context, true);
-            },
-            child: Text(appLocalizations.okay),
-          ),
-        ],
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: 'Delete list?',
+        body: Text(productList.parameters),
+        negativeAction: SmoothActionButton(
+          onPressed: () => Navigator.pop(context),
+          text: appLocalizations.cancel,
+        ),
+        positiveAction: SmoothActionButton(
+          onPressed: () {
+            Navigator.pop(context, true);
+          },
+          text: appLocalizations.okay,
+        ),
       ),
     );
     if (deleted == null) {

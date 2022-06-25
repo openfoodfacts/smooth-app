@@ -25,9 +25,7 @@ const List<ImageField> _SORTED_IMAGE_FIELD_LIST = <ImageField>[
 ];
 
 class AddNewProductPage extends StatefulWidget {
-  const AddNewProductPage(
-    this.barcode,
-  );
+  const AddNewProductPage(this.barcode);
 
   final String barcode;
 
@@ -80,8 +78,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                 child: SmoothActionButtonsBar.single(
                   action: SmoothActionButton(
                     text: appLocalizations.finish,
-                    onPressed: () {
-                      Navigator.maybePop(
+                    onPressed: () async {
+                      await Navigator.maybePop(
                           context, _isProductLoaded ? widget.barcode : null);
                     },
                   ),
@@ -102,20 +100,23 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       // "other photos" uploaded by the user.
       if (imageType == ImageField.OTHER) {
         rows.add(_buildAddImageButton(context, imageType));
-        continue;
-      }
-      // Everything else can only be uploaded once, skip building the
-      // "Add Image button" if an image for this type is already uploaded.
-      if (!_isImageUploadedForType(imageType)) {
-        rows.add(_buildAddImageButton(context, imageType));
-      }
-    }
-    // Now build rows for images that are already uploaded.
-    for (final ImageField imageType in ImageField.values) {
-      if (_isImageUploadedForType(imageType)) {
         for (final File image in _uploadedImages[imageType]!) {
           rows.add(_buildImageUploadedRow(context, imageType, image));
         }
+        continue;
+      }
+
+      // Everything else can only be uploaded once
+      if (_isImageUploadedForType(imageType)) {
+        rows.add(
+          _buildImageUploadedRow(
+            context,
+            imageType,
+            _uploadedImages[imageType]![0],
+          ),
+        );
+      } else {
+        rows.add(_buildAddImageButton(context, imageType));
       }
     }
     return rows;
@@ -263,19 +264,18 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (!mounted) {
             return;
           }
-          final bool result = await Navigator.push<bool>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => NutritionPageLoaded(
-                    Product(barcode: widget.barcode),
-                    cache.orderedNutrients,
-                  ),
-                ),
-              ) ??
-              false;
+          final Product? result = await Navigator.push<Product?>(
+            context,
+            MaterialPageRoute<Product>(
+              builder: (BuildContext context) => NutritionPageLoaded(
+                Product(barcode: widget.barcode),
+                cache.orderedNutrients,
+              ),
+            ),
+          );
 
           setState(() {
-            _nutritionFactsAdded = result;
+            _nutritionFactsAdded = result != null;
           });
         },
       ),
@@ -314,17 +314,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
         onPressed: () async {
-          final bool result = await Navigator.push<bool>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => AddBasicDetailsPage(
-                    Product(barcode: widget.barcode),
-                  ),
-                ),
-              ) ??
-              false;
+          final Product? result = await Navigator.push<Product?>(
+            context,
+            MaterialPageRoute<Product>(
+              builder: (BuildContext context) => AddBasicDetailsPage(
+                Product(barcode: widget.barcode),
+              ),
+            ),
+          );
           setState(() {
-            _basicDetailsAdded = result;
+            _basicDetailsAdded = result != null;
           });
         },
       ),

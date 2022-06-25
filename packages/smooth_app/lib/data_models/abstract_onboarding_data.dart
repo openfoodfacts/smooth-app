@@ -33,14 +33,15 @@ abstract class AbstractOnboardingData<T> {
   Future<void> clear() async =>
       DaoString(_localDatabase).put(_getDatabaseKey(), null);
 
-  /// Downloads data and store it locally.
-  Future<void> downloadData() async {
+  /// Downloads data and store it locally, then returns true when success
+  Future<bool> downloadData() async {
     try {
       final String string = await downloadDataString();
       final DaoString daoString = DaoString(_localDatabase);
       await daoString.put(_getDatabaseKey(), string);
+      return true;
     } catch (e) {
-      //
+      return false;
     }
   }
 

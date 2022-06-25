@@ -24,9 +24,19 @@ class SmoothTheme {
       fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         selectedItemColor: myColorScheme.primary,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) =>
+                states.contains(MaterialState.disabled)
+                    ? Colors.grey
+                    : myColorScheme.primary,
+          ),
+        ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: myColorScheme.primary,

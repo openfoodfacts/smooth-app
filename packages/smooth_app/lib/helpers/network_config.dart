@@ -15,12 +15,46 @@ Future<void> setupAppNetworkConfig() async {
 Future<void> _initUserAgent() async {
   final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
-  OpenFoodAPIConfiguration.userAgent = UserAgent(
-    name: 'Smoothie - ${packageInfo.appName}',
-    version: '${packageInfo.version}+${packageInfo.buildNumber}',
-    system: Platform.operatingSystemVersion,
-    url: 'https://world.openfoodfacts.org/',
+  final String name = 'Smoothie - ${packageInfo.appName}';
+  final String version = '${packageInfo.version}+${packageInfo.buildNumber}';
+  final String system =
+      '${Platform.operatingSystem}+${Platform.operatingSystemVersion}';
+  final String comment = _getAppInfoComment(
+    name: name,
+    version: version,
+    system: system,
   );
+  OpenFoodAPIConfiguration.userAgent = UserAgent(
+      name: name,
+      version: version,
+      system: system,
+      url: 'https://world.openfoodfacts.org/',
+      comment: comment);
+}
+
+String _getAppInfoComment({
+  bool withName = true,
+  String name = '',
+  bool withVersion = true,
+  String version = '',
+  bool withSystem = true,
+  String system = '',
+}) {
+  String appInfo = '';
+  const String infoDelimiter = ' - ';
+  if (withName) {
+    appInfo += infoDelimiter;
+    appInfo += name;
+  }
+  if (withVersion) {
+    appInfo += infoDelimiter;
+    appInfo += version;
+  }
+  if (withSystem) {
+    appInfo += infoDelimiter;
+    appInfo += system;
+  }
+  return appInfo;
 }
 
 /// Imports the OFF SSL certificate (for Android 7.1+ / iOS devices)

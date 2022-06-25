@@ -18,6 +18,10 @@
     "skip": "건너뛰기",
     "cancel": "취소",
     "@cancel": {},
+    "ignore": "무시",
+    "@ignore": {
+        "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
+    },
     "close": "닫기",
     "@close": {},
     "no": "아니요",
@@ -40,7 +44,6 @@
     "@label_web": {},
     "learnMore": "더보기",
     "@learnMore": {},
-    "general_confirmation": "확실한가요?",
     "unknown": "알 수 없음",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -138,6 +141,10 @@
     "sign_in": "가입하기",
     "@sign_in": {
         "description": "Button label: For sign in"
+    },
+    "sign_in_mandatory": "해당 기능을 사용하려면 로그인해야 합니다.",
+    "@sign_in_mandatory": {
+        "description": "Error message: for some features like product edits you need to be signed in"
     },
     "sign_out": "로그아웃",
     "@sign_out": {
@@ -266,6 +273,8 @@
     },
     "support_join_slack": "Ask for help in our Slack channel",
     "support_via_email": "이메일 전송",
+    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "이용 약관",
     "@termsOfUse": {},
     "about_this_app": "앱 정보",
@@ -413,7 +422,6 @@
     },
     "nutrition": "영양",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "저장하지 않고 종료하시겠습니까?",
     "nutrition_facts_photo": "영양 성분 사진",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -680,6 +688,76 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "@contact_form_body_android": {
+        "description": "Contact form content for Android devices",
+        "placeholders": {
+            "sdkInt": {
+                "type": "int?",
+                "description": "SDK Int = Version of Android SDK"
+            },
+            "release": {
+                "type": "String?",
+                "description": "Name of the release"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Model of the device"
+            },
+            "product": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "device": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "brand": {
+                "type": "String?",
+                "description": "Brand of the device (eg: Samsung)"
+            }
+        }
+    },
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "@contact_form_body_ios": {
+        "description": "Contact form content for iOS devices",
+        "placeholders": {
+            "version": {
+                "type": "String?",
+                "description": "Version of IOS (eg : 15)"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Name of the iPhone"
+            },
+            "localizedModel": {
+                "type": "String?",
+                "description": "Localized name of the iPhone"
+            }
+        }
+    },
+    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "@contact_form_body": {
+        "description": "Contact form content",
+        "placeholders": {
+            "osContent": {
+                "type": "String",
+                "description": "Content from contact_form_body_ios key (on iOS) or contact_form_body_android (on Android)"
+            },
+            "appVersion": {
+                "type": "String",
+                "description": "Version name of the app (eg: 1.0.0)"
+            },
+            "appBuildNumber": {
+                "type": "String",
+                "description": "Version code of the app (a number)"
+            },
+            "appPackageName": {
+                "type": "String",
+                "description": "Name/package of the app"
+            }
+        }
+    },
     "authorize_button_label": "Authorize",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
@@ -709,6 +787,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "내 순위",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -725,13 +807,19 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
-    "@product_list_reloading_in_progress": {
-        "description": "Message to show while loading previous scanned items"
+    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "@product_list_reloading_in_progress_multiple": {
+        "description": "Message to show while loading previous scanned items",
+        "placeholders": {
+            "count": {}
+        }
     },
-    "product_list_reloading_success": "Product refresh complete",
-    "@product_list_reloading_success": {
-        "description": "Message to show once previous scanned items are loaded"
+    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "@product_list_reloading_success_multiple": {
+        "description": "Message to show once previous scanned items are loaded",
+        "placeholders": {
+            "count": {}
+        }
     },
     "loading_dialog_default_title": "데이터 다운로드 중",
     "@loading_dialog_default_title": {
@@ -785,13 +873,49 @@
             }
         }
     },
-    "camera_high_resolution_preset_toggle_title": "Camera high performance mode",
+    "settings_app_app": "애플리케이션",
+    "settings_app_data": "개인정보 및 추적",
+    "settings_app_camera": "카메라",
+    "@camera_settings_title": {
+        "description": "Name of the camera section in the settings"
+    },
+    "camera_high_resolution_preset_toggle_title": "고성능 모드",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
     "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
+    },
+    "camera_focus_point_algorithm_title": "집중 모드",
+    "@camera_focus_point_algorithm_title": {
+        "description": "Title for the Camera focus mode (Android only)"
+    },
+    "camera_focus_point_algorithm_subtitle": "현재 모드: {mode}\n{reason}",
+    "@camera_focus_point_algorithm_subtitle": {
+        "description": "SubTitle for the Camera focus mode (Android only)",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            },
+            "reason": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_focus_point_algorithm_value_auto_label": "자동",
+    "camera_focus_point_algorithm_value_auto_description": "시스템이 자동으로 고속 모드와 안전 모드를 전환하도록 합니다.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "고속 모드",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "최신 기기에 권장되는 모드입니다.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "안전 모드",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "고속 모드가 동작하지 않을 때 안전 모드를 사용하면 문제가 해결될 수 있습니다.",
+    "camera_play_sound_title": "스캔 시 소리 재생",
+    "@camera_play_sound_title": {
+        "description": "Title for the Camera play sound toggle"
+    },
+    "camera_play_sound_subtitle": "스캔을 성공할 때마다 신호음이 울립니다",
+    "@camera_play_sound_subtitle": {
+        "description": "SubTitle for the Camera play sound toggle"
     },
     "crash_reporting_toggle_title": "Crash reporting",
     "@crash_reporting_toggle_title": {
@@ -871,6 +995,51 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
+    "edit_product_form_item_labels_hint": "상표",
+    "@edit_product_form_item_labels_hint": {
+        "description": "Product edition - Labels - input textfield hint"
+    },
+    "edit_product_form_item_stores_title": "상점",
+    "@edit_product_form_item_stores_title": {
+        "description": "Product edition - Stores - Title"
+    },
+    "edit_product_form_item_stores_hint": "상점",
+    "@edit_product_form_item_stores_hint": {
+        "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_countries_title": "국가",
+    "@edit_product_form_item_countries_title": {
+        "description": "Product edition - Countries - Title"
+    },
+    "edit_product_form_item_countries_hint": "Spain",
+    "@edit_product_form_item_countries_hint": {
+        "description": "Product edition - Countries - input textfield hint"
+    },
+    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "@edit_product_form_item_countries_explanations": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_emb_codes_title": "Traceability codes",
+    "@edit_product_form_item_emb_codes_title": {
+        "description": "Product edition - Traceability codes - Title"
+    },
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_hint": {
+        "description": "Product edition - Traceability Codes - input textfield hint"
+    },
+    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_examples": {
+        "description": "Product edition - EMB Codes - explanations"
+    },
+    "edit_product_form_item_categories_title": "카테고리",
+    "@edit_product_form_item_categories_title": {
+        "description": "Product edition - Categories - Title"
+    },
+    "edit_product_form_item_categories_hint": "카테고리",
+    "@edit_product_form_item_categories_hint": {
+        "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_exit_confirmation": "페이지를 나가기 전에 변경 사항을 저장하시겠습니까?",
     "edit_product_form_item_ingredients_title": "성분 및 원산지",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -962,6 +1131,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_enable_flash": "플래시 켜기",
+    "@camera_enable_flash": {
+        "description": "Enable flash (tooltip)"
+    },
+    "camera_disable_flash": "플래시 끄기",
+    "@camera_disable_flash": {
+        "description": "Disable flash (tooltip)"
     },
     "category_picker_no_category_found_button": "돌아가기",
     "@category_picker_no_category_found_button": {
@@ -1149,6 +1326,22 @@
             }
         }
     },
+    "user_search_contributor_title": "내가 추가한 상품",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "내가 편집한 상품",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "내가 사진을 추가한 상품",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "정보를 완성해야 하는 상품",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1223,12 +1416,13 @@
             }
         }
     },
+    "barcode_invalid_error": "잘못된 바코드",
     "basic_details_add_success": "기본 정보를 성공적으로 추가했습니다",
     "basic_details_add_error": "기본 정보를 추가할 수 없습니다. 나중에 다시 시도해주세요",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "정말로 지우시겠습니까?",
+    "confirm_clear": "전체 내역을 삭제하려고 합니다. 계속하시겠습니까?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1270,5 +1464,38 @@
     "add_photo_button_label": "사진 추가",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "Choose image source",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Please choose a image source",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Gallery",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "공유하기",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Open Food Facts에서 상품을 확인하세요: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "Capture New",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "Choose from gallery",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

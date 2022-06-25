@@ -95,7 +95,7 @@ class _HelperState extends State<_Helper> {
         ),
       ),
       Container(
-        height: _isProductExpanded ? null : 150,
+        height: _isProductExpanded ? null : 180,
         padding: const EdgeInsets.only(
           bottom: LARGE_SPACE,
           right: LARGE_SPACE,
@@ -108,6 +108,7 @@ class _HelperState extends State<_Helper> {
             productPreferences,
             isFullVersion: _isProductExpanded,
             isRemovable: false,
+            isSettingClickable: false,
           ),
         ),
       ),
@@ -125,21 +126,22 @@ class _HelperState extends State<_Helper> {
     return Container(
       color: widget.backgroundColor,
       child: SafeArea(
-        child: Stack(
-          fit: StackFit.expand,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            ListView.builder(
-              padding: const EdgeInsets.only(top: LARGE_SPACE),
-              itemCount: pageData.length,
-              itemBuilder: (BuildContext context, int position) =>
-                  pageData[position],
-            ),
-            Positioned(
-              bottom: 0,
-              child: NextButton(
-                OnboardingPage.PREFERENCES_PAGE,
-                backgroundColor: widget.backgroundColor,
+            Flexible(
+              flex: 1,
+              child: ListView.builder(
+                padding: const EdgeInsets.only(top: LARGE_SPACE),
+                itemCount: pageData.length,
+                itemBuilder: (BuildContext context, int position) =>
+                    pageData[position],
               ),
+            ),
+            NextButton(
+              OnboardingPage.PREFERENCES_PAGE,
+              backgroundColor: widget.backgroundColor,
             ),
           ],
         ),

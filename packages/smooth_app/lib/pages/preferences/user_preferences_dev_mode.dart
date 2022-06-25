@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -195,25 +196,20 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 ),
               );
             }
-            showDialog<void>(
+            await showDialog<void>(
               context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: Text(
-                  appLocalizations.dev_preferences_export_history_dialog_title,
-                ),
-                content: SizedBox(
+              builder: (BuildContext context) => SmoothAlertDialog(
+                title: appLocalizations
+                    .dev_preferences_export_history_dialog_title,
+                body: SizedBox(
                   height: 400,
                   width: 300,
                   child: ListView(children: children),
                 ),
-                actions: <Widget>[
-                  ElevatedButton(
-                    child: Text(
-                      appLocalizations.dev_preferences_button_positive,
-                    ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ],
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.okay,
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
             );
           },
@@ -250,7 +246,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
           subtitle: Text(
             appLocalizations
-                .dev_mode_scan_mode_subtitle(DevModeScanModeExtension.fromIndex(
+                .dev_mode_scan_mode_subtitle(DevModeScanMode.fromIndex(
               userPreferences.getDevModeIndex(
                 userPreferencesEnumScanMode,
               ),
@@ -259,11 +255,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async {
             final DevModeScanMode? scanMode = await showDialog<DevModeScanMode>(
               context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: Text(
-                  appLocalizations.dev_mode_scan_mode_dialog_title,
-                ),
-                content: SizedBox(
+              builder: (BuildContext context) => SmoothAlertDialog(
+                title: appLocalizations.dev_mode_scan_mode_dialog_title,
+                body: SizedBox(
                   height: 400,
                   width: 300,
                   child: ListView.builder(
@@ -278,20 +272,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                     },
                   ),
                 ),
-                actions: <Widget>[
-                  ElevatedButton(
-                    child: Text(
-                      appLocalizations.dev_preferences_button_negative,
-                    ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ],
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.dev_preferences_button_negative,
+                  onPressed: () => Navigator.pop(context),
+                ),
               ),
             );
             if (scanMode != null) {
               await userPreferences.setDevModeIndex(
                 userPreferencesEnumScanMode,
-                scanMode.index,
+                scanMode.idx,
               );
               setState(() {});
             }
@@ -322,10 +312,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 Localizations.localeOf(context).toString(),
             elevation: 16,
             isExpanded: true,
-            onChanged: (String? languageCode) async {
-              await userPreferences.setAppLanguageCode(languageCode);
-              setState(() {});
-            },
+            onChanged: (String? languageCode) async =>
+                userPreferences.setAppLanguageCode(languageCode),
             items: _supportedLanguageCodes.map((Locale locale) {
               final String localeString = locale.toString();
               return DropdownMenuItem<String>(
@@ -338,10 +326,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           // Do not translate
           title: const Text('Reset App Language'),
-          onTap: () async {
-            await userPreferences.setAppLanguageCode(null);
-            setState(() {});
-          },
+          onTap: () async => userPreferences.setAppLanguageCode(null),
         ),
       ];
 
@@ -384,25 +369,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             OpenFoodAPIConfiguration.uriTestHost;
     final bool? result = await showDialog<bool>(
       context: context,
-      builder: (final BuildContext context) => AlertDialog(
-        title: Text(
-          appLocalizations.dev_preferences_test_environment_dialog_title,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.dev_preferences_test_environment_dialog_title,
+        body: TextField(controller: _textFieldController),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.pop(context, false),
         ),
-        content: TextField(controller: _textFieldController),
-        actions: <Widget>[
-          TextButton(
-            child: Text(
-              appLocalizations.dev_preferences_button_negative,
-            ),
-            onPressed: () => Navigator.pop(context, false),
-          ),
-          ElevatedButton(
-            child: Text(
-              appLocalizations.dev_preferences_button_positive,
-            ),
-            onPressed: () => Navigator.pop(context, true),
-          ),
-        ],
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.okay,
+          onPressed: () => Navigator.pop(context, true),
+        ),
       ),
     );
     if (result == true) {
@@ -450,32 +427,24 @@ enum DevModeScanMode {
   PREPROCESS_FULL_IMAGE,
   PREPROCESS_HALF_IMAGE,
   SCAN_FULL_IMAGE,
-  SCAN_HALF_IMAGE,
-}
+  SCAN_HALF_IMAGE;
 
-extension DevModeScanModeExtension on DevModeScanMode {
-  static const DevModeScanMode defaultScanMode =
-      DevModeScanMode.SCAN_FULL_IMAGE;
+  static DevModeScanMode get defaultScanMode => DevModeScanMode.SCAN_FULL_IMAGE;
 
-  static const Map<DevModeScanMode, String> _labels = <DevModeScanMode, String>{
-    DevModeScanMode.CAMERA_ONLY: 'Only camera stream, no scanning',
-    DevModeScanMode.PREPROCESS_FULL_IMAGE:
-        'Camera stream and full image preprocessing, no scanning',
-    DevModeScanMode.PREPROCESS_HALF_IMAGE:
-        'Camera stream and half image preprocessing, no scanning',
-    DevModeScanMode.SCAN_FULL_IMAGE: 'Full image scanning',
-    DevModeScanMode.SCAN_HALF_IMAGE: 'Half image scanning',
-  };
-
-  static const Map<DevModeScanMode, int> _indices = <DevModeScanMode, int>{
-    DevModeScanMode.CAMERA_ONLY: 4,
-    DevModeScanMode.PREPROCESS_FULL_IMAGE: 3,
-    DevModeScanMode.PREPROCESS_HALF_IMAGE: 2,
-    DevModeScanMode.SCAN_FULL_IMAGE: 0,
-    DevModeScanMode.SCAN_HALF_IMAGE: 1,
-  };
-
-  String get label => _labels[this]!;
+  String get label {
+    switch (this) {
+      case DevModeScanMode.CAMERA_ONLY:
+        return 'Only camera stream, no scanning';
+      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
+        return 'Camera stream and full image preprocessing, no scanning';
+      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
+        return 'Camera stream and half image preprocessing, no scanning';
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+        return 'Full image scanning';
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+        return 'Half image scanning';
+    }
+  }
 
   String localizedLabel(AppLocalizations appLocalizations) {
     switch (this) {
@@ -492,7 +461,20 @@ extension DevModeScanModeExtension on DevModeScanMode {
     }
   }
 
-  int get index => _indices[this]!;
+  int get idx {
+    switch (this) {
+      case DevModeScanMode.CAMERA_ONLY:
+        return 4;
+      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
+        return 3;
+      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
+        return 2;
+      case DevModeScanMode.SCAN_FULL_IMAGE:
+        return 0;
+      case DevModeScanMode.SCAN_HALF_IMAGE:
+        return 1;
+    }
+  }
 
   static DevModeScanMode fromIndex(final int? index) {
     if (index == null) {

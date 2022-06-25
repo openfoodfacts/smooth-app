@@ -8,6 +8,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 enum ScannedProductState {
   FOUND,
@@ -15,7 +16,8 @@ enum ScannedProductState {
   LOADING,
   THANKS,
   CACHED,
-  ERROR,
+  ERROR_INTERNET,
+  ERROR_INVALID_CODE,
 }
 
 class ContinuousScanModel with ChangeNotifier {
@@ -56,7 +58,7 @@ class ContinuousScanModel with ChangeNotifier {
       }
       return this;
     } catch (e) {
-      debugPrint('exception: $e');
+      Logs.e('Load database error', ex: e);
     }
     return null;
   }
@@ -77,7 +79,7 @@ class ContinuousScanModel with ChangeNotifier {
       }
       return true;
     } catch (e) {
-      debugPrint('exception: $e');
+      Logs.e('Refresh database error', ex: e);
     }
     return false;
   }
@@ -193,7 +195,10 @@ class ContinuousScanModel with ChangeNotifier {
         _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
         return;
       case FetchedProductStatus.internetError:
-        _setBarcodeState(barcode, ScannedProductState.ERROR);
+        _setBarcodeState(barcode, ScannedProductState.ERROR_INTERNET);
+        return;
+      case FetchedProductStatus.codeInvalid:
+        _setBarcodeState(barcode, ScannedProductState.ERROR_INVALID_CODE);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
@@ -213,7 +218,10 @@ class ContinuousScanModel with ChangeNotifier {
         _setBarcodeState(barcode, ScannedProductState.NOT_FOUND);
         return;
       case FetchedProductStatus.internetError:
-        _setBarcodeState(barcode, ScannedProductState.ERROR);
+        _setBarcodeState(barcode, ScannedProductState.ERROR_INTERNET);
+        return;
+      case FetchedProductStatus.codeInvalid:
+        _setBarcodeState(barcode, ScannedProductState.ERROR_INVALID_CODE);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
