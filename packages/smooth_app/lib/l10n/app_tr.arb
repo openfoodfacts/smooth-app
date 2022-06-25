@@ -1481,7 +1481,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Open Food Facts'teki bu ürüne bir göz atın",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
