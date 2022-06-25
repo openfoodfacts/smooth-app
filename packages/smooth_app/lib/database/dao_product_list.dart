@@ -299,6 +299,28 @@ class DaoProductList extends AbstractDao {
     return clearedItems;
   }
 
+// get the keys for every item in the box
+  Future<List<String>> getKeys() async {
+    final List<String> keys = <String>[];
+    for (final dynamic key in _getBox().keys) {
+      keys.add(key.toString());
+    }
+    return keys;
+  }
+
+  Future<void> deleteWithCertainKey(final String key) async {
+    await _getBox().delete(key);
+  }
+
+  Future<void> updateTimeStampForAKey(String key)async{
+    final _BarcodeList? list = _getBox().get(key);
+    if (list == null) {
+      return;
+    }
+    final _BarcodeList newList = _BarcodeList.now(list.barcodes);
+    _put(key, newList);
+  }
+
   /// Returns a write-safe copy of [_BarcodeList] barcodes.
   ///
   /// cf. https://github.com/openfoodfacts/smooth-app/issues/1786
