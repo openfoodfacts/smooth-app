@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - 'release/*'
-
+  # Manually run this workflow
+  workflow_dispatch:
+  
 env:
   JAVA_VERSION: 17
   RUBY_VERSION: 3.0.2
