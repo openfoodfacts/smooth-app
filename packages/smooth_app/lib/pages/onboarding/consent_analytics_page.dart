@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -68,7 +69,23 @@ class ConsentAnalytics extends StatelessWidget {
               ],
             ),
           ),
-          _buildBottomAppBar(context, appLocalizations),
+          OnboardingBottomBar(
+            leftButton: _buildButton(
+              context,
+              appLocalizations.refuse_button_label,
+              false,
+              const Color(0xFFA08D84),
+              Colors.white,
+            ),
+            rightButton: _buildButton(
+              context,
+              appLocalizations.authorize_button_label,
+              true,
+              Colors.white,
+              Colors.black,
+            ),
+            backgroundColor: backgroundColor,
+          ),
         ],
       ),
     );
@@ -96,88 +113,23 @@ class ConsentAnalytics extends StatelessWidget {
     );
   }
 
-  Widget _buildBottomAppBar(
-    final BuildContext context,
-    final AppLocalizations appLocalizations,
-  ) {
-    final Size screenSize = MediaQuery.of(context).size;
-    // Side padding is 8% of total width.
-    final double sidePadding = screenSize.width * .08;
-    return Column(
-      children: <Widget>[
-        Container(
-          height: SMALL_SPACE,
-          width: screenSize.width,
-          color: LIGHT_GREY_COLOR,
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(
-            vertical: VERY_LARGE_SPACE,
-            horizontal: sidePadding,
-          ),
-          width: screenSize.width,
-          color: backgroundColor,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              _buildButton(
-                context,
-                appLocalizations.refuse_button_label,
-                false,
-                const Color(0xFFA08D84),
-                Colors.white,
-              ),
-              _buildButton(
-                context,
-                appLocalizations.authorize_button_label,
-                true,
-                Colors.white,
-                Colors.black,
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _buildButton(
-    BuildContext context,
-    String label,
-    bool isAccepted,
+    final BuildContext context,
+    final String label,
+    final bool isAccepted,
     final Color backgroundColor,
     final Color foregroundColor,
-  ) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    return ConstrainedBox(
-      constraints: const BoxConstraints.tightFor(height: MINIMUM_TARGET_SIZE),
-      child: ElevatedButton(
+  ) =>
+      OnboardingBottomButton(
         onPressed: () async => _analyticsLogic(
           isAccepted,
-          userPreferences,
-          localDatabase,
+          context.read<UserPreferences>(),
+          context.read<LocalDatabase>(),
           context,
-          themeProvider,
+          context.read<ThemeProvider>(),
         ),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(backgroundColor),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(40),
-            ),
-          ),
-        ),
-        child: Text(
-          label,
-          style: Theme.of(context)
-              .textTheme
-              .headline3
-              ?.copyWith(color: foregroundColor),
-        ),
-      ),
-    );
-  }
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        label: label,
+      );
 }

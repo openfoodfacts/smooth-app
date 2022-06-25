@@ -16,13 +16,13 @@ import 'package:typed_data/typed_buffers.dart';
 /// * left01: .5, top01: .5, width01: .5, height01: ..5 the bottom right rect
 class CameraImageCropper extends AbstractCameraImageGetter {
   CameraImageCropper(
-    final CameraImage cameraImage,
-    final CameraDescription cameraDescription, {
+    super.cameraImage,
+    super.cameraDescription, {
     required this.left01,
     required this.top01,
     required this.width01,
     required this.height01,
-  }) : super(cameraImage, cameraDescription) {
+  }) {
     _computeCropParameters();
   }
 

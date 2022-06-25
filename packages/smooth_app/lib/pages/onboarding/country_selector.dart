@@ -72,11 +72,8 @@ class _CountrySelectorState extends State<CountrySelector> {
                 return StatefulBuilder(
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
-                    return SmoothAlertDialog.advanced(
-                      close: false,
-                      maxHeight: MediaQuery.of(context).size.height,
+                    return SmoothAlertDialog(
                       body: Column(
-                        mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           SmoothTextFormField(
                             type: TextFieldTypes.PLAIN_TEXT,
@@ -103,33 +100,27 @@ class _CountrySelectorState extends State<CountrySelector> {
                             },
                             hintText: appLocalizations.search,
                           ),
-                          Expanded(
-                            child: Scrollbar(
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: filteredList.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final Country country = filteredList[index];
-                                  final bool isSelected =
-                                      country == _chosenValue;
-                                  return ListTile(
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius: ANGULAR_BORDER_RADIUS,
-                                    ),
-                                    title: Text(
-                                      country.name,
-                                      style: TextStyle(
-                                        fontWeight:
-                                            isSelected ? FontWeight.bold : null,
-                                      ),
-                                    ),
-                                    onTap: () {
-                                      Navigator.of(context).pop(country);
-                                    },
-                                  );
+                          ...List<ListTile>.generate(
+                            filteredList.length,
+                            (final int index) {
+                              final Country country = filteredList[index];
+                              final bool isSelected = country == _chosenValue;
+                              return ListTile(
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: ANGULAR_BORDER_RADIUS,
+                                ),
+                                title: Text(
+                                  country.name,
+                                  style: TextStyle(
+                                    fontWeight:
+                                        isSelected ? FontWeight.bold : null,
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).pop(country);
                                 },
-                              ),
-                            ),
+                              );
+                            },
                           ),
                         ],
                       ),

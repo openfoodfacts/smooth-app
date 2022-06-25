@@ -126,7 +126,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                           final int? currentIndex = _controller.page?.toInt();
                           if (currentIndex != null) {
                             final File? croppedImageFile =
-                                await startImageCropping(context);
+                                await startImageCropping(context,
+                                    showoptionDialog: true);
                             if (croppedImageFile != null) {
                               setState(() {
                                 allProductImageProviders[currentIndex] =
@@ -340,6 +341,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         );
         if (photoUploaded != null) {
           _isRefreshed = true;
+          if (!mounted) {
+            return;
+          }
+
           setState(() {
             allProductImageProviders[currentIndex] = FileImage(photoUploaded);
           });

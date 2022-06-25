@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -25,7 +28,6 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> {
-  int _changes = 0;
   late Product _product;
 
   @override
@@ -37,26 +39,19 @@ class _EditProductPageState extends State<EditProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: AutoSizeText(
-          getProductName(_product, appLocalizations),
-          maxLines: 2,
+
+    final Scaffold scaffold = Scaffold(
+        appBar: AppBar(
+          title: AutoSizeText(
+            getProductName(_product, appLocalizations),
+            maxLines: 2,
+          ),
+          systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.light,
+            statusBarBrightness: Brightness.dark,
+          ),
         ),
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.light,
-          statusBarBrightness: Brightness.dark,
-        ),
-      ),
-      body: WillPopScope(
-        onWillPop: () async {
-          // cf. https://stackoverflow.com/questions/51927885/flutter-back-button-with-return-data
-          // we want the same returned value for the app back button and the android back button
-          final bool result = _changes > 0;
-          Navigator.pop(context, result);
-          return result;
-        },
-        child: ListView(
+        body: ListView(
           children: <Widget>[
             ListTile(
               title: Text(
@@ -73,16 +68,13 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) =>
                         AddBasicDetailsPage(_product),
                   ),
                 );
-                if (refreshed ?? false) {
-                  _changes++;
-                }
               },
             ),
             _ListTitleItem(
@@ -105,42 +97,47 @@ class _EditProductPageState extends State<EditProductPage> {
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
-                  _changes++;
+                // TODO(monsieurtanuki): do the refresh uptream with a new ProductRefresher method
+                if (refreshed != true) {
+                  return;
                 }
+                //Refetch product if needed for new urls, since no product in ProductImageGalleryView
+                if (!mounted) {
+                  return;
+                }
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
+                await ProductRefresher().fetchAndRefresh(
+                  context: context,
+                  localDatabase: localDatabase,
+                  barcode: _product.barcode!,
+                );
               },
             ),
-            _getSimpleListTileItem(
-              SimpleInputPageLabelHelper(_product, appLocalizations),
-            ),
+            _getSimpleListTileItem(SimpleInputPageLabelHelper()),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_ingredients_title,
               onTap: () async {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) => EditIngredientsPage(
                       product: _product,
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
-                  _changes++;
-                }
               },
             ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_packaging_title,
             ),
-            _getSimpleListTileItem(
-              SimpleInputPageStoreHelper(_product, appLocalizations),
-            ),
-            _getSimpleListTileItem(
-              SimpleInputPageCategoryHelper(_product, appLocalizations),
-            ),
+            _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+            _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
+            _getSimpleListTileItem(SimpleInputPageCountryHelper()),
+            _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
             _ListTitleItem(
               title:
                   appLocalizations.edit_product_form_item_nutrition_facts_title,
@@ -158,46 +155,55 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!mounted) {
                   return;
                 }
-                final bool? refreshed = await Navigator.push<bool>(
+                await Navigator.push<Product?>(
                   context,
-                  MaterialPageRoute<bool>(
+                  MaterialPageRoute<Product>(
                     builder: (BuildContext context) => NutritionPageLoaded(
                       _product,
                       cache.orderedNutrients,
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
-                  _changes++;
-                }
               },
             ),
           ],
-        ),
-      ),
+        ));
+    return Consumer<UpToDateProductProvider>(
+      builder: (
+        final BuildContext context,
+        final UpToDateProductProvider provider,
+        final Widget? child,
+      ) {
+        final Product? refreshedProduct = provider.get(_product);
+        if (refreshedProduct != null) {
+          _product = refreshedProduct;
+        }
+        return scaffold;
+      },
     );
   }
 
-  Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) =>
-      _ListTitleItem(
-        title: helper.getTitle(),
-        subtitle: helper.getSubtitle(),
-        onTap: () async {
-          if (!await ProductRefresher().checkIfLoggedIn(context)) {
-            return;
-          }
-          final Product? refreshed = await Navigator.push<Product>(
-            context,
-            MaterialPageRoute<Product>(
-              builder: (BuildContext context) => SimpleInputPage(helper),
+  Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return _ListTitleItem(
+      title: helper.getTitle(appLocalizations),
+      subtitle: helper.getSubtitle(appLocalizations),
+      onTap: () async {
+        if (!await ProductRefresher().checkIfLoggedIn(context)) {
+          return;
+        }
+        await Navigator.push<Product>(
+          context,
+          MaterialPageRoute<Product>(
+            builder: (BuildContext context) => SimpleInputPage(
+              helper: helper,
+              product: _product,
             ),
-          );
-          if (refreshed != null) {
-            _product = refreshed;
-          }
-          setState(() {});
-        },
-      );
+          ),
+        );
+      },
+    );
+  }
 }
 
 class _ListTitleItem extends StatelessWidget {

@@ -47,6 +47,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
   String get traceTitle => 'user_preferences_page';
 
   @override
+  String get traceName => 'Opened user_preferences_page';
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();

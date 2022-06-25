@@ -8,11 +8,12 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage();
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -47,6 +48,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     );
 
     if (login) {
+      AnalyticsHelper.trackLogin();
       if (!mounted) {
         return;
       }
@@ -61,6 +63,9 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
   @override
   String get traceTitle => 'login_page';
+
+  @override
+  String get traceName => 'Opened login_page';
 
   @override
   void dispose() {

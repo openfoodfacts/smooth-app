@@ -31,6 +31,9 @@ public class SwiftDataImporterPlugin: NSObject, FlutterPlugin {
       UserDefaults.standard.removeObject(forKey: "username")
       do {
         try Keychain(service: "org.openfoodfacts.openfoodfacts").removeAll()
+
+        let url = Realm.Configuration.defaultConfiguration.fileURL!
+        remove(realmURL: url)
         result(true)
       } catch {
         result(false)
@@ -38,6 +41,18 @@ public class SwiftDataImporterPlugin: NSObject, FlutterPlugin {
     } else {
       result(FlutterMethodNotImplemented)
     }
+  }
+
+  private func remove(realmURL: URL) {
+          let realmURLs = [
+              realmURL,
+              realmURL.appendingPathExtension("lock"),
+              realmURL.appendingPathExtension("note"),
+              realmURL.appendingPathExtension("management"),
+              ]
+          for URL in realmURLs {
+              try? FileManager.default.removeItem(at: URL)
+          }
   }
 
   private func configureRealm() {

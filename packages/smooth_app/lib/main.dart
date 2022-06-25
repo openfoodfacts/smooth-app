@@ -8,10 +8,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
@@ -21,7 +23,9 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/network_config.dart';
+import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -76,6 +80,10 @@ late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
+final PermissionListener _permissionListener =
+    PermissionListener(permission: Permission.camera);
+final UpToDateProductProvider _upToDateProductProvider =
+    UpToDateProductProvider();
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -86,6 +94,7 @@ Future<bool> _init1() async {
     return false;
   }
 
+  await SmoothServices().init();
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
@@ -178,6 +187,8 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
+            provide<UpToDateProductProvider>(_upToDateProductProvider),
+            provide<PermissionListener>(_permissionListener)
           ],
           builder: _buildApp,
         );
@@ -240,6 +251,12 @@ class SmoothAppGetLanguage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO(monsieurtanuki): refactor removing the `SmoothAppGetLanguage` layer?
+    // will refresh each time the language changes
+    context.select(
+      (final UserPreferences userPreferences) =>
+          userPreferences.appLanguageCode,
+    );
     final String languageCode = Localizations.localeOf(context).languageCode;
     ProductQuery.setLanguage(languageCode);
     context.read<ProductPreferences>().refresh(languageCode);

@@ -7,17 +7,12 @@ import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 /// Widget that displays a svg from network (and cache while waiting).
 class SvgCache extends AbstractCache {
   const SvgCache(
-    final String? iconUrl, {
-    final double? width,
-    final double? height,
+    super.iconUrl, {
+    super.width,
+    super.height,
     this.color,
-    final bool displayAssetWhileWaiting = true,
-  }) : super(
-          iconUrl,
-          width: width,
-          height: height,
-          displayAssetWhileWaiting: displayAssetWhileWaiting,
-        );
+    super.displayAssetWhileWaiting = true,
+  });
 
   final Color? color;
 
@@ -46,9 +41,20 @@ class SvgCache extends AbstractCache {
     if (cachedFilenames.isEmpty) {
       return getDefaultUnknown();
     }
+    Color? forcedColor = color;
+    // cf. https://github.com/openfoodfacts/smooth-app/issues/2268
+    // For tinted icons, when there's no color it's not good, as it will always
+    // be black - not good for dark mode.
+    // Here we detect lazily tinted icons if the URL contains "/icons/"
+    // e.g. https://static.openfoodfacts.org/images/icons/dist/nutrition.svg
+    if (forcedColor == null && iconUrl!.contains('/icons/')) {
+      forcedColor = Theme.of(context).brightness == Brightness.dark
+          ? Colors.white
+          : Colors.black;
+    }
     return SvgPicture.network(
       iconUrl!,
-      color: color,
+      color: forcedColor,
       width: width,
       height: height,
       fit: BoxFit.contain,
@@ -59,7 +65,7 @@ class SvgCache extends AbstractCache {
                 iconUrl!,
                 width: width,
                 height: height,
-                color: color,
+                color: forcedColor,
               ),
             )
           : getCircularProgressIndicator(),

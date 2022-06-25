@@ -19,8 +19,8 @@ class LifeCycleManager extends StatefulWidget {
     this.onStart,
     this.onVisible,
     this.onInvisible,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Function() onResume;
   final Function() onPause;

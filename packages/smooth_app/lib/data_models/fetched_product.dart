@@ -6,6 +6,7 @@ enum FetchedProductStatus {
   internetNotFound,
   internetError,
   userCancelled,
+  codeInvalid,
   // TODO(monsieurtanuki): time-out
 }
 

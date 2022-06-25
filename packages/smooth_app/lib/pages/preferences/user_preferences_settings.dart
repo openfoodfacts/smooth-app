@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -5,10 +7,12 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
@@ -44,7 +48,29 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   IconData getLeadingIconData() => Icons.handyman;
 
   @override
-  List<Widget> getBody() => <Widget>[
+  List<Widget> getBody() => const <Widget>[
+        _ApplicationSettings(),
+        UserPreferencesListItemDivider(),
+        _CameraSettings(),
+        UserPreferencesListItemDivider(),
+        _PrivacySettings(),
+      ];
+}
+
+class _ApplicationSettings extends StatelessWidget {
+  const _ApplicationSettings({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final ThemeData themeData = Theme.of(context);
+
+    return Column(
+      children: <Widget>[
+        UserPreferencesTitle(
+          label: appLocalizations.settings_app_app,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: LARGE_SPACE,
@@ -84,14 +110,9 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         const UserPreferencesListItemDivider(),
         const _CountryPickerSetting(),
         const UserPreferencesListItemDivider(),
-        const _CameraHighResolutionPresetSetting(),
-        const UserPreferencesListItemDivider(),
-        const _CameraPlayScanSoundSetting(),
-        const UserPreferencesListItemDivider(),
-        const _CrashReportingSetting(),
-        const UserPreferencesListItemDivider(),
-        const _SendAnonymousDataSetting(),
-      ];
+      ],
+    );
+  }
 }
 
 class _CountryPickerSetting extends StatelessWidget {
@@ -112,6 +133,27 @@ class _CountryPickerSetting extends StatelessWidget {
         textStyle: Theme.of(context).textTheme.bodyText2,
       ),
       minVerticalPadding: MEDIUM_SPACE,
+    );
+  }
+}
+
+class _PrivacySettings extends StatelessWidget {
+  const _PrivacySettings({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        UserPreferencesTitle(
+          label: appLocalizations.settings_app_data,
+        ),
+        const _CrashReportingSetting(),
+        const UserPreferencesListItemDivider(),
+        const _SendAnonymousDataSetting(),
+      ],
     );
   }
 }
@@ -161,6 +203,36 @@ class _CrashReportingSetting extends StatelessWidget {
   }
 }
 
+class _CameraSettings extends StatelessWidget {
+  const _CameraSettings({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (!CameraHelper.hasACamera) {
+      return const SizedBox.shrink();
+    }
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        UserPreferencesTitle(
+          label: appLocalizations.settings_app_camera,
+        ),
+        const _CameraHighResolutionPresetSetting(),
+        const UserPreferencesListItemDivider(),
+        const _CameraPlayScanSoundSetting(),
+        const UserPreferencesListItemDivider(),
+        if (Platform.isAndroid) ...const <Widget>[
+          _CameraFocusModeSetting(),
+          UserPreferencesListItemDivider(),
+        ],
+      ],
+    );
+  }
+}
+
 class _CameraHighResolutionPresetSetting extends StatelessWidget {
   const _CameraHighResolutionPresetSetting({Key? key}) : super(key: key);
 
@@ -177,6 +249,84 @@ class _CameraHighResolutionPresetSetting extends StatelessWidget {
         await userPreferences.setUseVeryHighResolutionPreset(value);
       },
     );
+  }
+}
+
+class _CameraFocusModeSetting extends StatelessWidget {
+  const _CameraFocusModeSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return UserPreferencesMultipleChoicesItem<CameraFocusPointAlgorithm>(
+      title: appLocalizations.camera_focus_point_algorithm_title,
+      subtitle: appLocalizations.camera_focus_point_algorithm_subtitle(
+        getReadableMode(
+          appLocalizations,
+          userPreferences.cameraFocusPointAlgorithm,
+        ),
+        getReadableDescription(
+          appLocalizations,
+          userPreferences.cameraFocusPointAlgorithm,
+        ),
+      ),
+      values: CameraFocusPointAlgorithm.values,
+      descriptions: getDescriptions(appLocalizations),
+      labels: getLabels(appLocalizations),
+      currentValue: userPreferences.cameraFocusPointAlgorithm,
+      onChanged: (final CameraFocusPointAlgorithm value) async {
+        await userPreferences.setCameraFocusAlgorithm(value);
+      },
+    );
+  }
+
+  String getReadableMode(
+    AppLocalizations appLocalizations,
+    CameraFocusPointAlgorithm cameraFocusPointAlgorithm,
+  ) {
+    switch (cameraFocusPointAlgorithm) {
+      case CameraFocusPointAlgorithm.newAlgorithm:
+        return appLocalizations
+            .camera_focus_point_algorithm_value_new_algorithm_label;
+      case CameraFocusPointAlgorithm.oldAlgorithm:
+        return appLocalizations
+            .camera_focus_point_algorithm_value_old_algorithm_label;
+      case CameraFocusPointAlgorithm.auto:
+      default:
+        return appLocalizations.camera_focus_point_algorithm_value_auto_label;
+    }
+  }
+
+  String getReadableDescription(
+    AppLocalizations appLocalizations,
+    CameraFocusPointAlgorithm cameraFocusPointAlgorithm,
+  ) {
+    switch (cameraFocusPointAlgorithm) {
+      case CameraFocusPointAlgorithm.newAlgorithm:
+        return appLocalizations
+            .camera_focus_point_algorithm_value_new_algorithm_description;
+      case CameraFocusPointAlgorithm.oldAlgorithm:
+        return appLocalizations
+            .camera_focus_point_algorithm_value_old_algorithm_description;
+      case CameraFocusPointAlgorithm.auto:
+      default:
+        return appLocalizations
+            .camera_focus_point_algorithm_value_auto_description;
+    }
+  }
+
+  Iterable<String> getLabels(AppLocalizations appLocalizations) {
+    return CameraFocusPointAlgorithm.values.map((CameraFocusPointAlgorithm e) {
+      return getReadableMode(appLocalizations, e);
+    });
+  }
+
+  Iterable<String> getDescriptions(AppLocalizations appLocalizations) {
+    return CameraFocusPointAlgorithm.values.map((CameraFocusPointAlgorithm e) {
+      return getReadableDescription(appLocalizations, e);
+    });
   }
 }
 

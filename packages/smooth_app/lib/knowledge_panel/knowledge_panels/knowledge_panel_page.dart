@@ -5,7 +5,6 @@ import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 
 class KnowledgePanelPage extends StatefulWidget {
@@ -26,16 +25,13 @@ class KnowledgePanelPage extends StatefulWidget {
 class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     with TraceableClientMixin {
   @override
-  String get traceName =>
-      'Opened full knowledge panel page ${widget.panel.titleElement?.title}';
-
-  @override
   String get traceTitle => 'knowledge_panel_page';
 
   @override
-  Widget build(BuildContext context) {
-    AnalyticsHelper.trackKnowledgePanelOpen();
+  String get traceName => 'Opened full knowledge panel page $_title';
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(_title),

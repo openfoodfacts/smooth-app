@@ -168,8 +168,16 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         );
       case ScannedProductState.THANKS:
         return const SmoothProductCardThanks();
-      case ScannedProductState.ERROR:
-        return SmoothProductCardError(barcode: barcode);
+      case ScannedProductState.ERROR_INTERNET:
+        return SmoothProductCardError(
+          barcode: barcode,
+          errorType: ScannedProductState.ERROR_INTERNET,
+        );
+      case ScannedProductState.ERROR_INVALID_CODE:
+        return SmoothProductCardError(
+          barcode: barcode,
+          errorType: ScannedProductState.ERROR_INVALID_CODE,
+        );
     }
   }
 }
