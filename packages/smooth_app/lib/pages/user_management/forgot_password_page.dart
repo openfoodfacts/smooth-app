@@ -10,7 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+  const ForgotPasswordPage();
 
   @override
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
@@ -55,6 +55,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
 
   @override
   String get traceTitle => 'forgot_password_page';
+
+  @override
+  String get traceName => 'Opened forgot_password_page';
 
   @override
   void dispose() {

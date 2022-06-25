@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -39,6 +40,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
   @override
   String get traceTitle => 'sign_up_page';
+
+  @override
+  String get traceName => 'Opened sign_up_page';
 
   @override
   Widget build(BuildContext context) {
@@ -318,6 +322,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       await LoadingDialog.error(context: context, title: status.error);
       return;
     }
+    AnalyticsHelper.trackRegister();
     if (!mounted) {
       return;
     }

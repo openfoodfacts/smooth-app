@@ -7,9 +7,12 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 
 class SmoothErrorCard extends StatefulWidget {
-  const SmoothErrorCard(
-      {Key? key, required this.errorMessage, required this.tryAgainFunction})
-      : super(key: key);
+  const SmoothErrorCard({
+    super.key,
+    required this.errorMessage,
+    required this.tryAgainFunction,
+  });
+
   final String errorMessage;
   final void Function() tryAgainFunction;
 

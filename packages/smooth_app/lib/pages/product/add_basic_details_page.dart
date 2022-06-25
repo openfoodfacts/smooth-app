@@ -124,50 +124,42 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   onPressed: () => Navigator.pop(context),
                 ),
                 positiveAction: SmoothActionButton(
-                    text: appLocalizations.save,
-                    onPressed: () async {
-                      if (!_formKey.currentState!.validate()) {
-                        return;
-                      }
-                      final Product? refreshedProduct =
-                          await _saveData(localDatabase);
-                      if (refreshedProduct != null) {
-                        setState(() {
-                          _product = refreshedProduct;
-                        });
-                        if (!mounted) {
-                          return;
-                        }
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text(
-                                appLocalizations.basic_details_add_success)));
-                        Navigator.pop(context, _product);
-                      } else {
-                        if (!mounted) {
-                          return;
-                        }
-                        Navigator.pop(context);
-                      }
-                    }),
+                  text: appLocalizations.save,
+                  onPressed: () async {
+                    if (!_formKey.currentState!.validate()) {
+                      return;
+                    }
+                    final bool savedAndRefreshed =
+                        await ProductRefresher().saveAndRefresh(
+                      context: context,
+                      localDatabase: localDatabase,
+                      product: Product(
+                        productName: _productNameController.text,
+                        quantity: _weightController.text,
+                        brands: _brandNameController.text,
+                        barcode: _product.barcode,
+                      ),
+                    );
+                    if (!savedAndRefreshed) {
+                      return;
+                    }
+                    if (!mounted) {
+                      return;
+                    }
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content:
+                            Text(appLocalizations.basic_details_add_success),
+                      ),
+                    );
+                    Navigator.pop(context);
+                  },
+                ),
               ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  Future<Product?> _saveData(LocalDatabase localDatabase) async {
-    final Product? savedAndRefreshed = await ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: Product(
-        productName: _productNameController.text,
-        quantity: _weightController.text,
-        brands: _brandNameController.text,
-        barcode: _product.barcode,
-      ),
-    );
-    return savedAndRefreshed;
   }
 }

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/scan/scan_flash_toggle.dart';
 
 /// This Widget is a [StatefulWidget], as it uses a [GlobalKey] to allow an
 /// external access
 class ScannerVisorWidget extends StatefulWidget {
-  const ScannerVisorWidget({Key? key}) : super(key: key);
+  const ScannerVisorWidget({
+    super.key,
+  });
 
   @override
   State<ScannerVisorWidget> createState() => ScannerVisorWidgetState();
@@ -21,6 +24,10 @@ class ScannerVisorWidget extends StatefulWidget {
 class ScannerVisorWidgetState extends State<ScannerVisorWidget> {
   @override
   Widget build(BuildContext context) {
+    if (!CameraHelper.hasACamera) {
+      return const SizedBox.shrink();
+    }
+
     return Stack(
       key: Provider.of<GlobalKey<ScannerVisorWidgetState>>(context),
       children: <Widget>[

@@ -90,6 +90,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  // https://github.com/openfoodfacts/smooth-app/pull/2219
   final TextEditingController _searchTextController = TextEditingController();
 
   @override
@@ -113,12 +114,6 @@ class _SearchPageState extends State<SearchPage> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _searchTextController.dispose();
-    super.dispose();
   }
 }
 

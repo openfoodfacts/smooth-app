@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
@@ -27,7 +28,6 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> {
-  int _changes = 0;
   late Product _product;
 
   @override
@@ -40,26 +40,18 @@ class _EditProductPageState extends State<EditProductPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: AutoSizeText(
-          getProductName(_product, appLocalizations),
-          maxLines: 2,
+    final Scaffold scaffold = Scaffold(
+        appBar: AppBar(
+          title: AutoSizeText(
+            getProductName(_product, appLocalizations),
+            maxLines: 2,
+          ),
+          systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.light,
+            statusBarBrightness: Brightness.dark,
+          ),
         ),
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.light,
-          statusBarBrightness: Brightness.dark,
-        ),
-      ),
-      body: WillPopScope(
-        onWillPop: () async {
-          // cf. https://stackoverflow.com/questions/51927885/flutter-back-button-with-return-data
-          // we want the same returned value for the app back button and the android back button
-          final bool result = _changes > 0;
-          Navigator.pop(context, result);
-          return result;
-        },
-        child: ListView(
+        body: ListView(
           children: <Widget>[
             ListTile(
               title: Text(
@@ -76,20 +68,13 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
                   return;
                 }
-                final Product? refreshedProduct =
-                    await Navigator.push<Product?>(
+                await Navigator.push<Product?>(
                   context,
                   MaterialPageRoute<Product>(
                     builder: (BuildContext context) =>
                         AddBasicDetailsPage(_product),
                   ),
                 );
-                if (refreshedProduct != null) {
-                  _changes++;
-                  setState(() {
-                    _product = refreshedProduct;
-                  });
-                }
               },
             ),
             _ListTitleItem(
@@ -112,24 +97,21 @@ class _EditProductPageState extends State<EditProductPage> {
                     ),
                   ),
                 );
-                if (refreshed ?? false) {
-                  _changes++;
-                  //Refetch product if needed for new urls, since no product in ProductImageGalleryView
-                  if (!mounted) {
-                    return;
-                  }
-                  final LocalDatabase localDatabase =
-                      context.read<LocalDatabase>();
-                  final Product? refreshedProduct =
-                      await ProductRefresher().fetchAndRefresh(
-                    context: context,
-                    localDatabase: localDatabase,
-                    barcode: _product.barcode!,
-                  );
-                  if (refreshedProduct != null) {
-                    _product = refreshedProduct;
-                  }
+                // TODO(monsieurtanuki): do the refresh uptream with a new ProductRefresher method
+                if (refreshed != true) {
+                  return;
                 }
+                //Refetch product if needed for new urls, since no product in ProductImageGalleryView
+                if (!mounted) {
+                  return;
+                }
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
+                await ProductRefresher().fetchAndRefresh(
+                  context: context,
+                  localDatabase: localDatabase,
+                  barcode: _product.barcode!,
+                );
               },
             ),
             _getSimpleListTileItem(
@@ -141,8 +123,7 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
                   return;
                 }
-                final Product? refreshedProduct =
-                    await Navigator.push<Product?>(
+                await Navigator.push<Product?>(
                   context,
                   MaterialPageRoute<Product>(
                     builder: (BuildContext context) => EditIngredientsPage(
@@ -150,12 +131,6 @@ class _EditProductPageState extends State<EditProductPage> {
                     ),
                   ),
                 );
-                if (refreshedProduct != null) {
-                  _changes++;
-                  setState(() {
-                    _product = refreshedProduct;
-                  });
-                }
               },
             ),
             _ListTitleItem(
@@ -184,8 +159,7 @@ class _EditProductPageState extends State<EditProductPage> {
                 if (!mounted) {
                   return;
                 }
-                final Product? refreshedProduct =
-                    await Navigator.push<Product?>(
+                await Navigator.push<Product?>(
                   context,
                   MaterialPageRoute<Product>(
                     builder: (BuildContext context) => NutritionPageLoaded(
@@ -194,17 +168,22 @@ class _EditProductPageState extends State<EditProductPage> {
                     ),
                   ),
                 );
-                if (refreshedProduct != null) {
-                  _changes++;
-                  setState(() {
-                    _product = refreshedProduct;
-                  });
-                }
               },
             ),
           ],
-        ),
-      ),
+        ));
+    return Consumer<UpToDateProductProvider>(
+      builder: (
+        final BuildContext context,
+        final UpToDateProductProvider provider,
+        final Widget? child,
+      ) {
+        final Product? refreshedProduct = provider.get(_product);
+        if (refreshedProduct != null) {
+          _product = refreshedProduct;
+        }
+        return scaffold;
+      },
     );
   }
 
@@ -216,16 +195,12 @@ class _EditProductPageState extends State<EditProductPage> {
           if (!await ProductRefresher().checkIfLoggedIn(context)) {
             return;
           }
-          final Product? refreshed = await Navigator.push<Product>(
+          await Navigator.push<Product>(
             context,
             MaterialPageRoute<Product>(
               builder: (BuildContext context) => SimpleInputPage(helper),
             ),
           );
-          if (refreshed != null) {
-            _product = refreshed;
-          }
-          setState(() {});
         },
       );
 }

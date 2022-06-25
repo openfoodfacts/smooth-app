@@ -14,16 +14,13 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 class SmoothCameraController extends CameraController {
   SmoothCameraController(
     this.preferences,
-    CameraDescription description,
-    ResolutionPreset resolutionPreset, {
-    ImageFormatGroup? imageFormatGroup,
+    super.description,
+    super.resolutionPreset, {
+    super.imageFormatGroup,
   })  : _state = _CameraState.notInitialized,
         _hasAPendingResume = false,
         super(
-          description,
-          resolutionPreset,
           enableAudio: false,
-          imageFormatGroup: imageFormatGroup,
         );
 
   final UserPreferences preferences;
@@ -256,6 +253,21 @@ class SmoothCameraController extends CameraController {
     }
   }
 
+  @override
+  Widget buildPreview() {
+    try {
+      return super.buildPreview();
+    } catch (err) {
+      if (err is CameraException && err.code == 'Disposed CameraController') {
+        _updateState(_CameraState.disposed);
+        // Just ignore the issue, a new Controller will be created
+        // Issue reproducible on iOS
+      }
+
+      return const SizedBox.shrink();
+    }
+  }
+
   bool get isPaused => _state == _CameraState.paused;
 
   bool get isInitialized => !<_CameraState>[
@@ -303,10 +315,8 @@ enum CameraFocusPointAlgorithm {
   // Quicker algorithm, but may not work on old / Samsung devices
   newAlgorithm,
   // Old algorithm, which let more time between each focuses
-  oldAlgorithm,
-}
+  oldAlgorithm;
 
-extension CameraFocusPointAlgorithmExtension on CameraFocusPointAlgorithm {
   FocusPointMode get mode {
     switch (this) {
       case CameraFocusPointAlgorithm.newAlgorithm:

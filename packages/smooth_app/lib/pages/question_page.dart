@@ -44,6 +44,9 @@ class _QuestionPageState extends State<QuestionPage>
   String get traceTitle => 'robotoff_question_page';
 
   @override
+  String get traceName => 'Opened robotoff_question_page';
+
+  @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
@@ -376,8 +379,11 @@ class _QuestionPageState extends State<QuestionPage>
 }
 
 class CongratsWidget extends StatelessWidget {
-  const CongratsWidget(this._anonymousAnnotationList, {Key? key})
-      : super(key: key);
+  const CongratsWidget(
+    this._anonymousAnnotationList, {
+    super.key,
+  });
+
   final Map<String, InsightAnnotation> _anonymousAnnotationList;
 
   @override

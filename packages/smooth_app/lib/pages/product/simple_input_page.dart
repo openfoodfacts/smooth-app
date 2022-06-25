@@ -12,7 +12,7 @@ import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
-  const SimpleInputPage(this.helper) : super();
+  const SimpleInputPage(this.helper);
 
   final AbstractSimpleInputPageHelper helper;
 
@@ -28,10 +28,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    // that's a bit tricky here.
-    // 1. we want to decide if we can go out of this page.
-    // 1a. for this, we return an async bool, according to onWillPop.
-    // 2. but we also want to return the changed Product.
     return WillPopScope(
       onWillPop: () async {
         final Product? changedProduct = widget.helper.getChangedProduct();
@@ -61,22 +57,12 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         if (pleaseSave == false) {
           return true;
         }
-        final Product? savedAndRefreshed =
-            await ProductRefresher().saveAndRefresh(
+        // if it fails, we stay on the same page
+        return ProductRefresher().saveAndRefresh(
           context: context,
           localDatabase: localDatabase,
           product: changedProduct,
         );
-        if (savedAndRefreshed == null) {
-          // it failed: we stay on the same page
-          return false;
-        }
-        // tricky part (cf. https://stackoverflow.com/questions/53995673/willpopscope-should-i-use-return-future-valuetrue-after-navigator-pop)
-        // 1. we return true to get out of this page.
-        // 2. we pop the product because the calling page needs it.
-        //ignore: use_build_context_synchronously
-        Navigator.pop(context, savedAndRefreshed);
-        return Future<bool>(() => true);
       },
       child: Scaffold(
         appBar: AppBar(

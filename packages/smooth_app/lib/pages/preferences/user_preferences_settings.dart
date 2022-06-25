@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -207,6 +208,10 @@ class _CameraSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (!CameraHelper.hasACamera) {
+      return const SizedBox.shrink();
+    }
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Column(

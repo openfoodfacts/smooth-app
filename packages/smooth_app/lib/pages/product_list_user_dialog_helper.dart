@@ -45,7 +45,7 @@ class ProductListUserDialogHelper {
             },
           ),
         ),
-        neutralAction: SmoothActionButton(
+        negativeAction: SmoothActionButton(
           onPressed: () => Navigator.pop(context),
           text: appLocalizations.cancel,
         ),
@@ -85,57 +85,47 @@ class ProductListUserDialogHelper {
       context: context,
       builder: (final BuildContext context) => StatefulBuilder(
         builder:
-            (BuildContext context, void Function(VoidCallback fn) setState) =>
-                SmoothAlertDialog(
-          title: getProductName(product, appLocalizations),
-          body: StatefulBuilder(
-            builder: (BuildContext context,
-                void Function(VoidCallback fn) setState) {
-              final List<Widget> children = <Widget>[];
-              for (final String name in all) {
-                children.add(
-                  ListTile(
-                    leading: Icon(
-                      newWithBarcode.contains(name)
-                          ? Icons.check_box
-                          : Icons.check_box_outline_blank,
-                    ),
-                    title: Text(name),
-                    onTap: () => setState(
-                      () => newWithBarcode.contains(name)
-                          ? newWithBarcode.remove(name)
-                          : newWithBarcode.add(name),
-                    ),
-                  ),
-                );
-              }
-              return ListView(
-                shrinkWrap: true,
-                children: children,
-              );
-            },
-          ),
-          negativeAction: SmoothActionButton(
-            onPressed: () => Navigator.pop(context),
-            text: appLocalizations.cancel,
-          ),
-          neutralAction: SmoothActionButton(
-            onPressed: () async {
-              final ProductList? productList =
-                  await showCreateUserListDialog(context);
-              if (productList != null) {
-                all.clear();
-                all.addAll(daoProductList.getUserLists());
-                setState(() => addedLists = true);
-              }
-            },
-            text: appLocalizations.user_list_button_new,
-          ),
-          positiveAction: SmoothActionButton(
-            onPressed: () => Navigator.pop(context, true),
-            text: appLocalizations.okay,
-          ),
-        ),
+            (BuildContext context, void Function(VoidCallback fn) setState) {
+          final List<Widget> children = <Widget>[];
+          for (final String name in all) {
+            children.add(
+              ListTile(
+                leading: Icon(
+                  newWithBarcode.contains(name)
+                      ? Icons.check_box
+                      : Icons.check_box_outline_blank,
+                ),
+                title: Text(name),
+                onTap: () => setState(
+                  () => newWithBarcode.contains(name)
+                      ? newWithBarcode.remove(name)
+                      : newWithBarcode.add(name),
+                ),
+              ),
+            );
+          }
+          return SmoothAlertDialog(
+            close: true,
+            title: getProductName(product, appLocalizations),
+            body: Column(children: children),
+            negativeAction: SmoothActionButton(
+              onPressed: () async {
+                final ProductList? productList =
+                    await showCreateUserListDialog(context);
+                if (productList != null) {
+                  all.clear();
+                  all.addAll(daoProductList.getUserLists());
+                  setState(() => addedLists = true);
+                }
+              },
+              text: appLocalizations.user_list_button_new,
+            ),
+            positiveAction: SmoothActionButton(
+              onPressed: () => Navigator.pop(context, true),
+              text: appLocalizations.okay,
+            ),
+          );
+        },
       ),
     );
     if (addedLists == false && result != true) {
