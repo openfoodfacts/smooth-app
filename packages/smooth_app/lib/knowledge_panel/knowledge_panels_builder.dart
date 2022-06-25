@@ -12,6 +12,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_elem
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 
 /// "Knowledge Panel" widget.
@@ -101,8 +102,9 @@ class KnowledgePanelWidget extends StatelessWidget {
               onPressed: () async => Navigator.push<bool>(
                 context,
                 MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => EditIngredientsPage(
+                  builder: (BuildContext context) => EditOcrPage(
                     product: product!,
+                    helper: OcrIngredientsHelper(),
                   ),
                 ),
               ),
