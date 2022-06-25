@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -25,7 +26,8 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     setState(() {});
   }
 
-  Future<String> _refreshLocalDatabase(DaoProduct daoproduct) async {
+  Future<String> _refreshLocalDatabase(
+      DaoProduct daoproduct, DaoProductList daoProductList) async {
     final List<String> barcodes = await daoproduct.getAllKeys();
     if (barcodes.isEmpty) {
       return 'List is Empty,Nothing to Refresh';
@@ -55,6 +57,13 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
         chunks.clear();
       }
       await daoproduct.putAll(productList);
+      final List<String> rawKeys = await daoProductList.getKeys();
+      // refresh the entry with the current timestamp
+      rawKeys.removeWhere((String key) =>
+          !key.contains(ProductListType.HTTP_SEARCH_KEYWORDS.key));
+      for (final String element in rawKeys) {
+        await daoProductList.updateTimeStampForAKey(element);
+      }
       return 'Refreshed ${productList.length} products';
     } catch (e) {
       return 'Refresh failed: $e';
@@ -66,7 +75,6 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final bool dark = Theme.of(context).brightness == Brightness.dark;
     const double titleHeightInExpandedMode = 50;
@@ -77,7 +85,6 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
         child: RefreshIndicator(
           onRefresh: () async {
             // just reload the screen
-
             await _refreshDetails();
           },
           child: CustomScrollView(
@@ -151,12 +158,12 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                       onTap: () async {
                         final String status = await LoadingDialog.run<String>(
                               context: context,
-                              future: _refreshLocalDatabase(daoProduct),
+                              future: _refreshLocalDatabase(
+                                  daoProduct, daoProductList),
                               title: 'Refreshing \n This may take a while',
                               dismissible: true,
                             ) ??
                             'Refresh Cancelled';
-                        // TODO(ashaman999): dapproductlist.updateTimestamp();
                         if (!mounted) {
                           return;
                         }
@@ -170,7 +177,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                         'Update Offline Data',
                       ),
                       subtitle: const Text(
-                        'Update the databse with the latest data from the server',
+                        'Update the local databse cache with the latest data from the server',
                       ),
                     ),
                     UserPreferencesListTile(
@@ -182,8 +189,9 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                               builder: (BuildContext context) {
                                 return SmoothAlertDialog(
                                   title: 'Confirm Deletion?',
-                                  body: const Text(
-                                      'This process cannot be reverse, do you wish to continue'),
+                                  body: const Text('''
+                                      It will delete all the cached products as well as the scan history\n
+                                      This process cannot be reversed, Do you wish to continue?'''),
                                   positiveAction: SmoothActionButton(
                                     onPressed: () async {
                                       Navigator.pop(context, true);
@@ -202,7 +210,21 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                             false;
                         if (confirmed) {
                           final double size = await localDatabase.getSize();
-                          await daoProductList.clearAll();
+                          final List<String> typesToDelete =
+                              await daoProductList.getKeys();
+                          // just keep the product list keys that should be deleted
+                          // ignore: list_remove_unrelated_type
+                          typesToDelete.remove(!typesToDelete
+                                  .contains(ProductListType.HISTORY.key) ||
+                              typesToDelete.contains(
+                                  ProductListType.HTTP_SEARCH_KEYWORDS.key) ||
+                              typesToDelete
+                                  .contains(ProductListType.SCAN_SESSION.key) ||
+                              typesToDelete.contains(
+                                  ProductListType.HTTP_SEARCH_CATEGORY.key));
+                          for (final String key in typesToDelete) {
+                            await daoProductList.deleteWithCertainKey(key);
+                          }
                           final int noOdDeletedProducts =
                               await daoProduct.clearAll();
                           if (!mounted) {
