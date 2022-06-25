@@ -102,6 +102,8 @@ class ProductRefresher {
       final Status status = await OpenFoodAPIClient.saveProduct(
         ProductQuery.getUser(),
         inputProduct,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
       );
       if (status.error != null) {
         return _MetaProductRefresher.error(status.error);
@@ -138,7 +140,7 @@ class ProductRefresher {
         await LoadingDialog.run<_MetaProductRefresher>(
       future: _fetchAndRefresh(localDatabase, barcode),
       context: context,
-      title: appLocalizations.nutrition_page_update_running,
+      title: appLocalizations.refreshing_product,
     );
     if (fetchAndRefreshed == null) {
       return false;

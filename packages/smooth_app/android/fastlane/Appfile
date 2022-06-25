@@ -1,3 +1,3 @@
 # Android
 json_key_file(ENV['GOOGLE_PLAY_JSON_PATH'] || 'fastlane/envfiles/api-4712693179220384697-162836-33ea08672303.json')
-package_name(ENV['PACKAGE_NAME'] || "org.openfoodfacts.app")
+package_name(ENV['PACKAGE_NAME'] || "org.openfoodfacts.scanner")

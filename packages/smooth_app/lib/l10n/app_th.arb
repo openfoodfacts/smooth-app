@@ -12,13 +12,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "กลับขึ้นไปด้านบน",
     "save": "บันทึก",
     "save_confirmation": "คุณแน่ใจว่าต้องการจะบันทึกใช่มั้ย",
     "skip": "Skip",
     "cancel": "ยกเลิก",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "ละเว้น",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -40,11 +40,10 @@
     "@error_occurred": {},
     "featureInProgress": "เรากำลังพัฒนากับฟีเจอร์นี้เจอกันเร็วๆนี้",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "เปิดดูบนเว็บไซต์",
     "@label_web": {},
     "learnMore": "ดูเพิ่มเติม",
     "@learnMore": {},
-    "general_confirmation": "แน่ใจมั้ย",
     "unknown": "ไม่ทราบ",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -110,7 +109,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "เลือกอาหาร ที่ดีสำหรับคุณ และโลกนี้",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -143,7 +142,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "คุณต้องลงชื่อเข้าใช้ เพื่อใช้ฟีเจอร์นี้",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -199,12 +198,12 @@
     "sign_up_page_display_name_error_empty": "กรุณาตั้งชื่อเล่น ที่คุณต้องการ",
     "sign_up_page_email_hint": "อีเม",
     "sign_up_page_email_error_empty": "ต้องระบุอีเมล์",
-    "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_email_error_invalid": "อีเมลไม่ถูกต้อง",
+    "sign_up_page_username_hint": "ชื่อผู้ใช้: เปิดเผยต่อสาธารณะ",
     "sign_up_page_username_error_empty": "กรุณา ใส่ชื่อแอคเค้าท์",
     "sign_up_page_username_error_invalid": "ชื่อไม่ถูกต้อง",
     "sign_up_page_username_description": "การตั้งชื่อไม่อนุญาตให้มีช่องว่าง อักษรตัวใหญ่ และ เครื่องหมายต่างๆ",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "ชื่อผู้ใช้ต้องไม่เกิน {value} ตัวอักษร",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -234,36 +233,36 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "เมื่อสร้างบัญชี จะถือว่าเป็นการยอมรับข้อกำหนดการใช้งานโดยปริยาย แต่คุณสามารถใช้งานแบบไม่ระบุตัวตนได้ผ่านแอป",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_producer_checkbox": "ฉันเป็นผู้ผลิตอาหาร",
+    "sign_up_page_producer_hint": "ผู้ผลิต/ยี่ห้อ",
+    "sign_up_page_producer_error_empty": "โปรดป้อนผู้ผลิตหรือยี่ห้อ",
+    "sign_up_page_subscribe_checkbox": "ต้องการสมัครรับจดหมายข่าวจาก Open Food Facts (คุณสามารถยกเลิกการสมัครได้ทุกเมื่อ)",
     "@Settings": {},
     "settingsTitle": "ตั้งค่า",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Darkmode",
+    "darkmode": "ดาร์คโหมด",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "มืด",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch (dark)"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "สว่าง",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "ใช้ค่าจากระบบ",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "ขอบคุณสำหรับการมีส่วนร่วม",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -272,11 +271,13 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us an e-mail",
+    "support_join_slack": "ขอความช่วยเหลือผ่าน Slack ของเรา",
+    "support_via_email": "ส่งอีเมลถึง Open Food Facts",
+    "support_via_email_include_logs_dialog_title": "ส่งข้อมูลการใช้แอป",
+    "support_via_email_include_logs_dialog_body": "คุณต้องการแนบบันทึกการใช้งานไปกับอีเมลหรือไม่?",
     "termsOfUse": "ข้อกำหนดการใช้งาน",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "เกี่ยวกับแอพนี้",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -285,13 +286,13 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "การพัฒนาซอฟต์แวร์",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "ข้อมูลทุกผลิตภัณฑ์ใน Open Food Facts ทุกชิ้นมีอยู่ใน GitHub (ด้วยสัญญาโอเพ่นซอร์ส) คุณสามารถนำไปใช้ได้ทันที และช่วยเราปรับปรุงข้อมูลเพื่อทุกคนทั่วโลก",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "แนะนำให้ใช้ Open Food Facts บน Slack เพื่อสอบถามปัญหาต่างๆ",
     "@contribute_develop_text_2": {},
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
@@ -299,11 +300,11 @@
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "ปรับปรุง",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "ฐานข้อมูลผลิตภัณฑ์อาหารคือหัวใจสำคัญของ Open Food Facts คุณสามารถมีส่วนร่วมได้ง่ายๆ โดยดาวน์โหลดแอปมือถือสำหรับโทรศัพท์ของคุณ และเริ่มเพิ่มหรือปรับปรุงฐานข้อมูลผลิตภัณฑ์อาหาร หรือ สามารถทำผ่านเว็บไซต์ Open Food Facts ได้เข่นกัน\n\nนอกจากนั้น เว็บไซต์ Open Food Facts ยังมีอีกหลายอย่างรอให้คุณช่วยปรับปรุงให้ดีขึ้น ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Translate",
     "@contribute_translate_header": {
@@ -313,19 +314,19 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts เป็นโครงการระดับโลกที่มีผลิตภัณฑ์จากกว่า 160 ประเทศ Open Food Facts ได้รับการแปลเป็นภาษาต่างๆ มากมาย โดยมีเนื้อหาที่พัฒนาอย่างต่อเนื่อง",
     "@contribute_translate_text": {},
-    "contribute_translate_text_2": "Translations is one of the key tasks of the project",
+    "contribute_translate_text_2": "การแปลเป็นหนึ่งในงานหลักของโครงการ",
     "@contribute_translate_text_2": {},
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "แตะที่นี่เพื่อตอบคำถาม",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "กำลังบันทึกคำตอบของคุณ",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "ช่วยปรับปรุงความโปร่งใสของอาหารและรับรางวัล",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
@@ -421,7 +422,6 @@
     },
     "nutrition": "อาหารการกิน",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "คุณแน่ใจว่าค้องการปิด(ไม่ได้บันทึก)",
     "nutrition_facts_photo": "ข้อมูลโภชนาการ",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -688,6 +688,76 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "@contact_form_body_android": {
+        "description": "Contact form content for Android devices",
+        "placeholders": {
+            "sdkInt": {
+                "type": "int?",
+                "description": "SDK Int = Version of Android SDK"
+            },
+            "release": {
+                "type": "String?",
+                "description": "Name of the release"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Model of the device"
+            },
+            "product": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "device": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "brand": {
+                "type": "String?",
+                "description": "Brand of the device (eg: Samsung)"
+            }
+        }
+    },
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "@contact_form_body_ios": {
+        "description": "Contact form content for iOS devices",
+        "placeholders": {
+            "version": {
+                "type": "String?",
+                "description": "Version of IOS (eg : 15)"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Name of the iPhone"
+            },
+            "localizedModel": {
+                "type": "String?",
+                "description": "Localized name of the iPhone"
+            }
+        }
+    },
+    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "@contact_form_body": {
+        "description": "Contact form content",
+        "placeholders": {
+            "osContent": {
+                "type": "String",
+                "description": "Content from contact_form_body_ios key (on iOS) or contact_form_body_android (on Android)"
+            },
+            "appVersion": {
+                "type": "String",
+                "description": "Version name of the app (eg: 1.0.0)"
+            },
+            "appBuildNumber": {
+                "type": "String",
+                "description": "Version code of the app (a number)"
+            },
+            "appPackageName": {
+                "type": "String",
+                "description": "Name/package of the app"
+            }
+        }
+    },
     "authorize_button_label": "Authorize",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
@@ -717,6 +787,10 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "@onboarding_welcome_loading_error": {
+        "description": "Seems like there is no example product in your language"
+    },
     "product_list_your_ranking": "Your ranking",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -733,13 +807,19 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Refreshing products in your History",
-    "@product_list_reloading_in_progress": {
-        "description": "Message to show while loading previous scanned items"
+    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "@product_list_reloading_in_progress_multiple": {
+        "description": "Message to show while loading previous scanned items",
+        "placeholders": {
+            "count": {}
+        }
     },
-    "product_list_reloading_success": "Product refresh complete",
-    "@product_list_reloading_success": {
-        "description": "Message to show once previous scanned items are loaded"
+    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "@product_list_reloading_success_multiple": {
+        "description": "Message to show once previous scanned items are loaded",
+        "placeholders": {
+            "count": {}
+        }
     },
     "loading_dialog_default_title": "Downloading data",
     "@loading_dialog_default_title": {
@@ -926,6 +1006,30 @@
     "edit_product_form_item_stores_hint": "store",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
+    },
+    "edit_product_form_item_countries_title": "Country",
+    "@edit_product_form_item_countries_title": {
+        "description": "Product edition - Countries - Title"
+    },
+    "edit_product_form_item_countries_hint": "Spain",
+    "@edit_product_form_item_countries_hint": {
+        "description": "Product edition - Countries - input textfield hint"
+    },
+    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "@edit_product_form_item_countries_explanations": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_emb_codes_title": "Traceability codes",
+    "@edit_product_form_item_emb_codes_title": {
+        "description": "Product edition - Traceability codes - Title"
+    },
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_hint": {
+        "description": "Product edition - Traceability Codes - input textfield hint"
+    },
+    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "@edit_product_form_item_emb_codes_examples": {
+        "description": "Product edition - EMB Codes - explanations"
     },
     "edit_product_form_item_categories_title": "หมวดหมู่",
     "@edit_product_form_item_categories_title": {
@@ -1222,6 +1326,22 @@
             }
         }
     },
+    "user_search_contributor_title": "Products I added",
+    "@user_search_contributor_title": {
+        "description": "User search (contributor): list tile title"
+    },
+    "user_search_informer_title": "Products I edited",
+    "@user_search_informer_title": {
+        "description": "User search (informer): list tile title"
+    },
+    "user_search_photographer_title": "Products I photographed",
+    "@user_search_photographer_title": {
+        "description": "User search (photographer): list tile title"
+    },
+    "user_search_to_be_completed_title": "Products that need to be completed",
+    "@user_search_to_be_completed_title": {
+        "description": "User search (to be completed): list tile title"
+    },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1296,12 +1416,13 @@
             }
         }
     },
+    "barcode_invalid_error": "Invalid barcode",
     "basic_details_add_success": "Basic details added succesfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Do you really want to clear?",
+    "confirm_clear": "You're about to delete your entire history, are you sure you want to continue?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },
@@ -1343,5 +1464,38 @@
     "add_photo_button_label": "Add photo",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "choose_image_source_title": "Choose image source",
+    "@choose_image_source_title": {
+        "description": "Title for the image source chooser"
+    },
+    "choose_image_source_body": "Please choose a image source",
+    "@choose_image_source_body": {
+        "description": "Body for the image source chooser"
+    },
+    "gallery_source_label": "Gallery",
+    "@gallery_source_label": {
+        "description": "Label for the gallery image source"
+    },
+    "share": "Share",
+    "@share": {
+        "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
+    },
+    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "@share_product_text": {
+        "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "capture": "Capture New",
+    "@capture": {
+        "description": "Button label for taking a photo"
+    },
+    "choose_from_gallery": "Choose from gallery",
+    "@choose from gallery": {
+        "description": "Button label for choosing a photo from gallery"
     }
 }

@@ -12,6 +12,8 @@ class OnboardingLoader {
   final LocalDatabase _localDatabase;
 
   /// To be called first thing when we click on "next" during onboarding.
+  ///
+  /// The [page] parameter refers to the current page (before the next).
   Future<void> runAtNextTime(
     final OnboardingPage page,
     final BuildContext context,
@@ -44,10 +46,14 @@ class OnboardingLoader {
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
+        // nothing special to do
+        return;
       case OnboardingPage.CONSENT_PAGE:
+        // that was the last page of onboarding: after that, we clean up
+        await _unloadData();
         return;
       case OnboardingPage.ONBOARDING_COMPLETE:
-        await _unloadData();
+        // will never happen: we never click "next" on a "complete" page
         return;
     }
   }

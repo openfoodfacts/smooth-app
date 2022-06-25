@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.openfoodfacts.app"
+          package="org.openfoodfacts.scanner"
           xmlns:tools="http://schemas.android.com/tools"
           android:installLocation="auto">
 
@@ -22,6 +22,10 @@
         <intent>
             <action android:name="android.intent.action.SEND"/>
             <data android:mimeType="*/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="mailto" />
         </intent>
     </queries>
 
