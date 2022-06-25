@@ -153,6 +153,8 @@ class _PrivacySettings extends StatelessWidget {
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
+        const _ExpandPanelNutritionTableSetting(),
+        const _ExpandPanelIngredientsSetting(),
       ],
     );
   }
@@ -344,6 +346,44 @@ class _CameraPlayScanSoundSetting extends StatelessWidget {
       value: userPreferences.playCameraSound,
       onChanged: (final bool value) async {
         await userPreferences.setPlayCameraSound(value);
+      },
+    );
+  }
+}
+
+class _ExpandPanelNutritionTableSetting extends StatelessWidget {
+  const _ExpandPanelNutritionTableSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.expand_nutrition_facts,
+      subtitle: appLocalizations.expand_nutrition_facts_body,
+      value: userPreferences.expandedPanelNutritionsTable,
+      onChanged: (final bool value) async {
+        await userPreferences.setExpandedPanelNutritionsTable(value);
+      },
+    );
+  }
+}
+
+class _ExpandPanelIngredientsSetting extends StatelessWidget {
+  const _ExpandPanelIngredientsSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.expand_ingredients,
+      subtitle: appLocalizations.expand_ingredients_body,
+      value: userPreferences.expandedPanelIngredients,
+      onChanged: (final bool value) async {
+        await userPreferences.setExpandedPanelIngredients(value);
       },
     );
   }

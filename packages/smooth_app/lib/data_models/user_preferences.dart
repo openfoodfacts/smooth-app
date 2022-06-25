@@ -46,6 +46,14 @@ class UserPreferences extends ChangeNotifier {
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
 
+  /// Panel expanded setting
+  static const String EXPAND_PANEL_NUTRITION_TABLE_ID = 'nutrition_facts_table';
+  static const String EXPAND_PANEL_INGREDIENTS_ID = 'ingredients';
+  static const String _TAG_EXPAND_PANEL_NUTRITION_TABLE =
+      '${EXPAND_PANEL_NUTRITION_TABLE_ID}_expanded';
+  static const String _TAG_EXPAND_PANEL_INGREDIENTS =
+      '${EXPAND_PANEL_INGREDIENTS_ID}_expanded';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
       return;
@@ -220,4 +228,21 @@ class UserPreferences extends ChangeNotifier {
   String get activeAttributeGroup =>
       _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
       'nutritional_quality'; // TODO(monsieurtanuki): relatively safe but not nice to put a hard-coded value (even when highly probable)
+
+  Future<void> setExpandedPanelNutritionsTable(bool expanded) async {
+    await _sharedPreferences.setBool(
+        _TAG_EXPAND_PANEL_NUTRITION_TABLE, expanded);
+    notifyListeners();
+  }
+
+  bool get expandedPanelNutritionsTable =>
+      _sharedPreferences.getBool(_TAG_EXPAND_PANEL_NUTRITION_TABLE) ?? true;
+
+  Future<void> setExpandedPanelIngredients(bool expanded) async {
+    await _sharedPreferences.setBool(_TAG_EXPAND_PANEL_INGREDIENTS, expanded);
+    notifyListeners();
+  }
+
+  bool get expandedPanelIngredients =>
+      _sharedPreferences.getBool(_TAG_EXPAND_PANEL_INGREDIENTS) ?? true;
 }
