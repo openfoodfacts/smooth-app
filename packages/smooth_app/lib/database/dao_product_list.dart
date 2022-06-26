@@ -308,7 +308,7 @@ class DaoProductList extends AbstractDao {
     return keys;
   }
 
-  Future<void> deleteWithCertainKey(final String key) async {
+  Future<void> deleteWithKey(final String key) async {
     await _getBox().delete(key);
   }
 
@@ -319,6 +319,25 @@ class DaoProductList extends AbstractDao {
     }
     final _BarcodeList newList = _BarcodeList.now(list.barcodes);
     _put(key, newList);
+  }
+
+// get the list of the keys to delete
+  Future<List<String>> typesToDelete() async {
+    final List<String> keys = await getKeys();
+    // ignore: list_remove_unrelated_type
+    keys.remove(!keys.contains(ProductListType.HISTORY.key) ||
+        keys.contains(ProductListType.HTTP_SEARCH_KEYWORDS.key) ||
+        keys.contains(ProductListType.SCAN_SESSION.key) ||
+        keys.contains(ProductListType.HTTP_SEARCH_CATEGORY.key));
+    return keys;
+  }
+
+// delete just enteries containing HTTP_SEARCH_KEYWORDS.key
+  Future<List<String>> getKeysToDelete() async {
+    final List<String> keys = await getKeys();
+    keys.removeWhere((String key) =>
+        !key.contains(ProductListType.HTTP_SEARCH_KEYWORDS.key));
+    return keys;
   }
 
   /// Returns a write-safe copy of [_BarcodeList] barcodes.

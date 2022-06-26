@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -35,12 +34,12 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     try {
       final User user = ProductQuery.getUser();
       // TODO(ashaman999): find a better way to do this and background this task later on
-      //Found that the max number of the barcodes i can query is 24
+      //Keeping at a cap of 500 for better performance
       final List<Product> productList = <Product>[];
       List<String> chunks = <String>[];
-      for (int i = 0; i < barcodes.length; i += 24) {
-        if (i + 24 < barcodes.length) {
-          chunks = barcodes.sublist(i, i + 24);
+      for (int i = 0; i < barcodes.length; i += 500) {
+        if (i + 500 < barcodes.length) {
+          chunks = barcodes.sublist(i, i + 500);
         } else {
           chunks = barcodes.sublist(i, barcodes.length);
         }
@@ -50,6 +49,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
           fields: ProductQuery.fields,
           language: ProductQuery.getLanguage(),
           country: ProductQuery.getCountry(),
+          pageSize: 500,
         );
         final SearchResult products =
             await OpenFoodAPIClient.getProductList(user, configuration);
@@ -57,10 +57,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
         chunks.clear();
       }
       await daoproduct.putAll(productList);
-      final List<String> rawKeys = await daoProductList.getKeys();
-      // refresh the entry with the current timestamp
-      rawKeys.removeWhere((String key) =>
-          !key.contains(ProductListType.HTTP_SEARCH_KEYWORDS.key));
+      final List<String> rawKeys = await daoProductList.getKeysToDelete();
       for (final String element in rawKeys) {
         await daoProductList.updateTimeStampForAKey(element);
       }
@@ -189,9 +186,9 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                               builder: (BuildContext context) {
                                 return SmoothAlertDialog(
                                   title: 'Confirm Deletion?',
-                                  body: const Text('''
-                                      It will delete all the cached products as well as the scan history\n
-                                      This process cannot be reversed, Do you wish to continue?'''),
+                                  body: const Text(
+                                    'All the cached data as well as your scan history will be deleted\nThis process cannot be reversed!',
+                                  ),
                                   positiveAction: SmoothActionButton(
                                     onPressed: () async {
                                       Navigator.pop(context, true);
@@ -211,19 +208,9 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                         if (confirmed) {
                           final double size = await localDatabase.getSize();
                           final List<String> typesToDelete =
-                              await daoProductList.getKeys();
-                          // just keep the product list keys that should be deleted
-                          // ignore: list_remove_unrelated_type
-                          typesToDelete.remove(!typesToDelete
-                                  .contains(ProductListType.HISTORY.key) ||
-                              typesToDelete.contains(
-                                  ProductListType.HTTP_SEARCH_KEYWORDS.key) ||
-                              typesToDelete
-                                  .contains(ProductListType.SCAN_SESSION.key) ||
-                              typesToDelete.contains(
-                                  ProductListType.HTTP_SEARCH_CATEGORY.key));
+                              await daoProductList.typesToDelete();
                           for (final String key in typesToDelete) {
-                            await daoProductList.deleteWithCertainKey(key);
+                            await daoProductList.deleteWithKey(key);
                           }
                           final int noOdDeletedProducts =
                               await daoProduct.clearAll();
