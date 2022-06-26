@@ -410,7 +410,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "ingredients": "Состав",
+    "ingredients": "Ингредиенты",
     "@ingredients": {},
     "ingredients_editing_instructions": "Сохраняйте первоначальный порядок. Укажите процент, если он указан. Разделяйте запятой или дефисом, используйте круглые скобки для ингредиентов и указывайте аллергены между символами подчеркивания.",
     "ingredients_editing_error": "Не удалось сохранить ингредиенты.",
