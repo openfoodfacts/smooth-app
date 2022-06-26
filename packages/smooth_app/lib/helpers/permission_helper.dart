@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 class PermissionListener extends ValueNotifier<DevicePermission> {
   PermissionListener({
@@ -69,6 +70,16 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
     value = DevicePermission._fromPermissionStatus(
       permission,
       status,
+    );
+  }
+
+  @override
+  set value(DevicePermission newValue) {
+    super.value = newValue;
+
+    Logs.d(
+      'New permission value: ${newValue.toString()}',
+      tag: 'PermissionListener',
     );
   }
 }
