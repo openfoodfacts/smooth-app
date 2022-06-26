@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -61,11 +62,13 @@ class LifeCycleManagerState extends State<LifeCycleManager>
   void _onLifeCycleChanged() {
     switch (appLifecycleState) {
       case AppLifecycleState.resumed:
+        Logs.d('Lifecycle: on resume');
         widget.onResume();
         break;
       case AppLifecycleState.inactive:
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
+        Logs.d('Lifecycle: on pause');
         widget.onPause();
         break;
     }
@@ -73,8 +76,10 @@ class LifeCycleManagerState extends State<LifeCycleManager>
 
   void _onVisibilityChanged(bool visible) {
     if (visible) {
+      Logs.d('Visibility: visible');
       widget.onVisible?.call();
     } else {
+      Logs.d('Visibility: invisible');
       widget.onInvisible?.call();
     }
   }
