@@ -15,31 +15,18 @@ void callbackDispatcher() {
       // make a counter with task as key as it is unique for each task
       final int counter = inputData!['counter'] as int;
       // if task is greate than 4 , that means it has been executed 5 times
-      if (counter > 5) {
+      if (counter > 6) {
         // returns true to let platform know that the task is completed
         return Future<bool>.value(true);
       }
-      Duration duration;
-      switch (counter) {
-        case 0:
-          duration = const Duration(seconds: 30);
-          break;
-        case 1:
-          duration = const Duration(minutes: 1);
-          break;
-        case 2:
-          duration = const Duration(minutes: 30);
-          break;
-        case 3:
-          duration = const Duration(hours: 1);
-          break;
-        case 4:
-          duration = const Duration(hours: 6);
-          break;
-        default:
-          duration = const Duration(days: 1);
-          break;
-      }
+      final List<Duration> duration = <Duration>[
+        const Duration(seconds: 30),
+        const Duration(minutes: 1),
+        const Duration(minutes: 30),
+        const Duration(hours: 1),
+        const Duration(hours: 6),
+        const Duration(days: 1),
+      ];
       bool shouldRetry = false;
       try {
         final SendImage image = SendImage(
@@ -69,7 +56,7 @@ void callbackDispatcher() {
             requiresBatteryNotLow: true,
           ),
           inputData: inputData,
-          initialDelay: duration,
+          initialDelay: duration[counter],
         );
         return Future<bool>.error('Failed and it will try again');
       } else {
