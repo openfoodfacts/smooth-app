@@ -44,7 +44,6 @@
     "@label_web": {},
     "learnMore": "Saber más",
     "@learnMore": {},
-    "general_confirmation": "¿Estás seguro?",
     "unknown": "Desconocido",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -274,8 +273,8 @@
     },
     "support_join_slack": "Pide ayuda en nuestro canal de Slack",
     "support_via_email": "Envíanos un correo electrónico",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_title": "¿Enviar registros de errores?",
+    "support_via_email_include_logs_dialog_body": "¿Quieres enviar los registros internos de la aplicación como adjunto en tu correo?",
     "termsOfUse": "Condiciones de uso",
     "@termsOfUse": {},
     "about_this_app": "Sobre la aplicación",
@@ -423,7 +422,6 @@
     },
     "nutrition": "Información nutricional",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "¿Quieres salir sin guardar?",
     "nutrition_facts_photo": "Foto de la información nutricional",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -690,6 +688,76 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "@contact_form_body_android": {
+        "description": "Contact form content for Android devices",
+        "placeholders": {
+            "sdkInt": {
+                "type": "int?",
+                "description": "SDK Int = Version of Android SDK"
+            },
+            "release": {
+                "type": "String?",
+                "description": "Name of the release"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Model of the device"
+            },
+            "product": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "device": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "brand": {
+                "type": "String?",
+                "description": "Brand of the device (eg: Samsung)"
+            }
+        }
+    },
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "@contact_form_body_ios": {
+        "description": "Contact form content for iOS devices",
+        "placeholders": {
+            "version": {
+                "type": "String?",
+                "description": "Version of IOS (eg : 15)"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Name of the iPhone"
+            },
+            "localizedModel": {
+                "type": "String?",
+                "description": "Localized name of the iPhone"
+            }
+        }
+    },
+    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "@contact_form_body": {
+        "description": "Contact form content",
+        "placeholders": {
+            "osContent": {
+                "type": "String",
+                "description": "Content from contact_form_body_ios key (on iOS) or contact_form_body_android (on Android)"
+            },
+            "appVersion": {
+                "type": "String",
+                "description": "Version name of the app (eg: 1.0.0)"
+            },
+            "appBuildNumber": {
+                "type": "String",
+                "description": "Version code of the app (a number)"
+            },
+            "appPackageName": {
+                "type": "String",
+                "description": "Name/package of the app"
+            }
+        }
+    },
     "authorize_button_label": "Autorizar",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
@@ -739,13 +807,19 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Actualizando los productos de tu historial",
-    "@product_list_reloading_in_progress": {
-        "description": "Message to show while loading previous scanned items"
+    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "@product_list_reloading_in_progress_multiple": {
+        "description": "Message to show while loading previous scanned items",
+        "placeholders": {
+            "count": {}
+        }
     },
-    "product_list_reloading_success": "Actualización de productos completa",
-    "@product_list_reloading_success": {
-        "description": "Message to show once previous scanned items are loaded"
+    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "@product_list_reloading_success_multiple": {
+        "description": "Message to show once previous scanned items are loaded",
+        "placeholders": {
+            "count": {}
+        }
     },
     "loading_dialog_default_title": "Descargando datos",
     "@loading_dialog_default_title": {
@@ -933,15 +1007,15 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
-    "edit_product_form_item_countries_title": "Países de venta",
+    "edit_product_form_item_countries_title": "País",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "España",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations": "Países donde el producto está por todas partes (pero no se incluyen tiendas de productos extranjeros).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -953,7 +1027,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "En Europa es un código en una elipse con las dos iniciales del país seguido por un número y CE. Ejemplos: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
