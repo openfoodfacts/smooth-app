@@ -273,8 +273,8 @@
     },
     "support_join_slack": "ניתן לבקש עזרה בערוץ ה־Slack שלנו",
     "support_via_email": "לשלוח לנו דוא״ל",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_title": "לשלוח את יומני היישום?",
+    "support_via_email_include_logs_dialog_body": "לצרף את יומני היישום להודעת הדוא״ל שלך?",
     "termsOfUse": "תנאי שימוש",
     "@termsOfUse": {},
     "about_this_app": "על היישומון הזה",
@@ -688,7 +688,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "contact_form_body_android": "מערכת הפעלה: Android (SDK Int: {sdkInt} / מהדורה: ${release})\nדגם: ${model}\nמוצר: ${product}\nמכשיר: ${device}\nמותג: {brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -736,7 +736,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "contact_form_body": "{osContent}\nגרסת יישומון:{appVersion}\nמספר בניית יישומון:{appBuildNumber}\nשם חבילת יישומון:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -1011,11 +1011,11 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "ספרד",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations": "מדיניות שבהן המוצר זמין לקהל הרחב (לא כולל חנויות שמתמחות במוצרים זרים).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1027,7 +1027,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "באירופה, קוד מקוצר עם 2 אותיות לייצוג מדינה שלאחריהן מספר ו־CE.\nלמשל: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
