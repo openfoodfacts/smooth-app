@@ -255,7 +255,7 @@ class ContinuousScanModel with ChangeNotifier {
       barcode,
       false,
     );
-    await refresh();
+    _barcodes.remove(barcode);
     notifyListeners();
   }
 
