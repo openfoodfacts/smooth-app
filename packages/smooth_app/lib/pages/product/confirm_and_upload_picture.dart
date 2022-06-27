@@ -184,9 +184,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                           return;
                         }
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
+                          SnackBar(
                             content: Text(
-                              'Photo upload queued,the image will be uploaded automatically',
+                              appLocalizations.image_upload_queued,
                             ),
                           ),
                         );

@@ -1507,7 +1507,12 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Choose from gallery",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "image_upload_queued": "Image upload queued,the image will be uploaded automatically",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
     }
+
 }
