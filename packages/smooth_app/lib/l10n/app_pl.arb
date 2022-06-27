@@ -273,8 +273,8 @@
     },
     "support_join_slack": "Zapytaj o pomoc na naszym kanale Slack",
     "support_via_email": "Wyślij do nas maila",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_title": "Wysłać dzienniki aplikacji?",
+    "support_via_email_include_logs_dialog_body": "Czy chcesz dołączyć logi aplikacji do wiadomości e-mail?",
     "termsOfUse": "Zasady korzystania",
     "@termsOfUse": {},
     "about_this_app": "O tej aplikacji",
@@ -1011,11 +1011,11 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "Hiszpania",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations": "Kraje, w których produkt jest powszechnie dostępny (nie wliczając sklepów specjalizujących się w produktach zagranicznych).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1027,7 +1027,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "W Europie kod w elipsie z inicjałami 2 krajów, po których następuje liczba i CE.\nPrzykłady: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
