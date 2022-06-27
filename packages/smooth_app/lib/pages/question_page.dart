@@ -233,7 +233,6 @@ class _QuestionPageState extends State<QuestionPage>
                   insightAnnotation: InsightAnnotation.NO,
                   backgroundColor: _noBackground,
                   contentColor: _yesNoTextColor,
-                  currentQuestionIndex: currentQuestionIndex,
                 ),
               ),
             ),
@@ -245,7 +244,6 @@ class _QuestionPageState extends State<QuestionPage>
                   insightAnnotation: InsightAnnotation.YES,
                   backgroundColor: _yesBackground,
                   contentColor: _yesNoTextColor,
-                  currentQuestionIndex: currentQuestionIndex,
                 ),
               ),
             ),
@@ -259,7 +257,6 @@ class _QuestionPageState extends State<QuestionPage>
                 insightAnnotation: InsightAnnotation.MAYBE,
                 backgroundColor: const Color(0xFFFFEFB7),
                 contentColor: Colors.black,
-                currentQuestionIndex: currentQuestionIndex,
               ),
             ),
           ],
@@ -273,7 +270,6 @@ class _QuestionPageState extends State<QuestionPage>
     required InsightAnnotation insightAnnotation,
     required Color backgroundColor,
     required Color contentColor,
-    required int currentQuestionIndex,
     EdgeInsets padding = const EdgeInsets.all(4),
   }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
