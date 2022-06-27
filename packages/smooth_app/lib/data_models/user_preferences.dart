@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
@@ -47,12 +48,10 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
 
   /// Panel expanded setting
-  static const String EXPAND_PANEL_NUTRITION_TABLE_ID = 'nutrition_facts_table';
-  static const String EXPAND_PANEL_INGREDIENTS_ID = 'ingredients';
   static const String _TAG_EXPAND_PANEL_NUTRITION_TABLE =
-      '${EXPAND_PANEL_NUTRITION_TABLE_ID}_expanded';
+      '${KnowledgePanelCard.EXPAND_PANEL_NUTRITION_TABLE_ID}_expanded';
   static const String _TAG_EXPAND_PANEL_INGREDIENTS =
-      '${EXPAND_PANEL_INGREDIENTS_ID}_expanded';
+      '${KnowledgePanelCard.EXPAND_PANEL_INGREDIENTS_ID}_expanded';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {

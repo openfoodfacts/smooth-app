@@ -17,9 +17,11 @@ class KnowledgePanelCard extends StatelessWidget {
 
   final KnowledgePanel panel;
   final KnowledgePanels allPanels;
+  static const String EXPAND_PANEL_NUTRITION_TABLE_ID = 'nutrition_facts_table';
+  static const String EXPAND_PANEL_INGREDIENTS_ID = 'ingredients';
   @override
   Widget build(BuildContext context) {
-    if (isExpandedByUser(panel, allPanels, context) ||
+    if (_isExpandedByUser(panel, allPanels, context) ||
         (panel.expanded ?? false)) {
       return KnowledgePanelExpandedCard(
         panel: panel,
@@ -50,7 +52,7 @@ class KnowledgePanelCard extends StatelessWidget {
     );
   }
 
-  bool isExpandedByUser(
+  bool _isExpandedByUser(
     final KnowledgePanel panel,
     final KnowledgePanels allPanels,
     BuildContext context,
@@ -58,20 +60,15 @@ class KnowledgePanelCard extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     if (panel.titleElement != null &&
         panel.titleElement!.title ==
-            allPanels
-                .panelIdToPanelMap[
-                    UserPreferences.EXPAND_PANEL_NUTRITION_TABLE_ID]
-                ?.titleElement
-                ?.title) {
+            allPanels.panelIdToPanelMap[EXPAND_PANEL_NUTRITION_TABLE_ID]
+                ?.titleElement?.title) {
       if (userPreferences.expandedPanelNutritionsTable) {
         return true;
       }
     } else if (panel.titleElement != null &&
         panel.titleElement!.title ==
-            allPanels
-                .panelIdToPanelMap[UserPreferences.EXPAND_PANEL_INGREDIENTS_ID]
-                ?.titleElement
-                ?.title) {
+            allPanels.panelIdToPanelMap[EXPAND_PANEL_INGREDIENTS_ID]
+                ?.titleElement?.title) {
       if (userPreferences.expandedPanelIngredients) {
         return true;
       }
