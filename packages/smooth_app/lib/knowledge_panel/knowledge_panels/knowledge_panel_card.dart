@@ -62,14 +62,14 @@ class KnowledgePanelCard extends StatelessWidget {
         panel.titleElement!.title ==
             allPanels.panelIdToPanelMap[EXPAND_PANEL_NUTRITION_TABLE_ID]
                 ?.titleElement?.title) {
-      if (userPreferences.expandedPanelNutritionsTable) {
+      if (userPreferences.getExpandedPanel(EXPAND_PANEL_NUTRITION_TABLE_ID)) {
         return true;
       }
     } else if (panel.titleElement != null &&
         panel.titleElement!.title ==
             allPanels.panelIdToPanelMap[EXPAND_PANEL_INGREDIENTS_ID]
                 ?.titleElement?.title) {
-      if (userPreferences.expandedPanelIngredients) {
+      if (userPreferences.getExpandedPanel(EXPAND_PANEL_INGREDIENTS_ID)) {
         return true;
       }
     }

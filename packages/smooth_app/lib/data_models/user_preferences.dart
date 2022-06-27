@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
@@ -46,12 +45,6 @@ class UserPreferences extends ChangeNotifier {
 
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
-
-  /// Panel expanded setting
-  static const String _TAG_EXPAND_PANEL_NUTRITION_TABLE =
-      '${KnowledgePanelCard.EXPAND_PANEL_NUTRITION_TABLE_ID}_expanded';
-  static const String _TAG_EXPAND_PANEL_INGREDIENTS =
-      '${KnowledgePanelCard.EXPAND_PANEL_INGREDIENTS_ID}_expanded';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -228,20 +221,12 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
       'nutritional_quality'; // TODO(monsieurtanuki): relatively safe but not nice to put a hard-coded value (even when highly probable)
 
-  Future<void> setExpandedPanelNutritionsTable(bool expanded) async {
-    await _sharedPreferences.setBool(
-        _TAG_EXPAND_PANEL_NUTRITION_TABLE, expanded);
+  Future<void> setExpandedPanel(
+      final String panelId, final bool expanded) async {
+    await _sharedPreferences.setBool('expanded_$panelId', expanded);
     notifyListeners();
   }
 
-  bool get expandedPanelNutritionsTable =>
-      _sharedPreferences.getBool(_TAG_EXPAND_PANEL_NUTRITION_TABLE) ?? true;
-
-  Future<void> setExpandedPanelIngredients(bool expanded) async {
-    await _sharedPreferences.setBool(_TAG_EXPAND_PANEL_INGREDIENTS, expanded);
-    notifyListeners();
-  }
-
-  bool get expandedPanelIngredients =>
-      _sharedPreferences.getBool(_TAG_EXPAND_PANEL_INGREDIENTS) ?? true;
+  bool getExpandedPanel(final String panelId) =>
+      _sharedPreferences.getBool('expanded_$panelId') ?? true;
 }

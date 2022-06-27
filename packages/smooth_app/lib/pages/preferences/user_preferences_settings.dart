@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -362,9 +363,11 @@ class _ExpandPanelNutritionTableSetting extends StatelessWidget {
     return UserPreferencesSwitchItem(
       title: appLocalizations.expand_nutrition_facts,
       subtitle: appLocalizations.expand_nutrition_facts_body,
-      value: userPreferences.expandedPanelNutritionsTable,
+      value: userPreferences
+          .getExpandedPanel(KnowledgePanelCard.EXPAND_PANEL_NUTRITION_TABLE_ID),
       onChanged: (final bool value) async {
-        await userPreferences.setExpandedPanelNutritionsTable(value);
+        await userPreferences.setExpandedPanel(
+            KnowledgePanelCard.EXPAND_PANEL_NUTRITION_TABLE_ID, value);
       },
     );
   }
@@ -381,9 +384,11 @@ class _ExpandPanelIngredientsSetting extends StatelessWidget {
     return UserPreferencesSwitchItem(
       title: appLocalizations.expand_ingredients,
       subtitle: appLocalizations.expand_ingredients_body,
-      value: userPreferences.expandedPanelIngredients,
+      value: userPreferences
+          .getExpandedPanel(KnowledgePanelCard.EXPAND_PANEL_INGREDIENTS_ID),
       onChanged: (final bool value) async {
-        await userPreferences.setExpandedPanelIngredients(value);
+        await userPreferences.setExpandedPanel(
+            KnowledgePanelCard.EXPAND_PANEL_INGREDIENTS_ID, value);
       },
     );
   }
