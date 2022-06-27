@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -14,7 +15,7 @@ void callbackDispatcher() {
     (String task, Map<String, dynamic>? inputData) async {
       // make a counter with task as key as it is unique for each task
       final int counter = inputData!['counter'] as int;
-      // if task is greate than 4 , that means it has been executed 5 times
+      // if task is greate than 6 , that means it has been executed 7 times
       if (counter > 6) {
         // returns true to let platform know that the task is completed
         return Future<bool>.value(true);
@@ -53,7 +54,6 @@ void callbackDispatcher() {
           'ImageUploadWorker',
           constraints: Constraints(
             networkType: NetworkType.connected,
-            requiresBatteryNotLow: true,
           ),
           inputData: inputData,
           initialDelay: duration[counter],
@@ -85,13 +85,15 @@ Future<bool> uploadCapturedPicture(
       isInDebugMode:
           true // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
       );
-  final String uniqueId = 'ImageUploader_${barcode}_${imageField.value}';
+  // generate a random 4 digit word as the task name
+
+  final String uniqueId =
+      'ImageUploader_${barcode}_${imageField.value}${Random().nextInt(100)}';
   await Workmanager().registerOneOffTask(
     uniqueId,
     'ImageUploadWorker',
     constraints: Constraints(
       networkType: NetworkType.connected,
-      requiresBatteryNotLow: true,
     ),
     inputData: inputData,
   );
