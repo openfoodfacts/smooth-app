@@ -160,29 +160,31 @@ class _ProductListPageState extends State<ProductListPage>
       ),
       body: products.isEmpty
           ? GestureDetector(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/misc/empty-list.svg',
-                    height: MediaQuery.of(context).size.height * .4,
-                  ),
-                  Text(
-                    appLocalizations.product_list_empty_title,
-                    style: themeData.textTheme.headlineLarge
-                        ?.apply(color: colorScheme.onBackground),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                    child: Text(
-                      appLocalizations.product_list_empty_message,
-                      textAlign: TextAlign.center,
-                      style: themeData.textTheme.bodyText2?.apply(
-                        color: colorScheme.onBackground,
-                      ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      'assets/misc/empty-list.svg',
+                      height: MediaQuery.of(context).size.height * .4,
                     ),
-                  )
-                ],
+                    Text(
+                      appLocalizations.product_list_empty_title,
+                      style: themeData.textTheme.headlineLarge
+                          ?.apply(color: colorScheme.onBackground),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                      child: Text(
+                        appLocalizations.product_list_empty_message,
+                        textAlign: TextAlign.center,
+                        style: themeData.textTheme.bodyText2?.apply(
+                          color: colorScheme.onBackground,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
               onTap: () {
                 InheritedDataManager.of(context).resetShowSearchCard(true);
