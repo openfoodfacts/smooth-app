@@ -54,14 +54,15 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
         final SearchResult products =
             await OpenFoodAPIClient.getProductList(user, configuration);
         productList.addAll(products.products!);
+        await daoproduct.putAll(productList);
         chunks.clear();
+        productList.clear();
       }
-      await daoproduct.putAll(productList);
       final List<String> rawKeys = await daoProductList.getKeysToDelete();
       for (final String element in rawKeys) {
         await daoProductList.updateTimeStampForAKey(element);
       }
-      return 'Refreshed ${productList.length} products';
+      return 'Refreshed ${barcodes.length} products';
     } catch (e) {
       return 'Refresh failed: $e';
     }
