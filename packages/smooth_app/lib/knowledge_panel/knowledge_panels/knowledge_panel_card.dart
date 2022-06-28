@@ -58,19 +58,17 @@ class KnowledgePanelCard extends StatelessWidget {
     BuildContext context,
   ) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    if (panel.titleElement != null &&
-        panel.titleElement!.title ==
-            allPanels.panelIdToPanelMap[EXPAND_PANEL_NUTRITION_TABLE_ID]
-                ?.titleElement?.title) {
-      if (userPreferences.getExpandedPanel(EXPAND_PANEL_NUTRITION_TABLE_ID)) {
-        return true;
-      }
-    } else if (panel.titleElement != null &&
-        panel.titleElement!.title ==
-            allPanels.panelIdToPanelMap[EXPAND_PANEL_INGREDIENTS_ID]
-                ?.titleElement?.title) {
-      if (userPreferences.getExpandedPanel(EXPAND_PANEL_INGREDIENTS_ID)) {
-        return true;
+    final List<String> expandedPanelIds = [
+      EXPAND_PANEL_NUTRITION_TABLE_ID,
+      EXPAND_PANEL_INGREDIENTS_ID,
+    ];
+    for (final String panelId in expandedPanelIds) {
+      if (panel.titleElement != null &&
+          panel.titleElement!.title ==
+              allPanels.panelIdToPanelMap[panelId]?.titleElement?.title) {
+        if (userPreferences.getExpandedPanel(panelId)) {
+          return true;
+        }
       }
     }
     return false;
