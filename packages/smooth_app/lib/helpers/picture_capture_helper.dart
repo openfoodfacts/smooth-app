@@ -48,7 +48,7 @@ void callbackDispatcher() {
       }
       if (shouldRetry) {
         inputData['counter'] = counter + 1;
-        Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+        Workmanager().initialize(callbackDispatcher);
         Workmanager().registerOneOffTask(
           task,
           'ImageUploadWorker',
@@ -81,9 +81,7 @@ Future<bool> uploadCapturedPicture(
     'counter': 0,
   };
   await Workmanager().initialize(
-      callbackDispatcher, // The top level function, aka callbackDispatcher
-      isInDebugMode:
-          true // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
+      callbackDispatcher // The top level function, aka callbackDispatcher
       );
   // generate a random 4 digit word as the task name
 
