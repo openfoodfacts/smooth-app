@@ -103,7 +103,6 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       final String attributeGroupsString =
           await assetBundle.loadString(attributeGroupAssetPath);
       _loadFromStrings(
-        languageCode,
         preferenceImportancesString,
         attributeGroupsString,
       );
@@ -142,7 +141,6 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       final String preferenceImportancesString = downloadableImportance.value!;
       final String attributeGroupsString = downloadableAttributes.value!;
       _loadFromStrings(
-        languageCode,
         preferenceImportancesString,
         attributeGroupsString,
       );
@@ -171,7 +169,6 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
         return false;
       }
       _loadFromStrings(
-        languageCode,
         preferenceImportancesString!,
         attributeGroupsString!,
       );
@@ -185,7 +182,6 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ///
   /// May throw an exception.
   void _loadFromStrings(
-    final String languageCode,
     final String preferenceImportancesString,
     final String attributeGroupsString,
   ) {

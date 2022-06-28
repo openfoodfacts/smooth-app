@@ -67,7 +67,6 @@ class OcrPackagingHelper extends OcrHelper {
     User user,
     String barcode,
     OpenFoodFactsLanguage language, {
-    OcrField ocrField = OcrField.GOOGLE_CLOUD_VISION,
     QueryType? queryType,
   }) async {
     final Uri uri = UriHelper.getPostUri(
