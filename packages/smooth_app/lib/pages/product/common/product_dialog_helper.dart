@@ -37,6 +37,7 @@ class ProductDialogHelper {
           future: BarcodeProductQuery(
             barcode: barcode,
             daoProduct: DaoProduct(localDatabase),
+            isScanned: false,
           ).getFetchedProduct(),
           title: refresh
               ? AppLocalizations.of(context).refreshing_product
