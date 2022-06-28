@@ -49,7 +49,17 @@ void main() {
 
           const String crazyString = 'の中ழ்';
           const Object crazyObject = crazyString;
-          const int crazyInt = 2080706050;
+
+          /// int value designed to trigger the "OTHER" case in plural labels.
+          ///
+          /// That's not that easy for some languages,
+          /// cf. https://github.com/dart-lang/intl/blob/master/lib/src/plural_rules.dart
+          /// The value should
+          /// * end with a 4, 6 or 9 for 'fil' and 'tl',
+          ///   cf. PluralCase _fil_rule()
+          /// * not end with 0, 1, 11-19 for 'lv',
+          ///   cf. PluralCase _lv_rule()
+          const int crazyInt = 2080706059;
 
           expect(
             appLocalizations.sign_up_page_username_length_invalid(crazyInt),
