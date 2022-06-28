@@ -1,8 +1,12 @@
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
 
 class CameraHelper {
   const CameraHelper._();
+
+  static final CameraControllerNotifier _cameraControllerWrapper =
+      CameraControllerNotifier();
 
   static List<CameraDescription>? _cameras;
 
@@ -67,11 +71,26 @@ class CameraHelper {
   /// And prevents the redefinition of it
   static void initController(SmoothCameraController controller) {
     _controller ??= controller;
+    _cameraControllerWrapper.updateValue();
   }
 
   static void destroyControllerInstance() {
     _controller = null;
+    _cameraControllerWrapper.updateValue();
   }
 
   static SmoothCameraController? get controller => _controller;
+
+  static CameraControllerNotifier get cameraControllerNotifier =>
+      _cameraControllerWrapper;
+}
+
+class CameraControllerNotifier extends ChangeNotifier {
+  void updateValue() {
+    try {
+      notifyListeners();
+    } catch (err) {
+      // If no Widget listen to this, it will throw an error
+    }
+  }
 }

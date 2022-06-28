@@ -2,29 +2,34 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
 
-/// Forked Widget from the [camera] library, but with a simpler Widget
-class CameraStreamPreview extends StatelessWidget {
-  const CameraStreamPreview({
+/// Forked Widget from the [camera] library, but with a simpler content
+class SmoothCameraStreamPreview extends StatelessWidget {
+  const SmoothCameraStreamPreview({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final SmoothCameraController? controller = CameraHelper.controller;
+    // Ensure this Widget is rebuild when necessary
+    Provider.of<CameraControllerNotifier>(
+      context,
+      listen: true,
+    );
 
-    if (controller == null || !controller.isInitialized) {
+    if (controller == null || controller?.isInitialized != true) {
       return const SizedBox.shrink();
     }
 
     return AspectRatio(
       aspectRatio: _isLandscape()
-          ? controller.value.aspectRatio
-          : (1.0 / controller.value.aspectRatio),
+          ? controller!.value.aspectRatio
+          : (1.0 / controller!.value.aspectRatio),
       child: _wrapInRotatedBox(
-        child: controller.buildPreview(),
+        child: controller!.buildPreview(),
       ),
     );
   }
