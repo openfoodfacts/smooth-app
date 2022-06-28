@@ -9,10 +9,12 @@ class BarcodeProductQuery {
   BarcodeProductQuery({
     required this.barcode,
     required this.daoProduct,
+    required this.isScanned,
   });
 
   final String barcode;
   final DaoProduct daoProduct;
+  final bool isScanned;
 
   Future<FetchedProduct> getFetchedProduct() async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
@@ -24,10 +26,13 @@ class BarcodeProductQuery {
 
     final ProductResult result;
     try {
+      ProductQuery.setUserAgentComment(isScanned ? 'scan' : 'search');
       result = await OpenFoodAPIClient.getProduct(configuration);
     } catch (e) {
+      ProductQuery.setUserAgentComment('');
       return FetchedProduct.error(FetchedProductStatus.internetError);
     }
+    ProductQuery.setUserAgentComment('');
 
     if (result.status == 1) {
       final Product? product = result.product;
