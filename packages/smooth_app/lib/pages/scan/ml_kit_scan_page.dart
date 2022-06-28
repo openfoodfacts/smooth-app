@@ -16,6 +16,7 @@ import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
+import 'package:smooth_app/pages/scan/camera_image_preview.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
@@ -167,9 +168,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
           scale: _previewScale,
           child: Center(
             key: ValueKey<bool>(stoppingCamera),
-            child: CameraPreview(
-              _controller!,
-            ),
+            child: const CameraStreamPreview(),
           ),
         );
       },
