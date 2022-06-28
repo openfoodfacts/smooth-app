@@ -127,32 +127,22 @@ class OnboardingFlowNavigator {
         return WelcomePage(getBackgroundColor(page));
       case OnboardingPage.SCAN_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
           ScanExample(getBackgroundColor(page)),
         );
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
           SampleHealthCardPage(localDatabase, getBackgroundColor(page)),
         );
       case OnboardingPage.ECO_CARD_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
           SampleEcoCardPage(localDatabase, getBackgroundColor(page)),
         );
       case OnboardingPage.PREFERENCES_PAGE:
         return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
           PreferencesPage(localDatabase, getBackgroundColor(page)),
         );
       case OnboardingPage.CONSENT_PAGE:
         return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
           ConsentAnalytics(getBackgroundColor(page)),
         );
       case OnboardingPage.ONBOARDING_COMPLETE:
@@ -183,8 +173,7 @@ class OnboardingFlowNavigator {
     }
   }
 
-  Widget _wrapWidgetInCustomBackNavigator(
-      BuildContext context, OnboardingPage currentPage, Widget widget) {
+  Widget _wrapWidgetInCustomBackNavigator(Widget widget) {
     return WillPopScope(
       onWillPop: () async => false,
       // wrap the widget in [Builder] to allow navigation on the [context].

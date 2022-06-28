@@ -45,11 +45,9 @@ class MockSmoothApp extends StatelessWidget {
           supportedLocales: AppLocalizations.supportedLocales,
           theme: SmoothTheme.getThemeData(
             Brightness.light,
-            themeProvider,
           ),
           darkTheme: SmoothTheme.getThemeData(
             Brightness.dark,
-            themeProvider,
           ),
           themeMode: themeProvider.currentThemeMode,
           home: child,
