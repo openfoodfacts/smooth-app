@@ -155,7 +155,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               _isProductLoaded = true;
             });
           }
-          initialPhoto.delete();
         },
       ),
     );
