@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothTheme {
   const SmoothTheme._();
@@ -8,6 +9,7 @@ class SmoothTheme {
 
   static ThemeData getThemeData(
     final Brightness brightness,
+    final ThemeProvider themeProvider,
   ) {
     final ColorScheme myColorScheme;
 
