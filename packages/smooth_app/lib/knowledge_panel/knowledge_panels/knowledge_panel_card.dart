@@ -58,7 +58,7 @@ class KnowledgePanelCard extends StatelessWidget {
     BuildContext context,
   ) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final List<String> expandedPanelIds = [
+    final List<String> expandedPanelIds = <String>[
       EXPAND_PANEL_NUTRITION_TABLE_ID,
       EXPAND_PANEL_INGREDIENTS_ID,
     ];
