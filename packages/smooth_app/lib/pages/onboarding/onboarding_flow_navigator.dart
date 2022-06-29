@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/onboarding/consent_analytics_page.dart';
 import 'package:smooth_app/pages/onboarding/preferences_page.dart';
 import 'package:smooth_app/pages/onboarding/reinvention_page.dart';
@@ -10,7 +11,6 @@ import 'package:smooth_app/pages/onboarding/sample_health_card_page.dart';
 import 'package:smooth_app/pages/onboarding/scan_example.dart';
 import 'package:smooth_app/pages/onboarding/welcome_page.dart';
 import 'package:smooth_app/pages/page_manager.dart';
-import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
 
 enum OnboardingPage {
   NOT_STARTED,
