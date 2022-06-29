@@ -49,8 +49,8 @@ void callbackDispatcher() {
       }
       if (shouldRetry) {
         inputData['counter'] = counter + 1;
-        Workmanager().initialize(callbackDispatcher);
-        Workmanager().registerOneOffTask(
+        await Workmanager().initialize(callbackDispatcher);
+        await Workmanager().registerOneOffTask(
           task,
           'ImageUploadWorker',
           constraints: Constraints(
