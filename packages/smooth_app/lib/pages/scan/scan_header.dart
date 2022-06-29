@@ -22,8 +22,8 @@ class ScanHeader extends StatelessWidget {
 
     final ButtonStyle buttonStyle = ButtonStyle(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18.0),
+        const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(18.0)),
         ),
       ),
     );
