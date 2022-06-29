@@ -421,9 +421,9 @@
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "packaging_editing_instructions": "",
-    "packaging_editing_error": "Failed to save the packaging.",
-    "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_error": "포장 사항을 저장하지 못했습니다.",
+    "packaging_editing_image_error": "새 포장 사진을 가져오지 못했습니다.",
+    "packaging_editing_title": "포장 편집",
     "nutrition": "영양",
     "@nutrition": {},
     "nutrition_facts_photo": "영양 성분 사진",
@@ -1075,7 +1075,7 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extract packaging",
+    "edit_packaging_extract_btn_text": "포장 사진에서 추출",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
