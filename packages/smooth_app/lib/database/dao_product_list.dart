@@ -185,9 +185,8 @@ class DaoProductList extends AbstractDao {
   /// * If the barcode wasn't there, it's added to the end of the list.
   void push(
     final ProductList productList,
-    final String barcode, {
-    bool needNotify = false,
-  }) {
+    final String barcode,
+  ) {
     final _BarcodeList? list = _get(productList);
     final List<String> barcodes;
     if (list == null) {
@@ -199,9 +198,6 @@ class DaoProductList extends AbstractDao {
     barcodes.add(barcode);
     final _BarcodeList newList = _BarcodeList.now(barcodes);
     _put(_getKey(productList), newList);
-    if (needNotify) {
-      localDatabase.notifyListeners();
-    }
   }
 
   void clear(final ProductList productList) {
