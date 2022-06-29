@@ -6,6 +6,8 @@ import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
@@ -38,6 +40,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
     final List<MatchedProductV2> allProducts = MatchedProductV2.sort(
       widget.products,
       productPreferences,
@@ -67,6 +71,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         itemCount: list.length,
         itemBuilder: (BuildContext context, int index) => _buildItem(
           list[index],
+          daoProductList,
           appLocalizations,
           darkMode,
         ),
@@ -76,6 +81,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 
   Widget _buildItem(
     final _VirtualItem item,
+    final DaoProductList daoProductList,
     final AppLocalizations appLocalizations,
     final bool darkMode,
   ) =>
@@ -83,9 +89,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
           ? _buildHeader(
               item.status!,
               appLocalizations,
+              darkMode,
             )
           : _buildSmoothProductCard(
               item.product!,
+              daoProductList,
               appLocalizations,
               darkMode,
             );
@@ -93,6 +101,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   Widget _buildHeader(
     final MatchedProductStatusV2 status,
     final AppLocalizations appLocalizations,
+    final bool darkMode,
   ) {
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.status(status);
@@ -109,6 +118,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 
   Widget _buildSmoothProductCard(
     final MatchedProductV2 matchedProduct,
+    final DaoProductList daoProductList,
     final AppLocalizations appLocalizations,
     final bool darkMode,
   ) =>
