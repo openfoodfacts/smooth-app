@@ -136,31 +136,27 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                               if (!mounted) {
                                 return;
                               }
-                              final bool isUploaded =
-                                  await uploadCapturedPicture(
+                              await uploadCapturedPicture(
                                 context,
                                 barcode: widget.barcode!,
                                 imageField: _productImageDataCurrent.imageField,
                                 imageUri: croppedImageFile.uri,
                               );
 
-                              if (isUploaded) {
-                                _isRefreshed = true;
-                                if (!mounted) {
-                                  return;
-                                }
-                                final AppLocalizations appLocalizations =
-                                    AppLocalizations.of(context);
-                                final String message = getImageUploadedMessage(
-                                    _productImageDataCurrent.imageField,
-                                    appLocalizations);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(message),
-                                    duration: const Duration(seconds: 3),
-                                  ),
-                                );
+                              _isRefreshed = true;
+                              if (!mounted) {
+                                return;
                               }
+                              final AppLocalizations appLocalizations =
+                                  AppLocalizations.of(context);
+                              final String message =
+                                  appLocalizations.image_upload_queued;
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(message),
+                                  duration: const Duration(seconds: 3),
+                                ),
+                              );
                             }
                           }
                         },
@@ -272,29 +268,28 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
               if (!mounted) {
                 return;
               }
-              final bool isUploaded = await uploadCapturedPicture(
+              await uploadCapturedPicture(
                 context,
                 barcode: widget.barcode!,
                 imageField: _productImageDataCurrent.imageField,
                 imageUri: croppedImageFile.uri,
               );
 
-              if (isUploaded) {
-                _isRefreshed = true;
-                if (!mounted) {
-                  return;
-                }
-                final AppLocalizations appLocalizations =
-                    AppLocalizations.of(context);
-                final String message = getImageUploadedMessage(
-                    _productImageDataCurrent.imageField, appLocalizations);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(message),
-                    duration: const Duration(seconds: 3),
-                  ),
-                );
+              if (!mounted) {
+                return;
               }
+              final AppLocalizations appLocalizations =
+                  AppLocalizations.of(context);
+              final String message = appLocalizations.image_upload_queued;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(message),
+                  duration: const Duration(seconds: 3),
+                ),
+              );
+              Navigator.pop(
+                context,
+              );
             }
           }
         },

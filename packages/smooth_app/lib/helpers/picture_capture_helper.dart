@@ -18,6 +18,8 @@ void callbackDispatcher() {
       // if task is greate than 6 , that means it has been executed 7 times
       if (counter > 6) {
         // returns true to let platform know that the task is completed
+        final File file = File(inputData['imageUri'].toString());
+        file.delete();
         return Future<bool>.value(true);
       }
       final List<Duration> duration = <Duration>[
@@ -44,7 +46,6 @@ void callbackDispatcher() {
         shouldRetry = result.error != null || result.status != 'status ok';
       } catch (e) {
         shouldRetry = true;
-        debugPrint(e.toString());
       }
       if (shouldRetry) {
         inputData['counter'] = counter + 1;
@@ -60,6 +61,9 @@ void callbackDispatcher() {
         );
         return Future<bool>.error('Failed and it will try again');
       } else {
+        // go to the file system and delete the file that was uploaded
+        final File file = File(inputData['imageUri'].toString());
+        file.delete();
         return Future<bool>.value(true);
       }
     },
@@ -81,8 +85,9 @@ Future<bool> uploadCapturedPicture(
     'counter': 0,
   };
   await Workmanager().initialize(
-      callbackDispatcher // The top level function, aka callbackDispatcher
-      );
+    callbackDispatcher,
+    // The top level function, aka callbackDispatcher
+  );
   // generate a random 4 digit word as the task name
 
   final String uniqueId =

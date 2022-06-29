@@ -89,7 +89,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
   // Returns a Future that resolves successfully only if everything succeeds,
   // otherwise it will resolve with the relevant error.
   Future<void> _getImage(bool isNewImage) async {
-    bool isUploaded = true;
     if (isNewImage) {
       final File? croppedImageFile =
           await startImageCropping(context, showoptionDialog: true);
@@ -104,18 +103,12 @@ class _EditOcrPageState extends State<EditOcrPage> {
       if (!mounted) {
         return;
       }
-      isUploaded = await uploadCapturedPicture(
+      await uploadCapturedPicture(
         context,
         barcode: _product.barcode!,
         imageField: _helper.getImageField(),
         imageUri: croppedImageFile.uri,
       );
-
-      croppedImageFile.delete();
-    }
-
-    if (!isUploaded) {
-      throw Exception('Image could not be uploaded.');
     }
 
     final String? extractedText = await _helper.getExtractedText(_product);

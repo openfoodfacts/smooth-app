@@ -46,35 +46,25 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       if (!mounted) {
         return;
       }
-      final bool isUploaded = await uploadCapturedPicture(
+      await uploadCapturedPicture(
         context,
         barcode: widget.product
             .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
         imageField: widget.productImageData.imageField,
         imageUri: croppedImageFile.uri,
       );
-      croppedImageFile.delete();
+
       if (!mounted) {
         return;
       }
-      if (isUploaded) {
-        if (widget.productImageData.imageField == ImageField.OTHER) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(appLocalizations.other_photo_uploaded),
-              duration: const Duration(seconds: 3),
-              action: SnackBarAction(
-                label: appLocalizations.more_photos,
-                onPressed: _getImage,
-              ),
-            ),
-          );
-        } else {
-          await widget.onUpload(context);
-        }
-      }
+
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(appLocalizations.image_upload_queued),
+          duration: const Duration(seconds: 3),
+        ),
+      );
     }
   }
 
