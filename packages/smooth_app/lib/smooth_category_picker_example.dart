@@ -129,7 +129,7 @@ class _ExampleAppState extends State<ExampleApp> {
     const Fruit('apple'),
   ];
 
-  Widget _addCategoryDialog(BuildContext context) {
+  Widget _addCategoryDialog(BuildContext context, FruitCategory parent) {
     final TextEditingController controller = TextEditingController();
     void addCategory(String name) {
       Navigator.of(context)
@@ -199,7 +199,7 @@ class _ExampleAppState extends State<ExampleApp> {
               if (currentCategory != null) {
                 showDialog<FruitCategory>(
                         builder: (BuildContext context) =>
-                            _addCategoryDialog(context),
+                            _addCategoryDialog(context, currentCategory),
                         context: context)
                     .then<void>((FruitCategory? category) {
                   if (category != null) {

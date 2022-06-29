@@ -98,6 +98,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           case LoadingStatus.LOADING:
           case LoadingStatus.LOADED:
             return _getEmptyScreen(
+              screenSize,
               themeData,
               const CircularProgressIndicator(),
             );
@@ -117,6 +118,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             }
             _showRefreshSnackBar(_scaffoldKeyEmpty);
             return _getEmptyScreen(
+              screenSize,
               themeData,
               _getEmptyText(
                 themeData,
@@ -125,15 +127,14 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             );
           case LoadingStatus.ERROR:
             return _getErrorWidget(
-              themeData,
-              '${_model.loadingError}',
-            );
+                screenSize, themeData, '${_model.loadingError}');
         }
       },
     );
   }
 
   Widget _getEmptyScreen(
+    final Size screenSize,
     final ThemeData themeData,
     final Widget emptiness,
   ) =>
@@ -207,7 +208,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           ),
           body: Stack(
             children: <Widget>[
-              _getHero(screenSize),
+              _getHero(screenSize, themeData),
               RefreshIndicator(
                 onRefresh: () => refreshList(),
                 child: Scrollbar(
@@ -329,7 +330,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         ),
       );
 
-  Widget _getHero(final Size screenSize) => Hero(
+  Widget _getHero(final Size screenSize, final ThemeData themeData) => Hero(
       tag: widget.heroTag,
       child: Container(
         width: screenSize.width,
@@ -338,10 +339,12 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       ));
 
   Widget _getErrorWidget(
+    final Size screenSize,
     final ThemeData themeData,
     final String errorMessage,
   ) {
     return _getEmptyScreen(
+      screenSize,
       themeData,
       Padding(
         padding: const EdgeInsets.all(8.0),

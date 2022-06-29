@@ -149,9 +149,10 @@ class _ScannerOverlayDelegate extends MultiChildLayoutDelegate {
     _layoutBackground(size);
     _layoutForeground(size);
     final double carouselHeight = _layoutAndPositionCarousel(size);
+    final double actionsHeight = _layoutAndPositionActions(size);
 
     if (hasVisor) {
-      _layoutAndPositionVisor(size, carouselHeight);
+      _layoutAndPositionVisor(size, carouselHeight, actionsHeight);
     } else {
       _layoutAndPositionTopItem(size, carouselHeight);
     }
@@ -204,6 +205,7 @@ class _ScannerOverlayDelegate extends MultiChildLayoutDelegate {
   void _layoutAndPositionVisor(
     Size size,
     double carouselHeight,
+    double actionsHeight,
   ) {
     layoutChild(
       _LayoutIds.topItem,
@@ -234,6 +236,29 @@ class _ScannerOverlayDelegate extends MultiChildLayoutDelegate {
         devicePadding.top,
       ),
     );
+  }
+
+  /// Actions: top of the screen and limit the height
+  /// Returns the height
+  double _layoutAndPositionActions(Size size) {
+    final Size actionsSize = layoutChild(
+      _LayoutIds.actions,
+      BoxConstraints(
+        minWidth: size.width,
+        maxWidth: size.width,
+        maxHeight: size.height * 0.2,
+      ),
+    );
+
+    positionChild(
+      _LayoutIds.actions,
+      Offset(
+        0,
+        devicePadding.top,
+      ),
+    );
+
+    return actionsSize.height;
   }
 
   @override

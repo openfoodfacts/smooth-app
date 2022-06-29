@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
+import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 class KnowledgePanelPage extends StatefulWidget {
   const KnowledgePanelPage({
@@ -36,14 +41,18 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       appBar: AppBar(
         title: Text(_title),
       ),
-      body: SingleChildScrollView(
-        child: SmoothCard(
-          padding: const EdgeInsets.all(
-            SMALL_SPACE,
-          ),
-          child: KnowledgePanelExpandedCard(
-            panel: widget.panel,
-            allPanels: widget.allPanels,
+      body: RefreshIndicator(
+        onRefresh: () => _refreshProduct(context),
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: SmoothCard(
+            padding: const EdgeInsets.all(
+              SMALL_SPACE,
+            ),
+            child: KnowledgePanelExpandedCard(
+              panel: widget.panel,
+              allPanels: widget.allPanels,
+            ),
           ),
         ),
       ),
@@ -57,6 +66,35 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       return widget.panel.titleElement!.title;
     } else {
       return '';
+    }
+  }
+
+  Future<bool> _refreshProduct(BuildContext context) async {
+    try {
+      if (InheritedDataManager.of(context).currentBarcode.isNotEmpty) {
+        final LocalDatabase localDatabase = context.read<LocalDatabase>();
+        final bool result = await ProductRefresher().fetchAndRefresh(
+          context: context,
+          localDatabase: localDatabase,
+          barcode: InheritedDataManager.of(context).currentBarcode,
+        );
+        if (mounted && result) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(appLocalizations.product_refreshed),
+              duration: const Duration(seconds: 2),
+            ),
+          );
+        }
+        return result;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      //no refreshing during onboarding
+      return false;
     }
   }
 }
