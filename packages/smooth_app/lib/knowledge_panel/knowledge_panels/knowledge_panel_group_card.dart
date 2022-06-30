@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
@@ -9,10 +10,12 @@ class KnowledgePanelGroupCard extends StatelessWidget {
   const KnowledgePanelGroupCard({
     required this.groupElement,
     required this.allPanels,
+    required this.product,
   });
 
   final KnowledgePanelPanelGroupElement groupElement;
   final KnowledgePanels allPanels;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +38,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
             KnowledgePanelCard(
               panel: allPanels.panelIdToPanelMap[panelId]!,
               allPanels: allPanels,
+              product: product,
             )
         ],
       ),

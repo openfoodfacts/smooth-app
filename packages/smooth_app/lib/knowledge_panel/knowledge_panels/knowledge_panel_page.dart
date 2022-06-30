@@ -4,6 +4,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -16,11 +17,13 @@ class KnowledgePanelPage extends StatefulWidget {
   const KnowledgePanelPage({
     required this.panel,
     required this.allPanels,
+    required this.product,
     this.groupElement,
   });
 
   final KnowledgePanel panel;
   final KnowledgePanels allPanels;
+  final Product product;
   final KnowledgePanelPanelGroupElement? groupElement;
 
   @override
@@ -39,7 +42,10 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_title),
+        title: Text(
+          _title,
+          maxLines: 2,
+        ),
       ),
       body: RefreshIndicator(
         onRefresh: () => _refreshProduct(context),
@@ -52,6 +58,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
             child: KnowledgePanelExpandedCard(
               panel: widget.panel,
               allPanels: widget.allPanels,
+              product: widget.product,
             ),
           ),
         ),
