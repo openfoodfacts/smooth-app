@@ -1350,9 +1350,13 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Produits à compléter",
+    "user_search_to_be_completed_title": "Mes produits à compléter",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "Tous les produits à compléter",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Reprendre une photo",
     "@edit_product_action_retake_picture": {

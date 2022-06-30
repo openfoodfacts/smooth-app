@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:openfoodfacts/utils/UserProductSearchQueryConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/contributor_product_query.dart';
-import 'package:smooth_app/database/informer_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/paged_product_query.dart';
 import 'package:smooth_app/database/paged_user_product_query.dart';
-import 'package:smooth_app/database/photographer_product_query.dart';
-import 'package:smooth_app/database/to_be_completed_product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -238,7 +237,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
       result = <Widget>[
         _buildUserProductQueryTile(
-          productQuery: ContributorProductQuery(userId),
+          productQuery: PagedUserProductQuery(
+            userId: userId,
+            type: UserProductSearchType.CONTRIBUTOR,
+          ),
           title: appLocalizations.user_search_contributor_title,
           iconData: Icons.add_circle_outline,
           heroTag: 'contributor',
@@ -247,7 +249,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         ),
         const UserPreferencesListItemDivider(),
         _buildUserProductQueryTile(
-          productQuery: InformerProductQuery(userId),
+          productQuery: PagedUserProductQuery(
+            userId: userId,
+            type: UserProductSearchType.INFORMER,
+          ),
           title: appLocalizations.user_search_informer_title,
           iconData: Icons.edit,
           heroTag: 'informer',
@@ -256,7 +261,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         ),
         const UserPreferencesListItemDivider(),
         _buildUserProductQueryTile(
-          productQuery: PhotographerProductQuery(userId),
+          productQuery: PagedUserProductQuery(
+            userId: userId,
+            type: UserProductSearchType.PHOTOGRAPHER,
+          ),
           title: appLocalizations.user_search_photographer_title,
           iconData: Icons.add_a_photo,
           heroTag: 'photographer',
@@ -265,10 +273,22 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         ),
         const UserPreferencesListItemDivider(),
         _buildUserProductQueryTile(
-          productQuery: ToBeCompletedProductQuery(userId),
+          productQuery: PagedUserProductQuery(
+            userId: userId,
+            type: UserProductSearchType.TO_BE_COMPLETED,
+          ),
           title: appLocalizations.user_search_to_be_completed_title,
           iconData: Icons.more_horiz,
           heroTag: 'to_be_completed',
+          context: context,
+          localDatabase: localDatabase,
+        ),
+        const UserPreferencesListItemDivider(),
+        _buildUserProductQueryTile(
+          productQuery: PagedToBeCompletedProductQuery(),
+          title: appLocalizations.all_search_to_be_completed_title,
+          iconData: Icons.more_outlined,
+          heroTag: 'all_to_be_completed',
           context: context,
           localDatabase: localDatabase,
         ),
@@ -349,7 +369,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
   }
 
   Widget _buildUserProductQueryTile({
-    required final PagedUserProductQuery productQuery,
+    required final PagedProductQuery productQuery,
     required final String title,
     required final IconData iconData,
     required final String heroTag,
