@@ -385,7 +385,7 @@ packages:
       name: flutter_map
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   flutter_native_splash:
     dependency: "direct main"
     description:
@@ -448,7 +448,7 @@ packages:
       name: flutter_svg
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -736,7 +736,7 @@ packages:
       name: modal_bottom_sheet
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1"
+    version: "2.1.0"
   nested:
     dependency: transitive
     description:
@@ -750,7 +750,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.19.0"
+    version: "1.20.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1025,7 +1025,7 @@ packages:
       name: share_plus
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.9"
+    version: "4.0.10"
   share_plus_linux:
     dependency: transitive
     description:
