@@ -239,6 +239,7 @@ class ContinuousScanModel with ChangeNotifier {
       _latestFoundBarcode = product.barcode;
       _daoProductList.push(productList, _latestFoundBarcode!);
       _daoProductList.push(_history, _latestFoundBarcode!);
+      _daoProductList.localDatabase.notifyListeners();
     }
     _setBarcodeState(product.barcode!, state);
   }
