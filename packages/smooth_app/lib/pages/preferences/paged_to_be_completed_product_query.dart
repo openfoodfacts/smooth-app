@@ -7,8 +7,6 @@ import 'package:smooth_app/pages/preferences/tmp_to_be_completed_query_configura
 
 /// Back-end paged query for all "to-be-completed" products.
 class PagedToBeCompletedProductQuery extends PagedProductQuery {
-  PagedToBeCompletedProductQuery();
-
   @override
   Future<SearchResult> getSearchResult() async => OpenFoodAPIClient.getProducts(
         ProductQuery.getUser(),
@@ -29,5 +27,5 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
       );
 
   @override
-  String toString() => 'ToBeCompletedPagedProductQuery($pageSize, $pageNumber)';
+  String toString() => 'PagedToBeCompletedProductQuery($pageSize, $pageNumber)';
 }

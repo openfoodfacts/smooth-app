@@ -236,7 +236,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
 
       result = <Widget>[
-        _buildUserProductQueryTile(
+        _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
             type: UserProductSearchType.CONTRIBUTOR,
@@ -248,7 +248,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
-        _buildUserProductQueryTile(
+        _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
             type: UserProductSearchType.INFORMER,
@@ -260,7 +260,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
-        _buildUserProductQueryTile(
+        _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
             type: UserProductSearchType.PHOTOGRAPHER,
@@ -272,7 +272,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
-        _buildUserProductQueryTile(
+        _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
             type: UserProductSearchType.TO_BE_COMPLETED,
@@ -284,7 +284,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
-        _buildUserProductQueryTile(
+        _buildProductQueryTile(
           productQuery: PagedToBeCompletedProductQuery(),
           title: appLocalizations.all_search_to_be_completed_title,
           iconData: Icons.more_outlined,
@@ -368,7 +368,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     return Column(children: result);
   }
 
-  Widget _buildUserProductQueryTile({
+  Widget _buildProductQueryTile({
     required final PagedProductQuery productQuery,
     required final String title,
     required final IconData iconData,
