@@ -1,64 +1,65 @@
-import 'dart:convert';
-
-import 'package:http/http.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
-import 'package:openfoodfacts/utils/QueryType.dart';
-import 'package:openfoodfacts/utils/UriHelper.dart';
+import 'package:openfoodfacts/utils/UserProductSearchQueryConfiguration.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/paged_product_query.dart';
 import 'package:smooth_app/database/product_query.dart';
 
 /// Back-end paged queries around User.
-abstract class PagedUserProductQuery extends PagedProductQuery {
-  PagedUserProductQuery(this.userId);
+class PagedUserProductQuery extends PagedProductQuery {
+  PagedUserProductQuery({
+    required this.userId,
+    required this.type,
+  });
 
   final String userId;
+  final UserProductSearchType type;
 
   @override
-  Future<SearchResult> getSearchResult() async => _searchProducts(
-        getPath(),
+  Future<SearchResult> getSearchResult() async => OpenFoodAPIClient.getProducts(
         ProductQuery.getUser(),
-        pageSize,
-        pageNumber,
-        OpenFoodAPIConfiguration.globalQueryType,
+        UserProductSearchQueryConfiguration(
+          type: type,
+          userId: userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+          language: ProductQuery.getLanguage(),
+          fields: ProductQuery.fields,
+        ),
+        queryType: OpenFoodAPIConfiguration.globalQueryType,
       );
 
-  String getPath();
-
-  static Future<SearchResult> _searchProducts(
-    // TODO(monsieurtanuki): move to off-dart, but probably not as is
-    final String path,
-    final User user,
-    final int pageSize,
-    final int pageNumber,
-    final QueryType? queryType,
-  ) async {
-    final List<String> fields = convertFieldsToStrings(
-      ProductQuery.fields,
-      <OpenFoodFactsLanguage>[ProductQuery.getLanguage()!],
-    );
-    final Uri uri = UriHelper.getUri(
-      path: path,
-      queryType: queryType,
-      queryParameters: <String, String>{
-        'page_size': '$pageSize',
-        'page': '$pageNumber',
-        'fields': fields.join(','),
-      },
-    );
-    final Response response = await HttpHelper().doGetRequest(
-      uri,
-      queryType: queryType,
-      user: OpenFoodAPIConfiguration.globalUser,
-    );
-    final String jsonStr = response
-        .body; // TODO(monsieurtanuki): what about _replaceQuotes(response.body);
-    final SearchResult result = SearchResult.fromJson(
-      json.decode(jsonStr) as Map<String, dynamic>,
-    );
-
-    // TODO(monsieurtanuki): what about _removeImages(result, configuration);
-
-    return result;
+  @override
+  ProductList getProductList() {
+    switch (type) {
+      case UserProductSearchType.CONTRIBUTOR:
+        return ProductList.contributor(
+          userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+      case UserProductSearchType.INFORMER:
+        return ProductList.informer(
+          userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+      case UserProductSearchType.PHOTOGRAPHER:
+        return ProductList.photographer(
+          userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+      case UserProductSearchType.TO_BE_COMPLETED:
+        return ProductList.toBeCompleted(
+          userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+    }
   }
+
+  @override
+  String toString() =>
+      'PagedUserProductQuery($type, "$userId", $pageSize, $pageNumber)';
 }

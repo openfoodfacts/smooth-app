@@ -27,6 +27,9 @@ enum ProductListType {
 
   /// End-user for products to be completed
   HTTP_USER_TO_BE_COMPLETED,
+
+  /// For products to be completed, all of them.
+  HTTP_ALL_TO_BE_COMPLETED,
 }
 
 extension ProductListTypeExtension on ProductListType {
@@ -46,6 +49,8 @@ extension ProductListTypeExtension on ProductListType {
         return 'http/user/photographer';
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
         return 'http/user/to_be_completed';
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
+        return 'http/all/to_be_completed';
       case ProductListType.HISTORY:
         return 'history';
       case ProductListType.USER:
@@ -124,6 +129,15 @@ class ProductList {
   }) : this._(
           listType: ProductListType.HTTP_USER_TO_BE_COMPLETED,
           parameters: userId,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+        );
+
+  ProductList.allToBeCompleted({
+    required int pageSize,
+    required int pageNumber,
+  }) : this._(
+          listType: ProductListType.HTTP_ALL_TO_BE_COMPLETED,
           pageSize: pageSize,
           pageNumber: pageNumber,
         );
@@ -224,6 +238,7 @@ class ProductList {
       case ProductListType.HTTP_USER_INFORMER:
       case ProductListType.HTTP_USER_PHOTOGRAPHER:
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
       case ProductListType.USER:
         return false;
       case ProductListType.SCAN_SESSION:
@@ -244,6 +259,7 @@ class ProductList {
       case ProductListType.HTTP_USER_INFORMER:
       case ProductListType.HTTP_USER_PHOTOGRAPHER:
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
         return '$parameters,$pageSize,$pageNumber';
     }
   }
