@@ -142,21 +142,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                                 imageField: _productImageDataCurrent.imageField,
                                 imageUri: croppedImageFile.uri,
                               );
-
-                              _isRefreshed = true;
                               if (!mounted) {
                                 return;
                               }
-                              final AppLocalizations appLocalizations =
-                                  AppLocalizations.of(context);
-                              final String message =
-                                  appLocalizations.image_upload_queued;
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(message),
-                                  duration: const Duration(seconds: 3),
-                                ),
-                              );
                             }
                           }
                         },

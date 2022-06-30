@@ -22,13 +22,13 @@ void callbackDispatcher() {
         file.delete();
         return Future<bool>.value(true);
       }
-      final List<Duration> duration = <Duration>[
-        const Duration(seconds: 30),
-        const Duration(minutes: 1),
-        const Duration(minutes: 30),
-        const Duration(hours: 1),
-        const Duration(hours: 6),
-        const Duration(days: 1),
+      const List<Duration> duration = <Duration>[
+        Duration(seconds: 30),
+        Duration(minutes: 1),
+        Duration(minutes: 30),
+        Duration(hours: 1),
+        Duration(hours: 6),
+        Duration(days: 1),
       ];
       bool shouldRetry = false;
       try {
@@ -76,7 +76,6 @@ Future<bool> uploadCapturedPicture(
   required ImageField imageField,
   required Uri imageUri,
 }) async {
-  // ignore: unused_local_variable
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final Map<String, dynamic> inputData = <String, dynamic>{
     'barcode': barcode,
@@ -99,6 +98,15 @@ Future<bool> uploadCapturedPicture(
       networkType: NetworkType.connected,
     ),
     inputData: inputData,
+  );
+
+  // ignore: use_build_context_synchronously
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        appLocalizations.image_upload_queued,
+      ),
+    ),
   );
   //ignore: use_build_context_synchronously
   await _updateContinuousScanModel(context, barcode);
