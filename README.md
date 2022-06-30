@@ -50,7 +50,7 @@ We are always looking for new contributors, if you're willing to help please let
 - [Project Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
 - Private app signing for iOS certificates repository - please ask @teolemon
 
-## V1 Roadmap (We're aiming for a May 23rd 2022 release, to be in time for a media launch around June 10th, and a high-profile presence at Vivatech on June 15th)
+## V1 Roadmap (Shipped on June 15th 2022 for Vivatech)
 - [x] We should be able to ship the Smoothie code to the main listing on Android and iOS
 - [x] The app should be able to scan very well
 - [x] Minimal Road to Scores (you should be able to get Nutri-Score and Eco-Score on any unknown/uncomplete product in 2 minutes, using editing and/or product addition
