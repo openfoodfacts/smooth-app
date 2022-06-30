@@ -66,7 +66,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
