@@ -1,3 +1,4 @@
+import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
@@ -41,6 +42,23 @@ abstract class ProductQuery {
   static String getLocaleString() => '${getLanguage()!.code}'
       '_'
       '${getCountry()!.iso2Code.toUpperCase()}';
+
+  /// Sets a comment for the user agent.
+  ///
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/2248
+  static void setUserAgentComment(final String comment) {
+    final UserAgent? previous = OpenFoodAPIConfiguration.userAgent;
+    if (previous == null) {
+      return;
+    }
+    OpenFoodAPIConfiguration.userAgent = UserAgent(
+      name: previous.name,
+      version: previous.version,
+      system: previous.system,
+      url: previous.url,
+      comment: comment,
+    );
+  }
 
   static const String _UUID_NAME = 'UUID_NAME_REV_1';
 
@@ -99,6 +117,11 @@ abstract class ProductQuery {
         ProductField.SERVING_SIZE,
         ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
+        ProductField.PACKAGING,
+        ProductField.PACKAGING_TAGS,
+        ProductField.PACKAGING_TEXT_IN_LANGUAGES,
+        ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
+        ProductField.NO_NUTRITION_DATA,
         ProductField.NUTRIMENTS,
         ProductField.NUTRIENT_LEVELS,
         ProductField.NUTRIMENT_ENERGY_UNIT,

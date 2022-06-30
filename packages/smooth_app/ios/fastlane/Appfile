@@ -1,4 +1,4 @@
-app_identifier "org.openfoodfacts.app"
+app_identifier "org.openfoodfacts.scanner"
 team_id "ZC9CYWD334"
 apple_id(ENV["FASTLANE_USER"])
 itc_team_id(ENV["APP_STORE_CONNECT_TEAM_ID"])

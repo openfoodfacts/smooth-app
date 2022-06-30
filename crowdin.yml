@@ -5,4 +5,3 @@ files:
     translation: 'packages/smooth_app/lib/l10n/app_%two_letters_code%.arb'
   - source: 'packages/smooth_app/ios/Runner/en.lproj/InfoPlist.strings'
     translation: 'packages/smooth_app/ios/Runner/%two_letters_code%.lproj/InfoPlist.strings'
-    

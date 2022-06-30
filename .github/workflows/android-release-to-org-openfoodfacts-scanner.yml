@@ -1,19 +1,26 @@
-name: Google Play release
+name: Google Play release to org.openfoodfacts.scanner
 
 on:
   push:
     branches:
       - 'release/*'
+  # Manually run this workflow
+  workflow_dispatch:
+  
+env:
+  JAVA_VERSION: 17
+  RUBY_VERSION: 3.0.2
     
 jobs:
   deploy_android:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        #run: echo "RELEASE_VERSION=590" >> $GITHUB_ENV
 
       - name: Version
         run: echo ${{ env.RELEASE_VERSION }}
@@ -22,26 +29,27 @@ jobs:
         uses: actions/setup-java@v3.4.0
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: ${{ env.JAVA_VERSION }}
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: 3.0.2
+          ruby-version: ${{ env.RUBY_VERSION }}
 
       - name: Decrypt API JSON file
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh && ls
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
-          STORE_JKS_DECRYPTKEY: ${{ secrets.STORE_JKS_DECRYPTKEY }}
+          DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
+          STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-          cache-key: flutter3.0.1 # change this to force refresh cache
+          cache-key: flutter3.00 #change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies
@@ -59,9 +67,9 @@ jobs:
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
-         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
-         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
-         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+         SIGN_STORE_PASSWORD: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
+         SIGN_KEY_ALIAS: ${{ secrets.ALIAS_FOR_SCANNER }}
+         SIGN_KEY_PASSWORD: ${{ secrets.KEY_FOR_SCANNER }}
 
       - name: Release AAB
         uses: maierj/fastlane-action@v2.2.1
@@ -70,6 +78,7 @@ jobs:
           subdirectory: packages/smooth_app/android
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
-         SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
-         SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
-         SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+         SIGN_STORE_PASSWORD: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
+         SIGN_KEY_ALIAS: ${{ secrets.ALIAS_FOR_SCANNER }}
+         SIGN_KEY_PASSWORD: ${{ secrets.KEY_FOR_SCANNER }}
+

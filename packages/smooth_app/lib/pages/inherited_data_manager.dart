@@ -20,6 +20,7 @@ class InheritedDataManager extends StatefulWidget {
 
 class InheritedDataManagerState extends State<InheritedDataManager> {
   late bool showSearchCard;
+  String currentBarcode = '';
 
   @override
   void initState() {
@@ -31,6 +32,10 @@ class InheritedDataManagerState extends State<InheritedDataManager> {
     setState(() {
       showSearchCard = newValue;
     });
+  }
+
+  void setCurrentBarcode(String barcode) {
+    currentBarcode = barcode;
   }
 
   @override

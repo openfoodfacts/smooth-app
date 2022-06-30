@@ -14,7 +14,7 @@
     },
     "go_back_to_top": "Retour en haut",
     "save": "Enregistrer",
-    "save_confirmation": "Êtes-vous sûr de sauvegarder ?",
+    "save_confirmation": "Voulez-vous vraiment sauvegarder ?",
     "skip": "Ignorer",
     "cancel": "Annuler",
     "@cancel": {},
@@ -44,7 +44,6 @@
     "@label_web": {},
     "learnMore": "En savoir plus",
     "@learnMore": {},
-    "general_confirmation": "Êtes-vous sur ?",
     "unknown": "Inconnu",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
@@ -114,7 +113,7 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "Voir les données alimentaires selon vos préférences.",
+    "productDataUtility": "Consultez les données alimentaires selon vos préférences.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
@@ -151,7 +150,7 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Êtes-vous sûr de vouloir vous déconnecter ?",
+    "sign_out_confirmation": "Voulez-vous vraiment vous déconnecter ?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -169,12 +168,12 @@
         "description": "Forgot password page title"
     },
     "reset_password_explanation_text": "En cas d'oubli du mot de passe, saisissez votre nom d'utilisateur ou votre adresse e-mail pour recevoir les instructions de réinitialisation du mot de passe. N'oubliez pas non plus de vérifier le dossier Spam.",
-    "username_or_email": "Nom d'utilisateur ou courriel",
+    "username_or_email": "Nom d'utilisateur ou e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "Un courriel avec un lien pour réinitialiser votre mot de passe a été envoyé à l'adresse électronique associée à votre compte. Vérifiez également votre dossier Indésirables",
-    "send_reset_password_mail": "Changer le mot de passe",
+    "reset_password_done": "Un e-mail avec un lien pour réinitialiser votre mot de passe a été envoyé à l'adresse e-mail associée à votre compte. Vérifiez également vos indésirables",
+    "send_reset_password_mail": "Modifier le mot de passe",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
@@ -194,7 +193,7 @@
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Toutes nos félicitations! Votre compte vient d'être créé.",
+    "sign_up_page_action_ok": "Toutes nos félicitations ! Votre compte vient d'être créé.",
     "sign_up_page_display_name_hint": "Nom",
     "sign_up_page_display_name_error_empty": "Veuillez saisir le nom d'affichage que vous souhaitez utiliser",
     "sign_up_page_email_hint": "Courriel",
@@ -259,7 +258,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "Valeur par défaut du système",
+    "darkmode_system_default": "Valeur du système",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
@@ -273,7 +272,9 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Demandez de l'aide sur notre canal Slack",
-    "support_via_email": "Envoyez-nous un courriel",
+    "support_via_email": "Envoyez-nous un e-mail",
+    "support_via_email_include_logs_dialog_title": "Envoyer les journaux de débogage ?",
+    "support_via_email_include_logs_dialog_body": "Souhaitez-vous inclure les journaux d'application en pièce jointe à votre e-mail ?",
     "termsOfUse": "Conditions d'utilisation",
     "@termsOfUse": {},
     "about_this_app": "À propos de cette appli",
@@ -289,7 +290,7 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "Le code source de chaque version d'Open Food Facts est disponible sur GitHub. Vous êtes invité à réutiliser le code (il est open source) et nous aider à l'améliorer, pour tout le monde, sur toute la planète.",
+    "contribute_develop_text": "Le code source de chaque version d'Open Food Facts est disponible sur GitHub. Vous pouvez réutiliser le code (il est open source) et nous aider à l'améliorer, pour tout le monde, sur toute la planète.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Vous pouvez rejoindre le salon de discussion Slack Open Food Facts qui est le meilleur moyen de poser des questions.",
     "@contribute_develop_text_2": {},
@@ -338,7 +339,7 @@
     "myPreferences_profile_title": "Votre profil",
     "myPreferences_profile_subtitle": "Gérez votre compte contributeur Open Food Facts.",
     "myPreferences_settings_title": "Paramètres de l'application",
-    "myPreferences_settings_subtitle": "Mode sombre, Analytiques, ...",
+    "myPreferences_settings_subtitle": "Mode sombre, statistiques, ...",
     "myPreferences_food_title": "Préférences alimentaires",
     "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
     "myPreferences_food_comment": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité. Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
@@ -352,7 +353,7 @@
     },
     "ranking_tab_all": "Tout",
     "ranking_subtitle_match_yes": "Une bonne correspondance pour vous",
-    "ranking_subtitle_match_no": "Très mauvaise concordance",
+    "ranking_subtitle_match_no": "Très mauvaise correspondance",
     "ranking_subtitle_match_maybe": "Correspondance inconnue",
     "reloaded_with_new_preferences": "Rechargé avec vos nouvelles préférences",
     "@reloaded_with_new_preferences": {
@@ -411,7 +412,7 @@
     },
     "ingredients": "Ingrédients",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Garder l'ordre original. Indiquer le pourcentage lorsque spécifié. Séparez par une virgule ou un trait d'union, utilisez des parenthèses pour les ingrédients d'un ingrédient et indiquez les allergènes entre des tirets du bas.",
+    "ingredients_editing_instructions": "Conservez l'ordre original. Indiquer le pourcentage lorsque spécifié. Séparez par une virgule ou un trait d'union, utilisez des parenthèses pour les ingrédients d'un ingrédient et indiquez les allergènes entre tirets du bas.",
     "ingredients_editing_error": "Échec de l’enregistrement des ingrédients.",
     "ingredients_editing_image_error": "Échec de l'obtention d'une nouvelle image d'ingrédients.",
     "ingredients_editing_title": "Modifier les ingrédients",
@@ -419,9 +420,12 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "Échec de l'enregistrement de l'emballage.",
+    "packaging_editing_image_error": "Impossible d'obtenir une nouvelle image d'emballage.",
+    "packaging_editing_title": "Modifier l'emballage",
     "nutrition": "Nutrition",
     "@nutrition": {},
-    "nutrition_page_close_confirmation": "Êtes-vous sûr de vouloir fermer sans enregistrer ?",
     "nutrition_facts_photo": "Photo des informations nutritionnelles",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
@@ -430,7 +434,7 @@
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "Photo des informations d'emballage",
+    "packaging_information_photo": "Photo des informations sur l'emballage",
     "@packaging_information_photo": {},
     "missing_product": "Vous avez trouvé un nouveau produit !",
     "@missing_product": {},
@@ -440,7 +444,7 @@
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Ajouter les informations sur le produit",
     "@add_product_information_button_label": {},
-    "new_product": "Nouveau Produit",
+    "new_product": "Nouveau produit",
     "@new_product": {},
     "front_packaging_photo_button_label": "Photo frontale du produit",
     "@front_packaging_photo_button_label": {},
@@ -465,7 +469,7 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Saisir les informations nutritionnelles",
     "nutritional_facts_added": "Informations nutritionnelles ajoutées",
-    "nutritional_facts_photo_uploaded": "Photo des faits nutritionnels téléchargée",
+    "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Photo des informations de recyclage",
     "@recycling_photo_button_label": {},
@@ -487,7 +491,7 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Envoi de la photo de face à Open Food Facts",
+    "uploading_image_type_front": "Envoi de la photo de la face avant à Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
@@ -495,7 +499,7 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Envoi de la photo de la nutrition à Open Food Facts",
+    "uploading_image_type_nutrition": "Envoi de la photo des informations nutritionnelles à Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
@@ -521,7 +525,7 @@
     "nutrition_page_per_serving": "par portion",
     "nutrition_page_add_nutrient": "Ajouter un nutriment",
     "nutrition_page_serving_size": "Taille d'une portion",
-    "nutrition_page_invalid_number": "Nombre non valide",
+    "nutrition_page_invalid_number": "Nombre invalide",
     "nutrition_page_update_running": "Mise à jour du produit sur le serveur...",
     "nutrition_page_update_done": "Produit mis à jour !",
     "more_photos": "Plus de photos intéressantes",
@@ -571,7 +575,7 @@
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "L'image des informations nutritionnelles est obsolète : mettez-la à jour s'il-vous-plait.",
+    "product_improvement_obsolete_nutrition_image": "L'image des informations nutritionnelles est obsolète : veuillez la mettre à jour.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -587,7 +591,7 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Produit retiré du comparatif",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
@@ -600,14 +604,14 @@
         "description": "Could not remove product from a list"
     },
     "@Lists": {},
-    "no_prodcut_in_list": "Il n'y a pas de produit dans cette liste",
-    "no_product_in_section": "Il n'y a pas de produit dans cette section",
+    "no_prodcut_in_list": "Il n'y a aucun produit dans cette liste",
+    "no_product_in_section": "Il n'y a aucun produit dans cette section",
     "recently_seen_products": "Historique",
     "clear": "Effacer",
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Voulez-vous vraiment vider cette liste ?",
+    "really_clear": "Voulez-vous vraiment supprimer cette liste ?",
     "@Plural": {},
     "pct_match": "{percent}% de correspondance",
     "@pct_match": {
@@ -672,7 +676,7 @@
     "faq": "FAQ",
     "discover": "Découvrir",
     "how_to_contribute": "Comment contribuer",
-    "hint_knowledge_panel_message": "Vous pouvez appuyer sur n'importe quelle partie de la carte pour obtenir plus de détails sur ce que vous voyez. Essayez dès maintenant!",
+    "hint_knowledge_panel_message": "Vous pouvez appuyer sur n'importe quelle partie de la carte pour obtenir plus d'informations sur ce que vous voyez. Essayez dès maintenant !",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -684,9 +688,79 @@
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "Si vous changez d'avis, cette option peut être activée et désactivée à tout moment à partir des paramètres.",
+    "consent_analytics_body2": "Si vous changez d'avis, cette option peut être activée et désactivée à tout moment depuis les paramètres.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
+    },
+    "contact_form_body_android": "Système d'exploitation : Android (SDK Int : {sdkInt} / Version : ${release})\nModèle : ${model}\nProduit : ${product}\nAppareil : ${device}\nMarque : {brand}",
+    "@contact_form_body_android": {
+        "description": "Contact form content for Android devices",
+        "placeholders": {
+            "sdkInt": {
+                "type": "int?",
+                "description": "SDK Int = Version of Android SDK"
+            },
+            "release": {
+                "type": "String?",
+                "description": "Name of the release"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Model of the device"
+            },
+            "product": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "device": {
+                "type": "String?",
+                "description": "Name of the device (depending on device, it can be its codename or its real name)"
+            },
+            "brand": {
+                "type": "String?",
+                "description": "Brand of the device (eg: Samsung)"
+            }
+        }
+    },
+    "contact_form_body_ios": "Système d'exploitation : iOS ({version})\nModèle : ${model}\nModèle localisé : ${localizedModel}",
+    "@contact_form_body_ios": {
+        "description": "Contact form content for iOS devices",
+        "placeholders": {
+            "version": {
+                "type": "String?",
+                "description": "Version of IOS (eg : 15)"
+            },
+            "model": {
+                "type": "String?",
+                "description": "Name of the iPhone"
+            },
+            "localizedModel": {
+                "type": "String?",
+                "description": "Localized name of the iPhone"
+            }
+        }
+    },
+    "contact_form_body": "{osContent}\nVersion de l'application : {appVersion}\nNuméro de build de l'application : {appBuildNumber}\nNom du package de l'application :{appPackageName}",
+    "@contact_form_body": {
+        "description": "Contact form content",
+        "placeholders": {
+            "osContent": {
+                "type": "String",
+                "description": "Content from contact_form_body_ios key (on iOS) or contact_form_body_android (on Android)"
+            },
+            "appVersion": {
+                "type": "String",
+                "description": "Version name of the app (eg: 1.0.0)"
+            },
+            "appBuildNumber": {
+                "type": "String",
+                "description": "Version code of the app (a number)"
+            },
+            "appPackageName": {
+                "type": "String",
+                "description": "Name/package of the app"
+            }
+        }
     },
     "authorize_button_label": "Autoriser",
     "@authorize": {
@@ -717,7 +791,7 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Il semble qu'il n'y ait pas de produit exemple dans votre langue",
+    "onboarding_welcome_loading_error": "Il semble qu'il n'y ait pas de produit d'exemple dans votre langue",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
@@ -737,13 +811,19 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress": "Actualiser les produits de votre Historique",
-    "@product_list_reloading_in_progress": {
-        "description": "Message to show while loading previous scanned items"
+    "product_list_reloading_in_progress_multiple": "Actualisation de {count,plural, one {} =0{produits} =1{produit} other{produits}} dans votre historique",
+    "@product_list_reloading_in_progress_multiple": {
+        "description": "Message to show while loading previous scanned items",
+        "placeholders": {
+            "count": {}
+        }
     },
-    "product_list_reloading_success": "Actualisation du produit terminée",
-    "@product_list_reloading_success": {
-        "description": "Message to show once previous scanned items are loaded"
+    "product_list_reloading_success_multiple": "Rafraîchissement de {count,plural, one {} =0{produit} =1{produit} other{produits}} terminé",
+    "@product_list_reloading_success_multiple": {
+        "description": "Message to show once previous scanned items are loaded",
+        "placeholders": {
+            "count": {}
+        }
     },
     "loading_dialog_default_title": "Téléchargement des données",
     "@loading_dialog_default_title": {
@@ -766,7 +846,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Connectez-vous ou inscrivez-vous pour rejoindre la communauté Open Food Facts",
-    "user_profile_title_id_email": "Identifiant Open Food Facts: {email}",
+    "user_profile_title_id_email": "Identifiant Open Food Facts : {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -775,7 +855,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Bienvenue {id}!",
+    "user_profile_title_id_default": "Bienvenue {id} !",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -799,7 +879,7 @@
     },
     "settings_app_app": "Application",
     "settings_app_data": "Confidentialité et télémetrie",
-    "settings_app_camera": "Caméra",
+    "settings_app_camera": "Appareil photo",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -866,7 +946,7 @@
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
     "permission_photo_denied_title": "Autoriser l'utilisation de l'appareil photo pour scanner les codes-barres",
-    "permission_photo_denied_message": "Pour une expérience améliorée, veuillez autoriser {appName} à accéder à votre caméra. Vous pourrez scanner directement les codes-barres.",
+    "permission_photo_denied_message": "Pour une expérience améliorée, veuillez autoriser {appName} à accéder à votre appareil photo. Vous pourrez scanner directement les codes-barres.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -880,10 +960,10 @@
         "description": "When the camera/photo permission is denied by user"
     },
     "permission_photo_denied_dialog_settings_title": "Permission refusée",
-    "permission_photo_denied_dialog_settings_message": "Ayant refusé l'utilisation de la caméra, vous devez l'autoriser manuellement dans les paramètres.",
+    "permission_photo_denied_dialog_settings_message": "Puisque vous avez refusé l'utilisation de l'appareil photo, vous devez l'autoriser manuellement dans les paramètres.",
     "permission_photo_denied_dialog_settings_button_open": "Ouvrir les paramètres",
     "permission_photo_denied_dialog_settings_button_cancel": "Annuler",
-    "permission_photo_denied": "Aucun accès à la caméra autorisé",
+    "permission_photo_denied": "Aucun accès à l'appareil photo autorisé",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -907,7 +987,7 @@
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
-    "edit_product_form_item_photos_subtitle": "Ajouter ou actualiser des photos",
+    "edit_product_form_item_photos_subtitle": "Ajouter ou mettre à jour des photos",
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
@@ -931,7 +1011,7 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
-    "edit_product_form_item_countries_title": "Pays de vente",
+    "edit_product_form_item_countries_title": "Pays",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
@@ -940,16 +1020,16 @@
         "description": "Product edition - Countries - input textfield hint"
     },
     "edit_product_form_item_countries_explanations": "Pays dans lesquels le produit est largement distribué (hors magasins spécialisés dans l'import).",
-    "@edit_product_form_item_countries_examples": {
+    "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_emb_codes_title": "Code de traçabilité",
+    "edit_product_form_item_emb_codes_title": "Codes de traçabilité",
     "@edit_product_form_item_emb_codes_title": {
-        "description": "Product edition - EMB Codes - Title"
+        "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "EMB 53062",
+    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_hint": {
-        "description": "Product edition - EMB Codes - input textfield hint"
+        "description": "Product edition - Traceability Codes - input textfield hint"
     },
     "edit_product_form_item_emb_codes_explanations": "En Europe, le code est une ellipse contenant les deux initiales du pays suivies par un nombre et CE.\nExemples : EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
@@ -984,16 +1064,24 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "completed_basic_details_btn_text": "Compléter les détails de base",
+    "completed_basic_details_btn_text": "Compléter les informations de base",
     "not_implemented_snackbar_text": "Pas encore disponible",
     "category_picker_page_appbar_text": "Catégories",
     "edit_ingredients_extrait_ingredients_btn_text": "Extraire les ingrédients",
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
-    "edit_ingredients_refresh_photo_btn_text": "Actualiser la photo",
+    "edit_ingredients_refresh_photo_btn_text": "Mettre à jour la photo",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
+    },
+    "edit_packaging_extract_btn_text": "Extraire l'emballage",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Mettre à jour la photo",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
     },
     "user_list_dialog_new_title": "Nouvelle liste de produits",
     "@user_list_dialog_new_title": {
@@ -1031,7 +1119,7 @@
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
-    "user_list_name_error_already": "Ce nom est déjà utilisé.",
+    "user_list_name_error_already": "Ce nom est déjà utilisé",
     "@user_list_name_error_already": {
         "description": "Validation error about the name that is already used for another list"
     },
@@ -1076,11 +1164,11 @@
     "@dev_preferences_disable_mode": {
         "description": "User dev preferences - Remove dev mode label"
     },
-    "dev_preferences_reset_onboarding_title": "Redémarrer l'embarquement",
+    "dev_preferences_reset_onboarding_title": "Relancer l'expérience de bienvenue",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Vous devez ensuite redémarrer Flutter pour le revoir.",
+    "dev_preferences_reset_onboarding_subtitle": "Vous devez ensuite redémarrer Flutter pour la revoir.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1101,7 +1189,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "URL de base actuelle pour l'environnement de test: {url}",
+    "dev_preferences_test_environment_subtitle": "URL de base actuelle pour l'environnement de test : {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1189,7 +1277,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Le mode de scan actuel est :\"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Le mode de scan actuel est : « {mode} »",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1312,7 +1400,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Compléter les détails de base",
+    "summary_card_button_add_basic_details": "Compléter les informations de base",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
@@ -1341,8 +1429,8 @@
         }
     },
     "barcode_invalid_error": "Code-barres invalide",
-    "basic_details_add_success": "Information de base ajoutée avec succès",
-    "basic_details_add_error": "Impossible d'ajouter l'information de base. Veuillez réessayer après un certain temps",
+    "basic_details_add_success": "Informations de base ajoutées avec succès",
+    "basic_details_add_error": "Impossible d'ajouter les informations de base. Veuillez réessayer après un certain temps",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },

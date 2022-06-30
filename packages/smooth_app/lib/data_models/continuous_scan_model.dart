@@ -181,6 +181,7 @@ class ContinuousScanModel with ChangeNotifier {
       BarcodeProductQuery(
         barcode: barcode,
         daoProduct: _daoProduct,
+        isScanned: true,
       ).getFetchedProduct();
 
   Future<void> _loadBarcode(
@@ -256,7 +257,7 @@ class ContinuousScanModel with ChangeNotifier {
       barcode,
       false,
     );
-    await refresh();
+    _barcodes.remove(barcode);
     notifyListeners();
   }
 
