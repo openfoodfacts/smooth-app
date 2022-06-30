@@ -44,6 +44,7 @@ class _KnowledgePanelPageTemplateState
   late KnowledgePanels _knowledgePanels;
   bool _isHintDismissed = false;
   late final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  late final Product _product;
 
   @override
   void initState() {
@@ -52,10 +53,9 @@ class _KnowledgePanelPageTemplateState
   }
 
   Future<void> _init() async {
-    final Product product =
-        await OnboardingDataProduct.forProduct(widget.localDatabase)
-            .getData(rootBundle);
-    _knowledgePanels = product.knowledgePanels!;
+    _product = await OnboardingDataProduct.forProduct(widget.localDatabase)
+        .getData(rootBundle);
+    _knowledgePanels = _product.knowledgePanels!;
   }
 
   @override
@@ -79,6 +79,8 @@ class _KnowledgePanelPageTemplateState
               widget.panelId,
             )!,
             knowledgePanels: _knowledgePanels,
+            product: _product,
+            onboardingMode: true,
           );
           return Container(
             color: widget.backgroundColor,
