@@ -134,7 +134,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState? state = getBarcodeState(barcode);
-    if (state == null) {
+    if (state == null || state == ScannedProductState.NOT_FOUND) {
       if (!_barcodes.contains(barcode)) {
         _barcodes.add(barcode);
       }
