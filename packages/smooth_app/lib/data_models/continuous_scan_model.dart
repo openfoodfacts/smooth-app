@@ -134,7 +134,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   Future<bool> _addBarcode(final String barcode) async {
     final ScannedProductState? state = getBarcodeState(barcode);
-    if (state == null) {
+    if (state == null || state == ScannedProductState.NOT_FOUND) {
       if (!_barcodes.contains(barcode)) {
         _barcodes.add(barcode);
       }
@@ -181,6 +181,7 @@ class ContinuousScanModel with ChangeNotifier {
       BarcodeProductQuery(
         barcode: barcode,
         daoProduct: _daoProduct,
+        isScanned: true,
       ).getFetchedProduct();
 
   Future<void> _loadBarcode(
@@ -238,6 +239,7 @@ class ContinuousScanModel with ChangeNotifier {
       _latestFoundBarcode = product.barcode;
       _daoProductList.push(productList, _latestFoundBarcode!);
       _daoProductList.push(_history, _latestFoundBarcode!);
+      _daoProductList.localDatabase.notifyListeners();
     }
     _setBarcodeState(product.barcode!, state);
   }
@@ -255,7 +257,7 @@ class ContinuousScanModel with ChangeNotifier {
       barcode,
       false,
     );
-    await refresh();
+    _barcodes.remove(barcode);
     notifyListeners();
   }
 

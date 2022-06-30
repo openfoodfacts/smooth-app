@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -10,6 +11,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 
 /// Display of "Contribute" for the preferences page.
 class UserPreferencesContribute extends AbstractUserPreferences {
@@ -145,7 +147,9 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                       ),
                     ),
                   ],
-                )
+                ),
+                const SizedBox(height: 10),
+                const _DevModeSetting(),
               ],
             ),
             positiveAction: SmoothActionButton(
@@ -274,4 +278,23 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         trailing: icon ?? getForwardIcon(),
         leading: UserPreferencesListTile.getTintedIcon(leading, context),
       );
+}
+
+class _DevModeSetting extends StatelessWidget {
+  const _DevModeSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.contribute_develop_dev_mode_title,
+      subtitle: appLocalizations.contribute_develop_dev_mode_subtitle,
+      value: userPreferences.devMode != 0,
+      onChanged: (final bool devMode) async {
+        await userPreferences.setDevMode(devMode ? 1 : 0);
+      },
+    );
+  }
 }

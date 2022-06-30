@@ -9,23 +9,21 @@ import 'package:smooth_app/database/product_query.dart';
 /// * we add a term to the list.
 /// * we remove a term from the list.
 abstract class AbstractSimpleInputPageHelper {
-  AbstractSimpleInputPageHelper(
-    this.product,
-    this.appLocalizations,
-  ) {
-    _language = ProductQuery.getLanguage()!;
-    _terms = initTerms();
-  }
-
-  final Product product;
-  final AppLocalizations appLocalizations;
-  late final OpenFoodFactsLanguage _language;
+  /// Product we are about to edit.
+  late Product product;
 
   /// Terms as they were initially then edited by the user.
   late List<String> _terms;
 
   /// "Have the terms been changed?"
-  bool _changed = false;
+  late bool _changed;
+
+  /// Starts from scratch with a new (or refreshed) [Product].
+  void reInit(final Product product) {
+    this.product = product;
+    _terms = initTerms();
+    _changed = false;
+  }
 
   final String _separator = ',';
 
@@ -63,16 +61,16 @@ abstract class AbstractSimpleInputPageHelper {
   }
 
   /// Returns the title on the main "edit product" page.
-  String getTitle();
+  String getTitle(final AppLocalizations appLocalizations);
 
   /// Returns the subtitle on the main "edit product" page.
-  String? getSubtitle() => null;
+  String? getSubtitle(final AppLocalizations appLocalizations) => null;
 
   /// Returns the hint of the "add" text field.
-  String getAddHint();
+  String getAddHint(final AppLocalizations appLocalizations);
 
   /// Returns additional examples about the "add" text field.
-  String? getAddExplanations() => null;
+  String? getAddExplanations(final AppLocalizations appLocalizations) => null;
 
   /// Impacts a product in order to take the changes into account.
   @protected
@@ -103,14 +101,6 @@ abstract class AbstractSimpleInputPageHelper {
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
-  SimpleInputPageStoreHelper(
-    final Product product,
-    final AppLocalizations appLocalizations,
-  ) : super(
-          product,
-          appLocalizations,
-        );
-
   @override
   List<String> initTerms() => splitString(product.stores);
 
@@ -119,22 +109,16 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
       changedProduct.stores = terms.join(_separator);
 
   @override
-  String getTitle() => appLocalizations.edit_product_form_item_stores_title;
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_stores_title;
 
   @override
-  String getAddHint() => appLocalizations.edit_product_form_item_stores_hint;
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_stores_hint;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
-  SimpleInputPageEmbCodeHelper(
-    final Product product,
-    final AppLocalizations appLocalizations,
-  ) : super(
-          product,
-          appLocalizations,
-        );
-
   @override
   List<String> initTerms() => splitString(product.embCodes);
 
@@ -143,27 +127,21 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
       changedProduct.embCodes = terms.join(_separator);
 
   @override
-  String getTitle() => appLocalizations.edit_product_form_item_emb_codes_title;
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_emb_codes_title;
 
   @override
-  String getAddHint() => appLocalizations.edit_product_form_item_emb_codes_hint;
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_emb_codes_hint;
 
   @override
-  String getAddExplanations() =>
+  String getAddExplanations(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_explanations;
 }
 
 /// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
 abstract class AbstractSimpleInputPageInLanguageHelper
     extends AbstractSimpleInputPageHelper {
-  AbstractSimpleInputPageInLanguageHelper(
-    final Product product,
-    final AppLocalizations appLocalizations,
-  ) : super(
-          product,
-          appLocalizations,
-        );
-
   final Map<String, String> _termToTags = <String, String>{};
 
   /// Returns the value of the tags list of field for a product.
@@ -190,7 +168,7 @@ abstract class AbstractSimpleInputPageInLanguageHelper
     final Map<OpenFoodFactsLanguage, List<String>>? inLanguages =
         getInLanguages();
     if (tags != null && inLanguages != null) {
-      final List<String>? translations = inLanguages[_language];
+      final List<String>? translations = inLanguages[_getLanguage()];
       if (translations != null && translations.length == tags.length) {
         for (int i = 0; i < translations.length; i++) {
           _termToTags[translations[i]] = tags[i];
@@ -207,7 +185,7 @@ abstract class AbstractSimpleInputPageInLanguageHelper
     for (int i = 0; i < terms.length; i++) {
       final String term = terms[i];
       String? tag = _termToTags[term];
-      tag ??= '${_language.code}:$term';
+      tag ??= '${_getLanguage().code}:$term';
       if (i > 0) {
         result.write(_separator);
       }
@@ -215,19 +193,13 @@ abstract class AbstractSimpleInputPageInLanguageHelper
     }
     setValue(changedProduct, result.toString());
   }
+
+  OpenFoodFactsLanguage _getLanguage() => ProductQuery.getLanguage()!;
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageLabelHelper
     extends AbstractSimpleInputPageInLanguageHelper {
-  SimpleInputPageLabelHelper(
-    final Product product,
-    final AppLocalizations appLocalizations,
-  ) : super(
-          product,
-          appLocalizations,
-        );
-
   @override
   List<String>? getTags() => product.labelsTags;
 
@@ -240,27 +212,21 @@ class SimpleInputPageLabelHelper
       changedProduct.labels = value;
 
   @override
-  String getTitle() => appLocalizations.edit_product_form_item_labels_title;
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_labels_title;
 
   @override
-  String getSubtitle() =>
+  String getSubtitle(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_subtitle;
 
   @override
-  String getAddHint() => appLocalizations.edit_product_form_item_labels_hint;
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_labels_hint;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCategoryHelper
     extends AbstractSimpleInputPageInLanguageHelper {
-  SimpleInputPageCategoryHelper(
-    final Product product,
-    final AppLocalizations appLocalizations,
-  ) : super(
-          product,
-          appLocalizations,
-        );
-
   @override
   List<String>? getTags() => product.categoriesTags;
 
@@ -273,24 +239,17 @@ class SimpleInputPageCategoryHelper
       changedProduct.categories = value;
 
   @override
-  String getTitle() => appLocalizations.edit_product_form_item_categories_title;
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_categories_title;
 
   @override
-  String getAddHint() =>
+  String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_hint;
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper
     extends AbstractSimpleInputPageInLanguageHelper {
-  SimpleInputPageCountryHelper(
-    final Product product,
-    final AppLocalizations appLocalizations,
-  ) : super(
-          product,
-          appLocalizations,
-        );
-
   @override
   List<String>? getTags() => product.countriesTags;
 
@@ -303,12 +262,14 @@ class SimpleInputPageCountryHelper
       changedProduct.countries = value;
 
   @override
-  String getTitle() => appLocalizations.edit_product_form_item_countries_title;
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_countries_title;
 
   @override
-  String getAddHint() => appLocalizations.edit_product_form_item_countries_hint;
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_countries_hint;
 
   @override
-  String getAddExplanations() =>
+  String getAddExplanations(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_explanations;
 }

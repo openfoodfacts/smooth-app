@@ -100,8 +100,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       // "other photos" uploaded by the user.
       if (imageType == ImageField.OTHER) {
         rows.add(_buildAddImageButton(context, imageType));
-        for (final File image in _uploadedImages[imageType]!) {
-          rows.add(_buildImageUploadedRow(context, imageType, image));
+        if (_uploadedImages[imageType] != null) {
+          for (final File image in _uploadedImages[imageType]!) {
+            rows.add(_buildImageUploadedRow(context, imageType, image));
+          }
         }
         continue;
       }

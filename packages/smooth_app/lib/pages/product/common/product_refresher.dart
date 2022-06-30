@@ -140,7 +140,7 @@ class ProductRefresher {
         await LoadingDialog.run<_MetaProductRefresher>(
       future: _fetchAndRefresh(localDatabase, barcode),
       context: context,
-      title: appLocalizations.nutrition_page_update_running,
+      title: appLocalizations.refreshing_product,
     );
     if (fetchAndRefreshed == null) {
       return false;

@@ -29,9 +29,11 @@ platform :android do
         track: 'internal',
         aab: '../build/app/outputs/bundle/release/app-release.aab',
         skip_upload_metadata: true,
+        package_name: "org.openfoodfacts.scanner",
         skip_upload_images: true,
         skip_upload_screenshots: true,
         skip_upload_changelogs: true,
+        skip_upload_apk: true,
         #release_status: "draft",
         version_code: flutter_version(pubspec_location: '../pubspec.yaml')["version_code"],
       )
@@ -40,7 +42,7 @@ platform :android do
   lane :setVersion do
       begin
           old_version_code = google_play_track_version_codes(
-              package_name: "org.openfoodfacts.app",
+              package_name: "org.openfoodfacts.scanner",
               track: "internal",
               json_key: "./fastlane/envfiles/api-4712693179220384697-162836-33ea08672303.json",
           )
