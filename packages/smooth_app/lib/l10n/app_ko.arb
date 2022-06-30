@@ -420,6 +420,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "포장 사항을 저장하지 못했습니다.",
+    "packaging_editing_image_error": "새 포장 사진을 가져오지 못했습니다.",
+    "packaging_editing_title": "포장 편집",
     "nutrition": "영양",
     "@nutrition": {},
     "nutrition_facts_photo": "영양 성분 사진",
@@ -1070,6 +1074,14 @@
     "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
+    },
+    "edit_packaging_extract_btn_text": "포장 사진에서 추출",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Refresh photo",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
     },
     "user_list_dialog_new_title": "New list of products",
     "@user_list_dialog_new_title": {

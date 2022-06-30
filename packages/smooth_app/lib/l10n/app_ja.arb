@@ -420,6 +420,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "パッケージの保存に失敗しました。",
+    "packaging_editing_image_error": "新しいパッケージイメージを取得できませんでした。",
+    "packaging_editing_title": "パッケージを編集",
     "nutrition": "栄養",
     "@nutrition": {},
     "nutrition_facts_photo": "栄養成分表",
@@ -1071,6 +1075,14 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
+    "edit_packaging_extract_btn_text": "パッケージを抽出",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Refresh photo",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
+    },
     "user_list_dialog_new_title": "New list of products",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1481,7 +1493,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Open Food Facts でこの製品を見る:",
+    "share_product_text": "Open Food Facts でこの製品を見る: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {

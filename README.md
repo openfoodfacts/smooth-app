@@ -7,7 +7,7 @@
 # Open Food Facts - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.app) or [iPhone/iPad](https://apps.apple.com/us/app/smooth-app/id1526747703). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4700279390303733107) or [iPhone/iPad](https://testflight.apple.com/join/dIhF6Gi4) )if you'd like to use the results of your PRs quicker.
+A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
 
 Smoothie. We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up, and this time, it’s personal.
 
@@ -51,16 +51,16 @@ We are always looking for new contributors, if you're willing to help please let
 - Private app signing for iOS certificates repository - please ask @teolemon
 
 ## V1 Roadmap (We're aiming for a May 23rd 2022 release, to be in time for a media launch around June 10th, and a high-profile presence at Vivatech on June 15th)
-- [*] We should be able to ship the Smoothie code to the main listing on Android and iOS
-- [*] The app should be able to scan very well
-- [*] Minimal Road to Scores (you should be able to get Nutri-Score and Eco-Score on any unknown/uncomplete product in 2 minutes, using editing and/or product addition
-  - [*] Initial photo taking, good ingredient extraction, Nutrition input, Category input (TODO)
+- [x] We should be able to ship the Smoothie code to the main listing on Android and iOS
+- [x] The app should be able to scan very well
+- [x] Minimal Road to Scores (you should be able to get Nutri-Score and Eco-Score on any unknown/uncomplete product in 2 minutes, using editing and/or product addition
+  - [x] Initial photo taking, good ingredient extraction, Nutrition input, Category input (TODO)
 - [ ] Personalization system that does not feel weird during setup, where people understand consequence, and where ranking match their expectations even in stretch cases (lack of data on some product, selecting Nutri-Score and all Low-in Nutrients…), where red-lines are clearly shown (allergens) with potential caveats, where solutions are proposed and warning issued in case of lack of data.
-- [*] Database migration for existing Android and iOS users (minimum: history, credentials, if possible with allergen alerts, lists)
-- [*] A Welcome scan card that can broadcast a message from the Open Food Facts team per country/language (Tagline)
-- [*] On-page photo refresh capabilities (Not working well)
+- [x] Database migration for existing Android and iOS users (minimum: history, credentials, if possible with allergen alerts, lists)
+- [x] A Welcome scan card that can broadcast a message from the Open Food Facts team per country/language (Tagline)
+- [x] On-page photo refresh capabilities (Not working well)
 - [ ] Revamped settings that are less cluttered, and can make way in the future for things the user will go see more often.
-- [*] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)
+- [x] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)
 
 ## V1.1 - Later Roadmap
 - [ ] Speedup image upload
