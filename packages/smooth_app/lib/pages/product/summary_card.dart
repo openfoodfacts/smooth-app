@@ -29,10 +29,9 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_grou
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
+import 'package:smooth_app/pages/product/add_category_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/simple_input_page.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/question_page.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
@@ -296,12 +295,7 @@ class _SummaryCardState extends State<SummaryCard> {
     if (widget.isFullVersion) {
       // Complete category
       if (statesTags.contains('en:categories-to-be-completed')) {
-        summaryCardButtons.add(
-          addPanelButton(
-            localizations.score_add_missing_product_category,
-            onPressed: () async => _addCategories(),
-          ),
-        );
+        summaryCardButtons.add(AddCategoryButton(_product));
       }
 
       // Compare to category
@@ -747,20 +741,6 @@ class _SummaryCardState extends State<SummaryCard> {
           groupElement: group,
           panel: knowledgePanel,
           allPanels: _product.knowledgePanels!,
-        ),
-      ),
-    );
-  }
-
-  Future<void> _addCategories() async {
-    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-      return;
-    }
-    await Navigator.push<Product>(
-      context,
-      MaterialPageRoute<Product>(
-        builder: (BuildContext context) => SimpleInputPage(
-          helper: SimpleInputPageCategoryHelper(),
           product: _product,
         ),
       ),

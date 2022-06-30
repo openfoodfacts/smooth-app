@@ -237,6 +237,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             panelElement: panelElement,
             knowledgePanels: _product.knowledgePanels!,
             product: _product,
+            onboardingMode: false,
           ),
         );
       }
