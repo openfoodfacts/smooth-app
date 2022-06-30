@@ -3,12 +3,12 @@ import 'dart:convert';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart';
+import 'package:openfoodfacts/model/OcrPackagingResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OcrField.dart';
 import 'package:openfoodfacts/utils/QueryType.dart';
 import 'package:openfoodfacts/utils/UriHelper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
-import 'package:smooth_app/pages/product/tmp_ocr_packaging_result.dart';
 
 /// OCR Helper for packaging.
 class OcrPackagingHelper extends OcrHelper {
