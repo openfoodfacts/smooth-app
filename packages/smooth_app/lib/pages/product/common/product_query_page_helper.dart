@@ -82,6 +82,7 @@ class ProductQueryPageHelper {
       case ProductListType.HTTP_USER_INFORMER:
       case ProductListType.HTTP_USER_PHOTOGRAPHER:
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
       case ProductListType.USER:
         return productList.parameters;
       case ProductListType.SCAN_SESSION:
