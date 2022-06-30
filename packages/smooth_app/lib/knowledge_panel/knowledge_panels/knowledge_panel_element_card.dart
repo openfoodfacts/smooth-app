@@ -10,6 +10,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
   const KnowledgePanelElementCard({
@@ -50,6 +51,9 @@ class KnowledgePanelElementCard extends StatelessWidget {
       case KnowledgePanelElementType.MAP:
         return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
       case KnowledgePanelElementType.UNKNOWN:
+        return EMPTY_WIDGET;
+      default:
+        Logs.e('unexpected element type: ${knowledgePanelElement.elementType}');
         return EMPTY_WIDGET;
     }
   }

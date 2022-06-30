@@ -16,8 +16,8 @@ dependencies:
   carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.5
   device_preview: ^1.1.0
-  flutter_svg: ^1.1.0
-  flutter_map: ^1.0.0
+  flutter_svg: ^1.1.1
+  flutter_map: ^1.1.1
   flutter_widget_from_html_core: any
   fwfh_selectable_text: ^0.8.3+1
   flutter_secure_storage: ^5.0.2
@@ -32,8 +32,8 @@ dependencies:
     git:
       url: 'https://github.com/M123-dev/matomo-tracker.git'
       ref: 'fix-event-sending'
-  modal_bottom_sheet: ^2.0.1
-  openfoodfacts: ^1.19.0
+  modal_bottom_sheet: ^2.1.0
+  openfoodfacts: ^1.20.0
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
   package_info_plus: ^1.4.2
@@ -78,7 +78,7 @@ dependencies:
     path: ../data_importer_shared
   data_importer:
     path: ../data_importer
-  share_plus: ^4.0.8
+  share_plus: ^4.0.10
   fimber: ^0.6.6
   workmanager: ^0.5.0
 
