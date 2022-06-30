@@ -5,7 +5,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
@@ -18,8 +17,6 @@ class ForgotPasswordPage extends StatefulWidget {
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     with TraceableClientMixin {
-  int _devModeCounter = 0;
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _userIdController = TextEditingController();
 
@@ -133,36 +130,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                       ],
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
-                          _devModeCounter++;
-                          if (_devModeCounter >= 10) {
-                            if (userPreferences.devMode == 0) {
-                              showDialog<void>(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (BuildContext context) =>
-                                    SmoothAlertDialog(
-                                  body: Text(
-                                    appLocalizations
-                                        .enable_dev_mode_dialog_title,
-                                  ),
-                                  positiveAction: SmoothActionButton(
-                                    text: appLocalizations.yes,
-                                    onPressed: () async {
-                                      await userPreferences.setDevMode(1);
-                                      if (!mounted) {
-                                        return;
-                                      }
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-                                  negativeAction: SmoothActionButton(
-                                    text: appLocalizations.no,
-                                    onPressed: () => Navigator.pop(context),
-                                  ),
-                                ),
-                              );
-                            }
-                          }
                           return appLocalizations.enter_some_text;
                         }
                         return null;

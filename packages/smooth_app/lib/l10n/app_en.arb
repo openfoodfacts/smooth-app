@@ -1376,10 +1376,6 @@
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
-    "enable_dev_mode_dialog_title": "Ready for the dev mode?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
-    },
     "analytics_consent_image_semantic_label": "Analytics icon",
     "@analytics_consent_image_semantic_label": {
         "description": "Consent Analytics icon semantics label"
