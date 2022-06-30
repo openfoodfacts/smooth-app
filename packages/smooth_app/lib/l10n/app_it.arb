@@ -420,6 +420,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "Impossibile salvare la confezione.",
+    "packaging_editing_image_error": "Impossibile ottenere una nuova immagine della confezione.",
+    "packaging_editing_title": "Modifica imballaggio",
     "nutrition": "Nutrizione",
     "@nutrition": {},
     "nutrition_facts_photo": "Foto valori nutrizionali",
@@ -787,7 +791,7 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "onboarding_welcome_loading_error": "Sembra che non ci siano prodotti di esempio nella tua lingua",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
@@ -1070,6 +1074,14 @@
     "edit_ingredients_refresh_photo_btn_text": "Aggiorna foto",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
+    },
+    "edit_packaging_extract_btn_text": "Estrarre la confezione",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Aggiorna foto",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
     },
     "user_list_dialog_new_title": "Nuovo elenco di prodotti",
     "@user_list_dialog_new_title": {
@@ -1422,7 +1434,7 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "You're about to delete your entire history, are you sure you want to continue?",
+    "confirm_clear": "Stai per eliminare l'intera cronologia, sei sicuro di voler continuare?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the list or not"
     },

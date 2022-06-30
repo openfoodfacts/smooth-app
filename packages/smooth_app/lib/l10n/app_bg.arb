@@ -274,7 +274,7 @@
     "support_join_slack": "Поискай помощ в нашият Slack канал",
     "support_via_email": "Изпрати ни имейл",
     "support_via_email_include_logs_dialog_title": "Изпращане на логовете на приложението?",
-    "support_via_email_include_logs_dialog_body": "Искате ли да включите логовете на приложението като прикачен файл към вашето ел. съобщение?",
+    "support_via_email_include_logs_dialog_body": "Искаш ли да включиш логовете на приложението като прикачен файл към твоя имейл?",
     "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
     "about_this_app": "Относно приложението",
@@ -420,6 +420,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "Неуспешно запазване на опаковката.",
+    "packaging_editing_image_error": "Неуспешно получаване на новата снимка на опаковката.",
+    "packaging_editing_title": "Редактиране на опаковката",
     "nutrition": "Хранителни стойности",
     "@nutrition": {},
     "nutrition_facts_photo": "Снимка на хранителните стойности",
@@ -807,7 +811,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Обновяване на {count,plural, one {} =0{продукт} =1{продукт} other{продукти}} във вашата история",
+    "product_list_reloading_in_progress_multiple": "Обновяване на {count,plural, one {} =0{продукт} =1{продукт} other{продукти}} в твоята история",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
@@ -1070,6 +1074,14 @@
     "edit_ingredients_refresh_photo_btn_text": "Обнови снимката",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
+    },
+    "edit_packaging_extract_btn_text": "Извличане на опаковката",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Обнови снимката",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
     },
     "user_list_dialog_new_title": "Нов списък с продукти",
     "@user_list_dialog_new_title": {

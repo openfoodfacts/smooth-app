@@ -16,7 +16,7 @@ import 'package:smooth_app/data_models/tagline.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
+import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:url_launcher/url_launcher.dart';

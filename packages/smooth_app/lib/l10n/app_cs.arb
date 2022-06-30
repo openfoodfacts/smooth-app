@@ -420,6 +420,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "Balení se nepodařilo uložit.",
+    "packaging_editing_image_error": "Nepodařilo se získat nový obrázek obalu.",
+    "packaging_editing_title": "Upravit obal",
     "nutrition": "Výživové údaje",
     "@nutrition": {},
     "nutrition_facts_photo": "Fotografie výživových faktů",
@@ -1070,6 +1074,14 @@
     "edit_ingredients_refresh_photo_btn_text": "Obnovit fotku",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
+    },
+    "edit_packaging_extract_btn_text": "Extrakt balení",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Obnovit fotku",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
     },
     "user_list_dialog_new_title": "Nový seznam produktů",
     "@user_list_dialog_new_title": {

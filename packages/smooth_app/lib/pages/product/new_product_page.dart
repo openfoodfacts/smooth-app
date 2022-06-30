@@ -21,6 +21,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -64,6 +65,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    final InheritedDataManagerState inheritedDataManager =
+        InheritedDataManager.of(context);
+    inheritedDataManager.setCurrentBarcode(_product.barcode ?? '');
     final ThemeData themeData = Theme.of(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_mustScrollToTheEnd) {
