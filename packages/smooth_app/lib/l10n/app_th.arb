@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "แนะนำให้ใช้ Open Food Facts บน Slack เพื่อสอบถามปัญหาต่างๆ",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "DEV Mode?",
+    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -1350,9 +1352,13 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Products that need to be completed",
+    "user_search_to_be_completed_title": "My to-be-completed products",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "All to-be-completed products",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
@@ -1373,10 +1379,6 @@
     "signup_page_terms_of_use_line2": "ข้อมูลและเงื่อนไขการใช้งาน",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "Ready for the dev mode?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "Analytics icon",
     "@analytics_consent_image_semantic_label": {
