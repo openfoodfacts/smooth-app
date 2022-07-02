@@ -20,7 +20,8 @@ class SmoothCameraStreamPreview extends StatelessWidget {
       listen: true,
     );
 
-    if (controller == null || controller?.isInitialized != true) {
+    final SmoothCameraController? cameraController = controller;
+    if (cameraController == null || cameraController.isInitialized != true) {
       return const SizedBox.shrink();
     }
 

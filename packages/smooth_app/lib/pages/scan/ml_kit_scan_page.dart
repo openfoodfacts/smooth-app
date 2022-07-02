@@ -150,6 +150,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     );
   }
 
+  /// Returns if the current tab is visible AND the scanner is also visible
+  /// (= the first element = canPop == false)
   bool _isScreenVisible({BottomNavigationTab? tab}) {
     return (tab ?? Provider.of<BottomNavigationTab>(context, listen: false)) ==
             BottomNavigationTab.Scan &&
