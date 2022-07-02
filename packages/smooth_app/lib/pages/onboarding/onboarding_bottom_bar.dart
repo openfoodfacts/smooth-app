@@ -75,7 +75,8 @@ class OnboardingBottomButton extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(backgroundColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+              const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(40))),
             ),
           ),
           child: Text(

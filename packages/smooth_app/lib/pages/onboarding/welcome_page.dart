@@ -70,9 +70,11 @@ class WelcomePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                   child: Ink(
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 1,
+                      border: const Border.fromBorderSide(
+                        BorderSide(
+                          color: Colors.white,
+                          width: 1,
+                        ),
                       ),
                       borderRadius: ANGULAR_BORDER_RADIUS,
                       color: Theme.of(context).cardColor,

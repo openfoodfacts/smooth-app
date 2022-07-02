@@ -3,13 +3,13 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:openfoodfacts/utils/QueryType.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:uuid/uuid.dart';
 
+// ignore: avoid_classes_with_only_static_members
 abstract class ProductQuery {
   /// Returns the global language for API queries.
   static OpenFoodFactsLanguage? getLanguage() {
@@ -146,8 +146,4 @@ abstract class ProductQuery {
         ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
         ProductField.EMB_CODES,
       ];
-
-  Future<SearchResult> getSearchResult();
-
-  ProductList getProductList();
 }
