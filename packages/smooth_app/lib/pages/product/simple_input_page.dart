@@ -63,12 +63,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                     if (widget.helper.getSubtitle(appLocalizations) != null)
                       Text(widget.helper.getSubtitle(appLocalizations)!),
                     ListTile(
-                      onTap: () {
-                        if (widget.helper.addTerm(_controller.text)) {
-                          setState(() => _controller.text = '');
-                        }
-                      },
-                      leading: const Icon(Icons.add_circle),
+                      onTap: () => _addItemsFromController(),
+                      trailing: const Icon(Icons.add_circle),
                       title: TextField(
                         decoration: InputDecoration(
                           filled: true,
@@ -142,6 +138,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
+    _addItemsFromController();
     final Product? changedProduct = widget.helper.getChangedProduct();
     if (changedProduct == null) {
       return true;
@@ -178,5 +175,21 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       localDatabase: localDatabase,
       product: changedProduct,
     );
+  }
+
+  /// Adds all the non-already existing items from the controller.
+  ///
+  /// The item separator is the comma.
+  void _addItemsFromController() {
+    final List<String> input = _controller.text.split(',');
+    bool result = false;
+    for (final String item in input) {
+      if (widget.helper.addTerm(item.trim())) {
+        result = true;
+      }
+    }
+    if (result) {
+      setState(() => _controller.text = '');
+    }
   }
 }
