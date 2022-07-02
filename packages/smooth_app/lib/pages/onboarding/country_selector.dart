@@ -140,8 +140,8 @@ class _CountrySelectorState extends State<CountrySelector> {
             setState(() {});
           },
           child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: ListTile(
               leading: const Icon(Icons.public),

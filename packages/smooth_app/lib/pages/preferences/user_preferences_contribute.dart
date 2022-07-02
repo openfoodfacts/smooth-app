@@ -228,7 +228,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                             },
                             child: Ink(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(20)),
                                 image: DecorationImage(
                                   image: NetworkImage(
                                     contributor.avatarUrl,
