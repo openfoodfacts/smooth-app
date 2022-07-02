@@ -615,7 +615,7 @@
     },
     "really_clear": "Do you really want to delete this list?",
     "@Plural": {},
-    "pct_match": "процентне співвідношення",
+    "pct_match": "{percent}% match",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
