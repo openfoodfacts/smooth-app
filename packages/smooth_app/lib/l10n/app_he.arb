@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "ניתן להצטרף לחדר השיח של Open Food Facts ב־Slack שהיא הדרך המומלצת לשאול שאלות.",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "DEV Mode?",
+    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
     "contribute_donate_header": "תרומה ל־Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "מוצרים שדורשים השלמה",
@@ -1350,9 +1352,13 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "מוצרים שדורשים השלמה",
+    "user_search_to_be_completed_title": "מוצרים שלי להשלמה",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "כל המוצרים להשלמה",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "צילום תמונה מחדש",
     "@edit_product_action_retake_picture": {
@@ -1373,10 +1379,6 @@
     "signup_page_terms_of_use_line2": "תנאי השימוש והתרומה של Open Food Facts",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "לעבור למצב פיתוח?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "סמל ניתוח נתונים",
     "@analytics_consent_image_semantic_label": {
