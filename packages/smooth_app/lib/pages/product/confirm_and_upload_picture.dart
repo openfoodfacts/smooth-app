@@ -182,9 +182,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         if (!mounted) {
                           return;
                         }
-
                         Navigator.pop(
                           context,
+                          photo,
                         );
                       },
                       label: Text(
