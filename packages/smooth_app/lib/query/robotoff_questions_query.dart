@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class RobotoffQuestionsQuery {
   RobotoffQuestionsQuery(this._barcode);

@@ -1,7 +1,7 @@
 import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/robotoff_questions_query.dart';
+import 'package:smooth_app/query/robotoff_questions_query.dart';
 
 class RobotoffInsightHelper {
   const RobotoffInsightHelper(this._localDatabase);

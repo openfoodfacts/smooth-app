@@ -7,18 +7,18 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/paged_product_query.dart';
-import 'package:smooth_app/database/paged_user_product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/preferences/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/query/paged_product_query.dart';
+import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
+import 'package:smooth_app/query/paged_user_product_query.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({

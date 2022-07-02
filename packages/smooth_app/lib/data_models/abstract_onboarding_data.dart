@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Abstraction of data we download, store and reuse at onboarding.
 abstract class AbstractOnboardingData<T> {

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class BarcodeProductQuery {
   BarcodeProductQuery({

@@ -52,7 +52,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.read<UserPreferences>();
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     final String appBarTitle;
     final List<Widget> children = <Widget>[];
