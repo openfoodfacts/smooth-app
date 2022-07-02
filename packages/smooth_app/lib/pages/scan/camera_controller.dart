@@ -310,12 +310,6 @@ class SmoothCameraController extends CameraController {
   bool get isBeingInitialized => _state == _CameraState.beingInitialized;
 
   bool get isPauseResumePreviewSupported => !Platform.isIOS;
-
-  bool compare(Object? other) =>
-      identical(this, other) ||
-      other is SmoothCameraController &&
-          runtimeType == other.runtimeType &&
-          value == other.value;
 }
 
 extension CameraValueExtension on CameraValue {
