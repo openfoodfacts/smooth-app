@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:workmanager/workmanager.dart';
 
@@ -13,15 +14,6 @@ import 'package:workmanager/workmanager.dart';
 void callbackDispatcher() {
   Workmanager().executeTask(
     (String task, Map<String, dynamic>? inputData) async {
-      // make a counter with task as key as it is unique for each task
-      final int counter = inputData!['counter'] as int;
-      // if task is greate than 6 , that means it has been executed 7 times
-      if (counter > 6) {
-        // returns true to let platform know that the task is completed
-        final File file = File(inputData['imageUri'].toString());
-        file.delete();
-        return Future<bool>.value(true);
-      }
       const List<Duration> duration = <Duration>[
         Duration(seconds: 30),
         Duration(minutes: 1),
@@ -30,14 +22,25 @@ void callbackDispatcher() {
         Duration(hours: 6),
         Duration(days: 1),
       ];
+      // make a counter with task as key as it is unique for each task
+      final BackgroundInputData inputTask =
+          BackgroundInputData.fromJson(inputData!);
+      final int counter = inputTask.counter;
+      // if task is greate than 6 , that means it has been executed 7 times
+      if (counter > duration.length) {
+        // returns true to let platform know that the task is completed
+        final File file = File(inputTask.imageUri);
+        file.deleteSync();
+        return true;
+      }
+
       bool shouldRetry = false;
       try {
         final SendImage image = SendImage(
           lang: ProductQuery.getLanguage(),
-          barcode: inputData['barcode'].toString(),
-          imageField:
-              ImageFieldExtension.getType(inputData['imageField'].toString()),
-          imageUri: Uri.parse(inputData['imageUri'].toString()),
+          barcode: inputTask.barcode,
+          imageField: ImageFieldExtension.getType(inputTask.imageField),
+          imageUri: Uri.parse(inputTask.imageUri),
         );
         final Status result = await OpenFoodAPIClient.addProductImage(
           ProductQuery.getUser(),
@@ -48,23 +51,23 @@ void callbackDispatcher() {
         shouldRetry = true;
       }
       if (shouldRetry) {
-        inputData['counter'] = counter + 1;
-        await Workmanager().initialize(callbackDispatcher);
+        inputTask.counter += 1;
+        await Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
         await Workmanager().registerOneOffTask(
           task,
           'ImageUploadWorker',
           constraints: Constraints(
             networkType: NetworkType.connected,
           ),
-          inputData: inputData,
-          initialDelay: duration[counter],
+          inputData: inputTask.toJson(),
+          initialDelay: duration[counter - 1],
         );
         return Future<bool>.error('Failed and it will try again');
       } else {
         // go to the file system and delete the file that was uploaded
         final File file = File(inputData['imageUri'].toString());
-        file.delete();
-        return Future<bool>.value(true);
+        file.deleteSync();
+        return true;
       }
     },
   );
@@ -77,16 +80,16 @@ Future<bool> uploadCapturedPicture(
   required Uri imageUri,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final Map<String, dynamic> inputData = <String, dynamic>{
-    'barcode': barcode,
-    'imageField': imageField.value,
-    'imageUri': File(imageUri.path).path,
-    'counter': 0,
-  };
-  await Workmanager().initialize(
-    callbackDispatcher,
-    // The top level function, aka callbackDispatcher
+  final BackgroundInputData inputData = BackgroundInputData(
+    barcode: barcode,
+    imageField: imageField.value,
+    imageUri: File(imageUri.path).path,
+    counter: 0,
   );
+
+  await Workmanager().initialize(
+      callbackDispatcher // The top level function, aka callbackDispatcher
+      );
   // generate a random 4 digit word as the task name
 
   final String uniqueId =
@@ -97,7 +100,7 @@ Future<bool> uploadCapturedPicture(
     constraints: Constraints(
       networkType: NetworkType.connected,
     ),
-    inputData: inputData,
+    inputData: inputData.toJson(),
   );
 
   // ignore: use_build_context_synchronously
