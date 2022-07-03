@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -7,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_random.dart';
 import 'package:workmanager/workmanager.dart';
 
 @pragma(
@@ -52,7 +52,7 @@ void callbackDispatcher() {
       }
       if (shouldRetry) {
         inputTask.counter += 1;
-        await Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+        await Workmanager().initialize(callbackDispatcher);
         await Workmanager().registerOneOffTask(
           task,
           'ImageUploadWorker',
@@ -88,12 +88,13 @@ Future<bool> uploadCapturedPicture(
   );
 
   await Workmanager().initialize(
-      callbackDispatcher // The top level function, aka callbackDispatcher
-      );
-  // generate a random 4 digit word as the task name
-
+    callbackDispatcher,
+    // The top level function, aka callbackDispatcher
+  );
+  // generate a random 8 digit word as the task name
+  final SmoothRandom smoothie = SmoothRandom();
   final String uniqueId =
-      'ImageUploader_${barcode}_${imageField.value}${Random().nextInt(100)}';
+      'ImageUploader_${barcode}_${imageField.value}${smoothie.generateRandomString(8)}';
   await Workmanager().registerOneOffTask(
     uniqueId,
     'ImageUploadWorker',
