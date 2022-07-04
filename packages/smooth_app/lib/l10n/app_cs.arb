@@ -294,8 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Můžete se připojit k chatovací místnosti Open Food Facts Slack, což je preferovaný způsob, kde klást otázky.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "DEV režim?",
+    "contribute_develop_dev_mode_subtitle": "Aktivovat DEV režim",
     "contribute_donate_header": "Přispět Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Nedokončené",
@@ -1356,7 +1356,7 @@
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "all_search_to_be_completed_title": "All to-be-completed products",
+    "all_search_to_be_completed_title": "Všechny produkty k dokončení",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
