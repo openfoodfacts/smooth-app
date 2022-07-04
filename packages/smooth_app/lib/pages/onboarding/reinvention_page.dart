@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Onboarding page: "reinvention"
 class ReinventionPage extends StatelessWidget {
@@ -22,7 +23,7 @@ class ReinventionPage extends StatelessWidget {
         .copyWith(fontSize: muchTooBigFontSize);
     final Size screenSize = MediaQuery.of(context).size;
 
-    return Scaffold(
+    return SmoothScaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
         child: Stack(
