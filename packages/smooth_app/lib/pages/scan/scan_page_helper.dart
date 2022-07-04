@@ -20,5 +20,4 @@ Future<void> openPersonalizedRankingPage(BuildContext context) async {
       ),
     ),
   );
-  await model.refresh();
 }

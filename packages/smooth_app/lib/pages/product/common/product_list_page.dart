@@ -11,16 +11,16 @@ import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
-import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -73,6 +73,7 @@ class _ProductListPageState extends State<ProductListPage>
       case ProductListType.HTTP_USER_INFORMER:
       case ProductListType.HTTP_USER_PHOTOGRAPHER:
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
         dismissible = false;
     }
     final bool enableClear = products.isNotEmpty;
@@ -160,29 +161,31 @@ class _ProductListPageState extends State<ProductListPage>
       ),
       body: products.isEmpty
           ? GestureDetector(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/misc/empty-list.svg',
-                    height: MediaQuery.of(context).size.height * .4,
-                  ),
-                  Text(
-                    appLocalizations.product_list_empty_title,
-                    style: themeData.textTheme.headlineLarge
-                        ?.apply(color: colorScheme.onBackground),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                    child: Text(
-                      appLocalizations.product_list_empty_message,
-                      textAlign: TextAlign.center,
-                      style: themeData.textTheme.bodyText2?.apply(
-                        color: colorScheme.onBackground,
-                      ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      'assets/misc/empty-list.svg',
+                      height: MediaQuery.of(context).size.height * .4,
                     ),
-                  )
-                ],
+                    Text(
+                      appLocalizations.product_list_empty_title,
+                      style: themeData.textTheme.headlineLarge
+                          ?.apply(color: colorScheme.onBackground),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                      child: Text(
+                        appLocalizations.product_list_empty_message,
+                        textAlign: TextAlign.center,
+                        style: themeData.textTheme.bodyText2?.apply(
+                          color: colorScheme.onBackground,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
               onTap: () {
                 InheritedDataManager.of(context).resetShowSearchCard(true);

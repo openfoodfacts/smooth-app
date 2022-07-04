@@ -1,4 +1,5 @@
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 
 enum ProductListType {
   /// API search by [SearchTerms] keywords
@@ -27,6 +28,9 @@ enum ProductListType {
 
   /// End-user for products to be completed
   HTTP_USER_TO_BE_COMPLETED,
+
+  /// For products to be completed, all of them.
+  HTTP_ALL_TO_BE_COMPLETED,
 }
 
 extension ProductListTypeExtension on ProductListType {
@@ -46,6 +50,8 @@ extension ProductListTypeExtension on ProductListType {
         return 'http/user/photographer';
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
         return 'http/user/to_be_completed';
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
+        return 'http/all/to_be_completed';
       case ProductListType.HISTORY:
         return 'history';
       case ProductListType.USER:
@@ -60,72 +66,103 @@ class ProductList {
     this.parameters = '',
     this.pageSize = 0,
     this.pageNumber = 0,
+    this.language,
+    this.country,
   });
 
   ProductList.keywordSearch(
     final String keywords, {
     required int pageSize,
     required int pageNumber,
+    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsCountry? country,
   }) : this._(
           listType: ProductListType.HTTP_SEARCH_KEYWORDS,
           parameters: keywords,
           pageSize: pageSize,
           pageNumber: pageNumber,
+          language: language,
+          country: country,
         );
 
   ProductList.categorySearch(
     final String category, {
     required int pageSize,
     required int pageNumber,
+    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsCountry? country,
   }) : this._(
           listType: ProductListType.HTTP_SEARCH_CATEGORY,
           parameters: category,
           pageSize: pageSize,
           pageNumber: pageNumber,
+          language: language,
+          country: country,
         );
 
   ProductList.contributor(
     final String userId, {
     required int pageSize,
     required int pageNumber,
+    required OpenFoodFactsLanguage? language,
   }) : this._(
           listType: ProductListType.HTTP_USER_CONTRIBUTOR,
           parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
+          language: language,
         );
 
   ProductList.informer(
     final String userId, {
     required int pageSize,
     required int pageNumber,
+    required OpenFoodFactsLanguage? language,
   }) : this._(
           listType: ProductListType.HTTP_USER_INFORMER,
           parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
+          language: language,
         );
 
   ProductList.photographer(
     final String userId, {
     required int pageSize,
     required int pageNumber,
+    required OpenFoodFactsLanguage? language,
   }) : this._(
           listType: ProductListType.HTTP_USER_PHOTOGRAPHER,
           parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
+          language: language,
         );
 
   ProductList.toBeCompleted(
     final String userId, {
     required int pageSize,
     required int pageNumber,
+    required OpenFoodFactsLanguage? language,
   }) : this._(
           listType: ProductListType.HTTP_USER_TO_BE_COMPLETED,
           parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
+          language: language,
+        );
+
+  ProductList.allToBeCompleted({
+    required int pageSize,
+    required int pageNumber,
+    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsCountry? country,
+  }) : this._(
+          listType: ProductListType.HTTP_ALL_TO_BE_COMPLETED,
+          pageSize: pageSize,
+          pageNumber: pageNumber,
+          language: language,
+          country: country,
         );
 
   ProductList.history() : this._(listType: ProductListType.HISTORY);
@@ -146,6 +183,12 @@ class ProductList {
 
   /// Page number at query time.
   final int? pageNumber;
+
+  /// Language at query time.
+  final OpenFoodFactsLanguage? language;
+
+  /// Country at query time.
+  final OpenFoodFactsCountry? country;
 
   /// "Total size" returned by the query.
   int totalSize = 0;
@@ -224,6 +267,7 @@ class ProductList {
       case ProductListType.HTTP_USER_INFORMER:
       case ProductListType.HTTP_USER_PHOTOGRAPHER:
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
       case ProductListType.USER:
         return false;
       case ProductListType.SCAN_SESSION:
@@ -244,7 +288,12 @@ class ProductList {
       case ProductListType.HTTP_USER_INFORMER:
       case ProductListType.HTTP_USER_PHOTOGRAPHER:
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
-        return '$parameters,$pageSize,$pageNumber';
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
+        return '$parameters'
+            ',$pageSize'
+            ',$pageNumber'
+            ',${language?.code ?? ''}'
+            ',${country?.iso2Code ?? ''}';
     }
   }
 }

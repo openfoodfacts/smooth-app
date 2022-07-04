@@ -183,7 +183,10 @@ class DaoProductList extends AbstractDao {
   /// One barcode duplicate is potentially removed:
   /// * If the barcode was already there, it's moved to the end of the list.
   /// * If the barcode wasn't there, it's added to the end of the list.
-  void push(final ProductList productList, final String barcode) {
+  void push(
+    final ProductList productList,
+    final String barcode,
+  ) {
     final _BarcodeList? list = _get(productList);
     final List<String> barcodes;
     if (list == null) {

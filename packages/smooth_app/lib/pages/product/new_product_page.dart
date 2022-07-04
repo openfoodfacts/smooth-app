@@ -14,19 +14,20 @@ import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class ProductPage extends StatefulWidget {
@@ -64,6 +65,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    final InheritedDataManagerState inheritedDataManager =
+        InheritedDataManager.of(context);
+    inheritedDataManager.setCurrentBarcode(_product.barcode ?? '');
     final ThemeData themeData = Theme.of(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_mustScrollToTheEnd) {
@@ -233,6 +237,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             panelElement: panelElement,
             knowledgePanels: _product.knowledgePanels!,
             product: _product,
+            onboardingMode: false,
           ),
         );
       }

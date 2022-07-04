@@ -42,7 +42,7 @@
     "@featureInProgress": {},
     "label_web": "Bekijk in een browser",
     "@label_web": {},
-    "learnMore": "Lees meer",
+    "learnMore": "Meer informatie",
     "@learnMore": {},
     "unknown": "Onbekend",
     "@unknown": {
@@ -117,7 +117,7 @@
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "▶ Kies de producten die goed voor je zijn",
+    "healthCardUtility": "Kies de producten die goed voor je zijn.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
@@ -197,7 +197,7 @@
     "sign_up_page_display_name_hint": "Naam:",
     "sign_up_page_display_name_error_empty": "Voer de weergavenaam in die u wilt gebruiken",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is verplicht.",
+    "sign_up_page_email_error_empty": "E-mail is verplicht",
     "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
     "sign_up_page_username_hint": "Gebruikersnaam: Openbaar zichtbaar",
     "sign_up_page_username_error_empty": "Voer aub. een gebruikersnaam in.",
@@ -233,7 +233,7 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "Als U een account aanmaakt gaat u akkoord met de gebruiksvoorwaarden verplicht, maar anonieme bijdragen kunnen nog steeds via de app worden gedaan",
+    "sign_up_page_agree_error_invalid": "Als u een account aanmaakt, is akkoord gaan met de gebruiksvoorwaarden verplicht, maar anonieme bijdragen kunnen nog steeds via de app worden gedaan",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
@@ -273,8 +273,8 @@
     },
     "support_join_slack": "Vraag om hulp in ons Slack-kanaal",
     "support_via_email": "Stuur ons een e-mail",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_title": "App-logboeken verzenden?",
+    "support_via_email_include_logs_dialog_body": "Wilt u toepassingslogboeken toevoegen aan uw e-mail?",
     "termsOfUse": "Gebruiksvoorwaarden",
     "@termsOfUse": {},
     "about_this_app": "Over deze app",
@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "U kunt deelnemen aan de Open Food Facts Slack-chatroom, wat de beste manier is om vragen te stellen.",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "DEV Mode?",
+    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
     "contribute_donate_header": "Doneer aan Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Onvoltooide producten",
@@ -304,7 +306,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "De database is het hart van het project. Je kan makkelijk en heel snel ons helpen: door de app voor je telefoon te downloaden en te beginnen met het toevoegen of verbeteren van producten.\n\nDe Open Food Facts-website biedt vele andere manieren om bij te dragen:",
+    "contribute_improve_text": "De database is het hart van het project. Je kan ons makkelijk en heel snel helpen: door de app voor je telefoon te downloaden en te beginnen met het toevoegen of verbeteren van producten.\n\nDe Open Food Facts-website biedt vele andere manieren om bij te dragen: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Vertaal",
     "@contribute_translate_header": {
@@ -343,7 +345,7 @@
     "myPreferences_food_title": "Voedselvoorkeuren",
     "myPreferences_food_subtitle": "Kies welke informatie over voedsel voor u het belangrijkst is.",
     "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als je er een hebt.",
-    "confirmResetPreferences": "Voedselvoorkeuren resetten",
+    "confirmResetPreferences": "Voedselvoorkeuren resetten?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -420,6 +422,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "Opslaan van de verpakking is mislukt.",
+    "packaging_editing_image_error": "Het ophalen van een nieuwe verpakkingsafbeelding is mislukt.",
+    "packaging_editing_title": "Verpakking bewerken",
     "nutrition": "Voedingswaarde",
     "@nutrition": {},
     "nutrition_facts_photo": "Foto van voedingswaarden",
@@ -512,7 +518,7 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Ontbrekende ingrediënten toevoegen",
-    "score_add_missing_nutrition_facts": "Voeg ontbrekende voedingswaarden toe",
+    "score_add_missing_nutrition_facts": "Ontbrekende voedingswaarden toevoegen",
     "score_add_missing_product_category": "Ontbrekende productcategorie toevoegen",
     "score_update_nutrition_facts": "Voedingswaarden bijwerken",
     "nutrition_page_title": "Voedingswaarden",
@@ -616,35 +622,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{een dag geleden} other{{count} dagen geleden}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{een uur geleden} other{{count} uren geleden}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{minder dan een minuut geleden} =1{een minuut geleden} other{{count} minuten geleden}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} =1{een maand geleden} other{{count} maanden geleden}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{een week geleden} other{{count} weken geleden}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -688,7 +694,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "contact_form_body_android": "Besturingssysteem: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nApparaat: ${device}\nMerk:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -718,7 +724,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "contact_form_body_ios": "Besturingssysteem: iOS ({version})\nModel: ${model}\nGelokaliseerd model: ${localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1011,11 +1017,11 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "Spanje",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations": "Landen waar het product algemeen verkrijgbaar is (exclusief winkels die gespecialiseerd zijn in buitenlandse producten).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1027,7 +1033,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "In Europa codeert u in een ovaal met de 2 landinitialen gevolgd door een cijfer en CE.\nVoorbeelden: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
@@ -1070,6 +1076,14 @@
     "edit_ingredients_refresh_photo_btn_text": "Foto vernieuwen",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
+    },
+    "edit_packaging_extract_btn_text": "Verpakking uitpakken",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Foto vernieuwen",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
     },
     "user_list_dialog_new_title": "Nieuwe lijst van producten",
     "@user_list_dialog_new_title": {
@@ -1326,21 +1340,25 @@
             }
         }
     },
-    "user_search_contributor_title": "Products I added",
+    "user_search_contributor_title": "Producten die ik heb toegevoegd",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "Products I edited",
+    "user_search_informer_title": "Producten die ik heb bewerkt",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "Products I photographed",
+    "user_search_photographer_title": "Producten die ik heb gefotografeerd",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Products that need to be completed",
+    "user_search_to_be_completed_title": "My to-be-completed products",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "All to-be-completed products",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Foto opnieuw maken",
     "@edit_product_action_retake_picture": {
@@ -1361,10 +1379,6 @@
     "signup_page_terms_of_use_line2": "gebruiksvoorwaarden en bijdrage",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "Klaar voor de dev-modus?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "Analytics-pictogram",
     "@analytics_consent_image_semantic_label": {
@@ -1446,7 +1460,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, one {} =0{Lege lijst} =1{Eén product} other{{count} producten}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {

@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Soru sormanın genelde tercih edilen yolu olan Open Food Facts Slack sohbet odasına katılabilirsiniz.",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "DEV Mode?",
+    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
     "contribute_donate_header": "Open Food Facts'e Bağışta Bulunun",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Tamamlanacak ürünler",
@@ -420,6 +422,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "Failed to save the packaging.",
+    "packaging_editing_image_error": "Failed to get a new packaging image.",
+    "packaging_editing_title": "Edit Packaging",
     "nutrition": "Beslenme",
     "@nutrition": {},
     "nutrition_facts_photo": "Besin değerleri fotoğrafı",
@@ -1071,6 +1077,14 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
+    "edit_packaging_extract_btn_text": "Extract packaging",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Fotoğrafı yenileyin",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
+    },
     "user_list_dialog_new_title": "Ürünlerin yeni listesi",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1338,9 +1352,13 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Products that need to be completed",
+    "user_search_to_be_completed_title": "My to-be-completed products",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "All to-be-completed products",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Yeniden çek",
     "@edit_product_action_retake_picture": {
@@ -1361,10 +1379,6 @@
     "signup_page_terms_of_use_line2": "kullanım ve katılım koşulları",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "Geliştirme moduna hazır mısınız?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "Analytics icon",
     "@analytics_consent_image_semantic_label": {
@@ -1481,7 +1495,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Open Food Facts'teki bu ürüne bir göz atın: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {

@@ -1,7 +1,7 @@
 import 'package:openfoodfacts/model/parameter/TagFilter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/database/paged_search_product_query.dart';
+import 'package:smooth_app/query/paged_search_product_query.dart';
 
 /// Back-end query about a category.
 class CategoryProductQuery extends PagedSearchProductQuery {
@@ -22,9 +22,16 @@ class CategoryProductQuery extends PagedSearchProductQuery {
         categoryTag,
         pageSize: pageSize,
         pageNumber: pageNumber,
+        language: language,
+        country: country,
       );
 
   @override
-  String toString() =>
-      'CategoryProductQuery("$categoryTag", $pageSize, $pageNumber)';
+  String toString() => 'CategoryProductQuery('
+      '"$categoryTag"'
+      ', $pageSize'
+      ', $pageNumber'
+      ', $language'
+      ', $country'
+      ')';
 }
