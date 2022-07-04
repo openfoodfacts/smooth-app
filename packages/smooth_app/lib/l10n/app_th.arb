@@ -1216,7 +1216,7 @@
     "@dev_preferences_product_additional_features_title": {
         "description": "User dev preferences - Additional buttons on product page - Title"
     },
-    "dev_preferences_edit_ingredients_title": "Edit ingredients via a knowledge panel button",
+    "dev_preferences_edit_ingredients_title": "แก้ไขส่วนผสมคลิกที่ปุ่มแห่งความรู้",
     "@dev_preferences_edit_ingredients_title": {
         "description": "User dev preferences - Additional buttons on product page - Subtitle"
     },

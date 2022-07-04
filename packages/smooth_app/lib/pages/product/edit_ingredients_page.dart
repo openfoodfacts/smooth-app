@@ -297,8 +297,10 @@ class _OcrWidget extends StatelessWidget {
                       TextField(
                         enabled: !updatingText,
                         controller: controller,
-                        decoration: const InputDecoration(
-                          enabledBorder: OutlineInputBorder(
+                        decoration: InputDecoration(
+                          fillColor: Colors.white.withOpacity(0.2),
+                          filled: true,
+                          enabledBorder: const OutlineInputBorder(
                             borderRadius: ANGULAR_BORDER_RADIUS,
                           ),
                         ),
