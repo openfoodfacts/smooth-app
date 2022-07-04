@@ -294,8 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Możesz dołączyć do Open Food Facts Slack, który jest preferowanym sposobem na zadawanie pytań.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "Tryb deweloperski (DEV)?",
+    "contribute_develop_dev_mode_subtitle": "Aktywuj tryb deweloperski (DEV)",
     "contribute_donate_header": "Wesprzyj Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Produkty do uzupełnienia",
@@ -1352,11 +1352,11 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "My to-be-completed products",
+    "user_search_to_be_completed_title": "Moje produkty do uzupełnienia",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "all_search_to_be_completed_title": "All to-be-completed products",
+    "all_search_to_be_completed_title": "Wszystkie produkty do uzupełnienia",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
