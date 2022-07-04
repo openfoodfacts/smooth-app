@@ -50,6 +50,24 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
 
+    Color getCheckBoxColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return theme.colorScheme.onSurface;
+      }
+      // If light mode return the color of primary
+      // else return the color of primaryDark
+      if (theme.colorScheme.brightness == Brightness.light) {
+        return theme.colorScheme.primary;
+      } else {
+        return theme.colorScheme.secondary;
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocalizations.sign_up_page_title),
@@ -180,6 +198,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             ListTile(
               leading: Checkbox(
                 value: _agree,
+                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
                 onChanged: (final bool? value) {
                   if (value != null) {
                     setState(() => _agree = value);
@@ -227,6 +246,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             ListTile(
               leading: Checkbox(
                 value: _foodProducer,
+                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
                 onChanged: (final bool? value) {
                   if (value != null) {
                     setState(() => _foodProducer = value);
@@ -256,6 +276,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             ListTile(
               leading: Checkbox(
                 value: _subscribe,
+                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
                 onChanged: (final bool? value) {
                   if (value != null) {
                     setState(() => _subscribe = value);
