@@ -1,14 +1,14 @@
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
 
 class CameraHelper {
   const CameraHelper._();
 
-  static List<CameraDescription>? _cameras;
+  static final CameraControllerNotifier _cameraControllerWrapper =
+      CameraControllerNotifier();
 
-  /// Ensure we have a single instance of this controller
-  /// /!\ Lazy-loaded
-  static SmoothCameraController? _controller;
+  static List<CameraDescription>? _cameras;
 
   /// Mandatory method to call before [findBestCamera]
   static Future<void> init() async {
@@ -66,12 +66,34 @@ class CameraHelper {
   /// Init the controller
   /// And prevents the redefinition of it
   static void initController(SmoothCameraController controller) {
-    _controller ??= controller;
+    _cameraControllerWrapper._updateController(controller);
   }
 
   static void destroyControllerInstance() {
-    _controller = null;
+    _cameraControllerWrapper._updateController(null);
   }
 
-  static SmoothCameraController? get controller => _controller;
+  static SmoothCameraController? get controller =>
+      _cameraControllerWrapper._controller;
+
+  /// Subscribe to this notifier to know when the controller is created /
+  /// destroyed
+  static CameraControllerNotifier get cameraControllerNotifier =>
+      _cameraControllerWrapper;
+}
+
+/// Custom implementation to prevent the use of a [ValueNotifier] which may be
+/// limited in some case (@see [_updateController] below)
+class CameraControllerNotifier extends ChangeNotifier {
+  SmoothCameraController? _controller;
+
+  void _updateController(SmoothCameraController? controller) {
+    try {
+      _controller = controller;
+      // Always call [notifyListeners] even if the value is similar
+      notifyListeners();
+    } catch (err) {
+      // If no Widget listens to us, an error may be thrown here
+    }
+  }
 }

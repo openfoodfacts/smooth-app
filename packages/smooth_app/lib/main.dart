@@ -188,7 +188,9 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<UpToDateProductProvider>(_upToDateProductProvider),
-            provide<PermissionListener>(_permissionListener)
+            provide<PermissionListener>(_permissionListener),
+            provide<CameraControllerNotifier>(
+                CameraHelper.cameraControllerNotifier),
           ],
           builder: _buildApp,
         );

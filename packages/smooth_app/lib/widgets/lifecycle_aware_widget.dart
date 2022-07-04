@@ -58,7 +58,11 @@ abstract class LifecycleAwareState<T extends StatefulWidget> extends State<T> {
   /// Will call [setState] only if the current lifecycle state allows it
   void setStateSafe(VoidCallback fn) {
     if (_debugLifecycleState != StateLifecycle.defunct) {
-      setState(fn);
+      try {
+        setState(fn);
+      } catch (ignored) {
+        // ignore
+      }
     }
   }
 
