@@ -277,7 +277,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             _buildActionBarItem(
               Icons.bookmark_border,
