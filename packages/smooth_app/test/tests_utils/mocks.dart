@@ -32,6 +32,9 @@ class MockSmoothApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const SmoothAppConfiguration smoothAppConfiguration =
+        SmoothAppConfiguration();
+
     return MultiProvider(
         providers: <ChangeNotifierProvider<dynamic>>[
           ChangeNotifierProvider<UserPreferences>.value(value: userPreferences),
@@ -41,21 +44,25 @@ class MockSmoothApp extends StatelessWidget {
           ChangeNotifierProvider<UserManagementProvider>.value(
               value: userManagementProvider),
         ],
-        child: MaterialApp(
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          theme: SmoothTheme.getThemeData(
-            Brightness.light,
-            themeProvider,
-            const SmoothAppConfiguration(),
+        child: Provider<SmoothAppConfiguration>(
+          create: (_) => smoothAppConfiguration,
+          lazy: true,
+          child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            theme: SmoothTheme.getThemeData(
+              Brightness.light,
+              themeProvider,
+              smoothAppConfiguration,
+            ),
+            darkTheme: SmoothTheme.getThemeData(
+              Brightness.dark,
+              themeProvider,
+              smoothAppConfiguration,
+            ),
+            themeMode: themeProvider.currentThemeMode,
+            home: child,
           ),
-          darkTheme: SmoothTheme.getThemeData(
-            Brightness.dark,
-            themeProvider,
-            const SmoothAppConfiguration(),
-          ),
-          themeMode: themeProvider.currentThemeMode,
-          home: child,
         ));
   }
 }

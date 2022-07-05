@@ -38,6 +38,11 @@ class SmoothAppConfiguration {
   }
 
   static SmoothAppConfiguration of(BuildContext context) {
-    return Provider.of<SmoothAppConfiguration>(context, listen: false);
+    try {
+      return Provider.of<SmoothAppConfiguration>(context, listen: false);
+    } on ProviderNotFoundException {
+      // If run from tests
+      return const SmoothAppConfiguration();
+    }
   }
 }
