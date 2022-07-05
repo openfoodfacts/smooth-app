@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
+import 'package:smooth_app/smooth_app_configuration.dart';
 
 /// Widget that displays a svg from network (and cache while waiting).
 class SvgCache extends AbstractCache {
@@ -17,14 +18,20 @@ class SvgCache extends AbstractCache {
   final Color? color;
 
   @override
-  List<String> getCachedFilenames() {
+  List<String> getCachedFilenames(SmoothAppConfiguration configuration) {
     final List<String> result = <String>[];
     final String? filename = getFilename();
     if (filename == null) {
       return result;
     }
-    final String cacheFilename = getCacheFilename(filename);
-    final String cacheTintableFilename = getCacheTintableFilename(filename);
+    final String cacheFilename = getCacheFilename(
+      configuration,
+      filename,
+    );
+    final String cacheTintableFilename = getCacheTintableFilename(
+      configuration,
+      filename,
+    );
     if (color == null) {
       result.add(cacheFilename);
       result.add(cacheTintableFilename);
@@ -37,7 +44,9 @@ class SvgCache extends AbstractCache {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> cachedFilenames = getCachedFilenames();
+    final List<String> cachedFilenames = getCachedFilenames(
+      SmoothAppConfiguration.of(context),
+    );
     if (cachedFilenames.isEmpty) {
       return getDefaultUnknown();
     }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/raster_async_asset.dart';
+import 'package:smooth_app/smooth_app_configuration.dart';
 
 /// Widget that displays a png/jpeg from network (and cache while waiting).
 class RasterCache extends AbstractCache {
@@ -14,7 +15,9 @@ class RasterCache extends AbstractCache {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> fullFilenames = getCachedFilenames();
+    final List<String> fullFilenames = getCachedFilenames(
+      SmoothAppConfiguration.of(context),
+    );
     if (fullFilenames.isEmpty) {
       return getDefaultUnknown();
     }

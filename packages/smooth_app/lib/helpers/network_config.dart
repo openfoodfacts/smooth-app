@@ -5,11 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:smooth_app/smooth_app_configuration.dart';
 
 /// Initializes both the user agent && the SSL certificate
-Future<void> setupAppNetworkConfig() async {
+Future<void> setupAppNetworkConfig(SmoothAppConfiguration configuration) async {
   await _initUserAgent();
-  return _importSSLCertificate();
+  return _importSSLCertificate(configuration);
 }
 
 Future<void> _initUserAgent() async {
@@ -59,7 +60,7 @@ String _getAppInfoComment({
 
 /// Imports the OFF SSL certificate (for Android 7.1+ / iOS devices)
 /// or accepts all certificates
-Future<void> _importSSLCertificate() async {
+Future<void> _importSSLCertificate(SmoothAppConfiguration configuration) async {
   if (Platform.isAndroid) {
     await dip.loadLibrary();
     final int sdkInt =
@@ -71,9 +72,8 @@ Future<void> _importSSLCertificate() async {
     }
   }
 
-  final ByteData data = await PlatformAssetBundle().load(
-    'packages/smooth_app/assets/network/cert.pem',
-  );
+  final ByteData data = await PlatformAssetBundle()
+      .load(configuration.getAsset('assets/network/cert.pem'));
 
   SecurityContext.defaultContext.setTrustedCertificatesBytes(
     data.buffer.asUint8List(),

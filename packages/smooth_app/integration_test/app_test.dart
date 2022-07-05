@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/main.dart' as app;
+import 'package:smooth_app/smooth_app_configuration.dart';
 
 Future<void> _initScreenshot(
   final IntegrationTestWidgetsFlutterBinding binding,
@@ -34,6 +35,7 @@ const String device = String.fromEnvironment('DEVICE'); // e.g. iPhone8Plus
 flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart \
  --dart-define=LANGUAGE=fr --dart-define=COUNTRY=FR --dart-define=PLATFORM=ios --dart-define=DEVICE=iPhone8Plus
  */
+
 /// Onboarding screenshots.
 void main() {
   final IntegrationTestWidgetsFlutterBinding binding =
@@ -52,7 +54,9 @@ void main() {
       await tester.runAsync(() async {
         await _initScreenshot(binding);
 
-        await app.main(screenshots: true);
+        await app.main(
+          appConfiguration: const SmoothAppConfiguration(screenshots: true),
+        );
         await tester.pumpAndSettle();
 
         sleep(const Duration(seconds: 30));

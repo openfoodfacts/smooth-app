@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smooth_app/smooth_app_configuration.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -11,6 +12,7 @@ class SmoothTheme {
   static ThemeData getThemeData(
     final Brightness brightness,
     final ThemeProvider themeProvider,
+    final SmoothAppConfiguration appConfiguration,
   ) {
     final ColorScheme myColorScheme;
 
@@ -43,12 +45,12 @@ class SmoothTheme {
           backgroundColor: myColorScheme.primary,
           foregroundColor: myColorScheme.onPrimary),
       textTheme: brightness == Brightness.dark
-          ? _TEXT_THEME.copyWith(
+          ? _getAppTextTheme(appConfiguration).copyWith(
               headline2: _TEXT_THEME.headline2?.copyWith(color: Colors.white),
               headline4: _TEXT_THEME.headline4?.copyWith(color: Colors.white),
               bodyText2: _TEXT_THEME.bodyText2?.copyWith(color: Colors.white),
             )
-          : _TEXT_THEME,
+          : _getAppTextTheme(appConfiguration),
       appBarTheme: AppBarTheme(
         color: myColorScheme.background,
         foregroundColor: myColorScheme.onBackground,
@@ -64,10 +66,20 @@ class SmoothTheme {
       ),
       snackBarTheme: SnackBarThemeData(
         contentTextStyle:
-            _TEXT_THEME.bodyText2?.copyWith(color: myColorScheme.onBackground),
+            _getAppTextTheme(appConfiguration).bodyText2?.copyWith(
+                  color: myColorScheme.onBackground,
+                ),
         actionTextColor: myColorScheme.onBackground,
       ),
     );
+  }
+
+  static TextTheme _getAppTextTheme(SmoothAppConfiguration configuration) {
+    if (configuration.fromPackage) {
+      return _TEXT_THEME.addPackage('PlusJakartaSans', 'smooth_app');
+    } else {
+      return _TEXT_THEME;
+    }
   }
 
   static const TextTheme _TEXT_THEME = TextTheme(
@@ -126,5 +138,66 @@ class SmoothTheme {
             .clamp(0.0, 1.0));
 
     return hslDark.toColor();
+  }
+}
+
+extension _TextThemePackage on TextTheme {
+  TextTheme addPackage(String fontFamily, String package) {
+    assert(fontFamily.isNotEmpty && package.isNotEmpty);
+
+    return copyWith(
+      headline1: (headline1 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      headline2: (headline2 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      headline3: (headline3 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      headline4: (headline4 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      headline5: (headline5 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      headline6: (headline6 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      subtitle1: (subtitle1 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      subtitle2: (subtitle2 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      bodyText1: (bodyText1 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      bodyText2: (bodyText2 ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      caption: (caption ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      button: (button ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+      overline: (overline ?? const TextStyle()).copyWith(
+        fontFamily: fontFamily,
+        package: package,
+      ),
+    );
   }
 }

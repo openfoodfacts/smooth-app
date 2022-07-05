@@ -25,20 +25,22 @@ import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/smooth_app_configuration.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-late bool _screenshots;
+late SmoothAppConfiguration _appConfiguration;
 
 Future<void> main({
-  final bool screenshots = false,
-  WidgetBuilder? appBuilder,
+  SmoothAppConfiguration? appConfiguration,
 }) async {
+  _appConfiguration = appConfiguration ?? const SmoothAppConfiguration();
+
   // Adding google font licenses
   LicenseRegistry.addLicense(() async* {
     final String license = await rootBundle.loadString(
-      'packages/smooth_app/assets/plus_jakarta_sans_regular/OFL.txt',
+      _appConfiguration.getAsset('assets/plus_jakarta_sans_regular/OFL.txt'),
     );
     yield LicenseEntryWithLineBreaks(
       <String>['plus_jakarta_sans_regular'],
@@ -46,8 +48,7 @@ Future<void> main({
     );
   });
 
-  _screenshots = screenshots;
-  if (_screenshots) {
+  if (_appConfiguration.screenshots) {
     await _init1();
     runApp(const SmoothApp());
     return;
@@ -59,12 +60,16 @@ Future<void> main({
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
       appRunner: () => runApp(
-        appBuilder != null ? Builder(builder: appBuilder) : const SmoothApp(),
+        _appConfiguration.appBuilder != null
+            ? Builder(builder: _appConfiguration.appBuilder!)
+            : const SmoothApp(),
       ),
     );
   } else {
     runApp(
-      appBuilder != null ? Builder(builder: appBuilder) : const SmoothApp(),
+      _appConfiguration.appBuilder != null
+          ? Builder(builder: _appConfiguration.appBuilder!)
+          : const SmoothApp(),
     );
   }
 }
@@ -98,7 +103,7 @@ Future<bool> _init1() async {
   }
 
   await SmoothServices().init();
-  await setupAppNetworkConfig();
+  await setupAppNetworkConfig(_appConfiguration);
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
@@ -150,8 +155,8 @@ class _SmoothAppState extends State<SmoothApp> {
       return false;
     }
     await _productPreferences.init(DefaultAssetBundle.of(context));
-    await AnalyticsHelper.initMatomo(_screenshots);
-    if (!_screenshots) {
+    await AnalyticsHelper.initMatomo(_appConfiguration.screenshots);
+    if (!_appConfiguration.screenshots) {
       await _userPreferences.init(_productPreferences);
     }
     return true;
@@ -176,7 +181,7 @@ class _SmoothAppState extends State<SmoothApp> {
         ChangeNotifierProvider<T> provide<T extends ChangeNotifier>(T value) =>
             ChangeNotifierProvider<T>(create: (BuildContext context) => value);
 
-        if (!_screenshots) {
+        if (!_appConfiguration.screenshots) {
           // ending FlutterNativeSplash.preserve()
           FlutterNativeSplash.remove();
         }
@@ -213,24 +218,31 @@ class _SmoothAppState extends State<SmoothApp> {
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
 
-    return MaterialApp(
-      locale: languageCode != null ? Locale(languageCode) : null,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
-      navigatorObservers: <NavigatorObserver>[
-        SentryNavigatorObserver(),
-      ],
-      theme: SmoothTheme.getThemeData(
-        Brightness.light,
-        themeProvider,
+    return Provider<SmoothAppConfiguration>(
+      create: (_) => _appConfiguration,
+      lazy: true,
+      child: MaterialApp(
+        locale: languageCode != null ? Locale(languageCode) : null,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        debugShowCheckedModeBanner:
+            !(kReleaseMode || _appConfiguration.screenshots),
+        navigatorObservers: <NavigatorObserver>[
+          SentryNavigatorObserver(),
+        ],
+        theme: SmoothTheme.getThemeData(
+          Brightness.light,
+          themeProvider,
+          _appConfiguration,
+        ),
+        darkTheme: SmoothTheme.getThemeData(
+          Brightness.dark,
+          themeProvider,
+          _appConfiguration,
+        ),
+        themeMode: themeProvider.currentThemeMode,
+        home: SmoothAppGetLanguage(appWidget),
       ),
-      darkTheme: SmoothTheme.getThemeData(
-        Brightness.dark,
-        themeProvider,
-      ),
-      themeMode: themeProvider.currentThemeMode,
-      home: SmoothAppGetLanguage(appWidget),
     );
   }
 

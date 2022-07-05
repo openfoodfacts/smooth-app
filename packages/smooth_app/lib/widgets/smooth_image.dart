@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/smooth_app_configuration.dart';
 
 /// Loads an image from the assets
 /// If launched from [smooth_app_dev], the [package] is automatically added
@@ -49,7 +50,7 @@ class SmoothImage extends StatelessWidget {
     if (_isSVG) {
       return SvgPicture.asset(
         assetName,
-        package: _package,
+        package: _package(context),
         width: width,
         height: height,
         fit: fit ?? BoxFit.contain,
@@ -59,7 +60,7 @@ class SmoothImage extends StatelessWidget {
     } else {
       return Image.asset(
         assetName,
-        package: _package,
+        package: _package(context),
         width: width,
         height: height,
         fit: fit ?? BoxFit.contain,
@@ -71,8 +72,9 @@ class SmoothImage extends StatelessWidget {
 
   bool get _isSVG => assetName.endsWith('svg');
 
-  String? get _package {
-    if (assetName.startsWith('package')) {
+  String? _package(BuildContext context) {
+    if (assetName.startsWith('package') ||
+        !SmoothAppConfiguration.of(context).fromPackage) {
       return null;
     }
 

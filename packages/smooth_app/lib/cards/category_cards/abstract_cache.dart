@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/category_cards/null_cache.dart';
 import 'package:smooth_app/cards/category_cards/raster_cache.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/smooth_app_configuration.dart';
 
 /// Widget that displays an image from network (and cache while waiting).
 abstract class AbstractCache extends StatelessWidget {
@@ -37,25 +38,31 @@ abstract class AbstractCache extends StatelessWidget {
 
   /// Returns a list of possible related cached filenames.
   @protected
-  List<String> getCachedFilenames() {
+  List<String> getCachedFilenames(SmoothAppConfiguration configuration) {
     final List<String> result = <String>[];
     final String? filename = getFilename();
     if (filename == null) {
       return result;
     }
-    result.add(getCacheFilename(filename));
+    result.add(getCacheFilename(configuration, filename));
     return result;
   }
 
   /// Returns the path to the asset cached file (not tintable version).
   @protected
-  String getCacheFilename(final String filename) =>
-      'packages/smooth_app/assets/cache/$filename';
+  String getCacheFilename(
+    final SmoothAppConfiguration configuration,
+    final String filename,
+  ) =>
+      configuration.getAsset('assets/cache/$filename');
 
   /// Returns the path to the asset cached tintable file.
   @protected
-  String getCacheTintableFilename(final String filename) =>
-      'packages/smooth_app/assets/cacheTintable/$filename';
+  String getCacheTintableFilename(
+    final SmoothAppConfiguration configuration,
+    final String filename,
+  ) =>
+      configuration.getAsset('assets/cacheTintable/$filename');
 
   /// Returns the simple filename of the icon url (without the full path).
   @protected

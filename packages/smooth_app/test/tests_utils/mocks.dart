@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/smooth_app_configuration.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -46,10 +47,12 @@ class MockSmoothApp extends StatelessWidget {
           theme: SmoothTheme.getThemeData(
             Brightness.light,
             themeProvider,
+            const SmoothAppConfiguration(),
           ),
           darkTheme: SmoothTheme.getThemeData(
             Brightness.dark,
             themeProvider,
+            const SmoothAppConfiguration(),
           ),
           themeMode: themeProvider.currentThemeMode,
           home: child,
