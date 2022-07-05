@@ -7,10 +7,10 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class OfflineDataPage extends StatefulWidget {
