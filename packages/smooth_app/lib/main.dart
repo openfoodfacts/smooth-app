@@ -28,6 +28,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 late bool _screenshots;
 
@@ -188,7 +189,9 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<UpToDateProductProvider>(_upToDateProductProvider),
-            provide<PermissionListener>(_permissionListener)
+            provide<PermissionListener>(_permissionListener),
+            provide<CameraControllerNotifier>(
+                CameraHelper.cameraControllerNotifier),
           ],
           builder: _buildApp,
         );
@@ -231,7 +234,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildError(AsyncSnapshot<void> snapshot) {
     return MaterialApp(
-      home: Scaffold(
+      home: SmoothScaffold(
         body: Center(
           child: Text(
             'Fatal Error: ${snapshot.error}',

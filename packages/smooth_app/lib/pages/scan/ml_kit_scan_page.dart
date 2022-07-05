@@ -16,6 +16,7 @@ import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
+import 'package:smooth_app/pages/scan/camera_image_preview.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
 import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
@@ -108,12 +109,14 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     }
 
     // Relaunch the feed after a hot reload
-    if (_controller == null) {
-      _startLiveFeed();
-    } else {
-      _controller!.updateFocusPointAlgorithm(
-        _userPreferences.cameraFocusPointAlgorithm,
-      );
+    if (_isScreenVisible()) {
+      if (_controller == null) {
+        _startLiveFeed();
+      } else {
+        _controller!.updateFocusPointAlgorithm(
+          _userPreferences.cameraFocusPointAlgorithm,
+        );
+      }
     }
   }
 
@@ -127,9 +130,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   Widget build(BuildContext context) {
     return Consumer<BottomNavigationTab>(
       builder: (BuildContext context, BottomNavigationTab tab, Widget? child) {
-        if (pendingResume &&
-            tab == BottomNavigationTab.Scan &&
-            Navigator.of(context).canPop()) {
+        if (pendingResume && _isScreenVisible(tab: tab)) {
           pendingResume = false;
           _onResumeImageStream();
         }
@@ -147,6 +148,14 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         child: _buildScannerWidget(),
       ),
     );
+  }
+
+  /// Returns if the current tab is visible AND the scanner is also visible
+  /// (= the first element = canPop == false)
+  bool _isScreenVisible({BottomNavigationTab? tab}) {
+    return (tab ?? Provider.of<BottomNavigationTab>(context, listen: false)) ==
+            BottomNavigationTab.Scan &&
+        !Navigator.of(context).canPop();
   }
 
   Widget _buildScannerWidget() {
@@ -167,9 +176,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
           scale: _previewScale,
           child: Center(
             key: ValueKey<bool>(stoppingCamera),
-            child: CameraPreview(
-              _controller!,
-            ),
+            child: const SmoothCameraStreamPreview(),
           ),
         );
       },
@@ -298,8 +305,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         });
       }
     } on CameraException catch (e) {
-      // TODO(M123): Show error message
       Logs.d('On camera error', ex: e);
+
+      // The camera may not be ready. Wait a short time and try again.
+      return _stopImageStream();
     } on FlutterError catch (e) {
       Logs.d('On camera (Flutter part) error', ex: e);
     }
@@ -389,7 +398,12 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     }
 
     if (_controller?.isPauseResumePreviewSupported == true) {
-      await _controller?.resumePreviewIfNecessary();
+      try {
+        await _controller?.resumePreviewIfNecessary();
+      } on CameraException catch (_) {
+        // Dart Controller is OK, but native part is KO
+        return _stopImageStream();
+      }
     }
     stoppingCamera = false;
   }
@@ -408,10 +422,13 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     _redrawScreen();
 
     _controller?.removeListener(_cameraListener);
-    await _streamSubscription?.cancel();
 
-    await _controller?.dispose();
+    // Don't wait for the controller to be disposed,
+    // a new one will be created in parallel
+    _controller?.dispose();
     CameraHelper.destroyControllerInstance();
+
+    await _streamSubscription?.cancel();
 
     await _barcodeDecoder?.dispose();
     _barcodeDecoder = null;
@@ -446,7 +463,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
             DateTime.now().difference(referentialTime).inMilliseconds;
 
         // The screen is still visible, we should restart the camera
-        if (diff < _minPostFrameCallbackDelay) {
+        if (diff < _minPostFrameCallbackDelay && _isScreenVisible()) {
           _startLiveFeed();
         }
       });

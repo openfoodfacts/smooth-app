@@ -11,6 +11,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
   const PersonalizedRankingPage({
@@ -60,7 +61,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       list.add(_VirtualItem.product(product));
     }
     final bool darkMode = Theme.of(context).brightness == Brightness.dark;
-    return Scaffold(
+    return SmoothScaffold(
       appBar: AppBar(
         title: Text(
           widget.title,

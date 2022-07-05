@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +13,7 @@ import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -185,7 +185,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
       );
     }
 
-    final Scaffold scaffold = Scaffold(
+    final Scaffold scaffold = SmoothScaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(_helper.getTitle(appLocalizations)),
@@ -197,10 +197,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
               color: Colors.transparent,
             ),
           ),
-        ),
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.light,
-          statusBarBrightness: Brightness.dark,
         ),
       ),
       body: Stack(

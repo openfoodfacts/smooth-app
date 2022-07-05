@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -51,6 +52,7 @@ class SmoothTheme {
       appBarTheme: AppBarTheme(
         color: myColorScheme.background,
         foregroundColor: myColorScheme.onBackground,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       toggleableActiveColor: myColorScheme.primary,
       dividerColor: const Color(0xFFdfdfdf),
