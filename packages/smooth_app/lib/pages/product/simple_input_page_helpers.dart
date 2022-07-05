@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/TagType.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -76,6 +77,9 @@ abstract class AbstractSimpleInputPageHelper {
   @protected
   void changeProduct(final Product changedProduct);
 
+  /// Returns the tag type for autocomplete suggestions.
+  TagType? getTagType();
+
   /// Returns null is no change was made, or a Product to be saved on the BE.
   Product? getChangedProduct() {
     if (!_changed) {
@@ -115,6 +119,9 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_hint;
+
+  @override
+  TagType? getTagType() => null;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -137,6 +144,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddExplanations(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_explanations;
+
+  @override
+  TagType? getTagType() => TagType.EMB_CODES;
 }
 
 /// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
@@ -222,6 +232,9 @@ class SimpleInputPageLabelHelper
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_hint;
+
+  @override
+  TagType? getTagType() => TagType.LABELS;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -245,6 +258,9 @@ class SimpleInputPageCategoryHelper
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_hint;
+
+  @override
+  TagType? getTagType() => TagType.CATEGORIES;
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
@@ -272,4 +288,7 @@ class SimpleInputPageCountryHelper
   @override
   String getAddExplanations(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_explanations;
+
+  @override
+  TagType? getTagType() => TagType.COUNTRIES;
 }
