@@ -356,16 +356,21 @@ class _SummaryCardState extends State<SummaryCard> {
     for (final Attribute attribute in scoreAttributes) {
       if (widget.isFullVersion) {
         attributes.add(
-          InkWell(
-            onTap: () async => openFullKnowledgePanel(
-              attribute: attribute,
-            ),
-            child: ScoreCard(
-              iconUrl: attribute.iconUrl,
-              description:
-                  attribute.descriptionShort ?? attribute.description ?? '',
-              cardEvaluation: getCardEvaluationFromAttribute(attribute),
-              isClickable: true,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+            child: InkWell(
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              onTap: () async => openFullKnowledgePanel(
+                attribute: attribute,
+              ),
+              child: ScoreCard(
+                iconUrl: attribute.iconUrl,
+                description:
+                    attribute.descriptionShort ?? attribute.description ?? '',
+                cardEvaluation: getCardEvaluationFromAttribute(attribute),
+                isClickable: true,
+                margin: EdgeInsets.zero,
+              ),
             ),
           ),
         );
