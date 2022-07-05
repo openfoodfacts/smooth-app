@@ -305,23 +305,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             setState(() {});
           },
         ),
-        ListTile(
-          leading: const Icon(Icons.language),
-          title: DropdownButton<String>(
-            value: userPreferences.appLanguageCode ??
-                Localizations.localeOf(context).toString(),
-            elevation: 16,
-            isExpanded: true,
-            onChanged: (String? languageCode) async =>
-                userPreferences.setAppLanguageCode(languageCode),
-            items: _supportedLanguageCodes.map((Locale locale) {
-              final String localeString = locale.toString();
-              return DropdownMenuItem<String>(
-                value: localeString,
-                child: Text(localeString),
-              );
-            }).toList(),
-          ),
+        LanguagePickerSetting(
+          supportedLanguageCodes: _supportedLanguageCodes,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
         ),
         ListTile(
           // Do not translate
@@ -486,5 +473,86 @@ enum DevModeScanMode {
       }
     }
     throw Exception('Unknown index $index');
+  }
+}
+
+class LanguagePickerSetting extends StatelessWidget {
+  const LanguagePickerSetting(
+      {required this.supportedLanguageCodes,
+      required this.userPreferences,
+      required this.appLocalizations});
+
+  final List<Locale> supportedLanguageCodes;
+  final UserPreferences userPreferences;
+  final AppLocalizations appLocalizations;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const Icon(Icons.language),
+      title: Text(
+        userPreferences.appLanguageCode ??
+            Localizations.localeOf(context).toString(),
+      ),
+      onTap: () async {
+        final List<Locale> leftovers = List<Locale>.from(
+          supportedLanguageCodes,
+        );
+        leftovers.sort((final Locale a, final Locale b) =>
+            a.languageCode.compareTo(b.languageCode));
+        List<Locale> filteredList = List<Locale>.from(leftovers);
+        await showDialog<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return StatefulBuilder(
+                builder: (BuildContext context,
+                    void Function(VoidCallback fn) setState) {
+                  return SmoothAlertDialog(
+                    body: Column(
+                      children: <Widget>[
+                        TextField(
+                          decoration: InputDecoration(
+                            prefixIcon: const Icon(Icons.search),
+                            enabledBorder: const UnderlineInputBorder(),
+                            labelText: appLocalizations.search,
+                          ),
+                          onChanged: (String query) {
+                            setState(
+                              () {
+                                filteredList = leftovers
+                                    .where((Locale item) => item.languageCode
+                                        .toLowerCase()
+                                        .contains(query.toLowerCase()))
+                                    .toList();
+                              },
+                            );
+                          },
+                        ),
+                        ...List<ListTile>.generate(
+                          filteredList.length,
+                          (int index) {
+                            final Locale language = filteredList[index];
+                            return ListTile(
+                              title: Text(language.languageCode),
+                              onTap: () {
+                                userPreferences
+                                    .setAppLanguageCode(language.languageCode);
+                                Navigator.of(context).pop();
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                    positiveAction: SmoothActionButton(
+                      onPressed: () => Navigator.pop(context),
+                      text: appLocalizations.cancel,
+                    ),
+                  );
+                },
+              );
+            });
+      },
+    );
   }
 }
