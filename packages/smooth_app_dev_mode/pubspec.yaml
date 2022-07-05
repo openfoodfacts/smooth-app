@@ -18,6 +18,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  openfoodfacts_flutter_lints:
+    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 
 dependency_overrides:
   path: 1.8.0
