@@ -1,6 +1,6 @@
 import 'package:openfoodfacts/utils/AbstractQueryConfiguration.dart';
+import 'package:openfoodfacts/utils/ToBeCompletedConfiguration.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/pages/preferences/tmp_to_be_completed_query_configuration.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 
