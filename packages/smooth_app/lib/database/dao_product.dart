@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
@@ -102,7 +103,10 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     final List<dynamic> insertParameters = <dynamic>[];
     for (final Product product in products) {
       insertParameters.add(product.barcode);
-      insertParameters.add(json.encode(product.toJson()));
+      // The data is compressed with gzip to save space.
+      final List<int> compressed =
+          gzip.encode(utf8.encode(jsonEncode(product.toJson())));
+      insertParameters.add(compressed);
     }
     await bulkManager.insert(
       bulkInsertable: this,
@@ -125,9 +129,20 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   String getTableName() => TABLE_PRODUCT;
 
   Product _getProductFromQueryResult(final Map<String, dynamic> row) {
-    final String encodedJson = row[_TABLE_PRODUCT_COLUMN_JSON] as String;
-    final Map<String, dynamic> decodedJson =
-        json.decode(encodedJson) as Map<String, dynamic>;
-    return Product.fromJson(decodedJson);
+    /// First we try to uncompress the data (if it's compressed) to get the JSON
+    /// object. If it fails, i.e throws the exception, we use the raw data.
+    /// This is a workaround so that the previous data that might have been stored
+    /// in the database without being compressed is still usable.
+    try {
+      final List<int> compressed = row[_TABLE_PRODUCT_COLUMN_JSON] as List<int>;
+      final Map<String, dynamic> decodedJson = json
+          .decode(utf8.decode(gzip.decode(compressed))) as Map<String, dynamic>;
+      return Product.fromJson(decodedJson);
+    } catch (e) {
+      final String encodedJson = row[_TABLE_PRODUCT_COLUMN_JSON] as String;
+      final Map<String, dynamic> decodedJson =
+          json.decode(encodedJson) as Map<String, dynamic>;
+      return Product.fromJson(decodedJson);
+    }
   }
 }
