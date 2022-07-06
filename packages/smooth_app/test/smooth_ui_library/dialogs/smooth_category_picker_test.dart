@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class TestCategory extends SmoothCategory<String> {
   TestCategory(String value, [Iterable<TestCategory>? children])
@@ -254,7 +255,7 @@ void main() {
         MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          home: Scaffold(
+          home: SmoothScaffold(
             body: SmoothCategoryDisplay<String>(
               categories: currentCategories,
               onDeleted: null,
@@ -266,7 +267,7 @@ void main() {
       expect(find.byIcon(Icons.cancel), findsNothing);
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(
+          home: SmoothScaffold(
             body: SmoothCategoryDisplay<String>(
               categories: currentCategories,
               onDeleted: (String value) {},
@@ -287,7 +288,7 @@ void main() {
         MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          home: Scaffold(
+          home: SmoothScaffold(
             body: SmoothCategoryDisplay<String>(
               categories: currentCategories,
               onDeleted: (String value) {

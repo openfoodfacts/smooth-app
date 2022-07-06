@@ -6,6 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 void main() {
   timeDilation = 1.0;
@@ -179,7 +180,7 @@ class _ExampleAppState extends State<ExampleApp> {
         chipTheme:
             ChipTheme.of(context).copyWith(backgroundColor: Colors.green),
       ),
-      child: Scaffold(
+      child: SmoothScaffold(
         body: SmoothCategoryPicker<Fruit>(
           categoryFinder: getCategory,
           currentPath: currentCategoryPath,

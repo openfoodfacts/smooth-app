@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage();
@@ -80,8 +81,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
+    return SmoothScaffold(
       extendBodyBehindAppBar: true,
+      statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
+      contentBehindStatusBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

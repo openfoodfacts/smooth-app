@@ -15,6 +15,7 @@ import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
 
@@ -48,7 +49,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
-    return Scaffold(
+    return SmoothScaffold(
       appBar: AppBar(
           title: Text(appLocalizations.new_product),
           automaticallyImplyLeading: !_isProductLoaded),
