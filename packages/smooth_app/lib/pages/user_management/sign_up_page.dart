@@ -216,10 +216,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                           ?.copyWith(color: theme.colorScheme.onBackground),
                     ),
                     TextSpan(
-                      style: const TextStyle(
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                      ),
+                      style: theme.textTheme.bodyText2
+                          ?.copyWith(color: Colors.blue),
                       text: appLocalizations.sign_up_page_terms_text,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
@@ -254,7 +252,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   }
                 },
               ),
-              title: Text(appLocalizations.sign_up_page_producer_checkbox),
+              title: Text(
+                appLocalizations.sign_up_page_producer_checkbox,
+                style: theme.textTheme.bodyText2
+                    ?.copyWith(color: theme.colorScheme.onBackground),
+              ),
             ),
             if (_foodProducer) ...<Widget>[
               const SizedBox(height: space),
@@ -284,7 +286,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   }
                 },
               ),
-              title: Text(appLocalizations.sign_up_page_subscribe_checkbox),
+              title: Text(
+                appLocalizations.sign_up_page_subscribe_checkbox,
+                style: theme.textTheme.bodyText2
+                    ?.copyWith(color: theme.colorScheme.onBackground),
+              ),
             ),
             const SizedBox(height: space),
             ElevatedButton(
