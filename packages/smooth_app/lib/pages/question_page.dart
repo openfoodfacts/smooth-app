@@ -84,7 +84,7 @@ class _QuestionPageState extends State<QuestionPage>
             child: SlideTransition(
               position: inAnimation,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(SMALL_SPACE),
                 child: child,
               ),
             ),
@@ -95,7 +95,7 @@ class _QuestionPageState extends State<QuestionPage>
             child: SlideTransition(
               position: outAnimation,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(SMALL_SPACE),
                 child: child,
               ),
             ),
@@ -187,7 +187,7 @@ class _QuestionPageState extends State<QuestionPage>
         children: <Widget>[
           Container(
             alignment: Alignment.center,
-            padding: const EdgeInsets.only(bottom: SMALL_SPACE),
+            padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),
             child: Text(
               question.question!,
               style: Theme.of(context)
@@ -275,7 +275,7 @@ class _QuestionPageState extends State<QuestionPage>
     required Color backgroundColor,
     required Color contentColor,
     required int currentQuestionIndex,
-    EdgeInsets padding = const EdgeInsets.all(4),
+    EdgeInsets padding = const EdgeInsets.all(VERY_SMALL_SPACE),
   }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     String buttonText;

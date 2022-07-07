@@ -220,10 +220,18 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
   Widget _buildZoomableImage(ImageProvider imageSource) {
     return InteractiveViewer(
-      boundaryMargin: const EdgeInsets.fromLTRB(20, 10, 20, 200),
+      boundaryMargin: const EdgeInsets.only(
+        left: VERY_LARGE_SPACE,
+        top: 10,
+        right: VERY_LARGE_SPACE,
+        bottom: 200,
+      ),
       minScale: 0.1,
       maxScale: 5,
-      child: Image(fit: BoxFit.contain, image: imageSource),
+      child: Image(
+        fit: BoxFit.contain,
+        image: imageSource,
+      ),
     );
   }
 }
@@ -251,7 +259,7 @@ class _OcrWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Align(
-      alignment: Alignment.bottomLeft,
+      alignment: AlignmentDirectional.bottomStart,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
@@ -260,10 +268,10 @@ class _OcrWidget extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: const EdgeInsets.only(
+                padding: const EdgeInsetsDirectional.only(
                   bottom: LARGE_SPACE,
-                  right: LARGE_SPACE,
-                  left: LARGE_SPACE,
+                  start: LARGE_SPACE,
+                  end: LARGE_SPACE,
                 ),
                 child: SmoothActionButtonsBar(
                   positiveAction: SmoothActionButton(

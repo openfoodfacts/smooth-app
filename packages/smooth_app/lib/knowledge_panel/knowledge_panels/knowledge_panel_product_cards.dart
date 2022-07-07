@@ -13,7 +13,7 @@ class KnowledgePanelProductCards extends StatelessWidget {
     for (final Widget widget in knowledgePanelWidgets) {
       widgetsWrappedInSmoothCards.add(
         Padding(
-          padding: const EdgeInsets.only(top: VERY_LARGE_SPACE),
+          padding: const EdgeInsetsDirectional.only(top: VERY_LARGE_SPACE),
           child: buildProductSmoothCard(
             body: widget,
             padding: SMOOTH_CARD_PADDING,
@@ -23,7 +23,7 @@ class KnowledgePanelProductCards extends StatelessWidget {
     }
     return Center(
       child: Padding(
-        padding: const EdgeInsets.only(bottom: SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

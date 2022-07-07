@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// The default Material-style Autocomplete options.
 ///
@@ -25,7 +26,7 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.topLeft,
+      alignment: AlignmentDirectional.topStart,
       child: Material(
         elevation: 4.0,
         child: ConstrainedBox(
@@ -51,7 +52,7 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
                   }
                   return Container(
                     color: highlight ? Theme.of(context).focusColor : null,
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(LARGE_SPACE),
                     child: Text(displayStringForOption(option)),
                   );
                 }),

@@ -129,7 +129,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
           alignment: Alignment.centerRight,
           margin: const EdgeInsets.symmetric(vertical: 14),
           color: RED_COLOR,
-          padding: const EdgeInsets.only(right: 30),
+          padding: const EdgeInsetsDirectional.only(end: 30),
           child: const Icon(
             Icons.delete,
             color: Colors.white,
@@ -153,7 +153,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
           );
         },
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: MEDIUM_SPACE,
+            vertical: SMALL_SPACE,
+          ),
           child: SmoothProductCardFound(
             heroTag: matchedProduct.product.barcode!,
             product: matchedProduct.product,
@@ -168,6 +171,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 /// Virtual item in the list: either a product or a status header
 class _VirtualItem {
   const _VirtualItem.product(this.product) : status = null;
+
   const _VirtualItem.status(this.status) : product = null;
   final MatchedProductV2? product;
   final MatchedProductStatusV2? status;

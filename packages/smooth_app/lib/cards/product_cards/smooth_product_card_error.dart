@@ -33,7 +33,7 @@ class SmoothProductCardError extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(SMALL_SPACE),
             child: SvgPicture.asset(
               'assets/misc/error.svg',
               width: MINIMUM_TOUCH_SIZE * 2,
@@ -47,7 +47,7 @@ class SmoothProductCardError extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 12.0,
+            height: MEDIUM_SPACE,
           ),
           ProductDialogHelper.getErrorMessage(
             _getErrorMessage(
@@ -56,7 +56,7 @@ class SmoothProductCardError extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 12.0,
+            height: MEDIUM_SPACE,
           ),
           ElevatedButton(
             onPressed: () async {

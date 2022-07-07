@@ -92,7 +92,9 @@ class SmoothProductCardFound extends StatelessWidget {
                   width: screenSize.width * 0.20,
                   height: screenSize.width * 0.20,
                 ),
-                const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                const Padding(
+                    padding:
+                        EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE)),
                 Expanded(
                   child: SizedBox(
                     height: screenSize.width * 0.2,
@@ -118,8 +120,9 @@ class SmoothProductCardFound extends StatelessWidget {
                               color: helper.getButtonColor(isDarkMode),
                             ),
                             const Padding(
-                                padding:
-                                    EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                              padding: EdgeInsetsDirectional.only(
+                                  start: VERY_SMALL_SPACE),
+                            ),
                             Expanded(
                               child: FittedBox(
                                 fit: BoxFit.scaleDown,
@@ -127,8 +130,9 @@ class SmoothProductCardFound extends StatelessWidget {
                                 child: Text(
                                   helper.getSubtitle(appLocalizations),
                                   style: themeData.textTheme.bodyText2!.apply(
-                                      color: helper.getButtonForegroundColor(
-                                          isDarkMode)),
+                                    color: helper
+                                        .getButtonForegroundColor(isDarkMode),
+                                  ),
                                 ),
                               ),
                             ),
@@ -138,7 +142,9 @@ class SmoothProductCardFound extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                const Padding(
+                  padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(VERY_SMALL_SPACE),
                   child: Column(

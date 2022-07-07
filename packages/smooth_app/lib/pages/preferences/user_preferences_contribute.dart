@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -124,7 +125,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
             body: Column(
               children: <Widget>[
                 Text(appLocalizations.contribute_develop_text),
-                const SizedBox(height: 20),
+                const SizedBox(height: VERY_LARGE_SPACE),
                 Text(appLocalizations.contribute_develop_text_2),
                 const SizedBox(height: 10),
                 Row(

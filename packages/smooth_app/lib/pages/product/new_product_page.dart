@@ -205,7 +205,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
         children: <Widget>[
           Align(
             heightFactor: 0.7,
-            alignment: Alignment.topLeft,
+            alignment: AlignmentDirectional.topStart,
             child: ProductImageCarousel(
               _product,
               height: 200,
