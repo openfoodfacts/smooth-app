@@ -231,8 +231,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   }
                 },
               ),
-              title: Text(appLocalizations.sign_up_page_producer_checkbox,style: theme.textTheme.bodyText2
-                    ?.copyWith(color: theme.colorScheme.onBackground),),
+              title: Text(
+                appLocalizations.sign_up_page_producer_checkbox,
+                style: theme.textTheme.bodyText2
+                    ?.copyWith(color: theme.colorScheme.onBackground),
+              ),
             ),
             if (_foodProducer) ...<Widget>[
               const SizedBox(height: space),
@@ -261,8 +264,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   }
                 },
               ),
-              title: Text(appLocalizations.sign_up_page_subscribe_checkbox,style: theme.textTheme.bodyText2
-                    ?.copyWith(color: theme.colorScheme.onBackground),),
+              title: Text(
+                appLocalizations.sign_up_page_subscribe_checkbox,
+                style: theme.textTheme.bodyText2
+                    ?.copyWith(color: theme.colorScheme.onBackground),
+              ),
             ),
             const SizedBox(height: space),
             ElevatedButton(
