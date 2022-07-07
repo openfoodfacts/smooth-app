@@ -129,10 +129,10 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   String getTableName() => TABLE_PRODUCT;
 
   Product _getProductFromQueryResult(final Map<String, dynamic> row) {
-    /// First we try to uncompress the data (if it's compressed) to get the JSON
-    /// object. If it fails, i.e throws the exception, we use the raw data.
-    /// This is a workaround so that the previous data that might have been stored
-    /// in the database without being compressed is still usable.
+    // First we try to uncompress the data (if it's compressed) to get the JSON
+    // object. If it fails, i.e throws the exception, we use the raw data.
+    // This is a workaround so that the previous data that might have been stored
+    // in the database without being compressed is still usable.
     try {
       final List<int> compressed = row[_TABLE_PRODUCT_COLUMN_JSON] as List<int>;
       final Map<String, dynamic> decodedJson = json
