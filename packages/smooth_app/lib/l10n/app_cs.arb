@@ -60,7 +60,7 @@
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
-    "match_may_not": "May not match",
+    "match_may_not": "Nemusí se shodovat",
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
@@ -68,7 +68,7 @@
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "Unknown match",
+    "match_unknown": "Neznámá shoda",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
@@ -84,7 +84,7 @@
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
-    "match_short_may_not": "May not match",
+    "match_short_may_not": "Nemusí se shodovat",
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
@@ -92,7 +92,7 @@
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "Unknown match",
+    "match_short_unknown": "Neznámá shoda",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
@@ -354,9 +354,9 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Vše",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_yes": "Skvělá shoda pro vás",
+    "ranking_subtitle_match_no": "Velmi špatná shoda",
+    "ranking_subtitle_match_maybe": "Neznámá shoda",
     "reloaded_with_new_preferences": "Znovu načteno s vašimi novými předvolbami",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
