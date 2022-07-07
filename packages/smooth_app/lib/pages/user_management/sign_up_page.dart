@@ -196,8 +196,10 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                           ?.copyWith(color: theme.colorScheme.onBackground),
                     ),
                     TextSpan(
-                      style: theme.textTheme.bodyText2
-                          ?.copyWith(color: Colors.blue),
+                      style: const TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
                       text: appLocalizations.sign_up_page_terms_text,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {

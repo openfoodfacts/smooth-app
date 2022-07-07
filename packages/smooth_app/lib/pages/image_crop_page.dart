@@ -81,7 +81,6 @@ Future<File?> startImageCropping(BuildContext context,
         backgroundColor: Colors.black,
         activeControlsWidgetColor: const Color(0xFF85746C),
       ),
-     
     ],
   );
   //attempting to create a file from a null path will throw an exception so return null if that happens
