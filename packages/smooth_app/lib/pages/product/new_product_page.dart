@@ -29,6 +29,7 @@ import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/themes/smooth_durations.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductPage extends StatefulWidget {
@@ -118,7 +119,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             ),
             SafeArea(
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration: SmoothAnimationsDuration.short,
                 width: kToolbarHeight,
                 height: kToolbarHeight,
                 decoration: BoxDecoration(
@@ -154,7 +155,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
       curve: Curves.easeOut,
-      duration: const Duration(milliseconds: 500),
+      duration: SmoothAnimationsDuration.long,
     );
     _mustScrollToTheEnd = false;
   }

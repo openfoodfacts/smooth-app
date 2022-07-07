@@ -18,6 +18,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/themes/smooth_durations.dart';
 import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -183,7 +184,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               Visibility(
                 visible: _showBackToTopButton,
                 child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 200),
+                  duration: SmoothAnimationsDuration.short,
                   opacity: _showBackToTopButton ? 1.0 : 0.0,
                   child: SmoothRevealAnimation(
                     animationCurve: Curves.easeInOutBack,

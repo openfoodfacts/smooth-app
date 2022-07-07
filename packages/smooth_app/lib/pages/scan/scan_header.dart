@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/scan/scan_page_helper.dart';
+import 'package:smooth_app/themes/smooth_durations.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
 class ScanHeader extends StatelessWidget {
@@ -11,7 +12,6 @@ class ScanHeader extends StatelessWidget {
     super.key,
   });
 
-  static const Duration _duration = Duration(milliseconds: 50);
   static const double _visibleOpacity = 0.8;
   static const double _invisibleOpacity = 0.0;
 
@@ -31,7 +31,7 @@ class ScanHeader extends StatelessWidget {
     return AnimatedOpacity(
       opacity:
           model.getBarcodes().isNotEmpty ? _visibleOpacity : _invisibleOpacity,
-      duration: _duration,
+      duration: SmoothAnimationsDuration.brief,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: VERY_SMALL_SPACE,

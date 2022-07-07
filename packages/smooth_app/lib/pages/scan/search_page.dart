@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/scan/search_history_view.dart';
 import 'package:smooth_app/query/keywords_product_query.dart';
+import 'package:smooth_app/themes/smooth_durations.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 void _performSearch(BuildContext context, String query) {
@@ -143,8 +144,6 @@ class _SearchFieldState extends State<SearchField> {
 
   bool _isEmpty = true;
 
-  static const Duration _animationDuration = Duration(milliseconds: 100);
-
   @override
   void initState() {
     super.initState();
@@ -216,7 +215,7 @@ class _SearchFieldState extends State<SearchField> {
       child: IconButton(
         onPressed: _handleClear,
         icon: AnimatedCrossFade(
-          duration: _animationDuration,
+          duration: SmoothAnimationsDuration.brief,
           crossFadeState:
               _isEmpty ? CrossFadeState.showFirst : CrossFadeState.showSecond,
           // Closes the page.

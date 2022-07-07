@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
+import 'package:smooth_app/themes/smooth_durations.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const double _kCategoryHeight = 30.0;
 const double _kMaxCategoryWidth = 200.0;
-const Duration _kCategoryDisplayDuration = Duration(milliseconds: 250);
 
 /// A callback used to find information about the category node at the given
 /// `categoryPath`.
@@ -286,7 +286,7 @@ class _CategoryViewState<T extends Comparable<T>>
     controller.animateToPage(
       page,
       curve: Curves.easeInOut,
-      duration: const Duration(milliseconds: 200),
+      duration: SmoothAnimationsDuration.short,
     );
   }
 
@@ -530,7 +530,7 @@ class _SmoothCategoryDisplayState<T extends Object>
         widget.categories.difference(displayed.keys.toSet());
     for (final T category in addedCategories) {
       final AnimationController newController = AnimationController(
-          vsync: this, value: 0, duration: _kCategoryDisplayDuration)
+          vsync: this, value: 0, duration: SmoothAnimationsDuration.medium)
         ..addStatusListener(_cleanup)
         ..forward();
       displayed[category] = newController;

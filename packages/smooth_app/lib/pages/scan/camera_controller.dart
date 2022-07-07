@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/smooth_durations.dart';
 
 /// A lifecycle-aware [CameraController]
 /// On Android it supports pause/resume feed
@@ -178,9 +179,7 @@ class SmoothCameraController extends CameraController {
     // Don't persist value to preferences
     return setFlashMode(FlashMode.off).then(
       // A slight delay is required as the native part doesn't wait here
-      (_) => Future<void>.delayed(
-        const Duration(milliseconds: 250),
-      ),
+      (_) => Future<void>.delayed(SmoothAnimationsDuration.short),
     );
   }
 

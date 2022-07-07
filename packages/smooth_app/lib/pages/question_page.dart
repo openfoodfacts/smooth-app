@@ -13,6 +13,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/themes/smooth_durations.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionPage extends StatefulWidget {
@@ -66,7 +67,7 @@ class _QuestionPageState extends State<QuestionPage>
 
   AnimatedSwitcher _buildAnimationSwitcher() {
     return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 400),
+      duration: SmoothAnimationsDuration.medium,
       transitionBuilder: (Widget child, Animation<double> animation) {
         final Offset animationStartOffset = _getAnimationStartOffset();
         final Animation<Offset> inAnimation = Tween<Offset>(
