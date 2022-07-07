@@ -34,6 +34,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   final TextEditingController _password2Controller = TextEditingController();
   final TextEditingController _brandController = TextEditingController();
 
+  final FocusNode _userFocusNode = FocusNode();
+  final FocusNode _emailFocusNode = FocusNode();
+
   bool _foodProducer = false;
   bool _agree = false;
   bool _subscribe = false;
@@ -103,6 +106,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
               textInputType: TextInputType.emailAddress,
               type: TextFieldTypes.PLAIN_TEXT,
               controller: _emailController,
+              focusNode: _emailFocusNode,
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_email_hint,
               prefixIcon: const Icon(Icons.person),
@@ -124,6 +128,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             SmoothTextFormField(
               type: TextFieldTypes.PLAIN_TEXT,
               controller: _userController,
+              focusNode: _userFocusNode,
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_username_hint,
               prefixIcon: const Icon(Icons.person),
@@ -348,6 +353,14 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     }
     if (status.error != null) {
       await LoadingDialog.error(context: context, title: status.error);
+
+      if (status.status == 400) {
+        if (status.error?.contains('username already exists') == true) {
+          _userFocusNode.requestFocus();
+        } else if (status.error?.contains('e-mail address is already used') == true) {
+          _emailFocusNode.requestFocus();
+        }
+      }
       return;
     }
     AnalyticsHelper.trackRegister();
