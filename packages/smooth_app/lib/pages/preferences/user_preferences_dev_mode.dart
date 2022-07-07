@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -56,9 +57,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   static const LocalizationsDelegate<MaterialLocalizations> delegate =
       GlobalMaterialLocalizations.delegate;
-  final List<Locale> _supportedLanguageCodes = AppLocalizations.supportedLocales
-      .where((Locale locale) => delegate.isSupported(locale))
-      .toList();
 
   @override
   PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
@@ -306,7 +304,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         LanguagePickerSetting(
-          supportedLanguageCodes: _supportedLanguageCodes,
+          delegate: delegate,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
         ),
@@ -478,29 +476,36 @@ enum DevModeScanMode {
 
 class LanguagePickerSetting extends StatelessWidget {
   const LanguagePickerSetting(
-      {required this.supportedLanguageCodes,
+      {required this.delegate,
       required this.userPreferences,
       required this.appLocalizations});
 
-  final List<Locale> supportedLanguageCodes;
+  final LocalizationsDelegate<MaterialLocalizations> delegate;
   final UserPreferences userPreferences;
   final AppLocalizations appLocalizations;
 
   @override
   Widget build(BuildContext context) {
+    final List<String> currentLanguageNameCode = getLanguageCodeLangName(
+        userPreferences.appLanguageCode ??
+            Localizations.localeOf(context).toString());
+
+    final List<String> onlySupportedLanguages = languageNameList
+        .where((String lang) =>
+            delegate.isSupported(Locale(getLanguageCodeLangName(lang)[0])))
+        .toList();
+
     return ListTile(
       leading: const Icon(Icons.language),
       title: Text(
-        userPreferences.appLanguageCode ??
-            Localizations.localeOf(context).toString(),
+        '${currentLanguageNameCode[1]} (${currentLanguageNameCode[0]})',
       ),
       onTap: () async {
-        final List<Locale> leftovers = List<Locale>.from(
-          supportedLanguageCodes,
+        final List<String> leftovers = List<String>.from(
+          onlySupportedLanguages,
         );
-        leftovers.sort((final Locale a, final Locale b) =>
-            a.languageCode.compareTo(b.languageCode));
-        List<Locale> filteredList = List<Locale>.from(leftovers);
+        leftovers.sort((final String a, final String b) => a.compareTo(b));
+        List<String> filteredList = List<String>.from(leftovers);
         await showDialog<void>(
             context: context,
             builder: (BuildContext context) {
@@ -520,7 +525,7 @@ class LanguagePickerSetting extends StatelessWidget {
                             setState(
                               () {
                                 filteredList = leftovers
-                                    .where((Locale item) => item.languageCode
+                                    .where((String item) => item
                                         .toLowerCase()
                                         .contains(query.toLowerCase()))
                                     .toList();
@@ -531,12 +536,15 @@ class LanguagePickerSetting extends StatelessWidget {
                         ...List<ListTile>.generate(
                           filteredList.length,
                           (int index) {
-                            final Locale language = filteredList[index];
+                            final List<String> languageNameCode =
+                                getLanguageCodeLangName(filteredList[index]);
                             return ListTile(
-                              title: Text(language.languageCode),
+                              title: Text(
+                                  '${languageNameCode[1]} (${languageNameCode[0]})'),
                               onTap: () {
                                 userPreferences
-                                    .setAppLanguageCode(language.languageCode);
+                                    .setAppLanguageCode(languageNameCode[0]);
+
                                 Navigator.of(context).pop();
                               },
                             );
