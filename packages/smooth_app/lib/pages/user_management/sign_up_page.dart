@@ -357,7 +357,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       if (status.status == 400) {
         if (status.error?.contains('username already exists') == true) {
           _userFocusNode.requestFocus();
-        } else if (status.error?.contains('e-mail address is already used') == true) {
+        } else if (status.error?.contains('e-mail address is already used') ==
+            true) {
           _emailFocusNode.requestFocus();
         }
       }
