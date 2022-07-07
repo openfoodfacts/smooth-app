@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class _SwitchablePage extends StatefulWidget {
   const _SwitchablePage({
@@ -48,7 +49,7 @@ class _SwitchablePageState extends State<_SwitchablePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SmoothScaffold(
       appBar: AppBar(
         title: const Text('Test App'),
       ),
