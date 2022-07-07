@@ -3,8 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/pages/scan/scan_page_helper.dart';
-import 'package:smooth_app/themes/smooth_durations.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
 class ScanHeader extends StatelessWidget {

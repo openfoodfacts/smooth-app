@@ -6,8 +6,8 @@ import 'package:camera_platform_interface/camera_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/services/smooth_services.dart';
-import 'package:smooth_app/themes/smooth_durations.dart';
 
 /// A lifecycle-aware [CameraController]
 /// On Android it supports pause/resume feed

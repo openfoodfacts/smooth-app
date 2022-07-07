@@ -10,10 +10,10 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
-import 'package:smooth_app/themes/smooth_durations.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionPage extends StatefulWidget {
