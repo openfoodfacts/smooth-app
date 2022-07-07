@@ -6,6 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ConfirmAndUploadPicture extends StatefulWidget {
   const ConfirmAndUploadPicture({
@@ -43,7 +44,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     // Picture is captured, show it to the user one last time and ask for
     // confirmation before uploading. Also present an option to retake the
     // picture as sometimes the picture can be blurry.
-    return Scaffold(
+    return SmoothScaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(_getAppBarTitle(context, widget.imageType)),

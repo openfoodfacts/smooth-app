@@ -9,10 +9,12 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
   const KnowledgePanelSummaryCard(
     this.knowledgePanel, {
     required this.isClickable,
+    this.margin,
   });
 
   final KnowledgePanel knowledgePanel;
   final bool isClickable;
+  final EdgeInsets? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,7 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
                 knowledgePanel.titleElement!,
               ),
               isClickable: isClickable,
+              margin: margin,
             ),
           ],
         );

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const double _kCategoryHeight = 30.0;
 const double _kMaxCategoryWidth = 200.0;
@@ -130,7 +131,7 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
             ),
           );
         }
-        return Scaffold(
+        return SmoothScaffold(
           floatingActionButton: widget.onAddCategory != null
               ? FloatingActionButton(
                   child: const Icon(Icons.add),

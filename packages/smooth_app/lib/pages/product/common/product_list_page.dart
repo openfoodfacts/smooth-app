@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -21,6 +20,7 @@ import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -78,7 +78,7 @@ class _ProductListPageState extends State<ProductListPage>
     }
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
-    return Scaffold(
+    return SmoothScaffold(
       floatingActionButton: _selectionMode || products.length <= 1
           ? null
           : FloatingActionButton.extended(
@@ -152,11 +152,6 @@ class _ProductListPageState extends State<ProductListPage>
           ProductQueryPageHelper.getProductListLabel(productList, context),
           overflow: TextOverflow.fade,
           //style: TextStyle(color: Colors.black),
-        ),
-        // Force a light status bar
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.light,
-          statusBarBrightness: Brightness.dark,
         ),
       ),
       body: products.isEmpty
