@@ -30,10 +30,10 @@ class SmoothAlertDialog extends StatelessWidget {
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
 
-  static const EdgeInsetsGeometry _contentPadding = EdgeInsetsDirectional.only(
-    start: 24.0,
+  static const EdgeInsets _contentPadding = EdgeInsets.only(
+    left: 24.0,
     top: VERY_LARGE_SPACE,
-    end: 24.0,
+    right: 24.0,
     bottom: 24.0,
   );
 
