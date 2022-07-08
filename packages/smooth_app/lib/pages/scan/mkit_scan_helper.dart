@@ -8,6 +8,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
 import 'package:smooth_app/pages/scan/camera_image_cropper.dart';
 import 'package:smooth_app/pages/scan/camera_image_full_getter.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// ML Kit bar code decoder (within an Isolate)
 class MLKitScanDecoder {
@@ -44,6 +45,7 @@ class MLKitScanDecoder {
 
   Future<void> dispose() async {
     _mainIsolate.dispose();
+    Logs.d(tag: 'MLKitScanDecoder', 'Disposed');
   }
 }
 

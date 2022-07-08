@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -11,16 +10,17 @@ import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
-import 'package:smooth_app/pages/scan/inherited_data_manager.dart';
+import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -73,11 +73,12 @@ class _ProductListPageState extends State<ProductListPage>
       case ProductListType.HTTP_USER_INFORMER:
       case ProductListType.HTTP_USER_PHOTOGRAPHER:
       case ProductListType.HTTP_USER_TO_BE_COMPLETED:
+      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
         dismissible = false;
     }
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
-    return Scaffold(
+    return SmoothScaffold(
       floatingActionButton: _selectionMode || products.length <= 1
           ? null
           : FloatingActionButton.extended(
@@ -152,37 +153,34 @@ class _ProductListPageState extends State<ProductListPage>
           overflow: TextOverflow.fade,
           //style: TextStyle(color: Colors.black),
         ),
-        // Force a light status bar
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.light,
-          statusBarBrightness: Brightness.dark,
-        ),
       ),
       body: products.isEmpty
           ? GestureDetector(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/misc/empty-list.svg',
-                    height: MediaQuery.of(context).size.height * .4,
-                  ),
-                  Text(
-                    appLocalizations.product_list_empty_title,
-                    style: themeData.textTheme.headlineLarge
-                        ?.apply(color: colorScheme.onBackground),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                    child: Text(
-                      appLocalizations.product_list_empty_message,
-                      textAlign: TextAlign.center,
-                      style: themeData.textTheme.bodyText2?.apply(
-                        color: colorScheme.onBackground,
-                      ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      'assets/misc/empty-list.svg',
+                      height: MediaQuery.of(context).size.height * .4,
                     ),
-                  )
-                ],
+                    Text(
+                      appLocalizations.product_list_empty_title,
+                      style: themeData.textTheme.headlineLarge
+                          ?.apply(color: colorScheme.onBackground),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                      child: Text(
+                        appLocalizations.product_list_empty_message,
+                        textAlign: TextAlign.center,
+                        style: themeData.textTheme.bodyText2?.apply(
+                          color: colorScheme.onBackground,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
               onTap: () {
                 InheritedDataManager.of(context).resetShowSearchCard(true);

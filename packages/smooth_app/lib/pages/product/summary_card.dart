@@ -13,10 +13,7 @@ import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
@@ -29,11 +26,13 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_grou
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
+import 'package:smooth_app/pages/product/add_category_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/simple_input_page.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/question_page.dart';
+import 'package:smooth_app/query/category_product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/robotoff_questions_query.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -296,12 +295,7 @@ class _SummaryCardState extends State<SummaryCard> {
     if (widget.isFullVersion) {
       // Complete category
       if (statesTags.contains('en:categories-to-be-completed')) {
-        summaryCardButtons.add(
-          addPanelButton(
-            localizations.score_add_missing_product_category,
-            onPressed: () async => _addCategories(),
-          ),
-        );
+        summaryCardButtons.add(AddCategoryButton(_product));
       }
 
       // Compare to category
@@ -362,16 +356,21 @@ class _SummaryCardState extends State<SummaryCard> {
     for (final Attribute attribute in scoreAttributes) {
       if (widget.isFullVersion) {
         attributes.add(
-          InkWell(
-            onTap: () async => openFullKnowledgePanel(
-              attribute: attribute,
-            ),
-            child: ScoreCard(
-              iconUrl: attribute.iconUrl,
-              description:
-                  attribute.descriptionShort ?? attribute.description ?? '',
-              cardEvaluation: getCardEvaluationFromAttribute(attribute),
-              isClickable: true,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+            child: InkWell(
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              onTap: () async => openFullKnowledgePanel(
+                attribute: attribute,
+              ),
+              child: ScoreCard(
+                iconUrl: attribute.iconUrl,
+                description:
+                    attribute.descriptionShort ?? attribute.description ?? '',
+                cardEvaluation: getCardEvaluationFromAttribute(attribute),
+                isClickable: true,
+                margin: EdgeInsets.zero,
+              ),
             ),
           ),
         );
@@ -747,20 +746,6 @@ class _SummaryCardState extends State<SummaryCard> {
           groupElement: group,
           panel: knowledgePanel,
           allPanels: _product.knowledgePanels!,
-        ),
-      ),
-    );
-  }
-
-  Future<void> _addCategories() async {
-    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-      return;
-    }
-    await Navigator.push<Product>(
-      context,
-      MaterialPageRoute<Product>(
-        builder: (BuildContext context) => SimpleInputPage(
-          helper: SimpleInputPageCategoryHelper(),
           product: _product,
         ),
       ),

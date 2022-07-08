@@ -1,14 +1,15 @@
+import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:openfoodfacts/utils/QueryType.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:uuid/uuid.dart';
 
+// ignore: avoid_classes_with_only_static_members
 abstract class ProductQuery {
   /// Returns the global language for API queries.
   static OpenFoodFactsLanguage? getLanguage() {
@@ -41,6 +42,23 @@ abstract class ProductQuery {
   static String getLocaleString() => '${getLanguage()!.code}'
       '_'
       '${getCountry()!.iso2Code.toUpperCase()}';
+
+  /// Sets a comment for the user agent.
+  ///
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/2248
+  static void setUserAgentComment(final String comment) {
+    final UserAgent? previous = OpenFoodAPIConfiguration.userAgent;
+    if (previous == null) {
+      return;
+    }
+    OpenFoodAPIConfiguration.userAgent = UserAgent(
+      name: previous.name,
+      version: previous.version,
+      system: previous.system,
+      url: previous.url,
+      comment: comment,
+    );
+  }
 
   static const String _UUID_NAME = 'UUID_NAME_REV_1';
 
@@ -99,6 +117,10 @@ abstract class ProductQuery {
         ProductField.SERVING_SIZE,
         ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
+        ProductField.PACKAGING,
+        ProductField.PACKAGING_TAGS,
+        ProductField.PACKAGING_TEXT_IN_LANGUAGES,
+        ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
         ProductField.NO_NUTRITION_DATA,
         ProductField.NUTRIMENTS,
         ProductField.NUTRIENT_LEVELS,
@@ -124,8 +146,4 @@ abstract class ProductQuery {
         ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
         ProductField.EMB_CODES,
       ];
-
-  Future<SearchResult> getSearchResult();
-
-  ProductList getProductList();
 }

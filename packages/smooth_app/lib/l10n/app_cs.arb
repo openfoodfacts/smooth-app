@@ -60,7 +60,7 @@
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
-    "match_may_not": "May not match",
+    "match_may_not": "Nemusí se shodovat",
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
@@ -68,7 +68,7 @@
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "Unknown match",
+    "match_unknown": "Neznámá shoda",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
@@ -84,7 +84,7 @@
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
-    "match_short_may_not": "May not match",
+    "match_short_may_not": "Nemusí se shodovat",
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
@@ -92,7 +92,7 @@
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "Unknown match",
+    "match_short_unknown": "Neznámá shoda",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Můžete se připojit k chatovací místnosti Open Food Facts Slack, což je preferovaný způsob, kde klást otázky.",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "DEV režim?",
+    "contribute_develop_dev_mode_subtitle": "Aktivovat DEV režim",
     "contribute_donate_header": "Přispět Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Nedokončené",
@@ -352,9 +354,9 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Vše",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_yes": "Skvělá shoda pro vás",
+    "ranking_subtitle_match_no": "Velmi špatná shoda",
+    "ranking_subtitle_match_maybe": "Neznámá shoda",
     "reloaded_with_new_preferences": "Znovu načteno s vašimi novými předvolbami",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -420,6 +422,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
+    "packaging_editing_instructions": "",
+    "packaging_editing_error": "Balení se nepodařilo uložit.",
+    "packaging_editing_image_error": "Nepodařilo se získat nový obrázek obalu.",
+    "packaging_editing_title": "Upravit obal",
     "nutrition": "Výživové údaje",
     "@nutrition": {},
     "nutrition_facts_photo": "Fotografie výživových faktů",
@@ -688,7 +694,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Vydání: ${release})\nModel: ${model}\nProdukt: ${product}\nZařízení: ${device}\nznačka:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -718,7 +724,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLokalizovaný model: ${localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -873,7 +879,7 @@
             }
         }
     },
-    "settings_app_app": "Application",
+    "settings_app_app": "Aplikace",
     "settings_app_data": "Soukromí a monitorování",
     "settings_app_camera": "Fotoaparát",
     "@camera_settings_title": {
@@ -1070,6 +1076,14 @@
     "edit_ingredients_refresh_photo_btn_text": "Obnovit fotku",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
+    },
+    "edit_packaging_extract_btn_text": "Extrakt balení",
+    "@edit_packaging_extract_btn_text": {
+        "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_refresh_photo_btn_text": "Obnovit fotku",
+    "@edit_packaging_refresh_photo_btn_text": {
+        "description": "Packaging edition - Refresh photo"
     },
     "user_list_dialog_new_title": "Nový seznam produktů",
     "@user_list_dialog_new_title": {
@@ -1338,9 +1352,13 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Produkty, které je třeba dokončit",
+    "user_search_to_be_completed_title": "Moje produkty k dokončení",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "Všechny produkty k dokončení",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Znovu pořídit fotografii",
     "@edit_product_action_retake_picture": {
@@ -1361,10 +1379,6 @@
     "signup_page_terms_of_use_line2": "podmínky použití a příspěvek",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "Jste připraveni na vývojářský režim?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "Ikona analytiky",
     "@analytics_consent_image_semantic_label": {

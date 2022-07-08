@@ -3,16 +3,18 @@ import 'dart:async';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class BarcodeProductQuery {
   BarcodeProductQuery({
     required this.barcode,
     required this.daoProduct,
+    required this.isScanned,
   });
 
   final String barcode;
   final DaoProduct daoProduct;
+  final bool isScanned;
 
   Future<FetchedProduct> getFetchedProduct() async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
@@ -24,10 +26,13 @@ class BarcodeProductQuery {
 
     final ProductResult result;
     try {
+      ProductQuery.setUserAgentComment(isScanned ? 'scan' : 'search');
       result = await OpenFoodAPIClient.getProduct(configuration);
     } catch (e) {
+      ProductQuery.setUserAgentComment('');
       return FetchedProduct.error(FetchedProductStatus.internetError);
     }
+    ProductQuery.setUserAgentComment('');
 
     if (result.status == 1) {
       final Product? product = result.product;

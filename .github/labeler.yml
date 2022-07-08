@@ -11,6 +11,10 @@ dependencies:
 ios:
 - packages/smooth_app/ios/**/*
 
+fastlane:
+- packages/smooth_app/ios/Gemfile.lock
+- packages/smooth_app/android/Gemfile.lock
+
 asset cache:
 - packages/smooth_app/assets/cache/**/*
 

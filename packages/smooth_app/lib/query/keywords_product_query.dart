@@ -1,7 +1,7 @@
 import 'package:openfoodfacts/model/parameter/SearchTerms.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/database/paged_search_product_query.dart';
+import 'package:smooth_app/query/paged_search_product_query.dart';
 
 /// Back-end query around user-entered keywords.
 class KeywordsProductQuery extends PagedSearchProductQuery {
@@ -17,9 +17,16 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
         keywords,
         pageSize: pageSize,
         pageNumber: pageNumber,
+        language: language,
+        country: country,
       );
 
   @override
-  String toString() =>
-      'KeywordsProductQuery("$keywords", $pageSize, $pageNumber)';
+  String toString() => 'KeywordsProductQuery('
+      '"$keywords"'
+      ', $pageSize'
+      ', $pageNumber'
+      ', $language'
+      ', $country'
+      ')';
 }

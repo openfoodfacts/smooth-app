@@ -4,7 +4,7 @@ import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/paged_product_query.dart';
+import 'package:smooth_app/query/paged_product_query.dart';
 
 /// [ProductListSupplier] with a server query flavor
 class QueryProductListSupplier extends ProductListSupplier {
