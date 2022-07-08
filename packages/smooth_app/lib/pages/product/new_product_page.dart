@@ -16,6 +16,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
@@ -118,7 +119,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             ),
             SafeArea(
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration: SmoothAnimationsDuration.short,
                 width: kToolbarHeight,
                 height: kToolbarHeight,
                 decoration: BoxDecoration(
@@ -154,7 +155,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
       curve: Curves.easeOut,
-      duration: const Duration(milliseconds: 500),
+      duration: SmoothAnimationsDuration.long,
     );
     _mustScrollToTheEnd = false;
   }

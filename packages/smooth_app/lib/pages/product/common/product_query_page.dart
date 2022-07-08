@@ -13,6 +13,7 @@ import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -184,7 +185,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               Visibility(
                 visible: _showBackToTopButton,
                 child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 200),
+                  duration: SmoothAnimationsDuration.short,
                   opacity: _showBackToTopButton ? 1.0 : 0.0,
                   child: SmoothRevealAnimation(
                     animationCurve: Curves.easeInOutBack,
