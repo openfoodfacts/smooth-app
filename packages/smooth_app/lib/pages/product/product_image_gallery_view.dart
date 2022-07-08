@@ -42,7 +42,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   final List<ImageProvider?> allProductImageProviders = <ImageProvider?>[];
   late String title;
   bool _hasPhoto = true;
-  bool _isRefreshed = false;
   late ProductImageData _productImageDataCurrent;
   int _currentIndex = 0;
 
@@ -96,7 +95,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           leading: IconButton(
             icon: Icon(ConstantIcons.instance.getBackIcon()),
             onPressed: () {
-              Navigator.maybePop(context, _isRefreshed);
+              Navigator.maybePop(context);
             },
           )),
       backgroundColor: Colors.black,
@@ -324,7 +323,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           ),
         );
         if (photoUploaded != null) {
-          _isRefreshed = true;
           if (!mounted) {
             return;
           }
