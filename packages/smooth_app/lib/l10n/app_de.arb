@@ -177,7 +177,7 @@
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Bitte geben Sie Ihren Text ein",
+    "enter_some_text": "Bitte geben Sie etwas ein",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
@@ -262,7 +262,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Vielen Dank für Ihr Mitwirken",
+    "thanks_for_contributing": "Vielen Dank für Ihren Beitrag",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Du kannst dem Open Food Facts Slack Chatroom beitreten, was der bevorzugte Weg ist, Fragen zu stellen.",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "Entwicklermodus?",
+    "contribute_develop_dev_mode_subtitle": "Entwicklermodus aktivieren",
     "contribute_donate_header": "Spende an Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Noch abzuschließende Produkte",
@@ -877,7 +879,7 @@
             }
         }
     },
-    "settings_app_app": "Application",
+    "settings_app_app": "Anwendung",
     "settings_app_data": "Datenschutz und Überwachung",
     "settings_app_camera": "Kamera",
     "@camera_settings_title": {
@@ -1350,9 +1352,13 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Produkte, die vervollständigt werden müssen",
+    "user_search_to_be_completed_title": "Meine „noch zu vervollständigenden” Produkte",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "Alle „noch zu vervollständigenden” Produkte",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Foto wiederholen",
     "@edit_product_action_retake_picture": {
@@ -1373,10 +1379,6 @@
     "signup_page_terms_of_use_line2": "bedingungen von Open Food Facts zu",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "Bereit für den Entwicklermodus?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "Analysesymbol",
     "@analytics_consent_image_semantic_label": {

@@ -12,6 +12,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -20,6 +21,7 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
@@ -140,7 +142,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   ) =>
       ScaffoldMessenger(
         key: _scaffoldKeyEmpty,
-        child: Scaffold(
+        child: SmoothScaffold(
           appBar: AppBar(
             backgroundColor: themeData.scaffoldBackgroundColor,
             leading: const _BackButton(),
@@ -162,7 +164,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   ) =>
       ScaffoldMessenger(
         key: _scaffoldKeyNotEmpty,
-        child: Scaffold(
+        child: SmoothScaffold(
           floatingActionButton: Row(
             mainAxisAlignment: _showBackToTopButton
                 ? MainAxisAlignment.spaceBetween
@@ -182,7 +184,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               Visibility(
                 visible: _showBackToTopButton,
                 child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 200),
+                  duration: SmoothAnimationsDuration.short,
                   opacity: _showBackToTopButton ? 1.0 : 0.0,
                   child: SmoothRevealAnimation(
                     animationCurve: Curves.easeInOutBack,

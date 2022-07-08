@@ -16,6 +16,7 @@ import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductImageGalleryView extends StatefulWidget {
   const ProductImageGalleryView({
@@ -79,13 +80,13 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
     //When all are empty there shouldn't be a way to access this page
     if (images.isEmpty) {
-      return Scaffold(
+      return SmoothScaffold(
         body: Center(
           child: Text(appLocalizations.error),
         ),
       );
     }
-    return Scaffold(
+    return SmoothScaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
           backgroundColor: Colors.transparent,

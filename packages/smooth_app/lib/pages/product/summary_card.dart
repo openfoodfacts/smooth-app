@@ -13,10 +13,7 @@ import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/category_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
-import 'package:smooth_app/database/robotoff_questions_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
@@ -33,6 +30,9 @@ import 'package:smooth_app/pages/product/add_category_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/question_page.dart';
+import 'package:smooth_app/query/category_product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/robotoff_questions_query.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -356,16 +356,21 @@ class _SummaryCardState extends State<SummaryCard> {
     for (final Attribute attribute in scoreAttributes) {
       if (widget.isFullVersion) {
         attributes.add(
-          InkWell(
-            onTap: () async => openFullKnowledgePanel(
-              attribute: attribute,
-            ),
-            child: ScoreCard(
-              iconUrl: attribute.iconUrl,
-              description:
-                  attribute.descriptionShort ?? attribute.description ?? '',
-              cardEvaluation: getCardEvaluationFromAttribute(attribute),
-              isClickable: true,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+            child: InkWell(
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              onTap: () async => openFullKnowledgePanel(
+                attribute: attribute,
+              ),
+              child: ScoreCard(
+                iconUrl: attribute.iconUrl,
+                description:
+                    attribute.descriptionShort ?? attribute.description ?? '',
+                cardEvaluation: getCardEvaluationFromAttribute(attribute),
+                isClickable: true,
+                margin: EdgeInsets.zero,
+              ),
             ),
           ),
         );

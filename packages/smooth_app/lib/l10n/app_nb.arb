@@ -6,7 +6,7 @@
     "@add": {},
     "okay": "Ok",
     "@okay": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "Bruk",
     "@applyButtonText": {},
     "next_label": "Neste",
     "@next_label": {
@@ -42,7 +42,7 @@
     "@featureInProgress": {},
     "label_web": "View on the web",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "Lær mer",
     "@learnMore": {},
     "unknown": "Ukjent",
     "@unknown": {
@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "DEV Mode?",
+    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
     "contribute_donate_header": "Doner til Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Products to be completed",
@@ -336,7 +338,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_title": "Din profil",
     "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "Appinnstillinger",
     "myPreferences_settings_subtitle": "Mørk modus, analyser...",
@@ -347,7 +349,7 @@
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "My personalized ranking",
+    "myPersonalizedRanking": "Min personlige rangering",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
@@ -360,7 +362,7 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Profil",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -372,7 +374,7 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
-    "category": "Filter by category",
+    "category": "Filtrer etter kategori",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -583,7 +585,7 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Velg et land",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
@@ -667,7 +669,7 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Prøv på nytt",
-    "connect_with_us": "Ta kontakt med oss",
+    "connect_with_us": "Kontakt oss",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
@@ -837,7 +839,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "user_profile": "Account",
+    "user_profile": "Konto",
     "@user_profile": {
         "description": "User account (if connected)"
     },
@@ -877,9 +879,9 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "Applikasjon",
+    "settings_app_data": "Personvern og overvåking",
+    "settings_app_camera": "Kamera",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -913,7 +915,7 @@
     "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
     "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
     "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
-    "camera_play_sound_title": "Spill en lyd ved skanning",
+    "camera_play_sound_title": "Spill av en lyd ved skanning",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
@@ -1083,7 +1085,7 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "user_list_dialog_new_title": "New list of products",
+    "user_list_dialog_new_title": "Ny liste med produkter",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
@@ -1111,7 +1113,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "Min liste",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1127,11 +1129,11 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "try_again": "Try Again",
+    "try_again": "Prøv igjen",
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
-    "there_was_an_error": "There was an error",
+    "there_was_an_error": "Det oppstod en feil",
     "@there_was_an_error": {
         "description": "Label that presents a error"
     },
@@ -1314,7 +1316,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
+    "product_search_no_more_results": "Du har lastet ned {totalSize} produkter.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1338,21 +1340,25 @@
             }
         }
     },
-    "user_search_contributor_title": "Products I added",
+    "user_search_contributor_title": "Produkter jeg har lagt til",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "Products I edited",
+    "user_search_informer_title": "Produkter jeg har redigert",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "Products I photographed",
+    "user_search_photographer_title": "Produkter jeg har fotografert",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Products that need to be completed",
+    "user_search_to_be_completed_title": "My to-be-completed products",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "Alle produkter som skal fullføres",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
@@ -1373,10 +1379,6 @@
     "signup_page_terms_of_use_line2": "terms of use and contribution",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "Ready for the dev mode?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "Analytics icon",
     "@analytics_consent_image_semantic_label": {
@@ -1481,7 +1483,7 @@
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "Please choose a image source",
+    "choose_image_source_body": "Velg kilde til bildet",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },

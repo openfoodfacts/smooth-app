@@ -5,10 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {

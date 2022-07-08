@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -18,6 +17,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 enum PreferencePageType {
   ACCOUNT,
@@ -119,7 +119,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     }
 
     if (headerAsset == null) {
-      return Scaffold(
+      return SmoothScaffold(
         appBar: AppBar(title: Text(appBarTitle)),
         body: Scrollbar(child: list),
       );
@@ -131,46 +131,44 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final double backgroundHeight = mediaQueryData.size.height * .20;
     // TODO(monsieurtanuki): get rid of explicit foregroundColor when appbartheme colors are correct
     final Color? foregroundColor = dark ? null : Colors.black;
-    return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              pinned: true,
-              snap: false,
-              floating: false,
-              stretch: true,
-              backgroundColor: dark ? null : headerColor,
-              expandedHeight: backgroundHeight + titleHeightInExpandedMode,
-              foregroundColor: foregroundColor,
-              // Force a light status bar
-              systemOverlayStyle: const SystemUiOverlayStyle(
-                statusBarIconBrightness: Brightness.light,
-                statusBarBrightness: Brightness.dark,
+    return SmoothScaffold(
+      statusBarBackgroundColor: dark ? null : headerColor,
+      brightness: Brightness.light,
+      contentBehindStatusBar: true,
+      spaceBehindStatusBar: true,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            pinned: true,
+            snap: false,
+            floating: false,
+            stretch: true,
+            backgroundColor: dark ? null : headerColor,
+            expandedHeight: backgroundHeight + titleHeightInExpandedMode,
+            foregroundColor: foregroundColor,
+            toolbarHeight: kToolbarHeight - mediaQueryData.viewPadding.top,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                appBarTitle,
+                style: TextStyle(color: foregroundColor),
               ),
-              flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                  appBarTitle,
-                  style: TextStyle(color: foregroundColor),
-                ),
-                background: Padding(
-                  padding:
-                      const EdgeInsets.only(bottom: titleHeightInExpandedMode),
-                  child: SvgPicture.asset(
-                    headerAsset,
-                    height: backgroundHeight,
-                  ),
+              background: Padding(
+                padding:
+                    const EdgeInsets.only(bottom: titleHeightInExpandedMode),
+                child: SvgPicture.asset(
+                  headerAsset,
+                  height: backgroundHeight,
                 ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) => children[index],
-                childCount: children.length,
-              ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) => children[index],
+              childCount: children.length,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

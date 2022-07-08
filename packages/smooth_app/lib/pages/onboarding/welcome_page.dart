@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Welcome page for first time users.
 class WelcomePage extends StatelessWidget {
@@ -20,7 +21,7 @@ class WelcomePage extends StatelessWidget {
     final TextStyle bodyTextStyle = Theme.of(context).textTheme.bodyText1!;
     final Size screenSize = MediaQuery.of(context).size;
 
-    return Scaffold(
+    return SmoothScaffold(
       backgroundColor: backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,9 +71,11 @@ class WelcomePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                   child: Ink(
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 1,
+                      border: const Border.fromBorderSide(
+                        BorderSide(
+                          color: Colors.white,
+                          width: 1,
+                        ),
                       ),
                       borderRadius: ANGULAR_BORDER_RADIUS,
                       color: Theme.of(context).cardColor,

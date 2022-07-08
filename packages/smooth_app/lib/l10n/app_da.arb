@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Man kan deltage i Open Food Facts Slack-chatrum, der er den foretrukne måde at stille spørgsmål på.",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "DEV-tilstand?",
+    "contribute_develop_dev_mode_subtitle": "Aktivér DEV-tilstand",
     "contribute_donate_header": "Donér til Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Produkter, som skal færdiggøres",
@@ -1350,9 +1352,13 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Produkter, som mangler færdiggørelse",
+    "user_search_to_be_completed_title": "Egne produkter til færdiggørelse",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "Alle produkter til færdiggørelse",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Tag foto igen",
     "@edit_product_action_retake_picture": {
@@ -1373,10 +1379,6 @@
     "signup_page_terms_of_use_line2": "vilkår for brug og bidrag",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "Klar til dev-tilstanden?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "Analyseikon",
     "@analytics_consent_image_semantic_label": {

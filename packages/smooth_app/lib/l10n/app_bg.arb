@@ -294,6 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Можеш да се присъединиш към чата Open Food Facts в Slack, където е най-удобно да задаваш въпроси.",
     "@contribute_develop_text_2": {},
+    "contribute_develop_dev_mode_title": "Режим на разработчик?",
+    "contribute_develop_dev_mode_subtitle": "Включи режим на разработчик",
     "contribute_donate_header": "Дари на Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Продукти за завършване",
@@ -1164,7 +1166,7 @@
     "@dev_preferences_disable_mode": {
         "description": "User dev preferences - Remove dev mode label"
     },
-    "dev_preferences_reset_onboarding_title": "Restart onboarding",
+    "dev_preferences_reset_onboarding_title": "Рестартирайте включването",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
@@ -1198,7 +1200,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test Env Host",
+    "dev_preferences_test_environment_dialog_title": "Test Env хост",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1350,9 +1352,13 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "Продукти, които трябва да се довършват",
+    "user_search_to_be_completed_title": "Моите продукти, които предстои да бъдат завършени",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "all_search_to_be_completed_title": "Всички продукти, които трябва да бъдат завършени",
+    "@all_search_to_be_completed_title": {
+        "description": "All products to be completed: list tile title"
     },
     "edit_product_action_retake_picture": "Презаснемане",
     "@edit_product_action_retake_picture": {
@@ -1373,10 +1379,6 @@
     "signup_page_terms_of_use_line2": " условията за ползване и принос на Open Food Facts",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
-    },
-    "enable_dev_mode_dialog_title": "Готов ли си за режим на разработчик?",
-    "@enable_dev_mode_dialog_title": {
-        "description": "Dialog title to enable the developer mode"
     },
     "analytics_consent_image_semantic_label": "Икона анализи",
     "@analytics_consent_image_semantic_label": {

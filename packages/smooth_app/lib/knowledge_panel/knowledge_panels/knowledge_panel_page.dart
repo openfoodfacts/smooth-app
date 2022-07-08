@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class KnowledgePanelPage extends StatefulWidget {
   const KnowledgePanelPage({
@@ -40,7 +41,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SmoothScaffold(
       appBar: AppBar(
         title: Text(
           _title,

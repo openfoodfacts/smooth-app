@@ -14,9 +14,9 @@ import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/product_query.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
@@ -28,7 +28,9 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage(this.product);
@@ -76,57 +78,76 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     });
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
-    final Scaffold scaffold = Scaffold(
-      floatingActionButton: scrollingUp
-          ? FloatingActionButton(
-              onPressed: () {
-                Navigator.maybePop(context);
-              },
-              // Hardcoded fixed colors here as the product page back button should
-              // stay the same color all the time
-              backgroundColor: themeData.primaryColor,
-              foregroundColor: Colors.white,
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              child: Icon(
-                ConstantIcons.instance.getBackIcon(),
-              ),
-            )
-          : null,
-      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-      body: NotificationListener<UserScrollNotification>(
-        onNotification: (UserScrollNotification notification) {
-          if (notification.direction == ScrollDirection.forward) {
-            if (!scrollingUp) {
-              setState(() => scrollingUp = true);
-            }
-          } else if (notification.direction == ScrollDirection.reverse) {
-            if (scrollingUp) {
-              setState(() => scrollingUp = false);
-            }
-          }
-          return true;
-        },
-        child: Consumer<UpToDateProductProvider>(
-          builder: (
-            final BuildContext context,
-            final UpToDateProductProvider provider,
-            final Widget? child,
-          ) {
-            final Product? refreshedProduct = provider.get(_product);
-            if (refreshedProduct != null) {
-              _product = refreshedProduct;
-            }
-            return _buildProductBody(context);
-          },
-        ),
-      ),
-    );
+
     return WillPopScope(
       onWillPop: () async {
         _updateLocalDatabaseWithProductHistory(context, true);
         return true;
       },
-      child: scaffold,
+      child: SmoothScaffold(
+        contentBehindStatusBar: true,
+        spaceBehindStatusBar: false,
+        statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
+        body: Stack(
+          children: <Widget>[
+            NotificationListener<UserScrollNotification>(
+              onNotification: (UserScrollNotification notification) {
+                if (notification.direction == ScrollDirection.forward) {
+                  if (!scrollingUp) {
+                    setState(() => scrollingUp = true);
+                  }
+                } else if (notification.direction == ScrollDirection.reverse) {
+                  if (scrollingUp) {
+                    setState(() => scrollingUp = false);
+                  }
+                }
+                return true;
+              },
+              child: Consumer<UpToDateProductProvider>(
+                builder: (
+                  final BuildContext context,
+                  final UpToDateProductProvider provider,
+                  final Widget? child,
+                ) {
+                  final Product? refreshedProduct = provider.get(_product);
+                  if (refreshedProduct != null) {
+                    _product = refreshedProduct;
+                  }
+                  return _buildProductBody(context);
+                },
+              ),
+            ),
+            SafeArea(
+              child: AnimatedContainer(
+                duration: SmoothAnimationsDuration.short,
+                width: kToolbarHeight,
+                height: kToolbarHeight,
+                decoration: BoxDecoration(
+                  color:
+                      scrollingUp ? themeData.primaryColor : Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: Offstage(
+                  offstage: !scrollingUp,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.maybePop(context);
+                    },
+                    child: Tooltip(
+                      message:
+                          MaterialLocalizations.of(context).backButtonTooltip,
+                      child: Icon(
+                        ConstantIcons.instance.getBackIcon(),
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 
@@ -134,7 +155,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
       curve: Curves.easeOut,
-      duration: const Duration(milliseconds: 500),
+      duration: SmoothAnimationsDuration.long,
     );
     _mustScrollToTheEnd = false;
   }
@@ -277,7 +298,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             _buildActionBarItem(
               Icons.bookmark_border,
