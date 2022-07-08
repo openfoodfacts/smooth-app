@@ -83,17 +83,21 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   action: SmoothActionButton(
                     text: appLocalizations.finish,
                     onPressed: () async {
-                      // insert the product into the local database
                       final LocalDatabase localDatabase =
-                          // ignore: use_build_context_synchronously
                           context.read<LocalDatabase>();
                       final DaoProduct daoProduct = DaoProduct(localDatabase);
-                      final Product product = Product(
-                        barcode: widget.barcode,
-                      );
-                      daoProduct.put(product);
-                      localDatabase.notifyListeners();
-                      // ignore: use_build_context_synchronously
+                      final Product? product =
+                          await daoProduct.get(widget.barcode);
+                      if (product == null) {
+                        final Product product = Product(
+                          barcode: widget.barcode,
+                        );
+                        daoProduct.put(product);
+                        localDatabase.notifyListeners();
+                      }
+                      if (!mounted) {
+                        return;
+                      }
                       await Navigator.maybePop(
                           context, _isProductLoaded ? widget.barcode : null);
                     },
