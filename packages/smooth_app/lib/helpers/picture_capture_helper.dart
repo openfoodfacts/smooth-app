@@ -76,7 +76,7 @@ void callbackDispatcher() {
             ProductQueryConfiguration(
           inputTask.barcode,
           fields: ProductQuery.fields,
-          language: ProductQuery.getLanguage(),
+          language: LanguageHelper.fromJson(inputTask.languageCode),
           country: ProductQuery.getCountry(),
         );
         try {
@@ -114,11 +114,10 @@ Future<bool> uploadCapturedPicture(
     imageField: imageField.value,
     imageUri: File(imageUri.path).path,
     counter: 0,
+    languageCode: ProductQuery.getLanguage().code,
   );
 
-  await Workmanager().initialize(
-    callbackDispatcher,
-  );
+  await Workmanager().initialize(callbackDispatcher);
   // generate a random 8 digit word as the task name
   final SmoothRandom smoothie = SmoothRandom();
   final String uniqueId =
