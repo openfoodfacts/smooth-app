@@ -1511,5 +1511,9 @@
     "choose_from_gallery": "Choose from gallery",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_network_connection": "No network connection",
+    "@no_network_connection": {
+        "description": "Message when there is no network connection"
     }
 }
