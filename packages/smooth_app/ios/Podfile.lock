@@ -28,9 +28,9 @@ PODS:
   - google_mlkit_commons (0.2.0):
     - Flutter
     - MLKitVision
-  - GoogleDataTransport (9.1.2):
-    - GoogleUtilities/Environment (~> 7.2)
-    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (9.1.4):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
   - GoogleMLKit/BarcodeScanning (2.6.0):
     - GoogleMLKit/MLKitCore
@@ -57,7 +57,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.7.1)
+  - GTMSessionFetcher/Core (1.7.2)
   - image_cropper (0.0.4):
     - Flutter
     - TOCropViewController (~> 2.6.1)
@@ -88,31 +88,31 @@ PODS:
     - MLImage (= 1.0.0-beta2)
     - MLKitCommon (~> 5.0)
     - Protobuf (~> 3.12)
-  - nanopb (2.30908.0):
-    - nanopb/decode (= 2.30908.0)
-    - nanopb/encode (= 2.30908.0)
-  - nanopb/decode (2.30908.0)
-  - nanopb/encode (2.30908.0)
+  - nanopb (2.30909.0):
+    - nanopb/decode (= 2.30909.0)
+    - nanopb/encode (= 2.30909.0)
+  - nanopb/decode (2.30909.0)
+  - nanopb/encode (2.30909.0)
   - package_info_plus (0.4.5):
     - Flutter
   - path_provider_ios (0.0.1):
     - Flutter
   - permission_handler_apple (9.0.4):
     - Flutter
-  - PromisesObjC (2.0.0)
-  - Protobuf (3.19.4)
-  - Realm (10.25.2):
-    - Realm/Headers (= 10.25.2)
-  - Realm/Headers (10.25.2)
-  - RealmSwift (10.25.2):
-    - Realm (= 10.25.2)
-  - Sentry (7.18.0):
-    - Sentry/Core (= 7.18.0)
-  - Sentry/Core (7.18.0)
+  - PromisesObjC (2.1.1)
+  - Protobuf (3.21.2)
+  - Realm (10.28.2):
+    - Realm/Headers (= 10.28.2)
+  - Realm/Headers (10.28.2)
+  - RealmSwift (10.28.2):
+    - Realm (= 10.28.2)
+  - Sentry (7.19.0):
+    - Sentry/Core (= 7.19.0)
+  - Sentry/Core (7.19.0)
   - sentry_flutter (0.0.1):
     - Flutter
     - FlutterMacOS
-    - Sentry (~> 7.18.0)
+    - Sentry (~> 7.19.0)
   - share_plus (0.0.1):
     - Flutter
   - shared_preferences_ios (0.0.1):
@@ -232,12 +232,12 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   google_mlkit_barcode_scanning: 56e88993b6c915ce7134f9d77cb5b2de2fca8cfa
   google_mlkit_commons: e9070f57232c3a3e4bd42fdfa621bb1f4bb3e709
-  GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
+  GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
   GoogleMLKit: 755661c46990a85e42278015f26400286d98ad95
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
-  GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   image_cropper: 60c2789d1f1a78c873235d4319ca0c34a69f2d98
   image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
   integration_test: a1e7d09bd98eca2fc37aefd79d4f41ad37bdbbe5
@@ -247,16 +247,16 @@ SPEC CHECKSUMS:
   MLKitBarcodeScanning: b8257854f6afc1c8443d61ec6b98c28b35625df6
   MLKitCommon: 3bc17c6f7d25ce3660f030350b46ae7ec9ebca6e
   MLKitVision: e87dc3f2e456a6ab32361ebd985e078dd2746143
-  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   permission_handler_apple: 44366e37eaf29454a1e7b1b7d736c2cceaeb17ce
-  PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  Protobuf: 235750e4696ff59fb07d949a9dbbc92b3c0700fe
-  Realm: 978303663d0509166498f423d112e5ee97d4c91b
-  RealmSwift: a0c30c1efc49e928a0a6f8fb141bb2629616d79b
-  Sentry: aff6fb3785973436f0bf25748f6b3bcb3e825e09
-  sentry_flutter: b635e75d735415172e54bf3b72c39ce69882b4ca
+  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  Protobuf: 818c6a87e44193a77f56b87c6a1c106efda7e062
+  Realm: e617c54ad0f566b3d0f6a2abae7010de05f252ac
+  RealmSwift: 8a516a8759d80d52ebcec1ff1076f5f5159f98b2
+  Sentry: d6b16e66a0ad0c39a0b76d9a1194e68e78c37ce6
+  sentry_flutter: 609b096af497fa64af7c6c94e792d0780aa472a6
   share_plus: 056a1e8ac890df3e33cb503afffaf1e9b4fbae68
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
