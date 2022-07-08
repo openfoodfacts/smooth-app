@@ -750,7 +750,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.20.0"
+    version: "1.21.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1011,14 +1011,14 @@ packages:
       name: sentry
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.6.2"
+    version: "6.6.3"
   sentry_flutter:
     dependency: "direct main"
     description:
       name: sentry_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.6.2"
+    version: "6.6.3"
   share_plus:
     dependency: "direct main"
     description:
