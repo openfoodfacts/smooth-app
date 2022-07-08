@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
-import 'package:smooth_app/database/product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 enum LoadingStatus {
   LOADING,

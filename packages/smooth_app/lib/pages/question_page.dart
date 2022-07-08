@@ -10,9 +10,11 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({
@@ -55,7 +57,7 @@ class _QuestionPageState extends State<QuestionPage>
         }
         return true;
       },
-      child: Scaffold(
+      child: SmoothScaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(),
         body: _buildAnimationSwitcher(),
@@ -65,7 +67,7 @@ class _QuestionPageState extends State<QuestionPage>
 
   AnimatedSwitcher _buildAnimationSwitcher() {
     return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 400),
+      duration: SmoothAnimationsDuration.medium,
       transitionBuilder: (Widget child, Animation<double> animation) {
         final Offset animationStartOffset = _getAnimationStartOffset();
         final Animation<Offset> inAnimation = Tween<Offset>(

@@ -6,6 +6,7 @@ import 'package:camera_platform_interface/camera_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// A lifecycle-aware [CameraController]
@@ -22,7 +23,9 @@ class SmoothCameraController extends CameraController {
         _hasAPendingResume = false,
         super(
           enableAudio: false,
-        );
+        ) {
+    Logs.d(tag: 'CameraController', 'New controller created');
+  }
 
   final UserPreferences preferences;
 
@@ -35,6 +38,9 @@ class SmoothCameraController extends CameraController {
 
   /// Listen to camera closed events
   StreamSubscription<CameraClosingEvent>? _closeListener;
+
+  /// Listen to camera error events
+  StreamSubscription<CameraErrorEvent>? _errorListener;
 
   // Last focus point position
   Offset? _focusPoint;
@@ -51,6 +57,7 @@ class SmoothCameraController extends CameraController {
     bool? enableTorch,
   }) async {
     if (!isInitialized) {
+      Logs.d(tag: 'CameraController', 'Controller is being initialized');
       _updateState(_CameraState.beingInitialized);
       await initialize();
       await setFocusMode(focusMode);
@@ -69,12 +76,19 @@ class SmoothCameraController extends CameraController {
           .onCameraClosing(cameraId)
           .listen((CameraClosingEvent event) async {
         value = value.markAsClosed();
-        Logs.d('Camera closed!');
+        Logs.d(tag: 'CameraController', 'Camera closed!');
+      });
+
+      _errorListener = CameraPlatform.instance
+          .onCameraError(cameraId)
+          .listen((CameraErrorEvent event) async {
+        Logs.d(
+            tag: 'CameraController', 'On camera error: ${event.description}');
       });
 
       _updateState(_CameraState.resumed);
     } else {
-      Logs.w('Controller already initialized!');
+      Logs.w(tag: 'CameraController', 'Controller already initialized!');
     }
   }
 
@@ -87,6 +101,7 @@ class SmoothCameraController extends CameraController {
   Future<void> startImageStream(onLatestImageAvailable onAvailable) {
     final Future<void> startImageStreamResult =
         super.startImageStream(onAvailable);
+    Logs.d(tag: 'CameraController', 'Image stream started');
     return startImageStreamResult;
   }
 
@@ -97,6 +112,7 @@ class SmoothCameraController extends CameraController {
     }
 
     if (_state != _CameraState.beingPaused) {
+      Logs.d(tag: 'CameraController', 'Image stream being paused');
       _updateState(_CameraState.beingPaused);
 
       try {
@@ -113,9 +129,12 @@ class SmoothCameraController extends CameraController {
 
       _updateState(_CameraState.paused);
 
+      Logs.d(tag: 'CameraController', 'Image stream paused');
+
       // If the pause process took too long, resume the camera if necessary
       if (_hasAPendingResume) {
         _hasAPendingResume = false;
+        Logs.d(tag: 'CameraController', '');
         resumePreviewIfNecessary();
       }
     }
@@ -128,7 +147,9 @@ class SmoothCameraController extends CameraController {
       // The pause process can sometimes be too long, in that case, we just for
       // it to be finished
       _hasAPendingResume = true;
-      Logs.d('Preview not paused, will be restarted later…');
+      Logs.d(
+          tag: 'CameraController',
+          'Preview not paused, will be restarted later…');
       return;
     } else if (_state == _CameraState.paused) {
       return resumePreview();
@@ -149,6 +170,7 @@ class SmoothCameraController extends CameraController {
 
   Future<void> _resumeFlash() async {
     if (preferences.useFlashWithCamera) {
+      Logs.d(tag: 'CameraController', 'Resuming flash…');
       return enableFlash(preferences.useFlashWithCamera);
     }
   }
@@ -157,13 +179,12 @@ class SmoothCameraController extends CameraController {
     // Don't persist value to preferences
     return setFlashMode(FlashMode.off).then(
       // A slight delay is required as the native part doesn't wait here
-      (_) => Future<void>.delayed(
-        const Duration(milliseconds: 250),
-      ),
+      (_) => Future<void>.delayed(SmoothAnimationsDuration.short),
     );
   }
 
   Future<void> enableFlash(bool enable) async {
+    Logs.d(tag: 'CameraController', 'Changing flash state to: $enable');
     await setFlashMode(enable ? FlashMode.torch : FlashMode.off);
     await preferences.setUseFlashWithCamera(enable);
   }
@@ -182,6 +203,7 @@ class SmoothCameraController extends CameraController {
   @override
   Future<void> stopImageStream() async {
     await super.stopImageStream();
+    Logs.d(tag: 'CameraController', 'Image stream stopped');
     _updateState(_CameraState.stopped);
   }
 
@@ -241,6 +263,7 @@ class SmoothCameraController extends CameraController {
   Future<void> dispose() async {
     _updateState(_CameraState.isBeingDisposed);
     _closeListener?.cancel();
+    _errorListener?.cancel();
     await super.dispose();
     _updateState(_CameraState.disposed);
   }
@@ -248,7 +271,7 @@ class SmoothCameraController extends CameraController {
   void _updateState(_CameraState newState) {
     if (newState != _state) {
       _state = newState;
-      Logs.d('New camera state = $_state');
+      Logs.d(tag: 'CameraController', 'New camera state = $_state');
 
       // Notify the UI to ensure a setState is called
       if (_state == _CameraState.resumed) {

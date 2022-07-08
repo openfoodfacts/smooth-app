@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Displays in widgets a HTML page
 class HtmlPage extends StatelessWidget {
@@ -12,7 +13,7 @@ class HtmlPage extends StatelessWidget {
   final String htmlString;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => SmoothScaffold(
         appBar: AppBar(title: Text(pageTitle)),
         body: SingleChildScrollView(child: SmoothHtmlWidget(htmlString)),
       );

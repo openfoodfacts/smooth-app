@@ -3,14 +3,16 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
-import 'package:smooth_app/database/keywords_product_query.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/scan/search_history_view.dart';
+import 'package:smooth_app/query/keywords_product_query.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 void _performSearch(BuildContext context, String query) {
   if (query.trim().isEmpty) {
@@ -95,7 +97,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SmoothScaffold(
       appBar: AppBar(toolbarHeight: 0.0),
       body: ChangeNotifierProvider<TextEditingController>(
         create: (_) => _searchTextController,
@@ -141,8 +143,6 @@ class _SearchFieldState extends State<SearchField> {
   late TextEditingController _controller;
 
   bool _isEmpty = true;
-
-  static const Duration _animationDuration = Duration(milliseconds: 100);
 
   @override
   void initState() {
@@ -215,7 +215,7 @@ class _SearchFieldState extends State<SearchField> {
       child: IconButton(
         onPressed: _handleClear,
         icon: AnimatedCrossFade(
-          duration: _animationDuration,
+          duration: SmoothAnimationsDuration.brief,
           crossFadeState:
               _isEmpty ? CrossFadeState.showFirst : CrossFadeState.showSecond,
           // Closes the page.

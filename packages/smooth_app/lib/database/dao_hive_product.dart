@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:hive/hive.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/dao_product_migration.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 /// Hive type adapter for [Product]
@@ -22,7 +23,7 @@ class _ProductAdapter extends TypeAdapter<Product> {
 // TODO(monsieurtanuki): remove when old enough (today is 2022-06-16)
 /// Where we store the products as "barcode => product".
 @Deprecated('use [DaoProduct] instead')
-class DaoHiveProduct extends AbstractDao {
+class DaoHiveProduct extends AbstractDao implements DaoProductMigrationSource {
   @Deprecated('use [DaoProduct] instead')
   DaoHiveProduct(final LocalDatabase localDatabase) : super(localDatabase);
 
@@ -38,6 +39,7 @@ class DaoHiveProduct extends AbstractDao {
 
   Future<Product?> get(final String barcode) async => _getBox().get(barcode);
 
+  @override
   Future<Map<String, Product>> getAll(final List<String> barcodes) async {
     final LazyBox<Product> box = _getBox();
     final Map<String, Product> result = <String, Product>{};
@@ -60,6 +62,7 @@ class DaoHiveProduct extends AbstractDao {
     await _getBox().putAll(upserts);
   }
 
+  @override
   Future<List<String>> getAllKeys() async {
     final LazyBox<Product> box = _getBox();
     final List<String> result = <String>[];
@@ -70,6 +73,7 @@ class DaoHiveProduct extends AbstractDao {
   }
 
   // Just for the migration
+  @override
   Future<void> deleteAll(final List<String> barcodes) async {
     final LazyBox<Product> box = _getBox();
     await box.deleteAll(barcodes);
