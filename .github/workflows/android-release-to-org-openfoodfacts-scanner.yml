@@ -1,4 +1,4 @@
-name: Google Play release to internal
+name: Google Play release to internal (org.openfoodfacts.scanner)
 
 on:
   # Run every day at 00:00 UTC
