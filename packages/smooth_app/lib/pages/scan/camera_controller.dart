@@ -6,6 +6,7 @@ import 'package:camera_platform_interface/camera_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// A lifecycle-aware [CameraController]
@@ -178,9 +179,7 @@ class SmoothCameraController extends CameraController {
     // Don't persist value to preferences
     return setFlashMode(FlashMode.off).then(
       // A slight delay is required as the native part doesn't wait here
-      (_) => Future<void>.delayed(
-        const Duration(milliseconds: 250),
-      ),
+      (_) => Future<void>.delayed(SmoothAnimationsDuration.short),
     );
   }
 
