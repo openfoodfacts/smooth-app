@@ -111,7 +111,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
                     Icons.cloud_off_sharp,
                     size: screenSize.width / 4,
                   ),
-                  Text(appLocalizations.no_network_connection),
+                  Text(appLocalizations.no_internet_connection),
                 ],
               );
             },
