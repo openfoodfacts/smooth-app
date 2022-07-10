@@ -80,6 +80,9 @@ abstract class AbstractSimpleInputPageHelper {
   /// Returns the tag type for autocomplete suggestions.
   TagType? getTagType();
 
+  /// Returns the icon data for the list tile.
+  Widget? getIcon() => null;
+
   /// Returns null is no change was made, or a Product to be saved on the BE.
   Product? getChangedProduct() {
     if (!_changed) {
@@ -122,6 +125,9 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   TagType? getTagType() => null;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.shopping_cart_rounded);
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -235,6 +241,9 @@ class SimpleInputPageLabelHelper
 
   @override
   TagType? getTagType() => TagType.LABELS;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.label);
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -291,4 +300,7 @@ class SimpleInputPageCountryHelper
 
   @override
   TagType? getTagType() => TagType.COUNTRIES;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.public);
 }
