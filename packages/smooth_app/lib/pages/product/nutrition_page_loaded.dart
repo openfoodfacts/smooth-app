@@ -378,24 +378,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       );
 
   /// Returns `true` if any value differs between form and container.
-  bool _isEdited() {
-    for (final String key in _controllers.keys) {
-      final TextEditingController controller = _controllers[key]!;
-      if (_nutritionContainer.getValue(key) == null) {
-        if (controller.value.text != '') {
-          return true;
-        }
-      } else if (_numberFormat.format(_nutritionContainer.getValue(key)) !=
-          controller.value.text) {
-        return true;
-      }
-    }
-    if (_nutritionContainer.noNutritionData != _noNutritionData) {
-      return true;
-    }
-    //else form is not edited just return false
-    return false;
-  }
+  bool _isEdited() => _nutritionContainer.isEdited(
+        _controllers,
+        _numberFormat,
+        _noNutritionData,
+      );
 
   Product? _getChangedProduct() {
     if (!_formKey.currentState!.validate()) {
@@ -404,11 +391,15 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     // We use a separate fresh container here.
     // If something breaks while saving, we won't get a half written object.
     final NutritionContainer output = _getFreshContainer();
+    // we copy the values
     for (final String key in _controllers.keys) {
       final TextEditingController controller = _controllers[key]!;
       output.setControllerText(key, controller.text);
     }
+    // we copy the "with nutrition data true/false"
     output.noNutritionData = _noNutritionData;
+    // we copy the units
+    output.copyUnitsFrom(_nutritionContainer);
     return output.getProduct();
   }
 
