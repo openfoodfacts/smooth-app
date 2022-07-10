@@ -11,21 +11,29 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     required this.knowledgePanelTitleElement,
     required this.isClickable,
     this.evaluation,
+    this.temporaryNewDisplay = false,
   });
 
   final TitleElement knowledgePanelTitleElement;
   final Evaluation? evaluation;
   final bool isClickable;
+  // it's a test around https://github.com/openfoodfacts/smooth-app/issues/2530
+  final bool temporaryNewDisplay;
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
     Color? colorFromEvaluation;
-    if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-      if (themeData.brightness == Brightness.dark) {
-        colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
-      } else {
-        colorFromEvaluation = _getColorFromEvaluation(evaluation);
+    String? emoji;
+    if (temporaryNewDisplay) {
+      emoji = _getEmojiEvaluation(evaluation);
+    } else {
+      final ThemeData themeData = Theme.of(context);
+      if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
+        if (themeData.brightness == Brightness.dark) {
+          colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
+        } else {
+          colorFromEvaluation = _getColorFromEvaluation(evaluation);
+        }
       }
     }
     List<Widget> iconWidget;
@@ -43,6 +51,14 @@ class KnowledgePanelTitleCard extends StatelessWidget {
           ),
         ),
         const Padding(padding: EdgeInsets.only(left: SMALL_SPACE)),
+        if (emoji != null)
+          Padding(
+            padding: const EdgeInsets.only(right: SMALL_SPACE),
+            child: Text(
+              emoji,
+              style: const TextStyle(fontSize: DEFAULT_ICON_SIZE),
+            ),
+          ),
       ];
     } else {
       iconWidget = <Widget>[];
@@ -114,6 +130,21 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       case Evaluation.NEUTRAL:
       case Evaluation.UNKNOWN:
         return LIGHT_GREY_COLOR;
+    }
+  }
+
+  String? _getEmojiEvaluation(Evaluation? evaluation) {
+    switch (evaluation) {
+      case Evaluation.BAD:
+        return '🌧️';
+      case Evaluation.AVERAGE:
+        return '☁️';
+      case Evaluation.GOOD:
+        return '☀️';
+      case null:
+      case Evaluation.NEUTRAL:
+      case Evaluation.UNKNOWN:
+        return null;
     }
   }
 }
