@@ -11,7 +11,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     required this.knowledgePanelTitleElement,
     required this.isClickable,
     this.evaluation,
-    this.temporaryNewDisplay = false,
+    this.temporaryNewDisplay = true,
   });
 
   final TitleElement knowledgePanelTitleElement;
