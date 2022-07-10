@@ -127,7 +127,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => null;
 
   @override
-  Widget? getIcon() => const Icon(Icons.shopping_cart_rounded);
+  Widget? getIcon() => const Icon(Icons.shopping_cart);
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -153,6 +153,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   TagType? getTagType() => TagType.EMB_CODES;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.factory);
 }
 
 /// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
@@ -243,7 +246,7 @@ class SimpleInputPageLabelHelper
   TagType? getTagType() => TagType.LABELS;
 
   @override
-  Widget? getIcon() => const Icon(Icons.label);
+  Widget? getIcon() => const Icon(Icons.local_offer);
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -270,6 +273,9 @@ class SimpleInputPageCategoryHelper
 
   @override
   TagType? getTagType() => TagType.CATEGORIES;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.restaurant);
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
