@@ -12,13 +12,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "contact@2stepreviews.com",
     "save": "Mentés",
     "save_confirmation": "Biztosan menteni szeretné?",
     "skip": "Skip",
     "cancel": "Mégse",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Figyelmen kívül hagyni",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -40,7 +40,7 @@
     "@error_occurred": {},
     "featureInProgress": "Még dolgozunk ezen a funkción, maradjon velünk",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Megtekintés az interneten",
     "@label_web": {},
     "learnMore": "További információk",
     "@learnMore": {},
@@ -109,7 +109,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Válassz olyan ételt, amely jó neked és a bolygónak.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
