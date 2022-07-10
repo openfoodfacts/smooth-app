@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "contact@2stepreviews.com",
+    "go_back_to_top": "Go back to top",
     "save": "Mentés",
     "save_confirmation": "Biztosan menteni szeretné?",
     "skip": "Skip",
