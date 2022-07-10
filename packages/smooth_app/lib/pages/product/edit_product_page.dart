@@ -145,6 +145,7 @@ class _EditProductPageState extends State<EditProductPage> {
               },
             ),
             _ListTitleItem(
+              leading: const Icon(Icons.recycling),
               title: appLocalizations.edit_product_form_item_packaging_title,
               onTap: () async {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
