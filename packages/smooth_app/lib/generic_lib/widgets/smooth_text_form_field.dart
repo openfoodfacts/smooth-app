@@ -20,6 +20,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.prefixIcon,
     this.textInputType,
     this.onChanged,
+    this.onFieldSubmitted,
     this.autofocus,
   });
 
@@ -34,6 +35,7 @@ class SmoothTextFormField extends StatefulWidget {
   final double? hintTextFontSize;
   final TextInputType? textInputType;
   final void Function(String?)? onChanged;
+  final ValueChanged<String>? onFieldSubmitted;
   final bool? autofocus;
 
   @override
@@ -53,6 +55,9 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
   Widget build(BuildContext context) {
     final bool enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
     final bool autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
+    final TextStyle textStyle = DefaultTextStyle.of(context).style;
+    final double textSize =
+        widget.hintTextFontSize ?? textStyle.fontSize ?? 20.0;
 
     return TextFormField(
       keyboardType: widget.textInputType,
@@ -77,11 +82,16 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
               }
             }
           },
+      onFieldSubmitted: widget.onFieldSubmitted,
+      style: TextStyle(fontSize: textSize),
+      cursorHeight:
+          textSize * (DefaultTextStyle.of(context).style.height ?? 1.4),
       decoration: InputDecoration(
+        //contentPadding: EdgeInsets.only(bottom: textSize),
         prefixIcon: widget.prefixIcon,
         filled: true,
         hintStyle: TextStyle(
-          fontSize: widget.hintTextFontSize ?? 20.0,
+          fontSize: textSize,
           overflow: TextOverflow.ellipsis,
         ),
         hintText: widget.hintText,

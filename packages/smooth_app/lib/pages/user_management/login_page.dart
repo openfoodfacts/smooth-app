@@ -144,6 +144,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       //Login
                       SmoothTextFormField(
                         type: TextFieldTypes.PLAIN_TEXT,
+                        textInputType: TextInputType.name,
                         controller: userIdController,
                         hintText: appLocalizations.username_or_email,
                         prefixIcon: const Icon(Icons.person),
@@ -170,6 +171,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       //Password
                       SmoothTextFormField(
                         type: TextFieldTypes.PASSWORD,
+                        textInputType: TextInputType.text,
                         controller: passwordController,
                         hintText: appLocalizations.password,
                         prefixIcon: const Icon(Icons.vpn_key),
@@ -185,6 +187,11 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                 .login_page_password_error_empty;
                           }
                           return null;
+                        },
+                        onFieldSubmitted: (String value) {
+                          if (value.isNotEmpty) {
+                            _login(context);
+                          }
                         },
                       ),
 
