@@ -149,6 +149,9 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 
   @override
   TagType? getTagType() => null;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.travel_explore);
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
