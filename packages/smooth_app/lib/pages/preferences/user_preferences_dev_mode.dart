@@ -9,12 +9,12 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -304,7 +304,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         LanguagePickerSetting(
-          delegate: delegate,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
         ),
@@ -471,96 +470,5 @@ enum DevModeScanMode {
       }
     }
     throw Exception('Unknown index $index');
-  }
-}
-
-class LanguagePickerSetting extends StatelessWidget {
-  const LanguagePickerSetting(
-      {required this.delegate,
-      required this.userPreferences,
-      required this.appLocalizations});
-
-  final LocalizationsDelegate<MaterialLocalizations> delegate;
-  final UserPreferences userPreferences;
-  final AppLocalizations appLocalizations;
-
-  @override
-  Widget build(BuildContext context) {
-    final List<String> currentLanguageNameCode = getLanguageCodeLangName(
-        userPreferences.appLanguageCode ??
-            Localizations.localeOf(context).toString());
-
-    final List<String> onlySupportedLanguages = languageNameList
-        .where((String lang) =>
-            delegate.isSupported(Locale(getLanguageCodeLangName(lang)[0])))
-        .toList();
-
-    return ListTile(
-      leading: const Icon(Icons.language),
-      title: Text(
-        '${currentLanguageNameCode[1]} (${currentLanguageNameCode[0]})',
-      ),
-      onTap: () async {
-        final List<String> leftovers = List<String>.from(
-          onlySupportedLanguages,
-        );
-        leftovers.sort((final String a, final String b) => a.compareTo(b));
-        List<String> filteredList = List<String>.from(leftovers);
-        await showDialog<void>(
-            context: context,
-            builder: (BuildContext context) {
-              return StatefulBuilder(
-                builder: (BuildContext context,
-                    void Function(VoidCallback fn) setState) {
-                  return SmoothAlertDialog(
-                    body: Column(
-                      children: <Widget>[
-                        TextField(
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.search),
-                            enabledBorder: const UnderlineInputBorder(),
-                            labelText: appLocalizations.search,
-                          ),
-                          onChanged: (String query) {
-                            setState(
-                              () {
-                                filteredList = leftovers
-                                    .where((String item) => item
-                                        .toLowerCase()
-                                        .contains(query.toLowerCase()))
-                                    .toList();
-                              },
-                            );
-                          },
-                        ),
-                        ...List<ListTile>.generate(
-                          filteredList.length,
-                          (int index) {
-                            final List<String> languageNameCode =
-                                getLanguageCodeLangName(filteredList[index]);
-                            return ListTile(
-                              title: Text(
-                                  '${languageNameCode[1]} (${languageNameCode[0]})'),
-                              onTap: () {
-                                userPreferences
-                                    .setAppLanguageCode(languageNameCode[0]);
-
-                                Navigator.of(context).pop();
-                              },
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    positiveAction: SmoothActionButton(
-                      onPressed: () => Navigator.pop(context),
-                      text: appLocalizations.cancel,
-                    ),
-                  );
-                },
-              );
-            });
-      },
-    );
   }
 }
