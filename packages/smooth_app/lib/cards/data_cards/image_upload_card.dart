@@ -61,6 +61,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
@@ -83,9 +85,14 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             height: 1000,
             errorBuilder: (BuildContext context, Object exception,
                 StackTrace? stackTrace) {
-              return Icon(
-                Icons.wifi_off,
-                size: screenSize.width / 3,
+              return Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.cloud_off_sharp,
+                    size: screenSize.width / 4,
+                  ),
+                  Text(appLocalizations.no_internet_connection),
+                ],
               );
             },
           ),

@@ -1515,6 +1515,10 @@
     "image_upload_queued": "Image upload queued,the image will be uploaded automatically",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "no_internet_connection": "No internet connection",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 
 }
