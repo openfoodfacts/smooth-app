@@ -1511,5 +1511,9 @@
     "choose_from_gallery": "Vælg fra galleri",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "Ingen internetforbindelse",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }

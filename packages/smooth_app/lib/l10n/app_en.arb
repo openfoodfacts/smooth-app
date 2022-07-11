@@ -1013,6 +1013,14 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_origins_title": "Origins",
+    "@edit_product_form_item_origins_title": {
+        "description": "Product edition - Origins - Title"
+    },
+    "edit_product_form_item_origins_hint": "Spain, Beef from Argentina, The soy does not come from the European union",
+    "@edit_product_form_item_origins_hint": {
+        "description": "Product edition - Origins - input textfield hint"
+    },
     "edit_product_form_item_countries_title": "Country",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
@@ -1511,5 +1519,9 @@
     "choose_from_gallery": "Choose from gallery",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "No internet connection",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }

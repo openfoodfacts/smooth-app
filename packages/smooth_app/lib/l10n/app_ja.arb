@@ -1511,5 +1511,9 @@
     "choose_from_gallery": "ギャラリーから選択する",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "インターネットに接続されていません",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }
