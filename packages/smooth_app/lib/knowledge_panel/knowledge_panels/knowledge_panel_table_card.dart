@@ -58,9 +58,11 @@ class TableCell {
 class KnowledgePanelTableCard extends StatefulWidget {
   const KnowledgePanelTableCard({
     required this.tableElement,
+    required this.isInitiallyExpanded,
   });
 
   final KnowledgePanelTableElement tableElement;
+  final bool isInitiallyExpanded;
 
   @override
   State<KnowledgePanelTableCard> createState() =>
@@ -168,10 +170,12 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
             availableWidth / totalMaxColumnWidth * _columnsMaxLength[index++];
         rowWidgets.add(
           TableCellWidget(
-              cell: cell,
-              cellWidth: cellWidth,
-              tableElement: widget.tableElement,
-              rebuildTable: setState),
+            cell: cell,
+            cellWidth: cellWidth,
+            tableElement: widget.tableElement,
+            rebuildTable: setState,
+            isInitiallyExpanded: widget.isInitiallyExpanded,
+          ),
         );
       }
       rowsWidgets.add(rowWidgets);
@@ -249,19 +253,27 @@ class TableCellWidget extends StatefulWidget {
     required this.cellWidth,
     required this.tableElement,
     required this.rebuildTable,
+    required this.isInitiallyExpanded,
   });
 
   final TableCell cell;
   final double cellWidth;
   final KnowledgePanelTableElement tableElement;
   final void Function(VoidCallback fn) rebuildTable;
+  final bool isInitiallyExpanded;
 
   @override
   State<TableCellWidget> createState() => _TableCellWidgetState();
 }
 
 class _TableCellWidgetState extends State<TableCellWidget> {
-  bool _isExpanded = false;
+  late bool _isExpanded;
+
+  @override
+  void initState() {
+    super.initState();
+    _isExpanded = widget.isInitiallyExpanded;
+  }
 
   @override
   Widget build(BuildContext context) {

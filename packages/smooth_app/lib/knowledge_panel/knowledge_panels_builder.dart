@@ -48,6 +48,7 @@ class KnowledgePanelWidget extends StatelessWidget {
           knowledgePanelElement: knowledgePanelElement,
           allPanels: knowledgePanels,
           product: product,
+          isInitiallyExpanded: false,
         ),
       );
     }
