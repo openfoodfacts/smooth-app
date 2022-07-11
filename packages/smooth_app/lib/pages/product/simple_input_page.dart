@@ -66,8 +66,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                       widget.helper.getTitle(appLocalizations),
                       style: themeData.textTheme.headline1,
                     ),
-                    if (widget.helper.getSubtitle(appLocalizations) != null)
-                      Text(widget.helper.getSubtitle(appLocalizations)!),
+                    if (widget.helper.getAddExplanations(appLocalizations) !=
+                        null)
+                      Text(widget.helper.getAddExplanations(appLocalizations)!),
                     ListTile(
                       onTap: () => _addItemsFromController(),
                       trailing: const Icon(Icons.add_circle),
@@ -137,9 +138,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                         ),
                       ),
                     ),
-                    if (widget.helper.getAddExplanations(appLocalizations) !=
-                        null)
-                      Text(widget.helper.getAddExplanations(appLocalizations)!),
                     Divider(color: themeData.colorScheme.onBackground),
                     Column(
                       children: List<Widget>.generate(

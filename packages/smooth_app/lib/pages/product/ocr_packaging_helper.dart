@@ -1,13 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:http/http.dart';
 import 'package:openfoodfacts/model/OcrPackagingResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OcrField.dart';
-import 'package:openfoodfacts/utils/QueryType.dart';
-import 'package:openfoodfacts/utils/UriHelper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 
 /// OCR Helper for packaging.
@@ -54,40 +49,11 @@ class OcrPackagingHelper extends OcrHelper {
 
   @override
   Future<String?> getExtractedText(final Product product) async {
-    final OcrPackagingResult result = await extractPackaging(
+    final OcrPackagingResult result = await OpenFoodAPIClient.extractPackaging(
       getUser(),
       product.barcode!,
       getLanguage(),
     );
     return result.textFromImage;
-  }
-
-  // TODO(monsieurtanuki): move to off-dart
-  static Future<OcrPackagingResult> extractPackaging(
-    User user,
-    String barcode,
-    OpenFoodFactsLanguage language, {
-    OcrField ocrField = OcrField.GOOGLE_CLOUD_VISION,
-    QueryType? queryType,
-  }) async {
-    final Uri uri = UriHelper.getPostUri(
-      path: '/cgi/packaging.pl',
-      queryType: queryType,
-    );
-    final Map<String, String> queryParameters = <String, String>{
-      'code': barcode,
-      'process_image': '1',
-      'id': 'packaging_${language.code}',
-      'ocr_engine': OcrField.GOOGLE_CLOUD_VISION.key
-    };
-    final Response response = await HttpHelper().doPostRequest(
-      uri,
-      queryParameters,
-      user,
-      queryType: queryType,
-    );
-    return OcrPackagingResult.fromJson(
-      json.decode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>,
-    );
   }
 }
