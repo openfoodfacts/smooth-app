@@ -163,6 +163,7 @@ class _EditProductPageState extends State<EditProductPage> {
               },
             ),
             _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+            _getSimpleListTileItem(SimpleInputPageOriginHelper()),
             _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
             _getSimpleListTileItem(SimpleInputPageCountryHelper()),
             _getSimpleListTileItem(SimpleInputPageCategoryHelper()),

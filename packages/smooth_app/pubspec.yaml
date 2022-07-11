@@ -34,7 +34,7 @@ dependencies:
       url: 'https://github.com/M123-dev/matomo-tracker.git'
       ref: 'fix-event-sending'
   modal_bottom_sheet: ^2.1.0
-  openfoodfacts: ^1.21.0
+  openfoodfacts: ^1.22.0
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
   package_info_plus: ^1.4.2

@@ -130,6 +130,30 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   Widget? getIcon() => const Icon(Icons.shopping_cart);
 }
 
+/// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
+  @override
+  List<String> initTerms() => splitString(product.origins);
+
+  @override
+  void changeProduct(final Product changedProduct) =>
+      changedProduct.origins = terms.join(_separator);
+
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_origins_title;
+
+  @override
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_origins_hint;
+
+  @override
+  TagType? getTagType() => null;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.travel_explore);
+}
+
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override

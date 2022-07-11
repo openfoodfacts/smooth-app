@@ -145,5 +145,6 @@ abstract class ProductQuery {
         ProductField.COUNTRIES_TAGS,
         ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
         ProductField.EMB_CODES,
+        ProductField.ORIGINS,
       ];
 }
