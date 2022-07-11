@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
@@ -128,6 +129,7 @@ class _EditProductPageState extends State<EditProductPage> {
             ),
             _getSimpleListTileItem(SimpleInputPageLabelHelper()),
             _ListTitleItem(
+              leading: const _SvgIcon('assets/cacheTintable/ingredients.svg'),
               title: appLocalizations.edit_product_form_item_ingredients_title,
               onTap: () async {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
@@ -168,6 +170,7 @@ class _EditProductPageState extends State<EditProductPage> {
             _getSimpleListTileItem(SimpleInputPageCountryHelper()),
             _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
             _ListTitleItem(
+              leading: const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
               title:
                   appLocalizations.edit_product_form_item_nutrition_facts_title,
               subtitle: appLocalizations
@@ -260,4 +263,32 @@ class _ListTitleItem extends StatelessWidget {
           trailing: Icon(ConstantIcons.instance.getForwardIcon()),
         ),
       );
+}
+
+/// SVG that looks like a ListTile icon.
+class _SvgIcon extends StatelessWidget {
+  const _SvgIcon(this.assetName);
+
+  final String assetName;
+
+  @override
+  Widget build(BuildContext context) => SvgPicture.asset(
+        assetName,
+        height: DEFAULT_ICON_SIZE,
+        width: DEFAULT_ICON_SIZE,
+        color: _iconColor(Theme.of(context)),
+      );
+
+  /// Returns the standard icon color in a [ListTile].
+  ///
+  /// Simplified version from [ListTile], which was anyway not kind enough
+  /// to make it public.
+  Color _iconColor(ThemeData theme) {
+    switch (theme.brightness) {
+      case Brightness.light:
+        return Colors.black45;
+      case Brightness.dark:
+        return Colors.white;
+    }
+  }
 }
