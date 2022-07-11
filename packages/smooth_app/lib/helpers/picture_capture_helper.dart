@@ -67,7 +67,7 @@ void callbackDispatcher() {
         return Future<bool>.error('Failed and it will try again');
       } else {
         // go to the file system and delete the file that was uploaded
-        final File file = File(inputData['imageUri'].toString());
+        final File file = File(inputTask.imageUri);
         file.deleteSync();
         final LocalDatabase localDatabase =
             await LocalDatabase.getLocalDatabase();
