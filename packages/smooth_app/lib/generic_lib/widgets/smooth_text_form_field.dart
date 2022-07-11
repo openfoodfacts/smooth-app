@@ -86,7 +86,6 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       style: TextStyle(fontSize: textSize),
       cursorHeight: textSize * (textStyle.height ?? 1.4),
       decoration: InputDecoration(
-        //contentPadding: EdgeInsets.only(bottom: textSize),
         prefixIcon: widget.prefixIcon,
         filled: true,
         hintStyle: TextStyle(
