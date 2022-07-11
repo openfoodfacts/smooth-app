@@ -1017,7 +1017,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spain",
+    "edit_product_form_item_origins_hint": "Spain, Beef from Argentina, The soy does not come from the European union",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
