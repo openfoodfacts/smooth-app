@@ -276,28 +276,19 @@ class _SvgIcon extends StatelessWidget {
         assetName,
         height: DEFAULT_ICON_SIZE,
         width: DEFAULT_ICON_SIZE,
-        color: _iconColor(
-          Theme.of(context),
-          ListTileTheme.of(context),
-        ),
+        color: _iconColor(Theme.of(context)),
       );
 
   /// Returns the standard icon color in a [ListTile].
   ///
-  /// Copied from [ListTile], which was not kind enough to make it public.
-  Color? _iconColor(ThemeData theme, ListTileThemeData tileTheme) {
-    final Color? color = tileTheme.iconColor ?? theme.listTileTheme.iconColor;
-    if (color != null) {
-      return color;
-    }
-
+  /// Simplified version from [ListTile], which was anyway not kind enough
+  /// to make it public.
+  Color _iconColor(ThemeData theme) {
     switch (theme.brightness) {
       case Brightness.light:
-        // For the sake of backwards compatibility, the default for unselected
-        // tiles is Colors.black45 rather than colorScheme.onSurface.withAlpha(0x73).
         return Colors.black45;
       case Brightness.dark:
-        return null; // null - use current icon theme color
+        return Colors.white;
     }
   }
 }
