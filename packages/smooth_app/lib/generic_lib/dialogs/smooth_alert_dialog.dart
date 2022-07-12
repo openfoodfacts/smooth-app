@@ -21,7 +21,7 @@ class SmoothAlertDialog extends StatelessWidget {
     required this.body,
     this.positiveAction,
     this.negativeAction,
-    this.actionsAxis = Axis.horizontal,
+    this.actionsAxis,
     this.close = false,
   });
 
