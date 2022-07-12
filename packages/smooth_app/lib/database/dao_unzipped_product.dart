@@ -1,9 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
-import 'package:flutter/rendering.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
@@ -12,27 +9,30 @@ import 'package:smooth_app/database/dao_product_migration.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:sqflite/sqflite.dart';
 
-class DaoProduct extends AbstractSqlDao
-    implements BulkDeletable, DaoProductMigrationDestination {
-  DaoProduct(final LocalDatabase localDatabase) : super(localDatabase);
+// TODO(monsieurtanuki): remove when old enough (today is 2022-07-07)
+@Deprecated('use [DaoProduct] instead')
+class DaoUnzippedProduct extends AbstractSqlDao
+    implements
+        BulkDeletable,
+        DaoProductMigrationSource,
+        DaoProductMigrationDestination {
+  @Deprecated('use [DaoProduct] instead')
+  DaoUnzippedProduct(final LocalDatabase localDatabase) : super(localDatabase);
 
-  static const String _TABLE_PRODUCT = 'gzipped_product';
+  static const String _TABLE_PRODUCT = 'product';
   static const String _TABLE_PRODUCT_COLUMN_BARCODE = 'barcode';
-  static const String _TABLE_PRODUCT_COLUMN_GZIPPED_JSON =
-      'encoded_gzipped_json';
-  static const String _TABLE_PRODUCT_COLUMN_LAST_UPDATE = 'last_update';
+  static const String _TABLE_PRODUCT_COLUMN_JSON = 'encoded_json';
 
   static FutureOr<void> onUpgrade(
     final Database db,
     final int oldVersion,
     final int newVersion,
   ) async {
-    if (oldVersion < 2) {
+    if (oldVersion < 1) {
       await db.execute('create table $_TABLE_PRODUCT('
           // cf. https://www.sqlite.org/lang_conflict.html
           '$_TABLE_PRODUCT_COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace'
-          ',$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON BLOB NOT NULL'
-          ',$_TABLE_PRODUCT_COLUMN_LAST_UPDATE INT NOT NULL'
+          ',$_TABLE_PRODUCT_COLUMN_JSON TEXT NOT NULL'
           ')');
     }
   }
@@ -42,6 +42,7 @@ class DaoProduct extends AbstractSqlDao
     return map[barcode];
   }
 
+  @override
   Future<Map<String, Product>> getAll(final List<String> barcodes) async {
     final Map<String, Product> result = <String, Product>{};
     if (barcodes.isEmpty) {
@@ -59,8 +60,7 @@ class DaoProduct extends AbstractSqlDao
         _TABLE_PRODUCT,
         columns: <String>[
           _TABLE_PRODUCT_COLUMN_BARCODE,
-          _TABLE_PRODUCT_COLUMN_GZIPPED_JSON,
-          _TABLE_PRODUCT_COLUMN_LAST_UPDATE,
+          _TABLE_PRODUCT_COLUMN_JSON,
         ],
         where: '$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (size - 1)})',
         whereArgs: barcodes.sublist(start, start + size),
@@ -71,18 +71,6 @@ class DaoProduct extends AbstractSqlDao
       }
     }
     return result;
-  }
-
-  // Returns the no of rows deleted/effected from the table
-  Future<int> clearAll() async {
-    final int rowsDeleted = await localDatabase.database.delete(TABLE_PRODUCT);
-    return rowsDeleted;
-  }
-
-  Future<int> getLength() async {
-    return Sqflite.firstIntValue(await localDatabase.database
-            .rawQuery('SELECT COUNT(*) FROM $TABLE_PRODUCT')) ??
-        0;
   }
 
   Future<void> put(final Product product) async => putAll(<Product>[product]);
@@ -125,17 +113,11 @@ class DaoProduct extends AbstractSqlDao
     final DatabaseExecutor databaseExecutor,
     final Iterable<Product> products,
   ) async {
-    final int lastUpdate = LocalDatabase.nowInMillis();
     final BulkManager bulkManager = BulkManager();
     final List<dynamic> insertParameters = <dynamic>[];
     for (final Product product in products) {
       insertParameters.add(product.barcode);
-      insertParameters.add(
-        Uint8List.fromList(
-          gzip.encode(utf8.encode(jsonEncode(product.toJson()))),
-        ),
-      );
-      insertParameters.add(lastUpdate);
+      insertParameters.add(json.encode(product.toJson()));
     }
     await bulkManager.insert(
       bulkInsertable: this,
@@ -147,8 +129,7 @@ class DaoProduct extends AbstractSqlDao
   @override
   List<String> getInsertColumns() => <String>[
         _TABLE_PRODUCT_COLUMN_BARCODE,
-        _TABLE_PRODUCT_COLUMN_GZIPPED_JSON,
-        _TABLE_PRODUCT_COLUMN_LAST_UPDATE,
+        _TABLE_PRODUCT_COLUMN_JSON,
       ];
 
   @override
@@ -159,50 +140,21 @@ class DaoProduct extends AbstractSqlDao
   String getTableName() => _TABLE_PRODUCT;
 
   Product _getProductFromQueryResult(final Map<String, dynamic> row) {
-    final Uint8List compressed =
-        row[_TABLE_PRODUCT_COLUMN_GZIPPED_JSON] as Uint8List;
-    final String encodedJson = utf8.decode(gzip.decode(compressed.toList()));
+    final String encodedJson = row[_TABLE_PRODUCT_COLUMN_JSON] as String;
     final Map<String, dynamic> decodedJson =
         json.decode(encodedJson) as Map<String, dynamic>;
     return Product.fromJson(decodedJson);
   }
 
-  /// For developers with stats in mind only.
-  Future<void> printStats({final bool verbose = false}) async {
-    final List<String> barcodes = await getAllKeys();
-    debugPrint('number of barcodes: ${barcodes.length}');
-    final Map<String, Product> map = await getAll(barcodes);
-    int jsonLength = 0;
-    for (final Product product in map.values) {
-      jsonLength += utf8.encode(jsonEncode(product.toJson())).length;
-    }
-    debugPrint('json length: $jsonLength');
-    final int gzippedLength = Sqflite.firstIntValue(
-      await localDatabase.database.rawQuery(
-        'select sum(length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON))'
-        ' from $_TABLE_PRODUCT',
+  @override
+  Future<void> deleteAll(final List<String> barcodes) async {
+    final BulkManager bulkManager = BulkManager();
+    localDatabase.database.transaction(
+      (final Transaction transaction) async => bulkManager.delete(
+        bulkDeletable: this,
+        parameters: barcodes,
+        databaseExecutor: transaction,
       ),
-    )!;
-    debugPrint('gzipped length: $gzippedLength');
-    if (!verbose) {
-      return;
-    }
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.rawQuery(
-      'select'
-      ' $_TABLE_PRODUCT_COLUMN_BARCODE'
-      ', length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON) as mylength'
-      ' from $_TABLE_PRODUCT',
     );
-    debugPrint('Product by product');
-    debugPrint('barcode;gzipped;string;factor');
-    for (final Map<String, dynamic> row in queryResults) {
-      final String barcode = row[_TABLE_PRODUCT_COLUMN_BARCODE] as String;
-      final int asString =
-          utf8.encode(jsonEncode(map[barcode]!.toJson())).length;
-      final int asZipped = row['mylength'] as int;
-      final double factor = (asString * 1.0) / asZipped;
-      debugPrint('$barcode;$asZipped;$asString;$factor');
-    }
   }
 }

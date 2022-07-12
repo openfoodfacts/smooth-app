@@ -294,15 +294,15 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Puedes unirte a la sala de Slack Open Food Facts, el lugar preferido para hacer preguntas.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "¿Modo DEV?",
+    "contribute_develop_dev_mode_subtitle": "Activa el modo DEV",
     "contribute_donate_header": "Donar a Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Productos por completar",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Mejorando",
+    "contribute_improve_header": "Aportando datos",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
@@ -919,7 +919,7 @@
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Sonará un pitido en cada escaneo exitoso",
+    "camera_play_sound_subtitle": "Pitará al completar cada escaneo",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
@@ -1066,7 +1066,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "completed_basic_details_btn_text": "Completa los detalles básicos",
+    "completed_basic_details_btn_text": "Completa los datos básicos",
     "not_implemented_snackbar_text": "Aún no está implementado",
     "category_picker_page_appbar_text": "Categorías",
     "edit_ingredients_extrait_ingredients_btn_text": "Extraer ingredientes",
@@ -1402,7 +1402,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Completa los detalles básicos",
+    "summary_card_button_add_basic_details": "Completa los datos básicos",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
@@ -1432,7 +1432,7 @@
     },
     "barcode_invalid_error": "Código de barras no válido",
     "basic_details_add_success": "Detalles básicos añadidos con éxito",
-    "basic_details_add_error": "No se pueden agregar detalles básicos. Vuelva a intentarlo después de un tiempo.",
+    "basic_details_add_error": "No hemos podido añadir los datos básicos. Vuelve a intentarlo en un rato",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
@@ -1511,5 +1511,9 @@
     "choose_from_gallery": "Seleccionar de la galería",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "No hay conexión a internet",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }

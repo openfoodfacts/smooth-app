@@ -682,7 +682,7 @@
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
-    "consent_analytics_title": "Send anonymous analytics",
+    "consent_analytics_title": "Enviament de dades anònimes",
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
@@ -1511,5 +1511,9 @@
     "choose_from_gallery": "Choose from gallery",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "No internet connection",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }

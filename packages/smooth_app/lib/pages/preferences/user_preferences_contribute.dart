@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -63,6 +64,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           appLocalizations.contribute_translate_header,
           () => _translate(),
           Icons.translate,
+        ),
+        _getListTile(
+          appLocalizations.contribute_share_header,
+          () => _share(appLocalizations.contribute_share_content),
+          Icons.adaptive.share,
         ),
         _getListTile(
           appLocalizations.contribute_donate_header,
@@ -186,6 +192,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           );
         },
       );
+
+  Future<void> _share(String content) async => Share.share(content);
 
   Future<void> _donate() async => LaunchUrlHelper.launchURL(
         AppLocalizations.of(context).donate_url,

@@ -58,7 +58,8 @@ class SmoothProductCardFound extends StatelessWidget {
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.product(matchedProduct);
-    return GestureDetector(
+    return InkWell(
+      borderRadius: ROUNDED_BORDER_RADIUS,
       onTap: onTap ??
           () async {
             await Navigator.push<Widget>(
@@ -73,70 +74,79 @@ class SmoothProductCardFound extends StatelessWidget {
       },
       child: Hero(
         tag: heroTag,
-        child: SmoothCard(
-          elevation: elevation,
-          color: backgroundColor,
-          padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-          child: Row(
-            children: <Widget>[
-              SmoothProductImage(
-                product: product,
-                width: screenSize.width * 0.20,
-                height: screenSize.width * 0.20,
-              ),
-              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-              Expanded(
-                child: SizedBox(
-                  height: screenSize.width * 0.2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        getProductName(product, appLocalizations),
-                        overflow: TextOverflow.ellipsis,
-                        style: themeData.textTheme.headline4,
-                      ),
-                      Text(
-                        product.brands ?? appLocalizations.unknownBrand,
-                        overflow: TextOverflow.ellipsis,
-                        style: themeData.textTheme.subtitle1,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.circle,
-                            size: 15,
-                            color: helper.getButtonColor(isDarkMode),
-                          ),
-                          const Padding(
-                              padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-                          Expanded(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              alignment: AlignmentDirectional.centerStart,
-                              child: Text(
-                                helper.getSubtitle(appLocalizations),
-                                style: themeData.textTheme.bodyText2!.apply(
-                                    color: helper
-                                        .getButtonForegroundColor(isDarkMode)),
+        child: Ink(
+          decoration: BoxDecoration(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            color: Theme.of(context).brightness == Brightness.light
+                ? Colors.white
+                : Colors.black,
+          ),
+          child: SmoothCard(
+            elevation: elevation,
+            color: Colors.transparent,
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+            child: Row(
+              children: <Widget>[
+                SmoothProductImage(
+                  product: product,
+                  width: screenSize.width * 0.20,
+                  height: screenSize.width * 0.20,
+                ),
+                const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                Expanded(
+                  child: SizedBox(
+                    height: screenSize.width * 0.2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          getProductName(product, appLocalizations),
+                          overflow: TextOverflow.ellipsis,
+                          style: themeData.textTheme.headline4,
+                        ),
+                        Text(
+                          product.brands ?? appLocalizations.unknownBrand,
+                          overflow: TextOverflow.ellipsis,
+                          style: themeData.textTheme.subtitle1,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Icon(
+                              Icons.circle,
+                              size: 15,
+                              color: helper.getButtonColor(isDarkMode),
+                            ),
+                            const Padding(
+                                padding:
+                                    EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                            Expanded(
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                alignment: AlignmentDirectional.centerStart,
+                                child: Text(
+                                  helper.getSubtitle(appLocalizations),
+                                  style: themeData.textTheme.bodyText2!.apply(
+                                      color: helper.getButtonForegroundColor(
+                                          isDarkMode)),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-              Padding(
-                padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                child: Column(
-                  children: scores,
+                const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+                Padding(
+                  padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                  child: Column(
+                    children: scores,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

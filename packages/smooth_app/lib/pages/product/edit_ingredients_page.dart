@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -312,9 +313,8 @@ class _OcrWidget extends StatelessWidget {
                         onSubmitted: (_) => onSubmitField,
                       ),
                       const SizedBox(height: SMALL_SPACE),
-                      Text(
+                      ExplanationWidget(
                         helper.getInstructions(appLocalizations),
-                        style: Theme.of(context).textTheme.caption,
                       ),
                       const SizedBox(height: MEDIUM_SPACE),
                       SmoothActionButtonsBar(

@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
@@ -11,9 +10,11 @@ import 'package:smooth_app/database/dao_hive_product.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/dao_product_migration.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
+import 'package:smooth_app/database/dao_unzipped_product.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LocalDatabase extends ChangeNotifier {
@@ -35,7 +36,7 @@ class LocalDatabase extends ChangeNotifier {
     final String databasePath = await _getDatabasePath();
     final Database database = await openDatabase(
       databasePath,
-      version: 1,
+      version: 2,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -59,8 +60,15 @@ class LocalDatabase extends ChangeNotifier {
       await dao.init();
     }
 
-    // Migration here
-    await _migrate(localDatabase);
+    // Migrations here
+    await DaoProductMigration.migrate(
+      source: DaoHiveProduct(localDatabase),
+      destination: DaoUnzippedProduct(localDatabase),
+    );
+    await DaoProductMigration.migrate(
+      source: DaoUnzippedProduct(localDatabase),
+      destination: DaoProduct(localDatabase),
+    );
 
     return localDatabase;
   }
@@ -77,41 +85,6 @@ class LocalDatabase extends ChangeNotifier {
     return join(databasesRootPath, 'smoothie.db');
   }
 
-  static Future<void> _migrate(final LocalDatabase localDatabase) async {
-    final DaoHiveProduct daoHiveProduct = DaoHiveProduct(localDatabase);
-    final List<String> barcodesFrom = await daoHiveProduct.getAllKeys();
-    if (barcodesFrom.isEmpty) {
-      // nothing to migrate, or already migrated and cleaned.
-      return;
-    }
-
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final List<String> barcodesAlreadyThere = await daoProduct.getAllKeys();
-
-    final List<String> barcodesToBeCopied = List<String>.from(barcodesFrom);
-    barcodesToBeCopied.removeWhere(
-        (final String barcode) => barcodesAlreadyThere.contains(barcode));
-
-    if (barcodesToBeCopied.isNotEmpty) {
-      final Map<String, Product> copiedProducts =
-          await daoHiveProduct.getAll(barcodesToBeCopied);
-      await daoProduct.putAll(copiedProducts.values);
-      final List<String> barcodesFinallyThere = await daoProduct.getAllKeys();
-      if (barcodesFinallyThere.length !=
-          barcodesAlreadyThere.length + barcodesToBeCopied.length) {
-        // unexpected
-        return;
-      }
-    }
-
-    // cleaning the old product table
-    await daoHiveProduct.deleteAll(barcodesFrom);
-    final List<String> barcodesNoMore = await daoProduct.getAllKeys();
-    if (barcodesNoMore.isNotEmpty) {
-      // unexpected
-    }
-  }
-
   static int nowInMillis() => DateTime.now().millisecondsSinceEpoch;
 
   /// we don't use onCreate and onUpgrade, we use only onUpgrade instead.
@@ -121,6 +94,7 @@ class LocalDatabase extends ChangeNotifier {
     final int oldVersion,
     final int newVersion,
   ) async {
+    await DaoUnzippedProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
   }
 

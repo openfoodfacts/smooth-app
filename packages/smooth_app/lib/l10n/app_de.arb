@@ -177,7 +177,7 @@
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Bitte geben Sie Ihren Text ein",
+    "enter_some_text": "Bitte geben Sie etwas ein",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
@@ -262,7 +262,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Vielen Dank für Ihr Mitwirken",
+    "thanks_for_contributing": "Vielen Dank für Ihren Beitrag",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -879,7 +879,7 @@
             }
         }
     },
-    "settings_app_app": "Application",
+    "settings_app_app": "Anwendung",
     "settings_app_data": "Datenschutz und Überwachung",
     "settings_app_camera": "Kamera",
     "@camera_settings_title": {
@@ -1511,5 +1511,9 @@
     "choose_from_gallery": "Aus Galerie wählen",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "Keine Internetverbindung",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }
