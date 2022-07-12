@@ -849,7 +849,7 @@
     "@user_profile": {
         "description": "User account (if connected)"
     },
-    "user_profile_title_guest": "Welcome!",
+    "user_profile_title_guest": "நல்வரவு!",
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },

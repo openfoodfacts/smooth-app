@@ -320,7 +320,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Les traductions sont l'une des tâches clés du projet",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Partagez Open Food Facts avec vos amis",
     "@contribute_share_header": {},
     "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
     "@contribute_share_content": {
@@ -428,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Listez toutes les pièces d'emballage séparées par une virgule ou un saut de ligne, avec leur quantité (par exemple 1 ou 6) type (par exemple bouteille, boîte, canette), matériau (par exemple plastique, métal, aluminium) et si disponible leur taille (par exemple 33cl) et consignes de recyclage.\nExemple : 1 bouteille en verre à recycler, 1 bouchon en plastique à jeter",
     "packaging_editing_error": "Échec de l'enregistrement de l'emballage.",
     "packaging_editing_image_error": "Impossible d'obtenir une nouvelle image d'emballage.",
     "packaging_editing_title": "Modifier l'emballage",
@@ -1027,11 +1027,11 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Ajoutez toutes les indications d'origine que vous pouvez trouver sur l'emballage. Vous n'avez pas à vous soucier des origines indiquées directement dans la liste des ingrédients.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Exemples : Bœuf d'Argentine, Le soja ne provient pas de l'Union européenne",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1067,15 +1067,15 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Indiquez uniquement la catégorie la plus spécifique. Les catégories parentes seront automatiquement ajoutées.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Si une catégorie n'est pas disponible en saisie semi-automatique, n'hésitez pas à l'ajouter quand même, cela nous aidera à améliorer Open Food Facts dans votre pays.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Exemples : Sardines à l'huile d'olive, Jus d'orange à base de concentré",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
