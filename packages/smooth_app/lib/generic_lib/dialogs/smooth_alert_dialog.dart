@@ -21,6 +21,7 @@ class SmoothAlertDialog extends StatelessWidget {
     required this.body,
     this.positiveAction,
     this.negativeAction,
+    this.actionsAxis = Axis.horizontal,
     this.close = false,
   });
 
@@ -29,6 +30,7 @@ class SmoothAlertDialog extends StatelessWidget {
   final Widget body;
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
+  final Axis? actionsAxis;
 
   static const EdgeInsets _contentPadding =
       EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0);
@@ -62,6 +64,7 @@ class SmoothAlertDialog extends StatelessWidget {
       child: SmoothActionButtonsBar(
         positiveAction: positiveAction,
         negativeAction: negativeAction,
+        axis: actionsAxis,
       ),
     );
   }
@@ -119,10 +122,15 @@ class SmoothAlertDialog extends StatelessWidget {
   }
 }
 
+/// Will display one or two buttons.
+/// If the [axis] is [Axis.horizontal], the positive button will be on the end
+/// If the [axis] is [Axis.vertical], the positive button will be on the start
+/// Note: This Widget supports both RTL and LTR languages.
 class SmoothActionButtonsBar extends StatelessWidget {
   const SmoothActionButtonsBar({
     this.positiveAction,
     this.negativeAction,
+    this.axis,
     super.key,
   }) : assert(positiveAction != null || negativeAction != null,
             'At least one action must be passed!');
@@ -137,17 +145,31 @@ class SmoothActionButtonsBar extends StatelessWidget {
 
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
+  final Axis? axis;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: _buildActions(
-        context,
-        positiveAction: positiveAction,
-        negativeAction: negativeAction,
-      )!,
-    );
+    final Axis buttonsAxis = axis ?? Axis.horizontal;
+    final List<Widget> actions = _buildActions(
+      context,
+      buttonsAxis,
+      positiveAction: positiveAction,
+      negativeAction: negativeAction,
+    )!;
+
+    if (axis == Axis.horizontal) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: actions,
+      );
+    } else {
+      return IntrinsicWidth(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: actions,
+        ),
+      );
+    }
   }
 }
 
@@ -155,7 +177,8 @@ class SmoothActionButtonsBar extends StatelessWidget {
 /// In LTR mode: Negative - Positive
 /// In RTL mode: Positive - Negative
 List<Widget>? _buildActions(
-  BuildContext context, {
+  BuildContext context,
+  Axis axis, {
   SmoothActionButton? positiveAction,
   SmoothActionButton? negativeAction,
 }) {
@@ -163,20 +186,43 @@ List<Widget>? _buildActions(
     return null;
   }
 
-  final List<Widget> actions = <Widget>[
-    if (negativeAction != null)
-      Expanded(
-        child: _SmoothActionFlatButton(
-          buttonData: negativeAction,
+  List<Widget> actions;
+
+  if (axis == Axis.horizontal) {
+    // Negative action first
+    actions = <Widget>[
+      if (negativeAction != null)
+        Expanded(
+          child: _SmoothActionFlatButton(
+            buttonData: negativeAction,
+          ),
         ),
-      ),
-    if (positiveAction != null)
-      Expanded(
-        child: _SmoothActionElevatedButton(
-          buttonData: positiveAction,
+      if (positiveAction != null)
+        Expanded(
+          child: _SmoothActionElevatedButton(
+            buttonData: positiveAction,
+          ),
         ),
-      ),
-  ];
+    ];
+  } else {
+    // Positive first
+    actions = <Widget>[
+      if (positiveAction != null)
+        SizedBox(
+          width: double.infinity,
+          child: _SmoothActionElevatedButton(
+            buttonData: positiveAction,
+          ),
+        ),
+      if (negativeAction != null)
+        SizedBox(
+          width: double.infinity,
+          child: _SmoothActionFlatButton(
+            buttonData: negativeAction,
+          ),
+        ),
+    ];
+  }
 
   if (Directionality.of(context) == TextDirection.rtl) {
     return actions.reversed.toList(growable: false);
