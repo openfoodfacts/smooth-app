@@ -99,7 +99,7 @@ class LocalDatabase extends ChangeNotifier {
   }
 
   //Returns the approximate size of the database in MB
-  Future<double> getSize() async {
+  Future<double> getSizeinMb() async {
     final String path = await _getDatabasePath();
     final File file = File(path);
     final double size = file.lengthSync() / 1024 / 1024;

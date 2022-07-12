@@ -87,70 +87,17 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
           },
           child: CustomScrollView(
             slivers: <Widget>[
-              SliverAppBar(
-                pinned: true,
-                snap: false,
-                floating: false,
-                stretch: true,
-                backgroundColor: dark ? null : Colors.white,
-                expandedHeight: backgroundHeight + titleHeightInExpandedMode,
+              AppBar(
+                dark: dark,
+                backgroundHeight: backgroundHeight,
+                titleHeightInExpandedMode: titleHeightInExpandedMode,
                 foregroundColor: foregroundColor,
-                systemOverlayStyle: const SystemUiOverlayStyle(
-                  statusBarIconBrightness: Brightness.light,
-                  statusBarBrightness: Brightness.dark,
-                ),
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    'Offline Mode',
-                    style: TextStyle(color: foregroundColor),
-                  ),
-                  background: Padding(
-                    padding: const EdgeInsets.only(
-                        bottom: titleHeightInExpandedMode),
-                    child: SvgPicture.asset(
-                      // TODO(ashaman999): add a proper header image replacing this
-                      'assets/preferences/main.svg',
-                      height: backgroundHeight,
-                    ),
-                  ),
-                ),
               ),
               SliverList(
                 delegate: SliverChildListDelegate(
                   <Widget>[
-                    UserPreferencesListTile(
-                      title: const Text(
-                        'Offline Product Data',
-                      ),
-                      subtitle: FutureBuilder<int>(
-                        future: daoProduct.getLength(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<int> snapshot) {
-                          if (snapshot.hasData) {
-                            return Text(
-                              '${snapshot.data} products available for immediate scanning',
-                            );
-                          } else {
-                            return const Text('Loading...');
-                          }
-                        },
-                      ),
-                      trailing: FutureBuilder<double>(
-                        future: localDatabase.getSize(),
-                        builder: (
-                          BuildContext context,
-                          AsyncSnapshot<double> snapshot,
-                        ) {
-                          if (snapshot.hasData) {
-                            return Text(
-                              '${snapshot.data} MB',
-                            );
-                          } else {
-                            return const CircularProgressIndicator();
-                          }
-                        },
-                      ),
-                    ),
+                    OfflineDataDetials(
+                        daoProduct: daoProduct, localDatabase: localDatabase),
                     UserPreferencesListTile(
                       trailing: const Icon(Icons.refresh),
                       onTap: () async {
@@ -207,7 +154,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                             ) ??
                             false;
                         if (confirmed) {
-                          final double size = await localDatabase.getSize();
+                          final double size = await localDatabase.getSizeinMb();
                           final List<String> typesToDelete =
                               await daoProductList.typesToDelete();
                           for (final String key in typesToDelete) {
@@ -234,26 +181,130 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                         'Clear All Offline Data and Free up space',
                       ),
                     ),
-                    UserPreferencesListTile(
-                      trailing: const Icon(Icons.info),
-                      title: const Text(
-                        'Know More ',
-                      ),
-                      subtitle: const Text(
-                        'Click to know more about the offline mode',
-                      ),
-                      onTap: () {
-                        // TODO(ashaman999): refrence the acutal link
-                        // Or maybe show something as an alert dialog
-                        launchUrl(
-                          Uri.parse('https://openfoodfacts.org/'),
-                        );
-                      },
-                    ),
+                    const KnowMoreCard(),
                   ],
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class OfflineDataDetials extends StatelessWidget {
+  const OfflineDataDetials({
+    Key? key,
+    required this.daoProduct,
+    required this.localDatabase,
+  }) : super(key: key);
+
+  final DaoProduct daoProduct;
+  final LocalDatabase localDatabase;
+
+  @override
+  Widget build(BuildContext context) {
+    return UserPreferencesListTile(
+      title: const Text(
+        'Offline Product Data',
+      ),
+      subtitle: FutureBuilder<int>(
+        future: daoProduct.getLength(),
+        builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+          if (snapshot.hasData) {
+            return Text(
+              '${snapshot.data} products available for immediate scanning',
+            );
+          } else {
+            return const Text('Loading...');
+          }
+        },
+      ),
+      trailing: FutureBuilder<double>(
+        future: localDatabase.getSizeinMb(),
+        builder: (
+          BuildContext context,
+          AsyncSnapshot<double> snapshot,
+        ) {
+          if (snapshot.hasData) {
+            return Text(
+              '${snapshot.data} MB',
+            );
+          } else {
+            return const CircularProgressIndicator();
+          }
+        },
+      ),
+    );
+  }
+}
+
+class KnowMoreCard extends StatelessWidget {
+  const KnowMoreCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return UserPreferencesListTile(
+      trailing: const Icon(Icons.info),
+      title: const Text(
+        'Know More ',
+      ),
+      subtitle: const Text(
+        'Click to know more about the offline mode',
+      ),
+      onTap: () {
+        // TODO(ashaman999): refrence the acutal link
+        // Or maybe show something as an alert dialog
+        launchUrl(
+          Uri.parse('https://openfoodfacts.org/'),
+        );
+      },
+    );
+  }
+}
+
+class AppBar extends StatelessWidget {
+  const AppBar({
+    Key? key,
+    required this.dark,
+    required this.backgroundHeight,
+    required this.titleHeightInExpandedMode,
+    required this.foregroundColor,
+  }) : super(key: key);
+
+  final bool dark;
+  final double backgroundHeight;
+  final double titleHeightInExpandedMode;
+  final Color? foregroundColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverAppBar(
+      pinned: true,
+      snap: false,
+      floating: false,
+      stretch: true,
+      backgroundColor: dark ? null : Colors.white,
+      expandedHeight: backgroundHeight + titleHeightInExpandedMode,
+      foregroundColor: foregroundColor,
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
+      ),
+      flexibleSpace: FlexibleSpaceBar(
+        title: Text(
+          'Offline Mode',
+          style: TextStyle(color: foregroundColor),
+        ),
+        background: Padding(
+          padding: EdgeInsets.only(bottom: titleHeightInExpandedMode),
+          child: SvgPicture.asset(
+            // TODO(ashaman999): add a proper header image replacing this
+            'assets/preferences/main.svg',
+            height: backgroundHeight,
           ),
         ),
       ),

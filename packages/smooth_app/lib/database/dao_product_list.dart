@@ -296,13 +296,13 @@ class DaoProductList extends AbstractDao {
     return result;
   }
 
-  // returns the number of items cleared from the box
+  /// Returns the number of items cleared from the box
   Future<int> clearAll() async {
     final int clearedItems = await _getBox().clear();
     return clearedItems;
   }
 
-// get the keys for every item in the box
+  /// Get the keys for every item in the box
   Future<List<String>> getKeys() async {
     final List<String> keys = <String>[];
     for (final dynamic key in _getBox().keys) {
@@ -324,7 +324,7 @@ class DaoProductList extends AbstractDao {
     _put(key, newList);
   }
 
-// get the list of the keys to delete
+  /// Get the list of the keys to delete
   Future<List<String>> typesToDelete() async {
     final List<String> keys = await getKeys();
     // ignore: list_remove_unrelated_type
@@ -335,7 +335,7 @@ class DaoProductList extends AbstractDao {
     return keys;
   }
 
-// delete just enteries containing HTTP_SEARCH_KEYWORDS.key
+  /// Delete just enteries containing HTTP_SEARCH_KEYWORDS.key
   Future<List<String>> getKeysToDelete() async {
     final List<String> keys = await getKeys();
     keys.removeWhere((String key) =>
