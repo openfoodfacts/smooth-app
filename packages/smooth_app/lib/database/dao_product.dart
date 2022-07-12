@@ -75,13 +75,13 @@ class DaoProduct extends AbstractSqlDao
 
   // Returns the no of rows deleted/effected from the table
   Future<int> clearAll() async {
-    final int rowsDeleted = await localDatabase.database.delete(TABLE_PRODUCT);
+    final int rowsDeleted = await localDatabase.database.delete(_TABLE_PRODUCT);
     return rowsDeleted;
   }
 
   Future<int> getLength() async {
     return Sqflite.firstIntValue(await localDatabase.database
-            .rawQuery('SELECT COUNT(*) FROM $TABLE_PRODUCT')) ??
+            .rawQuery('SELECT COUNT(*) FROM $_TABLE_PRODUCT')) ??
         0;
   }
 
