@@ -84,7 +84,7 @@ void callbackDispatcher() {
             }
           }
         } catch (e) {
-          debugPrint('Error: $e,Updating to localdatabse failed');
+          debugPrint('Error: $e,Updating to local database failed');
           // Return true as the task of uploading image is completed successfully
           // It's just the task of updating the product in the local database is failed
           // The user can simply refresh it
