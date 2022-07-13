@@ -49,7 +49,7 @@ void callbackDispatcher() {
       }
       if (shouldRetry) {
         inputTask.counter += 1;
-        // await Workmanager().initialize(callbackDispatcher);
+        await Workmanager().initialize(callbackDispatcher);
         await Workmanager().registerOneOffTask(
           task,
           'ImageUploadWorker',
