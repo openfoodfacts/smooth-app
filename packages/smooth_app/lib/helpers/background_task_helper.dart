@@ -23,7 +23,7 @@ void callbackDispatcher() {
       final BackgroundInputData inputTask =
           BackgroundInputData.fromJson(inputData!);
       final int counter = inputTask.counter;
-      // if task is greate than 6 , that means it has been executed 7 times
+      // if task is greater than 6 , that means it has been executed 7 times
       if (counter > duration.length) {
         // returns true to let platform know that the task is completed
         final File file = File(inputTask.imageUri);
