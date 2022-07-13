@@ -14,7 +14,7 @@ enum AttributeEvaluation {
 }
 
 Widget getAttributeDisplayIcon(final Attribute attribute) => Padding(
-      padding: const EdgeInsets.only(right: VERY_SMALL_SPACE),
+      padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
       child: _attributeMatchComparison(
         attribute,
         const Icon(CupertinoIcons.question, color: RED_COLOR),

@@ -320,6 +320,12 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Překlady jsou jedním z klíčových úkolů projektu",
     "@contribute_translate_text_2": {},
+    "contribute_share_header": "Sdílejte Open Food Facts se svými přáteli",
+    "@contribute_share_header": {},
+    "contribute_share_content": "Chtěl jsem vám dát vědět o aplikaci, kterou používám, Open Food Facts, která vám umožňuje personalizovaným způsobem získat informace o dopadech vašeho jídla na zdraví a životní prostředí. Funguje naskenováním čárových kódů na obalu. Konečně je to zdarma, nevyžaduje registraci a dokonce můžete pomoci zvýšit počet dešifrovaných produktů. Zde je odkaz, jak jej získat pro váš telefon: https://openfoodfacts.app",
+    "@contribute_share_content": {
+        "description": "Content that will be shared, don't forget to include the URL"
+    },
     "tap_to_answer": "Klepnutím sem odpovíte na otázky",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -422,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "",
+    "packaging_editing_instructions": "Uveďte všechny části balení oddělené čárkou nebo odřádkováním s uvedením jejich množství (např. 1 nebo 6), typu (např. láhev, krabice, plechovka), materiálu (např. plast, kov, hliník) a pokud je k dispozici jejich velikost (např. 33 cl) a pokyny k recyklaci.\nPříklad: 1 skleněná láhev k recyklaci, 1 plastový korek k vyhození",
     "packaging_editing_error": "Balení se nepodařilo uložit.",
     "packaging_editing_image_error": "Nepodařilo se získat nový obrázek obalu.",
     "packaging_editing_title": "Upravit obal",
@@ -1013,6 +1019,22 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_origins_title": "Původ",
+    "@edit_product_form_item_origins_title": {
+        "description": "Product edition - Origins - Title"
+    },
+    "edit_product_form_item_origins_hint": "Španělsko",
+    "@edit_product_form_item_origins_hint": {
+        "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_explainer_1": "Přidejte jakékoli označení původu, které najdete na obalu. Nemusíte se starat o původ uvedený přímo v seznamu přísad.",
+    "@edit_product_form_item_origins_explainer_1": {
+        "description": "Product edition - Origins - input explainer, part 1"
+    },
+    "edit_product_form_item_origins_explainer_2": "Příklady: Hovězí maso z Argentiny, Sója nepochází z Evropské unie",
+    "@edit_product_form_item_origins_explainer_2": {
+        "description": "Product edition - Origins - input explainer, part 2"
+    },
     "edit_product_form_item_countries_title": "Země",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
@@ -1044,6 +1066,18 @@
     "edit_product_form_item_categories_hint": "kategorie",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_explainer_1": "Uveďte pouze nejkonkrétnější kategorii. Nadřazené kategorie budou přidány automaticky.",
+    "@edit_product_form_item_categories_explainer_1": {
+        "description": "Product edition - Categories - input explainer, part 1"
+    },
+    "edit_product_form_item_categories_explainer_2": "V případě, že kategorie není k dispozici v automatickém doplňování, klidně ji přidejte, pomůže nám to zlepšit Open Food Facts ve vaší zemi.",
+    "@edit_product_form_item_categories_explainer_2": {
+        "description": "Product edition - Categories - input explainer, part 2"
+    },
+    "edit_product_form_item_categories_explainer_3": "Příklady: sardinky v olivovém oleji, pomerančová šťáva z koncentrátu",
+    "@edit_product_form_item_categories_explainer_3": {
+        "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Chcete uložit změny před opuštěním této stránky?",
     "edit_product_form_item_ingredients_title": "Složení a původ",
@@ -1512,7 +1546,7 @@
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "no_internet_connection": "No internet connection",
+    "no_internet_connection": "Žádné připojení k Internetu",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     }

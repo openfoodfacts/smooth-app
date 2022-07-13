@@ -100,7 +100,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       headerColor = abstractUserPreferences.getHeaderColor();
     }
 
-    const EdgeInsets padding = EdgeInsets.only(top: MEDIUM_SPACE);
+    const EdgeInsetsGeometry padding = EdgeInsetsDirectional.only(
+      top: MEDIUM_SPACE,
+    );
     final ListView list;
     if (addDividers) {
       list = ListView.separated(
@@ -153,8 +155,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
                 style: TextStyle(color: foregroundColor),
               ),
               background: Padding(
-                padding:
-                    const EdgeInsets.only(bottom: titleHeightInExpandedMode),
+                padding: const EdgeInsetsDirectional.only(
+                  bottom: titleHeightInExpandedMode,
+                ),
                 child: SvgPicture.asset(
                   headerAsset,
                   height: backgroundHeight,

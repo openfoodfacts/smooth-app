@@ -262,8 +262,8 @@ class _ProductListPageState extends State<ProductListPage>
       onTap: _selectionMode ? onTap : null,
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: _selectionMode ? 0 : 12.0,
-          vertical: 8.0,
+          horizontal: _selectionMode ? 0 : MEDIUM_SPACE,
+          vertical: SMALL_SPACE,
         ),
         child: Row(
           children: <Widget>[
@@ -291,7 +291,7 @@ class _ProductListPageState extends State<ProductListPage>
           alignment: Alignment.centerRight,
           margin: const EdgeInsets.symmetric(vertical: 14),
           color: RED_COLOR,
-          padding: const EdgeInsets.only(right: 30),
+          padding: const EdgeInsetsDirectional.only(end: 30),
           child: const Icon(
             Icons.delete,
             color: Colors.white,

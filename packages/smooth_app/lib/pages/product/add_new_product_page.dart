@@ -17,7 +17,9 @@ import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-const EdgeInsets _ROW_PADDING_TOP = EdgeInsets.only(top: VERY_LARGE_SPACE);
+const EdgeInsetsGeometry _ROW_PADDING_TOP = EdgeInsetsDirectional.only(
+  top: VERY_LARGE_SPACE,
+);
 
 // Buttons to add images will appear in this order.
 const List<ImageField> _SORTED_IMAGE_FIELD_LIST = <ImageField>[
@@ -54,10 +56,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           title: Text(appLocalizations.new_product),
           automaticallyImplyLeading: !_isProductLoaded),
       body: Padding(
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           top: VERY_LARGE_SPACE,
-          left: VERY_LARGE_SPACE,
-          right: VERY_LARGE_SPACE,
+          start: VERY_LARGE_SPACE,
+          end: VERY_LARGE_SPACE,
         ),
         child: Stack(
           children: <Widget>[

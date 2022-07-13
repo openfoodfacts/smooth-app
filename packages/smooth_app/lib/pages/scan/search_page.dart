@@ -211,7 +211,7 @@ class _SearchFieldState extends State<SearchField> {
 
   Widget _buildClearButton() {
     return Padding(
-      padding: const EdgeInsets.only(right: 12.0),
+      padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
       child: IconButton(
         onPressed: _handleClear,
         icon: AnimatedCrossFade(

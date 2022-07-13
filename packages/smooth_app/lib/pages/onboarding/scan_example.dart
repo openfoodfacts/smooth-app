@@ -34,7 +34,7 @@ class ScanExample extends StatelessWidget {
                   height: screenSize.height * .50,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
                   child: SizedBox(
                     height: screenSize.height * .15,
                     child: AutoSizeText(
