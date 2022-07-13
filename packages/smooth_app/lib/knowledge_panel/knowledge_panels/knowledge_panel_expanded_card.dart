@@ -26,7 +26,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
         in panel.elements ?? <KnowledgePanelElement>[]) {
       elementWidgets.add(
         Padding(
-          padding: const EdgeInsets.only(top: VERY_SMALL_SPACE),
+          padding: const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
           child: KnowledgePanelElementCard(
             knowledgePanelElement: element,
             allPanels: allPanels,

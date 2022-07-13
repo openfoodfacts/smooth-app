@@ -39,7 +39,7 @@ class ConsentAnalytics extends StatelessWidget {
                   width: screenSize.width * .50,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
                   child: AutoSizeText(
                     appLocalizations.consent_analytics_title,
                     maxLines: 2,
@@ -51,7 +51,7 @@ class ConsentAnalytics extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
                   child: AutoSizeText(
                     appLocalizations.consent_analytics_body1,
                     maxLines: 3,
@@ -59,7 +59,7 @@ class ConsentAnalytics extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: SMALL_SPACE),
+                  padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
                   child: AutoSizeText(
                     appLocalizations.consent_analytics_body2,
                     maxLines: 3,

@@ -239,7 +239,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     controller.text = _nutritionContainer.servingSize ?? '';
     _controllers[NutritionContainer.fakeNutrientIdServingSize] = controller;
     return Padding(
-      padding: const EdgeInsets.only(bottom: VERY_LARGE_SPACE),
+      padding: const EdgeInsetsDirectional.only(bottom: VERY_LARGE_SPACE),
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(

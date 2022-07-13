@@ -12,6 +12,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
@@ -190,7 +191,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                     animationCurve: Curves.easeInOutBack,
                     startOffset: const Offset(0.0, 1.0),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
+                      padding: const EdgeInsetsDirectional.only(
+                        start: SMALL_SPACE,
+                      ),
                       child: FloatingActionButton(
                         backgroundColor: themeData.colorScheme.secondary,
                         onPressed: () {
@@ -302,8 +305,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                                 );
                               }
                               return Padding(
-                                padding: const EdgeInsets.only(
-                                    bottom: 90.0, left: 20, right: 20),
+                                padding: const EdgeInsetsDirectional.only(
+                                  bottom: 90.0,
+                                  start: VERY_LARGE_SPACE,
+                                  end: VERY_LARGE_SPACE,
+                                ),
                                 child: child,
                               );
                             }
@@ -311,8 +317,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                                 _model.displayProducts![index];
                             return Padding(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 12.0,
-                                vertical: 8.0,
+                                horizontal: MEDIUM_SPACE,
+                                vertical: SMALL_SPACE,
                               ),
                               child: SmoothProductCardFound(
                                 heroTag: product.barcode!,
@@ -333,12 +339,17 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       );
 
   Widget _getHero(final Size screenSize, final ThemeData themeData) => Hero(
-      tag: widget.heroTag,
-      child: Container(
-        width: screenSize.width,
-        height: double.infinity,
-        padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 96.0),
-      ));
+        tag: widget.heroTag,
+        child: Container(
+          width: screenSize.width,
+          height: double.infinity,
+          padding: const EdgeInsetsDirectional.only(
+            start: 10.0,
+            end: 10.0,
+            top: 96.0,
+          ),
+        ),
+      );
 
   Widget _getErrorWidget(
     final Size screenSize,
@@ -349,7 +360,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       screenSize,
       themeData,
       Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(SMALL_SPACE),
         child: SmoothErrorCard(
           errorMessage: errorMessage,
           tryAgainFunction: retryConnection,
