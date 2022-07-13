@@ -16,7 +16,8 @@ Future<bool> uploadCapturedPicture(
   required Uri imageUri,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final BackgroundInputData inputData = BackgroundInputData(
+  final BackgroundImageInputData inputData = BackgroundImageInputData(
+    processName: 'ImageUpload',
     barcode: barcode,
     imageField: imageField.value,
     imageUri: File(imageUri.path).path,
@@ -28,13 +29,12 @@ Future<bool> uploadCapturedPicture(
       'ImageUploader_${barcode}_${imageField.value}${SmoothRandom.generateRandomString(8)}';
   await Workmanager().registerOneOffTask(
     uniqueId,
-    'ImageUploadWorker',
+    'BackgroundProcess', // TODO(g123k): change this in ios config
     constraints: Constraints(
       networkType: NetworkType.connected,
     ),
     inputData: inputData.toJson(),
   );
-
   // ignore: use_build_context_synchronously
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
