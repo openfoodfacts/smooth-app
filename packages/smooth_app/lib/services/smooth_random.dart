@@ -1,9 +1,9 @@
 import 'dart:math';
 
 class SmoothRandom {
-  //create a const constructor
-  SmoothRandom();
-  String generateRandomString(int length) {
+  const SmoothRandom._();
+
+  static String generateRandomString(int length) {
     final Random random = Random();
     const String availableChars =
         'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';

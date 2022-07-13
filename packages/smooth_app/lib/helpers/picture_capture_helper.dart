@@ -25,9 +25,8 @@ Future<bool> uploadCapturedPicture(
     languageCode: ProductQuery.getLanguage().code,
   );
   // generate a random 8 digit word as the task name
-  final SmoothRandom smoothie = SmoothRandom();
   final String uniqueId =
-      'ImageUploader_${barcode}_${imageField.value}${smoothie.generateRandomString(8)}';
+      'ImageUploader_${barcode}_${imageField.value}${SmoothRandom.generateRandomString(8)}';
   await Workmanager().registerOneOffTask(
     uniqueId,
     'ImageUploadWorker',
