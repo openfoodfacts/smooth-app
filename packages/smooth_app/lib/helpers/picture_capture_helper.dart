@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -118,10 +119,8 @@ Future<bool> uploadCapturedPicture(
   );
 
   await Workmanager().initialize(callbackDispatcher);
-  // generate a random 8 digit word as the task name
-  final SmoothRandom smoothie = SmoothRandom();
   final String uniqueId =
-      'ImageUploader_${barcode}_${imageField.value}${smoothie.generateRandomString(8)}';
+      'ImageUploader_${barcode}_${imageField.value}${SmoothRandom.generateRandomString(8)}';
   await Workmanager().registerOneOffTask(
     uniqueId,
     'ImageUploadWorker',
