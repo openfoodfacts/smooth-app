@@ -9,7 +9,6 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_random.dart';
 import 'package:workmanager/workmanager.dart';
 
-
 Future<bool> uploadCapturedPicture(
   BuildContext context, {
   required String barcode,

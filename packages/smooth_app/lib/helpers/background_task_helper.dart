@@ -12,7 +12,6 @@ void callbackDispatcher() {
   Workmanager().executeTask(
     (String task, Map<String, dynamic>? inputData) async {
       const List<Duration> duration = <Duration>[
-        Duration(seconds: 5),
         Duration(seconds: 30),
         Duration(minutes: 1),
         Duration(minutes: 30),
