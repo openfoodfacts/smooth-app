@@ -320,7 +320,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "תרגומים הם אחת ממשימות המפתח של המיזם",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "שיתוף Open Food Facts עם חברים",
     "@contribute_share_header": {},
     "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
     "@contribute_share_content": {
@@ -428,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "הצגת כל חלקי האריזה מופרדים בפסיקים או ירידת שורה, בצירוף הכמות (למשל: 1 או 6), סוג (למשל: בקבוק, קופסה, פחית), חומר (למשל: פלסטיק, מתכת, אלומיניום) והגודל אם יש (למשל: 330 מ״ל) והנחיות מיחזור. למשל: בקבוק זכוכית 1 למיחזור, פקק פלסטיק אחד להשלכה",
     "packaging_editing_error": "שמירת האריזה נכשלה.",
     "packaging_editing_image_error": "משיכת תמונת האריזה החדשה נכשלה.",
     "packaging_editing_title": "עריכת אריזה",
@@ -1031,7 +1031,7 @@
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "דוגמאות: בקר מארגנטינה, הסויה לא מגיעה מהאיחוד האירופי",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1067,15 +1067,15 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "יש לציין רק את הקטגוריה המדויקת ביותר. קטגוריות הורה תתווספנה אוטומטית.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "אם הקטגוריה לא קיימת בהשלמה האוטומטית, אפשר פשוט להוסיף אותה בכל מקרה, פעולה זו תסייע לנו לשפר את Open Food Facts במדינה שלך.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "למשל: סרדינים בשמן זית, מיץ תפוזים מתרכיז",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },

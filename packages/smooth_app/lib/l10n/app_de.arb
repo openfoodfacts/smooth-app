@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Teilen Sie Open Food Facts mit Ihren Freunden",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Ich möchte Ihnen die App Open Food Facts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Strichcodes auf den Verpackungen. Schließlich ist es kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -428,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Führen Sie alle Verpackungsteile durch ein Komma oder einen Zeilenvorschub getrennt auf und geben Sie die Anzahl (z. B. 1 oder 6), die Art (z. B. Flasche, Schachtel, Dose), das Material (z. B. Kunststoff, Metall, Aluminium) und, falls vorhanden, die Größe (z. B. 33cl) sowie Recyclinghinweise an.\nBeispiel: 1 Glasflasche zum Recyceln, 1 Plastikkorken zum Wegwerfen",
     "packaging_editing_error": "Fehler beim Speichern der Verpackung.",
     "packaging_editing_image_error": "Neues Foto der Verpackung konnte nicht abgerufen werden.",
     "packaging_editing_title": "Verpackung bearbeiten",
@@ -1027,11 +1027,11 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Fügen Sie alle Herkunftsangaben hinzu, die Sie auf der Verpackung finden. Sie brauchen sich keine Sorgen über Herkunftsangaben zu machen, die direkt in der Zutatenliste stehen.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Beispiele: Rindfleisch aus Argentinien, Das Soja kommt nicht aus der Europäischen Union",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1067,15 +1067,15 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Geben Sie nur die spezifischste Kategorie an. Die übergeordneten Kategorien werden automatisch hinzugefügt.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Falls eine Kategorie nicht in der Autovervollständigung enthalten ist, können Sie sie trotzdem hinzufügen. Das hilft uns, Open Food Facts in Ihrem Land zu verbessern.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Beispiele: Sardinen in Olivenöl, Orangensaft aus Konzentrat",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
