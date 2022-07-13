@@ -94,9 +94,9 @@ void callbackDispatcher() {
             // Returns true to let platform know that the task is completed
             return true;
           }
+        default:
+          return Future<bool>.error('Unknown task');
       }
-      // Switch case is not executed if the task is not found in the switch case
-      return true;
     },
   );
 }
