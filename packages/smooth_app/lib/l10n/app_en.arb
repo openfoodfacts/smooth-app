@@ -1553,6 +1553,9 @@
     "no_internet_connection": "No internet connection",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "product_task_background_schedule": "The Product will be updated in the background as soon as possible.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
     }
-
 }

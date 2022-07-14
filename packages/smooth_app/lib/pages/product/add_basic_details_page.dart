@@ -3,12 +3,17 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:workmanager/workmanager.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
@@ -125,30 +130,52 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
-                    final bool savedAndRefreshed =
-                        await ProductRefresher().saveAndRefresh(
-                      context: context,
-                      localDatabase: localDatabase,
-                      product: Product(
-                        productName: _productNameController.text,
-                        quantity: _weightController.text,
-                        brands: _brandNameController.text,
-                        barcode: _product.barcode,
+                    final String uniqueId =
+                        'BasicDetailsEdit${_product.barcode}${SmoothRandom.generateRandomString(4)}';
+                    final BackgroundBasicDetailsInput
+                        backgroundBasicDetailsInput =
+                        BackgroundBasicDetailsInput(
+                            processName: 'BasicInput',
+                            barcode: _product.barcode!,
+                            productName: _productNameController.text,
+                            brands: _brandNameController.text,
+                            quantity: _weightController.text,
+                            counter: 0,
+                            languageCode: ProductQuery.getLanguage().code);
+                    Workmanager().registerOneOffTask(
+                      uniqueId,
+                      'BackgroundProcess',
+                      constraints: Constraints(
+                        networkType: NetworkType.connected,
                       ),
+                      inputData: backgroundBasicDetailsInput.toJson(),
                     );
-                    if (!savedAndRefreshed) {
-                      return;
+                    final DaoProduct daoProduct = DaoProduct(localDatabase);
+                    // search for the product in the local database
+                    final Product? product = await daoProduct.get(
+                      _product.barcode!,
+                    );
+                    if (product == null) {
+                      daoProduct.put(Product(
+                        barcode: _product.barcode,
+                        productName: _productNameController.text,
+                        brands: _brandNameController.text,
+                        quantity: _weightController.text,
+                        lang: ProductQuery.getLanguage(),
+                      ));
                     }
                     if (!mounted) {
                       return;
                     }
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content:
-                            Text(appLocalizations.basic_details_add_success),
+                        content: Text(
+                          appLocalizations.product_task_background_schedule,
+                        ),
+                        duration: SmoothAnimationsDuration.medium,
                       ),
                     );
-                    Navigator.pop(context);
+                    Navigator.pop(context, product);
                   },
                 ),
               ),
