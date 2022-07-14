@@ -151,7 +151,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       inputData: backgroundBasicDetailsInput.toJson(),
                     );
                     final DaoProduct daoProduct = DaoProduct(localDatabase);
-                    // search for the product in the local database
                     final Product? product = await daoProduct.get(
                       _product.barcode!,
                     );
@@ -163,14 +162,20 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         quantity: _weightController.text,
                         lang: ProductQuery.getLanguage(),
                       ));
+                    } else {
+                      product.productName = _productNameController.text;
+                      product.brands = _brandNameController.text;
+                      product.quantity = _weightController.text;
+                      daoProduct.put(product);
                     }
+                    localDatabase.notifyListeners();
                     if (!mounted) {
                       return;
                     }
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          appLocalizations.product_task_background_schedule,
+                          appLocalizations.basic_details_add_success,
                         ),
                         duration: SmoothAnimationsDuration.medium,
                       ),
