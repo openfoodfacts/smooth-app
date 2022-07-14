@@ -53,7 +53,7 @@ void callbackDispatcher() {
             await Workmanager().initialize(callbackDispatcher);
             await Workmanager().registerOneOffTask(
               task,
-              'ImageUploadWorker',
+              'BackgroundProcess',
               constraints: Constraints(
                 networkType: NetworkType.connected,
               ),
