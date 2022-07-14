@@ -77,9 +77,8 @@ class SmoothProductCardFound extends StatelessWidget {
         child: Ink(
           decoration: BoxDecoration(
             borderRadius: ROUNDED_BORDER_RADIUS,
-            color: Theme.of(context).brightness == Brightness.light
-                ? Colors.white
-                : Colors.black,
+            color:
+                backgroundColor ?? (isDarkMode ? Colors.black : Colors.white),
           ),
           child: SmoothCard(
             elevation: elevation,
