@@ -14,13 +14,19 @@ import 'package:sqflite/sqflite.dart';
 
 class DaoProduct extends AbstractSqlDao
     implements BulkDeletable, DaoProductMigrationDestination {
-  DaoProduct(final LocalDatabase localDatabase) : super(localDatabase);
+  DaoProduct(super.localDatabase);
 
   static const String _TABLE_PRODUCT = 'gzipped_product';
   static const String _TABLE_PRODUCT_COLUMN_BARCODE = 'barcode';
   static const String _TABLE_PRODUCT_COLUMN_GZIPPED_JSON =
       'encoded_gzipped_json';
   static const String _TABLE_PRODUCT_COLUMN_LAST_UPDATE = 'last_update';
+
+  static const List<String> _columns = <String>[
+    _TABLE_PRODUCT_COLUMN_BARCODE,
+    _TABLE_PRODUCT_COLUMN_GZIPPED_JSON,
+    _TABLE_PRODUCT_COLUMN_LAST_UPDATE,
+  ];
 
   static FutureOr<void> onUpgrade(
     final Database db,
@@ -37,11 +43,23 @@ class DaoProduct extends AbstractSqlDao
     }
   }
 
+  /// Returns the [Product] that matches the [barcode], or null.
   Future<Product?> get(final String barcode) async {
-    final Map<String, Product> map = await getAll(<String>[barcode]);
-    return map[barcode];
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.query(
+      _TABLE_PRODUCT,
+      columns: _columns,
+      where: '$_TABLE_PRODUCT_COLUMN_BARCODE = ?',
+      whereArgs: <Object>[barcode],
+    );
+    // O or 1 row expected
+    for (final Map<String, dynamic> row in queryResults) {
+      return _getProductFromQueryResult(row);
+    }
+    return null;
   }
 
+  /// Returns the [Product]s that match the [barcodes].
   Future<Map<String, Product>> getAll(final List<String> barcodes) async {
     final Map<String, Product> result = <String, Product>{};
     if (barcodes.isEmpty) {
@@ -57,11 +75,7 @@ class DaoProduct extends AbstractSqlDao
       final List<Map<String, dynamic>> queryResults =
           await localDatabase.database.query(
         _TABLE_PRODUCT,
-        columns: <String>[
-          _TABLE_PRODUCT_COLUMN_BARCODE,
-          _TABLE_PRODUCT_COLUMN_GZIPPED_JSON,
-          _TABLE_PRODUCT_COLUMN_LAST_UPDATE,
-        ],
+        columns: _columns,
         where: '$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (size - 1)})',
         whereArgs: barcodes.sublist(start, start + size),
       );
@@ -133,11 +147,7 @@ class DaoProduct extends AbstractSqlDao
   }
 
   @override
-  List<String> getInsertColumns() => <String>[
-        _TABLE_PRODUCT_COLUMN_BARCODE,
-        _TABLE_PRODUCT_COLUMN_GZIPPED_JSON,
-        _TABLE_PRODUCT_COLUMN_LAST_UPDATE,
-      ];
+  List<String> getInsertColumns() => _columns;
 
   @override
   String getDeleteWhere(final List<dynamic> deleteWhereArgs) =>

@@ -59,7 +59,7 @@ class _ProductListPageState extends State<ProductListPage>
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<Product> products = productList.getList();
+    final List<String> products = productList.getList();
     final bool dismissible;
     switch (productList.listType) {
       case ProductListType.SCAN_SESSION:
@@ -213,20 +213,12 @@ class _ProductListPageState extends State<ProductListPage>
                           ListView.builder(
                         itemCount: products.length,
                         itemBuilder: (BuildContext context, int index) {
-                          Product product = products[index];
-                          final Product? refreshedProduct =
-                              provider.get(product);
-                          if (refreshedProduct != null) {
-                            product = refreshedProduct;
-                            productList.refresh(product);
-                          }
                           return _buildItem(
                             dismissible,
                             products,
                             index,
                             localDatabase,
                             appLocalizations,
-                            refreshedProduct,
                           );
                         },
                       ),
@@ -240,14 +232,12 @@ class _ProductListPageState extends State<ProductListPage>
 
   Widget _buildItem(
     final bool dismissible,
-    final List<Product> products,
+    final List<String> barcodes,
     final int index,
     final LocalDatabase localDatabase,
     final AppLocalizations appLocalizations,
-    final Product? refreshedProduct,
   ) {
-    final Product product = refreshedProduct ?? products[index];
-    final String barcode = product.barcode!;
+    final String barcode = barcodes[index];
     final bool selected = _selectedBarcodes.contains(barcode);
     void onTap() => setState(
           () {
@@ -273,7 +263,7 @@ class _ProductListPageState extends State<ProductListPage>
               ),
             Expanded(
               child: ProductListItemSimple(
-                product: product,
+                barcode: barcode,
                 onTap: _selectionMode ? onTap : null,
                 onLongPress: !_selectionMode
                     ? () => setState(() => _selectionMode = true)
@@ -297,16 +287,13 @@ class _ProductListPageState extends State<ProductListPage>
             color: Colors.white,
           ),
         ),
-        key: Key(product.barcode!),
+        key: Key(barcode),
         onDismissed: (final DismissDirection direction) async {
-          final bool removed = productList.remove(product.barcode!);
+          final bool removed = productList.remove(barcode);
           if (removed) {
             DaoProductList(localDatabase).put(productList);
-            _selectedBarcodes.remove(product.barcode);
-            setState(() => products.removeAt(index));
-          }
-          if (!mounted) {
-            return;
+            _selectedBarcodes.remove(barcode);
+            setState(() => barcodes.removeAt(index));
           }
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -324,14 +311,14 @@ class _ProductListPageState extends State<ProductListPage>
       );
     }
     return Container(
-      key: Key(product.barcode!),
+      key: Key(barcode),
       child: child,
     );
   }
 
   /// Calls the "refresh products" part with dialogs on top.
   Future<void> _refreshListProducts(
-    final List<Product> products,
+    final List<String> products,
     final LocalDatabase localDatabase,
     final AppLocalizations appLocalizations,
   ) async {
@@ -369,14 +356,10 @@ class _ProductListPageState extends State<ProductListPage>
 
   /// Fetches the products from the API and refreshes the local database
   Future<bool> _reloadProducts(
-    final List<Product> products,
+    final List<String> barcodes,
     final LocalDatabase localDatabase,
   ) async {
     try {
-      final List<String> barcodes = <String>[];
-      for (final Product product in products) {
-        barcodes.add(product.barcode!);
-      }
       final SearchResult searchResult = await OpenFoodAPIClient.getProductList(
         ProductQuery.getUser(),
         ProductListQueryConfiguration(
@@ -391,7 +374,6 @@ class _ProductListPageState extends State<ProductListPage>
         return false;
       }
       await DaoProduct(localDatabase).putAll(freshProducts);
-      freshProducts.forEach(productList.refresh);
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
       await robotoffInsightHelper.clearInsightAnnotationsSaved();
@@ -403,7 +385,7 @@ class _ProductListPageState extends State<ProductListPage>
   }
 
   Widget _buildCompareBar(
-    final List<Product> products,
+    final List<String> barcodes,
     final AppLocalizations appLocalizations,
   ) =>
       Row(
@@ -413,18 +395,21 @@ class _ProductListPageState extends State<ProductListPage>
             onPressed: _selectedBarcodes.length >=
                     2 // compare button is enabled only if 2 or more products have been selected
                 ? () async {
-                    final List<Product> list = <Product>[];
-                    for (final Product product in products) {
-                      if (_selectedBarcodes.contains(product.barcode)) {
-                        list.add(product);
+                    final List<String> list = <String>[];
+                    for (final String barcode in barcodes) {
+                      if (_selectedBarcodes.contains(barcode)) {
+                        list.add(barcode);
                       }
+                    }
+                    if (!mounted) {
+                      return;
                     }
                     await Navigator.push<Widget>(
                       context,
                       MaterialPageRoute<Widget>(
                         builder: (BuildContext context) =>
                             PersonalizedRankingPage(
-                          products: list,
+                          barcodes: list,
                           title: appLocalizations.product_list_your_ranking,
                         ),
                       ),

@@ -305,7 +305,6 @@ class _SummaryCardState extends State<SummaryCard> {
             localizations.product_search_same_category,
             iconData: Icons.leaderboard,
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
-              heroTag: 'search_bar',
               name: categoryLabel!,
               localDatabase: localDatabase,
               productQuery: CategoryProductQuery(categoryTag!),

@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -18,6 +18,7 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
@@ -27,13 +28,11 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
     required this.productListSupplier,
-    required this.heroTag,
     required this.name,
     this.lastUpdate,
   });
 
   final ProductListSupplier productListSupplier;
-  final String heroTag;
   final String name;
   final int? lastUpdate;
 
@@ -65,7 +64,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   void initState() {
     super.initState();
     _lastUpdate = widget.lastUpdate;
-    _model = ProductQueryModel(widget.productListSupplier);
+    _model = _getModel(widget.productListSupplier);
     _scrollController = ScrollController()
       ..addListener(() {
         setState(() {
@@ -93,25 +92,20 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
-        if (_model.loadingStatus == LoadingStatus.LOADED) {
-          _model.process(appLocalizations.category_all);
-        }
         switch (_model.loadingStatus) {
-          case LoadingStatus.POST_LOAD_STARTED:
           case LoadingStatus.LOADING:
-          case LoadingStatus.LOADED:
             return _getEmptyScreen(
               screenSize,
               themeData,
               const CircularProgressIndicator(),
             );
-          case LoadingStatus.COMPLETE:
+          case LoadingStatus.LOADED:
             if (_model.isNotEmpty()) {
               _showRefreshSnackBar(_scaffoldKeyNotEmpty);
               AnalyticsHelper.trackSearch(
                 search: widget.name,
                 searchCategory: _model.currentCategory,
-                searchCount: _model.displayProducts?.length,
+                searchCount: _model.displayBarcodes?.length,
               );
               return _getNotEmptyScreen(
                 screenSize,
@@ -149,10 +143,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             leading: const _BackButton(),
             title: _getAppBarTitle(),
           ),
-          body: Hero(
-            tag: widget.heroTag,
-            child: Center(child: emptiness),
-          ),
+          body: Center(child: emptiness),
         ),
       );
 
@@ -176,7 +167,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                   context,
                   MaterialPageRoute<Widget>(
                     builder: (BuildContext context) => PersonalizedRankingPage(
-                      products: _model.displayProducts!,
+                      barcodes: _model.displayBarcodes!,
                       title: widget.name,
                     ),
                   ),
@@ -211,142 +202,112 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               ),
             ],
           ),
-          body: Stack(
-            children: <Widget>[
-              _getHero(screenSize, themeData),
-              RefreshIndicator(
-                onRefresh: () => refreshList(),
-                child: Scrollbar(
-                  child: CustomScrollView(
-                    controller: _scrollController,
-                    slivers: <Widget>[
-                      SliverAppBar(
-                        backgroundColor: themeData.scaffoldBackgroundColor,
-                        pinned: true,
-                        elevation: 0,
-                        automaticallyImplyLeading: false,
-                        leading: const _BackButton(),
-                        actions: <Widget>[
-                          TextButton.icon(
-                            icon: const Icon(Icons.filter_list),
-                            label: Text(
-                              appLocalizations.filter,
-                              style: themeData.textTheme.subtitle1,
-                            ),
-                            onPressed: () {
-                              showCupertinoModalBottomSheet<Widget>(
-                                expand: false,
-                                context: context,
-                                backgroundColor: Colors.transparent,
-                                bounce: true,
-                                builder: (BuildContext context) =>
-                                    GroupQueryFilterView(
-                                  categories: _model.categories,
-                                  categoriesList: _model.sortedCategories,
-                                  callback: (String category) {
-                                    _model.selectCategory(category);
-                                    setState(() {});
-                                  },
-                                ),
-                              );
-                            },
-                          )
-                        ],
-                        title: _getAppBarTitle(),
+          appBar: AppBar(
+            backgroundColor: themeData.scaffoldBackgroundColor,
+            elevation: 0,
+            automaticallyImplyLeading: false,
+            leading: const _BackButton(),
+            actions: <Widget>[
+              TextButton.icon(
+                icon: const Icon(Icons.filter_list),
+                label: Text(
+                  appLocalizations.filter,
+                  style: themeData.textTheme.subtitle1,
+                ),
+                onPressed: () {
+                  _model.setTranslationForAll(appLocalizations.category_all);
+                  showCupertinoModalBottomSheet<Widget>(
+                    expand: false,
+                    context: context,
+                    backgroundColor: Colors.transparent,
+                    bounce: true,
+                    builder: (BuildContext context) => GroupQueryFilterView(
+                      categories: _model.categories,
+                      categoriesList: _model.sortedCategories,
+                      callback: (String category) {
+                        _model.selectCategory(category);
+                        setState(() {});
+                      },
+                    ),
+                  );
+                },
+              )
+            ],
+            title: _getAppBarTitle(),
+          ),
+          body: RefreshIndicator(
+            onRefresh: () => refreshList(),
+            child: ListView.builder(
+              controller: _scrollController,
+              itemBuilder: (BuildContext context, int index) {
+                if (index >= _model.displayBarcodes!.length) {
+                  // final button
+                  final int already = _model.displayBarcodes!.length;
+                  final int totalSize =
+                      _model.supplier.partialProductList.totalSize;
+                  final int next = max(
+                    0,
+                    min(
+                      _model.supplier.productQuery.pageSize,
+                      totalSize - already,
+                    ),
+                  );
+                  final Widget child;
+                  if (next == 0) {
+                    child = Text(
+                      appLocalizations.product_search_no_more_results(
+                        totalSize,
                       ),
-                      SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          (BuildContext context, int index) {
-                            if (index >= _model.displayProducts!.length) {
-                              // final button
-                              final int already =
-                                  _model.displayProducts!.length;
-                              final int totalSize =
-                                  _model.supplier.partialProductList.totalSize;
-                              final int next = max(
-                                0,
-                                min(
-                                  _model.supplier.productQuery.pageSize,
-                                  totalSize - already,
-                                ),
-                              );
-                              final Widget child;
-                              if (next == 0) {
-                                child = Text(
-                                  appLocalizations
-                                      .product_search_no_more_results(
-                                    totalSize,
-                                  ),
-                                );
-                              } else {
-                                child = ElevatedButton.icon(
-                                  icon: const Icon(Icons.download_rounded),
-                                  label: Text(
-                                    appLocalizations
-                                        .product_search_button_download_more(
-                                      next,
-                                      already,
-                                      totalSize,
-                                    ),
-                                  ),
-                                  onPressed: () async {
-                                    final bool? error =
-                                        await LoadingDialog.run<bool>(
-                                      context: context,
-                                      future: _model.loadNextPage(),
-                                    );
-                                    if (error != true) {
-                                      await LoadingDialog.error(
-                                        context: context,
-                                        title: _model.loadingError,
-                                      );
-                                    }
-                                  },
-                                );
-                              }
-                              return Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  bottom: 90.0,
-                                  start: VERY_LARGE_SPACE,
-                                  end: VERY_LARGE_SPACE,
-                                ),
-                                child: child,
-                              );
-                            }
-                            final Product product =
-                                _model.displayProducts![index];
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: MEDIUM_SPACE,
-                                vertical: SMALL_SPACE,
-                              ),
-                              child: SmoothProductCardFound(
-                                heroTag: product.barcode!,
-                                product: product,
-                              ),
-                            );
-                          },
-                          childCount: _model.displayProducts!.length + 1,
+                    );
+                  } else {
+                    child = ElevatedButton.icon(
+                      icon: const Icon(Icons.download_rounded),
+                      label: Text(
+                        appLocalizations.product_search_button_download_more(
+                          next,
+                          already,
+                          totalSize,
                         ),
                       ),
-                    ],
+                      onPressed: () async {
+                        final bool? success = await LoadingDialog.run<bool>(
+                          context: context,
+                          future: _model.loadNextPage(),
+                        );
+                        if (success == null) {
+                          return;
+                        } else if (success == false) {
+                          await LoadingDialog.error(
+                            context: context,
+                            title: _model.loadingError,
+                          );
+                        } else {
+                          setState(() {});
+                        }
+                      },
+                    );
+                  }
+                  return Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      bottom: 90.0,
+                      start: VERY_LARGE_SPACE,
+                      end: VERY_LARGE_SPACE,
+                    ),
+                    child: child,
+                  );
+                }
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: MEDIUM_SPACE,
+                    vertical: SMALL_SPACE,
                   ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-
-  Widget _getHero(final Size screenSize, final ThemeData themeData) => Hero(
-        tag: widget.heroTag,
-        child: Container(
-          width: screenSize.width,
-          height: double.infinity,
-          padding: const EdgeInsetsDirectional.only(
-            start: 10.0,
-            end: 10.0,
-            top: 96.0,
+                  child: ProductListItemSimple(
+                    barcode: _model.displayBarcodes![index],
+                  ),
+                );
+              },
+              itemCount: _model.displayBarcodes!.length + 1,
+            ),
           ),
         ),
       );
@@ -428,21 +389,22 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
-  void retryConnection() {
-    setState(() {
-      _model = ProductQueryModel(widget.productListSupplier);
-    });
-  }
+  void retryConnection() =>
+      setState(() => _model = _getModel(widget.productListSupplier));
+
+  ProductQueryModel _getModel(final ProductListSupplier supplier) =>
+      ProductQueryModel(
+        supplier,
+        DaoProduct(context.read<LocalDatabase>()),
+      );
 
   Future<void> refreshList() async {
     final ProductListSupplier? refreshSupplier =
         widget.productListSupplier.getRefreshSupplier();
     setState(
       // How do we refresh a supplier that has no refresher? With itself.
-      () => _model =
-          ProductQueryModel(refreshSupplier ?? widget.productListSupplier),
+      () => _model = _getModel(refreshSupplier ?? widget.productListSupplier),
     );
-    return;
   }
 
   void _scrollToTop() {
