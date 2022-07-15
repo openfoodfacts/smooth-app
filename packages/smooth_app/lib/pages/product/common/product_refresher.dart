@@ -22,7 +22,6 @@ class ProductRefresher {
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(appLocalizations.sign_in_mandatory),
-        actionsAxis: Axis.vertical,
         positiveAction: SmoothActionButton(
           text: appLocalizations.sign_in,
           onPressed: () async {
