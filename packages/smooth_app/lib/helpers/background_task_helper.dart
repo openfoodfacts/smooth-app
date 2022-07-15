@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -25,11 +26,80 @@ void callbackDispatcher() {
           return uploadImage(task, inputData, duration);
         case 'BasicInput':
           return addBasicDetails(task, inputData, duration);
+        case 'NutrientEdit':
+          return editNutrients(task, inputData, duration);
         default:
           return Future<bool>.error('Unknown task');
       }
     },
   );
+}
+
+Future<bool> editNutrients(String task, Map<String, dynamic> inputData,
+    List<Duration> duration) async {
+  final NutritionInputData inputTask = NutritionInputData.fromJson(inputData);
+  final int counter = inputTask.counter;
+  // if task is greater than 6 , that means it has been executed 7 times
+  if (counter > duration.length) {
+    // returns true to let platform know that the task is completed
+    return true;
+  }
+  bool shouldRetry = false;
+  try {
+    final Map<String, dynamic> mp =
+        json.decode(inputTask.nutrients) as Map<String, dynamic>;
+    final Status result = await OpenFoodAPIClient.saveProduct(
+      ProductQuery.getUser(),
+      Product.fromJson(mp),
+      language: LanguageHelper.fromJson(inputTask.languageCode),
+      country: ProductQuery.getCountry(),
+    );
+    shouldRetry = result.error != null;
+  } catch (e) {
+    shouldRetry = true;
+  }
+  if (shouldRetry) {
+    inputTask.counter += 1;
+    await Workmanager().initialize(callbackDispatcher);
+    await Workmanager().registerOneOffTask(
+      task,
+      'BackgroundProcess',
+      constraints: Constraints(
+        networkType: NetworkType.connected,
+      ),
+      inputData: inputTask.toJson(),
+      initialDelay: duration[inputTask.counter],
+    );
+    return Future<bool>.error('Failed and it will try again');
+  } else {
+    final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+      inputTask.barcode,
+      fields: ProductQuery.fields,
+      language: LanguageHelper.fromJson(inputTask.languageCode),
+      country: ProductQuery.getCountry(),
+    );
+    try {
+      final ProductResult result =
+          await OpenFoodAPIClient.getProduct(configuration);
+      if (result.status == 1) {
+        final Product? product = result.product;
+        if (product != null) {
+          await daoProduct.put(product);
+          localDatabase.notifyListeners();
+        }
+      }
+    } catch (e) {
+      debugPrint('Error: $e,Updating to local database failed');
+      // Return true as the task of uploading image is completed successfully
+      // It's just that the task of updating the product in the local database has failed
+      // The user can simply refresh it
+      return true;
+    }
+    // Returns true to let platform know that the task is completed
+    return true;
+  }
 }
 
 Future<bool> addBasicDetails(String task, Map<String, dynamic> inputData,
@@ -249,5 +319,33 @@ class BackgroundBasicDetailsInput {
         'productName': productName,
         'quantity': quantity,
         'brands': brands,
+      };
+}
+
+class NutritionInputData {
+  NutritionInputData({
+    required this.processName,
+    required this.barcode,
+    required this.counter,
+    required this.languageCode,
+    required this.nutrients,
+  });
+  NutritionInputData.fromJson(Map<String, dynamic> json)
+      : processName = json['processName'] as String,
+        barcode = json['barcode'] as String,
+        counter = json['counter'] as int,
+        languageCode = json['languageCode'] as String,
+        nutrients = json['nutrients'] as String;
+  final String processName;
+  final String barcode;
+  int counter;
+  final String languageCode;
+  String nutrients;
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'processName': processName,
+        'barcode': barcode,
+        'counter': counter,
+        'languageCode': languageCode,
+        'nutrients': nutrients,
       };
 }

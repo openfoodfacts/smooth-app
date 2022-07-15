@@ -11,7 +11,6 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:workmanager/workmanager.dart';
 
@@ -131,7 +130,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       return;
                     }
                     final String uniqueId =
-                        'BasicDetailsEdit${_product.barcode}${SmoothRandom.generateRandomString(4)}';
+                        'BasicDetailsEdit${_product.barcode}${ProductQuery.getLanguage().code}${ProductQuery.getCountry().toString()}}';
                     final BackgroundBasicDetailsInput
                         backgroundBasicDetailsInput =
                         BackgroundBasicDetailsInput(

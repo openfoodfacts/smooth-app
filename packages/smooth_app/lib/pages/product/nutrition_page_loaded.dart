@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,15 +10,17 @@ import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:workmanager/workmanager.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -471,10 +475,40 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return false;
     }
     // if it fails, we stay on the same page
-    return ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: changedProduct,
+    final NutritionInputData nutritonInputData = NutritionInputData(
+      processName: 'NutrientEdit',
+      barcode: _product.barcode!,
+      counter: 0,
+      languageCode: ProductQuery.getLanguage().code,
+      nutrients: jsonEncode(changedProduct.toJson()),
     );
+    final String uniqueId =
+        'NutritionEdit${_product.barcode}${ProductQuery.getLanguage().code}${ProductQuery.getCountry().toString()}}';
+    Workmanager().registerOneOffTask(
+      uniqueId,
+      'BackgroundProcess',
+      inputData: nutritonInputData.toJson(),
+      constraints: Constraints(
+        networkType: NetworkType.connected,
+      ),
+    );
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? product = await daoProduct.get(
+      _product.barcode!,
+    );
+    if (product != null) {
+      product.servingSize = changedProduct.servingSize;
+      product.nutriments = changedProduct.nutriments;
+      await daoProduct.put(product);
+      localDatabase.notifyListeners();
+    }
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(appLocalizations.product_task_background_schedule),
+        ),
+      );
+    }
+    return true;
   }
 }
