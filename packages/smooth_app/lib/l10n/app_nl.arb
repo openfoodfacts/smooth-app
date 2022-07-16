@@ -274,7 +274,7 @@
     "support_join_slack": "Vraag om hulp in ons Slack-kanaal",
     "support_via_email": "Stuur ons een e-mail",
     "support_via_email_include_logs_dialog_title": "App-logboeken verzenden?",
-    "support_via_email_include_logs_dialog_body": "Wilt u toepassingslogboeken toevoegen aan uw e-mail?",
+    "support_via_email_include_logs_dialog_body": "Wilt u toepassingslogboeken als bijlage bij uw e-mail voegen?",
     "termsOfUse": "Gebruiksvoorwaarden",
     "@termsOfUse": {},
     "about_this_app": "Over deze app",
@@ -1055,7 +1055,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europa codeert u in een ovaal met de 2 landinitialen gevolgd door een cijfer en CE.\nVoorbeelden: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "In Europa is het een code in een ovaal met de 2 landinitialen gevolgd door een getal en CE.\nVoorbeelden: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
@@ -1494,7 +1494,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, one {} =0{Lege lijst} =1{Eén product} other{{count} producten}}",
+    "user_list_length": "{count,plural, one {} =0{Empty list} =1{One product} other{{count} products}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
