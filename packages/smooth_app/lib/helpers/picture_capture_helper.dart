@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/database/dao_tasks.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_random.dart';
@@ -16,8 +19,12 @@ Future<bool> uploadCapturedPicture(
   required Uri imageUri,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  final LocalDatabase localDatabase = context.read<LocalDatabase>();
+  final String uniqueId =
+      'ImageUploader_${barcode}_${imageField.value}${SmoothRandom.generateRandomString(8)}';
   final BackgroundImageInputData inputData = BackgroundImageInputData(
     processName: 'ImageUpload',
+    uniqueId: uniqueId,
     barcode: barcode,
     imageField: imageField.value,
     imageUri: File(imageUri.path).path,
@@ -25,8 +32,6 @@ Future<bool> uploadCapturedPicture(
     languageCode: ProductQuery.getLanguage().code,
   );
   // generate a random 8 digit word as the task name
-  final String uniqueId =
-      'ImageUploader_${barcode}_${imageField.value}${SmoothRandom.generateRandomString(8)}';
   await Workmanager().registerOneOffTask(
     uniqueId,
     'BackgroundProcess', // TODO(g123k): change this in ios config
@@ -35,6 +40,19 @@ Future<bool> uploadCapturedPicture(
     ),
     inputData: inputData.toJson(),
   );
+  final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
+  await daoBackgroundTask.put(
+    BackgroundTaskModel(
+      backgroundTaskId: uniqueId,
+      backgroundTaskName: 'ImageUpload',
+      backgroundTaskDescription:
+          'Changed the ${imageField.value} of the product for the country ${ProductQuery.getCountry()} in language ${ProductQuery.getLanguage().code}',
+      barcode: barcode,
+      dateTime: DateTime.now(),
+      status: 'Pending',
+    ),
+  );
+  localDatabase.notifyListeners();
   // ignore: use_build_context_synchronously
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(

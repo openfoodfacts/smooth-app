@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:workmanager/workmanager.dart';
@@ -72,8 +73,6 @@ Future<bool> editNutrients(String task, Map<String, dynamic> inputData,
     );
     return Future<bool>.error('Failed and it will try again');
   } else {
-    final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       inputTask.barcode,
       fields: ProductQuery.fields,
@@ -86,7 +85,13 @@ Future<bool> editNutrients(String task, Map<String, dynamic> inputData,
       if (result.status == 1) {
         final Product? product = result.product;
         if (product != null) {
+          final LocalDatabase localDatabase =
+              await LocalDatabase.getLocalDatabase();
+          final DaoProduct daoProduct = DaoProduct(localDatabase);
+          final DaoBackgroundTask daoBackgroundTask =
+              DaoBackgroundTask(localDatabase);
           await daoProduct.put(product);
+          await daoBackgroundTask.delete(inputTask.uniqueId);
           localDatabase.notifyListeners();
         }
       }
@@ -143,8 +148,6 @@ Future<bool> addBasicDetails(String task, Map<String, dynamic> inputData,
     );
     return Future<bool>.error('Failed and it will try again');
   } else {
-    final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       inputTask.barcode,
       fields: ProductQuery.fields,
@@ -157,7 +160,14 @@ Future<bool> addBasicDetails(String task, Map<String, dynamic> inputData,
       if (result.status == 1) {
         final Product? product = result.product;
         if (product != null) {
+          final LocalDatabase localDatabase =
+              await LocalDatabase.getLocalDatabase();
+          final DaoProduct daoProduct = DaoProduct(localDatabase);
+          final DaoBackgroundTask daoBackgroundTask =
+              DaoBackgroundTask(localDatabase);
           await daoProduct.put(product);
+          await daoBackgroundTask.delete(inputTask.uniqueId);
+
           localDatabase.notifyListeners();
         }
       }
@@ -218,8 +228,7 @@ Future<bool> uploadImage(String task, Map<String, dynamic> inputData,
     // go to the file system and delete the file that was uploaded
     final File file = File(inputTask.imageUri);
     file.deleteSync();
-    final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
+
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       inputTask.barcode,
       fields: ProductQuery.fields,
@@ -232,7 +241,13 @@ Future<bool> uploadImage(String task, Map<String, dynamic> inputData,
       if (result.status == 1) {
         final Product? product = result.product;
         if (product != null) {
+          final LocalDatabase localDatabase =
+              await LocalDatabase.getLocalDatabase();
+          final DaoProduct daoProduct = DaoProduct(localDatabase);
+          final DaoBackgroundTask daoBackgroundTask =
+              DaoBackgroundTask(localDatabase);
           await daoProduct.put(product);
+          await daoBackgroundTask.delete(inputTask.uniqueId);
           localDatabase.notifyListeners();
         }
       }
@@ -252,6 +267,7 @@ Future<bool> uploadImage(String task, Map<String, dynamic> inputData,
 class BackgroundImageInputData {
   BackgroundImageInputData({
     required this.processName,
+    required this.uniqueId,
     required this.barcode,
     required this.imageField,
     required this.imageUri,
@@ -261,6 +277,7 @@ class BackgroundImageInputData {
 
   BackgroundImageInputData.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
+        uniqueId = json['uniqueId'] as String,
         barcode = json['barcode'] as String,
         imageField = json['imageField'] as String,
         imageUri = json['imageUri'] as String,
@@ -268,6 +285,8 @@ class BackgroundImageInputData {
         languageCode = json['languageCode'] as String;
 
   final String processName;
+  final String uniqueId;
+
   final String barcode;
   final String imageField;
   final String imageUri;
@@ -276,6 +295,7 @@ class BackgroundImageInputData {
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'processName': processName,
+        'uniqueId': uniqueId,
         'barcode': barcode,
         'imageField': imageField,
         'imageUri': imageUri,
@@ -287,6 +307,7 @@ class BackgroundImageInputData {
 class BackgroundBasicDetailsInput {
   BackgroundBasicDetailsInput({
     required this.processName,
+    required this.uniqueId,
     required this.barcode,
     required this.counter,
     required this.languageCode,
@@ -296,6 +317,7 @@ class BackgroundBasicDetailsInput {
   });
   BackgroundBasicDetailsInput.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
+        uniqueId = json['uniqueId'] as String,
         barcode = json['barcode'] as String,
         counter = json['counter'] as int,
         languageCode = json['languageCode'] as String,
@@ -304,6 +326,8 @@ class BackgroundBasicDetailsInput {
         brands = json['brands'] as String;
 
   final String processName;
+  final String uniqueId;
+
   final String barcode;
   int counter;
   final String languageCode;
@@ -313,6 +337,7 @@ class BackgroundBasicDetailsInput {
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'processName': processName,
+        'uniqueId': uniqueId,
         'barcode': barcode,
         'counter': counter,
         'languageCode': languageCode,
@@ -325,6 +350,7 @@ class BackgroundBasicDetailsInput {
 class NutritionInputData {
   NutritionInputData({
     required this.processName,
+    required this.uniqueId,
     required this.barcode,
     required this.counter,
     required this.languageCode,
@@ -332,17 +358,20 @@ class NutritionInputData {
   });
   NutritionInputData.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
+        uniqueId = json['uniqueId'] as String,
         barcode = json['barcode'] as String,
         counter = json['counter'] as int,
         languageCode = json['languageCode'] as String,
         nutrients = json['nutrients'] as String;
   final String processName;
+  final String uniqueId;
   final String barcode;
   int counter;
   final String languageCode;
   String nutrients;
   Map<String, dynamic> toJson() => <String, dynamic>{
         'processName': processName,
+        'uniqueId': uniqueId,
         'barcode': barcode,
         'counter': counter,
         'languageCode': languageCode,

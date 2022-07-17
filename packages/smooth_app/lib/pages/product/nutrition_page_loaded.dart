@@ -10,7 +10,9 @@ import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -475,15 +477,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return false;
     }
     // if it fails, we stay on the same page
+    final String uniqueId =
+        'NutritionEdit${_product.barcode}${ProductQuery.getLanguage().code}${ProductQuery.getCountry().toString()}';
     final NutritionInputData nutritonInputData = NutritionInputData(
       processName: 'NutrientEdit',
+      uniqueId: uniqueId,
       barcode: _product.barcode!,
       counter: 0,
       languageCode: ProductQuery.getLanguage().code,
       nutrients: jsonEncode(changedProduct.toJson()),
     );
-    final String uniqueId =
-        'NutritionEdit${_product.barcode}${ProductQuery.getLanguage().code}${ProductQuery.getCountry().toString()}}';
     Workmanager().registerOneOffTask(
       uniqueId,
       'BackgroundProcess',
@@ -500,8 +503,21 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       product.servingSize = changedProduct.servingSize;
       product.nutriments = changedProduct.nutriments;
       await daoProduct.put(product);
-      localDatabase.notifyListeners();
     }
+    final DaoBackgroundTask daoBackgroundTask =
+        DaoBackgroundTask(localDatabase);
+    await daoBackgroundTask.put(
+      BackgroundTaskModel(
+        backgroundTaskId: uniqueId,
+        backgroundTaskName: 'NutrientEdit',
+        backgroundTaskDescription:
+            'Changed Nutrition  of the product for the country ${ProductQuery.getCountry()} in language ${ProductQuery.getLanguage().code}',
+        barcode: _product.barcode!,
+        dateTime: DateTime.now(),
+        status: 'Pending',
+      ),
+    );
+    localDatabase.notifyListeners();
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
