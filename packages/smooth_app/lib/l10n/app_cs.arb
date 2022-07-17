@@ -1338,7 +1338,7 @@
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_half_image": "Přenos z kamery a předzpracování celého obrazu, žádné skenování",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
@@ -1346,7 +1346,7 @@
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Skenování poloviny obrazu",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },

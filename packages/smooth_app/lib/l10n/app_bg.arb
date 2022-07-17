@@ -322,7 +322,7 @@
     "@contribute_translate_text_2": {},
     "contribute_share_header": "Сподели Open Food Facts с приятелите си",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Исках да те уведомя за приложението, което използвам, Open Food Facts, което ти позволява да получаваш информация за въздействието на твоьта храна върху здравето и околната среда по персонализиран начин. Работи чрез сканиране на баркодовете на опаковката.То е безплатно, не изисква регистрация и дори можеш да помогнеш за увеличаване на броя на дешифрираните продукти. Ето връзката, за да го получиш за твоя телефон: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -1067,7 +1067,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Посочи само най-конкретната категория. Родителските категориите ще бъдат добавени автоматично.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
