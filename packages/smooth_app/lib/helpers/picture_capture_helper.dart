@@ -22,7 +22,8 @@ Future<bool> uploadCapturedPicture(
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
   final String uniqueId =
       'ImageUploader_${barcode}_${imageField.value}${SmoothRandom.generateRandomString(8)}';
-  final BackgroundImageInputData inputData = BackgroundImageInputData(
+  final BackgroundImageInputData backgroundImageInputData =
+      BackgroundImageInputData(
     processName: 'ImageUpload',
     uniqueId: uniqueId,
     barcode: barcode,
@@ -38,7 +39,7 @@ Future<bool> uploadCapturedPicture(
     constraints: Constraints(
       networkType: NetworkType.connected,
     ),
-    inputData: inputData.toJson(),
+    inputData: backgroundImageInputData.toJson(),
   );
   final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
   await daoBackgroundTask.put(
@@ -50,6 +51,7 @@ Future<bool> uploadCapturedPicture(
       barcode: barcode,
       dateTime: DateTime.now(),
       status: 'Pending',
+      taskMap: backgroundImageInputData.toJson(),
     ),
   );
   localDatabase.notifyListeners();

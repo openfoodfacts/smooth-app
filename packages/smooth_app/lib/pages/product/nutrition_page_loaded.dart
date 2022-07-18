@@ -515,6 +515,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         barcode: _product.barcode!,
         dateTime: DateTime.now(),
         status: 'Pending',
+        taskMap: nutritonInputData.toJson(),
       ),
     );
     localDatabase.notifyListeners();

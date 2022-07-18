@@ -5,6 +5,7 @@ import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:workmanager/workmanager.dart';
 
+// TODO(ashaman999): add the translations later
 class OfflineTask extends StatefulWidget {
   const OfflineTask({Key? key}) : super(key: key);
 
@@ -29,25 +30,6 @@ class _OfflineTaskState extends State<OfflineTask> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pending Background Tasks'),
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: const Icon(Icons.add),
-        //     onPressed: () async {
-        //       for (int i = 0; i < 5; i++) {
-        //         await daoBackgroundTask.put(
-        //           BackgroundTaskModel(
-        //               backgroundTaskId: SmoothRandom.generateRandomString(5),
-        //               backgroundTaskName: 'ImageUpload',
-        //               backgroundTaskDescription: 'backgroundTaskDescription',
-        //               barcode: Random().nextInt(99999).toString(),
-        //               dateTime: DateTime.now(),
-        //               status: 'Done'),
-        //         );
-        //       }
-        //       setState(() {});
-        //     },
-        //   ),
-        // ],
         actions: <Widget>[
           PopupMenuButton<int>(
             onSelected: (int item) async {
@@ -107,8 +89,20 @@ class _OfflineTaskState extends State<OfflineTask> {
                       trailing: Wrap(
                         children: <Widget>[
                           IconButton(
-                              // ignore: avoid_returning_null_for_void
-                              onPressed: () => null,
+                              onPressed: () async {
+                                await Workmanager().registerOneOffTask(
+                                    snapshot.data![index].backgroundTaskId,
+                                    'BackgroundProcess',
+                                    inputData: snapshot.data![index].taskMap);
+                                const SnackBar snackBar = SnackBar(
+                                  content: Text('Retrying ...'),
+                                );
+                                if (!mounted) {
+                                  return;
+                                }
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              },
                               icon: const Icon(Icons.refresh)),
                           IconButton(
                               onPressed: () async {
@@ -137,12 +131,13 @@ class _OfflineTaskState extends State<OfflineTask> {
   Widget getLeadingIcon(BuildContext context, String taskType) {
     switch (taskType) {
       case 'ImageUpload':
-        return const Icon(Icons.image_sharp);
+        return const Icon(Icons.photo);
       case 'BasicInput':
-        return const Icon(Icons.edit_note);
-      // Default is here for nutrion edit tasks
+        return const Icon(Icons.edit_outlined);
+      case 'NutrientEdit':
+        return const Icon(Icons.fastfood);
       default:
-        return const Icon(Icons.fastfood_outlined);
+        return const Icon(Icons.edit);
     }
   }
 }

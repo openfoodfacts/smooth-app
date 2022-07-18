@@ -177,10 +177,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         backgroundTaskId: uniqueId,
                         backgroundTaskName: 'BasicInput',
                         backgroundTaskDescription:
-                            'Changed the Basic Input of the product for the country ${ProductQuery.getCountry()} in language ${ProductQuery.getLanguage().code}',
+                            'Changed the Basic Information of the product for the country ${ProductQuery.getCountry()} in language ${ProductQuery.getLanguage().code}',
                         barcode: _product.barcode!,
                         dateTime: DateTime.now(),
                         status: 'Pending',
+                         taskMap:  backgroundBasicDetailsInput.toJson(),
                       ),
                     );
                     localDatabase.notifyListeners();

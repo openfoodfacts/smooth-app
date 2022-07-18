@@ -6,6 +6,7 @@ class BackgroundTaskModel {
     required this.barcode,
     required this.dateTime,
     required this.status,
+    required this.taskMap,
   });
   BackgroundTaskModel.fromJson(Map<String, dynamic> json)
       : backgroundTaskId = json['backgroundTaskId'] as String,
@@ -15,7 +16,8 @@ class BackgroundTaskModel {
         dateTime = DateTime.parse(
           json['dateTime'] as String,
         ),
-        status = json['status'] as String;
+        status = json['status'] as String,
+        taskMap = json['taskMap'] as Map<String, dynamic>;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'backgroundTaskId': backgroundTaskId,
@@ -24,6 +26,7 @@ class BackgroundTaskModel {
         'barcode': barcode,
         'dateTime': dateTime.toString(),
         'status': status,
+        'taskMap': taskMap,
       };
 
   final String backgroundTaskId;
@@ -32,4 +35,5 @@ class BackgroundTaskModel {
   final String barcode;
   final DateTime dateTime;
   final String status;
+  final Map<String, dynamic> taskMap;
 }
