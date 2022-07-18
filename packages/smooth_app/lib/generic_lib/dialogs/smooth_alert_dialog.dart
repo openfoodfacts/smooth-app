@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 
 /// Custom Dialog to use in the app
 ///
@@ -22,6 +23,7 @@ class SmoothAlertDialog extends StatelessWidget {
     this.positiveAction,
     this.negativeAction,
     this.actionsAxis,
+    this.actionsOrder,
     this.close = false,
   });
 
@@ -31,44 +33,63 @@ class SmoothAlertDialog extends StatelessWidget {
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
   final Axis? actionsAxis;
+  final SmoothButtonsBarOrder? actionsOrder;
+
+  static const EdgeInsets _smallContentPadding = EdgeInsets.only(
+    left: SMALL_SPACE,
+    top: MEDIUM_SPACE,
+    right: SMALL_SPACE,
+    bottom: SMALL_SPACE,
+  );
 
   static const EdgeInsets _contentPadding = EdgeInsets.only(
-    left: 24.0,
+    left: 22.0,
     top: VERY_LARGE_SPACE,
-    right: 24.0,
-    bottom: 24.0,
+    right: 22.0,
+    bottom: 22.0,
   );
 
   @override
   Widget build(BuildContext context) {
     final Widget content = _buildContent(context);
+    final EdgeInsets padding =
+        context.isSmallDevice() ? _smallContentPadding : _contentPadding;
 
     return AlertDialog(
-      scrollable: true,
+      scrollable: false,
       elevation: 4.0,
+      contentPadding: EdgeInsets.zero,
       shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-      content: Padding(
-        padding: _contentPadding,
-        child: Column(
-          children: <Widget>[
-            content,
-            if (hasActions) _buildBottomBar(),
-          ],
+      content: ClipRRect(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: padding,
+              child: Column(
+                children: <Widget>[
+                  content,
+                  if (hasActions) _buildBottomBar(padding),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
   }
 
-  Padding _buildBottomBar() {
+  Padding _buildBottomBar(EdgeInsets padding) {
     return Padding(
       padding: EdgeInsetsDirectional.only(
-        top: _contentPadding.bottom,
+        top: padding.bottom,
         start: SMALL_SPACE,
       ),
       child: SmoothActionButtonsBar(
         positiveAction: positiveAction,
         negativeAction: negativeAction,
         axis: actionsAxis,
+        order: actionsOrder,
       ),
     );
   }
@@ -76,6 +97,7 @@ class SmoothAlertDialog extends StatelessWidget {
   bool get hasActions => positiveAction != null || negativeAction != null;
 
   Widget _buildContent(final BuildContext context) => Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           if (title != null) ...<Widget>[
             SizedBox(
@@ -126,15 +148,23 @@ class SmoothAlertDialog extends StatelessWidget {
   }
 }
 
+enum SmoothButtonsBarOrder {
+  /// If the [axis] is [Axis.horizontal], the positive button will be on the end
+  /// If the [axis] is [Axis.vertical], the positive button will be on the start
+  auto,
+
+  /// Whatever the [axis] is, the positive button will always be at first place
+  numerical,
+}
+
 /// Will display one or two buttons.
-/// If the [axis] is [Axis.horizontal], the positive button will be on the end
-/// If the [axis] is [Axis.vertical], the positive button will be on the start
 /// Note: This Widget supports both RTL and LTR languages.
 class SmoothActionButtonsBar extends StatelessWidget {
   const SmoothActionButtonsBar({
     this.positiveAction,
     this.negativeAction,
     this.axis,
+    this.order,
     super.key,
   }) : assert(positiveAction != null || negativeAction != null,
             'At least one action must be passed!');
@@ -150,18 +180,28 @@ class SmoothActionButtonsBar extends StatelessWidget {
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
   final Axis? axis;
+  final SmoothButtonsBarOrder? order;
 
   @override
   Widget build(BuildContext context) {
-    final Axis buttonsAxis = axis ?? Axis.horizontal;
+    final Axis buttonsAxis = axis ?? _findDefaultAxis(context);
     final List<Widget> actions = _buildActions(
       context,
       buttonsAxis,
+      order ?? SmoothButtonsBarOrder.auto,
       positiveAction: positiveAction,
       negativeAction: negativeAction,
     )!;
 
-    if (axis == Axis.horizontal) {
+    if (buttonsAxis == Axis.horizontal) {
+      // With two buttons, inject a small space between them
+      if (actions.length == 2) {
+        actions.insert(
+          1,
+          const SizedBox(width: VERY_SMALL_SPACE),
+        );
+      }
+
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: actions,
@@ -175,6 +215,15 @@ class SmoothActionButtonsBar extends StatelessWidget {
       );
     }
   }
+
+  /// On "small devices", prefer a vertical layout by default.
+  Axis _findDefaultAxis(BuildContext context) {
+    if (context.isSmallDevice()) {
+      return Axis.vertical;
+    } else {
+      return Axis.horizontal;
+    }
+  }
 }
 
 /// Generates Actions buttons with:
@@ -182,7 +231,8 @@ class SmoothActionButtonsBar extends StatelessWidget {
 /// In RTL mode: Positive - Negative
 List<Widget>? _buildActions(
   BuildContext context,
-  Axis axis, {
+  Axis axis,
+  SmoothButtonsBarOrder order, {
   SmoothActionButton? positiveAction,
   SmoothActionButton? negativeAction,
 }) {
@@ -226,6 +276,11 @@ List<Widget>? _buildActions(
           ),
         ),
     ];
+
+    // Positive first if numerical
+    if (order == SmoothButtonsBarOrder.numerical) {
+      actions = actions.reversed.toList();
+    }
   }
 
   if (Directionality.of(context) == TextDirection.rtl) {
@@ -265,6 +320,7 @@ class _SmoothActionElevatedButton extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     return SmoothSimpleButton(
       onPressed: buttonData.onPressed,
+      minWidth: buttonData.minWidth ?? 20.0,
       // if fitted box not used then even the one word text overflows into next line,
       child: FittedBox(
         child: Text(
@@ -315,6 +371,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
           height: buttonData.lines != null
               ? VERY_LARGE_SPACE * buttonData.lines!
               : null,
+          width: buttonData.minWidth,
           child: FittedBox(
             child: Text(
               buttonData.text.toUpperCase(),
