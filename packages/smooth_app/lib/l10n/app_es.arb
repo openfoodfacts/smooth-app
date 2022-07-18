@@ -322,7 +322,7 @@
     "@contribute_translate_text_2": {},
     "contribute_share_header": "Comparte Open Food Facts con tus amigos",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Quería informarles sobre la aplicación que he estado usando, Open Food Facts, la cual permite conocer el impacto sobre la salud y el medio ambiente de su comida, de una manera personalizada. Funciona escaneado los códigos de barra del envase. Por último es gratis, no requiere registro, y le permite incrementar el número de productos de la base de datos. Aquí les dejo el vínculo para descargarla en su teléfono: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
