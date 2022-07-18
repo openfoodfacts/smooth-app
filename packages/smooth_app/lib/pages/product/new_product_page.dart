@@ -227,7 +227,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               ),
             ),
           ),
-          _buildKnowledgePanelCards(),
           _buildActionBar(appLocalizations),
           if (productListNames.isNotEmpty)
             _buildListWidget(
@@ -235,6 +234,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               productListNames,
               daoProductList,
             ),
+          _buildKnowledgePanelCards(),
           if (context.read<UserPreferences>().getFlag(
                   UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
               false)
@@ -272,7 +272,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final bool refreshed = await ProductListUserDialogHelper(daoProductList)
         .showUserListsWithBarcodeDialog(context, widget.product);
     if (refreshed) {
-      _mustScrollToTheEnd = true;
       setState(() {});
     }
   }
