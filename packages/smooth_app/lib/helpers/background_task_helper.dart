@@ -36,7 +36,7 @@ Future<bool> otherDetails(String task, Map<String, dynamic> inputData) async {
     // returns true to let platform know that the task is completed
     return true;
   }
-  bool shouldRetry = true;
+  bool shouldRetry = false;
   try {
     final Map<String, dynamic> mp =
         json.decode(inputTask.inputMap) as Map<String, dynamic>;
