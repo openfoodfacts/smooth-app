@@ -47,7 +47,7 @@ class ProductTitleCard extends StatelessWidget {
       ).selectable(isSelectable: isSelectable);
     }
     return Align(
-      alignment: Alignment.topLeft,
+      alignment: AlignmentDirectional.topStart,
       child: InkWell(
         onTap: (getProductName(product, appLocalizations) ==
                 appLocalizations.unknownProductName)

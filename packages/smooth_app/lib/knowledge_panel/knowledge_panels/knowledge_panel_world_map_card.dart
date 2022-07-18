@@ -17,7 +17,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     // TODO(monsieurtanuki): Zoom the map to show all [mapElement.pointers]
     // TODO(monsieurtanuki): Add a OSM copyright.
     return Padding(
-      padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
+      padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
       child: SizedBox(
         height: 200,
         child: FlutterMap(

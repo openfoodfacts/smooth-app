@@ -28,7 +28,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
         children: <Widget>[
           if (groupElement.title.isNotEmpty)
             Padding(
-              padding: const EdgeInsets.only(top: LARGE_SPACE),
+              padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
               child: Text(
                 groupElement.title,
                 style: themeData.textTheme.subtitle2!.apply(color: Colors.grey),

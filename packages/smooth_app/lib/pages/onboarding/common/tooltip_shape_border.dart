@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class TooltipShapeBorder extends ShapeBorder {
   const TooltipShapeBorder({
     this.radius = 10.0,
-    this.arrowWidth = 20.0,
-    this.arrowHeight = 20.0,
+    this.arrowWidth = VERY_LARGE_SPACE,
+    this.arrowHeight = VERY_LARGE_SPACE,
     this.arrowArc = 0.0,
   }) : assert(arrowArc <= 1.0 && arrowArc >= 0.0);
   final double arrowWidth;
@@ -13,7 +14,9 @@ class TooltipShapeBorder extends ShapeBorder {
   final double radius;
 
   @override
-  EdgeInsetsGeometry get dimensions => EdgeInsets.only(top: arrowHeight);
+  EdgeInsetsGeometry get dimensions => EdgeInsetsDirectional.only(
+        top: arrowHeight,
+      );
 
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {

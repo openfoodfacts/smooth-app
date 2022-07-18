@@ -320,6 +320,12 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Les traduccions són una de les tasques clau del projecte",
     "@contribute_translate_text_2": {},
+    "contribute_share_header": "Compartiu Open Food Facts amb els amics",
+    "@contribute_share_header": {},
+    "contribute_share_content": "Volia donar-te a conèixer l'aplicació que he estat utilitzant, Open Food Facts, que et permet conèixer els impactes sobre la salut i el medi ambient dels teus aliments, de manera personalitzada. Funciona escanejant els codis de barres de l'embalatge. Finalment, és gratuïta, no requereix registre i fins i tot pots ajudar a augmentar el nombre de productes desxifrats. Aquí teniu l'enllaç per obtenir-la per a telèfon: https://openfoodfacts.app",
+    "@contribute_share_content": {
+        "description": "Content that will be shared, don't forget to include the URL"
+    },
     "tap_to_answer": "Tap here to answer questions",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -422,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "",
+    "packaging_editing_instructions": "Introduïu totes les peces d'embalatge separades per una coma o una línia, amb la seva quantitat (p. ex. 1 o 6) tipus (p. ex. ampolla, caixa, llauna), material (p. ex. plàstic, metall, alumini) i, si està disponible, la seva mida (p. ex. 33cl) i instruccions de reciclatge.\nExemple: 1 ampolla de vidre per reciclar, 1 suro de plàstic per llençar",
     "packaging_editing_error": "Failed to save the packaging.",
     "packaging_editing_image_error": "Failed to get a new packaging image.",
     "packaging_editing_title": "Edit Packaging",
@@ -1013,6 +1019,22 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_origins_title": "Origins",
+    "@edit_product_form_item_origins_title": {
+        "description": "Product edition - Origins - Title"
+    },
+    "edit_product_form_item_origins_hint": "Spain",
+    "@edit_product_form_item_origins_hint": {
+        "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_explainer_1": "Afegiu qualsevol indicació d'origen que pugueu trobar a l'embalatge. No us haureu de preocupar pels orígens indicats directament a la llista d'ingredients.",
+    "@edit_product_form_item_origins_explainer_1": {
+        "description": "Product edition - Origins - input explainer, part 1"
+    },
+    "edit_product_form_item_origins_explainer_2": "Exemples: vedella d'Argentina, La soja no prové de la Unió Europea",
+    "@edit_product_form_item_origins_explainer_2": {
+        "description": "Product edition - Origins - input explainer, part 2"
+    },
     "edit_product_form_item_countries_title": "Country",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
@@ -1044,6 +1066,18 @@
     "edit_product_form_item_categories_hint": "categoria",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_explainer_1": "Indicau només la categoria més concreta. Les categories arrel s'afegiran automàticament.",
+    "@edit_product_form_item_categories_explainer_1": {
+        "description": "Product edition - Categories - input explainer, part 1"
+    },
+    "edit_product_form_item_categories_explainer_2": "Si una categoria no estigués disponible en autocompletar, no dubteu a afegir-la de totes maneres, això ens ajudarà a millorar Open Food Facts al vostre país.",
+    "@edit_product_form_item_categories_explainer_2": {
+        "description": "Product edition - Categories - input explainer, part 2"
+    },
+    "edit_product_form_item_categories_explainer_3": "Exemples: Sardines en oli d'oliva, Suc de taronja a partir de concentrat",
+    "@edit_product_form_item_categories_explainer_3": {
+        "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_ingredients_title": "Ingredients & Origins",
@@ -1511,5 +1545,9 @@
     "choose_from_gallery": "Choose from gallery",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "No hi ha connexió a Internet",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }

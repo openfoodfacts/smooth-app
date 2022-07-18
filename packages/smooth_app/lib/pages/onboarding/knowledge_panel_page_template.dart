@@ -136,7 +136,12 @@ class _KnowledgePanelPageTemplateState
         color: Theme.of(context).hintColor.withOpacity(0.9),
         shape: const TooltipShapeBorder(arrowArc: 0.5),
         child: Container(
-          margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+          margin: const EdgeInsetsDirectional.only(
+            start: VERY_LARGE_SPACE,
+            top: 10,
+            end: VERY_LARGE_SPACE,
+            bottom: 10,
+          ),
           child: Text(
             appLocalizations.hint_knowledge_panel_message,
             style: TextStyle(color: Theme.of(context).cardColor),
