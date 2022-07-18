@@ -428,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "Vermeld alle verpakkingsonderdelen gescheiden door een komma of regel, met hun hoeveelheid (bijv. 1 of 6) type (bijv. fles, doos, blik), materiaal (bijv. plastic, metaal, aluminium) en indien beschikbaar hun grootte (bijv. 33cl) en instructies voor recycling.\nVoorbeeld: 1 glazen fles om te recyclen, 1 plastic kurk om weg te gooien",
+    "packaging_editing_instructions": "Vermeld alle verpakkingsonderdelen gescheiden door een komma of regel, met hun hoeveelheid (bijv. 1 of 6) type (bijv. fles, doos, blik), materiaal (bijv. plastic, metaal, aluminium) en indien beschikbaar hun grootte (bijv. 33cl) en instructies voor recycling.\nVoorbeeld: 1 glazen fles om te recyclen, 1 plastic dop om weg te gooien",
     "packaging_editing_error": "Opslaan van de verpakking is mislukt.",
     "packaging_editing_image_error": "Het ophalen van een nieuwe verpakkingsafbeelding is mislukt.",
     "packaging_editing_title": "Verpakking bewerken",
