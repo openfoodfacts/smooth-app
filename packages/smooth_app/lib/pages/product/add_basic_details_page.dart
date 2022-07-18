@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -7,6 +8,7 @@ import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -131,22 +133,26 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
+                    final Product inputProduct = Product(
+                      productName: _productNameController.text,
+                      quantity: _weightController.text,
+                      brands: _brandNameController.text,
+                      barcode: _product.barcode,
+                    );
                     final String uniqueId =
                         'BasicDetailsEdit${_product.barcode}${ProductQuery.getLanguage().code}${ProductQuery.getCountry().toString()}';
-                    final BackgroundBasicDetailsInput
+                    final BackgroundOtherDetailsInput
                         backgroundBasicDetailsInput =
-                        BackgroundBasicDetailsInput(
-                            processName: 'BasicInput',
+                        BackgroundOtherDetailsInput(
+                            processName: 'Others',
                             uniqueId: uniqueId,
                             barcode: _product.barcode!,
-                            productName: _productNameController.text,
-                            brands: _brandNameController.text,
-                            quantity: _weightController.text,
+                            inputMap: jsonEncode(inputProduct.toJson()),
                             counter: 0,
                             languageCode: ProductQuery.getLanguage().code);
                     Workmanager().registerOneOffTask(
                       uniqueId,
-                      'BackgroundProcess',
+                      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
                       constraints: Constraints(
                         networkType: NetworkType.connected,
                       ),

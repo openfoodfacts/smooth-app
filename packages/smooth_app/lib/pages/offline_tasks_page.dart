@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:workmanager/workmanager.dart';
 
 // TODO(ashaman999): add the translations later
@@ -35,7 +36,10 @@ class _OfflineTaskState extends State<OfflineTask> {
             onSelected: (int item) async {
               await Workmanager().cancelAll();
               const SnackBar snackBar = SnackBar(
-                content: Text('All Tasks Cancelled'),
+                content: Text(
+                  'All Tasks Cancelled',
+                ),
+                duration: SmoothAnimationsDuration.short,
               );
               if (!mounted) {
                 return;
@@ -96,6 +100,7 @@ class _OfflineTaskState extends State<OfflineTask> {
                                     inputData: snapshot.data![index].taskMap);
                                 const SnackBar snackBar = SnackBar(
                                   content: Text('Retrying ...'),
+                                  duration: SmoothAnimationsDuration.short,
                                 );
                                 if (!mounted) {
                                   return;
@@ -111,6 +116,15 @@ class _OfflineTaskState extends State<OfflineTask> {
                                 await daoBackgroundTask.delete(
                                   snapshot.data![index].backgroundTaskId,
                                 );
+                                const SnackBar snackBar = SnackBar(
+                                  content: Text('Cancelled'),
+                                  duration: SmoothAnimationsDuration.short,
+                                );
+                                if (!mounted) {
+                                  return;
+                                }
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
                                 setState(() {});
                               },
                               icon: const Icon(Icons.cancel))

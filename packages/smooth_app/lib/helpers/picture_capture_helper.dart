@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_random.dart';
@@ -35,7 +36,7 @@ Future<bool> uploadCapturedPicture(
   // generate a random 8 digit word as the task name
   await Workmanager().registerOneOffTask(
     uniqueId,
-    'BackgroundProcess', // TODO(g123k): change this in ios config
+    UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
     constraints: Constraints(
       networkType: NetworkType.connected,
     ),

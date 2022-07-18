@@ -14,6 +14,7 @@ import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -479,17 +480,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     // if it fails, we stay on the same page
     final String uniqueId =
         'NutritionEdit${_product.barcode}${ProductQuery.getLanguage().code}${ProductQuery.getCountry().toString()}';
-    final NutritionInputData nutritonInputData = NutritionInputData(
-      processName: 'NutrientEdit',
+    final BackgroundOtherDetailsInput nutritonInputData =
+        BackgroundOtherDetailsInput(
+      processName: 'Others',
       uniqueId: uniqueId,
       barcode: _product.barcode!,
       counter: 0,
       languageCode: ProductQuery.getLanguage().code,
-      nutrients: jsonEncode(changedProduct.toJson()),
+      inputMap: jsonEncode(changedProduct.toJson()),
     );
     Workmanager().registerOneOffTask(
       uniqueId,
-      'BackgroundProcess',
+      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
       inputData: nutritonInputData.toJson(),
       constraints: Constraints(
         networkType: NetworkType.connected,
