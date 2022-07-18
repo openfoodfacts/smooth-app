@@ -15,7 +15,10 @@ import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 /// ```
 ///
 /// If only one action button is provided, simply pass a [positiveAction]
-
+/// - [actionsAxis] allows to specify the axis of the buttons. By default, will
+///   be [Axis.vertical], unless it is a small device
+/// - [actionsOrder] allows to force the order of the buttons. By default, will
+///   be "smart" by guessing the order based on the axis
 class SmoothAlertDialog extends StatelessWidget {
   const SmoothAlertDialog({
     this.title,
@@ -99,45 +102,85 @@ class SmoothAlertDialog extends StatelessWidget {
   Widget _buildContent(final BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          if (title != null) ...<Widget>[
-            SizedBox(
-              height: 32.0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  _buildCross(true, context),
-                  if (title != null)
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          title!,
-                          style: Theme.of(context).textTheme.headline2,
-                        ),
-                      ),
-                    ),
-                  _buildCross(false, context),
-                ],
-              ),
-            ),
-            Divider(color: Theme.of(context).colorScheme.onBackground),
-            const SizedBox(height: 12),
-          ],
+          if (title != null) _SmoothDialogTitle(label: title!, close: close),
           body,
         ],
       );
+}
 
-  Widget _buildCross(final bool isPlaceHolder, final BuildContext context) {
+class _SmoothDialogTitle extends StatelessWidget {
+  const _SmoothDialogTitle({
+    required this.label,
+    required this.close,
+  });
+
+  final String label;
+  final bool close;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        SizedBox(
+          height: 32.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              _buildCross(true),
+              Expanded(
+                child: FittedBox(
+                  child: Text(
+                    label,
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                ),
+              ),
+              _buildCross(false),
+            ],
+          ),
+        ),
+        Divider(color: Theme.of(context).colorScheme.onBackground),
+        const SizedBox(height: 12),
+      ],
+    );
+  }
+
+  Widget _buildCross(final bool isPlaceHolder) {
     if (close) {
+      return _SmoothDialogCrossButton(
+        visible: !isPlaceHolder,
+      );
+    } else {
+      return const SizedBox.shrink();
+    }
+  }
+}
+
+class _SmoothDialogCrossButton extends StatelessWidget {
+  const _SmoothDialogCrossButton({
+    required this.visible,
+  });
+
+  final bool visible;
+
+  @override
+  Widget build(BuildContext context) {
+    if (visible) {
       return Visibility(
         maintainSize: true,
         maintainAnimation: true,
         maintainState: true,
-        visible: !isPlaceHolder,
+        visible: visible,
         child: InkWell(
-          child: const Icon(
-            Icons.close,
-            size: 29.0,
+          customBorder: const CircleBorder(),
+          child: const Padding(
+            padding: EdgeInsets.all(SMALL_SPACE),
+            child: Icon(
+              Icons.close,
+              size: 29.0,
+            ),
           ),
           onTap: () => Navigator.of(context, rootNavigator: true).pop(),
         ),
