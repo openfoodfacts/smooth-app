@@ -181,7 +181,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         barcode: _product.barcode!,
                         dateTime: DateTime.now(),
                         status: 'Pending',
-                         taskMap:  backgroundBasicDetailsInput.toJson(),
+                        taskMap: backgroundBasicDetailsInput.toJson(),
                       ),
                     );
                     localDatabase.notifyListeners();

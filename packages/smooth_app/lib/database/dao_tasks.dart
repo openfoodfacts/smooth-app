@@ -19,6 +19,7 @@ class _BackgroundTaskModel extends TypeAdapter<BackgroundTaskModel> {
   void write(BinaryWriter writer, BackgroundTaskModel obj) =>
       writer.writeString(jsonEncode(obj.toJson()));
 }
+
 class DaoBackgroundTask extends AbstractDao {
   DaoBackgroundTask(final LocalDatabase localDatabase) : super(localDatabase);
 
