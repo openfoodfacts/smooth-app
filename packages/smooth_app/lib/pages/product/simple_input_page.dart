@@ -2,27 +2,32 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/TagType.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/product/autocomplete.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
-import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
-  const SimpleInputPage({
-    required this.helper,
-    required this.product,
-  });
+  SimpleInputPage({
+    required final AbstractSimpleInputPageHelper helper,
+    required final Product product,
+  }) : this.multiple(
+          helpers: <AbstractSimpleInputPageHelper>[helper],
+          product: product,
+        );
 
-  final AbstractSimpleInputPageHelper helper;
+  SimpleInputPage.multiple({
+    required this.helpers,
+    required this.product,
+  }) : assert(helpers.isNotEmpty);
+
+  final List<AbstractSimpleInputPageHelper> helpers;
   final Product product;
 
   @override
@@ -30,26 +35,44 @@ class SimpleInputPage extends StatefulWidget {
 }
 
 class _SimpleInputPageState extends State<SimpleInputPage> {
-  final TextEditingController _controller = TextEditingController();
-  final FocusNode _focusNode = FocusNode();
-  final GlobalKey _autocompleteKey = GlobalKey();
+  final List<TextEditingController> _controllers = <TextEditingController>[];
 
   @override
   void initState() {
     super.initState();
-    widget.helper.reInit(widget.product);
+    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
+      helper.reInit(widget.product);
+      _controllers.add(TextEditingController());
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<Widget> simpleInputs = <Widget>[];
+    for (int i = 0; i < widget.helpers.length; i++) {
+      simpleInputs.add(
+        Padding(
+          padding: i == 0
+              ? EdgeInsets.zero
+              : const EdgeInsets.only(top: LARGE_SPACE),
+          child: Card(
+            elevation: 4,
+            child: SimpleInputWidget(
+              helper: widget.helpers[i],
+              product: widget.product,
+              controller: _controllers[i],
+            ),
+          ),
+        ),
+      );
+    }
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
         appBar: AppBar(
           title: AutoSizeText(
-            getProductName(widget.helper.product, appLocalizations),
+            getProductName(widget.product, appLocalizations),
             maxLines: 2,
           ),
         ),
@@ -59,107 +82,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Flexible(
-                flex: 1,
-                child: ListView(
-                  children: <Widget>[
-                    Text(
-                      widget.helper.getTitle(appLocalizations),
-                      style: themeData.textTheme.headline1,
-                    ),
-                    ExplanationWidget(
-                      widget.helper.getAddExplanations(appLocalizations),
-                    ),
-                    ListTile(
-                      onTap: () => _addItemsFromController(),
-                      trailing: const Icon(Icons.add_circle),
-                      title: RawAutocomplete<String>(
-                        key: _autocompleteKey,
-                        focusNode: _focusNode,
-                        textEditingController: _controller,
-                        optionsBuilder: (final TextEditingValue value) async {
-                          final List<String> result = <String>[];
-                          final String input = value.text.trim();
-                          if (input.isEmpty) {
-                            return result;
-                          }
-                          final TagType? tagType = widget.helper.getTagType();
-                          if (tagType == null) {
-                            return result;
-                          }
-                          // TODO(monsieurtanuki): ask off-dart to return Strings instead of dynamic?
-                          final List<dynamic> data = await OpenFoodAPIClient
-                              .getAutocompletedSuggestions(
-                            tagType,
-                            language: ProductQuery.getLanguage()!,
-                            limit:
-                                1000000, // lower max count on the server anyway
-                            input: value.text.trim(),
-                          );
-                          for (final dynamic item in data) {
-                            result.add(item.toString());
-                          }
-                          result.sort();
-                          return result;
-                        },
-                        fieldViewBuilder: (BuildContext context,
-                                TextEditingController textEditingController,
-                                FocusNode focusNode,
-                                VoidCallback onFieldSubmitted) =>
-                            TextField(
-                          controller: textEditingController,
-                          decoration: InputDecoration(
-                            filled: true,
-                            border: const OutlineInputBorder(
-                              borderRadius: CIRCULAR_BORDER_RADIUS,
-                              borderSide: BorderSide.none,
-                            ),
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: SMALL_SPACE,
-                              vertical: SMALL_SPACE,
-                            ),
-                            hintText:
-                                widget.helper.getAddHint(appLocalizations),
-                          ),
-                          autofocus: true,
-                          focusNode: focusNode,
-                        ),
-                        optionsViewBuilder: (
-                          BuildContext context,
-                          AutocompleteOnSelected<String> onSelected,
-                          Iterable<String> options,
-                        ) =>
-                            AutocompleteOptions<String>(
-                          displayStringForOption:
-                              RawAutocomplete.defaultStringForOption,
-                          onSelected: onSelected,
-                          options: options,
-                          maxOptionsHeight:
-                              MediaQuery.of(context).size.height / 2,
-                        ),
-                      ),
-                    ),
-                    Divider(color: themeData.colorScheme.onBackground),
-                    Column(
-                      children: List<Widget>.generate(
-                        widget.helper.terms.length,
-                        (final int index) {
-                          final String term = widget.helper.terms[index];
-                          return ListTile(
-                            leading: const Icon(Icons.delete),
-                            title: Text(term),
-                            onTap: () async {
-                              if (widget.helper.removeTerm(term)) {
-                                setState(() {});
-                              }
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              Flexible(flex: 1, child: ListView(children: simpleInputs)),
               SmoothActionButtonsBar(
                 positiveAction: SmoothActionButton(
                   text: appLocalizations.save,
@@ -193,9 +116,21 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    _addItemsFromController();
-    final Product? changedProduct = widget.helper.getChangedProduct();
-    if (changedProduct == null) {
+    final Product changedProduct = Product(barcode: widget.product.barcode);
+    bool changed = false;
+    bool added = false;
+    for (int i = 0; i < widget.helpers.length; i++) {
+      if (widget.helpers[i].addItemsFromController(_controllers[i])) {
+        added = true;
+      }
+      if (widget.helpers[i].getChangedProduct(changedProduct)) {
+        changed = true;
+      }
+    }
+    if (added) {
+      setState(() {});
+    }
+    if (!changed) {
       return true;
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -206,7 +141,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         builder: (final BuildContext context) => SmoothAlertDialog(
           close: true,
           body: Text(appLocalizations.edit_product_form_item_exit_confirmation),
-          title: widget.helper.getTitle(appLocalizations),
+          title: appLocalizations.edit_product_label,
           negativeAction: SmoothActionButton(
             text: appLocalizations.ignore,
             onPressed: () => Navigator.pop(context, false),
@@ -230,21 +165,5 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       localDatabase: localDatabase,
       product: changedProduct,
     );
-  }
-
-  /// Adds all the non-already existing items from the controller.
-  ///
-  /// The item separator is the comma.
-  void _addItemsFromController() {
-    final List<String> input = _controller.text.split(',');
-    bool result = false;
-    for (final String item in input) {
-      if (widget.helper.addTerm(item.trim())) {
-        result = true;
-      }
-    }
-    if (result) {
-      setState(() => _controller.text = '');
-    }
   }
 }
