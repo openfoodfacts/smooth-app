@@ -3,6 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/TagType.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/background_tasks_model.dart';
@@ -240,6 +241,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       counter: 0,
       languageCode: ProductQuery.getLanguage().code,
       inputMap: jsonEncode(changedProduct.toJson()),
+      user: jsonEncode(ProductQuery.getUser().toJson()),
+      country: ProductQuery.getCountry()!.iso2Code,
     );
     Workmanager().registerOneOffTask(
       uniqueId,

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/background_tasks_model.dart';
@@ -149,6 +150,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       inputMap: jsonEncode(inputProduct.toJson()),
                       counter: 0,
                       languageCode: ProductQuery.getLanguage().code,
+                      user: jsonEncode(ProductQuery.getUser().toJson()),
+                      country: ProductQuery.getCountry()!.iso2Code,
                     );
                     await Workmanager().registerOneOffTask(
                       uniqueId,

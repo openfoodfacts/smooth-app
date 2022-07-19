@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
@@ -44,11 +45,13 @@ Future<bool> otherDetails(Map<String, dynamic> inputData) async {
   try {
     final Map<String, dynamic> mp =
         json.decode(inputTask.inputMap) as Map<String, dynamic>;
+    final User user =
+        User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
     final Status result = await OpenFoodAPIClient.saveProduct(
-      ProductQuery.getUser(),
+      user,
       Product.fromJson(mp),
       language: LanguageHelper.fromJson(inputTask.languageCode),
-      country: ProductQuery.getCountry(),
+      country: CountryHelper.fromJson(inputTask.country),
     );
     shouldRetry = result.error != null;
   } catch (e) {
@@ -118,16 +121,18 @@ Future<bool> uploadImage(Map<String, dynamic> inputData) async {
     file.deleteSync();
     return true;
   }
+  final User user =
+      User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
   bool shouldRetry = false;
   try {
     final SendImage image = SendImage(
-      lang: ProductQuery.getLanguage(),
+      lang: LanguageHelper.fromJson(inputTask.languageCode),
       barcode: inputTask.barcode,
       imageField: ImageFieldExtension.getType(inputTask.imageField),
       imageUri: Uri.parse(inputTask.imageUri),
     );
     final Status result = await OpenFoodAPIClient.addProductImage(
-      ProductQuery.getUser(),
+      user,
       image,
     );
     shouldRetry = result.error != null || result.status != 'status ok';
@@ -199,6 +204,8 @@ class BackgroundImageInputData {
     required this.imageUri,
     required this.counter,
     required this.languageCode,
+    required this.user,
+    required this.country,
   });
 
   BackgroundImageInputData.fromJson(Map<String, dynamic> json)
@@ -208,7 +215,9 @@ class BackgroundImageInputData {
         imageField = json['imageField'] as String,
         imageUri = json['imageUri'] as String,
         counter = json['counter'] as int,
-        languageCode = json['languageCode'] as String;
+        languageCode = json['languageCode'] as String,
+        user = json['user'] as String,
+        country = json['country'] as String;
 
   final String processName;
   String uniqueId;
@@ -217,6 +226,8 @@ class BackgroundImageInputData {
   final String imageUri;
   int counter;
   final String languageCode;
+  String user;
+  final String country;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'processName': processName,
@@ -226,6 +237,8 @@ class BackgroundImageInputData {
         'imageUri': imageUri,
         'counter': counter,
         'languageCode': languageCode,
+        'user': user,
+        'country': country,
       };
 }
 
@@ -237,6 +250,8 @@ class BackgroundOtherDetailsInput {
     required this.counter,
     required this.languageCode,
     required this.inputMap,
+    required this.user,
+    required this.country,
   });
   BackgroundOtherDetailsInput.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
@@ -244,13 +259,17 @@ class BackgroundOtherDetailsInput {
         barcode = json['barcode'] as String,
         counter = json['counter'] as int,
         languageCode = json['languageCode'] as String,
-        inputMap = json['inputMap'] as String;
+        inputMap = json['inputMap'] as String,
+        user = json['user'] as String,
+        country = json['country'] as String;
   final String processName;
   String uniqueId;
   final String barcode;
   int counter;
   final String languageCode;
   String inputMap;
+  final String user;
+  final String country;
   Map<String, dynamic> toJson() => <String, dynamic>{
         'processName': processName,
         'uniqueId': uniqueId,
@@ -258,5 +277,7 @@ class BackgroundOtherDetailsInput {
         'counter': counter,
         'languageCode': languageCode,
         'inputMap': inputMap,
+        'user': user,
+        'country': country,
       };
 }

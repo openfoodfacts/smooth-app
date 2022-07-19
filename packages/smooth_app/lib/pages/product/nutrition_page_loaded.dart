@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/background_tasks_model.dart';
@@ -479,6 +480,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       counter: 0,
       languageCode: ProductQuery.getLanguage().code,
       inputMap: jsonEncode(changedProduct.toJson()),
+      user: jsonEncode(ProductQuery.getUser().toJson()),
+      country: ProductQuery.getCountry()!.iso2Code,
     );
     Workmanager().registerOneOffTask(
       uniqueId,

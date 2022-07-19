@@ -5,6 +5,7 @@ import 'dart:ui' show ImageFilter;
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
@@ -149,6 +150,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
       counter: 0,
       languageCode: ProductQuery.getLanguage().code,
       inputMap: jsonEncode(minimalistProduct.toJson()),
+      user: jsonEncode(ProductQuery.getUser().toJson()),
+      country: ProductQuery.getCountry()!.iso2Code,
     );
     Workmanager().registerOneOffTask(
       uniqueId,
