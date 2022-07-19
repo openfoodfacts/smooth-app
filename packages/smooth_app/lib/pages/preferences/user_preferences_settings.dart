@@ -390,22 +390,13 @@ class _ExpandPanelNutritionTableSetting extends StatelessWidget {
 }
 
 class _ExpandPanelIngredientsSetting extends StatelessWidget {
-  const _ExpandPanelIngredientsSetting({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    return UserPreferencesSwitchItem(
-      title: appLocalizations.expand_ingredients,
-      subtitle: appLocalizations.expand_ingredients_body,
-      value: userPreferences
-          .getExpandedPanel(KnowledgePanelCard.EXPAND_PANEL_INGREDIENTS_ID),
-      onChanged: (final bool value) async {
-        await userPreferences.setExpandedPanel(
-            KnowledgePanelCard.EXPAND_PANEL_INGREDIENTS_ID, value);
-      },
+    return _ExpandPanelHelper(
+      appLocalizations.expand_ingredients,
+      appLocalizations.expand_ingredients_body,
+      KnowledgePanelCard.EXPAND_PANEL_INGREDIENTS_ID,
     );
   }
 }
