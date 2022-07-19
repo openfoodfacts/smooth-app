@@ -94,8 +94,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        final MediaQueryData data = MediaQuery.of(context);
-        final String logo = data.platformBrightness == Brightness.light
+        final String logo = Theme.of(context).brightness == Brightness.light
             ? _iconLightAssetPath
             : _iconDarkAssetPath;
 
@@ -106,7 +105,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                 children: <Widget>[
                   SvgPicture.asset(
                     logo,
-                    width: data.size.width * 0.1,
+                    width: MediaQuery.of(context).size.width * 0.1,
                   ),
                   const SizedBox(width: SMALL_SPACE),
                   Expanded(

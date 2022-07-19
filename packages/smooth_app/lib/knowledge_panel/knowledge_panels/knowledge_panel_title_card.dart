@@ -50,7 +50,9 @@ class KnowledgePanelTitleCard extends StatelessWidget {
             ),
           ),
         ),
-        const Padding(padding: EdgeInsets.only(left: SMALL_SPACE)),
+        const Padding(
+          padding: EdgeInsetsDirectional.only(start: SMALL_SPACE),
+        ),
         if (emoji != null)
           Padding(
             padding: const EdgeInsets.only(right: SMALL_SPACE),
@@ -64,7 +66,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       iconWidget = <Widget>[];
     }
     return Padding(
-      padding: const EdgeInsets.only(
+      padding: const EdgeInsetsDirectional.only(
         top: VERY_SMALL_SPACE,
         bottom: VERY_SMALL_SPACE,
       ),

@@ -30,8 +30,12 @@ class SmoothAlertDialog extends StatelessWidget {
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
 
-  static const EdgeInsets _contentPadding =
-      EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0);
+  static const EdgeInsets _contentPadding = EdgeInsets.only(
+    left: 24.0,
+    top: VERY_LARGE_SPACE,
+    right: 24.0,
+    bottom: 24.0,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +61,7 @@ class SmoothAlertDialog extends StatelessWidget {
     return Padding(
       padding: EdgeInsetsDirectional.only(
         top: _contentPadding.bottom,
-        start: 8.0,
+        start: SMALL_SPACE,
       ),
       child: SmoothActionButtonsBar(
         positiveAction: positiveAction,
@@ -262,7 +266,9 @@ class _SmoothActionFlatButton extends StatelessWidget {
           ),
         ),
         child: SizedBox(
-          height: buttonData.lines != null ? 20.0 * buttonData.lines! : null,
+          height: buttonData.lines != null
+              ? VERY_LARGE_SPACE * buttonData.lines!
+              : null,
           child: FittedBox(
             child: Text(
               buttonData.text.toUpperCase(),

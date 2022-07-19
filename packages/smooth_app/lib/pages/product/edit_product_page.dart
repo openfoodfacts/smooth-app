@@ -1,11 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -17,6 +20,7 @@ import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -41,6 +45,7 @@ class _EditProductPageState extends State<EditProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Size screenSize = MediaQuery.of(context).size;
 
     final Scaffold scaffold = SmoothScaffold(
         appBar: AppBar(
@@ -51,13 +56,24 @@ class _EditProductPageState extends State<EditProductPage> {
         ),
         body: ListView(
           children: <Widget>[
-            ListTile(
-              title: Text(
-                appLocalizations.edit_product_form_item_barcode,
+            if (_product.barcode != null)
+              BarcodeWidget(
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenSize.width / 4,
+                  vertical: SMALL_SPACE,
+                ),
+                barcode: _product.barcode!.length == 8
+                    ? Barcode.ean8()
+                    : Barcode.ean13(),
+                data: _product.barcode!,
+                errorBuilder: (final BuildContext context, String? _) =>
+                    ListTile(
+                  title: Text(
+                    appLocalizations.edit_product_form_item_barcode,
+                  ),
+                  subtitle: Text(_product.barcode!),
+                ),
               ),
-              subtitle:
-                  _product.barcode == null ? null : Text(_product.barcode!),
-            ),
             _ListTitleItem(
               title: appLocalizations.edit_product_form_item_details_title,
               subtitle:
@@ -76,6 +92,7 @@ class _EditProductPageState extends State<EditProductPage> {
               },
             ),
             _ListTitleItem(
+              leading: const Icon(Icons.add_a_photo_outlined),
               title: appLocalizations.edit_product_form_item_photos_title,
               subtitle: appLocalizations.edit_product_form_item_photos_subtitle,
               onTap: () async {
@@ -114,6 +131,7 @@ class _EditProductPageState extends State<EditProductPage> {
             ),
             _getSimpleListTileItem(SimpleInputPageLabelHelper()),
             _ListTitleItem(
+              leading: const _SvgIcon('assets/cacheTintable/ingredients.svg'),
               title: appLocalizations.edit_product_form_item_ingredients_title,
               onTap: () async {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
@@ -131,6 +149,7 @@ class _EditProductPageState extends State<EditProductPage> {
               },
             ),
             _ListTitleItem(
+              leading: const Icon(Icons.recycling),
               title: appLocalizations.edit_product_form_item_packaging_title,
               onTap: () async {
                 if (!await ProductRefresher().checkIfLoggedIn(context)) {
@@ -148,10 +167,12 @@ class _EditProductPageState extends State<EditProductPage> {
               },
             ),
             _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+            _getSimpleListTileItem(SimpleInputPageOriginHelper()),
             _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
             _getSimpleListTileItem(SimpleInputPageCountryHelper()),
             _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
             _ListTitleItem(
+              leading: const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
               title:
                   appLocalizations.edit_product_form_item_nutrition_facts_title,
               subtitle: appLocalizations
@@ -199,6 +220,7 @@ class _EditProductPageState extends State<EditProductPage> {
   Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return _ListTitleItem(
+      leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
       subtitle: helper.getSubtitle(appLocalizations),
       onTap: () async {
@@ -224,24 +246,51 @@ class _ListTitleItem extends StatelessWidget {
     required final this.title,
     this.subtitle,
     this.onTap,
+    this.leading,
     Key? key,
   }) : super(key: key);
 
   final String title;
   final String? subtitle;
   final VoidCallback? onTap;
+  final Widget? leading;
 
   @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return ListTile(
-      onTap: onTap,
-      title: Text(title),
-      subtitle: subtitle == null ? null : Text(subtitle!),
-      leading: ElevatedButton(
-        onPressed: onTap,
-        child: Text(appLocalizations.edit_product_form_save),
-      ),
-    );
+  Widget build(BuildContext context) => Card(
+        child: ListTile(
+          onTap: onTap,
+          title: Text(title),
+          subtitle: subtitle == null ? null : Text(subtitle!),
+          leading: leading ?? const Icon(Icons.edit),
+          trailing: Icon(ConstantIcons.instance.getForwardIcon()),
+        ),
+      );
+}
+
+/// SVG that looks like a ListTile icon.
+class _SvgIcon extends StatelessWidget {
+  const _SvgIcon(this.assetName);
+
+  final String assetName;
+
+  @override
+  Widget build(BuildContext context) => SvgPicture.asset(
+        assetName,
+        height: DEFAULT_ICON_SIZE,
+        width: DEFAULT_ICON_SIZE,
+        color: _iconColor(Theme.of(context)),
+      );
+
+  /// Returns the standard icon color in a [ListTile].
+  ///
+  /// Simplified version from [ListTile], which was anyway not kind enough
+  /// to make it public.
+  Color _iconColor(ThemeData theme) {
+    switch (theme.brightness) {
+      case Brightness.light:
+        return Colors.black45;
+      case Brightness.dark:
+        return Colors.white;
+    }
   }
 }

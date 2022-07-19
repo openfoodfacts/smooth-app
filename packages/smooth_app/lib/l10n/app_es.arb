@@ -320,6 +320,12 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "La traducción es una de las tareas clave del proyecto.",
     "@contribute_translate_text_2": {},
+    "contribute_share_header": "Comparte Open Food Facts con tus amigos",
+    "@contribute_share_header": {},
+    "contribute_share_content": "Quería informarles sobre la aplicación que he estado usando, Open Food Facts, la cual permite conocer el impacto sobre la salud y el medio ambiente de su comida, de una manera personalizada. Funciona escaneado los códigos de barra del envase. Por último es gratis, no requiere registro, y le permite incrementar el número de productos de la base de datos. Aquí les dejo el vínculo para descargarla en su teléfono: https://openfoodfacts.app",
+    "@contribute_share_content": {
+        "description": "Content that will be shared, don't forget to include the URL"
+    },
     "tap_to_answer": "Toca aquí para responder a las preguntas",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -344,7 +350,7 @@
     "myPreferences_settings_subtitle": "Modo oscuro, analíticas, ...",
     "myPreferences_food_title": "Preferencias alimentarias",
     "myPreferences_food_subtitle": "Elige qué tipo de información alimentaria es más importante para ti.",
-    "myPreferences_food_comment": "Elije qué información alimentaria es más importante para ti, así se clasificarán los alimentos según tus preferencias. Verás la información que te interesa primero y obtendrás un resumen de compatibilidad. Tus preferencias alimentarias permanecen en tu dispositivo y no están asociadas a tu cuenta de colaborador de Open Food Facts, en el caso de tener una.",
+    "myPreferences_food_comment": "Elige qué propiedades alimentarias de verdad te importan y así clasificar los alimentos, ordenándolos de acuerdo a tus necesidades. Las propiedades destacadas aparecerán primero y obtendrás un resumen de compatibilidad. Tus preferencias alimentarias permanecen en tu dispositivo y no están asociadas a tu cuenta de colaborador de Open Food Facts, si es que la tienes.",
     "confirmResetPreferences": "¿Quieres restablecer tus preferencias alimentarias?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -422,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "",
+    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
     "packaging_editing_error": "No se pudo guardar el envase.",
     "packaging_editing_image_error": "No se pudo obtener la nueva imagen del envase.",
     "packaging_editing_title": "Editar el envase",
@@ -1013,6 +1019,22 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_origins_title": "Orígenes",
+    "@edit_product_form_item_origins_title": {
+        "description": "Product edition - Origins - Title"
+    },
+    "edit_product_form_item_origins_hint": "España",
+    "@edit_product_form_item_origins_hint": {
+        "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "@edit_product_form_item_origins_explainer_1": {
+        "description": "Product edition - Origins - input explainer, part 1"
+    },
+    "edit_product_form_item_origins_explainer_2": "Ejemplos: carne de vacuno de Argentina, La soja no procede de la Unión Europea",
+    "@edit_product_form_item_origins_explainer_2": {
+        "description": "Product edition - Origins - input explainer, part 2"
+    },
     "edit_product_form_item_countries_title": "País",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
@@ -1044,6 +1066,18 @@
     "edit_product_form_item_categories_hint": "categoría",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_explainer_1": "Indique sólo la categoría más específica. Las categorías superiores se añadirán automáticamente.",
+    "@edit_product_form_item_categories_explainer_1": {
+        "description": "Product edition - Categories - input explainer, part 1"
+    },
+    "edit_product_form_item_categories_explainer_2": "En caso de que una categoría no esté disponible en el autocompletado, no dude en añadirla de todos modos, que nos ayudarán a mejorar Open Food Facts en tu país.",
+    "@edit_product_form_item_categories_explainer_2": {
+        "description": "Product edition - Categories - input explainer, part 2"
+    },
+    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "@edit_product_form_item_categories_explainer_3": {
+        "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "¿Deseas guardar los cambios antes de salir de esta página?",
     "edit_product_form_item_ingredients_title": "Ingredientes y orígenes",
@@ -1511,5 +1545,9 @@
     "choose_from_gallery": "Seleccionar de la galería",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "No hay conexión a internet",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }

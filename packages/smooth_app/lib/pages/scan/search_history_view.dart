@@ -51,7 +51,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       background: Container(color: RED_COLOR),
       child: ListTile(
         leading: const Padding(
-          padding: EdgeInsets.only(top: 4.0),
+          padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
           child: Icon(Icons.search, size: 18.0),
         ),
         trailing: InkWell(
@@ -70,7 +70,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
             Focus.maybeOf(context)?.requestFocus();
           },
           child: const Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(SMALL_SPACE),
             child: Icon(Icons.edit, size: 18.0),
           ),
         ),
