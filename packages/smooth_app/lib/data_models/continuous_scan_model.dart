@@ -167,9 +167,18 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<bool> _cachedBarcode(final String barcode) async {
-    final Product? product = await _daoProduct.get(barcode);
+    Product? product = await _daoProduct.get(barcode);
     if (product != null) {
-      _addProduct(product, ScannedProductState.CACHED);
+      try {
+        final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
+        if (fetchedProduct.product != null) {
+          product = fetchedProduct.product;
+        }
+      } catch (e) {
+        // Tried to refresh the product from server but failed maybe due to server error or internet connection issue
+        // Then it will show the cached product as it is
+      }
+      _addProduct(product!, ScannedProductState.CACHED);
       return true;
     }
     return false;
