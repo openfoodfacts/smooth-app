@@ -61,7 +61,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
+                padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
                 child: Wrap(
                   spacing: MEDIUM_SPACE,
                   alignment: WrapAlignment.center,

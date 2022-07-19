@@ -77,14 +77,14 @@ class UserPreferencesSwitchItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SwitchListTile.adaptive(
       title: Padding(
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           top: SMALL_SPACE,
           bottom: SMALL_SPACE,
         ),
         child: Text(title, style: Theme.of(context).textTheme.headline4),
       ),
       subtitle: Padding(
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           bottom: SMALL_SPACE,
         ),
         child: Text(
@@ -137,14 +137,14 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Padding(
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           top: SMALL_SPACE,
           bottom: SMALL_SPACE,
         ),
         child: Text(title, style: Theme.of(context).textTheme.headline4),
       ),
       subtitle: Padding(
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           bottom: SMALL_SPACE,
         ),
         child: Text(
@@ -184,7 +184,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
                                   ? Text(descriptions!.elementAt(position))
                                   : null,
                               contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 16.0,
+                                horizontal: LARGE_SPACE,
                                 vertical: 5.0,
                               ),
                               onTap: () {
@@ -224,12 +224,12 @@ class UserPreferencesTitle extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           top: SMALL_SPACE,
           bottom: MEDIUM_SPACE,
           // Horizontal = same as ListTile
-          left: 16.0,
-          right: 16.0,
+          start: LARGE_SPACE,
+          end: LARGE_SPACE,
         ),
         child: Text(
           label,

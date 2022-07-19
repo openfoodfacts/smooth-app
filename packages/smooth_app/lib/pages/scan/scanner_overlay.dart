@@ -119,7 +119,7 @@ class ScannerOverlay extends StatelessWidget {
         startOffset: Offset(0.0, -0.1),
         animationCurve: Curves.easeInOutBack,
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: EdgeInsetsDirectional.only(
             bottom: carouselBottomPadding,
           ),
           child: SmoothProductCarousel(
