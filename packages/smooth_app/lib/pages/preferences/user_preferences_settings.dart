@@ -352,6 +352,7 @@ class _CameraPlayScanSoundSetting extends StatelessWidget {
   }
 }
 
+
 class _ExpandPanelHelper extends StatelessWidget {
   const _ExpandPanelHelper(
     this.title,
@@ -362,7 +363,7 @@ class _ExpandPanelHelper extends StatelessWidget {
   final String title;
   final String subtitle;
   final String id;
-  
+
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
