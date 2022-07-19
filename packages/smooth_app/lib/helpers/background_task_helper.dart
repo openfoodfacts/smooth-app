@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -17,9 +18,9 @@ void callbackDispatcher() {
       final String processName = inputData!['processName'] as String;
       switch (processName) {
         case 'ImageUpload':
-          return uploadImage(task, inputData);
+          return uploadImage(inputData);
         case 'Others':
-          return otherDetails(task, inputData);
+          return otherDetails(inputData);
         default:
           return Future<bool>.error('Unknown task');
       }
@@ -27,12 +28,15 @@ void callbackDispatcher() {
   );
 }
 
-Future<bool> otherDetails(String task, Map<String, dynamic> inputData) async {
+Future<bool> otherDetails(Map<String, dynamic> inputData) async {
   final BackgroundOtherDetailsInput inputTask =
       BackgroundOtherDetailsInput.fromJson(inputData);
+  final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
+  final DaoProduct daoProduct = DaoProduct(localDatabase);
+  final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
   final int counter = inputTask.counter;
   // if task is greater than 6 , that means it has been executed 7 times
-  if (counter > BACKGROUND_DURATION_LIST.length) {
+  if (counter > BACKGROUND_DURATION_LIST.length - 1) {
     // returns true to let platform know that the task is completed
     return true;
   }
@@ -53,14 +57,21 @@ Future<bool> otherDetails(String task, Map<String, dynamic> inputData) async {
   if (shouldRetry) {
     inputTask.counter += 1;
     await Workmanager().initialize(callbackDispatcher);
+    final BackgroundTaskModel? retryBackgroundTaskModel =
+        await daoBackgroundTask.get(inputTask.uniqueId);
+    await daoBackgroundTask.delete(inputTask.uniqueId);
+    retryBackgroundTaskModel!.backgroundTaskId =
+        '${inputTask.uniqueId}_${inputTask.counter}';
+    inputTask.uniqueId = retryBackgroundTaskModel.backgroundTaskId;
+    await daoBackgroundTask.put(retryBackgroundTaskModel);
     await Workmanager().registerOneOffTask(
-      task,
+      '${inputTask.uniqueId}_${inputTask.counter}',
       UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
       constraints: Constraints(
         networkType: NetworkType.connected,
       ),
       inputData: inputTask.toJson(),
-      initialDelay: BACKGROUND_DURATION_LIST[inputTask.counter],
+      initialDelay: BACKGROUND_DURATION_LIST[inputTask.counter - 1],
     );
     return Future<bool>.error('Failed and it will try again');
   } else {
@@ -76,11 +87,6 @@ Future<bool> otherDetails(String task, Map<String, dynamic> inputData) async {
       if (result.status == 1) {
         final Product? product = result.product;
         if (product != null) {
-          final LocalDatabase localDatabase =
-              await LocalDatabase.getLocalDatabase();
-          final DaoProduct daoProduct = DaoProduct(localDatabase);
-          final DaoBackgroundTask daoBackgroundTask =
-              DaoBackgroundTask(localDatabase);
           await daoProduct.put(product);
           await daoBackgroundTask.delete(inputTask.uniqueId);
           localDatabase.notifyListeners();
@@ -98,12 +104,15 @@ Future<bool> otherDetails(String task, Map<String, dynamic> inputData) async {
   }
 }
 
-Future<bool> uploadImage(String task, Map<String, dynamic> inputData) async {
+Future<bool> uploadImage(Map<String, dynamic> inputData) async {
   final BackgroundImageInputData inputTask =
       BackgroundImageInputData.fromJson(inputData);
+  final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
+  final DaoProduct daoProduct = DaoProduct(localDatabase);
+  final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
   final int counter = inputTask.counter;
   // if task is greater than 6 , that means it has been executed 7 times
-  if (counter > BACKGROUND_DURATION_LIST.length) {
+  if (counter > BACKGROUND_DURATION_LIST.length - 1) {
     // returns true to let platform know that the task is completed
     final File file = File(inputTask.imageUri);
     file.deleteSync();
@@ -128,15 +137,23 @@ Future<bool> uploadImage(String task, Map<String, dynamic> inputData) async {
   if (shouldRetry) {
     inputTask.counter += 1;
     await Workmanager().initialize(callbackDispatcher);
+    final BackgroundTaskModel? retryBackgroundTaskModel =
+        await daoBackgroundTask.get(inputTask.uniqueId);
+    await daoBackgroundTask.delete(inputTask.uniqueId);
+    retryBackgroundTaskModel!.backgroundTaskId =
+        '${inputTask.uniqueId}_${inputTask.counter}';
+    inputTask.uniqueId = retryBackgroundTaskModel.backgroundTaskId;
+    await daoBackgroundTask.put(retryBackgroundTaskModel);
     await Workmanager().registerOneOffTask(
-      task,
+      '${inputTask.uniqueId}_${inputTask.counter}',
       UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
       constraints: Constraints(
         networkType: NetworkType.connected,
       ),
       inputData: inputTask.toJson(),
-      initialDelay: BACKGROUND_DURATION_LIST[inputTask.counter],
+      initialDelay: BACKGROUND_DURATION_LIST[inputTask.counter - 1],
     );
+
     return Future<bool>.error('Failed and it will try again');
   } else {
     // go to the file system and delete the file that was uploaded
@@ -155,11 +172,6 @@ Future<bool> uploadImage(String task, Map<String, dynamic> inputData) async {
       if (result.status == 1) {
         final Product? product = result.product;
         if (product != null) {
-          final LocalDatabase localDatabase =
-              await LocalDatabase.getLocalDatabase();
-          final DaoProduct daoProduct = DaoProduct(localDatabase);
-          final DaoBackgroundTask daoBackgroundTask =
-              DaoBackgroundTask(localDatabase);
           await daoProduct.put(product);
           await daoBackgroundTask.delete(inputTask.uniqueId);
           localDatabase.notifyListeners();
@@ -199,8 +211,7 @@ class BackgroundImageInputData {
         languageCode = json['languageCode'] as String;
 
   final String processName;
-  final String uniqueId;
-
+  String uniqueId;
   final String barcode;
   final String imageField;
   final String imageUri;
@@ -235,7 +246,7 @@ class BackgroundOtherDetailsInput {
         languageCode = json['languageCode'] as String,
         inputMap = json['inputMap'] as String;
   final String processName;
-  final String uniqueId;
+  String uniqueId;
   final String barcode;
   int counter;
   final String languageCode;

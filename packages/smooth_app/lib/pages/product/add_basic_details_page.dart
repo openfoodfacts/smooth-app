@@ -144,13 +144,14 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     final BackgroundOtherDetailsInput
                         backgroundBasicDetailsInput =
                         BackgroundOtherDetailsInput(
-                            processName: 'Others',
-                            uniqueId: uniqueId,
-                            barcode: _product.barcode!,
-                            inputMap: jsonEncode(inputProduct.toJson()),
-                            counter: 0,
-                            languageCode: ProductQuery.getLanguage().code);
-                    Workmanager().registerOneOffTask(
+                      processName: 'Others',
+                      uniqueId: uniqueId,
+                      barcode: _product.barcode!,
+                      inputMap: jsonEncode(inputProduct.toJson()),
+                      counter: 0,
+                      languageCode: ProductQuery.getLanguage().code,
+                    );
+                    await Workmanager().registerOneOffTask(
                       uniqueId,
                       UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
                       constraints: Constraints(

@@ -29,7 +29,7 @@ class BackgroundTaskModel {
         'taskMap': taskMap,
       };
 
-  final String backgroundTaskId;
+  String backgroundTaskId;
   final String backgroundTaskName;
   final String backgroundTaskDescription;
   final String barcode;
