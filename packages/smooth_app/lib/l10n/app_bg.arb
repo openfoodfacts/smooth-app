@@ -1550,5 +1550,4 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     }
-    
 }
