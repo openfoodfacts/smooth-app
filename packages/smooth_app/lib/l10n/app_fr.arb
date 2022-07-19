@@ -320,6 +320,12 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Les traductions sont l'une des tâches clés du projet",
     "@contribute_translate_text_2": {},
+    "contribute_share_header": "Partagez Open Food Facts avec vos amis",
+    "@contribute_share_header": {},
+    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "@contribute_share_content": {
+        "description": "Content that will be shared, don't forget to include the URL"
+    },
     "tap_to_answer": "Appuyez ici pour répondre aux questions",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -422,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "",
+    "packaging_editing_instructions": "Listez toutes les pièces d'emballage séparées par une virgule ou un saut de ligne, avec leur quantité (par exemple 1 ou 6) type (par exemple bouteille, boîte, canette), matériau (par exemple plastique, métal, aluminium) et si disponible leur taille (par exemple 33cl) et consignes de recyclage.\nExemple : 1 bouteille en verre à recycler, 1 bouchon en plastique à jeter",
     "packaging_editing_error": "Échec de l'enregistrement de l'emballage.",
     "packaging_editing_image_error": "Impossible d'obtenir une nouvelle image d'emballage.",
     "packaging_editing_title": "Modifier l'emballage",
@@ -1013,6 +1019,22 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_origins_title": "Origines",
+    "@edit_product_form_item_origins_title": {
+        "description": "Product edition - Origins - Title"
+    },
+    "edit_product_form_item_origins_hint": "Espagne",
+    "@edit_product_form_item_origins_hint": {
+        "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_explainer_1": "Ajoutez toutes les indications d'origine que vous pouvez trouver sur l'emballage. Vous n'avez pas à vous soucier des origines indiquées directement dans la liste des ingrédients.",
+    "@edit_product_form_item_origins_explainer_1": {
+        "description": "Product edition - Origins - input explainer, part 1"
+    },
+    "edit_product_form_item_origins_explainer_2": "Exemples : Bœuf d'Argentine, Le soja ne provient pas de l'Union européenne",
+    "@edit_product_form_item_origins_explainer_2": {
+        "description": "Product edition - Origins - input explainer, part 2"
+    },
     "edit_product_form_item_countries_title": "Pays",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
@@ -1044,6 +1066,18 @@
     "edit_product_form_item_categories_hint": "catégorie",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_explainer_1": "Indiquez uniquement la catégorie la plus spécifique. Les catégories parentes seront automatiquement ajoutées.",
+    "@edit_product_form_item_categories_explainer_1": {
+        "description": "Product edition - Categories - input explainer, part 1"
+    },
+    "edit_product_form_item_categories_explainer_2": "Si une catégorie n'est pas disponible en saisie semi-automatique, n'hésitez pas à l'ajouter quand même, cela nous aidera à améliorer Open Food Facts dans votre pays.",
+    "@edit_product_form_item_categories_explainer_2": {
+        "description": "Product edition - Categories - input explainer, part 2"
+    },
+    "edit_product_form_item_categories_explainer_3": "Exemples : Sardines à l'huile d'olive, Jus d'orange à base de concentré",
+    "@edit_product_form_item_categories_explainer_3": {
+        "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Souhaitez-vous enregistrer vos modifications avant de quitter cette page ?",
     "edit_product_form_item_ingredients_title": "Ingrédients & Origines",
@@ -1511,5 +1545,9 @@
     "choose_from_gallery": "Choisir depuis la galerie",
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "no_internet_connection": "No internet connection",
+    "@no_internet_connection": {
+        "description": "Message when there is no internet connection"
     }
 }

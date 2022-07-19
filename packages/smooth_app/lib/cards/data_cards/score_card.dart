@@ -60,7 +60,7 @@ class ScoreCard extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
+                  padding: const EdgeInsetsDirectional.only(end: SMALL_SPACE),
                   child: iconChip,
                 ),
               ),

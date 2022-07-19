@@ -29,11 +29,11 @@ class ScannerFlashToggleWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 6.0,
-                  vertical: 8.0,
+                  vertical: SMALL_SPACE,
                 ),
                 child: Icon(
                   value ? Icons.flash_on : Icons.flash_off,
-                  size: 20.0,
+                  size: VERY_LARGE_SPACE,
                   color: Colors.white,
                 ),
               ),

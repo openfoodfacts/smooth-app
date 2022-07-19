@@ -80,6 +80,9 @@ abstract class AbstractSimpleInputPageHelper {
   /// Returns the tag type for autocomplete suggestions.
   TagType? getTagType();
 
+  /// Returns the icon data for the list tile.
+  Widget? getIcon() => null;
+
   /// Returns null is no change was made, or a Product to be saved on the BE.
   Product? getChangedProduct() {
     if (!_changed) {
@@ -122,6 +125,39 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   TagType? getTagType() => null;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.shopping_cart);
+}
+
+/// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
+  @override
+  List<String> initTerms() => splitString(product.origins);
+
+  @override
+  void changeProduct(final Product changedProduct) =>
+      changedProduct.origins = terms.join(_separator);
+
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_origins_title;
+
+  @override
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_origins_hint;
+
+  @override
+  String? getAddExplanations(final AppLocalizations appLocalizations) =>
+      '${appLocalizations.edit_product_form_item_origins_explainer_1}'
+      '\n'
+      '${appLocalizations.edit_product_form_item_origins_explainer_2}';
+
+  @override
+  TagType? getTagType() => null;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.travel_explore);
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -147,6 +183,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   TagType? getTagType() => TagType.EMB_CODES;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.factory);
 }
 
 /// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
@@ -235,6 +274,9 @@ class SimpleInputPageLabelHelper
 
   @override
   TagType? getTagType() => TagType.LABELS;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.local_offer);
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -256,11 +298,22 @@ class SimpleInputPageCategoryHelper
       appLocalizations.edit_product_form_item_categories_title;
 
   @override
+  String? getAddExplanations(final AppLocalizations appLocalizations) =>
+      '${appLocalizations.edit_product_form_item_categories_explainer_1}'
+      '\n'
+      '${appLocalizations.edit_product_form_item_categories_explainer_2}'
+      '\n'
+      '${appLocalizations.edit_product_form_item_categories_explainer_3}';
+
+  @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_hint;
 
   @override
   TagType? getTagType() => TagType.CATEGORIES;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.restaurant);
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
@@ -291,4 +344,7 @@ class SimpleInputPageCountryHelper
 
   @override
   TagType? getTagType() => TagType.COUNTRIES;
+
+  @override
+  Widget? getIcon() => const Icon(Icons.public);
 }
