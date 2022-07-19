@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
@@ -5,16 +6,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:workmanager/workmanager.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -124,12 +132,70 @@ class _EditOcrPageState extends State<EditOcrPage> {
   }
 
   Future<bool> _updateText(final String text) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    return ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: _helper.getMinimalistProduct(_product, text),
+    // final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    // return ProductRefresher().saveAndRefresh(
+    //   context: context,
+    //   localDatabase: localDatabase,
+    //   product: _helper.getMinimalistProduct(_product, text),
+    // );
+    final Product minimalistProduct =
+        _helper.getMinimalistProduct(_product, text);
+    final String uniqueId = 'Others ${SmoothRandom.generateRandomString(10)}';
+    final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
+        BackgroundOtherDetailsInput(
+      processName: 'Others',
+      uniqueId: uniqueId,
+      barcode: minimalistProduct.barcode!,
+      counter: 0,
+      languageCode: ProductQuery.getLanguage().code,
+      inputMap: jsonEncode(minimalistProduct.toJson()),
     );
+    Workmanager().registerOneOffTask(
+      uniqueId,
+      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
+      constraints: Constraints(
+        networkType: NetworkType.connected,
+      ),
+      inputData: backgroundOtherDetailsInput.toJson(),
+    );
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoBackgroundTask daoBackgroundTask =
+        DaoBackgroundTask(localDatabase);
+    final BackgroundTaskModel backgroundTaskModel = BackgroundTaskModel(
+      backgroundTaskId: uniqueId,
+      backgroundTaskName: 'Ingredients',
+      backgroundTaskDescription:
+          'Made edit to Ingredients on ${DateTime.now()}',
+      barcode: minimalistProduct.barcode!,
+      dateTime: DateTime.now(),
+      status: 'Pending',
+      taskMap: backgroundOtherDetailsInput.toJson(),
+    );
+    daoBackgroundTask.put(backgroundTaskModel);
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? localProduct =
+        await daoProduct.get(minimalistProduct.barcode!);
+    if (localProduct != null) {
+      localProduct.ingredientsText = minimalistProduct.ingredientsText;
+      await daoProduct.put(localProduct);
+    } else {
+      await daoProduct.put(minimalistProduct);
+    }
+
+    localDatabase.notifyListeners();
+    if (!mounted) {
+      return false;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Ingredients updated successfully',
+        ),
+        duration: Duration(seconds: 3),
+      ),
+    );
+    return true;
+    // update this to do a background job for this
   }
 
   @override

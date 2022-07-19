@@ -62,6 +62,7 @@ Future<bool> uploadCapturedPicture(
       content: Text(
         appLocalizations.image_upload_queued,
       ),
+      duration: const Duration(seconds: 3),
     ),
   );
   //ignore: use_build_context_synchronously

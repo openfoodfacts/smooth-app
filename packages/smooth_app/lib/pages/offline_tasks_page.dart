@@ -35,11 +35,14 @@ class _OfflineTaskState extends State<OfflineTask> {
           PopupMenuButton<int>(
             onSelected: (int item) async {
               await Workmanager().cancelAll();
+              final List<String> keys = await daoBackgroundTask.getAllKeys();
+              await daoBackgroundTask.deleteAll(keys);
+              setState(() {});
               const SnackBar snackBar = SnackBar(
                 content: Text(
                   'All Tasks Cancelled',
                 ),
-                duration: SmoothAnimationsDuration.short,
+                duration: Duration(seconds: 3),
               );
               if (!mounted) {
                 return;

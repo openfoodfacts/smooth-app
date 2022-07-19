@@ -1,19 +1,25 @@
+import 'dart:convert';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/TagType.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/background_tasks_model.dart';
+import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:workmanager/workmanager.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
@@ -224,12 +230,51 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         return true;
       }
     }
-    // if it fails, we stay on the same page
-    return ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: changedProduct,
+
+    final String uniqueId = 'Others ${SmoothRandom.generateRandomString(10)}';
+    final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
+        BackgroundOtherDetailsInput(
+      processName: 'Others',
+      uniqueId: uniqueId,
+      barcode: changedProduct.barcode!,
+      counter: 0,
+      languageCode: ProductQuery.getLanguage().code,
+      inputMap: jsonEncode(changedProduct.toJson()),
     );
+    Workmanager().registerOneOffTask(
+      uniqueId,
+      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
+      constraints: Constraints(
+        networkType: NetworkType.connected,
+      ),
+      inputData: backgroundOtherDetailsInput.toJson(),
+    );
+    final DaoBackgroundTask daoBackgroundTask =
+        DaoBackgroundTask(localDatabase);
+    final BackgroundTaskModel backgroundTaskModel = BackgroundTaskModel(
+      backgroundTaskId: uniqueId,
+      backgroundTaskName: widget.helper.getTitle(appLocalizations),
+      backgroundTaskDescription:
+          'Made edit to ${widget.helper.getTitle(appLocalizations)} on ${DateTime.now()}',
+      barcode: changedProduct.barcode!,
+      dateTime: DateTime.now(),
+      status: 'Pending',
+      taskMap: backgroundOtherDetailsInput.toJson(),
+    );
+    daoBackgroundTask.put(backgroundTaskModel);
+    localDatabase.notifyListeners();
+    if (!mounted) {
+      return false;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          '${widget.helper.getTitle(appLocalizations)} added successfully',
+        ),
+        duration: const Duration(seconds: 3),
+      ),
+    );
+    return true;
   }
 
   /// Adds all the non-already existing items from the controller.
