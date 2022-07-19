@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
@@ -11,22 +14,25 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     required this.knowledgePanelTitleElement,
     required this.isClickable,
     this.evaluation,
-    this.temporaryNewDisplay = true,
   });
 
   final TitleElement knowledgePanelTitleElement;
   final Evaluation? evaluation;
   final bool isClickable;
-  // it's a test around https://github.com/openfoodfacts/smooth-app/issues/2530
-  final bool temporaryNewDisplay;
 
   @override
   Widget build(BuildContext context) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     Color? colorFromEvaluation;
     String? emoji;
-    if (temporaryNewDisplay) {
+    if (userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji) ??
+        false) {
       emoji = _getEmojiEvaluation(evaluation);
-    } else {
+    }
+    if (!(userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor) ??
+        false)) {
       final ThemeData themeData = Theme.of(context);
       if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
         if (themeData.brightness == Brightness.dark) {
@@ -136,11 +142,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   String? _getEmojiEvaluation(Evaluation? evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
-        return '🌧️';
+        return '😡️';
       case Evaluation.AVERAGE:
-        return '☁️';
+        return '😐️';
       case Evaluation.GOOD:
-        return '☀️';
+        return '😍️';
       case null:
       case Evaluation.NEUTRAL:
       case Evaluation.UNKNOWN:
