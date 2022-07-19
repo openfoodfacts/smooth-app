@@ -352,23 +352,39 @@ class _CameraPlayScanSoundSetting extends StatelessWidget {
   }
 }
 
-class _ExpandPanelNutritionTableSetting extends StatelessWidget {
-  const _ExpandPanelNutritionTableSetting({Key? key}) : super(key: key);
+class _ExpandPanelHelper extends StatelessWidget {
+  const _ExpandPanelHelper(
+    this.title,
+    this.subtitle,
+    this.id,
+  );
 
+  final String title;
+  final String subtitle;
+  final String id;
+  
+  @override
+  Widget build(BuildContext context) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    return UserPreferencesSwitchItem(
+      title: title,
+      subtitle: subtitle,
+      value: userPreferences.getExpandedPanel(id),
+      onChanged: (final bool value) async {
+        await userPreferences.setExpandedPanel(id, value);
+      },
+    );
+  }
+}
+
+class _ExpandPanelNutritionTableSetting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    return UserPreferencesSwitchItem(
-      title: appLocalizations.expand_nutrition_facts,
-      subtitle: appLocalizations.expand_nutrition_facts_body,
-      value: userPreferences
-          .getExpandedPanel(KnowledgePanelCard.EXPAND_PANEL_NUTRITION_TABLE_ID),
-      onChanged: (final bool value) async {
-        await userPreferences.setExpandedPanel(
-            KnowledgePanelCard.EXPAND_PANEL_NUTRITION_TABLE_ID, value);
-      },
+    return _ExpandPanelHelper(
+      appLocalizations.expand_nutrition_facts,
+      appLocalizations.expand_nutrition_facts_body,
+      KnowledgePanelCard.EXPAND_PANEL_NUTRITION_TABLE_ID,
     );
   }
 }
