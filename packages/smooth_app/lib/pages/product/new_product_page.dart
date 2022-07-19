@@ -202,7 +202,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(
-        controller: _scrollController,
+        // /!\ Smart Dart
+        // `physics: const AlwaysScrollableScrollPhysics()`
+        // means that we will always scroll, even if it's pointless.
+        // Why do we need to? For the RefreshIndicator, that wouldn't be
+        // triggered on a ListView smaller than the screen
+        // (as there will be no scroll).
+        physics: const AlwaysScrollableScrollPhysics(),
         children: <Widget>[
           Align(
             heightFactor: 0.7,

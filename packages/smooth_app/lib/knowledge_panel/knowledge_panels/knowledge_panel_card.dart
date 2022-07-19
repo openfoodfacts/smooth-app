@@ -28,6 +28,7 @@ class KnowledgePanelCard extends StatelessWidget {
         panel: panel,
         allPanels: allPanels,
         product: product,
+        isInitiallyExpanded: false,
       );
     }
 

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/interface/JsonObject.dart';
 import 'package:openfoodfacts/model/Nutriments.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
@@ -58,6 +60,9 @@ class NutritionContainer {
   /// Nutrient units.
   final Map<String, Unit> _units = <String, Unit>{};
 
+  /// Initial nutrient units.
+  final Map<String, Unit> _initialUnits = <String, Unit>{};
+
   /// Nutrient Ids added by the end-user
   final Set<String> _added = <String>{};
 
@@ -98,22 +103,17 @@ class NutritionContainer {
         servingSize: _servingSize,
       );
 
-  /// Converts all the data to a [Nutriments].
-  Nutriments _getNutriments() {
-    /// Converts a (weight) value to grams (before sending a value to the BE)
-    double? _convertWeightToG(final double? value, final Unit unit) {
-      if (value == null) {
-        return null;
-      }
-      if (unit == Unit.MILLI_G) {
-        return value / 1E3;
-      }
-      if (unit == Unit.MICRO_G) {
-        return value / 1E6;
-      }
-      return value;
-    }
+  void copyUnitsFrom(final NutritionContainer other) =>
+      _units.addAll(other._units);
 
+  /// Converts all the data to a [Nutriments].
+  ///
+  /// When we WRITE, that's rather simple.
+  /// If we want to say "120 mg", we put "120" as value and "mg" as unit.
+  /// When we READ it's not the same, as the weight values are ALWAYS in g.
+  /// If the server data is "120 mg", we get "0.12" as value (in g)
+  /// and "mg" as unit (as suggested unit).
+  Nutriments _getNutriments() {
     final Map<String, dynamic> map = <String, dynamic>{};
     for (final OrderedNutrient orderedNutrient in getDisplayableNutrients()) {
       final String nutrientId = orderedNutrient.id;
@@ -126,10 +126,10 @@ class NutritionContainer {
       }
       final Unit unit = getUnit(nutrientId);
       if (value100g != null) {
-        map[key100g] = _convertWeightToG(value100g, unit);
+        map[key100g] = value100g;
       }
       if (valueServing != null) {
-        //map[keyServing] = _convertWeightToG(valueServing, unit);
+        map[keyServing] = valueServing;
       }
       map[_getNutrimentsUnitKey(nutrientId)] = UnitHelper.unitToString(unit);
     }
@@ -169,7 +169,7 @@ class NutritionContainer {
   /// Typical use-case: [Unit] button action.
   void setNextWeightUnit(final OrderedNutrient orderedNutrient) {
     final Unit unit = getUnit(orderedNutrient.id);
-    _setUnit(orderedNutrient.id, _nextWeightUnits[unit] ?? unit);
+    _setUnit(orderedNutrient.id, _nextWeightUnits[unit] ?? unit, init: false);
   }
 
   /// Returns the nutrient [Unit], after possible alterations.
@@ -187,8 +187,17 @@ class NutritionContainer {
   }
 
   /// Stores the nutrient [Unit].
-  void _setUnit(final String nutrientId, final Unit unit) =>
-      _units[_fixNutrientId(nutrientId)] = unit;
+  void _setUnit(
+    final String nutrientId,
+    final Unit unit, {
+    required final bool init,
+  }) {
+    final String tag = _fixNutrientId(nutrientId);
+    _units[tag] = unit;
+    if (init) {
+      _initialUnits[tag] = unit;
+    }
+  }
 
   static Unit? _getDefaultUnit(final String nutrientId) =>
       _defaultNotWeightUnits[_fixNutrientId(nutrientId)];
@@ -277,7 +286,7 @@ class NutritionContainer {
       }
       final Unit? unit = UnitHelper.stringToUnit(value);
       if (unit != null) {
-        _setUnit(nutrientId, unit);
+        _setUnit(nutrientId, unit, init: true);
       }
     }
   }
@@ -317,5 +326,50 @@ class NutritionContainer {
         }
       }
     }
+  }
+
+  bool isEdited(
+    final Map<String, TextEditingController> controllers,
+    final NumberFormat numberFormat,
+    final bool noNutritionData,
+  ) {
+    if (_isEditedControllers(controllers, numberFormat)) {
+      return true;
+    }
+    if (this.noNutritionData != noNutritionData) {
+      return true;
+    }
+    if (_isEditedUnits()) {
+      return true;
+    }
+    return false;
+  }
+
+  bool _isEditedControllers(
+    final Map<String, TextEditingController> controllers,
+    final NumberFormat numberFormat,
+  ) {
+    for (final String key in controllers.keys) {
+      final TextEditingController controller = controllers[key]!;
+      final String text = controller.value.text;
+      final double? value = getValue(key);
+      if (value == null) {
+        if (text != '') {
+          return true;
+        }
+      } else if (numberFormat.format(value) != text) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  bool _isEditedUnits() {
+    for (final String tag in _units.keys) {
+      if (_initialUnits[tag] != _units[tag]) {
+        return true;
+      }
+    }
+    return false;
   }
 }
