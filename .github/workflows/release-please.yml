@@ -1,9 +1,9 @@
 name: Run release-please
- on:
+on:
    push:
      branches:
        - develop
- jobs:
+jobs:
    release-please:
      runs-on: ubuntu-latest
      steps:
