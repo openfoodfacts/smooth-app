@@ -62,7 +62,9 @@ class _EditProductPageState extends State<EditProductPage> {
                   horizontal: screenSize.width / 4,
                   vertical: SMALL_SPACE,
                 ),
-                barcode: Barcode.ean13(),
+                barcode: _product.barcode!.length == 8
+                    ? Barcode.ean8()
+                    : Barcode.ean13(),
                 data: _product.barcode!,
                 errorBuilder: (final BuildContext context, String? _) =>
                     ListTile(
