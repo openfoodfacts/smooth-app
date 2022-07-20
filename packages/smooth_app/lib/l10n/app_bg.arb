@@ -320,6 +320,12 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Преводите са една от ключовите задачи на проекта",
     "@contribute_translate_text_2": {},
+    "contribute_share_header": "Сподели Open Food Facts с приятелите си",
+    "@contribute_share_header": {},
+    "contribute_share_content": "Исках да те уведомя за приложението, което използвам, Open Food Facts, което ти позволява да получаваш информация за въздействието на твоьта храна върху здравето и околната среда по персонализиран начин. Работи чрез сканиране на баркодовете на опаковката.То е безплатно, не изисква регистрация и дори можеш да помогнеш за увеличаване на броя на дешифрираните продукти. Ето връзката, за да го получиш за твоя телефон: https://openfoodfacts.app",
+    "@contribute_share_content": {
+        "description": "Content that will be shared, don't forget to include the URL"
+    },
     "tap_to_answer": "Натисни тук, за да отговориш на въпроси",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -422,7 +428,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "",
+    "packaging_editing_instructions": "Изброй всички части на опаковката, разделени със запетая или ред, с тяхното количество (напр. 1 или 6), вид (напр. бутилка, кутия, кен), материал (напр. пластмаса, метал, алуминий) и ако е наличен, техния размер (напр. 33cl) и инструкции за рециклиране.\nПример: 1 стъклена бутилка за рециклиране, 1 пластмасова тапа за изхвърляне",
     "packaging_editing_error": "Неуспешно запазване на опаковката.",
     "packaging_editing_image_error": "Неуспешно получаване на новата снимка на опаковката.",
     "packaging_editing_title": "Редактиране на опаковката",
@@ -1013,6 +1019,22 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_origins_title": "Произход",
+    "@edit_product_form_item_origins_title": {
+        "description": "Product edition - Origins - Title"
+    },
+    "edit_product_form_item_origins_hint": "Испания",
+    "@edit_product_form_item_origins_hint": {
+        "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_explainer_1": "Добави всички указания за произход, които можеш да намериш върху опаковката. Не е нужно да се притесняваш за произхода, посочен директно в списъка на съставките.",
+    "@edit_product_form_item_origins_explainer_1": {
+        "description": "Product edition - Origins - input explainer, part 1"
+    },
+    "edit_product_form_item_origins_explainer_2": "Примери: Говеждо от Аржентина, Соята не идва от Европейския съюз",
+    "@edit_product_form_item_origins_explainer_2": {
+        "description": "Product edition - Origins - input explainer, part 2"
+    },
     "edit_product_form_item_countries_title": "Страна",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
@@ -1044,6 +1066,18 @@
     "edit_product_form_item_categories_hint": "категория",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_explainer_1": "Посочи само най-конкретната категория. Родителските категориите ще бъдат добавени автоматично.",
+    "@edit_product_form_item_categories_explainer_1": {
+        "description": "Product edition - Categories - input explainer, part 1"
+    },
+    "edit_product_form_item_categories_explainer_2": "В случай, че опледелена категория не е налична в автоматичното довършване, не се колебай да я добавиш защото това ще ни помогне да подобрим Open Food Facts в твоята страна.",
+    "@edit_product_form_item_categories_explainer_2": {
+        "description": "Product edition - Categories - input explainer, part 2"
+    },
+    "edit_product_form_item_categories_explainer_3": "Примери: Сардини в дървено масло, Портокалов сок от концентрат",
+    "@edit_product_form_item_categories_explainer_3": {
+        "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Искаш ли да запазиш промените, преди да напуснеш тази страница?",
     "edit_product_form_item_ingredients_title": "Съставки и произход",

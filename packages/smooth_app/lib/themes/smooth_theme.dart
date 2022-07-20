@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -85,7 +86,7 @@ class SmoothTheme {
         fontWeight: FontWeight.bold,
       ),
       headline4: TextStyle(
-        fontSize: 16.0,
+        fontSize: LARGE_SPACE,
         fontWeight: FontWeight.bold,
         color: Colors.black,
       ),

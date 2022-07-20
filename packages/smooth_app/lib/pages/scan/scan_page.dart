@@ -188,8 +188,8 @@ class _ScanPageTopWidget extends StatelessWidget {
                   child: SmoothCard(
                     padding: const EdgeInsetsDirectional.only(
                       top: 10.0,
-                      start: 8.0,
-                      end: 8.0,
+                      start: SMALL_SPACE,
+                      end: SMALL_SPACE,
                       bottom: 5.0,
                     ),
                     child: Align(

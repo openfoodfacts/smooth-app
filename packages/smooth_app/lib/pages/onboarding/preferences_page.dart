@@ -84,10 +84,10 @@ class _HelperState extends State<_Helper> {
         height: MediaQuery.of(context).size.height * .25,
       ),
       Padding(
-        padding: const EdgeInsets.only(
-          right: LARGE_SPACE,
-          left: LARGE_SPACE,
+        padding: const EdgeInsetsDirectional.only(
           bottom: LARGE_SPACE,
+          start: LARGE_SPACE,
+          end: LARGE_SPACE,
         ),
         child: Text(
           appLocalizations.productDataUtility,
@@ -96,10 +96,10 @@ class _HelperState extends State<_Helper> {
       ),
       Container(
         height: _isProductExpanded ? null : 180,
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           bottom: LARGE_SPACE,
-          right: LARGE_SPACE,
-          left: LARGE_SPACE,
+          start: LARGE_SPACE,
+          end: LARGE_SPACE,
         ),
         child: GestureDetector(
           onTap: () => _expandProductCard(),
@@ -133,7 +133,7 @@ class _HelperState extends State<_Helper> {
             Flexible(
               flex: 1,
               child: ListView.builder(
-                padding: const EdgeInsets.only(top: LARGE_SPACE),
+                padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
                 itemCount: pageData.length,
                 itemBuilder: (BuildContext context, int position) =>
                     pageData[position],

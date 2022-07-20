@@ -148,6 +148,12 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_origins_hint;
 
   @override
+  String? getAddExplanations(final AppLocalizations appLocalizations) =>
+      '${appLocalizations.edit_product_form_item_origins_explainer_1}'
+      '\n'
+      '${appLocalizations.edit_product_form_item_origins_explainer_2}';
+
+  @override
   TagType? getTagType() => null;
 
   @override
@@ -290,6 +296,14 @@ class SimpleInputPageCategoryHelper
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_title;
+
+  @override
+  String? getAddExplanations(final AppLocalizations appLocalizations) =>
+      '${appLocalizations.edit_product_form_item_categories_explainer_1}'
+      '\n'
+      '${appLocalizations.edit_product_form_item_categories_explainer_2}'
+      '\n'
+      '${appLocalizations.edit_product_form_item_categories_explainer_3}';
 
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>

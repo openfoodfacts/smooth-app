@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         appLocalizations.sign_in_text,
                         textAlign: TextAlign.center,
                         style: theme.textTheme.headline1?.copyWith(
-                          fontSize: 20.0,
+                          fontSize: VERY_LARGE_SPACE,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -144,6 +144,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       //Login
                       SmoothTextFormField(
                         type: TextFieldTypes.PLAIN_TEXT,
+                        textInputType: TextInputType.name,
                         controller: userIdController,
                         hintText: appLocalizations.username_or_email,
                         prefixIcon: const Icon(Icons.person),
@@ -170,6 +171,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       //Password
                       SmoothTextFormField(
                         type: TextFieldTypes.PASSWORD,
+                        textInputType: TextInputType.text,
                         controller: passwordController,
                         hintText: appLocalizations.password,
                         prefixIcon: const Icon(Icons.vpn_key),
@@ -185,6 +187,11 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                 .login_page_password_error_empty;
                           }
                           return null;
+                        },
+                        onFieldSubmitted: (String value) {
+                          if (value.isNotEmpty) {
+                            _login(context);
+                          }
                         },
                       ),
 
@@ -227,7 +234,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           padding: MaterialStateProperty.all<EdgeInsets>(
                             const EdgeInsets.symmetric(
                               vertical: 10.0,
-                              horizontal: 20.0,
+                              horizontal: VERY_LARGE_SPACE,
                             ),
                           ),
                           shape:
@@ -294,11 +301,12 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.only(bottom: 2.0),
+                            padding:
+                                const EdgeInsetsDirectional.only(bottom: 2.0),
                             child: Text(
                               appLocalizations.create_account,
                               style: theme.textTheme.bodyText2?.copyWith(
-                                fontSize: 20.0,
+                                fontSize: VERY_LARGE_SPACE,
                                 fontWeight: FontWeight.w500,
                                 color: theme.colorScheme.primary,
                               ),

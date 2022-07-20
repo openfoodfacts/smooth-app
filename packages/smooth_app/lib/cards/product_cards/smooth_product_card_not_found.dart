@@ -53,7 +53,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: LARGE_SPACE),
+                padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
                 child: SmoothLargeButtonWithIcon(
                   text: appLocalizations.add_product_information_button_label,
                   icon: Icons.add,

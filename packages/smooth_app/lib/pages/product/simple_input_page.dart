@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -66,8 +67,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                       widget.helper.getTitle(appLocalizations),
                       style: themeData.textTheme.headline1,
                     ),
-                    if (widget.helper.getSubtitle(appLocalizations) != null)
-                      Text(widget.helper.getSubtitle(appLocalizations)!),
+                    ExplanationWidget(
+                      widget.helper.getAddExplanations(appLocalizations),
+                    ),
                     ListTile(
                       onTap: () => _addItemsFromController(),
                       trailing: const Icon(Icons.add_circle),
@@ -137,9 +139,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                         ),
                       ),
                     ),
-                    if (widget.helper.getAddExplanations(appLocalizations) !=
-                        null)
-                      Text(widget.helper.getAddExplanations(appLocalizations)!),
                     Divider(color: themeData.colorScheme.onBackground),
                     Column(
                       children: List<Widget>.generate(

@@ -251,8 +251,8 @@ class _SummaryCardState extends State<SummaryCard> {
       }
     }
     final Widget attributesContainer = Container(
-      alignment: Alignment.topLeft,
-      margin: const EdgeInsets.only(bottom: 16),
+      alignment: AlignmentDirectional.topStart,
+      margin: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
       child: Column(children: displayedGroups),
     );
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
@@ -500,7 +500,8 @@ class _SummaryCardState extends State<SummaryCard> {
     if (groupName != null) {
       return Container(
         alignment: Alignment.topLeft,
-        padding: const EdgeInsets.only(top: SMALL_SPACE, bottom: LARGE_SPACE),
+        padding: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE, bottom: LARGE_SPACE),
         child: Text(
           groupName,
           style:
@@ -654,7 +655,8 @@ class _SummaryCardState extends State<SummaryCard> {
                             ),
                       ),
                       Container(
-                        padding: const EdgeInsets.only(top: SMALL_SPACE),
+                        padding:
+                            const EdgeInsetsDirectional.only(top: SMALL_SPACE),
                         child: Text(
                           appLocalizations.contribute_to_get_rewards,
                           style: Theme.of(context)

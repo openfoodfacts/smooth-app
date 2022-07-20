@@ -320,6 +320,12 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Tłumaczenia są jednym z kluczowych zadań projektu",
     "@contribute_translate_text_2": {},
+    "contribute_share_header": "Udostępnij Open Food Facts znajomym",
+    "@contribute_share_header": {},
+    "contribute_share_content": "Korzystam z takiej aplikacji, Open Food Facts, która pozwala w spersonalizowany sposób poznać wpływ żywności na zdrowie i środowisko. Działa poprzez skanowanie kodów kreskowych na opakowaniu. Jest bezpłatna, nie wymaga rejestracji, a nawet możesz pomóc w zwiększeniu liczby znanych produktów. Oto link do pobrania jej na swój telefon: https://openfoodfacts.app",
+    "@contribute_share_content": {
+        "description": "Content that will be shared, don't forget to include the URL"
+    },
     "tap_to_answer": "Kliknij tu, żeby odpowiedzieć na pytania",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
@@ -422,10 +428,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "",
-    "packaging_editing_error": "Failed to save the packaging.",
-    "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_instructions": "Wymień wszystkie części opakowania oddzielone przecinkiem lub nowym wierszem, podając ich ilość (np. 1 lub 6) rodzaj (np. butelka, pudełko, puszka), materiał (np. plastik, metal, aluminium) i, jeśli to możliwe, ich rozmiar (np. 330 ml) oraz instrukcje recyklingu.\nPrzykład: 1 szklana butelka do recyklingu, 1 plastikowy korek do wyrzucenia",
+    "packaging_editing_error": "Nie udało się zapisać informacji o opakowaniu.",
+    "packaging_editing_image_error": "Nie udało się pobrać zdjęcia nowego opakowania.",
+    "packaging_editing_title": "Edytuj opakowanie",
     "nutrition": "Odżywianie",
     "@nutrition": {},
     "nutrition_facts_photo": "Zdjęcie tabeli wartości odżywczych",
@@ -622,35 +628,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{jeden dzień temu} other{{count} dni temu}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{godzinę temu} =2{2 godziny temu} =3{3 godziny temu} =4{4 godziny temu} other{{count} godzin temu}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{mniej niż minutę temu} =1{minutę temu} =2{2 minuty temu} =3{3 minuty temu} =4{4 minuty temu} other{{count} minut temu}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} =1{miesiąc temu} =2{2 miesiące temu} =3{3 miesiące temu} =4{4 miesiące temu} other{{count} miesięcy temu}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{tydzień temu} =2{2 tygodnie temu} =3{3 tygodnie temu} =4{4 tygodnie temu} other{{count} tygodni temu}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -678,7 +684,7 @@
     "faq": "Najczęściej zadawane pytania (FAQ)",
     "discover": "Odkryj",
     "how_to_contribute": "Jak mogę pomóc",
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "hint_knowledge_panel_message": "Możesz dotknąć dowolnej części karty, aby uzyskać więcej informacji na temat tego, co widzisz. Spróbuj teraz!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -686,15 +692,15 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Pomóż wolontariuszom Open Food Facts ulepszyć aplikację. Zdecydujesz, czy chcesz przesyłać anonimowe dane analityczne.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Jeśli zmienisz zdanie, tę opcję możesz włączyć i wyłączyć w dowolnym momencie w ustawieniach.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "contact_form_body_android": "System operacyjny: Android (SDK Int: {sdkInt} / Wydanie: ${release})\nModel: ${model}\nProdukt: ${product}\nUrządzenie: ${device}\nMarka:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -724,7 +730,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "contact_form_body_ios": "System operacyjny: iOS ({version})\nModel: ${model}\nLokalny model: ${localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -742,7 +748,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "contact_form_body": "{osContent}\nWersja aplikacji:{appVersion}\nNumer kompilacji aplikacji:{appBuildNumber}\nNazwa pakietu aplikacji:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -772,7 +778,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "knowledge_panel_text_source": "Go further on {source_name}",
+    "knowledge_panel_text_source": "Przejdź dalej na {source_name}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
@@ -781,11 +787,11 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "W 2012 roku\nstworzyliśmy aplikację\ndo wspólnego skanowania",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "Po 10. latach działania\npostanowiliśmy zaprojektować\naplikację od zera!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -813,7 +819,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "product_list_reloading_in_progress_multiple": "Odświeżanie {count,plural, one {} =0{produktu} =1{produktu} other{produktów}} w historii",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
@@ -957,15 +963,15 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Zezwól",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "Odmowa dostępu",
+    "permission_photo_denied_dialog_settings_message": "Ponieważ poprzednio odmówiono dostępu do aparatu, musisz zezwolić na to ręcznie w Ustawieniach.",
     "permission_photo_denied_dialog_settings_button_open": "Ustawienia",
     "permission_photo_denied_dialog_settings_button_cancel": "Anuluj",
-    "permission_photo_denied": "No camera access granted",
+    "permission_photo_denied": "Nie przyznano dostępu do aparatu",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -1013,6 +1019,22 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_origins_title": "Pochodzenie",
+    "@edit_product_form_item_origins_title": {
+        "description": "Product edition - Origins - Title"
+    },
+    "edit_product_form_item_origins_hint": "Hiszpania",
+    "@edit_product_form_item_origins_hint": {
+        "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_explainer_1": "Dodaj informacje o pochodzeniu, które można znaleźć na opakowaniu. Nie musisz się martwić o pochodzenie wskazane bezpośrednio na liście składników.",
+    "@edit_product_form_item_origins_explainer_1": {
+        "description": "Product edition - Origins - input explainer, part 1"
+    },
+    "edit_product_form_item_origins_explainer_2": "Przykłady: wołowina z Argentyny, soja nie pochodzi z Unii Europejskiej",
+    "@edit_product_form_item_origins_explainer_2": {
+        "description": "Product edition - Origins - input explainer, part 2"
+    },
     "edit_product_form_item_countries_title": "Kraj",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
@@ -1044,6 +1066,18 @@
     "edit_product_form_item_categories_hint": "kategoria",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_explainer_1": "Wskaż tylko najbardziej szczegółową kategorię. Kategorie nadrzędne zostaną automatycznie dodane.",
+    "@edit_product_form_item_categories_explainer_1": {
+        "description": "Product edition - Categories - input explainer, part 1"
+    },
+    "edit_product_form_item_categories_explainer_2": "Jeśli kategoria nie jest dostępna w autouzupełnianiu, możesz ją dodać, pomoże nam to ulepszyć Open Food Facts w Twoim kraju.",
+    "@edit_product_form_item_categories_explainer_2": {
+        "description": "Product edition - Categories - input explainer, part 2"
+    },
+    "edit_product_form_item_categories_explainer_3": "Przykłady: sardynki w oliwie z oliwek, sok pomarańczowy z koncentratu",
+    "@edit_product_form_item_categories_explainer_3": {
+        "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Czy chcesz zapisać zmiany przed opuszczeniem tej strony?",
     "edit_product_form_item_ingredients_title": "Ingredients & Origins",
@@ -1419,7 +1453,7 @@
     "add_basic_details_product_name_error": "Wprowadź, proszę, nazwę produktu",
     "brand_name": "Nazwa marki",
     "add_basic_details_brand_name_error": "Wprowadź, proszę, nazwę marki",
-    "quantity": "Quantity and weight",
+    "quantity": "Ilość i waga",
     "barcode": "Kod kreskowy",
     "barcode_barcode": "Kod kreskowy: {barcode}",
     "@barcode_barcode": {
@@ -1512,7 +1546,7 @@
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "no_internet_connection": "No internet connection",
+    "no_internet_connection": "Brak połączenia z internetem",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     }

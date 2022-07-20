@@ -35,9 +35,9 @@ class SmoothCard extends StatelessWidget {
   const SmoothCard.flat({
     required this.child,
     this.color,
-    this.margin = const EdgeInsets.only(
-      right: SMALL_SPACE,
-      left: SMALL_SPACE,
+    this.margin = const EdgeInsetsDirectional.only(
+      start: SMALL_SPACE,
+      end: SMALL_SPACE,
       top: VERY_SMALL_SPACE,
       bottom: VERY_SMALL_SPACE,
     ),

@@ -50,6 +50,7 @@ class TableCell {
   final String text;
   final Color? color;
   final bool isHeader;
+
   // [columnGroup] is set only for cells that have [isHeader = true]. This is used
   // to show a dropdown of other column headers in the group for this column.
   final ColumnGroup? columnGroup;
@@ -58,9 +59,11 @@ class TableCell {
 class KnowledgePanelTableCard extends StatefulWidget {
   const KnowledgePanelTableCard({
     required this.tableElement,
+    required this.isInitiallyExpanded,
   });
 
   final KnowledgePanelTableElement tableElement;
+  final bool isInitiallyExpanded;
 
   @override
   State<KnowledgePanelTableCard> createState() =>
@@ -168,10 +171,12 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
             availableWidth / totalMaxColumnWidth * _columnsMaxLength[index++];
         rowWidgets.add(
           TableCellWidget(
-              cell: cell,
-              cellWidth: cellWidth,
-              tableElement: widget.tableElement,
-              rebuildTable: setState),
+            cell: cell,
+            cellWidth: cellWidth,
+            tableElement: widget.tableElement,
+            rebuildTable: setState,
+            isInitiallyExpanded: widget.isInitiallyExpanded,
+          ),
         );
       }
       rowsWidgets.add(rowWidgets);
@@ -249,23 +254,32 @@ class TableCellWidget extends StatefulWidget {
     required this.cellWidth,
     required this.tableElement,
     required this.rebuildTable,
+    required this.isInitiallyExpanded,
   });
 
   final TableCell cell;
   final double cellWidth;
   final KnowledgePanelTableElement tableElement;
   final void Function(VoidCallback fn) rebuildTable;
+  final bool isInitiallyExpanded;
 
   @override
   State<TableCellWidget> createState() => _TableCellWidgetState();
 }
 
 class _TableCellWidgetState extends State<TableCellWidget> {
-  bool _isExpanded = false;
+  late bool _isExpanded;
+
+  @override
+  void initState() {
+    super.initState();
+    _isExpanded = widget.isInitiallyExpanded;
+  }
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsets padding = const EdgeInsets.only(bottom: VERY_SMALL_SPACE);
+    EdgeInsetsGeometry padding =
+        const EdgeInsetsDirectional.only(bottom: VERY_SMALL_SPACE);
     // header cells get a bigger vertical padding.
     if (widget.cell.isHeader) {
       padding = const EdgeInsets.symmetric(vertical: SMALL_SPACE);
@@ -283,8 +297,11 @@ class _TableCellWidgetState extends State<TableCellWidget> {
     return _buildDropDownColumnHeader(padding, style);
   }
 
-  Widget _buildHtmlCell(EdgeInsets padding, TextStyle style,
-      {required bool isSelectable}) {
+  Widget _buildHtmlCell(
+    EdgeInsetsGeometry padding,
+    TextStyle style, {
+    required bool isSelectable,
+  }) {
     String cellText = widget.cell.text;
     if (!_isExpanded) {
       const String htmlStyle = '''
@@ -312,7 +329,10 @@ class _TableCellWidgetState extends State<TableCellWidget> {
     );
   }
 
-  Widget _buildDropDownColumnHeader(EdgeInsets padding, TextStyle style) {
+  Widget _buildDropDownColumnHeader(
+    EdgeInsetsGeometry padding,
+    TextStyle style,
+  ) {
     // Now we finally render [ColumnGroup]s as drop down menus.
     return Padding(
       padding: padding,

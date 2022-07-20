@@ -55,7 +55,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         child: ListView(
           children: <Widget>[
             Align(
-              alignment: Alignment.topLeft,
+              alignment: AlignmentDirectional.topStart,
               child: ProductImageCarousel(
                 _product,
                 height: size.height * 0.20,

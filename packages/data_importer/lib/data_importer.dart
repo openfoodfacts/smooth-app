@@ -3,7 +3,7 @@ import 'package:data_importer/shared/platform_data_importer.dart';
 import 'package:data_importer_shared/data_importer_shared.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-/// Data importer from "V1" apps to Smothie ("V2") with:
+/// Data importer from "V1" apps to Smoothie ("V2") with:
 /// - History and user lists
 /// - User credentials (login / password)
 class ApplicationDataImporter {
@@ -14,7 +14,7 @@ class ApplicationDataImporter {
 
   /// Some users may have a long history on the previous app, we limit the
   /// import of last scanned products to this constant
-  static const int MAX_HISTORY_ITEMS = 500;
+  static const int MAX_HISTORY_ITEMS = 1000;
 
   /// The maximum number of times [startImport] can be called automatically
   static const int MAX_NUMBER_RETRIES = 5;

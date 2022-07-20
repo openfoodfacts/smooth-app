@@ -202,11 +202,17 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(
-        controller: _scrollController,
+        // /!\ Smart Dart
+        // `physics: const AlwaysScrollableScrollPhysics()`
+        // means that we will always scroll, even if it's pointless.
+        // Why do we need to? For the RefreshIndicator, that wouldn't be
+        // triggered on a ListView smaller than the screen
+        // (as there will be no scroll).
+        physics: const AlwaysScrollableScrollPhysics(),
         children: <Widget>[
           Align(
             heightFactor: 0.7,
-            alignment: Alignment.topLeft,
+            alignment: AlignmentDirectional.topStart,
             child: ProductImageCarousel(
               _product,
               height: 200,
@@ -227,7 +233,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               ),
             ),
           ),
-          _buildKnowledgePanelCards(),
           _buildActionBar(appLocalizations),
           if (productListNames.isNotEmpty)
             _buildListWidget(
@@ -235,6 +240,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               productListNames,
               daoProductList,
             ),
+          _buildKnowledgePanelCards(),
           if (context.read<UserPreferences>().getFlag(
                   UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
               false)
@@ -272,7 +278,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final bool refreshed = await ProductListUserDialogHelper(daoProductList)
         .showUserListsWithBarcodeDialog(context, widget.product);
     if (refreshed) {
-      _mustScrollToTheEnd = true;
       setState(() {});
     }
   }
