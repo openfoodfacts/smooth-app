@@ -335,7 +335,7 @@ class DaoProductList extends AbstractDao {
     return keys;
   }
 
-  /// Delete just enteries containing HTTP_SEARCH_KEYWORDS.key
+  /// Delete just entries containing HTTP_SEARCH_KEYWORDS.key
   Future<List<String>> getKeysToDelete() async {
     final List<String> keys = await getKeys();
     keys.removeWhere((String key) =>
