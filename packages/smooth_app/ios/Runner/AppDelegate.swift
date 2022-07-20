@@ -18,7 +18,7 @@ import workmanager
                   GeneratedPluginRegistrant.register(with: registry)
               }
       
-    WorkmanagerPlugin.registerTask(withIdentifier: "ImageUploadWorker")
+    WorkmanagerPlugin.registerTask(withIdentifier: "BackgroundProcess")
       
     // Every 15 min
     UIApplication.shared.setMinimumBackgroundFetchInterval(TimeInterval(60*15))
