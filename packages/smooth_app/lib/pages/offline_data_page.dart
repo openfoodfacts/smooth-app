@@ -122,7 +122,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                         'Update Offline Data',
                       ),
                       subtitle: const Text(
-                        'Update the local databse cache with the latest data from the server',
+                        'Update the local database cache with the latest data from the server',
                       ),
                     ),
                     UserPreferencesListTile(
