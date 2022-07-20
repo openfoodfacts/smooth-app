@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -174,7 +175,7 @@ class ContinuousScanModel with ChangeNotifier {
         if (fetchedProduct.product != null) {
           product = fetchedProduct.product;
         }
-      } catch (e) {
+      } on SocketException {
         // Tried to refresh the product from server but failed maybe due to server error or internet connection issue
         // Then it will show the cached product as it is
       }
