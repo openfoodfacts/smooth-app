@@ -24,11 +24,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     Color? colorFromEvaluation;
-    String? emoji;
+    IconData? iconData;
     if (userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji) ??
         false) {
-      emoji = _getEmojiEvaluation(evaluation);
+      iconData = _getIconDataFromEvaluation(evaluation);
     }
     if (!(userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor) ??
@@ -59,13 +59,10 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         const Padding(
           padding: EdgeInsetsDirectional.only(start: SMALL_SPACE),
         ),
-        if (emoji != null)
+        if (iconData != null)
           Padding(
-            padding: const EdgeInsets.only(right: SMALL_SPACE),
-            child: Text(
-              emoji,
-              style: const TextStyle(fontSize: DEFAULT_ICON_SIZE),
-            ),
+            padding: const EdgeInsetsDirectional.only(end: SMALL_SPACE),
+            child: Icon(iconData),
           ),
       ];
     } else {
@@ -141,14 +138,14 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     }
   }
 
-  String? _getEmojiEvaluation(Evaluation? evaluation) {
+  IconData? _getIconDataFromEvaluation(Evaluation? evaluation) {
     switch (evaluation) {
       case Evaluation.BAD:
-        return '😡️';
+        return Icons.sentiment_very_dissatisfied;
       case Evaluation.AVERAGE:
-        return '😐️';
+        return Icons.sentiment_satisfied;
       case Evaluation.GOOD:
-        return '😍️';
+        return Icons.sentiment_very_satisfied;
       case null:
       case Evaluation.NEUTRAL:
       case Evaluation.UNKNOWN:
