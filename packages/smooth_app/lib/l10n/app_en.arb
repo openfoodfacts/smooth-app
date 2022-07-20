@@ -1546,6 +1546,16 @@
     "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
     "no_internet_connection": "No internet connection",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
