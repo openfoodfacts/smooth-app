@@ -99,12 +99,15 @@ class SmoothAlertDialog extends StatelessWidget {
 
   bool get hasActions => positiveAction != null || negativeAction != null;
 
-  Widget _buildContent(final BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          if (title != null) _SmoothDialogTitle(label: title!, close: close),
-          body,
-        ],
+  Widget _buildContent(final BuildContext context) => DefaultTextStyle.merge(
+        style: const TextStyle(height: 1.5),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            if (title != null) _SmoothDialogTitle(label: title!, close: close),
+            body,
+          ],
+        ),
       );
 }
 
