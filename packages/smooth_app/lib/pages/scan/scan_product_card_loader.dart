@@ -27,7 +27,7 @@ class ScanProductCardLoader extends StatelessWidget {
         if (snapshot.data != null) {
           return ScanProductCard(snapshot.data!);
         }
-        // TODO(monsieurtanuki): something like "hey, no product found, clikc to download) + LOGS
+        // TODO(monsieurtanuki): something like "hey, no product found, click to download) + LOGS
         return Container();
       },
     );
