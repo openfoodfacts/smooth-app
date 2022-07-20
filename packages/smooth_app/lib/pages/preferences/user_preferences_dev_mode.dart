@@ -303,7 +303,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             setState(() {});
           },
         ),
-        LanguagePickerSetting(
+        LanguageSelectorSettings(
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
         ),

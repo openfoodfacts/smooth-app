@@ -6,41 +6,39 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 
-class LanguagePickerSetting extends StatelessWidget {
-  const LanguagePickerSetting({
+class LanguageSelectorSettings extends StatelessWidget {
+  const LanguageSelectorSettings({
     required this.userPreferences,
     required this.appLocalizations,
   });
+
   final UserPreferences userPreferences;
   final AppLocalizations appLocalizations;
 
+  static final Languages _languages = Languages();
+
   @override
   Widget build(BuildContext context) {
-    final Languages languages = Languages();
-
     // The languages that are supported by flutter widget
     final String currentLanguageCode = userPreferences.appLanguageCode ??
         Localizations.localeOf(context).toString();
-    final LanguageName languageName =
-        languages.getLanguageNameFromLangCode(currentLanguageCode);
+    final String nameInLanguage =
+        _languages.getLanguageNameFromLangCode(currentLanguageCode);
     return ListTile(
       leading: const Icon(Icons.language),
-      title: const Text(
-        // TODO(abughalib): Localize this
-        'Choose App Language',
+      title: Text(
+        appLocalizations.choose_app_language,
       ),
       subtitle: Text(
-        '${languageName.nameInLanguage} (${languageName.englishName})',
+        '$nameInLanguage ($currentLanguageCode)',
         softWrap: false,
         overflow: TextOverflow.fade,
       ),
       onTap: () async {
-        final List<Pair<String, OpenFoodFactsLanguage>> leftovers =
-            languages.getSupportedLanguagesEnglishName();
-        leftovers.sort((Pair<String, OpenFoodFactsLanguage> a,
-                Pair<String, OpenFoodFactsLanguage> b) =>
-            (a.first).compareTo(b.first));
-        List<Pair<String, OpenFoodFactsLanguage>> filteredList = leftovers;
+        final List<String> leftovers =
+            _languages.getSupportedLanguagesNameInEnglish();
+        leftovers.sort();
+        List<String> filteredList = leftovers;
         await showDialog<void>(
             context: context,
             builder: (BuildContext context) {
@@ -60,12 +58,21 @@ class LanguagePickerSetting extends StatelessWidget {
                             setState(
                               () {
                                 filteredList = leftovers
-                                    .where((Pair<String, OpenFoodFactsLanguage>
-                                            item) =>
-                                        item.first
-                                            .toLowerCase()
-                                            .contains(query.toLowerCase()))
+                                    .where((String item) => item
+                                        .toLowerCase()
+                                        .contains(query.toLowerCase()))
                                     .toList();
+                                // Search using Language Code
+                                if (query.length <= 3) {
+                                  _languages
+                                      .getLanguageNameFromLanguageCodeQuery(
+                                          query)
+                                      .forEach((String nameInEnglish) {
+                                    if (!filteredList.contains(nameInEnglish)) {
+                                      filteredList.add(nameInEnglish);
+                                    }
+                                  });
+                                }
                               },
                             );
                           },
@@ -73,20 +80,25 @@ class LanguagePickerSetting extends StatelessWidget {
                         ...List<ListTile>.generate(
                           filteredList.length,
                           (int index) {
-                            final Pair<String, OpenFoodFactsLanguage>
-                                translatedLang = filteredList[index];
-                            final LanguageName languageName = languages
-                                .getLanguageName(translatedLang.second);
+                            final String nameInEnglish = filteredList[index];
+                            final OpenFoodFactsLanguage languageCode =
+                                _languages
+                                    .getLanguageCodeFromLanguageEnglishName(
+                                        nameInEnglish);
+                            final String nameInLanguage = _languages
+                                .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
+                                    languageCode);
                             return ListTile(
                               title: Text(
-                                '${languageName.nameInLanguage} (${translatedLang.second.code})',
+                                '$nameInLanguage ($nameInEnglish)',
                                 softWrap: false,
                                 overflow: TextOverflow.fade,
                               ),
                               onTap: () {
-                                userPreferences.setAppLanguageCode(
-                                    translatedLang.second.code);
-
+                                userPreferences.setAppLanguageCode(_languages
+                                    .getLanguageCodeFromLanguageEnglishName(
+                                        nameInEnglish)
+                                    .code);
                                 Navigator.of(context).pop();
                               },
                             );
