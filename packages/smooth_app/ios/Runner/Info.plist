@@ -62,7 +62,7 @@
 	<false/>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
     <array>
-       <string>ImageUploadWorker</string>
+       <string>BackgroundProcess</string>
     </array>
 </dict>
 </plist>
