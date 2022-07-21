@@ -52,6 +52,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesCameraPostFrameDuration =
       '__cameraPostFrameDuration';
+  static const String userPreferencesFlagAccessibilityNoColor =
+      '__accessibilityNoColor';
+  static const String userPreferencesFlagAccessibilityEmoji =
+      '__accessibilityEmoji';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -162,6 +166,32 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagEditIngredients, value);
+            _showSuccessMessage();
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+            'Accessibility: remove colors',
+          ),
+          value: userPreferences
+                  .getFlag(userPreferencesFlagAccessibilityNoColor) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagAccessibilityNoColor, value);
+            _showSuccessMessage();
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+            'Accessibility: show emoji',
+          ),
+          value:
+              userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagAccessibilityEmoji, value);
             _showSuccessMessage();
           },
         ),

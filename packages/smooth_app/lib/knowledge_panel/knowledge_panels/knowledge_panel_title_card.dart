@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
@@ -19,13 +22,24 @@ class KnowledgePanelTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     Color? colorFromEvaluation;
-    if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-      if (themeData.brightness == Brightness.dark) {
-        colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
-      } else {
-        colorFromEvaluation = _getColorFromEvaluation(evaluation);
+    IconData? iconData;
+    if (userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji) ??
+        false) {
+      iconData = _getIconDataFromEvaluation(evaluation);
+    }
+    if (!(userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor) ??
+        false)) {
+      final ThemeData themeData = Theme.of(context);
+      if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
+        if (themeData.brightness == Brightness.dark) {
+          colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
+        } else {
+          colorFromEvaluation = _getColorFromEvaluation(evaluation);
+        }
       }
     }
     List<Widget> iconWidget;
@@ -45,6 +59,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         const Padding(
           padding: EdgeInsetsDirectional.only(start: SMALL_SPACE),
         ),
+        if (iconData != null)
+          Padding(
+            padding: const EdgeInsetsDirectional.only(end: SMALL_SPACE),
+            child: Icon(iconData),
+          ),
       ];
     } else {
       iconWidget = <Widget>[];
@@ -116,6 +135,21 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       case Evaluation.NEUTRAL:
       case Evaluation.UNKNOWN:
         return LIGHT_GREY_COLOR;
+    }
+  }
+
+  IconData? _getIconDataFromEvaluation(Evaluation? evaluation) {
+    switch (evaluation) {
+      case Evaluation.BAD:
+        return Icons.sentiment_very_dissatisfied;
+      case Evaluation.AVERAGE:
+        return Icons.sentiment_satisfied;
+      case Evaluation.GOOD:
+        return Icons.sentiment_very_satisfied;
+      case null:
+      case Evaluation.NEUTRAL:
+      case Evaluation.UNKNOWN:
+        return null;
     }
   }
 }

@@ -26,9 +26,14 @@ class SmoothTheme {
       fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedIconTheme: const IconThemeData(size: 24.0),
         showSelectedLabels: true,
+        selectedItemColor: brightness == Brightness.dark
+            ? Colors.white
+            : const Color(0xFF341100),
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         showUnselectedLabels: true,
-        selectedItemColor: myColorScheme.primary,
+        unselectedIconTheme: const IconThemeData(size: 20.0),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
