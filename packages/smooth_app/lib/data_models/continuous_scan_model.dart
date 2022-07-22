@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -146,7 +147,6 @@ class ContinuousScanModel with ChangeNotifier {
       _barcodes.remove(barcode);
       _barcodes.add(barcode);
       _addProduct(barcode, state);
-
       if (state == ScannedProductState.CACHED) {
         _updateBarcode(barcode);
       }
@@ -166,6 +166,21 @@ class ContinuousScanModel with ChangeNotifier {
   Future<bool> _cachedBarcode(final String barcode) async {
     final Product? product = await _daoProduct.get(barcode);
     if (product != null) {
+      try {
+        // We try to load the fresh copy of product from the server
+        final FetchedProduct fetchedProduct =
+            await _queryBarcode(barcode).timeout(const Duration(seconds: 5));
+        if (fetchedProduct.product != null) {
+          _addProduct(barcode, ScannedProductState.CACHED);
+          return true;
+        }
+      } on TimeoutException {
+        // We tried to load the product from the server,
+        // but it was taking more than 5 seconds.
+        // So we'll just show the already cached product.
+        _addProduct(barcode, ScannedProductState.CACHED);
+        return true;
+      }
       _addProduct(barcode, ScannedProductState.CACHED);
       return true;
     }
