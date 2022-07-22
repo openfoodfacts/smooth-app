@@ -83,14 +83,13 @@ abstract class AbstractSimpleInputPageHelper {
   /// Returns the icon data for the list tile.
   Widget? getIcon() => null;
 
-  /// Returns null is no change was made, or a Product to be saved on the BE.
-  Product? getChangedProduct() {
+  /// Returns true if changes were made.
+  bool getChangedProduct(final Product product) {
     if (!_changed) {
-      return null;
+      return false;
     }
-    final Product changedProduct = Product(barcode: product.barcode);
-    changeProduct(changedProduct);
-    return changedProduct;
+    changeProduct(product);
+    return true;
   }
 
   @protected
@@ -103,6 +102,23 @@ abstract class AbstractSimpleInputPageHelper {
       return <String>[];
     }
     return input.split(_separator);
+  }
+
+  /// Adds all the non-already existing items from the controller.
+  ///
+  /// The item separator is the comma.
+  bool addItemsFromController(final TextEditingController controller) {
+    final List<String> input = controller.text.split(',');
+    bool result = false;
+    for (final String item in input) {
+      if (addTerm(item.trim())) {
+        result = true;
+      }
+    }
+    if (result) {
+      controller.text = '';
+    }
+    return result;
   }
 }
 
