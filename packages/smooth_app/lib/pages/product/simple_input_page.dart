@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
@@ -56,8 +57,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
           padding: i == 0
               ? EdgeInsets.zero
               : const EdgeInsets.only(top: LARGE_SPACE),
-          child: Card(
-            elevation: 4,
+          child: SmoothCard(
             child: SimpleInputWidget(
               helper: widget.helpers[i],
               product: widget.product,
