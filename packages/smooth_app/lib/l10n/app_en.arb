@@ -1543,19 +1543,21 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Choose from gallery",
-    "@choose_from_gallery": {
+    "@choose from gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
-    "@image_upload_queued": {
-        "description": "Message when a photo is queued for upload"
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
     },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
     "no_internet_connection": "No internet connection",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
-    },
-    "product_task_background_schedule": "The Product will be updated in the background as soon as possible.",
-    "@product_task_background_schedule": {
-        "description": "Message when a product is scheduled for background update"
     }
 }

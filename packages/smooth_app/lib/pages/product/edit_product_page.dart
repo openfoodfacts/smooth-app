@@ -129,6 +129,16 @@ class _EditProductPageState extends State<EditProductPage> {
                 );
               },
             ),
+            _getMultipleListTileItem(
+              <AbstractSimpleInputPageHelper>[
+                SimpleInputPageLabelHelper(),
+                SimpleInputPageStoreHelper(),
+                SimpleInputPageOriginHelper(),
+                SimpleInputPageEmbCodeHelper(),
+                SimpleInputPageCountryHelper(),
+                SimpleInputPageCategoryHelper(),
+              ],
+            ),
             _getSimpleListTileItem(SimpleInputPageLabelHelper()),
             _ListTitleItem(
               leading: const _SvgIcon('assets/cacheTintable/ingredients.svg'),
@@ -232,6 +242,35 @@ class _EditProductPageState extends State<EditProductPage> {
           MaterialPageRoute<Product>(
             builder: (BuildContext context) => SimpleInputPage(
               helper: helper,
+              product: _product,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _getMultipleListTileItem(
+    final List<AbstractSimpleInputPageHelper> helpers,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<String> titles = <String>[];
+    for (final AbstractSimpleInputPageHelper element in helpers) {
+      titles.add(element.getTitle(appLocalizations));
+    }
+    return _ListTitleItem(
+      leading: const Icon(Icons.interests),
+      title: titles.join(', '),
+      subtitle: null,
+      onTap: () async {
+        if (!await ProductRefresher().checkIfLoggedIn(context)) {
+          return;
+        }
+        await Navigator.push<Product>(
+          context,
+          MaterialPageRoute<Product>(
+            builder: (BuildContext context) => SimpleInputPage.multiple(
+              helpers: helpers,
               product: _product,
             ),
           ),
