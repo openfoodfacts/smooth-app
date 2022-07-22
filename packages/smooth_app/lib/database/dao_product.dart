@@ -50,7 +50,7 @@ class DaoProduct extends AbstractSqlDao
       _TABLE_PRODUCT,
       columns: _columns,
       where: '$_TABLE_PRODUCT_COLUMN_BARCODE = ?',
-      whereArgs: <Object>[barcode],
+      whereArgs: <String>[barcode],
     );
     // O or 1 row expected
     for (final Map<String, dynamic> row in queryResults) {

@@ -4,13 +4,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/personalized_ranking_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
-import 'package:smooth_app/pages/personalized_ranking_model.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/tmp_matched_product_v2.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -53,6 +54,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Consumer<UpToDateProductProvider>(
       builder: (
         final BuildContext context,
@@ -78,14 +80,13 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
                 refresh = _model.needsRefresh(upToDateProductProvider);
               }
               if (refresh) {
+                // TODO(monsieurtanuki): could maybe be automatic with VisibilityDetector
                 return Center(
                   child: Padding(
                     padding: const EdgeInsets.all(SMALL_SPACE),
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.refresh),
-                      // TODO(monsieurtanuki): localize
-                      label: const Text(
-                          'Refresh the list with the new preferences'),
+                    child: SmoothLargeButtonWithIcon(
+                      icon: Icons.refresh,
+                      text: appLocalizations.refresh_with_new_preferences,
                       onPressed: () {
                         _compactPreferences = compactPreferences;
                         _model.refresh(
@@ -116,8 +117,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
               }
               list.add(_VirtualItem.score(score));
             }
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
             final bool darkMode =
                 Theme.of(context).brightness == Brightness.dark;
             return ListView.builder(
@@ -187,8 +186,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
           ),
         ),
         key: Key(matchedProduct.barcode),
-        onDismissed: (final DismissDirection direction) async {
-          setState(() => _model.dismiss(matchedProduct.barcode));
+        onDismissed: (final DismissDirection direction) {
+          _model.dismiss(matchedProduct.barcode);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(appLocalizations.product_removed_comparison),

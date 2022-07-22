@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_model.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// Widget for a [ProductList] item (simple product list)
 class ProductListItemSimple extends StatefulWidget {
@@ -53,13 +54,20 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
               case LoadingStatus.LOADING:
                 return const SmoothProductCardTemplate();
               case LoadingStatus.ERROR:
+                Logs.e(
+                  'product list item simple fatal error'
+                  ' on ${widget.barcode} (${_model.loadingError})',
+                );
                 return Text('Fatal Error: ${_model.loadingError}');
               case LoadingStatus.LOADED:
             }
             if (_model.product == null) {
               // TODO(monsieurtanuki): button "Something strange happened: would you like to download that product again?"
+              Logs.w(
+                'product list item simple / could not load ${widget.barcode}',
+              );
               return Text(
-                  'Oops: could not not this product (${widget.barcode})');
+                  'Oops: could not load this product (${widget.barcode})');
             }
             return SmoothProductCardFound(
               heroTag: _model.product!.barcode!,
