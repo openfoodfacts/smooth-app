@@ -194,19 +194,19 @@ class Languages {
     OpenFoodFactsLanguage.ZULU: 'ខ្មែរ',
   };
 
-  List<String> getSupportedLanguagesNameInEnglish() {
-    final List<String> languages = <String>[];
+  List<OpenFoodFactsLanguage> getSupportedLanguagesNameInEnglish() {
+    final List<OpenFoodFactsLanguage> languages = <OpenFoodFactsLanguage>[];
 
     _openFoodFactsLanguagesList
         .forEach((OpenFoodFactsLanguage lc, String _) => <void>{
               if (_delegate.isSupported(Locale(lc.code)))
-                <void>{languages.add(_getLanguageNameInEnglish(lc))}
+                <void>{languages.add(lc)}
             });
 
     return languages;
   }
 
-  String _getLanguageNameInEnglish(
+  String getLanguageNameInEnglishFromOpenFoodFactsLanguage(
       OpenFoodFactsLanguage openFoodFactsLanguage) {
     return openFoodFactsLanguage
         .toString()
@@ -218,51 +218,9 @@ class Languages {
         .capitalize();
   }
 
-  List<String> getLanguageNameFromLanguageCodeQuery(String query) {
-    final List<String> languages = <String>[];
-
-    _openFoodFactsLanguagesList.forEach((OpenFoodFactsLanguage lc, String _) =>
-        <void>{
-          if (lc.code.contains(query))
-            languages.add(_getLanguageNameInEnglish(lc))
-        });
-
-    return languages;
-  }
-
-  String _getStrOpenFoodFactLanguageFromLanguageEnglishName(String name) {
-    return 'OpenFoodFactsLanguage.${name.toUpperCase().split(' ').join('_')}';
-  }
-
   String getLanguageNameInLanguageFromOpenFoodFactsLanguage(
       OpenFoodFactsLanguage lc) {
     return _openFoodFactsLanguagesList[lc] ??
         _openFoodFactsLanguagesList[OpenFoodFactsLanguage.ENGLISH]!;
-  }
-
-  String getLanguageNameFromLangCode(String langCode) {
-    String? languageName;
-
-    _openFoodFactsLanguagesList
-        .forEach((OpenFoodFactsLanguage lc, String nameInLanguage) => <void>{
-              if (lc.code == langCode)
-                <void>{languageName = _getLanguageNameInEnglish(lc)}
-            });
-
-    return languageName ??
-        _getLanguageNameInEnglish(OpenFoodFactsLanguage.ENGLISH);
-  }
-
-  OpenFoodFactsLanguage getLanguageCodeFromLanguageEnglishName(String name) {
-    OpenFoodFactsLanguage? languageCode;
-
-    _openFoodFactsLanguagesList
-        .forEach((OpenFoodFactsLanguage lc, String _) => <void>{
-              if (lc.toString() ==
-                  _getStrOpenFoodFactLanguageFromLanguageEnglishName(name))
-                languageCode = lc
-            });
-
-    return languageCode ?? OpenFoodFactsLanguage.ENGLISH;
   }
 }

@@ -23,7 +23,8 @@ class LanguageSelectorSettings extends StatelessWidget {
     final String currentLanguageCode = userPreferences.appLanguageCode ??
         Localizations.localeOf(context).toString();
     final String nameInLanguage =
-        _languages.getLanguageNameFromLangCode(currentLanguageCode);
+        _languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(
+            LanguageHelper.fromJson(currentLanguageCode));
     return ListTile(
       leading: const Icon(Icons.language),
       title: Text(
@@ -35,10 +36,14 @@ class LanguageSelectorSettings extends StatelessWidget {
         overflow: TextOverflow.fade,
       ),
       onTap: () async {
-        final List<String> leftovers =
+        final List<OpenFoodFactsLanguage> leftovers =
             _languages.getSupportedLanguagesNameInEnglish();
-        leftovers.sort();
-        List<String> filteredList = leftovers;
+        leftovers.sort((OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) =>
+            _languages
+                .getLanguageNameInEnglishFromOpenFoodFactsLanguage(a)
+                .compareTo(_languages
+                    .getLanguageNameInEnglishFromOpenFoodFactsLanguage(b)));
+        List<OpenFoodFactsLanguage> filteredList = leftovers;
         await showDialog<void>(
             context: context,
             builder: (BuildContext context) {
@@ -58,21 +63,14 @@ class LanguageSelectorSettings extends StatelessWidget {
                             setState(
                               () {
                                 filteredList = leftovers
-                                    .where((String item) => item
-                                        .toLowerCase()
-                                        .contains(query.toLowerCase()))
+                                    .where((OpenFoodFactsLanguage item) =>
+                                        _languages
+                                            .getLanguageNameInEnglishFromOpenFoodFactsLanguage(
+                                                item)
+                                            .toLowerCase()
+                                            .contains(query.toLowerCase()) ||
+                                        item.code.contains(query))
                                     .toList();
-                                // Search using Language Code
-                                if (query.length <= 3) {
-                                  _languages
-                                      .getLanguageNameFromLanguageCodeQuery(
-                                          query)
-                                      .forEach((String nameInEnglish) {
-                                    if (!filteredList.contains(nameInEnglish)) {
-                                      filteredList.add(nameInEnglish);
-                                    }
-                                  });
-                                }
                               },
                             );
                           },
@@ -80,25 +78,20 @@ class LanguageSelectorSettings extends StatelessWidget {
                         ...List<ListTile>.generate(
                           filteredList.length,
                           (int index) {
-                            final String nameInEnglish = filteredList[index];
-                            final OpenFoodFactsLanguage languageCode =
-                                _languages
-                                    .getLanguageCodeFromLanguageEnglishName(
-                                        nameInEnglish);
+                            final OpenFoodFactsLanguage openFoodFactsLanguage =
+                                filteredList[index];
                             final String nameInLanguage = _languages
                                 .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
-                                    languageCode);
+                                    openFoodFactsLanguage);
                             return ListTile(
                               title: Text(
-                                '$nameInLanguage ($nameInEnglish)',
+                                '$nameInLanguage (${_languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(openFoodFactsLanguage)})',
                                 softWrap: false,
                                 overflow: TextOverflow.fade,
                               ),
                               onTap: () {
-                                userPreferences.setAppLanguageCode(_languages
-                                    .getLanguageCodeFromLanguageEnglishName(
-                                        nameInEnglish)
-                                    .code);
+                                userPreferences.setAppLanguageCode(
+                                    openFoodFactsLanguage.code);
                                 Navigator.of(context).pop();
                               },
                             );
