@@ -46,162 +46,6 @@ class _EditProductPageState extends State<EditProductPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size screenSize = MediaQuery.of(context).size;
-
-    final Scaffold scaffold = SmoothScaffold(
-        appBar: AppBar(
-          title: AutoSizeText(
-            getProductName(_product, appLocalizations),
-            maxLines: 2,
-          ),
-        ),
-        body: ListView(
-          children: <Widget>[
-            if (_product.barcode != null)
-              BarcodeWidget(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenSize.width / 4,
-                  vertical: SMALL_SPACE,
-                ),
-                barcode: _product.barcode!.length == 8
-                    ? Barcode.ean8()
-                    : Barcode.ean13(),
-                data: _product.barcode!,
-                errorBuilder: (final BuildContext context, String? _) =>
-                    ListTile(
-                  title: Text(
-                    appLocalizations.edit_product_form_item_barcode,
-                  ),
-                  subtitle: Text(_product.barcode!),
-                ),
-              ),
-            _ListTitleItem(
-              title: appLocalizations.edit_product_form_item_details_title,
-              subtitle:
-                  appLocalizations.edit_product_form_item_details_subtitle,
-              onTap: () async {
-                if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                  return;
-                }
-                await Navigator.push<Product?>(
-                  context,
-                  MaterialPageRoute<Product>(
-                    builder: (BuildContext context) =>
-                        AddBasicDetailsPage(_product),
-                  ),
-                );
-              },
-            ),
-            _ListTitleItem(
-              leading: const Icon(Icons.add_a_photo_outlined),
-              title: appLocalizations.edit_product_form_item_photos_title,
-              subtitle: appLocalizations.edit_product_form_item_photos_subtitle,
-              onTap: () async {
-                if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                  return;
-                }
-                final List<ProductImageData> allProductImagesData =
-                    getAllProductImagesData(_product, appLocalizations);
-                final bool? refreshed = await Navigator.push<bool>(
-                  context,
-                  MaterialPageRoute<bool>(
-                    builder: (BuildContext context) => ProductImageGalleryView(
-                      productImageData: allProductImagesData.first,
-                      allProductImagesData: allProductImagesData,
-                      title: allProductImagesData.first.title,
-                      barcode: _product.barcode,
-                    ),
-                  ),
-                );
-                // TODO(monsieurtanuki): do the refresh uptream with a new ProductRefresher method
-                if (refreshed != true) {
-                  return;
-                }
-                //Refetch product if needed for new urls, since no product in ProductImageGalleryView
-                if (!mounted) {
-                  return;
-                }
-                final LocalDatabase localDatabase =
-                    context.read<LocalDatabase>();
-                await ProductRefresher().fetchAndRefresh(
-                  context: context,
-                  localDatabase: localDatabase,
-                  barcode: _product.barcode!,
-                );
-              },
-            ),
-            _getSimpleListTileItem(SimpleInputPageLabelHelper()),
-            _ListTitleItem(
-              leading: const _SvgIcon('assets/cacheTintable/ingredients.svg'),
-              title: appLocalizations.edit_product_form_item_ingredients_title,
-              onTap: () async {
-                if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                  return;
-                }
-                await Navigator.push<Product?>(
-                  context,
-                  MaterialPageRoute<Product>(
-                    builder: (BuildContext context) => EditOcrPage(
-                      product: _product,
-                      helper: OcrIngredientsHelper(),
-                    ),
-                  ),
-                );
-              },
-            ),
-            _ListTitleItem(
-              leading: const Icon(Icons.recycling),
-              title: appLocalizations.edit_product_form_item_packaging_title,
-              onTap: () async {
-                if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                  return;
-                }
-                await Navigator.push<Product?>(
-                  context,
-                  MaterialPageRoute<Product>(
-                    builder: (BuildContext context) => EditOcrPage(
-                      product: _product,
-                      helper: OcrPackagingHelper(),
-                    ),
-                  ),
-                );
-              },
-            ),
-            _getSimpleListTileItem(SimpleInputPageStoreHelper()),
-            _getSimpleListTileItem(SimpleInputPageOriginHelper()),
-            _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
-            _getSimpleListTileItem(SimpleInputPageCountryHelper()),
-            _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
-            _ListTitleItem(
-              leading: const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
-              title:
-                  appLocalizations.edit_product_form_item_nutrition_facts_title,
-              subtitle: appLocalizations
-                  .edit_product_form_item_nutrition_facts_subtitle,
-              onTap: () async {
-                if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                  return;
-                }
-                final OrderedNutrientsCache? cache =
-                    await OrderedNutrientsCache.getCache(context);
-                if (cache == null) {
-                  return;
-                }
-                if (!mounted) {
-                  return;
-                }
-                await Navigator.push<Product?>(
-                  context,
-                  MaterialPageRoute<Product>(
-                    builder: (BuildContext context) => NutritionPageLoaded(
-                      _product,
-                      cache.orderedNutrients,
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ));
     return Consumer<UpToDateProductProvider>(
       builder: (
         final BuildContext context,
@@ -212,7 +56,171 @@ class _EditProductPageState extends State<EditProductPage> {
         if (refreshedProduct != null) {
           _product = refreshedProduct;
         }
-        return scaffold;
+        return SmoothScaffold(
+          appBar: AppBar(
+            title: AutoSizeText(
+              getProductName(_product, appLocalizations),
+              maxLines: 2,
+            ),
+          ),
+          body: RefreshIndicator(
+            onRefresh: () => _refreshProduct(context),
+            child: ListView(
+              children: <Widget>[
+                if (_product.barcode != null)
+                  BarcodeWidget(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenSize.width / 4,
+                      vertical: SMALL_SPACE,
+                    ),
+                    barcode: _product.barcode!.length == 8
+                        ? Barcode.ean8()
+                        : Barcode.ean13(),
+                    data: _product.barcode!,
+                    errorBuilder: (final BuildContext context, String? _) =>
+                        ListTile(
+                      title: Text(
+                        appLocalizations.edit_product_form_item_barcode,
+                      ),
+                      subtitle: Text(_product.barcode!),
+                    ),
+                  ),
+                _ListTitleItem(
+                  title: appLocalizations.edit_product_form_item_details_title,
+                  subtitle:
+                      appLocalizations.edit_product_form_item_details_subtitle,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    await Navigator.push<Product?>(
+                      context,
+                      MaterialPageRoute<Product>(
+                        builder: (BuildContext context) =>
+                            AddBasicDetailsPage(_product),
+                      ),
+                    );
+                  },
+                ),
+                _ListTitleItem(
+                  leading: const Icon(Icons.add_a_photo_outlined),
+                  title: appLocalizations.edit_product_form_item_photos_title,
+                  subtitle:
+                      appLocalizations.edit_product_form_item_photos_subtitle,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    final List<ProductImageData> allProductImagesData =
+                        getAllProductImagesData(_product, appLocalizations);
+                    final bool? refreshed = await Navigator.push<bool>(
+                      context,
+                      MaterialPageRoute<bool>(
+                        builder: (BuildContext context) =>
+                            ProductImageGalleryView(
+                          productImageData: allProductImagesData.first,
+                          allProductImagesData: allProductImagesData,
+                          title: allProductImagesData.first.title,
+                          barcode: _product.barcode,
+                        ),
+                      ),
+                    );
+                    // TODO(monsieurtanuki): do the refresh uptream with a new ProductRefresher method
+                    if (refreshed != true) {
+                      return;
+                    }
+                    //Refetch product if needed for new urls, since no product in ProductImageGalleryView
+                    if (!mounted) {
+                      return;
+                    }
+                    final LocalDatabase localDatabase =
+                        context.read<LocalDatabase>();
+                    await ProductRefresher().fetchAndRefresh(
+                      context: context,
+                      localDatabase: localDatabase,
+                      barcode: _product.barcode!,
+                    );
+                  },
+                ),
+                _getSimpleListTileItem(SimpleInputPageLabelHelper()),
+                _ListTitleItem(
+                  leading:
+                      const _SvgIcon('assets/cacheTintable/ingredients.svg'),
+                  title:
+                      appLocalizations.edit_product_form_item_ingredients_title,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    await Navigator.push<Product?>(
+                      context,
+                      MaterialPageRoute<Product>(
+                        builder: (BuildContext context) => EditOcrPage(
+                          product: _product,
+                          helper: OcrIngredientsHelper(),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                _ListTitleItem(
+                  leading: const Icon(Icons.recycling),
+                  title:
+                      appLocalizations.edit_product_form_item_packaging_title,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    await Navigator.push<Product?>(
+                      context,
+                      MaterialPageRoute<Product>(
+                        builder: (BuildContext context) => EditOcrPage(
+                          product: _product,
+                          helper: OcrPackagingHelper(),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+                _getSimpleListTileItem(SimpleInputPageOriginHelper()),
+                _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
+                _getSimpleListTileItem(SimpleInputPageCountryHelper()),
+                _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
+                _ListTitleItem(
+                  leading:
+                      const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
+                  title: appLocalizations
+                      .edit_product_form_item_nutrition_facts_title,
+                  subtitle: appLocalizations
+                      .edit_product_form_item_nutrition_facts_subtitle,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    final OrderedNutrientsCache? cache =
+                        await OrderedNutrientsCache.getCache(context);
+                    if (cache == null) {
+                      return;
+                    }
+                    if (!mounted) {
+                      return;
+                    }
+                    await Navigator.push<Product?>(
+                      context,
+                      MaterialPageRoute<Product>(
+                        builder: (BuildContext context) => NutritionPageLoaded(
+                          _product,
+                          cache.orderedNutrients,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
@@ -238,6 +246,25 @@ class _EditProductPageState extends State<EditProductPage> {
         );
       },
     );
+  }
+
+  Future<bool> _refreshProduct(BuildContext context) async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final bool result = await ProductRefresher().fetchAndRefresh(
+      context: context,
+      localDatabase: localDatabase,
+      barcode: _product.barcode!,
+    );
+    if (mounted && result) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(appLocalizations.product_refreshed),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    }
+    return result;
   }
 }
 
