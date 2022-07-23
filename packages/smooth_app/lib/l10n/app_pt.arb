@@ -1560,7 +1560,7 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "choose_app_language": "Choose App Language",
+    "choose_app_language": "Escolha o Idioma",
     "@choose_app_language": {
         "description": "Choose Application Language"
     }
