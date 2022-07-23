@@ -1546,21 +1546,21 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Développer le tableau nutritionnel",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-    "expand_ingredients": "Expand ingredients",
+    "expand_nutrition_facts_body": "Garder le tableau nutritionnel étendu",
+    "expand_ingredients": "Développer les ingrédients",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "Keep the ingredients panel expanded",
+    "expand_ingredients_body": "Garder le panneau des ingrédients étendu",
     "no_internet_connection": "Pas de connexion internet",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "choose_app_language": "Choose App Language",
+    "choose_app_language": "Choisir la langue de l'application",
     "@choose_app_language": {
         "description": "Choose Application Language"
     }
