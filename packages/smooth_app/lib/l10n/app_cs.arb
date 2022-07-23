@@ -663,7 +663,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Porovnání {count} produktů}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -1338,7 +1338,7 @@
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_half_image": "Přenos z kamery a předzpracování celého obrazu, žádné skenování",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
@@ -1346,7 +1346,7 @@
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Skenování poloviny obrazu",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
@@ -1543,11 +1543,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Vybrat z galerie",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
     "no_internet_connection": "Žádné připojení k Internetu",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Choose App Language",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

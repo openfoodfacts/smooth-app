@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -51,14 +52,15 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesCameraPostFrameDuration =
       '__cameraPostFrameDuration';
+  static const String userPreferencesFlagAccessibilityNoColor =
+      '__accessibilityNoColor';
+  static const String userPreferencesFlagAccessibilityEmoji =
+      '__accessibilityEmoji';
 
   final TextEditingController _textFieldController = TextEditingController();
 
   static const LocalizationsDelegate<MaterialLocalizations> delegate =
       GlobalMaterialLocalizations.delegate;
-  final List<Locale> _supportedLanguageCodes = AppLocalizations.supportedLocales
-      .where((Locale locale) => delegate.isSupported(locale))
-      .toList();
 
   @override
   PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
@@ -161,6 +163,32 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagEditIngredients, value);
+            _showSuccessMessage();
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+            'Accessibility: remove colors',
+          ),
+          value: userPreferences
+                  .getFlag(userPreferencesFlagAccessibilityNoColor) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagAccessibilityNoColor, value);
+            _showSuccessMessage();
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+            'Accessibility: show emoji',
+          ),
+          value:
+              userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagAccessibilityEmoji, value);
             _showSuccessMessage();
           },
         ),
@@ -305,23 +333,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             setState(() {});
           },
         ),
-        ListTile(
-          leading: const Icon(Icons.language),
-          title: DropdownButton<String>(
-            value: userPreferences.appLanguageCode ??
-                Localizations.localeOf(context).toString(),
-            elevation: 16,
-            isExpanded: true,
-            onChanged: (String? languageCode) async =>
-                userPreferences.setAppLanguageCode(languageCode),
-            items: _supportedLanguageCodes.map((Locale locale) {
-              final String localeString = locale.toString();
-              return DropdownMenuItem<String>(
-                value: localeString,
-                child: Text(localeString),
-              );
-            }).toList(),
-          ),
+        LanguageSelectorSettings(
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
         ),
         ListTile(
           // Do not translate
