@@ -322,7 +322,7 @@
     "@contribute_translate_text_2": {},
     "contribute_share_header": "Partagez Open Food Facts avec vos amis",
     "@contribute_share_header": {},
-    "contribute_share_content": "Je voudrais que vous informer par rapport à l'application que j'utilise, Open Food Facts, qui vous permet de voir l'impact de votre alimentation sur votre santé et sur l'environnement, de manière personnalisée. Elle fonctionne en scannant les codes barres de vos emballages. Finalement c'est gratuit, elle ne nécessite aucune inscriptions, et vous pouvez même aider à augmenter le nombre de produits décrypté. Voilà le lien pour le télécharger sur votre téléphone: https://openfoodfacts.app",
+    "contribute_share_content": "Je voulais te signaler l'app que j'utilise, Open Food Facts, qui te permet de voir l'impact de ton alimentation sur la santé et l'environnement, de manière personnalisée. Elle fonctionne en scannant les codes barres des emballages. Et en plus c'est gratuit, sans inscription obligatoire, et tu peux même aider à augmenter le nombre de produits décryptés. Voilà le lien pour la télécharger: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
