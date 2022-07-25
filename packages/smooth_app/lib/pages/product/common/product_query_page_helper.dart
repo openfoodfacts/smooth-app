@@ -10,7 +10,6 @@ class ProductQueryPageHelper {
   Future<void> openBestChoice({
     required final PagedProductQuery productQuery,
     required final LocalDatabase localDatabase,
-    required final String heroTag,
     required final String name,
     required final BuildContext context,
   }) async {
@@ -25,7 +24,6 @@ class ProductQueryPageHelper {
       MaterialPageRoute<Widget>(
         builder: (BuildContext context) => ProductQueryPage(
           productListSupplier: supplier,
-          heroTag: heroTag,
           name: name,
           lastUpdate: supplier.timestamp,
         ),

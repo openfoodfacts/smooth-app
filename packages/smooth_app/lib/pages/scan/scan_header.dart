@@ -4,14 +4,18 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/pages/scan/scan_page_helper.dart';
+import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
-class ScanHeader extends StatelessWidget {
-  const ScanHeader({
-    super.key,
-  });
+class ScanHeader extends StatefulWidget {
+  const ScanHeader();
 
+  @override
+  State<ScanHeader> createState() => _ScanHeaderState();
+}
+
+class _ScanHeaderState extends State<ScanHeader> {
   static const double _visibleOpacity = 0.8;
   static const double _invisibleOpacity = 0.0;
 
@@ -49,7 +53,26 @@ class ScanHeader extends StatelessWidget {
             ElevatedButton.icon(
               style: buttonStyle,
               icon: const Icon(RankingFloatingActionButton.rankingIconData),
-              onPressed: () => openPersonalizedRankingPage(context),
+              onPressed: () async {
+                final ContinuousScanModel model =
+                    context.read<ContinuousScanModel>();
+                await model.refreshProductList();
+                if (!mounted) {
+                  return;
+                }
+                await Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => PersonalizedRankingPage(
+                      barcodes: model.productList.barcodes,
+                      title: ProductQueryPageHelper.getProductListLabel(
+                        model.productList,
+                        context,
+                      ),
+                    ),
+                  ),
+                );
+              },
               label: Text(
                 appLocalizations.plural_compare_x_products(
                   model.getBarcodes().length,
