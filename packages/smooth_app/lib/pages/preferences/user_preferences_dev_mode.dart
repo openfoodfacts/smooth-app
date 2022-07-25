@@ -9,7 +9,6 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -332,10 +331,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             await userPreferences.setExcludedAttributeIds(list);
             setState(() {});
           },
-        ),
-        LanguageSelectorSettings(
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
         ),
         ListTile(
           // Do not translate

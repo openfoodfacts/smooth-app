@@ -22,19 +22,24 @@ class LanguageSelectorSettings extends StatelessWidget {
     // The languages that are supported by flutter widget
     final String currentLanguageCode = userPreferences.appLanguageCode ??
         Localizations.localeOf(context).toString();
-    final String nameInLanguage =
+    final OpenFoodFactsLanguage language =
+        LanguageHelper.fromJson(currentLanguageCode);
+    final String nameInEnglish =
         _languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(
-            LanguageHelper.fromJson(currentLanguageCode));
+      language,
+    );
+    final String nameInLanguage =
+        _languages.getLanguageNameInLanguageFromOpenFoodFactsLanguage(
+      language,
+    );
     return ListTile(
       leading: const Icon(Icons.language),
       title: Text(
-        appLocalizations.choose_app_language,
-      ),
-      subtitle: Text(
-        '$nameInLanguage ($currentLanguageCode)',
+        '$nameInLanguage ($nameInEnglish)',
         softWrap: false,
         overflow: TextOverflow.fade,
       ),
+      trailing: const Icon(Icons.arrow_drop_down),
       onTap: () async {
         final List<OpenFoodFactsLanguage> leftovers =
             _languages.getSupportedLanguagesNameInEnglish();
@@ -69,12 +74,18 @@ class LanguageSelectorSettings extends StatelessWidget {
                                                 item)
                                             .toLowerCase()
                                             .contains(query.toLowerCase()) ||
+                                        _languages
+                                            .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
+                                                item)
+                                            .toLowerCase()
+                                            .contains(query.toLowerCase()) ||
                                         item.code.contains(query))
                                     .toList();
                               },
                             );
                           },
                         ),
+                        // TODO(monsieurtanuki): an optimization would be not to generate all tiles and use something like a ListView.builder instead
                         ...List<ListTile>.generate(
                           filteredList.length,
                           (int index) {
