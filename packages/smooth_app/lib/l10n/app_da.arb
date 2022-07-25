@@ -1543,11 +1543,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Vælg fra galleri",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Udvid ernæringsfaktatabellen",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Hold ernæringsfaktatabellen udvidet",
+    "expand_ingredients": "Udvid ingredienser",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Hold ingredienspanelet udvidet",
     "no_internet_connection": "Ingen internetforbindelse",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Vælg app-sprog",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

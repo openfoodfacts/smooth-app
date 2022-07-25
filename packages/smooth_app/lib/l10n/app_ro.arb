@@ -199,7 +199,7 @@
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mailul este necesar",
     "sign_up_page_email_error_invalid": "E-mail invalid",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_hint": "Nume de utilizator: vizibil public",
     "sign_up_page_username_error_empty": "Vă rugăm să introduceți un nume de utilizator",
     "sign_up_page_username_error_invalid": "Vă rugăm să introduceți un nume de utilizator valid",
     "sign_up_page_username_description": "Numele de utilizator nu poate conține spații, majuscule sau caractere speciale",
@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Traducerile sunt una dintre sarcinile cheie ale proiectului",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Distribuie Open Food Facts prietenilor tăi",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Am vrut să vă anunț despre aplicația pe care am folosit-o, Open Food Facts, care vă permite să obțineți impactul asupra sănătății și asupra mediului al alimentelor dvs., într-un mod personalizat. Funcționează prin scanarea codurilor de bare de pe ambalaj. În sfârșit, este gratuit, nu necesită înregistrare și poți chiar contribui la creșterea numărului de produse descifrate. Iată linkul pentru a-l obține pentru telefonul tău: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -428,10 +428,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
-    "packaging_editing_error": "Failed to save the packaging.",
-    "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_instructions": "Enumerați toate părțile de ambalare separate prin virgulă sau (-), cu cantitatea lor (de exemplu 1 sau 6) tip (de exemplu sticla, cutie, cutie), material (de exemplu plastic, metal, aluminiu) și, dacă este disponibil, dimensiunea lor (de exemplu 33cl) și instrucțiuni de reciclare.",
+    "packaging_editing_error": "Salvarea ambalajului nu a reușit.",
+    "packaging_editing_image_error": "Obținerea unei imagini noi de ambalaj a eșuat.",
+    "packaging_editing_title": "Editați ambalajul",
     "nutrition": "Informații nutriționale",
     "@nutrition": {},
     "nutrition_facts_photo": "Foto cu informații nutriționale",
@@ -700,7 +700,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Lansare: ${release})\nModel: ${model}\nProdus: ${product}\nDispozitiv: ${device}\nBrand:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -730,7 +730,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nModel localizat: ${localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -748,7 +748,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "contact_form_body": "{osContent}\nVersiunea aplicației:{appVersion}\nNumărul versiunii aplicației:{appBuildNumber}\nNumele pachetului aplicației:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -819,14 +819,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "product_list_reloading_in_progress_multiple": "Reîmprospătează {count,plural, one {} few {produse} =0{produs} =1{produs} other{produse}} în istoricul tău",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "product_list_reloading_success_multiple": "{count,plural, one {} few {Produse} =0{Produs} =1{Produs} other{Produse}} Reîmprospătare completă",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -885,13 +885,13 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "Aplicație",
+    "settings_app_data": "Confidențialitate și monitorizare",
+    "settings_app_camera": "Cameră",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "Mod de performanță ridicată",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -899,11 +899,11 @@
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_focus_point_algorithm_title": "Focus mode",
+    "camera_focus_point_algorithm_title": "Mod focalizare",
     "@camera_focus_point_algorithm_title": {
         "description": "Title for the Camera focus mode (Android only)"
     },
-    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "camera_focus_point_algorithm_subtitle": "Mod curent: {mode}\n{reason}",
     "@camera_focus_point_algorithm_subtitle": {
         "description": "SubTitle for the Camera focus mode (Android only)",
         "placeholders": {
@@ -916,11 +916,11 @@
         }
     },
     "camera_focus_point_algorithm_value_auto_label": "Auto",
-    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
+    "camera_focus_point_algorithm_value_auto_description": "Lăsați sistemul să aleagă automat între modurile rapid și sigur.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Mod rapid",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "Un mod recomandat pentru dispozitivele recente.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Modul sigur",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "Dacă modul rapid nu funcționează, aceasta ar trebui să rezolve problemele de focalizare.",
     "camera_play_sound_title": "Redați un sunet la scanare",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -1027,11 +1027,11 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Adăugați orice indicații de origine pe care le puteți găsi pe ambalaj. Nu trebuie să vă faceți griji cu privire la originile indicate direct în lista de ingrediente.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Exemple: Carne de vită din Argentina, Soia nu provine din Uniunea Europeană",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1067,15 +1067,15 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Indicați numai categoria cea mai specifică. Categoriile părinte vor fi adăugate automat.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "În cazul în care o categorie nu este disponibilă în completare automată, nu ezitați să o adăugați oricum, asta ne va ajuta să îmbunătățim Open Food Facts în țara dvs.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Exemple: Sardine în ulei de măsline, Suc de portocale din concentrat",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1111,7 +1111,7 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extract packaging",
+    "edit_packaging_extract_btn_text": "Extragere ambalaj",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
@@ -1543,11 +1543,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Alegeți din galerie",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "no_internet_connection": "No internet connection",
+    "expand_nutrition_facts": "Extinderea tabelului cu date nutriționale",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Păstrați tabelul cu informații nutriționale extins",
+    "expand_ingredients": "Extinde ingredientele",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Păstrați panoul de ingrediente extins",
+    "no_internet_connection": "Fără conexiune la internet",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Alegeți Limba aplicației",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

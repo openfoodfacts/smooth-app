@@ -19,11 +19,13 @@ class KnowledgePanelElementCard extends StatelessWidget {
     required this.knowledgePanelElement,
     required this.allPanels,
     required this.product,
+    required this.isInitiallyExpanded,
   });
 
   final KnowledgePanelElement knowledgePanelElement;
   final KnowledgePanels allPanels;
   final Product product;
+  final bool isInitiallyExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,7 @@ class KnowledgePanelElementCard extends StatelessWidget {
       case KnowledgePanelElementType.TABLE:
         return KnowledgePanelTableCard(
           tableElement: knowledgePanelElement.tableElement!,
+          isInitiallyExpanded: isInitiallyExpanded,
         );
       case KnowledgePanelElementType.MAP:
         return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);

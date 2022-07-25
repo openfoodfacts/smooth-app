@@ -6,7 +6,9 @@ import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 
 class ScanProductCard extends StatelessWidget {
-  const ScanProductCard(this.product);
+  ScanProductCard(this.product)
+      : assert(product.barcode!.isNotEmpty),
+        super(key: Key(product.barcode!));
 
   final Product product;
 
