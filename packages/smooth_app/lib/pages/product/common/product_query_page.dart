@@ -261,6 +261,17 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                     );
                   } else {
                     child = ElevatedButton.icon(
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                        ),
+                        padding: MaterialStateProperty.all(
+                          const EdgeInsets.symmetric(vertical: 4.0),
+                        ),
+                      ),
                       icon: const Icon(Icons.download_rounded),
                       label: Text(
                         appLocalizations.product_search_button_download_more(
