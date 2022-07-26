@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Хорошо подходит для вас",
     "ranking_subtitle_match_no": "Плохо подходит для вас",
     "ranking_subtitle_match_maybe": "Неизвестное солвпадение",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Перезагружено с вашими новыми настройками",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
