@@ -19,6 +19,7 @@ class PreloadDataHelper {
         parametersList: <Parameter>[
           const PageSize(size: 1000),
           const PageNumber(page: 1),
+          const SortBy(option: SortOption.POPULARITY),
         ],
         language: ProductQuery.getLanguage(),
         country: ProductQuery.getCountry(),
