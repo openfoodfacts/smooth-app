@@ -5,6 +5,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_account.dart';
@@ -54,7 +55,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final Size size = MediaQuery.of(context).size;
     final ThemeData theme = Theme.of(context);
 
     final String appBarTitle;
@@ -174,7 +174,17 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
                   type: PreferencePageType.ACCOUNT,
                   userPreferences: userPreferences,
                 ).getOnlyHeader(),
-                ElevatedButton(
+                SmoothSimpleButton(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30.0, vertical: 15.0),
+                  child: Text(
+                    appLocalizations.sign_in,
+                    style: theme.textTheme.bodyText2?.copyWith(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.onPrimary,
+                    ),
+                  ),
                   onPressed: () async {
                     Navigator.of(
                       context,
@@ -185,24 +195,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
                       ),
                     );
                   },
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all<Size>(
-                      Size(size.width * 0.5, theme.buttonTheme.height + 10),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      const RoundedRectangleBorder(
-                        borderRadius: CIRCULAR_BORDER_RADIUS,
-                      ),
-                    ),
-                  ),
-                  child: Text(
-                    appLocalizations.sign_in,
-                    style: theme.textTheme.bodyText2?.copyWith(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onPrimary,
-                    ),
-                  ),
                 ),
               ],
             ),

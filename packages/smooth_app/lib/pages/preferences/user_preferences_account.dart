@@ -128,11 +128,9 @@ class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return Column(
-      children: <Widget>[
-        Text(appLocalizations.user_profile_subtitle_guest),
-        const SizedBox(height: SMALL_SPACE),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: SMALL_SPACE),
+      child: Text(appLocalizations.user_profile_subtitle_guest),
     );
   }
 }
