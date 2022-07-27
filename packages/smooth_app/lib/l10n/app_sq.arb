@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Nje pershtatje, perputhje e madhe  per ju.",
     "ranking_subtitle_match_no": "Nje pershtatje shume e dobet ",
     "ranking_subtitle_match_maybe": "Nje pershtatje e panjohur",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"

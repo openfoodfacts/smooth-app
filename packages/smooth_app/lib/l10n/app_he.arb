@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "מתאים לך היטב",
     "ranking_subtitle_match_no": "לא כל כך קשור אליך",
     "ranking_subtitle_match_maybe": "התאמה לא ידועה",
+    "refresh_with_new_preferences": "לרענן את הרשימה עם ההעדפות החדשות שלך",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "נטען מחדש עם ההעדפות החדשות שלך",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"

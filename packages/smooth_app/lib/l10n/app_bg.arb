@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Добро съвпадение за теб",
     "ranking_subtitle_match_no": "Много лошо съвпадение",
     "ranking_subtitle_match_maybe": "Неизвестно съвпадение",
+    "refresh_with_new_preferences": "Обнови списъка с новите си предпочитания",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Презаредено с новите ти предпочитания",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -1546,21 +1550,21 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Разгъни таблицата с хранителните стойности",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_nutrition_facts_body": "Дръж таблицата с хранителните стойности разширена",
     "expand_ingredients": "Expand ingredients",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "Keep the ingredients panel expanded",
+    "expand_ingredients_body": "Дръж панела на съставките разширен",
     "no_internet_connection": "Няма интернет връзка",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "choose_app_language": "Choose App Language",
+    "choose_app_language": "Избери език на приложението",
     "@choose_app_language": {
         "description": "Choose Application Language"
     }

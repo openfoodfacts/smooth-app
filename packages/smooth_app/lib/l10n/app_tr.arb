@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Sizin için harika bir eşleşme",
     "ranking_subtitle_match_no": "Çok zayıf eşleşme",
     "ranking_subtitle_match_maybe": "Bilinmeyen eşleşme",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Yeni tercihlerle yeniden yüklendi",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
