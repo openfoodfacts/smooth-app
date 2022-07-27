@@ -23,7 +23,6 @@ class SmoothTheme {
 
     return ThemeData(
       primaryColor: const Color(0xFF341100),
-      fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedIconTheme: const IconThemeData(size: 24.0),
