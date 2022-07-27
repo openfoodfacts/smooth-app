@@ -127,45 +127,11 @@ class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size size = MediaQuery.of(context).size;
-    final ThemeData theme = Theme.of(context);
 
     return Column(
       children: <Widget>[
         Text(appLocalizations.user_profile_subtitle_guest),
         const SizedBox(height: LARGE_SPACE),
-        Center(
-          child: ElevatedButton(
-            onPressed: () async {
-              Navigator.of(
-                context,
-                rootNavigator: true,
-              ).push<dynamic>(
-                MaterialPageRoute<dynamic>(
-                  builder: (BuildContext context) => const LoginPage(),
-                ),
-              );
-            },
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all<Size>(
-                Size(size.width * 0.5, theme.buttonTheme.height + 10),
-              ),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                const RoundedRectangleBorder(
-                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                ),
-              ),
-            ),
-            child: Text(
-              appLocalizations.sign_in,
-              style: theme.textTheme.bodyText2?.copyWith(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.onPrimary,
-              ),
-            ),
-          ),
-        ),
       ],
     );
   }
