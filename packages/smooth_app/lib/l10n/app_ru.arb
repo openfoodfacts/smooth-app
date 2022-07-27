@@ -142,7 +142,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Для использования этой функции вам надо войти в систему.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -273,7 +273,7 @@
     },
     "support_join_slack": "Попросите о помощи в нашем канале Slack",
     "support_via_email": "Отправьте нам электронное письмо",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_title": "Отправить журнал приложений?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Условия использования",
     "@termsOfUse": {},
@@ -294,8 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Вы можете присоединиться к чату Open Food Facts Slack, здесь будет удобно задавать вопросы.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "Режим Разработчика?",
+    "contribute_develop_dev_mode_subtitle": "Активировать Режим Разработчика",
     "contribute_donate_header": "Пожертвовать Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Незавершенные продукты",
@@ -685,7 +685,7 @@
     "twitter": "Twitter",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Блог",
-    "faq": "FAQ",
+    "faq": "Часто задаваемые вопросы",
     "discover": "О проекте",
     "how_to_contribute": "Как помочь проекту",
     "hint_knowledge_panel_message": "Вы можете нажать на любую часть карточки, чтобы получить более подробную информацию о том, что вы видите. Попробуйте сейчас!",
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "contact_form_body_android": "ОС: Android (SDK Int: {sdklnt} / Выпуск: ${release})\nМодель: ${model}\nПродукт: ${product}\nУстройство: ${device}\nМарка:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
