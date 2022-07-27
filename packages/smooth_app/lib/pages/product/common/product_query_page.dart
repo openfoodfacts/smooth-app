@@ -12,6 +12,7 @@ import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
@@ -260,26 +261,14 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                       ),
                     );
                   } else {
-                    child = ElevatedButton.icon(
-                      style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                        ),
-                        padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(vertical: 4.0),
-                        ),
+                    child = SmoothLargeButtonWithIcon(
+                      text:
+                          appLocalizations.product_search_button_download_more(
+                        next,
+                        already,
+                        totalSize,
                       ),
-                      icon: const Icon(Icons.download_rounded),
-                      label: Text(
-                        appLocalizations.product_search_button_download_more(
-                          next,
-                          already,
-                          totalSize,
-                        ),
-                      ),
+                      icon: Icons.download_rounded,
                       onPressed: () async {
                         final bool? success = await LoadingDialog.run<bool>(
                           context: context,
