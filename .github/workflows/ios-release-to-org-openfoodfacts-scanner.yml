@@ -41,7 +41,7 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: flutter3.00 #change this to force refresh cache
+          cache-key: flutter3.0.1 #change this to force refresh cache
       - run: flutter --version
 
       - name: Get dependencies
