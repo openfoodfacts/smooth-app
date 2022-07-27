@@ -46,6 +46,7 @@ jobs:
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh
+        # or perhaps in that file ?
       
       - name: Bundle install
         run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
@@ -74,7 +75,7 @@ jobs:
           VERSION_NAME: ${{ env.RELEASE_VERSION }}
 
       - name: Build app
-        run: cd ./packages/smooth_app && flutter build ios --release --no-codesign
+        run: cd ./packages/smooth_app && pod update Sentry && flutter build ios --release --no-codesign
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
