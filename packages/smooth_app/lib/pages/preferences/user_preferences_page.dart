@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -53,6 +54,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final Size size = MediaQuery.of(context).size;
+    final ThemeData theme = Theme.of(context);
 
     final String appBarTitle;
     final List<Widget> children = <Widget>[];
@@ -62,7 +65,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final Color? headerColor;
     if (widget.type == null) {
       final List<PreferencePageType> items = <PreferencePageType>[
-        PreferencePageType.ACCOUNT,
         PreferencePageType.LISTS,
         PreferencePageType.FOOD,
         PreferencePageType.SETTINGS,
@@ -163,6 +165,46 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
                   height: backgroundHeight,
                 ),
               ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: <Widget>[
+                getUserPreferences(
+                  type: PreferencePageType.ACCOUNT,
+                  userPreferences: userPreferences,
+                ).getOnlyHeader(),
+                ElevatedButton(
+                  onPressed: () async {
+                    Navigator.of(
+                      context,
+                      rootNavigator: true,
+                    ).push<dynamic>(
+                      MaterialPageRoute<dynamic>(
+                        builder: (BuildContext context) => const LoginPage(),
+                      ),
+                    );
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all<Size>(
+                      Size(size.width * 0.5, theme.buttonTheme.height + 10),
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      const RoundedRectangleBorder(
+                        borderRadius: CIRCULAR_BORDER_RADIUS,
+                      ),
+                    ),
+                  ),
+                  child: Text(
+                    appLocalizations.sign_in,
+                    style: theme.textTheme.bodyText2?.copyWith(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           SliverList(
