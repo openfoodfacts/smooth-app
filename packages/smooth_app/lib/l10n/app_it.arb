@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Le traduzioni sono tra i compiti chiave del progetto",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Condividi Open Food Facts con i tuoi amici",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Volevo farti conoscere l'app che sto utilizzando, Open Food Facts, che ti fa vedere l'impatto sulla salute ambientale da parte del tuo cibo, in un modo personalizzato. Funziona scansionando i codici a barre sulla confezione. Finalmente è gratuito, non richiede registrazione e puoi anche contribuire ad aumentare il numero di prodotti decifrati. Ecco il link per ottenerlo per il tuo telefono: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Una corrispondenza ottima per te",
     "ranking_subtitle_match_no": "Corrispondenza molto debole",
     "ranking_subtitle_match_maybe": "Corrispondenza sconosciuta",
+    "refresh_with_new_preferences": "Aggiorna l'elenco con le tue nuove preferenze",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Ricaricato con le tue nuove preferenze",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -1027,11 +1031,11 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Aggiungi eventuali indicazioni di provenienza che trovi sulla confezione. Non devi preoccuparti delle origini indicate direttamente nella lista degli ingredienti.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Esempi: Manzo dall'Argentina, La soia non proviene dall'Unione Europea",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1067,15 +1071,15 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Indica solo la categoria più specifica. Le categorie principali verranno aggiunte automaticamente.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Nel caso in cui una categoria non sia disponibile nel completamento automatico, sentiti libero di aggiungerla comunque, questo ci aiuterà a migliorare Open Food Facts nel tuo paese.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Esempi: Sardine sott'olio d'oliva, Succo d'arancia da concentrato",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Scegli dalla galleria",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
     "no_internet_connection": "Nessuna connessione internet",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Seleziona la lingua",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

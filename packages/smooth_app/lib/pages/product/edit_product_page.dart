@@ -62,7 +62,9 @@ class _EditProductPageState extends State<EditProductPage> {
                   horizontal: screenSize.width / 4,
                   vertical: SMALL_SPACE,
                 ),
-                barcode: Barcode.ean13(),
+                barcode: _product.barcode!.length == 8
+                    ? Barcode.ean8()
+                    : Barcode.ean13(),
                 data: _product.barcode!,
                 errorBuilder: (final BuildContext context, String? _) =>
                     ListTile(
@@ -126,6 +128,16 @@ class _EditProductPageState extends State<EditProductPage> {
                   barcode: _product.barcode!,
                 );
               },
+            ),
+            _getMultipleListTileItem(
+              <AbstractSimpleInputPageHelper>[
+                SimpleInputPageLabelHelper(),
+                SimpleInputPageStoreHelper(),
+                SimpleInputPageOriginHelper(),
+                SimpleInputPageEmbCodeHelper(),
+                SimpleInputPageCountryHelper(),
+                SimpleInputPageCategoryHelper(),
+              ],
             ),
             _getSimpleListTileItem(SimpleInputPageLabelHelper()),
             _ListTitleItem(
@@ -230,6 +242,35 @@ class _EditProductPageState extends State<EditProductPage> {
           MaterialPageRoute<Product>(
             builder: (BuildContext context) => SimpleInputPage(
               helper: helper,
+              product: _product,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _getMultipleListTileItem(
+    final List<AbstractSimpleInputPageHelper> helpers,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<String> titles = <String>[];
+    for (final AbstractSimpleInputPageHelper element in helpers) {
+      titles.add(element.getTitle(appLocalizations));
+    }
+    return _ListTitleItem(
+      leading: const Icon(Icons.interests),
+      title: titles.join(', '),
+      subtitle: null,
+      onTap: () async {
+        if (!await ProductRefresher().checkIfLoggedIn(context)) {
+          return;
+        }
+        await Navigator.push<Product>(
+          context,
+          MaterialPageRoute<Product>(
+            builder: (BuildContext context) => SimpleInputPage.multiple(
+              helpers: helpers,
               product: _product,
             ),
           ),

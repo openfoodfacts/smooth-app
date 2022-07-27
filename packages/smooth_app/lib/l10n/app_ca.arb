@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Les traduccions són una de les tasques clau del projecte",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Compartiu Open Food Facts amb els amics",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Volia donar-te a conèixer l'aplicació que he estat utilitzant, Open Food Facts, que et permet conèixer els impactes sobre la salut i el medi ambient dels teus aliments, de manera personalitzada. Funciona escanejant els codis de barres de l'embalatge. Finalment, és gratuïta, no requereix registre i fins i tot pots ajudar a augmentar el nombre de productes desxifrats. Aquí teniu l'enllaç per obtenir-la per a telèfon: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -428,7 +432,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Introduïu totes les peces d'embalatge separades per una coma o una línia, amb la seva quantitat (p. ex. 1 o 6) tipus (p. ex. ampolla, caixa, llauna), material (p. ex. plàstic, metall, alumini) i, si està disponible, la seva mida (p. ex. 33cl) i instruccions de reciclatge.\nExemple: 1 ampolla de vidre per reciclar, 1 suro de plàstic per llençar",
     "packaging_editing_error": "Failed to save the packaging.",
     "packaging_editing_image_error": "Failed to get a new packaging image.",
     "packaging_editing_title": "Edit Packaging",
@@ -1027,11 +1031,11 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Afegiu qualsevol indicació d'origen que pugueu trobar a l'embalatge. No us haureu de preocupar pels orígens indicats directament a la llista d'ingredients.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Exemples: vedella d'Argentina, La soja no prové de la Unió Europea",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1067,15 +1071,15 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Indicau només la categoria més concreta. Les categories arrel s'afegiran automàticament.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Si una categoria no estigués disponible en autocompletar, no dubteu a afegir-la de totes maneres, això ens ajudarà a millorar Open Food Facts al vostre país.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Exemples: Sardines en oli d'oliva, Suc de taronja a partir de concentrat",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Choose from gallery",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "no_internet_connection": "No internet connection",
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
+    "no_internet_connection": "No hi ha connexió a Internet",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Choose App Language",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

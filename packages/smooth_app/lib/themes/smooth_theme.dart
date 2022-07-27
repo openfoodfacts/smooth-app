@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -22,12 +23,16 @@ class SmoothTheme {
 
     return ThemeData(
       primaryColor: const Color(0xFF341100),
-      fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedIconTheme: const IconThemeData(size: 24.0),
         showSelectedLabels: true,
+        selectedItemColor: brightness == Brightness.dark
+            ? Colors.white
+            : const Color(0xFF341100),
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         showUnselectedLabels: true,
-        selectedItemColor: myColorScheme.primary,
+        unselectedIconTheme: const IconThemeData(size: 20.0),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
@@ -85,7 +90,7 @@ class SmoothTheme {
         fontWeight: FontWeight.bold,
       ),
       headline4: TextStyle(
-        fontSize: 16.0,
+        fontSize: LARGE_SPACE,
         fontWeight: FontWeight.bold,
         color: Colors.black,
       ),

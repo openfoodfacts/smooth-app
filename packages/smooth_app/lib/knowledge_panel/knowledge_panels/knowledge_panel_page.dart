@@ -60,6 +60,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
               panel: widget.panel,
               allPanels: widget.allPanels,
               product: widget.product,
+              isInitiallyExpanded: true,
             ),
           ),
         ),

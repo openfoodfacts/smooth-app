@@ -12,11 +12,13 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     required this.panel,
     required this.allPanels,
     required this.product,
+    required this.isInitiallyExpanded,
   });
 
   final KnowledgePanel panel;
   final KnowledgePanels allPanels;
   final Product product;
+  final bool isInitiallyExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +28,12 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
         in panel.elements ?? <KnowledgePanelElement>[]) {
       elementWidgets.add(
         Padding(
-          padding: const EdgeInsets.only(top: VERY_SMALL_SPACE),
+          padding: const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
           child: KnowledgePanelElementCard(
             knowledgePanelElement: element,
             allPanels: allPanels,
             product: product,
+            isInitiallyExpanded: isInitiallyExpanded,
           ),
         ),
       );

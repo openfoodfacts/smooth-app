@@ -4,21 +4,21 @@
     "@yes": {},
     "add": "சேர்",
     "@add": {},
-    "okay": "Okay",
+    "okay": "சரி",
     "@okay": {},
-    "applyButtonText": "Apply",
+    "applyButtonText": "பயன்படுத்து",
     "@applyButtonText": {},
     "next_label": "Next",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "மீண்டும் மேலே செல்",
     "save": "சேமி",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "நிச்சயமாக சேமிக்க விரும்புகிறீர்களா?",
     "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "விட்டுவிடு",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -26,23 +26,23 @@
     "@close": {},
     "no": "இல்லை",
     "@no": {},
-    "stop": "Stop",
+    "stop": "நிறுத்து",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "உணவு விருப்பங்களை மீட்டமைக்கவும்",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "எதிர் பாராத பிழை ஏற்பட்டு விட்டது",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "ஒரு பிழை ஏற்பட்டது",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "இந்த வடிவத்தில் நாங்கள் இன்னும் பணியாற்றி வருகிறோம், காத்திருங்கள்.\n",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "வலையில் பார்க்கவும்",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "மேலும்அறிய",
     "@learnMore": {},
     "unknown": "Unknown",
     "@unknown": {
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -849,7 +853,7 @@
     "@user_profile": {
         "description": "User account (if connected)"
     },
-    "user_profile_title_guest": "Welcome!",
+    "user_profile_title_guest": "நல்வரவு!",
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Choose from gallery",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
     "no_internet_connection": "No internet connection",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Choose App Language",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

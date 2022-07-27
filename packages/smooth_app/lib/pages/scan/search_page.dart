@@ -79,7 +79,6 @@ Future<void> _onSubmittedText(
   final LocalDatabase localDatabase,
 ) async =>
     ProductQueryPageHelper().openBestChoice(
-      heroTag: 'search_bar',
       name: value,
       localDatabase: localDatabase,
       productQuery: KeywordsProductQuery(value),
@@ -211,7 +210,7 @@ class _SearchFieldState extends State<SearchField> {
 
   Widget _buildClearButton() {
     return Padding(
-      padding: const EdgeInsets.only(right: 12.0),
+      padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
       child: IconButton(
         onPressed: _handleClear,
         icon: AnimatedCrossFade(

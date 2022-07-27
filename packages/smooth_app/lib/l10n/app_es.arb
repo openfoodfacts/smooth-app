@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "La traducción es una de las tareas clave del proyecto.",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Comparte Open Food Facts con tus amigos",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Quería informarles sobre la aplicación que he estado usando, Open Food Facts, la cual permite conocer el impacto sobre la salud y el medio ambiente de su comida, de una manera personalizada. Funciona escaneado los códigos de barra del envase. Por último es gratis, no requiere registro, y le permite incrementar el número de productos de la base de datos. Aquí les dejo el vínculo para descargarla en su teléfono: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Una buena opción para ti",
     "ranking_subtitle_match_no": "Muy poco adecuado",
     "ranking_subtitle_match_maybe": "Sin información suficiente",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Actualizado con tus nuevas preferencias",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -1031,7 +1035,7 @@
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Ejemplos: carne de vacuno de Argentina, La soja no procede de la Unión Europea",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1067,11 +1071,11 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Indique sólo la categoría más específica. Las categorías superiores se añadirán automáticamente.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "En caso de que una categoría no esté disponible en el autocompletado, no dude en añadirla de todos modos, que nos ayudarán a mejorar Open Food Facts en tu país.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Seleccionar de la galería",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Ampliar tabla de información nutricional",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Mantener ampliada la tabla de datos nutricionales",
+    "expand_ingredients": "Expandir ingredientes",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Mantener expandido el panel de ingredientes",
     "no_internet_connection": "No hay conexión a internet",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Elegir idioma de la aplicación",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

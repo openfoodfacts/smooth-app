@@ -5,7 +5,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
@@ -17,7 +16,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
-import 'package:smooth_app/pages/scan/scan_product_card.dart';
+import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -31,10 +30,10 @@ class SmoothProductCarousel extends StatefulWidget {
 
   static const EdgeInsetsGeometry carouselItemHorizontalPadding =
       EdgeInsetsDirectional.only(
-    top: 16.0,
-    start: 20.0,
-    end: 20.0,
-    bottom: 20.0,
+    top: LARGE_SPACE,
+    start: VERY_LARGE_SPACE,
+    end: VERY_LARGE_SPACE,
+    bottom: VERY_LARGE_SPACE,
   );
   static const EdgeInsetsGeometry carouselItemInternalPadding =
       EdgeInsets.symmetric(horizontal: 2.0);
@@ -148,8 +147,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     switch (_model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
-        final Product product = _model.getProduct(barcode);
-        return ScanProductCard(product);
+        return ScanProductCardLoader(barcode);
       case ScannedProductState.LOADING:
         return SmoothProductCardLoading(barcode: barcode);
       case ScannedProductState.NOT_FOUND:
@@ -268,7 +266,7 @@ class _SearchCardTagLine extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
       child: DefaultTextStyle.merge(
         style: const TextStyle(
-          fontSize: 16.0,
+          fontSize: LARGE_SPACE,
           height: 1.22,
         ),
         textAlign: TextAlign.center,

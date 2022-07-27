@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Преводите са една от ключовите задачи на проекта",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Сподели Open Food Facts с приятелите си",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Исках да те уведомя за приложението, което използвам, Open Food Facts, което ти позволява да получаваш информация за въздействието на твоьта храна върху здравето и околната среда по персонализиран начин. Работи чрез сканиране на баркодовете на опаковката.То е безплатно, не изисква регистрация и дори можеш да помогнеш за увеличаване на броя на дешифрираните продукти. Ето връзката, за да го получиш за твоя телефон: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Добро съвпадение за теб",
     "ranking_subtitle_match_no": "Много лошо съвпадение",
     "ranking_subtitle_match_maybe": "Неизвестно съвпадение",
+    "refresh_with_new_preferences": "Обнови списъка с новите си предпочитания",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Презаредено с новите ти предпочитания",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -428,7 +432,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Изброй всички части на опаковката, разделени със запетая или ред, с тяхното количество (напр. 1 или 6), вид (напр. бутилка, кутия, кен), материал (напр. пластмаса, метал, алуминий) и ако е наличен, техния размер (напр. 33cl) и инструкции за рециклиране.\nПример: 1 стъклена бутилка за рециклиране, 1 пластмасова тапа за изхвърляне",
     "packaging_editing_error": "Неуспешно запазване на опаковката.",
     "packaging_editing_image_error": "Неуспешно получаване на новата снимка на опаковката.",
     "packaging_editing_title": "Редактиране на опаковката",
@@ -1027,11 +1031,11 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Добави всички указания за произход, които можеш да намериш върху опаковката. Не е нужно да се притесняваш за произхода, посочен директно в списъка на съставките.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Примери: Говеждо от Аржентина, Соята не идва от Европейския съюз",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1067,15 +1071,15 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Посочи само най-конкретната категория. Родителските категориите ще бъдат добавени автоматично.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "В случай, че опледелена категория не е налична в автоматичното довършване, не се колебай да я добавиш защото това ще ни помогне да подобрим Open Food Facts в твоята страна.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Примери: Сардини в дървено масло, Портокалов сок от концентрат",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Избери от галерията",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Разгъни таблицата с хранителните стойности",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Дръж таблицата с хранителните стойности разширена",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Дръж панела на съставките разширен",
     "no_internet_connection": "Няма интернет връзка",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Избери език на приложението",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

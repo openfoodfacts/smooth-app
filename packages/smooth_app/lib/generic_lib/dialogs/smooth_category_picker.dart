@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -142,7 +143,7 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(SMALL_SPACE),
                 child: SmoothCategoryDisplay<T>(
                   categories: widget.currentCategories,
                   onDeleted: (T item) {
@@ -155,7 +156,8 @@ class _SmoothCategoryPickerState<T extends Comparable<T>>
               Row(
                 children: <Widget>[
                   IconButton(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
                     icon: const Icon(Icons.chevron_left),
                     onPressed: category.value != widget.currentPath.first
                         ? () {
@@ -424,7 +426,7 @@ class _CategoryItem<T extends SmoothCategory<dynamic>> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.only(start: 8.0),
+      padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
       child: FutureBuilder<bool>(
         future: category.hasChildren,
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
@@ -562,8 +564,8 @@ class _SmoothCategoryDisplayState<T extends Object>
     combinedCategories.sort();
     return Wrap(
       alignment: WrapAlignment.start,
-      spacing: 8.0,
-      runSpacing: 4.0,
+      spacing: SMALL_SPACE,
+      runSpacing: VERY_SMALL_SPACE,
       children: <Widget>[
         for (final T category in combinedCategories)
           AnimatedInputChip(

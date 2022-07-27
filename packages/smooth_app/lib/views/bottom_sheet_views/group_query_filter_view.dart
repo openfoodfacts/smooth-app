@@ -3,7 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_main_button.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class GroupQueryFilterView extends StatelessWidget {
   const GroupQueryFilterView({
@@ -34,10 +35,10 @@ class GroupQueryFilterView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.only(
-                            left:
-                                MediaQuery.of(context).size.width * 0.05 + 6.0,
-                            top: 24.0),
+                        margin: EdgeInsetsDirectional.only(
+                          start: MediaQuery.of(context).size.width * 0.05 + 6.0,
+                          top: 24.0,
+                        ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,13 +49,15 @@ class GroupQueryFilterView extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        margin: const EdgeInsets.only(top: 6.0),
+                        padding: const EdgeInsetsDirectional.only(start: 10.0),
+                        margin: const EdgeInsetsDirectional.only(top: 6.0),
                         width: MediaQuery.of(context).size.width * 0.9,
                         decoration: const BoxDecoration(
-                            color: Colors.black12,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(12.0))),
+                          color: Colors.black12,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(MEDIUM_SPACE),
+                          ),
+                        ),
                         child: DropdownButton<String>(
                           items: selectedCategoryModel.categoriesList.map(
                             (String key) {
@@ -68,7 +71,7 @@ class GroupQueryFilterView extends StatelessWidget {
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2!
-                                          .copyWith(fontSize: 12.0)),
+                                          .copyWith(fontSize: MEDIUM_SPACE)),
                                 ),
                               );
                             },
@@ -88,7 +91,7 @@ class GroupQueryFilterView extends StatelessWidget {
                       /*Container(
                         margin: EdgeInsets.only(
                             left: MediaQuery.of(context).size.width * 0.05 + 6.0,
-                            top: 12.0),
+                            top: MEDIUM_SPACE),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,7 +108,7 @@ class GroupQueryFilterView extends StatelessWidget {
                         decoration: const BoxDecoration(
                             color: Colors.black12,
                             borderRadius:
-                            BorderRadius.all(Radius.circular(12.0))),
+                            BorderRadius.all(Radius.circular(MEDIUM_SPACE))),
                         child: DropdownButton<String>(
                           items: selectedCategoryModel.categoriesList
                               .map((String key) {
@@ -119,7 +122,7 @@ class GroupQueryFilterView extends StatelessWidget {
                                         .bodyText2
                                         !.copyWith(
                                         color: Colors.black,
-                                        fontSize: 12.0)),
+                                        fontSize: MEDIUM_SPACE)),
                               ),
                             );
                           }).toList(),
@@ -144,13 +147,13 @@ class GroupQueryFilterView extends StatelessWidget {
                             sigmaX: 4.0,
                             sigmaY: 4.0,
                           ),
-                          child: Container(
-                            color: Colors.black12,
+                          child: Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 12.0, vertical: 20.0),
-                            child: SmoothMainButton(
-                              text:
-                                  AppLocalizations.of(context).applyButtonText,
+                                horizontal: MEDIUM_SPACE,
+                                vertical: VERY_LARGE_SPACE),
+                            child: SmoothLargeButtonWithIcon(
+                              icon: Icons.filter_list_outlined,
+                              text: appLocalizations.applyButtonText,
                               onPressed: () {
                                 Navigator.pop(context);
                                 callback(
