@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -17,6 +18,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/products_preload_helper.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -95,6 +97,28 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             await userPreferences.setFlag(userPreferencesFlagProd, true);
             ProductQuery.setQueryType(userPreferences);
             setState(() {});
+          },
+        ),
+        ListTile(
+          title: const Text(
+            'Preload Data',
+          ),
+          subtitle: const Text(
+              'Download the top 1000 products in your country for instant scanning'),
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final String status = await LoadingDialog.run<String>(
+                  title: 'Downloading data\nThis may take a while',
+                  context: context,
+                  future: PreloadDataHelper(localDatabase).preloadData(),
+                ) ??
+                'Cancelled';
+            // ignore: use_build_context_synchronously
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(status),
+              ),
+            );
           },
         ),
         ListTile(
@@ -425,7 +449,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         userPreferencesCameraPostFrameDuration,
         result,
       );
-
       setState(() {});
     }
   }
