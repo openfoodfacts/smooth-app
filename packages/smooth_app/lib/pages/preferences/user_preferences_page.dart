@@ -176,7 +176,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
                 ).getOnlyHeader(),
                 SmoothSimpleButton(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0, vertical: 15.0),
+                      horizontal: LARGE_SPACE, vertical: SMALL_SPACE),
                   child: Text(
                     appLocalizations.sign_in,
                     style: theme.textTheme.bodyText2?.copyWith(
