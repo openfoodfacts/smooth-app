@@ -322,7 +322,7 @@
     "@contribute_translate_text_2": {},
     "contribute_share_header": "Condividi Open Food Facts con i tuoi amici",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Volevo farti conoscere l'app che sto utilizzando, Open Food Facts, che ti fa vedere l'impatto sulla salute ambientale da parte del tuo cibo, in un modo personalizzato. Funziona scansionando i codici a barre sulla confezione. Finalmente è gratuito, non richiede registrazione e puoi anche contribuire ad aumentare il numero di prodotti decifrati. Ecco il link per ottenerlo per il tuo telefono: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Una corrispondenza ottima per te",
     "ranking_subtitle_match_no": "Corrispondenza molto debole",
     "ranking_subtitle_match_maybe": "Corrispondenza sconosciuta",
+    "refresh_with_new_preferences": "Aggiorna l'elenco con le tue nuove preferenze",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Ricaricato con le tue nuove preferenze",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -1560,7 +1564,7 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "choose_app_language": "Choose App Language",
+    "choose_app_language": "Seleziona la lingua",
     "@choose_app_language": {
         "description": "Choose Application Language"
     }
