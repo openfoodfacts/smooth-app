@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "ОС: Android (SDK Int: {sdklnt} / Выпуск: ${release})\nМодель: ${model}\nПродукт: ${product}\nУстройство: ${device}\nМарка:{brand}",
+    "contact_form_body_android": "ОС: Android (SDK Int: {sdkInt} / Выпуск: ${release})\nМодель: ${model}\nПродукт: ${product}\nУстройство: ${device}\nМарка:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
