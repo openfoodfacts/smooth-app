@@ -363,7 +363,7 @@
     "ranking_subtitle_match_yes": "Et godt match til dig",
     "ranking_subtitle_match_no": "Meget dårligt match",
     "ranking_subtitle_match_maybe": "Ukendt match",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Opfrisk listen med de nye præferencer",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
