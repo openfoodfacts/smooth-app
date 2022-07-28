@@ -56,6 +56,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ThemeData theme = Theme.of(context);
+    final Size size = MediaQuery.of(context).size;
 
     final String appBarTitle;
     final List<Widget> children = <Widget>[];
@@ -85,7 +86,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         if (type == PreferencePageType.ACCOUNT) {
           children.add(
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: LARGE_SPACE * 7),
+              margin: EdgeInsets.symmetric(horizontal: size.width / 4),
               child: SmoothSimpleButton(
                 child: Text(
                   appLocalizations.sign_in,
