@@ -322,7 +322,7 @@
     "@contribute_translate_text_2": {},
     "contribute_share_header": "שיתוף Open Food Facts עם חברים",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "רציתי לספר לך על יישומון שמותקן אצלי. Open Food Facts, שמאפשר לקבל את ההשפעות הבריאותיות והסביבתיות של המזון שלך, בדרך מותאמת אישית. הוא עובד עם סריקת ברקודים על האריזה. בסופו של דבר זה בחינם ולא נדרשת הרשמה ואפשר גם לסייע להגדיר את מספר המוצרים המפוענחים. הנה הקישור להורדה והתקנה בטלפון: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },

@@ -363,7 +363,7 @@
     "ranking_subtitle_match_yes": "Een geweldige overeenkomst voor u",
     "ranking_subtitle_match_no": "Zeer slechte overeenkomst",
     "ranking_subtitle_match_maybe": "Onbekende overeenkomst",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Ververs de lijst met je nieuwe voorkeuren",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
