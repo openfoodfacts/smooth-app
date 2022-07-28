@@ -74,7 +74,7 @@ jobs:
           VERSION_NAME: ${{ env.RELEASE_VERSION }}
 
       - name: Build app
-        run: cd ./packages/smooth_app && flutter build ios --release --no-codesign
+        run: cd ./packages/smooth_app && cd ios && pod update Sentry && cd .. && flutter build ios --release --no-codesign
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
