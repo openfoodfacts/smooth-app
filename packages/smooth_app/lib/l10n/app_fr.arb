@@ -363,7 +363,10 @@
     "ranking_subtitle_match_yes": "Une bonne correspondance pour vous",
     "ranking_subtitle_match_no": "Très mauvaise correspondance",
     "ranking_subtitle_match_maybe": "Correspondance inconnue",
-    "refresh_with_new_preferences": "Refraîchir la liste avec vos nouvelles préférences",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Rechargé avec vos nouvelles préférences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"

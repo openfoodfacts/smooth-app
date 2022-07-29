@@ -6,6 +6,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
@@ -66,6 +67,7 @@ class _ApplicationSettings extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     return Column(
       children: <Widget>[
@@ -110,6 +112,17 @@ class _ApplicationSettings extends StatelessWidget {
         ),
         const UserPreferencesListItemDivider(),
         const _CountryPickerSetting(),
+        const UserPreferencesListItemDivider(),
+        ListTile(
+          title: Text(
+            appLocalizations.choose_app_language,
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          subtitle: LanguageSelectorSettings(
+            userPreferences: userPreferences,
+            appLocalizations: appLocalizations,
+          ),
+        ),
         const UserPreferencesListItemDivider(),
       ],
     );
