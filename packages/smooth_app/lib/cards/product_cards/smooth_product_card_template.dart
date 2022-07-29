@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -12,12 +11,14 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 /// Based on the "real" [SmoothProductCardFound].
 class SmoothProductCardTemplate extends StatelessWidget {
   const SmoothProductCardTemplate({
-    this.error,
+    this.message,
     this.barcode,
+    this.actionButton,
   });
 
-  final String? error;
+  final String? message;
   final String? barcode;
+  final Widget? actionButton;
 
   @override
   Widget build(BuildContext context) {
@@ -33,20 +34,12 @@ class SmoothProductCardTemplate extends StatelessWidget {
       color: itemColor,
     );
     // In the actual display, it's a 240x130 svg resized with iconSize
-    final Widget svgWidget = error == null
-        ? Container(
-            height: iconSize * .9,
-            width: 240 * iconSize / 130,
-            color: itemColor,
-          )
-        : SizedBox(
-            height: iconSize * .9,
-            width: 240 * iconSize / 130,
-            child: SvgPicture.asset(
-              'assets/misc/error.svg',
-              height: iconSize * .9,
-            ),
-          );
+    final double svgWidth = 240 * iconSize / 130;
+    final Widget svgWidget = Container(
+      height: iconSize * .9,
+      width: svgWidth,
+      color: itemColor,
+    );
     return Container(
       decoration: BoxDecoration(
         borderRadius: ROUNDED_BORDER_RADIUS,
@@ -69,12 +62,12 @@ class SmoothProductCardTemplate extends StatelessWidget {
                 height: screenSize.width * 0.2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     if (barcode == null) textWidget else Text(barcode!),
-                    if (error == null) textWidget,
-                    if (error == null) textWidget,
-                    if (error != null) AutoSizeText(error!, maxLines: 3),
+                    if (message == null) textWidget,
+                    if (message == null) textWidget,
+                    if (message != null) AutoSizeText(message!, maxLines: 3),
                   ],
                 ),
               ),
@@ -82,7 +75,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
             const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
             Padding(
               padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-              child: error == null
+              child: actionButton == null
                   ? Column(
                       children: <Widget>[
                         svgWidget,
@@ -90,7 +83,11 @@ class SmoothProductCardTemplate extends StatelessWidget {
                         svgWidget,
                       ],
                     )
-                  : Center(child: svgWidget),
+                  : SizedBox(
+                      width: svgWidth,
+                      height: iconSize * (.9 * 2 + .2),
+                      child: actionButton,
+                    ),
             ),
           ],
         ),

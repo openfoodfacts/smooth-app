@@ -71,6 +71,17 @@ class ProductModel with ChangeNotifier {
         notifyListeners();
         return;
       }
+      await download();
+    } catch (e) {
+      _loadingError = e.toString();
+      _loadingStatus = LoadingStatus.ERROR;
+      notifyListeners();
+    }
+  }
+
+  /// Downloads the product. To be used as a refresh after a network issue.
+  Future<void> download() async {
+    try {
       _loadingStatus = LoadingStatus.DOWNLOADING;
       notifyListeners();
       final FetchedProduct fetchedProduct = await BarcodeProductQuery(
