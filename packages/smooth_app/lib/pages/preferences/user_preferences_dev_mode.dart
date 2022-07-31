@@ -121,21 +121,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 content: Text(statusForPreload),
               ),
             );
-            final String statusForKnowledgePanelProducts =
-                await LoadingDialog.run<String>(
-                      title:
-                          'Updating your faviourite products\nThis may take a while',
-                      context: context,
-                      future:
-                          PreloadDataHelper(daoProduct).updateKnowledgePanels(),
-                    ) ??
-                    'Cancelled';
-            // ignore: use_build_context_synchronously
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(statusForKnowledgePanelProducts),
-              ),
-            );
+            localDatabase.notifyListeners();
           },
         ),
         ListTile(
