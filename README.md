@@ -4,7 +4,7 @@
   <img height="100" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
 </picture>
 
-# Open Food Facts - Codename: "Smooth App"
+# New Open Food Facts mobile app for Android and iPhone - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
 Latest commit deployed to App Stores: (July 8th 2022) https://github.com/openfoodfacts/smooth-app/commit/b318a540130a2135db9308c2b4f74ce0eeb8f849
