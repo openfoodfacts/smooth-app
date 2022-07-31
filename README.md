@@ -106,6 +106,10 @@ In order to build the application, make sure you are in the packages/smooth_app 
 
 ![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
 
+### Error reporting - Sentry
+[Track crashes](https://sentry.io/organizations/openfoodfacts/issues/?project=5376745)
+
+
 ## Thank you
 The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
 
