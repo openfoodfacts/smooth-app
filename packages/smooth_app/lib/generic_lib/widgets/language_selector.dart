@@ -33,6 +33,7 @@ class LanguageSelectorSettings extends StatelessWidget {
       language,
     );
     return ListTile(
+      contentPadding: EdgeInsets.zero,
       leading: const Icon(Icons.language),
       title: Text(
         '$nameInLanguage ($nameInEnglish)',
