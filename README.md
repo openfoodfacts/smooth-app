@@ -107,7 +107,7 @@ In order to build the application, make sure you are in the packages/smooth_app 
 ![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
 
 ### Error reporting - Sentry
-[Track crashes](https://sentry.io/organizations/openfoodfacts/issues/?project=5276492)
+[Track crashes](https://sentry.io/organizations/openfoodfacts/issues/?project=5376745)
 
 
 ## Thank you
