@@ -11,7 +11,7 @@ class PreloadDataHelper {
     final Map<String, Product> allProducts =
         await daoProduct.getAll(allProductCodes);
     allProducts.forEach((String code, Product product) {
-      if (product.knowledgePanels != null) {
+      if (product.knowledgePanels == null) {
         allProductCodes.remove(code);
       }
     });
