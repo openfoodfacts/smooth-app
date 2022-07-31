@@ -94,8 +94,8 @@ In order to build the application, make sure you are in the packages/smooth_app 
  - flutter run
 
 ### Dev Mode
-- How to activate it: We now have a secret in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by: going to the Food preferences screen, Your Profile, User Management, Forgotten Password and then tapping ten times on the "Change password" button of the Reset Password screen (without typing any email). 
-- Feel free to file an issue if you'd like new switches in this dev mode. 
+- How to activate it: We now have a in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by going to Preferences screen > Contribute > Software Development, and then enabling Dev Mode.
+- Feel free to file an issue if you'd like new switches in this dev mode.
 - You can also add new flags for your features.
   - example: https://github.com/openfoodfacts/smooth-app/pull/834
 
