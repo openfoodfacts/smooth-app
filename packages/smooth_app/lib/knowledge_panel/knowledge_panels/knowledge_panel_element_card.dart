@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -41,9 +42,18 @@ class KnowledgePanelElementCard extends StatelessWidget {
           height: knowledgePanelElement.imageElement!.height?.toDouble(),
         );
       case KnowledgePanelElementType.PANEL:
+        final String panelId = knowledgePanelElement.panelElement!.panelId;
+        final KnowledgePanel? panel = allPanels.panelIdToPanelMap[panelId];
+        if (panel == null) {
+          // happened in https://github.com/openfoodfacts/smooth-app/issues/2682
+          // due to some inconsistencies in the data sent by the server
+          Logs.w(
+            'unknown panel "$panelId" for barcode "${product.barcode}"',
+          );
+          return EMPTY_WIDGET;
+        }
         return KnowledgePanelCard(
-          panel: allPanels
-              .panelIdToPanelMap[knowledgePanelElement.panelElement!.panelId]!,
+          panel: panel,
           allPanels: allPanels,
           product: product,
         );
