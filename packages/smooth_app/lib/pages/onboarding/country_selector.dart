@@ -144,6 +144,7 @@ class _CountrySelectorState extends State<CountrySelector> {
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: ListTile(
+              contentPadding: EdgeInsets.zero,
               leading: const Icon(Icons.public),
               title: Text(
                 _chosenValue.name,
