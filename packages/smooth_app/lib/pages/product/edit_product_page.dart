@@ -56,6 +56,8 @@ class _EditProductPageState extends State<EditProductPage> {
         if (refreshedProduct != null) {
           _product = refreshedProduct;
         }
+        final Brightness brightness = Theme.of(context).brightness;
+
         return SmoothScaffold(
           appBar: AppBar(
             title: AutoSizeText(
@@ -78,6 +80,9 @@ class _EditProductPageState extends State<EditProductPage> {
                             ? Barcode.ean8()
                             : Barcode.ean13(),
                         data: _product.barcode!,
+                        color: brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
                         errorBuilder: (final BuildContext context, String? _) =>
                             Text(
                           '${appLocalizations.edit_product_form_item_barcode}\n'
@@ -104,6 +109,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       )
                     ],
                   ),
+                ),
                 _ListTitleItem(
                   title: appLocalizations.edit_product_form_item_details_title,
                   subtitle:
