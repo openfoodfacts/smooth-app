@@ -5,7 +5,9 @@ import 'package:smooth_app/query/product_query.dart';
 
 class PreloadDataHelper {
   PreloadDataHelper(this.daoProduct);
-  DaoProduct daoProduct;
+
+  final DaoProduct daoProduct;
+
   Future<String> getTopProducts() async {
     List<String> allProductCodes = await daoProduct.getAllKeys();
     final Map<String, Product> allProducts =
