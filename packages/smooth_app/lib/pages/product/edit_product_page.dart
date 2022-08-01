@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -45,7 +46,6 @@ class _EditProductPageState extends State<EditProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size screenSize = MediaQuery.of(context).size;
     return Consumer<UpToDateProductProvider>(
       builder: (
         final BuildContext context,
@@ -56,6 +56,8 @@ class _EditProductPageState extends State<EditProductPage> {
         if (refreshedProduct != null) {
           _product = refreshedProduct;
         }
+        final Brightness brightness = Theme.of(context).brightness;
+
         return SmoothScaffold(
           appBar: AppBar(
             title: AutoSizeText(
@@ -68,22 +70,44 @@ class _EditProductPageState extends State<EditProductPage> {
             child: ListView(
               children: <Widget>[
                 if (_product.barcode != null)
-                  BarcodeWidget(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: screenSize.width / 4,
-                      vertical: SMALL_SPACE,
-                    ),
-                    barcode: _product.barcode!.length == 8
-                        ? Barcode.ean8()
-                        : Barcode.ean13(),
-                    data: _product.barcode!,
-                    errorBuilder: (final BuildContext context, String? _) =>
-                        ListTile(
-                      title: Text(
-                        appLocalizations.edit_product_form_item_barcode,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      const SizedBox(width: MINIMUM_TOUCH_SIZE),
+                      BarcodeWidget(
+                        barcode: _product.barcode!.length == 8
+                            ? Barcode.ean8()
+                            : Barcode.ean13(),
+                        data: _product.barcode!,
+                        color: brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                        errorBuilder: (final BuildContext context, String? _) =>
+                            Text(
+                          '${appLocalizations.edit_product_form_item_barcode}\n'
+                          '${_product.barcode}',
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                      subtitle: Text(_product.barcode!),
-                    ),
+                      IconButton(
+                        icon: const Icon(Icons.copy),
+                        iconSize: MINIMUM_TOUCH_SIZE,
+                        onPressed: () {
+                          Clipboard.setData(
+                            ClipboardData(text: _product.barcode),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                appLocalizations.clipboard_barcode_copied(
+                                    _product.barcode!),
+                              ),
+                            ),
+                          );
+                        },
+                      )
+                    ],
                   ),
                 _ListTitleItem(
                   title: appLocalizations.edit_product_form_item_details_title,

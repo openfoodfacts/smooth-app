@@ -1567,5 +1567,9 @@
     "choose_app_language": "Elegir idioma de la aplicación",
     "@choose_app_language": {
         "description": "Choose Application Language"
+    },
+    "help_with_openfoodfacts": "Ayuda con OpenFoodFacts",
+    "@help_with_openfoodfacts": {
+        "description": "Label for email title"
     }
 }

@@ -122,6 +122,7 @@ class _ApplicationSettings extends StatelessWidget {
             userPreferences: userPreferences,
             appLocalizations: appLocalizations,
           ),
+          minVerticalPadding: MEDIUM_SPACE,
         ),
         const UserPreferencesListItemDivider(),
       ],
