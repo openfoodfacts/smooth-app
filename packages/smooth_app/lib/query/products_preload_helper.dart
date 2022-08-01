@@ -7,14 +7,12 @@ class PreloadDataHelper {
   DaoProduct daoProduct;
 
   Future<String> getTopProducts() async {
-    final List<String> allProductCodes = await daoProduct.getAllKeys();
+    List<String> allProductCodes = await daoProduct.getAllKeys();
     final Map<String, Product> allProducts =
         await daoProduct.getAll(allProductCodes);
-    allProducts.forEach((String code, Product product) {
-      if (product.knowledgePanels == null) {
-        allProductCodes.remove(code);
-      }
-    });
+    allProducts.removeWhere(
+        (String key, Product value) => value.knowledgePanels == null);
+    allProductCodes = allProducts.keys.toList();
     final List<ProductField> fields = ProductQuery.fields;
     fields.remove(ProductField.KNOWLEDGE_PANELS);
     final ProductSearchQueryConfiguration queryConfig =
