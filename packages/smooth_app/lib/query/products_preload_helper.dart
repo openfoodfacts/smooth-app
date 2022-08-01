@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -21,7 +20,7 @@ class PreloadDataHelper {
           ProductSearchQueryConfiguration(
         fields: fields,
         parametersList: <Parameter>[
-          const PageSize(size: 1000),
+          const PageSize(size: 100),
           const PageNumber(page: 1),
           const SortBy(option: SortOption.POPULARITY),
         ],
@@ -32,7 +31,7 @@ class PreloadDataHelper {
         ProductQuery.getUser(),
         queryConfig,
       );
-      if (searchResult.products!.isEmpty) {
+      if (searchResult.products?.isEmpty ?? true) {
         return 'No products found for your country and language';
       } else {
         searchResult.products!.removeWhere(
