@@ -56,6 +56,8 @@ class _EditProductPageState extends State<EditProductPage> {
         if (refreshedProduct != null) {
           _product = refreshedProduct;
         }
+        final Brightness brightness = Theme.of(context).brightness;
+
         return SmoothScaffold(
           appBar: AppBar(
             title: AutoSizeText(
@@ -76,6 +78,9 @@ class _EditProductPageState extends State<EditProductPage> {
                     barcode: _product.barcode!.length == 8
                         ? Barcode.ean8()
                         : Barcode.ean13(),
+                    color: brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
                     data: _product.barcode!,
                     errorBuilder: (final BuildContext context, String? _) =>
                         ListTile(
