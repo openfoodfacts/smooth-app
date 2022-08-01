@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -9,7 +10,15 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 ///
 /// Based on the "real" [SmoothProductCardFound].
 class SmoothProductCardTemplate extends StatelessWidget {
-  const SmoothProductCardTemplate();
+  const SmoothProductCardTemplate({
+    this.message,
+    this.barcode,
+    this.actionButton,
+  });
+
+  final String? message;
+  final String? barcode;
+  final Widget? actionButton;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +34,10 @@ class SmoothProductCardTemplate extends StatelessWidget {
       color: itemColor,
     );
     // In the actual display, it's a 240x130 svg resized with iconSize
+    final double svgWidth = 240 * iconSize / 130;
     final Widget svgWidget = Container(
       height: iconSize * .9,
-      width: 240 * iconSize / 130,
+      width: svgWidth,
       color: itemColor,
     );
     return Container(
@@ -52,11 +62,12 @@ class SmoothProductCardTemplate extends StatelessWidget {
                 height: screenSize.width * 0.2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    textWidget,
-                    textWidget,
-                    textWidget,
+                    if (barcode == null) textWidget else Text(barcode!),
+                    if (message == null) textWidget,
+                    if (message == null) textWidget,
+                    if (message != null) AutoSizeText(message!, maxLines: 3),
                   ],
                 ),
               ),
@@ -64,13 +75,19 @@ class SmoothProductCardTemplate extends StatelessWidget {
             const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
             Padding(
               padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-              child: Column(
-                children: <Widget>[
-                  svgWidget,
-                  Container(height: iconSize * .2),
-                  svgWidget,
-                ],
-              ),
+              child: actionButton == null
+                  ? Column(
+                      children: <Widget>[
+                        svgWidget,
+                        Container(height: iconSize * .2),
+                        svgWidget,
+                      ],
+                    )
+                  : SizedBox(
+                      width: svgWidth,
+                      height: iconSize * (.9 * 2 + .2),
+                      child: actionButton,
+                    ),
             ),
           ],
         ),

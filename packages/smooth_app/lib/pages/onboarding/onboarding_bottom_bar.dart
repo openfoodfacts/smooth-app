@@ -69,7 +69,7 @@ class OnboardingBottomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(height: MINIMUM_TARGET_SIZE),
+        constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
         child: ElevatedButton(
           onPressed: onPressed,
           style: ButtonStyle(
