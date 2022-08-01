@@ -12,7 +12,7 @@ import 'package:smooth_app/services/logs/smooth_log_levels.dart';
 import 'package:smooth_app/services/logs/smooth_logs_service.dart';
 
 /// On debug builds: device logs + file (all levels)
-/// On release builds : device logs (only errors), sentry (all levels) and
+/// On release builds : device logs (only errors), Sentry (all levels) and
 /// file (only errors & info)
 class FimberLogImpl implements AppLogService {
   // Link to a file tree impl (required for exporting logs)
