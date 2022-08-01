@@ -20,7 +20,6 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
         super(key: key);
 
   final AutocompleteOptionToString<T> displayStringForOption;
-
   final AutocompleteOnSelected<T> onSelected;
 
   final Iterable<T> options;
@@ -29,6 +28,8 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final int highlightedOption = AutocompleteHighlightedOption.of(context);
+
     return Align(
       alignment: AlignmentDirectional.topStart,
       child: Material(
@@ -46,25 +47,13 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
               itemCount: options.length,
               itemBuilder: (BuildContext context, int index) {
                 final T option = options.elementAt(index);
-                return InkWell(
-                  onTap: () {
-                    onSelected(option);
-                  },
-                  child: Builder(builder: (BuildContext context) {
-                    final bool highlight =
-                        AutocompleteHighlightedOption.of(context) == index;
-                    if (highlight) {
-                      SchedulerBinding.instance
-                          .addPostFrameCallback((Duration timeStamp) {
-                        Scrollable.ensureVisible(context, alignment: 0.5);
-                      });
-                    }
-                    return Container(
-                      color: highlight ? Theme.of(context).focusColor : null,
-                      padding: const EdgeInsets.all(LARGE_SPACE),
-                      child: Text(displayStringForOption(option)),
-                    );
-                  }),
+
+                return _AutocompleteOptionsItem<T>(
+                  key: Key(index.toString()),
+                  option: option,
+                  highlight: highlightedOption == index,
+                  onSelected: onSelected,
+                  displayStringForOption: displayStringForOption,
                 );
               },
               separatorBuilder: (_, __) => const Divider(
@@ -72,6 +61,43 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _AutocompleteOptionsItem<T extends Object> extends StatelessWidget {
+  const _AutocompleteOptionsItem({
+    required this.option,
+    required this.highlight,
+    required this.displayStringForOption,
+    required this.onSelected,
+    Key? key,
+  }) : super(key: key);
+
+  final T option;
+  final bool highlight;
+  final AutocompleteOptionToString<T> displayStringForOption;
+  final AutocompleteOnSelected<T> onSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    if (highlight) {
+      SchedulerBinding.instance.addPostFrameCallback((Duration timeStamp) {
+        Scrollable.ensureVisible(context, alignment: 0.5);
+      });
+    }
+
+    return InkWell(
+      onTap: () {
+        onSelected(option);
+      },
+      child: Container(
+        color: highlight ? Theme.of(context).focusColor : null,
+        padding: const EdgeInsets.all(LARGE_SPACE),
+        child: Text(
+          displayStringForOption(option),
         ),
       ),
     );
