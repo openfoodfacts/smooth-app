@@ -109,7 +109,6 @@ class _EditProductPageState extends State<EditProductPage> {
                       )
                     ],
                   ),
-                ),
                 _ListTitleItem(
                   title: appLocalizations.edit_product_form_item_details_title,
                   subtitle:
