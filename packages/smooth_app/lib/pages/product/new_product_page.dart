@@ -118,28 +118,32 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                 },
               ),
             ),
-            SafeArea(
-              child: AnimatedContainer(
-                duration: SmoothAnimationsDuration.short,
-                width: kToolbarHeight,
-                height: kToolbarHeight,
-                decoration: BoxDecoration(
-                  color:
-                      scrollingUp ? themeData.primaryColor : Colors.transparent,
-                  shape: BoxShape.circle,
-                ),
-                child: Offstage(
-                  offstage: !scrollingUp,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.maybePop(context);
-                    },
-                    child: Tooltip(
-                      message:
-                          MaterialLocalizations.of(context).backButtonTooltip,
-                      child: Icon(
-                        ConstantIcons.instance.getBackIcon(),
-                        color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.only(left: VERY_SMALL_SPACE),
+              child: SafeArea(
+                child: AnimatedContainer(
+                  duration: SmoothAnimationsDuration.short,
+                  width: kToolbarHeight,
+                  height: kToolbarHeight,
+                  decoration: BoxDecoration(
+                    color: scrollingUp
+                        ? themeData.primaryColor
+                        : Colors.transparent,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Offstage(
+                    offstage: !scrollingUp,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.maybePop(context);
+                      },
+                      child: Tooltip(
+                        message:
+                            MaterialLocalizations.of(context).backButtonTooltip,
+                        child: Icon(
+                          ConstantIcons.instance.getBackIcon(),
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),

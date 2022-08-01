@@ -34,6 +34,7 @@ class ScoreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final double iconHeight = IconWidgetSizer.getIconSizeFromContext(context);
     final ThemeData themeData = Theme.of(context);
+
     final double opacity = themeData.brightness == Brightness.light
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
@@ -73,7 +74,11 @@ class ScoreCard extends StatelessWidget {
                 ),
               ),
             ),
-            if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
+            if (isClickable)
+              Icon(
+                ConstantIcons.instance.getForwardIcon(),
+                color: textColor,
+              ),
           ],
         ),
       ),
