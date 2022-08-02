@@ -1,25 +1,28 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
+import 'package:smooth_app/data_models/personalized_ranking_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
+import 'package:smooth_app/pages/tmp_matched_product_v2.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
   const PersonalizedRankingPage({
-    required this.products,
+    required this.barcodes,
     required this.title,
   });
 
-  final List<Product> products;
+  final List<String> barcodes;
   final String title;
 
   @override
@@ -37,44 +40,94 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 
   static const int _backgroundAlpha = 51;
 
+  late final PersonalizedRankingModel _model;
+
+  List<String>? _compactPreferences;
+
+  @override
+  void initState() {
+    super.initState();
+    _model = PersonalizedRankingModel(widget.barcodes);
+  }
+
   @override
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final List<MatchedProductV2> allProducts = MatchedProductV2.sort(
-      widget.products,
-      productPreferences,
-    );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    AnalyticsHelper.trackPersonalizedRanking(widget.products.length);
-
-    MatchedProductStatusV2? status;
-    final List<_VirtualItem> list = <_VirtualItem>[];
-    for (final MatchedProductV2 product in allProducts) {
-      if (status == null || status != product.status) {
-        status = product.status;
-        list.add(_VirtualItem.status(status));
-      }
-      list.add(_VirtualItem.product(product));
-    }
-    final bool darkMode = Theme.of(context).brightness == Brightness.dark;
-    return SmoothScaffold(
-      appBar: AppBar(
-        title: Text(
-          widget.title,
-          overflow: TextOverflow.fade,
+    return Consumer<UpToDateProductProvider>(
+      builder: (
+        final BuildContext context,
+        final UpToDateProductProvider upToDateProductProvider,
+        final Widget? child,
+      ) =>
+          SmoothScaffold(
+        appBar: AppBar(
+          title: Text(widget.title, overflow: TextOverflow.fade),
         ),
-      ),
-      body: ListView.builder(
-        itemCount: list.length,
-        itemBuilder: (BuildContext context, int index) => _buildItem(
-          list[index],
-          daoProductList,
-          appLocalizations,
-          darkMode,
+        body: ChangeNotifierProvider<PersonalizedRankingModel>(
+          create: (final BuildContext context) => _model,
+          builder: (final BuildContext context, final Widget? wtf) {
+            context.watch<PersonalizedRankingModel>();
+            final List<String> compactPreferences =
+                productPreferences.getCompactView();
+            if (_compactPreferences == null) {
+              _compactPreferences = compactPreferences;
+              _model.refresh(context.read<LocalDatabase>(), productPreferences);
+            } else {
+              bool refresh = !_compactPreferences!.equals(compactPreferences);
+              if (!refresh) {
+                refresh = _model.needsRefresh(upToDateProductProvider);
+              }
+              if (refresh) {
+                // TODO(monsieurtanuki): could maybe be automatic with VisibilityDetector
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(SMALL_SPACE),
+                    child: SmoothLargeButtonWithIcon(
+                      icon: Icons.refresh,
+                      text: appLocalizations.refresh_with_new_preferences,
+                      onPressed: () {
+                        _compactPreferences = compactPreferences;
+                        _model.refresh(
+                            context.read<LocalDatabase>(), productPreferences);
+                      },
+                    ),
+                  ),
+                );
+              }
+            }
+            if (_model.loadingStatus == LoadingStatus.LOADING) {
+              return Center(
+                child: CircularProgressIndicator(
+                  value: _model.getLoadingProgress() ?? 1,
+                ),
+              );
+            }
+            if (_model.loadingStatus != LoadingStatus.LOADED) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            AnalyticsHelper.trackPersonalizedRanking(widget.barcodes.length);
+            MatchedProductStatusV2? status;
+            final List<_VirtualItem> list = <_VirtualItem>[];
+            for (final MatchedScoreV2 score in _model.scores) {
+              if (status == null || status != score.status) {
+                status = score.status;
+                list.add(_VirtualItem.status(status));
+              }
+              list.add(_VirtualItem.score(score));
+            }
+            final bool darkMode =
+                Theme.of(context).brightness == Brightness.dark;
+            return ListView.builder(
+              itemCount: list.length,
+              itemBuilder: (BuildContext context, int index) => _buildItem(
+                list[index],
+                appLocalizations,
+                darkMode,
+              ),
+            );
+          },
         ),
       ),
     );
@@ -82,7 +135,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 
   Widget _buildItem(
     final _VirtualItem item,
-    final DaoProductList daoProductList,
     final AppLocalizations appLocalizations,
     final bool darkMode,
   ) =>
@@ -93,8 +145,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
               darkMode,
             )
           : _buildSmoothProductCard(
-              item.product!,
-              daoProductList,
+              item.score!,
               appLocalizations,
               darkMode,
             );
@@ -118,8 +169,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   }
 
   Widget _buildSmoothProductCard(
-    final MatchedProductV2 matchedProduct,
-    final DaoProductList daoProductList,
+    final MatchedScoreV2 matchedProduct,
     final AppLocalizations appLocalizations,
     final bool darkMode,
   ) =>
@@ -135,19 +185,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
             color: Colors.white,
           ),
         ),
-        key: Key(matchedProduct.product.barcode!),
-        onDismissed: (final DismissDirection direction) async {
-          final bool removed = widget.products.remove(matchedProduct.product);
-          if (removed) {
-            setState(() {});
-          }
+        key: Key(matchedProduct.barcode),
+        onDismissed: (final DismissDirection direction) {
+          _model.dismiss(matchedProduct.barcode);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                removed
-                    ? appLocalizations.product_removed_comparison
-                    : appLocalizations.product_could_not_remove,
-              ),
+              content: Text(appLocalizations.product_removed_comparison),
               duration: const Duration(seconds: 3),
             ),
           );
@@ -157,12 +200,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
             horizontal: MEDIUM_SPACE,
             vertical: SMALL_SPACE,
           ),
-          child: SmoothProductCardFound(
-            heroTag: matchedProduct.product.barcode!,
-            product: matchedProduct.product,
-            backgroundColor: ProductCompatibilityHelper.product(matchedProduct)
-                .getHeaderBackgroundColor(darkMode)
-                .withAlpha(_backgroundAlpha),
+          child: ProductListItemSimple(
+            barcode: matchedProduct.barcode,
+            backgroundColor:
+                ProductCompatibilityHelper.status(matchedProduct.status)
+                    .getHeaderBackgroundColor(darkMode)
+                    .withAlpha(_backgroundAlpha),
           ),
         ),
       );
@@ -170,9 +213,8 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 
 /// Virtual item in the list: either a product or a status header
 class _VirtualItem {
-  const _VirtualItem.product(this.product) : status = null;
-
-  const _VirtualItem.status(this.status) : product = null;
-  final MatchedProductV2? product;
+  const _VirtualItem.score(this.score) : status = null;
+  const _VirtualItem.status(this.status) : score = null;
+  final MatchedScoreV2? score;
   final MatchedProductStatusV2? status;
 }

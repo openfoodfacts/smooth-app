@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Een geweldige overeenkomst voor u",
     "ranking_subtitle_match_no": "Zeer slechte overeenkomst",
     "ranking_subtitle_match_maybe": "Onbekende overeenkomst",
+    "refresh_with_new_preferences": "Ververs de lijst met je nieuwe voorkeuren",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Opnieuw geladen met uw nieuwe voorkeuren",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -428,7 +432,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "Vermeld alle verpakkingsonderdelen gescheiden door een komma of regel, met hun hoeveelheid (bijv. 1 of 6) type (bijv. fles, doos, blik), materiaal (bijv. plastic, metaal, aluminium) en indien beschikbaar hun grootte (bijv. 33cl) en instructies voor recycling.\nVoorbeeld: 1 glazen fles om te recyclen, 1 plastic kurk om weg te gooien",
+    "packaging_editing_instructions": "Vermeld alle verpakkingsonderdelen gescheiden door een komma of regel, met hun hoeveelheid (bijv. 1 of 6) type (bijv. fles, doos, blik), materiaal (bijv. plastic, metaal, aluminium) en indien beschikbaar hun grootte (bijv. 33cl) en instructies voor recycling.\nVoorbeeld: 1 glazen fles om te recyclen, 1 plastic dop om weg te gooien",
     "packaging_editing_error": "Opslaan van de verpakking is mislukt.",
     "packaging_editing_image_error": "Het ophalen van een nieuwe verpakkingsafbeelding is mislukt.",
     "packaging_editing_title": "Verpakking bewerken",
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Kies uit gallerij",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Tabel met voedingswaarden uitvouwen",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Houd de tabel met voedingswaarden uitgeklapt",
+    "expand_ingredients": "Ingrediënten uitklappen",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Houd het ingrediëntenpaneel uitgevouwen",
     "no_internet_connection": "Geen internetverbinding",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Taal kiezen",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

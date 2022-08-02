@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
@@ -202,7 +203,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(
-        controller: _scrollController,
+        // /!\ Smart Dart
+        // `physics: const AlwaysScrollableScrollPhysics()`
+        // means that we will always scroll, even if it's pointless.
+        // Why do we need to? For the RefreshIndicator, that wouldn't be
+        // triggered on a ListView smaller than the screen
+        // (as there will be no scroll).
+        physics: const AlwaysScrollableScrollPhysics(),
         children: <Widget>[
           Align(
             heightFactor: 0.7,
@@ -281,12 +288,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
-    final String url = OpenFoodAPIClient.getProductUri(
-      widget.product.barcode!,
-      replaceSubdomain: true,
-      country: ProductQuery.getCountry(),
-    ).toString();
-
+    final String url = 'https://'
+        '${ProductQuery.getCountry()!.iso2Code}.openfoodfacts.org'
+        '/product/${widget.product.barcode}';
     Share.share(
       appLocalizations.share_product_text(url),
       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,

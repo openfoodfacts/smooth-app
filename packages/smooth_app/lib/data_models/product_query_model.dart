@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 enum LoadingStatus {
   LOADING,
   LOADED,
-  POST_LOAD_STARTED,
-  COMPLETE,
   ERROR,
 }
 
 class ProductQueryModel with ChangeNotifier {
-  ProductQueryModel(this._supplier) {
+  ProductQueryModel(this._supplier, this._daoProduct) {
     _clear();
-    _asyncLoad();
+    _asyncLoad(notify: true);
   }
 
   ProductListSupplier _supplier;
+  final DaoProduct _daoProduct;
 
   ProductListSupplier get supplier => _supplier;
 
@@ -26,9 +26,10 @@ class ProductQueryModel with ChangeNotifier {
 
   late LoadingStatus _loadingStatus;
   String? _loadingError;
-  final List<Product> _products = <Product>[];
-  List<Product>? displayProducts;
-  bool isNotEmpty() => _products.isNotEmpty;
+  final List<String> _barcodes = <String>[];
+  List<String>? displayBarcodes;
+  bool isNotEmpty() => _barcodes.isNotEmpty;
+  final Map<String, List<String>> _productCategories = <String, List<String>>{};
 
   /// <Label, Label (count)> [Map]
   final Map<String, String> categories = <String, String>{};
@@ -42,26 +43,33 @@ class ProductQueryModel with ChangeNotifier {
   String? get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
 
+  /// Sets the translation for meta category "All".
+  void setTranslationForAll(final String translationForAll) =>
+      categories[_CATEGORY_ALL] = translationForAll;
+
   void _clear() {
     currentCategory = _CATEGORY_ALL;
     _loadingStatus = LoadingStatus.LOADING;
     _loadingError = null;
-    _products.clear();
-    displayProducts = null;
+    _barcodes.clear();
+    displayBarcodes = null;
+    _productCategories.clear();
     categories.clear();
     _categoriesCounter.clear();
     sortedCategories.clear();
   }
 
-  Future<bool> _asyncLoad() async {
+  Future<bool> _asyncLoad({final bool notify = false}) async {
     _loadingError = await supplier.asyncLoad();
     if (_loadingError != null) {
       _loadingStatus = LoadingStatus.ERROR;
     } else {
+      await _process(supplier.partialProductList.getBarcodes());
       _loadingStatus = LoadingStatus.LOADED;
-      _products.addAll(supplier.partialProductList.getProducts());
     }
-    notifyListeners();
+    if (notify) {
+      notifyListeners();
+    }
     return _loadingStatus == LoadingStatus.LOADED;
   }
 
@@ -95,22 +103,27 @@ class ProductQueryModel with ChangeNotifier {
 
   /// Sorts the products by category.
   ///
-  /// [translationForAll] is the displayed translation for meta category "All".
-  void process(final String translationForAll) {
-    if (_loadingStatus != LoadingStatus.LOADED) {
-      return;
-    }
-    _loadingStatus = LoadingStatus.POST_LOAD_STARTED;
+  /// Is a bit long because we need to get each product from the database,
+  /// in order to know before display all the available categories.
+  /// Optim 1: dismiss this filter altogether.
+  /// Optim 2: get several products at a time - how faster would that be?
+  /// Optim 3: compute the filter async.
+  Future<void> _process(final List<String> barcodes) async {
+    _barcodes.addAll(barcodes);
+    displayBarcodes = _barcodes;
 
-    displayProducts = _products;
-
-    categories[_CATEGORY_ALL] = translationForAll;
-
-    for (final Product product in _products) {
+    categories[_CATEGORY_ALL] = ''; // to be overridden later
+    for (final String barcode in barcodes) {
+      final Product? product = await _daoProduct.get(barcode);
+      if (product == null) {
+        // unexpected
+        continue;
+      }
       if (product.categoriesTagsInLanguages != null) {
         final List<String>? translatedCategories =
             product.categoriesTagsInLanguages![ProductQuery.getLanguage()];
         if (translatedCategories != null) {
+          _productCategories[product.barcode!] = translatedCategories;
           for (final String category in translatedCategories) {
             categories[category] = '';
             _categoriesCounter[category] =
@@ -143,20 +156,23 @@ class ProductQueryModel with ChangeNotifier {
       return _categoriesCounter[b]!.compareTo(_categoriesCounter[a]!);
     });
 
-    _loadingStatus = LoadingStatus.COMPLETE;
+    _loadingStatus = LoadingStatus.LOADED;
   }
 
   void selectCategory(String category) {
     currentCategory = category;
     if (category == _CATEGORY_ALL) {
-      displayProducts = _products;
+      displayBarcodes = _barcodes;
     } else {
-      displayProducts = _products
-          .where((Product product) =>
-              product.categoriesTagsInLanguages?[ProductQuery.getLanguage()]
-                  ?.contains(category) ??
-              false)
-          .toList();
+      final List<String> result = <String>[];
+      _productCategories.forEach(
+        (final String barcode, final List<String> categories) {
+          if (categories.contains(category)) {
+            result.add(barcode);
+          }
+        },
+      );
+      displayBarcodes = result;
     }
   }
 }

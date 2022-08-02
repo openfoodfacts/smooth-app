@@ -102,7 +102,8 @@ class UserPreferencesConnect extends AbstractUserPreferences {
 
             final Email email = Email(
               body: await _emailBody,
-              subject: 'Smoothie help',
+              subject:
+                  '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
               recipients: <String>['contact@openfoodfacts.org'],
               attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
             );

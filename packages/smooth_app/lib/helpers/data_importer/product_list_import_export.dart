@@ -150,25 +150,9 @@ class ProductListImportExport {
       return;
     }
 
-    productList.set(list.barcodes, _extractProductsMap(list, fetchedProducts));
+    productList.set(list.barcodes);
+    await DaoProduct(daoProductList.localDatabase).putAll(fetchedProducts);
     return daoProductList.put(productList);
-  }
-
-  Map<String, Product> _extractProductsMap(
-    ImportableList list,
-    List<Product> fetchedProducts,
-  ) {
-    final Map<String, Product> productsToAdd = <String, Product>{};
-    for (final String barcode in list.barcodes) {
-      final Product? product = fetchedProducts.firstWhereOrNull(
-        (Product product) => product.barcode == barcode,
-      );
-
-      if (product != null) {
-        productsToAdd[barcode] = product;
-      }
-    }
-    return productsToAdd;
   }
 }
 
