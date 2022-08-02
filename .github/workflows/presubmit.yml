@@ -1,9 +1,14 @@
 name: SmoothApp Pre-Submit Tests
 
 on: pull_request
-    
+
+env:
+  FLUTTER_VERSION: '3.0.x'
+
 jobs:
   build:
+    name: 'Analyze and test'
+
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -17,30 +22,30 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
-          cache-key: flutter3.0.1 # change this to force refresh cache
+          cache-key: flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock')}}
 
       - run: flutter --version
-      
+
       # Get dependencies.
       - name: Get dependencies
         run: ci/pub_upgrade.sh
-      
+
       # Check for formatting issues
       - name: Check for formatting issues (run "flutter format . ")
         run: flutter format --set-exit-if-changed .
-      
+
       # analyze Dart for errors
       - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings .
-      
+
       # Run tests
       - name: Run Tests with coverage
         run: ci/testing.sh
-      
+
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: true
           verbose: true
-

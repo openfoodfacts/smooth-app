@@ -194,21 +194,10 @@ class ProductList {
   int totalSize = 0;
 
   final List<String> _barcodes = <String>[];
-  final Map<String, Product> _products = <String, Product>{};
 
   List<String> get barcodes => _barcodes;
 
   bool isEmpty() => _barcodes.isEmpty;
-
-  Product getProduct(final String barcode) => _products[barcode]!;
-
-  void refresh(final Product product) {
-    final String? barcode = product.barcode;
-    if (barcode == null) {
-      throw Exception('null barcode');
-    }
-    _products[barcode] = product;
-  }
 
   /// Removes a barcode from the list
   ///
@@ -219,43 +208,29 @@ class ProductList {
       return false;
     }
     _barcodes.remove(barcode);
-    _products.remove(barcode);
     return true;
   }
 
   /// Sets all products with the same order as the input list
   void setAll(final List<Product> products) {
     final List<String> barcodes = <String>[];
-    final Map<String, Product> productMap = <String, Product>{};
     for (final Product product in products) {
       final String barcode = product.barcode!;
       barcodes.add(barcode);
-      productMap[barcode] = product;
     }
-    set(barcodes, productMap);
+    set(barcodes);
   }
 
-  void set(
-    final List<String> barcodes,
-    final Map<String, Product> products,
-  ) {
+  void set(final Iterable<String> barcodes) {
     _barcodes.clear();
-    _products.clear();
-    _products.addAll(products);
     _barcodes.addAll(barcodes);
   }
 
-  List<Product> getList() {
-    final List<Product> result = <Product>[];
+  List<String> getList() {
+    final List<String> result = <String>[];
     final Iterable<String> barcodes =
         _isReversed() ? _barcodes.reversed : _barcodes;
-    for (final String barcode in barcodes) {
-      final Product? product = _products[barcode];
-      if (product == null) {
-        throw Exception('no product for barcode $barcode');
-      }
-      result.add(product);
-    }
+    result.addAll(barcodes);
     return result;
   }
 

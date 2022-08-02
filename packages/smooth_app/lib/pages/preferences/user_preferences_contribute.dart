@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/github_contributors_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
@@ -14,6 +15,8 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 
 /// Display of "Contribute" for the preferences page.
 class UserPreferencesContribute extends AbstractUserPreferences {
@@ -101,9 +104,18 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                   height: 10,
                 ),
                 TextButton(
-                  onPressed: () => LaunchUrlHelper.launchURL(
-                      'https://world.openfoodfacts.org/state/to-be-completed',
-                      false),
+                  onPressed: () async {
+                    final LocalDatabase localDatabase =
+                        context.read<LocalDatabase>();
+                    Navigator.of(context).pop();
+                    ProductQueryPageHelper().openBestChoice(
+                      name: appLocalizations.all_search_to_be_completed_title,
+                      localDatabase: localDatabase,
+                      productQuery: PagedToBeCompletedProductQuery(),
+                      // the other "context"s being popped
+                      context: this.context,
+                    );
+                  },
                   child: Text(
                     appLocalizations.contribute_improve_ProductsToBeCompleted,
                   ),
@@ -111,9 +123,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               ],
             ),
             positiveAction: SmoothActionButton(
-              onPressed: () {
-                Navigator.of(context, rootNavigator: true).pop('dialog');
-              },
+              onPressed: () => Navigator.of(context).pop(),
               text: appLocalizations.okay,
               minWidth: 100,
             ),

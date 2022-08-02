@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_main_button.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class GroupQueryFilterView extends StatelessWidget {
@@ -147,14 +147,13 @@ class GroupQueryFilterView extends StatelessWidget {
                             sigmaX: 4.0,
                             sigmaY: 4.0,
                           ),
-                          child: Container(
-                            color: Colors.black12,
+                          child: Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: MEDIUM_SPACE,
                                 vertical: VERY_LARGE_SPACE),
-                            child: SmoothMainButton(
-                              text:
-                                  AppLocalizations.of(context).applyButtonText,
+                            child: SmoothLargeButtonWithIcon(
+                              icon: Icons.filter_list_outlined,
+                              text: appLocalizations.applyButtonText,
                               onPressed: () {
                                 Navigator.pop(context);
                                 callback(

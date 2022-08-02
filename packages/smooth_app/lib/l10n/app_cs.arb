@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Skvělá shoda pro vás",
     "ranking_subtitle_match_no": "Velmi špatná shoda",
     "ranking_subtitle_match_maybe": "Neznámá shoda",
+    "refresh_with_new_preferences": "Aktualizujte seznam s novými nastaveními",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Znovu načteno s vašimi novými předvolbami",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -1338,7 +1342,7 @@
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_half_image": "Přenos z kamery a předzpracování celého obrazu, žádné skenování",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
@@ -1346,7 +1350,7 @@
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Skenování poloviny obrazu",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Vybrat z galerie",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Rozbalte tabulku nutričních údajů",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Nechte tabulku nutričních údajů rozšířenou",
+    "expand_ingredients": "Rozbalte přísady",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Nechte panel ingrediencí rozbalený",
     "no_internet_connection": "Žádné připojení k Internetu",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Vyberte Jazyk aplikace",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }
