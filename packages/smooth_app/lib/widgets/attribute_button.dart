@@ -46,7 +46,7 @@ class AttributeButton extends StatelessWidget {
             ),
             child: Container(
               width: importanceWidth,
-              constraints: const BoxConstraints(minHeight: MINIMUM_TARGET_SIZE),
+              constraints: const BoxConstraints(minHeight: MINIMUM_TOUCH_SIZE),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,

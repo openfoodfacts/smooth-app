@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
@@ -287,12 +288,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
-    final String url = OpenFoodAPIClient.getProductUri(
-      widget.product.barcode!,
-      replaceSubdomain: true,
-      country: ProductQuery.getCountry(),
-    ).toString();
-
+    final String url = 'https://'
+        '${ProductQuery.getCountry()!.iso2Code}.openfoodfacts.org'
+        '/product/${widget.product.barcode}';
     Share.share(
       appLocalizations.share_product_text(url),
       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
