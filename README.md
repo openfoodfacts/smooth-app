@@ -53,10 +53,10 @@ We are always looking for new contributors, if you're willing to help please let
 - Private app signing for iOS certificates repository - please ask @teolemon
 
 ## Forks we depend on
-- https://github.com/g123k/google_ml_barcode_scanner - Because XYZ
-- https://github.com/g123k/plugins - Because XYZ - folder: ABC, DEF
-- https://github.com/g123k/realm-dart_ios_only - Because XYZ
-- https://github.com/g123k/sqflite_android_only - Because XYZ
+- [g123k/google_ml_barcode_scanner](https://github.com/g123k/google_ml_barcode_scanner - Because XYZ
+- [g123k/plugins](https://github.com/g123k/plugins - Because XYZ - folder: ABC, DEF
+- [g123k/realm-dart_ios_only](https://github.com/g123k/realm-dart_ios_only - Because XYZ
+- [g123k/sqflite_android_only](https://github.com/g123k/sqflite_android_only - Because XYZ
 
 ## V1 Roadmap (Shipped on June 15th 2022 for Vivatech)
 - [x] We should be able to ship the Smoothie code to the main listing on Android and iOS
