@@ -290,14 +290,3 @@ class _SearchFieldState extends State<SearchField> {
     }
   }
 }
-
-/// A similar Widget to [SearchField] but that only shows the UI.
-/// Used in the seach carrousel to be used a button
-class FakeSearchField extends StatelessWidget {
-  const FakeSearchField({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
