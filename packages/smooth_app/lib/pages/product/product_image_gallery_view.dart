@@ -64,6 +64,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             element.imageUrl == widget.productImageData.imageUrl),
       ),
     );
+    _currentIndex = _controller.initialPage;
+
     _productImageDataCurrent = widget.productImageData;
     super.initState();
   }
