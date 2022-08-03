@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
@@ -49,9 +50,11 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   @override
   PreferencePageType? getPreferencePageType() => PreferencePageType.ACCOUNT;
 
+  String? _getUserId() => OpenFoodAPIConfiguration.globalUser?.userId;
+
   @override
   Widget getTitle() {
-    final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
+    final String? userId = _getUserId();
     final String title;
 
     if (userId == null) {
@@ -118,6 +121,39 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     }
 
     return OpenFoodAPIConfiguration.globalUser != null;
+  }
+
+  @override
+  Widget? getAdditionalSubtitle() {
+    if (_getUserId() != null) {
+      // we are already connected: no "LOGIN" button
+      return null;
+    }
+    final ThemeData theme = Theme.of(context);
+    final Size size = MediaQuery.of(context).size;
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: size.width / 4),
+      child: SmoothSimpleButton(
+        child: Text(
+          appLocalizations.sign_in,
+          style: theme.textTheme.bodyText2?.copyWith(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.onPrimary,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.of(
+            context,
+            rootNavigator: true,
+          ).push<dynamic>(
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => const LoginPage(),
+            ),
+          );
+        },
+      ),
+    );
   }
 }
 
