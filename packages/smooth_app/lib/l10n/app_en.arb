@@ -1571,6 +1571,7 @@
     "world_results_action": "Search world",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
+    },
     "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
