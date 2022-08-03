@@ -133,7 +133,6 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
               builder: (BuildContext context) => ProductImageGalleryView(
                 productImageData: widget.productImageData,
                 allProductImagesData: widget.allProductImagesData,
-                title: widget.productImageData.title,
                 barcode: widget.product.barcode,
               ),
             ),

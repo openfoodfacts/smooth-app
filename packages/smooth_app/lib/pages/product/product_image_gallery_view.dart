@@ -66,9 +66,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             title: Text(appLocalizations.edit_product_form_item_photos_title),
             leading: IconButton(
               icon: Icon(ConstantIcons.instance.getBackIcon()),
-              onPressed: () {
-                Navigator.maybePop(context, _isRefreshed);
-              },
+              onPressed: () => Navigator.maybePop(context, _isRefreshed),
             )),
         body: ListView.builder(
           itemCount: imagesData.length,
@@ -76,28 +74,34 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ));
   }
 
-  Widget _buildCard(BuildContext context, int index) => SmoothCard(
+  Widget _buildCard(BuildContext context, int index) {
+    final ThemeData themeData = Theme.of(context);
+    return SmoothCard(
         child: ListTile(
-          onTap: () => imagesData[index].imageUrl != null
-              ? _openImage(imagesData[index])
-              : _newImage(
-                  field: imagesData[index].imageField,
-                  index: index,
-                ),
-          leading: imageProviders[index] != null
-              ? Image(
-                  image: imageProviders[index]!,
-                  fit: BoxFit.cover,
-                  width: 100,
-                )
-              : SvgPicture.asset(
-                  'assets/product/product_not_found.svg',
-                  fit: BoxFit.cover,
-                  width: 100,
-                ),
-          title: Text(imagesData[index].title),
-        ),
-      );
+      onTap: () => imagesData[index].imageUrl != null
+          ? _openImage(imagesData[index])
+          : _newImage(
+              field: imagesData[index].imageField,
+              index: index,
+            ),
+      leading: imageProviders[index] != null
+          ? Image(
+              image: imageProviders[index]!,
+              fit: BoxFit.cover,
+              width: 100,
+            )
+          : SvgPicture.asset(
+              'assets/product/product_not_found.svg',
+              fit: BoxFit.cover,
+              width: 100,
+            ),
+      title: Text(
+        imagesData[index].title,
+        style: themeData.textTheme.headline4,
+      ),
+      trailing: Icon(ConstantIcons.instance.getForwardIcon()),
+    ));
+  }
 
   void _openImage(ProductImageData imageData) => Navigator.push<void>(
       context,
