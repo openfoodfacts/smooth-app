@@ -134,34 +134,38 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                       },
                     ),
                   const Spacer(flex: 4),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_send == false) {
-                        _resetPassword();
-                      } else {
-                        Navigator.pop(context);
-                      }
-                    },
-                    style: ButtonStyle(
-                      minimumSize: MaterialStateProperty.all<Size>(
-                        Size(size.width * 0.5, theme.buttonTheme.height + 10),
+                  if (_runningQuery)
+                    const CircularProgressIndicator()
+                  else
+                    ElevatedButton(
+                      onPressed: () {
+                        if (_send == false) {
+                          _resetPassword();
+                        } else {
+                          Navigator.pop(context);
+                        }
+                      },
+                      style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.all<Size>(
+                          Size(size.width * 0.5, theme.buttonTheme.height + 10),
+                        ),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          const RoundedRectangleBorder(
+                            borderRadius: CIRCULAR_BORDER_RADIUS,
+                          ),
+                        ),
                       ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                          borderRadius: CIRCULAR_BORDER_RADIUS,
+                      child: Text(
+                        _send
+                            ? appLocalizations.close
+                            : appLocalizations.send_reset_password_mail,
+                        style: theme.textTheme.bodyText2?.copyWith(
+                          fontSize: 18.0,
+                          color: theme.colorScheme.onPrimary,
                         ),
                       ),
                     ),
-                    child: Text(
-                      _send
-                          ? appLocalizations.close
-                          : appLocalizations.send_reset_password_mail,
-                      style: theme.textTheme.bodyText2?.copyWith(
-                        fontSize: 18.0,
-                        color: theme.colorScheme.onPrimary,
-                      ),
-                    ),
-                  ),
                   const Spacer(flex: 4),
                 ],
               ),
