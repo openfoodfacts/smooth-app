@@ -62,20 +62,43 @@ class ProductModel with ChangeNotifier {
     _loadingError = null;
   }
 
+  /// Safely notifies listeners.
+  ///
+  /// The reason behind: there is one case where we display a list of products,
+  /// and we display a [MaterialBanner] on top with a Future.delayed(zero).
+  /// And of course that scrolls the list downwards. If we're not lucky,
+  /// which happens 50% of the time, before the MaterialBanner we asked for
+  /// a given product (say, the last on the list) and with the MaterialBanner's
+  /// height that product was disposed as it became too far to be visible.
+  /// Therefore, we notify the listener of a product that no longer exists.
+  /// The [FlutterError] is in [ChangeNotifier] (_debugAssertNotDisposed),
+  /// and unfortunately there was no "named" Exception to use
+  /// (like "catch(DisposedException)").
+  /// This is the printed error:
+  /// A ProductModel was used after being disposed.
+  /// Once you have called dispose() on a ProductModel, it can no longer be used.
+  void _safeNotifyListeners() {
+    try {
+      notifyListeners();
+    } catch (e) {
+      // we don't care
+    }
+  }
+
   Future<void> _asyncLoad() async {
     try {
       _product = await _daoProduct.get(barcode);
       if (_product != null) {
         // from the local database, no error, perfect!
         _loadingStatus = LoadingStatus.LOADED;
-        notifyListeners();
+        _safeNotifyListeners();
         return;
       }
       await download();
     } catch (e) {
       _loadingError = e.toString();
       _loadingStatus = LoadingStatus.ERROR;
-      notifyListeners();
+      _safeNotifyListeners();
     }
   }
 
@@ -83,7 +106,7 @@ class ProductModel with ChangeNotifier {
   Future<void> download() async {
     try {
       _loadingStatus = LoadingStatus.DOWNLOADING;
-      notifyListeners();
+      _safeNotifyListeners();
       final FetchedProduct fetchedProduct = await BarcodeProductQuery(
         barcode: barcode,
         daoProduct: _daoProduct,
@@ -92,7 +115,7 @@ class ProductModel with ChangeNotifier {
       if (fetchedProduct.status == FetchedProductStatus.ok) {
         _product = fetchedProduct.product;
         _loadingStatus = LoadingStatus.LOADED;
-        notifyListeners();
+        _safeNotifyListeners();
         return;
       }
       _downloadingStatus = fetchedProduct.status;
@@ -101,6 +124,6 @@ class ProductModel with ChangeNotifier {
       _loadingError = e.toString();
       _loadingStatus = LoadingStatus.ERROR;
     }
-    notifyListeners();
+    _safeNotifyListeners();
   }
 }

@@ -11,6 +11,8 @@ import 'package:uuid/uuid.dart';
 
 // ignore: avoid_classes_with_only_static_members
 abstract class ProductQuery {
+  static OpenFoodFactsCountry? _country;
+
   /// Returns the global language for API queries.
   static OpenFoodFactsLanguage? getLanguage() {
     final List<OpenFoodFactsLanguage> languages =
@@ -31,12 +33,14 @@ abstract class ProductQuery {
   }
 
   /// Returns the global country for API queries?
-  static OpenFoodFactsCountry? getCountry() =>
-      OpenFoodAPIConfiguration.globalCountry;
+  static OpenFoodFactsCountry? getCountry() => _country;
 
   /// Sets the global country for API queries.
-  static void setCountry(final String? isoCode) =>
-      OpenFoodAPIConfiguration.globalCountry = CountryHelper.fromJson(isoCode);
+  static void setCountry(final String? isoCode) {
+    _country = CountryHelper.fromJson(isoCode);
+    // we need this to run "world" queries
+    OpenFoodAPIConfiguration.globalCountry = null;
+  }
 
   /// Returns the global locale string (e.g. 'pt_BR')
   static String getLocaleString() => '${getLanguage()!.code}'
