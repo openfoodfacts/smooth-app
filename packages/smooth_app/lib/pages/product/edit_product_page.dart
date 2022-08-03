@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -120,8 +121,7 @@ class _EditProductPageState extends State<EditProductPage> {
                     await Navigator.push<Product?>(
                       context,
                       MaterialPageRoute<Product>(
-                        builder: (BuildContext context) =>
-                            AddBasicDetailsPage(_product),
+                        builder: (_) => AddBasicDetailsPage(_product),
                       ),
                     );
                   },
@@ -346,12 +346,15 @@ class _ListTitleItem extends StatelessWidget {
   final Widget? leading;
 
   @override
-  Widget build(BuildContext context) => Card(
+  Widget build(BuildContext context) => SmoothCard(
         child: ListTile(
           onTap: onTap,
           title: Text(title),
           subtitle: subtitle == null ? null : Text(subtitle!),
-          leading: leading ?? const Icon(Icons.edit),
+          leading: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[leading ?? const Icon(Icons.edit)],
+          ),
           trailing: Icon(ConstantIcons.instance.getForwardIcon()),
         ),
       );
