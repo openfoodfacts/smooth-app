@@ -144,7 +144,6 @@ class _EditProductPageState extends State<EditProductPage> {
                             ProductImageGalleryView(
                           productImageData: allProductImagesData.first,
                           allProductImagesData: allProductImagesData,
-                          title: allProductImagesData.first.title,
                           barcode: _product.barcode,
                         ),
                       ),
