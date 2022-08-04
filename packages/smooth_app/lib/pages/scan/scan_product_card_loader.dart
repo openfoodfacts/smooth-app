@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/scan/scan_product_card.dart';
@@ -21,9 +20,6 @@ class ScanProductCardLoader extends StatelessWidget {
         final BuildContext context,
         final AsyncSnapshot<Product?> snapshot,
       ) {
-        if (snapshot.connectionState != ConnectionState.done) {
-          return SmoothProductCardLoading(barcode: barcode);
-        }
         if (snapshot.data != null) {
           return ScanProductCard(snapshot.data!);
         }
