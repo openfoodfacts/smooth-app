@@ -351,6 +351,7 @@ class _ListTitleItem extends StatelessWidget {
           onTap: onTap,
           title: Text(title),
           subtitle: subtitle == null ? null : Text(subtitle!),
+          // we use a Column to have the icon centered vertically
           leading: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[leading ?? const Icon(Icons.edit)],
