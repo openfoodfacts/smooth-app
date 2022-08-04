@@ -74,8 +74,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       onChanged: widget.onChanged ??
           (String data) {
             // Rebuilds for changing the eye icon
-            if (widget.type == TextFieldTypes.PASSWORD &&
-                data.length != 1) {
+            if (widget.type == TextFieldTypes.PASSWORD && data.length != 1) {
               setState(() {});
             }
           },
