@@ -50,87 +50,97 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           ),
         ),
         ExplanationWidget(widget.helper.getAddExplanations(appLocalizations)),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Flexible(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: LARGE_SPACE),
-                child: RawAutocomplete<String>(
-                  key: _autocompleteKey,
-                  focusNode: _focusNode,
-                  textEditingController: widget.controller,
-                  optionsBuilder: (final TextEditingValue value) async {
-                    final List<String> result = <String>[];
-                    final String input = value.text.trim();
-                    if (input.isEmpty) {
-                      return result;
-                    }
-                    final TagType? tagType = widget.helper.getTagType();
-                    if (tagType == null) {
-                      return result;
-                    }
-                    // TODO(monsieurtanuki): ask off-dart to return Strings instead of dynamic?
-                    final List<dynamic> data =
-                        await OpenFoodAPIClient.getAutocompletedSuggestions(
-                      tagType,
-                      language: ProductQuery.getLanguage()!,
-                      limit: 1000000, // lower max count on the server anyway
-                      input: value.text.trim(),
-                    );
-                    for (final dynamic item in data) {
-                      result.add(item.toString());
-                    }
-                    result.sort();
-                    return result;
-                  },
-                  fieldViewBuilder: (BuildContext context,
-                          TextEditingController textEditingController,
-                          FocusNode focusNode,
-                          VoidCallback onFieldSubmitted) =>
-                      TextField(
-                    controller: textEditingController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      border: const OutlineInputBorder(
-                        borderRadius: CIRCULAR_BORDER_RADIUS,
-                        borderSide: BorderSide.none,
+        LayoutBuilder(
+          builder: (_, BoxConstraints constraints) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: LARGE_SPACE),
+                    child: RawAutocomplete<String>(
+                      key: _autocompleteKey,
+                      focusNode: _focusNode,
+                      textEditingController: widget.controller,
+                      optionsBuilder: (final TextEditingValue value) async {
+                        final List<String> result = <String>[];
+                        final String input = value.text.trim();
+                        if (input.isEmpty) {
+                          return result;
+                        }
+                        final TagType? tagType = widget.helper.getTagType();
+                        if (tagType == null) {
+                          return result;
+                        }
+                        // TODO(monsieurtanuki): ask off-dart to return Strings instead of dynamic?
+                        final List<dynamic> data =
+                            await OpenFoodAPIClient.getAutocompletedSuggestions(
+                          tagType,
+                          language: ProductQuery.getLanguage()!,
+                          limit:
+                              1000000, // lower max count on the server anyway
+                          input: value.text.trim(),
+                        );
+                        for (final dynamic item in data) {
+                          result.add(item.toString());
+                        }
+                        result.sort();
+                        return result;
+                      },
+                      fieldViewBuilder: (BuildContext context,
+                              TextEditingController textEditingController,
+                              FocusNode focusNode,
+                              VoidCallback onFieldSubmitted) =>
+                          TextField(
+                        controller: textEditingController,
+                        decoration: InputDecoration(
+                          filled: true,
+                          border: const OutlineInputBorder(
+                            borderRadius: CIRCULAR_BORDER_RADIUS,
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: SMALL_SPACE,
+                            vertical: SMALL_SPACE,
+                          ),
+                          hintText: widget.helper.getAddHint(appLocalizations),
+                        ),
+                        autofocus: true,
+                        focusNode: focusNode,
                       ),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: SMALL_SPACE,
-                        vertical: SMALL_SPACE,
+                      optionsViewBuilder: (
+                        BuildContext context,
+                        AutocompleteOnSelected<String> onSelected,
+                        Iterable<String> options,
+                      ) =>
+                          AutocompleteOptions<String>(
+                        displayStringForOption:
+                            RawAutocomplete.defaultStringForOption,
+                        onSelected: onSelected,
+                        options: options,
+                        // Width = Row width - horizontal padding
+                        maxOptionsWidth:
+                            constraints.maxWidth - (LARGE_SPACE * 2),
+                        maxOptionsHeight:
+                            MediaQuery.of(context).size.height / 2,
                       ),
-                      hintText: widget.helper.getAddHint(appLocalizations),
                     ),
-                    autofocus: true,
-                    focusNode: focusNode,
-                  ),
-                  optionsViewBuilder: (
-                    BuildContext context,
-                    AutocompleteOnSelected<String> onSelected,
-                    Iterable<String> options,
-                  ) =>
-                      AutocompleteOptions<String>(
-                    displayStringForOption:
-                        RawAutocomplete.defaultStringForOption,
-                    onSelected: onSelected,
-                    options: options,
-                    maxOptionsHeight: MediaQuery.of(context).size.height / 2,
                   ),
                 ),
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                if (widget.helper.addItemsFromController(widget.controller)) {
-                  setState(() {});
-                }
-              },
-              icon: const Icon(Icons.add_circle),
-            ),
-          ],
+                IconButton(
+                  onPressed: () {
+                    if (widget.helper
+                        .addItemsFromController(widget.controller)) {
+                      setState(() {});
+                    }
+                  },
+                  icon: const Icon(Icons.add_circle),
+                ),
+              ],
+            );
+          },
         ),
         Divider(color: themeData.colorScheme.onBackground),
         Column(

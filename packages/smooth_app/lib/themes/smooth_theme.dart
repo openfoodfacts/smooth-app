@@ -72,6 +72,10 @@ class SmoothTheme {
             _TEXT_THEME.bodyText2?.copyWith(color: myColorScheme.onBackground),
         actionTextColor: myColorScheme.onBackground,
       ),
+      bannerTheme: MaterialBannerThemeData(
+        contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
+        backgroundColor: myColorScheme.secondary,
+      ),
     );
   }
 

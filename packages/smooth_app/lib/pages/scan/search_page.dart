@@ -122,6 +122,7 @@ class SearchField extends StatefulWidget {
   const SearchField({
     this.autofocus = false,
     this.showClearButton = true,
+    this.readOnly = false,
     this.onFocus,
     this.backgroundColor,
     this.foregroundColor,
@@ -129,6 +130,9 @@ class SearchField extends StatefulWidget {
 
   final bool autofocus;
   final bool showClearButton;
+
+  /// If true, the Widget will only display the UI
+  final bool readOnly;
   final void Function()? onFocus;
   final Color? backgroundColor;
   final Color? foregroundColor;
@@ -147,6 +151,7 @@ class _SearchFieldState extends State<SearchField> {
   void initState() {
     super.initState();
     _focusNode.addListener(_handleFocusChange);
+
     if (widget.autofocus) {
       _focusNode.requestFocus();
     }
@@ -168,6 +173,7 @@ class _SearchFieldState extends State<SearchField> {
 
   @override
   void dispose() {
+    _focusNode.removeListener(_handleFocusChange);
     _focusNode.dispose();
     super.dispose();
   }
@@ -182,30 +188,63 @@ class _SearchFieldState extends State<SearchField> {
       _controller = TextEditingController();
     }
 
-    return TextField(
-      textInputAction: TextInputAction.search,
-      controller: _controller,
-      focusNode: _focusNode,
-      onSubmitted: (String query) => _performSearch(context, query),
-      decoration: InputDecoration(
-        fillColor: widget.backgroundColor,
-        labelStyle: Theme.of(context).textTheme.bodyText2?.copyWith(
-              color: widget.foregroundColor,
-            ),
-        filled: true,
-        border: const OutlineInputBorder(
-          borderRadius: CIRCULAR_BORDER_RADIUS,
-          borderSide: BorderSide.none,
-        ),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 25.0,
-          vertical: 17.0,
-        ),
-        hintText: localizations.search,
-        suffixIcon: widget.showClearButton ? _buildClearButton() : null,
+    final InputDecoration inputDecoration = InputDecoration(
+      fillColor: widget.backgroundColor,
+      labelStyle: Theme.of(context).textTheme.bodyText2?.copyWith(
+            color: widget.foregroundColor,
+          ),
+      filled: true,
+      border: const OutlineInputBorder(
+        borderRadius: CIRCULAR_BORDER_RADIUS,
+        borderSide: BorderSide.none,
       ),
-      style: const TextStyle(fontSize: 18.0),
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 25.0,
+        vertical: 17.0,
+      ),
+      hintText: localizations.search,
+      suffixIcon: widget.showClearButton ? _buildClearButton() : null,
     );
+
+    const TextStyle textStyle = TextStyle(fontSize: 18.0);
+
+    if (widget.readOnly) {
+      return InkWell(
+        borderRadius: CIRCULAR_BORDER_RADIUS,
+        splashColor: Theme.of(context).primaryColor,
+        onTap: () {
+          widget.onFocus?.call();
+        },
+        child: Ink(
+          decoration: BoxDecoration(
+            borderRadius: CIRCULAR_BORDER_RADIUS,
+            color: Theme.of(context).brightness == Brightness.light
+                ? Colors.white
+                : null,
+          ),
+          child: InputDecorator(
+            decoration: inputDecoration,
+            child: Text(
+              inputDecoration.hintText!,
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1!
+                  .copyWith(color: Theme.of(context).hintColor)
+                  .merge(textStyle),
+            ),
+          ),
+        ),
+      );
+    } else {
+      return TextField(
+        textInputAction: TextInputAction.search,
+        controller: _controller,
+        focusNode: _focusNode,
+        onSubmitted: (String query) => _performSearch(context, query),
+        decoration: inputDecoration,
+        style: textStyle,
+      );
+    }
   }
 
   Widget _buildClearButton() {

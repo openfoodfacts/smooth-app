@@ -24,9 +24,12 @@ class SentryFimberTree extends BaseFimberTree {
         hint: tag,
       );
     } else {
-      Sentry.captureMessage(
-        message,
-        level: _convertLevel(level),
+      Sentry.addBreadcrumb(
+        Breadcrumb(
+          message: message,
+          timestamp: DateTime.now(),
+          level: _convertLevel(level),
+        ),
         hint: tag,
       );
     }
