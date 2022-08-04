@@ -5,11 +5,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -21,8 +19,8 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
-import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -105,8 +103,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               _showRefreshSnackBar(_scaffoldKeyNotEmpty);
               AnalyticsHelper.trackSearch(
                 search: widget.name,
-                searchCategory: _model.currentCategory,
-                searchCount: _model.displayBarcodes?.length,
+                searchCount: _model.displayBarcodes.length,
               );
               return _getNotEmptyScreen(
                 screenSize,
@@ -168,7 +165,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                   context,
                   MaterialPageRoute<Widget>(
                     builder: (BuildContext context) => PersonalizedRankingPage(
-                      barcodes: _model.displayBarcodes!,
+                      barcodes: _model.displayBarcodes,
                       title: widget.name,
                     ),
                   ),
@@ -208,32 +205,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             elevation: 0,
             automaticallyImplyLeading: false,
             leading: const _BackButton(),
-            actions: <Widget>[
-              TextButton.icon(
-                icon: const Icon(Icons.filter_list),
-                label: Text(
-                  appLocalizations.filter,
-                  style: themeData.textTheme.subtitle1,
-                ),
-                onPressed: () {
-                  _model.setTranslationForAll(appLocalizations.category_all);
-                  showCupertinoModalBottomSheet<Widget>(
-                    expand: false,
-                    context: context,
-                    backgroundColor: Colors.transparent,
-                    bounce: true,
-                    builder: (BuildContext context) => GroupQueryFilterView(
-                      categories: _model.categories,
-                      categoriesList: _model.sortedCategories,
-                      callback: (String category) {
-                        _model.selectCategory(category);
-                        setState(() {});
-                      },
-                    ),
-                  );
-                },
-              )
-            ],
             title: _getAppBarTitle(),
           ),
           body: RefreshIndicator(
@@ -241,9 +212,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             child: ListView.builder(
               controller: _scrollController,
               itemBuilder: (BuildContext context, int index) {
-                if (index >= _model.displayBarcodes!.length) {
+                if (index >= _model.displayBarcodes.length) {
                   // final button
-                  final int already = _model.displayBarcodes!.length;
+                  final int already = _model.displayBarcodes.length;
                   final int totalSize =
                       _model.supplier.partialProductList.totalSize;
                   final int next = max(
@@ -269,22 +240,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                         totalSize,
                       ),
                       icon: Icons.download_rounded,
-                      onPressed: () async {
-                        final bool? success = await LoadingDialog.run<bool>(
-                          context: context,
-                          future: _model.loadNextPage(),
-                        );
-                        if (success == null) {
-                          return;
-                        } else if (success == false) {
-                          await LoadingDialog.error(
-                            context: context,
-                            title: _model.loadingError,
-                          );
-                        } else {
-                          setState(() {});
-                        }
-                      },
+                      onPressed: () async =>
+                          _loadAndRefreshDisplay(_model.loadNextPage()),
                     );
                   }
                   return Padding(
@@ -302,11 +259,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                     vertical: SMALL_SPACE,
                   ),
                   child: ProductListItemSimple(
-                    barcode: _model.displayBarcodes![index],
+                    barcode: _model.displayBarcodes[index],
                   ),
                 );
               },
-              itemCount: _model.displayBarcodes!.length + 1,
+              itemCount: _model.displayBarcodes.length + 1,
             ),
           ),
         ),
@@ -351,39 +308,65 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   void _showRefreshSnackBar(
     final GlobalKey<ScaffoldMessengerState> scaffoldKey,
   ) {
-    if (_lastUpdate == null) {
-      return;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<String> messages = <String>[];
+    final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
+    final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
+    messages.add(
+      appLocalizations.user_list_length(
+        _model.supplier.partialProductList.totalSize,
+      ),
+    );
+    if (_lastUpdate != null) {
+      final String lastTime =
+          ProductQueryPageHelper.getDurationStringFromTimestamp(
+              _lastUpdate!, context);
+      messages.add('${appLocalizations.cached_results_from} $lastTime');
     }
-    final ProductListSupplier? refreshSupplier =
-        _model.supplier.getRefreshSupplier();
-    if (refreshSupplier == null) {
-      return;
+    if (pagedProductQuery.hasDifferentCountryWorldData() &&
+        pagedProductQuery.world) {
+      messages.add(appLocalizations.world_results_label);
     }
-    final String lastTime =
-        ProductQueryPageHelper.getDurationStringFromTimestamp(
-            _lastUpdate!, context);
-    final String message =
-        '${AppLocalizations.of(context).cached_results_from} $lastTime';
     _lastUpdate = null;
 
     Future<void>.delayed(
       Duration.zero,
-      () => scaffoldKey.currentState?.showSnackBar(
-        SnackBar(
-          content: Text(message),
-          duration: const Duration(seconds: 5),
-          action: SnackBarAction(
-            label: AppLocalizations.of(context).label_refresh,
-            onPressed: () async {
-              final bool? error = await LoadingDialog.run<bool>(
-                context: context,
-                future: _model.loadFromTop(),
-              );
-              if (error != true) {
-                await LoadingDialog.error(context: context);
-              }
-            },
-          ),
+      () => scaffoldKey.currentState?.showMaterialBanner(
+        MaterialBanner(
+          content: Text(messages.join('\n')),
+          actions: <Widget>[
+            TextButton(
+              child: Text(appLocalizations.close.toUpperCase()),
+              onPressed: () =>
+                  scaffoldKey.currentState?.hideCurrentMaterialBanner(),
+            ),
+            if (worldQuery != null)
+              TextButton(
+                child: Text(
+                  appLocalizations.world_results_action.toUpperCase(),
+                ),
+                onPressed: () async {
+                  scaffoldKey.currentState?.hideCurrentMaterialBanner();
+                  await ProductQueryPageHelper().openBestChoice(
+                    productQuery: worldQuery,
+                    localDatabase: context.read<LocalDatabase>(),
+                    name: widget.name,
+                    context: context,
+                  );
+                },
+              ),
+            TextButton(
+              child: Text(appLocalizations.label_refresh.toUpperCase()),
+              onPressed: () async {
+                scaffoldKey.currentState?.hideCurrentMaterialBanner();
+                final bool? success =
+                    await _loadAndRefreshDisplay(_model.loadFromTop());
+                if (success == true) {
+                  _scrollToTop();
+                }
+              },
+            ),
+          ],
         ),
       ),
     );
@@ -393,10 +376,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       setState(() => _model = _getModel(widget.productListSupplier));
 
   ProductQueryModel _getModel(final ProductListSupplier supplier) =>
-      ProductQueryModel(
-        supplier,
-        DaoProduct(context.read<LocalDatabase>()),
-      );
+      ProductQueryModel(supplier);
 
   Future<void> refreshList() async {
     final ProductListSupplier? refreshSupplier =
@@ -413,6 +393,22 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       duration: const Duration(seconds: 3),
       curve: Curves.linear,
     );
+  }
+
+  Future<bool?> _loadAndRefreshDisplay(final Future<bool> loader) async {
+    final bool? success = await LoadingDialog.run<bool>(
+      context: context,
+      future: loader,
+    );
+    if (success == false) {
+      await LoadingDialog.error(
+        context: context,
+        title: _model.loadingError,
+      );
+    } else if (success == true) {
+      setState(() {});
+    }
+    return success;
   }
 }
 
