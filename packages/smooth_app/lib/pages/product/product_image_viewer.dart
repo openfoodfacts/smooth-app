@@ -15,11 +15,11 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class ProductImageViewer extends StatefulWidget {
   const ProductImageViewer({
     required this.barcode,
-    required this.productImageData,
+    required this.imageData,
   });
 
   final String barcode;
-  final ProductImageData productImageData;
+  final ProductImageData imageData;
 
   @override
   State<ProductImageViewer> createState() => _ProductImageViewerState();
@@ -32,7 +32,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   @override
   void initState() {
-    imageData = widget.productImageData;
+    imageData = widget.imageData;
     imageProvider =
         imageData.imageUrl != null ? NetworkImage(imageData.imageUrl!) : null;
     super.initState();
@@ -42,20 +42,18 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
-    //When all are empty there shouldn't be a way to access this page
     return SmoothScaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          foregroundColor: WHITE_COLOR,
-          elevation: 0,
-          title: Text(imageData.title),
-          leading: IconButton(
-            icon: Icon(ConstantIcons.instance.getBackIcon()),
-            onPressed: () {
-              Navigator.maybePop(context, _isEdited);
-            },
-          )),
+        backgroundColor: Colors.transparent,
+        foregroundColor: WHITE_COLOR,
+        elevation: 0,
+        title: Text(imageData.title),
+        leading: IconButton(
+          icon: Icon(ConstantIcons.instance.getBackIcon()),
+          onPressed: () => Navigator.maybePop(context, _isEdited),
+        ),
+      ),
       backgroundColor: Colors.black,
       floatingActionButton: _buildEditFloatingActionButton(localizations),
       body: Column(
@@ -77,7 +75,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     );
   }
 
-  Future<File> _getCurrentImageFile(String url) async {
+  Future<File> _downloadImageFile(String url) async {
     final http.Response response = await http.get(Uri.parse(url));
     final Directory tempDirectory = await getTemporaryDirectory();
     final File imageFile = await File('${tempDirectory.path}/editing_image')
@@ -86,14 +84,18 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   }
 
   FloatingActionButton _buildEditFloatingActionButton(
-      AppLocalizations appLocalizations) {
+    AppLocalizations appLocalizations,
+  ) {
     final String labelText = appLocalizations.edit_photo_button_label;
     return FloatingActionButton.extended(
+      label: Text(labelText),
+      icon: const Icon(Icons.edit),
       backgroundColor: Theme.of(context).colorScheme.primary,
       onPressed: () async {
         final File? imageFile = await LoadingDialog.run<File>(
-            context: context,
-            future: _getCurrentImageFile(imageData.imageUrl!));
+          context: context,
+          future: _downloadImageFile(imageData.imageUrl!),
+        );
 
         if (imageFile == null) {
           return;
@@ -125,8 +127,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
           });
         }
       },
-      label: Text(labelText),
-      icon: const Icon(Icons.edit),
     );
   }
 }

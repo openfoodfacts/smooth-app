@@ -93,7 +93,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       MaterialPageRoute<void>(
         builder: (_) => ProductImageViewer(
           barcode: widget.barcode!,
-          productImageData: imageData,
+          imageData: imageData,
         ),
       ));
 
