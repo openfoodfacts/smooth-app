@@ -52,7 +52,7 @@ We are always looking for new contributors, if you're willing to help please let
 - [Project Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
 - Private app signing for iOS certificates repository - please ask @teolemon
 
-## Forks we depend on
+## Custom dependencies (forked versions)
 - [g123k/plugins](https://github.com/g123k/plugins) - Because XYZ - folder: ABC, DEF
 - [M123-dev/matomo-tracker](https://github.com/M123-dev/matomo-tracker) - TODO: switch to vanilla
 ## V1 Roadmap (Shipped on June 15th 2022 for Vivatech)
