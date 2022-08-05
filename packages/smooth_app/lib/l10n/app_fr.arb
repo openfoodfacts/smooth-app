@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "À la recherche de",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenue sur Open Food Facts",
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "Système d'exploitation : Android (SDK Int : {sdkInt} / Version : ${release})\nModèle : ${model}\nProduit : ${product}\nAppareil : ${device}\nMarque : {brand}",
+    "contact_form_body_android": "Système d'exploitation : Android (SDK Int : {sdkInt} / Version : {release})\nModèle : {model}\nProduit : {product}\nAppareil : {device}\nMarque : {brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "Système d'exploitation : iOS ({version})\nModèle : ${model}\nModèle localisé : ${localizedModel}",
+    "contact_form_body_ios": "Système d'exploitation : iOS ({version})\nModèle : {model}\nModèle localisé : {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
