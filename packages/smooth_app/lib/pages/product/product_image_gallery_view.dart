@@ -1,13 +1,10 @@
-// ignore_for_file: cast_nullable_to_non_nullable
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
@@ -39,9 +36,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   void initState() {
     imagesData.addAll(widget.allProductImagesData);
     imageProviders.addAll(
-      imagesData.map((ProductImageData imageData) => imageData.imageUrl != null
-          ? NetworkImage(imageData.imageUrl!)
-          : null),
+      imagesData.map(
+        (ProductImageData data) =>
+            data.imageUrl == null ? null : NetworkImage(data.imageUrl!),
+      ),
     );
 
     super.initState();
@@ -61,46 +59,28 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
 
     return SmoothScaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-            title: Text(appLocalizations.edit_product_form_item_photos_title),
-            leading: IconButton(
-              icon: Icon(ConstantIcons.instance.getBackIcon()),
-              onPressed: () => Navigator.maybePop(context, _isRefreshed),
-            )),
-        body: ListView.builder(
-          itemCount: imagesData.length,
-          itemBuilder: _buildCard,
-        ));
-  }
-
-  Widget _buildCard(BuildContext context, int index) {
-    final ThemeData themeData = Theme.of(context);
-    return SmoothCard(
-        child: ListTile(
-      onTap: () => imagesData[index].imageUrl != null
-          ? _openImage(imagesData[index])
-          : _newImage(
-              field: imagesData[index].imageField,
-              index: index,
-            ),
-      leading: imageProviders[index] != null
-          ? Image(
-              image: imageProviders[index]!,
-              fit: BoxFit.cover,
-              width: 100,
-            )
-          : SvgPicture.asset(
-              'assets/product/product_not_found.svg',
-              fit: BoxFit.cover,
-              width: 100,
-            ),
-      title: Text(
-        imagesData[index].title,
-        style: themeData.textTheme.headline4,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: Text(appLocalizations.edit_product_form_item_photos_title),
+        leading: IconButton(
+          icon: Icon(ConstantIcons.instance.getBackIcon()),
+          onPressed: () => Navigator.maybePop(context, _isRefreshed),
+        ),
       ),
-      trailing: Icon(ConstantIcons.instance.getForwardIcon()),
-    ));
+      body: ListView.builder(
+        itemCount: imagesData.length,
+        itemBuilder: (BuildContext context, int index) => SmoothListTileCard(
+          title: imagesData[index].title,
+          imageProvider: imageProviders[index],
+          onTap: () => imagesData[index].imageUrl != null
+              ? _openImage(imagesData[index])
+              : _newImage(
+                  index: index,
+                  field: imagesData[index].imageField,
+                ),
+        ),
+      ),
+    );
   }
 
   void _openImage(ProductImageData imageData) => Navigator.push<void>(
