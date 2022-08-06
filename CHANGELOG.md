@@ -1,5 +1,41 @@
 # Changelog
 
+## [3.6.0](https://github.com/openfoodfacts/smooth-app/compare/v3.5.1...v3.6.0) (2022-08-04)
+
+
+### Features
+
+* [#1343](https://github.com/openfoodfacts/smooth-app/issues/1343) - "world" queries and faster cached result display ([#2718](https://github.com/openfoodfacts/smooth-app/issues/2718)) ([8599d10](https://github.com/openfoodfacts/smooth-app/commit/8599d10f94779957ae372dd8d086864155f015fb))
+* [#2396](https://github.com/openfoodfacts/smooth-app/issues/2396) - better memory management - load products only when needed ([#2609](https://github.com/openfoodfacts/smooth-app/issues/2609)) ([115722b](https://github.com/openfoodfacts/smooth-app/commit/115722b6136ab4218b3ddfae1a6e666c65325525))
+* [#2503](https://github.com/openfoodfacts/smooth-app/issues/2503) - language selector now in "App Settings" (for all users) ([#2658](https://github.com/openfoodfacts/smooth-app/issues/2658)) ([0c5fab5](https://github.com/openfoodfacts/smooth-app/commit/0c5fab5c8d21a833d77d49fc6371a15c48c20c46))
+* [#2647](https://github.com/openfoodfacts/smooth-app/issues/2647) - added a refresh gesture to edit product page ([#2649](https://github.com/openfoodfacts/smooth-app/issues/2649)) ([e163167](https://github.com/openfoodfacts/smooth-app/commit/e1631679bd3cb6b17f12f13114f5fdb9da2957d7))
+* [#2653](https://github.com/openfoodfacts/smooth-app/issues/2653) - added asset haute-valeur-environnementale.90x90.svg ([#2654](https://github.com/openfoodfacts/smooth-app/issues/2654)) ([96f7b86](https://github.com/openfoodfacts/smooth-app/commit/96f7b8618ae12e12f7a010891ba76d6cf8672712))
+* [#2671](https://github.com/openfoodfacts/smooth-app/issues/2671) - product lists - downloads products when not in local database ([#2673](https://github.com/openfoodfacts/smooth-app/issues/2673)) ([b08dc60](https://github.com/openfoodfacts/smooth-app/commit/b08dc608fe9aea6f53b2d6258644e2cec26c4f72))
+* [#2705](https://github.com/openfoodfacts/smooth-app/issues/2705) - barcode copy from product edit page ([#2709](https://github.com/openfoodfacts/smooth-app/issues/2709)) ([a713ccd](https://github.com/openfoodfacts/smooth-app/commit/a713ccdda0b729abb4ae1eb1a9d581d3163cc665))
+* added feat in dev mode to preload 1k products ([#2661](https://github.com/openfoodfacts/smooth-app/issues/2661)) ([37e5b75](https://github.com/openfoodfacts/smooth-app/commit/37e5b75f64e59d96fa47f9495d464c9f1eae7c5a))
+* make text fields design use less space ([#2725](https://github.com/openfoodfacts/smooth-app/issues/2725)) ([bff9e92](https://github.com/openfoodfacts/smooth-app/commit/bff9e92e040438121683ecf7f439aa891817546c))
+
+
+### Bug Fixes
+
+* [#2291](https://github.com/openfoodfacts/smooth-app/issues/2291) - removed flawed specific font (back to default fonts) ([#2657](https://github.com/openfoodfacts/smooth-app/issues/2657)) ([180c817](https://github.com/openfoodfacts/smooth-app/commit/180c8175622766276cf1ea41c7a1899769f85868))
+* [#2682](https://github.com/openfoodfacts/smooth-app/issues/2682) - no more trying to display null panels ([#2684](https://github.com/openfoodfacts/smooth-app/issues/2684)) ([00a717e](https://github.com/openfoodfacts/smooth-app/commit/00a717ee4b59b3e2319f6f11a6893cb53d364d19))
+* [#2706](https://github.com/openfoodfacts/smooth-app/issues/2706) - now we display the "LOGIN!" button only if not logged in ([#2714](https://github.com/openfoodfacts/smooth-app/issues/2714)) ([a845721](https://github.com/openfoodfacts/smooth-app/commit/a845721b0206d1b2f1f5bd25249f11115dcb1aef))
+* added loading indicator while sign-in in process ([#2727](https://github.com/openfoodfacts/smooth-app/issues/2727)) ([5af58b9](https://github.com/openfoodfacts/smooth-app/commit/5af58b9396c93e1c6caafa6eef84337fa2f3aed8))
+* AutocompleteWidget: Scrollbar + dividers + correct width ([#2704](https://github.com/openfoodfacts/smooth-app/issues/2704)) ([1618781](https://github.com/openfoodfacts/smooth-app/commit/1618781d6e74c8d296d659aa1bfe82b20e63a7e1))
+* in dark mode, the barcode should be white ([#2702](https://github.com/openfoodfacts/smooth-app/issues/2702)) ([c58ab1b](https://github.com/openfoodfacts/smooth-app/commit/c58ab1b68427a00f988feb4e2e5776dfbecdcd9e))
+* in gallery view the dots are not synchronize with the position of the photo, when the screen is launched ([#2700](https://github.com/openfoodfacts/smooth-app/issues/2700)) ([8bd4e9f](https://github.com/openfoodfacts/smooth-app/commit/8bd4e9ff4dfca10afc42d7976a3828616f6bc95f))
+* localized title for email ([#2691](https://github.com/openfoodfacts/smooth-app/issues/2691)) ([aa294b4](https://github.com/openfoodfacts/smooth-app/commit/aa294b4e6ed20a373c3831e014fac285a73f7f1a))
+* Login button whole width centre ([#2668](https://github.com/openfoodfacts/smooth-app/issues/2668)) ([9acaddf](https://github.com/openfoodfacts/smooth-app/commit/9acaddf1cfe89a2d29b262b89fdf233b26a23d3d))
+* new svg asset ([#2688](https://github.com/openfoodfacts/smooth-app/issues/2688)) ([7f12148](https://github.com/openfoodfacts/smooth-app/commit/7f121482d6140e6cb902db0c935b22604a738cd2))
+* Padding in language section ([#2690](https://github.com/openfoodfacts/smooth-app/issues/2690)) ([9057659](https://github.com/openfoodfacts/smooth-app/commit/905765919fc81efa6b97729284a8bf70ce60d02c))
+* Rounded the load more products in search button [#1900](https://github.com/openfoodfacts/smooth-app/issues/1900) ([#2663](https://github.com/openfoodfacts/smooth-app/issues/2663)) ([dd9c9c6](https://github.com/openfoodfacts/smooth-app/commit/dd9c9c6d6fda874963cfbd1392a7bee2e016f2cb))
+* svg asset ([#2710](https://github.com/openfoodfacts/smooth-app/issues/2710)) ([89ffd1e](https://github.com/openfoodfacts/smooth-app/commit/89ffd1ef9386227ab3380a6474ec433538567f06))
+* svg asset nature et progres + bleu blanc coeur ([#2722](https://github.com/openfoodfacts/smooth-app/issues/2722)) ([ef639b3](https://github.com/openfoodfacts/smooth-app/commit/ef639b325c820c4a01f3c20bbde707adec8a3377))
+* svgAsset - additional svg assets ([#2686](https://github.com/openfoodfacts/smooth-app/issues/2686)) ([6a0ef19](https://github.com/openfoodfacts/smooth-app/commit/6a0ef198ec7e426399fd5585b8b2a426d6df9fd6))
+* The virtual keyboard is sometimes visible after clicking on the Search field on the homepage ([#2712](https://github.com/openfoodfacts/smooth-app/issues/2712)) ([16ca53b](https://github.com/openfoodfacts/smooth-app/commit/16ca53bd030e3558a090994c9bb6455f30c36d74))
+* use smoothcard in edit_product_page ([#2723](https://github.com/openfoodfacts/smooth-app/issues/2723)) ([af1a45f](https://github.com/openfoodfacts/smooth-app/commit/af1a45f973987905e2cc8a380d4694979b2ce9c0))
+
 ## [3.5.1](https://github.com/openfoodfacts/smooth-app/compare/3.4.6...v3.5.1) (2022-07-23)
 
 

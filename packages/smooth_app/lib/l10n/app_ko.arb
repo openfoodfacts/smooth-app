@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "찾는 항목",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Open Food Facts 사용을 환영합니다",
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "운영체제: Android (SDK Int: {sdkInt} / Release: ${release})\n모델: ${model}\n제품: ${product}\n기기: ${device}\n브랜드:{brand}",
+    "contact_form_body_android": "운영체제: Android (SDK Int: {sdkInt} / Release: {release})\n모델: {model}\n제품: {product}\n기기: {device}\n브랜드:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "운영체제: iOS ({version})\n모델: ${model}\n현지화 모델: ${localizedModel}",
+    "contact_form_body_ios": "운영체제: iOS ({version})\n모델: {model}\n현지화 모델: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
