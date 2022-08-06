@@ -9,12 +9,6 @@ class PreloadDataHelper {
   final DaoProduct daoProduct;
 
   Future<String> getTopProducts() async {
-    List<String> allProductCodes = await daoProduct.getAllKeys();
-    final Map<String, Product> allProducts =
-        await daoProduct.getAll(allProductCodes);
-    allProducts.removeWhere(
-        (String key, Product value) => value.knowledgePanels == null);
-    allProductCodes = allProducts.keys.toList();
     final List<ProductField> fields = ProductQuery.fields;
     fields.remove(ProductField.KNOWLEDGE_PANELS);
     try {
@@ -22,7 +16,7 @@ class PreloadDataHelper {
           ProductSearchQueryConfiguration(
         fields: fields,
         parametersList: <Parameter>[
-          const PageSize(size: 100),
+          const PageSize(size: 1000),
           const PageNumber(page: 1),
           const SortBy(option: SortOption.POPULARITY),
         ],
@@ -36,18 +30,32 @@ class PreloadDataHelper {
       if (searchResult.products?.isEmpty ?? true) {
         return 'No products found for your country and language';
       } else {
-        searchResult.products!.removeWhere(
-          (Product searchProduct) {
-            return allProductCodes.contains(searchProduct.barcode);
-          },
-        );
-        await daoProduct.putAll(searchResult.products!);
-        return '${searchResult.products!.length} unique products added to the database for instant scan';
+        final List<Product> productsToBePushed = <Product>[];
+        for (int i = 0; i < searchResult.products!.length; i++) {
+          if (await _isToBeUpdated(searchResult.products![i])) {
+            productsToBePushed.add(searchResult.products![i]);
+          }
+        }
+        await daoProduct.putAll(productsToBePushed);
+        return '${productsToBePushed.length} unique products added to the database for instant scan';
       }
     } on SocketException {
       return 'No internet connection';
     } catch (e) {
       return 'Error: $e';
+    }
+  }
+
+  Future<bool> _isToBeUpdated(Product product) async {
+    if (await daoProduct.get(product.barcode!) == null) {
+      return true;
+    } else {
+      final Product? localProduct = await daoProduct.get(product.barcode!);
+      if (localProduct!.knowledgePanels == null) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 }
