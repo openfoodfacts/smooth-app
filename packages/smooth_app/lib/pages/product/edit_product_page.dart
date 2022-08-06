@@ -136,7 +136,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       return;
                     }
                     final List<ProductImageData> allProductImagesData =
-                        getAllProductImagesData(_product, appLocalizations);
+                        getProductMainImagesData(_product, appLocalizations);
                     final bool? refreshed = await Navigator.push<bool>(
                       context,
                       MaterialPageRoute<bool>(
