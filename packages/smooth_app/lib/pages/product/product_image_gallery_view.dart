@@ -1,13 +1,15 @@
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/ProductImage.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -40,14 +42,24 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   @override
   void initState() {
     imagesData.addAll(widget.allProductImagesData);
-    imageProviders.addAll(
-      imagesData.map(
-        (ProductImageData data) =>
-            data.imageUrl == null ? null : NetworkImage(data.imageUrl!),
-      ),
-    );
+    imageProviders.addAll(imagesData.map(_provideImage));
+
+    _getProductImages().then((Iterable<ProductImageData>? loadedData) {
+      if (loadedData != null) {
+        setState(() {
+          imagesData.addAll(loadedData);
+          imageProviders.addAll(loadedData.map(_provideImage));
+        });
+      }
+    });
 
     super.initState();
+  }
+
+  ImageProvider? _provideImage(ProductImageData imageData) {
+    return imageData.imageUrl == null
+        ? null
+        : NetworkImage(imageData.imageUrl!);
   }
 
   @override
@@ -136,4 +148,45 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       );
     }
   }
+
+  Future<Iterable<ProductImageData>?> _getProductImages() async {
+    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+      widget.barcode!,
+      fields: <ProductField>[ProductField.IMAGES],
+      language: ProductQuery.getLanguage(),
+      country: ProductQuery.getCountry(),
+    );
+
+    final ProductResult result;
+    try {
+      result = await OpenFoodAPIClient.getProduct(configuration);
+    } catch (e) {
+      return null;
+    }
+
+    if (result.status == 1) {
+      final Product? product = result.product;
+      if (product != null && product.images != null) {
+        return _deduplicateImages(product.images!).map(_getProductImageData);
+      }
+    }
+
+    return null;
+  }
+
+  Iterable<ProductImage> _deduplicateImages(List<ProductImage> images) {
+    return images
+        // Only keep the first image with the same id
+        .groupListsBy((ProductImage element) => element.imgid)
+        .values
+        .map((List<ProductImage> value) => value.firstOrNull)
+        .whereNotNull();
+  }
+
+  ProductImageData _getProductImageData(ProductImage image) => ProductImageData(
+        imageField: image.field,
+        title: 'Image #${image.imgid}',
+        buttonText: 'Image #${image.imgid}',
+        imageUrl: image.url,
+      );
 }

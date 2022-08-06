@@ -77,17 +77,6 @@ extension SetExtensions<T> on Set<T> {
   }
 }
 
-extension IterableExtensions<T> on Iterable<T> {
-  T? firstWhereOrNull(bool Function(T element) test) {
-    for (final T element in this) {
-      if (test(element)) {
-        return element;
-      }
-    }
-    return null;
-  }
-}
-
 extension MapStringKeyExtensions<V> on Map<String, V> {
   String? keyStartingWith(String key, {bool ignoreCase = false}) {
     final String searchKey;
