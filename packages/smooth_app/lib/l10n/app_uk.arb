@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Шукаю",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "ОС: Андроїд (SDK Int: {sdkInt} / Release: ${release})\nМодель:${model}\nПродукт:${product}\nПристрій:${device}\nБренд:{brand}",
+    "contact_form_body_android": "ОС: Андроїд (SDK Int: {sdkInt} / Release: {release})\nМодель:{model}\nПродукт:{product}\nПристрій:{device}\nБренд:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "ОС: iOS ({version})\nМодель: ${model}\nЛокалізована модель: ${localizedModel}",
+    "contact_form_body_ios": "ОС: iOS ({version})\nМодель: {model}\nЛокалізована модель: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {

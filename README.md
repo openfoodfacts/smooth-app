@@ -7,7 +7,7 @@
 # New Open Food Facts mobile app for Android and iPhone - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-Latest commit deployed to App Stores: (July 8th 2022) https://github.com/openfoodfacts/smooth-app/commit/b318a540130a2135db9308c2b4f74ce0eeb8f849
+Latest commit deployed to App Stores: (August 4th 2022) https://github.com/openfoodfacts/smooth-app/releases/tag/v3.6.0
 
 A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
 
