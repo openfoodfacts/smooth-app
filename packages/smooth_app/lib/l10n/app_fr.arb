@@ -48,27 +48,27 @@
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "match_very_good": "Très compatible",
+    "match_very_good": "Très bonne compatibilité",
     "@match_very_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: very good match"
     },
-    "match_good": "Compatible",
+    "match_good": "Bonne compatibilité",
     "@match_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: good match"
     },
-    "match_poor": "Peu compatible",
+    "match_poor": "Mauvaise compatibilité",
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
-    "match_may_not": "Peut ne pas correspondre",
+    "match_may_not": "Compatibilité incertaine",
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
-    "match_does_not": "Ne correspond pas",
+    "match_does_not": "Pas de compatibilité",
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "Correspondance inconnue",
+    "match_unknown": "Compabilité inconnue",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
@@ -84,7 +84,7 @@
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
-    "match_short_may_not": "Peut ne pas correspondre",
+    "match_short_may_not": "Sans doute incompatible",
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
@@ -1225,7 +1225,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "H",
+    "dev_preferences_test_environment_title": "Paramètres de l'environnement de test",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
