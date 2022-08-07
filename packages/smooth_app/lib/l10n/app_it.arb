@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Sto cercando",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Benvenuto su Open Food Facts",
@@ -322,7 +322,7 @@
     "@contribute_translate_text_2": {},
     "contribute_share_header": "Condividi Open Food Facts con i tuoi amici",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Volevo farti conoscere l'app che sto utilizzando, Open Food Facts, che ti fa vedere l'impatto sulla salute ambientale da parte del tuo cibo, in un modo personalizzato. Funziona scansionando i codici a barre sulla confezione. Finalmente è gratuito, non richiede registrazione e puoi anche contribuire ad aumentare il numero di prodotti decifrati. Ecco il link per ottenerlo per il tuo telefono: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Una corrispondenza ottima per te",
     "ranking_subtitle_match_no": "Corrispondenza molto debole",
     "ranking_subtitle_match_maybe": "Corrispondenza sconosciuta",
+    "refresh_with_new_preferences": "Aggiorna l'elenco con le tue nuove preferenze",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Ricaricato con le tue nuove preferenze",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -700,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "Sistema operativo: Android (SDK Int: {sdkInt} / Release: ${release})\nModello: ${model}\nProdotto: ${product}\nDispositivo: ${device}\nMarca:{brand}",
+    "contact_form_body_android": "Sistema operativo: Android (SDK Int: {sdkInt} / Release: {release})\nModello: {model}\nProdotto: {product}\nDispositivo: {device}\nMarca:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -730,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "Sistema operativo: iOS ({version})\nModello: ${model}\nModello localizzato: ${localizedModel}",
+    "contact_form_body_ios": "Sistema operativo: iOS ({version})\nModello: {model}\nModello localizzato: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Scegli dalla galleria",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
     "no_internet_connection": "Nessuna connessione internet",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Seleziona la lingua",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

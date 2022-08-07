@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
@@ -49,9 +50,11 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   @override
   PreferencePageType? getPreferencePageType() => PreferencePageType.ACCOUNT;
 
+  String? _getUserId() => OpenFoodAPIConfiguration.globalUser?.userId;
+
   @override
   Widget getTitle() {
-    final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
+    final String? userId = _getUserId();
     final String title;
 
     if (userId == null) {
@@ -119,6 +122,39 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
     return OpenFoodAPIConfiguration.globalUser != null;
   }
+
+  @override
+  Widget? getAdditionalSubtitle() {
+    if (_getUserId() != null) {
+      // we are already connected: no "LOGIN" button
+      return null;
+    }
+    final ThemeData theme = Theme.of(context);
+    final Size size = MediaQuery.of(context).size;
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: size.width / 4),
+      child: SmoothSimpleButton(
+        child: Text(
+          appLocalizations.sign_in,
+          style: theme.textTheme.bodyText2?.copyWith(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.onPrimary,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.of(
+            context,
+            rootNavigator: true,
+          ).push<dynamic>(
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => const LoginPage(),
+            ),
+          );
+        },
+      ),
+    );
+  }
 }
 
 class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
@@ -127,47 +163,8 @@ class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size size = MediaQuery.of(context).size;
-    final ThemeData theme = Theme.of(context);
 
-    return Column(
-      children: <Widget>[
-        Text(appLocalizations.user_profile_subtitle_guest),
-        const SizedBox(height: LARGE_SPACE),
-        Center(
-          child: ElevatedButton(
-            onPressed: () async {
-              Navigator.of(
-                context,
-                rootNavigator: true,
-              ).push<dynamic>(
-                MaterialPageRoute<dynamic>(
-                  builder: (BuildContext context) => const LoginPage(),
-                ),
-              );
-            },
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all<Size>(
-                Size(size.width * 0.5, theme.buttonTheme.height + 10),
-              ),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                const RoundedRectangleBorder(
-                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                ),
-              ),
-            ),
-            child: Text(
-              appLocalizations.sign_in,
-              style: theme.textTheme.bodyText2?.copyWith(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.onPrimary,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
+    return Text(appLocalizations.user_profile_subtitle_guest);
   }
 }
 
@@ -243,7 +240,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           ),
           title: appLocalizations.user_search_contributor_title,
           iconData: Icons.add_circle_outline,
-          heroTag: 'contributor',
           context: context,
           localDatabase: localDatabase,
         ),
@@ -255,7 +251,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           ),
           title: appLocalizations.user_search_informer_title,
           iconData: Icons.edit,
-          heroTag: 'informer',
           context: context,
           localDatabase: localDatabase,
         ),
@@ -267,7 +262,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           ),
           title: appLocalizations.user_search_photographer_title,
           iconData: Icons.add_a_photo,
-          heroTag: 'photographer',
           context: context,
           localDatabase: localDatabase,
         ),
@@ -279,7 +273,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           ),
           title: appLocalizations.user_search_to_be_completed_title,
           iconData: Icons.more_horiz,
-          heroTag: 'to_be_completed',
           context: context,
           localDatabase: localDatabase,
         ),
@@ -288,7 +281,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           productQuery: PagedToBeCompletedProductQuery(),
           title: appLocalizations.all_search_to_be_completed_title,
           iconData: Icons.more_outlined,
-          heroTag: 'all_to_be_completed',
           context: context,
           localDatabase: localDatabase,
         ),
@@ -372,13 +364,11 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     required final PagedProductQuery productQuery,
     required final String title,
     required final IconData iconData,
-    required final String heroTag,
     required final BuildContext context,
     required final LocalDatabase localDatabase,
   }) =>
       ListTile(
         onTap: () async => ProductQueryPageHelper().openBestChoice(
-          heroTag: heroTag,
           name: title,
           localDatabase: localDatabase,
           productQuery: productQuery,

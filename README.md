@@ -4,10 +4,10 @@
   <img height="100" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
 </picture>
 
-# Open Food Facts - Codename: "Smooth App"
+# New Open Food Facts mobile app for Android and iPhone - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-Latest commit deployed to App Stores: (July 8th 2022) https://github.com/openfoodfacts/smooth-app/commit/b318a540130a2135db9308c2b4f74ce0eeb8f849
+Latest commit deployed to App Stores: (August 4th 2022) https://github.com/openfoodfacts/smooth-app/releases/tag/v3.6.0
 
 A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
 
@@ -94,8 +94,8 @@ In order to build the application, make sure you are in the packages/smooth_app 
  - flutter run
 
 ### Dev Mode
-- How to activate it: We now have a secret in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by: going to the Food preferences screen, Your Profile, User Management, Forgotten Password and then tapping ten times on the "Change password" button of the Reset Password screen (without typing any email). 
-- Feel free to file an issue if you'd like new switches in this dev mode. 
+- How to activate it: We now have a in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by going to Preferences screen > Contribute > Software Development, and then enabling Dev Mode.
+- Feel free to file an issue if you'd like new switches in this dev mode.
 - You can also add new flags for your features.
   - example: https://github.com/openfoodfacts/smooth-app/pull/834
 
@@ -105,6 +105,10 @@ In order to build the application, make sure you are in the packages/smooth_app 
 - New strings need to be added to lib/l10n/app_en.arb and the [corresponding translations can be added through CrowdIn](https://translate.openfoodfacts.org/translate/openfoodfacts/1322). Do not edit the other app_*.arb files as they will be overwritten by CrowdIn.
 
 ![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
+
+### Error reporting - Sentry
+[Track crashes](https://sentry.io/organizations/openfoodfacts/issues/?project=5376745)
+
 
 ## Thank you
 The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 

@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Đang tìm",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Chào mừng đến với Open Food Facts",
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Phù hợp nhất cho bạn",
     "ranking_subtitle_match_no": "Độ phù hợp thấp",
     "ranking_subtitle_match_maybe": "Độ phù hợp không xác định",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Đã tải lại với các tùy chọn mới",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -700,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "Hệ điều hành: Android (SDK Int: {sdkInt} / Phát hành: ${release})\nMẫu: ${model}\nSản phẩm: ${product}\nThiết bị: ${device}\nThương hiệu:{brand}",
+    "contact_form_body_android": "Hệ điều hành: Android (SDK Int: {sdkInt} / Phát hành: {release})\nMẫu: {model}\nSản phẩm: {product}\nThiết bị: {device}\nThương hiệu:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -730,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "Hệ điều hành: iOS ({version})\nMẫu: ${model}\nMẫu bản địa hóa: ${localizedModel}",
+    "contact_form_body_ios": "Hệ điều hành: iOS ({version})\nMẫu: {model}\nMẫu bản địa hóa: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Chọn từ thư viện ảnh",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
     "no_internet_connection": "No internet connection",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Choose App Language",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

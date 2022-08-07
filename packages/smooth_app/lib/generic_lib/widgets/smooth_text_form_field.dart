@@ -74,18 +74,18 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       onChanged: widget.onChanged ??
           (String data) {
             // Rebuilds for changing the eye icon
-            if (widget.type == TextFieldTypes.PASSWORD) {
-              if (data.isEmpty) {
-                setState(() {});
-              } else if (data.isNotEmpty && data.length > 1) {
-                setState(() {});
-              }
+            if (widget.type == TextFieldTypes.PASSWORD && data.length != 1) {
+              setState(() {});
             }
           },
       onFieldSubmitted: widget.onFieldSubmitted,
       style: TextStyle(fontSize: textSize),
       cursorHeight: textSize * (textStyle.height ?? 1.4),
       decoration: InputDecoration(
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: LARGE_SPACE,
+          vertical: SMALL_SPACE,
+        ),
         prefixIcon: widget.prefixIcon,
         filled: true,
         hintStyle: TextStyle(

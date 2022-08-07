@@ -73,12 +73,17 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       ];
 
       for (final PreferencePageType type in items) {
-        children.add(
-          getUserPreferences(
-            type: type,
-            userPreferences: userPreferences,
-          ).getOnlyHeader(),
+        final AbstractUserPreferences abstractUserPreferences =
+            getUserPreferences(
+          type: type,
+          userPreferences: userPreferences,
         );
+        children.add(abstractUserPreferences.getOnlyHeader());
+        final Widget? additionalSubtitle =
+            abstractUserPreferences.getAdditionalSubtitle();
+        if (additionalSubtitle != null) {
+          children.add(additionalSubtitle);
+        }
       }
       headerAsset = 'assets/preferences/main.svg';
       headerColor = const Color(0xFFEBF1FF);

@@ -68,7 +68,7 @@
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "Unknown match",
+    "match_unknown": "Hasil tidak diketahui",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
@@ -92,7 +92,7 @@
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "Unknown match",
+    "match_short_unknown": "Hasil tidak diketahui",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Mencari",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Selamat datang di Open Food Facts",
@@ -142,7 +142,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Untuk fitur itu, kami perlu anda untuk masuk.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -199,11 +199,11 @@
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail diperlukan",
     "sign_up_page_email_error_invalid": "Surel tidak valid",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_hint": "Nama pengguna: Terlihat publik",
     "sign_up_page_username_error_empty": "Silakan masukkan nama pengguna Anda",
     "sign_up_page_username_error_invalid": "Silakan masukkan nama pengguna yang sah",
     "sign_up_page_username_description": "Nama pengguna tidak dapat mengandung spasi, huruf besar ataupun karakter khusus",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Nama pengguna tidak dapat melebihi {value} karakter",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -217,11 +217,11 @@
     "sign_up_page_confirm_password_hint": "Konfirmasi kata sandi",
     "sign_up_page_confirm_password_error_empty": "Harap konfirmasi kata sandi",
     "sign_up_page_confirm_password_error_invalid": "Kata sandi tidak cocok",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Saya setuju dengan Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "syarat penggunaan dan kontribusi",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -240,7 +240,7 @@
     "sign_up_page_producer_checkbox": "Saya seorang produsen makanan",
     "sign_up_page_producer_hint": "Produsen/merek",
     "sign_up_page_producer_error_empty": "Silakan masukkan nama produsen atau merek",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Saya ingin berlangganan buletin Open Food Facts (Anda dapat berhenti berlangganan kapan saja)",
     "@Settings": {},
     "settingsTitle": "Pengaturan",
     "@settingsTitle": {
@@ -273,8 +273,8 @@
     },
     "support_join_slack": "Minta bantuan di saluran Slack kami",
     "support_via_email": "Kirimkan kami surel",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_title": "Kirim log aplikasi?",
+    "support_via_email_include_logs_dialog_body": "Apakah anda ingin menyertakan log aplikasi ke email anda?",
     "termsOfUse": "Syarat Penggunaan",
     "@termsOfUse": {},
     "about_this_app": "Tentang aplikasi ini",
@@ -294,8 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Anda dapat bergabung dengan ruang obrolan Slack Open Food Facts yang juga merupakan cara yang lebih disukai untuk mengajukan pertanyaan.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "Mode DEV?",
+    "contribute_develop_dev_mode_subtitle": "Aktifkan Mode DEV",
     "contribute_donate_header": "Berdonasi ke Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Produk - produk yang perlu dilengkapi",
@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Penerjemahan adalah salah satu tugas utama dari proyek ini",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Bagikan Open Food Facts dengan teman-teman anda",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Saya ingin memberi tahu kamu tentang aplikasi yang saya gunakan, Open Food Facts, yang memungkinkan kamu untuk mengetahui dampak kesehatan dan lingkungan dari makananmu, secara personal. Aplikasi ini bekerja dengan memindai barcode pada kemasan. Aplikasi ini gratis, tidak perlu pendaftaran, dan kamu bahkan bisa membantu menambah jumlah produk yang diuraikan. Ini tautan untuk mendapatkannya di hpmu: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -334,11 +334,11 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Bantu tingkatkan transparansi makanan dan dapatkan hadiah",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
+    "question_sign_in_text": "Masuk ke akun Open Food Facts anda untuk mendapatkan kredit atas kontribusi anda",
     "@Personal preferences": {},
     "myPreferences": "Preferensi Saya",
     "@myPreferences": {
@@ -347,11 +347,11 @@
     "myPreferences_profile_title": "Profil Anda",
     "myPreferences_profile_subtitle": "Kelola akun kontributor Open Food Facts Anda.",
     "myPreferences_settings_title": "Pengaturan Aplikasi",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "Mode gelap, Analitis, ...",
     "myPreferences_food_title": "Preferensi Makanan",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "myPreferences_food_subtitle": "Pilih informasi tentang makanan yang paling penting bagi anda.",
+    "myPreferences_food_comment": "Pilih informasi tentang makanan yang paling penting bagi anda, untuk memberi peringkat makanan sesuai preferensi anda, melihat informasi yang paling anda minati lebih dahulu dan dapatkan ringkasan kompatibilitas. Preferensi makanan tersebut tetap ada di perangkat anda, dan tidak terkait dengan akun kontributor Open Food Facts anda jika anda memilikinya.",
+    "confirmResetPreferences": "Atur ulang preferensi makanan anda?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -362,7 +362,11 @@
     "ranking_tab_all": "Semua",
     "ranking_subtitle_match_yes": "Pilihan cocok untuk Anda",
     "ranking_subtitle_match_no": "Sangat tidak cocok",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_maybe": "Hasil tidak diketahui",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Dimuat ulang dengan preferensi baru Anda",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -420,18 +424,18 @@
     },
     "ingredients": "Komposisi",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_instructions": "Pertahankan urutan asli. Tunjukkan persentase ketika ditentukan. Pisah dengan koma atau tanda hubung, gunakan tanda kurung untuk bahan dari bahan, dan tunjukkan alergen di antara garis bawah.",
     "ingredients_editing_error": "Gagal menyimpan komposisi.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_image_error": "Gagal untuk mendapatkan gambar bahan baru.",
     "ingredients_editing_title": "Sunting Komposisi",
     "ingredients_photo": "Foto kandungan bahan",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
-    "packaging_editing_error": "Failed to save the packaging.",
-    "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_instructions": "Daftar semua bagian kemasan yang dipisahkan dengan koma atau baris, dengan jumlah (misalnya 1 atau 6), jenis (misalnya botol, kotak, kaleng), material (misalnya plastik, logam, aluminium) dan jika ukuran jika tersedia (misalnya 33cl) dan instruksi daur ulang.\nContoh: 1 gelas botol untuk didaur ulang, 1 sumbat plastik untuk dibuang",
+    "packaging_editing_error": "Gagal menyimpan kemasan.",
+    "packaging_editing_image_error": "Gagal mendapatkan gambar kemasan baru.",
+    "packaging_editing_title": "Ubah kemasan",
     "nutrition": "Kandungan nutrisi",
     "@nutrition": {},
     "nutrition_facts_photo": "Foto kandungan gizi",
@@ -464,7 +468,7 @@
     "front_packaging_photo_title": "Foto Kemasan Depan",
     "ingredients_photo_title": "Foto Komposisi",
     "nutritional_facts_photo_title": "Foto Informasi Nilai Gizi",
-    "recycling_photo_title": "Recycling Photo",
+    "recycling_photo_title": "Foto daur ulang",
     "other_interesting_photo_title": "Foto Menarik Lainnya",
     "front_photo_uploaded": "Foto depan diunggah",
     "@front_photo_uploaded": {},
@@ -472,30 +476,30 @@
     "@ingredients_photo_button_label": {},
     "ingredients_photo_uploaded": "Foto komposisi diunggah",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+    "nutrition_cache_loading_error": "Tidak dapat memuat nutrien dari cache",
     "nutritional_facts_photo_button_label": "Foto kandungan gizi",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Input nutrition facts",
-    "nutritional_facts_added": "Nutrition facts added",
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_input_button_label": "Masukkan informasi nilai gizi",
+    "nutritional_facts_added": "Informasi nilai gizi ditambahkan",
+    "nutritional_facts_photo_uploaded": "Foto informasi nilai gizi telah diunggah",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "Foto informasi daur ulang",
     "@recycling_photo_button_label": {},
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Foto daur ulang telah diunggah",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Foto menarik lainnya",
     "@other_interesting_photo_button_label": {},
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Berbagai foto telah diunggah",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Ambil ulang",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Memilih foto",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Mengunggah foto ke peladen",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
@@ -523,19 +527,19 @@
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
+    "score_add_missing_ingredients": "Tambahkan bahan yang kurang",
+    "score_add_missing_nutrition_facts": "Tambahkan informasi nilai gizi yang kurang",
+    "score_add_missing_product_category": "Tambahkan kategori produk yang kurang",
+    "score_update_nutrition_facts": "Perbarui informasi nilai gizi",
     "nutrition_page_title": "Informasi nilai gizi",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_unspecified": "Informasi nilai gizi tidak ditampilkan pada produk",
     "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "per sajian",
     "nutrition_page_add_nutrient": "Tambahkan nutrisi",
     "nutrition_page_serving_size": "Takaran saji",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_invalid_number": "Nomor tidak valid",
+    "nutrition_page_update_running": "Memperbarui produk di peladen...",
+    "nutrition_page_update_done": "Produk diperbarui!",
     "more_photos": "Lebih banyak foto menarik",
     "@more_photos": {},
     "no_product_found": "Produk tidak ditemukan",
@@ -556,18 +560,18 @@
         "description": "The product data couldn't be refreshed"
     },
     "product_internet_error": "Pengambilan informasi tentang produk ini gagal karena kesalahan jaringan.",
-    "cached_results_from": "Show results from:",
+    "cached_results_from": "Menampilkan hasil dari:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
     "added_product_thanks": "Terima kasih telah menambahkan produk ini!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Bandingkan dengan Kategori",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Tambahkan kategori untuk menghitung Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
@@ -587,7 +591,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Eco-score memperhitungkan asal-usul bahan. Harap ambil foto daftar bahan dan/atau klaim geografis atau sunting produk, agar dapat diperhitungkan.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -599,11 +603,11 @@
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Produk telah dihapus dari perbandingan",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "product_removed_history": "Product removed from history",
+    "product_removed_history": "Produk telah dihapus dari riwayat",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
@@ -619,7 +623,7 @@
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
+    "really_clear": "Apakah anda benar-benar ingin menghapus daftar ini?",
     "@Plural": {},
     "pct_match": "{percent}% cocok",
     "@pct_match": {
@@ -628,7 +632,7 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {}=1{sehari yang lalu} other{{count} hari yang lalu}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
@@ -663,7 +667,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Bandingkan {count} Produk}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -692,15 +696,15 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Bantu sukarelawan Open Food Facts untuk meningkatkan aplikasi. Anda dapat memutuskan untuk mengirim analisa secara anonim.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Jika anda berubah pikiran, pilihan ini dapat diaktikan dan dinonaktifkan kapan saja dari pengaturan.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduk: {product}\nGawai: {device}\nMerek:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -730,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nModel lokal: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -748,7 +752,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "contact_form_body": "{osContent}\nVersi aplikasi:{appVersion}\nNomor pembuatan aplikasi:{appBuildNumber}\nNama paket aplikasi:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -770,11 +774,11 @@
             }
         }
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Izinkan",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Tolak",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
@@ -799,7 +803,7 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "onboarding_welcome_loading_error": "Sepertinya tidak ada contoh produk dalam bahasa anda",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
@@ -819,14 +823,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "product_list_reloading_in_progress_multiple": "Menyegarkan {count,plural, =0{produk} =1{produk} other{produk}} dalam riwayat anda",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "product_list_reloading_success_multiple": "Penyegaran {count,plural, =0{Produk} =1{Produk} other{Produck}} selesai",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -854,7 +858,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Masuk atau daftar untuk bergabung dengan komunitas Open Food Facts",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_title_id_email": "Open Food Facts masuk: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -885,25 +889,25 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "Aplikasi",
+    "settings_app_data": "Privasi dan pemantauan",
+    "settings_app_camera": "Kamera",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "Mode performa tinggi",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
+    "camera_high_resolution_preset_toggle_subtitle": "Saat diaktifkan, kualitas penguraian barcode akan lebih baik, tetapi dapat mempengaruhi kinerja dan masa pakai baterai. Membutuhkan restart aplikasi.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
-    "camera_focus_point_algorithm_title": "Focus mode",
+    "camera_focus_point_algorithm_title": "Mode fokus",
     "@camera_focus_point_algorithm_title": {
         "description": "Title for the Camera focus mode (Android only)"
     },
-    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
+    "camera_focus_point_algorithm_subtitle": "Mode saat ini: {mode}\n{reason}",
     "@camera_focus_point_algorithm_subtitle": {
         "description": "SubTitle for the Camera focus mode (Android only)",
         "placeholders": {
@@ -916,12 +920,12 @@
         }
     },
     "camera_focus_point_algorithm_value_auto_label": "Otomatis",
-    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
-    "camera_play_sound_title": "Play a sound on scan",
+    "camera_focus_point_algorithm_value_auto_description": "Biarkan sistem memilih secara otomatis antara mode cepat dan aman.",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Mode cepat",
+    "camera_focus_point_algorithm_value_new_algorithm_description": "Mode yang direkomendasikan untuk perangkat terbaru.",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Mode aman",
+    "camera_focus_point_algorithm_value_old_algorithm_description": "Apabila mode cepat tidak berfungsi, ini akan menyelesaikan masalah utama anda.",
+    "camera_play_sound_title": "Putar suara saat memindai",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
@@ -933,7 +937,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Saat diaktikan, laporan kerusakan secara otomatis dikirimkan ke sistem pelacakan kesalahan Open Food Facts, sehingga bug dapat diperbaiki sehingga dapat meningkatkan aplikasi.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1023,15 +1027,15 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spain",
+    "edit_product_form_item_origins_hint": "Spanyol",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Tambahkan indikasi asal yang dapat anda temukan pada kemasan. Anda tidak perlu khawatir tentang asal-usul yang ditunjukkan langsung dalam daftar bahan.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Contoh: Daging sapi dari Argentina, Kedelai tidak berasal dari Uni Eropa",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1039,11 +1043,11 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "Spanyol",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations": "Negara tempat produk tersedia secara luas (tidak termasuk toko yang mengkhususkan diri pada produk asing).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1055,7 +1059,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "Di Eropa, kode berbentuk elips dengan 2 inisial negara diikuti dengan angka dan CE.\nContoh: EMB 53062, FR 62.448.034 CE, 85 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
@@ -1067,7 +1071,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Tunjukkan hanya kategori yang paling spesifik. Kategori induk akan ditambahkan secara otomatis.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
@@ -1410,7 +1414,7 @@
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "terms of use and contribution",
+    "signup_page_terms_of_use_line2": "syarat penggunaan dan kontribusi",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Choose from gallery",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Expand nutrition facts table",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
     "no_internet_connection": "No internet connection",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Choose App Language",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

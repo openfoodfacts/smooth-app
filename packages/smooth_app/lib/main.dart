@@ -4,7 +4,6 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
@@ -35,15 +34,6 @@ import 'package:workmanager/workmanager.dart';
 late bool _screenshots;
 
 Future<void> main({final bool screenshots = false}) async {
-  // Adding google font licenses
-  LicenseRegistry.addLicense(() async* {
-    final String license =
-        await rootBundle.loadString('assets/plus_jakarta_sans_regular/OFL.txt');
-    yield LicenseEntryWithLineBreaks(
-      <String>['plus_jakarta_sans_regular'],
-      license,
-    );
-  });
   WidgetsFlutterBinding.ensureInitialized();
   Workmanager().initialize(callbackDispatcher);
   _screenshots = screenshots;

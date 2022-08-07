@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Suchen nach",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Willkommen bei Open Food Facts",
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "Eine gute Wahl für Sie",
     "ranking_subtitle_match_no": "Sehr schlechte Übereinstimmung",
     "ranking_subtitle_match_maybe": "Unbekannte Übereinstimmung",
+    "refresh_with_new_preferences": "Aktualisieren Sie die Liste mit Ihren neuen Einstellungen",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "Mit Ihren neuen Einstellungen neu geladen",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -700,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModell: ${model}\nProdukt: ${product}\nGerät: ${device}\nMarke:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModell: {model}\nProdukt: {product}\nGerät: {device}\nMarke:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -730,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModell: ${model}\nLokalisiertes Modell: ${localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModell: {model}\nLokalisiertes Modell: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "Aus Galerie wählen",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "Nährwerttabelle erweitern",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "Nährwerttabelle geöffnet lassen",
+    "expand_ingredients": "Zutatenliste erweitern",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "Zutatenliste geöffnet lassen",
     "no_internet_connection": "Keine Internetverbindung",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "Sprache wählen",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

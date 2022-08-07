@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "を探しています",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "OpenFoodFactsへようこそ",
@@ -363,6 +363,10 @@
     "ranking_subtitle_match_yes": "あなたにぴったり",
     "ranking_subtitle_match_no": "非常に相性が悪い",
     "ranking_subtitle_match_maybe": "一致度は不明",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "@refresh_with_new_preferences": {
+        "description": "Action button label: Refresh the list with your new preferences"
+    },
     "reloaded_with_new_preferences": "あなたの嗜好にて設定を再読み込みしました",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
@@ -700,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS：Android（SDK Int： {sdkInt} /リリース： ${release}）\nモデル： ${model}\n製品： ${product}\nデバイス： ${device}\nブランド：{brand}",
+    "contact_form_body_android": "OS：Android（SDK Int： {sdkInt} /リリース： {release}）\nモデル： {model}\n製品： {product}\nデバイス： {device}\nブランド：{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -730,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS：iOS（{version}）\nモデル： ${model}\nローカライズされたモデル： ${localizedModel}",
+    "contact_form_body_ios": "OS：iOS（{version}）\nモデル： {model}\nローカライズされたモデル： {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1543,11 +1547,25 @@
         "description": "Button label for taking a photo"
     },
     "choose_from_gallery": "ギャラリーから選択する",
-    "@choose from gallery": {
+    "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "expand_nutrition_facts": "栄養成分表を拡大",
+    "@expand_nutrition_facts": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_nutrition_facts_body": "栄養成分表を拡大しておく",
+    "expand_ingredients": "原材料を抽出",
+    "@expand_ingredients": {
+        "description": "Label for expanding nutrition facts table in application setting"
+    },
+    "expand_ingredients_body": "材料パネルを広げたままにする",
     "no_internet_connection": "インターネットに接続されていません",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
+    },
+    "choose_app_language": "言語の選択",
+    "@choose_app_language": {
+        "description": "Choose Application Language"
     }
 }

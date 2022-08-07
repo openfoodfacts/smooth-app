@@ -7,7 +7,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/services/smooth_services.dart';
 
 /// "Total size" fake value for lists that are not partial/paged.
 const int _uselessTotalSizeValue = 0;
@@ -142,31 +141,16 @@ class DaoProductList extends AbstractDao {
     return true;
   }
 
-  /// Loads the barcodes AND all the products.
+  /// Loads the barcode list.
   Future<void> get(final ProductList productList) async {
     final _BarcodeList? list = _get(productList);
     final List<String> barcodes = <String>[];
-    final Map<String, Product> products = <String, Product>{};
     productList.totalSize = list?.totalSize ?? 0;
     if (list == null || list.barcodes.isEmpty) {
-      productList.set(barcodes, products);
+      productList.set(barcodes);
       return;
     }
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    for (final String barcode in list.barcodes) {
-      try {
-        final Product? product = await daoProduct.get(barcode);
-        if (product != null) {
-          barcodes.add(barcode);
-          products[barcode] = product;
-        } else {
-          Logs.e('unexpected: unknown product for $barcode');
-        }
-      } catch (e) {
-        Logs.e('unexpected: unknown product for $barcode', ex: e);
-      }
-    }
-    productList.set(barcodes, products);
+    productList.set(list.barcodes);
   }
 
   /// Returns the number of barcodes quickly but without product check.

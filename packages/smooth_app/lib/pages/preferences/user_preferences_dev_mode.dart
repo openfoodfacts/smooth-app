@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
@@ -18,6 +19,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/products_preload_helper.dart';
 
 /// Collapsed/expanded display of "dev mode" for the preferences page.
 ///
@@ -52,14 +54,15 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesCameraPostFrameDuration =
       '__cameraPostFrameDuration';
+  static const String userPreferencesFlagAccessibilityNoColor =
+      '__accessibilityNoColor';
+  static const String userPreferencesFlagAccessibilityEmoji =
+      '__accessibilityEmoji';
 
   final TextEditingController _textFieldController = TextEditingController();
 
   static const LocalizationsDelegate<MaterialLocalizations> delegate =
       GlobalMaterialLocalizations.delegate;
-  final List<Locale> _supportedLanguageCodes = AppLocalizations.supportedLocales
-      .where((Locale locale) => delegate.isSupported(locale))
-      .toList();
 
   @override
   PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
@@ -95,6 +98,28 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             await userPreferences.setFlag(userPreferencesFlagProd, true);
             ProductQuery.setQueryType(userPreferences);
             setState(() {});
+          },
+        ),
+        ListTile(
+          title: const Text(
+            'Preload Data',
+          ),
+          subtitle: const Text(
+              'Download the top 1000 products in your country for instant scanning'),
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final String status = await LoadingDialog.run<String>(
+                  title: 'Downloading data\nThis may take a while',
+                  context: context,
+                  future: PreloadDataHelper(localDatabase).preloadData(),
+                ) ??
+                'Cancelled';
+            // ignore: use_build_context_synchronously
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(status),
+              ),
+            );
           },
         ),
         ListTile(
@@ -162,6 +187,32 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagEditIngredients, value);
+            _showSuccessMessage();
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+            'Accessibility: remove colors',
+          ),
+          value: userPreferences
+                  .getFlag(userPreferencesFlagAccessibilityNoColor) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagAccessibilityNoColor, value);
+            _showSuccessMessage();
+          },
+        ),
+        SwitchListTile(
+          title: const Text(
+            'Accessibility: show emoji',
+          ),
+          value:
+              userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagAccessibilityEmoji, value);
             _showSuccessMessage();
           },
         ),
@@ -318,24 +369,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          leading: const Icon(Icons.language),
-          title: DropdownButton<String>(
-            value: userPreferences.appLanguageCode ??
-                Localizations.localeOf(context).toString(),
-            elevation: 16,
-            isExpanded: true,
-            onChanged: (String? languageCode) async =>
-                userPreferences.setAppLanguageCode(languageCode),
-            items: _supportedLanguageCodes.map((Locale locale) {
-              final String localeString = locale.toString();
-              return DropdownMenuItem<String>(
-                value: localeString,
-                child: Text(localeString),
-              );
-            }).toList(),
-          ),
-        ),
-        ListTile(
           // Do not translate
           title: const Text('Reset App Language'),
           onTap: () async => userPreferences.setAppLanguageCode(null),
@@ -428,7 +461,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         userPreferencesCameraPostFrameDuration,
         result,
       );
-
       setState(() {});
     }
   }

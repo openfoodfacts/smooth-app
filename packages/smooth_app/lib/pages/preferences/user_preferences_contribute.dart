@@ -110,7 +110,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                     Navigator.of(context).pop();
                     ProductQueryPageHelper().openBestChoice(
                       name: appLocalizations.all_search_to_be_completed_title,
-                      heroTag: 'all_to_be_completed',
                       localDatabase: localDatabase,
                       productQuery: PagedToBeCompletedProductQuery(),
                       // the other "context"s being popped

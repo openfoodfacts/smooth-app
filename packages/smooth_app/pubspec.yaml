@@ -144,13 +144,6 @@ flutter:
   uses-material-design: true
   generate: true
 
-  fonts:
-    - family: PlusJakartaSans
-      fonts:
-        - asset: assets/plus_jakarta_sans_regular/PlusJakartaSans-Regular.ttf
-        - asset: assets/plus_jakarta_sans_regular/PlusJakartaSans-Bold.ttf
-          weight: 700
-
   assets:
     - assets/actions/
     - assets/app/
@@ -169,5 +162,4 @@ flutter:
     - assets/product/
     - assets/ikonate_thin/
     - assets/ikonate_bold/
-    - assets/plus_jakarta_sans_regular/
     - assets/icons/visor_icon.svg

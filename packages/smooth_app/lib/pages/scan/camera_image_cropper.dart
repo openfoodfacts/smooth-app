@@ -35,6 +35,8 @@ class CameraImageCropper extends AbstractCameraImageGetter {
   late int _width;
   late int _height;
 
+  int _getEven(final double value) => 2 * (value ~/ 2);
+
   void _computeCropParameters() {
     assert(width01 > 0 && width01 <= 1);
     assert(height01 > 0 && height01 <= 1);
@@ -46,8 +48,6 @@ class CameraImageCropper extends AbstractCameraImageGetter {
     final int fullWidth = cameraImage.width;
     final int fullHeight = cameraImage.height;
     final int orientation = cameraDescription.sensorOrientation;
-
-    int _getEven(final double value) => 2 * (value ~/ 2);
 
     if (orientation == 0) {
       _width = _getEven(fullWidth * width01);
