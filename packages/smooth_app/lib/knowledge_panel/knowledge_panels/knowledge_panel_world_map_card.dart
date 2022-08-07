@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 
 class KnowledgePanelWorldMapCard extends StatelessWidget {
   const KnowledgePanelWorldMapCard(this.mapElement);
@@ -37,6 +38,15 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             MarkerLayerOptions(
               markers: getMarkers(mapElement.pointers),
             ),
+          ],
+          nonRotatedChildren: <Widget>[
+            AttributionWidget.defaultWidget(
+              source: 'OpenStreetMap contributors',
+              onSourceTapped: () => LaunchUrlHelper.launchURL(
+                'https://www.openstreetmap.org/copyright',
+                false,
+              ),
+            )
           ],
         ),
       ),
