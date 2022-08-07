@@ -92,7 +92,7 @@
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "Correspondance inconnue",
+    "match_short_unknown": "Compatibilité inconnue",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
@@ -1564,11 +1564,11 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Des résultats du monde entier",
+    "world_results_label": "Résultats du monde entier",
     "@world_results_label": {
         "description": "Label describing the current source of the results: the entire world"
     },
-    "world_results_action": "Rechercher dans le monde",
+    "world_results_action": "Monde entier",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
@@ -1586,7 +1586,7 @@
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Bienvenue sur OpenFoodFacts",
+    "help_with_openfoodfacts": "Aide sur OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     }
