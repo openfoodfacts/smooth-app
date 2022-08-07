@@ -16,6 +16,7 @@ import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:workmanager/workmanager.dart';
@@ -191,9 +192,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         DaoBackgroundTask(localDatabase);
     final BackgroundTaskModel backgroundTaskModel = BackgroundTaskModel(
       backgroundTaskId: uniqueId,
-      backgroundTaskName: widget.helper.getTitle(appLocalizations),
-      backgroundTaskDescription:
-          'Made edit to ${widget.helper.getTitle(appLocalizations)} on ${DateTime.now()}',
+      backgroundTaskName: 'Edit Page',
+      backgroundTaskDescription: 'Made edit to Edit Page on ${DateTime.now()}',
       barcode: changedProduct.barcode!,
       dateTime: DateTime.now(),
       status: 'Pending',
@@ -205,11 +205,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       return false;
     }
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text(
-          '${widget.helper.getTitle(appLocalizations)} added successfully',
+          'Edited  successfully',
         ),
-        duration: const Duration(seconds: 3),
+        duration: Duration(seconds: 3),
       ),
     );
     return true;
