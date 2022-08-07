@@ -40,12 +40,38 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             ),
           ],
           nonRotatedChildren: <Widget>[
-            AttributionWidget.defaultWidget(
-              source: 'OpenStreetMap contributors',
-              onSourceTapped: () => LaunchUrlHelper.launchURL(
-                'https://www.openstreetmap.org/copyright',
-                false,
-              ),
+            AttributionWidget(
+              attributionBuilder: (BuildContext context) {
+                return Align(
+                  alignment: Alignment.bottomRight,
+                  child: ColoredBox(
+                    color: const Color(0xCCFFFFFF),
+                    child: GestureDetector(
+                      onTap: () => LaunchUrlHelper.launchURL(
+                        'https://www.openstreetmap.org/copyright',
+                        false,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(3),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text(
+                              '© OpenStreetMap',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2!
+                                  .copyWith(
+                                    color: Colors.blue,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
             )
           ],
         ),
