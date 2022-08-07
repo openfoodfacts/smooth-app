@@ -57,7 +57,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
                             Text(
-                              '© OpenStreetMap',
+                              '© OpenStreetMap contributors',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2!
