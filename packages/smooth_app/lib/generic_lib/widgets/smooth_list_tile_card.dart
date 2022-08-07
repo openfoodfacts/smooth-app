@@ -12,7 +12,7 @@ class SmoothListTileCard extends StatelessWidget {
 
   final String title;
   final ImageProvider? imageProvider;
-  final Function? onTap;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class SmoothListTileCard extends StatelessWidget {
 
     return SmoothCard(
       child: ListTile(
-        onTap: () => onTap,
+        onTap: onTap,
         leading: imageProvider != null
             ? Image(
                 image: imageProvider!,
