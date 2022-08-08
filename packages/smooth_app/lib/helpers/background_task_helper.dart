@@ -3,14 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:smooth_app/data_models/background_tasks_model.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_tasks.dart';
-import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/background_taks_constants.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
-import 'package:workmanager/workmanager.dart';
 
 Future<TaskResult> callbackDispatcher() async {
   await TaskManager().init(
@@ -32,41 +25,19 @@ Future<TaskResult> callbackDispatcher() async {
 }
 
 Future<TaskResult> otherDetails(Map<String, dynamic> inputData) async {
-  // final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
-  final BackgroundOtherDetailsInput inputTask =
-      BackgroundOtherDetailsInput.fromJson(inputData);
   try {
-    // final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
-    // final DaoProduct daoProduct = DaoProduct(database);
+    final BackgroundOtherDetailsInput inputTask =
+        BackgroundOtherDetailsInput.fromJson(inputData);
     final Map<String, dynamic> mp =
         json.decode(inputTask.inputMap) as Map<String, dynamic>;
     final User user =
         User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
-    // ignore: unused_local_variable
-    final Status result = await OpenFoodAPIClient.saveProduct(
+    await OpenFoodAPIClient.saveProduct(
       user,
       Product.fromJson(mp),
       language: LanguageHelper.fromJson(inputTask.languageCode),
       country: CountryHelper.fromJson(inputTask.country),
     );
-
-    // final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-    //   inputTask.barcode,
-    //   fields: ProductQuery.fields,
-    //   language: LanguageHelper.fromJson(inputTask.languageCode),
-    //   country: ProductQuery.getCountry(),
-    // );
-
-    // final ProductResult queryResult =
-    //     await OpenFoodAPIClient.getProduct(configuration);
-    // if (result.status == 1) {
-    //   final Product? product = queryResult.product;
-    //   if (product != null) {
-    //     await daoProduct.put(product);
-    //     // await daoBackgroundTask.delete(inputTask.uniqueId);
-    //     database.notifyListeners();
-    //   }
-    // }
   } catch (e) {
     debugPrint('Error: $e,Updating to local database failed');
     // Return true as the task of uploading image is completed successfully
@@ -79,86 +50,24 @@ Future<TaskResult> otherDetails(Map<String, dynamic> inputData) async {
 }
 
 Future<TaskResult> uploadImage(Map<String, dynamic> inputData) async {
-  final BackgroundImageInputData inputTask =
-      BackgroundImageInputData.fromJson(inputData);
-  final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
-  final DaoProduct daoProduct = DaoProduct(localDatabase);
-  final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
-  final int counter = inputTask.counter;
-  // if task is greater than 6 , that means it has been executed 7 times
-  if (counter > BACKGROUND_DURATION_LIST.length - 1) {
-    // returns true to let platform know that the task is completed
-    final File file = File(inputTask.imageUri);
-    file.deleteSync();
-    return TaskResult.success;
-  }
-  final User user =
-      User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
-  bool shouldRetry = false;
   try {
+    final BackgroundImageInputData inputTask =
+        BackgroundImageInputData.fromJson(inputData);
+    final User user =
+        User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
     final SendImage image = SendImage(
       lang: LanguageHelper.fromJson(inputTask.languageCode),
       barcode: inputTask.barcode,
       imageField: ImageFieldExtension.getType(inputTask.imageField),
       imageUri: Uri.parse(inputTask.imageUri),
     );
-    final Status result = await OpenFoodAPIClient.addProductImage(
-      user,
-      image,
-    );
-    shouldRetry = result.error != null || result.status != 'status ok';
-  } catch (e) {
-    shouldRetry = true;
-  }
-  if (shouldRetry) {
-    inputTask.counter += 1;
-    await Workmanager().initialize(callbackDispatcher);
-    final BackgroundTaskModel? retryBackgroundTaskModel =
-        await daoBackgroundTask.get(inputTask.uniqueId);
-    await daoBackgroundTask.delete(inputTask.uniqueId);
-    retryBackgroundTaskModel!.backgroundTaskId =
-        '${inputTask.uniqueId}_${inputTask.counter}';
-    inputTask.uniqueId = retryBackgroundTaskModel.backgroundTaskId;
-    await daoBackgroundTask.put(retryBackgroundTaskModel);
-    await Workmanager().registerOneOffTask(
-      '${inputTask.uniqueId}_${inputTask.counter}',
-      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
-      constraints: Constraints(
-        networkType: NetworkType.connected,
-      ),
-      inputData: inputTask.toJson(),
-      initialDelay: BACKGROUND_DURATION_LIST[inputTask.counter - 1],
-    );
-    return TaskResult.errorAndRetry;
-  } else {
+    await OpenFoodAPIClient.addProductImage(user, image);
     // go to the file system and delete the file that was uploaded
     final File file = File(inputTask.imageUri);
     file.deleteSync();
-
-    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      inputTask.barcode,
-      fields: ProductQuery.fields,
-      language: LanguageHelper.fromJson(inputTask.languageCode),
-      country: ProductQuery.getCountry(),
-    );
-    try {
-      final ProductResult result =
-          await OpenFoodAPIClient.getProduct(configuration);
-      if (result.status == 1) {
-        final Product? product = result.product;
-        if (product != null) {
-          await daoProduct.put(product);
-          await daoBackgroundTask.delete(inputTask.uniqueId);
-          localDatabase.notifyListeners();
-        }
-      }
-    } catch (e) {
-      debugPrint('Error: $e,Updating to local database failed');
-      // Return true as the task of uploading image is completed successfully
-      // It's just that the task of updating the product in the local database has failed
-      // The user can simply refresh it
-      return TaskResult.success;
-    }
+    return TaskResult.success;
+  } catch (e) {
+    debugPrint('Error: $e');
     // Returns true to let platform know that the task is completed
     return TaskResult.success;
   }
