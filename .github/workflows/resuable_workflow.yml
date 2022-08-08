@@ -1,0 +1,10 @@
+name: Setup for release
+
+on:
+  workflow_call:
+    inputs:
+      platform:
+        required: true
+        type: string
+
+jobs:
