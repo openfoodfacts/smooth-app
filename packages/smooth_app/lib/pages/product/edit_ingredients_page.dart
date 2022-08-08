@@ -12,7 +12,6 @@ import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
@@ -23,7 +22,7 @@ import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:workmanager/workmanager.dart';
+import 'package:task_manager/task_manager.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -133,12 +132,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
   }
 
   Future<bool> _updateText(final String text) async {
-    // final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    // return ProductRefresher().saveAndRefresh(
-    //   context: context,
-    //   localDatabase: localDatabase,
-    //   product: _helper.getMinimalistProduct(_product, text),
-    // );
     final Product minimalistProduct =
         _helper.getMinimalistProduct(_product, text);
     final String uniqueId = 'Others ${SmoothRandom.generateRandomString(10)}';
@@ -153,14 +146,13 @@ class _EditOcrPageState extends State<EditOcrPage> {
       user: jsonEncode(ProductQuery.getUser().toJson()),
       country: ProductQuery.getCountry()!.iso2Code,
     );
-    Workmanager().registerOneOffTask(
-      uniqueId,
-      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
-      constraints: Constraints(
-        networkType: NetworkType.connected,
+    await TaskManager().addTask(
+      Task(
+        data: backgroundOtherDetailsInput.toJson(),
       ),
-      inputData: backgroundOtherDetailsInput.toJson(),
     );
+
+    // ignore: use_build_context_synchronously
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoBackgroundTask daoBackgroundTask =
         DaoBackgroundTask(localDatabase);
@@ -198,7 +190,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
       ),
     );
     return true;
-    // update this to do a background job for this
   }
 
   @override

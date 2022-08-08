@@ -15,7 +15,6 @@ import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -24,7 +23,7 @@ import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:workmanager/workmanager.dart';
+import 'package:task_manager/task_manager.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -483,12 +482,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       user: jsonEncode(ProductQuery.getUser().toJson()),
       country: ProductQuery.getCountry()!.iso2Code,
     );
-    Workmanager().registerOneOffTask(
-      uniqueId,
-      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
-      inputData: nutritonInputData.toJson(),
-      constraints: Constraints(
-        networkType: NetworkType.connected,
+    await TaskManager().addTask(
+      Task(
+        data: nutritonInputData.toJson(),
       ),
     );
     final DaoProduct daoProduct = DaoProduct(localDatabase);

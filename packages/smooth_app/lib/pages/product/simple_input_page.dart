@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -19,7 +18,7 @@ import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:workmanager/workmanager.dart';
+import 'package:task_manager/task_manager.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
@@ -180,13 +179,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       user: jsonEncode(ProductQuery.getUser().toJson()),
       country: ProductQuery.getCountry()!.iso2Code,
     );
-    Workmanager().registerOneOffTask(
-      uniqueId,
-      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
-      constraints: Constraints(
-        networkType: NetworkType.connected,
+    await TaskManager().addTask(
+      Task(
+        data: backgroundOtherDetailsInput.toJson(),
       ),
-      inputData: backgroundOtherDetailsInput.toJson(),
     );
     final DaoBackgroundTask daoBackgroundTask =
         DaoBackgroundTask(localDatabase);

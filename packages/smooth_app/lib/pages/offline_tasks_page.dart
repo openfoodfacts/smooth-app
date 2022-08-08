@@ -34,7 +34,7 @@ class _OfflineTaskState extends State<OfflineTask> {
         actions: <Widget>[
           PopupMenuButton<int>(
             onSelected: (int item) async {
-              await Workmanager().cancelAll();
+              //Add a method to cancel all tasks
               final List<String> keys = await daoBackgroundTask.getAllKeys();
               await daoBackgroundTask.deleteAll(keys);
               setState(() {});

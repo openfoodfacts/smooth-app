@@ -9,11 +9,10 @@ import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_random.dart';
-import 'package:workmanager/workmanager.dart';
+import 'package:task_manager/task_manager.dart';
 
 Future<bool> uploadCapturedPicture(
   BuildContext context, {
@@ -38,13 +37,10 @@ Future<bool> uploadCapturedPicture(
     country: ProductQuery.getCountry()!.iso2Code,
   );
   // generate a random 8 digit word as the task name
-  await Workmanager().registerOneOffTask(
-    uniqueId,
-    UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
-    constraints: Constraints(
-      networkType: NetworkType.connected,
+  await TaskManager().addTask(
+    Task(
+      data: backgroundImageInputData.toJson(),
     ),
-    inputData: backgroundImageInputData.toJson(),
   );
   final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
   await daoBackgroundTask.put(
@@ -52,7 +48,7 @@ Future<bool> uploadCapturedPicture(
       backgroundTaskId: uniqueId,
       backgroundTaskName: 'ImageUpload',
       backgroundTaskDescription:
-          'Changed the ${imageField.value} of the product for the country ${ProductQuery.getCountry()} in language ${ProductQuery.getLanguage().code}',
+          getImageUploadedMessage(imageField, appLocalizations),
       barcode: barcode,
       dateTime: DateTime.now(),
       status: 'Pending',
