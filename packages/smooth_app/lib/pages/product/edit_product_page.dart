@@ -36,12 +36,17 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> {
+  static const double _barcodeHeight = 120.0;
+
+  final ScrollController _controller = ScrollController();
+  bool _barcodeVisibleInAppbar = false;
   late Product _product;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
+    _controller.addListener(_onScrollChanged);
   }
 
   @override
@@ -57,58 +62,75 @@ class _EditProductPageState extends State<EditProductPage> {
         if (refreshedProduct != null) {
           _product = refreshedProduct;
         }
-        final Brightness brightness = Theme.of(context).brightness;
+        final ThemeData theme = Theme.of(context);
+        final Brightness brightness = theme.brightness;
+        final Size screenSize = MediaQuery.of(context).size;
 
         return SmoothScaffold(
           appBar: AppBar(
-            title: AutoSizeText(
-              getProductName(_product, appLocalizations),
-              maxLines: 2,
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                AutoSizeText(
+                  getProductName(_product, appLocalizations),
+                  maxLines: _barcodeVisibleInAppbar ? 1 : 2,
+                ),
+                if (_product.barcode?.isNotEmpty == true)
+                  Visibility(
+                    visible: _barcodeVisibleInAppbar,
+                    child: Text(
+                      _product.barcode!,
+                      style: theme.textTheme.subtitle1
+                          ?.copyWith(fontWeight: FontWeight.normal),
+                    ),
+                  ),
+              ],
             ),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.copy),
+                tooltip: appLocalizations.clipboard_barcode_copy,
+                onPressed: () {
+                  Clipboard.setData(
+                    ClipboardData(text: _product.barcode),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        appLocalizations
+                            .clipboard_barcode_copied(_product.barcode!),
+                      ),
+                    ),
+                  );
+                },
+              )
+            ],
           ),
           body: RefreshIndicator(
             onRefresh: () => _refreshProduct(context),
             child: ListView(
+              controller: _controller,
               children: <Widget>[
                 if (_product.barcode != null)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      const SizedBox(width: MINIMUM_TOUCH_SIZE),
-                      BarcodeWidget(
-                        barcode: _product.barcode!.length == 8
-                            ? Barcode.ean8()
-                            : Barcode.ean13(),
-                        data: _product.barcode!,
-                        color: brightness == Brightness.dark
-                            ? Colors.white
-                            : Colors.black,
-                        errorBuilder: (final BuildContext context, String? _) =>
-                            Text(
-                          '${appLocalizations.edit_product_form_item_barcode}\n'
-                          '${_product.barcode}',
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.copy),
-                        iconSize: MINIMUM_TOUCH_SIZE,
-                        onPressed: () {
-                          Clipboard.setData(
-                            ClipboardData(text: _product.barcode),
-                          );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                appLocalizations.clipboard_barcode_copied(
-                                    _product.barcode!),
-                              ),
-                            ),
-                          );
-                        },
-                      )
-                    ],
+                  BarcodeWidget(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenSize.width / 4,
+                      vertical: SMALL_SPACE,
+                    ),
+                    barcode: _product.barcode!.length == 8
+                        ? Barcode.ean8()
+                        : Barcode.ean13(),
+                    data: _product.barcode!,
+                    color: brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
+                    errorBuilder: (final BuildContext context, String? _) =>
+                        Text(
+                      '${appLocalizations.edit_product_form_item_barcode}\n'
+                      '${_product.barcode}',
+                      textAlign: TextAlign.center,
+                    ),
+                    height: _barcodeHeight,
                   ),
                 _ListTitleItem(
                   title: appLocalizations.edit_product_form_item_details_title,
@@ -127,7 +149,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   },
                 ),
                 _ListTitleItem(
-                  leading: const Icon(Icons.add_a_photo_outlined),
+                  leading: const Icon(Icons.add_a_photo_rounded),
                   title: appLocalizations.edit_product_form_item_photos_title,
                   subtitle:
                       appLocalizations.edit_product_form_item_photos_subtitle,
@@ -329,6 +351,20 @@ class _EditProductPageState extends State<EditProductPage> {
       },
     );
   }
+
+  void _onScrollChanged() {
+    setState(() {
+      _barcodeVisibleInAppbar =
+          _controller.offset > _barcodeHeight;
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_onScrollChanged);
+    _controller.dispose();
+    super.dispose();
+  }
 }
 
 class _ListTitleItem extends StatelessWidget {
@@ -347,16 +383,26 @@ class _ListTitleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SmoothCard(
-        child: ListTile(
+        padding: EdgeInsets.zero,
+        child: InkWell(
+          borderRadius: ROUNDED_BORDER_RADIUS,
           onTap: onTap,
-          title: Text(title),
-          subtitle: subtitle == null ? null : Text(subtitle!),
-          // we use a Column to have the icon centered vertically
-          leading: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[leading ?? const Icon(Icons.edit)],
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: ListTile(
+              title: Text(
+                title,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: subtitle == null ? null : Text(subtitle!),
+              // we use a Column to have the icon centered vertically
+              leading: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[leading ?? const Icon(Icons.edit)],
+              ),
+              trailing: Icon(ConstantIcons.instance.getForwardIcon()),
+            ),
           ),
-          trailing: Icon(ConstantIcons.instance.getForwardIcon()),
         ),
       );
 }
