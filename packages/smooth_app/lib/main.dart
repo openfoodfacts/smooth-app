@@ -42,7 +42,7 @@ Future<void> main({final bool screenshots = false}) async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-    callbackDispatcher();
+  callbackDispatcher();
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
       appRunner: () => runApp(const SmoothApp()),
