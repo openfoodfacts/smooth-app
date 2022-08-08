@@ -9,105 +9,76 @@ import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:task_manager/task_manager.dart';
 import 'package:workmanager/workmanager.dart';
 
-@pragma(
-    'vm:entry-point') // Mandatory if the App is obfuscated or using Flutter 3.1+
-void callbackDispatcher() {
-  Workmanager().executeTask(
-    (String task, Map<String, dynamic>? inputData) async {
-      final String processName = inputData!['processName'] as String;
-      switch (processName) {
-        case 'ImageUpload':
-          return uploadImage(inputData);
-        case 'Others':
-          return otherDetails(inputData);
-        default:
-          return Future<bool>.error('Unknown task');
-      }
-    },
-  );
+Future<TaskResult> callbackDispatcher() async {
+  await TaskManager().init(
+      executor: (Task inputData) async {
+        final String processName = inputData.data!['processName'] as String;
+        switch (processName) {
+          case 'ImageUpload':
+            return uploadImage(inputData.data!);
+
+          case 'Others':
+            return otherDetails(inputData.data!);
+
+          default:
+            return TaskResult.success;
+        }
+      },
+      listener: (Task task, TaskStatus status) {});
+  return TaskResult.success;
 }
 
-Future<bool> otherDetails(Map<String, dynamic> inputData) async {
+Future<TaskResult> otherDetails(Map<String, dynamic> inputData) async {
+  // final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
   final BackgroundOtherDetailsInput inputTask =
       BackgroundOtherDetailsInput.fromJson(inputData);
-  final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
-  final DaoProduct daoProduct = DaoProduct(localDatabase);
-  final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
-  final int counter = inputTask.counter;
-  // if task is greater than 6 , that means it has been executed 7 times
-  if (counter > BACKGROUND_DURATION_LIST.length - 1) {
-    // returns true to let platform know that the task is completed
-    return true;
-  }
-  bool shouldRetry = false;
   try {
+    // final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
+    // final DaoProduct daoProduct = DaoProduct(database);
     final Map<String, dynamic> mp =
         json.decode(inputTask.inputMap) as Map<String, dynamic>;
     final User user =
         User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
+    // ignore: unused_local_variable
     final Status result = await OpenFoodAPIClient.saveProduct(
       user,
       Product.fromJson(mp),
       language: LanguageHelper.fromJson(inputTask.languageCode),
       country: CountryHelper.fromJson(inputTask.country),
     );
-    shouldRetry = result.error != null;
+
+    // final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+    //   inputTask.barcode,
+    //   fields: ProductQuery.fields,
+    //   language: LanguageHelper.fromJson(inputTask.languageCode),
+    //   country: ProductQuery.getCountry(),
+    // );
+
+    // final ProductResult queryResult =
+    //     await OpenFoodAPIClient.getProduct(configuration);
+    // if (result.status == 1) {
+    //   final Product? product = queryResult.product;
+    //   if (product != null) {
+    //     await daoProduct.put(product);
+    //     // await daoBackgroundTask.delete(inputTask.uniqueId);
+    //     database.notifyListeners();
+    //   }
+    // }
   } catch (e) {
-    shouldRetry = true;
+    debugPrint('Error: $e,Updating to local database failed');
+    // Return true as the task of uploading image is completed successfully
+    // It's just that the task of updating the product in the local database has failed
+    // The user can simply refresh it
+    return TaskResult.success;
   }
-  if (shouldRetry) {
-    inputTask.counter += 1;
-    await Workmanager().initialize(callbackDispatcher);
-    final BackgroundTaskModel? retryBackgroundTaskModel =
-        await daoBackgroundTask.get(inputTask.uniqueId);
-    await daoBackgroundTask.delete(inputTask.uniqueId);
-    retryBackgroundTaskModel!.backgroundTaskId =
-        '${inputTask.uniqueId}_${inputTask.counter}';
-    inputTask.uniqueId = retryBackgroundTaskModel.backgroundTaskId;
-    await daoBackgroundTask.put(retryBackgroundTaskModel);
-    await Workmanager().registerOneOffTask(
-      '${inputTask.uniqueId}_${inputTask.counter}',
-      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
-      constraints: Constraints(
-        networkType: NetworkType.connected,
-      ),
-      inputData: inputTask.toJson(),
-      initialDelay: BACKGROUND_DURATION_LIST[inputTask.counter - 1],
-    );
-    return Future<bool>.error('Failed and it will try again');
-  } else {
-    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      inputTask.barcode,
-      fields: ProductQuery.fields,
-      language: LanguageHelper.fromJson(inputTask.languageCode),
-      country: ProductQuery.getCountry(),
-    );
-    try {
-      final ProductResult result =
-          await OpenFoodAPIClient.getProduct(configuration);
-      if (result.status == 1) {
-        final Product? product = result.product;
-        if (product != null) {
-          await daoProduct.put(product);
-          await daoBackgroundTask.delete(inputTask.uniqueId);
-          localDatabase.notifyListeners();
-        }
-      }
-    } catch (e) {
-      debugPrint('Error: $e,Updating to local database failed');
-      // Return true as the task of uploading image is completed successfully
-      // It's just that the task of updating the product in the local database has failed
-      // The user can simply refresh it
-      return true;
-    }
-    // Returns true to let platform know that the task is completed
-    return true;
-  }
+  // Returns true to let platform know that the task is completed
+  return TaskResult.success;
 }
 
-Future<bool> uploadImage(Map<String, dynamic> inputData) async {
+Future<TaskResult> uploadImage(Map<String, dynamic> inputData) async {
   final BackgroundImageInputData inputTask =
       BackgroundImageInputData.fromJson(inputData);
   final LocalDatabase localDatabase = await LocalDatabase.getLocalDatabase();
@@ -119,7 +90,7 @@ Future<bool> uploadImage(Map<String, dynamic> inputData) async {
     // returns true to let platform know that the task is completed
     final File file = File(inputTask.imageUri);
     file.deleteSync();
-    return true;
+    return TaskResult.success;
   }
   final User user =
       User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
@@ -158,8 +129,7 @@ Future<bool> uploadImage(Map<String, dynamic> inputData) async {
       inputData: inputTask.toJson(),
       initialDelay: BACKGROUND_DURATION_LIST[inputTask.counter - 1],
     );
-
-    return Future<bool>.error('Failed and it will try again');
+    return TaskResult.errorAndRetry;
   } else {
     // go to the file system and delete the file that was uploaded
     final File file = File(inputTask.imageUri);
@@ -187,10 +157,10 @@ Future<bool> uploadImage(Map<String, dynamic> inputData) async {
       // Return true as the task of uploading image is completed successfully
       // It's just that the task of updating the product in the local database has failed
       // The user can simply refresh it
-      return true;
+      return TaskResult.success;
     }
     // Returns true to let platform know that the task is completed
-    return true;
+    return TaskResult.success;
   }
 }
 

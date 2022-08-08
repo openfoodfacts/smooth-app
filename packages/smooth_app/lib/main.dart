@@ -29,13 +29,10 @@ import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:workmanager/workmanager.dart';
 
 late bool _screenshots;
 
 Future<void> main({final bool screenshots = false}) async {
-  WidgetsFlutterBinding.ensureInitialized();
-  Workmanager().initialize(callbackDispatcher);
   _screenshots = screenshots;
   if (_screenshots) {
     await _init1();
@@ -45,7 +42,7 @@ Future<void> main({final bool screenshots = false}) async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
+    callbackDispatcher();
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
       appRunner: () => runApp(const SmoothApp()),

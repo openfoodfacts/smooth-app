@@ -9,14 +9,13 @@ import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/background_taks_constants.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:workmanager/workmanager.dart';
+import 'package:task_manager/task_manager.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(this.product);
@@ -153,14 +152,12 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       user: jsonEncode(ProductQuery.getUser().toJson()),
                       country: ProductQuery.getCountry()!.iso2Code,
                     );
-                    await Workmanager().registerOneOffTask(
-                      uniqueId,
-                      UNIVERSAL_BACKGROUND_PROCESS_TASK_NAME,
-                      constraints: Constraints(
-                        networkType: NetworkType.connected,
+                    await TaskManager().addTask(
+                      Task(
+                        data: backgroundBasicDetailsInput.toJson(),
                       ),
-                      inputData: backgroundBasicDetailsInput.toJson(),
                     );
+
                     final DaoProduct daoProduct = DaoProduct(localDatabase);
                     final Product? product = await daoProduct.get(
                       _product.barcode!,
