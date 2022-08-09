@@ -38,11 +38,11 @@ Future<TaskResult> otherDetails(Map<String, dynamic> inputData) async {
       language: LanguageHelper.fromJson(inputTask.languageCode),
       country: CountryHelper.fromJson(inputTask.country),
     );
+    //Todo(aman) : when the product is saved, delete the task from the database and
+    // update the product in the database
+    // currently i can't do db operations in a background task
   } catch (e) {
-    debugPrint('Error: $e,Updating to local database failed');
-    // Return true as the task of uploading image is completed successfully
-    // It's just that the task of updating the product in the local database has failed
-    // The user can simply refresh it
+    debugPrint('Error: $e');
     return TaskResult.success;
   }
   // Returns true to let platform know that the task is completed
@@ -97,12 +97,12 @@ class BackgroundImageInputData {
         country = json['country'] as String;
 
   final String processName;
-  int uniqueId;
+  final int uniqueId;
   final String barcode;
   final String imageField;
   final String imageUri;
   final String languageCode;
-  String user;
+  final String user;
   final String country;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -136,10 +136,10 @@ class BackgroundOtherDetailsInput {
         user = json['user'] as String,
         country = json['country'] as String;
   final String processName;
-  int uniqueId;
+  final int uniqueId;
   final String barcode;
   final String languageCode;
-  String inputMap;
+  final String inputMap;
   final String user;
   final String country;
   Map<String, dynamic> toJson() => <String, dynamic>{
