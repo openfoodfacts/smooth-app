@@ -25,7 +25,7 @@ Future<bool> uploadCapturedPicture(
   final int uniqueId = DateTime.now().millisecondsSinceEpoch;
   final BackgroundImageInputData backgroundImageInputData =
       BackgroundImageInputData(
-    processName: 'ImageUpload',
+    processName: IMAGE_UPLOAD_TASK,
     uniqueId: uniqueId,
     barcode: barcode,
     imageField: imageField.value,
@@ -45,7 +45,7 @@ Future<bool> uploadCapturedPicture(
   await daoBackgroundTask.put(
     BackgroundTaskModel(
       backgroundTaskId: uniqueId,
-      backgroundTaskName: 'ImageUpload',
+      backgroundTaskName: IMAGE_UPLOAD_TASK,
       backgroundTaskDescription:
           getImageUploadedMessage(imageField, appLocalizations),
       barcode: barcode,

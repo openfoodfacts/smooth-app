@@ -5,15 +5,17 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:task_manager/task_manager.dart';
 
+const String IMAGE_UPLOAD_TASK = 'imageUpload';
+const String OTHERS_TASK = 'Others';
 Future<TaskResult> callbackDispatcher() async {
   await TaskManager().init(
       executor: (Task inputData) async {
         final String processName = inputData.data!['processName'] as String;
         switch (processName) {
-          case 'ImageUpload':
+          case IMAGE_UPLOAD_TASK:
             return uploadImage(inputData.data!);
 
-          case 'Others':
+          case OTHERS_TASK:
             return otherDetails(inputData.data!);
 
           default:

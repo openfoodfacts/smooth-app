@@ -142,7 +142,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     final BackgroundOtherDetailsInput
                         backgroundBasicDetailsInput =
                         BackgroundOtherDetailsInput(
-                      processName: 'Others',
+                      processName: OTHERS_TASK,
                       uniqueId: uniqueId,
                       barcode: _product.barcode!,
                       inputMap: jsonEncode(inputProduct.toJson()),
@@ -153,7 +153,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     await TaskManager().addTask(
                       Task(
                         data: backgroundBasicDetailsInput.toJson(),
-                         uniqueId: uniqueId,
+                        uniqueId: uniqueId,
                       ),
                     );
 

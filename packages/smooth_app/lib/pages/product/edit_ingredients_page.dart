@@ -133,10 +133,10 @@ class _EditOcrPageState extends State<EditOcrPage> {
   Future<bool> _updateText(final String text) async {
     final Product minimalistProduct =
         _helper.getMinimalistProduct(_product, text);
-  final int uniqueId = DateTime.now().millisecondsSinceEpoch;
+    final int uniqueId = DateTime.now().millisecondsSinceEpoch;
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
-      processName: 'Others',
+      processName: OTHERS_TASK,
       uniqueId: uniqueId,
       barcode: minimalistProduct.barcode!,
       languageCode: ProductQuery.getLanguage().code,
@@ -147,7 +147,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     await TaskManager().addTask(
       Task(
         data: backgroundOtherDetailsInput.toJson(),
-         uniqueId: uniqueId,
+        uniqueId: uniqueId,
       ),
     );
 
