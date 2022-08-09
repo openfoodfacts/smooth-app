@@ -61,7 +61,8 @@ class DaoBackgroundTask extends AbstractDao {
         <String, BackgroundTaskModel>{};
     for (final BackgroundTaskModel backgroundTaskModel
         in backgroundTaskModels) {
-      upserts[backgroundTaskModel.backgroundTaskId] = backgroundTaskModel;
+      upserts[backgroundTaskModel.backgroundTaskId.toString()] =
+          backgroundTaskModel;
     }
     await _getBox().putAll(upserts);
   }

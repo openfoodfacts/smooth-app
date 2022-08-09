@@ -9,7 +9,7 @@ class BackgroundTaskModel {
     required this.taskMap,
   });
   BackgroundTaskModel.fromJson(Map<String, dynamic> json)
-      : backgroundTaskId = json['backgroundTaskId'] as String,
+      : backgroundTaskId = json['backgroundTaskId'] as int,
         backgroundTaskName = json['backgroundTaskName'] as String,
         backgroundTaskDescription = json['backgroundTaskDescription'] as String,
         barcode = json['barcode'] as String,
@@ -29,7 +29,7 @@ class BackgroundTaskModel {
         'taskMap': taskMap,
       };
 
-  String backgroundTaskId;
+  final int backgroundTaskId;
   final String backgroundTaskName;
   final String backgroundTaskDescription;
   final String barcode;
