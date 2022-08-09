@@ -143,11 +143,13 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
           body: Text(appLocalizations.edit_product_form_item_exit_confirmation),
           title: appLocalizations.edit_product_label,
           negativeAction: SmoothActionButton(
-            text: appLocalizations.ignore,
+            text: appLocalizations
+                .edit_product_form_item_exit_confirmation_negative_button,
             onPressed: () => Navigator.pop(context, false),
           ),
           positiveAction: SmoothActionButton(
-            text: appLocalizations.save,
+            text: appLocalizations
+                .edit_product_form_item_exit_confirmation_positive_button,
             onPressed: () => Navigator.pop(context, true),
           ),
         ),
