@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
@@ -269,6 +270,11 @@ class ContinuousScanModel with ChangeNotifier {
       false,
     );
     _barcodes.remove(barcode);
+
+    if (barcode == _latestScannedBarcode) {
+      _latestScannedBarcode = null;
+    }
+
     notifyListeners();
   }
 
