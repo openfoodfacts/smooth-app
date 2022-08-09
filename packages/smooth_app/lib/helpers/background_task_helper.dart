@@ -81,7 +81,6 @@ class BackgroundImageInputData {
     required this.barcode,
     required this.imageField,
     required this.imageUri,
-    required this.counter,
     required this.languageCode,
     required this.user,
     required this.country,
@@ -89,21 +88,19 @@ class BackgroundImageInputData {
 
   BackgroundImageInputData.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
-        uniqueId = json['uniqueId'] as String,
+        uniqueId = json['uniqueId'] as int,
         barcode = json['barcode'] as String,
         imageField = json['imageField'] as String,
         imageUri = json['imageUri'] as String,
-        counter = json['counter'] as int,
         languageCode = json['languageCode'] as String,
         user = json['user'] as String,
         country = json['country'] as String;
 
   final String processName;
-  String uniqueId;
+  int uniqueId;
   final String barcode;
   final String imageField;
   final String imageUri;
-  int counter;
   final String languageCode;
   String user;
   final String country;
@@ -114,7 +111,6 @@ class BackgroundImageInputData {
         'barcode': barcode,
         'imageField': imageField,
         'imageUri': imageUri,
-        'counter': counter,
         'languageCode': languageCode,
         'user': user,
         'country': country,
@@ -126,7 +122,6 @@ class BackgroundOtherDetailsInput {
     required this.processName,
     required this.uniqueId,
     required this.barcode,
-    required this.counter,
     required this.languageCode,
     required this.inputMap,
     required this.user,
@@ -134,17 +129,15 @@ class BackgroundOtherDetailsInput {
   });
   BackgroundOtherDetailsInput.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
-        uniqueId = json['uniqueId'] as String,
+        uniqueId = json['uniqueId'] as int,
         barcode = json['barcode'] as String,
-        counter = json['counter'] as int,
         languageCode = json['languageCode'] as String,
         inputMap = json['inputMap'] as String,
         user = json['user'] as String,
         country = json['country'] as String;
   final String processName;
-  String uniqueId;
+  int uniqueId;
   final String barcode;
-  int counter;
   final String languageCode;
   String inputMap;
   final String user;
@@ -153,7 +146,6 @@ class BackgroundOtherDetailsInput {
         'processName': processName,
         'uniqueId': uniqueId,
         'barcode': barcode,
-        'counter': counter,
         'languageCode': languageCode,
         'inputMap': inputMap,
         'user': user,

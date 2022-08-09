@@ -4,7 +4,6 @@ import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:workmanager/workmanager.dart';
 
 // TODO(ashaman999): add the translations later
 class OfflineTask extends StatefulWidget {
@@ -35,6 +34,7 @@ class _OfflineTaskState extends State<OfflineTask> {
           PopupMenuButton<int>(
             onSelected: (int item) async {
               //Add a method to cancel all tasks
+              // Probably get a method from the TaskManager class to cancel all tasks
               final List<String> keys = await daoBackgroundTask.getAllKeys();
               await daoBackgroundTask.deleteAll(keys);
               setState(() {});
@@ -97,10 +97,7 @@ class _OfflineTaskState extends State<OfflineTask> {
                         children: <Widget>[
                           IconButton(
                               onPressed: () async {
-                                await Workmanager().registerOneOffTask(
-                                    snapshot.data![index].backgroundTaskId,
-                                    'BackgroundProcess',
-                                    inputData: snapshot.data![index].taskMap);
+                                // Discuss how we can retry a task
                                 const SnackBar snackBar = SnackBar(
                                   content: Text('Retrying ...'),
                                   duration: SmoothAnimationsDuration.short,
@@ -114,10 +111,11 @@ class _OfflineTaskState extends State<OfflineTask> {
                               icon: const Icon(Icons.refresh)),
                           IconButton(
                               onPressed: () async {
-                                await Workmanager().cancelByUniqueName(
-                                    snapshot.data![index].backgroundTaskId);
+                                //Add a method to cancel all tasks
+                                // Probably get a method from the TaskManager class to cancel individual tasks
                                 await daoBackgroundTask.delete(
-                                  snapshot.data![index].backgroundTaskId,
+                                  snapshot.data![index].backgroundTaskId
+                                      .toString(),
                                 );
                                 const SnackBar snackBar = SnackBar(
                                   content: Text('Cancelled'),
