@@ -11,7 +11,6 @@ import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/services/smooth_random.dart';
 import 'package:task_manager/task_manager.dart';
 
 Future<bool> uploadCapturedPicture(
@@ -22,8 +21,8 @@ Future<bool> uploadCapturedPicture(
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
-  final String uniqueId =
-      'ImageUploader_${barcode}_${imageField.value}${SmoothRandom.generateRandomString(8)}';
+  // get time since epoch in milliseconds
+  final int uniqueId = DateTime.now().millisecondsSinceEpoch;
   final BackgroundImageInputData backgroundImageInputData =
       BackgroundImageInputData(
     processName: 'ImageUpload',
@@ -31,7 +30,6 @@ Future<bool> uploadCapturedPicture(
     barcode: barcode,
     imageField: imageField.value,
     imageUri: File(imageUri.path).path,
-    counter: 0,
     languageCode: ProductQuery.getLanguage().code,
     user: jsonEncode(ProductQuery.getUser().toJson()),
     country: ProductQuery.getCountry()!.iso2Code,
@@ -40,6 +38,7 @@ Future<bool> uploadCapturedPicture(
   await TaskManager().addTask(
     Task(
       data: backgroundImageInputData.toJson(),
+      uniqueId: uniqueId,
     ),
   );
   final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);

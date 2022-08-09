@@ -16,7 +16,6 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -167,13 +166,12 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
     }
 
-    final String uniqueId = 'Others ${SmoothRandom.generateRandomString(10)}';
+    final int uniqueId = DateTime.now().millisecondsSinceEpoch;
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
       processName: 'Others',
       uniqueId: uniqueId,
       barcode: changedProduct.barcode!,
-      counter: 0,
       languageCode: ProductQuery.getLanguage().code,
       inputMap: jsonEncode(changedProduct.toJson()),
       user: jsonEncode(ProductQuery.getUser().toJson()),
@@ -182,6 +180,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     await TaskManager().addTask(
       Task(
         data: backgroundOtherDetailsInput.toJson(),
+        uniqueId: uniqueId,
       ),
     );
     final DaoBackgroundTask daoBackgroundTask =

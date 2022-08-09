@@ -469,14 +469,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return false;
     }
     // if it fails, we stay on the same page
-    final String uniqueId =
-        'NutritionEdit${_product.barcode}${ProductQuery.getLanguage().code}${ProductQuery.getCountry().toString()}';
+    final int uniqueId = DateTime.now().millisecondsSinceEpoch;
     final BackgroundOtherDetailsInput nutritonInputData =
         BackgroundOtherDetailsInput(
       processName: 'Others',
       uniqueId: uniqueId,
       barcode: _product.barcode!,
-      counter: 0,
       languageCode: ProductQuery.getLanguage().code,
       inputMap: jsonEncode(changedProduct.toJson()),
       user: jsonEncode(ProductQuery.getUser().toJson()),
@@ -485,6 +483,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     await TaskManager().addTask(
       Task(
         data: nutritonInputData.toJson(),
+         uniqueId: uniqueId,
       ),
     );
     final DaoProduct daoProduct = DaoProduct(localDatabase);

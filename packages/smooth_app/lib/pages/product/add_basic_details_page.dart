@@ -138,8 +138,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       brands: _brandNameController.text,
                       barcode: _product.barcode,
                     );
-                    final String uniqueId =
-                        'BasicDetailsEdit${_product.barcode}${ProductQuery.getLanguage().code}${ProductQuery.getCountry().toString()}';
+                    final int uniqueId = DateTime.now().millisecondsSinceEpoch;
                     final BackgroundOtherDetailsInput
                         backgroundBasicDetailsInput =
                         BackgroundOtherDetailsInput(
@@ -147,7 +146,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       uniqueId: uniqueId,
                       barcode: _product.barcode!,
                       inputMap: jsonEncode(inputProduct.toJson()),
-                      counter: 0,
                       languageCode: ProductQuery.getLanguage().code,
                       user: jsonEncode(ProductQuery.getUser().toJson()),
                       country: ProductQuery.getCountry()!.iso2Code,
@@ -155,6 +153,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     await TaskManager().addTask(
                       Task(
                         data: backgroundBasicDetailsInput.toJson(),
+                         uniqueId: uniqueId,
                       ),
                     );
 

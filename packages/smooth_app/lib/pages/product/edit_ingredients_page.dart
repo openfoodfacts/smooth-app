@@ -20,7 +20,6 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/services/smooth_random.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -134,13 +133,12 @@ class _EditOcrPageState extends State<EditOcrPage> {
   Future<bool> _updateText(final String text) async {
     final Product minimalistProduct =
         _helper.getMinimalistProduct(_product, text);
-    final String uniqueId = 'Others ${SmoothRandom.generateRandomString(10)}';
+  final int uniqueId = DateTime.now().millisecondsSinceEpoch;
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
       processName: 'Others',
       uniqueId: uniqueId,
       barcode: minimalistProduct.barcode!,
-      counter: 0,
       languageCode: ProductQuery.getLanguage().code,
       inputMap: jsonEncode(minimalistProduct.toJson()),
       user: jsonEncode(ProductQuery.getUser().toJson()),
@@ -149,6 +147,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     await TaskManager().addTask(
       Task(
         data: backgroundOtherDetailsInput.toJson(),
+         uniqueId: uniqueId,
       ),
     );
 
