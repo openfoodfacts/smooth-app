@@ -169,7 +169,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final int uniqueId = DateTime.now().millisecondsSinceEpoch;
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
-      processName: OTHERS_TASK,
+      processName: PRODUCT_EDIT_TASK,
       uniqueId: uniqueId,
       barcode: changedProduct.barcode!,
       languageCode: ProductQuery.getLanguage().code,

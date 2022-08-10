@@ -134,7 +134,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final int uniqueId = DateTime.now().millisecondsSinceEpoch;
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
-      processName: OTHERS_TASK,
+      processName: PRODUCT_EDIT_TASK,
       uniqueId: uniqueId,
       barcode: minimalistProduct.barcode!,
       languageCode: ProductQuery.getLanguage().code,

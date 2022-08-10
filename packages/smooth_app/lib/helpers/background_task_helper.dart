@@ -5,8 +5,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:task_manager/task_manager.dart';
 
-const String IMAGE_UPLOAD_TASK = 'imageUpload';
-const String OTHERS_TASK = 'Others';
+const String IMAGE_UPLOAD_TASK = 'Image Upload';
+const String PRODUCT_EDIT_TASK = 'Product Edit';
 Future<TaskResult> callbackDispatcher() async {
   await TaskManager().init(
       executor: (Task inputData) async {
@@ -15,7 +15,7 @@ Future<TaskResult> callbackDispatcher() async {
           case IMAGE_UPLOAD_TASK:
             return uploadImage(inputData.data!);
 
-          case OTHERS_TASK:
+          case PRODUCT_EDIT_TASK:
             return otherDetails(inputData.data!);
 
           default:

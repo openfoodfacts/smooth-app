@@ -140,7 +140,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     final BackgroundOtherDetailsInput
                         backgroundBasicDetailsInput =
                         BackgroundOtherDetailsInput(
-                      processName: OTHERS_TASK,
+                      processName: PRODUCT_EDIT_TASK,
                       uniqueId: uniqueId,
                       barcode: _product.barcode!,
                       inputMap: jsonEncode(inputProduct.toJson()),

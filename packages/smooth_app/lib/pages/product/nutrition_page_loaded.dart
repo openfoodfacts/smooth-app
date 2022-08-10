@@ -532,7 +532,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final int uniqueId = DateTime.now().millisecondsSinceEpoch;
     final BackgroundOtherDetailsInput nutritonInputData =
         BackgroundOtherDetailsInput(
-      processName: OTHERS_TASK,
+      processName: PRODUCT_EDIT_TASK,
       uniqueId: uniqueId,
       barcode: _product.barcode!,
       languageCode: ProductQuery.getLanguage().code,
