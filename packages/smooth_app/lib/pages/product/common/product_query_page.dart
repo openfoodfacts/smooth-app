@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:iso_countries/iso_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -87,39 +87,46 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
         switch (_model.loadingStatus) {
-          case LoadingStatus.LOADING:
-            return _getEmptyScreen(
-              screenSize,
-              themeData,
-              const CircularProgressIndicator(),
-            );
-          case LoadingStatus.LOADED:
-            if (_model.isNotEmpty()) {
-              // TODO(monsieurtanuki): add country, language?
-              AnalyticsHelper.trackSearch(
-                search: widget.name,
-                searchCount: _model.displayBarcodes.length,
-              );
-              return _getNotEmptyScreen(
-                screenSize,
-                themeData,
-                appLocalizations,
-              );
-            }
-            // TODO(monsieurtanuki): should be tracked as well, shouldn't it?
-            return _getEmptyScreen(
-              screenSize,
-              themeData,
-              _getEmptyText(
-                themeData,
-                appLocalizations.no_product_found,
-              ),
-              actions: _getAppBarButtons(),
-            );
           case LoadingStatus.ERROR:
             return _getErrorWidget(
                 screenSize, themeData, '${_model.loadingError}');
+          case LoadingStatus.LOADING:
+            if (!_model.isNotEmpty()) {
+              return _getEmptyScreen(
+                screenSize,
+                themeData,
+                const CircularProgressIndicator(),
+              );
+            }
+            break;
+          case LoadingStatus.LOADED:
+            if (!_model.isNotEmpty()) {
+              // TODO(monsieurtanuki): should be tracked as well, shouldn't it?
+              return _getEmptyScreen(
+                screenSize,
+                themeData,
+                _getEmptyText(
+                  themeData,
+                  appLocalizations.no_product_found,
+                ),
+                actions: _getAppBarButtons(),
+              );
+            }
+            // TODO(monsieurtanuki): add country, language?
+            AnalyticsHelper.trackSearch(
+              search: widget.name,
+              searchCount: _model.displayBarcodes.length,
+            );
+            break;
         }
+        // Now used in two cases.
+        // 1. we have data downloaded and we display it (normal mode)
+        // 2. we are downloading extra data, and display what we already knew
+        return _getNotEmptyScreen(
+          screenSize,
+          themeData,
+          appLocalizations,
+        );
       },
     );
   }
@@ -212,41 +219,13 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 return _getTopMessagesCard();
               }
               index--;
+              // TODO(monsieurtanuki): maybe call it earlier, like for first unknown page index - 5?
               if (index >= _model.displayBarcodes.length) {
-                // final button
-                final int already = _model.displayBarcodes.length;
-                final int totalSize =
-                    _model.supplier.partialProductList.totalSize;
-                final int next = max(
-                  0,
-                  min(
-                    _model.supplier.productQuery.pageSize,
-                    totalSize - already,
-                  ),
-                );
-                final Widget child;
-                if (next == 0) {
-                  child = EMPTY_WIDGET;
-                } else {
-                  child = SmoothLargeButtonWithIcon(
-                    text: appLocalizations.product_search_button_download_more(
-                      next,
-                      already,
-                      totalSize,
-                    ),
-                    icon: Icons.download_rounded,
-                    onPressed: () async =>
-                        _loadAndRefreshDisplay(_model.loadNextPage()),
-                  );
-                }
-                return Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    bottom: 90.0,
-                    start: VERY_LARGE_SPACE,
-                    end: VERY_LARGE_SPACE,
-                  ),
-                  child: child,
-                );
+                _downloadNextPage();
+              }
+              if (index >= _model.displayBarcodes.length) {
+                // TODO(monsieurtanuki): maybe display something specific for data being downloaded (the next page) and unknown data (beyond next page)
+                return const SmoothProductCardTemplate();
               }
               return Padding(
                 padding: const EdgeInsets.symmetric(
@@ -258,8 +237,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 ),
               );
             },
-            // 2 additional widgets, on top and on bottom
-            itemCount: _model.displayBarcodes.length + 2,
+            // 1 additional widget, on top of ALL expected products
+            itemCount: _model.supplier.partialProductList.totalSize + 1,
           ),
         ),
       );
@@ -468,6 +447,26 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       setState(() {});
     }
     return success;
+  }
+
+  /// Flags if the next page is currently being downloaded.
+  bool _loadingNext = false;
+
+  /// Downloads the next page, asynchronously.
+  Future<void> _downloadNextPage() async {
+    if (_loadingNext) {
+      return;
+    }
+    _loadingNext = true;
+    try {
+      final bool result = await _model.loadNextPage();
+      if (result) {
+        setState(() {});
+      }
+    } catch (e) {
+      //
+    }
+    _loadingNext = false;
   }
 }
 
