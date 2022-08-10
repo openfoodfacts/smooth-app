@@ -7,6 +7,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
@@ -41,6 +42,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   @override
   void initState() {
     super.initState();
+
     for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
       helper.reInit(widget.product);
       _controllers.add(TextEditingController());
@@ -51,6 +53,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> simpleInputs = <Widget>[];
+
     for (int i = 0; i < widget.helpers.length; i++) {
       simpleInputs.add(
         Padding(
@@ -58,15 +61,29 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
               ? EdgeInsets.zero
               : const EdgeInsets.only(top: LARGE_SPACE),
           child: SmoothCard(
-            child: SimpleInputWidget(
-              helper: widget.helpers[i],
-              product: widget.product,
-              controller: _controllers[i],
+            // This provider will handle the dispose() call for us
+            child: MultiProvider(
+              providers: <ChangeNotifierProvider<dynamic>>[
+                ChangeNotifierProvider<TextEditingController>(
+                  create: (_) {
+                    _controllers.replace(i, TextEditingController());
+                    return _controllers[i];
+                  },
+                ),
+                ChangeNotifierProvider<AbstractSimpleInputPageHelper>(
+                  create: (_) => widget.helpers[i],
+                ),
+              ],
+              child: SimpleInputWidget(
+                helper: widget.helpers[i],
+                product: widget.product,
+              ),
             ),
           ),
         ),
       );
     }
+
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
@@ -82,7 +99,12 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Flexible(flex: 1, child: ListView(children: simpleInputs)),
+              Flexible(
+                flex: 1,
+                child: Scrollbar(
+                  child: ListView(children: simpleInputs),
+                ),
+              ),
               SmoothActionButtonsBar(
                 positiveAction: SmoothActionButton(
                   text: appLocalizations.save,
@@ -167,5 +189,12 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       localDatabase: localDatabase,
       product: changedProduct,
     );
+  }
+
+  @override
+  void dispose() {
+    // Disposed is managed by the provider
+    _controllers.clear();
+    super.dispose();
   }
 }

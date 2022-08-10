@@ -55,6 +55,13 @@ extension ListExtensions<T> on List<T> {
       addAll(elements);
     }
   }
+
+  void replace(int position, T element) {
+    if (length > position) {
+      remove(position);
+    }
+    insert(position, element);
+  }
 }
 
 extension SetExtensions<T> on Set<T> {
