@@ -127,7 +127,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
 
     if (headerAsset == null) {
       return SmoothScaffold(
-        appBar: AppBar(title: Text(appBarTitle)),
+        appBar: AppBar(
+          title: Text(appBarTitle),
+        ),
         body: Scrollbar(child: list),
       );
     }
@@ -141,8 +143,8 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     return SmoothScaffold(
       statusBarBackgroundColor: dark ? null : headerColor,
       brightness: Brightness.light,
-      contentBehindStatusBar: true,
-      spaceBehindStatusBar: true,
+      contentBehindStatusBar: false,
+      spaceBehindStatusBar: false,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -153,7 +155,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
             backgroundColor: dark ? null : headerColor,
             expandedHeight: backgroundHeight + titleHeightInExpandedMode,
             foregroundColor: foregroundColor,
-            toolbarHeight: kToolbarHeight - mediaQueryData.viewPadding.top,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 appBarTitle,

@@ -41,45 +41,64 @@ class _ScanHeaderState extends State<ScanHeader> {
           vertical: VERY_SMALL_SPACE,
           horizontal: MEDIUM_SPACE,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            ElevatedButton.icon(
-              style: buttonStyle,
-              icon: const Icon(Icons.cancel_outlined),
-              onPressed: model.clearScanSession,
-              label: Text(appLocalizations.clear),
-            ),
-            ElevatedButton.icon(
-              style: buttonStyle,
-              icon: const Icon(RankingFloatingActionButton.rankingIconData),
-              onPressed: () async {
-                final ContinuousScanModel model =
-                    context.read<ContinuousScanModel>();
-                await model.refreshProductList();
-                if (!mounted) {
-                  return;
-                }
-                await Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => PersonalizedRankingPage(
-                      barcodes: model.productList.barcodes,
-                      title: ProductQueryPageHelper.getProductListLabel(
-                        model.productList,
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: constraints.maxWidth * 0.4,
+                  ),
+                  child: ElevatedButton.icon(
+                    style: buttonStyle,
+                    icon: const Icon(Icons.cancel_outlined),
+                    onPressed: model.clearScanSession,
+                    label: Text(appLocalizations.clear),
+                  ),
+                ),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: constraints.maxWidth * 0.6,
+                  ),
+                  child: ElevatedButton.icon(
+                    style: buttonStyle,
+                    icon:
+                        const Icon(RankingFloatingActionButton.rankingIconData),
+                    onPressed: () async {
+                      final ContinuousScanModel model =
+                          context.read<ContinuousScanModel>();
+                      await model.refreshProductList();
+                      if (!mounted) {
+                        return;
+                      }
+                      await Navigator.push<Widget>(
                         context,
+                        MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) =>
+                              PersonalizedRankingPage(
+                            barcodes: model.productList.barcodes,
+                            title: ProductQueryPageHelper.getProductListLabel(
+                              model.productList,
+                              context,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    label: FittedBox(
+                      child: Text(
+                        appLocalizations.plural_compare_x_products(
+                          model.getBarcodes().length,
+                        ),
+                        maxLines: 1,
                       ),
                     ),
                   ),
-                );
-              },
-              label: Text(
-                appLocalizations.plural_compare_x_products(
-                  model.getBarcodes().length,
                 ),
-              ),
-            ),
-          ],
+              ],
+            );
+          },
         ),
       ),
     );
