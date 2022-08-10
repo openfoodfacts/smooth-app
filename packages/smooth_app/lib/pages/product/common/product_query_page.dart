@@ -4,7 +4,9 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:iso_countries/iso_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
@@ -44,6 +46,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   late ScrollController _scrollController;
 
   late ProductQueryModel _model;
+  late final OpenFoodFactsCountry? _country;
 
   @override
   String get traceTitle => 'search_page';
@@ -55,6 +58,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   void initState() {
     super.initState();
     _model = _getModel(widget.productListSupplier);
+    _country = widget.productListSupplier.productQuery.country;
     _scrollController = ScrollController()
       ..addListener(() {
         setState(() {
@@ -227,11 +231,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                   );
                   final Widget child;
                   if (next == 0) {
-                    child = Text(
-                      appLocalizations.product_search_no_more_results(
-                        totalSize,
-                      ),
-                    );
+                    child = EMPTY_WIDGET;
                   } else {
                     child = SmoothLargeButtonWithIcon(
                       text:
@@ -289,6 +289,22 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
+  Future<String?> _getTranslatedCountry() async {
+    if (_country == null) {
+      return null;
+    }
+    final String locale = Localizations.localeOf(context).languageCode;
+    final List<Country> localizedCountries =
+        await IsoCountries.iso_countries_for_locale(locale);
+    for (final Country country in localizedCountries) {
+      if (country.countryCode.toLowerCase() ==
+          _country!.iso2Code.toLowerCase()) {
+        return country.name;
+      }
+    }
+    return null;
+  }
+
   Widget _getEmptyText(
     final ThemeData themeData,
     final String message,
@@ -314,18 +330,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 ),
               ),
               if (worldQuery != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-                  child: _getLargeButtonWithIcon(
-                    _getWorldAction(appLocalizations, worldQuery),
-                  ),
+                _getLargeButtonWithIcon(
+                  _getWorldAction(appLocalizations, worldQuery),
                 ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-                child: _getLargeButtonWithIcon(
-                  _getRefreshAction(appLocalizations),
-                ),
-              ),
             ],
           ),
         ),
@@ -346,33 +353,45 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   }
 
   Widget _getTopMessagesCard() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<String> messages = <String>[];
-    messages.add(
-      appLocalizations.user_list_length(
-        _model.supplier.partialProductList.totalSize,
-      ),
-    );
-    final int? lastUpdate = _model.supplier.timestamp;
-    if (lastUpdate != null) {
-      final String lastTime =
-          ProductQueryPageHelper.getDurationStringFromTimestamp(
-              lastUpdate, context);
-      messages.add('${appLocalizations.cached_results_from} $lastTime');
-    }
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
-    if (pagedProductQuery.hasDifferentCountryWorldData() &&
-        pagedProductQuery.world) {
-      messages.add(appLocalizations.world_results_label);
-    }
-    return SizedBox(
-      width: double.infinity,
-      child: SmoothCard(
-        child: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Text(messages.join('\n')),
-        ),
-      ),
+    return FutureBuilder<String?>(
+      future: _getTranslatedCountry(),
+      builder: (
+        final BuildContext context,
+        final AsyncSnapshot<String?> snapshot,
+      ) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        final List<String> messages = <String>[];
+        String counting = appLocalizations.user_list_length(
+          _model.supplier.partialProductList.totalSize,
+        );
+        if (pagedProductQuery.hasDifferentCountryWorldData()) {
+          if (pagedProductQuery.world) {
+            counting += ' (${appLocalizations.world_results_label})';
+          } else {
+            if (snapshot.data != null) {
+              counting += ' (${snapshot.data})';
+            }
+          }
+        }
+        messages.add(counting);
+        final int? lastUpdate = _model.supplier.timestamp;
+        if (lastUpdate != null) {
+          final String lastTime =
+              ProductQueryPageHelper.getDurationStringFromTimestamp(
+                  lastUpdate, context);
+          messages.add('${appLocalizations.cached_results_from} $lastTime');
+        }
+        return SizedBox(
+          width: double.infinity,
+          child: SmoothCard(
+            child: Padding(
+              padding: const EdgeInsets.all(SMALL_SPACE),
+              child: Text(messages.join('\n')),
+            ),
+          ),
+        );
+      },
     );
   }
 
