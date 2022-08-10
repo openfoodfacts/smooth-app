@@ -1084,6 +1084,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation_positive_button": "Save my changes",
+    "edit_product_form_item_exit_confirmation_negative_button": "Ignore my changes",
     "edit_product_form_item_ingredients_title": "Ingredients & Origins",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
