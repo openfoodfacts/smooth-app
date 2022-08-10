@@ -8,10 +8,15 @@ class PreloadDataHelper {
 
   final DaoProduct daoProduct;
 
-  Future<String> getTopProducts() async {
-    final List<ProductField> fields = ProductQuery.fields;
-    fields.remove(ProductField.KNOWLEDGE_PANELS);
+  /// We load the top 1000 products (without knowledge panels,
+  /// so that we could keep a large volume of data in the localdb) from the openfoodfacts api
+  /// then if any of those products are not in the local database, we add them to the local database.
+  /// And if any of those products are in the local database, we check if they don't have knowledges we add them to the local database.
+  /// If any of those products are in the local database and have knowledges,we don't add them to the local database.
+  Future<int> downloadTopProducts() async {
     try {
+      final List<ProductField> fields = ProductQuery.fields;
+      fields.remove(ProductField.KNOWLEDGE_PANELS);
       final ProductSearchQueryConfiguration queryConfig =
           ProductSearchQueryConfiguration(
         fields: fields,
@@ -28,34 +33,29 @@ class PreloadDataHelper {
         queryConfig,
       );
       if (searchResult.products?.isEmpty ?? true) {
-        return 'No products found for your country and language';
+        return 0;
       } else {
-        final List<Product> productsToBePushed = <Product>[];
-        for (int i = 0; i < searchResult.products!.length; i++) {
-          if (await _isToBeUpdated(searchResult.products![i])) {
-            productsToBePushed.add(searchResult.products![i]);
+        int totalProductsSaved = 0;
+        for (final Product product in searchResult.products!) {
+          if (await _isToBeUpdated(product)) {
+            await daoProduct.put(product);
+            totalProductsSaved++;
           }
         }
-        await daoProduct.putAll(productsToBePushed);
-        return '${productsToBePushed.length} unique products added to the database for instant scan';
+        return totalProductsSaved;
       }
     } on SocketException {
-      return 'No internet connection';
+      return 0;
     } catch (e) {
-      return 'Error: $e';
+      return 0;
     }
   }
 
   Future<bool> _isToBeUpdated(Product product) async {
-    if (await daoProduct.get(product.barcode!) == null) {
+    final Product? localProduct = await daoProduct.get(product.barcode!);
+    if (localProduct == null) {
       return true;
-    } else {
-      final Product? localProduct = await daoProduct.get(product.barcode!);
-      if (localProduct!.knowledgePanels == null) {
-        return true;
-      } else {
-        return false;
-      }
     }
+    return localProduct.knowledgePanels == null;
   }
 }

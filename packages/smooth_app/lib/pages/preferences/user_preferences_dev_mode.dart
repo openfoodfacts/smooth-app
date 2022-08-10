@@ -102,23 +102,23 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         ListTile(
           title: const Text(
-            'Preload Data',
+            'Download Data',
           ),
           subtitle: const Text(
               'Download the top 1000 products in your country for instant scanning'),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
             final DaoProduct daoProduct = DaoProduct(localDatabase);
-            final String statusForPreload = await LoadingDialog.run<String>(
+            final int newlyAddedProducts = await LoadingDialog.run<int>(
                   title: 'Downloading data\nThis may take a while',
                   context: context,
-                  future: PreloadDataHelper(daoProduct).getTopProducts(),
+                  future: PreloadDataHelper(daoProduct).downloadTopProducts(),
                 ) ??
-                'Cancelled';
+                0;
             // ignore: use_build_context_synchronously
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(statusForPreload),
+                content: Text('$newlyAddedProducts products added'),
               ),
             );
             localDatabase.notifyListeners();
