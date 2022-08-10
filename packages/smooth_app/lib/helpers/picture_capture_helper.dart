@@ -5,9 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -41,19 +39,7 @@ Future<bool> uploadCapturedPicture(
       uniqueId: uniqueId,
     ),
   );
-  final DaoBackgroundTask daoBackgroundTask = DaoBackgroundTask(localDatabase);
-  await daoBackgroundTask.put(
-    BackgroundTaskModel(
-      backgroundTaskId: uniqueId,
-      backgroundTaskName: IMAGE_UPLOAD_TASK,
-      backgroundTaskDescription:
-          getImageUploadedMessage(imageField, appLocalizations),
-      barcode: barcode,
-      dateTime: DateTime.now(),
-      status: 'Pending',
-      taskMap: backgroundImageInputData.toJson(),
-    ),
-  );
+
   localDatabase.notifyListeners();
   // ignore: use_build_context_synchronously
   ScaffoldMessenger.of(context).showSnackBar(

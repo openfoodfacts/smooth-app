@@ -7,10 +7,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -153,19 +151,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
     // ignore: use_build_context_synchronously
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoBackgroundTask daoBackgroundTask =
-        DaoBackgroundTask(localDatabase);
-    final BackgroundTaskModel backgroundTaskModel = BackgroundTaskModel(
-      backgroundTaskId: uniqueId,
-      backgroundTaskName: 'Ingredients',
-      backgroundTaskDescription:
-          'Made edit to Ingredients on ${DateTime.now()}',
-      barcode: minimalistProduct.barcode!,
-      dateTime: DateTime.now(),
-      status: 'Pending',
-      taskMap: backgroundOtherDetailsInput.toJson(),
-    );
-    daoBackgroundTask.put(backgroundTaskModel);
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final Product? localProduct =
         await daoProduct.get(minimalistProduct.barcode!);

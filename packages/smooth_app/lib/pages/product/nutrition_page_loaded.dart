@@ -11,9 +11,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -557,20 +555,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       product.nutriments = changedProduct.nutriments;
       await daoProduct.put(product);
     }
-    final DaoBackgroundTask daoBackgroundTask =
-        DaoBackgroundTask(localDatabase);
-    await daoBackgroundTask.put(
-      BackgroundTaskModel(
-        backgroundTaskId: uniqueId,
-        backgroundTaskName: 'NutrientEdit',
-        backgroundTaskDescription:
-            'Changed Nutrition  of the product for the country ${ProductQuery.getCountry()} in language ${ProductQuery.getLanguage().code}',
-        barcode: _product.barcode!,
-        dateTime: DateTime.now(),
-        status: 'Pending',
-        taskMap: nutritonInputData.toJson(),
-      ),
-    );
     localDatabase.notifyListeners();
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(

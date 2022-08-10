@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/background_tasks_model.dart';
-import 'package:smooth_app/database/dao_tasks.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:task_manager/task_manager.dart';
 
 // TODO(ashaman999): add the translations later
 class OfflineTask extends StatefulWidget {
@@ -14,29 +11,20 @@ class OfflineTask extends StatefulWidget {
 }
 
 class _OfflineTaskState extends State<OfflineTask> {
-  Future<List<BackgroundTaskModel>> _fetchListItems(
-      DaoBackgroundTask daoBackgroundTask) async {
-    final List<String> barcodes = await daoBackgroundTask.getAllKeys();
-    final Map<String, BackgroundTaskModel> backgroundTaskModels =
-        await daoBackgroundTask.getAll(barcodes);
-    return backgroundTaskModels.values.toList();
+  Future<List<Task>> _fetchListItems() async {
+    final Iterable<Task> tasks = await TaskManager().listPendingTasks();
+    return tasks.toList();
   }
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final DaoBackgroundTask daoBackgroundTask =
-        DaoBackgroundTask(localDatabase);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pending Background Tasks'),
         actions: <Widget>[
           PopupMenuButton<int>(
             onSelected: (int item) async {
-              //Add a method to cancel all tasks
-              // Probably get a method from the TaskManager class to cancel all tasks
-              final List<String> keys = await daoBackgroundTask.getAllKeys();
-              await daoBackgroundTask.deleteAll(keys);
+              await TaskManager().cancelTasks();
               setState(() {});
               const SnackBar snackBar = SnackBar(
                 content: Text(
@@ -63,10 +51,10 @@ class _OfflineTaskState extends State<OfflineTask> {
           setState(() {});
         },
         child: Center(
-          child: FutureBuilder<List<BackgroundTaskModel>>(
-            future: _fetchListItems(daoBackgroundTask),
-            builder: (BuildContext context,
-                AsyncSnapshot<List<BackgroundTaskModel>> snapshot) {
+          child: FutureBuilder<List<Task>>(
+            future: _fetchListItems(),
+            builder:
+                (BuildContext context, AsyncSnapshot<List<Task>> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
                   child: CircularProgressIndicator(),
@@ -88,16 +76,20 @@ class _OfflineTaskState extends State<OfflineTask> {
                     }
                     return ListTile(
                       leading: getLeadingIcon(
-                          context, snapshot.data![index].backgroundTaskName),
-                      title: Text(
-                        snapshot.data![index].barcode,
+                        context,
+                        snapshot.data![index].uniqueId.toString(),
                       ),
-                      subtitle: Text(snapshot.data![index].backgroundTaskName),
+                      title: Text(
+                        snapshot.data![index].data!['barcode'].toString(),
+                      ),
+                      subtitle: Text(snapshot.data![index].data!['processName']
+                          .toString()),
                       trailing: Wrap(
                         children: <Widget>[
                           IconButton(
                               onPressed: () async {
-                                // Discuss how we can retry a task
+                                TaskManager()
+                                    .runTask(snapshot.data![index].uniqueId);
                                 const SnackBar snackBar = SnackBar(
                                   content: Text('Retrying ...'),
                                   duration: SmoothAnimationsDuration.short,
@@ -111,12 +103,8 @@ class _OfflineTaskState extends State<OfflineTask> {
                               icon: const Icon(Icons.refresh)),
                           IconButton(
                               onPressed: () async {
-                                //Add a method to cancel all tasks
-                                // Probably get a method from the TaskManager class to cancel individual tasks
-                                await daoBackgroundTask.delete(
-                                  snapshot.data![index].backgroundTaskId
-                                      .toString(),
-                                );
+                                await TaskManager()
+                                    .cancelTask(snapshot.data![index].uniqueId);
                                 const SnackBar snackBar = SnackBar(
                                   content: Text('Cancelled'),
                                   duration: SmoothAnimationsDuration.short,

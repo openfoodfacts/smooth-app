@@ -5,9 +5,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
-import 'package:smooth_app/data_models/background_tasks_model.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -175,20 +173,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       product.quantity = _weightController.text;
                       daoProduct.put(product);
                     }
-                    final DaoBackgroundTask daoBackgroundTask =
-                        DaoBackgroundTask(localDatabase);
-                    await daoBackgroundTask.put(
-                      BackgroundTaskModel(
-                        backgroundTaskId: uniqueId,
-                        backgroundTaskName: 'BasicInput',
-                        backgroundTaskDescription:
-                            'Changed the Basic Information of the product for the country ${ProductQuery.getCountry()} in language ${ProductQuery.getLanguage().code}',
-                        barcode: _product.barcode!,
-                        dateTime: DateTime.now(),
-                        status: 'Pending',
-                        taskMap: backgroundBasicDetailsInput.toJson(),
-                      ),
-                    );
                     localDatabase.notifyListeners();
                     if (!mounted) {
                       return;

@@ -14,7 +14,6 @@ import 'package:smooth_app/database/dao_product_migration.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
-import 'package:smooth_app/database/dao_tasks.dart';
 import 'package:smooth_app/database/dao_unzipped_product.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -61,7 +60,6 @@ class LocalDatabase extends ChangeNotifier {
       DaoString(localDatabase),
       DaoInt(localDatabase),
       DaoStringListMap(localDatabase),
-      DaoBackgroundTask(localDatabase),
     ];
     for (final AbstractDao dao in daos) {
       dao.registerAdapter();
