@@ -130,17 +130,14 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final Widget emptiness, {
     final List<Widget>? actions,
   }) =>
-      // TODO(monsieurtanuki): remove the ScaffoldMessenger as we don't need it (but that will change the format)
-      ScaffoldMessenger(
-        child: SmoothScaffold(
-          appBar: AppBar(
-            backgroundColor: themeData.scaffoldBackgroundColor,
-            leading: const _BackButton(),
-            title: _getAppBarTitle(),
-            actions: actions,
-          ),
-          body: Center(child: emptiness),
+      SmoothScaffold(
+        appBar: AppBar(
+          backgroundColor: themeData.scaffoldBackgroundColor,
+          leading: const _BackButton(),
+          title: _getAppBarTitle(),
+          actions: actions,
         ),
+        body: Center(child: emptiness),
       );
 
   Widget _getAppBarTitle() => AutoSizeText(widget.name, maxLines: 2);
@@ -151,122 +148,118 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final ThemeData themeData,
     final AppLocalizations appLocalizations,
   ) =>
-      // TODO(monsieurtanuki): remove the ScaffoldMessenger as we don't need it (but that will change the format)
-      ScaffoldMessenger(
-        child: SmoothScaffold(
-          floatingActionButton: Row(
-            mainAxisAlignment: _showBackToTopButton
-                ? MainAxisAlignment.spaceBetween
-                : MainAxisAlignment.center,
-            children: <Widget>[
-              RankingFloatingActionButton(
-                onPressed: () => Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => PersonalizedRankingPage(
-                      barcodes: _model.displayBarcodes,
-                      title: widget.name,
-                    ),
+      SmoothScaffold(
+        floatingActionButton: Row(
+          mainAxisAlignment: _showBackToTopButton
+              ? MainAxisAlignment.spaceBetween
+              : MainAxisAlignment.center,
+          children: <Widget>[
+            RankingFloatingActionButton(
+              onPressed: () => Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => PersonalizedRankingPage(
+                    barcodes: _model.displayBarcodes,
+                    title: widget.name,
                   ),
                 ),
               ),
-              Visibility(
-                visible: _showBackToTopButton,
-                child: AnimatedOpacity(
-                  duration: SmoothAnimationsDuration.short,
-                  opacity: _showBackToTopButton ? 1.0 : 0.0,
-                  child: SmoothRevealAnimation(
-                    animationCurve: Curves.easeInOutBack,
-                    startOffset: const Offset(0.0, 1.0),
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        start: SMALL_SPACE,
-                      ),
-                      child: FloatingActionButton(
-                        backgroundColor: themeData.colorScheme.secondary,
-                        onPressed: () {
-                          _scrollToTop();
-                        },
-                        tooltip: appLocalizations.go_back_to_top,
-                        child: Icon(
-                          Icons.arrow_upward,
-                          color: themeData.colorScheme.onSecondary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          appBar: AppBar(
-            backgroundColor: themeData.scaffoldBackgroundColor,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            leading: const _BackButton(),
-            title: _getAppBarTitle(),
-            actions: _getAppBarButtons(),
-          ),
-          body: RefreshIndicator(
-            onRefresh: () => refreshList(),
-            child: ListView.builder(
-              controller: _scrollController,
-              itemBuilder: (BuildContext context, int index) {
-                if (index == 0) {
-                  // on top, a message
-                  return _getTopMessagesCard();
-                }
-                index--;
-                if (index >= _model.displayBarcodes.length) {
-                  // final button
-                  final int already = _model.displayBarcodes.length;
-                  final int totalSize =
-                      _model.supplier.partialProductList.totalSize;
-                  final int next = max(
-                    0,
-                    min(
-                      _model.supplier.productQuery.pageSize,
-                      totalSize - already,
-                    ),
-                  );
-                  final Widget child;
-                  if (next == 0) {
-                    child = EMPTY_WIDGET;
-                  } else {
-                    child = SmoothLargeButtonWithIcon(
-                      text:
-                          appLocalizations.product_search_button_download_more(
-                        next,
-                        already,
-                        totalSize,
-                      ),
-                      icon: Icons.download_rounded,
-                      onPressed: () async =>
-                          _loadAndRefreshDisplay(_model.loadNextPage()),
-                    );
-                  }
-                  return Padding(
+            ),
+            Visibility(
+              visible: _showBackToTopButton,
+              child: AnimatedOpacity(
+                duration: SmoothAnimationsDuration.short,
+                opacity: _showBackToTopButton ? 1.0 : 0.0,
+                child: SmoothRevealAnimation(
+                  animationCurve: Curves.easeInOutBack,
+                  startOffset: const Offset(0.0, 1.0),
+                  child: Padding(
                     padding: const EdgeInsetsDirectional.only(
-                      bottom: 90.0,
-                      start: VERY_LARGE_SPACE,
-                      end: VERY_LARGE_SPACE,
+                      start: SMALL_SPACE,
                     ),
-                    child: child,
+                    child: FloatingActionButton(
+                      backgroundColor: themeData.colorScheme.secondary,
+                      onPressed: () {
+                        _scrollToTop();
+                      },
+                      tooltip: appLocalizations.go_back_to_top,
+                      child: Icon(
+                        Icons.arrow_upward,
+                        color: themeData.colorScheme.onSecondary,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        appBar: AppBar(
+          backgroundColor: themeData.scaffoldBackgroundColor,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          leading: const _BackButton(),
+          title: _getAppBarTitle(),
+          actions: _getAppBarButtons(),
+        ),
+        body: RefreshIndicator(
+          onRefresh: () => refreshList(),
+          child: ListView.builder(
+            controller: _scrollController,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 0) {
+                // on top, a message
+                return _getTopMessagesCard();
+              }
+              index--;
+              if (index >= _model.displayBarcodes.length) {
+                // final button
+                final int already = _model.displayBarcodes.length;
+                final int totalSize =
+                    _model.supplier.partialProductList.totalSize;
+                final int next = max(
+                  0,
+                  min(
+                    _model.supplier.productQuery.pageSize,
+                    totalSize - already,
+                  ),
+                );
+                final Widget child;
+                if (next == 0) {
+                  child = EMPTY_WIDGET;
+                } else {
+                  child = SmoothLargeButtonWithIcon(
+                    text: appLocalizations.product_search_button_download_more(
+                      next,
+                      already,
+                      totalSize,
+                    ),
+                    icon: Icons.download_rounded,
+                    onPressed: () async =>
+                        _loadAndRefreshDisplay(_model.loadNextPage()),
                   );
                 }
                 return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: MEDIUM_SPACE,
-                    vertical: SMALL_SPACE,
+                  padding: const EdgeInsetsDirectional.only(
+                    bottom: 90.0,
+                    start: VERY_LARGE_SPACE,
+                    end: VERY_LARGE_SPACE,
                   ),
-                  child: ProductListItemSimple(
-                    barcode: _model.displayBarcodes[index],
-                  ),
+                  child: child,
                 );
-              },
-              // 2 additional widgets, on top and on bottom
-              itemCount: _model.displayBarcodes.length + 2,
-            ),
+              }
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: MEDIUM_SPACE,
+                  vertical: SMALL_SPACE,
+                ),
+                child: ProductListItemSimple(
+                  barcode: _model.displayBarcodes[index],
+                ),
+              );
+            },
+            // 2 additional widgets, on top and on bottom
+            itemCount: _model.displayBarcodes.length + 2,
           ),
         ),
       );
