@@ -237,7 +237,13 @@ android_keys.zip
 
 
 # Unsupported locals
+app_ach.arb 
+app_ast.arb
+app_ber.arb
 app_crs.arb 
+app_chr.arb 
+pp_fil.arb
+app_kab.arb 
 app_lol.arb 
 app_sat.arb 
 app_sco.arb 
@@ -246,4 +252,5 @@ app_son.arb
 app_tzl.arb 
 app_val.arb 
 app_vec.arb
-app_vls.arb  
+app_vls.arb
+app_zea.arb

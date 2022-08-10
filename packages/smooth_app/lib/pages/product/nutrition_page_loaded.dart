@@ -41,6 +41,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   late final NutritionContainer _nutritionContainer;
 
   late bool _noNutritionData;
+
   // If true then serving, if false then 100g.
   bool _servingOr100g = false;
 
@@ -78,17 +79,34 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> children = <Widget>[];
+
+    // List of focus nodes for all text fields except the serving one.
+    final List<FocusNode> focusNodes;
+
     children.add(_switchNoNutrition(appLocalizations));
+
     if (!_noNutritionData) {
       children.add(_getServingField(appLocalizations));
       children.add(_getServingSwitch(appLocalizations));
-      for (final OrderedNutrient orderedNutrient
-          in _nutritionContainer.getDisplayableNutrients()) {
+
+      final Iterable<OrderedNutrient> displayableNutrients =
+          _nutritionContainer.getDisplayableNutrients();
+
+      focusNodes = List<FocusNode>.generate(
+        displayableNutrients.length,
+        (_) => FocusNode(),
+        growable: false,
+      );
+
+      for (int i = 0; i != displayableNutrients.length; i++) {
         children.add(
-          _getNutrientRow(appLocalizations, orderedNutrient),
+          _getNutrientRow(
+              appLocalizations, displayableNutrients.elementAt(i), i),
         );
       }
       children.add(_addNutrientButton(appLocalizations));
+    } else {
+      focusNodes = <FocusNode>[];
     }
 
     return WillPopScope(
@@ -113,7 +131,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 flex: 1,
                 child: Form(
                   key: _formKey,
-                  child: ListView(children: children),
+                  child: Provider<List<FocusNode>>.value(
+                    value: focusNodes,
+                    child: ListView(children: children),
+                  ),
                 ),
               ),
               SmoothActionButtonsBar(
@@ -140,6 +161,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Widget _getNutrientRow(
     final AppLocalizations appLocalizations,
     final OrderedNutrient orderedNutrient,
+    int position,
   ) =>
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,6 +173,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               appLocalizations,
               orderedNutrient,
               _servingOr100g,
+              position,
             ),
           ),
           SizedBox(
@@ -164,6 +187,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final AppLocalizations appLocalizations,
     final OrderedNutrient orderedNutrient,
     final bool perServing,
+    final int position,
   ) {
     final String valueKey = NutritionContainer.getValueKey(
       orderedNutrient.id,
@@ -178,31 +202,54 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       controller.text = value == null ? '' : _numberFormat.format(value);
       _controllers[valueKey] = controller;
     }
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        enabledBorder: const UnderlineInputBorder(),
-        labelText: orderedNutrient.name,
-      ),
-      keyboardType: const TextInputType.numberWithOptions(
-        signed: false,
-        decimal: true,
-      ),
-      textInputAction: TextInputAction.next,
-      inputFormatters: <TextInputFormatter>[
-        FilteringTextInputFormatter.allow(_decimalRegExp),
-        DecimalSeparatorRewriter(_numberFormat),
-      ],
-      validator: (String? value) {
-        if (value == null || value.trim().isEmpty) {
-          return null;
-        }
-        try {
-          _numberFormat.parse(value);
-          return null;
-        } catch (e) {
-          return appLocalizations.nutrition_page_invalid_number;
-        }
+    return Builder(
+      builder: (BuildContext context) {
+        final List<FocusNode> focusNodes = Provider.of<List<FocusNode>>(
+          context,
+          listen: false,
+        );
+
+        final bool isLast = position == focusNodes.length - 1;
+
+        return TextFormField(
+          controller: controller,
+          focusNode: focusNodes[position],
+          decoration: InputDecoration(
+            enabledBorder: const UnderlineInputBorder(),
+            labelText: orderedNutrient.name,
+          ),
+          keyboardType: const TextInputType.numberWithOptions(
+            signed: false,
+            decimal: true,
+          ),
+          textInputAction: isLast ? TextInputAction.send : TextInputAction.next,
+          onFieldSubmitted: (_) async {
+            if (!isLast) {
+              // Move to next field
+              focusNodes[position + 1].requestFocus();
+            } else {
+              // Save page content
+              _exitPage(
+                await _mayExitPage(saving: true),
+              );
+            }
+          },
+          inputFormatters: <TextInputFormatter>[
+            FilteringTextInputFormatter.allow(_decimalRegExp),
+            DecimalSeparatorRewriter(_numberFormat),
+          ],
+          validator: (String? value) {
+            if (value == null || value.trim().isEmpty) {
+              return null;
+            }
+            try {
+              _numberFormat.parse(value);
+              return null;
+            } catch (e) {
+              return appLocalizations.nutrition_page_invalid_number;
+            }
+          },
+        );
       },
     );
   }
@@ -240,14 +287,29 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     _controllers[NutritionContainer.fakeNutrientIdServingSize] = controller;
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: VERY_LARGE_SPACE),
-      child: TextFormField(
-        controller: controller,
-        decoration: InputDecoration(
-          enabledBorder: const UnderlineInputBorder(),
-          labelText: appLocalizations.nutrition_page_serving_size,
-        ),
-        textInputAction: TextInputAction.next,
-        validator: (String? value) => null, // free text
+      child: Builder(
+        builder: (BuildContext context) {
+          return TextFormField(
+            controller: controller,
+            decoration: InputDecoration(
+              enabledBorder: const UnderlineInputBorder(),
+              labelText: appLocalizations.nutrition_page_serving_size,
+            ),
+            textInputAction: TextInputAction.next,
+            onFieldSubmitted: (_) {
+              // Move to the first TextField
+              final List<FocusNode> focusNodes = Provider.of<List<FocusNode>>(
+                context,
+                listen: false,
+              );
+
+              if (focusNodes.isNotEmpty) {
+                focusNodes[0].requestFocus();
+              }
+            },
+            validator: (String? value) => null, // free text
+          );
+        },
       ),
     );
   }
