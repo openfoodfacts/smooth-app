@@ -98,7 +98,12 @@ class _ProductListPageState extends State<ProductListPage>
                           context: context,
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
-                              body: Text(appLocalizations.confirm_clear),
+                              body: Text(
+                                productList.listType == ProductListType.USER
+                                    ? appLocalizations.confirm_clear_user_list(
+                                        productList.parameters)
+                                    : appLocalizations.confirm_clear,
+                              ),
                               positiveAction: SmoothActionButton(
                                 onPressed: () async {
                                   daoProductList.clear(productList);

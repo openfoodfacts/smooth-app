@@ -215,8 +215,9 @@ class ProductListUserDialogHelper {
     final bool? deleted = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
-        title: 'Delete list?',
-        body: Text(productList.parameters),
+        body: Text(
+          appLocalizations.confirm_delete_user_list(productList.parameters),
+        ),
         negativeAction: SmoothActionButton(
           onPressed: () => Navigator.pop(context),
           text: appLocalizations.cancel,
