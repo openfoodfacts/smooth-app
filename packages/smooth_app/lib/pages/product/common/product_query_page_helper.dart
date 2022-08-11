@@ -25,7 +25,6 @@ class ProductQueryPageHelper {
         builder: (BuildContext context) => ProductQueryPage(
           productListSupplier: supplier,
           name: name,
-          lastUpdate: supplier.timestamp,
         ),
       ),
     );
