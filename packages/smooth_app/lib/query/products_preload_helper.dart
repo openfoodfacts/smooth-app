@@ -8,11 +8,10 @@ class PreloadDataHelper {
 
   final DaoProduct daoProduct;
 
-  /// We load the top 1000 products (without knowledge panels,
-  /// so that we could keep a large volume of data in the localdb) from the openfoodfacts api
-  /// then if any of those products are not in the local database, we add them to the local database.
-  /// And if any of those products are in the local database, we check if they don't have knowledges we add them to the local database.
-  /// If any of those products are in the local database and have knowledges,we don't add them to the local database.
+  /// Download the top 1000 products (Without Knowledge Panels) for the user's country and language
+  ///
+  /// We aren't downloading knowledge panels so as to store more number of products into our local database
+  /// Also We don't update the products in local database for which we already have knowledge panels.
   Future<int> downloadTopProducts() async {
     try {
       final List<ProductField> fields = ProductQuery.fields;
