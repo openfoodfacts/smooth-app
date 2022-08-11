@@ -123,6 +123,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final Product changedProduct = Product(barcode: widget.product.barcode);
     bool changed = false;
     bool added = false;
+    String pageName = '';
     for (int i = 0; i < widget.helpers.length; i++) {
       if (widget.helpers[i].addItemsFromController(_controllers[i])) {
         added = true;
@@ -130,6 +131,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       if (widget.helpers[i].getChangedProduct(changedProduct)) {
         changed = true;
       }
+      pageName = widget.helpers[i].getTitle(AppLocalizations.of(context));
     }
     if (added) {
       setState(() {});
@@ -166,7 +168,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
     }
 
-    final int uniqueId = DateTime.now().millisecondsSinceEpoch;
+    final String uniqueId =
+        '${changedProduct.barcode!}_${pageName}_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
       processName: PRODUCT_EDIT_TASK,
@@ -188,11 +191,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       return false;
     }
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text(
-          'Edited  successfully',
+          appLocalizations.product_task_background_schedule,
         ),
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
       ),
     );
     return true;

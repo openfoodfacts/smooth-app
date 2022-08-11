@@ -20,7 +20,11 @@ Future<bool> uploadCapturedPicture(
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
   // get time since epoch in milliseconds
-  final int uniqueId = DateTime.now().millisecondsSinceEpoch;
+  String uniqueId =
+      '${barcode}_${imageField.value}_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';
+  if (imageField.value == ImageField.OTHER.value) {
+    uniqueId += DateTime.now().millisecondsSinceEpoch.toString();
+  }
   final BackgroundImageInputData backgroundImageInputData =
       BackgroundImageInputData(
     processName: IMAGE_UPLOAD_TASK,

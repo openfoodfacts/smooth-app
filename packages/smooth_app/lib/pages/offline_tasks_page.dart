@@ -81,7 +81,7 @@ class _OfflineTaskState extends State<OfflineTask> {
                     return ListTile(
                       leading: getLeadingIcon(
                         context,
-                        snapshot.data![index].uniqueId.toString(),
+                        snapshot.data![index].uniqueId,
                       ),
                       title: Text(
                         snapshot.data![index].data!['barcode'].toString(),

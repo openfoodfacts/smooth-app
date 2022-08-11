@@ -136,7 +136,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       brands: _brandNameController.text,
                       barcode: _product.barcode,
                     );
-                    final int uniqueId = DateTime.now().millisecondsSinceEpoch;
+                    final String uniqueId =
+                        '${_product.barcode}_BASIC_DETAILS_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';
                     final BackgroundOtherDetailsInput
                         backgroundBasicDetailsInput =
                         BackgroundOtherDetailsInput(

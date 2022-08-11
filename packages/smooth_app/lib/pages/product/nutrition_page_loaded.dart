@@ -529,7 +529,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return false;
     }
     // if it fails, we stay on the same page
-    final int uniqueId = DateTime.now().millisecondsSinceEpoch;
+    final String uniqueId =
+        '${_product.barcode!}_NUTRITION_EDIT_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';
     final BackgroundOtherDetailsInput nutritonInputData =
         BackgroundOtherDetailsInput(
       processName: PRODUCT_EDIT_TASK,

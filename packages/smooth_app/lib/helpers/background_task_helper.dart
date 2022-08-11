@@ -90,7 +90,7 @@ class BackgroundImageInputData {
 
   BackgroundImageInputData.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
-        uniqueId = json['uniqueId'] as int,
+        uniqueId = json['uniqueId'] as String,
         barcode = json['barcode'] as String,
         imageField = json['imageField'] as String,
         imageUri = json['imageUri'] as String,
@@ -99,7 +99,7 @@ class BackgroundImageInputData {
         country = json['country'] as String;
 
   final String processName;
-  final int uniqueId;
+  final String uniqueId;
   final String barcode;
   final String imageField;
   final String imageUri;
@@ -131,14 +131,14 @@ class BackgroundOtherDetailsInput {
   });
   BackgroundOtherDetailsInput.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
-        uniqueId = json['uniqueId'] as int,
+        uniqueId = json['uniqueId'] as String,
         barcode = json['barcode'] as String,
         languageCode = json['languageCode'] as String,
         inputMap = json['inputMap'] as String,
         user = json['user'] as String,
         country = json['country'] as String;
   final String processName;
-  final int uniqueId;
+  final String uniqueId;
   final String barcode;
   final String languageCode;
   final String inputMap;
