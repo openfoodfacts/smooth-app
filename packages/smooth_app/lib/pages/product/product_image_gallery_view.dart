@@ -130,7 +130,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                           if (currentIndex != null) {
                             final File? croppedImageFile =
                                 await startImageCropping(context,
-                                    showoptionDialog: true);
+                                    showOptionDialog: true);
                             if (croppedImageFile != null) {
                               setState(() {
                                 allProductImageProviders[currentIndex] =
