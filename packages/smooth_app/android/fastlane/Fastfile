@@ -18,7 +18,7 @@ default_platform(:android)
 
 platform :android do
 
-  desc "Returns the last used version code on the playstore, is used for all platforms to keep this in sync"
+  desc "Stores the last used version code on the playstore in env: OLD_VERSION_CODE, is used for all platforms to keep this in sync"
   lane :getOldVersionCode do
       begin
           old_version_code = google_play_track_version_codes(
@@ -31,7 +31,7 @@ platform :android do
       end
   end
 
-  desc "Set's version to env:VERSION_NAME and the version code to the latest upload one + 1 used for android + iOS"
+  desc "Set's version to env:VERSION_NAME and the version code to env:OLD_VERSION_CODE + 1 used for android + iOS"
   lane :setVersion do
       begin
           old_version_code = ENV["OLD_VERSION_CODE"]
