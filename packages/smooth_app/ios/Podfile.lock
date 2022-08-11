@@ -106,13 +106,13 @@ PODS:
   - Realm/Headers (10.28.2)
   - RealmSwift (10.28.2):
     - Realm (= 10.28.2)
-  - Sentry (7.19.0):
-    - Sentry/Core (= 7.19.0)
-  - Sentry/Core (7.19.0)
+  - Sentry (7.22.0):
+    - Sentry/Core (= 7.22.0)
+  - Sentry/Core (7.22.0)
   - sentry_flutter (0.0.1):
     - Flutter
     - FlutterMacOS
-    - Sentry (~> 7.19.0)
+    - Sentry (~> 7.22.0)
   - share_plus (0.0.1):
     - Flutter
   - shared_preferences_ios (0.0.1):
@@ -255,8 +255,8 @@ SPEC CHECKSUMS:
   Protobuf: 818c6a87e44193a77f56b87c6a1c106efda7e062
   Realm: e617c54ad0f566b3d0f6a2abae7010de05f252ac
   RealmSwift: 8a516a8759d80d52ebcec1ff1076f5f5159f98b2
-  Sentry: d6b16e66a0ad0c39a0b76d9a1194e68e78c37ce6
-  sentry_flutter: 609b096af497fa64af7c6c94e792d0780aa472a6
+  Sentry: 30b51086ca9aac23337880152e95538f7e177f7f
+  sentry_flutter: eaca55af5c951f4be6c4b1daddce1744c37d8476
   share_plus: 056a1e8ac890df3e33cb503afffaf1e9b4fbae68
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
