@@ -176,7 +176,6 @@ class _EditProductPageState extends State<EditProductPage> {
                     SimpleInputPageCategoryHelper(),
                   ],
                 ),
-                _getSimpleListTileItem(SimpleInputPageLabelHelper()),
                 _ListTitleItem(
                   leading:
                       const _SvgIcon('assets/cacheTintable/ingredients.svg'),
@@ -197,29 +196,6 @@ class _EditProductPageState extends State<EditProductPage> {
                     );
                   },
                 ),
-                _ListTitleItem(
-                  leading: const Icon(Icons.recycling),
-                  title:
-                      appLocalizations.edit_product_form_item_packaging_title,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-                    await Navigator.push<Product?>(
-                      context,
-                      MaterialPageRoute<Product>(
-                        builder: (BuildContext context) => EditOcrPage(
-                          product: _product,
-                          helper: OcrPackagingHelper(),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                _getSimpleListTileItem(SimpleInputPageStoreHelper()),
-                _getSimpleListTileItem(SimpleInputPageOriginHelper()),
-                _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
-                _getSimpleListTileItem(SimpleInputPageCountryHelper()),
                 _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
                 _ListTitleItem(
                   leading:
@@ -251,6 +227,30 @@ class _EditProductPageState extends State<EditProductPage> {
                     );
                   },
                 ),
+                _getSimpleListTileItem(SimpleInputPageLabelHelper()),
+                _ListTitleItem(
+                  leading: const Icon(Icons.recycling),
+                  title:
+                      appLocalizations.edit_product_form_item_packaging_title,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    await Navigator.push<Product?>(
+                      context,
+                      MaterialPageRoute<Product>(
+                        builder: (BuildContext context) => EditOcrPage(
+                          product: _product,
+                          helper: OcrPackagingHelper(),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+                _getSimpleListTileItem(SimpleInputPageOriginHelper()),
+                _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
+                _getSimpleListTileItem(SimpleInputPageCountryHelper()),
               ],
             ),
           ),
