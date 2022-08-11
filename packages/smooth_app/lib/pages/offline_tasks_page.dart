@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:task_manager/task_manager.dart';
 
 // TODO(ashaman999): add the translations later
@@ -24,13 +23,18 @@ class _OfflineTaskState extends State<OfflineTask> {
         actions: <Widget>[
           PopupMenuButton<int>(
             onSelected: (int item) async {
-              await TaskManager().cancelTasks();
+              String status = 'All tasks Caneclled';
+              try {
+                await TaskManager().cancelTasks();
+              } catch (e) {
+                status = 'Something went wrong';
+              }
               setState(() {});
-              const SnackBar snackBar = SnackBar(
+              final SnackBar snackBar = SnackBar(
                 content: Text(
-                  'All Tasks Cancelled',
+                  status,
                 ),
-                duration: Duration(seconds: 3),
+                duration: const Duration(seconds: 3),
               );
               if (!mounted) {
                 return;
@@ -88,26 +92,37 @@ class _OfflineTaskState extends State<OfflineTask> {
                         children: <Widget>[
                           IconButton(
                               onPressed: () async {
-                                TaskManager()
-                                    .runTask(snapshot.data![index].uniqueId);
-                                const SnackBar snackBar = SnackBar(
-                                  content: Text('Retrying ...'),
-                                  duration: SmoothAnimationsDuration.short,
+                                String status = 'Retrying';
+                                try {
+                                  TaskManager()
+                                      .runTask(snapshot.data![index].uniqueId);
+                                } catch (e) {
+                                  status = 'Error: $e';
+                                }
+                                final SnackBar snackBar = SnackBar(
+                                  content: Text(status),
+                                  duration: const Duration(seconds: 3),
                                 );
                                 if (!mounted) {
                                   return;
                                 }
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(snackBar);
+                                setState(() {});
                               },
                               icon: const Icon(Icons.refresh)),
                           IconButton(
                               onPressed: () async {
-                                await TaskManager()
-                                    .cancelTask(snapshot.data![index].uniqueId);
-                                const SnackBar snackBar = SnackBar(
-                                  content: Text('Cancelled'),
-                                  duration: SmoothAnimationsDuration.short,
+                                String status = 'Cancelled';
+                                try {
+                                  await TaskManager().cancelTask(
+                                      snapshot.data![index].uniqueId);
+                                } catch (e) {
+                                  status = 'Error: $e';
+                                }
+                                final SnackBar snackBar = SnackBar(
+                                  content: Text(status),
+                                  duration: const Duration(seconds: 3),
                                 );
                                 if (!mounted) {
                                   return;
@@ -119,7 +134,6 @@ class _OfflineTaskState extends State<OfflineTask> {
                               icon: const Icon(Icons.cancel))
                         ],
                       ),
-                      onTap: () {},
                     );
                   },
                 );
