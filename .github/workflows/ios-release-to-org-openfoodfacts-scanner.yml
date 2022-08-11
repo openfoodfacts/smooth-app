@@ -33,8 +33,6 @@ on:
         required: true
       SPACESHIP_CONNECT_API_KEY_ID:
         required: true
-  # Manually run this workflow
-  workflow_dispatch:
 
 env:
   JAVA_VERSION: 17

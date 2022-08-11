@@ -5,7 +5,7 @@ on:
        - develop
 
 env:
-  FLUTTER_VERSION: '3.0.1'
+  FLUTTER-CACHE-KEY: '3.0.1'
 
 jobs:
 
@@ -59,7 +59,7 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created }}
     with:
       VERSION_NAME: ${{ env.VERSION_NAME }}
-      FLUTTER-CACHE-KEY: ${{ env.FLUTTER_VERSION }}
+      FLUTTER-CACHE-KEY: ${{ env.FLUTTER-CACHE-KEY }}
       OLD_VERSION_CODE: ${{ env.OLD_VERSION_CODE }}
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
@@ -75,7 +75,7 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created }}
     with:
       VERSION_NAME: ${{ env.VERSION_NAME }}
-      FLUTTER-CACHE-KEY: ${{ env.FLUTTER_VERSION }}
+      FLUTTER-CACHE-KEY: ${{ env.FLUTTER-CACHE-KEY }}
       OLD_VERSION_CODE: ${{ env.OLD_VERSION_CODE }}
     secrets:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN }}

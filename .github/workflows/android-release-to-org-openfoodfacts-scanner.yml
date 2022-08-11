@@ -25,8 +25,6 @@ on:
         required: true
       SIGN_KEY_PASSWORD:
         required: true
-  # Manually run this workflow
-  workflow_dispatch:
   
 env:
   JAVA_VERSION: 17
