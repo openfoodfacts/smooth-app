@@ -13,6 +13,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -285,27 +286,28 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
         ),
         const UserPreferencesListItemDivider(),
-        ListTile(
-          onTap: () async => LaunchUrlHelper.launchURL(
+        _getListTile(
+          appLocalizations.view_profile,
+          () async => LaunchUrlHelper.launchURL(
             'https://openfoodfacts.org/editor/$userId',
             true,
           ),
-          title: Text(appLocalizations.view_profile),
-          leading: const Icon(Icons.open_in_new),
+          Icons.open_in_new,
         ),
         const UserPreferencesListItemDivider(),
-        ListTile(
-          onTap: () async {
+        _getListTile(
+          appLocalizations.sign_out,
+          () async {
             if (await _confirmLogout(context) == true) {
               Navigator.pop(context);
             }
           },
-          title: Text(appLocalizations.sign_out),
-          leading: const Icon(Icons.clear),
+          Icons.clear,
         ),
         const UserPreferencesListItemDivider(),
-        ListTile(
-          onTap: () async {
+        _getListTile(
+          appLocalizations.account_delete,
+          () async {
             final Email email = Email(
               body: appLocalizations.email_body_account_deletion(userId),
               subject: appLocalizations.email_subject_account_deletion,
@@ -314,8 +316,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
 
             await FlutterEmailSender.send(email);
           },
-          title: Text(appLocalizations.account_delete),
-          leading: const Icon(Icons.delete),
+          Icons.delete,
         ),
         const UserPreferencesListItemDivider(),
       ];
@@ -367,14 +368,25 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     required final BuildContext context,
     required final LocalDatabase localDatabase,
   }) =>
-      ListTile(
-        onTap: () async => ProductQueryPageHelper().openBestChoice(
+      _getListTile(
+        title,
+        () async => ProductQueryPageHelper().openBestChoice(
           name: title,
           localDatabase: localDatabase,
           productQuery: productQuery,
           context: context,
         ),
+        iconData,
+      );
+
+  Widget _getListTile(
+    final String title,
+    final VoidCallback onTap,
+    final IconData leading,
+  ) =>
+      UserPreferencesListTile(
         title: Text(title),
-        leading: Icon(iconData),
+        onTap: onTap,
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
       );
 }
