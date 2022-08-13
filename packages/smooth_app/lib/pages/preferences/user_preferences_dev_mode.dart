@@ -6,6 +6,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -101,24 +102,26 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         ListTile(
           title: const Text(
-            'Preload Data',
+            'Download Data',
           ),
           subtitle: const Text(
               'Download the top 1000 products in your country for instant scanning'),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            final String status = await LoadingDialog.run<String>(
+            final DaoProduct daoProduct = DaoProduct(localDatabase);
+            final int newlyAddedProducts = await LoadingDialog.run<int>(
                   title: 'Downloading data\nThis may take a while',
                   context: context,
-                  future: PreloadDataHelper(localDatabase).preloadData(),
+                  future: PreloadDataHelper(daoProduct).downloadTopProducts(),
                 ) ??
-                'Cancelled';
+                0;
             // ignore: use_build_context_synchronously
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(status),
+                content: Text('$newlyAddedProducts products added'),
               ),
             );
+            localDatabase.notifyListeners();
           },
         ),
         ListTile(

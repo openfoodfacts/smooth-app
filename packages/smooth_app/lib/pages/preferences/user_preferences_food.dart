@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
@@ -60,8 +61,11 @@ class UserPreferencesFood extends AbstractUserPreferences {
   List<Widget> getBody() {
     final List<Widget> result = <Widget>[
       // we don't want this on the onboarding
-      ListTile(
-        leading: const Icon(Icons.rotate_left),
+      UserPreferencesListTile(
+        leading: UserPreferencesListTile.getTintedIcon(
+          Icons.rotate_left,
+          context,
+        ),
         title: Text(appLocalizations.reset_food_prefs),
         onTap: () async => _confirmReset(),
       ),
