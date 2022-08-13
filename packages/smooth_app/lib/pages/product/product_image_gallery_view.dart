@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_image_list.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
@@ -21,13 +21,11 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class ProductImageGalleryView extends StatefulWidget {
   const ProductImageGalleryView({
     this.barcode,
-    required this.productImageData,
-    required this.allProductImagesData,
+    required this.imagesData,
   });
 
   final String? barcode;
-  final ProductImageData productImageData;
-  final List<ProductImageData> allProductImagesData;
+  final List<ProductImageData> imagesData;
 
   @override
   State<ProductImageGalleryView> createState() =>
@@ -35,38 +33,47 @@ class ProductImageGalleryView extends StatefulWidget {
 }
 
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
-  final List<ProductImageData> imagesData = <ProductImageData>[];
-  final List<ImageProvider?> imageProviders = <ImageProvider?>[];
+  late final Map<ProductImageData, ImageProvider?> imagesData;
+
   bool _isRefreshed = false;
+  bool _isLoadingMore = true;
 
   @override
   void initState() {
-    imagesData.addAll(widget.allProductImagesData);
-    imageProviders.addAll(imagesData.map(_provideImage));
+    imagesData = Map<ProductImageData, ImageProvider?>.fromIterables(
+      widget.imagesData,
+      widget.imagesData.map(_provideImage),
+    );
 
-    _getProductImages().then((Iterable<ProductImageData>? loadedData) {
-      if (loadedData != null) {
-        setState(() {
-          imagesData.addAll(loadedData);
-          imageProviders.addAll(loadedData.map(_provideImage));
-        });
+    _getProductImages(widget.barcode!)
+        .then((Iterable<ProductImageData>? loadedData) {
+      if (loadedData == null) {
+        return;
       }
+
+      final Map<ProductImageData, ImageProvider<Object>?> newMap =
+          Map<ProductImageData, ImageProvider?>.fromIterables(
+        loadedData,
+        loadedData.map(_provideImage),
+      );
+
+      setState(() {
+        imagesData.addAll(newMap);
+        _isLoadingMore = false;
+      });
     });
 
     super.initState();
   }
 
-  ImageProvider? _provideImage(ProductImageData imageData) {
-    return imageData.imageUrl == null
-        ? null
-        : NetworkImage(imageData.imageUrl!);
-  }
+  ImageProvider? _provideImage(ProductImageData imageData) =>
+      imageData.imageUrl == null ? null : NetworkImage(imageData.imageUrl!);
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    //When all are empty there shouldn't be a way to access this page
+    // When there is no data there should be no way to get to this page.
     if (imagesData.isEmpty) {
       return SmoothScaffold(
         body: Center(
@@ -84,41 +91,32 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           onPressed: () => Navigator.maybePop(context, _isRefreshed),
         ),
       ),
-      body: ListView.builder(
-        itemCount: imagesData.length,
-        itemBuilder: (BuildContext context, int index) => SmoothListTileCard(
-          title: imagesData[index].title,
-          imageProvider: imageProviders[index],
-          onTap: () => imagesData[index].imageUrl != null
-              ? _openImage(imagesData[index])
-              : _newImage(
-                  index: index,
-                  field: imagesData[index].imageField,
-                ),
-        ),
+      body: SmoothImageList(
+        imagesData: imagesData,
+        onTap: (ProductImageData data, ImageProvider<Object>? provider) =>
+            data.imageUrl != null ? _openImage(data) : _newImage(data),
+        loading: _isLoadingMore,
       ),
     );
   }
 
-  void _openImage(ProductImageData imageData) => Navigator.push<void>(
-      context,
-      MaterialPageRoute<void>(
-        builder: (_) => ProductImageViewer(
-          barcode: widget.barcode!,
-          imageData: imageData,
-        ),
-      ));
+  Future<void> _openImage(ProductImageData imageData) async =>
+      Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+            builder: (_) => ProductImageViewer(
+              barcode: widget.barcode!,
+              imageData: imageData,
+            ),
+          ));
 
-  Future<void> _newImage({
-    required ImageField field,
-    required int index,
-  }) async {
+  Future<void> _newImage(ProductImageData data) async {
     final File? croppedImageFile = await startImageCropping(context);
     if (croppedImageFile == null) {
       return;
     }
     setState(() {
-      imageProviders[index] = FileImage(croppedImageFile);
+      imagesData[data] = FileImage(croppedImageFile);
     });
     if (!mounted) {
       return;
@@ -126,7 +124,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     final bool isUploaded = await uploadCapturedPicture(
       context,
       barcode: widget.barcode!,
-      imageField: field,
+      imageField: data.imageField,
       imageUri: croppedImageFile.uri,
     );
 
@@ -137,7 +135,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       }
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
       final String message = getImageUploadedMessage(
-        field,
+        data.imageField,
         appLocalizations,
       );
       ScaffoldMessenger.of(context).showSnackBar(
@@ -149,9 +147,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
   }
 
-  Future<Iterable<ProductImageData>?> _getProductImages() async {
+  Future<Iterable<ProductImageData>?> _getProductImages(String barcode) async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      widget.barcode!,
+      barcode,
       fields: <ProductField>[ProductField.IMAGES],
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
@@ -164,29 +162,32 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       return null;
     }
 
-    if (result.status == 1) {
-      final Product? product = result.product;
-      if (product != null && product.images != null) {
-        return _deduplicateImages(product.images!).map(_getProductImageData);
-      }
+    if (result.status != 1) {
+      return null;
     }
 
-    return null;
+    final Product? product = result.product;
+    if (product == null || product.images == null) {
+      return null;
+    }
+
+    return _deduplicateImages(product.images!).map(_getProductImageData);
   }
 
-  Iterable<ProductImage> _deduplicateImages(List<ProductImage> images) {
-    return images
-        // Only keep the first image with the same id
-        .groupListsBy((ProductImage element) => element.imgid)
-        .values
-        .map((List<ProductImage> value) => value.firstOrNull)
-        .whereNotNull();
-  }
+  /// Groups the list of [ProductImage] by [ProductImage.imgid]
+  /// and returns the first of every group
+  Iterable<ProductImage> _deduplicateImages(Iterable<ProductImage> images) =>
+      images
+          .groupListsBy((ProductImage element) => element.imgid)
+          .values
+          .map((List<ProductImage> sameIdImages) => sameIdImages.firstOrNull)
+          .whereNotNull();
 
+  /// Created a [ProductImageData] from a [ProductImage]
   ProductImageData _getProductImageData(ProductImage image) => ProductImageData(
         imageField: image.field,
         title: 'Image #${image.imgid}',
         buttonText: 'Image #${image.imgid}',
-        imageUrl: image.url,
+        imageUrl: ImageHelper.buildUrl(widget.barcode, image),
       );
 }

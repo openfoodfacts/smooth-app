@@ -10,7 +10,7 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -22,7 +22,6 @@ import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -110,10 +109,13 @@ class _EditProductPageState extends State<EditProductPage> {
                       )
                     ],
                   ),
-                _ListTitleItem(
-                  title: appLocalizations.edit_product_form_item_details_title,
-                  subtitle:
-                      appLocalizations.edit_product_form_item_details_subtitle,
+                SmoothListTileCard.icon(
+                  title: Text(
+                    appLocalizations.edit_product_form_item_details_title,
+                  ),
+                  subtitle: Text(
+                    appLocalizations.edit_product_form_item_details_subtitle,
+                  ),
                   onTap: () async {
                     if (!await ProductRefresher().checkIfLoggedIn(context)) {
                       return;
@@ -126,11 +128,14 @@ class _EditProductPageState extends State<EditProductPage> {
                     );
                   },
                 ),
-                _ListTitleItem(
-                  leading: const Icon(Icons.add_a_photo_outlined),
-                  title: appLocalizations.edit_product_form_item_photos_title,
-                  subtitle:
-                      appLocalizations.edit_product_form_item_photos_subtitle,
+                SmoothListTileCard.icon(
+                  icon: const Icon(Icons.add_a_photo_outlined),
+                  title: Text(
+                    appLocalizations.edit_product_form_item_photos_title,
+                  ),
+                  subtitle: Text(
+                    appLocalizations.edit_product_form_item_photos_subtitle,
+                  ),
                   onTap: () async {
                     if (!await ProductRefresher().checkIfLoggedIn(context)) {
                       return;
@@ -142,8 +147,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       MaterialPageRoute<bool>(
                         builder: (BuildContext context) =>
                             ProductImageGalleryView(
-                          productImageData: allProductImagesData.first,
-                          allProductImagesData: allProductImagesData,
+                          imagesData: allProductImagesData,
                           barcode: _product.barcode,
                         ),
                       ),
@@ -175,11 +179,11 @@ class _EditProductPageState extends State<EditProductPage> {
                     SimpleInputPageCategoryHelper(),
                   ],
                 ),
-                _ListTitleItem(
-                  leading:
-                      const _SvgIcon('assets/cacheTintable/ingredients.svg'),
-                  title:
-                      appLocalizations.edit_product_form_item_ingredients_title,
+                SmoothListTileCard.icon(
+                  icon: const _SvgIcon('assets/cacheTintable/ingredients.svg'),
+                  title: Text(
+                    appLocalizations.edit_product_form_item_ingredients_title,
+                  ),
                   onTap: () async {
                     if (!await ProductRefresher().checkIfLoggedIn(context)) {
                       return;
@@ -196,13 +200,17 @@ class _EditProductPageState extends State<EditProductPage> {
                   },
                 ),
                 _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
-                _ListTitleItem(
-                  leading:
+                SmoothListTileCard.icon(
+                  icon:
                       const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
-                  title: appLocalizations
-                      .edit_product_form_item_nutrition_facts_title,
-                  subtitle: appLocalizations
-                      .edit_product_form_item_nutrition_facts_subtitle,
+                  title: Text(
+                    appLocalizations
+                        .edit_product_form_item_nutrition_facts_title,
+                  ),
+                  subtitle: Text(
+                    appLocalizations
+                        .edit_product_form_item_nutrition_facts_subtitle,
+                  ),
                   onTap: () async {
                     if (!await ProductRefresher().checkIfLoggedIn(context)) {
                       return;
@@ -227,10 +235,11 @@ class _EditProductPageState extends State<EditProductPage> {
                   },
                 ),
                 _getSimpleListTileItem(SimpleInputPageLabelHelper()),
-                _ListTitleItem(
-                  leading: const Icon(Icons.recycling),
-                  title:
-                      appLocalizations.edit_product_form_item_packaging_title,
+                SmoothListTileCard.icon(
+                  icon: const Icon(Icons.recycling),
+                  title: Text(
+                    appLocalizations.edit_product_form_item_packaging_title,
+                  ),
                   onTap: () async {
                     if (!await ProductRefresher().checkIfLoggedIn(context)) {
                       return;
@@ -260,10 +269,13 @@ class _EditProductPageState extends State<EditProductPage> {
 
   Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return _ListTitleItem(
-      leading: helper.getIcon(),
-      title: helper.getTitle(appLocalizations),
-      subtitle: helper.getSubtitle(appLocalizations),
+    final String title = helper.getTitle(appLocalizations);
+    final String? subtitle = helper.getSubtitle(appLocalizations);
+
+    return SmoothListTileCard.icon(
+      icon: helper.getIcon(),
+      title: Text(title),
+      subtitle: subtitle != null ? Text(subtitle) : null,
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
@@ -283,12 +295,12 @@ class _EditProductPageState extends State<EditProductPage> {
 
   Future<bool> _refreshProduct(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool result = await ProductRefresher().fetchAndRefresh(
+    final bool success = await ProductRefresher().fetchAndRefresh(
       context: context,
       localDatabase: localDatabase,
       barcode: _product.barcode!,
     );
-    if (mounted && result) {
+    if (mounted && success) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -297,7 +309,7 @@ class _EditProductPageState extends State<EditProductPage> {
         ),
       );
     }
-    return result;
+    return success;
   }
 
   Widget _getMultipleListTileItem(
@@ -308,10 +320,9 @@ class _EditProductPageState extends State<EditProductPage> {
     for (final AbstractSimpleInputPageHelper element in helpers) {
       titles.add(element.getTitle(appLocalizations));
     }
-    return _ListTitleItem(
+    return SmoothListTileCard(
       leading: const Icon(Icons.interests),
-      title: titles.join(', '),
-      subtitle: null,
+      title: Text(titles.join(', ')),
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
@@ -328,36 +339,6 @@ class _EditProductPageState extends State<EditProductPage> {
       },
     );
   }
-}
-
-class _ListTitleItem extends StatelessWidget {
-  const _ListTitleItem({
-    required final this.title,
-    this.subtitle,
-    this.onTap,
-    this.leading,
-    Key? key,
-  }) : super(key: key);
-
-  final String title;
-  final String? subtitle;
-  final VoidCallback? onTap;
-  final Widget? leading;
-
-  @override
-  Widget build(BuildContext context) => SmoothCard(
-        child: ListTile(
-          onTap: onTap,
-          title: Text(title),
-          subtitle: subtitle == null ? null : Text(subtitle!),
-          // we use a Column to have the icon centered vertically
-          leading: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[leading ?? const Icon(Icons.edit)],
-          ),
-          trailing: Icon(ConstantIcons.instance.getForwardIcon()),
-        ),
-      );
 }
 
 /// SVG that looks like a ListTile icon.

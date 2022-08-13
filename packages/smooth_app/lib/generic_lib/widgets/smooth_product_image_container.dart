@@ -4,21 +4,24 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 /// Container to display the main product image on a product card.
 class SmoothProductImageContainer extends StatelessWidget {
   const SmoothProductImageContainer({
-    required this.height,
-    required this.width,
-    required this.child,
+    this.child,
+    this.height,
+    this.width,
+    this.color,
   });
 
-  final double height;
-  final double width;
-  final Widget child;
+  final Widget? child;
+  final double? height;
+  final double? width;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) => ClipRRect(
         borderRadius: ROUNDED_BORDER_RADIUS,
-        child: SizedBox(
+        child: Container(
           width: width,
           height: height,
+          color: color,
           child: child,
         ),
       );

@@ -80,8 +80,8 @@ class ProductRefresher {
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(appLocalizations
-            .nutrition_page_update_done), // TODO(monsieurtanuki): title as method parameter
+        body: Text(appLocalizations.nutrition_page_update_done),
+        // TODO(monsieurtanuki): title as method parameter
         positiveAction: SmoothActionButton(
           text: appLocalizations.okay,
           onPressed: () => Navigator.of(context).pop(),
@@ -128,6 +128,7 @@ class ProductRefresher {
     return const _MetaProductRefresher.error(null);
   }
 
+  /// Returns `true` if the fetch is successful.
   Future<bool> fetchAndRefresh({
     required final BuildContext context,
     required final LocalDatabase localDatabase,
@@ -177,6 +178,7 @@ class ProductRefresher {
 
 class _MetaProductRefresher {
   const _MetaProductRefresher.error(this.error) : product = null;
+
   const _MetaProductRefresher.product(this.product) : error = null;
 
   final String? error;

@@ -48,8 +48,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       }
       final bool isUploaded = await uploadCapturedPicture(
         context,
-        barcode: widget.product
-            .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+        barcode: widget.product.barcode!,
+        //Probably throws an error, but this is not a big problem when we got a product without a barcode
         imageField: widget.productImageData.imageField,
         imageUri: croppedImageFile.uri,
       );
@@ -131,8 +131,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             context,
             MaterialPageRoute<bool>(
               builder: (BuildContext context) => ProductImageGalleryView(
-                productImageData: widget.productImageData,
-                allProductImagesData: widget.allProductImagesData,
+                imagesData: widget.allProductImagesData,
                 barcode: widget.product.barcode,
               ),
             ),
