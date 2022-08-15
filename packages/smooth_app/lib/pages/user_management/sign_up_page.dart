@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/model/SignUpStatus.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -36,6 +37,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
   final FocusNode _userFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
+  final FocusNode _password1FocusNode = FocusNode();
 
   bool _foodProducer = false;
   bool _agree = false;
@@ -158,6 +160,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             SmoothTextFormField(
               type: TextFieldTypes.PASSWORD,
               controller: _password1Controller,
+              focusNode: _password1FocusNode,
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_password_hint,
               prefixIcon: const Icon(Icons.vpn_key),
@@ -348,7 +351,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       userId: _userController.trimmedText,
       password: _password1Controller.text,
     );
-    final Status? status = await LoadingDialog.run<Status>(
+    final SignUpStatus? status = await LoadingDialog.run<SignUpStatus>(
       context: context,
       future: OpenFoodAPIClient.register(
         user: user,
@@ -366,14 +369,22 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     if (status.error != null) {
       await LoadingDialog.error(context: context, title: status.error);
 
-      if (status.status == 400) {
-        if (status.error?.contains('username already exists') == true) {
-          _userFocusNode.requestFocus();
-        } else if (status.error?.contains('e-mail address is already used') ==
-            true) {
+      // Highlight the field with the error
+      if (status.statusErrors?.isNotEmpty == true) {
+        if (status.statusErrors!
+            .contains(SignUpStatusError.EMAIL_ALREADY_USED)) {
           _emailFocusNode.requestFocus();
+        } else if (status.statusErrors!
+            .contains(SignUpStatusError.INVALID_PASSWORD)) {
+          _password1FocusNode.requestFocus();
+        } else if (status.statusErrors!
+                .contains(SignUpStatusError.INVALID_USERNAME) ||
+            status.statusErrors!
+                .contains(SignUpStatusError.USERNAME_ALREADY_USED)) {
+          _userFocusNode.requestFocus();
         }
       }
+
       return;
     }
     AnalyticsHelper.trackRegister();
