@@ -539,7 +539,7 @@ class _SummaryCardState extends State<SummaryCard> {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 attributeIcon,
                 Expanded(child: Text(attributeDisplayTitle)),
