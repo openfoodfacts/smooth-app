@@ -202,14 +202,18 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             // careful with CheckboxListTile and hyperlinks
             // cf. https://github.com/flutter/flutter/issues/31437
             ListTile(
-              leading: Checkbox(
-                value: _agree,
-                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
-                onChanged: (final bool? value) {
-                  if (value != null) {
-                    setState(() => _agree = value);
-                  }
-                },
+              onTap: () {
+                setState(() => _agree = !_agree);
+              },
+              contentPadding: EdgeInsets.zero,
+              leading: IgnorePointer(
+                ignoring: true,
+                child: Checkbox(
+                  value: _agree,
+                  fillColor:
+                      MaterialStateProperty.resolveWith(getCheckBoxColor),
+                  onChanged: (_) {},
+                ),
               ),
               title: RichText(
                 text: TextSpan(
@@ -248,14 +252,18 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             ),
             const SizedBox(height: space),
             ListTile(
-              leading: Checkbox(
-                value: _foodProducer,
-                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
-                onChanged: (final bool? value) {
-                  if (value != null) {
-                    setState(() => _foodProducer = value);
-                  }
-                },
+              onTap: () {
+                setState(() => _foodProducer = !_foodProducer);
+              },
+              contentPadding: EdgeInsets.zero,
+              leading: IgnorePointer(
+                ignoring: true,
+                child: Checkbox(
+                  value: _foodProducer,
+                  fillColor:
+                      MaterialStateProperty.resolveWith(getCheckBoxColor),
+                  onChanged: (_) {},
+                ),
               ),
               title: Text(
                 appLocalizations.sign_up_page_producer_checkbox,
@@ -282,14 +290,18 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             ],
             const SizedBox(height: space),
             ListTile(
-              leading: Checkbox(
-                value: _subscribe,
-                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
-                onChanged: (final bool? value) {
-                  if (value != null) {
-                    setState(() => _subscribe = value);
-                  }
-                },
+              onTap: () {
+                setState(() => _subscribe = !_subscribe);
+              },
+              contentPadding: EdgeInsets.zero,
+              leading: IgnorePointer(
+                ignoring: true,
+                child: Checkbox(
+                  value: _subscribe,
+                  fillColor:
+                      MaterialStateProperty.resolveWith(getCheckBoxColor),
+                  onChanged: (_) {},
+                ),
               ),
               title: Text(
                 appLocalizations.sign_up_page_subscribe_checkbox,
