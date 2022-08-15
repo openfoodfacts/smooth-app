@@ -30,7 +30,7 @@ dependencies:
   latlong2: ^0.8.1
   matomo_tracker: ^1.3.0
   modal_bottom_sheet: ^2.1.0
-  openfoodfacts: ^1.22.0
+  openfoodfacts: ^1.24.0
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
   package_info_plus: ^1.4.2
