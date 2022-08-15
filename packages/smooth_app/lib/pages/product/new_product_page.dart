@@ -82,7 +82,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
     return WillPopScope(
       onWillPop: () async {
-        _updateLocalDatabaseWithProductHistory(context, true);
+        await _updateLocalDatabaseWithProductHistory(context, true);
         return true;
       },
       child: SmoothScaffold(
@@ -180,12 +180,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     return result;
   }
 
-  void _updateLocalDatabaseWithProductHistory(
+  Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
     final bool notify,
-  ) {
+  ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    DaoProductList(localDatabase).push(
+    await DaoProductList(localDatabase).push(
       ProductList.history(),
       _product.barcode!,
     );
@@ -198,8 +198,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final List<String> productListNames =
-        daoProductList.getUserLists(withBarcode: _product.barcode);
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(
@@ -235,12 +233,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             ),
           ),
           _buildActionBar(appLocalizations),
-          if (productListNames.isNotEmpty)
-            _buildListWidget(
-              appLocalizations,
-              productListNames,
-              daoProductList,
-            ),
+          _buildListIfRelevantWidget(
+            appLocalizations,
+            daoProductList,
+          ),
           _buildKnowledgePanelCards(),
           if (context.read<UserPreferences>().getFlag(
                   UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
@@ -355,6 +351,27 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
       ),
     );
   }
+
+  Widget _buildListIfRelevantWidget(
+    final AppLocalizations appLocalizations,
+    final DaoProductList daoProductList,
+  ) =>
+      FutureBuilder<List<String>>(
+        future: daoProductList.getUserLists(withBarcode: _product.barcode),
+        builder: (
+          final BuildContext context,
+          final AsyncSnapshot<List<String>> snapshot,
+        ) {
+          if (snapshot.data != null && snapshot.data!.isNotEmpty) {
+            return _buildListWidget(
+              appLocalizations,
+              snapshot.data!,
+              daoProductList,
+            );
+          }
+          return EMPTY_WIDGET;
+        },
+      );
 
   Widget _buildListWidget(
     final AppLocalizations appLocalizations,

@@ -14,21 +14,47 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page that lists all user product lists.
-class AllUserProductList extends StatefulWidget {
+class AllUserProductList extends StatelessWidget {
   const AllUserProductList();
 
   @override
-  State<AllUserProductList> createState() => _AllUserProductListState();
+  Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    return FutureBuilder<List<String>>(
+      future: daoProductList.getUserLists(),
+      builder: (
+        final BuildContext context,
+        final AsyncSnapshot<List<String>> snapshot,
+      ) {
+        if (snapshot.data != null) {
+          return _AllUserProductListLoaded(snapshot.data!);
+        }
+        return const Center(child: CircularProgressIndicator());
+      },
+    );
+  }
 }
 
-class _AllUserProductListState extends State<AllUserProductList> {
+/// Page that lists all user product lists, with already loaded data.
+class _AllUserProductListLoaded extends StatefulWidget {
+  const _AllUserProductListLoaded(this.userLists);
+
+  final List<String> userLists;
+
+  @override
+  State<_AllUserProductListLoaded> createState() =>
+      _AllUserProductListLoadedState();
+}
+
+class _AllUserProductListLoadedState extends State<_AllUserProductListLoaded> {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
-    final List<String> userLists = daoProductList.getUserLists();
+    final List<String> userLists = widget.userLists;
     return SmoothScaffold(
       appBar: AppBar(title: Text(appLocalizations.user_list_all_title)),
       body: userLists.isEmpty
@@ -57,10 +83,22 @@ class _AllUserProductListState extends State<AllUserProductList> {
               itemBuilder: (final BuildContext context, final int index) {
                 final String userList = userLists[index];
                 final ProductList productList = ProductList.user(userList);
-                final int length = daoProductList.getLength(productList);
                 return UserPreferencesListTile(
                   title: Text(userList),
-                  subtitle: Text(appLocalizations.user_list_length(length)),
+                  subtitle: FutureBuilder<int>(
+                    future: daoProductList.getLength(productList),
+                    builder: (
+                      final BuildContext context,
+                      final AsyncSnapshot<int> snapshot,
+                    ) {
+                      if (snapshot.data != null) {
+                        return Text(
+                          appLocalizations.user_list_length(snapshot.data!),
+                        );
+                      }
+                      return EMPTY_WIDGET;
+                    },
+                  ),
                   trailing: Icon(ConstantIcons.instance.getForwardIcon()),
                   onTap: () async {
                     await daoProductList.get(productList);
@@ -76,29 +114,18 @@ class _AllUserProductListState extends State<AllUserProductList> {
                     );
                     setState(() {});
                   },
-                  onLongPress: () async {
-                    final ProductList productList = ProductList.user(userList);
-                    final bool deleted =
-                        await ProductListUserDialogHelper(daoProductList)
-                            .showDeleteUserListDialog(context, productList);
-                    if (!deleted) {
-                      return;
-                    }
-                    setState(() {});
-                  },
+                  onLongPress: () async =>
+                      ProductListUserDialogHelper(daoProductList)
+                          .showDeleteUserListDialog(
+                    context,
+                    ProductList.user(userList),
+                  ),
                 );
               },
             ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async {
-          final ProductList? newProductList =
-              await ProductListUserDialogHelper(daoProductList)
-                  .showCreateUserListDialog(context);
-          if (newProductList == null) {
-            return;
-          }
-          setState(() {});
-        },
+        onPressed: () async => ProductListUserDialogHelper(daoProductList)
+            .showCreateUserListDialog(context),
         label: Row(
           children: <Widget>[
             const Icon(Icons.add),

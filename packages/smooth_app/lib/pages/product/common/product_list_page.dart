@@ -101,7 +101,7 @@ class _ProductListPageState extends State<ProductListPage>
                               body: Text(appLocalizations.confirm_clear),
                               positiveAction: SmoothActionButton(
                                 onPressed: () async {
-                                  daoProductList.clear(productList);
+                                  await daoProductList.clear(productList);
                                   await daoProductList.get(productList);
                                   setState(() {});
                                   if (!mounted) {
@@ -291,7 +291,7 @@ class _ProductListPageState extends State<ProductListPage>
         onDismissed: (final DismissDirection direction) async {
           final bool removed = productList.remove(barcode);
           if (removed) {
-            DaoProductList(localDatabase).put(productList);
+            await DaoProductList(localDatabase).put(productList);
             _selectedBarcodes.remove(barcode);
             setState(() => barcodes.removeAt(index));
           }
