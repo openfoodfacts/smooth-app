@@ -629,6 +629,7 @@ class _SummaryCardState extends State<SummaryCard> {
                       questions: questions,
                       updateProductUponAnswers: _updateProductUponAnswers,
                     ),
+                    fullscreenDialog: true,
                   ),
                 );
               },

@@ -39,6 +39,7 @@ class _AddNutritionButtonState extends State<AddNutritionButton> {
                 widget.product,
                 cache.orderedNutrients,
               ),
+              fullscreenDialog: true,
             ),
           );
         },

@@ -249,6 +249,7 @@ class _EditProductPageState extends State<EditProductPage> {
                             _product,
                             cache.orderedNutrients,
                           ),
+                          fullscreenDialog: true,
                         ),
                       );
                     },
@@ -303,6 +304,7 @@ class _EditProductPageState extends State<EditProductPage> {
               helper: helper,
               product: _product,
             ),
+            fullscreenDialog: true,
           ),
         );
       },

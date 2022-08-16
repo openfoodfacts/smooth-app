@@ -26,6 +26,7 @@ class AddCategoryButton extends StatelessWidget {
                 helper: SimpleInputPageCategoryHelper(),
                 product: product,
               ),
+              fullscreenDialog: true,
             ),
           );
         },
