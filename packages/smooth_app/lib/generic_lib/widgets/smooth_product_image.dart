@@ -33,19 +33,26 @@ class SmoothProductImage extends StatelessWidget {
       : Image.network(
           url,
           fit: BoxFit.contain,
-          loadingBuilder:
-              (BuildContext _, Widget child, ImageChunkEvent? progress) =>
-                  progress == null
-                      ? child
-                      : Center(
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2.5,
-                            valueColor: const AlwaysStoppedAnimation<Color>(
-                              Colors.white,
-                            ),
-                            value: progress.cumulativeBytesLoaded /
-                                progress.expectedTotalBytes!,
-                          ),
-                        ),
+          loadingBuilder: _loadingBuilder,
         );
+
+  Widget _loadingBuilder(
+      BuildContext _, Widget child, ImageChunkEvent? progress) {
+    if (progress == null) {
+      return child;
+    }
+
+    final double progressValue =
+        progress.cumulativeBytesLoaded / progress.expectedTotalBytes!;
+
+    return Center(
+      child: CircularProgressIndicator(
+        strokeWidth: 2.5,
+        valueColor: const AlwaysStoppedAnimation<Color>(
+          Colors.white,
+        ),
+        value: progressValue,
+      ),
+    );
+  }
 }

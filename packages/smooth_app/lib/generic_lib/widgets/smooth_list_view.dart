@@ -6,7 +6,6 @@ class SmoothListView extends ListView {
   ///
   /// [loading] controls the display of the [loadingWidget] at the end of
   /// the list.
-  ///
   SmoothListView.builder({
     required IndexedWidgetBuilder itemBuilder,
     required int itemCount,

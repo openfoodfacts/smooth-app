@@ -33,11 +33,9 @@ class SmoothImageList extends StatelessWidget {
             imageList[index].key.title,
             style: themeData.textTheme.headline4,
           ),
-          onTap: () {
-            if (onTap != null) {
-              onTap!(imageList[index].key, imageList[index].value);
-            }
-          },
+          onTap: onTap == null
+              ? null
+              : () => onTap!(imageList[index].key, imageList[index].value),
         ),
       ),
     );

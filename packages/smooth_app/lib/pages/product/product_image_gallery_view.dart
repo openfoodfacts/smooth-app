@@ -20,8 +20,8 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 ///
 class ProductImageGalleryView extends StatefulWidget {
   const ProductImageGalleryView({
-    this.barcode,
     required this.imagesData,
+    this.barcode,
   });
 
   final String? barcode;
@@ -185,6 +185,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   /// Created a [ProductImageData] from a [ProductImage]
   ProductImageData _getProductImageData(ProductImage image) => ProductImageData(
         imageField: image.field,
+        // TODO: i18n
         title: 'Image #${image.imgid}',
         buttonText: 'Image #${image.imgid}',
         imageUrl: ImageHelper.buildUrl(widget.barcode, image),

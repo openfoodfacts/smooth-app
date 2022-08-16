@@ -71,15 +71,12 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         ),
       );
 
-  FloatingActionButton _buildEditButton() {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-    return FloatingActionButton.extended(
-      label: Text(localizations.edit_photo_button_label),
-      icon: const Icon(Icons.edit),
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      onPressed: _editImage,
-    );
-  }
+  FloatingActionButton _buildEditButton() => FloatingActionButton.extended(
+        label: Text(AppLocalizations.of(context).edit_photo_button_label),
+        icon: const Icon(Icons.edit),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onPressed: _editImage,
+      );
 
   Future<File> _downloadImageFile(String url) async {
     final http.Response response = await http.get(Uri.parse(url));

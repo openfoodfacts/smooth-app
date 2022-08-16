@@ -15,6 +15,8 @@ class SmoothListTileCard extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  /// Displays a [ListTile] inside a [SmoothCard] with a leading [Column]
+  /// containing the specified [imageProvider]
   SmoothListTileCard.image({
     required ImageProvider? imageProvider,
     Widget? title,
@@ -33,6 +35,27 @@ class SmoothListTileCard extends StatelessWidget {
           ),
         );
 
+  /// Displays a [ListTile] inside a [SmoothCard] with a leading [Column]
+  /// containing the specified [icon]
+  SmoothListTileCard.icon({
+    Widget? icon,
+    Widget? title,
+    Widget? subtitle,
+    GestureTapCallback? onTap,
+    Key? key,
+  }) : this(
+          title: title,
+          subtitle: subtitle,
+          key: key,
+          onTap: onTap,
+          // we use a Column to have the icon centered vertically
+          leading: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[icon ?? const Icon(Icons.edit)],
+          ),
+        );
+
+  /// Displays a loading card with a shimmering effect
   SmoothListTileCard.loading()
       : this(
           title: Shimmer.fromColors(
@@ -54,24 +77,6 @@ class SmoothListTileCard extends StatelessWidget {
               height: 50,
               color: GREY_COLOR,
             ),
-          ),
-        );
-
-  SmoothListTileCard.icon({
-    Widget? icon,
-    Widget? title,
-    Widget? subtitle,
-    GestureTapCallback? onTap,
-    Key? key,
-  }) : this(
-          title: title,
-          subtitle: subtitle,
-          key: key,
-          onTap: onTap,
-          // we use a Column to have the icon centered vertically
-          leading: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[icon ?? const Icon(Icons.edit)],
           ),
         );
 

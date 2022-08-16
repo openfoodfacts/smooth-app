@@ -132,7 +132,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       ),
                       height: _barcodeHeight,
                     ),
-                  _ListTileItem(
+                  _ListTitleItem(
                     title:
                         appLocalizations.edit_product_form_item_details_title,
                     subtitle: appLocalizations
@@ -149,8 +149,8 @@ class _EditProductPageState extends State<EditProductPage> {
                       );
                     },
                   ),
-                  _ListTileItem(
-                    icon: const Icon(Icons.add_a_photo_rounded),
+                  _ListTitleItem(
+                    leading: const Icon(Icons.add_a_photo_rounded),
                     title: appLocalizations.edit_product_form_item_photos_title,
                     subtitle:
                         appLocalizations.edit_product_form_item_photos_subtitle,
@@ -198,8 +198,8 @@ class _EditProductPageState extends State<EditProductPage> {
                       SimpleInputPageCategoryHelper(),
                     ],
                   ),
-                  _ListTileItem(
-                    icon:
+                  _ListTitleItem(
+                    leading:
                         const _SvgIcon('assets/cacheTintable/ingredients.svg'),
                     title: appLocalizations
                         .edit_product_form_item_ingredients_title,
@@ -219,8 +219,8 @@ class _EditProductPageState extends State<EditProductPage> {
                     },
                   ),
                   _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
-                  _ListTileItem(
-                    icon: const _SvgIcon(
+                  _ListTitleItem(
+                    leading: const _SvgIcon(
                         'assets/cacheTintable/scale-balance.svg'),
                     title: appLocalizations
                         .edit_product_form_item_nutrition_facts_title,
@@ -251,8 +251,8 @@ class _EditProductPageState extends State<EditProductPage> {
                     },
                   ),
                   _getSimpleListTileItem(SimpleInputPageLabelHelper()),
-                  _ListTileItem(
-                    icon: const Icon(Icons.recycling),
+                  _ListTitleItem(
+                    leading: const Icon(Icons.recycling),
                     title:
                         appLocalizations.edit_product_form_item_packaging_title,
                     onTap: () async {
@@ -288,8 +288,8 @@ class _EditProductPageState extends State<EditProductPage> {
     final String title = helper.getTitle(appLocalizations);
     final String? subtitle = helper.getSubtitle(appLocalizations);
 
-    return _ListTileItem(
-      icon: helper.getIcon(),
+    return _ListTitleItem(
+      leading: helper.getIcon(),
       title: title,
       subtitle: subtitle,
       onTap: () async {
@@ -336,8 +336,8 @@ class _EditProductPageState extends State<EditProductPage> {
     for (final AbstractSimpleInputPageHelper element in helpers) {
       titles.add(element.getTitle(appLocalizations));
     }
-    return _ListTileItem(
-      icon: const Icon(Icons.interests),
+    return _ListTitleItem(
+      leading: const Icon(Icons.interests),
       title: titles.join(', '),
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
@@ -374,9 +374,9 @@ class _EditProductPageState extends State<EditProductPage> {
   }
 }
 
-class _ListTileItem extends SmoothListTileCard {
-  _ListTileItem({
-    Widget? icon,
+class _ListTitleItem extends SmoothListTileCard {
+  _ListTitleItem({
+    Widget? leading,
     String? title,
     String? subtitle,
     void Function()? onTap,
@@ -390,7 +390,7 @@ class _ListTileItem extends SmoothListTileCard {
                 ),
           onTap: onTap,
           key: key,
-          icon: icon,
+          icon: leading,
           subtitle: subtitle == null ? null : Text(subtitle),
         );
 }
