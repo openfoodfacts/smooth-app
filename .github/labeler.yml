@@ -113,3 +113,7 @@ generic lib:
 
 photo cropping:
 - packages/smooth_app/lib/pages/image_crop_page.dart
+
+user lists:
+- packages/smooth_app/lib/pages/product_list_user_dialog_helper.dart
+- packages/smooth_app/lib/pages/product/common/product_list_page.dart
