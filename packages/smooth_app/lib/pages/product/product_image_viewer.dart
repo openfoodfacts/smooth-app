@@ -43,7 +43,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   Widget build(BuildContext context) => SmoothScaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black,
           foregroundColor: WHITE_COLOR,
           elevation: 0,
           title: Text(imageData.title),
