@@ -25,7 +25,8 @@ class SmoothListTileCard extends StatelessWidget {
           title: title,
           onTap: onTap,
           leading: SmoothProductImageContainer(
-            width: 100,
+            width: VERY_LARGE_SPACE * 5,
+            height: MEDIUM_SPACE * 5,
             child: imageProvider != null
                 ? Image(
                     image: imageProvider,
@@ -62,7 +63,7 @@ class SmoothListTileCard extends StatelessWidget {
             baseColor: GREY_COLOR,
             highlightColor: WHITE_COLOR,
             child: Container(
-                width: 200,
+                width: VERY_LARGE_SPACE * 8,
                 height: 10,
                 decoration: const BoxDecoration(
                   color: GREY_COLOR,
@@ -73,8 +74,8 @@ class SmoothListTileCard extends StatelessWidget {
             baseColor: GREY_COLOR,
             highlightColor: WHITE_COLOR,
             child: const SmoothProductImageContainer(
-              width: 100,
-              height: 50,
+              width: VERY_LARGE_SPACE * 5,
+              height: MEDIUM_SPACE * 5,
               color: GREY_COLOR,
             ),
           ),
