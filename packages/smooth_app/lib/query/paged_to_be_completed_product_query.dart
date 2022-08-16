@@ -17,13 +17,14 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
         country: country,
         fields: ProductQuery.fields,
         parametersList: <Parameter>[
-          StatesTagsParameter(
-            map: <State, bool>{
-              State.COMPLETED: false,
-            },
-          ),
           PageSize(size: pageSize),
           PageNumber(page: pageNumber),
+          StatesTagsParameter(
+            map: <State, bool>{
+              State.CATEGORIES_COMPLETED: false,
+            },
+          ),
+          const SortBy(option: SortOption.EDIT),
         ],
       );
 
