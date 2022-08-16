@@ -8,8 +8,8 @@ import 'package:photo_view/photo_view.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductImageViewer extends StatefulWidget {
@@ -49,8 +49,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         foregroundColor: WHITE_COLOR,
         elevation: 0,
         title: Text(imageData.title),
-        leading: IconButton(
-          icon: Icon(ConstantIcons.instance.getBackIcon()),
+        leading: SmoothBackButton(
           onPressed: () => Navigator.maybePop(context, _isEdited),
         ),
       ),

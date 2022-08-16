@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_image_list.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// ProductImageGalleryView is a page that displays a list of product images.
@@ -86,8 +86,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(appLocalizations.edit_product_form_item_photos_title),
-        leading: IconButton(
-          icon: Icon(ConstantIcons.instance.getBackIcon()),
+        leading: SmoothBackButton(
           onPressed: () => Navigator.maybePop(context, _isRefreshed),
         ),
       ),
