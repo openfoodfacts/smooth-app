@@ -22,6 +22,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.autofocus,
+    this.focusNode,
   });
 
   final TextFieldTypes type;
@@ -37,6 +38,7 @@ class SmoothTextFormField extends StatefulWidget {
   final void Function(String?)? onChanged;
   final ValueChanged<String>? onFieldSubmitted;
   final bool? autofocus;
+  final FocusNode? focusNode;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -68,6 +70,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       obscureText: _obscureText,
       enableSuggestions: enableSuggestions,
       autocorrect: autocorrect,
+      focusNode: widget.focusNode,
       autofillHints: widget.autofillHints,
       autofocus: widget.autofocus ?? false,
       autovalidateMode: AutovalidateMode.onUserInteraction,
