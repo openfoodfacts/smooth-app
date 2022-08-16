@@ -59,6 +59,7 @@ mlkit:
 
 product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart
+- packages/smooth_app/lib/pages/product/new_product_page.dart
 
 product page:
 - packages/smooth_app/lib/pages/product/**/*
