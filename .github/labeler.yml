@@ -36,6 +36,9 @@ history:
 settings:
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 
+food preferences:
+- packages/smooth_app/lib/widgets/attribute_button.dart
+
 onboarding:
 - packages/smooth_app/lib/pages/onboarding/**/*
 - packages/smooth_app/assets/onboarding/**/*
