@@ -3,7 +3,7 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_view.dart';
 
-/// Represents a list of [ProductImageData]
+/// Displays a list of [ProductImageData]
 class SmoothImageList extends StatelessWidget {
   const SmoothImageList({
     required this.imagesData,
