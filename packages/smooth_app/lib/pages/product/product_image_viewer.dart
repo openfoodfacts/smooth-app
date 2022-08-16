@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+/// Displays a full-screen image with an edit floating button
 class ProductImageViewer extends StatefulWidget {
   const ProductImageViewer({
     required this.barcode,
@@ -39,38 +40,44 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-
-    return SmoothScaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        foregroundColor: WHITE_COLOR,
-        elevation: 0,
-        title: Text(imageData.title),
-        leading: SmoothBackButton(
-          onPressed: () => Navigator.maybePop(context, _isEdited),
+  Widget build(BuildContext context) => SmoothScaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          foregroundColor: WHITE_COLOR,
+          elevation: 0,
+          title: Text(imageData.title),
+          leading: SmoothBackButton(
+            onPressed: () => Navigator.maybePop(context, _isEdited),
+          ),
         ),
-      ),
-      backgroundColor: Colors.black,
-      floatingActionButton: _buildEditFloatingActionButton(localizations),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          ConstrainedBox(
-            constraints: BoxConstraints.tight(
-              Size(double.infinity, MediaQuery.of(context).size.height / 2),
-            ),
-            child: PhotoView(
-              imageProvider: imageProvider,
-              backgroundDecoration: const BoxDecoration(
-                color: Colors.black,
+        backgroundColor: Colors.black,
+        floatingActionButton: _buildEditButton(),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ConstrainedBox(
+              constraints: BoxConstraints.tight(
+                Size(double.infinity, MediaQuery.of(context).size.height / 2),
+              ),
+              child: PhotoView(
+                imageProvider: imageProvider,
+                backgroundDecoration: const BoxDecoration(
+                  color: Colors.black,
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      );
+
+  FloatingActionButton _buildEditButton() {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+    return FloatingActionButton.extended(
+      label: Text(localizations.edit_photo_button_label),
+      icon: const Icon(Icons.edit),
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      onPressed: _editImage,
     );
   }
 
@@ -82,50 +89,40 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     return imageFile;
   }
 
-  FloatingActionButton _buildEditFloatingActionButton(
-    AppLocalizations appLocalizations,
-  ) {
-    final String labelText = appLocalizations.edit_photo_button_label;
-    return FloatingActionButton.extended(
-      label: Text(labelText),
-      icon: const Icon(Icons.edit),
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      onPressed: () async {
-        final File? imageFile = await LoadingDialog.run<File>(
-          context: context,
-          future: _downloadImageFile(imageData.imageUrl!),
-        );
-
-        if (imageFile == null) {
-          return;
-        }
-
-        if (!mounted) {
-          return;
-        }
-
-        // ignore: use_build_context_synchronously
-        final File? photoUploaded = await Navigator.push<File?>(
-          context,
-          MaterialPageRoute<File?>(
-            builder: (BuildContext context) => ConfirmAndUploadPicture(
-              barcode: widget.barcode,
-              imageType: imageData.imageField,
-              initialPhoto: imageFile,
-            ),
-          ),
-        );
-        if (photoUploaded != null) {
-          _isEdited = true;
-          if (!mounted) {
-            return;
-          }
-
-          setState(() {
-            imageProvider = FileImage(photoUploaded);
-          });
-        }
-      },
+  Future<void> _editImage() async {
+    final File? imageFile = await LoadingDialog.run<File>(
+      context: context,
+      future: _downloadImageFile(imageData.imageUrl!),
     );
+
+    if (imageFile == null) {
+      return;
+    }
+
+    if (!mounted) {
+      return;
+    }
+
+    // ignore: use_build_context_synchronously
+    final File? photoUploaded = await Navigator.push<File?>(
+      context,
+      MaterialPageRoute<File?>(
+        builder: (BuildContext context) => ConfirmAndUploadPicture(
+          barcode: widget.barcode,
+          imageType: imageData.imageField,
+          initialPhoto: imageFile,
+        ),
+      ),
+    );
+    if (photoUploaded != null) {
+      _isEdited = true;
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        imageProvider = FileImage(photoUploaded);
+      });
+    }
   }
 }
