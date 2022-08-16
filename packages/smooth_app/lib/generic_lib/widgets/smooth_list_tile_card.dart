@@ -16,11 +16,12 @@ class SmoothListTileCard extends StatelessWidget {
   }) : super(key: key);
 
   SmoothListTileCard.image({
-    Widget? title,
     required ImageProvider? imageProvider,
+    Widget? title,
     GestureTapCallback? onTap,
   }) : this(
           title: title,
+          onTap: onTap,
           leading: SmoothProductImageContainer(
             width: 100,
             child: imageProvider != null
@@ -30,7 +31,6 @@ class SmoothListTileCard extends StatelessWidget {
                   )
                 : const PictureNotFound(),
           ),
-          onTap: onTap,
         );
 
   SmoothListTileCard.loading()
@@ -66,13 +66,13 @@ class SmoothListTileCard extends StatelessWidget {
   }) : this(
           title: title,
           subtitle: subtitle,
+          key: key,
+          onTap: onTap,
           // we use a Column to have the icon centered vertically
           leading: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[icon ?? const Icon(Icons.edit)],
           ),
-          key: key,
-          onTap: onTap,
         );
 
   final Widget? title;
