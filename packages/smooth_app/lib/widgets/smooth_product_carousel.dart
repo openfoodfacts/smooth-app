@@ -225,6 +225,7 @@ class SearchCard extends StatelessWidget {
             ),
             SearchField(
               onFocus: () => _openSearchPage(context),
+              readOnly: true,
               showClearButton: false,
               backgroundColor: isDarkmode
                   ? Colors.white10

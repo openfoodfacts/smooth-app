@@ -18,7 +18,7 @@
     "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ignoruoti",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Ieškoti",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Sveiki atvykę į Open Food Facts",
@@ -198,12 +198,12 @@
     "sign_up_page_display_name_error_empty": "Įveskite rodomą pavadinimą, kurį norite naudoti",
     "sign_up_page_email_hint": "El. paštas",
     "sign_up_page_email_error_empty": "El. pašto adresas yra privalomas",
-    "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_email_error_invalid": "Neteisingas el. pašto adresas",
+    "sign_up_page_username_hint": "Vartotojo vardas: matomas viešai",
     "sign_up_page_username_error_empty": "Įveskite vartotojo vardą",
     "sign_up_page_username_error_invalid": "Įveskite galiojantį vartotojo vardą",
     "sign_up_page_username_description": "Vartotojo varde negali būti tarpų, didžiųjų raidžių ar specialiųjų simbolių",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Vartotojo vardas negali būti ilgesnis nei {value} simbolių",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -217,11 +217,11 @@
     "sign_up_page_confirm_password_hint": "Patvirtinkite slaptažodį",
     "sign_up_page_confirm_password_error_empty": "Pakartokite slaptažodį",
     "sign_up_page_confirm_password_error_invalid": "Slaptažodžiai nesutampa",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Sutinku su Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "naudojimo ir įnašo sąlygomis",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -273,7 +273,7 @@
     },
     "support_join_slack": "Paprašykite pagalbos mūsų „Slack“ kanale",
     "support_via_email": "Atsiųskite mums el. laišką",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_title": "Siųsti programėlės išrašus?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Naudojimo sąlygos",
     "@termsOfUse": {},
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nDevice: ${device}\nBrand:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLocalized model: ${localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1414,7 +1414,7 @@
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "terms of use and contribution",
+    "signup_page_terms_of_use_line2": "naudojimo ir įnašo sąlygomis",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
@@ -1564,8 +1564,30 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
+    "world_results_label": "Results from the entire world",
+    "@world_results_label": {
+        "description": "Label describing the current source of the results: the entire world"
+    },
+    "world_results_action": "Search world",
+    "@world_results_action": {
+        "description": "Label for the action button that displays the results from the entire world"
+    },
+    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
+    "@clipboard_barcode_copied": {
+        "description": "Snackbar label after clipboard copy",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
     "choose_app_language": "Choose App Language",
     "@choose_app_language": {
         "description": "Choose Application Language"
+    },
+    "help_with_openfoodfacts": "Help with OpenFoodFacts",
+    "@help_with_openfoodfacts": {
+        "description": "Label for the email title"
     }
 }

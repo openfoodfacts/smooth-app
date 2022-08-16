@@ -25,17 +25,22 @@ abstract class ProductListSupplier {
   /// Returns a helper supplier in order to refresh the data
   ProductListSupplier? getRefreshSupplier();
 
-  /// Clears the database and restarts from top page.
-  Future<void> clear() async {
+  /// Clears the database from page 2.
+  ///
+  /// Use-case: we have data on several pages, and the user wants to launch
+  /// the search again. That means
+  /// * all cached results are deprecated
+  /// * we start again a search from top page
+  /// * we should clear ALL pages
+  /// * but we clear only from page 2 and if the search didn't crash (server ko)
+  /// * in order to play it safe - when it crashes we still have data
+  Future<void> clearBeyondTopPage() async {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     productQuery.toTopPage();
-    while (await daoProductList.delete(productQuery.getProductList())) {
+    do {
       productQuery.toNextPage();
-    }
-
+    } while (await daoProductList.delete(productQuery.getProductList()));
     productQuery.toTopPage();
-
-    partialProductList.clear();
   }
 
   /// Returns the fastest data supplier: database if possible, or server query

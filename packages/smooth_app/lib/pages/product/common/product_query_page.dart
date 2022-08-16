@@ -1,28 +1,29 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:iso_countries/iso_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
-import 'package:smooth_app/views/bottom_sheet_views/group_query_filter_view.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -30,12 +31,10 @@ class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
     required this.productListSupplier,
     required this.name,
-    this.lastUpdate,
   });
 
   final ProductListSupplier productListSupplier;
   final String name;
-  final int? lastUpdate;
 
   @override
   State<ProductQueryPage> createState() => _ProductQueryPageState();
@@ -43,17 +42,11 @@ class ProductQueryPage extends StatefulWidget {
 
 class _ProductQueryPageState extends State<ProductQueryPage>
     with TraceableClientMixin {
-  // we have to use GlobalKey's for SnackBar's because of nested Scaffold's:
-  // not the 2 Scaffold's here but one of them and the one on top (PageManager)
-  final GlobalKey<ScaffoldMessengerState> _scaffoldKeyEmpty =
-      GlobalKey<ScaffoldMessengerState>();
-  final GlobalKey<ScaffoldMessengerState> _scaffoldKeyNotEmpty =
-      GlobalKey<ScaffoldMessengerState>();
   bool _showBackToTopButton = false;
   late ScrollController _scrollController;
 
   late ProductQueryModel _model;
-  int? _lastUpdate;
+  late final OpenFoodFactsCountry? _country;
 
   @override
   String get traceTitle => 'search_page';
@@ -64,8 +57,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   @override
   void initState() {
     super.initState();
-    _lastUpdate = widget.lastUpdate;
     _model = _getModel(widget.productListSupplier);
+    _country = widget.productListSupplier.productQuery.country;
     _scrollController = ScrollController()
       ..addListener(() {
         setState(() {
@@ -94,39 +87,46 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         final Size screenSize = MediaQuery.of(context).size;
         final ThemeData themeData = Theme.of(context);
         switch (_model.loadingStatus) {
-          case LoadingStatus.LOADING:
-            return _getEmptyScreen(
-              screenSize,
-              themeData,
-              const CircularProgressIndicator(),
-            );
-          case LoadingStatus.LOADED:
-            if (_model.isNotEmpty()) {
-              _showRefreshSnackBar(_scaffoldKeyNotEmpty);
-              AnalyticsHelper.trackSearch(
-                search: widget.name,
-                searchCategory: _model.currentCategory,
-                searchCount: _model.displayBarcodes?.length,
-              );
-              return _getNotEmptyScreen(
-                screenSize,
-                themeData,
-                appLocalizations,
-              );
-            }
-            _showRefreshSnackBar(_scaffoldKeyEmpty);
-            return _getEmptyScreen(
-              screenSize,
-              themeData,
-              _getEmptyText(
-                themeData,
-                appLocalizations.no_product_found,
-              ),
-            );
           case LoadingStatus.ERROR:
             return _getErrorWidget(
                 screenSize, themeData, '${_model.loadingError}');
+          case LoadingStatus.LOADING:
+            if (!_model.isNotEmpty()) {
+              return _getEmptyScreen(
+                screenSize,
+                themeData,
+                const CircularProgressIndicator(),
+              );
+            }
+            break;
+          case LoadingStatus.LOADED:
+            if (!_model.isNotEmpty()) {
+              // TODO(monsieurtanuki): should be tracked as well, shouldn't it?
+              return _getEmptyScreen(
+                screenSize,
+                themeData,
+                _getEmptyText(
+                  themeData,
+                  appLocalizations.no_product_found,
+                ),
+                actions: _getAppBarButtons(),
+              );
+            }
+            // TODO(monsieurtanuki): add country, language?
+            AnalyticsHelper.trackSearch(
+              search: widget.name,
+              searchCount: _model.displayBarcodes.length,
+            );
+            break;
         }
+        // Now used in two cases.
+        // 1. we have data downloaded and we display it (normal mode)
+        // 2. we are downloading extra data, and display what we already knew
+        return _getNotEmptyScreen(
+          screenSize,
+          themeData,
+          appLocalizations,
+        );
       },
     );
   }
@@ -134,180 +134,111 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   Widget _getEmptyScreen(
     final Size screenSize,
     final ThemeData themeData,
-    final Widget emptiness,
-  ) =>
-      ScaffoldMessenger(
-        key: _scaffoldKeyEmpty,
-        child: SmoothScaffold(
-          appBar: AppBar(
-            backgroundColor: themeData.scaffoldBackgroundColor,
-            leading: const _BackButton(),
-            title: _getAppBarTitle(),
-          ),
-          body: Center(child: emptiness),
+    final Widget emptiness, {
+    final List<Widget>? actions,
+  }) =>
+      SmoothScaffold(
+        appBar: AppBar(
+          backgroundColor: themeData.scaffoldBackgroundColor,
+          leading: const _BackButton(),
+          title: _getAppBarTitle(),
+          actions: actions,
         ),
+        body: Center(child: emptiness),
       );
 
   Widget _getAppBarTitle() => AutoSizeText(widget.name, maxLines: 2);
 
+  // TODO(monsieurtanuki): put that in a specific Widget class
   Widget _getNotEmptyScreen(
     final Size screenSize,
     final ThemeData themeData,
     final AppLocalizations appLocalizations,
   ) =>
-      ScaffoldMessenger(
-        key: _scaffoldKeyNotEmpty,
-        child: SmoothScaffold(
-          floatingActionButton: Row(
-            mainAxisAlignment: _showBackToTopButton
-                ? MainAxisAlignment.spaceBetween
-                : MainAxisAlignment.center,
-            children: <Widget>[
-              RankingFloatingActionButton(
-                onPressed: () => Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => PersonalizedRankingPage(
-                      barcodes: _model.displayBarcodes!,
-                      title: widget.name,
-                    ),
+      SmoothScaffold(
+        floatingActionButton: Row(
+          mainAxisAlignment: _showBackToTopButton
+              ? MainAxisAlignment.spaceBetween
+              : MainAxisAlignment.center,
+          children: <Widget>[
+            RankingFloatingActionButton(
+              onPressed: () => Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => PersonalizedRankingPage(
+                    barcodes: _model.displayBarcodes,
+                    title: widget.name,
                   ),
                 ),
               ),
-              Visibility(
-                visible: _showBackToTopButton,
-                child: AnimatedOpacity(
-                  duration: SmoothAnimationsDuration.short,
-                  opacity: _showBackToTopButton ? 1.0 : 0.0,
-                  child: SmoothRevealAnimation(
-                    animationCurve: Curves.easeInOutBack,
-                    startOffset: const Offset(0.0, 1.0),
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        start: SMALL_SPACE,
-                      ),
-                      child: FloatingActionButton(
-                        backgroundColor: themeData.colorScheme.secondary,
-                        onPressed: () {
-                          _scrollToTop();
-                        },
-                        tooltip: appLocalizations.go_back_to_top,
-                        child: Icon(
-                          Icons.arrow_upward,
-                          color: themeData.colorScheme.onSecondary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          appBar: AppBar(
-            backgroundColor: themeData.scaffoldBackgroundColor,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            leading: const _BackButton(),
-            actions: <Widget>[
-              TextButton.icon(
-                icon: const Icon(Icons.filter_list),
-                label: Text(
-                  appLocalizations.filter,
-                  style: themeData.textTheme.subtitle1,
-                ),
-                onPressed: () {
-                  _model.setTranslationForAll(appLocalizations.category_all);
-                  showCupertinoModalBottomSheet<Widget>(
-                    expand: false,
-                    context: context,
-                    backgroundColor: Colors.transparent,
-                    bounce: true,
-                    builder: (BuildContext context) => GroupQueryFilterView(
-                      categories: _model.categories,
-                      categoriesList: _model.sortedCategories,
-                      callback: (String category) {
-                        _model.selectCategory(category);
-                        setState(() {});
-                      },
-                    ),
-                  );
-                },
-              )
-            ],
-            title: _getAppBarTitle(),
-          ),
-          body: RefreshIndicator(
-            onRefresh: () => refreshList(),
-            child: ListView.builder(
-              controller: _scrollController,
-              itemBuilder: (BuildContext context, int index) {
-                if (index >= _model.displayBarcodes!.length) {
-                  // final button
-                  final int already = _model.displayBarcodes!.length;
-                  final int totalSize =
-                      _model.supplier.partialProductList.totalSize;
-                  final int next = max(
-                    0,
-                    min(
-                      _model.supplier.productQuery.pageSize,
-                      totalSize - already,
-                    ),
-                  );
-                  final Widget child;
-                  if (next == 0) {
-                    child = Text(
-                      appLocalizations.product_search_no_more_results(
-                        totalSize,
-                      ),
-                    );
-                  } else {
-                    child = SmoothLargeButtonWithIcon(
-                      text:
-                          appLocalizations.product_search_button_download_more(
-                        next,
-                        already,
-                        totalSize,
-                      ),
-                      icon: Icons.download_rounded,
-                      onPressed: () async {
-                        final bool? success = await LoadingDialog.run<bool>(
-                          context: context,
-                          future: _model.loadNextPage(),
-                        );
-                        if (success == null) {
-                          return;
-                        } else if (success == false) {
-                          await LoadingDialog.error(
-                            context: context,
-                            title: _model.loadingError,
-                          );
-                        } else {
-                          setState(() {});
-                        }
-                      },
-                    );
-                  }
-                  return Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      bottom: 90.0,
-                      start: VERY_LARGE_SPACE,
-                      end: VERY_LARGE_SPACE,
-                    ),
-                    child: child,
-                  );
-                }
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: MEDIUM_SPACE,
-                    vertical: SMALL_SPACE,
-                  ),
-                  child: ProductListItemSimple(
-                    barcode: _model.displayBarcodes![index],
-                  ),
-                );
-              },
-              itemCount: _model.displayBarcodes!.length + 1,
             ),
+            Visibility(
+              visible: _showBackToTopButton,
+              child: AnimatedOpacity(
+                duration: SmoothAnimationsDuration.short,
+                opacity: _showBackToTopButton ? 1.0 : 0.0,
+                child: SmoothRevealAnimation(
+                  animationCurve: Curves.easeInOutBack,
+                  startOffset: const Offset(0.0, 1.0),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: SMALL_SPACE,
+                    ),
+                    child: FloatingActionButton(
+                      backgroundColor: themeData.colorScheme.secondary,
+                      onPressed: () {
+                        _scrollToTop();
+                      },
+                      tooltip: appLocalizations.go_back_to_top,
+                      child: Icon(
+                        Icons.arrow_upward,
+                        color: themeData.colorScheme.onSecondary,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        appBar: AppBar(
+          backgroundColor: themeData.scaffoldBackgroundColor,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          leading: const _BackButton(),
+          title: _getAppBarTitle(),
+          actions: _getAppBarButtons(),
+        ),
+        body: RefreshIndicator(
+          onRefresh: () => refreshList(),
+          child: ListView.builder(
+            controller: _scrollController,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 0) {
+                // on top, a message
+                return _getTopMessagesCard();
+              }
+              index--;
+              // TODO(monsieurtanuki): maybe call it earlier, like for first unknown page index - 5?
+              if (index >= _model.displayBarcodes.length) {
+                _downloadNextPage();
+              }
+              if (index >= _model.displayBarcodes.length) {
+                // TODO(monsieurtanuki): maybe display something specific for data being downloaded (the next page) and unknown data (beyond next page)
+                return const SmoothProductCardTemplate();
+              }
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: MEDIUM_SPACE,
+                  vertical: SMALL_SPACE,
+                ),
+                child: ProductListItemSimple(
+                  barcode: _model.displayBarcodes[index],
+                ),
+              );
+            },
+            // 1 additional widget, on top of ALL expected products
+            itemCount: _model.supplier.partialProductList.totalSize + 1,
           ),
         ),
       );
@@ -330,73 +261,160 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
+  Future<String?> _getTranslatedCountry() async {
+    if (_country == null) {
+      return null;
+    }
+    final String locale = Localizations.localeOf(context).languageCode;
+    final List<Country> localizedCountries =
+        await IsoCountries.iso_countries_for_locale(locale);
+    for (final Country country in localizedCountries) {
+      if (country.countryCode.toLowerCase() ==
+          _country!.iso2Code.toLowerCase()) {
+        return country.name;
+      }
+    }
+    return null;
+  }
+
   Widget _getEmptyText(
     final ThemeData themeData,
     final String message,
-  ) =>
-      Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Flexible(
-            child: Text(
-              message,
-              textAlign: TextAlign.center,
-              style: themeData.textTheme.subtitle1!.copyWith(fontSize: 18.0),
-            ),
-          ),
-        ],
-      );
-
-  void _showRefreshSnackBar(
-    final GlobalKey<ScaffoldMessengerState> scaffoldKey,
   ) {
-    if (_lastUpdate == null) {
-      return;
-    }
-    final ProductListSupplier? refreshSupplier =
-        _model.supplier.getRefreshSupplier();
-    if (refreshSupplier == null) {
-      return;
-    }
-    final String lastTime =
-        ProductQueryPageHelper.getDurationStringFromTimestamp(
-            _lastUpdate!, context);
-    final String message =
-        '${AppLocalizations.of(context).cached_results_from} $lastTime';
-    _lastUpdate = null;
-
-    Future<void>.delayed(
-      Duration.zero,
-      () => scaffoldKey.currentState?.showSnackBar(
-        SnackBar(
-          content: Text(message),
-          duration: const Duration(seconds: 5),
-          action: SnackBarAction(
-            label: AppLocalizations.of(context).label_refresh,
-            onPressed: () async {
-              final bool? error = await LoadingDialog.run<bool>(
-                context: context,
-                future: _model.loadFromTop(),
-              );
-              if (error != true) {
-                await LoadingDialog.error(context: context);
-              }
-            },
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
+    final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        _getTopMessagesCard(),
+        Padding(
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+                child: Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style:
+                      themeData.textTheme.subtitle1!.copyWith(fontSize: 18.0),
+                ),
+              ),
+              if (worldQuery != null)
+                _getLargeButtonWithIcon(
+                  _getWorldAction(appLocalizations, worldQuery),
+                ),
+            ],
           ),
         ),
-      ),
+        EMPTY_WIDGET,
+      ],
     );
   }
+
+  List<Widget> _getAppBarButtons() {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
+    final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
+    return <Widget>[
+      if (worldQuery != null)
+        _getIconButton(_getWorldAction(appLocalizations, worldQuery)),
+      _getIconButton(_getRefreshAction(appLocalizations)),
+    ];
+  }
+
+  Widget _getTopMessagesCard() {
+    final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
+    return FutureBuilder<String?>(
+      future: _getTranslatedCountry(),
+      builder: (
+        final BuildContext context,
+        final AsyncSnapshot<String?> snapshot,
+      ) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        final List<String> messages = <String>[];
+        String counting = appLocalizations.user_list_length(
+          _model.supplier.partialProductList.totalSize,
+        );
+        if (pagedProductQuery.hasDifferentCountryWorldData()) {
+          if (pagedProductQuery.world) {
+            counting += ' (${appLocalizations.world_results_label})';
+          } else {
+            if (snapshot.data != null) {
+              counting += ' (${snapshot.data})';
+            }
+          }
+        }
+        messages.add(counting);
+        final int? lastUpdate = _model.supplier.timestamp;
+        if (lastUpdate != null) {
+          final String lastTime =
+              ProductQueryPageHelper.getDurationStringFromTimestamp(
+                  lastUpdate, context);
+          messages.add('${appLocalizations.cached_results_from} $lastTime');
+        }
+        return SizedBox(
+          width: double.infinity,
+          child: SmoothCard(
+            child: Padding(
+              padding: const EdgeInsets.all(SMALL_SPACE),
+              child: Text(messages.join('\n')),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _getLargeButtonWithIcon(final _Action action) =>
+      SmoothLargeButtonWithIcon(
+        text: action.text,
+        icon: action.iconData,
+        onPressed: action.onPressed,
+      );
+
+  Widget _getIconButton(final _Action action) => IconButton(
+        tooltip: action.text,
+        icon: Icon(action.iconData),
+        onPressed: action.onPressed,
+      );
+
+  _Action _getWorldAction(
+    final AppLocalizations appLocalizations,
+    final PagedProductQuery worldQuery,
+  ) =>
+      _Action(
+        text: appLocalizations.world_results_action,
+        iconData: Icons.public,
+        onPressed: () async => ProductQueryPageHelper().openBestChoice(
+          productQuery: worldQuery,
+          localDatabase: context.read<LocalDatabase>(),
+          name: widget.name,
+          context: context,
+        ),
+      );
+
+  _Action _getRefreshAction(
+    final AppLocalizations appLocalizations,
+  ) =>
+      _Action(
+        text: appLocalizations.label_refresh,
+        iconData: Icons.refresh,
+        onPressed: () async {
+          final bool? success =
+              await _loadAndRefreshDisplay(_model.loadFromTop());
+          if (success == true) {
+            _scrollToTop();
+          }
+        },
+      );
 
   void retryConnection() =>
       setState(() => _model = _getModel(widget.productListSupplier));
 
   ProductQueryModel _getModel(final ProductListSupplier supplier) =>
-      ProductQueryModel(
-        supplier,
-        DaoProduct(context.read<LocalDatabase>()),
-      );
+      ProductQueryModel(supplier);
 
   Future<void> refreshList() async {
     final ProductListSupplier? refreshSupplier =
@@ -414,8 +432,45 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       curve: Curves.linear,
     );
   }
+
+  Future<bool?> _loadAndRefreshDisplay(final Future<bool> loader) async {
+    final bool? success = await LoadingDialog.run<bool>(
+      context: context,
+      future: loader,
+    );
+    if (success == false) {
+      await LoadingDialog.error(
+        context: context,
+        title: _model.loadingError,
+      );
+    } else if (success == true) {
+      setState(() {});
+    }
+    return success;
+  }
+
+  /// Flags if the next page is currently being downloaded.
+  bool _loadingNext = false;
+
+  /// Downloads the next page, asynchronously.
+  Future<void> _downloadNextPage() async {
+    if (_loadingNext) {
+      return;
+    }
+    _loadingNext = true;
+    try {
+      final bool result = await _model.loadNextPage();
+      if (result) {
+        setState(() {});
+      }
+    } catch (e) {
+      //
+    }
+    _loadingNext = false;
+  }
 }
 
+// TODO(monsieurtanki): put it in a specific Widget class
 class _BackButton extends StatelessWidget {
   const _BackButton();
 
@@ -427,4 +482,17 @@ class _BackButton extends StatelessWidget {
           Navigator.maybePop(context);
         },
       );
+}
+
+// TODO(monsieurtanki): put it in a specific reusable class
+class _Action {
+  _Action({
+    required this.iconData,
+    required this.text,
+    required this.onPressed,
+  });
+
+  final IconData iconData;
+  final String text;
+  final VoidCallback onPressed;
 }

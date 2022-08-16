@@ -1,18 +1,21 @@
 import 'dart:io';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class PreloadDataHelper {
-  PreloadDataHelper(this.localDatabase);
-  LocalDatabase localDatabase;
+  PreloadDataHelper(this.daoProduct);
 
-  Future<String> preloadData() async {
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final List<ProductField> fields = ProductQuery.fields;
-    fields.remove(ProductField.KNOWLEDGE_PANELS);
+  final DaoProduct daoProduct;
+
+  /// Download the top 1000 products (Without Knowledge Panels) for the user's country and language
+  ///
+  /// We aren't downloading knowledge panels so as to store more number of products into our local database
+  /// Also We don't update the products in local database for which we already have knowledge panels.
+  Future<int> downloadTopProducts() async {
     try {
+      final List<ProductField> fields = ProductQuery.fields;
+      fields.remove(ProductField.KNOWLEDGE_PANELS);
       final ProductSearchQueryConfiguration queryConfig =
           ProductSearchQueryConfiguration(
         fields: fields,
@@ -28,16 +31,30 @@ class PreloadDataHelper {
         ProductQuery.getUser(),
         queryConfig,
       );
-      if (searchResult.products!.isEmpty) {
-        return 'No products found';
+      if (searchResult.products?.isEmpty ?? true) {
+        return 0;
       } else {
-        await daoProduct.putAll(searchResult.products!);
-        return '${searchResult.products!.length} products added to the database for instant scan';
+        int totalProductsSaved = 0;
+        for (final Product product in searchResult.products!) {
+          if (await _isToBeUpdated(product)) {
+            await daoProduct.put(product);
+            totalProductsSaved++;
+          }
+        }
+        return totalProductsSaved;
       }
     } on SocketException {
-      return 'No internet connection';
+      return 0;
     } catch (e) {
-      return 'Error: $e';
+      return 0;
     }
+  }
+
+  Future<bool> _isToBeUpdated(Product product) async {
+    final Product? localProduct = await daoProduct.get(product.barcode!);
+    if (localProduct == null) {
+      return true;
+    }
+    return localProduct.knowledgePanels == null;
   }
 }

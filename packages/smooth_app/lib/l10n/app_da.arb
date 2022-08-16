@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Leder efter",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Velkommen til Open Food Facts",
@@ -275,7 +275,7 @@
     "support_via_email": "Send os en e-mail",
     "support_via_email_include_logs_dialog_title": "Indsend app-logfiler?",
     "support_via_email_include_logs_dialog_body": "Medtag app-logfiler i vedhæftning til e-mailen?",
-    "termsOfUse": "Afbenyttelsesvilkår",
+    "termsOfUse": "Brugsvilkår",
     "@termsOfUse": {},
     "about_this_app": "Om denne app",
     "@about_this_app": {
@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Oversættelser er en af projektets nøgleopgaver",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Del Open Food Facts med vennerne",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Vil gerne lige fortælle om den app, jeg har brugt, Open Food Facts, der giver mulighed for at få mads sundheds- og miljøpåvirkninger på en personlig måde. Den fungerer ved at skanne emballagestregkoder. Den er desuden gratis, kræver ingen registrering, og man kan endda hjælpe med at øge antallet af dechifrerede produkter. Her er linket til at få den på mobilen: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -432,7 +432,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Liste alle emballagebestanddele (adskilt med komma eller ny linje) med deres mængde (f.eks. 1 eller 6), type (f.eks. flaske, æske, dåse), materiale (f.eks. plast, metal, aluminium), og hvis tilgængelig, størrelse (f.eks. 33 cl) samt genbrugsinstruktioner.\nEks.: 1 glasflaske til genbrug, 1 plastikprop til kassation",
     "packaging_editing_error": "Kunne ikke gemme emballagen.",
     "packaging_editing_image_error": "Kunne ikke hente nyt emballagefoto.",
     "packaging_editing_title": "Redigér emballage",
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt}/Udgivelse: ${release})\nModel: ${model}\nProdukt: ${product}\nEnhed: ${device}\nMærke:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt}/Udgivelse: {release})\nModel: {model}\nProdukt: {product}\nEnhed: {device}\nMærke:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: ${model}\nLokaliseret model: ${localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLokaliseret model: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -945,7 +945,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "Når aktiveret, indsendes visse anonyme oplysninger om app-brug til Open Food Facts-serverne, så vi kan forstå, hvordan og i hvilket omfang funktioner bruges mhp. at forbedre disse.",
+    "send_anonymous_data_toggle_subtitle": "Når aktiveret, indsendes visse anonyme oplysninger om app-brug til OFF-serverne, så vi kan forstå, hvordan og i hvilket omfang funktioner bruges mhp.at forbedre disse.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1031,11 +1031,11 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Tilføj evt. oprindelsesangivelser fundet på emballagen. Man behøver ikke bekymre sig om oprindelse angivet direkte på ingredienslisten.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Eks.: Oksekød fra Argentina, Sojaen kommer ikke fra EU",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1071,15 +1071,15 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Angiv kun den mest specifikke kategori. Overordnede kategorier tilføjes automatisk.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Er en kategori ikke tilgængelig i autofuldførelse, er man velkommen til at tilføje den alligevel, det vil forbedre Open Food Facts i det pågældende land.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Eks.: Sardiner i olivenolie, Appelsinjuice fra koncentrat",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1334,15 +1334,15 @@
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_scan_camera_only": "Only camera stream, no scanning",
+    "dev_mode_scan_camera_only": "Kamera aktivt, ingen skanning",
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "Camera stream and full image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_full_image": "Kamera aktivt med fuld billedforbehandling, ingen skanning",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_half_image": "Kamera aktivt med halv billedforbehandling, ingen skanning",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
@@ -1564,8 +1564,30 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
+    "world_results_label": "Resultater fra hele verden",
+    "@world_results_label": {
+        "description": "Label describing the current source of the results: the entire world"
+    },
+    "world_results_action": "Søg i verden",
+    "@world_results_action": {
+        "description": "Label for the action button that displays the results from the entire world"
+    },
+    "clipboard_barcode_copied": "Stregkoden {barcode} kopieret til udklipsholderen!",
+    "@clipboard_barcode_copied": {
+        "description": "Snackbar label after clipboard copy",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
     "choose_app_language": "Vælg app-sprog",
     "@choose_app_language": {
         "description": "Choose Application Language"
+    },
+    "help_with_openfoodfacts": "Hjælp med OpenFoodFacts",
+    "@help_with_openfoodfacts": {
+        "description": "Label for the email title"
     }
 }

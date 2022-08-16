@@ -34,7 +34,7 @@
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
-    "error": "Quelque chose ne va pas",
+    "error": "Une erreur s'est produite",
     "@error": {},
     "error_occurred": "Une erreur s’est produite",
     "@error_occurred": {},
@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "À la recherche de",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenue sur Open Food Facts",
@@ -267,7 +267,7 @@
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
     "contributors": "Contributeurs",
-    "support": "Support",
+    "support": "Assistance",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
@@ -296,7 +296,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Mode de développement ? ",
     "contribute_develop_dev_mode_subtitle": "Activer le mode de développement",
-    "contribute_donate_header": "Donner à Open Food Facts",
+    "contribute_donate_header": "Faire un don à l'association Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Produits à compléter",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -363,7 +363,7 @@
     "ranking_subtitle_match_yes": "Une bonne correspondance pour vous",
     "ranking_subtitle_match_no": "Très mauvaise correspondance",
     "ranking_subtitle_match_maybe": "Correspondance inconnue",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Actualisez la liste avec vos nouvelles préférences",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -531,7 +531,7 @@
     "score_add_missing_nutrition_facts": "Ajouter les informations nutritionnelles manquantes",
     "score_add_missing_product_category": "Ajouter une catégorie de produit manquante",
     "score_update_nutrition_facts": "Mettre à jour les informations nutritionnelles",
-    "nutrition_page_title": "Informations Nutritionnelles",
+    "nutrition_page_title": "Informations nutritionnelles",
     "nutrition_page_unspecified": "Les valeurs nutritionnelles ne sont pas spécifiées sur le produit",
     "nutrition_page_per_100g": "pour 100g",
     "nutrition_page_per_serving": "par portion",
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "Système d'exploitation : Android (SDK Int : {sdkInt} / Version : ${release})\nModèle : ${model}\nProduit : ${product}\nAppareil : ${device}\nMarque : {brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "Système d'exploitation : iOS ({version})\nModèle : ${model}\nModèle localisé : ${localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -983,7 +983,7 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
-    "edit_product_form_item_barcode": "Code-barre",
+    "edit_product_form_item_barcode": "Code-barres",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
@@ -1564,8 +1564,30 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
+    "world_results_label": "Monde entier",
+    "@world_results_label": {
+        "description": "Label describing the current source of the results: the entire world. Keep it short"
+    },
+    "world_results_action": "Étendez votre recherche au monde entier",
+    "@world_results_action": {
+        "description": "Label for the action button that displays the results from the entire world"
+    },
+    "clipboard_barcode_copied": "Le code-barres {barcode} a été copié dans le presse-papiers !",
+    "@clipboard_barcode_copied": {
+        "description": "Snackbar label after clipboard copy",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
     "choose_app_language": "Choisir la langue de l'application",
     "@choose_app_language": {
         "description": "Choose Application Language"
+    },
+    "help_with_openfoodfacts": "Aide sur OpenFoodFacts",
+    "@help_with_openfoodfacts": {
+        "description": "Label for the email title"
     }
 }

@@ -106,4 +106,7 @@ abstract class AbstractUserPreferences {
 
   /// Color for the header.
   Color? getHeaderColor() => null;
+
+  /// Additional subtitle, to be displayed outside a [UserPreferencesListTile].
+  Widget? getAdditionalSubtitle() => null;
 }

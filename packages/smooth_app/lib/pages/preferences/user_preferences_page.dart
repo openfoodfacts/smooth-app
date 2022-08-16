@@ -5,7 +5,6 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_account.dart';
@@ -17,7 +16,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -55,8 +53,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final ThemeData theme = Theme.of(context);
-    final Size size = MediaQuery.of(context).size;
 
     final String appBarTitle;
     final List<Widget> children = <Widget>[];
@@ -77,38 +73,16 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       ];
 
       for (final PreferencePageType type in items) {
-        children.add(
-          getUserPreferences(
-            type: type,
-            userPreferences: userPreferences,
-          ).getOnlyHeader(),
+        final AbstractUserPreferences abstractUserPreferences =
+            getUserPreferences(
+          type: type,
+          userPreferences: userPreferences,
         );
-        if (type == PreferencePageType.ACCOUNT) {
-          children.add(
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: size.width / 4),
-              child: SmoothSimpleButton(
-                child: Text(
-                  appLocalizations.sign_in,
-                  style: theme.textTheme.bodyText2?.copyWith(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.onPrimary,
-                  ),
-                ),
-                onPressed: () async {
-                  Navigator.of(
-                    context,
-                    rootNavigator: true,
-                  ).push<dynamic>(
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => const LoginPage(),
-                    ),
-                  );
-                },
-              ),
-            ),
-          );
+        children.add(abstractUserPreferences.getOnlyHeader());
+        final Widget? additionalSubtitle =
+            abstractUserPreferences.getAdditionalSubtitle();
+        if (additionalSubtitle != null) {
+          children.add(additionalSubtitle);
         }
       }
       headerAsset = 'assets/preferences/main.svg';
@@ -153,57 +127,29 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
 
     if (headerAsset == null) {
       return SmoothScaffold(
-        appBar: AppBar(title: Text(appBarTitle)),
+        appBar: AppBar(
+          title: Text(appBarTitle),
+        ),
         body: Scrollbar(child: list),
       );
     }
-    final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    // TODO(monsieurtanuki): experimental - find a better value
-    const double titleHeightInExpandedMode = 50;
-    final double backgroundHeight = mediaQueryData.size.height * .20;
-    // TODO(monsieurtanuki): get rid of explicit foregroundColor when appbartheme colors are correct
-    final Color? foregroundColor = dark ? null : Colors.black;
+    final double backgroundHeight = MediaQuery.of(context).size.height * .20;
+    children.insert(
+      0,
+      Container(
+        color: dark ? null : headerColor,
+        padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+        child: SvgPicture.asset(headerAsset, height: backgroundHeight),
+      ),
+    );
     return SmoothScaffold(
       statusBarBackgroundColor: dark ? null : headerColor,
       brightness: Brightness.light,
-      contentBehindStatusBar: true,
-      spaceBehindStatusBar: true,
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            pinned: true,
-            snap: false,
-            floating: false,
-            stretch: true,
-            backgroundColor: dark ? null : headerColor,
-            expandedHeight: backgroundHeight + titleHeightInExpandedMode,
-            foregroundColor: foregroundColor,
-            toolbarHeight: kToolbarHeight - mediaQueryData.viewPadding.top,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                appBarTitle,
-                style: TextStyle(color: foregroundColor),
-              ),
-              background: Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  bottom: titleHeightInExpandedMode,
-                ),
-                child: SvgPicture.asset(
-                  headerAsset,
-                  height: backgroundHeight,
-                ),
-              ),
-            ),
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) => children[index],
-              childCount: children.length,
-            ),
-          ),
-        ],
-      ),
+      contentBehindStatusBar: false,
+      spaceBehindStatusBar: false,
+      appBar: AppBar(title: Text(appBarTitle)),
+      body: ListView(children: children),
     );
   }
 

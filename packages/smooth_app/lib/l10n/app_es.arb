@@ -34,7 +34,7 @@
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
-    "error": "Algo ha fallado",
+    "error": "Algo ha salido mal",
     "@error": {},
     "error_occurred": "Se ha producido un error",
     "@error_occurred": {},
@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Buscando",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenido a Open Food Facts",
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "Sist. operativo: Android (SDK Int: {sdkInt} / Release: ${release})\nModelo: ${model}\nProducto: ${product}\nDispositivo: ${device}\nMarca:{brand}",
+    "contact_form_body_android": "SO: Android (SDK Int: {sdkInt} / Release: {release})\nModelo: {model}\nProducto: {product}\nDispositivo: {device}\nMarca:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "Sist. operativo: iOS ({version})\nModelo: ${model}\nNombre del modelo: ${localizedModel}",
+    "contact_form_body_ios": "SO: iOS ({version})\nModelo: {model}\nModelo localizado: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1564,12 +1564,30 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
+    "world_results_label": "Resultados de todo el mundo",
+    "@world_results_label": {
+        "description": "Label describing the current source of the results: the entire world"
+    },
+    "world_results_action": "Buscar en todo el mundo",
+    "@world_results_action": {
+        "description": "Label for the action button that displays the results from the entire world"
+    },
+    "clipboard_barcode_copied": "¡Código de barras {barcode} copiado al portapapeles!",
+    "@clipboard_barcode_copied": {
+        "description": "Snackbar label after clipboard copy",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
     "choose_app_language": "Elegir idioma de la aplicación",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
     "help_with_openfoodfacts": "Ayuda con OpenFoodFacts",
     "@help_with_openfoodfacts": {
-        "description": "Label for email title"
+        "description": "Label for the email title"
     }
 }

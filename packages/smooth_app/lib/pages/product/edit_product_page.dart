@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -120,8 +121,7 @@ class _EditProductPageState extends State<EditProductPage> {
                     await Navigator.push<Product?>(
                       context,
                       MaterialPageRoute<Product>(
-                        builder: (BuildContext context) =>
-                            AddBasicDetailsPage(_product),
+                        builder: (_) => AddBasicDetailsPage(_product),
                       ),
                     );
                   },
@@ -176,7 +176,6 @@ class _EditProductPageState extends State<EditProductPage> {
                     SimpleInputPageCategoryHelper(),
                   ],
                 ),
-                _getSimpleListTileItem(SimpleInputPageLabelHelper()),
                 _ListTitleItem(
                   leading:
                       const _SvgIcon('assets/cacheTintable/ingredients.svg'),
@@ -197,29 +196,6 @@ class _EditProductPageState extends State<EditProductPage> {
                     );
                   },
                 ),
-                _ListTitleItem(
-                  leading: const Icon(Icons.recycling),
-                  title:
-                      appLocalizations.edit_product_form_item_packaging_title,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-                    await Navigator.push<Product?>(
-                      context,
-                      MaterialPageRoute<Product>(
-                        builder: (BuildContext context) => EditOcrPage(
-                          product: _product,
-                          helper: OcrPackagingHelper(),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                _getSimpleListTileItem(SimpleInputPageStoreHelper()),
-                _getSimpleListTileItem(SimpleInputPageOriginHelper()),
-                _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
-                _getSimpleListTileItem(SimpleInputPageCountryHelper()),
                 _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
                 _ListTitleItem(
                   leading:
@@ -251,6 +227,30 @@ class _EditProductPageState extends State<EditProductPage> {
                     );
                   },
                 ),
+                _getSimpleListTileItem(SimpleInputPageLabelHelper()),
+                _ListTitleItem(
+                  leading: const Icon(Icons.recycling),
+                  title:
+                      appLocalizations.edit_product_form_item_packaging_title,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    await Navigator.push<Product?>(
+                      context,
+                      MaterialPageRoute<Product>(
+                        builder: (BuildContext context) => EditOcrPage(
+                          product: _product,
+                          helper: OcrPackagingHelper(),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+                _getSimpleListTileItem(SimpleInputPageOriginHelper()),
+                _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
+                _getSimpleListTileItem(SimpleInputPageCountryHelper()),
               ],
             ),
           ),
@@ -346,12 +346,16 @@ class _ListTitleItem extends StatelessWidget {
   final Widget? leading;
 
   @override
-  Widget build(BuildContext context) => Card(
+  Widget build(BuildContext context) => SmoothCard(
         child: ListTile(
           onTap: onTap,
           title: Text(title),
           subtitle: subtitle == null ? null : Text(subtitle!),
-          leading: leading ?? const Icon(Icons.edit),
+          // we use a Column to have the icon centered vertically
+          leading: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[leading ?? const Icon(Icons.edit)],
+          ),
           trailing: Icon(ConstantIcons.instance.getForwardIcon()),
         ),
       );

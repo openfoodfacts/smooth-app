@@ -1,13 +1,13 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
-  <img height="100" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.png?refresh_github_cache=1">
+  <source media="(prefers-color-scheme: light)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png?refresh_github_cache=1">
+  <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
 </picture>
 
 # New Open Food Facts mobile app for Android and iPhone - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-Latest commit deployed to App Stores: (July 8th 2022) https://github.com/openfoodfacts/smooth-app/commit/b318a540130a2135db9308c2b4f74ce0eeb8f849
+Latest commit deployed to App Stores: (August 4th 2022) https://github.com/openfoodfacts/smooth-app/releases/tag/v3.6.0
 
 A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
 
@@ -51,6 +51,9 @@ We are always looking for new contributors, if you're willing to help please let
 - [Continuous Integration documentation](.github/workflows/README.md)
 - [Project Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
 - Private app signing for iOS certificates repository - please ask @teolemon
+
+## Custom dependencies (forked versions)
+- [g123k/plugins](https://github.com/g123k/plugins) - We use our own fork of the camera plugin to be able to hotfix problems in it we find.
 
 ## V1 Roadmap (Shipped on June 15th 2022 for Vivatech)
 - [x] We should be able to ship the Smoothie code to the main listing on Android and iOS
@@ -112,6 +115,3 @@ In order to build the application, make sure you are in the packages/smooth_app 
 
 ## Thank you
 The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
-
-## Dependancies
-- https://github.com/g123k/plugins/tree/smooth_camera/packages/camera (Fork of camera by @g123k)

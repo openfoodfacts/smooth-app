@@ -200,29 +200,32 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       ),
 
                       //Sign in button
-                      ElevatedButton(
-                        onPressed: () => _login(context),
-                        style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all<Size>(
-                            Size(size.width * 0.5,
-                                theme.buttonTheme.height + 10),
+                      if (_runningQuery)
+                        const CircularProgressIndicator()
+                      else
+                        ElevatedButton(
+                          onPressed: () => _login(context),
+                          style: ButtonStyle(
+                            minimumSize: MaterialStateProperty.all<Size>(
+                              Size(size.width * 0.5,
+                                  theme.buttonTheme.height + 10),
+                            ),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              const RoundedRectangleBorder(
+                                borderRadius: CIRCULAR_BORDER_RADIUS,
+                              ),
+                            ),
                           ),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            const RoundedRectangleBorder(
-                              borderRadius: CIRCULAR_BORDER_RADIUS,
+                          child: Text(
+                            appLocalizations.sign_in,
+                            style: theme.textTheme.bodyText2?.copyWith(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.onPrimary,
                             ),
                           ),
                         ),
-                        child: Text(
-                          appLocalizations.sign_in,
-                          style: theme.textTheme.bodyText2?.copyWith(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.onPrimary,
-                          ),
-                        ),
-                      ),
 
                       const SizedBox(
                         height: LARGE_SPACE * 2,

@@ -1,11 +1,12 @@
 import 'package:openfoodfacts/model/parameter/SearchTerms.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/paged_search_product_query.dart';
 
 /// Back-end query around user-entered keywords.
 class KeywordsProductQuery extends PagedSearchProductQuery {
-  KeywordsProductQuery(this.keywords);
+  KeywordsProductQuery(this.keywords, {super.world});
 
   final String keywords;
 
@@ -29,4 +30,11 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
       ', $language'
       ', $country'
       ')';
+
+  @override
+  PagedProductQuery? getWorldQuery() =>
+      world ? null : KeywordsProductQuery(keywords, world: true);
+
+  @override
+  bool hasDifferentCountryWorldData() => true;
 }

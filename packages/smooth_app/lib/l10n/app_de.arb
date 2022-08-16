@@ -34,7 +34,7 @@
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
-    "error": "Etwas ist schiefgegangen",
+    "error": "Ein Problem ist aufgetreten ",
     "@error": {},
     "error_occurred": "Ein Fehler ist aufgetreten",
     "@error_occurred": {},
@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Suchen nach",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Willkommen bei Open Food Facts",
@@ -282,7 +282,7 @@
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "Beitragen",
+    "contribute": "Mitwirken",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
@@ -296,7 +296,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Entwicklermodus?",
     "contribute_develop_dev_mode_subtitle": "Entwicklermodus aktivieren",
-    "contribute_donate_header": "Spende an Open Food Facts",
+    "contribute_donate_header": "An Open Food Facts spenden",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Noch abzuschließende Produkte",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: ${release})\nModell: ${model}\nProdukt: ${product}\nGerät: ${device}\nMarke:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModell: ${model}\nLokalisiertes Modell: ${localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModell: {model}\nLokalisiertes Modell: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1564,8 +1564,30 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
+    "world_results_label": "Ergebnisse aus der ganzen Welt",
+    "@world_results_label": {
+        "description": "Label describing the current source of the results: the entire world"
+    },
+    "world_results_action": "Welt durchsuchen",
+    "@world_results_action": {
+        "description": "Label for the action button that displays the results from the entire world"
+    },
+    "clipboard_barcode_copied": "Strichcode „{barcode}“ in die Zwischenablage kopiert!",
+    "@clipboard_barcode_copied": {
+        "description": "Snackbar label after clipboard copy",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
     "choose_app_language": "Sprache wählen",
     "@choose_app_language": {
         "description": "Choose Application Language"
+    },
+    "help_with_openfoodfacts": "Hilfe bei OpenFoodFacts",
+    "@help_with_openfoodfacts": {
+        "description": "Label for the email title"
     }
 }

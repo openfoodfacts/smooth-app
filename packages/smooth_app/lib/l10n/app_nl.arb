@@ -28,7 +28,7 @@
     "@no": {},
     "stop": "Stop",
     "@stop": {},
-    "finish": "Voltooien",
+    "finish": "Beëindigen",
     "@finish": {},
     "reset_food_prefs": "Voedselvoorkeuren resetten",
     "@reset": {
@@ -40,7 +40,7 @@
     "@error_occurred": {},
     "featureInProgress": "We werken nog aan deze functie, wacht af",
     "@featureInProgress": {},
-    "label_web": "Bekijk in een browser",
+    "label_web": "Bekijk op het web",
     "@label_web": {},
     "learnMore": "Meer informatie",
     "@learnMore": {},
@@ -100,7 +100,7 @@
     "@licenses": {},
     "looking_for": "Zoeken naar",
     "@looking_for": {
-        "description": "Looking for: ${BARCODE}"
+        "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welkom bij Open Food Facts",
@@ -113,11 +113,11 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "Zie de voedselgegevens die relevant zijn voor uw voorkeuren.",
+    "productDataUtility": "Bekijk de voedselgegevens die relevant zijn voor uw voorkeuren.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Kies de producten die goed voor je zijn.",
+    "healthCardUtility": "Kies voedingsmiddelen die goed voor je zijn.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
@@ -132,7 +132,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Voer gebruikersnaam of e-mailadres in",
+    "login_page_username_or_email": "Voer je gebruikersnaam of e-mailadres in",
     "login_page_password_error_empty": "Voer een wachtwoord in alstublieft",
     "create_account": "Account aanmaken",
     "@create_account": {
@@ -172,7 +172,7 @@
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "Een e-mail met een link om je wachtwoord te resetten is verstuurd naar het e-mailadres dat gekoppeld is aan je account. Controleer ook je spammap.",
+    "reset_password_done": "Een e-mail met een link om je wachtwoord te resetten is verstuurd naar het e-mailadres dat gekoppeld is aan je account. Controleer ook je spammap",
     "send_reset_password_mail": "Wachtwoord wijzigen",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -197,13 +197,13 @@
     "sign_up_page_display_name_hint": "Naam:",
     "sign_up_page_display_name_error_empty": "Voer de weergavenaam in die u wilt gebruiken",
     "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is verplicht",
+    "sign_up_page_email_error_empty": "E-mail is vereist",
     "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
     "sign_up_page_username_hint": "Gebruikersnaam: Openbaar zichtbaar",
-    "sign_up_page_username_error_empty": "Voer aub. een gebruikersnaam in.",
-    "sign_up_page_username_error_invalid": "Vul a.u.b. een geldige gebruikersnaam in",
-    "sign_up_page_username_description": "Gebruikersnaam mag geen spaties, hoofdletters of speciale tekens bevatten",
-    "sign_up_page_username_length_invalid": "Gebruikersnaam mag niet langer zijn dan {value} tekens",
+    "sign_up_page_username_error_empty": "Voer aub. een gebruikersnaam in",
+    "sign_up_page_username_error_invalid": "Vul a. u. b. een geldige gebruikersnaam in",
+    "sign_up_page_username_description": "De gebruikersnaam mag geen spaties, hoofdletters of speciale tekens bevatten",
+    "sign_up_page_username_length_invalid": "De gebruikersnaam mag niet langer zijn dan {value} tekens",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -214,8 +214,8 @@
     "sign_up_page_password_hint": "Wachtwoord",
     "sign_up_page_password_error_empty": "Voer een wachtwoord in alstublieft",
     "sign_up_page_password_error_invalid": "Voer een geldig wachtwoord in (minimaal 6 tekens)",
-    "sign_up_page_confirm_password_hint": "Bevestig wachtwoord",
-    "sign_up_page_confirm_password_error_empty": "Bevestig a.u.b. het nieuwe wachtwoord",
+    "sign_up_page_confirm_password_hint": "Wachtwoord bevestigen",
+    "sign_up_page_confirm_password_error_empty": "Bevestig uw wachtwoord",
     "sign_up_page_confirm_password_error_invalid": "De wachtwoorden komen niet overeen",
     "sign_up_page_agree_text": "Ik ga akkoord met de Open Food Facts",
     "@sign_up_page_agree_text": {
@@ -274,7 +274,7 @@
     "support_join_slack": "Vraag om hulp in ons Slack-kanaal",
     "support_via_email": "Stuur ons een e-mail",
     "support_via_email_include_logs_dialog_title": "App-logboeken verzenden?",
-    "support_via_email_include_logs_dialog_body": "Wilt u toepassingslogboeken als bijlage bij uw e-mail voegen?",
+    "support_via_email_include_logs_dialog_body": "Wilt u toepassingslogboeken toevoegen aan uw e-mailadres?",
     "termsOfUse": "Gebruiksvoorwaarden",
     "@termsOfUse": {},
     "about_this_app": "Over deze app",
@@ -344,13 +344,13 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Uw profiel",
-    "myPreferences_profile_subtitle": "Beheer uw Open Food Facts-bijdragersaccount.",
+    "myPreferences_profile_title": "Jouw profiel",
+    "myPreferences_profile_subtitle": "Beheer je Open Food Facts-bijdragersaccount.",
     "myPreferences_settings_title": "App-instellingen",
     "myPreferences_settings_subtitle": "Donkere modus, Analytics, ...",
     "myPreferences_food_title": "Voedselvoorkeuren",
     "myPreferences_food_subtitle": "Kies welke informatie over voedsel voor u het belangrijkst is.",
-    "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als je er een hebt.",
+    "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als u er een heeft.",
     "confirmResetPreferences": "Voedselvoorkeuren resetten?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -363,7 +363,7 @@
     "ranking_subtitle_match_yes": "Een geweldige overeenkomst voor u",
     "ranking_subtitle_match_no": "Zeer slechte overeenkomst",
     "ranking_subtitle_match_maybe": "Onbekende overeenkomst",
-    "refresh_with_new_preferences": "Ververs de lijst met je nieuwe voorkeuren",
+    "refresh_with_new_preferences": "Vernieuw de lijst met uw nieuwe voorkeuren",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -413,7 +413,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Onbekende productnaam",
     "@unknownProductName": {},
-    "label_refresh": "Vernieuw",
+    "label_refresh": "Herladen",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -426,9 +426,9 @@
     "@ingredients": {},
     "ingredients_editing_instructions": "Bewaar de originele volgorde. Vermeld het percentage indien gespecificeerd. Scheid met een komma of koppelteken, gebruik haakjes voor ingrediënten van een ingrediënt en geef allergenen aan tussen onderstrepingstekens.",
     "ingredients_editing_error": "Kan de ingrediënten niet opslaan.",
-    "ingredients_editing_image_error": "Kan geen afbeelding voor nieuwe ingrediënten ophalen.",
+    "ingredients_editing_image_error": "Kan geen afbeelding voor de nieuwe ingrediënten ophalen.",
     "ingredients_editing_title": "Ingrediënten bewerken",
-    "ingredients_photo": "Ingrediënten foto",
+    "ingredients_photo": "Foto van de ingrediëntenlijst",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
@@ -450,7 +450,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Je hebt een nieuw product gevonden!",
     "@missing_product": {},
-    "add_product_take_photos": "Neem foto's van de verpakking om dit product toe te voegen aan onze database.",
+    "add_product_take_photos": "Neem foto's van de verpakking om dit product toe te voegen aan onze database",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Maak alsjeblieft wat foto's en de Open Food Facts-engine kan de rest doen!",
     "@add_product_take_photos_descriptive": {},
@@ -468,11 +468,11 @@
     "front_packaging_photo_title": "Foto van voorkant verpakking",
     "ingredients_photo_title": "Foto van de ingrediëntenlijst",
     "nutritional_facts_photo_title": "Foto van voedingswaarden",
-    "recycling_photo_title": "Foto recycleren",
-    "other_interesting_photo_title": "Andere interessante foto",
+    "recycling_photo_title": "Recycling afbeelding",
+    "other_interesting_photo_title": "Andere interessante foto's",
     "front_photo_uploaded": "Foto voorkant geüpload",
     "@front_photo_uploaded": {},
-    "ingredients_photo_button_label": "Ingrediënten foto",
+    "ingredients_photo_button_label": "Foto van de ingrediëntenlijst",
     "@ingredients_photo_button_label": {},
     "ingredients_photo_uploaded": "Foto van ingrediënten geüpload",
     "@ingredients_photo_uploaded": {},
@@ -495,7 +495,7 @@
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecteer foto",
+    "selecting_photo": "Foto selecteren",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
@@ -503,7 +503,7 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading foto van de voorkant naar Open Food Facts",
+    "uploading_image_type_front": "Voorste afbeelding uploaden naar Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
@@ -595,7 +595,7 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Kies een land a.u.b",
+    "country_chooser_label": "Kies een land a. u. b",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
@@ -700,11 +700,11 @@
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "Als u van gedachten verandert, kan deze optie op elk moment in de instellingen worden in- en uitgeschakeld.",
+    "consent_analytics_body2": "Als u van gedachten verandert, kan deze optie op elk moment in de instellingen worden aan- en uitgeschakeld.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "Besturingssysteem: Android (SDK Int: {sdkInt} / Release: ${release})\nModel: ${model}\nProduct: ${product}\nApparaat: ${device}\nMerk:{brand}",
+    "contact_form_body_android": "Besturingssysteem: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nApparaat: {device}\nMerk:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "Besturingssysteem: iOS ({version})\nModel: ${model}\nGelokaliseerd model: ${localizedModel}",
+    "contact_form_body_ios": "Besturingssysteem: iOS ({version})\nModel: {model}\nGelokaliseerd model: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -752,7 +752,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp versie:{appVersion}\nApp build nummer:{appBuildNumber}\nApp package naam:{appPackageName}",
+    "contact_form_body": "{osContent}\nApp-versie:{appVersion}\nApp-buildnummer:{appBuildNumber}\nApp-pakketnaam:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -778,7 +778,7 @@
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics"
     },
-    "refuse_button_label": "Weiger",
+    "refuse_button_label": "Weigeren",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
@@ -807,7 +807,7 @@
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
-    "product_list_your_ranking": "Uw ranking is",
+    "product_list_your_ranking": "Jouw ranking",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
@@ -815,7 +815,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scannen",
+    "product_list_empty_title": "Begin met scannen!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -837,7 +837,7 @@
             "count": {}
         }
     },
-    "loading_dialog_default_title": "Gegevens worden gedownload...",
+    "loading_dialog_default_title": "Gegevens downloaden",
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
@@ -899,7 +899,7 @@
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
-    "camera_high_resolution_preset_toggle_subtitle": "Indien ingeschakeld, zou de coderingskwaliteit van streepjescodes beter moeten zijn, maar dit kan van invloed zijn op de prestaties en de levensduur van de batterij. Vereist een herstart van de applicatie.",
+    "camera_high_resolution_preset_toggle_subtitle": "Indien ingeschakeld, zou de coderingskwaliteit van streepjescodes beter moeten zijn, maar dit kan van invloed zijn op de prestaties en de levensduur van de batterij. Vereist een heropstart van de applicatie.",
     "@camera_high_resolution_preset_toggle_subtitle": {
         "description": "SubTitle for the Camera high resolution toggle"
     },
@@ -919,13 +919,13 @@
             }
         }
     },
-    "camera_focus_point_algorithm_value_auto_label": "Auto",
+    "camera_focus_point_algorithm_value_auto_label": "Automatisch",
     "camera_focus_point_algorithm_value_auto_description": "Laat het systeem automatisch kiezen tussen snelle en veilige modus.",
     "camera_focus_point_algorithm_value_new_algorithm_label": "Snelle Modus",
     "camera_focus_point_algorithm_value_new_algorithm_description": "Een modus die wordt aanbevolen voor recente apparaten.",
     "camera_focus_point_algorithm_value_old_algorithm_label": "Veilige modus",
     "camera_focus_point_algorithm_value_old_algorithm_description": "Als de snelle modus niet werkt, zou dit je focusproblemen moeten oplossen.",
-    "camera_play_sound_title": "Een geluid afspelen bij scannen",
+    "camera_play_sound_title": "Een geluid afspelen bij het scannen",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
@@ -937,7 +937,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "Indien ingeschakeld, worden crashrapporten automatisch verzonden naar het foutenvolgsysteem van Open Food Facts, zodat bugs kunnen worden verholpen en zo de app kan worden verbeterd.",
+    "crash_reporting_toggle_subtitle": "Indien ingeschakeld, worden crashrapporten automatisch verzonden naar het foutenopvolgsysteem van Open Food Facts, zodat bugs kunnen worden verholpen en zo de app kan worden verbeterd.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1003,7 +1003,7 @@
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "Labels en certificeringen",
+    "edit_product_form_item_labels_title": "Etiketten & certificaten",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
@@ -1071,7 +1071,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Vermeld alleen de meest specifieke categorie. Bovenliggende categorieën worden automatisch toegevoegd.",
+    "edit_product_form_item_categories_explainer_1": "Duid enkel de meest specifieke categorie aan. De \"verwante\" categorieën worden automatisch toegevoegd.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
@@ -1083,7 +1083,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_confirmation": "Wilt u de wijzigingen opslaan voor het verlaten van deze pagina?",
+    "edit_product_form_item_exit_confirmation": "Wilt u uw wijzigingen opslaan voordat u deze pagina verlaat?",
     "edit_product_form_item_ingredients_title": "Ingrediënten & Oorsprong",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1127,7 +1127,7 @@
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
-    "user_list_dialog_rename_title": "Lijst hernoemen",
+    "user_list_dialog_rename_title": "Lijstnaam wijzigen",
     "@user_list_dialog_rename_title": {
         "description": "Title of the 'rename user list' dialog"
     },
@@ -1155,11 +1155,11 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Naam is verplicht!",
+    "user_list_name_error_empty": "Naam is verplicht",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
-    "user_list_name_error_already": "Deze naam is al in gebruik!",
+    "user_list_name_error_already": "Deze naam is al in gebruik",
     "@user_list_name_error_already": {
         "description": "Validation error about the name that is already used for another list"
     },
@@ -1167,11 +1167,11 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "try_again": "Probeer opnieuw",
+    "try_again": "Probeer het opnieuw",
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
-    "there_was_an_error": "Er is een fout opgetreden!",
+    "there_was_an_error": "Er is een fout opgetreden",
     "@there_was_an_error": {
         "description": "Label that presents a error"
     },
@@ -1184,11 +1184,11 @@
             }
         }
     },
-    "camera_enable_flash": "Schakel flitser in",
+    "camera_enable_flash": "Flits inschakelen",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Flitser uitschakelen",
+    "camera_disable_flash": "Flits uitschakelen",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
@@ -1208,7 +1208,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Je moet Flutter dan opnieuw opstarten om het opnieuw te zien.",
+    "dev_preferences_reset_onboarding_subtitle": "Je moet dan Flutter opnieuw opstarten om het weer te zien.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1262,7 +1262,7 @@
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
-    "dev_preferences_export_history_progress_error": "Uitzondering",
+    "dev_preferences_export_history_progress_error": "uitzondering",
     "@dev_preferences_export_history_progress_error": {
         "description": "User dev preferences - Export history - Item - Error"
     },
@@ -1330,7 +1330,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "EcoScore uitsluiten",
+    "dev_mode_hide_ecoscore_title": "Eco-Score uitsluiten",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1402,7 +1402,7 @@
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
     },
-    "edit_product_action_take_picture": "Neem een foto",
+    "edit_product_action_take_picture": "Maak een foto",
     "@edit_product_action_take_picture": {
         "description": "Product edition - FAB actions - take a picture"
     },
@@ -1452,11 +1452,11 @@
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
-    "basic_details": "Basis Details",
-    "product_name": "Productnaam:",
+    "basic_details": "Basisdetails",
+    "product_name": "Productnaam",
     "add_basic_details_product_name_error": "Voer de productnaam in",
     "brand_name": "Merknaam",
-    "add_basic_details_brand_name_error": "Vul a.u.b. de merknaam in",
+    "add_basic_details_brand_name_error": "Vul a. u. b. de merknaam in",
     "quantity": "Hoeveelheid en gewicht",
     "barcode": "Streepjescode",
     "barcode_barcode": "Streepjescode: {barcode}",
@@ -1470,7 +1470,7 @@
     },
     "barcode_invalid_error": "Ongeldige barcode",
     "basic_details_add_success": "Basisgegevens succesvol toegevoegd",
-    "basic_details_add_error": "Kan basisgegevens niet toevoegen. Probeer het later opnieuw",
+    "basic_details_add_error": "Kan de basisgegevens niet toevoegen. Probeer het later opnieuw",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
@@ -1498,14 +1498,14 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, one {} =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, one {} =0{Lege lijst} =1{Een product} other{{count} producten}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
             "count": {}
         }
     },
-    "add_list_label": "Voeg lijst toe",
+    "add_list_label": "Lijst toevoegen",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1517,7 +1517,7 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "choose_image_source_title": "Kies afbeeldingsbron",
+    "choose_image_source_title": "Kies een afbeeldingsbron",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
@@ -1564,8 +1564,30 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "choose_app_language": "Taal kiezen",
+    "world_results_label": "Resultaten van de hele wereld",
+    "@world_results_label": {
+        "description": "Label describing the current source of the results: the entire world"
+    },
+    "world_results_action": "Zoek wereld",
+    "@world_results_action": {
+        "description": "Label for the action button that displays the results from the entire world"
+    },
+    "clipboard_barcode_copied": "Barcode {barcode} gekopieerd naar het klembord!",
+    "@clipboard_barcode_copied": {
+        "description": "Snackbar label after clipboard copy",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
+    "choose_app_language": "Kies de app-taal",
     "@choose_app_language": {
         "description": "Choose Application Language"
+    },
+    "help_with_openfoodfacts": "Help met OpenFoodFacts",
+    "@help_with_openfoodfacts": {
+        "description": "Label for the email title"
     }
 }
