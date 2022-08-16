@@ -762,7 +762,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.23.0"
+    version: "1.24.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:

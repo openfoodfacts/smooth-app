@@ -82,12 +82,20 @@ class SmoothListTileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SmoothCard(
-        child: ListTile(
+        padding: EdgeInsets.zero,
+        child: InkWell(
+          borderRadius: ROUNDED_BORDER_RADIUS,
           onTap: onTap,
-          title: title,
-          subtitle: subtitle,
-          leading: leading,
-          trailing: Icon(ConstantIcons.instance.getForwardIcon()),
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: ListTile(
+              onTap: onTap,
+              title: title,
+              subtitle: subtitle,
+              leading: leading,
+              trailing: Icon(ConstantIcons.instance.getForwardIcon()),
+            ),
+          ),
         ),
       );
 }

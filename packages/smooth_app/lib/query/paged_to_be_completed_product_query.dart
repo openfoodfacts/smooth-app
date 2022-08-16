@@ -1,5 +1,7 @@
+import 'package:openfoodfacts/model/State.dart';
+import 'package:openfoodfacts/model/parameter/StatesTagsParameter.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/AbstractQueryConfiguration.dart';
-import 'package:openfoodfacts/utils/ToBeCompletedConfiguration.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -10,12 +12,20 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
 
   @override
   AbstractQueryConfiguration getQueryConfiguration() =>
-      ToBeCompletedQueryConfiguration(
-        pageSize: pageSize,
-        pageNumber: pageNumber,
+      ProductSearchQueryConfiguration(
         language: language,
         country: country,
         fields: ProductQuery.fields,
+        parametersList: <Parameter>[
+          PageSize(size: pageSize),
+          PageNumber(page: pageNumber),
+          StatesTagsParameter(
+            map: <State, bool>{
+              State.CATEGORIES_COMPLETED: false,
+            },
+          ),
+          const SortBy(option: SortOption.EDIT),
+        ],
       );
 
   @override
