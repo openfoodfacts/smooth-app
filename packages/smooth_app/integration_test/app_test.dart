@@ -56,32 +56,43 @@ void main() {
         await tester.pumpAndSettle();
 
         sleep(const Duration(seconds: 30));
+
+        await _takeScreenshot(
+            tester, binding, 'test-screenshot-onboarding-reinvention');
+        sleep(const Duration(seconds: 10));
+
+        await tester.tap(find.byKey(const Key('nextAfterReinvention')));
+        await tester.pumpAndSettle();
+
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-home');
         sleep(const Duration(seconds: 10));
 
-        await tester.tap(find.byKey(const Key('next')));
+        await tester.tap(find.byKey(const Key('nextAfterWelcome')));
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-scan');
         sleep(const Duration(seconds: 10));
 
-        await tester.tap(find.byKey(const Key('next')));
+        await tester.tap(find.byKey(const Key('nextAfterScanExample')));
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-health');
         sleep(const Duration(seconds: 10));
 
-        await tester.tap(find.byKey(const Key('next')));
+        await tester.tap(find.byKey(const Key('toolTipPopUp')));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('nextAfterHealth')));
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
             tester, binding, 'test-screenshot-onboarding-eco');
         sleep(const Duration(seconds: 10));
 
-        await tester.tap(find.byKey(const Key('next')));
+        await tester.tap(find.byKey(const Key('nextAfterEco')));
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
