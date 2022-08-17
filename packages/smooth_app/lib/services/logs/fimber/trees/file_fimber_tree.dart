@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:fimber/fimber.dart';
+import 'package:intl/intl.dart';
 import 'package:smooth_app/services/logs/fimber/trees/base_fimber_tree.dart';
 import 'package:smooth_app/services/logs/smooth_log_levels.dart';
 
@@ -15,6 +16,7 @@ class FileFimberTree extends BaseFimberTree {
   }
 
   static final int _maxFileSize = DataSize(megabytes: 5).realSize;
+  final DateFormat _dateFormat = DateFormat('yyyy-MM-dd HH:mm:ss');
   final File outputFile;
 
   /// Generates the following String:
@@ -32,6 +34,7 @@ class FileFimberTree extends BaseFimberTree {
     final StringBuffer buffer = StringBuffer(level);
 
     if (tag != null) {
+      buffer.write(' ${_dateFormat.format(DateTime.now())}');
       buffer.write(' $tag');
     }
 
