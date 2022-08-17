@@ -34,9 +34,9 @@ class ScanProductCard extends StatelessWidget {
   }
 
   Future<void> _openProductPage(BuildContext context) async {
-    await Navigator.push<Widget>(
+    await Navigator.push<void>(
       context,
-      MaterialPageRoute<Widget>(
+      MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPage(product),
       ),
     );

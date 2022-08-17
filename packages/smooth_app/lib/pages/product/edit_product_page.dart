@@ -142,9 +142,9 @@ class _EditProductPageState extends State<EditProductPage> {
                       if (!await ProductRefresher().checkIfLoggedIn(context)) {
                         return;
                       }
-                      await Navigator.push<Product?>(
+                      await Navigator.push<void>(
                         context,
-                        MaterialPageRoute<Product>(
+                        MaterialPageRoute<void>(
                           builder: (_) => AddBasicDetailsPage(_product),
                         ),
                       );
@@ -161,6 +161,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       }
                       final List<ProductImageData> allProductImagesData =
                           getAllProductImagesData(_product, appLocalizations);
+                      // TODO(monsieurtanuki): careful, waiting for pop'ed value
                       final bool? refreshed = await Navigator.push<bool>(
                         context,
                         MaterialPageRoute<bool>(
@@ -210,9 +211,9 @@ class _EditProductPageState extends State<EditProductPage> {
                       if (!await ProductRefresher().checkIfLoggedIn(context)) {
                         return;
                       }
-                      await Navigator.push<Product?>(
+                      await Navigator.push<void>(
                         context,
-                        MaterialPageRoute<Product>(
+                        MaterialPageRoute<void>(
                           builder: (BuildContext context) => EditOcrPage(
                             product: _product,
                             helper: OcrIngredientsHelper(),
@@ -241,9 +242,9 @@ class _EditProductPageState extends State<EditProductPage> {
                       if (!mounted) {
                         return;
                       }
-                      await Navigator.push<Product?>(
+                      await Navigator.push<void>(
                         context,
-                        MaterialPageRoute<Product>(
+                        MaterialPageRoute<void>(
                           builder: (BuildContext context) =>
                               NutritionPageLoaded(
                             _product,
@@ -262,9 +263,9 @@ class _EditProductPageState extends State<EditProductPage> {
                       if (!await ProductRefresher().checkIfLoggedIn(context)) {
                         return;
                       }
-                      await Navigator.push<Product?>(
+                      await Navigator.push<void>(
                         context,
-                        MaterialPageRoute<Product>(
+                        MaterialPageRoute<void>(
                           builder: (BuildContext context) => EditOcrPage(
                             product: _product,
                             helper: OcrPackagingHelper(),
@@ -296,9 +297,9 @@ class _EditProductPageState extends State<EditProductPage> {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
         }
-        await Navigator.push<Product>(
+        await Navigator.push<void>(
           context,
-          MaterialPageRoute<Product>(
+          MaterialPageRoute<void>(
             builder: (BuildContext context) => SimpleInputPage(
               helper: helper,
               product: _product,
@@ -344,9 +345,9 @@ class _EditProductPageState extends State<EditProductPage> {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
         }
-        await Navigator.push<Product>(
+        await Navigator.push<void>(
           context,
-          MaterialPageRoute<Product>(
+          MaterialPageRoute<void>(
             builder: (BuildContext context) => SimpleInputPage.multiple(
               helpers: helpers,
               product: _product,
