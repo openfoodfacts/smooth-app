@@ -98,10 +98,15 @@ class _ProductListPageState extends State<ProductListPage>
                           context: context,
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
-                              body: Text(appLocalizations.confirm_clear),
+                              body: Text(
+                                productList.listType == ProductListType.USER
+                                    ? appLocalizations.confirm_clear_user_list(
+                                        productList.parameters)
+                                    : appLocalizations.confirm_clear,
+                              ),
                               positiveAction: SmoothActionButton(
                                 onPressed: () async {
-                                  daoProductList.clear(productList);
+                                  await daoProductList.clear(productList);
                                   await daoProductList.get(productList);
                                   setState(() {});
                                   if (!mounted) {
@@ -291,10 +296,11 @@ class _ProductListPageState extends State<ProductListPage>
         onDismissed: (final DismissDirection direction) async {
           final bool removed = productList.remove(barcode);
           if (removed) {
-            DaoProductList(localDatabase).put(productList);
+            await DaoProductList(localDatabase).put(productList);
             _selectedBarcodes.remove(barcode);
             setState(() => barcodes.removeAt(index));
           }
+          //ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(

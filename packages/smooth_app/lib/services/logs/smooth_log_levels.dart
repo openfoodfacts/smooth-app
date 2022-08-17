@@ -14,8 +14,10 @@ class LogLevels {
     LogLevel.verbose,
     LogLevel.warning
   ];
+
   static const List<LogLevel> prodLogLevels = <LogLevel>[
     LogLevel.error,
-    LogLevel.info
+    LogLevel.info,
+    LogLevel.debug,
   ];
 }
