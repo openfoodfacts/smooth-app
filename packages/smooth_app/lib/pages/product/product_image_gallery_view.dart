@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_images_sliver_grid.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_images_sliver_list.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_image_list.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
@@ -33,14 +35,17 @@ class ProductImageGalleryView extends StatefulWidget {
 }
 
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
-  late final Map<ProductImageData, ImageProvider?> imagesData;
+  late final Map<ProductImageData, ImageProvider?> selectedImages;
+
+  final Map<ProductImageData, ImageProvider?> unselectedImages =
+      <ProductImageData, ImageProvider?>{};
 
   bool _isRefreshed = false;
   bool _isLoadingMore = true;
 
   @override
   void initState() {
-    imagesData = Map<ProductImageData, ImageProvider?>.fromIterables(
+    selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
       widget.imagesData,
       widget.imagesData.map(_provideImage),
     );
@@ -58,7 +63,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       );
 
       setState(() {
-        imagesData.addAll(newMap);
+        unselectedImages.addAll(newMap);
         _isLoadingMore = false;
       });
     });
@@ -72,9 +77,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
 
     // When there is no data there should be no way to get to this page.
-    if (imagesData.isEmpty) {
+    if (selectedImages.isEmpty) {
       return SmoothScaffold(
         body: Center(
           child: Text(appLocalizations.error),
@@ -83,21 +89,43 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
 
     return SmoothScaffold(
-      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(appLocalizations.edit_product_form_item_photos_title),
         leading: SmoothBackButton(
           onPressed: () => Navigator.maybePop(context, _isRefreshed),
         ),
       ),
-      body: SmoothImageList(
-        imagesData: imagesData,
-        onTap: (ProductImageData data, ImageProvider<Object>? provider) =>
-            data.imageUrl != null ? _openImage(data) : _newImage(data),
-        loading: _isLoadingMore,
+      body: Scrollbar(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            _buildTitle('Selected images', theme: theme),
+            SmoothImagesSliverList(
+              imagesData: selectedImages,
+              onTap: (ProductImageData data, _) =>
+                  data.imageUrl != null ? _openImage(data) : _newImage(data),
+            ),
+            _buildTitle(appLocalizations.all_images, theme: theme),
+            SmoothImagesSliverGrid(
+              imagesData: unselectedImages,
+              loading: _isLoadingMore,
+              onTap: (ProductImageData data, _) => _openImage(data),
+            ),
+          ],
+        ),
       ),
     );
   }
+
+  SliverPadding _buildTitle(String title, {required ThemeData theme}) =>
+      SliverPadding(
+        padding: const EdgeInsets.all(LARGE_SPACE),
+        sliver: SliverToBoxAdapter(
+          child: Text(
+            title,
+            style: theme.textTheme.headline2,
+          ),
+        ),
+      );
 
   Future<void> _openImage(ProductImageData imageData) async =>
       Navigator.push<void>(
@@ -115,7 +143,14 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       return;
     }
     setState(() {
-      imagesData[data] = FileImage(croppedImageFile);
+      final FileImage fileImage = FileImage(croppedImageFile);
+      if (selectedImages.containsKey(data)) {
+        selectedImages[data] = fileImage;
+      } else if (unselectedImages.containsKey(data)) {
+        unselectedImages[data] = fileImage;
+      } else {
+        throw ArgumentError('Could not find the type of $data');
+      }
     });
     if (!mounted) {
       return;

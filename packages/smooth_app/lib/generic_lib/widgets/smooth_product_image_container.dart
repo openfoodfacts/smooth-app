@@ -8,17 +8,20 @@ class SmoothProductImageContainer extends StatelessWidget {
     this.height,
     this.width,
     this.color,
+    this.decoration,
   });
 
   final Widget? child;
   final double? height;
   final double? width;
   final Color? color;
+  final Decoration? decoration;
 
   @override
   Widget build(BuildContext context) => ClipRRect(
         borderRadius: ROUNDED_BORDER_RADIUS,
         child: Container(
+          decoration: decoration,
           width: width,
           height: height,
           color: color,

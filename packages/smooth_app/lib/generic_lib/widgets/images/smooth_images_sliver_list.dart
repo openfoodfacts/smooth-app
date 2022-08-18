@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_images_view.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_list_view.dart';
+import 'package:smooth_app/generic_lib/loading_sliver.dart';
 
 /// Displays a list of [ProductImageData]
-class SmoothImageList extends StatelessWidget {
-  const SmoothImageList({
-    required this.imagesData,
-    this.onTap,
-    this.loading = false,
+class SmoothImagesSliverList extends SmoothImagesView {
+  const SmoothImagesSliverList({
+    required super.imagesData,
+    super.onTap,
+    super.loading = false,
   });
-
-  final Map<ProductImageData, ImageProvider?> imagesData;
-  final void Function(ProductImageData, ImageProvider?)? onTap;
-  final bool loading;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +19,12 @@ class SmoothImageList extends StatelessWidget {
         imagesData.entries.toList();
     final int count = imageList.length;
 
-    return Scrollbar(
-      child: SmoothListView.builder(
+    return SliverList(
+      delegate: LoadingSliverChildBuilderDelegate(
         loading: loading,
-        itemCount: count,
-        loadingWidget: (_, __) => SmoothListTileCard.loading(),
-        itemBuilder: (_, int index) => SmoothListTileCard.image(
+        childCount: count,
+        loadingWidget: SmoothListTileCard.loading(),
+        childBuilder: (_, int index) => SmoothListTileCard.image(
           imageProvider: imageList[index].value,
           title: Text(
             imageList[index].key.title,

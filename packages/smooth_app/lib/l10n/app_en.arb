@@ -1593,7 +1593,7 @@
         "description": "Label for the action button that displays the results from the entire world"
     },
     "clipboard_barcode_copy": "Copy barcode to clipboard",
-    "@clipboard_barcode_copied": {
+    "@clipboard_barcode_copy": {
         "description": "Action (tooltip) to copy a barcode to the clipboard"
     },
     "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
@@ -1613,5 +1613,9 @@
     "help_with_openfoodfacts": "Help with OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "all_images": "All images",
+    "@all_images": {
+        "description": "Label for all images title in the photo manager page"
     }
 }
