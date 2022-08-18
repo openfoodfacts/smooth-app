@@ -7,7 +7,7 @@ class OnboardingBottomBar extends StatelessWidget {
     required this.rightButton,
     required this.backgroundColor,
     this.leftButton,
-  }) : super(key: const Key('next'));
+  });
 
   final Widget rightButton;
   final Widget? leftButton;
@@ -60,6 +60,7 @@ class OnboardingBottomButton extends StatelessWidget {
     required this.backgroundColor,
     required this.foregroundColor,
     required this.label,
+    this.nextKey,
   });
 
   final VoidCallback onPressed;
@@ -67,10 +68,14 @@ class OnboardingBottomButton extends StatelessWidget {
   final Color foregroundColor;
   final String label;
 
+  /// Button Key - typically used during screenshot generation.
+  final Key? nextKey;
+
   @override
   Widget build(BuildContext context) => ConstrainedBox(
         constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
         child: ElevatedButton(
+          key: nextKey,
           onPressed: onPressed,
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(backgroundColor),

@@ -53,6 +53,7 @@ class ScanExample extends StatelessWidget {
           NextButton(
             OnboardingPage.SCAN_EXAMPLE,
             backgroundColor: backgroundColor,
+            nextKey: const Key('nextAfterScanExample'),
           ),
         ],
       ),
