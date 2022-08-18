@@ -92,8 +92,7 @@ Widget addPanelButton(
 List<ProductImageData> getProductMainImagesData(
   Product product,
   AppLocalizations appLocalizations,
-) {
-  return <ProductImageData>[
+) => <ProductImageData>[
     ProductImageData(
       imageField: ImageField.FRONT,
       imageUrl: product.imageFrontUrl,
@@ -125,4 +124,3 @@ List<ProductImageData> getProductMainImagesData(
       buttonText: appLocalizations.more_photos,
     ),
   ];
-}

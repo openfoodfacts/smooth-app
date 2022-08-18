@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_product_image_container.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 class SmoothListTileCard extends StatelessWidget {
@@ -24,15 +23,10 @@ class SmoothListTileCard extends StatelessWidget {
   }) : this(
           title: title,
           onTap: onTap,
-          leading: SmoothProductImageContainer(
+          leading: SmoothImage(
             width: VERY_LARGE_SPACE * 5,
             height: MEDIUM_SPACE * 5,
-            child: imageProvider != null
-                ? Image(
-                    image: imageProvider,
-                    fit: BoxFit.cover,
-                  )
-                : const PictureNotFound(),
+            imageProvider: imageProvider,
           ),
         );
 
@@ -73,7 +67,7 @@ class SmoothListTileCard extends StatelessWidget {
           leading: Shimmer.fromColors(
             baseColor: GREY_COLOR,
             highlightColor: WHITE_COLOR,
-            child: const SmoothProductImageContainer(
+            child: const SmoothImage(
               width: VERY_LARGE_SPACE * 5,
               height: MEDIUM_SPACE * 5,
               color: GREY_COLOR,

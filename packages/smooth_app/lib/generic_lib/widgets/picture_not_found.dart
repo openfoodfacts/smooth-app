@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
+/// Displays a default asset as a _picture not found_ image.
 class PictureNotFound extends StatelessWidget {
   const PictureNotFound();
 

@@ -42,6 +42,8 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   @override
   Widget build(BuildContext context) => SmoothScaffold(
         extendBodyBehindAppBar: true,
+        backgroundColor: Colors.black,
+        floatingActionButton: _EditFloatingButton(onPressed: _editImage),
         appBar: AppBar(
           backgroundColor: Colors.black,
           foregroundColor: WHITE_COLOR,
@@ -51,8 +53,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             onPressed: () => Navigator.maybePop(context, _isEdited),
           ),
         ),
-        backgroundColor: Colors.black,
-        floatingActionButton: _buildEditButton(),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -61,7 +61,11 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                 Size(double.infinity, MediaQuery.of(context).size.height / 2),
               ),
               child: PhotoView(
+                minScale: 0.2,
                 imageProvider: imageProvider,
+                heroAttributes: PhotoViewHeroAttributes(
+                  tag: imageProvider!,
+                ),
                 backgroundDecoration: const BoxDecoration(
                   color: Colors.black,
                 ),
@@ -69,13 +73,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             ),
           ],
         ),
-      );
-
-  FloatingActionButton _buildEditButton() => FloatingActionButton.extended(
-        label: Text(AppLocalizations.of(context).edit_photo_button_label),
-        icon: const Icon(Icons.edit),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: _editImage,
       );
 
   Future<File> _downloadImageFile(String url) async {
@@ -122,4 +119,18 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       });
     }
   }
+}
+
+class _EditFloatingButton extends StatelessWidget {
+  const _EditFloatingButton({required this.onPressed});
+
+  final void Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) => FloatingActionButton.extended(
+        label: Text(AppLocalizations.of(context).edit_photo_button_label),
+        icon: const Icon(Icons.edit),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onPressed: onPressed,
+      );
 }

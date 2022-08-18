@@ -3,10 +3,12 @@ import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_sliver.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_images_view.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_product_image_container.dart';
 
+/// Displays a [SliverGrid] with tiles showing the images passed
+/// via [imagesData]
 class SmoothImagesSliverGrid extends SmoothImagesView {
   const SmoothImagesSliverGrid({
     required super.imagesData,
@@ -34,11 +36,14 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
 
               return imageProvider == null
                   ? const PictureNotFound()
-                  : _ImageTile(
-                      image: imageProvider,
-                      onTap: onTap == null
-                          ? null
-                          : () => onTap!(entry.key, entry.value),
+                  : Hero(
+                      tag: entry.key.imageUrl!,
+                      child: _ImageTile(
+                        image: imageProvider,
+                        onTap: onTap == null
+                            ? null
+                            : () => onTap!(entry.key, entry.value),
+                      ),
                     );
             }),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -54,7 +59,7 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
   Widget _buildShimmer() => Shimmer.fromColors(
         baseColor: WHITE_COLOR,
         highlightColor: GREY_COLOR,
-        child: const SmoothProductImageContainer(
+        child: const SmoothImage(
           width: VERY_LARGE_SPACE * 5,
           height: MEDIUM_SPACE * 5,
           color: WHITE_COLOR,

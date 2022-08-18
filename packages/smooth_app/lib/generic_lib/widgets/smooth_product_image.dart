@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_product_image_container.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 
 /// Main product image on a product card.
-class SmoothProductImage extends StatelessWidget {
-  const SmoothProductImage({
+class SmoothMainProductImage extends StatelessWidget {
+  const SmoothMainProductImage({
     required this.product,
     required this.height,
     required this.width,
@@ -17,42 +16,16 @@ class SmoothProductImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget child = _buildFromUrl(product.imageFrontSmallUrl) ??
-        _buildFromUrl(product.imageFrontUrl) ??
-        const Center(child: PictureNotFound());
+    final NetworkImage? child = _buildFromUrl(product.imageFrontSmallUrl) ??
+        _buildFromUrl(product.imageFrontUrl);
 
-    return SmoothProductImageContainer(
+    return SmoothImage(
       width: width,
       height: height,
-      child: child,
+      imageProvider: child,
     );
   }
 
-  Image? _buildFromUrl(final String? url) => url == null || url.isEmpty
-      ? null
-      : Image.network(
-          url,
-          fit: BoxFit.contain,
-          loadingBuilder: _loadingBuilder,
-        );
-
-  Widget _loadingBuilder(
-      BuildContext _, Widget child, ImageChunkEvent? progress) {
-    if (progress == null) {
-      return child;
-    }
-
-    final double progressValue =
-        progress.cumulativeBytesLoaded / progress.expectedTotalBytes!;
-
-    return Center(
-      child: CircularProgressIndicator(
-        strokeWidth: 2.5,
-        valueColor: const AlwaysStoppedAnimation<Color>(
-          Colors.white,
-        ),
-        value: progressValue,
-      ),
-    );
-  }
+  NetworkImage? _buildFromUrl(final String? url) =>
+      url == null || url.isEmpty ? null : NetworkImage(url);
 }

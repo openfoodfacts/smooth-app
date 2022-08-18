@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
 /// Displays an [IconButton] containing the platform-specific default
-/// back button icon
+/// back button icon.
 class SmoothBackButton extends StatelessWidget {
   const SmoothBackButton({
     this.onPressed,
