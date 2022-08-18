@@ -37,7 +37,8 @@ abstract class PagedProductQuery {
 
   void toTopPage() => _pageNumber = _startPageNumber;
 
-  Future<SearchResult> getSearchResult() async => OpenFoodAPIClient.getProducts(
+  Future<SearchResult> getSearchResult() async =>
+      OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
         getQueryConfiguration(),
         queryType: OpenFoodAPIConfiguration.globalQueryType,

@@ -9,7 +9,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 
 /// Dialog helper class for user product list.
 class ProductListUserDialogHelper {
-  ProductListUserDialogHelper(this.daoProductList);
+  const ProductListUserDialogHelper(this.daoProductList);
 
   final DaoProductList daoProductList;
 
@@ -21,6 +21,7 @@ class ProductListUserDialogHelper {
     final TextEditingController textEditingController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+    final List<String> lists = await daoProductList.getUserLists();
     final String? title = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
@@ -34,7 +35,6 @@ class ProductListUserDialogHelper {
             autofocus: true,
             textInputAction: TextInputAction.done,
             validator: (String? value) {
-              final List<String> lists = daoProductList.getUserLists();
               if (value == null || value.isEmpty) {
                 return appLocalizations.user_list_name_error_empty;
               }
@@ -64,7 +64,8 @@ class ProductListUserDialogHelper {
       return null;
     }
     final ProductList productList = ProductList.user(title);
-    daoProductList.put(productList);
+    await daoProductList.put(productList);
+    daoProductList.localDatabase.notifyListeners();
     return productList;
   }
 
@@ -75,9 +76,9 @@ class ProductListUserDialogHelper {
   ) async {
     final String barcode = product.barcode!;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<String> all = daoProductList.getUserLists();
+    final List<String> all = await daoProductList.getUserLists();
     final List<String> withBarcode =
-        daoProductList.getUserLists(withBarcode: barcode);
+        await daoProductList.getUserLists(withBarcode: barcode);
     final Set<String> newWithBarcode = <String>{};
     newWithBarcode.addAll(withBarcode);
     bool addedLists = false;
@@ -114,7 +115,7 @@ class ProductListUserDialogHelper {
                     await showCreateUserListDialog(context);
                 if (productList != null) {
                   all.clear();
-                  all.addAll(daoProductList.getUserLists());
+                  all.addAll(await daoProductList.getUserLists());
                   setState(() => addedLists = true);
                 }
               },
@@ -142,8 +143,13 @@ class ProductListUserDialogHelper {
         continue;
       }
       final ProductList productList = ProductList.user(name);
-      daoProductList.set(productList, barcode, newWithBarcode.contains(name));
+      await daoProductList.set(
+        productList,
+        barcode,
+        newWithBarcode.contains(name),
+      );
     }
+    daoProductList.localDatabase.notifyListeners();
     return true;
   }
 
@@ -158,6 +164,7 @@ class ProductListUserDialogHelper {
 
     final String initialName = initialProductList.parameters;
     textEditingController.text = initialName;
+    final List<String> lists = await daoProductList.getUserLists();
     final String? newName = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
@@ -170,7 +177,6 @@ class ProductListUserDialogHelper {
             hintText: appLocalizations.user_list_name_hint,
             textInputAction: TextInputAction.done,
             validator: (String? value) {
-              final List<String> lists = daoProductList.getUserLists();
               if (value == null || value.isEmpty) {
                 return appLocalizations.user_list_name_error_empty;
               }
@@ -202,7 +208,10 @@ class ProductListUserDialogHelper {
     if (newName == null) {
       return null;
     }
-    return daoProductList.rename(initialProductList, newName);
+    final ProductList result =
+        await daoProductList.rename(initialProductList, newName);
+    daoProductList.localDatabase.notifyListeners();
+    return result;
   }
 
   /// Shows a "delete list" dialog; returns true if deleted.
@@ -215,8 +224,9 @@ class ProductListUserDialogHelper {
     final bool? deleted = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
-        title: 'Delete list?',
-        body: Text(productList.parameters),
+        body: Text(
+          appLocalizations.confirm_delete_user_list(productList.parameters),
+        ),
         negativeAction: SmoothActionButton(
           onPressed: () => Navigator.pop(context),
           text: appLocalizations.cancel,
@@ -232,6 +242,10 @@ class ProductListUserDialogHelper {
     if (deleted == null) {
       return false;
     }
-    return daoProductList.delete(productList);
+    final bool result = await daoProductList.delete(productList);
+    if (result) {
+      daoProductList.localDatabase.notifyListeners();
+    }
+    return result;
   }
 }

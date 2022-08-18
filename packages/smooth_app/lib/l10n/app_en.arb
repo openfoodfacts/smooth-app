@@ -1476,9 +1476,27 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "You're about to delete your entire history, are you sure you want to continue?",
+    "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
     "@confirm_clear": {
-        "description": "Asking about whether to clear the list or not"
+        "description": "Asking about whether to clear the history list or not"
+    },
+    "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
+    "@confirm_clear_user_list": {
+        "description": "Asking about whether to clear the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
+    "@confirm_delete_user_list": {
+        "description": "Asking about whether to delete the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
     },
     "importance_label": "{name} importance: {id}",
     "@importance_label": {
@@ -1573,6 +1591,10 @@
     "world_results_action": "Extend your search to the world",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
+    },
+    "clipboard_barcode_copy": "Copy barcode to clipboard",
+    "@clipboard_barcode_copied": {
+        "description": "Action (tooltip) to copy a barcode to the clipboard"
     },
     "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
     "@clipboard_barcode_copied": {

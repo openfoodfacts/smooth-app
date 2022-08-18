@@ -60,7 +60,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     super.initState();
     _product = widget.product;
     _scrollController = ScrollController();
-    _updateLocalDatabaseWithProductHistory(context, false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateLocalDatabaseWithProductHistory(context);
+    });
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
@@ -80,74 +82,68 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
 
-    return WillPopScope(
-      onWillPop: () async {
-        _updateLocalDatabaseWithProductHistory(context, true);
-        return true;
-      },
-      child: SmoothScaffold(
-        contentBehindStatusBar: true,
-        spaceBehindStatusBar: false,
-        statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
-        body: Stack(
-          children: <Widget>[
-            NotificationListener<UserScrollNotification>(
-              onNotification: (UserScrollNotification notification) {
-                if (notification.direction == ScrollDirection.forward) {
-                  if (!scrollingUp) {
-                    setState(() => scrollingUp = true);
-                  }
-                } else if (notification.direction == ScrollDirection.reverse) {
-                  if (scrollingUp) {
-                    setState(() => scrollingUp = false);
-                  }
+    return SmoothScaffold(
+      contentBehindStatusBar: true,
+      spaceBehindStatusBar: false,
+      statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
+      body: Stack(
+        children: <Widget>[
+          NotificationListener<UserScrollNotification>(
+            onNotification: (UserScrollNotification notification) {
+              if (notification.direction == ScrollDirection.forward) {
+                if (!scrollingUp) {
+                  setState(() => scrollingUp = true);
                 }
-                return true;
+              } else if (notification.direction == ScrollDirection.reverse) {
+                if (scrollingUp) {
+                  setState(() => scrollingUp = false);
+                }
+              }
+              return true;
+            },
+            child: Consumer<UpToDateProductProvider>(
+              builder: (
+                final BuildContext context,
+                final UpToDateProductProvider provider,
+                final Widget? child,
+              ) {
+                final Product? refreshedProduct = provider.get(_product);
+                if (refreshedProduct != null) {
+                  _product = refreshedProduct;
+                }
+                return _buildProductBody(context);
               },
-              child: Consumer<UpToDateProductProvider>(
-                builder: (
-                  final BuildContext context,
-                  final UpToDateProductProvider provider,
-                  final Widget? child,
-                ) {
-                  final Product? refreshedProduct = provider.get(_product);
-                  if (refreshedProduct != null) {
-                    _product = refreshedProduct;
-                  }
-                  return _buildProductBody(context);
-                },
-              ),
             ),
-            SafeArea(
-              child: AnimatedContainer(
-                duration: SmoothAnimationsDuration.short,
-                width: kToolbarHeight,
-                height: kToolbarHeight,
-                decoration: BoxDecoration(
-                  color:
-                      scrollingUp ? themeData.primaryColor : Colors.transparent,
-                  shape: BoxShape.circle,
-                ),
-                child: Offstage(
-                  offstage: !scrollingUp,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.maybePop(context);
-                    },
-                    child: Tooltip(
-                      message:
-                          MaterialLocalizations.of(context).backButtonTooltip,
-                      child: Icon(
-                        ConstantIcons.instance.getBackIcon(),
-                        color: Colors.white,
-                      ),
+          ),
+          SafeArea(
+            child: AnimatedContainer(
+              duration: SmoothAnimationsDuration.short,
+              width: kToolbarHeight,
+              height: kToolbarHeight,
+              decoration: BoxDecoration(
+                color:
+                    scrollingUp ? themeData.primaryColor : Colors.transparent,
+                shape: BoxShape.circle,
+              ),
+              child: Offstage(
+                offstage: !scrollingUp,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.maybePop(context);
+                  },
+                  child: Tooltip(
+                    message:
+                        MaterialLocalizations.of(context).backButtonTooltip,
+                    child: Icon(
+                      ConstantIcons.instance.getBackIcon(),
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -180,26 +176,21 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     return result;
   }
 
-  void _updateLocalDatabaseWithProductHistory(
+  Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
-    final bool notify,
-  ) {
+  ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    DaoProductList(localDatabase).push(
+    await DaoProductList(localDatabase).push(
       ProductList.history(),
       _product.barcode!,
     );
-    if (notify) {
-      localDatabase.notifyListeners();
-    }
+    localDatabase.notifyListeners();
   }
 
   Widget _buildProductBody(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final List<String> productListNames =
-        daoProductList.getUserLists(withBarcode: _product.barcode);
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(
@@ -235,12 +226,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             ),
           ),
           _buildActionBar(appLocalizations),
-          if (productListNames.isNotEmpty)
-            _buildListWidget(
-              appLocalizations,
-              productListNames,
-              daoProductList,
-            ),
+          _buildListIfRelevantWidget(
+            appLocalizations,
+            daoProductList,
+          ),
           _buildKnowledgePanelCards(),
           if (context.read<UserPreferences>().getFlag(
                   UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
@@ -355,6 +344,27 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
       ),
     );
   }
+
+  Widget _buildListIfRelevantWidget(
+    final AppLocalizations appLocalizations,
+    final DaoProductList daoProductList,
+  ) =>
+      FutureBuilder<List<String>>(
+        future: daoProductList.getUserLists(withBarcode: _product.barcode),
+        builder: (
+          final BuildContext context,
+          final AsyncSnapshot<List<String>> snapshot,
+        ) {
+          if (snapshot.data != null && snapshot.data!.isNotEmpty) {
+            return _buildListWidget(
+              appLocalizations,
+              snapshot.data!,
+              daoProductList,
+            );
+          }
+          return EMPTY_WIDGET;
+        },
+      );
 
   Widget _buildListWidget(
     final AppLocalizations appLocalizations,

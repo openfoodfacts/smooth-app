@@ -103,6 +103,7 @@ class WelcomePage extends StatelessWidget {
           NextButton(
             OnboardingPage.WELCOME,
             backgroundColor: backgroundColor,
+            nextKey: const Key('nextAfterWelcome'),
           ),
         ],
       ),

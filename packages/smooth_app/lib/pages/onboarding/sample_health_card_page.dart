@@ -18,5 +18,6 @@ class SampleHealthCardPage extends StatelessWidget {
         localDatabase: _localDatabase,
         backgroundColor: backgroundColor,
         svgAsset: 'assets/onboarding/health.svg',
+        nextKey: const Key('nextAfterHealth'),
       );
 }

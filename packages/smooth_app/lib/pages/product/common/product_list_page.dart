@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
@@ -98,10 +98,15 @@ class _ProductListPageState extends State<ProductListPage>
                           context: context,
                           builder: (BuildContext context) {
                             return SmoothAlertDialog(
-                              body: Text(appLocalizations.confirm_clear),
+                              body: Text(
+                                productList.listType == ProductListType.USER
+                                    ? appLocalizations.confirm_clear_user_list(
+                                        productList.parameters)
+                                    : appLocalizations.confirm_clear,
+                              ),
                               positiveAction: SmoothActionButton(
                                 onPressed: () async {
-                                  daoProductList.clear(productList);
+                                  await daoProductList.clear(productList);
                                   await daoProductList.get(productList);
                                   setState(() {});
                                   if (!mounted) {
@@ -291,10 +296,11 @@ class _ProductListPageState extends State<ProductListPage>
         onDismissed: (final DismissDirection direction) async {
           final bool removed = productList.remove(barcode);
           if (removed) {
-            DaoProductList(localDatabase).put(productList);
+            await DaoProductList(localDatabase).put(productList);
             _selectedBarcodes.remove(barcode);
             setState(() => barcodes.removeAt(index));
           }
+          //ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
@@ -360,13 +366,15 @@ class _ProductListPageState extends State<ProductListPage>
     final LocalDatabase localDatabase,
   ) async {
     try {
-      final SearchResult searchResult = await OpenFoodAPIClient.getProductList(
+      final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
-        ProductListQueryConfiguration(
-          barcodes,
+        ProductSearchQueryConfiguration(
           fields: ProductQuery.fields,
           language: ProductQuery.getLanguage(),
           country: ProductQuery.getCountry(),
+          parametersList: <Parameter>[
+            BarcodeParameter.list(barcodes),
+          ],
         ),
       );
       final List<Product>? freshProducts = searchResult.products;
