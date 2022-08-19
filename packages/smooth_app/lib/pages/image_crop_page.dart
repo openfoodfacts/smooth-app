@@ -128,7 +128,7 @@ Future<void> _hideScreenBetween(
 ) async {
   return (callback ??
           (NavigatorState navigator) async {
-            return navigator.popUntil((Route<dynamic> route) {
+            return navigator.pop((Route<dynamic> route) {
               // Remove the screen, only if it's the loading screen
               if (route.settings == _LoadingPage._settings) {
                 return true;
