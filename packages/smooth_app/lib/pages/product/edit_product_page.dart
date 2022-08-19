@@ -146,6 +146,7 @@ class _EditProductPageState extends State<EditProductPage> {
                         context,
                         MaterialPageRoute<Product>(
                           builder: (_) => AddBasicDetailsPage(_product),
+                          fullscreenDialog: true,
                         ),
                       );
                     },
@@ -171,6 +172,7 @@ class _EditProductPageState extends State<EditProductPage> {
                             title: allProductImagesData.first.title,
                             barcode: _product.barcode,
                           ),
+                          fullscreenDialog: true,
                         ),
                       );
 
@@ -217,6 +219,7 @@ class _EditProductPageState extends State<EditProductPage> {
                             product: _product,
                             helper: OcrIngredientsHelper(),
                           ),
+                          fullscreenDialog: true,
                         ),
                       );
                     },
@@ -249,6 +252,7 @@ class _EditProductPageState extends State<EditProductPage> {
                             _product,
                             cache.orderedNutrients,
                           ),
+                          fullscreenDialog: true,
                         ),
                       );
                     },
@@ -269,6 +273,7 @@ class _EditProductPageState extends State<EditProductPage> {
                             product: _product,
                             helper: OcrPackagingHelper(),
                           ),
+                          fullscreenDialog: true,
                         ),
                       );
                     },
@@ -303,6 +308,7 @@ class _EditProductPageState extends State<EditProductPage> {
               helper: helper,
               product: _product,
             ),
+            fullscreenDialog: true,
           ),
         );
       },
@@ -351,6 +357,7 @@ class _EditProductPageState extends State<EditProductPage> {
               helpers: helpers,
               product: _product,
             ),
+            fullscreenDialog: true,
           ),
         );
       },

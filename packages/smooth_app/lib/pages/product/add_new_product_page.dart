@@ -276,6 +276,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                 Product(barcode: widget.barcode),
                 cache.orderedNutrients,
               ),
+              fullscreenDialog: true,
             ),
           );
 
