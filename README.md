@@ -43,7 +43,7 @@ We are always looking for new contributors, if you're willing to help please let
 - You can join the Open Food Facts's Slack here : [Get an invite](https://slack.openfoodfacts.org) - [Open our Slack](https://openfoodfacts.slack.com).
 
 ### Weekly meetings
- We usually meet on Thursdays at 15:30 GMT at https://meet.google.com/gnp-frks-esc. Please email pierre@openfoodfacts.org if you want to be added to the Calendar invite for convenience
+ We usually meet on Thursdays at 15:30 GMT (UTC) at https://meet.google.com/gnp-frks-esc. Please email pierre@openfoodfacts.org if you want to be added to the Calendar invite for convenience
 
 ## Wiki & Doc 
 - [Project Smoothie - Open Food Facts wiki](https://wiki.openfoodfacts.org/Project_Smoothie)
