@@ -69,7 +69,6 @@ jobs:
       OLD_VERSION_CODE: ${{ needs.create-release.outputs.OLD_VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.0.1'
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
       STORE_JKS_DECRYPTKEY: ${{secrets.STORE_JKS_DECRYPTKEY }}
@@ -86,7 +85,6 @@ jobs:
       OLD_VERSION_CODE: ${{ needs.create-release.outputs.OLD_VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.0.1'
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
       FASTLANE_USER: ${{secrets.FASTLANE_USER }}
       FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
