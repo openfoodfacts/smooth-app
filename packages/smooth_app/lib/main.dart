@@ -42,7 +42,6 @@ Future<void> main({final bool screenshots = false}) async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  callbackDispatcher();
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
       appRunner: () => runApp(const SmoothApp()),
@@ -100,6 +99,7 @@ Future<bool> _init1() async {
     ),
     daoString: DaoString(_localDatabase),
   );
+  await callbackDispatcher(_localDatabase);
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);

@@ -1,22 +1,25 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
 const String IMAGE_UPLOAD_TASK = 'Image Upload';
 const String PRODUCT_EDIT_TASK = 'Product Edit';
-Future<TaskResult> callbackDispatcher() async {
+Future<TaskResult> callbackDispatcher(LocalDatabase localDatabase) async {
   await TaskManager().init(
+      runTasksInIsolates: false,
       executor: (Task inputData) async {
         final String processName = inputData.data!['processName'] as String;
         switch (processName) {
           case IMAGE_UPLOAD_TASK:
-            return uploadImage(inputData.data!);
+            return uploadImage(inputData.data!, localDatabase);
 
           case PRODUCT_EDIT_TASK:
-            return otherDetails(inputData.data!);
+            return otherDetails(inputData.data!, localDatabase);
 
           default:
             return TaskResult.success;
@@ -26,53 +29,75 @@ Future<TaskResult> callbackDispatcher() async {
   return TaskResult.success;
 }
 
-Future<TaskResult> otherDetails(Map<String, dynamic> inputData) async {
-  try {
-    final BackgroundOtherDetailsInput inputTask =
-        BackgroundOtherDetailsInput.fromJson(inputData);
-    final Map<String, dynamic> mp =
-        json.decode(inputTask.inputMap) as Map<String, dynamic>;
-    final User user =
-        User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
-    await OpenFoodAPIClient.saveProduct(
-      user,
-      Product.fromJson(mp),
-      language: LanguageHelper.fromJson(inputTask.languageCode),
-      country: CountryHelper.fromJson(inputTask.country),
-    );
-    //Todo(aman) : when the product is saved, delete the task from the database and
-    // update the product in the database
-    // currently i can't do db operations in a background task
-  } catch (e) {
-    debugPrint('Error: $e');
-    return TaskResult.success;
+Future<TaskResult> otherDetails(
+    Map<String, dynamic> inputData, LocalDatabase localDatabase) async {
+  final BackgroundOtherDetailsInput inputTask =
+      BackgroundOtherDetailsInput.fromJson(inputData);
+  final Map<String, dynamic> mp =
+      json.decode(inputTask.inputMap) as Map<String, dynamic>;
+  final User user =
+      User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
+  await OpenFoodAPIClient.saveProduct(
+    user,
+    Product.fromJson(mp),
+    language: LanguageHelper.fromJson(inputTask.languageCode),
+    country: CountryHelper.fromJson(inputTask.country),
+  );
+  final DaoProduct daoProduct = DaoProduct(localDatabase);
+  final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+    inputTask.barcode,
+    fields: ProductQuery.fields,
+    language: LanguageHelper.fromJson(inputTask.languageCode),
+    country: CountryHelper.fromJson(inputTask.country),
+  );
+
+  final ProductResult queryResult =
+      await OpenFoodAPIClient.getProduct(configuration);
+  if (queryResult.status == 1) {
+    final Product? product = queryResult.product;
+    if (product != null) {
+      await daoProduct.put(product);
+      localDatabase.notifyListeners();
+    }
   }
   // Returns true to let platform know that the task is completed
   return TaskResult.success;
 }
 
-Future<TaskResult> uploadImage(Map<String, dynamic> inputData) async {
-  try {
-    final BackgroundImageInputData inputTask =
-        BackgroundImageInputData.fromJson(inputData);
-    final User user =
-        User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
-    final SendImage image = SendImage(
-      lang: LanguageHelper.fromJson(inputTask.languageCode),
-      barcode: inputTask.barcode,
-      imageField: ImageFieldExtension.getType(inputTask.imageField),
-      imageUri: Uri.parse(inputTask.imageUri),
-    );
-    await OpenFoodAPIClient.addProductImage(user, image);
-    // go to the file system and delete the file that was uploaded
-    final File file = File(inputTask.imageUri);
-    file.deleteSync();
-    return TaskResult.success;
-  } catch (e) {
-    debugPrint('Error: $e');
-    // Returns true to let platform know that the task is completed
-    return TaskResult.success;
+Future<TaskResult> uploadImage(
+    Map<String, dynamic> inputData, LocalDatabase localDatabase) async {
+  final BackgroundImageInputData inputTask =
+      BackgroundImageInputData.fromJson(inputData);
+  final User user =
+      User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
+  final SendImage image = SendImage(
+    lang: LanguageHelper.fromJson(inputTask.languageCode),
+    barcode: inputTask.barcode,
+    imageField: ImageFieldExtension.getType(inputTask.imageField),
+    imageUri: Uri.parse(inputTask.imageUri),
+  );
+  await OpenFoodAPIClient.addProductImage(user, image);
+  // go to the file system and delete the file that was uploaded
+  final File file = File(inputTask.imageUri);
+  file.deleteSync();
+  final DaoProduct daoProduct = DaoProduct(localDatabase);
+  final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+    inputTask.barcode,
+    fields: ProductQuery.fields,
+    language: LanguageHelper.fromJson(inputTask.languageCode),
+    country: CountryHelper.fromJson(inputTask.country),
+  );
+
+  final ProductResult queryResult =
+      await OpenFoodAPIClient.getProduct(configuration);
+  if (queryResult.status == 1) {
+    final Product? product = queryResult.product;
+    if (product != null) {
+      await daoProduct.put(product);
+      localDatabase.notifyListeners();
+    }
   }
+  return TaskResult.success;
 }
 
 /// Helper class for serialization and deserialization of data for the background task
