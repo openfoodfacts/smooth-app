@@ -23,6 +23,7 @@ jobs:
     outputs:
       VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
       OLD_VERSION_CODE: ${{ steps.set_output.outputs.OLD_VERSION_CODE }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -48,7 +49,6 @@ jobs:
 
       - name: Version
         run: echo ${{ env.RELEASE_VERSION }}
-
 
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1

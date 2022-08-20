@@ -85,6 +85,7 @@ class ReinventionPage extends StatelessWidget {
               child: NextButton(
                 OnboardingPage.REINVENTION,
                 backgroundColor: null,
+                nextKey: Key('nextAfterReinvention'),
               ),
             ),
           ],

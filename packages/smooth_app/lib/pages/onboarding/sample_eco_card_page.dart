@@ -18,5 +18,6 @@ class SampleEcoCardPage extends StatelessWidget {
         localDatabase: _localDatabase,
         backgroundColor: backgroundColor,
         svgAsset: 'assets/onboarding/eco.svg',
+        nextKey: const Key('nextAfterEco'),
       );
 }

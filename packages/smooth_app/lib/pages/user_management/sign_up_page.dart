@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/model/SignUpStatus.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -33,6 +34,10 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   final TextEditingController _password1Controller = TextEditingController();
   final TextEditingController _password2Controller = TextEditingController();
   final TextEditingController _brandController = TextEditingController();
+
+  final FocusNode _userFocusNode = FocusNode();
+  final FocusNode _emailFocusNode = FocusNode();
+  final FocusNode _password1FocusNode = FocusNode();
 
   bool _foodProducer = false;
   bool _agree = false;
@@ -103,6 +108,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
               textInputType: TextInputType.emailAddress,
               type: TextFieldTypes.PLAIN_TEXT,
               controller: _emailController,
+              focusNode: _emailFocusNode,
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_email_hint,
               prefixIcon: const Icon(Icons.person),
@@ -124,6 +130,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             SmoothTextFormField(
               type: TextFieldTypes.PLAIN_TEXT,
               controller: _userController,
+              focusNode: _userFocusNode,
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_username_hint,
               prefixIcon: const Icon(Icons.person),
@@ -153,6 +160,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             SmoothTextFormField(
               type: TextFieldTypes.PASSWORD,
               controller: _password1Controller,
+              focusNode: _password1FocusNode,
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_password_hint,
               prefixIcon: const Icon(Icons.vpn_key),
@@ -197,14 +205,18 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             // careful with CheckboxListTile and hyperlinks
             // cf. https://github.com/flutter/flutter/issues/31437
             ListTile(
-              leading: Checkbox(
-                value: _agree,
-                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
-                onChanged: (final bool? value) {
-                  if (value != null) {
-                    setState(() => _agree = value);
-                  }
-                },
+              onTap: () {
+                setState(() => _agree = !_agree);
+              },
+              contentPadding: EdgeInsets.zero,
+              leading: IgnorePointer(
+                ignoring: true,
+                child: Checkbox(
+                  value: _agree,
+                  fillColor:
+                      MaterialStateProperty.resolveWith(getCheckBoxColor),
+                  onChanged: (_) {},
+                ),
               ),
               title: RichText(
                 text: TextSpan(
@@ -243,14 +255,18 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             ),
             const SizedBox(height: space),
             ListTile(
-              leading: Checkbox(
-                value: _foodProducer,
-                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
-                onChanged: (final bool? value) {
-                  if (value != null) {
-                    setState(() => _foodProducer = value);
-                  }
-                },
+              onTap: () {
+                setState(() => _foodProducer = !_foodProducer);
+              },
+              contentPadding: EdgeInsets.zero,
+              leading: IgnorePointer(
+                ignoring: true,
+                child: Checkbox(
+                  value: _foodProducer,
+                  fillColor:
+                      MaterialStateProperty.resolveWith(getCheckBoxColor),
+                  onChanged: (_) {},
+                ),
               ),
               title: Text(
                 appLocalizations.sign_up_page_producer_checkbox,
@@ -277,14 +293,18 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             ],
             const SizedBox(height: space),
             ListTile(
-              leading: Checkbox(
-                value: _subscribe,
-                fillColor: MaterialStateProperty.resolveWith(getCheckBoxColor),
-                onChanged: (final bool? value) {
-                  if (value != null) {
-                    setState(() => _subscribe = value);
-                  }
-                },
+              onTap: () {
+                setState(() => _subscribe = !_subscribe);
+              },
+              contentPadding: EdgeInsets.zero,
+              leading: IgnorePointer(
+                ignoring: true,
+                child: Checkbox(
+                  value: _subscribe,
+                  fillColor:
+                      MaterialStateProperty.resolveWith(getCheckBoxColor),
+                  onChanged: (_) {},
+                ),
               ),
               title: Text(
                 appLocalizations.sign_up_page_subscribe_checkbox,
@@ -331,7 +351,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       userId: _userController.trimmedText,
       password: _password1Controller.text,
     );
-    final Status? status = await LoadingDialog.run<Status>(
+    final SignUpStatus? status = await LoadingDialog.run<SignUpStatus>(
       context: context,
       future: OpenFoodAPIClient.register(
         user: user,
@@ -348,6 +368,23 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     }
     if (status.error != null) {
       await LoadingDialog.error(context: context, title: status.error);
+
+      // Highlight the field with the error
+      if (status.statusErrors?.isNotEmpty == true) {
+        if (status.statusErrors!
+            .contains(SignUpStatusError.EMAIL_ALREADY_USED)) {
+          _emailFocusNode.requestFocus();
+        } else if (status.statusErrors!
+            .contains(SignUpStatusError.INVALID_PASSWORD)) {
+          _password1FocusNode.requestFocus();
+        } else if (status.statusErrors!
+                .contains(SignUpStatusError.INVALID_USERNAME) ||
+            status.statusErrors!
+                .contains(SignUpStatusError.USERNAME_ALREADY_USED)) {
+          _userFocusNode.requestFocus();
+        }
+      }
+
       return;
     }
     AnalyticsHelper.trackRegister();

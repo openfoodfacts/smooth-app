@@ -47,6 +47,8 @@ class FimberLogImpl implements AppLogService {
     }
 
     Fimber.plantTree(_fileTree);
+
+    log(LogLevel.info, 'New app session started');
   }
 
   Future<File> get _fileName => _filesDirectory
@@ -67,7 +69,7 @@ class FimberLogImpl implements AppLogService {
     Fimber.log(
       _getFimberLogLevel(level),
       message,
-      tag: tag ?? _generateTag(),
+      tag: tag ?? _defaultTag,
       ex: ex,
       stacktrace: stacktrace,
     );
@@ -75,38 +77,66 @@ class FimberLogImpl implements AppLogService {
 
   @override
   void d(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) {
-    Fimber.log('D', message,
-        tag: tag ?? _generateTag(), ex: ex, stacktrace: stacktrace);
+    Fimber.log(
+      'D',
+      message,
+      tag: tag ?? _defaultTag,
+      ex: ex,
+      stacktrace: stacktrace,
+    );
   }
 
   @override
   void e(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) {
     Fimber.log('E', message,
-        tag: tag ?? _generateTag(), ex: ex, stacktrace: stacktrace);
+        tag: tag ?? _defaultTag, ex: ex, stacktrace: stacktrace);
   }
 
   @override
   void i(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) {
-    Fimber.log('I', message,
-        tag: tag ?? _generateTag(), ex: ex, stacktrace: stacktrace);
+    Fimber.log(
+      'I',
+      message,
+      tag: tag ?? _defaultTag,
+      ex: ex,
+      stacktrace: stacktrace,
+    );
   }
 
   @override
   void v(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) {
-    Fimber.log('V', message,
-        tag: tag ?? _generateTag(), ex: ex, stacktrace: stacktrace);
+    Fimber.log(
+      'V',
+      message,
+      tag: tag ?? _defaultTag,
+      ex: ex,
+      stacktrace: stacktrace,
+    );
   }
 
   @override
   void w(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) {
-    Fimber.log('W', message,
-        tag: tag ?? _generateTag(), ex: ex, stacktrace: stacktrace);
+    Fimber.log(
+      'W',
+      message,
+      tag: tag ?? _defaultTag,
+      ex: ex,
+      stacktrace: stacktrace,
+    );
   }
 
   String _getFimberLogLevel(LogLevel level) => level.fimberLevel;
 
-  String _generateTag() {
-    return StackTrace.current.toString().split('\n')[4].split('.')[0];
+  String get _defaultTag {
+    final String tag =
+        StackTrace.current.toString().split('\n')[4].split('.')[0];
+
+    // Some tags looks like "#1    some text" -> we only use "some text"
+    if (tag.startsWith('#')) {
+      return tag.substring(tag.indexOf(' '));
+    } else {
+      return tag;
+    }
   }
 
   @override

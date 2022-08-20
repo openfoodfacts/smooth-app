@@ -59,6 +59,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
                   icon: Icons.add,
                   padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
                   onPressed: () async {
+                    // TODO(monsieurtanuki): careful, waiting for pop'ed value
                     final String? result = await Navigator.push<String>(
                       context,
                       MaterialPageRoute<String>(

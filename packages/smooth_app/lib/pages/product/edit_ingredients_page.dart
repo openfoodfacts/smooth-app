@@ -335,7 +335,7 @@ class _OcrWidget extends StatelessWidget {
                           onPressed: () async {
                             await onSubmitField();
                             //ignore: use_build_context_synchronously
-                            Navigator.pop(context, product);
+                            Navigator.pop(context);
                           },
                         ),
                       ),
