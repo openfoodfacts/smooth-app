@@ -9,7 +9,7 @@ on:
       VERSION_NAME:
         required: true
         type: string
-      VERSION_CODE:
+      OLD_VERSION_CODE:
         required: true
         type: string
     secrets:
@@ -88,7 +88,7 @@ jobs:
           subdirectory: packages/smooth_app/android
         env:
           VERSION_NAME: ${{ env.VERSION_NAME }}
-          VERSION_CODE: ${{ env.OLD_VERSION_CODE }}
+          OLD_VERSION_CODE: ${{ env.OLD_VERSION_CODE }}
 
       - name: Build app
         run: cd ./packages/smooth_app && cd ios && pod update Sentry && cd .. && flutter build ios --release --no-codesign
