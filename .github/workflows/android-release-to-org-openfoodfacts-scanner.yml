@@ -13,6 +13,8 @@ on:
         required: true
         type: string
     secrets:
+      GITHUB_TOKEN: 
+        required: true
       API_JSON_FILE_DECRYPTKEY:
         required: true
       DECRYPT_GPG_KEYSTORE:
