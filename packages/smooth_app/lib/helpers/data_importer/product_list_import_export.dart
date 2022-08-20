@@ -1,7 +1,7 @@
 import 'dart:convert';
 
+import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/ProductListQueryConfiguration.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -67,13 +67,15 @@ class ProductListImportExport {
   Future<List<Product>> _fetchProducts(
     Iterable<String> barcodes,
   ) async {
-    final SearchResult searchResult = await OpenFoodAPIClient.getProductList(
+    final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
       ProductQuery.getUser(),
-      ProductListQueryConfiguration(
-        barcodes.toList(growable: false),
+      ProductSearchQueryConfiguration(
         fields: ProductQuery.fields,
         language: ProductQuery.getLanguage(),
         country: ProductQuery.getCountry(),
+        parametersList: <Parameter>[
+          BarcodeParameter.list(barcodes.toList(growable: false)),
+        ],
       ),
     );
 

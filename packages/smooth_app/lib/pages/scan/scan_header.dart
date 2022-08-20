@@ -72,9 +72,9 @@ class _ScanHeaderState extends State<ScanHeader> {
                       if (!mounted) {
                         return;
                       }
-                      await Navigator.push<Widget>(
+                      await Navigator.push<void>(
                         context,
-                        MaterialPageRoute<Widget>(
+                        MaterialPageRoute<void>(
                           builder: (BuildContext context) =>
                               PersonalizedRankingPage(
                             barcodes: model.productList.barcodes,

@@ -19,13 +19,14 @@ class AddCategoryButton extends StatelessWidget {
           if (!await ProductRefresher().checkIfLoggedIn(context)) {
             return;
           }
-          await Navigator.push<Product>(
+          await Navigator.push<void>(
             context,
-            MaterialPageRoute<Product>(
+            MaterialPageRoute<void>(
               builder: (BuildContext context) => SimpleInputPage(
                 helper: SimpleInputPageCategoryHelper(),
                 product: product,
               ),
+              fullscreenDialog: true,
             ),
           );
         },

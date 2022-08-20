@@ -142,6 +142,7 @@ class _HelperState extends State<_Helper> {
             NextButton(
               OnboardingPage.PREFERENCES_PAGE,
               backgroundColor: widget.backgroundColor,
+              nextKey: const Key('nextAfterPreferences'),
             ),
           ],
         ),

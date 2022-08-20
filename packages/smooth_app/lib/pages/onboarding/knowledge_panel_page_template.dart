@@ -21,6 +21,7 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
     required this.localDatabase,
     required this.backgroundColor,
     required this.svgAsset,
+    required this.nextKey,
   });
 
   final String headerTitle;
@@ -32,6 +33,7 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
   final LocalDatabase localDatabase;
   final Color backgroundColor;
   final String svgAsset;
+  final Key nextKey;
 
   @override
   State<KnowledgePanelPageTemplate> createState() =>
@@ -118,6 +120,7 @@ class _KnowledgePanelPageTemplateState
                       NextButton(
                         widget.page,
                         backgroundColor: widget.backgroundColor,
+                        nextKey: widget.nextKey,
                       ),
                     ],
                   ),
@@ -131,6 +134,7 @@ class _KnowledgePanelPageTemplateState
 
   List<Widget> _buildHintPopup() {
     final Widget hintPopup = InkWell(
+      key: const Key('toolTipPopUp'),
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 30),
         color: Theme.of(context).hintColor.withOpacity(0.9),
