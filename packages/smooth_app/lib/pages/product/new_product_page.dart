@@ -300,9 +300,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             _buildActionBarItem(
               Icons.edit,
               appLocalizations.edit_product_label,
-              () async => Navigator.push<bool>(
+              () async => Navigator.push<void>(
                 context,
-                MaterialPageRoute<bool>(
+                MaterialPageRoute<void>(
                   builder: (BuildContext context) => EditProductPage(_product),
                 ),
               ),

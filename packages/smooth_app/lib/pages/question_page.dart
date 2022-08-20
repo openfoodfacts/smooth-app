@@ -424,9 +424,9 @@ class CongratsWidget extends StatelessWidget {
                         action: SmoothActionButton(
                           text: appLocalizations.sign_in,
                           onPressed: () async {
-                            await Navigator.push<Widget>(
+                            await Navigator.push<void>(
                               context,
-                              MaterialPageRoute<Widget>(
+                              MaterialPageRoute<void>(
                                 builder: (_) => const LoginPage(),
                               ),
                             );

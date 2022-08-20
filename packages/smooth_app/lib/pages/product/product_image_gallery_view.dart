@@ -313,6 +313,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           return;
         }
 
+        // TODO(monsieurtanuki): careful, waiting for pop'ed value
         // ignore: use_build_context_synchronously
         final File? photoUploaded = await Navigator.push<File?>(
           context,

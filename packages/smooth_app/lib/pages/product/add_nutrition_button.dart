@@ -32,13 +32,14 @@ class _AddNutritionButtonState extends State<AddNutritionButton> {
           if (!mounted) {
             return;
           }
-          await Navigator.push<Product>(
+          await Navigator.push<void>(
             context,
-            MaterialPageRoute<Product>(
+            MaterialPageRoute<void>(
               builder: (BuildContext context) => NutritionPageLoaded(
                 widget.product,
                 cache.orderedNutrients,
               ),
+              fullscreenDialog: true,
             ),
           );
         },

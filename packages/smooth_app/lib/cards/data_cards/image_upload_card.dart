@@ -108,6 +108,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             _imageFullProvider = NetworkImage(imageFullUrl);
           }
 
+          // TODO(monsieurtanuki): careful, waiting for pop'ed value
           final bool? refreshed = await Navigator.push<bool>(
             context,
             MaterialPageRoute<bool>(
