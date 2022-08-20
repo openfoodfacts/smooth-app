@@ -4,10 +4,6 @@ on:
      branches:
        - develop
        - major-release-update
-       
-
-env:
-  FLUTTER-CACHE-KEY: '3.0.1'
 
 jobs:
 
@@ -69,8 +65,9 @@ jobs:
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
-      VERSION_NAME: ${{needs.create-release.outputs.VERSION_NAME}}
-      OLD_VERSION_CODE: ${{needs.create-release.outputs.OLD_VERSION_CODE}}
+      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
+      OLD_VERSION_CODE: ${{ needs.create-release.outputs.OLD_VERSION_CODE}}
+      FLUTTER-CACHE-KEY: '3.0.1'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
@@ -84,8 +81,9 @@ jobs:
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
-      VERSION_NAME: ${{needs.create-release.outputs.VERSION_NAME}}
-      OLD_VERSION_CODE: ${{needs.create-release.outputs.OLD_VERSION_CODE}}
+      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
+      OLD_VERSION_CODE: ${{ needs.create-release.outputs.OLD_VERSION_CODE}}
+      FLUTTER-CACHE-KEY: '3.0.1'
     secrets:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN }}
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
