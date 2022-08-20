@@ -61,7 +61,7 @@ jobs:
         run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=OLD_VERSION_CODE::${{ env.OLD_VERSION_CODE }}"
 
   android-release:
-    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@major-release-update
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
@@ -77,7 +77,7 @@ jobs:
       SIGN_KEY_PASSWORD: ${{secrets.SIGN_KEY_PASSWORD }}
 
   iOS-release:
-    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@major-release-update
+    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
