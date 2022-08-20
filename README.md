@@ -58,6 +58,7 @@ We are always looking for new contributors, if you're willing to help please let
 ## Custom dependencies (forked versions)
 - [g123k/plugins](https://github.com/g123k/plugins) - We use our own fork of the camera plugin to be able to hotfix problems in it we find.
 
+
 ## V1 Roadmap (Shipped on June 15th 2022 for Vivatech)
 - [x] We should be able to ship the Smoothie code to the main listing on Android and iOS
 - [x] The app should be able to scan very well
@@ -98,6 +99,18 @@ We are always looking for new contributors, if you're willing to help please let
 In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
  - flutter pub get
  - flutter run
+
+## Contributing
+
+Please name your pull request following this scheme: `type: What you did` this allows us to automatically generate the changelog
+Following `type`s are allowed:
+
+- `feat`, for Features
+- `fix`, for Bug Fixes
+- `docs`, for Documentation
+- `ci`, for Automation
+- `refactor`, for code Refactoring
+- `chore`, for Miscellaneous things
 
 ### Dev Mode
 - How to activate it: We now have a in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by going to Preferences screen > Contribute > Software Development, and then enabling Dev Mode.

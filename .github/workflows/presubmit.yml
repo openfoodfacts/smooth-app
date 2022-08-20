@@ -1,6 +1,10 @@
 name: SmoothApp Pre-Submit Tests
 
-on: pull_request
+on:
+  push:
+    branches-ignore:
+      - develop
+
 
 env:
   FLUTTER_VERSION: '3.0.x'
@@ -47,5 +51,4 @@ jobs:
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
         with:
-          fail_ci_if_error: true
-          verbose: true
+          fail_ci_if_error: false
