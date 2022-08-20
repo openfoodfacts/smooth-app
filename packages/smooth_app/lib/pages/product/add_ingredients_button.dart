@@ -19,9 +19,9 @@ class AddIngredientsButton extends StatelessWidget {
           if (!await ProductRefresher().checkIfLoggedIn(context)) {
             return;
           }
-          await Navigator.push<bool>(
+          await Navigator.push<void>(
             context,
-            MaterialPageRoute<bool>(
+            MaterialPageRoute<void>(
               builder: (BuildContext context) => EditOcrPage(
                 product: product,
                 helper: OcrIngredientsHelper(),

@@ -321,9 +321,9 @@ class _SummaryCardState extends State<SummaryCard> {
           addPanelButton(
             localizations.completed_basic_details_btn_text,
             onPressed: () async {
-              await Navigator.push<Product?>(
+              await Navigator.push<void>(
                 context,
-                MaterialPageRoute<Product>(
+                MaterialPageRoute<void>(
                   builder: (BuildContext context) =>
                       AddBasicDetailsPage(_product),
                 ),
@@ -433,9 +433,9 @@ class _SummaryCardState extends State<SummaryCard> {
           InkWell(
             borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
             onTap: widget.isSettingClickable
-                ? () async => Navigator.push<Widget>(
+                ? () async => Navigator.push<void>(
                       context,
-                      MaterialPageRoute<Widget>(
+                      MaterialPageRoute<void>(
                         builder: (BuildContext context) =>
                             const UserPreferencesPage(
                           type: PreferencePageType.FOOD,
@@ -621,9 +621,9 @@ class _SummaryCardState extends State<SummaryCard> {
           if (questions.isNotEmpty && !_annotationVoted) {
             return InkWell(
               onTap: () async {
-                await Navigator.push<Widget>(
+                await Navigator.push<void>(
                   context,
-                  MaterialPageRoute<Widget>(
+                  MaterialPageRoute<void>(
                     builder: (BuildContext context) => QuestionPage(
                       product: _product,
                       questions: questions,
@@ -741,9 +741,9 @@ class _SummaryCardState extends State<SummaryCard> {
     final KnowledgePanelPanelGroupElement? group =
         KnowledgePanelGroupCard.groupElementOf(context);
 
-    Navigator.push<Widget>(
+    Navigator.push<void>(
       context,
-      MaterialPageRoute<Widget>(
+      MaterialPageRoute<void>(
         builder: (BuildContext context) => KnowledgePanelPage(
           groupElement: group,
           panel: knowledgePanel,
