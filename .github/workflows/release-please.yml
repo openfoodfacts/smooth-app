@@ -61,6 +61,7 @@ jobs:
 
   android-release:
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
+    needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
