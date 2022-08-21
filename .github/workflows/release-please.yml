@@ -9,8 +9,14 @@ jobs:
 
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release_please.outputs.release_created }}
+      major: ${{ steps.release_please.outputs.major }}
+      minor: ${{ steps.release_please.outputs.minor }}
+      patch: ${{ steps.release_please.outputs.patch }}
     steps:
       - uses: google-github-actions/release-please-action@v3
+        id: release_please
         with:
            token: ${{ secrets.GITHUB_TOKEN }}
            release-type: simple
