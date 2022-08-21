@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - "develop"
+
+env:
+  FLUTTER_VERSION: '3.0.x'
     
 jobs:
   build:
@@ -21,13 +24,12 @@ jobs:
           distribution: 'zulu'
           java-version: 11
       
-      # Setup flutter
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-          cache-key: flutter3.0.1 # change this to force refresh cache
+          cache-key: flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock')}}
           
       - run: flutter --version
       

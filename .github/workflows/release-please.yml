@@ -54,13 +54,13 @@ jobs:
           subdirectory: packages/smooth_app/android
 
       - name: Version
-        run: echo ${{ env.RELEASE_VERSION }}
+        run: echo ${{ env.VERSION_NAME }}
 
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: ${{ env.RELEASE_VERSION }}
-          message: "Release: ${{ env.RELEASE_VERSION }}"
+          tag: ${{ env.VERSION_NAME }}
+          message: "Release: ${{ env.VERSION_NAME }}+${{ env.OLD_VERSION_CODE }} (+1)"
 
       - name: Set output
         id: set_output
@@ -77,10 +77,10 @@ jobs:
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
-      STORE_JKS_DECRYPTKEY: ${{secrets.STORE_JKS_DECRYPTKEY }}
-      SIGN_STORE_PASSWORD: ${{secrets.SIGN_STORE_PASSWORD }}
-      SIGN_KEY_ALIAS: ${{secrets.SIGN_KEY_ALIAS }}
-      SIGN_KEY_PASSWORD: ${{secrets.SIGN_KEY_PASSWORD }}
+      STORE_JKS_DECRYPTKEY: ${{secrets.NEW_CYPHER }}
+      SIGN_STORE_PASSWORD: ${{secrets.DECRYPT_FOR_SCANNER_FILE }}
+      SIGN_KEY_ALIAS: ${{secrets.ALIAS_FOR_SCANNER }}
+      SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
   iOS-release:
     uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
@@ -101,3 +101,4 @@ jobs:
       PILOT_APPLE_ID: ${{secrets.PILOT_APPLE_ID }}
       SPACESHIP_CONNECT_API_ISSUER_ID: ${{secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
       SPACESHIP_CONNECT_API_KEY_ID: ${{secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+      AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
