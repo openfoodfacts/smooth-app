@@ -33,6 +33,8 @@ on:
         required: true
       SPACESHIP_CONNECT_API_KEY_ID:
         required: true
+      AUTH_KEY_FILE_DECRYPTKEY:
+        required: true
 
 env:
   JAVA_VERSION: 17
