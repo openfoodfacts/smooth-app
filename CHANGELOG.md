@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.3](https://github.com/openfoodfacts/smooth-app/compare/v3.7.2...v3.7.3) (2022-08-21)
+
+
+### Automation
+
+* Fix secret naming ([#2820](https://github.com/openfoodfacts/smooth-app/issues/2820)) ([28d41e6](https://github.com/openfoodfacts/smooth-app/commit/28d41e6e307336ef6e7ed7792c9007947090670e))
+
 ## [3.7.2](https://github.com/openfoodfacts/smooth-app/compare/v3.7.1...v3.7.2) (2022-08-21)
 
 
