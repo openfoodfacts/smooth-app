@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.4](https://github.com/openfoodfacts/smooth-app/compare/v3.7.3...v3.7.4) (2022-08-21)
+
+
+### Automation
+
+* Fix use inputs not env ([#2822](https://github.com/openfoodfacts/smooth-app/issues/2822)) ([47df2b5](https://github.com/openfoodfacts/smooth-app/commit/47df2b59f69a634a109d3c0ee7c1ab7d2e1ddcf7))
+
 ## [3.7.3](https://github.com/openfoodfacts/smooth-app/compare/v3.7.2...v3.7.3) (2022-08-21)
 
 
