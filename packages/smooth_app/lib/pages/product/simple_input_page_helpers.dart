@@ -9,7 +9,7 @@ import 'package:smooth_app/query/product_query.dart';
 /// * we retrieve the initial list of terms.
 /// * we add a term to the list.
 /// * we remove a term from the list.
-abstract class AbstractSimpleInputPageHelper {
+abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Product we are about to edit.
   late Product product;
 
@@ -24,6 +24,7 @@ abstract class AbstractSimpleInputPageHelper {
     this.product = product;
     _terms = initTerms();
     _changed = false;
+    notifyListeners();
   }
 
   final String _separator = ',';
@@ -46,6 +47,7 @@ abstract class AbstractSimpleInputPageHelper {
     }
     _terms.add(term);
     _changed = true;
+    notifyListeners();
     return true;
   }
 
@@ -56,6 +58,7 @@ abstract class AbstractSimpleInputPageHelper {
   bool removeTerm(final String term) {
     if (_terms.remove(term)) {
       _changed = true;
+      notifyListeners();
       return true;
     }
     return false;
@@ -119,6 +122,12 @@ abstract class AbstractSimpleInputPageHelper {
       controller.text = '';
     }
     return result;
+  }
+
+  @override
+  // ignore: must_call_super
+  void dispose() {
+    // Ignored on purposed
   }
 }
 
