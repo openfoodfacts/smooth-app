@@ -61,7 +61,7 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: ${{ env.FLUTTER-CACHE-KEY }}
+          cache-key: ${{ inputs.FLUTTER-CACHE-KEY }}
 
       - name: Flutter version    
         run: flutter --version
@@ -77,8 +77,8 @@ jobs:
           lane: setVersion
           subdirectory: packages/smooth_app/android
         env:
-          VERSION_NAME: ${{ env.VERSION_NAME }}
-          VERSION_CODE: ${{ env.VERSION_CODE }}
+          VERSION_NAME: ${{ inputs.VERSION_NAME }}
+          VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
       - name: Build AAB
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release

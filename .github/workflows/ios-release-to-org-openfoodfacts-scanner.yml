@@ -65,7 +65,7 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: ${{ env.FLUTTER-CACHE-KEY }}
+          cache-key: ${{ inputs.FLUTTER-CACHE-KEY }}
 
       - name: Flutter version    
         run: flutter --version
@@ -89,8 +89,8 @@ jobs:
           lane: setVersion
           subdirectory: packages/smooth_app/android
         env:
-          VERSION_NAME: ${{ env.VERSION_NAME }}
-          VERSION_CODE: ${{ env.VERSION_CODE }}
+          VERSION_NAME: ${{ inputs.VERSION_NAME }}
+          VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
       - name: Build app
         run: cd ./packages/smooth_app && cd ios && pod update Sentry && cd .. && flutter build ios --release --no-codesign
