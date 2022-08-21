@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.2](https://github.com/openfoodfacts/smooth-app/compare/v3.7.1...v3.7.2) (2022-08-21)
+
+
+### Automation
+
+* Fix wrong env name ([#2818](https://github.com/openfoodfacts/smooth-app/issues/2818)) ([5399834](https://github.com/openfoodfacts/smooth-app/commit/5399834a1cecdd5a76cca08c0dde08ff567ca394))
+
 ## [3.7.1](https://github.com/openfoodfacts/smooth-app/compare/v3.7.0...v3.7.1) (2022-08-21)
 
 
