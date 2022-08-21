@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.1](https://github.com/openfoodfacts/smooth-app/compare/v3.7.0...v3.7.1) (2022-08-21)
+
+
+### Automation
+
+* Fix not outputting values from release-please ([#2816](https://github.com/openfoodfacts/smooth-app/issues/2816)) ([903f78e](https://github.com/openfoodfacts/smooth-app/commit/903f78ec01711e5f6ce399d87f057ccc313da603))
+
 ## [3.7.0](https://github.com/openfoodfacts/smooth-app/compare/v3.6.0...v3.7.0) (2022-08-20)
 
 
