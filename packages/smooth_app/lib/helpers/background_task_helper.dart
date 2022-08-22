@@ -9,6 +9,10 @@ import 'package:task_manager/task_manager.dart';
 
 const String IMAGE_UPLOAD_TASK = 'Image_Upload';
 const String PRODUCT_EDIT_TASK = 'Product_Edit';
+
+/// Runs whenever a task is started in the background.
+/// Whatever invoked with TaskManager.addTask() will be run in this method.
+/// Gets automatically invoked when there is a task added to the queue and the network conditions are favorable.
 Future<TaskResult> callbackDispatcher(
   LocalDatabase localDatabase,
 ) async {
@@ -33,7 +37,6 @@ Future<TaskResult> callbackDispatcher(
 
 ///  This takes the product json and uploads the data to openfoodfacts server
 ///  and queries the updated Product then it updates the product in the local database
-
 Future<TaskResult> otherDetails(
   Map<String, dynamic> inputData,
   LocalDatabase localDatabase,

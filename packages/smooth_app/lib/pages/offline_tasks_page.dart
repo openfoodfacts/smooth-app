@@ -65,6 +65,7 @@ class _OfflineTaskState extends State<OfflineTask> {
                       );
                     }
                     return _getListTileItem(
+                      index,
                       snapshot.data![index].uniqueId,
                       snapshot.data![index].data!['processName'].toString(),
                       snapshot.data![index].data!['barcode'].toString(),
@@ -80,15 +81,13 @@ class _OfflineTaskState extends State<OfflineTask> {
   }
 
   Widget _getListTileItem(
+    int index,
     String uniqueId,
     String processName,
     String barcode,
   ) {
     return ListTile(
-      leading: _getLeadingIcon(
-        context,
-        uniqueId,
-      ),
+      leading: Text(index.toString()),
       title: Text(barcode),
       subtitle: Text(processName),
       trailing: Wrap(
@@ -165,18 +164,5 @@ class _OfflineTaskState extends State<OfflineTask> {
       return;
     }
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
-
-  Widget _getLeadingIcon(BuildContext context, String taskType) {
-    switch (taskType) {
-      case 'ImageUpload':
-        return const Icon(Icons.photo);
-      case 'BasicInput':
-        return const Icon(Icons.edit_outlined);
-      case 'NutrientEdit':
-        return const Icon(Icons.fastfood);
-      default:
-        return const Icon(Icons.edit);
-    }
   }
 }
