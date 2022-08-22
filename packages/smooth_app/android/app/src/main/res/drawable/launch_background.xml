@@ -10,10 +10,10 @@
                 android:gravity="center"/>
     </item>
 
-    <item android:bottom="20dp">
+    <item>
         <bitmap
                 android:src="@drawable/logo_text"
-                android:gravity="bottom|center_horizontal"/>
+                android:gravity="bottom"/>
     </item>
 
 </layer-list>
