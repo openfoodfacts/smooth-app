@@ -74,27 +74,28 @@ We are always looking for new contributors, if you're willing to help please let
 - [x] Allow to expand search results to the world
 
 ## Next
-### Settings
-- [ ] Revamped settings that are less cluttered, and can make way in the future for things the user will go see more often.
-- [ ] Personalization system that does not feel weird during setup, where people understand consequence, and where ranking match their expectations even in stretch cases (lack of data on some product, selecting Nutri-Score and all Low-in Nutrients…), where red-lines are clearly shown (allergens) with potential caveats, where solutions are proposed and warning issued in case of lack of data.
-
-### Value added in browsing
-- [ ] Clarify the alternative product proposition
-- [ ] Reintroduce the portion calculator
+### Scanning
+- [ ] Ensure no one complains about not being able to scan
+- [ ] [Add offline scanning to ensure results in all conditions](https://github.com/openfoodfacts/smooth-app/issues/18)
 
 ### Contribution
 - [ ] Speedup image upload
 - [ ] Improve the scan experience when Nutri-Score and Eco-Score are not present (some people don't click on the card even if fully unhelpful)
 - [ ] Offer a faster editing system for power users (and potentially all)
-- [ ] Add power edit mode that concatenates all the editable things for faster contribution
+  - [ ] Add power edit mode that concatenates all the editable things for faster contribution
 - [ ] Add a list of things to do contribution wise on the product (via Knowledge Panels or natively), or introduce a "Raw data" mode for power contributors
+
+### Value added in browsing
+- [ ] Clarify the alternative product proposition
+- [ ] Reintroduce the portion calculator
+
 ### Gamification
 - [ ] Add the number of contributions when logged in
 - [ ] Integration with openfoodfacts-events
 
-### Scanning
-- [ ] Ensure no one complains about not being able to scan
-- [ ] [Add offline scanning to ensure results in all conditions](https://github.com/openfoodfacts/smooth-app/issues/18)
+### Settings
+- [ ] Revamped settings that are less cluttered, and can make way in the future for things the user will go see more often.
+- [ ] Personalization system that does not feel weird during setup, where people understand consequence, and where ranking match their expectations even in stretch cases (lack of data on some product, selecting Nutri-Score and all Low-in Nutrients…), where red-lines are clearly shown (allergens) with potential caveats, where solutions are proposed and warning issued in case of lack of data.
 
 ### Misc
 
