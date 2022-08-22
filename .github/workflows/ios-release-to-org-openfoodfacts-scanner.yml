@@ -9,7 +9,7 @@ on:
       VERSION_NAME:
         required: true
         type: string
-      OLD_VERSION_CODE:
+      VERSION_CODE:
         required: true
         type: string
     secrets:
@@ -32,6 +32,8 @@ on:
       SPACESHIP_CONNECT_API_ISSUER_ID:
         required: true
       SPACESHIP_CONNECT_API_KEY_ID:
+        required: true
+      AUTH_KEY_FILE_DECRYPTKEY:
         required: true
 
 env:
@@ -63,7 +65,7 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: ${{ env.FLUTTER-CACHE-KEY }}
+          cache-key: ${{ inputs.FLUTTER-CACHE-KEY }}
 
       - name: Flutter version    
         run: flutter --version
@@ -87,8 +89,8 @@ jobs:
           lane: setVersion
           subdirectory: packages/smooth_app/android
         env:
-          VERSION_NAME: ${{ env.VERSION_NAME }}
-          OLD_VERSION_CODE: ${{ env.OLD_VERSION_CODE }}
+          VERSION_NAME: ${{ inputs.VERSION_NAME }}
+          VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
       - name: Build app
         run: cd ./packages/smooth_app && cd ios && pod update Sentry && cd .. && flutter build ios --release --no-codesign
@@ -110,20 +112,20 @@ jobs:
       - name: cat Podfile
         run: cd ./packages/smooth_app/ios && cat Podfile
  
-#      - name: Release ipa
-#        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
-#        env:
-#          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-#          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-#          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-#          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
-#          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
-#          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
-#          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-#          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
-#          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
-#          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
-#          SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
-#          CI_RELEASE: true
+      - name: Release ipa
+        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          PILOT_APPLE_ID: ${{ secrets.PILOT_APPLE_ID }}
+          SPACESHIP_CONNECT_API_ISSUER_ID: ${{ secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
+          SPACESHIP_CONNECT_API_KEY_ID: ${{ secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+          SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
+          CI_RELEASE: true
 

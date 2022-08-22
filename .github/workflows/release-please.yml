@@ -3,13 +3,19 @@ on:
    push:
      branches:
        - develop
+    
 
 jobs:
-
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release_please.outputs.release_created }}
+      major: ${{ steps.release_please.outputs.major }}
+      minor: ${{ steps.release_please.outputs.minor }}
+      patch: ${{ steps.release_please.outputs.patch }}
     steps:
       - uses: google-github-actions/release-please-action@v3
+        id: release_please
         with:
            token: ${{ secrets.GITHUB_TOKEN }}
            release-type: simple
@@ -21,7 +27,7 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created }}
     outputs:
       VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
-      OLD_VERSION_CODE: ${{ steps.set_output.outputs.OLD_VERSION_CODE }}
+      VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
 
     steps:
       - uses: actions/checkout@v2
@@ -39,25 +45,25 @@ jobs:
 
       # We are using the android version code for iOS as well to have the version codes in sync 
       # in order for Sentry and other tools to work properly
-      # Outputs env: OLD_VERSION_CODE
-      - name: Get latest OLD_VERSION_CODE
+      # Outputs env: VERSION_CODE (integer)
+      - name: Get latest VERSION_CODE
         uses: maierj/fastlane-action@v2.2.1
         with:
           lane: getOldVersionCode
           subdirectory: packages/smooth_app/android
 
       - name: Version
-        run: echo ${{ env.RELEASE_VERSION }}
+        run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
 
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: ${{ env.RELEASE_VERSION }}
-          message: "Release: ${{ env.RELEASE_VERSION }}"
+          tag: "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
+          message: "Release: ${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
 
       - name: Set output
         id: set_output
-        run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=OLD_VERSION_CODE::${{ env.OLD_VERSION_CODE }}"
+        run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=VERSION_CODE::${{ env.VERSION_CODE }}"
 
   android-release:
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
@@ -65,15 +71,15 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created }}
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
-      OLD_VERSION_CODE: ${{ needs.create-release.outputs.OLD_VERSION_CODE}}
+      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.0.1'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
-      STORE_JKS_DECRYPTKEY: ${{secrets.STORE_JKS_DECRYPTKEY }}
-      SIGN_STORE_PASSWORD: ${{secrets.SIGN_STORE_PASSWORD }}
-      SIGN_KEY_ALIAS: ${{secrets.SIGN_KEY_ALIAS }}
-      SIGN_KEY_PASSWORD: ${{secrets.SIGN_KEY_PASSWORD }}
+      STORE_JKS_DECRYPTKEY: ${{secrets.NEW_CYPHER }}
+      SIGN_STORE_PASSWORD: ${{secrets.DECRYPT_FOR_SCANNER_FILE }}
+      SIGN_KEY_ALIAS: ${{secrets.ALIAS_FOR_SCANNER }}
+      SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
   iOS-release:
     uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
@@ -81,7 +87,7 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created }}
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
-      OLD_VERSION_CODE: ${{ needs.create-release.outputs.OLD_VERSION_CODE}}
+      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.0.1'
     secrets:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
@@ -94,3 +100,4 @@ jobs:
       PILOT_APPLE_ID: ${{secrets.PILOT_APPLE_ID }}
       SPACESHIP_CONNECT_API_ISSUER_ID: ${{secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
       SPACESHIP_CONNECT_API_KEY_ID: ${{secrets.SPACESHIP_CONNECT_API_KEY_ID }}
+      AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
