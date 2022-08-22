@@ -269,7 +269,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
 
                 return const Padding(
                   padding: EdgeInsets.all(LARGE_SPACE),
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator.adaptive(),
                 );
               },
             ),

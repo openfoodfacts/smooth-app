@@ -30,7 +30,7 @@ class AllUserProductList extends StatelessWidget {
         if (snapshot.data != null) {
           return _AllUserProductListLoaded(snapshot.data!);
         }
-        return const Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator.adaptive());
       },
     );
   }

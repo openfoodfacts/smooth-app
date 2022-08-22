@@ -73,7 +73,7 @@ class _KnowledgePanelPageTemplateState
             );
           }
           if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator.adaptive());
           }
           final Widget knowledgePanelWidget = KnowledgePanelWidget(
             panelElement: KnowledgePanelWidget.getPanelElement(
