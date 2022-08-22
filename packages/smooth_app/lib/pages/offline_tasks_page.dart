@@ -3,7 +3,9 @@ import 'package:task_manager/task_manager.dart';
 
 // TODO(ashaman999): add the translations later
 class OfflineTask extends StatefulWidget {
-  const OfflineTask({Key? key}) : super(key: key);
+  const OfflineTask({
+    super.key,
+  });
 
   @override
   State<OfflineTask> createState() => _OfflineTaskState();
@@ -12,7 +14,7 @@ class OfflineTask extends StatefulWidget {
 class _OfflineTaskState extends State<OfflineTask> {
   Future<List<Task>> _fetchListItems() async {
     final Iterable<Task> tasks = await TaskManager().listPendingTasks();
-    return tasks.toList();
+    return tasks.toList(growable: true);
   }
 
   @override
@@ -23,23 +25,7 @@ class _OfflineTaskState extends State<OfflineTask> {
         actions: <Widget>[
           PopupMenuButton<int>(
             onSelected: (int item) async {
-              String status = 'All tasks Caneclled';
-              try {
-                await TaskManager().cancelTasks();
-              } catch (e) {
-                status = 'Something went wrong';
-              }
-              setState(() {});
-              final SnackBar snackBar = SnackBar(
-                content: Text(
-                  status,
-                ),
-                duration: const Duration(seconds: 3),
-              );
-              if (!mounted) {
-                return;
-              }
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              await _cancelAllTask();
             },
             itemBuilder: (BuildContext context) => <PopupMenuItem<int>>[
               const PopupMenuItem<int>(value: 0, child: Text('Cancel all')),
@@ -61,7 +47,7 @@ class _OfflineTaskState extends State<OfflineTask> {
                 (BuildContext context, AsyncSnapshot<List<Task>> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator.adaptive(),
                 );
               }
               if (snapshot.data!.isEmpty) {
@@ -78,62 +64,10 @@ class _OfflineTaskState extends State<OfflineTask> {
                         ),
                       );
                     }
-                    return ListTile(
-                      leading: getLeadingIcon(
-                        context,
-                        snapshot.data![index].uniqueId,
-                      ),
-                      title: Text(
-                        snapshot.data![index].data!['barcode'].toString(),
-                      ),
-                      subtitle: Text(snapshot.data![index].data!['processName']
-                          .toString()),
-                      trailing: Wrap(
-                        children: <Widget>[
-                          IconButton(
-                              onPressed: () async {
-                                String status = 'Retrying';
-                                try {
-                                  TaskManager()
-                                      .runTask(snapshot.data![index].uniqueId);
-                                } catch (e) {
-                                  status = 'Error: $e';
-                                }
-                                final SnackBar snackBar = SnackBar(
-                                  content: Text(status),
-                                  duration: const Duration(seconds: 3),
-                                );
-                                if (!mounted) {
-                                  return;
-                                }
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                                setState(() {});
-                              },
-                              icon: const Icon(Icons.refresh)),
-                          IconButton(
-                              onPressed: () async {
-                                String status = 'Cancelled';
-                                try {
-                                  await TaskManager().cancelTask(
-                                      snapshot.data![index].uniqueId);
-                                } catch (e) {
-                                  status = 'Error: $e';
-                                }
-                                final SnackBar snackBar = SnackBar(
-                                  content: Text(status),
-                                  duration: const Duration(seconds: 3),
-                                );
-                                if (!mounted) {
-                                  return;
-                                }
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                                setState(() {});
-                              },
-                              icon: const Icon(Icons.cancel))
-                        ],
-                      ),
+                    return _getListTileItem(
+                      snapshot.data![index].uniqueId,
+                      snapshot.data![index].data!['processName'].toString(),
+                      snapshot.data![index].data!['barcode'].toString(),
                     );
                   },
                 );
@@ -145,7 +79,95 @@ class _OfflineTaskState extends State<OfflineTask> {
     );
   }
 
-  Widget getLeadingIcon(BuildContext context, String taskType) {
+  Widget _getListTileItem(
+    String uniqueId,
+    String processName,
+    String barcode,
+  ) {
+    return ListTile(
+      leading: _getLeadingIcon(
+        context,
+        uniqueId,
+      ),
+      title: Text(barcode),
+      subtitle: Text(processName),
+      trailing: Wrap(
+        children: <Widget>[
+          IconButton(
+              onPressed: () async {
+                String status = 'Retrying';
+                try {
+                  TaskManager().runTask(uniqueId);
+                } catch (e) {
+                  status = 'Error: $e';
+                }
+                final SnackBar snackBar = SnackBar(
+                  content: Text(status),
+                  duration: const Duration(seconds: 3),
+                );
+                if (!mounted) {
+                  return;
+                }
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                setState(() {});
+              },
+              icon: const Icon(Icons.refresh)),
+          IconButton(
+              onPressed: () async {
+                await _cancelTask(uniqueId);
+
+                setState(() {});
+              },
+              icon: const Icon(Icons.cancel))
+        ],
+      ),
+    );
+  }
+
+  Future<void> _cancelTask(String uniqueId) async {
+    try {
+      await TaskManager().cancelTask(uniqueId);
+      const SnackBar snackBar = SnackBar(
+        content: Text('Cancelled'),
+        duration: Duration(seconds: 3),
+      );
+      if (!mounted) {
+        return;
+      }
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } catch (e) {
+      final SnackBar snackBar = SnackBar(
+        content: Text('Error: $e'),
+        duration: const Duration(seconds: 3),
+      );
+      if (!mounted) {
+        return;
+      }
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+  }
+
+  Future<void> _cancelAllTask() async {
+    String status = 'All tasks Caneclled';
+    try {
+      await TaskManager().cancelTasks();
+    } catch (e) {
+      status = 'Something went wrong';
+    }
+    setState(() {});
+    final SnackBar snackBar = SnackBar(
+      content: Text(
+        status,
+      ),
+      duration: const Duration(seconds: 3),
+    );
+    if (!mounted) {
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  Widget _getLeadingIcon(BuildContext context, String taskType) {
     switch (taskType) {
       case 'ImageUpload':
         return const Icon(Icons.photo);

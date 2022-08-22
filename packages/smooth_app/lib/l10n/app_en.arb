@@ -1618,7 +1618,7 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The Product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     }

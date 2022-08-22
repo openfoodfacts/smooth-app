@@ -7,9 +7,11 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
-const String IMAGE_UPLOAD_TASK = 'Image Upload';
-const String PRODUCT_EDIT_TASK = 'Product Edit';
-Future<TaskResult> callbackDispatcher(LocalDatabase localDatabase) async {
+const String IMAGE_UPLOAD_TASK = 'Image_Upload';
+const String PRODUCT_EDIT_TASK = 'Product_Edit';
+Future<TaskResult> callbackDispatcher(
+  LocalDatabase localDatabase,
+) async {
   await TaskManager().init(
       runTasksInIsolates: false,
       executor: (Task inputData) async {
@@ -29,8 +31,13 @@ Future<TaskResult> callbackDispatcher(LocalDatabase localDatabase) async {
   return TaskResult.success;
 }
 
+///  This takes the product json and uploads the data to openfoodfacts server
+///  and queries the updated Product then it updates the product in the local database
+
 Future<TaskResult> otherDetails(
-    Map<String, dynamic> inputData, LocalDatabase localDatabase) async {
+  Map<String, dynamic> inputData,
+  LocalDatabase localDatabase,
+) async {
   final BackgroundOtherDetailsInput inputTask =
       BackgroundOtherDetailsInput.fromJson(inputData);
   final Map<String, dynamic> mp =
@@ -64,8 +71,12 @@ Future<TaskResult> otherDetails(
   return TaskResult.success;
 }
 
+/// This takes the Image and uploads it to openfoodfacts server
+/// and queries the updated Product then it updates the product in the local database
 Future<TaskResult> uploadImage(
-    Map<String, dynamic> inputData, LocalDatabase localDatabase) async {
+  Map<String, dynamic> inputData,
+  LocalDatabase localDatabase,
+) async {
   final BackgroundImageInputData inputTask =
       BackgroundImageInputData.fromJson(inputData);
   final User user =

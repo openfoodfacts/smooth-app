@@ -19,12 +19,7 @@ Future<bool> uploadCapturedPicture(
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
-  // get time since epoch in milliseconds
-  String uniqueId =
-      '${barcode}_${imageField.value}_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';
-  if (imageField.value == ImageField.OTHER.value) {
-    uniqueId += DateTime.now().millisecondsSinceEpoch.toString();
-  }
+  final String uniqueId = _getUniqueId(imageField, barcode);
   final BackgroundImageInputData backgroundImageInputData =
       BackgroundImageInputData(
     processName: IMAGE_UPLOAD_TASK,
@@ -36,7 +31,6 @@ Future<bool> uploadCapturedPicture(
     user: jsonEncode(ProductQuery.getUser().toJson()),
     country: ProductQuery.getCountry()!.iso2Code,
   );
-  // generate a random 8 digit word as the task name
   await TaskManager().addTask(
     Task(
       data: backgroundImageInputData.toJson(),
@@ -57,6 +51,17 @@ Future<bool> uploadCapturedPicture(
   //ignore: use_build_context_synchronously
   await _updateContinuousScanModel(context, barcode);
   return true;
+}
+
+/// Generates a unique id for the task , in case of tasks with the same name
+///.It gets replaced with the new one , also for other images we randomize the id with date time so that it runs seperately
+String _getUniqueId(ImageField imageField, String barcode) {
+  String uniqueId =
+      '${barcode}_${imageField.value}_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';
+  if (imageField.value == ImageField.OTHER.value) {
+    uniqueId += DateTime.now().millisecondsSinceEpoch.toString();
+  }
+  return uniqueId;
 }
 
 Future<void> _updateContinuousScanModel(

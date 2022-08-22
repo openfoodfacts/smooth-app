@@ -1,7 +1,7 @@
 import 'dart:math';
 
-class SmoothRandom {
-  const SmoothRandom._();
+class SmoothRandomUtils {
+  const SmoothRandomUtils._();
 
   static String generateRandomString(int length) {
     final Random random = Random();

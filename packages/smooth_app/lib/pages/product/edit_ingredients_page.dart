@@ -167,11 +167,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
       return false;
     }
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text(
-          'Ingredients updated successfully',
+          AppLocalizations.of(context).product_task_background_schedule,
         ),
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
       ),
     );
     return true;
