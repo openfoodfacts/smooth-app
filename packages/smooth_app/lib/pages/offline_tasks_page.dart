@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:task_manager/task_manager.dart';
 
 // TODO(ashaman999): add the translations later
@@ -102,7 +103,7 @@ class _OfflineTaskState extends State<OfflineTask> {
                 }
                 final SnackBar snackBar = SnackBar(
                   content: Text(status),
-                  duration: const Duration(seconds: 3),
+                  duration: SnackBarDuration.medium,
                 );
                 if (!mounted) {
                   return;
@@ -137,7 +138,7 @@ class _OfflineTaskState extends State<OfflineTask> {
     } catch (e) {
       final SnackBar snackBar = SnackBar(
         content: Text('Error: $e'),
-        duration: const Duration(seconds: 3),
+        duration: SnackBarDuration.medium,
       );
       if (!mounted) {
         return;
@@ -158,7 +159,7 @@ class _OfflineTaskState extends State<OfflineTask> {
       content: Text(
         status,
       ),
-      duration: const Duration(seconds: 3),
+      duration: SnackBarDuration.medium,
     );
     if (!mounted) {
       return;

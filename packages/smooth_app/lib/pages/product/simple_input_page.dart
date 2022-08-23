@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
@@ -217,7 +218,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         content: Text(
           appLocalizations.product_task_background_schedule,
         ),
-        duration: const Duration(seconds: 3),
+        duration: SnackBarDuration.medium,
       ),
     );
     return true;

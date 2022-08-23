@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/abstract_onboarding_data.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Helper around a product we download, store and reuse at onboarding.
@@ -42,7 +43,7 @@ class OnboardingDataProduct extends AbstractOnboardingData<Product> {
           language: ProductQuery.getLanguage(),
           country: ProductQuery.getCountry(),
         ),
-      ).timeout(const Duration(seconds: 5));
+      ).timeout(SnackBarDuration.long);
 
   @override
   String getAssetPath() => assetPath;

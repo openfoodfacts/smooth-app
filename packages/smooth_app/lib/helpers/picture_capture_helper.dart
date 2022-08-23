@@ -7,6 +7,7 @@ import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
@@ -45,7 +46,7 @@ Future<bool> uploadCapturedPicture(
       content: Text(
         appLocalizations.image_upload_queued,
       ),
-      duration: const Duration(seconds: 3),
+      duration: SnackBarDuration.medium,
     ),
   );
   //ignore: use_build_context_synchronously

@@ -12,6 +12,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
@@ -84,7 +85,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(error),
-        duration: const Duration(seconds: 3),
+        duration: SnackBarDuration.medium,
       ),
     );
   }
@@ -171,7 +172,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
         content: Text(
           AppLocalizations.of(context).product_task_background_schedule,
         ),
-        duration: const Duration(seconds: 3),
+        duration: SnackBarDuration.medium,
       ),
     );
     return true;

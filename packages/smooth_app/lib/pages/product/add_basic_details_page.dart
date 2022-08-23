@@ -9,6 +9,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -183,7 +184,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         content: Text(
                           appLocalizations.basic_details_add_success,
                         ),
-                        duration: const Duration(seconds: 3),
+                        duration: SnackBarDuration.medium,
                       ),
                     );
                     Navigator.pop(context, product);
