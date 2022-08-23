@@ -363,7 +363,7 @@
     "ranking_subtitle_match_yes": "Uma ótima combinação para você",
     "ranking_subtitle_match_no": "Uma combinação muito pobre",
     "ranking_subtitle_match_maybe": "Combinação desconhecida",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Atualize a lista com suas novas preferências",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -945,7 +945,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "Quando ativado, algumas informações anônimas sobre o uso do aplicativo serão enviadas aos servidores do Open Food Facts, para que possamos entender como e quantos recursos são usados para melhorá-los.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1084,10 +1084,15 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Deseja salvar suas alterações antes de sair desta página?",
+    "edit_product_form_item_exit_confirmation_positive_button": "Salvar alterações",
+    "edit_product_form_item_exit_confirmation_negative_button": "Descartar alterações",
     "edit_product_form_item_ingredients_title": "Ingredientes e origens",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
+    "edit_product_form_item_add_valid_item_tooltip": "Adicione",
+    "edit_product_form_item_add_invalid_item_tooltip": "Por favor, digite um texto primeiro",
+    "edit_product_form_item_remove_item_tooltip": "Remover",
     "edit_product_form_item_packaging_title": "Embalagem",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1474,9 +1479,27 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Você está prestes a excluir todo o seu histórico. Tem certeza de que deseja continuar?",
+    "confirm_clear": "Você está prestes a excluir todo o seu histórico. Tem certeza que quer continuar?",
     "@confirm_clear": {
-        "description": "Asking about whether to clear the list or not"
+        "description": "Asking about whether to clear the history list or not"
+    },
+    "confirm_clear_user_list": "Você está prestes a limpar esta lista ({name}): tem certeza que quer continuar?",
+    "@confirm_clear_user_list": {
+        "description": "Asking about whether to clear the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "confirm_delete_user_list": "Você está prestes a excluir esta lista ({name}). Tem certeza que quer continuar?",
+    "@confirm_delete_user_list": {
+        "description": "Asking about whether to delete the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
     },
     "importance_label": "{name} importância: {id}",
     "@importance_label": {
@@ -1550,29 +1573,29 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Expandir tabela de informações nutricionais",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-    "expand_ingredients": "Expand ingredients",
+    "expand_nutrition_facts_body": "Manter a tabela de informações nutricionais expandida",
+    "expand_ingredients": "Expandir ingredientes",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "Keep the ingredients panel expanded",
+    "expand_ingredients_body": "Manter o painel de ingredientes expandido",
     "no_internet_connection": "Sem conexão com a internet",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Resultados de todo o mundo",
+    "world_results_label": "No mundo inteiro",
     "@world_results_label": {
-        "description": "Label describing the current source of the results: the entire world"
+        "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Buscar mundo",
+    "world_results_action": "Amplie sua pesquisa para o mundo",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "clipboard_barcode_copied": "Código de barras {barcode} copiado para a área de transferência!",
+    "clipboard_barcode_copy": "Copiar o código de barras para a área de transferência",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1582,6 +1605,7 @@
             }
         }
     },
+    "clipboard_barcode_copied": "Código de barras {barcode} copiado para a área de transferência!",
     "choose_app_language": "Escolha o Idioma",
     "@choose_app_language": {
         "description": "Choose Application Language"
