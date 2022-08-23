@@ -64,35 +64,42 @@ We are always looking for new contributors, if you're willing to help please let
 - [x] The app should be able to scan very well
 - [x] Minimal Road to Scores (you should be able to get Nutri-Score and Eco-Score on any unknown/uncomplete product in 2 minutes, using editing and/or product addition
   - [x] Initial photo taking, good ingredient extraction, Nutrition input, Category input (TODO)
-- [ ] Personalization system that does not feel weird during setup, where people understand consequence, and where ranking match their expectations even in stretch cases (lack of data on some product, selecting Nutri-Score and all Low-in Nutrients…), where red-lines are clearly shown (allergens) with potential caveats, where solutions are proposed and warning issued in case of lack of data.
 - [x] Database migration for existing Android and iOS users (minimum: history, credentials, if possible with allergen alerts, lists)
 - [x] A Welcome scan card that can broadcast a message from the Open Food Facts team per country/language (Tagline)
 - [x] On-page photo refresh capabilities (Not working well)
-- [ ] Revamped settings that are less cluttered, and can make way in the future for things the user will go see more often.
 - [x] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)
 
-## V1.1 - Later Roadmap
-- [ ] Speedup image upload
-- [ ] Fix HTTP header and contribution comments
-- [ ] Add power edit mode that concatenates all the editable things for faster contribution
-- [ ] Add a list of things to do contribution wise on the product (via KP or natively)
-- [ ] Clarify the alternative product proposition
-- [ ] Allow to switch languages
-- [ ] Allow to expand search results to the world
-- [ ] Reintroduce the portion calculator
+## V1.1
+- [x] Allow to switch languages
+- [x] Allow to expand search results to the world
 
-## V2 - Later Roadmap
-
-
-### Gamification
-- [ ] User management + Small point system for contributions
-
+## Next
 ### Scanning
+- [ ] Ensure no one complains about not being able to scan
 - [ ] [Add offline scanning to ensure results in all conditions](https://github.com/openfoodfacts/smooth-app/issues/18)
 
+### Contribution
+- [ ] Speedup image upload
+- [ ] Improve the scan experience when Nutri-Score and Eco-Score are not present (some people don't click on the card even if fully unhelpful)
+- [ ] Offer a faster editing system for power users (and potentially all)
+  - [ ] Add power edit mode that concatenates all the editable things for faster contribution
+- [ ] Add a list of things to do contribution wise on the product (via Knowledge Panels or natively), or introduce a "Raw data" mode for power contributors
 
-### Screenshot automation (nice to have)
-- [ ] [Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)](https://github.com/openfoodfacts/smooth-app/issues/217)
+### Value added in browsing
+- [ ] Clarify the alternative product proposition
+- [ ] Reintroduce the portion calculator
+
+### Gamification
+- [ ] Add the number of contributions when logged in
+- [ ] Integration with openfoodfacts-events
+
+### Settings
+- [ ] Revamped settings that are less cluttered, and can make way in the future for things the user will go see more often.
+- [ ] Personalization system that does not feel weird during setup, where people understand consequence, and where ranking match their expectations even in stretch cases (lack of data on some product, selecting Nutri-Score and all Low-in Nutrients…), where red-lines are clearly shown (allergens) with potential caveats, where solutions are proposed and warning issued in case of lack of data.
+
+### Misc
+
+- [ ] Fix HTTP header and contribution comments
 
 ## Building
 

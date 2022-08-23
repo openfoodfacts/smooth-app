@@ -51,7 +51,7 @@ class _PreferencesPageState extends State<PreferencesPage> {
             );
           }
           if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator.adaptive());
           }
           return _Helper(_product, widget.backgroundColor);
         },

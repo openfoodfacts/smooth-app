@@ -207,7 +207,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     if (_updatingImage) {
       children.add(
         const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator.adaptive(),
         ),
       );
     } else {

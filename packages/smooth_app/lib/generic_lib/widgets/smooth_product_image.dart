@@ -51,7 +51,7 @@ class SmoothProductImage extends StatelessWidget {
                 progress == null
                     ? child
                     : Center(
-                        child: CircularProgressIndicator(
+                        child: CircularProgressIndicator.adaptive(
                           strokeWidth: 2.5,
                           valueColor: const AlwaysStoppedAnimation<Color>(
                             Colors.white,

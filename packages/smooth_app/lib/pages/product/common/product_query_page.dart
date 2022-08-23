@@ -95,7 +95,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               return _getEmptyScreen(
                 screenSize,
                 themeData,
-                const CircularProgressIndicator(),
+                const CircularProgressIndicator.adaptive(),
               );
             }
             break;
