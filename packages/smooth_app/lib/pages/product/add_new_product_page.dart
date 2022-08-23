@@ -184,6 +184,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildImageUploadedRow(
       BuildContext context, ImageField imageType, File image) {
+    final ThemeData themeData = Theme.of(context);
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: Row(
@@ -193,12 +194,12 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           Expanded(
             child: Center(
               child: Text(_getAddPhotoButtonText(context, imageType),
-                  style: Theme.of(context).textTheme.bodyText1),
+                  style: themeData.textTheme.bodyText1),
             ),
           ),
           Icon(
             Icons.check_box,
-            color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+            color: themeData.bottomNavigationBarTheme.selectedItemColor,
           )
         ],
       ),
@@ -301,17 +302,18 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildaddInputDetailsButton() {
     if (_basicDetailsAdded) {
+      final ThemeData themeData = Theme.of(context);
       return Padding(
           padding: _ROW_PADDING_TOP,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const SizedBox(
+              SizedBox(
                 width: 50.0,
                 child: Icon(
                   Icons.check,
-                  color: Colors.greenAccent,
+                  color: themeData.bottomNavigationBarTheme.selectedItemColor,
                 ),
               ),
               Expanded(

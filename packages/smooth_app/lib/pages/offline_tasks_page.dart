@@ -3,19 +3,22 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:task_manager/task_manager.dart';
 
 // TODO(ashaman999): add the translations later
-class OfflineTask extends StatefulWidget {
-  const OfflineTask({
+class OfflineTaskPage extends StatefulWidget {
+  const OfflineTaskPage({
     super.key,
   });
 
   @override
-  State<OfflineTask> createState() => _OfflineTaskState();
+  State<OfflineTaskPage> createState() => _OfflineTaskState();
 }
 
-class _OfflineTaskState extends State<OfflineTask> {
+class _OfflineTaskState extends State<OfflineTaskPage> {
   Future<List<Task>> _fetchListItems() async {
-    final Iterable<Task> tasks = await TaskManager().listPendingTasks();
-    return tasks.toList(growable: true);
+    return TaskManager().listPendingTasks().then(
+          (Iterable<Task> value) => value.toList(
+            growable: false,
+          ),
+        );
   }
 
   @override
@@ -25,7 +28,7 @@ class _OfflineTaskState extends State<OfflineTask> {
         title: const Text('Pending Background Tasks'),
         actions: <Widget>[
           PopupMenuButton<int>(
-            onSelected: (int item) async {
+            onSelected: (_) async {
               await _cancelAllTask();
             },
             itemBuilder: (BuildContext context) => <PopupMenuItem<int>>[
@@ -52,7 +55,7 @@ class _OfflineTaskState extends State<OfflineTask> {
                 );
               }
               if (snapshot.data!.isEmpty) {
-                return const Center(child: Text('No Pending Tasks'));
+                return _getEmptyScreen();
               } else {
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
@@ -65,7 +68,7 @@ class _OfflineTaskState extends State<OfflineTask> {
                         ),
                       );
                     }
-                    return _getListTileItem(
+                    return TaskListTile(
                       index,
                       snapshot.data![index].uniqueId,
                       snapshot.data![index].data!['processName'].toString(),
@@ -81,74 +84,12 @@ class _OfflineTaskState extends State<OfflineTask> {
     );
   }
 
-  Widget _getListTileItem(
-    int index,
-    String uniqueId,
-    String processName,
-    String barcode,
-  ) {
-    return ListTile(
-      leading: Text(index.toString()),
-      title: Text(barcode),
-      subtitle: Text(processName),
-      trailing: Wrap(
-        children: <Widget>[
-          IconButton(
-              onPressed: () async {
-                String status = 'Retrying';
-                try {
-                  TaskManager().runTask(uniqueId);
-                } catch (e) {
-                  status = 'Error: $e';
-                }
-                final SnackBar snackBar = SnackBar(
-                  content: Text(status),
-                  duration: SnackBarDuration.medium,
-                );
-                if (!mounted) {
-                  return;
-                }
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                setState(() {});
-              },
-              icon: const Icon(Icons.refresh)),
-          IconButton(
-              onPressed: () async {
-                await _cancelTask(uniqueId);
-
-                setState(() {});
-              },
-              icon: const Icon(Icons.cancel))
-        ],
-      ),
-    );
-  }
-
-  Future<void> _cancelTask(String uniqueId) async {
-    try {
-      await TaskManager().cancelTask(uniqueId);
-      const SnackBar snackBar = SnackBar(
-        content: Text('Cancelled'),
-        duration: Duration(seconds: 3),
-      );
-      if (!mounted) {
-        return;
-      }
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } catch (e) {
-      final SnackBar snackBar = SnackBar(
-        content: Text('Error: $e'),
-        duration: SnackBarDuration.medium,
-      );
-      if (!mounted) {
-        return;
-      }
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
+  Widget _getEmptyScreen() {
+    return const Center(child: Text('No Pending Tasks'));
   }
 
   Future<void> _cancelAllTask() async {
-    String status = 'All tasks Caneclled';
+    String status = 'All tasks Cancelled';
     try {
       await TaskManager().cancelTasks();
     } catch (e) {
@@ -165,5 +106,85 @@ class _OfflineTaskState extends State<OfflineTask> {
       return;
     }
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+}
+
+class TaskListTile extends StatefulWidget {
+  const TaskListTile(
+    this.index,
+    this.uniqueId,
+    this.processName,
+    this.barcode,
+  );
+  final int index;
+  final String uniqueId;
+  final String processName;
+  final String barcode;
+
+  @override
+  State<TaskListTile> createState() => _TaskListTileState();
+}
+
+class _TaskListTileState extends State<TaskListTile> {
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Text(widget.index.toString()),
+      title: Text(widget.barcode),
+      subtitle: Text(widget.processName),
+      trailing: Wrap(
+        children: <Widget>[
+          IconButton(
+              onPressed: () {
+                String status = 'Retrying';
+                try {
+                  TaskManager().runTask(widget.uniqueId);
+                } catch (e) {
+                  status = 'Error: $e';
+                }
+                final SnackBar snackBar = SnackBar(
+                  content: Text(status),
+                  duration: SnackBarDuration.medium,
+                );
+                if (!mounted) {
+                  return;
+                }
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                setState(() {});
+              },
+              icon: const Icon(Icons.refresh)),
+          IconButton(
+              onPressed: () async {
+                await _cancelTask(widget.uniqueId);
+
+                setState(() {});
+              },
+              icon: const Icon(Icons.cancel))
+        ],
+      ),
+    );
+  }
+
+  Future<void> _cancelTask(String uniqueId) async {
+    try {
+      await TaskManager().cancelTask(uniqueId);
+      const SnackBar snackBar = SnackBar(
+        content: Text('Cancelled'),
+        duration: SnackBarDuration.medium,
+      );
+      if (!mounted) {
+        return;
+      }
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } catch (e) {
+      final SnackBar snackBar = SnackBar(
+        content: Text('Error: $e'),
+        duration: SnackBarDuration.medium,
+      );
+      if (!mounted) {
+        return;
+      }
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 }

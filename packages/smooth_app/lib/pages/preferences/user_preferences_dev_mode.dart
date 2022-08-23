@@ -272,11 +272,11 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         _dataImporterTile(),
         ListTile(
           title: const Text('Pending Tasks'),
-          onTap: () async {
+          onTap: () {
             Navigator.push<void>(
               context,
               MaterialPageRoute<void>(
-                builder: (BuildContext context) => const OfflineTask(),
+                builder: (BuildContext context) => const OfflineTaskPage(),
               ),
             );
           },

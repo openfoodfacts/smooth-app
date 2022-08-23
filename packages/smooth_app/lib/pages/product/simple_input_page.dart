@@ -190,8 +190,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         return true;
       }
     }
-    final String uniqueId = const UniqueIdGenerator()
-        .generateUniqueId(changedProduct.barcode!, pageName);
+    final String uniqueId =
+        UniqueIdGenerator.generateUniqueId(changedProduct.barcode!, pageName);
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
       processName: PRODUCT_EDIT_TASK,

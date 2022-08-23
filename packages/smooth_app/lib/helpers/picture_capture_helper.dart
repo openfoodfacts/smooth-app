@@ -56,6 +56,7 @@ Future<bool> uploadCapturedPicture(
 
 /// Generates a unique id for the task , in case of tasks with the same name
 ///.It gets replaced with the new one , also for other images we randomize the id with date time so that it runs seperately
+/// example: 00000000_front_en_us_"random_user_id"
 String _getUniqueId(ImageField imageField, String barcode) {
   String uniqueId =
       '${barcode}_${imageField.value}_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';

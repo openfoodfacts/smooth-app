@@ -9,6 +9,10 @@ import 'package:task_manager/task_manager.dart';
 
 const String IMAGE_UPLOAD_TASK = 'Image_Upload';
 const String PRODUCT_EDIT_TASK = 'Product_Edit';
+const int SUCESS_CODE = 1;
+const String INGREDIENT_EDIT = 'INGREDIENTS_EDIT';
+const String NUTRITION_EDIT = 'NUTRITION_EDIT';
+const String BASIC_DETAILS = 'BASIC_DETAILS';
 
 /// Runs whenever a task is started in the background.
 /// Whatever invoked with TaskManager.addTask() will be run in this method.
@@ -17,39 +21,39 @@ Future<TaskResult> callbackDispatcher(
   LocalDatabase localDatabase,
 ) async {
   await TaskManager().init(
-      runTasksInIsolates: false,
-      executor: (Task inputData) async {
-        final String processName = inputData.data!['processName'] as String;
-        switch (processName) {
-          case IMAGE_UPLOAD_TASK:
-            return uploadImage(inputData.data!, localDatabase);
+    runTasksInIsolates: false,
+    executor: (Task inputData) async {
+      final String processName = inputData.data!['processName'] as String;
+      switch (processName) {
+        case IMAGE_UPLOAD_TASK:
+          return uploadImage(inputData.data!, localDatabase);
 
-          case PRODUCT_EDIT_TASK:
-            return otherDetails(inputData.data!, localDatabase);
+        case PRODUCT_EDIT_TASK:
+          return otherDetails(inputData.data!, localDatabase);
 
-          default:
-            return TaskResult.success;
-        }
-      },
-      listener: (Task task, TaskStatus status) {});
+        default:
+          return TaskResult.success;
+      }
+    },
+  );
   return TaskResult.success;
 }
 
 ///  This takes the product json and uploads the data to openfoodfacts server
-///  and queries the updated Product then it updates the product in the local database
+///  and queries the updated [Product] then it updates the product in the local database
 Future<TaskResult> otherDetails(
   Map<String, dynamic> inputData,
   LocalDatabase localDatabase,
 ) async {
   final BackgroundOtherDetailsInput inputTask =
       BackgroundOtherDetailsInput.fromJson(inputData);
-  final Map<String, dynamic> mp =
+  final Map<String, dynamic> productMap =
       json.decode(inputTask.inputMap) as Map<String, dynamic>;
   final User user =
       User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
   await OpenFoodAPIClient.saveProduct(
     user,
-    Product.fromJson(mp),
+    Product.fromJson(productMap),
     language: LanguageHelper.fromJson(inputTask.languageCode),
     country: CountryHelper.fromJson(inputTask.country),
   );
@@ -63,7 +67,8 @@ Future<TaskResult> otherDetails(
 
   final ProductResult queryResult =
       await OpenFoodAPIClient.getProduct(configuration);
-  if (queryResult.status == 1) {
+  // if queryResult.status = SUCESS_CODE (ie.1) , it means query was sucessful
+  if (queryResult.status == SUCESS_CODE) {
     final Product? product = queryResult.product;
     if (product != null) {
       await daoProduct.put(product);
@@ -75,7 +80,7 @@ Future<TaskResult> otherDetails(
 }
 
 /// This takes the Image and uploads it to openfoodfacts server
-/// and queries the updated Product then it updates the product in the local database
+/// and queries the updated [Product] then it updates the product in the local database
 Future<TaskResult> uploadImage(
   Map<String, dynamic> inputData,
   LocalDatabase localDatabase,
@@ -92,8 +97,7 @@ Future<TaskResult> uploadImage(
   );
   await OpenFoodAPIClient.addProductImage(user, image);
   // go to the file system and delete the file that was uploaded
-  final File file = File(inputTask.imageUri);
-  file.deleteSync();
+  File(inputTask.imageUri).deleteSync();
   final DaoProduct daoProduct = DaoProduct(localDatabase);
   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
     inputTask.barcode,
@@ -104,7 +108,8 @@ Future<TaskResult> uploadImage(
 
   final ProductResult queryResult =
       await OpenFoodAPIClient.getProduct(configuration);
-  if (queryResult.status == 1) {
+  // if queryResult.status = SUCESS_CODE (ie.1) , it means query was sucessful
+  if (queryResult.status == SUCESS_CODE) {
     final Product? product = queryResult.product;
     if (product != null) {
       await daoProduct.put(product);
@@ -197,9 +202,10 @@ class BackgroundOtherDetailsInput {
 /// Generates a unique id for the background task
 /// This ensures that the background task is unique and also
 /// ensures that in case of conflict the background task is replaced
+/// ex: 00000000_BASIC_DETAILS_en_us_"random_user_id"
 class UniqueIdGenerator {
-  const UniqueIdGenerator();
-  String generateUniqueId(
+  const UniqueIdGenerator._();
+  static String generateUniqueId(
     String barcode,
     String processIdentifier,
   ) {

@@ -132,8 +132,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
   Future<bool> _updateText(final String text) async {
     final Product minimalistProduct =
         _helper.getMinimalistProduct(_product, text);
-    final String uniqueId = const UniqueIdGenerator()
-        .generateUniqueId(_product.barcode!, 'INGREDIENTS_EDIT');
+    final String uniqueId =
+        UniqueIdGenerator.generateUniqueId(_product.barcode!, INGREDIENT_EDIT);
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
       processName: PRODUCT_EDIT_TASK,

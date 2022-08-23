@@ -529,8 +529,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return false;
     }
     // if it fails, we stay on the same page
-    final String uniqueId = const UniqueIdGenerator()
-        .generateUniqueId(_product.barcode!, 'NUTRITION_EDIT');
+    final String uniqueId =
+        UniqueIdGenerator.generateUniqueId(_product.barcode!, NUTRITION_EDIT);
     final BackgroundOtherDetailsInput nutritonInputData =
         BackgroundOtherDetailsInput(
       processName: PRODUCT_EDIT_TASK,
