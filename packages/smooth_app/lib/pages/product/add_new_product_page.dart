@@ -196,9 +196,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   style: Theme.of(context).textTheme.bodyText1),
             ),
           ),
-          const Icon(
+          Icon(
             Icons.check_box,
-            color: Colors.green,
+            color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
           )
         ],
       ),
@@ -233,11 +233,13 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            const SizedBox(
+            SizedBox(
               width: 50.0,
               child: Icon(
                 Icons.check,
-                color: Colors.greenAccent,
+                color: Theme.of(context)
+                    .bottomNavigationBarTheme
+                    .selectedItemColor,
               ),
             ),
             Expanded(
