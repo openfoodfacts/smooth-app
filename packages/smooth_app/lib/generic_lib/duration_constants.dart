@@ -9,7 +9,7 @@ class SmoothAnimationsDuration {
 
 class SnackBarDuration {
   const SnackBarDuration._();
-  
+
   static const Duration brief = Duration(seconds: 1);
   static const Duration short = Duration(seconds: 2);
   static const Duration medium = Duration(seconds: 3);

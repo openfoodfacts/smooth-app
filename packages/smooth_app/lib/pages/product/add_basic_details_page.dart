@@ -137,7 +137,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       brands: _brandNameController.text,
                       barcode: _product.barcode,
                     );
-                    final String uniqueId = const UniqueIdGenerator().generateUniqueId(_product.barcode!,'BASIC_DETAILS');
+                    final String uniqueId = const UniqueIdGenerator()
+                        .generateUniqueId(_product.barcode!, 'BASIC_DETAILS');
                     final BackgroundOtherDetailsInput
                         backgroundBasicDetailsInput =
                         BackgroundOtherDetailsInput(

@@ -195,7 +195,7 @@ class BackgroundOtherDetailsInput {
 }
 
 /// Generates a unique id for the background task
-/// This ensures that the background task is unique and also 
+/// This ensures that the background task is unique and also
 /// ensures that in case of conflict the background task is replaced
 class UniqueIdGenerator {
   const UniqueIdGenerator();
