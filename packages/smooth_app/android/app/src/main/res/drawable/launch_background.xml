@@ -13,7 +13,7 @@
     <item android:bottom="20dp">
         <bitmap
                 android:src="@drawable/logo_text"
-                android:gravity="bottom|center_horizontal"/>
+                android:gravity="bottom"/>
     </item>
 
 </layer-list>
