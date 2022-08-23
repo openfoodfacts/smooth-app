@@ -31,7 +31,7 @@ class SmoothProductCardLoading extends StatelessWidget {
           const SizedBox(
             height: 12.0,
           ),
-          const CircularProgressIndicator()
+          const CircularProgressIndicator.adaptive()
         ],
       ),
     );

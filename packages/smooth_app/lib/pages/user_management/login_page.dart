@@ -201,7 +201,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
                       //Sign in button
                       if (_runningQuery)
-                        const CircularProgressIndicator()
+                        const CircularProgressIndicator.adaptive()
                       else
                         ElevatedButton(
                           onPressed: () => _login(context),

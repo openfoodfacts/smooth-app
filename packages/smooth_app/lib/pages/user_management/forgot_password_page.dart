@@ -135,7 +135,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                     ),
                   const Spacer(flex: 4),
                   if (_runningQuery)
-                    const CircularProgressIndicator()
+                    const CircularProgressIndicator.adaptive()
                   else
                     ElevatedButton(
                       onPressed: () {
