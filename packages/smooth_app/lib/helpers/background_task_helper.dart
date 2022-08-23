@@ -193,3 +193,16 @@ class BackgroundOtherDetailsInput {
         'country': country,
       };
 }
+
+/// Generates a unique id for the background task
+/// This ensures that the background task is unique and also 
+/// ensures that in case of conflict the background task is replaced
+class UniqueIdGenerator {
+  const UniqueIdGenerator();
+  String generateUniqueId(
+    String barcode,
+    String processIdentifier,
+  ) {
+    return '${barcode}_${processIdentifier}_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';
+  }
+}
