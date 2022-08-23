@@ -21,22 +21,27 @@ class SmoothSimpleButton extends StatelessWidget {
   final Color? buttonColor;
 
   @override
-  Widget build(BuildContext context) => Container(
-        constraints: BoxConstraints(minWidth: minWidth, minHeight: height),
-        child: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: buttonColor == null
-                ? null
-                : MaterialStateProperty.all<Color>(buttonColor!),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(borderRadius: borderRadius),
-            ),
-          ),
-          onPressed: onPressed,
-          child: Padding(
-            padding: padding,
-            child: child,
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minWidth: minWidth,
+        minHeight: height,
+      ),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: buttonColor == null
+              ? null
+              : MaterialStateProperty.all<Color>(buttonColor!),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(borderRadius: borderRadius),
           ),
         ),
-      );
+        onPressed: onPressed,
+        child: Padding(
+          padding: padding,
+          child: child,
+        ),
+      ),
+    );
+  }
 }

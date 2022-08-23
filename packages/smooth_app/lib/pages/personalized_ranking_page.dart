@@ -99,13 +99,13 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
             }
             if (_model.loadingStatus == LoadingStatus.LOADING) {
               return Center(
-                child: CircularProgressIndicator(
+                child: CircularProgressIndicator.adaptive(
                   value: _model.getLoadingProgress() ?? 1,
                 ),
               );
             }
             if (_model.loadingStatus != LoadingStatus.LOADED) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator.adaptive());
             }
             AnalyticsHelper.trackPersonalizedRanking(widget.barcodes.length);
             MatchedProductStatusV2? status;

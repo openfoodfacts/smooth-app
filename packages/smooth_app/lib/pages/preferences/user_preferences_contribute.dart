@@ -228,15 +228,16 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 if (snap.hasData) {
                   final List<dynamic> contributors =
                       jsonDecode(snap.data!.body) as List<dynamic>;
-                  return SingleChildScrollView(
-                    child: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: contributors.map((dynamic contributorsData) {
-                        final ContributorsModel contributor =
-                            ContributorsModel.fromJson(
-                                contributorsData as Map<String, dynamic>);
-                        return Padding(
-                          padding: const EdgeInsets.all(5.0),
+                  return Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: contributors.map((dynamic contributorsData) {
+                      final ContributorsModel contributor =
+                          ContributorsModel.fromJson(
+                              contributorsData as Map<String, dynamic>);
+                      return Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Tooltip(
+                          message: contributor.login,
                           child: InkWell(
                             customBorder: const CircleBorder(),
                             onTap: () {
@@ -260,13 +261,16 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                               height: 40.0,
                             ),
                           ),
-                        );
-                      }).toList(growable: false),
-                    ),
+                        ),
+                      );
+                    }).toList(growable: false),
                   );
                 }
 
-                return const CircularProgressIndicator();
+                return const Padding(
+                  padding: EdgeInsets.all(LARGE_SPACE),
+                  child: CircularProgressIndicator.adaptive(),
+                );
               },
             ),
             positiveAction: SmoothActionButton(
@@ -280,8 +284,10 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               onPressed: () => LaunchUrlHelper.launchURL(
                   'https://github.com/openfoodfacts/smooth-app', false),
               text: AppLocalizations.of(context).contribute,
-              minWidth: 200,
+              minWidth: 150,
             ),
+            actionsAxis: Axis.vertical,
+            actionsOrder: SmoothButtonsBarOrder.numerical,
           );
         },
       );

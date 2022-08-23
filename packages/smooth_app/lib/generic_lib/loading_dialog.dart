@@ -104,7 +104,7 @@ class LoadingDialog<T> {
           }
 
           return ListTile(
-            leading: const CircularProgressIndicator(),
+            leading: const CircularProgressIndicator.adaptive(),
             title: Text(title),
           );
         },

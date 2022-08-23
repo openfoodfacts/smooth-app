@@ -80,6 +80,6 @@ abstract class AbstractCache extends StatelessWidget {
   Widget getCircularProgressIndicator() => SizedBox(
         width: width ?? height,
         height: height ?? width,
-        child: const CircularProgressIndicator(),
+        child: const CircularProgressIndicator.adaptive(),
       );
 }

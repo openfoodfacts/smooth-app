@@ -14,9 +14,11 @@ class NextButton extends StatelessWidget {
   const NextButton(
     this.currentPage, {
     required this.backgroundColor,
-  }) : super(key: const Key('next'));
+    required this.nextKey,
+  });
 
   final OnboardingPage currentPage;
+  final Key nextKey;
 
   /// Color of the background where we put the buttons.
   ///
@@ -57,6 +59,7 @@ class NextButton extends StatelessWidget {
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
         label: appLocalizations.next_label,
+        nextKey: nextKey,
       ),
       backgroundColor: backgroundColor,
     );

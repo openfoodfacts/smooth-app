@@ -201,7 +201,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
                       //Sign in button
                       if (_runningQuery)
-                        const CircularProgressIndicator()
+                        const CircularProgressIndicator.adaptive()
                       else
                         ElevatedButton(
                           onPressed: () => _login(context),
@@ -250,7 +250,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute<Widget>(
+                            MaterialPageRoute<void>(
                               builder: (BuildContext context) =>
                                   const ForgotPasswordPage(),
                             ),
@@ -274,6 +274,8 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         height: size.height * 0.06,
                         child: OutlinedButton(
                           onPressed: () async {
+                            // TODO(monsieurtanuki): we probably don't need the returned value and could check the "logged in?" question differently
+                            // TODO(monsieurtanuki): careful, waiting for pop'ed value
                             final bool? registered = await Navigator.push<bool>(
                               context,
                               MaterialPageRoute<bool>(
