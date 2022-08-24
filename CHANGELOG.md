@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.8.0](https://github.com/openfoodfacts/smooth-app/compare/v3.7.4...v3.8.0) (2022-08-24)
+
+
+### Features
+
+* Improvements for the decoding process (1/3) ([#2835](https://github.com/openfoodfacts/smooth-app/issues/2835)) ([9598b25](https://github.com/openfoodfacts/smooth-app/commit/9598b254f3b04f5a4e91c8428abed1be34eef575))
+
+
+### Bug Fixes
+
+* Splash on Android 24 ([#2832](https://github.com/openfoodfacts/smooth-app/issues/2832)) ([ab068ed](https://github.com/openfoodfacts/smooth-app/commit/ab068edd412711e3655dd7191d79d4f067e53d8a))
+
+
+### Automation
+
+* Finalize new pipline ([#2824](https://github.com/openfoodfacts/smooth-app/issues/2824)) ([cbe7677](https://github.com/openfoodfacts/smooth-app/commit/cbe7677c52e924da3faaef39e38b22daf5468086))
+
+
+### Miscellaneous
+
+* **deps:** bump fastlane in /packages/smooth_app/android ([#2828](https://github.com/openfoodfacts/smooth-app/issues/2828)) ([6f1823e](https://github.com/openfoodfacts/smooth-app/commit/6f1823e96b798bbd0acfb1e66e84d431723c2d2a))
+* **deps:** bump fastlane in /packages/smooth_app/ios ([#2827](https://github.com/openfoodfacts/smooth-app/issues/2827)) ([a73fa69](https://github.com/openfoodfacts/smooth-app/commit/a73fa69aca78b02259e53f9db6f50b8407bbd36b))
+
+
+### Documentation
+
+* Start cleaning the roadmap ([#2815](https://github.com/openfoodfacts/smooth-app/issues/2815)) ([d506209](https://github.com/openfoodfacts/smooth-app/commit/d5062099110dde7428d218d3cde44c6d2037771e))
+
 ## [3.7.4](https://github.com/openfoodfacts/smooth-app/compare/v3.7.3...v3.7.4) (2022-08-21)
 
 
