@@ -12,7 +12,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Grįžti į viršų",
     "save": "Išsaugoti",
     "save_confirmation": "Ar tikrai norite išsaugoti?",
     "skip": "Skip",
@@ -40,7 +40,7 @@
     "@error_occurred": {},
     "featureInProgress": "Mes vis dar dirbame ties šia funkcija, sekite naujienas",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Žiūrėti internete",
     "@label_web": {},
     "learnMore": "Sužinokite daugiau",
     "@learnMore": {},
@@ -109,7 +109,7 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Pasirinkite maistą, kuris tinka jums ir planetai.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -142,7 +142,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Kad galėtumėte naudotis šia funkcija, turite prisijungti.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -274,7 +274,7 @@
     "support_join_slack": "Paprašykite pagalbos mūsų „Slack“ kanale",
     "support_via_email": "Atsiųskite mums el. laišką",
     "support_via_email_include_logs_dialog_title": "Siųsti programėlės išrašus?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_body": "Ar norite įtraukti programos išrašą į savo el. pašto priedą?",
     "termsOfUse": "Naudojimo sąlygos",
     "@termsOfUse": {},
     "about_this_app": "Apie šią programėlę",
@@ -294,8 +294,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Galite prisijungti prie „Open Food Facts Slack“ pokalbių kambario, kuris yra tinkamiausias būdas užduoti klausimus.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "Programuotojo režimas?",
+    "contribute_develop_dev_mode_subtitle": "Įjunkite programuotojo režimą",
     "contribute_donate_header": "Paaukokite Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Produktai, kurie turi būti baigti",
@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Vertimai yra viena iš pagrindinių projekto užduočių",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Pasidalykite „Open Food Facts“ su draugais",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Norėjau jums pranešti apie mano naudojamą programėlę „Open Food Facts“, kuri leidžia individualiai sužinoti apie jūsų maisto poveikį sveikatai ir aplinkai. Jis veikia nuskaitydamas brūkšninius kodus ant pakuotės. Galiausiai tai nemokama, nereikalaujama registracijos ir netgi galite padėti padidinti iššifruotų produktų skaičių. Čia yra nuoroda, kaip ją gauti savo telefone: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -338,16 +338,16 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
+    "question_sign_in_text": "Prisijunkite prie „Open Food Facts“ paskyros, kad išsaugotumėte savo indėlį",
     "@Personal preferences": {},
     "myPreferences": "Mano nustatymai",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Jūsų profilis",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Tvarkykite savo „Open Food Facts“ bendraautorio paskyrą.",
     "myPreferences_settings_title": "Programos nustatymai",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "Tamsusis režimas, analitika,...",
     "myPreferences_food_title": "Maisto pasirinkimai",
     "myPreferences_food_subtitle": "Pasirinkite, kokia informacija apie maistą jums yra svarbiausia.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -458,18 +458,18 @@
     "@add_product_information_button_label": {},
     "new_product": "Naujas produktas",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product front photo",
+    "front_packaging_photo_button_label": "Produkto priekinė nuotrauka",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Confirm",
+    "confirm_button_label": "Patvirtinti",
     "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
-    "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other Interesting Photo",
+    "ingredients_photo_title": "Sudėties Nuotrauka",
+    "nutritional_facts_photo_title": "Maistingumo Nuotrauka",
+    "recycling_photo_title": "Perdirbimo Nuotrauka",
+    "other_interesting_photo_title": "Kita Įdomi Nuotrauka",
     "front_photo_uploaded": "Priekinė nuotrauka įkelta",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Sudėties nuotrauka",
@@ -815,7 +815,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning!",
+    "product_list_empty_title": "Pradėkite skenuoti!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1084,10 +1084,15 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation_positive_button": "Save my changes",
+    "edit_product_form_item_exit_confirmation_negative_button": "Ignore my changes",
     "edit_product_form_item_ingredients_title": "Ingredientai ir kilmė",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
+    "edit_product_form_item_add_valid_item_tooltip": "Pridėti",
+    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
+    "edit_product_form_item_remove_item_tooltip": "Remove",
     "edit_product_form_item_packaging_title": "Pakuotė",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1406,7 +1411,7 @@
     "@edit_product_action_take_picture": {
         "description": "Product edition - FAB actions - take a picture"
     },
-    "edit_product_action_confirm": "Confirm",
+    "edit_product_action_confirm": "Patvirtinti",
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
@@ -1474,9 +1479,27 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "You're about to delete your entire history, are you sure you want to continue?",
+    "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
     "@confirm_clear": {
-        "description": "Asking about whether to clear the list or not"
+        "description": "Asking about whether to clear the history list or not"
+    },
+    "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
+    "@confirm_clear_user_list": {
+        "description": "Asking about whether to clear the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
+    "@confirm_delete_user_list": {
+        "description": "Asking about whether to delete the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
     },
     "importance_label": "{name} importance: {id}",
     "@importance_label": {
@@ -1564,15 +1587,15 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Results from the entire world",
+    "world_results_label": "Entire world",
     "@world_results_label": {
-        "description": "Label describing the current source of the results: the entire world"
+        "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Search world",
+    "world_results_action": "Extend your search to the world",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
+    "clipboard_barcode_copy": "Copy barcode to clipboard",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1582,6 +1605,7 @@
             }
         }
     },
+    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
     "choose_app_language": "Choose App Language",
     "@choose_app_language": {
         "description": "Choose Application Language"

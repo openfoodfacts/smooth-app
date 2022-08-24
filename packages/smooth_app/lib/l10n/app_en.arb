@@ -1597,10 +1597,6 @@
     },
     "clipboard_barcode_copy": "Copy barcode to clipboard",
     "@clipboard_barcode_copied": {
-        "description": "Action (tooltip) to copy a barcode to the clipboard"
-    },
-    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
-    "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
             "barcode": {
@@ -1609,6 +1605,7 @@
             }
         }
     },
+    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
     "choose_app_language": "Choose App Language",
     "@choose_app_language": {
         "description": "Choose Application Language"
