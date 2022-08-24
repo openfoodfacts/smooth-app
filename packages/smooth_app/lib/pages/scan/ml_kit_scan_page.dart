@@ -52,7 +52,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   /// It's also the minimum window between two decodings
   /// Note: A decoding happens by multiplying a window by [_processingTimeWindows]
   static const int _defaultProcessingTime = 50; // in milliseconds
-  /// In the case where [deviceInLowMemoryMode] is true, this value become the
+  /// In the case where [deviceInLowMemoryMode] is true, this value becomes the
   /// minimum window, which will be multiplied by [_processingTimeWindows]
   static const int _lowMemoryProcessingTime = 500; // in milliseconds
   /// Minimal processing windows between two decodings
