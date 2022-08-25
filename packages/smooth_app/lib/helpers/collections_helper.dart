@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:math' as math show max;
 
 import 'package:collection/collection.dart';
 
@@ -14,6 +15,12 @@ class AverageList<T extends num> with ListMixin<T> {
     } else {
       return _elements.average.floor();
     }
+  }
+
+  /// Same as [average], but ensures a minimum value of [minValue] is returned.
+  int averageMin({required int defaultValueIfEmpty, required int minValue}) {
+    final int averageRes = average(defaultValueIfEmpty);
+    return math.max(averageRes, minValue);
   }
 
   @override
