@@ -551,6 +551,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final Product? product = await daoProduct.get(
       _product.barcode!,
     );
+    // We go and chek in the local database if the product is
+    // already in the database. If it is, we update the fields of the product.
+    //And if it is not, we create a new product with the fields of the _product
+    // and we insert it in the database. (Giving the user an immediate feedback)
     if (product != null) {
       product.servingSize = changedProduct.servingSize;
       product.nutriments = changedProduct.nutriments;

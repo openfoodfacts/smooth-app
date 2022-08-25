@@ -7,12 +7,21 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
-const String IMAGE_UPLOAD_TASK = 'Image_Upload';
-const String PRODUCT_EDIT_TASK = 'Product_Edit';
+//Broadly classify the tasks into 2 categories
+const String IMAGE_UPLOAD_TASK =
+    'IMAGE_UPLOAD'; // All the tasks related to image upload
+const String PRODUCT_EDIT_TASK =
+    'PRODUCT_EDIT'; // All the tasks related to product edit
+
 const int SUCESS_CODE = 1;
-const String INGREDIENT_EDIT = 'INGREDIENTS_EDIT';
-const String NUTRITION_EDIT = 'NUTRITION_EDIT';
-const String BASIC_DETAILS = 'BASIC_DETAILS';
+
+//Further classify the Product edit tasks more categoreis
+const String INGREDIENT_EDIT =
+    'INGREDIENTS_EDIT'; // Constant for ingredient edit task
+const String NUTRITION_EDIT =
+    'NUTRITION_EDIT'; // Constant for nutrition edit task
+const String BASIC_DETAILS =
+    'BASIC_DETAILS'; // Constant for basic details edit task
 
 /// Runs whenever a task is started in the background.
 /// Whatever invoked with TaskManager.addTask() will be run in this method.
@@ -93,11 +102,11 @@ Future<TaskResult> uploadImage(
     lang: LanguageHelper.fromJson(inputTask.languageCode),
     barcode: inputTask.barcode,
     imageField: ImageFieldExtension.getType(inputTask.imageField),
-    imageUri: Uri.parse(inputTask.imageUri),
+    imageUri: Uri.parse(inputTask.imagePath),
   );
   await OpenFoodAPIClient.addProductImage(user, image);
   // go to the file system and delete the file that was uploaded
-  File(inputTask.imageUri).deleteSync();
+  File(inputTask.imagePath).deleteSync();
   final DaoProduct daoProduct = DaoProduct(localDatabase);
   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
     inputTask.barcode,
@@ -126,7 +135,7 @@ class BackgroundImageInputData {
     required this.uniqueId,
     required this.barcode,
     required this.imageField,
-    required this.imageUri,
+    required this.imagePath,
     required this.languageCode,
     required this.user,
     required this.country,
@@ -137,7 +146,7 @@ class BackgroundImageInputData {
         uniqueId = json['uniqueId'] as String,
         barcode = json['barcode'] as String,
         imageField = json['imageField'] as String,
-        imageUri = json['imageUri'] as String,
+        imagePath = json['imagePath'] as String,
         languageCode = json['languageCode'] as String,
         user = json['user'] as String,
         country = json['country'] as String;
@@ -146,7 +155,7 @@ class BackgroundImageInputData {
   final String uniqueId;
   final String barcode;
   final String imageField;
-  final String imageUri;
+  final String imagePath;
   final String languageCode;
   final String user;
   final String country;
@@ -156,7 +165,7 @@ class BackgroundImageInputData {
         'uniqueId': uniqueId,
         'barcode': barcode,
         'imageField': imageField,
-        'imageUri': imageUri,
+        'imagePath': imagePath,
         'languageCode': languageCode,
         'user': user,
         'country': country,
@@ -209,6 +218,16 @@ class UniqueIdGenerator {
     String barcode,
     String processIdentifier,
   ) {
-    return '${barcode}_${processIdentifier}_${ProductQuery.getLanguage().code}_${ProductQuery.getCountry()!.iso2Code}_${jsonEncode(ProductQuery.getUser().userId)}';
+    final StringBuffer stringBuffer = StringBuffer();
+    stringBuffer.write(barcode);
+    stringBuffer.write('_');
+    stringBuffer.write(processIdentifier);
+    stringBuffer.write('_');
+    stringBuffer.write(ProductQuery.getLanguage().code);
+    stringBuffer.write('_');
+    stringBuffer.write(ProductQuery.getCountry()!.iso2Code);
+    stringBuffer.write('_');
+    stringBuffer.write(ProductQuery.getUser().userId);
+    return stringBuffer.toString();
   }
 }

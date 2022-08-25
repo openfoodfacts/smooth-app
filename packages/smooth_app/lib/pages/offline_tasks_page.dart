@@ -3,6 +3,8 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:task_manager/task_manager.dart';
 
 // TODO(ashaman999): add the translations later
+const int POPUP_MENU_FIRST_ITEM = 0;
+
 class OfflineTaskPage extends StatefulWidget {
   const OfflineTaskPage({
     super.key,
@@ -32,7 +34,8 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
               await _cancelAllTask();
             },
             itemBuilder: (BuildContext context) => <PopupMenuItem<int>>[
-              const PopupMenuItem<int>(value: 0, child: Text('Cancel all')),
+              const PopupMenuItem<int>(
+                  value: POPUP_MENU_FIRST_ITEM, child: Text('Cancel all')),
             ],
           ),
         ],
@@ -55,7 +58,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                 );
               }
               if (snapshot.data!.isEmpty) {
-                return _getEmptyScreen();
+                return const EmptyScreen();
               } else {
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
@@ -82,10 +85,6 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         ),
       ),
     );
-  }
-
-  Widget _getEmptyScreen() {
-    return const Center(child: Text('No Pending Tasks'));
   }
 
   Future<void> _cancelAllTask() async {
@@ -115,7 +114,7 @@ class TaskListTile extends StatefulWidget {
     this.uniqueId,
     this.processName,
     this.barcode,
-  );
+  ) : assert(index >= 0 && barcode.length > 0 && processName.length > 0);
   final int index;
   final String uniqueId;
   final String processName;
@@ -129,7 +128,7 @@ class _TaskListTileState extends State<TaskListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Text(widget.index.toString()),
+      leading: Text((widget.index + 1).toString()),
       title: Text(widget.barcode),
       subtitle: Text(widget.processName),
       trailing: Wrap(
@@ -186,5 +185,13 @@ class _TaskListTileState extends State<TaskListTile> {
       }
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
+  }
+}
+
+class EmptyScreen extends StatelessWidget {
+  const EmptyScreen({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('No Pending Tasks'));
   }
 }

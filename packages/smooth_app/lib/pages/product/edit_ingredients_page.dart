@@ -156,6 +156,10 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final Product? localProduct =
         await daoProduct.get(minimalistProduct.barcode!);
+    // We go and chek in the local database if the product is
+    // already in the database. If it is, we update the fields of the product.
+    //And if it is not, we create a new product with the fields of the minimalistProduct
+    // and we insert it in the database. (Giving the user an immediate feedback)
     if (localProduct != null) {
       localProduct.ingredientsText = minimalistProduct.ingredientsText;
       await daoProduct.put(localProduct);
