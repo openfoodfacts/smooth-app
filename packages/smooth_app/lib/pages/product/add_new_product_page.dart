@@ -277,6 +277,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               builder: (BuildContext context) => NutritionPageLoaded(
                 Product(barcode: widget.barcode),
                 cache.orderedNutrients,
+                isLoggedInMandatory: false,
               ),
               fullscreenDialog: true,
             ),
@@ -329,6 +330,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             MaterialPageRoute<Product>(
               builder: (BuildContext context) => AddBasicDetailsPage(
                 Product(barcode: widget.barcode),
+                isLoggedInMandatory: false,
               ),
             ),
           );
