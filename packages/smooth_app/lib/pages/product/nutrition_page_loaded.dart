@@ -22,11 +22,13 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class NutritionPageLoaded extends StatefulWidget {
   const NutritionPageLoaded(
     this.product,
-    this.orderedNutrients,
-  );
+    this.orderedNutrients, {
+    this.isLoggedInMandatory = true,
+  });
 
   final Product product;
   final OrderedNutrients orderedNutrients;
+  final bool isLoggedInMandatory;
 
   @override
   State<NutritionPageLoaded> createState() => _NutritionPageLoadedState();
@@ -528,6 +530,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       context: context,
       localDatabase: localDatabase,
       product: changedProduct,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
     );
   }
 }
