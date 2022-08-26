@@ -11,9 +11,13 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
-  const AddBasicDetailsPage(this.product);
+  const AddBasicDetailsPage(
+    this.product, {
+    this.isLoggedInMandatory = true,
+  });
 
   final Product product;
+  final bool isLoggedInMandatory;
 
   @override
   State<AddBasicDetailsPage> createState() => _AddBasicDetailsPageState();
@@ -135,6 +139,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         brands: _brandNameController.text,
                         barcode: _product.barcode,
                       ),
+                      isLoggedInMandatory: widget.isLoggedInMandatory,
                     );
                     if (!savedAndRefreshed) {
                       return;
