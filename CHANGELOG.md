@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.1](https://github.com/openfoodfacts/smooth-app/compare/v3.8.0...v3.8.1) (2022-08-25)
+
+
+### Miscellaneous
+
+* New Crowdin translations ([#2743](https://github.com/openfoodfacts/smooth-app/issues/2743)) ([43ab9cf](https://github.com/openfoodfacts/smooth-app/commit/43ab9cf3c0d962f7e67771062d19a1573697cdc3))
+
 ## [3.8.0](https://github.com/openfoodfacts/smooth-app/compare/v3.7.4...v3.8.0) (2022-08-24)
 
 

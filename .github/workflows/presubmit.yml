@@ -1,9 +1,7 @@
 name: SmoothApp Pre-Submit Tests
 
 on:
-  push:
-    branches-ignore:
-      - develop
+  pull_request
 
 
 env:

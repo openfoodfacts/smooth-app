@@ -1092,7 +1092,7 @@
     },
     "edit_product_form_item_add_valid_item_tooltip": "Přidat",
     "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-    "edit_product_form_item_remove_item_tooltip": "Remove",
+    "edit_product_form_item_remove_item_tooltip": "Odstranit",
     "edit_product_form_item_packaging_title": "Obal",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"

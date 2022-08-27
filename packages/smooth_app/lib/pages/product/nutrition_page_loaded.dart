@@ -18,6 +18,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -27,11 +28,13 @@ import 'package:task_manager/task_manager.dart';
 class NutritionPageLoaded extends StatefulWidget {
   const NutritionPageLoaded(
     this.product,
-    this.orderedNutrients,
-  );
+    this.orderedNutrients, {
+    this.isLoggedInMandatory = true,
+  });
 
   final Product product;
   final OrderedNutrients orderedNutrients;
+  final bool isLoggedInMandatory;
 
   @override
   State<NutritionPageLoaded> createState() => _NutritionPageLoadedState();

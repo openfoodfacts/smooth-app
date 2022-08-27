@@ -17,9 +17,13 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:task_manager/task_manager.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
-  const AddBasicDetailsPage(this.product);
+  const AddBasicDetailsPage(
+    this.product, {
+    this.isLoggedInMandatory = true,
+  });
 
   final Product product;
+  final bool isLoggedInMandatory;
 
   @override
   State<AddBasicDetailsPage> createState() => _AddBasicDetailsPageState();
@@ -155,6 +159,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         data: backgroundBasicDetailsInput.toJson(),
                         uniqueId: uniqueId,
                       ),
+                      isLoggedInMandatory: widget.isLoggedInMandatory,
                     );
 
                     final DaoProduct daoProduct = DaoProduct(localDatabase);
