@@ -159,7 +159,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         data: backgroundBasicDetailsInput.toJson(),
                         uniqueId: uniqueId,
                       ),
-                      isLoggedInMandatory: widget.isLoggedInMandatory,
                     );
 
                     final DaoProduct daoProduct = DaoProduct(localDatabase);
