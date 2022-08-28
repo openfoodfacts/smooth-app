@@ -7,21 +7,21 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
-//Broadly classify the tasks into 2 categories
+///Broadly classify the tasks into 2 categories
 const String IMAGE_UPLOAD_TASK =
-    'IMAGE_UPLOAD'; // All the tasks related to image upload
+    'IMAGE_UPLOAD'; /// All the tasks related to image upload
 const String PRODUCT_EDIT_TASK =
-    'PRODUCT_EDIT'; // All the tasks related to product edit
+    'PRODUCT_EDIT'; /// All the tasks related to product edit
 
 const int SUCESS_CODE = 1;
 
-//Further classify the Product edit tasks more categoreis
+///Further classify the Product edit tasks more categoreis
 const String INGREDIENT_EDIT =
-    'INGREDIENTS_EDIT'; // Constant for ingredient edit task
+    'INGREDIENTS_EDIT'; /// Constant for ingredient edit task
 const String NUTRITION_EDIT =
-    'NUTRITION_EDIT'; // Constant for nutrition edit task
+    'NUTRITION_EDIT'; /// Constant for nutrition edit task
 const String BASIC_DETAILS =
-    'BASIC_DETAILS'; // Constant for basic details edit task
+    'BASIC_DETAILS'; /// Constant for basic details edit task
 
 /// Runs whenever a task is started in the background.
 /// Whatever invoked with TaskManager.addTask() will be run in this method.
