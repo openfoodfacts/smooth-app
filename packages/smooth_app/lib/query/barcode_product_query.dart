@@ -4,8 +4,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/services/smooth_services.dart';
 
 class BarcodeProductQuery {
   BarcodeProductQuery({
@@ -49,8 +49,12 @@ class BarcodeProductQuery {
         (result.barcode == null || result.barcode!.isEmpty)) {
       return FetchedProduct.error(FetchedProductStatus.codeInvalid);
     }
-    Logs.w('barcode $barcode was not found '
-        '(scan: $isScanned, language: $language, country: $country)');
+    AnalyticsHelper.trackUnknownProduct(
+      barcode: barcode,
+      isScanned: isScanned,
+      language: language,
+      country: country,
+    );
     return FetchedProduct.error(FetchedProductStatus.internetNotFound);
   }
 }
