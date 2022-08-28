@@ -54,26 +54,28 @@ Future<bool> uploadCapturedPicture(
   return true;
 }
 
-/// Generates a unique id for the task , in case of tasks with the same name
-///.It gets replaced with the new one , also for other images we randomize the id with date time so that it runs seperately
-/// example: 00000000_front_en_us_"random_user_id"
+/// Generates a unique id for the task , in case of tasks with the same name,
+/// it gets replaced with the new one , also for other images we randomize the id with date time so that it runs seperately
+/// Example: 00000000_front_en_us_"random_user_id" or 00000000_other_en_us_"random_user_id"_1661677638662
 String _getUniqueId(ImageField imageField, String barcode) {
-// use String buffer to concatenate strings
+// Use String buffer to concatenate strings
   final StringBuffer stringBuffer = StringBuffer();
-  stringBuffer.write(barcode);
-  stringBuffer.write('_');
-  stringBuffer.write(imageField.value);
-  stringBuffer.write('_');
-  stringBuffer.write(ProductQuery.getLanguage().code);
-  stringBuffer.write('_');
-  stringBuffer.write(ProductQuery.getCountry()!.iso2Code);
-  stringBuffer.write('_');
-  stringBuffer.write(ProductQuery.getUser().userId);
+  stringBuffer
+    ..write(barcode)
+    ..write('_')
+    ..write(imageField.value)
+    ..write('_')
+    ..write(ProductQuery.getLanguage().code)
+    ..write('_')
+    ..write(ProductQuery.getCountry()!.iso2Code)
+    ..write('_')
+    ..write(ProductQuery.getUser().userId);
   if (imageField != ImageField.OTHER) {
     return stringBuffer.toString();
   }
-  stringBuffer.write('_');
-  stringBuffer.write(DateTime.now().millisecondsSinceEpoch);
+  stringBuffer
+    ..write('_')
+    ..write(DateTime.now().millisecondsSinceEpoch);
   return stringBuffer.toString();
 }
 

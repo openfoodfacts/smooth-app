@@ -101,6 +101,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
       ),
       duration: SnackBarDuration.medium,
     );
+    setState(() {});
     if (!mounted) {
       return;
     }
@@ -114,7 +115,11 @@ class TaskListTile extends StatefulWidget {
     this.uniqueId,
     this.processName,
     this.barcode,
-  ) : assert(index >= 0 && barcode.length > 0 && processName.length > 0);
+  )   : assert(index >= 0),
+        assert(uniqueId.length > 0),
+        assert(barcode.length > 0),
+        assert(processName.length > 0);
+
   final int index;
   final String uniqueId;
   final String processName;

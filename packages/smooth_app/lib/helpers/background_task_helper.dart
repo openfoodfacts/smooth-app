@@ -211,7 +211,7 @@ class BackgroundOtherDetailsInput {
 /// Generates a unique id for the background task
 /// This ensures that the background task is unique and also
 /// ensures that in case of conflict the background task is replaced
-/// ex: 00000000_BASIC_DETAILS_en_us_"random_user_id"
+/// Example: 00000000_BASIC_DETAILS_en_us_"random_user_id"
 class UniqueIdGenerator {
   const UniqueIdGenerator._();
   static String generateUniqueId(
@@ -219,15 +219,16 @@ class UniqueIdGenerator {
     String processIdentifier,
   ) {
     final StringBuffer stringBuffer = StringBuffer();
-    stringBuffer.write(barcode);
-    stringBuffer.write('_');
-    stringBuffer.write(processIdentifier);
-    stringBuffer.write('_');
-    stringBuffer.write(ProductQuery.getLanguage().code);
-    stringBuffer.write('_');
-    stringBuffer.write(ProductQuery.getCountry()!.iso2Code);
-    stringBuffer.write('_');
-    stringBuffer.write(ProductQuery.getUser().userId);
+    stringBuffer
+      ..write(barcode)
+      ..write('_')
+      ..write(processIdentifier)
+      ..write('_')
+      ..write(ProductQuery.getLanguage().code)
+      ..write('_')
+      ..write(ProductQuery.getCountry()!.iso2Code)
+      ..write('_')
+      ..write(ProductQuery.getUser().userId);
     return stringBuffer.toString();
   }
 }
