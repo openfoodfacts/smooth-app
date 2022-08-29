@@ -60,6 +60,14 @@ class SmoothProductImage extends StatelessWidget {
                               progress.expectedTotalBytes!,
                         ),
                       ),
+            errorBuilder:
+                (BuildContext context, Object error, StackTrace? stackTrace) =>
+                    Center(
+              child: SvgPicture.asset(
+                'assets/product/product_not_found.svg',
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         );
 }
