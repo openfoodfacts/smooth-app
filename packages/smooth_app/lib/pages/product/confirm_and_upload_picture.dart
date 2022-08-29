@@ -141,7 +141,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        // Remove: (stupid comment to trigger a PR)
                         retakenPhoto = await startImageCroppingNoPick(
                           context,
                           existingImage: photo,

@@ -9,7 +9,6 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 /// Returns the file path of an image after it's been cropped.
 ///
 /// This is the "old" problematic version; to be rapidly changed.
-/// Remove: (stupid comment to trigger a PR)
 Future<String?> getCroppedPath(
   final BuildContext context,
   final String inputPath,
