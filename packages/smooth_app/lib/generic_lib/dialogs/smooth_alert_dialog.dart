@@ -16,7 +16,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 ///
 /// If only one action button is provided, simply pass a [positiveAction]
 /// - [actionsAxis] allows to specify the axis of the buttons. By default, will
-///   be [Axis.vertical], unless it is a small device
+///   be [Axis.horizontal], unless it is a small device
 /// - [actionsOrder] allows to force the order of the buttons. By default, will
 ///   be "smart" by guessing the order based on the axis
 class SmoothAlertDialog extends StatelessWidget {

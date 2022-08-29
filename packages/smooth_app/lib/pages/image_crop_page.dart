@@ -73,6 +73,7 @@ Future<XFile?> pickImageFile(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
         title: appLocalizations.choose_image_source_title,
+        actionsAxis: Axis.vertical,
         body: Text(appLocalizations.choose_image_source_body),
         positiveAction: SmoothActionButton(
           text: appLocalizations.settings_app_camera,
