@@ -263,7 +263,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Future<void> _editList() async {
-
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final bool refreshed = await ProductListUserDialogHelper(daoProductList)
