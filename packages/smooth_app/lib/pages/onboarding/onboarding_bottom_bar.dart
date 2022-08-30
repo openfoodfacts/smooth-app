@@ -79,10 +79,6 @@ class OnboardingBottomButton extends StatelessWidget {
             ? MaterialStateProperty.all(theme.primaryColor.withOpacity(0.1))
             : null;
 
-    if (theme.splashColor == backgroundColor) {
-      print(ElevatedButtonTheme.of(context).style?.overlayColor);
-    }
-
     return ConstrainedBox(
       constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
       child: ElevatedButton(
