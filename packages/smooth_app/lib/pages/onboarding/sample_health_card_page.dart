@@ -13,8 +13,8 @@ class SampleHealthCardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SmoothBrightnessOverride(
-    brightness: Brightness.dark,
-    child: KnowledgePanelPageTemplate(
+        brightness: Brightness.dark,
+        child: KnowledgePanelPageTemplate(
           headerTitle: AppLocalizations.of(context).healthCardUtility,
           page: OnboardingPage.HEALTH_CARD_EXAMPLE,
           panelId: 'health_card',
@@ -23,5 +23,5 @@ class SampleHealthCardPage extends StatelessWidget {
           svgAsset: 'assets/onboarding/health.svg',
           nextKey: const Key('nextAfterHealth'),
         ),
-  );
+      );
 }

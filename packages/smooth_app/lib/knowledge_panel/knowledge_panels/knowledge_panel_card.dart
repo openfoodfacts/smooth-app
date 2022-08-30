@@ -55,7 +55,8 @@ class KnowledgePanelCard extends StatelessWidget {
           margin: EdgeInsets.zero,
         ),
         onTap: () {
-          final Brightness? brightness =SmoothBrightnessOverride.of(context)?.brightness;
+          final Brightness? brightness =
+              SmoothBrightnessOverride.of(context)?.brightness;
 
           Navigator.push<Widget>(
             context,
