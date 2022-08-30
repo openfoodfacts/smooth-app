@@ -12,13 +12,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Takaisin ylös",
     "save": "Tallenna",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Haluatko varmasti tallentaa?",
     "skip": "Ohita",
     "cancel": "Peruuta",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ohita",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -26,21 +26,21 @@
     "@close": {},
     "no": "Ei",
     "@no": {},
-    "stop": "Stop",
+    "stop": "Lopeta",
     "@stop": {},
     "finish": "Valmis",
     "@finish": {},
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Nollaa ruokailutottumuksesi",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Jokin meni vikaan",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Tapahtui virhe",
     "@error_occurred": {},
     "featureInProgress": "Työskentelemme edelleen tämän ominaisuuden parissa, pysy kuulolla",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Tarkastele verkossa",
     "@label_web": {},
     "learnMore": "Opi lisää",
     "@learnMore": {},
@@ -98,43 +98,43 @@
     },
     "licenses": "Lisenssit",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Etsin",
     "@looking_for": {
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Tervetuloa Open Food Factsiin",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts on maailmanlaajuinen yleishyödyllinen yhdistys, jota tukee paikalliset yhteisöt.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Valitse ruoka, joka tekee hyvää sinulle ja planeetalle.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Katso valintoihisi liittyvät ruokatietosi.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Valitse ruoat, jotka tekevät itsellesi hyvää.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Valitse ruoat, jotka tekevät planeetalle hyvää.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Kirjaudu Open Food Facts -käyttäjällesi tallentaaksesi työsi",
+    "incorrect_credentials": "Virheellinen käyttäjätunnus tai salasana.",
     "login": "Käyttäjätunnus",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
-    "login_page_password_error_empty": "Please enter a password",
-    "create_account": "Create account",
+    "login_page_username_or_email": "Syötä käyttäjänimi tai sähköposti",
+    "login_page_password_error_empty": "Syötä salasana",
+    "create_account": "Luo tili",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -142,24 +142,24 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Kirjaudu käyttääksesi kyseistä ominaisuutta.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Kirjaudu ulos",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Haluatko varmasti kirjautua ulos?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Salasana",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Unohtunut salasana",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Näytä profiili",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -167,43 +167,43 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "Mikäli unohdit salasanasi, syötä käyttäjätunnuksesi tai sähköpostiosoitteesi saaadaksesi ohjeet salasanan vaihtoon. Muista tarkistaa myös roskapostikansio.",
+    "username_or_email": "Käyttäjätunnus tai sähköpostiosoite",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "Lähetimme tiliin kirjattuun sähköpostiosoitteeseen linkin salasananvaihdokseen. Tarkista myös roskapostikansio",
+    "send_reset_password_mail": "Muuta salasanaa",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Syötä tekstiä",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Rekisteröidy",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Rekisteröidy",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Rekisteröidytään...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
+    "sign_up_page_action_ok": "Onnittelut! Tilisi on luotu.",
     "sign_up_page_display_name_hint": "Nimi",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_display_name_error_empty": "Lisää haluamasi julkinen nimi",
+    "sign_up_page_email_hint": "Sähköpostiosoite",
+    "sign_up_page_email_error_empty": "Sähköpostiosoite on pakollinen",
+    "sign_up_page_email_error_invalid": "Virheellinen sähköpostiosoite",
+    "sign_up_page_username_hint": "Käyttäjänimi: julkinen",
+    "sign_up_page_username_error_empty": "Syötä käyttäjätunnus",
+    "sign_up_page_username_error_invalid": "Syötä kelvollinen käyttäjätunnus",
+    "sign_up_page_username_description": "Käyttäjätunnus ei voi sisältää välilyöntejä, isoja kirjaimia tai erikoismerkkejä",
+    "sign_up_page_username_length_invalid": "Käyttäjänimi ei voi olla yli {value} merkkiä pitkä",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -212,28 +212,28 @@
         }
     },
     "sign_up_page_password_hint": "Salasana",
-    "sign_up_page_password_error_empty": "Please enter a password",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_password_error_empty": "Syötä salasana",
+    "sign_up_page_password_error_invalid": "Syötä kelvollinen salasana (vähintään 6 merkkiä)",
+    "sign_up_page_confirm_password_hint": "Vahvista salasana",
+    "sign_up_page_confirm_password_error_empty": "Vahvistathan salasanasi",
+    "sign_up_page_confirm_password_error_invalid": "Salasanat eivät täsmää",
+    "sign_up_page_agree_text": "Hyväksyn Open Food Factsin",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "käyttöehdot ja rahoitus",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_url": "https://world-fi.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "donate_url": "https://donate.openfoodfacts.org/",
+    "donate_url": "https://donate.openfoodfacts.org",
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Luodessasi tilin käyttöehtojen hyväksyminen on pakollista, mutta voit silti osallistua anonyymisti",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
@@ -433,125 +433,125 @@
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
-    "packaging_editing_error": "Failed to save the packaging.",
-    "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_error": "Pakkauksen tallentaminen epäonnistui.",
+    "packaging_editing_image_error": "Pakkauskuvan hakeminen epäonnistui.",
+    "packaging_editing_title": "Muokkaa pakkausta",
     "nutrition": "Ravinto",
     "@nutrition": {},
-    "nutrition_facts_photo": "Nutrition facts photo",
+    "nutrition_facts_photo": "Ravintosisältökuva",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "Packaging information",
+    "packaging_information": "Pakkaustiedot",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "Packaging information photo",
+    "packaging_information_photo": "Pakkaustietokuva",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Löysit uuden tuotteen!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Ota kuvia pakkauksesta lisääksesi tuotteen Open Food Factsiin.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Ota kuvia pakkauksesta, niin hoidamme loput!",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Lisää tuotetiedot",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Uusi tuote",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product front photo",
+    "front_packaging_photo_button_label": "Kuva edestä",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
+    "confirm_front_packaging_photo_button_label": "Vahvista edestäpäin otetun kuvan lataaminen",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Confirm",
-    "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
-    "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other Interesting Photo",
-    "front_photo_uploaded": "Front photo uploaded",
+    "confirm_button_label": "Vahvista",
+    "front_packaging_photo_title": "Pakkauksen kuva",
+    "ingredients_photo_title": "Sisältöluettelon kuva",
+    "nutritional_facts_photo_title": "Ravintosisällön kuva",
+    "recycling_photo_title": "Kierrätyksen kuva",
+    "other_interesting_photo_title": "Muu kuva",
+    "front_photo_uploaded": "Etukuva ladattu",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingredients photo",
     "@ingredients_photo_button_label": {},
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Sisältöluettelokuva ladattu",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
-    "nutritional_facts_photo_button_label": "Nutrition facts photo",
+    "nutrition_cache_loading_error": "Ravintoaineita ei voida ladata välimuistista",
+    "nutritional_facts_photo_button_label": "Ravintosisältökuva",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Input nutrition facts",
-    "nutritional_facts_added": "Nutrition facts added",
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_input_button_label": "Lisää ravintosisältö",
+    "nutritional_facts_added": "Ravintosisältö lisätty",
+    "nutritional_facts_photo_uploaded": "Ravintosisältökuva ladattu",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "Kierrätyskuva",
     "@recycling_photo_button_label": {},
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Kierrätyskuva ladattu",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Muu kuva",
     "@other_interesting_photo_button_label": {},
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Sekalainen kuva ladattu",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Ota uudelleen",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Valitaan kuva",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Ladataan kuva palvelimelle",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Ladataan etukuva sovellukseen",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Ladataan sisältökuvaa sovellukseen",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Ladataan ravintosisältökuvaa sovellukseen",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Ladataan pakkauskuvaa sovellukseen",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Ladataan kuvaa sovellukseen",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Ladataan kuvaa sovellukseen",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
+    "score_add_missing_ingredients": "Lisää puuttuva ravintoaine",
+    "score_add_missing_nutrition_facts": "Lisää puuttuva ravintosisältö",
+    "score_add_missing_product_category": "Lisää puuttuva tuoteluokka",
+    "score_update_nutrition_facts": "Päivitä ravintosisältö",
     "nutrition_page_title": "Ravintosisältö",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_unspecified": "Ravintosisältöä ei ole määritelty tuotteessa",
+    "nutrition_page_per_100g": "100 grammaa kohti",
     "nutrition_page_per_serving": "annosta kohti",
     "nutrition_page_add_nutrient": "Lisää ravintoaine",
     "nutrition_page_serving_size": "Annoskoko",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
-    "more_photos": "More interesting photos",
+    "nutrition_page_invalid_number": "Virheellinen numero",
+    "nutrition_page_update_running": "Päivitetään tuotetta palvelimelle...",
+    "nutrition_page_update_done": "Tuote päivitetty!",
+    "more_photos": "Lisää kuvia",
     "@more_photos": {},
     "no_product_found": "Tuotetta ei löytynyt",
     "@no_product_found": {},
-    "not_found": "not found:",
-    "searchPanelHeader": "Search or scan your first product",
+    "not_found": "ei löytynyt:",
+    "searchPanelHeader": "Hae tai skannaa ensimmäinen tuotteesi",
     "@Product query status": {},
-    "refreshing_product": "Refreshing product",
+    "refreshing_product": "Päivitetään tuotetta",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_refreshed": "Product refreshed",
+    "product_refreshed": "Tuote päivitetty",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
@@ -1411,7 +1411,7 @@
     "@edit_product_action_take_picture": {
         "description": "Product edition - FAB actions - take a picture"
     },
-    "edit_product_action_confirm": "Confirm",
+    "edit_product_action_confirm": "Vahvista",
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
@@ -1419,7 +1419,7 @@
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "terms of use and contribution",
+    "signup_page_terms_of_use_line2": "käyttöehdot ja rahoitus",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },

@@ -274,7 +274,7 @@
     "support_join_slack": "Попросите о помощи в нашем канале Slack",
     "support_via_email": "Отправьте нам электронное письмо",
     "support_via_email_include_logs_dialog_title": "Отправить журнал приложений?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_body": "Вы хотите включить журналы приложений во вложение к вашему электронному письму?",
     "termsOfUse": "Условия использования",
     "@termsOfUse": {},
     "about_this_app": "О приложении",
@@ -320,9 +320,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Переводы — одна из ключевых задач проекта",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Поделитесь Open Food Facts с друзьями",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Я хотел сообщить вам о приложении Open Food Facts, которое я использую, которое позволяет вам персонализировать информацию о воздействии пищи на здоровье и окружающую среду. Он работает путем сканирования штрих-кодов на упаковке. Наконец-то это бесплатно, не требует регистрации, и вы даже можете помочь увеличить количество расшифровываемых продуктов. Вот ссылка, чтобы получить его для вашего телефона: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -363,7 +363,7 @@
     "ranking_subtitle_match_yes": "Хорошо подходит для вас",
     "ranking_subtitle_match_no": "Плохо подходит для вас",
     "ranking_subtitle_match_maybe": "Неизвестное солвпадение",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Обновите список с вашими новыми предпочтениями",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -432,10 +432,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
-    "packaging_editing_error": "Failed to save the packaging.",
-    "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_instructions": "Перечислите все части упаковки, разделенные запятой или переводом строки, с указанием их количества (например, 1 или 6), типа (например, бутылка, коробка, банка), материала (например, пластик, металл, алюминий) и, если возможно, их размера (например, 33 cl) и инструкции по утилизации.\nПример: 1 стеклянная бутылка на переработку, 1 пластиковая пробка на выброс",
+    "packaging_editing_error": "Не удалось сохранить изменения.",
+    "packaging_editing_image_error": "Не удалось получить изображение нового ингредиента.",
+    "packaging_editing_title": "Редактировать пакет",
     "nutrition": "Пищевая ценность",
     "@nutrition": {},
     "nutrition_facts_photo": "Фото информации о пищевой ценности",
@@ -529,10 +529,10 @@
     },
     "score_add_missing_ingredients": "Добавить недостающие ингридиенты",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
+    "score_add_missing_product_category": "Добавить собственную категорию продукта",
+    "score_update_nutrition_facts": "Введите данные о пищевой ценности",
     "nutrition_page_title": "Пищевая ценность",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_unspecified": "Пищевая ценность не указана на продукте",
     "nutrition_page_per_100g": "на 100 грамм",
     "nutrition_page_per_serving": "на порцию",
     "nutrition_page_add_nutrient": "Добавить питательное вещество",
@@ -559,23 +559,23 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "cached_results_from": "Show results from:",
+    "product_internet_error": "Невозможно получить информацию об этом продукте из-за сетевой ошибки.",
+    "cached_results_from": "Показать результаты из:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
     "added_product_thanks": "Спасибо Вам за добавление этого продукта!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Сравнить с категорией",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Добавьте категорию для расчета Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Добавьте информацию о пищевой ценности, чтобы вычислить Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
