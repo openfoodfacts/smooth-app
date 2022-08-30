@@ -112,12 +112,12 @@ class SmoothAlertDialog extends StatelessWidget {
 }
 
 class _SmoothDialogTitle extends StatelessWidget {
-  static const double _titleHeight = 32.0;
-
   const _SmoothDialogTitle({
     required this.label,
     required this.close,
   });
+
+  static const double _titleHeight = 32.0;
 
   final String label;
   final bool close;
