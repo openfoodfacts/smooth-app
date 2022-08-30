@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.9.0](https://github.com/openfoodfacts/smooth-app/compare/v3.8.1...v3.9.0) (2022-08-30)
+
+
+### Features
+
+* [#2852](https://github.com/openfoodfacts/smooth-app/issues/2852) - Matomo message when barcode is not found ([#2854](https://github.com/openfoodfacts/smooth-app/issues/2854)) ([3dca648](https://github.com/openfoodfacts/smooth-app/commit/3dca6488006f9dc043a600522ef16c2fcd5b50e6))
+* Add to list horizontal buttons ([#2871](https://github.com/openfoodfacts/smooth-app/issues/2871)) ([1f72ce6](https://github.com/openfoodfacts/smooth-app/commit/1f72ce62ce23316dbd9caedc643416eb2eee55a8))
+
+
+### Bug Fixes
+
+* [#1538](https://github.com/openfoodfacts/smooth-app/issues/1538) - refactoring of image cropper ([#2858](https://github.com/openfoodfacts/smooth-app/issues/2858)) ([394cf4c](https://github.com/openfoodfacts/smooth-app/commit/394cf4cf1831c2009f18bed0ae172767a419b7e3))
+* [#2841](https://github.com/openfoodfacts/smooth-app/issues/2841) - from "AddNewProductPage", no need to be logged in to add data ([#2844](https://github.com/openfoodfacts/smooth-app/issues/2844)) ([474b3d8](https://github.com/openfoodfacts/smooth-app/commit/474b3d8eb67c3b71dd138e169c895b1f41e0e568))
+* improve ios launch screen on notch devices ([#2810](https://github.com/openfoodfacts/smooth-app/issues/2810)) ([903d3fc](https://github.com/openfoodfacts/smooth-app/commit/903d3fce18c4a32cdfdbf4c4a70c50d2097fa794))
+* Placeholder image in case of image not loading ([#2857](https://github.com/openfoodfacts/smooth-app/issues/2857)) ([4187014](https://github.com/openfoodfacts/smooth-app/commit/418701472bb5c2dbd2a09b76f9fb5374d4ed6928))
+
+
+### Automation
+
+* fix: Running workflows on pr's from forks ([#2847](https://github.com/openfoodfacts/smooth-app/issues/2847)) ([36443f7](https://github.com/openfoodfacts/smooth-app/commit/36443f7a905f98b76a4f9f26bce138883c2c455a))
+
+
+### Miscellaneous
+
+* New Crowdin translations ([#2850](https://github.com/openfoodfacts/smooth-app/issues/2850)) ([7526a4c](https://github.com/openfoodfacts/smooth-app/commit/7526a4c78cb44f9981b7ab34a4ac04472aa12652))
+* New Crowdin translations to review and merge ([#2838](https://github.com/openfoodfacts/smooth-app/issues/2838)) ([98576d6](https://github.com/openfoodfacts/smooth-app/commit/98576d63d55aafcad86cc264e1bd1e5fc84fb683))
+* New Crowdin translations to review and merge ([#2842](https://github.com/openfoodfacts/smooth-app/issues/2842)) ([45764d9](https://github.com/openfoodfacts/smooth-app/commit/45764d910fa761f8ff6b7e95cd5a55d5dd799b56))
+* New Crowdin translations to review and merge ([#2848](https://github.com/openfoodfacts/smooth-app/issues/2848)) ([85f491b](https://github.com/openfoodfacts/smooth-app/commit/85f491b4e7af4a9d44383760db2ee39ed291db70))
+
 ## [3.8.1](https://github.com/openfoodfacts/smooth-app/compare/v3.8.0...v3.8.1) (2022-08-25)
 
 
