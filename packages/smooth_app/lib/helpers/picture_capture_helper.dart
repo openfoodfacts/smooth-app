@@ -54,9 +54,11 @@ Future<bool> uploadCapturedPicture(
   return true;
 }
 
-/// Generates a unique id for the task , in case of tasks with the same name,
-/// it gets replaced with the new one , also for other images we randomize the id with date time so that it runs seperately
-/// Example: 00000000_front_en_us_"random_user_id" or 00000000_other_en_us_"random_user_id"_1661677638662
+/// Generates a unique id for the task,in case of tasks with the same name,
+/// it gets replaced with the new one,also for other images we randomize the
+/// id with date time so that it runs separately.
+/// Example: 00000000_front_en_us_"random_user_id" or
+/// 00000000_other_en_us_"random_user_id"_1661677638662
 String _getUniqueId(ImageField imageField, String barcode) {
 // Use String buffer to concatenate strings
   final StringBuffer stringBuffer = StringBuffer();

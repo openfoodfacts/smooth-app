@@ -97,11 +97,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                         daoProduct.put(product);
                         localDatabase.notifyListeners();
                       }
-                      if (!mounted) {
-                        return;
+                      if (mounted) {
+                        await Navigator.maybePop(
+                            context, _isProductLoaded ? widget.barcode : null);
                       }
-                      await Navigator.maybePop(
-                          context, _isProductLoaded ? widget.barcode : null);
                     },
                   ),
                 ),

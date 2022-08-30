@@ -108,7 +108,7 @@ Future<TaskResult> uploadImage(
     imageUri: Uri.parse(inputTask.imagePath),
   );
   await OpenFoodAPIClient.addProductImage(user, image);
-  // go to the file system and delete the file that was uploaded
+  // Go to the file system and delete the file that was uploaded
   File(inputTask.imagePath).deleteSync();
   final DaoProduct daoProduct = DaoProduct(localDatabase);
   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
@@ -213,7 +213,7 @@ class BackgroundOtherDetailsInput {
 
 /// Generates a unique id for the background task
 /// This ensures that the background task is unique and also
-/// ensures that in case of conflict the background task is replaced
+/// ensures that in case of conflicts, the background task is replaced
 /// Example: 00000000_BASIC_DETAILS_en_us_"random_user_id"
 class UniqueIdGenerator {
   const UniqueIdGenerator._();
