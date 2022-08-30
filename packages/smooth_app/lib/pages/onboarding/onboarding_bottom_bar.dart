@@ -72,26 +72,39 @@ class OnboardingBottomButton extends StatelessWidget {
   final Key? nextKey;
 
   @override
-  Widget build(BuildContext context) => ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
-        child: ElevatedButton(
-          key: nextKey,
-          onPressed: onPressed,
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(backgroundColor),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(40))),
-            ),
-          ),
-          child: Text(
-            label,
-            style: Theme.of(context).textTheme.headline3?.copyWith(
-                  color: foregroundColor,
-                ),
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final MaterialStateProperty<Color?>? overrideSplashColor =
+        backgroundColor == Colors.white
+            ? MaterialStateProperty.all(theme.primaryColor.withOpacity(0.1))
+            : null;
+
+    if (theme.splashColor == backgroundColor) {
+      print(ElevatedButtonTheme.of(context).style?.overlayColor);
+    }
+
+    return ConstrainedBox(
+      constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
+      child: ElevatedButton(
+        key: nextKey,
+        onPressed: onPressed,
+        style: ButtonStyle(
+          overlayColor: overrideSplashColor,
+          backgroundColor: MaterialStateProperty.all(backgroundColor),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40))),
           ),
         ),
-      );
+        child: Text(
+          label,
+          style: theme.textTheme.headline3?.copyWith(
+            color: foregroundColor,
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 /// Onboarding Bottom Icon, e.g. arrow for "next" or "previous".
