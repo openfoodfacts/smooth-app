@@ -1,5 +1,6 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -108,7 +109,28 @@ class UserPreferencesConnect extends AbstractUserPreferences {
               attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
             );
 
-            await FlutterEmailSender.send(email);
+            try {
+              await FlutterEmailSender.send(email);
+            } on PlatformException catch (e) {
+              if (e.code == 'not_available') {
+                // No email client installed on the device
+                showDialog<void>(
+                  context: context,
+                  builder: (_) => SmoothAlertDialog(
+                    title:
+                        appLocalizations.no_email_client_available_dialog_title,
+                    body: Text(appLocalizations
+                        .no_email_client_available_dialog_content),
+                    positiveAction: SmoothActionButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      text: appLocalizations.okay,
+                    ),
+                  ),
+                );
+              }
+            }
           },
         ),
       ];
