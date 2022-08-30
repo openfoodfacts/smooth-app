@@ -54,7 +54,6 @@ class SmoothScaffold extends Scaffold {
 }
 
 class SmoothScaffoldState extends ScaffoldState {
-
   @override
   Widget build(BuildContext context) {
     Widget child = super.build(context);
