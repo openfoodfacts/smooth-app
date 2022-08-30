@@ -247,12 +247,11 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final List<Widget> knowledgePanelWidgets = <Widget>[];
     if (_product.knowledgePanels != null) {
       final List<KnowledgePanelElement> elements =
-          KnowledgePanelWidget.getPanelElements(_product.knowledgePanels!);
+          KnowledgePanelWidget.getPanelElements(_product);
       for (final KnowledgePanelElement panelElement in elements) {
         knowledgePanelWidgets.add(
           KnowledgePanelWidget(
             panelElement: panelElement,
-            knowledgePanels: _product.knowledgePanels!,
             product: _product,
             onboardingMode: false,
           ),

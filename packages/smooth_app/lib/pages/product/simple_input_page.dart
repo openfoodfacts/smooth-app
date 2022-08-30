@@ -162,6 +162,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         context: context,
         builder: (final BuildContext context) => SmoothAlertDialog(
           close: true,
+          actionsAxis: Axis.vertical,
           body: Text(appLocalizations.edit_product_form_item_exit_confirmation),
           title: appLocalizations.edit_product_label,
           negativeAction: SmoothActionButton(

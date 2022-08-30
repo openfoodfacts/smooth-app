@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -43,7 +42,6 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
 class _KnowledgePanelPageTemplateState
     extends State<KnowledgePanelPageTemplate> {
   late Future<void> _initFuture;
-  late KnowledgePanels _knowledgePanels;
   bool _isHintDismissed = false;
   late final AppLocalizations appLocalizations = AppLocalizations.of(context);
   late final Product _product;
@@ -57,7 +55,6 @@ class _KnowledgePanelPageTemplateState
   Future<void> _init() async {
     _product = await OnboardingDataProduct.forProduct(widget.localDatabase)
         .getData(rootBundle);
-    _knowledgePanels = _product.knowledgePanels!;
   }
 
   @override
@@ -77,10 +74,9 @@ class _KnowledgePanelPageTemplateState
           }
           final Widget knowledgePanelWidget = KnowledgePanelWidget(
             panelElement: KnowledgePanelWidget.getPanelElement(
-              _knowledgePanels,
+              _product,
               widget.panelId,
             )!,
-            knowledgePanels: _knowledgePanels,
             product: _product,
             onboardingMode: true,
           );
