@@ -45,6 +45,7 @@ class ProductListUserDialogHelper {
             },
           ),
         ),
+        actionsAxis: Axis.vertical,
         negativeAction: SmoothActionButton(
           onPressed: () => Navigator.pop(context),
           text: appLocalizations.cancel,
@@ -109,6 +110,8 @@ class ProductListUserDialogHelper {
             close: true,
             title: getProductName(product, appLocalizations),
             body: Column(children: children),
+            actionsAxis: Axis.vertical,
+            actionsOrder: SmoothButtonsBarOrder.numerical,
             negativeAction: SmoothActionButton(
               onPressed: () async {
                 final ProductList? productList =
