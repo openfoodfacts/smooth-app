@@ -42,6 +42,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
+      brightness: Brightness.dark,
       appBar: AppBar(
         title: Text(
           _title,

@@ -101,7 +101,13 @@ class SmoothScaffoldState extends ScaffoldState {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
-      child: child,
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          appBarTheme: AppBarTheme.of(context)
+              .copyWith(systemOverlayStyle: _overlayStyle),
+        ),
+        child: child,
+      ),
     );
   }
 
