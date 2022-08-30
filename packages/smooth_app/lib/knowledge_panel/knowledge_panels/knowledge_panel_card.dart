@@ -10,6 +10,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expa
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_summary_card.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class KnowledgePanelCard extends StatelessWidget {
   const KnowledgePanelCard({
@@ -54,14 +55,19 @@ class KnowledgePanelCard extends StatelessWidget {
           margin: EdgeInsets.zero,
         ),
         onTap: () {
+          final Brightness? brightness =SmoothBrightnessOverride.of(context)?.brightness;
+
           Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => KnowledgePanelPage(
-                groupElement: group,
-                panel: panel,
-                allPanels: allPanels,
-                product: product,
+              builder: (BuildContext context) => SmoothBrightnessOverride(
+                brightness: brightness,
+                child: KnowledgePanelPage(
+                  groupElement: group,
+                  panel: panel,
+                  allPanels: allPanels,
+                  product: product,
+                ),
               ),
             ),
           );
