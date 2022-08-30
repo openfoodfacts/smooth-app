@@ -141,8 +141,10 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        retakenPhoto = await startImageCropping(context,
-                            existingImage: photo);
+                        retakenPhoto = await startImageCroppingNoPick(
+                          context,
+                          existingImage: photo,
+                        );
                         if (retakenPhoto == null) {
                           if (!mounted) {
                             return;
