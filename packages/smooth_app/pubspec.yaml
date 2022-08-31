@@ -13,11 +13,11 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  barcode_widget: ^2.0.2
+  barcode_widget: ^2.0.3
   carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.5
   device_preview: ^1.1.0
-  flutter_svg: ^1.1.1
+  flutter_svg: ^1.1.4
   flutter_map: ^1.1.1
   flutter_widget_from_html_core: any
   fwfh_selectable_text: ^0.8.3+1
