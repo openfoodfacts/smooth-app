@@ -65,14 +65,14 @@ Future<TaskResult> otherDetails(
       json.decode(inputTask.inputMap) as Map<String, dynamic>;
   final User user =
       User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
-      
+
   await OpenFoodAPIClient.saveProduct(
     user,
     Product.fromJson(productMap),
     language: LanguageHelper.fromJson(inputTask.languageCode),
     country: CountryHelper.fromJson(inputTask.country),
   );
-  
+
   final DaoProduct daoProduct = DaoProduct(localDatabase);
   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
     inputTask.barcode,
@@ -83,7 +83,7 @@ Future<TaskResult> otherDetails(
 
   final ProductResult queryResult =
       await OpenFoodAPIClient.getProduct(configuration);
-      
+
   if (queryResult.status == SUCESS_CODE) {
     final Product? product = queryResult.product;
     if (product != null) {
@@ -91,13 +91,13 @@ Future<TaskResult> otherDetails(
       localDatabase.notifyListeners();
     }
   }
-  
+
   // Returns true to let platform know that the task is completed
   return TaskResult.success;
 }
 
 /// This takes an image and uploads it to OpenFoodFacts servers
-/// and queries the updated [Product]. 
+/// and queries the updated [Product].
 /// Then it updates the product in the local database.
 Future<TaskResult> uploadImage(
   Map<String, dynamic> inputData,
@@ -107,16 +107,16 @@ Future<TaskResult> uploadImage(
       BackgroundImageInputData.fromJson(inputData);
   final User user =
       User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
-      
+
   final SendImage image = SendImage(
     lang: LanguageHelper.fromJson(inputTask.languageCode),
     barcode: inputTask.barcode,
     imageField: ImageFieldExtension.getType(inputTask.imageField),
     imageUri: Uri.parse(inputTask.imagePath),
   );
-  
+
   await OpenFoodAPIClient.addProductImage(user, image);
-  
+
   // Go to the file system and delete the file that was uploaded
   File(inputTask.imagePath).deleteSync();
   final DaoProduct daoProduct = DaoProduct(localDatabase);
@@ -136,7 +136,7 @@ Future<TaskResult> uploadImage(
       localDatabase.notifyListeners();
     }
   }
-  
+
   return TaskResult.success;
 }
 
@@ -194,7 +194,7 @@ class BackgroundOtherDetailsInput {
     required this.user,
     required this.country,
   });
-  
+
   BackgroundOtherDetailsInput.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
         uniqueId = json['uniqueId'] as String,
@@ -203,7 +203,7 @@ class BackgroundOtherDetailsInput {
         inputMap = json['inputMap'] as String,
         user = json['user'] as String,
         country = json['country'] as String;
-        
+
   final String processName;
   final String uniqueId;
   final String barcode;
@@ -211,7 +211,7 @@ class BackgroundOtherDetailsInput {
   final String inputMap;
   final String user;
   final String country;
-  
+
   Map<String, dynamic> toJson() => <String, dynamic>{
         'processName': processName,
         'uniqueId': uniqueId,
