@@ -59,6 +59,7 @@
             </intent-filter>
         </activity>
 
+        <!-- Quick tile / setting (only available on Android 24+ / Nougat) -->
         <service android:name="org.openfoodfacts.app.AppMainTile"
                     android:exported="true"
                     android:icon="@drawable/ic_launcher_foreground"
