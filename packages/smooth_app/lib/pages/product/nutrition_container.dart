@@ -235,7 +235,7 @@ class NutritionContainer {
     bool alreadyEnergyKJ = false;
 
     // inner method, in order to use alreadyEnergyKJ without a private variable.
-    void _populateOrderedNutrientList(final List<OrderedNutrient> list) {
+    void populateOrderedNutrientList(final List<OrderedNutrient> list) {
       for (final OrderedNutrient nutrient in list) {
         if (nutrient.id != _energyKJId &&
             !Nutriments.supportedNutrientIds.contains(nutrient.id)) {
@@ -254,12 +254,12 @@ class NutritionContainer {
           _nutrients.add(nutrient);
         }
         if (nutrient.subNutrients != null) {
-          _populateOrderedNutrientList(nutrient.subNutrients!);
+          populateOrderedNutrientList(nutrient.subNutrients!);
         }
       }
     }
 
-    _populateOrderedNutrientList(nutrients);
+    populateOrderedNutrientList(nutrients);
 
     if (!alreadyEnergyKJ) {
       throw Exception('no energy or energyKJ found: very suspicious!');
@@ -298,7 +298,7 @@ class NutritionContainer {
     /// Converts a double (weight) value from grams.
     ///
     /// Typical use-case: after receiving a value from the BE.
-    double? _convertWeightFromG(final double? value, final Unit unit) {
+    double? convertWeightFromG(final double? value, final Unit unit) {
       if (value == null) {
         return null;
       }
@@ -317,7 +317,7 @@ class NutritionContainer {
       for (int i = 0; i < 2; i++) {
         final bool perServing = i == 0;
         final String valueKey = getValueKey(nutrientId, perServing);
-        final double? value = _convertWeightFromG(
+        final double? value = convertWeightFromG(
           JsonObject.parseDouble(json[valueKey]),
           unit,
         );
