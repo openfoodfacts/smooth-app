@@ -7,16 +7,15 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
-///Broadly classify the tasks into 2 categories
-/// All the tasks related to image upload
+/// Task Manager IDs and extras
+/// Broadly classify the tasks into 2 categories
+/// Task ID for image uploads
 const String IMAGE_UPLOAD_TASK = 'IMAGE_UPLOAD';
 
-/// All the tasks related to product edit
+/// Task ID for product edition
 const String PRODUCT_EDIT_TASK = 'PRODUCT_EDIT';
 
-const int SUCESS_CODE = 1;
-
-///Further classify the Product edit tasks more categoreis
+/// Extra used for product edition
 /// Constant for ingredient edit task
 const String INGREDIENT_EDIT = 'INGREDIENTS_EDIT';
 
@@ -25,6 +24,9 @@ const String NUTRITION_EDIT = 'NUTRITION_EDIT';
 
 /// Constant for basic details edit task
 const String BASIC_DETAILS = 'BASIC_DETAILS';
+
+/// Response code sent by the server in case of a success
+const int SUCESS_CODE = 1;
 
 /// Runs whenever a task is started in the background.
 /// Whatever invoked with TaskManager.addTask() will be run in this method.
@@ -51,8 +53,8 @@ Future<TaskResult> callbackDispatcher(
   return TaskResult.success;
 }
 
-///  This takes the product json and uploads the data to openfoodfacts server
-///  and queries the updated [Product] then it updates the product in the local database
+/// This takes the product JSON and uploads the data to OpenFoodFacts server
+/// and queries the updated [Product], then it updates the product in the local database
 Future<TaskResult> otherDetails(
   Map<String, dynamic> inputData,
   LocalDatabase localDatabase,
@@ -63,12 +65,14 @@ Future<TaskResult> otherDetails(
       json.decode(inputTask.inputMap) as Map<String, dynamic>;
   final User user =
       User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
+      
   await OpenFoodAPIClient.saveProduct(
     user,
     Product.fromJson(productMap),
     language: LanguageHelper.fromJson(inputTask.languageCode),
     country: CountryHelper.fromJson(inputTask.country),
   );
+  
   final DaoProduct daoProduct = DaoProduct(localDatabase);
   final ProductQueryConfiguration configuration = ProductQueryConfiguration(
     inputTask.barcode,
@@ -79,7 +83,7 @@ Future<TaskResult> otherDetails(
 
   final ProductResult queryResult =
       await OpenFoodAPIClient.getProduct(configuration);
-  // if queryResult.status = SUCESS_CODE (ie.1) , it means query was sucessful
+      
   if (queryResult.status == SUCESS_CODE) {
     final Product? product = queryResult.product;
     if (product != null) {
@@ -87,12 +91,14 @@ Future<TaskResult> otherDetails(
       localDatabase.notifyListeners();
     }
   }
+  
   // Returns true to let platform know that the task is completed
   return TaskResult.success;
 }
 
-/// This takes the Image and uploads it to openfoodfacts server
-/// and queries the updated [Product] then it updates the product in the local database
+/// This takes an image and uploads it to OpenFoodFacts servers
+/// and queries the updated [Product]. 
+/// Then it updates the product in the local database.
 Future<TaskResult> uploadImage(
   Map<String, dynamic> inputData,
   LocalDatabase localDatabase,
@@ -101,13 +107,16 @@ Future<TaskResult> uploadImage(
       BackgroundImageInputData.fromJson(inputData);
   final User user =
       User.fromJson(jsonDecode(inputTask.user) as Map<String, dynamic>);
+      
   final SendImage image = SendImage(
     lang: LanguageHelper.fromJson(inputTask.languageCode),
     barcode: inputTask.barcode,
     imageField: ImageFieldExtension.getType(inputTask.imageField),
     imageUri: Uri.parse(inputTask.imagePath),
   );
+  
   await OpenFoodAPIClient.addProductImage(user, image);
+  
   // Go to the file system and delete the file that was uploaded
   File(inputTask.imagePath).deleteSync();
   final DaoProduct daoProduct = DaoProduct(localDatabase);
@@ -120,7 +129,6 @@ Future<TaskResult> uploadImage(
 
   final ProductResult queryResult =
       await OpenFoodAPIClient.getProduct(configuration);
-  // if queryResult.status = SUCESS_CODE (ie.1) , it means query was sucessful
   if (queryResult.status == SUCESS_CODE) {
     final Product? product = queryResult.product;
     if (product != null) {
@@ -128,10 +136,11 @@ Future<TaskResult> uploadImage(
       localDatabase.notifyListeners();
     }
   }
+  
   return TaskResult.success;
 }
 
-/// Helper class for serialization and deserialization of data for the background task
+/// Helper class for serialization and deserialization of data used by the task manager
 class BackgroundImageInputData {
   BackgroundImageInputData({
     required this.processName,
@@ -185,6 +194,7 @@ class BackgroundOtherDetailsInput {
     required this.user,
     required this.country,
   });
+  
   BackgroundOtherDetailsInput.fromJson(Map<String, dynamic> json)
       : processName = json['processName'] as String,
         uniqueId = json['uniqueId'] as String,
@@ -193,6 +203,7 @@ class BackgroundOtherDetailsInput {
         inputMap = json['inputMap'] as String,
         user = json['user'] as String,
         country = json['country'] as String;
+        
   final String processName;
   final String uniqueId;
   final String barcode;
@@ -200,6 +211,7 @@ class BackgroundOtherDetailsInput {
   final String inputMap;
   final String user;
   final String country;
+  
   Map<String, dynamic> toJson() => <String, dynamic>{
         'processName': processName,
         'uniqueId': uniqueId,
