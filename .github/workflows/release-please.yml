@@ -72,7 +72,7 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.0.1'
+      FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
@@ -88,7 +88,7 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.0.1'
+      FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
       FASTLANE_USER: ${{secrets.FASTLANE_USER }}
