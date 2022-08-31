@@ -62,9 +62,9 @@ class SmoothProductCardFound extends StatelessWidget {
       borderRadius: ROUNDED_BORDER_RADIUS,
       onTap: onTap ??
           () async {
-            await Navigator.push<Widget>(
+            await Navigator.push<void>(
               context,
-              MaterialPageRoute<Widget>(
+              MaterialPageRoute<void>(
                 builder: (BuildContext context) => ProductPage(product),
               ),
             );

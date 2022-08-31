@@ -59,7 +59,7 @@ class _CountrySelectorState extends State<CountrySelector> {
         if (snapshot.hasError) {
           return Text('Fatal Error: ${snapshot.error}');
         } else if (snapshot.connectionState != ConnectionState.done) {
-          return const CircularProgressIndicator();
+          return const CircularProgressIndicator.adaptive();
         }
 
         return InkWell(

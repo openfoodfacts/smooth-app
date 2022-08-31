@@ -140,6 +140,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           }
           // Photo can change in the ConfirmAndUploadPicture widget, the user
           // may choose to retake the image.
+          // TODO(monsieurtanuki): careful, waiting for pop'ed value
           //ignore: use_build_context_synchronously
           final File? finalPhoto = await Navigator.push<File?>(
             context,
@@ -269,13 +270,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (!mounted) {
             return;
           }
+          // TODO(monsieurtanuki): careful, waiting for pop'ed value
           final Product? result = await Navigator.push<Product?>(
             context,
             MaterialPageRoute<Product>(
               builder: (BuildContext context) => NutritionPageLoaded(
                 Product(barcode: widget.barcode),
                 cache.orderedNutrients,
+                isLoggedInMandatory: false,
               ),
+              fullscreenDialog: true,
             ),
           );
 
@@ -319,11 +323,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
         onPressed: () async {
+          // TODO(monsieurtanuki): probably wrong as AddBasicDetailsPage pops nothing
+          // TODO(monsieurtanuki): careful, waiting for pop'ed value
           final Product? result = await Navigator.push<Product?>(
             context,
             MaterialPageRoute<Product>(
               builder: (BuildContext context) => AddBasicDetailsPage(
                 Product(barcode: widget.barcode),
+                isLoggedInMandatory: false,
               ),
             ),
           );

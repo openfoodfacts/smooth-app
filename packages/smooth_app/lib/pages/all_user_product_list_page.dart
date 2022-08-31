@@ -30,7 +30,7 @@ class AllUserProductList extends StatelessWidget {
         if (snapshot.data != null) {
           return _AllUserProductListLoaded(snapshot.data!);
         }
-        return const Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator.adaptive());
       },
     );
   }
@@ -59,23 +59,25 @@ class _AllUserProductListLoadedState extends State<_AllUserProductListLoaded> {
       appBar: AppBar(title: Text(appLocalizations.user_list_all_title)),
       body: userLists.isEmpty
           ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/misc/empty-list.svg',
-                    height: MediaQuery.of(context).size.height * .4,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(SMALL_SPACE),
-                    child: AutoSizeText(
-                      appLocalizations.user_list_all_empty,
-                      style: themeData.textTheme.headline1,
-                      textAlign: TextAlign.center,
-                      maxLines: 1,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      'assets/misc/empty-list.svg',
+                      height: MediaQuery.of(context).size.height * .4,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(SMALL_SPACE),
+                      child: AutoSizeText(
+                        appLocalizations.user_list_all_empty,
+                        style: themeData.textTheme.headline1,
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           : ListView.builder(

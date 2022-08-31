@@ -163,7 +163,8 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
                 title: title,
                 body: SizedBox(
                   height: dialogHeight ?? 250.0,
-                  child: Scrollbar(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
                     child: ListView.builder(
                         itemCount: labels.length,
                         itemBuilder: (BuildContext context, int position) {

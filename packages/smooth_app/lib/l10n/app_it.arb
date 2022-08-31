@@ -432,7 +432,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Elenca tutte le parti dell'imballaggio separate da una virgola o avanzamento di riga, con la loro quantità (es. 1 o 6), tipo (es. bottiglia, scatola, lattina), materiale (es. plastica, metallo, alluminio) e se disponibili le loro dimensioni (es. 33cl) e le istruzioni di riciclaggio.\nEsempio: 1 bottiglia in vetro da riciclare, 1 tappo in plastica da gettare",
     "packaging_editing_error": "Impossibile salvare la confezione.",
     "packaging_editing_image_error": "Impossibile ottenere una nuova immagine della confezione.",
     "packaging_editing_title": "Modifica imballaggio",
@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+    "contact_form_body_android": "OS: Android (Int SDK: {sdkInt} / Release: {release})\nModello: {model}\nProdotto: {product}\nDispositivo: {device}\nMarca:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -734,7 +734,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModello: {model}\nModello localizzato: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -1084,10 +1084,15 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Salvare le modifiche prima di lasciare questa pagina?",
+    "edit_product_form_item_exit_confirmation_positive_button": "Salva le mie modifiche",
+    "edit_product_form_item_exit_confirmation_negative_button": "Ignora le mie modifiche",
     "edit_product_form_item_ingredients_title": "Ingredienti & Origini",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
+    "edit_product_form_item_add_valid_item_tooltip": "Aggiungi",
+    "edit_product_form_item_add_invalid_item_tooltip": "Sei pregato di inserire prima un testo",
+    "edit_product_form_item_remove_item_tooltip": "Rimuovi",
     "edit_product_form_item_packaging_title": "Confezionamento",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1474,9 +1479,27 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Stai per eliminare l'intera cronologia, sei sicuro di voler continuare?",
+    "confirm_clear": "Stai per cancellare la tua intera cronologia: sei sicuro di voler continuare?",
     "@confirm_clear": {
-        "description": "Asking about whether to clear the list or not"
+        "description": "Asking about whether to clear the history list or not"
+    },
+    "confirm_clear_user_list": "Stai per cancellare questo elenco ({name}): sei sicuro di voler continuare?",
+    "@confirm_clear_user_list": {
+        "description": "Asking about whether to clear the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "confirm_delete_user_list": "Stai per eliminare questo elenco ({name}): sei sicuro di voler continuare?",
+    "@confirm_delete_user_list": {
+        "description": "Asking about whether to delete the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
     },
     "importance_label": "{name} importanza: {id}",
     "@importance_label": {
@@ -1550,29 +1573,29 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Espandi la tabella dei valori nutrizionali",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-    "expand_ingredients": "Expand ingredients",
+    "expand_nutrition_facts_body": "Mantieni espansa la tabella dei valori nutrizionali",
+    "expand_ingredients": "Espandi gli ingredienti",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "Keep the ingredients panel expanded",
+    "expand_ingredients_body": "Mantieni espanso il pannello degli ingredienti",
     "no_internet_connection": "Nessuna connessione internet",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Risultati di tutto il mondo",
+    "world_results_label": "Tutto il mondo",
     "@world_results_label": {
-        "description": "Label describing the current source of the results: the entire world"
+        "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Cerca mondo",
+    "world_results_action": "Estendi la tua ricerca al mondo",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "clipboard_barcode_copied": "Codice a barre {barcode} copiato negli appunti!",
+    "clipboard_barcode_copy": "Copia il codice a barre negli appunti",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1582,6 +1605,7 @@
             }
         }
     },
+    "clipboard_barcode_copied": "Codice a barre {barcode} copiato negli appunti!",
     "choose_app_language": "Seleziona la lingua",
     "@choose_app_language": {
         "description": "Choose Application Language"
@@ -1589,5 +1613,13 @@
     "help_with_openfoodfacts": "Aiuto con OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "no_email_client_available_dialog_title": "No email application!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
     }
 }

@@ -34,7 +34,7 @@ class MLKitScannerPage extends LifecycleAwareStatefulWidget {
 }
 
 class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
-    with TraceableClientMixin {
+    with TraceableClientMixin, WidgetsBindingObserver {
   /// If the camera is being closed (when [stoppingCamera] == true) and this
   /// Widget is visible again, we add a post frame callback to detect if the
   /// Widget is still visible
@@ -49,7 +49,12 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   /// every [_processingTimeWindows] time windows.
 
   /// Until the first barcode is decoded, this is default timeout
+  /// It's also the minimum window between two decodings
+  /// Note: A decoding happens by multiplying a window by [_processingTimeWindows]
   static const int _defaultProcessingTime = 50; // in milliseconds
+  /// In the case where [deviceInLowMemoryMode] is true, this value becomes the
+  /// minimum window, which will be multiplied by [_processingTimeWindows]
+  static const int _lowMemoryProcessingTime = 500; // in milliseconds
   /// Minimal processing windows between two decodings
   static const int _processingTimeWindows = 5;
 
@@ -89,6 +94,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   /// The next time this tab is visible, we will force relaunching the camera.
   bool pendingResume = false;
 
+  /// If the device is in low memory pressure, lower as possible the decoding
+  bool deviceInLowMemoryMode = false;
+
   @override
   void initState() {
     super.initState();
@@ -97,6 +105,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     if (_camera != null) {
       _subject = PublishSubject<CameraImage>();
     }
+
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
@@ -257,9 +267,11 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     _subject
         .throttleTime(
           Duration(
-            milliseconds:
-                _averageProcessingTime.average(_defaultProcessingTime) *
-                    _processingTimeWindows,
+            milliseconds: _averageProcessingTime.averageMin(
+                  defaultValueIfEmpty: _processingTime,
+                  minValue: _processingTime,
+                ) *
+                _processingTimeWindows,
           ),
         )
         .asyncMap((CameraImage image) async {
@@ -444,6 +456,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     setStateSafe(() {});
   }
 
+  int get _processingTime =>
+      deviceInLowMemoryMode ? _lowMemoryProcessingTime : _defaultProcessingTime;
+
   /// The camera is fully closed at this step.
   /// However, the user may have "reopened" this Widget during this
   /// operation. In this case, [_startLiveFeed] should be called.
@@ -513,11 +528,18 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   @override
+  void didHaveMemoryPressure() {
+    deviceInLowMemoryMode = true;
+    Logs.w('The device enters in low memory mode!');
+  }
+
+  @override
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
     _stopImageStream();
     _disposeSoundManager();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 

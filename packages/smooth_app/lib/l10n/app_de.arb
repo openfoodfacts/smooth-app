@@ -704,7 +704,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModell: {model}\nProdukt: {product}\nGerät: {device}\nMarke: {brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -1059,7 +1059,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "In Europa ist der Code in der Form einer Ellipse mit den beiden Länderinitialen, gefolgt von einer Zahl und CE, anzugeben.\nBeispiele: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
@@ -1084,10 +1084,15 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Möchten Sie Ihre Änderungen speichern, bevor Sie diese Seite verlassen?",
+    "edit_product_form_item_exit_confirmation_positive_button": "Änderungen speichern",
+    "edit_product_form_item_exit_confirmation_negative_button": "Änderungen verwerfen",
     "edit_product_form_item_ingredients_title": "Zutaten und Herkunft",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
+    "edit_product_form_item_add_valid_item_tooltip": "Hinzufügen",
+    "edit_product_form_item_add_invalid_item_tooltip": "Bitte zuerst einen Text eingeben",
+    "edit_product_form_item_remove_item_tooltip": "Entfernen",
     "edit_product_form_item_packaging_title": "Art der Verpackung",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1474,9 +1479,27 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Sie sind dabei, Ihren gesamten Verlauf zu löschen. Möchten Sie dennoch fortfahren?",
+    "confirm_clear": "Sie sind dabei, Ihren gesamten Verlauf zu löschen: Möchten Sie wirklich fortfahren?",
     "@confirm_clear": {
-        "description": "Asking about whether to clear the list or not"
+        "description": "Asking about whether to clear the history list or not"
+    },
+    "confirm_clear_user_list": "Sie sind dabei, diese Liste ({name}) zu leeren: Möchten Sie wirklich fortfahren?",
+    "@confirm_clear_user_list": {
+        "description": "Asking about whether to clear the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "confirm_delete_user_list": "Sie sind dabei, diese Liste ({name}) zu löschen: Möchten Sie wirklich fortfahren?",
+    "@confirm_delete_user_list": {
+        "description": "Asking about whether to delete the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
     },
     "importance_label": "{name} Wichtigkeit: {id}",
     "@importance_label": {
@@ -1564,15 +1587,15 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Ergebnisse aus der ganzen Welt",
+    "world_results_label": "Ganze Welt",
     "@world_results_label": {
-        "description": "Label describing the current source of the results: the entire world"
+        "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Welt durchsuchen",
+    "world_results_action": "Erweitern Sie die Suche auf die Welt",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "clipboard_barcode_copied": "Strichcode „{barcode}“ in die Zwischenablage kopiert!",
+    "clipboard_barcode_copy": "Strichcode in die Zwischenablage kopieren",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1582,6 +1605,7 @@
             }
         }
     },
+    "clipboard_barcode_copied": "Strichcode „{barcode}“ in die Zwischenablage kopiert!",
     "choose_app_language": "Sprache wählen",
     "@choose_app_language": {
         "description": "Choose Application Language"
@@ -1589,5 +1613,13 @@
     "help_with_openfoodfacts": "Hilfe bei OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "no_email_client_available_dialog_title": "No email application!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
     }
 }

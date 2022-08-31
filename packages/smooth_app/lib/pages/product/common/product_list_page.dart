@@ -412,9 +412,9 @@ class _ProductListPageState extends State<ProductListPage>
                     if (!mounted) {
                       return;
                     }
-                    await Navigator.push<Widget>(
+                    await Navigator.push<void>(
                       context,
-                      MaterialPageRoute<Widget>(
+                      MaterialPageRoute<void>(
                         builder: (BuildContext context) =>
                             PersonalizedRankingPage(
                           barcodes: list,

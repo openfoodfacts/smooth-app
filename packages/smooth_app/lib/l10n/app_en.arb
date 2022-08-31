@@ -1090,6 +1090,9 @@
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
+    "edit_product_form_item_add_valid_item_tooltip": "Add",
+    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
+    "edit_product_form_item_remove_item_tooltip": "Remove",
     "edit_product_form_item_packaging_title": "Packaging",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1593,10 +1596,6 @@
         "description": "Label for the action button that displays the results from the entire world"
     },
     "clipboard_barcode_copy": "Copy barcode to clipboard",
-    "@clipboard_barcode_copy": {
-        "description": "Action (tooltip) to copy a barcode to the clipboard"
-    },
-    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1606,6 +1605,7 @@
             }
         }
     },
+    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
     "choose_app_language": "Choose App Language",
     "@choose_app_language": {
         "description": "Choose Application Language"
@@ -1614,8 +1614,13 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "all_images": "All images",
-    "@all_images": {
-        "description": "Label for all images title in the photo manager page"
-    }
+    "no_email_client_available_dialog_title": "No email application!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
+    },
+    "all_images" : "All Images"
 }

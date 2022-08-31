@@ -436,7 +436,7 @@
     "packaging_editing_error": "Balení se nepodařilo uložit.",
     "packaging_editing_image_error": "Nepodařilo se získat nový obrázek obalu.",
     "packaging_editing_title": "Upravit obal",
-    "nutrition": "Výživové údaje",
+    "nutrition": "Nutriční hodnoty",
     "@nutrition": {},
     "nutrition_facts_photo": "Fotografie výživových faktů",
     "@nutrition_facts_photo": {
@@ -752,7 +752,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "contact_form_body": "{osContent}\nVerze aplikace:{appVersion}\nČíslo sestavení aplikace:{appBuildNumber}\nNázev balíčku aplikace:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -1084,10 +1084,15 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Chcete uložit změny před opuštěním této stránky?",
+    "edit_product_form_item_exit_confirmation_positive_button": "Uložit mé změny",
+    "edit_product_form_item_exit_confirmation_negative_button": "Ignorovat mé změny",
     "edit_product_form_item_ingredients_title": "Složení a původ",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
+    "edit_product_form_item_add_valid_item_tooltip": "Přidat",
+    "edit_product_form_item_add_invalid_item_tooltip": "Nejprve prosím zadejte text",
+    "edit_product_form_item_remove_item_tooltip": "Odstranit",
     "edit_product_form_item_packaging_title": "Obal",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1474,9 +1479,27 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "Chystáte se smazat celou historii. Opravdu chcete pokračovat?",
+    "confirm_clear": "Chystáte se vymazat celou historii: opravdu chcete pokračovat?",
     "@confirm_clear": {
-        "description": "Asking about whether to clear the list or not"
+        "description": "Asking about whether to clear the history list or not"
+    },
+    "confirm_clear_user_list": "Chystáte se vymazat tento seznam ({name}): opravdu chcete pokračovat?",
+    "@confirm_clear_user_list": {
+        "description": "Asking about whether to clear the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "confirm_delete_user_list": "Chystáte se smazat tento seznam ({name}): opravdu chcete pokračovat?",
+    "@confirm_delete_user_list": {
+        "description": "Asking about whether to delete the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
     },
     "importance_label": "{name} důležitosti: {id}",
     "@importance_label": {
@@ -1564,15 +1587,15 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Výsledky z celého světa",
+    "world_results_label": "Celý svět",
     "@world_results_label": {
-        "description": "Label describing the current source of the results: the entire world"
+        "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Prohledat celý svět",
+    "world_results_action": "Rozšířit hledání na celý svět",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "clipboard_barcode_copied": "Čárový kód {barcode} zkopírován do schránky!",
+    "clipboard_barcode_copy": "Kopírovat čárový kód do schránky",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1582,6 +1605,7 @@
             }
         }
     },
+    "clipboard_barcode_copied": "Čárový kód {barcode} zkopírován do schránky!",
     "choose_app_language": "Vyberte Jazyk aplikace",
     "@choose_app_language": {
         "description": "Choose Application Language"
@@ -1589,5 +1613,13 @@
     "help_with_openfoodfacts": "Pomoc s OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "no_email_client_available_dialog_title": "No email application!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
     }
 }

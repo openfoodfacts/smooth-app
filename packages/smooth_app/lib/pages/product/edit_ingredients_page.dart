@@ -169,7 +169,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     if (_updatingImage) {
       children.add(
         const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator.adaptive(),
         ),
       );
     } else {
@@ -335,7 +335,7 @@ class _OcrWidget extends StatelessWidget {
                           onPressed: () async {
                             await onSubmitField();
                             //ignore: use_build_context_synchronously
-                            Navigator.pop(context, product);
+                            Navigator.pop(context);
                           },
                         ),
                       ),

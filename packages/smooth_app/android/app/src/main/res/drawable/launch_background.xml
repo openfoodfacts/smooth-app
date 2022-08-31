@@ -4,25 +4,16 @@
         <color android:color="@color/background_splashscreen"/>
     </item>
 
-    <item
-            android:width="240dp"
-            android:height="240dp"
-            android:drawable="@drawable/ic_launcher_foreground"
-            android:gravity="center">
-        <size
-                android:width="240px"
-                android:height="240px"/>
+    <item>
+        <bitmap
+                android:src="@drawable/ic_launcher_foreground"
+                android:gravity="center"/>
     </item>
 
-    <item
-            android:width="200dp"
-            android:height="80dp"
-            android:bottom="5dp"
-            android:drawable="@drawable/logo_text"
-            android:gravity="bottom|center_horizontal">
-        <size
-                android:width="80px"
-                android:height="200px"/>
+    <item android:bottom="20dp">
+        <bitmap
+                android:src="@drawable/logo_text"
+                android:gravity="bottom"/>
     </item>
 
 </layer-list>
