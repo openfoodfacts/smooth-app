@@ -174,9 +174,17 @@ class _KnowledgePanelPageTemplateState
           });
         },
       ));
-      hitPopup.add(Positioned(
-        child: Align(alignment: Alignment.center, child: hintPopup),
-      ));
+      hitPopup.add(
+        Positioned(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: VERY_LARGE_SPACE),
+              child: hintPopup,
+            ),
+          ),
+        ),
+      );
     }
     return hitPopup;
   }
