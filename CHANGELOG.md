@@ -1,5 +1,31 @@
 # Changelog
 
+## [3.10.0](https://github.com/openfoodfacts/smooth-app/compare/v3.9.0...v3.10.0) (2022-09-01)
+
+
+### Features
+
+* Bring back the quick setting tile on Android ([#2870](https://github.com/openfoodfacts/smooth-app/issues/2870)) ([0c7e236](https://github.com/openfoodfacts/smooth-app/commit/0c7e236a381a3237d0d524077b4779846dd93e1f))
+
+
+### Bug Fixes
+
+* Background image upload ([#2433](https://github.com/openfoodfacts/smooth-app/issues/2433)) ([cf4fa6a](https://github.com/openfoodfacts/smooth-app/commit/cf4fa6aebe30a769a57ce2c71bc23d4473a7a8e4))
+
+
+### Automation
+
+* disabling run for dependabot PRs ([4296daf](https://github.com/openfoodfacts/smooth-app/commit/4296dafb0a9748bbed640dddf19d6eb4667dcb89))
+
+
+### Miscellaneous
+
+* **deps:** bump barcode_widget in /packages/smooth_app ([#2875](https://github.com/openfoodfacts/smooth-app/issues/2875)) ([2fa796e](https://github.com/openfoodfacts/smooth-app/commit/2fa796e868554117510dea6c3fef9e5b8a8eb742))
+* **deps:** bump flutter_svg in /packages/smooth_app ([#2874](https://github.com/openfoodfacts/smooth-app/issues/2874)) ([c1e3651](https://github.com/openfoodfacts/smooth-app/commit/c1e36513ad3aa3db054b14b39e3ac9d80646bb96))
+* **deps:** bump sentry_flutter in /packages/smooth_app ([#2877](https://github.com/openfoodfacts/smooth-app/issues/2877)) ([94d85c9](https://github.com/openfoodfacts/smooth-app/commit/94d85c98ab254dd546033d0afd8e57ebcf3aae03))
+* New Crowdin translations ([#2878](https://github.com/openfoodfacts/smooth-app/issues/2878)) ([2b969e9](https://github.com/openfoodfacts/smooth-app/commit/2b969e921a79ba0924894749e9b101ba2ba0d3b3))
+* New Crowdin translations ([#2886](https://github.com/openfoodfacts/smooth-app/issues/2886)) ([fc9711b](https://github.com/openfoodfacts/smooth-app/commit/fc9711bd9ca41d8486e6c35ba8b5354d1671c4ad))
+
 ## [3.9.0](https://github.com/openfoodfacts/smooth-app/compare/v3.8.1...v3.9.0) (2022-08-30)
 
 
