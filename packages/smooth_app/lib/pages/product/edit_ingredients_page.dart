@@ -56,9 +56,10 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
   Future<void> _onSubmitField() async {
     setState(() => _updatingText = true);
-
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
     try {
-      await _updateText(_controller.text);
+      await _updateText(_controller.text, provider);
     } catch (error) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
       _showError(_helper.getError(appLocalizations));
@@ -129,7 +130,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
   }
 
-  Future<bool> _updateText(final String text) async {
+  Future<bool> _updateText(
+      final String text, UpToDateProductProvider provider) async {
     final Product minimalistProduct =
         _helper.getMinimalistProduct(_product, text);
     final String uniqueId =
@@ -163,8 +165,10 @@ class _EditOcrPageState extends State<EditOcrPage> {
     if (localProduct != null) {
       localProduct.ingredientsText = minimalistProduct.ingredientsText;
       await daoProduct.put(localProduct);
+      provider.set(localProduct);
     } else {
       await daoProduct.put(minimalistProduct);
+      provider.set(minimalistProduct);
     }
 
     localDatabase.notifyListeners();

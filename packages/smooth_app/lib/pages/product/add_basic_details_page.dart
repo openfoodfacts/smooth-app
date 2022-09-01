@@ -5,6 +5,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -56,6 +57,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(appLocalizations.basic_details),
@@ -170,18 +173,21 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     //And if it is not, we create a new product with the fields of the _product
                     // and we insert it in the database. (Giving the user an immediate feedback)
                     if (product == null) {
-                      daoProduct.put(Product(
+                      final Product newProduct = Product(
                         barcode: _product.barcode,
                         productName: _productNameController.text,
                         brands: _brandNameController.text,
                         quantity: _weightController.text,
                         lang: ProductQuery.getLanguage(),
-                      ));
+                      );
+                      daoProduct.put(newProduct);
+                      provider.set(newProduct);
                     } else {
                       product.productName = _productNameController.text;
                       product.brands = _brandNameController.text;
                       product.quantity = _weightController.text;
                       daoProduct.put(product);
+                      provider.set(product);
                     }
                     localDatabase.notifyListeners();
                     if (!mounted) {
