@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.10.1](https://github.com/openfoodfacts/smooth-app/compare/v3.10.0...v3.10.1) (2022-09-01)
+
+
+### Bug Fixes
+
+* Fixes for Flutter version 3.3 ([#2884](https://github.com/openfoodfacts/smooth-app/issues/2884)) ([254a9b7](https://github.com/openfoodfacts/smooth-app/commit/254a9b725eb1ad5df4ddbc147b6d5a8c5f8cc587))
+
+
+### Automation
+
+* fix PR ([#2888](https://github.com/openfoodfacts/smooth-app/issues/2888)) ([bfeedeb](https://github.com/openfoodfacts/smooth-app/commit/bfeedeb699b56195f317ef90e440dd391a1762cd))
+
+
+### Miscellaneous
+
+* **deps:** bump google_mlkit_barcode_scanning in /packages/smooth_app ([#2881](https://github.com/openfoodfacts/smooth-app/issues/2881)) ([46c4f36](https://github.com/openfoodfacts/smooth-app/commit/46c4f36342ca6090f2e63bbf7076b2b1f5d0d794))
+
 ## [3.10.0](https://github.com/openfoodfacts/smooth-app/compare/v3.9.0...v3.10.0) (2022-09-01)
 
 
