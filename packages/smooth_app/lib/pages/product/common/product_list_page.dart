@@ -12,6 +12,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
@@ -308,7 +309,7 @@ class _ProductListPageState extends State<ProductListPage>
                     ? appLocalizations.product_removed_history
                     : appLocalizations.product_could_not_remove,
               ),
-              duration: const Duration(seconds: 3),
+              duration: SnackBarDuration.medium,
             ),
           );
           // TODO(monsieurtanuki): add a snackbar ("put back the food")
@@ -349,7 +350,7 @@ class _ProductListPageState extends State<ProductListPage>
                 products.length,
               ),
             ),
-            duration: const Duration(seconds: 2),
+            duration: SnackBarDuration.short,
           ),
         );
         setState(() {});
