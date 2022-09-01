@@ -1613,5 +1613,13 @@
     "help_with_openfoodfacts": "Help with OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "no_email_client_available_dialog_title": "لا يوجد تطبيق بريد إلكتروني!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "يرجى إرسال بريد إلكتروني إلينا يدويًا إلى contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
     }
 }

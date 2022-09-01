@@ -1,20 +1,26 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:task_manager/task_manager.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -79,7 +85,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(error),
-        duration: const Duration(seconds: 3),
+        duration: SnackBarDuration.medium,
       ),
     );
   }
@@ -90,7 +96,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
   // Returns a Future that resolves successfully only if everything succeeds,
   // otherwise it will resolve with the relevant error.
   Future<void> _getImage(bool isNewImage) async {
-    bool isUploaded = true;
     if (isNewImage) {
       final File? croppedImageFile =
           await startImageCropping(context, showOptionDialog: true);
@@ -105,18 +110,12 @@ class _EditOcrPageState extends State<EditOcrPage> {
       if (!mounted) {
         return;
       }
-      isUploaded = await uploadCapturedPicture(
+      await uploadCapturedPicture(
         context,
         barcode: _product.barcode!,
         imageField: _helper.getImageField(),
         imageUri: croppedImageFile.uri,
       );
-
-      croppedImageFile.delete();
-    }
-
-    if (!isUploaded) {
-      throw Exception('Image could not be uploaded.');
     }
 
     final String? extractedText = await _helper.getExtractedText(_product);
@@ -131,12 +130,56 @@ class _EditOcrPageState extends State<EditOcrPage> {
   }
 
   Future<bool> _updateText(final String text) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    return ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: _helper.getMinimalistProduct(_product, text),
+    final Product minimalistProduct =
+        _helper.getMinimalistProduct(_product, text);
+    final String uniqueId =
+        UniqueIdGenerator.generateUniqueId(_product.barcode!, INGREDIENT_EDIT);
+    final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
+        BackgroundOtherDetailsInput(
+      processName: PRODUCT_EDIT_TASK,
+      uniqueId: uniqueId,
+      barcode: minimalistProduct.barcode!,
+      languageCode: ProductQuery.getLanguage().code,
+      inputMap: jsonEncode(minimalistProduct.toJson()),
+      user: jsonEncode(ProductQuery.getUser().toJson()),
+      country: ProductQuery.getCountry()!.iso2Code,
     );
+    await TaskManager().addTask(
+      Task(
+        data: backgroundOtherDetailsInput.toJson(),
+        uniqueId: uniqueId,
+      ),
+    );
+
+    // ignore: use_build_context_synchronously
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? localProduct =
+        await daoProduct.get(minimalistProduct.barcode!);
+    // We go and chek in the local database if the product is
+    // already in the database. If it is, we update the fields of the product.
+    //And if it is not, we create a new product with the fields of the minimalistProduct
+    // and we insert it in the database. (Giving the user an immediate feedback)
+    if (localProduct != null) {
+      localProduct.ingredientsText = minimalistProduct.ingredientsText;
+      await daoProduct.put(localProduct);
+    } else {
+      await daoProduct.put(minimalistProduct);
+    }
+
+    localDatabase.notifyListeners();
+    if (!mounted) {
+      return false;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          AppLocalizations.of(context).product_task_background_schedule,
+        ),
+        duration: SnackBarDuration.medium,
+      ),
+    );
+    return true;
   }
 
   @override

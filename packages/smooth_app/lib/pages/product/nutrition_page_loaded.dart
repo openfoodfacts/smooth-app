@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,17 +8,20 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:task_manager/task_manager.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -527,11 +532,45 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return false;
     }
     // if it fails, we stay on the same page
-    return ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: changedProduct,
-      isLoggedInMandatory: widget.isLoggedInMandatory,
+    final String uniqueId =
+        UniqueIdGenerator.generateUniqueId(_product.barcode!, NUTRITION_EDIT);
+    final BackgroundOtherDetailsInput nutritonInputData =
+        BackgroundOtherDetailsInput(
+      processName: PRODUCT_EDIT_TASK,
+      uniqueId: uniqueId,
+      barcode: _product.barcode!,
+      languageCode: ProductQuery.getLanguage().code,
+      inputMap: jsonEncode(changedProduct.toJson()),
+      user: jsonEncode(ProductQuery.getUser().toJson()),
+      country: ProductQuery.getCountry()!.iso2Code,
     );
+    await TaskManager().addTask(
+      Task(
+        data: nutritonInputData.toJson(),
+        uniqueId: uniqueId,
+      ),
+    );
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? product = await daoProduct.get(
+      _product.barcode!,
+    );
+    // We go and chek in the local database if the product is
+    // already in the database. If it is, we update the fields of the product.
+    //And if it is not, we create a new product with the fields of the _product
+    // and we insert it in the database. (Giving the user an immediate feedback)
+    if (product != null) {
+      product.servingSize = changedProduct.servingSize;
+      product.nutriments = changedProduct.nutriments;
+      await daoProduct.put(product);
+    }
+    localDatabase.notifyListeners();
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(appLocalizations.product_task_background_schedule),
+        ),
+      );
+    }
+    return true;
   }
 }

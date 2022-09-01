@@ -117,6 +117,8 @@ class _SmoothDialogTitle extends StatelessWidget {
     required this.close,
   });
 
+  static const double _titleHeight = 32.0;
+
   final String label;
   final bool close;
 
@@ -126,7 +128,7 @@ class _SmoothDialogTitle extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         SizedBox(
-          height: 32.0,
+          height: _titleHeight,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -182,7 +184,7 @@ class _SmoothDialogCrossButton extends StatelessWidget {
             padding: EdgeInsets.all(SMALL_SPACE),
             child: Icon(
               Icons.close,
-              size: 29.0,
+              size: _SmoothDialogTitle._titleHeight - (2 * SMALL_SPACE),
             ),
           ),
           onTap: () => Navigator.of(context, rootNavigator: true).pop(),
