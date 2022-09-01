@@ -386,7 +386,7 @@ class _EditProductPageState extends State<EditProductPage> {
 
 class _ListTitleItem extends StatelessWidget {
   const _ListTitleItem({
-    required final this.title,
+    required this.title,
     this.subtitle,
     this.onTap,
     this.leading,
