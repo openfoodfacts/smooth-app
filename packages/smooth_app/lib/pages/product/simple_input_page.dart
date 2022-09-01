@@ -106,6 +106,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 ),
               ),
               SmoothActionButtonsBar(
+                axis: Axis.horizontal,
                 positiveAction: SmoothActionButton(
                   text: appLocalizations.save,
                   onPressed: () async => _exitPage(

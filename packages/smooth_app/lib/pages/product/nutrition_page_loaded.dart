@@ -140,6 +140,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 ),
               ),
               SmoothActionButtonsBar(
+                axis: Axis.horizontal,
                 positiveAction: SmoothActionButton(
                   text: appLocalizations.save,
                   onPressed: () async => _exitPage(

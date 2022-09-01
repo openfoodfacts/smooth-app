@@ -326,6 +326,7 @@ class _OcrWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: MEDIUM_SPACE),
                       SmoothActionButtonsBar(
+                        axis: Axis.horizontal,
                         negativeAction: SmoothActionButton(
                           text: appLocalizations.cancel,
                           onPressed: () => Navigator.pop(context),
