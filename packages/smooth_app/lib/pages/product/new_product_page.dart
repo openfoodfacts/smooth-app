@@ -169,7 +169,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(appLocalizations.product_refreshed),
-          duration: const Duration(seconds: 2),
+          duration: SnackBarDuration.short,
         ),
       );
     }

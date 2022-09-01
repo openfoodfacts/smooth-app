@@ -30,7 +30,7 @@
     </queries>
 
     <application
-            android:label="OpenFoodFacts"
+            android:label="@string/app_name"
             android:name="${applicationName}"
             android:icon="@mipmap/ic_launcher"
             android:allowBackup="true"
@@ -58,6 +58,19 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- Quick tile / setting (only available on Android 24+ / Nougat) -->
+        <service android:name="org.openfoodfacts.app.AppMainTile"
+                    android:exported="true"
+                    android:icon="@drawable/ic_launcher_foreground"
+                    android:label="@string/app_name"
+                    android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+                <intent-filter>
+                    <action android:name="android.service.quicksettings.action.QS_TILE" />
+                </intent-filter>
+        </service>
+
+
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
