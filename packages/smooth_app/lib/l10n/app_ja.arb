@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "画像はできるだけ早くpc上の背景にてアップロードされます。",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "栄養成分表を拡大",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1613,6 +1617,10 @@
     "help_with_openfoodfacts": "OpenFoodFacts のヘルプ",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "product_task_background_schedule": "製品はできるだけ早く背景にて更新されます。",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
     },
     "no_email_client_available_dialog_title": "No email application!",
     "@no_email_client_available_dialog_title": {
