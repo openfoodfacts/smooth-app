@@ -40,7 +40,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     if (imageData.imageUrl != null) {
       imageProvider = NetworkImage(imageData.imageUrl!);
     }
-    
+
     super.initState();
   }
 
