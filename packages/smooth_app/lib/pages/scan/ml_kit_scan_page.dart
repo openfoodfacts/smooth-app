@@ -123,9 +123,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       if (_controller == null) {
         _startLiveFeed();
       } else {
-        _controller!.updateFocusPointAlgorithm(
-          _userPreferences.cameraFocusPointAlgorithm,
-        );
+        _controller!.forceFocus();
       }
     }
   }
@@ -255,9 +253,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       SmoothCameraController(
         _userPreferences,
         _camera!,
-        _userPreferences.useVeryHighResolutionPreset
-            ? ResolutionPreset.veryHigh
-            : ResolutionPreset.high,
+        ResolutionPreset.high,
         imageFormatGroup: ImageFormatGroup.yuv420,
       ),
     );
@@ -312,7 +308,6 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _controller?.setFocusPointTo(
             _focusPoint.offset,
-            _userPreferences.cameraFocusPointAlgorithm,
           );
         });
       }

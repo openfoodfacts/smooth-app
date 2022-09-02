@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -14,7 +12,6 @@ import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
@@ -52,9 +49,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   @override
   List<Widget> getBody() => const <Widget>[
         _ApplicationSettings(),
-        UserPreferencesListItemDivider(),
         _CameraSettings(),
-        UserPreferencesListItemDivider(),
         _PrivacySettings(),
       ];
 }
@@ -124,7 +119,6 @@ class _ApplicationSettings extends StatelessWidget {
           ),
           minVerticalPadding: MEDIUM_SPACE,
         ),
-        const UserPreferencesListItemDivider(),
       ],
     );
   }
@@ -168,11 +162,13 @@ class _PrivacySettings extends StatelessWidget {
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
+        const UserPreferencesListItemDivider(),
         _ExpandPanelHelper(
           title: appLocalizations.expand_nutrition_facts,
           subtitle: appLocalizations.expand_nutrition_facts_body,
           panelId: KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
         ),
+        const UserPreferencesListItemDivider(),
         _ExpandPanelHelper(
           title: appLocalizations.expand_ingredients,
           subtitle: appLocalizations.expand_ingredients_body,
@@ -245,113 +241,9 @@ class _CameraSettings extends StatelessWidget {
         UserPreferencesTitle(
           label: appLocalizations.settings_app_camera,
         ),
-        const _CameraHighResolutionPresetSetting(),
-        const UserPreferencesListItemDivider(),
         const _CameraPlayScanSoundSetting(),
-        const UserPreferencesListItemDivider(),
-        if (Platform.isAndroid) ...const <Widget>[
-          _CameraFocusModeSetting(),
-          UserPreferencesListItemDivider(),
-        ],
       ],
     );
-  }
-}
-
-class _CameraHighResolutionPresetSetting extends StatelessWidget {
-  const _CameraHighResolutionPresetSetting({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    return UserPreferencesSwitchItem(
-      title: appLocalizations.camera_high_resolution_preset_toggle_title,
-      subtitle: appLocalizations.camera_high_resolution_preset_toggle_subtitle,
-      value: userPreferences.useVeryHighResolutionPreset,
-      onChanged: (final bool value) async {
-        await userPreferences.setUseVeryHighResolutionPreset(value);
-      },
-    );
-  }
-}
-
-class _CameraFocusModeSetting extends StatelessWidget {
-  const _CameraFocusModeSetting({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    return UserPreferencesMultipleChoicesItem<CameraFocusPointAlgorithm>(
-      title: appLocalizations.camera_focus_point_algorithm_title,
-      subtitle: appLocalizations.camera_focus_point_algorithm_subtitle(
-        getReadableMode(
-          appLocalizations,
-          userPreferences.cameraFocusPointAlgorithm,
-        ),
-        getReadableDescription(
-          appLocalizations,
-          userPreferences.cameraFocusPointAlgorithm,
-        ),
-      ),
-      values: CameraFocusPointAlgorithm.values,
-      descriptions: getDescriptions(appLocalizations),
-      labels: getLabels(appLocalizations),
-      currentValue: userPreferences.cameraFocusPointAlgorithm,
-      onChanged: (final CameraFocusPointAlgorithm value) async {
-        await userPreferences.setCameraFocusAlgorithm(value);
-      },
-    );
-  }
-
-  String getReadableMode(
-    AppLocalizations appLocalizations,
-    CameraFocusPointAlgorithm cameraFocusPointAlgorithm,
-  ) {
-    switch (cameraFocusPointAlgorithm) {
-      case CameraFocusPointAlgorithm.newAlgorithm:
-        return appLocalizations
-            .camera_focus_point_algorithm_value_new_algorithm_label;
-      case CameraFocusPointAlgorithm.oldAlgorithm:
-        return appLocalizations
-            .camera_focus_point_algorithm_value_old_algorithm_label;
-      case CameraFocusPointAlgorithm.auto:
-      default:
-        return appLocalizations.camera_focus_point_algorithm_value_auto_label;
-    }
-  }
-
-  String getReadableDescription(
-    AppLocalizations appLocalizations,
-    CameraFocusPointAlgorithm cameraFocusPointAlgorithm,
-  ) {
-    switch (cameraFocusPointAlgorithm) {
-      case CameraFocusPointAlgorithm.newAlgorithm:
-        return appLocalizations
-            .camera_focus_point_algorithm_value_new_algorithm_description;
-      case CameraFocusPointAlgorithm.oldAlgorithm:
-        return appLocalizations
-            .camera_focus_point_algorithm_value_old_algorithm_description;
-      case CameraFocusPointAlgorithm.auto:
-      default:
-        return appLocalizations
-            .camera_focus_point_algorithm_value_auto_description;
-    }
-  }
-
-  Iterable<String> getLabels(AppLocalizations appLocalizations) {
-    return CameraFocusPointAlgorithm.values.map((CameraFocusPointAlgorithm e) {
-      return getReadableMode(appLocalizations, e);
-    });
-  }
-
-  Iterable<String> getDescriptions(AppLocalizations appLocalizations) {
-    return CameraFocusPointAlgorithm.values.map((CameraFocusPointAlgorithm e) {
-      return getReadableDescription(appLocalizations, e);
-    });
   }
 }
 
