@@ -7,7 +7,7 @@ import 'package:smooth_app/themes/constant_icons.dart';
 
 class SmoothListTileCard extends StatelessWidget {
   const SmoothListTileCard({
-    required final this.title,
+    required this.title,
     this.subtitle,
     this.onTap,
     this.leading,
