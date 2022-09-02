@@ -28,14 +28,19 @@ class ProductImageViewer extends StatefulWidget {
 
 class _ProductImageViewerState extends State<ProductImageViewer> {
   late final ProductImageData imageData;
-  late final ImageProvider? imageProvider;
+
+  /// When the image is edited, this is the new image
+  ImageProvider? imageProvider;
   bool _isEdited = false;
 
   @override
   void initState() {
     imageData = widget.imageData;
-    imageProvider =
-        imageData.imageUrl != null ? NetworkImage(imageData.imageUrl!) : null;
+
+    if (imageData.imageUrl != null) {
+      imageProvider = NetworkImage(imageData.imageUrl!);
+    }
+    
     super.initState();
   }
 
