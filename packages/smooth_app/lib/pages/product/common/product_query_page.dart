@@ -428,7 +428,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   void _scrollToTop() {
     _scrollController.animateTo(
       0,
-      duration: const Duration(seconds: 3),
+      duration: SnackBarDuration.medium,
       curve: Curves.linear,
     );
   }

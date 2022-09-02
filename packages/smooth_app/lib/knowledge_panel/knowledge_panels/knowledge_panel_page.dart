@@ -8,6 +8,7 @@ import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
@@ -93,7 +94,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(appLocalizations.product_refreshed),
-              duration: const Duration(seconds: 2),
+              duration: SnackBarDuration.short,
             ),
           );
         }

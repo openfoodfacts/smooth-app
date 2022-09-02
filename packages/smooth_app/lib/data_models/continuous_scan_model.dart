@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -170,7 +171,7 @@ class ContinuousScanModel with ChangeNotifier {
       try {
         // We try to load the fresh copy of product from the server
         final FetchedProduct fetchedProduct =
-            await _queryBarcode(barcode).timeout(const Duration(seconds: 5));
+            await _queryBarcode(barcode).timeout(SnackBarDuration.long);
         if (fetchedProduct.product != null) {
           _addProduct(barcode, ScannedProductState.CACHED);
           return true;

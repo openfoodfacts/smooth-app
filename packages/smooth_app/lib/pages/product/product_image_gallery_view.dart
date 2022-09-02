@@ -87,8 +87,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       );
     }
-
     return SmoothScaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(appLocalizations.edit_product_form_item_photos_title),
         leading: SmoothBackButton(
