@@ -88,7 +88,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       );
     }
     return SmoothScaffold(
-      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(appLocalizations.edit_product_form_item_photos_title),
         leading: SmoothBackButton(
@@ -98,7 +97,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       body: Scrollbar(
         child: CustomScrollView(
           slivers: <Widget>[
-            _buildTitle('Selected images', theme: theme),
+            _buildTitle(appLocalizations.selected_images, theme: theme),
             SmoothImagesSliverList(
               imagesData: selectedImages,
               onTap: (ProductImageData data, _) =>
