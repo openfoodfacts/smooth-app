@@ -273,7 +273,7 @@
     },
     "support_join_slack": "Slack kanalımızda yardım isteyin",
     "support_via_email": "Bize bir e-posta gönder",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_title": "Uygulama günlükleri gönderilsin mi?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
@@ -295,7 +295,7 @@
     "contribute_develop_text_2": "Soru sormanın genelde tercih edilen yolu olan Open Food Facts Slack sohbet odasına katılabilirsiniz.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_subtitle": "DEV Modunu Etkinleştirin",
     "contribute_donate_header": "Open Food Facts'e Bağışta Bulunun",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Tamamlanacak ürünler",
@@ -435,7 +435,7 @@
     "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
     "packaging_editing_error": "Failed to save the packaging.",
     "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_title": "Paketlemeyi Düzenle",
     "nutrition": "Beslenme",
     "@nutrition": {},
     "nutrition_facts_photo": "Besin değerleri fotoğrafı",
@@ -1027,7 +1027,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spain",
+    "edit_product_form_item_origins_hint": "İspanya",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1035,7 +1035,7 @@
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Örnekler: Arjantin'den sığır eti, Soya Avrupa Birliği'nden gelmiyor",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1043,7 +1043,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "İspanya",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1110,7 +1110,7 @@
         "description": "Product edition - Nutrition facts - Save button"
     },
     "completed_basic_details_btn_text": "Temel bilgileri tamamlayın",
-    "not_implemented_snackbar_text": "Not implemented yet",
+    "not_implemented_snackbar_text": "Henüz uygulanmadı",
     "category_picker_page_appbar_text": "Kategoriler",
     "edit_ingredients_extrait_ingredients_btn_text": "İçindekileri çıkartın",
     "@edit_ingredients_extrait_ingredients_btn_text": {
@@ -1351,11 +1351,11 @@
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "Full image scanning",
+    "dev_mode_scan_scan_full_image": "Tam görüntü tarama",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Yarım görüntü tarama",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
@@ -1415,7 +1415,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Open Food Facts'i kabul ediyorum ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1544,7 +1544,7 @@
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "Please choose a image source",
+    "choose_image_source_body": "Lütfen bir resim kaynağı seçin",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },
@@ -1569,11 +1569,11 @@
     "@capture": {
         "description": "Button label for taking a photo"
     },
-    "choose_from_gallery": "Choose from gallery",
+    "choose_from_gallery": "Galeriden seç",
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "image_upload_queued": "Resim en kısa sürede arka planda yüklenecektir.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
@@ -1618,7 +1618,7 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "Ürün en kısa sürede arka planda güncellenecektir.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
