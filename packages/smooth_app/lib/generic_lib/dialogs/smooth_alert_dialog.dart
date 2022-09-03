@@ -255,7 +255,8 @@ class SmoothActionButtonsBar extends StatelessWidget {
         children: actions,
       );
     } else {
-      return IntrinsicWidth(
+      return SizedBox(
+        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: actions,
@@ -369,8 +370,9 @@ class _SmoothActionElevatedButton extends StatelessWidget {
     return SmoothSimpleButton(
       onPressed: buttonData.onPressed,
       minWidth: buttonData.minWidth ?? 20.0,
-      // if fitted box not used then even the one word text overflows into next line,
+      // Ensures FittedBox not used then even the one word text overflows into next line,
       child: FittedBox(
+        fit: BoxFit.scaleDown,
         child: Text(
           buttonData.text.toUpperCase(),
           textAlign: TextAlign.center,
@@ -414,6 +416,9 @@ class _SmoothActionFlatButton extends StatelessWidget {
           textStyle: themeData.textTheme.bodyText2!.copyWith(
             color: themeData.colorScheme.onPrimary,
           ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: SMALL_SPACE,
+          ),
         ),
         child: SizedBox(
           height: buttonData.lines != null
@@ -421,6 +426,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
               : null,
           width: buttonData.minWidth,
           child: FittedBox(
+            fit: BoxFit.scaleDown,
             child: Text(
               buttonData.text.toUpperCase(),
               style: TextStyle(
