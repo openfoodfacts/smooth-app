@@ -57,13 +57,18 @@ class SmoothListTileCard extends StatelessWidget {
           title: Shimmer.fromColors(
             baseColor: GREY_COLOR,
             highlightColor: WHITE_COLOR,
-            child: Container(
-                width: VERY_LARGE_SPACE * 8,
-                height: 10,
-                decoration: const BoxDecoration(
-                  color: GREY_COLOR,
-                  borderRadius: CIRCULAR_BORDER_RADIUS,
-                )),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: GREY_COLOR,
+                      borderRadius: CIRCULAR_BORDER_RADIUS,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           leading: Shimmer.fromColors(
             baseColor: GREY_COLOR,
