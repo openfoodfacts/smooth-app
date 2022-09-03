@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -181,6 +182,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 .edit_product_form_item_exit_confirmation_positive_button,
             onPressed: () => Navigator.pop(context, true),
           ),
+          actionsAxis: Axis.vertical,
+          actionsOrder: SmoothButtonsBarOrder.numerical,
         ),
       );
       if (pleaseSave == null) {
