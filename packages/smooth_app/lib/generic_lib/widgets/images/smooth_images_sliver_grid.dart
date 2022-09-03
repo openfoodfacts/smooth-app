@@ -15,10 +15,17 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
     super.onTap,
     super.loading = false,
     this.loadingCount = 6,
+    this.maxTileWidth = VERY_LARGE_SPACE * 7,
+    this.childAspectRatio = 1.5,
   });
 
   /// The number of shimmering tiles to display while [loading] is true
   final int loadingCount;
+
+  /// The maximum width of a tile
+  final double maxTileWidth;
+
+  final double childAspectRatio;
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +57,9 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
                       ),
                     );
             }),
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: VERY_LARGE_SPACE * 7,
-          childAspectRatio: 1.5,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: maxTileWidth,
+          childAspectRatio: childAspectRatio,
           mainAxisSpacing: MEDIUM_SPACE,
           crossAxisSpacing: MEDIUM_SPACE,
         ),
