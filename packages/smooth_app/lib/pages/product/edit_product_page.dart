@@ -292,13 +292,11 @@ class _EditProductPageState extends State<EditProductPage> {
 
   Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String title = helper.getTitle(appLocalizations);
-    final String? subtitle = helper.getSubtitle(appLocalizations);
 
     return _ListTitleItem(
       leading: helper.getIcon(),
-      title: title,
-      subtitle: subtitle,
+      title: helper.getTitle(appLocalizations),
+      subtitle: helper.getSubtitle(appLocalizations),
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
