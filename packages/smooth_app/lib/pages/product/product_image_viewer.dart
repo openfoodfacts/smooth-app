@@ -46,11 +46,11 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.black,
         floatingActionButton: FloatingActionButton.extended(
-        label: Text(AppLocalizations.of(context).edit_photo_button_label),
-        icon: const Icon(Icons.edit),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: _editImage,
-      ),
+          label: Text(AppLocalizations.of(context).edit_photo_button_label),
+          icon: const Icon(Icons.edit),
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          onPressed: _editImage,
+        ),
         appBar: AppBar(
           backgroundColor: Colors.black,
           foregroundColor: WHITE_COLOR,
