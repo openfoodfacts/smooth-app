@@ -45,7 +45,12 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   Widget build(BuildContext context) => SmoothScaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.black,
-        floatingActionButton: createEditButton(onPressed: _editImage),
+        floatingActionButton: FloatingActionButton.extended(
+        label: Text(AppLocalizations.of(context).edit_photo_button_label),
+        icon: const Icon(Icons.edit),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onPressed: _editImage,
+      ),
         appBar: AppBar(
           backgroundColor: Colors.black,
           foregroundColor: WHITE_COLOR,
@@ -120,12 +125,4 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       });
     }
   }
-
-  Widget createEditButton({required Function() onPressed}) =>
-      FloatingActionButton.extended(
-        label: Text(AppLocalizations.of(context).edit_photo_button_label),
-        icon: const Icon(Icons.edit),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: onPressed,
-      );
 }
