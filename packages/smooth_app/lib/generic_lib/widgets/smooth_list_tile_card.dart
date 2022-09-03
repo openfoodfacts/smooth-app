@@ -5,6 +5,7 @@ import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
+/// Displays a [ListTile] in a [SmoothCard] wrapped with an [InkWell].
 class SmoothListTileCard extends StatelessWidget {
   const SmoothListTileCard({
     required this.title,

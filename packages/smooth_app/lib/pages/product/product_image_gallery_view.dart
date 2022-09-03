@@ -220,8 +220,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   ProductImageData _getProductImageData(ProductImage image) => ProductImageData(
         imageField: image.field,
         // TODO(VaiTon): i18n
-        title: 'Image #${image.imgid}',
-        buttonText: 'Image #${image.imgid}',
+        title: image.imgid ?? '',
+        buttonText: image.imgid ?? '',
         imageUrl: ImageHelper.buildUrl(widget.barcode, image),
       );
 }

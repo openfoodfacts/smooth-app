@@ -49,7 +49,6 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       }
       await uploadCapturedPicture(
         context,
-        //Probably throws an error, but this is not a big problem when we got a product without a barcode
         barcode: widget.product.barcode!,
         imageField: widget.productImageData.imageField,
         imageUri: croppedImageFile.uri,

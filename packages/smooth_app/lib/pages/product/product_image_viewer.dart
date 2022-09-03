@@ -48,7 +48,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   Widget build(BuildContext context) => SmoothScaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.black,
-        floatingActionButton: _EditFloatingButton(onPressed: _editImage),
+        floatingActionButton: createEditButton(onPressed: _editImage),
         appBar: AppBar(
           backgroundColor: Colors.black,
           foregroundColor: WHITE_COLOR,
@@ -102,7 +102,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       return;
     }
 
-    // ignore: use_build_context_synchronously
     final File? photoUploaded = await Navigator.push<File?>(
       context,
       MaterialPageRoute<File?>(
@@ -124,15 +123,9 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       });
     }
   }
-}
 
-class _EditFloatingButton extends StatelessWidget {
-  const _EditFloatingButton({required this.onPressed});
-
-  final void Function() onPressed;
-
-  @override
-  Widget build(BuildContext context) => FloatingActionButton.extended(
+  Widget createEditButton({required Function() onPressed}) =>
+      FloatingActionButton.extended(
         label: Text(AppLocalizations.of(context).edit_photo_button_label),
         icon: const Icon(Icons.edit),
         backgroundColor: Theme.of(context).colorScheme.primary,

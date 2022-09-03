@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 
+/// A [SliverChildBuilderDelegate] that can show progress by displaying
+/// [loadingWidget]s.
+///
+/// When [loading] is `true`, [loadingCount] of [loadingWidget] will be
+/// displayed.
 class LoadingSliverChildBuilderDelegate extends SliverChildBuilderDelegate {
-  /// Represents a ListView that can show progress by displaying
-  /// [loadingWidget]s.
-  ///
-  /// When [loading] is `true`, [loadingCount] of [loadingWidget] will be
-  /// displayed.
   LoadingSliverChildBuilderDelegate({
     required IndexedWidgetBuilder childBuilder,
     required int childCount,
