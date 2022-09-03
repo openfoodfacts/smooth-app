@@ -14,7 +14,11 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
     required super.imagesData,
     super.onTap,
     super.loading = false,
+    this.loadingCount = 6,
   });
+
+  /// The number of shimmering tiles to display while [loading] is true
+  final int loadingCount;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,7 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
             loading: loading,
             childCount: imageList.length,
             loadingWidget: _buildShimmer(),
-            loadingCount: 6,
+            loadingCount: loadingCount,
             childBuilder: (BuildContext context, int index) {
               final MapEntry<ProductImageData, ImageProvider<Object>?> entry =
                   imageList[index];
