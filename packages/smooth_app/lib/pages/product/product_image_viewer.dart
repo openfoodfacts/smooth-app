@@ -30,16 +30,13 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   late final ProductImageData imageData;
 
   /// When the image is edited, this is the new image
-  ImageProvider? imageProvider;
+  late ImageProvider imageProvider;
   bool _isEdited = false;
 
   @override
   void initState() {
     imageData = widget.imageData;
-
-    if (imageData.imageUrl != null) {
-      imageProvider = NetworkImage(imageData.imageUrl!);
-    }
+    imageProvider = NetworkImage(imageData.imageUrl!);
 
     super.initState();
   }
@@ -69,7 +66,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                 minScale: 0.2,
                 imageProvider: imageProvider,
                 heroAttributes: PhotoViewHeroAttributes(
-                  tag: imageProvider!,
+                  tag: imageProvider,
                 ),
                 backgroundDecoration: const BoxDecoration(
                   color: Colors.black,
