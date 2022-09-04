@@ -93,7 +93,7 @@ class SmoothListTileCard extends StatelessWidget {
           borderRadius: ROUNDED_BORDER_RADIUS,
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.all(VERY_SMALL_SIZE),
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
             child: ListTile(
               onTap: onTap,
               title: title,
