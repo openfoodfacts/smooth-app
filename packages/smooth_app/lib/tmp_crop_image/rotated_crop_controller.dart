@@ -253,7 +253,7 @@ class RotatedCropControllerValue {
   }
 
   @override
-  int get hashCode => hashValues(
+  int get hashCode => Object.hash(
         aspectRatio.hashCode,
         crop.hashCode,
         rotation.hashCode,
