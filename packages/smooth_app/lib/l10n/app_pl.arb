@@ -1573,7 +1573,7 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "image_upload_queued": "Obraz zostanie przesłany w tle tak szybko, jak to możliwe.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
@@ -1618,7 +1618,7 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "Produkt zostanie zaktualizowany w tle tak szybko, jak to możliwe.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
