@@ -150,7 +150,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final Map<String, dynamic> newProductMap = newProduct.toJson();
     final Map<String, dynamic> productInCacheMap = productInCache.toJson();
     for (final String key in newProductMap.keys) {
-      if (newProductMap[key] != null && newProductMap[key] != '') {
+      if (newProductMap[key] != null) {
         productInCacheMap[key] = newProductMap[key];
       }
     }
@@ -159,8 +159,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final String encodedJson = jsonEncode(productInCacheMap);
     final Map<String, dynamic> decodedJson =
         json.decode(encodedJson) as Map<String, dynamic>;
-    productInCache = Product.fromJson(decodedJson);
-    return productInCache;
+    return Product.fromJson(decodedJson);
   }
 
   /// Returns `true` if we should really exit the page.
