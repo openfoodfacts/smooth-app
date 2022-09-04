@@ -6,6 +6,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -44,7 +46,6 @@ class SimpleInputPage extends StatefulWidget {
 
 class _SimpleInputPageState extends State<SimpleInputPage> {
   final List<TextEditingController> _controllers = <TextEditingController>[];
-
   @override
   void initState() {
     super.initState();
@@ -143,6 +144,25 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     }
   }
 
+  /// Merge the changes from [newProduct] into [product].
+  Product _mergeProducts(Product productInCache, Product newProduct) {
+    // We take the json representation of both products
+    final Map<String, dynamic> newProductMap = newProduct.toJson();
+    final Map<String, dynamic> productInCacheMap = productInCache.toJson();
+    for (final String key in newProductMap.keys) {
+      if (newProductMap[key] != null && newProductMap[key] != '') {
+        productInCacheMap[key] = newProductMap[key];
+      }
+    }
+    // Here we do the extra step of json encoding and decoding
+    // cause for some reason the product.fromJson constructor does not work
+    final String encodedJson = jsonEncode(productInCacheMap);
+    final Map<String, dynamic> decodedJson =
+        json.decode(encodedJson) as Map<String, dynamic>;
+    productInCache = Product.fromJson(decodedJson);
+    return productInCache;
+  }
+
   /// Returns `true` if we should really exit the page.
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
@@ -169,6 +189,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
     if (!saving) {
       final bool? pleaseSave = await showDialog<bool>(
         context: context,
@@ -215,6 +237,23 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         uniqueId: uniqueId,
       ),
     );
+
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? product = await daoProduct.get(
+      changedProduct.barcode!,
+    );
+    // We go and chek in the local database if the product is
+    // already in the database. If it is, we update the fields of the product.
+    //And if it is not, we create a new product with the fields of the changed product.
+    // and we insert it in the database. (Giving the user an immediate feedback)
+    if (product == null) {
+      daoProduct.put(changedProduct);
+      provider.set(changedProduct);
+    } else {
+      final Product mergedProduct = _mergeProducts(product, changedProduct);
+      daoProduct.put(mergedProduct);
+      provider.set(mergedProduct);
+    }
     localDatabase.notifyListeners();
     if (!mounted) {
       return false;
