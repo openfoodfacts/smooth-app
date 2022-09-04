@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.11.0](https://github.com/openfoodfacts/smooth-app/compare/v3.10.3...v3.11.0) (2022-09-04)
+
+
+### Features
+
+* Add a gallery of the images selected and uploaded for a product ([#2801](https://github.com/openfoodfacts/smooth-app/issues/2801)) ([c706839](https://github.com/openfoodfacts/smooth-app/commit/c70683939db4324f3299f0c91e103e3eb7368584))
+
+
+### Miscellaneous
+
+* **deps:** bump flutter_launcher_icons in /packages/smooth_app ([#2873](https://github.com/openfoodfacts/smooth-app/issues/2873)) ([242ec9d](https://github.com/openfoodfacts/smooth-app/commit/242ec9d91868a1c0e46f2991f58b1c2ce6366951))
+* New Crowdin translations ([#2914](https://github.com/openfoodfacts/smooth-app/issues/2914)) ([d1b9020](https://github.com/openfoodfacts/smooth-app/commit/d1b902084b538407575e616169d5bd66d1770982))
+
 ## [3.10.3](https://github.com/openfoodfacts/smooth-app/compare/v3.10.2...v3.10.3) (2022-09-03)
 
 
