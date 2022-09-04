@@ -84,10 +84,12 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<File> _downloadImageFile(String url) async {
     final http.Response response = await http.get(Uri.parse(url));
+
     final Directory tempDirectory = await getTemporaryDirectory();
-    final File imageFile = await File('${tempDirectory.path}/editing_image')
-        .writeAsBytes(response.bodyBytes);
-    return imageFile;
+    final String fileName = 'editing_image_${url.hashCode}';
+    final File file = File('${tempDirectory.path}/$fileName');
+
+    return file.writeAsBytes(response.bodyBytes);
   }
 
   Future<void> _editImage() async {
