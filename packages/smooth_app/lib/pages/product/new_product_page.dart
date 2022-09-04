@@ -169,7 +169,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(appLocalizations.product_refreshed),
-          duration: const Duration(seconds: 2),
+          duration: SnackBarDuration.short,
         ),
       );
     }
@@ -334,7 +334,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(
                   18), // TODO(monsieurtanuki): cf. FloatingActionButton
-              primary: colorScheme.primary,
+              backgroundColor: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
           ),

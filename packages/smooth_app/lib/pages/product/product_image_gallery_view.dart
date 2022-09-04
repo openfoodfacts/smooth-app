@@ -10,6 +10,7 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_gauge.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
@@ -42,7 +43,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   final List<ImageProvider?> allProductImageProviders = <ImageProvider?>[];
   late String title;
   bool _hasPhoto = true;
-  bool _isRefreshed = false;
   late ProductImageData _productImageDataCurrent;
   int _currentIndex = 0;
 
@@ -98,7 +98,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           leading: IconButton(
             icon: Icon(ConstantIcons.instance.getBackIcon()),
             onPressed: () {
-              Navigator.maybePop(context, _isRefreshed);
+              Navigator.maybePop(context);
             },
           )),
       backgroundColor: Colors.black,
@@ -139,30 +139,14 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                               if (!mounted) {
                                 return;
                               }
-                              final bool isUploaded =
-                                  await uploadCapturedPicture(
+                              await uploadCapturedPicture(
                                 context,
                                 barcode: widget.barcode!,
                                 imageField: _productImageDataCurrent.imageField,
                                 imageUri: croppedImageFile.uri,
                               );
-
-                              if (isUploaded) {
-                                _isRefreshed = true;
-                                if (!mounted) {
-                                  return;
-                                }
-                                final AppLocalizations appLocalizations =
-                                    AppLocalizations.of(context);
-                                final String message = getImageUploadedMessage(
-                                    _productImageDataCurrent.imageField,
-                                    appLocalizations);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(message),
-                                    duration: const Duration(seconds: 3),
-                                  ),
-                                );
+                              if (!mounted) {
+                                return;
                               }
                             }
                           }
@@ -275,29 +259,28 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
               if (!mounted) {
                 return;
               }
-              final bool isUploaded = await uploadCapturedPicture(
+              await uploadCapturedPicture(
                 context,
                 barcode: widget.barcode!,
                 imageField: _productImageDataCurrent.imageField,
                 imageUri: croppedImageFile.uri,
               );
 
-              if (isUploaded) {
-                _isRefreshed = true;
-                if (!mounted) {
-                  return;
-                }
-                final AppLocalizations appLocalizations =
-                    AppLocalizations.of(context);
-                final String message = getImageUploadedMessage(
-                    _productImageDataCurrent.imageField, appLocalizations);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(message),
-                    duration: const Duration(seconds: 3),
-                  ),
-                );
+              if (!mounted) {
+                return;
               }
+              final AppLocalizations appLocalizations =
+                  AppLocalizations.of(context);
+              final String message = appLocalizations.image_upload_queued;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(message),
+                  duration: SnackBarDuration.medium,
+                ),
+              );
+              Navigator.pop(
+                context,
+              );
             }
           }
         },
@@ -344,7 +327,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           ),
         );
         if (photoUploaded != null) {
-          _isRefreshed = true;
           if (!mounted) {
             return;
           }

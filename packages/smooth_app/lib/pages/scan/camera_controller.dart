@@ -45,15 +45,11 @@ class SmoothCameraController extends CameraController {
   // Last focus point position
   Offset? _focusPoint;
 
-  // Focus point algorithm (for Android only)
-  CameraFocusPointAlgorithm? _algorithm;
-
   Future<void> init({
     required FocusMode focusMode,
     required Offset focusPoint,
     required DeviceOrientation deviceOrientation,
     required onLatestImageAvailable onAvailable,
-    CameraFocusPointAlgorithm? algorithm,
     bool? enableTorch,
   }) async {
     if (!isInitialized) {
@@ -62,10 +58,7 @@ class SmoothCameraController extends CameraController {
       await initialize();
       await setFocusMode(focusMode);
       await setExposurePoint(focusPoint);
-      await setFocusPointTo(
-        focusPoint,
-        algorithm ?? CameraFocusPointAlgorithm.auto,
-      );
+      await setFocusPointTo(focusPoint);
       await lockCaptureOrientation(deviceOrientation);
       await startImageStream(onAvailable);
       await enableFlash(enableTorch ?? preferences.useFlashWithCamera);
@@ -209,14 +202,11 @@ class SmoothCameraController extends CameraController {
 
   Future<void> setFocusPointTo(
     Offset? point,
-    CameraFocusPointAlgorithm? algorithm,
   ) async {
     await setExposurePoint(point);
-
-    _algorithm = algorithm;
     await setFocusPoint(
       point,
-      (_algorithm ?? CameraFocusPointAlgorithm.auto).mode,
+      FocusPointMode.auto,
     );
     _focusPoint = point;
   }
@@ -242,20 +232,12 @@ class SmoothCameraController extends CameraController {
 
   /// Force the focus to the latest call to [setFocusPoint].
   Future<void> refocus() async {
-    return setFocusPoint(_focusPoint, _algorithm!.mode);
+    return setFocusPoint(_focusPoint, FocusPointMode.auto);
   }
 
-  Future<void> updateFocusPointAlgorithm(
-    CameraFocusPointAlgorithm cameraFocusPointAlgorithm,
-  ) async {
-    if (_algorithm != cameraFocusPointAlgorithm) {
-      // If the app is running, make the change immediately
-      if (isInitialized && _state == _CameraState.resumed) {
-        return setFocusPointTo(_focusPoint, _algorithm);
-      } else {
-        // The update will be done, once the preview is resumed
-        _algorithm = cameraFocusPointAlgorithm;
-      }
+  Future<void> forceFocus() async {
+    if (isInitialized && _state == _CameraState.resumed) {
+      return setFocusPointTo(_focusPoint);
     }
   }
 
@@ -332,27 +314,4 @@ enum _CameraState {
   stopped,
   isBeingDisposed,
   disposed,
-}
-
-/// Custom algorithm for the focus point to fix issues with Android
-/// On iOS, modes will simply be ignored
-enum CameraFocusPointAlgorithm {
-  // Let the native part decide between [newAlgorithm] and [oldAlgorithm]
-  auto,
-  // Quicker algorithm, but may not work on old / Samsung devices
-  newAlgorithm,
-  // Old algorithm, which let more time between each focuses
-  oldAlgorithm;
-
-  FocusPointMode get mode {
-    switch (this) {
-      case CameraFocusPointAlgorithm.newAlgorithm:
-        return FocusPointMode.newAlgorithm;
-      case CameraFocusPointAlgorithm.oldAlgorithm:
-        return FocusPointMode.oldAlgorithm;
-      case CameraFocusPointAlgorithm.auto:
-      default:
-        return FocusPointMode.auto;
-    }
-  }
 }

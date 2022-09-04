@@ -12,13 +12,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "На початок",
     "save": "Зберегти",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Ви впевнені, що хочете зберегти?",
     "skip": "Пропустити",
     "cancel": "Відмінити",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ігнорувати",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -40,7 +40,7 @@
     "@error_occurred": {},
     "featureInProgress": "Ми все ще працюємо над цією функцією, стежте за оновленнями",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Переглянути в Інтернеті",
     "@label_web": {},
     "learnMore": "Докладніше",
     "@learnMore": {},
@@ -103,13 +103,13 @@
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Вітаємо в Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts - це світова некомерційна організація, що заснована місцевими спільнотами.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Обирайте їжу, що не шкодить ні Вам, ні планеті.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -132,7 +132,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Введіть, буль ласка, ім'я користувача або адресу електронної пошти",
     "login_page_password_error_empty": "Будь ласка, введіть пароль",
     "create_account": "Створіть обліковий запис",
     "@create_account": {
@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "Expand nutrition facts table",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1613,5 +1617,17 @@
     "help_with_openfoodfacts": "Help with OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
+    },
+    "no_email_client_available_dialog_title": "No email application!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
     }
 }

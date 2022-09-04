@@ -238,9 +238,9 @@
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
     "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_producer_hint": "Tuottaja/tuotemerkki",
+    "sign_up_page_producer_error_empty": "Syötä valmistaja tai tuotemerkki",
+    "sign_up_page_subscribe_checkbox": "Haluan saada Open Food Facts -uutiskirjeitä (voit peruuttaa milloin tahansa)",
     "@Settings": {},
     "settingsTitle": "Asetukset",
     "@settingsTitle": {
@@ -250,19 +250,19 @@
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "Tumma",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch (dark)"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "Vaalea",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Järjestelmän oletus",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Kiitos osallistumisesta",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -271,13 +271,13 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us an e-mail",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_join_slack": "Pyydä apua Slack-kanavallamme",
+    "support_via_email": "Lähetä meille sähköpostia",
+    "support_via_email_include_logs_dialog_title": "Lähetetäänkö sovellusloki?",
+    "support_via_email_include_logs_dialog_body": "Haluatko lisätä sovelluslokit sähköpostiisi?",
     "termsOfUse": "Käyttöehdot",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Sovelluksesta",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -286,7 +286,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Ohjelmistokehitys",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -294,19 +294,19 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Voit liittyä Open Food Facts Slack -keskusteluryhmään, joka on ensisijainen tapa esittää kysymyksiä.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "Kehittäjätila?",
+    "contribute_develop_dev_mode_subtitle": "Aktivoi kehittäjätila",
     "contribute_donate_header": "Lahjoita Open Food Factsille",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Täydennettävät tuotteet",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "Kehitys",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Tietokanta on projektimme ydin. On helppoa ja nopeaa auttaa. Voit ladata mobiilisovelluksen puhelimeesi, ja lisätä tai parantaa tuotteita.\n\nToisaalta, Open Food Facts -nettisivulla voit auttaa monin tavoin: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Käännä",
     "@contribute_translate_header": {
@@ -316,42 +316,42 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts on kansainvälinen projekti, jossa on tuotteita yli 160 maasta. Open Food Facts on käännetty kymmenille kielille, ja sisältö kehittyy jatkuvasti.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Käännökset on yksi hankkeen keskeisistä tehtävistä",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Jaa Open Food Facts ystävillesi",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Halusin kertoa käyttämästäni sovelluksesta, Open Food Factsistä, josta saat terveys- ja ilmastotietoja ruoastasi, personalisoidusti. Se toimii tuotteiden viivakoodien skannaamisella. Se on myös ilmainen, ei vaadi rekisteröintiä, ja voit auttaa tuotteiden lisäämisellä. Tässä linkki, josta voit ladata sovelluksen puhelimeesi: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Vastaa tästä kysymyksiin",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Tallennetaan vastauksiasi",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Auta parantamaan ruoan läpinäkyvyyttä ja hanki palkintoja",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
+    "question_sign_in_text": "Kirjaudu Open Food Facts -käyttäjätilillesi saadaksesi palkkioita työstäsi",
     "@Personal preferences": {},
     "myPreferences": "Mieltymykseni",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
-    "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "myPreferences_profile_title": "Profiilisi",
+    "myPreferences_profile_subtitle": "Hallinoi Open Food Facts -tiliäsi.",
+    "myPreferences_settings_title": "Sovellusasetukset",
+    "myPreferences_settings_subtitle": "Tumma tila, tilastot, ...",
+    "myPreferences_food_title": "Ruokailutottumikseni",
+    "myPreferences_food_subtitle": "Valitse, mikä ruoan tieto kiinnostaa eniten.",
+    "myPreferences_food_comment": "Valitse, mikä ruoan tieto kiinnostaa eniten, luokittele ruoat mieltymyksiesi mukaan, katso tieto, joka sinua kiinnostaa ja hanki yhteensopivuusyhteenveto. Nämä ruokailutottumukset ovat laitteellasi, eikä Open Food Facts -tililläsi, jos sinulla on sellainen.",
+    "confirmResetPreferences": "Nollaa ruokailutottumuksesi",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -360,10 +360,10 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Kaikki",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_yes": "Hyvä osuma sinulle",
+    "ranking_subtitle_match_no": "Heikko osuma",
     "ranking_subtitle_match_maybe": "Unknown match",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Päivitä uudet ruokailutottumuksesi",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "Expand nutrition facts table",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1613,5 +1617,17 @@
     "help_with_openfoodfacts": "Help with OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
+    },
+    "no_email_client_available_dialog_title": "No email application!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
     }
 }
