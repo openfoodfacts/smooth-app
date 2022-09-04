@@ -80,6 +80,7 @@ dependencies:
     path: ../data_importer
   share_plus: ^4.0.10
   fimber: ^0.6.6
+  shimmer: ^2.0.0
 
 dev_dependencies:
   integration_test:

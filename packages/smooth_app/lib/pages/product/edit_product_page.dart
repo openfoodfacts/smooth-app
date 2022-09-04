@@ -11,7 +11,7 @@ import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -23,7 +23,6 @@ import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -162,16 +161,14 @@ class _EditProductPageState extends State<EditProductPage> {
                         return;
                       }
                       final List<ProductImageData> allProductImagesData =
-                          getAllProductImagesData(_product, appLocalizations);
+                          getProductMainImagesData(_product, appLocalizations);
                       // TODO(monsieurtanuki): careful, waiting for pop'ed value
                       final bool? refreshed = await Navigator.push<bool>(
                         context,
                         MaterialPageRoute<bool>(
                           builder: (BuildContext context) =>
                               ProductImageGalleryView(
-                            productImageData: allProductImagesData.first,
-                            allProductImagesData: allProductImagesData,
-                            title: allProductImagesData.first.title,
+                            imagesData: allProductImagesData,
                             barcode: _product.barcode,
                           ),
                           fullscreenDialog: true,
@@ -295,6 +292,7 @@ class _EditProductPageState extends State<EditProductPage> {
 
   Widget _getSimpleListTileItem(final AbstractSimpleInputPageHelper helper) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return _ListTitleItem(
       leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
@@ -319,12 +317,12 @@ class _EditProductPageState extends State<EditProductPage> {
 
   Future<bool> _refreshProduct(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool result = await ProductRefresher().fetchAndRefresh(
+    final bool success = await ProductRefresher().fetchAndRefresh(
       context: context,
       localDatabase: localDatabase,
       barcode: _product.barcode!,
     );
-    if (mounted && result) {
+    if (mounted && success) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -333,7 +331,7 @@ class _EditProductPageState extends State<EditProductPage> {
         ),
       );
     }
-    return result;
+    return success;
   }
 
   Widget _getMultipleListTileItem(
@@ -347,7 +345,6 @@ class _EditProductPageState extends State<EditProductPage> {
     return _ListTitleItem(
       leading: const Icon(Icons.interests),
       title: titles.join(', '),
-      subtitle: null,
       onTap: () async {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
@@ -384,44 +381,25 @@ class _EditProductPageState extends State<EditProductPage> {
   }
 }
 
-class _ListTitleItem extends StatelessWidget {
-  const _ListTitleItem({
-    required this.title,
-    this.subtitle,
-    this.onTap,
-    this.leading,
+class _ListTitleItem extends SmoothListTileCard {
+  _ListTitleItem({
+    Widget? leading,
+    String? title,
+    String? subtitle,
+    void Function()? onTap,
     Key? key,
-  }) : super(key: key);
-
-  final String title;
-  final String? subtitle;
-  final VoidCallback? onTap;
-  final Widget? leading;
-
-  @override
-  Widget build(BuildContext context) => SmoothCard(
-        padding: EdgeInsets.zero,
-        child: InkWell(
-          borderRadius: ROUNDED_BORDER_RADIUS,
+  }) : super.icon(
+          title: title == null
+              ? null
+              : Text(
+                  title,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
           onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: ListTile(
-              title: Text(
-                title,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: subtitle == null ? null : Text(subtitle!),
-              // we use a Column to have the icon centered vertically
-              leading: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[leading ?? const Icon(Icons.edit)],
-              ),
-              trailing: Icon(ConstantIcons.instance.getForwardIcon()),
-            ),
-          ),
-        ),
-      );
+          key: key,
+          icon: leading,
+          subtitle: subtitle == null ? null : Text(subtitle),
+        );
 }
 
 /// SVG that looks like a ListTile icon.
