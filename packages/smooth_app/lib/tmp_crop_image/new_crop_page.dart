@@ -60,7 +60,7 @@ class _CropPageState extends State<CropPage> {
             ? const CircularProgressIndicator.adaptive()
             : Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(6.0),
+                  padding: const EdgeInsets.all(MEDIUM_SPACE),
                   child: RotatedCropImage(
                     controller: controller,
                     image: _image!,
