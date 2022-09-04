@@ -5,10 +5,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/database/dao_int.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -49,7 +53,10 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
           label: Text(AppLocalizations.of(context).edit_photo_button_label),
           icon: const Icon(Icons.edit),
           backgroundColor: Theme.of(context).colorScheme.primary,
-          onPressed: _editImage,
+          onPressed: () {
+            final DaoInt daoInt = DaoInt(context.read<LocalDatabase>());
+            _editImage(daoInt);
+          },
         ),
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -82,20 +89,10 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         ),
       );
 
-  Future<File> _downloadImageFile(String url) async {
-    final http.Response response = await http.get(Uri.parse(url));
-
-    final Directory tempDirectory = await getTemporaryDirectory();
-    final String fileName = 'editing_image_${url.hashCode}';
-    final File file = File('${tempDirectory.path}/$fileName');
-
-    return file.writeAsBytes(response.bodyBytes);
-  }
-
-  Future<void> _editImage() async {
+  Future<void> _editImage(final DaoInt daoInt) async {
     final File? imageFile = await LoadingDialog.run<File>(
       context: context,
-      future: _downloadImageFile(imageData.imageUrl!),
+      future: _downloadImageFile(daoInt, imageData.imageUrl!),
     );
 
     if (imageFile == null) {
@@ -126,5 +123,20 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         imageProvider = FileImage(photoUploaded);
       });
     }
+  }
+
+  static const String _CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
+
+  Future<File> _downloadImageFile(DaoInt daoInt, String url) async {
+    final http.Response response = await http.get(Uri.parse(url));
+    final Directory tempDirectory = await getTemporaryDirectory();
+
+    final int sequenceNumber =
+        await getNextSequenceNumber(daoInt, _CROP_IMAGE_SEQUENCE_KEY);
+
+    final File file =
+        File('${tempDirectory.path}/editing_image_$sequenceNumber');
+
+    return file.writeAsBytes(response.bodyBytes);
   }
 }
