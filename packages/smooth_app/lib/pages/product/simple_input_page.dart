@@ -144,7 +144,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     }
   }
 
-  /// Merge the changes from [newProduct] into [product].
+  /// Merge the changes from [newProduct] into [productInCache].
   Product _mergeProducts(Product productInCache, Product newProduct) {
     // We take the json representation of both products
     final Map<String, dynamic> newProductMap = newProduct.toJson();
