@@ -227,17 +227,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       ),
     );
 
-    // We go and chek in the local database if the product is
-    // already in the database. If it is, we update the fields of the product.
-    //And if it is not, we create a new product with the fields of the changed product.
-    // and we insert it in the database. (Giving the user an immediate feedback)
-    if (cachedProduct == null) {
-      daoProduct.put(changedProduct);
-      provider.set(changedProduct);
-    } else {
-      daoProduct.put(cachedProduct);
-      provider.set(cachedProduct);
-    }
+    final Product upToDateProduct = cachedProduct ?? changedProduct;
+    await daoProduct.put(upToDateProduct);
+    provider.set(upToDateProduct);
     localDatabase.notifyListeners();
     if (!mounted) {
       return false;
