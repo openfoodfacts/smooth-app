@@ -273,7 +273,7 @@
     },
     "support_join_slack": "Slack kanalımızda yardım isteyin",
     "support_via_email": "Bize bir e-posta gönder",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_title": "Uygulama günlükleri gönderilsin mi?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
@@ -295,7 +295,7 @@
     "contribute_develop_text_2": "Soru sormanın genelde tercih edilen yolu olan Open Food Facts Slack sohbet odasına katılabilirsiniz.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_subtitle": "DEV Modunu Etkinleştirin",
     "contribute_donate_header": "Open Food Facts'e Bağışta Bulunun",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Tamamlanacak ürünler",
@@ -435,7 +435,7 @@
     "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
     "packaging_editing_error": "Failed to save the packaging.",
     "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_title": "Paketlemeyi Düzenle",
     "nutrition": "Beslenme",
     "@nutrition": {},
     "nutrition_facts_photo": "Besin değerleri fotoğrafı",
@@ -679,7 +679,7 @@
         "description": "Button to switch to 'compare products mode'"
     },
     "retry_button_label": "Tekrar dene",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Bizimle iletişime geçin",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
@@ -687,7 +687,7 @@
     "blog": "Blog",
     "faq": "SSS",
     "discover": "Keşfet",
-    "how_to_contribute": "How to Contribute",
+    "how_to_contribute": "Nasıl Katkıda Bulunulur",
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -811,7 +811,7 @@
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "History not available",
+    "product_list_empty_icon_desc": "Geçmiş kullanılamıyor",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
@@ -889,13 +889,13 @@
             }
         }
     },
-    "settings_app_app": "Application",
+    "settings_app_app": "Uygulama",
     "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_camera": "Kamera",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
+    "camera_high_resolution_preset_toggle_title": "Yüksek performans modu",
     "@camera_high_resolution_preset_toggle_title": {
         "description": "Title for the Camera high resolution toggle"
     },
@@ -921,9 +921,9 @@
     },
     "camera_focus_point_algorithm_value_auto_label": "Otomatik",
     "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
+    "camera_focus_point_algorithm_value_new_algorithm_label": "Hızlı mod",
     "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
+    "camera_focus_point_algorithm_value_old_algorithm_label": "Güvenli mod",
     "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
     "camera_play_sound_title": "Taranınca ses çıkar",
     "@camera_play_sound_title": {
@@ -958,7 +958,7 @@
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
     "permission_photo_denied_title": "Barkodları taramak için kamera kullanımına izin verin",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_message": "Gelişmiş bir deneyim için lütfen {appName} kameranıza erişmesine izin verin. Barkodları doğrudan tarayabileceksiniz.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -1027,7 +1027,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spain",
+    "edit_product_form_item_origins_hint": "İspanya",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1035,7 +1035,7 @@
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Örnekler: Arjantin'den sığır eti, Soya Avrupa Birliği'nden gelmiyor",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1043,7 +1043,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "İspanya",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1084,15 +1084,15 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Sayfadan ayrılmadan önce değişiklikleri kaydetmek istiyor musunuz?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Save my changes",
-    "edit_product_form_item_exit_confirmation_negative_button": "Ignore my changes",
+    "edit_product_form_item_exit_confirmation_positive_button": "Değişikliklerimi kaydet",
+    "edit_product_form_item_exit_confirmation_negative_button": "Değişikliklerimi yoksay",
     "edit_product_form_item_ingredients_title": "İçerikler ve kökenleri",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Ekle",
-    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-    "edit_product_form_item_remove_item_tooltip": "Remove",
+    "edit_product_form_item_add_invalid_item_tooltip": "Lütfen önce bir metin girin",
+    "edit_product_form_item_remove_item_tooltip": "Kaldır",
     "edit_product_form_item_packaging_title": "Ambalaj",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1110,7 +1110,7 @@
         "description": "Product edition - Nutrition facts - Save button"
     },
     "completed_basic_details_btn_text": "Temel bilgileri tamamlayın",
-    "not_implemented_snackbar_text": "Not implemented yet",
+    "not_implemented_snackbar_text": "Henüz uygulanmadı",
     "category_picker_page_appbar_text": "Kategoriler",
     "edit_ingredients_extrait_ingredients_btn_text": "İçindekileri çıkartın",
     "@edit_ingredients_extrait_ingredients_btn_text": {
@@ -1247,7 +1247,7 @@
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
-    "dev_preferences_ml_kit_title": "Use ML Kit",
+    "dev_preferences_ml_kit_title": "ML Kitini Kullan",
     "@dev_preferences_ml_kit_title": {
         "description": "User dev preferences - Enable ML Kit - Title"
     },
@@ -1267,7 +1267,7 @@
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
-    "dev_preferences_export_history_progress_error": "exception",
+    "dev_preferences_export_history_progress_error": "istisna",
     "@dev_preferences_export_history_progress_error": {
         "description": "User dev preferences - Export history - Item - Error"
     },
@@ -1351,11 +1351,11 @@
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "Full image scanning",
+    "dev_mode_scan_scan_full_image": "Tam görüntü tarama",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Yarım görüntü tarama",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
@@ -1415,7 +1415,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Open Food Facts'i kabul ediyorum ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1544,11 +1544,11 @@
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "Please choose a image source",
+    "choose_image_source_body": "Lütfen bir resim kaynağı seçin",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },
-    "gallery_source_label": "Gallery",
+    "gallery_source_label": "Galeri",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
@@ -1565,13 +1565,17 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "Yeni Yakala",
     "@capture": {
         "description": "Button label for taking a photo"
     },
-    "choose_from_gallery": "Choose from gallery",
+    "choose_from_gallery": "Galeriden seç",
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "image_upload_queued": "Resim en kısa sürede arka planda yüklenecektir.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
     },
     "expand_nutrition_facts": "Expand nutrition facts table",
     "@expand_nutrition_facts": {
@@ -1587,7 +1591,7 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Entire world",
+    "world_results_label": "Tüm dünya",
     "@world_results_label": {
         "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
@@ -1595,7 +1599,7 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "clipboard_barcode_copy": "Copy barcode to clipboard",
+    "clipboard_barcode_copy": "Barkodu panoya kopyala",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1605,20 +1609,24 @@
             }
         }
     },
-    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
-    "choose_app_language": "Choose App Language",
+    "clipboard_barcode_copied": "Barkod {barcode} panoya kopyalandı!",
+    "choose_app_language": "Uygulama Dilini Seçin",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Help with OpenFoodFacts",
+    "help_with_openfoodfacts": "OpenFoodFacts ile Yardım",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "product_task_background_schedule": "Ürün en kısa sürede arka planda güncellenecektir.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
+    },
+    "no_email_client_available_dialog_title": "E-posta uygulaması yok!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Lütfen bize manuel olarak contact@openfoodfacts.org adresine bir e-posta gönderin",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     }

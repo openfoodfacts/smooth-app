@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "L'immagine sarà caricata in background il prima possibile.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "Espandi la tabella dei valori nutrizionali",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1613,6 +1617,10 @@
     "help_with_openfoodfacts": "Aiuto con OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "product_task_background_schedule": "Il prodotto sarà aggiornato in background il prima possibile.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
     },
     "no_email_client_available_dialog_title": "Nessun app di email!",
     "@no_email_client_available_dialog_title": {
