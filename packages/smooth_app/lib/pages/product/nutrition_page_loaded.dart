@@ -562,12 +562,15 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     //And if it is not, we create a new product with the fields of the _product
     // and we insert it in the database. (Giving the user an immediate feedback)
     if (product != null) {
+      product.noNutritionData = changedProduct.noNutritionData;
       product.servingSize = changedProduct.servingSize;
       product.nutriments = changedProduct.nutriments;
       await daoProduct.put(product);
       provider.set(product);
     } else {
       final Product newProduct = Product(
+        barcode: _product.barcode,
+        noNutritionData: changedProduct.noNutritionData,
         servingSize: changedProduct.servingSize,
         nutriments: changedProduct.nutriments,
       );
