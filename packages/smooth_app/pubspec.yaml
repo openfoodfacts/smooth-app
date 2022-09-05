@@ -29,7 +29,7 @@ dependencies:
   iso_countries: 2.1.0
   latlong2: ^0.8.1
   matomo_tracker: ^1.3.0
-  modal_bottom_sheet: ^2.1.0
+  modal_bottom_sheet: ^2.1.2
   openfoodfacts: ^1.24.0
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
