@@ -63,7 +63,7 @@ dependencies:
   percent_indicator: ^4.2.2
   flutter_email_sender: ^5.1.0
   flutter_native_splash: ^2.2.3+1
-  google_mlkit_barcode_scanning: 0.3.0
+  google_mlkit_barcode_scanning: ^0.4.0
   image_cropper: ^2.0.3
   auto_size_text: ^3.0.0
   shared_preferences: ^2.0.15
