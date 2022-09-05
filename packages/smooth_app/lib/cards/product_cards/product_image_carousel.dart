@@ -20,7 +20,7 @@ class ProductImageCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<ProductImageData> allProductImagesData =
-        getAllProductImagesData(product, appLocalizations);
+        getProductMainImagesData(product, appLocalizations);
 
     return SizedBox(
       height: height,

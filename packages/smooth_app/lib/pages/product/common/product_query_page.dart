@@ -16,6 +16,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -23,7 +24,6 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -140,7 +140,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       SmoothScaffold(
         appBar: AppBar(
           backgroundColor: themeData.scaffoldBackgroundColor,
-          leading: const _BackButton(),
+          leading: const SmoothBackButton(),
           title: _getAppBarTitle(),
           actions: actions,
         ),
@@ -205,7 +205,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           backgroundColor: themeData.scaffoldBackgroundColor,
           elevation: 0,
           automaticallyImplyLeading: false,
-          leading: const _BackButton(),
+          leading: const SmoothBackButton(),
           title: _getAppBarTitle(),
           actions: _getAppBarButtons(),
         ),
@@ -468,20 +468,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     }
     _loadingNext = false;
   }
-}
-
-// TODO(monsieurtanki): put it in a specific Widget class
-class _BackButton extends StatelessWidget {
-  const _BackButton();
-
-  @override
-  Widget build(BuildContext context) => IconButton(
-        icon: Icon(ConstantIcons.instance.getBackIcon()),
-        tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-        onPressed: () {
-          Navigator.maybePop(context);
-        },
-      );
 }
 
 // TODO(monsieurtanki): put it in a specific reusable class

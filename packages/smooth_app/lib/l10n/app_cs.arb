@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "Obrázek bude nahrán na pozadí co nejdříve.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "Rozbalte tabulku nutričních údajů",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1613,6 +1617,10 @@
     "help_with_openfoodfacts": "Pomoc s OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "product_task_background_schedule": "Produkt bude aktualizován na pozadí co nejdříve.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
     },
     "no_email_client_available_dialog_title": "No email application!",
     "@no_email_client_available_dialog_title": {
