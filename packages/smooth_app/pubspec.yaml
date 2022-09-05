@@ -18,7 +18,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   device_preview: ^1.1.0
   flutter_svg: ^1.1.4
-  flutter_map: ^1.1.1
+  flutter_map: ^3.0.0
   flutter_widget_from_html_core: any
   fwfh_selectable_text: ^0.8.3+1
   flutter_secure_storage: ^5.0.2
