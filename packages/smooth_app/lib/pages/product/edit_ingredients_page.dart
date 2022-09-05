@@ -132,17 +132,23 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
   Future<bool> _updateText(
       final String text, UpToDateProductProvider provider) async {
-    final Product minimalistProduct =
-        _helper.getMinimalistProduct(_product, text);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    Product changedProduct = Product(barcode: _product.barcode);
+    Product? cachedProduct = await daoProduct.get(_product.barcode!);
+    if (cachedProduct != null) {
+      cachedProduct = _helper.getMinimalistProduct(cachedProduct, text);
+    }
+    changedProduct = _helper.getMinimalistProduct(changedProduct, text);
     final String uniqueId =
         UniqueIdGenerator.generateUniqueId(_product.barcode!, INGREDIENT_EDIT);
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
       processName: PRODUCT_EDIT_TASK,
       uniqueId: uniqueId,
-      barcode: minimalistProduct.barcode!,
+      barcode: changedProduct.barcode!,
       languageCode: ProductQuery.getLanguage().code,
-      inputMap: jsonEncode(minimalistProduct.toJson()),
+      inputMap: jsonEncode(changedProduct.toJson()),
       user: jsonEncode(ProductQuery.getUser().toJson()),
       country: ProductQuery.getCountry()!.iso2Code,
     );
@@ -153,24 +159,9 @@ class _EditOcrPageState extends State<EditOcrPage> {
       ),
     );
 
-    // ignore: use_build_context_synchronously
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final Product? localProduct =
-        await daoProduct.get(minimalistProduct.barcode!);
-    // We go and chek in the local database if the product is
-    // already in the database. If it is, we update the fields of the product.
-    //And if it is not, we create a new product with the fields of the minimalistProduct
-    // and we insert it in the database. (Giving the user an immediate feedback)
-    if (localProduct != null) {
-      localProduct.ingredientsText = minimalistProduct.ingredientsText;
-      await daoProduct.put(localProduct);
-      provider.set(localProduct);
-    } else {
-      await daoProduct.put(minimalistProduct);
-      provider.set(minimalistProduct);
-    }
-
+    final Product upToDateProduct = cachedProduct ?? changedProduct;
+    await daoProduct.put(upToDateProduct);
+    provider.set(upToDateProduct);
     localDatabase.notifyListeners();
     if (!mounted) {
       return false;
