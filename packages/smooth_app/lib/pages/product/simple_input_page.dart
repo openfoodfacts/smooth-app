@@ -112,7 +112,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                 child: SmoothActionButtonsBar(
                   axis: Axis.horizontal,
                   positiveAction: SmoothActionButton(
