@@ -111,17 +111,21 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                   child: ListView(children: simpleInputs),
                 ),
               ),
-              SmoothActionButtonsBar(
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.save,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(saving: true),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                child: SmoothActionButtonsBar(
+                  axis: Axis.horizontal,
+                  positiveAction: SmoothActionButton(
+                    text: appLocalizations.save,
+                    onPressed: () async => _exitPage(
+                      await _mayExitPage(saving: true),
+                    ),
                   ),
-                ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.cancel,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(saving: false),
+                  negativeAction: SmoothActionButton(
+                    text: appLocalizations.cancel,
+                    onPressed: () async => _exitPage(
+                      await _mayExitPage(saving: false),
+                    ),
                   ),
                 ),
               ),
