@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.13.0](https://github.com/openfoodfacts/smooth-app/compare/v3.12.0...v3.13.0) (2022-09-06)
+
+
+### Features
+
+* Instant refresh views ([#2901](https://github.com/openfoodfacts/smooth-app/issues/2901)) ([0d2be11](https://github.com/openfoodfacts/smooth-app/commit/0d2be113fc3fd79a1f16db72437843d702c6d2ab))
+
+
+### Bug Fixes
+
+* fixed package versions ([#2936](https://github.com/openfoodfacts/smooth-app/issues/2936)) ([d7ed371](https://github.com/openfoodfacts/smooth-app/commit/d7ed37133e4fc31f7ee588c4912c2e225fb93871))
+
 ## [3.12.0](https://github.com/openfoodfacts/smooth-app/compare/v3.11.0...v3.12.0) (2022-09-06)
 
 
