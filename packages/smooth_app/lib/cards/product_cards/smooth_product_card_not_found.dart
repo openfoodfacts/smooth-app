@@ -23,57 +23,70 @@ class SmoothProductCardNotFound extends StatelessWidget {
 
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
+      final EdgeInsets padding = EdgeInsets.symmetric(
+        vertical: constraints.maxHeight * 0.10,
+        horizontal: constraints.maxWidth * 0.05,
+      );
+
+      final TextTheme textTheme = Theme.of(context).textTheme;
+
       return SmoothCard(
         elevation: elevation,
         color: themeData.brightness == Brightness.light
             ? Colors.white
             : Colors.black,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: constraints.maxHeight * 0.10,
-            horizontal: constraints.maxWidth * 0.05,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                appLocalizations.missing_product,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline2,
-              ),
-              Text(
-                appLocalizations.add_product_take_photos,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              Text(
-                '(${appLocalizations.barcode_barcode(barcode)})',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
-                child: SmoothLargeButtonWithIcon(
-                  text: appLocalizations.add_product_information_button_label,
-                  icon: Icons.add,
-                  padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                  onPressed: () async {
-                    // TODO(monsieurtanuki): careful, waiting for pop'ed value
-                    final String? result = await Navigator.push<String>(
-                      context,
-                      MaterialPageRoute<String>(
-                        builder: (BuildContext context) =>
-                            AddNewProductPage(barcode),
+        padding: padding,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: SizedBox(
+            width: constraints.maxWidth - padding.horizontal,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: themeData.textTheme.headline5,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: appLocalizations.missing_product,
+                        style: textTheme.headline2,
                       ),
-                    );
-                    if (callback != null) {
-                      await callback!(result);
-                    }
-                  },
+                      TextSpan(
+                        text: '\n${appLocalizations.missing_product}\n',
+                        style: textTheme.bodyText2,
+                      ),
+                      TextSpan(
+                        text: '(${appLocalizations.barcode_barcode(barcode)})',
+                        style: textTheme.bodyText2,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
+                  child: SmoothLargeButtonWithIcon(
+                    text: appLocalizations.add_product_information_button_label,
+                    icon: Icons.add,
+                    padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+                    onPressed: () async {
+                      // TODO(monsieurtanuki): careful, waiting for pop'ed value
+                      final String? result = await Navigator.push<String>(
+                        context,
+                        MaterialPageRoute<String>(
+                          builder: (BuildContext context) =>
+                              AddNewProductPage(barcode),
+                        ),
+                      );
+                      if (callback != null) {
+                        await callback!(result);
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       );
