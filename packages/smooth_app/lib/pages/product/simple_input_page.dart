@@ -198,7 +198,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 .edit_product_form_item_exit_confirmation_positive_button,
             onPressed: () => Navigator.pop(context, true),
           ),
-          actionsAxis: Axis.vertical,
           actionsOrder: SmoothButtonsBarOrder.numerical,
         ),
       );
