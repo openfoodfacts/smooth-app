@@ -52,6 +52,14 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     _brandNameController.text = _product.brands ?? '';
   }
 
+  /// Returns a [Product] with the values from the text fields.
+  Product _getChangedProduct(Product product) {
+    product.productName = _productNameController.text;
+    product.quantity = _weightController.text;
+    product.brands = _brandNameController.text;
+    return product;
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -59,6 +67,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final UpToDateProductProvider provider =
         context.read<UpToDateProductProvider>();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(appLocalizations.basic_details),
@@ -138,12 +147,15 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
-                    final Product inputProduct = Product(
-                      productName: _productNameController.text,
-                      quantity: _weightController.text,
-                      brands: _brandNameController.text,
+                    Product inputProduct = Product(
                       barcode: _product.barcode,
                     );
+                    inputProduct = _getChangedProduct(inputProduct);
+                    final Product? cachedProduct =
+                        await daoProduct.get(_product.barcode!);
+                    if (cachedProduct != null) {
+                      _getChangedProduct(cachedProduct);
+                    }
                     final String uniqueId = UniqueIdGenerator.generateUniqueId(
                         _product.barcode!, BASIC_DETAILS);
                     final BackgroundOtherDetailsInput
@@ -163,32 +175,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         uniqueId: uniqueId,
                       ),
                     );
-
-                    final DaoProduct daoProduct = DaoProduct(localDatabase);
-                    final Product? product = await daoProduct.get(
-                      _product.barcode!,
-                    );
-                    // We go and chek in the local database if the product is
-                    // already in the database. If it is, we update the fields of the product.
-                    //And if it is not, we create a new product with the fields of the _product
-                    // and we insert it in the database. (Giving the user an immediate feedback)
-                    if (product == null) {
-                      final Product newProduct = Product(
-                        barcode: _product.barcode,
-                        productName: _productNameController.text,
-                        brands: _brandNameController.text,
-                        quantity: _weightController.text,
-                        lang: ProductQuery.getLanguage(),
-                      );
-                      daoProduct.put(newProduct);
-                      provider.set(newProduct);
-                    } else {
-                      product.productName = _productNameController.text;
-                      product.brands = _brandNameController.text;
-                      product.quantity = _weightController.text;
-                      daoProduct.put(product);
-                      provider.set(product);
-                    }
+                    final Product upToDateProduct =
+                        cachedProduct ?? inputProduct;
+                    await daoProduct.put(upToDateProduct);
+                    provider.set(upToDateProduct);
                     localDatabase.notifyListeners();
                     if (!mounted) {
                       return;
@@ -201,7 +191,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         duration: SnackBarDuration.medium,
                       ),
                     );
-                    Navigator.pop(context, product);
+                    Navigator.pop(context, upToDateProduct);
                   },
                 ),
               ),

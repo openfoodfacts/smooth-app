@@ -58,13 +58,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     setState(() => _updatingText = true);
     final UpToDateProductProvider provider =
         context.read<UpToDateProductProvider>();
-    try {
-      await _updateText(_controller.text, provider);
-    } catch (error) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      _showError(_helper.getError(appLocalizations));
-    }
-
+    await _updateText(_controller.text, provider);
     setState(() => _updatingText = false);
   }
 
