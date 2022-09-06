@@ -54,11 +54,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
     _controller.text = _helper.getText(_product);
   }
 
-  Future<void> _onSubmitField() async {
+  Future<void> _onSubmitField(ImageField imageField) async {
     setState(() => _updatingText = true);
     final UpToDateProductProvider provider =
         context.read<UpToDateProductProvider>();
-    await _updateText(_controller.text, provider);
+    await _updateText(_controller.text, provider, imageField);
     setState(() => _updatingText = false);
   }
 
@@ -124,8 +124,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
   }
 
-  Future<bool> _updateText(
-      final String text, UpToDateProductProvider provider) async {
+  Future<bool> _updateText(final String text, UpToDateProductProvider provider,
+      ImageField imageField) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     Product changedProduct = Product(barcode: _product.barcode);
@@ -134,8 +134,12 @@ class _EditOcrPageState extends State<EditOcrPage> {
       cachedProduct = _helper.getMinimalistProduct(cachedProduct, text);
     }
     changedProduct = _helper.getMinimalistProduct(changedProduct, text);
-    final String uniqueId =
+    String uniqueId =
         UniqueIdGenerator.generateUniqueId(_product.barcode!, INGREDIENT_EDIT);
+    if (_helper.getImageField().value == ImageField.PACKAGING.value) {
+      uniqueId =
+          UniqueIdGenerator.generateUniqueId(_product.barcode!, PACKAGING_EDIT);
+    }
     final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
         BackgroundOtherDetailsInput(
       processName: PRODUCT_EDIT_TASK,
@@ -283,7 +287,7 @@ class _OcrWidget extends StatelessWidget {
   final TextEditingController controller;
   final bool updatingText;
   final Future<void> Function(bool) onTapGetImage;
-  final Future<void> Function() onSubmitField;
+  final Future<void> Function(ImageField) onSubmitField;
   final bool hasImageProvider;
   final Product product;
   final OcrHelper helper;
@@ -350,7 +354,8 @@ class _OcrWidget extends StatelessWidget {
                         ),
                         maxLines: null,
                         textInputAction: TextInputAction.done,
-                        onSubmitted: (_) => onSubmitField,
+                        onSubmitted: (_) =>
+                            onSubmitField(helper.getImageField()),
                       ),
                       const SizedBox(height: SMALL_SPACE),
                       ExplanationWidget(
@@ -366,7 +371,7 @@ class _OcrWidget extends StatelessWidget {
                         positiveAction: SmoothActionButton(
                           text: appLocalizations.save,
                           onPressed: () async {
-                            await onSubmitField();
+                            await onSubmitField(helper.getImageField());
                             //ignore: use_build_context_synchronously
                             Navigator.pop(context);
                           },
