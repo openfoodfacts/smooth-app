@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.13.1](https://github.com/openfoodfacts/smooth-app/compare/v3.13.0...v3.13.1) (2022-09-06)
+
+
+### Bug Fixes
+
+* [#2863](https://github.com/openfoodfacts/smooth-app/issues/2863) - onboarding black tooltip now bottom positioned ([#2889](https://github.com/openfoodfacts/smooth-app/issues/2889)) ([b163db9](https://github.com/openfoodfacts/smooth-app/commit/b163db93974e9b8847c309e798d0c086bf0610d7))
+* Conflicting task names for ingredients and packaging ([#2950](https://github.com/openfoodfacts/smooth-app/issues/2950)) ([5f575a3](https://github.com/openfoodfacts/smooth-app/commit/5f575a3d6602e96e7a43745d185f1e26479b4b60))
+
+
+### Documentation
+
+* expand thanks ([ebf7ec1](https://github.com/openfoodfacts/smooth-app/commit/ebf7ec15ad7b4ec7225b2a98abed08085cac3a3d))
+* extend thanks ([acc32c0](https://github.com/openfoodfacts/smooth-app/commit/acc32c023be3d110a923b7c29ea42af9967487f7))
+
 ## [3.13.0](https://github.com/openfoodfacts/smooth-app/compare/v3.12.0...v3.13.0) (2022-09-06)
 
 
