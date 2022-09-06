@@ -87,7 +87,7 @@ We are always looking for new contributors, if you're willing to help please let
 - [ ] [Add offline scanning to ensure results in all conditions](https://github.com/openfoodfacts/smooth-app/issues/18)
 
 ### Contribution
-- [ ] Speedup image upload
+- [x] Speedup image upload
 - [ ] Improve the scan experience when Nutri-Score and Eco-Score are not present (some people don't click on the card even if fully unhelpful)
 - [ ] Offer a faster editing system for power users (and potentially all)
   - [ ] Add power edit mode that concatenates all the editable things for faster contribution
@@ -145,4 +145,6 @@ Following `type`s are allowed:
 
 
 ## Thank you
-The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
+The app was initially created by Primael.
+The new Open Food Facts app (smooth_app) was then made possible thanks to an initial grant by the Mozilla Foundation in February 2020, after @teolemon pitched them the idea at FOSDEM. a HUGE thank you :-) 
+We had the support from several Google.org fellows and a ShareIt fellow that helped us eventually release the app in June 2022.
