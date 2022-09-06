@@ -145,6 +145,5 @@ Following `type`s are allowed:
 
 
 ## Thank you
-The app was initially created by Primael.
-The new Open Food Facts app (smooth_app) was then made possible thanks to an initial grant by the Mozilla Foundation in February 2020, after @teolemon pitched them the idea at FOSDEM. a HUGE thank you :-) 
-We had the support from several Google.org fellows and a ShareIt fellow that helped us eventually release the app in June 2022.
+The app was initially created by Primael. The new Open Food Facts app (smooth_app) was then made possible thanks to an initial grant by the Mozilla Foundation in February 2020, after Pierre pitched them the idea at FOSDEM. a HUGE thank you :-)
+In addition to the core role of the community, we also had the support from several Google.org fellows and a ShareIt fellow that helped us eventually release the app in June 2022.
