@@ -1,18 +1,26 @@
+import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:task_manager/task_manager.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
@@ -38,7 +46,6 @@ class SimpleInputPage extends StatefulWidget {
 
 class _SimpleInputPageState extends State<SimpleInputPage> {
   final List<TextEditingController> _controllers = <TextEditingController>[];
-
   @override
   void initState() {
     super.initState();
@@ -105,17 +112,21 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                   child: ListView(children: simpleInputs),
                 ),
               ),
-              SmoothActionButtonsBar(
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.save,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(saving: true),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                child: SmoothActionButtonsBar(
+                  axis: Axis.horizontal,
+                  positiveAction: SmoothActionButton(
+                    text: appLocalizations.save,
+                    onPressed: () async => _exitPage(
+                      await _mayExitPage(saving: true),
+                    ),
                   ),
-                ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.cancel,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(saving: false),
+                  negativeAction: SmoothActionButton(
+                    text: appLocalizations.cancel,
+                    onPressed: () async => _exitPage(
+                      await _mayExitPage(saving: false),
+                    ),
                   ),
                 ),
               ),
@@ -139,15 +150,28 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
     final Product changedProduct = Product(barcode: widget.product.barcode);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? cachedProduct = await daoProduct.get(
+      changedProduct.barcode!,
+    );
     bool changed = false;
     bool added = false;
+    String pageName = '';
     for (int i = 0; i < widget.helpers.length; i++) {
       if (widget.helpers[i].addItemsFromController(_controllers[i])) {
         added = true;
       }
       if (widget.helpers[i].getChangedProduct(changedProduct)) {
         changed = true;
+        if (cachedProduct != null) {
+          widget.helpers[i].getChangedProduct(cachedProduct);
+        }
       }
+      pageName = widget.helpers[i].getTitle(appLocalizations);
     }
     if (added) {
       setState(() {});
@@ -155,8 +179,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     if (!changed) {
       return true;
     }
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+
     if (!saving) {
       final bool? pleaseSave = await showDialog<bool>(
         context: context,
@@ -175,6 +198,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 .edit_product_form_item_exit_confirmation_positive_button,
             onPressed: () => Navigator.pop(context, true),
           ),
+          actionsAxis: Axis.vertical,
+          actionsOrder: SmoothButtonsBarOrder.numerical,
         ),
       );
       if (pleaseSave == null) {
@@ -184,12 +209,41 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         return true;
       }
     }
-    // if it fails, we stay on the same page
-    return ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: changedProduct,
+    final String uniqueId =
+        UniqueIdGenerator.generateUniqueId(changedProduct.barcode!, pageName);
+    final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
+        BackgroundOtherDetailsInput(
+      processName: PRODUCT_EDIT_TASK,
+      uniqueId: uniqueId,
+      barcode: changedProduct.barcode!,
+      languageCode: ProductQuery.getLanguage().code,
+      inputMap: jsonEncode(changedProduct.toJson()),
+      user: jsonEncode(ProductQuery.getUser().toJson()),
+      country: ProductQuery.getCountry()!.iso2Code,
     );
+    await TaskManager().addTask(
+      Task(
+        data: backgroundOtherDetailsInput.toJson(),
+        uniqueId: uniqueId,
+      ),
+    );
+
+    final Product upToDateProduct = cachedProduct ?? changedProduct;
+    await daoProduct.put(upToDateProduct);
+    provider.set(upToDateProduct);
+    localDatabase.notifyListeners();
+    if (!mounted) {
+      return false;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          appLocalizations.product_task_background_schedule,
+        ),
+        duration: SnackBarDuration.medium,
+      ),
+    );
+    return true;
   }
 
   @override

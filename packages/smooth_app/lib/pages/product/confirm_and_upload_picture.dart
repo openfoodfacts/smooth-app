@@ -141,8 +141,10 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        retakenPhoto = await startImageCropping(context,
-                            existingImage: photo);
+                        retakenPhoto = await startImageCroppingNoPick(
+                          context,
+                          existingImage: photo,
+                        );
                         if (retakenPhoto == null) {
                           if (!mounted) {
                             return;
@@ -174,8 +176,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        final bool isPhotoUploaded =
-                            await uploadCapturedPicture(
+                        uploadCapturedPicture(
                           context,
                           barcode: widget.barcode,
                           imageField: widget.imageType,
@@ -184,10 +185,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         if (!mounted) {
                           return;
                         }
-                        retakenPhoto?.delete();
                         Navigator.pop(
                           context,
-                          isPhotoUploaded ? photo : null,
+                          photo,
                         );
                       },
                       label: Text(

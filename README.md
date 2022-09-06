@@ -7,7 +7,15 @@
 # New Open Food Facts mobile app for Android and iPhone - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-Latest commit deployed to App Stores: (August 4th 2022) https://github.com/openfoodfacts/smooth-app/releases/tag/v3.6.0
+## Alert!
+
+We are currently using Flutter 3.0.5 as the new 3.3.0 [has some bugs](https://github.com/openfoodfacts/smooth-app/issues/2919).
+
+Running `flutter downgrade 3.0.5` downgrades the version.
+
+------
+
+Latest commit deployed to App Stores: (August 25th 2022 as Build 722) https://github.com/openfoodfacts/smooth-app/releases/tag/v3.8.1
 
 A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
 
@@ -79,7 +87,7 @@ We are always looking for new contributors, if you're willing to help please let
 - [ ] [Add offline scanning to ensure results in all conditions](https://github.com/openfoodfacts/smooth-app/issues/18)
 
 ### Contribution
-- [ ] Speedup image upload
+- [x] Speedup image upload
 - [ ] Improve the scan experience when Nutri-Score and Eco-Score are not present (some people don't click on the card even if fully unhelpful)
 - [ ] Offer a faster editing system for power users (and potentially all)
   - [ ] Add power edit mode that concatenates all the editable things for faster contribution
@@ -137,4 +145,5 @@ Following `type`s are allowed:
 
 
 ## Thank you
-The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
+The app was initially created by Primael. The new Open Food Facts app (smooth_app) was then made possible thanks to an initial grant by the Mozilla Foundation in February 2020, after Pierre pitched them the idea at FOSDEM. a HUGE thank you :-)
+In addition to the core role of the community, we also had the support from several Google.org fellows and a ShareIt fellow that helped us eventually release the app in June 2022.

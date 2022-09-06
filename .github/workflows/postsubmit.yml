@@ -6,7 +6,7 @@ on:
       - "develop"
 
 env:
-  FLUTTER_VERSION: '3.0.x'
+  FLUTTER_VERSION: '3.3.x'
     
 jobs:
   build:
@@ -23,14 +23,16 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 11
-      
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-          cache-key: flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock')}}
-          
+          flutter-version: '3.0.5'
+          #cache-key: flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock')}}
+          cache-key: revert-3.0.5
+        
       - run: flutter --version
       
       # Get dependencies.

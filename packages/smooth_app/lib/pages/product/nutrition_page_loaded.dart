@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,17 +8,21 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:task_manager/task_manager.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -64,7 +70,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   void initState() {
     super.initState();
     _product = widget.product;
-    _nutritionContainer = _getFreshContainer();
+    _nutritionContainer = _getFreshContainer(widget.product);
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
     _noNutritionData = _product.noNutritionData ?? false;
   }
@@ -140,6 +146,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 ),
               ),
               SmoothActionButtonsBar(
+                axis: Axis.horizontal,
                 positiveAction: SmoothActionButton(
                   text: appLocalizations.save,
                   onPressed: () async => _exitPage(
@@ -448,13 +455,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         _noNutritionData,
       );
 
-  Product? _getChangedProduct() {
+  Product? _getChangedProduct(Product product) {
     if (!_formKey.currentState!.validate()) {
       return null;
     }
     // We use a separate fresh container here.
     // If something breaks while saving, we won't get a half written object.
-    final NutritionContainer output = _getFreshContainer();
+    final NutritionContainer output = _getFreshContainer(product);
     // we copy the values
     for (final String key in _controllers.keys) {
       final TextEditingController controller = _controllers[key]!;
@@ -464,12 +471,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     output.noNutritionData = _noNutritionData;
     // we copy the units
     output.copyUnitsFrom(_nutritionContainer);
-    return output.getProduct();
+    return output.getProduct(product);
   }
 
-  NutritionContainer _getFreshContainer() => NutritionContainer(
+  NutritionContainer _getFreshContainer(Product product) => NutritionContainer(
         orderedNutrients: widget.orderedNutrients,
-        product: _product,
+        product: product,
       );
 
   /// Exits the page if the [flag] is `true`.
@@ -489,6 +496,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
     if (!saving) {
       final bool? pleaseSave = await showDialog<bool>(
         context: context,
@@ -513,7 +523,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         return true;
       }
     }
-    final Product? changedProduct = _getChangedProduct();
+
+    final Product? changedProduct =
+        _getChangedProduct(Product(barcode: widget.product.barcode));
+    Product? cachedProduct = await daoProduct.get(
+      _product.barcode!,
+    );
+    if (cachedProduct != null) {
+      cachedProduct = _getChangedProduct(_product);
+    }
+
     if (changedProduct == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -526,11 +545,35 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return false;
     }
     // if it fails, we stay on the same page
-    return ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: changedProduct,
-      isLoggedInMandatory: widget.isLoggedInMandatory,
+    final String uniqueId =
+        UniqueIdGenerator.generateUniqueId(_product.barcode!, NUTRITION_EDIT);
+    final BackgroundOtherDetailsInput nutritonInputData =
+        BackgroundOtherDetailsInput(
+      processName: PRODUCT_EDIT_TASK,
+      uniqueId: uniqueId,
+      barcode: _product.barcode!,
+      languageCode: ProductQuery.getLanguage().code,
+      inputMap: jsonEncode(changedProduct.toJson()),
+      user: jsonEncode(ProductQuery.getUser().toJson()),
+      country: ProductQuery.getCountry()!.iso2Code,
     );
+    await TaskManager().addTask(
+      Task(
+        data: nutritonInputData.toJson(),
+        uniqueId: uniqueId,
+      ),
+    );
+    final Product upToDateProduct = cachedProduct ?? changedProduct;
+    await daoProduct.put(upToDateProduct);
+    provider.set(upToDateProduct);
+    localDatabase.notifyListeners();
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(appLocalizations.product_task_background_schedule),
+        ),
+      );
+    }
+    return true;
   }
 }

@@ -752,7 +752,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "contact_form_body": "{osContent}\nVerze aplikace:{appVersion}\nČíslo sestavení aplikace:{appBuildNumber}\nNázev balíčku aplikace:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -1091,7 +1091,7 @@
         "description": "Product edition - Ingredients - Title"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Přidat",
-    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
+    "edit_product_form_item_add_invalid_item_tooltip": "Nejprve prosím zadejte text",
     "edit_product_form_item_remove_item_tooltip": "Odstranit",
     "edit_product_form_item_packaging_title": "Obal",
     "@edit_product_form_item_packaging_title": {
@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "Obrázek bude nahrán na pozadí co nejdříve.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "Rozbalte tabulku nutričních údajů",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1613,5 +1617,19 @@
     "help_with_openfoodfacts": "Pomoc s OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
-    }
+    },
+    "product_task_background_schedule": "Produkt bude aktualizován na pozadí co nejdříve.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
+    },
+    "no_email_client_available_dialog_title": "No email application!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "Pošlete nám prosím ručně e-mail na adresu contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
+    },
+    "all_images": "All Images",
+    "selected_images": "Selected Images"
 }

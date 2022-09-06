@@ -1,10 +1,16 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:task_manager/task_manager.dart';
 
 Future<bool> uploadCapturedPicture(
   BuildContext context, {
@@ -13,30 +19,66 @@ Future<bool> uploadCapturedPicture(
   required Uri imageUri,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final SendImage image = SendImage(
-    lang: ProductQuery.getLanguage(),
+  final LocalDatabase localDatabase = context.read<LocalDatabase>();
+  final String uniqueId = _getUniqueId(imageField, barcode);
+  final BackgroundImageInputData backgroundImageInputData =
+      BackgroundImageInputData(
+    processName: IMAGE_UPLOAD_TASK,
+    uniqueId: uniqueId,
     barcode: barcode,
-    imageField: imageField,
-    imageUri: imageUri,
+    imageField: imageField.value,
+    imagePath: File(imageUri.path).path,
+    languageCode: ProductQuery.getLanguage().code,
+    user: jsonEncode(ProductQuery.getUser().toJson()),
+    country: ProductQuery.getCountry()!.iso2Code,
   );
-  final Status? result = await LoadingDialog.run<Status>(
-    context: context,
-    future: OpenFoodAPIClient.addProductImage(
-      ProductQuery.getUser(),
-      image,
+  await TaskManager().addTask(
+    Task(
+      data: backgroundImageInputData.toJson(),
+      uniqueId: uniqueId,
     ),
-    title: appLocalizations.uploading_image,
   );
-  if (result == null || result.error != null || result.status != 'status ok') {
-    await LoadingDialog.error(
-      context: context,
-      title: appLocalizations.error_occurred,
-    );
-    return false;
-  }
+
+  localDatabase.notifyListeners();
+  // ignore: use_build_context_synchronously
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        appLocalizations.image_upload_queued,
+      ),
+      duration: SnackBarDuration.medium,
+    ),
+  );
   //ignore: use_build_context_synchronously
   await _updateContinuousScanModel(context, barcode);
   return true;
+}
+
+/// Generates a unique id for the task,in case of tasks with the same name,
+/// it gets replaced with the new one,also for other images we randomize the
+/// id with date time so that it runs separately.
+/// Example: 00000000_front_en_us_"random_user_id" or
+/// 00000000_other_en_us_"random_user_id"_1661677638662
+String _getUniqueId(ImageField imageField, String barcode) {
+// Use String buffer to concatenate strings
+  final StringBuffer stringBuffer = StringBuffer();
+  stringBuffer
+    ..write(barcode)
+    ..write('_')
+    ..write(imageField.value)
+    ..write('_')
+    ..write(ProductQuery.getLanguage().code)
+    ..write('_')
+    ..write(ProductQuery.getCountry()!.iso2Code)
+    ..write('_')
+    ..write(ProductQuery.getUser().userId);
+  if (imageField != ImageField.OTHER) {
+    return stringBuffer.toString();
+  }
+  stringBuffer
+    ..write('_')
+    ..write(DateTime.now().millisecondsSinceEpoch);
+  return stringBuffer.toString();
 }
 
 Future<void> _updateContinuousScanModel(

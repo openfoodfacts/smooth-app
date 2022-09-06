@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "התמונה תישלח ברקע בהקדם האפשרי.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "הרחבת טבלת העובדות התזונתיות",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1613,5 +1617,19 @@
     "help_with_openfoodfacts": "עזרה עם OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
-    }
+    },
+    "product_task_background_schedule": "המוצר יעודכן ברקע בהקדם האפשרי.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
+    },
+    "no_email_client_available_dialog_title": "אין יישומון דוא״ל!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "נא לשלוח אלינו הודעה ידנית אל contact@openfoodfacts.org",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
+    },
+    "all_images": "כל התמונות",
+    "selected_images": "תמונות נבחרות"
 }

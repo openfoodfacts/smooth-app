@@ -16,7 +16,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 ///
 /// If only one action button is provided, simply pass a [positiveAction]
 /// - [actionsAxis] allows to specify the axis of the buttons. By default, will
-///   be [Axis.vertical], unless it is a small device
+///   be [Axis.horizontal], unless it is a small device
 /// - [actionsOrder] allows to force the order of the buttons. By default, will
 ///   be "smart" by guessing the order based on the axis
 class SmoothAlertDialog extends StatelessWidget {
@@ -117,6 +117,8 @@ class _SmoothDialogTitle extends StatelessWidget {
     required this.close,
   });
 
+  static const double _titleHeight = 32.0;
+
   final String label;
   final bool close;
 
@@ -126,7 +128,7 @@ class _SmoothDialogTitle extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         SizedBox(
-          height: 32.0,
+          height: _titleHeight,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -182,7 +184,7 @@ class _SmoothDialogCrossButton extends StatelessWidget {
             padding: EdgeInsets.all(SMALL_SPACE),
             child: Icon(
               Icons.close,
-              size: 29.0,
+              size: _SmoothDialogTitle._titleHeight - (2 * SMALL_SPACE),
             ),
           ),
           onTap: () => Navigator.of(context, rootNavigator: true).pop(),
@@ -253,7 +255,8 @@ class SmoothActionButtonsBar extends StatelessWidget {
         children: actions,
       );
     } else {
-      return IntrinsicWidth(
+      return SizedBox(
+        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: actions,
@@ -367,8 +370,9 @@ class _SmoothActionElevatedButton extends StatelessWidget {
     return SmoothSimpleButton(
       onPressed: buttonData.onPressed,
       minWidth: buttonData.minWidth ?? 20.0,
-      // if fitted box not used then even the one word text overflows into next line,
+      // Ensures FittedBox not used then even the one word text overflows into next line,
       child: FittedBox(
+        fit: BoxFit.scaleDown,
         child: Text(
           buttonData.text.toUpperCase(),
           textAlign: TextAlign.center,
@@ -412,6 +416,9 @@ class _SmoothActionFlatButton extends StatelessWidget {
           textStyle: themeData.textTheme.bodyText2!.copyWith(
             color: themeData.colorScheme.onPrimary,
           ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: SMALL_SPACE,
+          ),
         ),
         child: SizedBox(
           height: buttonData.lines != null
@@ -419,6 +426,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
               : null,
           width: buttonData.minWidth,
           child: FittedBox(
+            fit: BoxFit.scaleDown,
             child: Text(
               buttonData.text.toUpperCase(),
               style: TextStyle(

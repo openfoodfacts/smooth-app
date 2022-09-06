@@ -1,20 +1,26 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:task_manager/task_manager.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -48,16 +54,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
     _controller.text = _helper.getText(_product);
   }
 
-  Future<void> _onSubmitField() async {
+  Future<void> _onSubmitField(ImageField imageField) async {
     setState(() => _updatingText = true);
-
-    try {
-      await _updateText(_controller.text);
-    } catch (error) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      _showError(_helper.getError(appLocalizations));
-    }
-
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
+    await _updateText(_controller.text, provider, imageField);
     setState(() => _updatingText = false);
   }
 
@@ -79,7 +80,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(error),
-        duration: const Duration(seconds: 3),
+        duration: SnackBarDuration.medium,
       ),
     );
   }
@@ -90,7 +91,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
   // Returns a Future that resolves successfully only if everything succeeds,
   // otherwise it will resolve with the relevant error.
   Future<void> _getImage(bool isNewImage) async {
-    bool isUploaded = true;
     if (isNewImage) {
       final File? croppedImageFile =
           await startImageCropping(context, showOptionDialog: true);
@@ -105,18 +105,12 @@ class _EditOcrPageState extends State<EditOcrPage> {
       if (!mounted) {
         return;
       }
-      isUploaded = await uploadCapturedPicture(
+      await uploadCapturedPicture(
         context,
         barcode: _product.barcode!,
         imageField: _helper.getImageField(),
         imageUri: croppedImageFile.uri,
       );
-
-      croppedImageFile.delete();
-    }
-
-    if (!isUploaded) {
-      throw Exception('Image could not be uploaded.');
     }
 
     final String? extractedText = await _helper.getExtractedText(_product);
@@ -130,13 +124,55 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
   }
 
-  Future<bool> _updateText(final String text) async {
+  Future<bool> _updateText(final String text, UpToDateProductProvider provider,
+      ImageField imageField) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    return ProductRefresher().saveAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      product: _helper.getMinimalistProduct(_product, text),
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    Product changedProduct = Product(barcode: _product.barcode);
+    Product? cachedProduct = await daoProduct.get(_product.barcode!);
+    if (cachedProduct != null) {
+      cachedProduct = _helper.getMinimalistProduct(cachedProduct, text);
+    }
+    changedProduct = _helper.getMinimalistProduct(changedProduct, text);
+    String uniqueId =
+        UniqueIdGenerator.generateUniqueId(_product.barcode!, INGREDIENT_EDIT);
+    if (_helper.getImageField().value == ImageField.PACKAGING.value) {
+      uniqueId =
+          UniqueIdGenerator.generateUniqueId(_product.barcode!, PACKAGING_EDIT);
+    }
+    final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
+        BackgroundOtherDetailsInput(
+      processName: PRODUCT_EDIT_TASK,
+      uniqueId: uniqueId,
+      barcode: changedProduct.barcode!,
+      languageCode: ProductQuery.getLanguage().code,
+      inputMap: jsonEncode(changedProduct.toJson()),
+      user: jsonEncode(ProductQuery.getUser().toJson()),
+      country: ProductQuery.getCountry()!.iso2Code,
     );
+    await TaskManager().addTask(
+      Task(
+        data: backgroundOtherDetailsInput.toJson(),
+        uniqueId: uniqueId,
+      ),
+    );
+
+    final Product upToDateProduct = cachedProduct ?? changedProduct;
+    await daoProduct.put(upToDateProduct);
+    provider.set(upToDateProduct);
+    localDatabase.notifyListeners();
+    if (!mounted) {
+      return false;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          AppLocalizations.of(context).product_task_background_schedule,
+        ),
+        duration: SnackBarDuration.medium,
+      ),
+    );
+    return true;
   }
 
   @override
@@ -251,7 +287,7 @@ class _OcrWidget extends StatelessWidget {
   final TextEditingController controller;
   final bool updatingText;
   final Future<void> Function(bool) onTapGetImage;
-  final Future<void> Function() onSubmitField;
+  final Future<void> Function(ImageField) onSubmitField;
   final bool hasImageProvider;
   final Product product;
   final OcrHelper helper;
@@ -318,7 +354,8 @@ class _OcrWidget extends StatelessWidget {
                         ),
                         maxLines: null,
                         textInputAction: TextInputAction.done,
-                        onSubmitted: (_) => onSubmitField,
+                        onSubmitted: (_) =>
+                            onSubmitField(helper.getImageField()),
                       ),
                       const SizedBox(height: SMALL_SPACE),
                       ExplanationWidget(
@@ -326,6 +363,7 @@ class _OcrWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: MEDIUM_SPACE),
                       SmoothActionButtonsBar(
+                        axis: Axis.horizontal,
                         negativeAction: SmoothActionButton(
                           text: appLocalizations.cancel,
                           onPressed: () => Navigator.pop(context),
@@ -333,7 +371,7 @@ class _OcrWidget extends StatelessWidget {
                         positiveAction: SmoothActionButton(
                           text: appLocalizations.save,
                           onPressed: () async {
-                            await onSubmitField();
+                            await onSubmitField(helper.getImageField());
                             //ignore: use_build_context_synchronously
                             Navigator.pop(context);
                           },
