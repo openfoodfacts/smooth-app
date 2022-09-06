@@ -43,9 +43,7 @@ class MLKitScanDecoder {
       // OK -> continue
     }
 
-    final decode = await _mainIsolate.decode(image);
-    print('DECODED: $decode');
-    return decode;
+    return _mainIsolate.decode(image);
   }
 
   Future<void> dispose() async {
@@ -92,10 +90,6 @@ class _MLKitScanDecoderMainIsolate {
         }
       } else if (message is List) {
         _completer?.complete(message as List<String>);
-        _completer = null;
-      } else {
-        // TODO REMOVE
-        _completer?.complete(<String>[message.runtimeType.toString()]);
         _completer = null;
       }
     });

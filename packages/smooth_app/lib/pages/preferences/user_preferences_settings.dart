@@ -299,7 +299,7 @@ class _CameraAlternativeModeSetting extends StatelessWidget {
               .camera_alternative_mode_subtitle(snapshot.data![1] as String),
           value: enabled,
           onChanged: (final bool value) {
-            showWarningAfterChange(context);
+            _showWarningAfterChange(context);
             userPreferences.setUseAlternativeCameraMode(value);
           },
         );
@@ -307,7 +307,7 @@ class _CameraAlternativeModeSetting extends StatelessWidget {
     );
   }
 
-  void showWarningAfterChange(BuildContext context) {
+  void _showWarningAfterChange(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     showDialog<void>(

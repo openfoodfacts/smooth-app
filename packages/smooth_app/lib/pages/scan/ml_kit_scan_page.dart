@@ -331,10 +331,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   Future<void> _onNewBarcodeDetected(List<String> barcodes) async {
-    print('BARCODES $barcodes');
-
     for (final String barcode in barcodes) {
-      print('HERE $barcode');
       if (await _model.onScan(barcode)) {
         // Both are Future methods, but it doesn't matter to wait here
         HapticFeedback.lightImpact();
