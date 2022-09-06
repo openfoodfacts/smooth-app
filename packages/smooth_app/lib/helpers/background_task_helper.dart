@@ -29,7 +29,7 @@ const String BASIC_DETAILS = 'BASIC_DETAILS';
 const String PACKAGING_EDIT = 'PACKAGING_EDIT';
 
 /// Response code sent by the server in case of a success
-const int SUCESS_CODE = 1;
+const int SUCCESS_CODE = 1;
 
 /// Runs whenever a task is started in the background.
 /// Whatever invoked with TaskManager.addTask() will be run in this method.
@@ -87,7 +87,7 @@ Future<TaskResult> otherDetails(
   final ProductResult queryResult =
       await OpenFoodAPIClient.getProduct(configuration);
 
-  if (queryResult.status == SUCESS_CODE) {
+  if (queryResult.status == SUCCESS_CODE) {
     final Product? product = queryResult.product;
     if (product != null) {
       await daoProduct.put(product);
@@ -132,7 +132,7 @@ Future<TaskResult> uploadImage(
 
   final ProductResult queryResult =
       await OpenFoodAPIClient.getProduct(configuration);
-  if (queryResult.status == SUCESS_CODE) {
+  if (queryResult.status == SUCCESS_CODE) {
     final Product? product = queryResult.product;
     if (product != null) {
       await daoProduct.put(product);
