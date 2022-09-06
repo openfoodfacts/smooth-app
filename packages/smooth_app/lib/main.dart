@@ -18,6 +18,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/network_config.dart';
@@ -41,7 +42,6 @@ Future<void> main({final bool screenshots = false}) async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
       appRunner: () => runApp(const SmoothApp()),
@@ -99,6 +99,7 @@ Future<bool> _init1() async {
     ),
     daoString: DaoString(_localDatabase),
   );
+  await callbackDispatcher(_localDatabase);
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);

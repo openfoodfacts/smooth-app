@@ -123,9 +123,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       if (_controller == null) {
         _startLiveFeed();
       } else {
-        _controller!.updateFocusPointAlgorithm(
-          _userPreferences.cameraFocusPointAlgorithm,
-        );
+        _controller!.forceFocus();
       }
     }
   }
@@ -241,23 +239,11 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
     stoppingCamera = false;
 
-    // If the controller is initialized update the UI.
-    _barcodeDecoder ??= MLKitScanDecoder(
-      camera: _camera!,
-      scanMode: DevModeScanMode.fromIndex(
-        _userPreferences.getDevModeIndex(
-          UserPreferencesDevMode.userPreferencesEnumScanMode,
-        ),
-      ),
-    );
-
     CameraHelper.initController(
       SmoothCameraController(
         _userPreferences,
         _camera!,
-        _userPreferences.useVeryHighResolutionPreset
-            ? ResolutionPreset.veryHigh
-            : ResolutionPreset.high,
+        ResolutionPreset.high,
         imageFormatGroup: ImageFormatGroup.yuv420,
       ),
     );
@@ -278,8 +264,19 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
           final DateTime start = DateTime.now();
 
           try {
-            final List<String?>? res =
-                await _barcodeDecoder?.processImage(image);
+            // If the decoder is not initialized yet…
+            _barcodeDecoder ??= MLKitScanDecoder(
+              camera: _camera!,
+              scanMode: DevModeScanMode.fromIndex(
+                _userPreferences.getDevModeIndex(
+                  UserPreferencesDevMode.userPreferencesEnumScanMode,
+                ),
+              ),
+            );
+
+            final List<String?>? res = await _barcodeDecoder
+                ?.processImage(image)
+                .timeout(const Duration(seconds: 5));
 
             _averageProcessingTime.add(
               DateTime.now().difference(start).inMilliseconds,
@@ -312,7 +309,6 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _controller?.setFocusPointTo(
             _focusPoint.offset,
-            _userPreferences.cameraFocusPointAlgorithm,
           );
         });
       }

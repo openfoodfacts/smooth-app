@@ -176,8 +176,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        final bool isPhotoUploaded =
-                            await uploadCapturedPicture(
+                        uploadCapturedPicture(
                           context,
                           barcode: widget.barcode,
                           imageField: widget.imageType,
@@ -186,10 +185,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         if (!mounted) {
                           return;
                         }
-                        retakenPhoto?.delete();
                         Navigator.pop(
                           context,
-                          isPhotoUploaded ? photo : null,
+                          photo,
                         );
                       },
                       label: Text(

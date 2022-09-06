@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "Udvid ernæringsfaktatabellen",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1614,12 +1618,18 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
+    },
+    "no_email_client_available_dialog_title": "Ingen e-mail app!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Send manuelt en e-mail til contact@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
-    }
+    },
+    "all_images": "Alle fotos",
+    "selected_images": "Valgte fotos"
 }

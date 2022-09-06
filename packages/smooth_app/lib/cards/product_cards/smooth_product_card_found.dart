@@ -86,7 +86,7 @@ class SmoothProductCardFound extends StatelessWidget {
             padding: const EdgeInsets.all(VERY_SMALL_SPACE),
             child: Row(
               children: <Widget>[
-                SmoothProductImage(
+                SmoothMainProductImage(
                   product: product,
                   width: screenSize.width * 0.20,
                   height: screenSize.width * 0.20,

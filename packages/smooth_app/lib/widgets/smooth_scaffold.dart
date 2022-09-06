@@ -100,7 +100,13 @@ class SmoothScaffoldState extends ScaffoldState {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
-      child: child,
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          appBarTheme: AppBarTheme.of(context)
+              .copyWith(systemOverlayStyle: _overlayStyle),
+        ),
+        child: child,
+      ),
     );
   }
 
@@ -110,7 +116,9 @@ class SmoothScaffoldState extends ScaffoldState {
   bool get _spaceBehindStatusBar =>
       (widget as SmoothScaffold).spaceBehindStatusBar == true;
 
-  Brightness? get _brightness => (widget as SmoothScaffold).brightness;
+  Brightness? get _brightness =>
+      (widget as SmoothScaffold).brightness ??
+      SmoothBrightnessOverride.of(context)?.brightness;
 
   SystemUiOverlayStyle get _overlayStyle {
     switch (_brightness) {
@@ -128,5 +136,26 @@ class SmoothScaffoldState extends ScaffoldState {
           systemNavigationBarContrastEnforced: false,
         );
     }
+  }
+}
+
+/// Class allowing to override the default [Brightness] of
+/// a [SmoothScaffold].
+class SmoothBrightnessOverride extends InheritedWidget {
+  const SmoothBrightnessOverride({
+    required Widget child,
+    Key? key,
+    this.brightness,
+  }) : super(key: key, child: child);
+
+  final Brightness? brightness;
+
+  @override
+  bool updateShouldNotify(SmoothBrightnessOverride oldWidget) =>
+      brightness != oldWidget.brightness;
+
+  static SmoothBrightnessOverride? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<SmoothBrightnessOverride>();
   }
 }

@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -82,8 +85,22 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   action: SmoothActionButton(
                     text: appLocalizations.finish,
                     onPressed: () async {
-                      await Navigator.maybePop(
-                          context, _isProductLoaded ? widget.barcode : null);
+                      final LocalDatabase localDatabase =
+                          context.read<LocalDatabase>();
+                      final DaoProduct daoProduct = DaoProduct(localDatabase);
+                      final Product? product =
+                          await daoProduct.get(widget.barcode);
+                      if (product == null) {
+                        final Product product = Product(
+                          barcode: widget.barcode,
+                        );
+                        daoProduct.put(product);
+                        localDatabase.notifyListeners();
+                      }
+                      if (mounted) {
+                        await Navigator.maybePop(
+                            context, _isProductLoaded ? widget.barcode : null);
+                      }
                     },
                   ),
                 ),
@@ -159,7 +176,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               _isProductLoaded = true;
             });
           }
-          initialPhoto.delete();
         },
       ),
     );
@@ -167,16 +183,23 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildImageUploadedRow(
       BuildContext context, ImageField imageType, File image) {
+    final ThemeData themeData = Theme.of(context);
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(height: 50, child: Image.file(image, fit: BoxFit.cover)),
           Expanded(
-              child: Center(
-                  child: Text(_getPhotoUploadedLabelText(context, imageType),
-                      style: Theme.of(context).textTheme.bodyText1))),
+            child: Center(
+              child: Text(_getAddPhotoButtonText(context, imageType),
+                  style: themeData.textTheme.bodyText1),
+            ),
+          ),
+          Icon(
+            Icons.check_box,
+            color: themeData.bottomNavigationBarTheme.selectedItemColor,
+          )
         ],
       ),
     );
@@ -198,23 +221,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     }
   }
 
-  String _getPhotoUploadedLabelText(
-      BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    switch (imageType) {
-      case ImageField.FRONT:
-        return appLocalizations.front_photo_uploaded;
-      case ImageField.INGREDIENTS:
-        return appLocalizations.ingredients_photo_uploaded;
-      case ImageField.NUTRITION:
-        return appLocalizations.nutritional_facts_photo_uploaded;
-      case ImageField.PACKAGING:
-        return appLocalizations.recycling_photo_uploaded;
-      case ImageField.OTHER:
-        return appLocalizations.other_photo_uploaded;
-    }
-  }
-
   bool _isImageUploadedForType(ImageField imageType) {
     return (_uploadedImages[imageType] ?? <File>[]).isNotEmpty;
   }
@@ -222,27 +228,30 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   Widget _buildNutritionInputButton() {
     if (_nutritionFactsAdded) {
       return Padding(
-          padding: _ROW_PADDING_TOP,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              const SizedBox(
-                width: 50.0,
-                child: Icon(
-                  Icons.check,
-                  color: Colors.greenAccent,
-                ),
+        padding: _ROW_PADDING_TOP,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              width: 50.0,
+              child: Icon(
+                Icons.check,
+                color: Theme.of(context)
+                    .bottomNavigationBarTheme
+                    .selectedItemColor,
               ),
-              Expanded(
-                child: Center(
-                  child: Text(
-                      AppLocalizations.of(context).nutritional_facts_added,
-                      style: Theme.of(context).textTheme.bodyText1),
-                ),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(
+                    AppLocalizations.of(context).nutritional_facts_added,
+                    style: Theme.of(context).textTheme.bodyText1),
               ),
-            ],
-          ));
+            ),
+          ],
+        ),
+      );
     }
 
     return Padding(
@@ -293,17 +302,18 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildaddInputDetailsButton() {
     if (_basicDetailsAdded) {
+      final ThemeData themeData = Theme.of(context);
       return Padding(
           padding: _ROW_PADDING_TOP,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const SizedBox(
+              SizedBox(
                 width: 50.0,
                 child: Icon(
                   Icons.check,
-                  color: Colors.greenAccent,
+                  color: themeData.bottomNavigationBarTheme.selectedItemColor,
                 ),
               ),
               Expanded(

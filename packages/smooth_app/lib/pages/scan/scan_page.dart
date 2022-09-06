@@ -269,6 +269,7 @@ class _ScanPageTopWidget extends StatelessWidget {
                 onPressed: () => Navigator.of(context).pop(true),
                 lines: 2,
               ),
+              actionsAxis: Axis.vertical,
             );
           });
     });

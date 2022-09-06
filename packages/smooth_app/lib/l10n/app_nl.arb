@@ -1573,6 +1573,10 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
+    "image_upload_queued": "De afbeelding zal zo snel mogelijk op de achtergrond worden geüpload.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
+    },
     "expand_nutrition_facts": "Tabel met voedingswaarden uitvouwen",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1614,12 +1618,18 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "product_task_background_schedule": "Het product zal zo snel mogelijk op de achtergrond worden bijgewerkt.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
+    },
+    "no_email_client_available_dialog_title": "Geen e-mailtoepassingen gevonden!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Stuur ons alstublieft handmatig een e-mail naar contact@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
-    }
+    },
+    "all_images": "All Images",
+    "selected_images": "Selected Images"
 }

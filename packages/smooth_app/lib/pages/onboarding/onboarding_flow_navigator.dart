@@ -192,6 +192,7 @@ class OnboardingFlowNavigator {
       child: Builder(
         builder: (BuildContext context) => SmoothScaffold(
           body: widget,
+          brightness: Brightness.dark,
         ),
       ),
     );

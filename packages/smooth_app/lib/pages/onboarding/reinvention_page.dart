@@ -25,6 +25,7 @@ class ReinventionPage extends StatelessWidget {
 
     return SmoothScaffold(
       backgroundColor: backgroundColor,
+      brightness: Brightness.dark,
       body: SafeArea(
         child: Stack(
           children: <Widget>[
