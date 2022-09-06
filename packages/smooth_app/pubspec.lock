@@ -139,7 +139,7 @@ packages:
     description:
       path: "packages/camera/camera"
       ref: smooth_camera
-      resolved-ref: b285b3c4c9a60dbec46105992d6cd255a1178f0a
+      resolved-ref: "8bf329e07f74f341fae7e08c968da0a949459912"
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.9.6"

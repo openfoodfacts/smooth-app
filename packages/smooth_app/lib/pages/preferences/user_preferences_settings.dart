@@ -312,7 +312,7 @@ class _CameraAlternativeModeSetting extends StatelessWidget {
 
     showDialog<void>(
         context: context,
-        builder: (_) {
+        builder: (BuildContext subContext) {
           return SmoothAlertDialog(
             title:
                 appLocalizations.camera_alternative_mode_confirm_dialog_title,
@@ -322,7 +322,7 @@ class _CameraAlternativeModeSetting extends StatelessWidget {
             positiveAction: SmoothActionButton(
               text: appLocalizations
                   .camera_alternative_mode_confirm_dialog_button,
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.pop(subContext),
             ),
           );
         });
