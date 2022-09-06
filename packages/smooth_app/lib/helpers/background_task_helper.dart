@@ -25,6 +25,9 @@ const String NUTRITION_EDIT = 'NUTRITION_EDIT';
 /// Constant for basic details edit task
 const String BASIC_DETAILS = 'BASIC_DETAILS';
 
+/// Constnat for packaging edit task
+const String PACKAGING_EDIT = 'PACKAGING_EDIT';
+
 /// Response code sent by the server in case of a success
 const int SUCESS_CODE = 1;
 
