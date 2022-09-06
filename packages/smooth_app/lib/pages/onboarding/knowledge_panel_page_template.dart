@@ -164,19 +164,22 @@ class _KnowledgePanelPageTemplateState
             OnboardingPage.HEALTH_CARD_EXAMPLE) &&
         !OnboardingFlowNavigator.isOnboardingPagedInHistory(
             OnboardingPage.ECO_CARD_EXAMPLE)) {
-      hitPopup.add(InkWell(
-        child: const DecoratedBox(
-          decoration: BoxDecoration(color: Colors.transparent),
+      hitPopup.add(
+        Positioned(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                // slightly lower than bottom bar top
+                bottom: 2 * VERY_LARGE_SPACE +
+                    MINIMUM_TOUCH_SIZE -
+                    .5 * VERY_LARGE_SPACE,
+              ),
+              child: hintPopup,
+            ),
+          ),
         ),
-        onTap: () {
-          setState(() {
-            _isHintDismissed = true;
-          });
-        },
-      ));
-      hitPopup.add(Positioned(
-        child: Align(alignment: Alignment.center, child: hintPopup),
-      ));
+      );
     }
     return hitPopup;
   }
