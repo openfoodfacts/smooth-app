@@ -11,7 +11,7 @@
 
 We are currently using Flutter 3.0.5 as the new 3.3.0 [has some bugs](https://github.com/openfoodfacts/smooth-app/issues/2919).
 
-Running `flutter downgrade 3.0.5` downgrades the version.-
+Running `flutter downgrade 3.0.5` downgrades the version.
 
 ------
 
