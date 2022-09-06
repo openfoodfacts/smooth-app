@@ -139,7 +139,7 @@ packages:
     description:
       path: "packages/camera/camera"
       ref: smooth_camera
-      resolved-ref: "873afe5cc5077e431ec29d7c31a34cc48e34b850"
+      resolved-ref: b285b3c4c9a60dbec46105992d6cd255a1178f0a
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.9.6"
@@ -148,7 +148,7 @@ packages:
     description:
       path: "packages/camera/camera_platform_interface"
       ref: smooth_camera
-      resolved-ref: "873afe5cc5077e431ec29d7c31a34cc48e34b850"
+      resolved-ref: b285b3c4c9a60dbec46105992d6cd255a1178f0a
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "2.1.6"
@@ -157,7 +157,7 @@ packages:
     description:
       path: "packages/camera/camera_web"
       ref: smooth_camera
-      resolved-ref: "873afe5cc5077e431ec29d7c31a34cc48e34b850"
+      resolved-ref: b285b3c4c9a60dbec46105992d6cd255a1178f0a
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.2.1+6"
