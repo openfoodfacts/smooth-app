@@ -95,13 +95,14 @@ class NutritionContainer {
         (!_added.contains(nutrientId));
   }
 
-  /// Returns a [Product] with only nutrients data.
-  Product getProduct() => Product(
-        barcode: _barcode,
-        noNutritionData: noNutritionData,
-        nutriments: _getNutriments(),
-        servingSize: _servingSize,
-      );
+  /// Returns a [Product] with changed nutrients data.
+  Product getProduct(Product product) {
+    product.barcode = _barcode;
+    product.noNutritionData = noNutritionData;
+    product.nutriments = _getNutriments();
+    product.servingSize = _servingSize;
+    return product;
+  }
 
   void copyUnitsFrom(final NutritionContainer other) =>
       _units.addAll(other._units);

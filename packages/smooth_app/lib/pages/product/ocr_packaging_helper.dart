@@ -11,11 +11,10 @@ class OcrPackagingHelper extends OcrHelper {
   String getText(final Product product) => product.packaging ?? '';
 
   @override
-  Product getMinimalistProduct(final Product product, final String text) =>
-      Product(
-        barcode: product.barcode,
-        packaging: text,
-      );
+  Product getMinimalistProduct(Product product, final String text) {
+    product.packaging = text;
+    return product;
+  }
 
   @override
   String? getImageUrl(final Product product) => product.imagePackagingUrl;
