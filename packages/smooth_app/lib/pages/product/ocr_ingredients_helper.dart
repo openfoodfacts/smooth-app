@@ -9,11 +9,10 @@ class OcrIngredientsHelper extends OcrHelper {
   String getText(final Product product) => product.ingredientsText ?? '';
 
   @override
-  Product getMinimalistProduct(final Product product, final String text) =>
-      Product(
-        barcode: product.barcode,
-        ingredientsText: text,
-      );
+  Product getMinimalistProduct(final Product product, final String text) {
+    product.ingredientsText = text;
+    return product;
+  }
 
   @override
   String? getImageUrl(final Product product) => product.imageIngredientsUrl;

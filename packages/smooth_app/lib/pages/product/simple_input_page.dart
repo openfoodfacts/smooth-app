@@ -6,6 +6,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -44,7 +46,6 @@ class SimpleInputPage extends StatefulWidget {
 
 class _SimpleInputPageState extends State<SimpleInputPage> {
   final List<TextEditingController> _controllers = <TextEditingController>[];
-
   @override
   void initState() {
     super.initState();
@@ -111,17 +112,21 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                   child: ListView(children: simpleInputs),
                 ),
               ),
-              SmoothActionButtonsBar(
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.save,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(saving: true),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                child: SmoothActionButtonsBar(
+                  axis: Axis.horizontal,
+                  positiveAction: SmoothActionButton(
+                    text: appLocalizations.save,
+                    onPressed: () async => _exitPage(
+                      await _mayExitPage(saving: true),
+                    ),
                   ),
-                ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.cancel,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(saving: false),
+                  negativeAction: SmoothActionButton(
+                    text: appLocalizations.cancel,
+                    onPressed: () async => _exitPage(
+                      await _mayExitPage(saving: false),
+                    ),
                   ),
                 ),
               ),
@@ -145,6 +150,14 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
     final Product changedProduct = Product(barcode: widget.product.barcode);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? cachedProduct = await daoProduct.get(
+      changedProduct.barcode!,
+    );
     bool changed = false;
     bool added = false;
     String pageName = '';
@@ -154,8 +167,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
       if (widget.helpers[i].getChangedProduct(changedProduct)) {
         changed = true;
+        if (cachedProduct != null) {
+          widget.helpers[i].getChangedProduct(cachedProduct);
+        }
       }
-      pageName = widget.helpers[i].getTitle(AppLocalizations.of(context));
+      pageName = widget.helpers[i].getTitle(appLocalizations);
     }
     if (added) {
       setState(() {});
@@ -163,8 +179,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     if (!changed) {
       return true;
     }
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+
     if (!saving) {
       final bool? pleaseSave = await showDialog<bool>(
         context: context,
@@ -211,6 +226,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         uniqueId: uniqueId,
       ),
     );
+
+    final Product upToDateProduct = cachedProduct ?? changedProduct;
+    await daoProduct.put(upToDateProduct);
+    provider.set(upToDateProduct);
     localDatabase.notifyListeners();
     if (!mounted) {
       return false;

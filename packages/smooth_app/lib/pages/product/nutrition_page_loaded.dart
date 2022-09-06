@@ -11,6 +11,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -69,7 +70,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   void initState() {
     super.initState();
     _product = widget.product;
-    _nutritionContainer = _getFreshContainer();
+    _nutritionContainer = _getFreshContainer(widget.product);
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
     _noNutritionData = _product.noNutritionData ?? false;
   }
@@ -145,6 +146,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                 ),
               ),
               SmoothActionButtonsBar(
+                axis: Axis.horizontal,
                 positiveAction: SmoothActionButton(
                   text: appLocalizations.save,
                   onPressed: () async => _exitPage(
@@ -453,13 +455,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         _noNutritionData,
       );
 
-  Product? _getChangedProduct() {
+  Product? _getChangedProduct(Product product) {
     if (!_formKey.currentState!.validate()) {
       return null;
     }
     // We use a separate fresh container here.
     // If something breaks while saving, we won't get a half written object.
-    final NutritionContainer output = _getFreshContainer();
+    final NutritionContainer output = _getFreshContainer(product);
     // we copy the values
     for (final String key in _controllers.keys) {
       final TextEditingController controller = _controllers[key]!;
@@ -469,12 +471,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     output.noNutritionData = _noNutritionData;
     // we copy the units
     output.copyUnitsFrom(_nutritionContainer);
-    return output.getProduct();
+    return output.getProduct(product);
   }
 
-  NutritionContainer _getFreshContainer() => NutritionContainer(
+  NutritionContainer _getFreshContainer(Product product) => NutritionContainer(
         orderedNutrients: widget.orderedNutrients,
-        product: _product,
+        product: product,
       );
 
   /// Exits the page if the [flag] is `true`.
@@ -494,6 +496,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final UpToDateProductProvider provider =
+        context.read<UpToDateProductProvider>();
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
     if (!saving) {
       final bool? pleaseSave = await showDialog<bool>(
         context: context,
@@ -518,7 +523,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         return true;
       }
     }
-    final Product? changedProduct = _getChangedProduct();
+
+    final Product? changedProduct =
+        _getChangedProduct(Product(barcode: widget.product.barcode));
+    Product? cachedProduct = await daoProduct.get(
+      _product.barcode!,
+    );
+    if (cachedProduct != null) {
+      cachedProduct = _getChangedProduct(_product);
+    }
+
     if (changedProduct == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -549,19 +563,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         uniqueId: uniqueId,
       ),
     );
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final Product? product = await daoProduct.get(
-      _product.barcode!,
-    );
-    // We go and chek in the local database if the product is
-    // already in the database. If it is, we update the fields of the product.
-    //And if it is not, we create a new product with the fields of the _product
-    // and we insert it in the database. (Giving the user an immediate feedback)
-    if (product != null) {
-      product.servingSize = changedProduct.servingSize;
-      product.nutriments = changedProduct.nutriments;
-      await daoProduct.put(product);
-    }
+    final Product upToDateProduct = cachedProduct ?? changedProduct;
+    await daoProduct.put(upToDateProduct);
+    provider.set(upToDateProduct);
     localDatabase.notifyListeners();
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(

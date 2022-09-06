@@ -25,9 +25,11 @@ class ImageUploadCard extends StatefulWidget {
 }
 
 class _ImageUploadCardState extends State<ImageUploadCard> {
-  ImageProvider? _imageProvider; // Normal size image to display in carousel
-  ImageProvider?
-      _imageFullProvider; // Full resolution image to display in image page
+  /// Normal size image to display in carousel
+  ImageProvider? _imageProvider;
+
+  /// Full resolution image to display in image page
+  ImageProvider? _imageFullProvider;
 
   Future<void> _getImage() async {
     final File? croppedImageFile =
@@ -47,8 +49,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       }
       await uploadCapturedPicture(
         context,
-        barcode: widget.product
-            .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+        barcode: widget.product.barcode!,
         imageField: widget.productImageData.imageField,
         imageUri: croppedImageFile.uri,
       );
@@ -113,9 +114,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             context,
             MaterialPageRoute<bool>(
               builder: (BuildContext context) => ProductImageGalleryView(
-                productImageData: widget.productImageData,
-                allProductImagesData: widget.allProductImagesData,
-                title: widget.productImageData.title,
+                imagesData: widget.allProductImagesData,
                 barcode: widget.product.barcode,
               ),
             ),
