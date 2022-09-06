@@ -1629,5 +1629,7 @@
     "no_email_client_available_dialog_content": "Bitte senden Sie uns manuell eine E-Mail an contact@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
-    }
+    },
+    "all_images": "Alle Fotos",
+    "selected_images": "Ausgewählte Fotos"
 }

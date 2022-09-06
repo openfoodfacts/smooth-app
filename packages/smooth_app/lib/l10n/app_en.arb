@@ -1630,6 +1630,6 @@
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images" : "All Images",
+    "all_images": "All Images",
     "selected_images": "Selected Images"
 }
