@@ -23,9 +23,8 @@ class MLKitScanDecoder {
   /// Ensures the dispose() method is called if this class is GC'ed.
   static final Finalizer<_MLKitScanDecoderMainIsolate> _finalizer =
       Finalizer<_MLKitScanDecoderMainIsolate>(
-          (_MLKitScanDecoderMainIsolate isolate) {
-    isolate.dispose();
-  });
+    (_MLKitScanDecoderMainIsolate isolate) => isolate.dispose(),
+  );
 
   final DevModeScanMode scanMode;
   final _MLKitScanDecoderMainIsolate _mainIsolate;
@@ -167,8 +166,8 @@ class _MLKitScanDecoderMainIsolate {
 
   bool get isDisposed =>
       _isIsolateInitialized == false &&
-          _completer == null &&
-          _sendPort == null ||
+      _completer == null &&
+      _sendPort == null &&
       _isolate == null;
 }
 
