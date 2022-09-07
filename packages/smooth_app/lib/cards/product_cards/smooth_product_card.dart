@@ -4,10 +4,12 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 class SmoothProductBaseCard extends StatelessWidget {
   const SmoothProductBaseCard({
     required this.child,
+    this.backgroundColorOpacity,
     super.key,
   });
 
   final Widget child;
+  final double? backgroundColorOpacity;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +25,8 @@ class SmoothProductBaseCard extends StatelessWidget {
 
           return SmoothCard(
             color: themeData.brightness == Brightness.light
-                ? Colors.white
-                : Colors.black,
+                ? Colors.white.withOpacity(backgroundColorOpacity ?? 1.0)
+                : Colors.black.withOpacity(backgroundColorOpacity ?? 1.0),
             padding: padding,
             child: FittedBox(
               fit: BoxFit.scaleDown,

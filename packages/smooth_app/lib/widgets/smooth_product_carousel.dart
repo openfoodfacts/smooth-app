@@ -190,6 +190,7 @@ class SearchCard extends StatelessWidget {
     final bool isDarkmode = themeData.brightness == Brightness.dark;
 
     return SmoothProductBaseCard(
+      backgroundColorOpacity: OPACITY,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
