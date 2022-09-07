@@ -54,7 +54,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
                         style: textTheme.headline2,
                       ),
                       TextSpan(
-                        text: '\n${appLocalizations.missing_product}\n',
+                        text: '\n${appLocalizations.add_product_take_photos}\n',
                         style: textTheme.bodyText2,
                       ),
                       TextSpan(
