@@ -203,4 +203,19 @@ class DaoProduct extends AbstractSqlDao
       debugPrint('$barcode;$asZipped;$asString;$factor');
     }
   }
+
+  Future<int> getTotalNoOfProducts() async {
+    final List<String> barcodes = await getAllKeys();
+    return barcodes.length;
+  }
+
+  Future<double> getTotalSizeInMB() async {
+    final int gzippedLength = Sqflite.firstIntValue(
+      await localDatabase.database.rawQuery(
+        'select sum(length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON))'
+        ' from $_TABLE_PRODUCT',
+      ),
+    )!;
+    return double.parse((gzippedLength / ~1024 / ~1024).toStringAsFixed(2));
+  }
 }
