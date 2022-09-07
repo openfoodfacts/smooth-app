@@ -704,6 +704,18 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "permissions_page_title": "Camera access",
+    "@permissions_page_title": {
+        "description": "Title for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "@permissions_page_body1": {
+        "description": "first paragraph for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "@permissions_page_body2": {
+        "description": "second paragraph for the camera permission's page (onboarding)"
+    },
     "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
@@ -776,11 +788,15 @@
     },
     "authorize_button_label": "Authorize",
     "@authorize": {
-        "description": "Button to accept the request of sending the anonymous analytics"
+        "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
     "refuse_button_label": "Refuse",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "ask_me_later_button_label": "Later",
+    "@ask_me_later": {
+        "description": "Button to ignore the camera permission request"
     },
     "knowledge_panel_text_source": "Go further on {source_name}",
     "@knowledge_panel_text_source": {
