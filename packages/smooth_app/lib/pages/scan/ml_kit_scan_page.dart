@@ -350,7 +350,6 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       if (_controller!.value.isClosed) {
         _stopImageStream();
       } else {
-        // TODO(M123): Handle errors better
         Logs.e(
           'On camera controller error : ${_controller!.value.errorDescription}',
         );
