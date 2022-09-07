@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.15.0](https://github.com/openfoodfacts/smooth-app/compare/v3.14.0...v3.15.0) (2022-09-07)
+
+
+### Features
+
+* Finalizer for MLKitScanDecoder ([#2937](https://github.com/openfoodfacts/smooth-app/issues/2937)) ([aefd743](https://github.com/openfoodfacts/smooth-app/commit/aefd7437196026c2a424a6da3b7c84f0cf14704e))
+
 ## [3.14.0](https://github.com/openfoodfacts/smooth-app/compare/v3.13.1...v3.14.0) (2022-09-07)
 
 
