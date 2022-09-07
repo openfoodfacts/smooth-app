@@ -4,6 +4,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
@@ -12,6 +13,7 @@ import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/scan/alternative_camera_mode.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
@@ -241,6 +243,10 @@ class _CameraSettings extends StatelessWidget {
         UserPreferencesTitle(
           label: appLocalizations.settings_app_camera,
         ),
+        if (AlternativeCameraMode.isSupported) ...<Widget>[
+          const _CameraAlternativeModeSetting(),
+          const UserPreferencesListItemDivider(),
+        ],
         const _CameraPlayScanSoundSetting(),
       ],
     );
@@ -263,6 +269,63 @@ class _CameraPlayScanSoundSetting extends StatelessWidget {
         await userPreferences.setPlayCameraSound(value);
       },
     );
+  }
+}
+
+class _CameraAlternativeModeSetting extends StatelessWidget {
+  const _CameraAlternativeModeSetting({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return FutureBuilder<List<Object>>(
+      future: Future.wait<Object>(<Future<Object>>[
+        AlternativeCameraMode.isAWhitelistedDevice,
+        AlternativeCameraMode.getDeviceName()
+      ]),
+      builder: (BuildContext context, AsyncSnapshot<List<Object>> snapshot) {
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
+
+        final bool enabled = userPreferences.useAlternativeCameraMode ??
+            snapshot.data![0] as bool;
+
+        return UserPreferencesSwitchItem(
+          title: appLocalizations.camera_alternative_mode_title,
+          subtitle: appLocalizations
+              .camera_alternative_mode_subtitle(snapshot.data![1] as String),
+          value: enabled,
+          onChanged: (final bool value) {
+            _showWarningAfterChange(context);
+            userPreferences.setUseAlternativeCameraMode(value);
+          },
+        );
+      },
+    );
+  }
+
+  void _showWarningAfterChange(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    showDialog<void>(
+        context: context,
+        builder: (BuildContext subContext) {
+          return SmoothAlertDialog(
+            title:
+                appLocalizations.camera_alternative_mode_confirm_dialog_title,
+            body: Text(
+              appLocalizations.camera_alternative_mode_confirm_dialog_body,
+            ),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations
+                  .camera_alternative_mode_confirm_dialog_button,
+              onPressed: () => Navigator.pop(subContext),
+            ),
+          );
+        });
   }
 }
 
