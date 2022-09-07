@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
@@ -14,7 +15,6 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/tagline.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
@@ -141,7 +141,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   /// instead in the meanwhile.
   Widget _getWidget(final int index) {
     if (index >= barcodes.length) {
-      return Container();
+      return EMPTY_WIDGET;
     }
     final String barcode = barcodes[index];
     switch (_model.getBarcodeState(barcode)!) {
@@ -188,54 +188,47 @@ class SearchCard extends StatelessWidget {
     final AppLocalizations localizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     final bool isDarkmode = themeData.brightness == Brightness.dark;
-    return SmoothCard(
-      color: Theme.of(context).brightness == Brightness.light
-          ? Colors.white.withOpacity(OPACITY)
-          : Colors.black.withOpacity(OPACITY),
-      elevation: 0,
-      padding: SmoothProductCarousel.carouselItemHorizontalPadding,
-      child: SizedBox(
-        height: height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            SvgPicture.asset(
-              Theme.of(context).brightness == Brightness.light
-                  ? 'assets/app/release_icon_light_transparent_no_border.svg'
-                  : 'assets/app/release_icon_dark_transparent_no_border.svg',
-              width: height * 0.2,
-              height: height * 0.2,
+
+    return SmoothProductBaseCard(
+      backgroundColorOpacity: OPACITY,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          SvgPicture.asset(
+            Theme.of(context).brightness == Brightness.light
+                ? 'assets/app/release_icon_light_transparent_no_border.svg'
+                : 'assets/app/release_icon_dark_transparent_no_border.svg',
+            width: height * 0.2,
+            height: height * 0.2,
+          ),
+          AutoSizeText(
+            localizations.welcomeToOpenFoodFacts,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.bold,
+              height: 1.25,
             ),
-            AutoSizeText(
-              localizations.welcomeToOpenFoodFacts,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 26.0,
-                fontWeight: FontWeight.bold,
-                height: 1.25,
-              ),
-              maxLines: 2,
-            ),
-            SizedBox(
-              height: height * 0.05,
-            ),
-            const Expanded(
-              child: _SearchCardTagLine(),
-            ),
-            SearchField(
-              onFocus: () => _openSearchPage(context),
-              readOnly: true,
-              showClearButton: false,
-              backgroundColor: isDarkmode
-                  ? Colors.white10
-                  : const Color.fromARGB(255, 240, 240, 240)
-                      .withOpacity(OPACITY),
-              foregroundColor:
-                  themeData.colorScheme.onSurface.withOpacity(OPACITY),
-            ),
-          ],
-        ),
+            maxLines: 2,
+          ),
+          SizedBox(
+            height: height * 0.05,
+          ),
+          const Expanded(
+            child: _SearchCardTagLine(),
+          ),
+          SearchField(
+            onFocus: () => _openSearchPage(context),
+            readOnly: true,
+            showClearButton: false,
+            backgroundColor: isDarkmode
+                ? Colors.white10
+                : const Color.fromARGB(255, 240, 240, 240).withOpacity(OPACITY),
+            foregroundColor:
+                themeData.colorScheme.onSurface.withOpacity(OPACITY),
+          ),
+        ],
       ),
     );
   }
