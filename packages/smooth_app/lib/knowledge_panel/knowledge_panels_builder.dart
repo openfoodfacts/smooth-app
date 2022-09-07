@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -15,13 +14,11 @@ import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 class KnowledgePanelWidget extends StatelessWidget {
   const KnowledgePanelWidget({
     required this.panelElement,
-    required this.knowledgePanels,
     required this.product,
     required this.onboardingMode,
   });
 
   final KnowledgePanelElement panelElement;
-  final KnowledgePanels knowledgePanels;
   final Product product;
   final bool onboardingMode;
 
@@ -29,7 +26,7 @@ class KnowledgePanelWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final String panelId = panelElement.panelElement!.panelId;
     final KnowledgePanel rootPanel =
-        knowledgePanels.panelIdToPanelMap[panelId]!;
+        KnowledgePanelWidget.getKnowledgePanel(product, panelId)!;
     // [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
     final List<Widget> children = <Widget>[];
     children.add(
@@ -46,7 +43,6 @@ class KnowledgePanelWidget extends StatelessWidget {
       children.add(
         KnowledgePanelElementCard(
           knowledgePanelElement: knowledgePanelElement,
-          allPanels: knowledgePanels,
           product: product,
           isInitiallyExpanded: false,
         ),
@@ -83,18 +79,19 @@ class KnowledgePanelWidget extends StatelessWidget {
 
   /// Returns all the panel elements, in option only the one matching [panelId].
   static List<KnowledgePanelElement> getPanelElements(
-    final KnowledgePanels knowledgePanels, {
+    final Product product, {
     final String? panelId,
   }) {
     final List<KnowledgePanelElement> result = <KnowledgePanelElement>[];
-    if (knowledgePanels.panelIdToPanelMap['root'] == null) {
+    final KnowledgePanel? root =
+        KnowledgePanelWidget.getKnowledgePanel(product, 'root');
+    if (root == null) {
       return result;
     }
-    if (knowledgePanels.panelIdToPanelMap['root']!.elements == null) {
+    if (root.elements == null) {
       return result;
     }
-    for (final KnowledgePanelElement panelElement
-        in knowledgePanels.panelIdToPanelMap['root']!.elements!) {
+    for (final KnowledgePanelElement panelElement in root.elements!) {
       if (panelElement.elementType != KnowledgePanelElementType.PANEL) {
         continue;
       }
@@ -111,13 +108,19 @@ class KnowledgePanelWidget extends StatelessWidget {
     return result;
   }
 
+  static KnowledgePanel? getKnowledgePanel(
+    final Product product,
+    final String panelId,
+  ) =>
+      product.knowledgePanels?.panelIdToPanelMap[panelId];
+
   /// Returns the unique panel element that matches [panelId], or `null`.
   static KnowledgePanelElement? getPanelElement(
-    final KnowledgePanels knowledgePanels,
+    final Product product,
     final String panelId,
   ) {
     final List<KnowledgePanelElement> elements = getPanelElements(
-      knowledgePanels,
+      product,
       panelId: panelId,
     );
     if (elements.length != 1) {
