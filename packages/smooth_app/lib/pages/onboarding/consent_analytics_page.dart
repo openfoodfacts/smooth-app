@@ -12,8 +12,8 @@ import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class ConsentAnalytics extends StatelessWidget {
-  const ConsentAnalytics(this.backgroundColor);
+class ConsentAnalyticsPage extends StatelessWidget {
+  const ConsentAnalyticsPage(this.backgroundColor);
 
   final Color backgroundColor;
 
@@ -21,52 +21,50 @@ class ConsentAnalytics extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Container(
+    return ColoredBox(
       color: backgroundColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SvgPicture.asset(
-                  'assets/onboarding/analytics.svg',
-                  width: screenSize.width * .50,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      'assets/onboarding/analytics.svg',
+                      width: screenSize.width * .50,
+                    ),
+                    const SizedBox(height: LARGE_SPACE),
+                    AutoSizeText(
+                      appLocalizations.consent_analytics_title,
+                      maxLines: 2,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline1!
+                          .apply(color: const Color.fromARGB(255, 51, 51, 51)),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: SMALL_SPACE),
+                    AutoSizeText(
+                      appLocalizations.consent_analytics_body1,
+                      maxLines: 3,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: SMALL_SPACE),
+                    AutoSizeText(
+                      appLocalizations.consent_analytics_body2,
+                      maxLines: 3,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-                  child: AutoSizeText(
-                    appLocalizations.consent_analytics_title,
-                    maxLines: 2,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline1!
-                        .apply(color: const Color.fromARGB(255, 51, 51, 51)),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-                  child: AutoSizeText(
-                    appLocalizations.consent_analytics_body1,
-                    maxLines: 3,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-                  child: AutoSizeText(
-                    appLocalizations.consent_analytics_body2,
-                    maxLines: 3,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
           OnboardingBottomBar(

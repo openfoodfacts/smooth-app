@@ -19,34 +19,33 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
     super.addListener(listener);
 
     if (_status == _DevicePermissionStatus.initial) {
-      checkPermission();
+      _refreshPermissionStatus();
     }
   }
 
-  Future<void> checkPermission() async {
-    /// If a device doesn't have a camera, let's pretend the permission is
-    /// granted
+  Future<void> _refreshPermissionStatus() async {
+    bool permissionGranted;
     if (permission == Permission.camera && !CameraHelper.hasACamera) {
-      value = DevicePermission._(
-        permission,
-        DevicePermissionStatus.granted,
-      );
+      /// If a device doesn't have a camera, let's pretend the permission is
+      /// granted.
+      permissionGranted = true;
     } else {
-      value = DevicePermission._(
-        permission,
-        DevicePermissionStatus.checking,
-      );
-
-      _status = _DevicePermissionStatus.asked;
-      await _requestPermission();
+      permissionGranted = await permission.isGranted;
     }
+
+    value = DevicePermission._(
+      permission,
+      permissionGranted
+          ? DevicePermissionStatus.granted
+          : DevicePermissionStatus.unknown,
+    );
 
     _status = _DevicePermissionStatus.answered;
   }
 
-  Future<void> askPermission(
-    Future<bool?> Function() onRationaleNotAvailable,
-  ) async {
+  Future<void> askPermission({
+    Future<bool?> Function()? onRationaleNotAvailable,
+  }) async {
     // Prevent multiples calls to this method
     if (_status == _DevicePermissionStatus.asked) {
       return;
@@ -58,16 +57,23 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
     final bool showRationale = await permission.shouldShowRequestRationale;
 
     // Directly ask for the permission on Android (first time) and iOS
-    if (showRationale || !Platform.isAndroid) {
+    if (showRationale ||
+        !Platform.isAndroid ||
+        value.status == DevicePermissionStatus.unknown) {
       await _requestPermission();
     }
 
-    if (!value.isGranted) {
+    if (!value.isGranted && onRationaleNotAvailable != null) {
       final bool? shouldOpenSettings = await onRationaleNotAvailable.call();
 
       if (shouldOpenSettings == true) {
         await openAppSettings();
-        await _requestPermission();
+        await _refreshPermissionStatus();
+
+        if (!value.isGranted) {
+          await _requestPermission();
+          return;
+        }
       }
     }
 
@@ -139,6 +145,9 @@ enum DevicePermissionStatus {
   restricted,
   limited,
   permanentlyDenied,
+
+  /// Unknown means that a call to [PermissionListener.askPermission] is required
+  unknown,
 }
 
 /// Enum allowing to track the status of the [askPermission] method
