@@ -1631,5 +1631,9 @@
         "description": "Content for the dialog when no email client is installed on the device"
     },
     "all_images": "All Images",
-    "selected_images": "Selected Images"
+    "selected_images": "Selected Images",
+    "product_card_remove_product_tooltip": "Remove product",
+    "@product_card_remove_product_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    }
 }
