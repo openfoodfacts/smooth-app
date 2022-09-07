@@ -2,5 +2,14 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/ubuntu
 {
     "image": "docker.io/cirrusci/flutter:beta",
-    "forwardPorts": [3000]
+	"forwardPorts": [
+		3000
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Dart-Code.flutter"
+			]
+		}
+	}
 }
