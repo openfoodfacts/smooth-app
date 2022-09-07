@@ -933,6 +933,31 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
+    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "@camera_alternative_mode_title": {
+        "description": "Title for the Alternative mode for the camera/scanner"
+    },
+    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode. If it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "@camera_alternative_mode_subtitle": {
+        "description": "SubTitle for the Alternative mode for the camera/scanner",
+        "placeholders": {
+            "device": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
+    "@camera_alternative_mode_confirm_dialog_title": {
+        "description": "Title for the dialog explaining the alternative mode has changed"
+    },
+    "camera_alternative_mode_confirm_dialog_body": "The new mode will only be used after stopping, then relaunching the app!",
+    "@camera_alternative_mode_confirm_dialog_body": {
+        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
+    },
+    "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
+    "@camera_alternative_mode_confirm_dialog_button": {
+        "description": "Button for the dialog to confirm the user has understood"
+    },
     "crash_reporting_toggle_title": "Crash reporting",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"

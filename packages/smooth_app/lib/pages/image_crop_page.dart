@@ -2,41 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-
-/// Returns the file path of an image after it's been cropped.
-///
-/// This is the "old" problematic version; to be rapidly changed.
-Future<String?> getCroppedPath(
-  final BuildContext context,
-  final String inputPath,
-) async =>
-    (await ImageCropper().cropImage(
-      sourcePath: inputPath,
-      aspectRatioPresets: <CropAspectRatioPreset>[
-        CropAspectRatioPreset.square,
-        CropAspectRatioPreset.ratio3x2,
-        CropAspectRatioPreset.original,
-        CropAspectRatioPreset.ratio4x3,
-        CropAspectRatioPreset.ratio16x9
-      ],
-      uiSettings: <PlatformUiSettings>[
-        AndroidUiSettings(
-          initAspectRatio: CropAspectRatioPreset.original,
-          lockAspectRatio: false,
-          toolbarTitle: AppLocalizations.of(context).product_edit_photo_title,
-          // They all need to be the same for dark/light mode as we can't change
-          // the background color and the action bar color
-          statusBarColor: Colors.black,
-          toolbarWidgetColor: Colors.black,
-          backgroundColor: Colors.black,
-          activeControlsWidgetColor: const Color(0xFF85746C),
-        ),
-      ],
-    ))
-        ?.path;
+import 'package:smooth_app/pages/crop_helper.dart';
 
 /// Crops an image from an existing file.
 Future<File?> startImageCroppingNoPick(
@@ -44,10 +12,11 @@ Future<File?> startImageCroppingNoPick(
   required final File existingImage,
 }) async {
   final NavigatorState navigator = Navigator.of(context);
+  final CropHelper cropHelper = CropHelper.getCurrent(context);
   await _showScreenBetween(navigator);
 
   // ignore: use_build_context_synchronously
-  final String? croppedPath = await getCroppedPath(
+  final String? croppedPath = await cropHelper.getCroppedPath(
     context,
     existingImage.path,
   );
@@ -105,6 +74,7 @@ Future<File?> startImageCropping(
 }) async {
   // Show a loading page on the Flutter side
   final NavigatorState navigator = Navigator.of(context);
+  final CropHelper cropHelper = CropHelper.getCurrent(context);
   await _showScreenBetween(navigator);
 
   // ignore: use_build_context_synchronously
@@ -119,7 +89,7 @@ Future<File?> startImageCropping(
   }
 
   // ignore: use_build_context_synchronously
-  final String? croppedPath = await getCroppedPath(
+  final String? croppedPath = await cropHelper.getCroppedPath(
     context,
     pickedXFile.path,
   );

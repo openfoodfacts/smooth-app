@@ -68,7 +68,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   AudioPlayer? _musicPlayer;
 
   /// Subject notifying when a new image is available
-  PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
+  PublishSubject<dynamic> _subject = PublishSubject<dynamic>();
 
   /// Stream calling the barcode detection
   StreamSubscription<List<String>?>? _streamSubscription;
@@ -104,7 +104,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     _camera = CameraHelper.findBestCamera();
 
     if (_camera != null) {
-      _subject = PublishSubject<CameraImage>();
+      _subject = PublishSubject<dynamic>();
     }
 
     WidgetsBinding.instance.addObserver(this);
@@ -261,7 +261,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
                 _processingTimeWindows,
           ),
         )
-        .asyncMap((CameraImage image) async {
+        .asyncMap((dynamic image) async {
           final DateTime start = DateTime.now();
 
           try {
@@ -283,12 +283,18 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
               DateTime.now().difference(start).inMilliseconds,
             );
 
-            return res;
+            return res ?? <String>[];
           } catch (err) {
             // Isolate is stopped
             return <String>[];
           }
         })
+        // Remove list with empty strings
+        .map(
+          (List<String?> res) => res
+              .where((String? e) => e != null && e.trim().isNotEmpty)
+              .toList(growable: false),
+        )
         .where(
           (List<String?>? barcodes) => barcodes?.isNotEmpty == true,
         )
@@ -302,7 +308,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         focusMode: FocusMode.auto,
         focusPoint: point.offset,
         deviceOrientation: DeviceOrientation.portraitUp,
-        onAvailable: (CameraImage image) => _subject.add(image),
+        onAvailable: (dynamic image) => _subject.add(image),
       );
 
       // If the Widget tree isn't ready, wait for the first frame
