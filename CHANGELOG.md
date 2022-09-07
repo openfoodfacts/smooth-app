@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.14.0](https://github.com/openfoodfacts/smooth-app/compare/v3.13.1...v3.14.0) (2022-09-07)
+
+
+### Features
+
+* Alternative mode for camera (Android only feature) ([#2953](https://github.com/openfoodfacts/smooth-app/issues/2953)) ([15e1f57](https://github.com/openfoodfacts/smooth-app/commit/15e1f57f4f174c30e802a3af40c52f809b075a70))
+* Common layout for welcome / product not found / error cards ([#2955](https://github.com/openfoodfacts/smooth-app/issues/2955)) ([77569bf](https://github.com/openfoodfacts/smooth-app/commit/77569bfb13f952b38830dc196c912251bc3c4e6a))
+
+
+### Bug Fixes
+
+* [#1538](https://github.com/openfoodfacts/smooth-app/issues/1538) - new crop tool (cf. dev mode) ([#2872](https://github.com/openfoodfacts/smooth-app/issues/2872)) ([535cddc](https://github.com/openfoodfacts/smooth-app/commit/535cddc2a9982d89d3ebcca9dfbba814931d860b))
+* [#2833](https://github.com/openfoodfacts/smooth-app/issues/2833) - KP page refreshed by product (refactoring was needed) ([#2861](https://github.com/openfoodfacts/smooth-app/issues/2861)) ([e57cc0f](https://github.com/openfoodfacts/smooth-app/commit/e57cc0f042b6eaee8641e6425520dccf7a648d1c))
+
+
+### Miscellaneous
+
+* add flutter extension to devcontainer.json ([#2939](https://github.com/openfoodfacts/smooth-app/issues/2939)) ([b102b42](https://github.com/openfoodfacts/smooth-app/commit/b102b42fc2647b07ff3155a990ab5dc3011e1f2f))
+* New Crowdin translations ([#2952](https://github.com/openfoodfacts/smooth-app/issues/2952)) ([3222912](https://github.com/openfoodfacts/smooth-app/commit/3222912b160788061cadbab83683b14b6002159d))
+* New Crowdin translations ([#2966](https://github.com/openfoodfacts/smooth-app/issues/2966)) ([337fad6](https://github.com/openfoodfacts/smooth-app/commit/337fad6e0bbf45d0a676eedd49f0ea9f56d2e1b2))
+
 ## [3.13.1](https://github.com/openfoodfacts/smooth-app/compare/v3.13.0...v3.13.1) (2022-09-06)
 
 
