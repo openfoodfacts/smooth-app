@@ -141,7 +141,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   /// instead in the meanwhile.
   Widget _getWidget(final int index) {
     if (index >= barcodes.length) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
     final String barcode = barcodes[index];
     switch (_model.getBarcodeState(barcode)!) {
