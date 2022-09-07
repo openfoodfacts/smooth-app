@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/pages/scan/alternative_camera_mode.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// A lifecycle-aware [CameraController]
@@ -60,7 +61,7 @@ class SmoothCameraController extends CameraController {
       await setExposurePoint(focusPoint);
       await setFocusPointTo(focusPoint);
       await lockCaptureOrientation(deviceOrientation);
-      await startImageStream(onAvailable);
+      await startStream(onAvailable);
       await enableFlash(enableTorch ?? preferences.useFlashWithCamera);
       _updateState(_CameraState.initialized);
       _hasAPendingResume = false;
@@ -90,11 +91,38 @@ class SmoothCameraController extends CameraController {
   @override
   Future<void> initialize() => super.initialize();
 
+  @protected
+  Future<void> startStream(onLatestImageAvailable onAvailable) async {
+    final bool useAlternativeCameraMode =
+        preferences.useAlternativeCameraMode ??
+            await AlternativeCameraMode.isAWhitelistedDevice;
+
+    return startImageStream(
+      onAvailable,
+      persistToFile: useAlternativeCameraMode,
+    );
+  }
+
+  /// Never use this method directly, by through [startStream]
+  /// [persistToFile] is what we call the "alternative" mode
+  @protected
   @override
-  Future<void> startImageStream(onLatestImageAvailable onAvailable) {
-    final Future<void> startImageStreamResult =
-        super.startImageStream(onAvailable);
-    Logs.d(tag: 'CameraController', 'Image stream started');
+  Future<void> startImageStream(
+    onLatestImageAvailable onAvailable, {
+    bool persistToFile = false,
+  }) {
+    final Future<void> startImageStreamResult = super.startImageStream(
+      onAvailable,
+      persistToFile: persistToFile,
+    );
+
+    Logs.d(
+      tag: 'CameraController',
+      persistToFile
+          ? 'Image stream started with files'
+          : 'Image stream started with camera stream',
+    );
+
     return startImageStreamResult;
   }
 
