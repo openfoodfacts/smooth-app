@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 
+/// A common Widget for carrousel item cards.
+/// It allows to have the correct width/height and also a scale down feature,
+/// in the case where the content is too big.
+///
+/// An optional [backgroundColorOpacity] can be used (mainly for the "main" card).
 class SmoothProductBaseCard extends StatelessWidget {
   const SmoothProductBaseCard({
     required this.child,
