@@ -273,7 +273,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         _dataImporterTile(),
         ListTile(
-          title: const Text('Offline Data'),
+          title: Text(appLocalizations.offline_data),
           onTap: () {
             Navigator.push<void>(
               context,

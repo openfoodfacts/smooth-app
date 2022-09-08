@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -91,9 +92,10 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     final double backgroundHeight = MediaQuery.of(context).size.height * .20;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Offline Data'),
+        title: Text(appLocalizations.offline_data),
       ),
       body: RefreshIndicator(
         onRefresh: () async {
