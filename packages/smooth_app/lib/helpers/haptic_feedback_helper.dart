@@ -8,7 +8,7 @@ class SmoothHapticFeedback {
 
   /// Will vibrate smoothly twice
   static Future<void> confirm() async {
-    if (!(await _areHapticFeedbackAvailable())) {
+    if (!(await _areHapticFeedbackEnabled())) {
       return;
     }
 
@@ -20,7 +20,7 @@ class SmoothHapticFeedback {
 
   /// Discrete vibration
   static Future<void> click() async {
-    if (!(await _areHapticFeedbackAvailable())) {
+    if (!(await _areHapticFeedbackEnabled())) {
       return;
     }
 
@@ -29,7 +29,7 @@ class SmoothHapticFeedback {
 
   /// According to the doc: "a collision impact with a light mass"
   static Future<void> lightNotification() async {
-    if (!(await _areHapticFeedbackAvailable())) {
+    if (!(await _areHapticFeedbackEnabled())) {
       return;
     }
 
@@ -38,7 +38,7 @@ class SmoothHapticFeedback {
 
   /// Will vibrate heavily twice
   static Future<void> error() async {
-    if (!(await _areHapticFeedbackAvailable())) {
+    if (!(await _areHapticFeedbackEnabled())) {
       return;
     }
 
@@ -48,7 +48,7 @@ class SmoothHapticFeedback {
     });
   }
 
-  static Future<bool> _areHapticFeedbackAvailable() async {
+  static Future<bool> _areHapticFeedbackEnabled() async {
     return UserPreferences.getUserPreferences()
         .then((UserPreferences userPreferences) {
       return userPreferences.hapticFeedbackEnabled;

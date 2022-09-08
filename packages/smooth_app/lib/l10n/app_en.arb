@@ -976,7 +976,7 @@
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
     },
-    "app_haptic_feedback_title": "Haptic feedback",
+    "app_haptic_feedback_title": "Vibration & Haptics",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
