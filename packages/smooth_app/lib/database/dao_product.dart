@@ -216,7 +216,10 @@ class DaoProduct extends AbstractSqlDao
 
   /// Get the estimated total size of the database in MegaBytes
   Future<double> getTotalSizeInMB() async {
-    final int? gzippedLength = Sqflite.firstIntValue(
+    // We get the estimated size of the database in bytes
+    // by summing the size of the gzipped json column and
+    // the size of the barcode column and last update column
+    final int? estimatedDataSize = Sqflite.firstIntValue(
       await localDatabase.database.rawQuery('''
         select sum(length($_TABLE_PRODUCT_COLUMN_BARCODE)) +
         sum(length($_TABLE_PRODUCT_COLUMN_LAST_UPDATE)) + 
@@ -225,7 +228,7 @@ class DaoProduct extends AbstractSqlDao
         '''),
     );
     return double.parse(
-      ((gzippedLength ?? 0) / ~1024 / ~1024).toStringAsFixed(2),
+      ((estimatedDataSize ?? 0) / ~1024 / ~1024).toStringAsFixed(2),
     );
   }
 
