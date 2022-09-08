@@ -704,11 +704,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Cameratoegang",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "Om barcodes te scannen met de camera van uw telefoon, moet u toestemming verlenen.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -949,11 +949,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "camera_alternative_mode_title": "Alternatieve modus voor de scanner",
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode. If it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Als uw apparaat geen streepjescodes kan scannen, probeer dan deze modus. Als het goed werkt, geef ons dan uw apparaatnaam door: {device}, om deze modus de standaardmodus voor uw apparaat te maken.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -962,15 +962,15 @@
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
+    "camera_alternative_mode_confirm_dialog_title": "Scanner-modus gewijzigd!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "The new mode will only be used after stopping, then relaunching the app!",
+    "camera_alternative_mode_confirm_dialog_body": "De nieuwe modus wordt alleen gebruikt na het stoppen en vervolgens opnieuw starten van de app!",
     "@camera_alternative_mode_confirm_dialog_body": {
         "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
     },
-    "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
+    "camera_alternative_mode_confirm_dialog_button": "Ik snap het!",
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
     },
