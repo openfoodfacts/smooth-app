@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:isolate';
 
 import 'package:camera/camera.dart';
@@ -20,16 +21,24 @@ class MLKitScanDecoder {
           scanMode: scanMode,
         );
 
+  /// Ensures the dispose() method is called if this class is GC'ed.
+  static final Finalizer<_MLKitScanDecoderMainIsolate> _finalizer =
+      Finalizer<_MLKitScanDecoderMainIsolate>(
+    (_MLKitScanDecoderMainIsolate isolate) => isolate.dispose(),
+  );
+
   final DevModeScanMode scanMode;
   final _MLKitScanDecoderMainIsolate _mainIsolate;
 
   /// Extract barcodes from an image
+  /// An image may be a [CameraImage] or a [String] file path.
   ///
   /// A null result is sent when the [scanMode] is unsupported or if a current
   /// decoding is already in progress
   /// Otherwise a list of decoded barcoded is returned
   /// Note: This list may be empty if no barcode is detected
-  Future<List<String>?> processImage(CameraImage image) async {
+  Future<List<String>?> processImage(dynamic image) async {
+    // TODO(g123k): Not implemented
     switch (scanMode) {
       case DevModeScanMode.CAMERA_ONLY:
       case DevModeScanMode.PREPROCESS_FULL_IMAGE:
@@ -40,11 +49,18 @@ class MLKitScanDecoder {
       // OK -> continue
     }
 
+    /// The next call with recreate the isolate if necessary.
+    /// Re-attaching it to the finalizer is mandatory.
+    if (_mainIsolate.isDisposed) {
+      _finalizer.attach(this, _mainIsolate, detach: this);
+    }
+
     return _mainIsolate.decode(image);
   }
 
   Future<void> dispose() async {
     _mainIsolate.dispose();
+    _finalizer.detach(this);
     Logs.d(tag: 'MLKitScanDecoder', 'Disposed');
   }
 }
@@ -77,7 +93,12 @@ class _MLKitScanDecoderMainIsolate {
         _isIsolateInitialized = true;
 
         if (_queuedImage != null && _completer != null) {
-          _sendPort!.send(_queuedImage!.export());
+          if (_queuedImage is CameraImage) {
+            _sendPort!.send((_queuedImage as CameraImage).export());
+          } else if (_queuedImage is String) {
+            _sendPort!.send(_CameraFileUtils.export(_queuedImage as String));
+          }
+
           _queuedImage = null;
         }
       } else if (message is List) {
@@ -112,11 +133,11 @@ class _MLKitScanDecoderMainIsolate {
   /// When the Isolate is started, we have to wait until [_isIsolateInitialized]
   /// is [true]. This variable temporary contains the image waiting to be
   /// decoded.
-  CameraImage? _queuedImage;
+  dynamic _queuedImage;
 
-  /// Decodes barcodes from a [CameraImage]
+  /// Decodes barcodes from an image
   /// A null result will be sent until the Isolate isn't ready
-  Future<List<String>?> decode(CameraImage image) async {
+  Future<List<String>?> decode(dynamic image) async {
     // If a decoding process is running -> ignore new requests
     if (_completer != null) {
       return null;
@@ -132,7 +153,12 @@ class _MLKitScanDecoderMainIsolate {
       _queuedImage = image;
       return _completer!.future;
     } else if (_isIsolateInitialized) {
-      _sendPort?.send(image.export());
+      if (image is CameraImage) {
+        _sendPort?.send(image.export());
+      } else if (image is String) {
+        _sendPort?.send(_CameraFileUtils.export(image));
+      }
+
       return _completer!.future;
     }
 
@@ -150,6 +176,12 @@ class _MLKitScanDecoderMainIsolate {
     _isolate?.kill(priority: Isolate.immediate);
     _isolate = null;
   }
+
+  bool get isDisposed =>
+      _isIsolateInitialized == false &&
+      _completer == null &&
+      _sendPort == null &&
+      _isolate == null;
 }
 
 // ignore: avoid_classes_with_only_static_members
@@ -227,24 +259,47 @@ class _MLKitScanDecoderIsolate {
       return;
     }
 
-    final CameraImage image = CameraImage.fromPlatformData(message);
-    final InputImage cropImage = _cropImage(image);
-    final double imageHeight =
-        cropImage.inputImageData?.size.longestSide ?? double.infinity;
+    Iterable<Barcode>? barcodes;
+    if (_CameraFileUtils.containsKey(message)) {
+      final String path = _CameraFileUtils.import(message);
+      final File file = File(path);
 
-    final List<Barcode> barcodes =
-        await _barcodeScanner.processImage(cropImage);
+      if (file.existsSync() && file.lengthSync() > 0) {
+        try {
+          barcodes = await _barcodeScanner.processImage(
+            InputImage.fromFilePath(path),
+          );
+        } catch (ignored) {
+          // The native code may fail if the file is invalid
+        }
 
-    port.send(
-      barcodes
-          // Only accepts barcodes on half-top of the image
-          .where((Barcode barcode) =>
-              (barcode.boundingBox?.top ?? 0.0) <= imageHeight * 0.5)
-          .map((Barcode barcode) => _changeBarcodeType(barcode))
-          .where((String? barcode) => barcode?.isNotEmpty == true)
-          .cast<String>()
-          .toList(growable: false),
-    );
+        // Not mandatory as the native part also removes the file
+        File(path).delete();
+      }
+    } else {
+      final CameraImage image = CameraImage.fromPlatformData(message);
+      final InputImage cropImage = _cropImage(image);
+      final double imageHeight =
+          cropImage.inputImageData?.size.longestSide ?? double.infinity;
+
+      final List<Barcode> list = await _barcodeScanner.processImage(cropImage);
+
+      // With files, we don't know the imageHeight
+      barcodes = list.where((Barcode barcode) =>
+          (barcode.boundingBox?.top ?? 0.0) <= imageHeight * 0.5);
+    }
+
+    if (barcodes == null || barcodes.isEmpty) {
+      port.send(<String>['']);
+    } else {
+      port.send(
+        barcodes
+            .map((Barcode barcode) => _changeBarcodeType(barcode))
+            .where((String? barcode) => barcode?.isNotEmpty == true)
+            .cast<String>()
+            .toList(growable: false),
+      );
+    }
   }
 
   static String? _changeBarcodeType(Barcode barcode) {
@@ -333,4 +388,15 @@ class _CameraDescriptionUtils {
       sensorOrientation: map[_sensorOrientationKey] as int,
     );
   }
+}
+
+class _CameraFileUtils {
+  const _CameraFileUtils._();
+
+  static Map<String, dynamic> export(String file) =>
+      <String, dynamic>{'file': file};
+
+  static String import(Map<dynamic, dynamic> map) => map['file'] as String;
+
+  static bool containsKey(Map<dynamic, dynamic> map) => map.containsKey('file');
 }

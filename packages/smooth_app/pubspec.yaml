@@ -64,6 +64,7 @@ dependencies:
   flutter_email_sender: 5.1.0
   flutter_native_splash: 2.2.3+1
   google_mlkit_barcode_scanning: 0.3.0
+  image: 3.2.0
   image_cropper: 2.0.3
   auto_size_text: 3.0.0
   shared_preferences: 2.0.15
@@ -81,6 +82,7 @@ dependencies:
   share_plus: 4.0.10
   fimber: 0.6.6
   shimmer: 2.0.0
+  lottie: 1.4.2
 
 dev_dependencies:
   integration_test:
@@ -143,6 +145,7 @@ flutter:
 
   assets:
     - assets/actions/
+    - assets/animations/
     - assets/app/
     - assets/audio/
     - assets/cache/

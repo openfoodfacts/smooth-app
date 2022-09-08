@@ -51,6 +51,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesTestEnvHost = '__testEnvHost';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
+  static const String userPreferencesFlagNewCropTool = '__newCropTool';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
@@ -380,6 +381,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               list.add(tag);
             }
             await userPreferences.setExcludedAttributeIds(list);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Use new crop tool'),
+          value:
+              userPreferences.getFlag(userPreferencesFlagNewCropTool) ?? false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagNewCropTool, value);
             setState(() {});
           },
         ),
