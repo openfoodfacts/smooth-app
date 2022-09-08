@@ -20,11 +20,11 @@ class OfflineDataPage extends StatefulWidget {
 Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
   final DaoProduct daoProduct = DaoProduct(localDatabase);
+// We seperate the products into two lists, one for products that have a knowledge panel
+// and one for products that don't have a knowledge panel
   final List<String> barcodes = await daoProduct.getAllKeys();
   final List<String> productsWithoutKnowledgePanel = <String>[];
   final List<String> completeProducts = <String>[];
-// We seperate the products into two lists, one for products that have a knowledge panel
-// and one for products that don't have a knowledge panel
   for (int i = 0; i < barcodes.length; i++) {
     final Product? productFromDb = await daoProduct.get(barcodes[i]);
     if (productFromDb != null && productFromDb.knowledgePanels == null) {
@@ -56,7 +56,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
     daoProduct.putAll(result.products!);
   }
 
-// Config for the complete products
+// Config for the complete products ie. products that have a knowledge panel
   final ProductSearchQueryConfiguration
       productSearchQueryConfigurationForFullProducts =
       ProductSearchQueryConfiguration(
@@ -83,7 +83,6 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
   @override
   Widget build(BuildContext context) {
     const String headerAsset = 'assets/preferences/main.svg';
-    const Color headerColor = Color(0xFFEBF1FF);
     final bool dark = Theme.of(context).brightness == Brightness.dark;
     final double backgroundHeight = MediaQuery.of(context).size.height * .20;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -99,13 +98,14 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
         child: ListView(
           children: <Widget>[
             Container(
-              color: dark ? null : headerColor,
+              color: dark ? null : Colors.white,
               padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
               child: SvgPicture.asset(headerAsset, height: backgroundHeight),
             ),
-            _buildStatsWidget(context, daoProduct),
-            _buildListTile(
-              context,
+            _StatsWidget(
+              daoProduct: daoProduct,
+            ),
+            _OfflinePageListTile(
               title: 'Update Offline Product Data',
               subtitle:
                   'Update the local product database with the latest data from server',
@@ -130,8 +130,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                 }
               },
             ),
-            _buildListTile(
-              context,
+            _OfflinePageListTile(
               title: 'Clear Offline Product Data',
               subtitle:
                   'Clear all local product data from your app to free up space',
@@ -149,8 +148,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                 setState(() {});
               },
             ),
-            _buildListTile(
-              context,
+            _OfflinePageListTile(
               title: 'Know More',
               subtitle: 'Click to know more about offline data',
               trailing: const Icon(Icons.info),
@@ -164,54 +162,74 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
   }
 }
 
-Widget _buildStatsWidget(BuildContext context, DaoProduct daoProduct) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-    child: ListTile(
-      title: const Text('Offline Product Data'),
-      subtitle: FutureBuilder<int>(
-        future: daoProduct.getTotalNoOfProducts(),
-        builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
-          if (snapshot.hasData) {
-            return Text(
-                '${snapshot.data} products available for immediate scaning');
-          } else {
-            return const Text('0 products available for immediate scaning');
-          }
-        },
+// Widget to display the stats of the local databas, ie. the number of products
+// in the database and the size of the database
+class _StatsWidget extends StatelessWidget {
+  const _StatsWidget({
+    Key? key,
+    required this.daoProduct,
+  }) : super(key: key);
+  final DaoProduct daoProduct;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      child: ListTile(
+        title: const Text('Offline Product Data'),
+        subtitle: FutureBuilder<int>(
+          future: daoProduct.getTotalNoOfProducts(),
+          builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+            if (snapshot.hasData) {
+              return Text(
+                  '${snapshot.data} products available for immediate scaning');
+            } else {
+              return const Text('0 products available for immediate scaning');
+            }
+          },
+        ),
+        trailing: FutureBuilder<double>(
+          future: daoProduct.getTotalSizeInMB(),
+          builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
+            if (snapshot.hasData) {
+              return Text('${snapshot.data} MB');
+            } else {
+              return const SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator.adaptive(),
+              );
+            }
+          },
+        ),
       ),
-      trailing: FutureBuilder<double>(
-        future: daoProduct.getTotalSizeInMB(),
-        builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
-          if (snapshot.hasData) {
-            return Text('${snapshot.data} MB');
-          } else {
-            return const SizedBox(
-              height: 20,
-              width: 20,
-              child: CircularProgressIndicator.adaptive(),
-            );
-          }
-        },
-      ),
-    ),
-  );
+    );
+  }
 }
 
-Widget _buildListTile(
-  BuildContext context, {
-  required String title,
-  required String subtitle,
-  required Widget trailing,
-  required VoidCallback onTap,
-}) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-    child: ListTile(
-      title: Text(title),
-      subtitle: Text(subtitle),
-      trailing: trailing,
-      onTap: onTap,
-    ),
-  );
+// Widget to display a list tile with a title, subtitle
+// and a trailing widget and an onTap callback for OfflineDataPage
+class _OfflinePageListTile extends StatelessWidget {
+  const _OfflinePageListTile({
+    Key? key,
+    required this.title,
+    required this.subtitle,
+    required this.trailing,
+    required this.onTap,
+  }) : super(key: key);
+  final String title;
+  final String subtitle;
+  final Widget trailing;
+  final VoidCallback onTap;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      child: ListTile(
+        title: Text(title),
+        subtitle: Text(subtitle),
+        trailing: trailing,
+        onTap: onTap,
+      ),
+    );
+  }
 }

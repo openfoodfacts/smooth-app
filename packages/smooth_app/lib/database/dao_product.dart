@@ -234,6 +234,7 @@ class DaoProduct extends AbstractSqlDao
 
   /// Delete all products from the database
   Future<int> deleteAll() async {
+    // We return the number of rows deleted ie the number of products deleted
     return localDatabase.database.delete(_TABLE_PRODUCT);
   }
 }

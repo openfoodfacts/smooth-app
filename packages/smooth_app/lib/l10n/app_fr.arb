@@ -1672,5 +1672,9 @@
         "description": "Content for the dialog when no email client is installed on the device"
     },
     "all_images": "All Images",
-    "selected_images": "Selected Images"
+    "selected_images": "Selected Images",
+    "offline_data": "Données hors ligne",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
+    }
 }
