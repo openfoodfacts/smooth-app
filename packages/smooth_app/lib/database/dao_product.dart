@@ -230,7 +230,7 @@ class DaoProduct extends AbstractSqlDao
   }
 
   /// Delete all products from the database
-  Future<void> deleteAll() async {
-    await localDatabase.database.delete(_TABLE_PRODUCT);
+  Future<int> deleteAll() async {
+    return localDatabase.database.delete(_TABLE_PRODUCT);
   }
 }
