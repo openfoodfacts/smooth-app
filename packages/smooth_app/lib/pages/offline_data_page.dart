@@ -182,7 +182,6 @@ Widget _buildStatsWidget(BuildContext context, DaoProduct daoProduct) {
       ),
       trailing: FutureBuilder<double>(
         future: daoProduct.getTotalSizeInMB(),
-        // future: localDatabase.getSizeinMb(),
         builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
           if (snapshot.hasData) {
             return Text('${snapshot.data} MB');
