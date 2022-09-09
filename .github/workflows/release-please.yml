@@ -23,6 +23,9 @@ jobs:
            changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"docs","section":"Documentation","hidden":false},{"type":"ci","section":"Automation","hidden":false},{"type":"refactor","section":"Refactoring","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
 
   create-release:
+    concurrency: 
+      group: release
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
@@ -61,6 +64,9 @@ jobs:
         run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=VERSION_CODE::${{ env.VERSION_CODE }}"
 
   android-release:
+    concurrency: 
+      group: android-release
+      cancel-in-progress: false
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}
@@ -77,6 +83,9 @@ jobs:
       SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
   iOS-release:
+    concurrency: 
+      group: iOS-release
+      cancel-in-progress: false
     uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
     if: ${{ needs.release-please.outputs.release_created }}

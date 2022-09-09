@@ -7,6 +7,10 @@ on:
 
 jobs:
   tag-commit:
+    concurrency: 
+      group: release
+      cancel-in-progress: true
+    if: "!contains(github.event.commits[0].message, 'chore(develop): release')"
     runs-on: ubuntu-latest
     outputs:
       VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
@@ -50,6 +54,9 @@ jobs:
         run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=VERSION_CODE::${{ env.VERSION_CODE }}"
 
   android-release:
+    concurrency: 
+      group: android-release
+      cancel-in-progress: true
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-main.yml@develop
     needs: tag-commit
     with:
@@ -65,6 +72,9 @@ jobs:
       SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
   iOS-release:
+    concurrency: 
+      group: iOS-release
+      cancel-in-progress: true
     uses: openfoodfacts/smooth-app/.github/workflows/ios-release-main.yml@develop
     needs: tag-commit
     with:
