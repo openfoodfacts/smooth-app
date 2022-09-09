@@ -1,4 +1,4 @@
-name: Run release-please
+name: Create internal releases
 on:
    push:
      branches:
@@ -6,26 +6,8 @@ on:
     
 
 jobs:
-  release-please:
+  tag-commit:
     runs-on: ubuntu-latest
-    outputs:
-      release_created: ${{ steps.release_please.outputs.release_created }}
-      major: ${{ steps.release_please.outputs.major }}
-      minor: ${{ steps.release_please.outputs.minor }}
-      patch: ${{ steps.release_please.outputs.patch }}
-    steps:
-      - name: Release-please
-        uses: google-github-actions/release-please-action@v3
-        id: release_please
-        with:
-           token: ${{ secrets.GITHUB_TOKEN }}
-           release-type: simple
-           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"docs","section":"Documentation","hidden":false},{"type":"ci","section":"Automation","hidden":false},{"type":"refactor","section":"Refactoring","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
-
-  create-release:
-    runs-on: ubuntu-latest
-    needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
     outputs:
       VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
       VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
@@ -33,8 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Get the latest version name from file
       - name: Set VERSION_NAME env
-        run: echo "VERSION_NAME=${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}" >> $GITHUB_ENV
+        run: echo "VERSION_NAME=$(cat version.txt)>> $GITHUB_ENV
         #run: echo "VERSION_NAME=1.9.0" >> $GITHUB_ENV
 
       - name: Decrypt Android API JSON file
@@ -56,14 +39,19 @@ jobs:
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
 
+      - name: Tag commit
+        uses: rickstaa/action-create-tag@v1
+        with:
+          tag: "Internal: ${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
+          message: "Internal release: ${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
+
       - name: Set output
         id: set_output
         run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=VERSION_CODE::${{ env.VERSION_CODE }}"
 
   android-release:
-    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
-    needs: [release-please, create-release]
-    if: ${{ needs.release-please.outputs.release_created }}
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-main.yml@develop
+    needs: tag-commit
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
@@ -77,9 +65,8 @@ jobs:
       SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
   iOS-release:
-    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
-    needs: [release-please, create-release]
-    if: ${{ needs.release-please.outputs.release_created }}
+    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-main.yml@develop
+    needs: tag-commit
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
