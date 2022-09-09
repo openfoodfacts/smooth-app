@@ -190,8 +190,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(
-            height: MINIMUM_TOUCH_SIZE,
-            width: MINIMUM_TOUCH_SIZE,
+            height: 50,
+            width: 50,
             child: ClipRRect(
               borderRadius: ROUNDED_BORDER_RADIUS,
               child: Image.file(image, fit: BoxFit.cover),
