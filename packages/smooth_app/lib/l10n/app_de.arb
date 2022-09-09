@@ -704,6 +704,18 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "permissions_page_title": "Zugriff auf Kamera",
+    "@permissions_page_title": {
+        "description": "Title for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body1": "Um Strichcodes mit der Kamera Ihres Telefons zu erfassen, autorisieren Sie bitte den Zugriff.",
+    "@permissions_page_body1": {
+        "description": "first paragraph for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body2": "Wenn Sie Ihre Meinung ändern, können Sie diese Option jederzeit in den Einstellungen aktivieren und deaktivieren.",
+    "@permissions_page_body2": {
+        "description": "second paragraph for the camera permission's page (onboarding)"
+    },
     "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModell: {model}\nProdukt: {product}\nGerät: {device}\nMarke: {brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
@@ -776,11 +788,15 @@
     },
     "authorize_button_label": "Erlauben",
     "@authorize": {
-        "description": "Button to accept the request of sending the anonymous analytics"
+        "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
     "refuse_button_label": "Ablehnen",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "ask_me_later_button_label": "Später",
+    "@ask_me_later": {
+        "description": "Button to ignore the camera permission request"
     },
     "knowledge_panel_text_source": "Weiter zu {source_name}",
     "@knowledge_panel_text_source": {
@@ -932,6 +948,31 @@
     "camera_play_sound_subtitle": "Signalton bei jedem erfolgreichen Scanvorgang",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_alternative_mode_title": "Alternativer Scannermodus",
+    "@camera_alternative_mode_title": {
+        "description": "Title for the Alternative mode for the camera/scanner"
+    },
+    "camera_alternative_mode_subtitle": "Wenn Ihr Gerät nicht in der Lage ist, Strichcodes einzulesen, versuchen Sie bitte diesen Modus. Wenn er gut funktioniert, teilen Sie uns bitte Ihren Gerätenamen mit: {device}, damit dieser Modus zum Standard für Ihr Gerät wird.",
+    "@camera_alternative_mode_subtitle": {
+        "description": "SubTitle for the Alternative mode for the camera/scanner",
+        "placeholders": {
+            "device": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_alternative_mode_confirm_dialog_title": "Scanner-Modus geändert!",
+    "@camera_alternative_mode_confirm_dialog_title": {
+        "description": "Title for the dialog explaining the alternative mode has changed"
+    },
+    "camera_alternative_mode_confirm_dialog_body": "Der neue Modus steht erst nach einem Neustart der App zur Verfügung!",
+    "@camera_alternative_mode_confirm_dialog_body": {
+        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
+    },
+    "camera_alternative_mode_confirm_dialog_button": "Verstanden!",
+    "@camera_alternative_mode_confirm_dialog_button": {
+        "description": "Button for the dialog to confirm the user has understood"
     },
     "crash_reporting_toggle_title": "Abstürze melden",
     "@crash_reporting_toggle_title": {

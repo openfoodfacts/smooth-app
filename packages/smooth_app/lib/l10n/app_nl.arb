@@ -704,6 +704,18 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "permissions_page_title": "Cameratoegang",
+    "@permissions_page_title": {
+        "description": "Title for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body1": "Om barcodes te scannen met de camera van uw telefoon, moet u toestemming verlenen.",
+    "@permissions_page_body1": {
+        "description": "first paragraph for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body2": "Als u van gedachten verandert, kan deze optie op elk moment in de instellingen worden aan- en uitgeschakeld.",
+    "@permissions_page_body2": {
+        "description": "second paragraph for the camera permission's page (onboarding)"
+    },
     "contact_form_body_android": "Besturingssysteem: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nApparaat: {device}\nMerk:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
@@ -776,11 +788,15 @@
     },
     "authorize_button_label": "Goedkeuren",
     "@authorize": {
-        "description": "Button to accept the request of sending the anonymous analytics"
+        "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
     "refuse_button_label": "Weigeren",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "ask_me_later_button_label": "Later",
+    "@ask_me_later": {
+        "description": "Button to ignore the camera permission request"
     },
     "knowledge_panel_text_source": "Ga verder op {source_name}",
     "@knowledge_panel_text_source": {
@@ -932,6 +948,31 @@
     "camera_play_sound_subtitle": "Piept bij elke geslaagde scan",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_alternative_mode_title": "Alternatieve modus voor de scanner",
+    "@camera_alternative_mode_title": {
+        "description": "Title for the Alternative mode for the camera/scanner"
+    },
+    "camera_alternative_mode_subtitle": "Als uw apparaat geen streepjescodes kan scannen, probeer dan deze modus. Als het goed werkt, geef ons dan uw apparaatnaam door: {device}, om deze modus de standaardmodus voor uw apparaat te maken.",
+    "@camera_alternative_mode_subtitle": {
+        "description": "SubTitle for the Alternative mode for the camera/scanner",
+        "placeholders": {
+            "device": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_alternative_mode_confirm_dialog_title": "Scanner-modus gewijzigd!",
+    "@camera_alternative_mode_confirm_dialog_title": {
+        "description": "Title for the dialog explaining the alternative mode has changed"
+    },
+    "camera_alternative_mode_confirm_dialog_body": "De nieuwe modus wordt alleen gebruikt na het stoppen en vervolgens opnieuw starten van de app!",
+    "@camera_alternative_mode_confirm_dialog_body": {
+        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
+    },
+    "camera_alternative_mode_confirm_dialog_button": "Ik snap het!",
+    "@camera_alternative_mode_confirm_dialog_button": {
+        "description": "Button for the dialog to confirm the user has understood"
     },
     "crash_reporting_toggle_title": "Crashrapportage",
     "@crash_reporting_toggle_title": {

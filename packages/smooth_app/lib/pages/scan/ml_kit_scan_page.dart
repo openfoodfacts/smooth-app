@@ -13,6 +13,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
@@ -334,7 +335,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     for (final String barcode in barcodes) {
       if (await _model.onScan(barcode)) {
         // Both are Future methods, but it doesn't matter to wait here
-        HapticFeedback.lightImpact();
+        SmoothHapticFeedback.lightNotification();
 
         if (_userPreferences.playCameraSound) {
           await _initSoundManagerIfNecessary();

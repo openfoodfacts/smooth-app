@@ -704,6 +704,18 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "permissions_page_title": "Camera access",
+    "@permissions_page_title": {
+        "description": "Title for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "@permissions_page_body1": {
+        "description": "first paragraph for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "@permissions_page_body2": {
+        "description": "second paragraph for the camera permission's page (onboarding)"
+    },
     "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
@@ -776,11 +788,15 @@
     },
     "authorize_button_label": "Authorize",
     "@authorize": {
-        "description": "Button to accept the request of sending the anonymous analytics"
+        "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
     "refuse_button_label": "Refuse",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "ask_me_later_button_label": "Later",
+    "@ask_me_later": {
+        "description": "Button to ignore the camera permission request"
     },
     "knowledge_panel_text_source": "Go further on {source_name}",
     "@knowledge_panel_text_source": {
@@ -892,6 +908,8 @@
     "settings_app_app": "Application",
     "settings_app_data": "Privacy & monitoring",
     "settings_app_camera": "Camera",
+    "settings_app_products": "Products",
+    "settings_app_miscellaneous": "Miscellaneous",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -957,6 +975,14 @@
     "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
+    },
+    "app_haptic_feedback_title": "Vibration & Haptics",
+    "@app_haptic_feedback_title": {
+        "description": "Title for the Haptic feedback toggle"
+    },
+    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "@app_haptic_feedback_subtitle": {
+        "description": "SubTitle for the Haptic feedback toggle"
     },
     "crash_reporting_toggle_title": "Crash reporting",
     "@crash_reporting_toggle_title": {
@@ -1656,5 +1682,9 @@
         "description": "Content for the dialog when no email client is installed on the device"
     },
     "all_images": "All Images",
-    "selected_images": "Selected Images"
+    "selected_images": "Selected Images",
+    "product_card_remove_product_tooltip": "Remove product",
+    "@product_card_remove_product_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    }
 }

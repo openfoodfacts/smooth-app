@@ -704,6 +704,18 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "permissions_page_title": "الوصول إلى الكاميرا",
+    "@permissions_page_title": {
+        "description": "Title for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body1": "لمسح رموز الباركود بشكل ضوئي من خلال هاتفك، يرجى الموافقة على سماحية الوصول.",
+    "@permissions_page_body1": {
+        "description": "first paragraph for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "@permissions_page_body2": {
+        "description": "second paragraph for the camera permission's page (onboarding)"
+    },
     "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
@@ -776,11 +788,15 @@
     },
     "authorize_button_label": "Authorize",
     "@authorize": {
-        "description": "Button to accept the request of sending the anonymous analytics"
+        "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
     "refuse_button_label": "Refuse",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "ask_me_later_button_label": "لاحقاً",
+    "@ask_me_later": {
+        "description": "Button to ignore the camera permission request"
     },
     "knowledge_panel_text_source": "تعرف أكثر عبر {source_name}",
     "@knowledge_panel_text_source": {
@@ -932,6 +948,31 @@
     "camera_play_sound_subtitle": "Will beep on each successful scan",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_alternative_mode_title": "الوضع البديل للماسح الضوئي",
+    "@camera_alternative_mode_title": {
+        "description": "Title for the Alternative mode for the camera/scanner"
+    },
+    "camera_alternative_mode_subtitle": "إذا كان جهازك غير قادر على مسح الباركود ضوئياً، فيرجى تجربة هذا الوضع وإذا عمل بشكل جيد، يرجى إخبارنا باسم جهازك:{device}، لجعل هذا الوضع هو الوضع الافتراضي لجهازك.",
+    "@camera_alternative_mode_subtitle": {
+        "description": "SubTitle for the Alternative mode for the camera/scanner",
+        "placeholders": {
+            "device": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_alternative_mode_confirm_dialog_title": "تم تغيير وضع الماسح الضوئي!",
+    "@camera_alternative_mode_confirm_dialog_title": {
+        "description": "Title for the dialog explaining the alternative mode has changed"
+    },
+    "camera_alternative_mode_confirm_dialog_body": "الوضع الجديد لن يستخدم إلا بعد التوقف وإعادة تشغيل التطبيق!",
+    "@camera_alternative_mode_confirm_dialog_body": {
+        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
+    },
+    "camera_alternative_mode_confirm_dialog_button": "لوحظ كما ينبغي!",
+    "@camera_alternative_mode_confirm_dialog_button": {
+        "description": "Button for the dialog to confirm the user has understood"
     },
     "crash_reporting_toggle_title": "Crash reporting",
     "@crash_reporting_toggle_title": {

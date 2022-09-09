@@ -82,6 +82,7 @@ dependencies:
   share_plus: 4.0.10
   fimber: 0.6.6
   shimmer: 2.0.0
+  lottie: 1.4.2
 
 dev_dependencies:
   integration_test:
@@ -144,6 +145,7 @@ flutter:
 
   assets:
     - assets/actions/
+    - assets/animations/
     - assets/app/
     - assets/audio/
     - assets/cache/

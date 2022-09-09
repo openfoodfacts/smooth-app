@@ -47,6 +47,7 @@ class OnboardingLoader {
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
+      case OnboardingPage.PERMISSIONS_PAGE:
         // nothing special to do
         return;
       case OnboardingPage.CONSENT_PAGE:

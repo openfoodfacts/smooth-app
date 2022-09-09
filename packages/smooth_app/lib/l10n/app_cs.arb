@@ -704,6 +704,18 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
+    "permissions_page_title": "Přístup k fotoaparátu",
+    "@permissions_page_title": {
+        "description": "Title for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body1": "Chcete-li skenovat čárové kódy fotoaparátem telefonu, autorizujte přístup.",
+    "@permissions_page_body1": {
+        "description": "first paragraph for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body2": "Pokud si to rozmyslíte, můžete tuto možnost kdykoli povolit nebo zakázat v nastavení.",
+    "@permissions_page_body2": {
+        "description": "second paragraph for the camera permission's page (onboarding)"
+    },
     "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProdukt: {product}\nZařízení: {device}\nZnačka:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
@@ -776,11 +788,15 @@
     },
     "authorize_button_label": "Autorizovat",
     "@authorize": {
-        "description": "Button to accept the request of sending the anonymous analytics"
+        "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
     "refuse_button_label": "Odmítnout",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "ask_me_later_button_label": "Později",
+    "@ask_me_later": {
+        "description": "Button to ignore the camera permission request"
     },
     "knowledge_panel_text_source": "Přejít dále na {source_name}",
     "@knowledge_panel_text_source": {
@@ -932,6 +948,31 @@
     "camera_play_sound_subtitle": "Při každém úspěšném skenování pípne",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_alternative_mode_title": "Alternativní režim pro skener",
+    "@camera_alternative_mode_title": {
+        "description": "Title for the Alternative mode for the camera/scanner"
+    },
+    "camera_alternative_mode_subtitle": "Pokud vaše zařízení nedokáže skenovat čárové kódy, zkuste tento režim. Pokud to funguje dobře, sdělte nám prosím název svého zařízení: {device}, aby se tento režim stal výchozím pro vaše zařízení.",
+    "@camera_alternative_mode_subtitle": {
+        "description": "SubTitle for the Alternative mode for the camera/scanner",
+        "placeholders": {
+            "device": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_alternative_mode_confirm_dialog_title": "Režim skenování byl změněn!",
+    "@camera_alternative_mode_confirm_dialog_title": {
+        "description": "Title for the dialog explaining the alternative mode has changed"
+    },
+    "camera_alternative_mode_confirm_dialog_body": "Nový režim bude použit pouze po zastavení a opětovném spuštění aplikace!",
+    "@camera_alternative_mode_confirm_dialog_body": {
+        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
+    },
+    "camera_alternative_mode_confirm_dialog_button": "Řádně zaznamenáno!",
+    "@camera_alternative_mode_confirm_dialog_button": {
+        "description": "Button for the dialog to confirm the user has understood"
     },
     "crash_reporting_toggle_title": "Hlášení o pádu",
     "@crash_reporting_toggle_title": {

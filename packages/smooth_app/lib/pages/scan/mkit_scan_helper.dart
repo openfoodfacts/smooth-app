@@ -21,6 +21,12 @@ class MLKitScanDecoder {
           scanMode: scanMode,
         );
 
+  /// Ensures the dispose() method is called if this class is GC'ed.
+  static final Finalizer<_MLKitScanDecoderMainIsolate> _finalizer =
+      Finalizer<_MLKitScanDecoderMainIsolate>(
+    (_MLKitScanDecoderMainIsolate isolate) => isolate.dispose(),
+  );
+
   final DevModeScanMode scanMode;
   final _MLKitScanDecoderMainIsolate _mainIsolate;
 
@@ -43,11 +49,18 @@ class MLKitScanDecoder {
       // OK -> continue
     }
 
+    /// The next call with recreate the isolate if necessary.
+    /// Re-attaching it to the finalizer is mandatory.
+    if (_mainIsolate.isDisposed) {
+      _finalizer.attach(this, _mainIsolate, detach: this);
+    }
+
     return _mainIsolate.decode(image);
   }
 
   Future<void> dispose() async {
     _mainIsolate.dispose();
+    _finalizer.detach(this);
     Logs.d(tag: 'MLKitScanDecoder', 'Disposed');
   }
 }
@@ -163,6 +176,12 @@ class _MLKitScanDecoderMainIsolate {
     _isolate?.kill(priority: Isolate.immediate);
     _isolate = null;
   }
+
+  bool get isDisposed =>
+      _isIsolateInitialized == false &&
+      _completer == null &&
+      _sendPort == null &&
+      _isolate == null;
 }
 
 // ignore: avoid_classes_with_only_static_members
