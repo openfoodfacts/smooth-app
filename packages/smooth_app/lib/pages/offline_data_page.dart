@@ -22,8 +22,9 @@ class OfflineDataPage extends StatefulWidget {
 Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
   final DaoProduct daoProduct = DaoProduct(localDatabase);
-// We seperate the products into two lists, one for products that have a knowledge panel
-// and one for products that don't have a knowledge panel
+
+  /// We seperate the products into two lists, one for products that have a knowledge panel
+  /// and one for products that don't have a knowledge panel
   final List<String> barcodes = await daoProduct.getAllKeys();
   final List<String> productsWithoutKnowledgePanel = <String>[];
   final List<String> completeProducts = <String>[];
@@ -40,7 +41,8 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
       ProductQuery.fields;
   fieldsForProductsWithoutKnowledgePanel.remove(ProductField.KNOWLEDGE_PANELS);
   int totalUpdatedProducts = 0;
-// Config for the products that don't have a knowledge panel
+
+  /// Config for the products that don't have a knowledge panel
   final ProductSearchQueryConfiguration productSearchQueryConfiguration =
       ProductSearchQueryConfiguration(
     language: ProductQuery.getLanguage(),
@@ -60,7 +62,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
     totalUpdatedProducts += result.products!.length;
   }
 
-// Config for the complete products ie. products that have a knowledge panel
+  /// Config for the complete products ie. products that have a knowledge panel
   final ProductSearchQueryConfiguration
       productSearchQueryConfigurationForFullProducts =
       ProductSearchQueryConfiguration(
