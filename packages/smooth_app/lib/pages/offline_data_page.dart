@@ -194,7 +194,7 @@ class _StatsWidget extends StatelessWidget {
           },
         ),
         trailing: FutureBuilder<double>(
-          future: daoProduct.getTotalSizeInMB(),
+          future: daoProduct.getEstimatedTotalSizeInMB(),
           builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
             if (snapshot.hasData) {
               return Text('${snapshot.data} MB');

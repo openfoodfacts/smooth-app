@@ -215,7 +215,7 @@ class DaoProduct extends AbstractSqlDao
   }
 
   /// Get the estimated total size of the database in MegaBytes
-  Future<double> getTotalSizeInMB() async {
+  Future<double> getEstimatedTotalSizeInMB() async {
     // We get the estimated size of the database in bytes
     // by summing the size of the gzipped json column and
     // the size of the barcode column and last update column
