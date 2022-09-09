@@ -192,7 +192,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           SizedBox(
             height: MINIMUM_TOUCH_SIZE,
             width: MINIMUM_TOUCH_SIZE,
-            child: Image.file(image, fit: BoxFit.cover),
+            child: ClipRRect(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              child: Image.file(image, fit: BoxFit.cover),
+            ),
           ),
           Expanded(
             child: Center(
