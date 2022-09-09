@@ -87,6 +87,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
 class _OfflineDataPageState extends State<OfflineDataPage> {
   @override
   Widget build(BuildContext context) {
+    //Todo(ashaman999):replaace the header asset with a custom one for this page
     const String headerAsset = 'assets/preferences/main.svg';
     final bool dark = Theme.of(context).brightness == Brightness.dark;
     final double backgroundHeight = MediaQuery.of(context).size.height * .20;
@@ -189,7 +190,7 @@ class _StatsWidget extends StatelessWidget {
               return Text(
                   '${snapshot.data} products available for immediate scaning');
             } else {
-              return const Text('0 products available for immediate scaning');
+              return const Text('Loading...');
             }
           },
         ),
