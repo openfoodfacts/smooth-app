@@ -4,7 +4,7 @@
     "@yes": {},
     "add": "Aggiungi",
     "@add": {},
-    "okay": "Okay",
+    "okay": "Ok",
     "@okay": {},
     "applyButtonText": "Applica",
     "@applyButtonText": {},
@@ -26,11 +26,11 @@
     "@close": {},
     "no": "No",
     "@no": {},
-    "stop": "Stop",
+    "stop": "Ferma",
     "@stop": {},
     "finish": "Fine",
     "@finish": {},
-    "reset_food_prefs": "Ripristina le preferenze alimentari",
+    "reset_food_prefs": "Ripristina preferenze alimentari",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -103,13 +103,13 @@
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Benvenuto su Open Food Facts",
+    "welcomeToOpenFoodFacts": "Benvenuto in Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts è una no-profit globale sviluppata dalle comunità locali.",
+    "whatIsOff": "Open Food Facts è una non-profit globale sviluppata dalle comunità locali.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Scegli il cibo che fa bene a te e al pianeta.",
+    "offUtility": "Scegli gli alimenti che fanno bene a te e al pianeta.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -132,9 +132,9 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Sei pregato di inserire il nome utente o l'email",
-    "login_page_password_error_empty": "Sei pregato di inserire una password",
-    "create_account": "Crea il profilo",
+    "login_page_username_or_email": "Inserire il nome utente o l'email",
+    "login_page_password_error_empty": "Inserire una password",
+    "create_account": "Crea account",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -146,11 +146,11 @@
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
-    "sign_out": "Disconnettiti",
+    "sign_out": "Esci",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Vuoi davvero scollegarti?",
+    "sign_out_confirmation": "Sei sicuro di voler uscire?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -181,27 +181,27 @@
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Registrati",
+    "sign_up_page_title": "Iscriviti",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Registrati",
+    "sign_up_page_action_button": "Iscriviti",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Registrazione in corso...",
+    "sign_up_page_action_doing_it": "Iscrizione in corso...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Congratulazioni! Il tuo profilo è appena stato creato.",
     "sign_up_page_display_name_hint": "Nome",
     "sign_up_page_display_name_error_empty": "Sei pregato di inserire il nome visualizzato che desideri usare",
-    "sign_up_page_email_hint": "Email",
-    "sign_up_page_email_error_empty": "L'email è necessaria",
+    "sign_up_page_email_hint": "E-mail",
+    "sign_up_page_email_error_empty": "L'email è obbligatoria",
     "sign_up_page_email_error_invalid": "E-mail non valida",
     "sign_up_page_username_hint": "Nome utente: Visibile pubblicamente",
-    "sign_up_page_username_error_empty": "Sei pregato di inserire un nome utente",
-    "sign_up_page_username_error_invalid": "Sei pregato di inserire un nome utente valido",
+    "sign_up_page_username_error_empty": "Inserisci un nome utente",
+    "sign_up_page_username_error_invalid": "Inserisci un nome utente valido",
     "sign_up_page_username_description": "Il nome utente non può contenere spazi, maiuscole o caratteri speciali",
     "sign_up_page_username_length_invalid": "Il nome utente non può superare {value} caratteri",
     "@sign_up_page_username_length_invalid": {
@@ -212,10 +212,10 @@
         }
     },
     "sign_up_page_password_hint": "Password",
-    "sign_up_page_password_error_empty": "Sei pregato di inserire una password",
+    "sign_up_page_password_error_empty": "Inserire una password",
     "sign_up_page_password_error_invalid": "Sei pregato di inserire una password valida (almeno 6 caratteri)",
-    "sign_up_page_confirm_password_hint": "Conferma la Password",
-    "sign_up_page_confirm_password_error_empty": "Sei pregato di confermare la password",
+    "sign_up_page_confirm_password_hint": "Ripeti la password",
+    "sign_up_page_confirm_password_error_empty": "Ripeti la password",
     "sign_up_page_confirm_password_error_invalid": "Le password non corrispondono",
     "sign_up_page_agree_text": "Acconsento ai termini d'uso e di",
     "@sign_up_page_agree_text": {
@@ -225,7 +225,7 @@
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
-    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_url": "https://it.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -237,8 +237,8 @@
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "Sono un produttore alimentare",
-    "sign_up_page_producer_hint": "Produttore/Marchio",
+    "sign_up_page_producer_checkbox": "Sono un produttore di alimenti",
+    "sign_up_page_producer_hint": "Produttore/marca",
     "sign_up_page_producer_error_empty": "Sei pregato di inserire il nome di un produttore o marchio",
     "sign_up_page_subscribe_checkbox": "Vorrei iscrivermi alla newsletter di Open Food Facts (Puoi disiscriverti da essa in qualsiasi momento)",
     "@Settings": {},
@@ -302,7 +302,7 @@
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Apprendista",
+    "contribute_improve_header": "Aiuta",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
@@ -367,7 +367,7 @@
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
-    "reloaded_with_new_preferences": "Ricaricato con le tue nuove preferenze",
+    "reloaded_with_new_preferences": "Ricaricato con le nuove preferenze",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
@@ -413,7 +413,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Nome del prodotto sconosciuto",
     "@unknownProductName": {},
-    "label_refresh": "Ricarica",
+    "label_refresh": "Aggiorna",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -427,12 +427,12 @@
     "ingredients_editing_instructions": "Mantieni l'ordine originale. Indica la percentuale quando specificato. Separa con una virgola o un trattino, usa le parentesi per gli ingredienti di un ingrediente e indica gli allergeni tra trattini bassi.",
     "ingredients_editing_error": "Impossibile salvare gli ingredienti.",
     "ingredients_editing_image_error": "Impossibile ottenere una nuova immagine degli ingredienti.",
-    "ingredients_editing_title": "Modifica Ingredienti",
+    "ingredients_editing_title": "Modifica ingredienti",
     "ingredients_photo": "Foto degli ingredienti",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "Elenca tutte le parti dell'imballaggio separate da una virgola o avanzamento di riga, con la loro quantità (es. 1 o 6), tipo (es. bottiglia, scatola, lattina), materiale (es. plastica, metallo, alluminio) e se disponibili le loro dimensioni (es. 33cl) e le istruzioni di riciclaggio.\nEsempio: 1 bottiglia in vetro da riciclare, 1 tappo in plastica da gettare",
+    "packaging_editing_instructions": "Elenca tutte le parti dell'imballaggio separate da una virgola o vai a capo, con la loro quantità (es. 1 o 6), tipo (es. bottiglia, scatola, lattina), materiale (es. plastica, metallo, alluminio) e se disponibili le loro dimensioni (es. 33cl) e le istruzioni di riciclaggio.\nEsempio: 1 bottiglia in vetro da riciclare, 1 tappo in plastica da gettare",
     "packaging_editing_error": "Impossibile salvare la confezione.",
     "packaging_editing_image_error": "Impossibile ottenere una nuova immagine della confezione.",
     "packaging_editing_title": "Modifica imballaggio",
@@ -468,8 +468,8 @@
     "front_packaging_photo_title": "Foto dell'Imballaggio Anteriore",
     "ingredients_photo_title": "Foto degli Ingredienti",
     "nutritional_facts_photo_title": "Foto dei Valori Nutrizionali",
-    "recycling_photo_title": "Foto di Riciclaggio",
-    "other_interesting_photo_title": "Altra Foto Interessante",
+    "recycling_photo_title": "Foto delle istruzioni di riciclaggio",
+    "other_interesting_photo_title": "Altra foto interessante",
     "front_photo_uploaded": "Foto frontale caricata",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto degli ingredienti",
@@ -483,9 +483,9 @@
     "nutritional_facts_added": "Valori nutrizionali aggiunti",
     "nutritional_facts_photo_uploaded": "Foto dei valori nutrizionali caricata",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Foto delle informazioni di riciclaggio",
+    "recycling_photo_button_label": "Foto delle istruzioni di riciclaggio",
     "@recycling_photo_button_label": {},
-    "recycling_photo_uploaded": "Foto di riciclaggio caricata",
+    "recycling_photo_uploaded": "Foto delle istruzioni di riciclaggio caricata",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Altre foto interessanti",
     "@other_interesting_photo_button_label": {},
@@ -538,7 +538,7 @@
     "nutrition_page_add_nutrient": "Aggiungi un nutriente",
     "nutrition_page_serving_size": "Porzione",
     "nutrition_page_invalid_number": "Numero non valido",
-    "nutrition_page_update_running": "Aggiornando il prodotto sul server...",
+    "nutrition_page_update_running": "Aggiornamento del prodotto sul server in corso",
     "nutrition_page_update_done": "Prodotto aggiornato!",
     "more_photos": "Altre foto che potrebbero interessarti",
     "@more_photos": {},
@@ -687,7 +687,7 @@
     "blog": "Blog",
     "faq": "FAQ",
     "discover": "Scopri",
-    "how_to_contribute": "Come Contribuire",
+    "how_to_contribute": "Come contribuire",
     "hint_knowledge_panel_message": "Puoi toccare su qualsiasi parte della scheda per ottenere ulteriori dettagli su ciò che vedi. Provaci adesso!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
@@ -704,11 +704,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Accesso alla fotocamera",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "Per scansionare i codici a barre con la fotocamera del telefono, autorizzare l'accesso.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -794,7 +794,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "In seguito",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -949,11 +949,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "camera_alternative_mode_title": "Modalità alternativa per lo scanner",
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode. If it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Se il dispositivo non è in grado di scansionare i codici a barre, prova questa modalità. Se funziona bene, si prega di comunicarci il nome del dispositivo: {device}, al fine di rendere questa modalità quella predefinita per il tuo dispositivo.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -962,15 +962,15 @@
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
+    "camera_alternative_mode_confirm_dialog_title": "Modalità scanner cambiata!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "The new mode will only be used after stopping, then relaunching the app!",
+    "camera_alternative_mode_confirm_dialog_body": "La nuova modalità verrà utilizzata solo dopo il riavvio dell'app.",
     "@camera_alternative_mode_confirm_dialog_body": {
         "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
     },
-    "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
+    "camera_alternative_mode_confirm_dialog_button": "Annotato!",
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
     },
@@ -1242,11 +1242,11 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "dev_preferences_screen_title": "Modalità DEV",
+    "dev_preferences_screen_title": "Modalità sviluppatore",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Rimuovi modalità dev",
+    "dev_preferences_disable_mode": "Disattiva modalità sviluppatore",
     "@dev_preferences_disable_mode": {
         "description": "User dev preferences - Remove dev mode label"
     },
@@ -1262,7 +1262,7 @@
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
     },
-    "dev_preferences_environment_switch_subtitle": "Il tipo di query corrente è {query}",
+    "dev_preferences_environment_switch_subtitle": "L'attuale tipo di ricerca è {query}",
     "@dev_preferences_environment_switch_subtitle": {
         "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
         "placeholders": {
@@ -1444,7 +1444,7 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "edit_product_action_retake_picture": "Riscatta la foto",
+    "edit_product_action_retake_picture": "Rifai foto",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
     },
@@ -1671,6 +1671,6 @@
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
-    "selected_images": "Selected Images"
+    "all_images": "Tutte le immagini",
+    "selected_images": "Immagini selezionate"
 }

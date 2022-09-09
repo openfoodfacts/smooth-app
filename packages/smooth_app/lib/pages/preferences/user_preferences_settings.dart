@@ -52,6 +52,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
   List<Widget> getBody() => const <Widget>[
         _ApplicationSettings(),
         _CameraSettings(),
+        _ProductsSettings(),
+        _MiscellaneousSettings(),
         _PrivacySettings(),
       ];
 }
@@ -164,18 +166,6 @@ class _PrivacySettings extends StatelessWidget {
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
-        const UserPreferencesListItemDivider(),
-        _ExpandPanelHelper(
-          title: appLocalizations.expand_nutrition_facts,
-          subtitle: appLocalizations.expand_nutrition_facts_body,
-          panelId: KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
-        ),
-        const UserPreferencesListItemDivider(),
-        _ExpandPanelHelper(
-          title: appLocalizations.expand_ingredients,
-          subtitle: appLocalizations.expand_ingredients_body,
-          panelId: KnowledgePanelCard.PANEL_INGREDIENTS_ID,
-        ),
       ],
     );
   }
@@ -326,6 +316,81 @@ class _CameraAlternativeModeSetting extends StatelessWidget {
             ),
           );
         });
+  }
+}
+
+class _ProductsSettings extends StatelessWidget {
+  const _ProductsSettings({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (!CameraHelper.hasACamera) {
+      return const SizedBox.shrink();
+    }
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        UserPreferencesTitle(
+          label: appLocalizations.settings_app_products,
+        ),
+        _ExpandPanelHelper(
+          title: appLocalizations.expand_nutrition_facts,
+          subtitle: appLocalizations.expand_nutrition_facts_body,
+          panelId: KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
+        ),
+        const UserPreferencesListItemDivider(),
+        _ExpandPanelHelper(
+          title: appLocalizations.expand_ingredients,
+          subtitle: appLocalizations.expand_ingredients_body,
+          panelId: KnowledgePanelCard.PANEL_INGREDIENTS_ID,
+        ),
+      ],
+    );
+  }
+}
+
+class _MiscellaneousSettings extends StatelessWidget {
+  const _MiscellaneousSettings({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (!CameraHelper.hasACamera) {
+      return const SizedBox.shrink();
+    }
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        UserPreferencesTitle(
+          label: appLocalizations.settings_app_miscellaneous,
+        ),
+        const _HapticFeedbackSetting(),
+      ],
+    );
+  }
+}
+
+class _HapticFeedbackSetting extends StatelessWidget {
+  const _HapticFeedbackSetting();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.app_haptic_feedback_title,
+      subtitle: appLocalizations.app_haptic_feedback_subtitle,
+      value: userPreferences.hapticFeedbackEnabled,
+      onChanged: (final bool value) async {
+        await userPreferences.setHapticFeedbackEnabled(value);
+      },
+    );
   }
 }
 

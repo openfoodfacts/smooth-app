@@ -704,11 +704,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Accès à la caméra",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "Pour scanner des codes à barres avec la caméra de votre téléphone, veuillez autoriser l'accès.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -794,7 +794,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "Plus tard",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -949,7 +949,7 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "camera_alternative_mode_title": "Mode alternatif pour le scanner",
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
@@ -1671,8 +1671,8 @@
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
-    "selected_images": "Selected Images",
+    "all_images": "Toutes les images",
+    "selected_images": "Images sélectionnées",
     "offline_data": "Données hors ligne",
     "@offline_data": {
         "description": "App bar tile for offline data page"

@@ -704,11 +704,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Přístup k fotoaparátu",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "Chcete-li skenovat čárové kódy fotoaparátem telefonu, autorizujte přístup.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -794,7 +794,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "Později",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -949,11 +949,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "camera_alternative_mode_title": "Alternativní režim pro skener",
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode. If it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Pokud vaše zařízení nedokáže skenovat čárové kódy, zkuste tento režim. Pokud to funguje dobře, sdělte nám prosím název svého zařízení: {device}, aby se tento režim stal výchozím pro vaše zařízení.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -962,15 +962,15 @@
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
+    "camera_alternative_mode_confirm_dialog_title": "Režim skenování byl změněn!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "The new mode will only be used after stopping, then relaunching the app!",
+    "camera_alternative_mode_confirm_dialog_body": "Nový režim bude použit pouze po zastavení a opětovném spuštění aplikace!",
     "@camera_alternative_mode_confirm_dialog_body": {
         "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
     },
-    "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
+    "camera_alternative_mode_confirm_dialog_button": "Řádně zaznamenáno!",
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
     },
