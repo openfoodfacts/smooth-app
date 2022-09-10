@@ -296,16 +296,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         ),
         const UserPreferencesListItemDivider(),
         _getListTile(
-          appLocalizations.sign_out,
-          () async {
-            if (await _confirmLogout(context) == true) {
-              Navigator.pop(context);
-            }
-          },
-          Icons.clear,
-        ),
-        const UserPreferencesListItemDivider(),
-        _getListTile(
           appLocalizations.account_delete,
           () async {
             final Email email = Email(
@@ -317,6 +307,16 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             await FlutterEmailSender.send(email);
           },
           Icons.delete,
+        ),
+        const UserPreferencesListItemDivider(),
+        _getListTile(
+          appLocalizations.sign_out,
+          () async {
+            if (await _confirmLogout(context) == true) {
+              Navigator.pop(context);
+            }
+          },
+          Icons.clear,
         ),
         const UserPreferencesListItemDivider(),
       ];
