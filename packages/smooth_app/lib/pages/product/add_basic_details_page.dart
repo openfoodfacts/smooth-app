@@ -1,9 +1,8 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -12,10 +11,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
-import 'package:smooth_app/helpers/background_task_helper.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:task_manager/task_manager.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(
@@ -53,11 +49,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   }
 
   /// Returns a [Product] with the values from the text fields.
-  Product _getChangedProduct(Product product) {
+  void _setChangedProduct(Product product) {
     product.productName = _productNameController.text;
     product.quantity = _weightController.text;
     product.brands = _brandNameController.text;
-    return product;
   }
 
   @override
@@ -147,33 +142,18 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
-                    Product inputProduct = Product(
+                    final Product inputProduct = Product(
                       barcode: _product.barcode,
                     );
-                    inputProduct = _getChangedProduct(inputProduct);
+                    _setChangedProduct(inputProduct);
                     final Product? cachedProduct =
                         await daoProduct.get(_product.barcode!);
                     if (cachedProduct != null) {
-                      _getChangedProduct(cachedProduct);
+                      _setChangedProduct(cachedProduct);
                     }
-                    final String uniqueId = UniqueIdGenerator.generateUniqueId(
-                        _product.barcode!, BASIC_DETAILS);
-                    final BackgroundOtherDetailsInput
-                        backgroundBasicDetailsInput =
-                        BackgroundOtherDetailsInput(
-                      processName: PRODUCT_EDIT_TASK,
-                      uniqueId: uniqueId,
-                      barcode: _product.barcode!,
-                      inputMap: jsonEncode(inputProduct.toJson()),
-                      languageCode: ProductQuery.getLanguage().code,
-                      user: jsonEncode(ProductQuery.getUser().toJson()),
-                      country: ProductQuery.getCountry()!.iso2Code,
-                    );
-                    await TaskManager().addTask(
-                      Task(
-                        data: backgroundBasicDetailsInput.toJson(),
-                        uniqueId: uniqueId,
-                      ),
+                    await BackgroundTaskDetails.addTask(
+                      inputProduct,
+                      productEditTask: ProductEditTask.basic,
                     );
                     final Product upToDateProduct =
                         cachedProduct ?? inputProduct;
