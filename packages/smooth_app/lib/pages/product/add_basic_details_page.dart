@@ -48,7 +48,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     _brandNameController.text = _product.brands ?? '';
   }
 
-  /// Returns a [Product] with the values from the text fields.
+  /// Sets a [Product] with the values from the text fields.
   void _setChangedProduct(Product product) {
     product.productName = _productNameController.text;
     product.quantity = _weightController.text;

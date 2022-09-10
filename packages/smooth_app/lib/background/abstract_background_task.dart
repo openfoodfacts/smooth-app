@@ -56,7 +56,7 @@ abstract class AbstractBackgroundTask {
   ///
   /// This ensures that the background task is unique and also
   /// ensures that in case of conflicts, the background task is replaced.
-  /// Example: 00000000_BASIC_DETAILS_en_us
+  /// Example: 8901072002478_B_en_in_username
   @protected
   static String generateUniqueId(
     String barcode,
