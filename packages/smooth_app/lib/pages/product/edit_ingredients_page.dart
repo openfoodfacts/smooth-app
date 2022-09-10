@@ -1,26 +1,22 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:task_manager/task_manager.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -134,29 +130,13 @@ class _EditOcrPageState extends State<EditOcrPage> {
       cachedProduct = _helper.getMinimalistProduct(cachedProduct, text);
     }
     changedProduct = _helper.getMinimalistProduct(changedProduct, text);
-    String uniqueId =
-        UniqueIdGenerator.generateUniqueId(_product.barcode!, INGREDIENT_EDIT);
-    if (_helper.getImageField().value == ImageField.PACKAGING.value) {
-      uniqueId =
-          UniqueIdGenerator.generateUniqueId(_product.barcode!, PACKAGING_EDIT);
-    }
-    final BackgroundOtherDetailsInput backgroundOtherDetailsInput =
-        BackgroundOtherDetailsInput(
-      processName: PRODUCT_EDIT_TASK,
-      uniqueId: uniqueId,
-      barcode: changedProduct.barcode!,
-      languageCode: ProductQuery.getLanguage().code,
-      inputMap: jsonEncode(changedProduct.toJson()),
-      user: jsonEncode(ProductQuery.getUser().toJson()),
-      country: ProductQuery.getCountry()!.iso2Code,
+    await BackgroundTaskDetails.addTask(
+      changedProduct,
+      productEditTask:
+          _helper.getImageField().value == ImageField.PACKAGING.value
+              ? ProductEditTask.packaging
+              : ProductEditTask.ingredient,
     );
-    await TaskManager().addTask(
-      Task(
-        data: backgroundOtherDetailsInput.toJson(),
-        uniqueId: uniqueId,
-      ),
-    );
-
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
     provider.set(upToDateProduct);
