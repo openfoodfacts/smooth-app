@@ -6,28 +6,36 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_query_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 
+typedef EditProductQueryCallback = void Function(String productName);
+
 class ProductQueryPageHelper {
   Future<void> openBestChoice({
     required final PagedProductQuery productQuery,
     required final LocalDatabase localDatabase,
     required final String name,
     required final BuildContext context,
+    EditProductQueryCallback? editQueryCallback,
   }) async {
     final ProductListSupplier supplier =
         await ProductListSupplier.getBestSupplier(
       productQuery,
       localDatabase,
     );
-    //ignore: use_build_context_synchronously
-    Navigator.push<Widget>(
+    final ProductQueryPageResult? result =
+        // ignore: use_build_context_synchronously
+        await Navigator.push<ProductQueryPageResult>(
       context,
-      MaterialPageRoute<Widget>(
+      MaterialPageRoute<ProductQueryPageResult>(
         builder: (BuildContext context) => ProductQueryPage(
           productListSupplier: supplier,
           name: name,
         ),
       ),
     );
+
+    if (result == ProductQueryPageResult.editProductQuery) {
+      editQueryCallback?.call(name);
+    }
   }
 
   static String getDurationStringFromSeconds(

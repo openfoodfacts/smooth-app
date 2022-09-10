@@ -14,12 +14,18 @@ import 'package:smooth_app/pages/scan/search_history_view.dart';
 import 'package:smooth_app/query/keywords_product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-void _performSearch(BuildContext context, String query) {
+void _performSearch(
+  BuildContext context,
+  String query, {
+  EditProductQueryCallback? editProductQueryCallback,
+}) {
   if (query.trim().isEmpty) {
     return;
   }
+
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
   DaoStringList(localDatabase).add(query);
+
   if (int.tryParse(query) != null) {
     _onSubmittedBarcode(
       query,
@@ -31,6 +37,7 @@ void _performSearch(BuildContext context, String query) {
       query,
       context,
       localDatabase,
+      editProductQueryCallback: editProductQueryCallback,
     );
   }
 }
@@ -76,13 +83,15 @@ Future<void> _onSubmittedBarcode(
 Future<void> _onSubmittedText(
   final String value,
   final BuildContext context,
-  final LocalDatabase localDatabase,
-) async =>
+  final LocalDatabase localDatabase, {
+  EditProductQueryCallback? editProductQueryCallback,
+}) async =>
     ProductQueryPageHelper().openBestChoice(
       name: value,
       localDatabase: localDatabase,
       productQuery: KeywordsProductQuery(value),
       context: context,
+      editQueryCallback: editProductQueryCallback,
     );
 
 class SearchPage extends StatefulWidget {
@@ -93,6 +102,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   // https://github.com/openfoodfacts/smooth-app/pull/2219
   final TextEditingController _searchTextController = TextEditingController();
+  final FocusNode _searchFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -102,13 +112,23 @@ class _SearchPageState extends State<SearchPage> {
         create: (_) => _searchTextController,
         child: Column(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: SearchField(autofocus: true),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SearchField(
+                autofocus: true,
+                focusNode: _searchFocusNode,
+              ),
             ),
             Expanded(
               child: SearchHistoryView(
-                onTap: (String query) => _performSearch(context, query),
+                onTap: (String query) => _performSearch(
+                  context,
+                  query,
+                  editProductQueryCallback: (String productName) {
+                    _searchTextController.text = productName;
+                    _searchFocusNode.requestFocus();
+                  },
+                ),
               ),
             ),
           ],
@@ -126,6 +146,7 @@ class SearchField extends StatefulWidget {
     this.onFocus,
     this.backgroundColor,
     this.foregroundColor,
+    this.focusNode,
   });
 
   final bool autofocus;
@@ -137,12 +158,14 @@ class SearchField extends StatefulWidget {
   final Color? backgroundColor;
   final Color? foregroundColor;
 
+  final FocusNode? focusNode;
+
   @override
   State<SearchField> createState() => _SearchFieldState();
 }
 
 class _SearchFieldState extends State<SearchField> {
-  final FocusNode _focusNode = FocusNode();
+  late FocusNode _focusNode;
   late TextEditingController _controller;
 
   bool _isEmpty = true;
@@ -150,6 +173,8 @@ class _SearchFieldState extends State<SearchField> {
   @override
   void initState() {
     super.initState();
+
+    _focusNode = widget.focusNode ?? FocusNode();
     _focusNode.addListener(_handleFocusChange);
 
     if (widget.autofocus) {
@@ -240,7 +265,14 @@ class _SearchFieldState extends State<SearchField> {
         textInputAction: TextInputAction.search,
         controller: _controller,
         focusNode: _focusNode,
-        onSubmitted: (String query) => _performSearch(context, query),
+        onSubmitted: (String query) => _performSearch(
+          context,
+          query,
+          editProductQueryCallback: (String productName) {
+            _controller.text = productName;
+            _focusNode.requestFocus();
+          },
+        ),
         decoration: inputDecoration,
         style: textStyle,
       );
