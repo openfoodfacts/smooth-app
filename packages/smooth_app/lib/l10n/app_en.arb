@@ -1687,5 +1687,9 @@
     "product_card_remove_product_tooltip": "Remove product",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "offline_data": "Offline Data",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
     }
 }

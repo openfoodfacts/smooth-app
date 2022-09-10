@@ -1683,6 +1683,10 @@
     },
     "all_images": "Toutes les images",
     "selected_images": "Images sélectionnées",
+    "offline_data": "Données hors ligne",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
+    },
     "product_card_remove_product_tooltip": "Remove product",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
