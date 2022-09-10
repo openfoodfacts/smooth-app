@@ -431,11 +431,12 @@ class CongratsWidget extends StatelessWidget {
                               ),
                             );
                             if (OpenFoodAPIConfiguration.globalUser != null) {
-                              await LoadingDialog.run<void>(
+                              LoadingDialog.run<void>(
                                 context: context,
                                 title: appLocalizations.saving_answer,
                                 future: _postInsightAnnotations(
-                                    _anonymousAnnotationList),
+                                  _anonymousAnnotationList,
+                                ),
                               );
                             }
                           },
@@ -465,16 +466,23 @@ class CongratsWidget extends StatelessWidget {
     );
   }
 
-  Future<void> _postInsightAnnotations(
-      Map<String, InsightAnnotation> annotationList) async {
-    annotationList
-        .forEach((String insightId, InsightAnnotation insightAnnotation) async {
-      await OpenFoodAPIClient.postInsightAnnotation(
-        insightId,
-        insightAnnotation,
+  Future<List<bool>> _postInsightAnnotations(
+    Map<String, InsightAnnotation> annotationList,
+  ) async {
+    final List<bool> results = <bool>[];
+
+    for (final MapEntry<String, InsightAnnotation> annotation
+        in annotationList.entries) {
+      final Status status = await OpenFoodAPIClient.postInsightAnnotation(
+        annotation.key,
+        annotation.value,
         deviceId: OpenFoodAPIConfiguration.uuid,
         user: OpenFoodAPIConfiguration.globalUser,
       );
-    });
+
+      results.add(status.status == 1);
+    }
+
+    return results;
   }
 }
