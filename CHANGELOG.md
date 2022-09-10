@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.16.0](https://github.com/openfoodfacts/smooth-app/compare/v3.15.0...v3.16.0) (2022-09-10)
+
+
+### Features
+
+* Helper for haptic feedback + improved delete product button ([#2957](https://github.com/openfoodfacts/smooth-app/issues/2957)) ([1073972](https://github.com/openfoodfacts/smooth-app/commit/10739723cedf55775e846b05d65db455d89d1d13))
+
+
+### Bug Fixes
+
+* miniature of ingredients blocks the text ([#2964](https://github.com/openfoodfacts/smooth-app/issues/2964)) ([c30e109](https://github.com/openfoodfacts/smooth-app/commit/c30e109372440ed9ef695525f061efb5f5951465))
+
+
+### Miscellaneous
+
+* New Crowdin translations ([#2981](https://github.com/openfoodfacts/smooth-app/issues/2981)) ([8f1cd29](https://github.com/openfoodfacts/smooth-app/commit/8f1cd2972f7cd6b3da651042ec673e4fa439ae47))
+* New Crowdin translations ([#2990](https://github.com/openfoodfacts/smooth-app/issues/2990)) ([16b0434](https://github.com/openfoodfacts/smooth-app/commit/16b0434a823cb5999bc4b28ad0678497f22c7c58))
+
 ## [3.15.0](https://github.com/openfoodfacts/smooth-app/compare/v3.14.0...v3.15.0) (2022-09-07)
 
 

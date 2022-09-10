@@ -908,6 +908,8 @@
     "settings_app_app": "Anwendung",
     "settings_app_data": "Datenschutz und Überwachung",
     "settings_app_camera": "Kamera",
+    "settings_app_products": "Produkte",
+    "settings_app_miscellaneous": "Miscellaneous",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -973,6 +975,14 @@
     "camera_alternative_mode_confirm_dialog_button": "Verstanden!",
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
+    },
+    "app_haptic_feedback_title": "Vibration & Haptics",
+    "@app_haptic_feedback_title": {
+        "description": "Title for the Haptic feedback toggle"
+    },
+    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "@app_haptic_feedback_subtitle": {
+        "description": "SubTitle for the Haptic feedback toggle"
     },
     "crash_reporting_toggle_title": "Abstürze melden",
     "@crash_reporting_toggle_title": {
@@ -1672,5 +1682,13 @@
         "description": "Content for the dialog when no email client is installed on the device"
     },
     "all_images": "Alle Fotos",
-    "selected_images": "Ausgewählte Fotos"
+    "selected_images": "Ausgewählte Fotos",
+    "product_card_remove_product_tooltip": "Remove product",
+    "@product_card_remove_product_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "offline_data": "Offline-Daten",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
+    }
 }

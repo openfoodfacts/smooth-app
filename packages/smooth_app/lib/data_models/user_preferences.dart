@@ -42,6 +42,9 @@ class UserPreferences extends ChangeNotifier {
   // Play sound when decoding a barcode
   static const String _TAG_PLAY_CAMERA_SCAN_SOUND = 'camera_scan_sound';
 
+  /// Vibrations / haptic feedback
+  static const String _TAG_HAPTIC_FEEDBACK_IN_APP = 'haptic_feedback_enabled';
+
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
 
@@ -182,6 +185,14 @@ class UserPreferences extends ChangeNotifier {
 
   bool get playCameraSound =>
       _sharedPreferences.getBool(_TAG_PLAY_CAMERA_SCAN_SOUND) ?? false;
+
+  Future<void> setHapticFeedbackEnabled(bool enabled) async {
+    await _sharedPreferences.setBool(_TAG_HAPTIC_FEEDBACK_IN_APP, enabled);
+    notifyListeners();
+  }
+
+  bool get hapticFeedbackEnabled =>
+      _sharedPreferences.getBool(_TAG_HAPTIC_FEEDBACK_IN_APP) ?? true;
 
   Future<void> setDevMode(final int value) async {
     await _sharedPreferences.setInt(_TAG_DEV_MODE, value);

@@ -908,6 +908,8 @@
     "settings_app_app": "Programa",
     "settings_app_data": "Privatumas ir stebėjimas",
     "settings_app_camera": "Kamera",
+    "settings_app_products": "Produktai",
+    "settings_app_miscellaneous": "Miscellaneous",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -973,6 +975,14 @@
     "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
+    },
+    "app_haptic_feedback_title": "Vibration & Haptics",
+    "@app_haptic_feedback_title": {
+        "description": "Title for the Haptic feedback toggle"
+    },
+    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "@app_haptic_feedback_subtitle": {
+        "description": "SubTitle for the Haptic feedback toggle"
     },
     "crash_reporting_toggle_title": "Pranešimas apie strigtis",
     "@crash_reporting_toggle_title": {
@@ -1672,5 +1682,9 @@
         "description": "Content for the dialog when no email client is installed on the device"
     },
     "all_images": "All Images",
-    "selected_images": "Selected Images"
+    "selected_images": "Selected Images",
+    "product_card_remove_product_tooltip": "Remove product",
+    "@product_card_remove_product_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    }
 }
