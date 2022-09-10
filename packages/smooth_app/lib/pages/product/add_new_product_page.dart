@@ -189,11 +189,20 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: 50, child: Image.file(image, fit: BoxFit.cover)),
+          SizedBox(
+            height: 50,
+            width: 50,
+            child: ClipRRect(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              child: Image.file(image, fit: BoxFit.cover),
+            ),
+          ),
           Expanded(
             child: Center(
-              child: Text(_getAddPhotoButtonText(context, imageType),
-                  style: themeData.textTheme.bodyText1),
+              child: Text(
+                _getAddPhotoButtonText(context, imageType),
+                style: themeData.textTheme.bodyText1,
+              ),
             ),
           ),
           Icon(

@@ -619,8 +619,8 @@ class _SummaryCardState extends State<SummaryCard> {
               snapshot.data ?? <RobotoffQuestion>[];
           if (questions.isNotEmpty && !_annotationVoted) {
             return InkWell(
-              onTap: () async {
-                await Navigator.push<void>(
+              onTap: () {
+                Navigator.push<void>(
                   context,
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => QuestionPage(

@@ -92,20 +92,20 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 screenSize, themeData, '${_model.loadingError}');
           case LoadingStatus.LOADING:
             if (!_model.isNotEmpty()) {
-              return _getEmptyScreen(
-                screenSize,
-                themeData,
-                const CircularProgressIndicator.adaptive(),
+              return _EmptyScreen(
+                screenSize: screenSize,
+                name: widget.name,
+                emptiness: const CircularProgressIndicator.adaptive(),
               );
             }
             break;
           case LoadingStatus.LOADED:
             if (!_model.isNotEmpty()) {
               // TODO(monsieurtanuki): should be tracked as well, shouldn't it?
-              return _getEmptyScreen(
-                screenSize,
-                themeData,
-                _getEmptyText(
+              return _EmptyScreen(
+                screenSize: screenSize,
+                name: widget.name,
+                emptiness: _getEmptyText(
                   themeData,
                   appLocalizations.no_product_found,
                 ),
@@ -130,24 +130,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       },
     );
   }
-
-  Widget _getEmptyScreen(
-    final Size screenSize,
-    final ThemeData themeData,
-    final Widget emptiness, {
-    final List<Widget>? actions,
-  }) =>
-      SmoothScaffold(
-        appBar: AppBar(
-          backgroundColor: themeData.scaffoldBackgroundColor,
-          leading: const SmoothBackButton(),
-          title: _getAppBarTitle(),
-          actions: actions,
-        ),
-        body: Center(child: emptiness),
-      );
-
-  Widget _getAppBarTitle() => AutoSizeText(widget.name, maxLines: 2);
 
   // TODO(monsieurtanuki): put that in a specific Widget class
   Widget _getNotEmptyScreen(
@@ -206,7 +188,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           elevation: 0,
           automaticallyImplyLeading: false,
           leading: const SmoothBackButton(),
-          title: _getAppBarTitle(),
+          title: _AppBarTitle(name: widget.name),
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
@@ -248,10 +230,10 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final ThemeData themeData,
     final String errorMessage,
   ) {
-    return _getEmptyScreen(
-      screenSize,
-      themeData,
-      Padding(
+    return _EmptyScreen(
+      screenSize: screenSize,
+      name: widget.name,
+      emptiness: Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: SmoothErrorCard(
           errorMessage: errorMessage,
@@ -470,6 +452,61 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   }
 }
 
+class _EmptyScreen extends StatelessWidget {
+  const _EmptyScreen({
+    required this.screenSize,
+    required this.name,
+    required this.emptiness,
+    this.actions,
+    Key? key,
+  }) : super(key: key);
+
+  final Size screenSize;
+  final String name;
+  final Widget emptiness;
+  final List<Widget>? actions;
+
+  @override
+  Widget build(BuildContext context) {
+    return SmoothScaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        leading: const SmoothBackButton(),
+        title: _AppBarTitle(name: name),
+        actions: actions,
+      ),
+      body: Center(child: emptiness),
+    );
+  }
+}
+
+class _AppBarTitle extends StatelessWidget {
+  const _AppBarTitle({
+    required this.name,
+    Key? key,
+  }) : super(key: key);
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
+      },
+      child: Tooltip(
+        message: appLocalizations.tap_to_edit_search,
+        child: AutoSizeText(
+          name,
+          maxLines: 2,
+        ),
+      ),
+    );
+  }
+}
+
 // TODO(monsieurtanki): put it in a specific reusable class
 class _Action {
   _Action({
@@ -481,4 +518,9 @@ class _Action {
   final IconData iconData;
   final String text;
   final VoidCallback onPressed;
+}
+
+enum ProductQueryPageResult {
+  editProductQuery,
+  unknown,
 }

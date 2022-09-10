@@ -55,7 +55,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
       
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.4.1
+        uses: actions/setup-java@v3.5.0
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
