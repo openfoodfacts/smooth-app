@@ -339,7 +339,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "כדאי להיכנס לחשבונך ב־Open Food Facts כדי לקבל הוקרה על התרומות שלך",
-    "tap_to_edit_search": "Tap to edit search",
+    "tap_to_edit_search": "יש לגעת לעריכת החיפוש",
     "@Personal preferences": {},
     "myPreferences": "ההעדפות שלי",
     "@myPreferences": {
@@ -910,7 +910,7 @@
     "settings_app_data": "פרטיות וניטור",
     "settings_app_camera": "מצלמה",
     "settings_app_products": "מוצרים",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "שונות",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -977,11 +977,11 @@
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
     },
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "app_haptic_feedback_title": "רטט ומשוב פיזי",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "רטט לאחר ביצוע של פעולות מסוימות (פענוח ברקוד, הסרת מוצר…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1684,11 +1684,11 @@
     },
     "all_images": "כל התמונות",
     "selected_images": "תמונות נבחרות",
-    "product_card_remove_product_tooltip": "Remove product",
+    "product_card_remove_product_tooltip": "הסרת מוצר",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "offline_data": "Offline Data",
+    "offline_data": "נתונים בלתי מקוונים",
     "@offline_data": {
         "description": "App bar tile for offline data page"
     }
