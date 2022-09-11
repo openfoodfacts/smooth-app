@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.17.0](https://github.com/openfoodfacts/smooth-app/compare/v3.16.0...v3.17.0) (2022-09-11)
+
+
+### Features
+
+* menu to manage offline data ([#2971](https://github.com/openfoodfacts/smooth-app/issues/2971)) ([d2f8077](https://github.com/openfoodfacts/smooth-app/commit/d2f8077812ad3f7bfd2ec9a12e15274c3b7a41c0))
+
+
+### Refactoring
+
+* background tasks with classes ([#2994](https://github.com/openfoodfacts/smooth-app/issues/2994)) ([68b6939](https://github.com/openfoodfacts/smooth-app/commit/68b693990254cd2413ad78aff9b9270c7739171d))
+
+
+### Miscellaneous
+
+* **deps:** bump actions/setup-java from 3.4.1 to 3.5.0 ([#2980](https://github.com/openfoodfacts/smooth-app/issues/2980)) ([dc901aa](https://github.com/openfoodfacts/smooth-app/commit/dc901aa581a3aa1a64a8c4bf9d0530f8d0fc9891))
+* New Crowdin translations ([#2996](https://github.com/openfoodfacts/smooth-app/issues/2996)) ([7f20d39](https://github.com/openfoodfacts/smooth-app/commit/7f20d39b2dd144431a65d80290cb7abacff83870))
+
 ## [3.16.0](https://github.com/openfoodfacts/smooth-app/compare/v3.15.0...v3.16.0) (2022-09-10)
 
 
