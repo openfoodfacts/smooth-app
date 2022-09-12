@@ -15,7 +15,7 @@ Running `flutter downgrade 3.0.5` downgrades the version.
 
 ------
 
-Latest commit deployed to App Stores: (August 25th 2022 as Build 722) https://github.com/openfoodfacts/smooth-app/releases/tag/v3.8.1
+Latest commit deployed to App Stores: (Released on Sep 6 6:29 PM as Build 731 (3.13.1)) https://github.com/openfoodfacts/smooth-app/compare/v3.8.1...v3.13.1
 
 A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
 
