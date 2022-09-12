@@ -339,7 +339,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Влез в акаунта си в Open Food Facts, за да запишеш своите приноси",
-    "tap_to_edit_search": "Tap to edit search",
+    "tap_to_edit_search": "Докоснете, за да редактирате търсенето",
     "@Personal preferences": {},
     "myPreferences": "Моите настройки",
     "@myPreferences": {
@@ -705,11 +705,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Достъп до камерата",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "За да сканирате баркодове с камерата на телефона си, моля, разрешете достъпа.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -795,7 +795,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "По-късно",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -910,7 +910,7 @@
     "settings_app_data": "Поверителност и наблюдение",
     "settings_app_camera": "Камера",
     "settings_app_products": "Продукти",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Разни",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -952,11 +952,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "camera_alternative_mode_title": "Алтернативен режим за скенера",
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode. If it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Ако вашето устройство не може да сканира баркодове, моля, опитайте този режим. Ако работи добре, моля, съобщете ни името на вашето устройство: {device}, за да направим този режим по подразбиране за вашето устройство.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -965,23 +965,23 @@
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
+    "camera_alternative_mode_confirm_dialog_title": "Режимът на скенера е променен!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "The new mode will only be used after stopping, then relaunching the app!",
+    "camera_alternative_mode_confirm_dialog_body": "Новият режим ще се използва само след спиране и рестартиране на приложението!",
     "@camera_alternative_mode_confirm_dialog_body": {
         "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
     },
-    "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
+    "camera_alternative_mode_confirm_dialog_button": "Надлежно отбелязано!",
     "@camera_alternative_mode_confirm_dialog_button": {
         "description": "Button for the dialog to confirm the user has understood"
     },
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "app_haptic_feedback_title": "Вибрация и усещане",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Вибрации след извършване на някои действия (декодиран баркод, премахнат продукт…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1684,11 +1684,11 @@
     },
     "all_images": "All Images",
     "selected_images": "Selected Images",
-    "product_card_remove_product_tooltip": "Remove product",
+    "product_card_remove_product_tooltip": "Премахни продукт",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Данни извън линия",
     "@offline_data": {
         "description": "App bar tile for offline data page"
     }
