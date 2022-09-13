@@ -3,9 +3,9 @@ import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_sliver.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_images_view.dart';
-import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
+import 'package:smooth_app/widgets/images/smooth_image.dart';
+import 'package:smooth_app/widgets/images/smooth_images_view.dart';
+import 'package:smooth_app/widgets/picture_not_found.dart';
 
 /// Displays a [SliverGrid] with tiles showing the images passed
 /// via [imagesData]

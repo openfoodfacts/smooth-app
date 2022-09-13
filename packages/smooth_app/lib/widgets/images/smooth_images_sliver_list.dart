@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/loading_sliver.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_images_view.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/widgets/images/smooth_images_view.dart';
+import 'package:smooth_app/widgets/smooth_list_tile_card.dart';
 
 /// Displays a [SliverList] by using [SmoothListTileCard] for showing images
 /// passed via [imagesData].

@@ -11,9 +11,9 @@ import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
+import 'package:smooth_app/widgets/smooth_back_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Displays a full-screen image with an edit floating button

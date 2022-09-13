@@ -18,7 +18,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
@@ -31,6 +30,7 @@ import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/pages/product_page/summary_card.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/widgets/smooth_card.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductPage extends StatefulWidget {

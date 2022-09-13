@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/widgets/images/smooth_image.dart';
 
 /// Main product image on a product card.
 class SmoothMainProductImage extends StatelessWidget {

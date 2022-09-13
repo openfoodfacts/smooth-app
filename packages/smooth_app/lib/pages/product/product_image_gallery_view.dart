@@ -6,13 +6,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_images_sliver_grid.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_images_sliver_list.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/images/smooth_images_sliver_grid.dart';
+import 'package:smooth_app/widgets/images/smooth_images_sliver_list.dart';
+import 'package:smooth_app/widgets/smooth_back_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// ProductImageGalleryView is a page that displays a list of product images.

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/widgets/images/smooth_image.dart';
+import 'package:smooth_app/widgets/smooth_card.dart';
 
 /// Displays a [ListTile] in a [SmoothCard] wrapped with an [InkWell].
 class SmoothListTileCard extends StatelessWidget {

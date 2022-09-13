@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
+import 'package:smooth_app/widgets/picture_not_found.dart';
 
 /// Container to display a product image on a product card.
 ///
