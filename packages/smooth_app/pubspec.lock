@@ -139,7 +139,7 @@ packages:
     description:
       path: "packages/camera/camera"
       ref: smooth_camera
-      resolved-ref: "40497e4fc74a8512634e04c3c9d6a8c3a50284c0"
+      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.9.6"
@@ -148,7 +148,7 @@ packages:
     description:
       path: "packages/camera/camera_platform_interface"
       ref: smooth_camera
-      resolved-ref: "40497e4fc74a8512634e04c3c9d6a8c3a50284c0"
+      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "2.1.6"
@@ -157,7 +157,7 @@ packages:
     description:
       path: "packages/camera/camera_web"
       ref: smooth_camera
-      resolved-ref: "40497e4fc74a8512634e04c3c9d6a8c3a50284c0"
+      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
       url: "https://github.com/g123k/plugins.git"
     source: git
     version: "0.2.1+6"
@@ -300,7 +300,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.3"
+    version: "2.2.4"
   data_importer:
     dependency: "direct main"
     description:
@@ -1366,7 +1366,7 @@ packages:
       name: url_launcher_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.18"
+    version: "6.0.19"
   url_launcher_ios:
     dependency: transitive
     description:
