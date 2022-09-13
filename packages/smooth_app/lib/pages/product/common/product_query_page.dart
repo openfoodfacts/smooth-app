@@ -16,15 +16,15 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
+import 'package:smooth_app/widgets/smooth_back_button.dart';
+import 'package:smooth_app/widgets/smooth_card.dart';
+import 'package:smooth_app/widgets/smooth_error_card.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductQueryPage extends StatefulWidget {

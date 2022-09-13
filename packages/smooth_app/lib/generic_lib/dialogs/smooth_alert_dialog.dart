@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
+import 'package:smooth_app/widgets/smooth_responsive.dart';
 
 /// Custom Dialog to use in the app
 ///

@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
@@ -15,6 +14,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/alternative_camera_mode.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/language_selector.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
 class UserPreferencesSettings extends AbstractUserPreferences {

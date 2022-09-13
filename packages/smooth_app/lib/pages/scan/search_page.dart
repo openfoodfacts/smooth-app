@@ -9,7 +9,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
+import 'package:smooth_app/pages/product_page/new_product_page.dart';
 import 'package:smooth_app/pages/scan/search_history_view.dart';
 import 'package:smooth_app/query/keywords_product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';

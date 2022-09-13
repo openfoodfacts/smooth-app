@@ -4,7 +4,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/widgets/smooth_card.dart';
 
 String getProductName(Product product, AppLocalizations appLocalizations) =>
     product.productName ?? appLocalizations.unknownProductName;

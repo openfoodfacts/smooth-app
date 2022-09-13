@@ -9,11 +9,11 @@ import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/widgets/smooth_card.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class KnowledgePanelPage extends StatefulWidget {

@@ -10,8 +10,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_text_form_field.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(

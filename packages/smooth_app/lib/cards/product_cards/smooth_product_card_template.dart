@@ -2,9 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/widgets/images/smooth_image.dart';
+import 'package:smooth_app/widgets/smooth_card.dart';
 
 /// Empty template for a product card display.
 ///
