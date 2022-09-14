@@ -146,16 +146,6 @@ void main() {
             contains(crazyString),
           );
           expect(
-            appLocalizations.camera_focus_point_algorithm_subtitle(
-                crazyString, ''),
-            contains(crazyString),
-          );
-          expect(
-            appLocalizations.camera_focus_point_algorithm_subtitle(
-                '', crazyString),
-            contains(crazyString),
-          );
-          expect(
             appLocalizations.permission_photo_denied_message(crazyString),
             contains(crazyString),
           );

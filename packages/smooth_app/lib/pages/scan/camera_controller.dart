@@ -43,8 +43,13 @@ class SmoothCameraController extends CameraController {
   /// Listen to camera error events
   StreamSubscription<CameraErrorEvent>? _errorListener;
 
-  // Last focus point position
+  /// Last focus point position
   Offset? _focusPoint;
+
+  /// Does the camera use the alternative mode (file based implementation)?
+  /// Enabled to [false] by default, as [changeImageMode] can be called, even if
+  /// [init] wasn't called before.
+  bool _persistToFileMode = false;
 
   Future<void> init({
     required FocusMode focusMode,
@@ -93,14 +98,34 @@ class SmoothCameraController extends CameraController {
 
   @protected
   Future<void> startStream(onLatestImageAvailable onAvailable) async {
-    final bool useAlternativeCameraMode =
-        preferences.useAlternativeCameraMode ??
-            await AlternativeCameraMode.isAWhitelistedDevice;
+    _persistToFileMode = preferences.useAlternativeCameraMode ??
+        await AlternativeCameraMode.isAWhitelistedDevice;
 
     return startImageStream(
       onAvailable,
-      persistToFile: useAlternativeCameraMode,
+      persistToFile: _persistToFileMode,
     );
+  }
+
+  Future<void> reloadImageMode() async {
+    final bool? alternativeCameraMode = preferences.useAlternativeCameraMode;
+
+    /// Keep using the default value
+    if (alternativeCameraMode == null) {
+      return;
+    }
+
+    if (alternativeCameraMode != _persistToFileMode) {
+      _persistToFileMode = alternativeCameraMode;
+      await changeImageMode(_persistToFileMode);
+    }
+  }
+
+  /// Never use this method directly, use [reloadImageMode] instead
+  @protected
+  @override
+  Future<bool> changeImageMode(bool persistToFile) {
+    return super.changeImageMode(persistToFile);
   }
 
   /// Never use this method directly, by through [startStream]
