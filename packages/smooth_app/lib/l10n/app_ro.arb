@@ -339,7 +339,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Conectați-vă la contul dvs. Open Food Facts pentru a obține credit pentru contribuția dvs",
-    "tap_to_edit_search": "Tap to edit search",
+    "tap_to_edit_search": "Atingeți pentru a edita căutarea",
     "@Personal preferences": {},
     "myPreferences": "Preferințe",
     "@myPreferences": {
@@ -705,11 +705,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Acces la cameră",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "Pentru a scana codurile de bare cu camera telefonului, vă rugăm să autorizați accesul.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -795,7 +795,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "Mai târziu",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -910,40 +910,10 @@
     "settings_app_data": "Confidențialitate și monitorizare",
     "settings_app_camera": "Cameră",
     "settings_app_products": "Produse",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Diverse",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Mod de performanță ridicată",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Când este activată, calitatea decodării codurilor de bare ar trebui să fie mai bună, dar poate afecta performanța și durata de viață a bateriei. Necesită o repornire a aplicației.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Mod focalizare",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Mod curent: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Auto",
-    "camera_focus_point_algorithm_value_auto_description": "Lăsați sistemul să aleagă automat între modurile rapid și sigur.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Mod rapid",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Un mod recomandat pentru dispozitivele recente.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Modul sigur",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Dacă modul rapid nu funcționează, aceasta ar trebui să rezolve problemele de focalizare.",
     "camera_play_sound_title": "Redați un sunet la scanare",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -952,11 +922,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "camera_alternative_mode_title": "Mod alternativ pentru scaner",
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode. If it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -965,23 +935,15 @@
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
+    "camera_alternative_mode_confirm_dialog_title": "Mod scanare schimbat!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "The new mode will only be used after stopping, then relaunching the app!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
-    },
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "app_haptic_feedback_title": "Vibrație și haptică",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Vibrații după executarea unor acțiuni (cod de bare decodat, produs eliminat…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1682,13 +1644,13 @@
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
-    "selected_images": "Selected Images",
-    "product_card_remove_product_tooltip": "Remove product",
+    "all_images": "Toate Imaginile",
+    "selected_images": "Imagini selectate",
+    "product_card_remove_product_tooltip": "Eliminați produsul",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Date offline",
     "@offline_data": {
         "description": "App bar tile for offline data page"
     }
