@@ -54,9 +54,11 @@ void main() {
         );
         await tester.pump();
 
+        // We need to lowercase the theme, as on some platforms
+        // the name is always lowercase
         await expectGoldenMatches(
           find.byType(UserPreferencesPage),
-          'user_preferences_page-$theme.png',
+          'user_preferences_page-${theme.toLowerCase()}.png',
         );
         expect(tester, meetsGuideline(textContrastGuideline));
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
