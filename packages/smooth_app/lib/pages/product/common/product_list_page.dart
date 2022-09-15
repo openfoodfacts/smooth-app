@@ -53,6 +53,19 @@ class _ProductListPageState extends State<ProductListPage>
     productList = widget.productList;
   }
 
+  //returns bool to handle WillPopScope
+  Future<bool> _handleUserBacktap() async {
+    if (_selectionMode) {
+      setState(() {
+        _selectionMode = false;
+        _selectedBarcodes.clear();
+      });
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -192,45 +205,48 @@ class _ProductListPageState extends State<ProductListPage>
                 InheritedDataManager.of(context).resetShowSearchCard(true);
               },
             )
-          : RefreshIndicator(
-              //if it is in selectmode then refresh indicator is not shown
-              notificationPredicate:
-                  _selectionMode ? (_) => false : (_) => true,
-              onRefresh: () async => _refreshListProducts(
-                products,
-                localDatabase,
-                appLocalizations,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  if (_selectionMode)
-                    Padding(
-                      padding: const EdgeInsets.all(SMALL_SPACE),
-                      child: _buildCompareBar(products, appLocalizations),
-                    ),
-                  Expanded(
-                    child: Consumer<UpToDateProductProvider>(
-                      builder: (
-                        _,
-                        final UpToDateProductProvider provider,
-                        __,
-                      ) =>
-                          ListView.builder(
-                        itemCount: products.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return _buildItem(
-                            dismissible,
-                            products,
-                            index,
-                            localDatabase,
-                            appLocalizations,
-                          );
-                        },
+          : WillPopScope(
+              onWillPop: _handleUserBacktap,
+              child: RefreshIndicator(
+                //if it is in selectmode then refresh indicator is not shown
+                notificationPredicate:
+                    _selectionMode ? (_) => false : (_) => true,
+                onRefresh: () async => _refreshListProducts(
+                  products,
+                  localDatabase,
+                  appLocalizations,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    if (_selectionMode)
+                      Padding(
+                        padding: const EdgeInsets.all(SMALL_SPACE),
+                        child: _buildCompareBar(products, appLocalizations),
+                      ),
+                    Expanded(
+                      child: Consumer<UpToDateProductProvider>(
+                        builder: (
+                          _,
+                          final UpToDateProductProvider provider,
+                          __,
+                        ) =>
+                            ListView.builder(
+                          itemCount: products.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return _buildItem(
+                              dismissible,
+                              products,
+                              index,
+                              localDatabase,
+                              appLocalizations,
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
     );
