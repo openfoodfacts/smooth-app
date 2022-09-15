@@ -56,10 +56,12 @@ class _ProductListPageState extends State<ProductListPage>
   //returns bool to handle WillPopScope
   Future<bool> _handleUserBacktap() async {
     if (_selectionMode) {
-      setState(() {
-        _selectionMode = false;
-        _selectedBarcodes.clear();
-      });
+      setState(
+        () {
+          _selectionMode = false;
+          _selectedBarcodes.clear();
+        },
+      );
       return false;
     } else {
       return true;
