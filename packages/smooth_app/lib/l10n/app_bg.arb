@@ -914,36 +914,6 @@
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Режим с висока производителност",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Когато е включено, качеството на декодиране на баркодове трябва да е по-добро, но може да повлияе на производителността и живота на батерията. Изисква рестартиране на приложението.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Режим на фокусиране",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Текущ режим: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Авто",
-    "camera_focus_point_algorithm_value_auto_description": "Остави системата да избира автоматично между бърз и безопасен режим.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Бърз режим",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Препоръчителен режим за по-новите устройства.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Безопасен режим",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Ако бързият режим не работи, това трябва да разреши проблемите с фокуса.",
     "camera_play_sound_title": "Възпроизвеждане на звук при сканиране",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -956,7 +926,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Ако вашето устройство не може да сканира баркодове, моля, опитайте този режим. Ако работи добре, моля, съобщете ни името на вашето устройство: {device}, за да направим този режим по подразбиране за вашето устройство.",
+    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -968,14 +938,6 @@
     "camera_alternative_mode_confirm_dialog_title": "Режимът на скенера е променен!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
-    },
-    "camera_alternative_mode_confirm_dialog_body": "Новият режим ще се използва само след спиране и рестартиране на приложението!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "Надлежно отбелязано!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
     },
     "app_haptic_feedback_title": "Вибрация и усещане",
     "@app_haptic_feedback_title": {

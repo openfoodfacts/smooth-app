@@ -144,22 +144,15 @@ flutter:
   generate: true
 
   assets:
-    - assets/actions/
     - assets/animations/
     - assets/app/
     - assets/audio/
     - assets/cache/
-    - assets/categories/
     - assets/cacheTintable/
-    - assets/data/
-    - assets/labels/
     - assets/metadata/
     - assets/misc/
-    - assets/navigation/
     - assets/network/cert.pem
     - assets/onboarding/
     - assets/preferences/
     - assets/product/
-    - assets/ikonate_thin/
-    - assets/ikonate_bold/
     - assets/icons/visor_icon.svg
