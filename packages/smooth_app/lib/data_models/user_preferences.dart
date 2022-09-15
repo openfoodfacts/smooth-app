@@ -9,11 +9,18 @@ class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
       : _sharedPreferences = sharedPreferences;
 
+  /// Singleton
+  static UserPreferences? _instance;
   final SharedPreferences _sharedPreferences;
 
   static Future<UserPreferences> getUserPreferences() async {
-    final SharedPreferences preferences = await SharedPreferences.getInstance();
-    return UserPreferences._shared(preferences);
+    if (_instance == null) {
+      final SharedPreferences preferences =
+          await SharedPreferences.getInstance();
+      _instance = UserPreferences._shared(preferences);
+    }
+
+    return _instance!;
   }
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
