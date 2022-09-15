@@ -16,7 +16,7 @@ import '../tests_utils/mocks.dart';
 void main() {
   group('UserPreferencesPage looks as expected', () {
     for (final bool themeDark in <bool>[true, false]) {
-      final String theme = themeDark ? 'dark' : 'light';
+      final String theme = themeDark ? 'Dark' : 'Light';
 
       testWidgets(theme, (WidgetTester tester) async {
         // Override & mock out HTTP Requests
@@ -43,17 +43,21 @@ void main() {
         await userPreferences.init(productPreferences);
         themeProvider = ThemeProvider(userPreferences);
 
-        await tester.pumpWidget(MockSmoothApp(
-          userPreferences,
-          UserManagementProvider(),
-          productPreferences,
-          themeProvider,
-          const UserPreferencesPage(),
-        ));
+        await tester.pumpWidget(
+          MockSmoothApp(
+            userPreferences,
+            UserManagementProvider(),
+            productPreferences,
+            themeProvider,
+            const UserPreferencesPage(),
+          ),
+        );
         await tester.pump();
 
-        await expectGoldenMatches(find.byType(UserPreferencesPage),
-            'user_preferences_page-$theme.png');
+        await expectGoldenMatches(
+          find.byType(UserPreferencesPage),
+          'user_preferences_page-$theme.png',
+        );
         expect(tester, meetsGuideline(textContrastGuideline));
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
         expect(tester, meetsGuideline(iOSTapTargetGuideline));
