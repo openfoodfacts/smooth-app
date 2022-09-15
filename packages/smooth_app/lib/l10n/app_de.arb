@@ -914,36 +914,6 @@
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Hochleistungsmodus",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Wenn diese Option aktiviert ist, sollte die Qualität der Strichcode-Dekodierung besser sein, kann sich aber auf die Leistung und die Lebensdauer der Batterie auswirken. Neustart der Anwendung erforderlich.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Fokusmodus",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Aktueller Modus: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Automatisch",
-    "camera_focus_point_algorithm_value_auto_description": "Das System automatisch zwischen schnellem und sicherem Modus wählen lassen.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Schneller Modus",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Ein Modus, der für neuere Geräte empfohlen wird.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Abgesicherter Modus",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Wenn der Schnellmodus nicht funktioniert, sollte dies Ihre Fokusprobleme beheben.",
     "camera_play_sound_title": "Ton beim Einlesen wiedergeben",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -956,7 +926,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Wenn Ihr Gerät nicht in der Lage ist, Strichcodes einzulesen, versuchen Sie bitte diesen Modus. Wenn er gut funktioniert, teilen Sie uns bitte Ihren Gerätenamen mit: {device}, damit dieser Modus zum Standard für Ihr Gerät wird.",
+    "camera_alternative_mode_subtitle": "Wenn Ihr Gerät nicht in der Lage ist, Strichcodes einzulesen, versuchen Sie bitte diesen Modus.\n\nWenn er gut funktioniert, teilen Sie uns bitte Ihren Gerätenamen mit: {device}, damit dieser Modus zum Standard für Ihr Gerät wird.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -968,14 +938,6 @@
     "camera_alternative_mode_confirm_dialog_title": "Scanner-Modus geändert!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
-    },
-    "camera_alternative_mode_confirm_dialog_body": "Der neue Modus steht erst nach einem Neustart der App zur Verfügung!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "Verstanden!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
     },
     "app_haptic_feedback_title": "Vibration und haptisches Feedback",
     "@app_haptic_feedback_title": {

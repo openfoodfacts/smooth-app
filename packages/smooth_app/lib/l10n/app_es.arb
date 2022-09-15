@@ -339,7 +339,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Inicia sesión en tu cuenta de Open Food Facts para obtener crédito por tu contribución",
-    "tap_to_edit_search": "Tap to edit search",
+    "tap_to_edit_search": "Tocar para editar la búsqueda",
     "@Personal preferences": {},
     "myPreferences": "Mis preferencias",
     "@myPreferences": {
@@ -705,11 +705,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Acceso a la cámara",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "Para escanear códigos de barras con la cámara de su teléfono, por favor autorice su acceso.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -795,7 +795,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "Después",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -914,36 +914,6 @@
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Modo de alto rendimiento",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Cuando está activado, la calidad de decodificación de códigos de barras debería ser mejor, pero puede afectar al rendimiento y a la vida de la batería. Requiere reiniciar la aplicación.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Modo concentración",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Modo actual: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Automático",
-    "camera_focus_point_algorithm_value_auto_description": "Permite que el sistema elija automáticamente entre modos rápidos y seguros.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Modo rápido",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Modo recomendado para dispositivos recientes.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Modo seguro",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Si el modo rápido no funciona, esto resolverá los problemas de concentración.",
     "camera_play_sound_title": "Reproducir un sonido al escanear",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -952,11 +922,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "camera_alternative_mode_title": "Modo alternativo para el escáner",
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode. If it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Si su dispositivo no puede escanear códigos de barras, por favor intente este modo.\n\nSi funciona bien, por favor comuníquenos el nombre del dispositivo: {device}, para que este modo sea el predeterminado para su dispositivo.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -965,17 +935,9 @@
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
+    "camera_alternative_mode_confirm_dialog_title": "¡El modo de escáner ha cambiado!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
-    },
-    "camera_alternative_mode_confirm_dialog_body": "The new mode will only be used after stopping, then relaunching the app!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
     },
     "app_haptic_feedback_title": "Vibration & Haptics",
     "@app_haptic_feedback_title": {
@@ -1688,7 +1650,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Datos sin conexión",
     "@offline_data": {
         "description": "App bar tile for offline data page"
     }
