@@ -144,6 +144,7 @@ flutter:
   generate: true
 
   assets:
+    - assets/animations/
     - assets/app/
     - assets/audio/
     - assets/cache/
@@ -155,4 +156,3 @@ flutter:
     - assets/preferences/
     - assets/product/
     - assets/icons/visor_icon.svg
-    - assets/animations/
