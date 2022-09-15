@@ -1,0 +1,68 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "data_importer",
+            "cwd": "packages\\data_importer",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "data_importer (profile mode)",
+            "cwd": "packages\\data_importer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "data_importer (release mode)",
+            "cwd": "packages\\data_importer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "data_importer_shared",
+            "cwd": "packages\\data_importer_shared",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "data_importer_shared (profile mode)",
+            "cwd": "packages\\data_importer_shared",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "data_importer_shared (release mode)",
+            "cwd": "packages\\data_importer_shared",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "smooth_app",
+            "cwd": "packages\\smooth_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "smooth_app (profile mode)",
+            "cwd": "packages\\smooth_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "smooth_app (release mode)",
+            "cwd": "packages\\smooth_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
