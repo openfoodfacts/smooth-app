@@ -58,7 +58,6 @@ class MockSmoothApp extends StatelessWidget {
 }
 
 Map<String, Object> mockSharedPreferences({
-  Color color = Colors.lightBlue,
   bool init = true,
   bool themeDark = false,
 }) =>

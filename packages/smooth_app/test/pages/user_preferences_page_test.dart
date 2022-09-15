@@ -16,7 +16,7 @@ import '../tests_utils/mocks.dart';
 void main() {
   group('UserPreferencesPage looks as expected', () {
     for (final bool themeDark in <bool>[true, false]) {
-      final String theme = themeDark ? 'dark' : 'light';
+      final String theme = themeDark ? 'Dark' : 'Light';
 
       testWidgets(theme, (WidgetTester tester) async {
         // Override & mock out HTTP Requests
@@ -28,12 +28,12 @@ void main() {
         late ThemeProvider themeProvider;
 
         SharedPreferences.setMockInitialValues(
-          mockSharedPreferences(
-            themeDark: themeDark,
-          ),
+          mockSharedPreferences(),
         );
 
         userPreferences = await UserPreferences.getUserPreferences();
+        userPreferences.setTheme(theme);
+
         productPreferences = ProductPreferences(ProductPreferencesSelection(
           setImportance: userPreferences.setImportance,
           getImportance: userPreferences.getImportance,
