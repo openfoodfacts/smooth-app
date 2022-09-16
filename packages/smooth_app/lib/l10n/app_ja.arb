@@ -339,7 +339,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Open Food Factsアカウントにサインインして、ポイントを獲得する。",
-    "tap_to_edit_search": "Tap to edit search",
+    "tap_to_edit_search": "タップして検索を編集",
     "@Personal preferences": {},
     "myPreferences": "設定",
     "@myPreferences": {
@@ -914,36 +914,6 @@
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "高パフォーマンスモード",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "有効にすると、バーコードのデコード品質は向上しますが、パフォーマンスとバッテリー寿命に影響を与える可能性があります。アプリケーションを再起動する必要があります。",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "フォーカスモード",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "現在のモード： {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "自動",
-    "camera_focus_point_algorithm_value_auto_description": "システムに高速モードとセーフモードのどちらかを自動的に選択させます。",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "高速モード",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "最近のデバイスに推奨されるモードです。",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "セーフモード",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "高速モードが機能しない場合は、これでフォーカスの問題が解決するはずです。",
     "camera_play_sound_title": "スキャン時にサウンドを再生する",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -956,7 +926,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "お使いのデバイスがバーコードをスキャンできない場合は、このモードを試してください。正常に動作する場合は、このモードをデバイスのデフォルトにするために、デバイス名: {device} をお知らせください。",
+    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -968,14 +938,6 @@
     "camera_alternative_mode_confirm_dialog_title": "スキャナーモードが変更されました",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
-    },
-    "camera_alternative_mode_confirm_dialog_body": "新しいモードは、アプリを停止してから再起動した後にのみ使用されます!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "了解しました。",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
     },
     "app_haptic_feedback_title": "振動と触覚フィードバック",
     "@app_haptic_feedback_title": {
@@ -1688,7 +1650,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "offline_data": "Offline Data",
+    "offline_data": "オフラインデータ",
     "@offline_data": {
         "description": "App bar tile for offline data page"
     }
