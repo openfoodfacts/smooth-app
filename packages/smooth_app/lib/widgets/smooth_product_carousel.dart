@@ -254,7 +254,7 @@ class _SearchCardTagLine extends StatelessWidget {
   const _SearchCardTagLine({
     Key? key,
   }) : super(key: key);
- 
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -270,7 +270,7 @@ class _SearchCardTagLine extends StatelessWidget {
         child: Consumer<UserPreferences>(
           builder: (BuildContext context, UserPreferences preferences, _) {
             if (preferences.isFirstScan) {
-             return const _SearchCardTagLineDefaultText();
+              return const _SearchCardTagLineDefaultText();
             }
             return FutureBuilder<dynamic>(
               future: _fetchData(),
@@ -282,7 +282,7 @@ class _SearchCardTagLine extends StatelessWidget {
                     tagLine: data.data as TagLineItem,
                   );
                 } else {
-                   return const _SearchCardTagLineDefaultText();
+                  return const _SearchCardTagLineDefaultText();
                 }
               },
             );
@@ -291,33 +291,33 @@ class _SearchCardTagLine extends StatelessWidget {
       ),
     );
   }
- 
+
   /// We fetch first if the app is deprecated, then try to get the tagline
   /// Will return [false] if the app is deprecated or a [TagLineItem]
   Future<dynamic> _fetchData() async {
     final bool deprecated = await _isApplicationDeprecated();
- 
+
     if (deprecated) {
       return false;
     }
- 
+
     return fetchTagLine(Platform.localeName);
   }
- 
+
   Future<bool> _isApplicationDeprecated() {
     return PackageInfo.fromPlatform().then(
       (PackageInfo value) => value.packageName != 'org.openfoodfacts.scanner',
     );
   }
 }
- 
+
 class _SearchCardTagLineDefaultText extends StatelessWidget {
   const _SearchCardTagLineDefaultText({Key? key}) : super(key: key);
- 
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
- 
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
@@ -328,10 +328,10 @@ class _SearchCardTagLineDefaultText extends StatelessWidget {
     );
   }
 }
- 
+
 class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
   const _SearchCardTagLineDeprecatedAppText({Key? key}) : super(key: key);
- 
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
@@ -340,17 +340,24 @@ class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
       ),
-      child: TextButton(onPressed: (){_openAppStore();}, child: Text('${localizations.depricatedHeader}  ${localizations.clickHereToDownload}', textAlign: TextAlign.center, style: const TextStyle(
-      color: Colors.red,
-        ),)),
+      child: TextButton(
+          onPressed: () {
+            _openAppStore();
+          },
+          child: Text(
+            '${localizations.depricatedHeader}  ${localizations.clickHereToDownload}',
+            textAlign: TextAlign.center,
+            style: const 
+            TextStyle(
+              color: Colors.red,
+            ),)),
     );
-    
   }
- 
+
   /// Opens the App Store or Google Play of the production app
   Future<bool> _openAppStore() async {
     final String url;
- 
+
     if (Platform.isIOS) {
       url = 'https://apps.apple.com/us/app/open-food-facts/id588797948';
     } else if (Platform.isAndroid) {
@@ -360,7 +367,7 @@ class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
       // Not supported
       return false;
     }
- 
+
     return canLaunchUrlString(url).then((bool canLaunch) async {
       if (canLaunch) {
         return launchUrlString(
@@ -373,15 +380,15 @@ class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
     });
   }
 }
- 
+
 class _SearchCardTagLineText extends StatelessWidget {
   const _SearchCardTagLineText({
     required this.tagLine,
     Key? key,
   }) : super(key: key);
- 
+
   final TagLineItem tagLine;
- 
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
