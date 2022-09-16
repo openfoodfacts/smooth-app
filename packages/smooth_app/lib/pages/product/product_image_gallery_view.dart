@@ -74,7 +74,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           allProductImagesData.map(_provideImage),
         );
 
-        _getProductImages(product.barcode!).then(
+        _getProductImages().then(
           (Iterable<ProductImageData>? loadedData) {
             if (loadedData == null) {
               return;
@@ -112,7 +112,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           ),
           body: RefreshIndicator(
             onRefresh: () async {
-              _refreshProduct(context, product);
+              _refreshProduct(context);
             },
             child: Scrollbar(
               child: CustomScrollView(
@@ -121,15 +121,14 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                   SmoothImagesSliverList(
                     imagesData: _selectedImages,
                     onTap: (ProductImageData data, _) => data.imageUrl != null
-                        ? _openImage(data, product.barcode!)
-                        : _newImage(data, product.barcode!),
+                        ? _openImage(data)
+                        : _newImage(data),
                   ),
                   _buildTitle(appLocalizations.all_images, theme: theme),
                   SmoothImagesSliverGrid(
                     imagesData: _unselectedImages,
                     loading: _isLoadingMore,
-                    onTap: (ProductImageData data, _) =>
-                        _openImage(data, product.barcode!),
+                    onTap: (ProductImageData data, _) => _openImage(data),
                   ),
                 ],
               ),
@@ -151,12 +150,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       );
 
-  Future<bool> _refreshProduct(BuildContext context, Product product) async {
+  Future<bool> _refreshProduct(BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final bool success = await ProductRefresher().fetchAndRefresh(
       context: context,
       localDatabase: localDatabase,
-      barcode: product.barcode!,
+      barcode: widget.product.barcode!,
     );
     if (mounted && success) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -170,18 +169,18 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     return success;
   }
 
-  Future<void> _openImage(ProductImageData imageData, String barcode) async =>
+  Future<void> _openImage(ProductImageData imageData) async =>
       Navigator.push<void>(
         context,
         MaterialPageRoute<void>(
           builder: (_) => ProductImageViewer(
-            barcode: barcode,
+            barcode: widget.product.barcode!,
             imageData: imageData,
           ),
         ),
       );
 
-  Future<void> _newImage(ProductImageData data, String barcode) async {
+  Future<void> _newImage(ProductImageData data) async {
     final File? croppedImageFile = await startImageCropping(context);
     if (croppedImageFile == null) {
       return;
@@ -203,7 +202,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
     final bool isUploaded = await uploadCapturedPicture(
       context,
-      barcode: barcode,
+      barcode: widget.product.barcode!,
       imageField: data.imageField,
       imageUri: croppedImageFile.uri,
     );
@@ -227,9 +226,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
   }
 
-  Future<Iterable<ProductImageData>?> _getProductImages(String barcode) async {
+  Future<Iterable<ProductImageData>?> _getProductImages() async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      barcode,
+      widget.product.barcode!,
       fields: <ProductField>[ProductField.IMAGES],
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
@@ -251,8 +250,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       return null;
     }
 
-    return _deduplicateImages(resultProduct.images!)
-        .map((ProductImage image) => _getProductImageData(image, barcode));
+    return _deduplicateImages(resultProduct.images!).map(_getProductImageData);
   }
 
   /// Groups the list of [ProductImage] by [ProductImage.imgid]
@@ -265,12 +263,11 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           .whereNotNull();
 
   /// Created a [ProductImageData] from a [ProductImage]
-  ProductImageData _getProductImageData(ProductImage image, String barcode) =>
-      ProductImageData(
+  ProductImageData _getProductImageData(ProductImage image) => ProductImageData(
         imageField: image.field,
         // TODO(VaiTon): i18n
         title: image.imgid ?? '',
         buttonText: image.imgid ?? '',
-        imageUrl: ImageHelper.buildUrl(barcode, image),
+        imageUrl: ImageHelper.buildUrl(widget.product.barcode, image),
       );
 }
