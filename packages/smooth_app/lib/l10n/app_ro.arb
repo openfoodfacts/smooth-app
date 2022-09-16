@@ -926,7 +926,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Dacă dispozitivul dvs. nu poate scana coduri de bare, încercați acest mod.\n\nDacă funcționează bine, vă rugăm să ne comunicați numele dispozitivului dvs.: {device}, pentru ca acest mod să fie unul implicit pentru dispozitivul dvs.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
