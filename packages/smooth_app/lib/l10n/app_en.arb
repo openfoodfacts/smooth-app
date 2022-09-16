@@ -556,6 +556,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "depricatedHeader": "You are using a deprecated version of the app.",
+    "@depricatedHeader": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "clickHereToDownload": "Click here to download",
+    "@clickHereToDownload": {
+        "description": "Confirmation button to download new version of the app"
+    },
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
