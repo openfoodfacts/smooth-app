@@ -85,6 +85,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             if (mounted) {
               setState(
                 () {
+                  unselectedImages.clear();
                   unselectedImages.addAll(newMap);
                   _isLoadingMore = false;
                 },
