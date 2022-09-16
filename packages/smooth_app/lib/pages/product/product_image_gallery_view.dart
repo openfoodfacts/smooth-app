@@ -39,10 +39,10 @@ class ProductImageGalleryView extends StatefulWidget {
 }
 
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
-  Map<ProductImageData, ImageProvider?> selectedImages =
+  Map<ProductImageData, ImageProvider?> _selectedImages =
       <ProductImageData, ImageProvider<Object>?>{};
 
-  final Map<ProductImageData, ImageProvider?> unselectedImages =
+  final Map<ProductImageData, ImageProvider?> _unselectedImages =
       <ProductImageData, ImageProvider?>{};
 
   bool _isRefreshed = false;
@@ -66,12 +66,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         }
         final List<ProductImageData> allProductImagesData =
             getProductMainImagesData(product, appLocalizations);
-        selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
+        _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
           allProductImagesData,
           allProductImagesData.map(_provideImage),
         );
 
-        _getProductImages(product).then(
+        _getProductImages(product.barcode!).then(
           (Iterable<ProductImageData>? loadedData) {
             if (loadedData == null) {
               return;
@@ -85,15 +85,15 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             if (mounted) {
               setState(
                 () {
-                  unselectedImages.clear();
-                  unselectedImages.addAll(newMap);
+                  _unselectedImages.clear();
+                  _unselectedImages.addAll(newMap);
                   _isLoadingMore = false;
                 },
               );
             }
           },
         );
-        if (selectedImages.isEmpty) {
+        if (_selectedImages.isEmpty) {
           return SmoothScaffold(
             body: Center(
               child: Text(appLocalizations.error),
@@ -116,17 +116,17 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 slivers: <Widget>[
                   _buildTitle(appLocalizations.selected_images, theme: theme),
                   SmoothImagesSliverList(
-                    imagesData: selectedImages,
+                    imagesData: _selectedImages,
                     onTap: (ProductImageData data, _) => data.imageUrl != null
-                        ? _openImage(data, product)
-                        : _newImage(data, product),
+                        ? _openImage(data, product.barcode!)
+                        : _newImage(data, product.barcode!),
                   ),
                   _buildTitle(appLocalizations.all_images, theme: theme),
                   SmoothImagesSliverGrid(
-                    imagesData: unselectedImages,
+                    imagesData: _unselectedImages,
                     loading: _isLoadingMore,
                     onTap: (ProductImageData data, _) =>
-                        _openImage(data, product),
+                        _openImage(data, product.barcode!),
                   ),
                 ],
               ),
@@ -167,18 +167,18 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     return success;
   }
 
-  Future<void> _openImage(ProductImageData imageData, Product product) async =>
+  Future<void> _openImage(ProductImageData imageData, String barcode) async =>
       Navigator.push<void>(
         context,
         MaterialPageRoute<void>(
           builder: (_) => ProductImageViewer(
-            barcode: product.barcode!,
+            barcode: barcode,
             imageData: imageData,
           ),
         ),
       );
 
-  Future<void> _newImage(ProductImageData data, Product product) async {
+  Future<void> _newImage(ProductImageData data, String barcode) async {
     final File? croppedImageFile = await startImageCropping(context);
     if (croppedImageFile == null) {
       return;
@@ -186,10 +186,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     if (mounted) {
       setState(() {
         final FileImage fileImage = FileImage(croppedImageFile);
-        if (selectedImages.containsKey(data)) {
-          selectedImages[data] = fileImage;
-        } else if (unselectedImages.containsKey(data)) {
-          unselectedImages[data] = fileImage;
+        if (_selectedImages.containsKey(data)) {
+          _selectedImages[data] = fileImage;
+        } else if (_unselectedImages.containsKey(data)) {
+          _unselectedImages[data] = fileImage;
         } else {
           throw ArgumentError('Could not find the type of $data');
         }
@@ -200,7 +200,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
     final bool isUploaded = await uploadCapturedPicture(
       context,
-      barcode: product.barcode!,
+      barcode: barcode,
       imageField: data.imageField,
       imageUri: croppedImageFile.uri,
     );
@@ -218,15 +218,15 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(message),
-          duration: const Duration(seconds: 3),
+          duration: SnackBarDuration.medium,
         ),
       );
     }
   }
 
-  Future<Iterable<ProductImageData>?> _getProductImages(Product product) async {
+  Future<Iterable<ProductImageData>?> _getProductImages(String barcode) async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      product.barcode!,
+      barcode,
       fields: <ProductField>[ProductField.IMAGES],
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
@@ -249,7 +249,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
 
     return _deduplicateImages(resultProduct.images!)
-        .map((ProductImage image) => _getProductImageData(image, product));
+        .map((ProductImage image) => _getProductImageData(image, barcode));
   }
 
   /// Groups the list of [ProductImage] by [ProductImage.imgid]
@@ -262,12 +262,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           .whereNotNull();
 
   /// Created a [ProductImageData] from a [ProductImage]
-  ProductImageData _getProductImageData(ProductImage image, Product product) =>
+  ProductImageData _getProductImageData(ProductImage image, String barcode) =>
       ProductImageData(
         imageField: image.field,
         // TODO(VaiTon): i18n
         title: image.imgid ?? '',
         buttonText: image.imgid ?? '',
-        imageUrl: ImageHelper.buildUrl(product.barcode, image),
+        imageUrl: ImageHelper.buildUrl(barcode, image),
       );
 }
