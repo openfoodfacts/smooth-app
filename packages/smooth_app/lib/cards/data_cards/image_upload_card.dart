@@ -114,8 +114,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             context,
             MaterialPageRoute<bool>(
               builder: (BuildContext context) => ProductImageGalleryView(
-                imagesData: widget.allProductImagesData,
-                barcode: widget.product.barcode,
+                product: widget.product,
               ),
             ),
           );
