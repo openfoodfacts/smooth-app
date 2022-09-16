@@ -56,8 +56,11 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
     return Consumer<UpToDateProductProvider>(
-      builder: (BuildContext context, UpToDateProductProvider provider,
-          Widget? child) {
+      builder: (
+        BuildContext context,
+        UpToDateProductProvider provider,
+        Widget? child,
+      ) {
         Product product = widget.product;
 
         final Product? refreshedProduct = provider.get(product);
