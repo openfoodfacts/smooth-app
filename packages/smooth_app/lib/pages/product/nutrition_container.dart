@@ -274,6 +274,22 @@ class NutritionContainer {
   static String _fixNutrientId(final String nutrientId) =>
       nutrientId == _energyKJId ? _energyId : nutrientId;
 
+  /// Converts a double (weight) value from grams.
+  ///
+  /// Typical use-case: after receiving a value from the BE.
+  static double? convertWeightFromG(final double? value, final Unit unit) {
+    if (value == null) {
+      return null;
+    }
+    if (unit == Unit.MILLI_G) {
+      return value * 1E3;
+    }
+    if (unit == Unit.MICRO_G) {
+      return value * 1E6;
+    }
+    return value;
+  }
+
   /// Loads product nutrient units into a map.
   ///
   /// Needs nutrients to be loaded first.
@@ -296,22 +312,6 @@ class NutritionContainer {
   ///
   /// Needs nutrients and units to be loaded first.
   void _loadValues(final Map<String, dynamic> json) {
-    /// Converts a double (weight) value from grams.
-    ///
-    /// Typical use-case: after receiving a value from the BE.
-    double? convertWeightFromG(final double? value, final Unit unit) {
-      if (value == null) {
-        return null;
-      }
-      if (unit == Unit.MILLI_G) {
-        return value * 1E3;
-      }
-      if (unit == Unit.MICRO_G) {
-        return value * 1E6;
-      }
-      return value;
-    }
-
     for (final OrderedNutrient orderedNutrient in _nutrients) {
       final String nutrientId = orderedNutrient.id;
       final Unit unit = getUnit(nutrientId);

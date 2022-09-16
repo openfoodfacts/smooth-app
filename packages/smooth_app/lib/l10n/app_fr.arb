@@ -30,6 +30,10 @@
     "@stop": {},
     "finish": "Terminer",
     "@finish": {},
+    "calculate": "Calculer",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Réinitialiser les préférences alimentaires",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -1687,6 +1691,19 @@
     "product_card_remove_product_tooltip": "Retirer le produit",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "portion_calculator_description": "Calculez les informations nutritionnelles pour une quantité spécifique",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "Informations nutritionnelles pour {grams} g (ou ml)",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
     },
     "offline_data": "Offline Data",
     "@offline_data": {
