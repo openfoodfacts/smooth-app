@@ -1,15 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:intl/intl.dart';
-import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
-import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/pages/product/portion_helper.dart';
 
 /// Displays a portion size selector and a "compute!" button; results as dialog.
 class PortionCalculator extends StatefulWidget {
@@ -32,7 +29,6 @@ class _PortionCalculatorState extends State<PortionCalculator> {
   int _grams = 100;
 
   late final FixedExtentScrollController _controllerUnit;
-  late final NumberFormat _numberFormat;
 
   @override
   void initState() {
@@ -40,7 +36,6 @@ class _PortionCalculatorState extends State<PortionCalculator> {
     _controllerUnit = FixedExtentScrollController(
       initialItem: _fromGramsToIndex(_grams),
     );
-    _numberFormat = NumberFormat('####0.###', ProductQuery.getLocaleString());
   }
 
   @override
@@ -103,14 +98,12 @@ class _PortionCalculatorState extends State<PortionCalculator> {
     if (!mounted) {
       return;
     }
-    final Map<String, dynamic> json = widget.product.nutriments!.toJson();
-    final List<List<String>> table = <List<String>>[];
-    _populateFactoredNutrients(
+    final PortionHelper helper = PortionHelper(
       cache.orderedNutrients.nutrients,
-      json,
-      table,
+      widget.product.nutriments!,
+      _grams,
     );
-    if (table.isEmpty) {
+    if (helper.isEmpty) {
       return;
     }
     await showDialog<void>(
@@ -119,13 +112,13 @@ class _PortionCalculatorState extends State<PortionCalculator> {
         title: appLocalizations.portion_calculator_result_title(_grams),
         body: Column(
           children: List<Widget>.generate(
-            table.length,
+            helper.length,
             (final int index) => Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text(table[index][0]),
-                Text(table[index][1]),
+                Text(helper.getName(index)),
+                Text(helper.getValue(index)),
               ],
             ),
           ),
@@ -136,38 +129,5 @@ class _PortionCalculatorState extends State<PortionCalculator> {
         ),
       ),
     );
-  }
-
-  /// Recursively populates portion factored nutrients.
-  void _populateFactoredNutrients(
-    final List<OrderedNutrient> orderedNutrients,
-    final Map<String, dynamic> json,
-    final List<List<String>> table,
-  ) {
-    for (final OrderedNutrient nutrient in orderedNutrients) {
-      final String idValue = '${nutrient.id}_100g';
-      final String idUnit = '${nutrient.id}_unit';
-      Unit? unit;
-      double? value;
-      try {
-        value = json[idValue] as double?;
-        unit = UnitHelper.stringToUnit(json[idUnit] as String?);
-        value = NutritionContainer.convertWeightFromG(value, unit!);
-      } catch (e) {
-        value = null;
-        unit = null;
-      }
-      if (value != null && unit != null && nutrient.name != null) {
-        table.add(
-          <String>[
-            nutrient.name!,
-            '${_numberFormat.format(value * _grams / 100)} ${UnitHelper.unitToString(unit)}'
-          ],
-        );
-      }
-      if (nutrient.subNutrients != null) {
-        _populateFactoredNutrients(nutrient.subNutrients!, json, table);
-      }
-    }
   }
 }
