@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -160,16 +159,13 @@ class _EditProductPageState extends State<EditProductPage> {
                       if (!await ProductRefresher().checkIfLoggedIn(context)) {
                         return;
                       }
-                      final List<ProductImageData> allProductImagesData =
-                          getProductMainImagesData(_product, appLocalizations);
                       // TODO(monsieurtanuki): careful, waiting for pop'ed value
                       final bool? refreshed = await Navigator.push<bool>(
                         context,
                         MaterialPageRoute<bool>(
                           builder: (BuildContext context) =>
                               ProductImageGalleryView(
-                            imagesData: allProductImagesData,
-                            barcode: _product.barcode,
+                            product: _product,
                           ),
                           fullscreenDialog: true,
                         ),

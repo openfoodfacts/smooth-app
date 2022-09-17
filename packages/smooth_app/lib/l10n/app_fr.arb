@@ -914,36 +914,6 @@
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Mode haute performance",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Lorsqu'il est activé, la qualité de décodage des codes-barres devrait être meilleure, mais peut avoir un impact sur les performances et la durée de vie de la batterie. Nécessite un redémarrage de l'application.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Mode de mise au point",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Mode actuel : {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Automatique",
-    "camera_focus_point_algorithm_value_auto_description": "Laissez le système choisir automatiquement entre les modes rapide et garanti.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Mode rapide",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Un paramétrage recommandé aux appareils récents.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Mode garanti",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Si le mode rapide ne fonctionne pas, cela devrait résoudre vos problèmes de mise au point.",
     "camera_play_sound_title": "Jouer un son lors du scan",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -956,7 +926,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Si votre appareil ne peut pas scanner les codes-barres, veuillez essayer ce mode. Si cela fonctionne bien, veuillez nous communiquer le nom de votre appareil : {device}, afin de faire de ce mode celui par défaut pour votre appareil.",
+    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -968,14 +938,6 @@
     "camera_alternative_mode_confirm_dialog_title": "Mode scanneur modifié !",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
-    },
-    "camera_alternative_mode_confirm_dialog_body": "Le nouveau mode ne sera utilisé qu'après l'arrêt et le redémarrage de l'application !",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "C'est noté !",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
     },
     "app_haptic_feedback_title": "Vibration et retours tactiles",
     "@app_haptic_feedback_title": {

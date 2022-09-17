@@ -914,36 +914,6 @@
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Režim vysokého výkonu",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Je-li povoleno, kvalita dekódování čárových kódů by měla být lepší, ale může mít vliv na výkon a výdrž baterie. Vyžaduje restart aplikace.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Režim zaostření",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Aktuální režim: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Auto",
-    "camera_focus_point_algorithm_value_auto_description": "Nechte systém automaticky vybrat mezi rychlým a bezpečným režimem.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Rychlý režim",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Režim doporučený pro nedávná zařízení.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Bezpečný režim",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Pokud rychlý režim nefunguje, mělo by to vyřešit vaše problémy se zaměřením.",
     "camera_play_sound_title": "Přehrát zvuk při skenování",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -956,7 +926,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Pokud vaše zařízení nedokáže skenovat čárové kódy, zkuste tento režim. Pokud to funguje dobře, sdělte nám prosím název svého zařízení: {device}, aby se tento režim stal výchozím pro vaše zařízení.",
+    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -968,14 +938,6 @@
     "camera_alternative_mode_confirm_dialog_title": "Režim skenování byl změněn!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
-    },
-    "camera_alternative_mode_confirm_dialog_body": "Nový režim bude použit pouze po zastavení a opětovném spuštění aplikace!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "Řádně zaznamenáno!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
     },
     "app_haptic_feedback_title": "Vibrace a haptika",
     "@app_haptic_feedback_title": {
@@ -1674,7 +1636,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "no_email_client_available_dialog_title": "Žádná e-mailová žádost!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },

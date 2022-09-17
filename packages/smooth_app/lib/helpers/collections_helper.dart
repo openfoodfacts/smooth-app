@@ -56,6 +56,21 @@ class AverageList<T extends num> with ListMixin<T> {
   }
 }
 
+extension StringIterable on Iterable<String> {
+  bool containsIgnoreCase(String? element) {
+    if (element == null) {
+      return false;
+    }
+
+    for (final String item in this) {
+      if (item.toLowerCase() == element.toLowerCase()) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
 extension ListExtensions<T> on List<T> {
   void addAllSafe(Iterable<T>? elements) {
     if (elements != null) {
