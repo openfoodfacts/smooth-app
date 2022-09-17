@@ -186,13 +186,14 @@ class _EditOcrPageState extends State<EditOcrPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Icon(
+                Icon(
                   Icons.image_not_supported,
-                  size: 200,
+                  size: size.height / 4,
                 ),
                 Text(
-                  'Upload an image to automatically extract the provided information',
-                  style: Theme.of(context).textTheme.bodySmall,
+                  appLocalizations.ocr_image_upload_instruction,
+                  style: Theme.of(context).textTheme.bodyText2,
+                  textAlign: TextAlign.center,
                 )
               ],
             ),
@@ -314,7 +315,7 @@ class _OcrWidget extends StatelessWidget {
                     text: (hasImageProvider ||
                             helper.getImageUrl(product) != null)
                         ? helper.getActionRefreshPhoto(appLocalizations)
-                        : 'Upload Photo',
+                        : appLocalizations.upload_image,
                     onPressed: () => onTapGetImage(true),
                   ),
                 ),
