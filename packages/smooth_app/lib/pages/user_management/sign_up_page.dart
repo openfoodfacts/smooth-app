@@ -38,6 +38,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   final FocusNode _userFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _password1FocusNode = FocusNode();
+  final FocusNode _password2FocusNode = FocusNode();
 
   bool _foodProducer = false;
   bool _agree = false;
@@ -163,6 +164,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
               focusNode: _password1FocusNode,
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_password_hint,
+              onFieldSubmitted: (_) =>
+                  FocusScope.of(context).requestFocus(_password2FocusNode),
               prefixIcon: const Icon(Icons.vpn_key),
               autofillHints: const <String>[
                 AutofillHints.newPassword,
@@ -181,6 +184,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             SmoothTextFormField(
               type: TextFieldTypes.PASSWORD,
               controller: _password2Controller,
+              focusNode: _password2FocusNode,
               textInputAction: TextInputAction.next,
               hintText: appLocalizations.sign_up_page_confirm_password_hint,
               prefixIcon: const Icon(Icons.vpn_key),
