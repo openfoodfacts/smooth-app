@@ -274,7 +274,7 @@
     "support_join_slack": "Slack kanalımızda yardım isteyin",
     "support_via_email": "Bize bir e-posta gönder",
     "support_via_email_include_logs_dialog_title": "Uygulama günlükleri gönderilsin mi?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_body": "E-postanıza ek olarak uygulama günlüklerini eklemek ister misiniz?",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
     "about_this_app": "Bu uygulama hakkında",
@@ -926,7 +926,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Cihazınız barkodları okuyamıyorsa, lütfen bu modu deneyin.\n\nİyi çalışıyorsa, bu modu cihazınız için varsayılan mod yapmak için lütfen cihaz adınızı bize bildirin: {device}.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
