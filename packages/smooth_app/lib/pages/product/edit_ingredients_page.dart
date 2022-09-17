@@ -158,7 +158,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
+    final Size size = MediaQuery.of(context).size;
     final List<Widget> children = <Widget>[];
 
     if (_imageProvider != null) {
@@ -178,7 +178,27 @@ class _EditOcrPageState extends State<EditOcrPage> {
           ),
         );
       } else {
-        children.add(Container(color: Colors.white));
+        children.add(
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(bottom: size.height * 0.25),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.image_not_supported,
+                  size: size.height / 4,
+                ),
+                Text(
+                  appLocalizations.ocr_image_upload_instruction,
+                  style: Theme.of(context).textTheme.bodyText2,
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
+          ),
+        );
       }
     }
 
@@ -292,7 +312,10 @@ class _OcrWidget extends StatelessWidget {
                 ),
                 child: SmoothActionButtonsBar(
                   positiveAction: SmoothActionButton(
-                    text: helper.getActionRefreshPhoto(appLocalizations),
+                    text: (hasImageProvider ||
+                            helper.getImageUrl(product) != null)
+                        ? helper.getActionRefreshPhoto(appLocalizations)
+                        : appLocalizations.upload_image,
                     onPressed: () => onTapGetImage(true),
                   ),
                 ),
