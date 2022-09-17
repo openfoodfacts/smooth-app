@@ -272,10 +272,10 @@ class _SearchCardTagLine extends StatelessWidget {
             if (preferences.isFirstScan) {
               return const _SearchCardTagLineDefaultText();
             }
-            return FutureBuilder<dynamic>(
+            return FutureBuilder<TagLineItem?>(
               future: _fetchData(),
               builder: (BuildContext context, AsyncSnapshot<dynamic> data) {
-                if (data.data != null && data.data is! TagLineItem) {
+                if (data.connectionState == ConnectionState.done && data.data == null) {
                   return const _SearchCardTagLineDeprecatedAppText();
                 } else if (data is TagLineItem) {
                   return _SearchCardTagLineText(
@@ -294,12 +294,8 @@ class _SearchCardTagLine extends StatelessWidget {
 
   /// We fetch first if the app is deprecated, then try to get the tagline
   /// Will return [false] if the app is deprecated or a [TagLineItem]
-  Future<dynamic> _fetchData() async {
+  Future<TagLineItem?> _fetchData() async {
     final bool deprecated = await _isApplicationDeprecated();
-
-    if (deprecated) {
-      return false;
-    }
 
     return fetchTagLine(Platform.localeName);
   }
@@ -350,7 +346,7 @@ class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
             style: const 
             TextStyle(
               color: Colors.red,
-            ),)),
+            ),),),
     );
   }
 
