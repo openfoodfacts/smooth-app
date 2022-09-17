@@ -1,5 +1,39 @@
 # Changelog
 
+## [3.18.0](https://github.com/openfoodfacts/smooth-app/compare/v3.17.0...v3.18.0) (2022-09-17)
+
+
+### Features
+
+* [#3013](https://github.com/openfoodfacts/smooth-app/issues/3013) - asset file utz-certified.90x90.svg ([#3015](https://github.com/openfoodfacts/smooth-app/issues/3015)) ([6a11349](https://github.com/openfoodfacts/smooth-app/commit/6a1134908e302f48c97cd2d763f3139647a2e9a8))
+* Allow to change the camera mode without restarting ([#3008](https://github.com/openfoodfacts/smooth-app/issues/3008)) ([acb5fac](https://github.com/openfoodfacts/smooth-app/commit/acb5fac58111b1f26b08be3b5ed6514fa5577e9e))
+
+
+### Bug Fixes
+
+* fixes 1286 ([#3025](https://github.com/openfoodfacts/smooth-app/issues/3025)) ([e60f6b8](https://github.com/openfoodfacts/smooth-app/commit/e60f6b8f776fc816bcc3cd6f9ef41d50ddaf000a))
+* Goldens update darkmode status ([#3016](https://github.com/openfoodfacts/smooth-app/issues/3016)) ([1d5abac](https://github.com/openfoodfacts/smooth-app/commit/1d5abac606497f2ffad87f1d420142ee76fa9552))
+* handling of back tap in select products list screen ([#3019](https://github.com/openfoodfacts/smooth-app/issues/3019)) ([c459397](https://github.com/openfoodfacts/smooth-app/commit/c459397185b8785f707114cf522c8bb96856496b))
+* Image extraction screen ([#3026](https://github.com/openfoodfacts/smooth-app/issues/3026)) ([f893237](https://github.com/openfoodfacts/smooth-app/commit/f8932379db4ee10e0618ff109274a9261cd2156f))
+* refresh images from gallery screen ([#3023](https://github.com/openfoodfacts/smooth-app/issues/3023)) ([58dbd43](https://github.com/openfoodfacts/smooth-app/commit/58dbd439e58761968750474191ee924d8a4ec8ba))
+
+
+### Refactoring
+
+* backgroundTasks - around the new "upload" method ([#3028](https://github.com/openfoodfacts/smooth-app/issues/3028)) ([2ca03cd](https://github.com/openfoodfacts/smooth-app/commit/2ca03cd5dac0f3c9ce1179c3ea8b6722652626fd))
+* Removed unnecessary assets ([#3010](https://github.com/openfoodfacts/smooth-app/issues/3010)) ([6ba475b](https://github.com/openfoodfacts/smooth-app/commit/6ba475b0349543f2952983fb692d082febbbc8e3))
+
+
+### Miscellaneous
+
+* **deps:** bump crowdin/github-action from 1.4.12 to 1.4.13 ([#3014](https://github.com/openfoodfacts/smooth-app/issues/3014)) ([eb66aad](https://github.com/openfoodfacts/smooth-app/commit/eb66aad274dda48e197514d8fe58a5f3863754f5))
+* **deps:** bump fastlane in /packages/smooth_app/android ([#3021](https://github.com/openfoodfacts/smooth-app/issues/3021)) ([8e98ecd](https://github.com/openfoodfacts/smooth-app/commit/8e98ecd8109ff66c3131e87f08ae30d1da36122b))
+* **deps:** bump fastlane in /packages/smooth_app/ios ([#3020](https://github.com/openfoodfacts/smooth-app/issues/3020)) ([a6714e8](https://github.com/openfoodfacts/smooth-app/commit/a6714e886a2c5541555ace047ca402416959754a))
+* New Crowdin translations ([#3000](https://github.com/openfoodfacts/smooth-app/issues/3000)) ([d61596e](https://github.com/openfoodfacts/smooth-app/commit/d61596ea990014d2e8c9cd260c585cd994af602d))
+* New Crowdin translations ([#3007](https://github.com/openfoodfacts/smooth-app/issues/3007)) ([706247f](https://github.com/openfoodfacts/smooth-app/commit/706247f0d20edee8c96b8a12aff6efa40d59fc36))
+* New Crowdin translations ([#3012](https://github.com/openfoodfacts/smooth-app/issues/3012)) ([c62b3f9](https://github.com/openfoodfacts/smooth-app/commit/c62b3f9eae65fc5393e759b79febd6859d863f52))
+* New Crowdin translations ([#3029](https://github.com/openfoodfacts/smooth-app/issues/3029)) ([f8c6635](https://github.com/openfoodfacts/smooth-app/commit/f8c6635c55a6a62dd4f6fb4e9792961bf125e99d))
+
 ## [3.17.0](https://github.com/openfoodfacts/smooth-app/compare/v3.16.0...v3.17.0) (2022-09-11)
 
 
