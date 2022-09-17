@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.19.0](https://github.com/openfoodfacts/smooth-app/compare/v3.18.0...v3.19.0) (2022-09-17)
+
+
+### Features
+
+* [#2354](https://github.com/openfoodfacts/smooth-app/issues/2354) - "portion calculator" added to detailed nutrient page ([#3027](https://github.com/openfoodfacts/smooth-app/issues/3027)) ([3b223ff](https://github.com/openfoodfacts/smooth-app/commit/3b223ffade8bb89737374e35267bc2cfd841060b))
+
 ## [3.18.0](https://github.com/openfoodfacts/smooth-app/compare/v3.17.0...v3.18.0) (2022-09-17)
 
 
