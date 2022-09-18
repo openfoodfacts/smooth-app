@@ -31,7 +31,7 @@ jobs:
           DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
 
-      # We are using the android version code for iOS as well to have the version codes in sync 
+      # We are using the Android version code for iOS as well to have the version codes in sync 
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
