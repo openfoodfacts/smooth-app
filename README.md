@@ -95,7 +95,7 @@ We are always looking for new contributors, if you're willing to help please let
 
 ### Value added in browsing
 - [ ] Clarify the alternative product proposition
-- [ ] Reintroduce the portion calculator
+- [x] Reintroduce the portion calculator
 
 ### Gamification
 - [ ] Add the number of contributions when logged in
