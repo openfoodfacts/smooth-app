@@ -30,6 +30,10 @@
     "@stop": {},
     "finish": "Afslut",
     "@finish": {},
+    "calculate": "Calculate",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Nulstil fødevarepræferencer",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -339,6 +343,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Log ind på Open Food Facts-kontoen for at gemme bidrag",
+    "tap_to_edit_search": "Tryk for at redigere søgning",
     "@Personal preferences": {},
     "myPreferences": "Mine præferencer",
     "@myPreferences": {
@@ -908,39 +913,11 @@
     "settings_app_app": "App",
     "settings_app_data": "Fortrolighed og overvågning",
     "settings_app_camera": "Kamera",
+    "settings_app_products": "Produkter",
+    "settings_app_miscellaneous": "Diverse",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Højtydende tilstand",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Når aktiveret, bør stregkoderafkodningskvaliteten være bedre, men det kan påvirke ydeevne og strømforbrug. Kræver app-genstart.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Fokustilstand",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Aktuel tilstand: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Auto",
-    "camera_focus_point_algorithm_value_auto_description": "Lad systemet automatisk vælge mellem hurtig eller sikker tilstand.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Hurtig tilstand",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "En tilstand anbefalet til nyere enheder.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Sikker tilstand",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Fungerer hurtig tilstand ikke, burde denne løse fokusproblemer.",
     "camera_play_sound_title": "Afspil en lyd ved skanning",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -953,7 +930,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Vil enheden ikke skanne stregkoder, så prøv denne tilstand. Fungerer den fint, så oplys os gerne om enhedsnavnet—{device}—så tilstanden kan gøres til standard for den pågældende enhed.",
+    "camera_alternative_mode_subtitle": "Vil enheden ikke skanne stregkoder, så prøv denne tilstand.\n\nFungerer tilstanden, så oplys os venligst enhedsnavnet, {device}, for at gøre den til standardtilstanden for enheden.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -966,13 +943,13 @@
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "Den nye tilstand effektueres først efter en app-genstart!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
+    "app_haptic_feedback_title": "Vibration og haptik",
+    "@app_haptic_feedback_title": {
+        "description": "Title for the Haptic feedback toggle"
     },
-    "camera_alternative_mode_confirm_dialog_button": "Forstået!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
+    "app_haptic_feedback_subtitle": "Vibration efter udførelse af visse handlinger (stregkode afkodet, produkt fjernet…).",
+    "@app_haptic_feedback_subtitle": {
+        "description": "SubTitle for the Haptic feedback toggle"
     },
     "crash_reporting_toggle_title": "Nedbrudsanmeldelse",
     "@crash_reporting_toggle_title": {
@@ -1614,7 +1591,7 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "image_upload_queued": "Fotoet uploades i baggrunden hurtigst muligt.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
@@ -1659,7 +1636,7 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "Produktet uploades i baggrunden hurtigst muligt.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
@@ -1672,5 +1649,34 @@
         "description": "Content for the dialog when no email client is installed on the device"
     },
     "all_images": "Alle fotos",
-    "selected_images": "Valgte fotos"
+    "selected_images": "Valgte fotos",
+    "product_card_remove_product_tooltip": "Fjern produkt",
+    "@product_card_remove_product_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "portion_calculator_description": "Beregn ernæringfakta for en bestemt mængde",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
+    "offline_data": "Offline-data",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Upload Photo",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
+    }
 }

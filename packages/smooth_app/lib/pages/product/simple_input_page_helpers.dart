@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/TagType.dart';
+import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -86,6 +87,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the icon data for the list tile.
   Widget? getIcon() => null;
 
+  /// Returns the background task.
+  ProductEditTask getTask();
+
   /// Returns true if changes were made.
   bool getChangedProduct(final Product product) {
     if (!_changed) {
@@ -153,6 +157,9 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.shopping_cart);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.store;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -183,6 +190,9 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.travel_explore);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.origin;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -211,6 +221,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.factory);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.emb;
 }
 
 /// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
@@ -302,6 +315,9 @@ class SimpleInputPageLabelHelper
 
   @override
   Widget? getIcon() => const Icon(Icons.local_offer);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.label;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -339,6 +355,9 @@ class SimpleInputPageCategoryHelper
 
   @override
   Widget? getIcon() => const Icon(Icons.restaurant);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.category;
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
@@ -372,4 +391,7 @@ class SimpleInputPageCountryHelper
 
   @override
   Widget? getIcon() => const Icon(Icons.public);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.country;
 }

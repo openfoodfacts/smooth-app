@@ -26,7 +26,7 @@ class _ListenerState<T> extends SingleChildState<Listener<T>> {
   @override
   Widget buildWithChild(BuildContext context, Widget? child) {
     final T? oldValue = _oldValue;
-    final T newValue = Provider.of<T>(context);
+    final T newValue = context.watch<T>();
     _oldValue = newValue;
 
     widget.listener(
