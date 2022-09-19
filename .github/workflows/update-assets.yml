@@ -16,9 +16,11 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v3
-
+      with:
+        ref: auto-perfect-product-update
+        
     - name: Upgrade assets
-      run: ci/update-assets.sh
+      run: ci\update_assets.sh
 
     - name: Check for uncommitted changes
       id: check-changes
