@@ -50,13 +50,16 @@ class LanguageSelectorSettings extends StatelessWidget {
                     .getLanguageNameInEnglishFromOpenFoodFactsLanguage(b)));
         List<OpenFoodFactsLanguage> filteredList = leftovers;
         await showDialog<void>(
-            context: context,
-            builder: (BuildContext context) {
-              return StatefulBuilder(
-                builder: (BuildContext context,
-                    void Function(VoidCallback fn) setState) {
-                  return SmoothAlertDialog(
-                    body: Column(
+          context: context,
+          builder: (BuildContext context) {
+            return StatefulBuilder(
+              builder: (BuildContext context,
+                  void Function(VoidCallback fn) setState) {
+                return SmoothAlertDialog(
+                  body: SizedBox(
+                    height: MediaQuery.of(context).size.height / 2,
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
                       children: <Widget>[
                         TextField(
                           decoration: InputDecoration(
@@ -85,39 +88,43 @@ class LanguageSelectorSettings extends StatelessWidget {
                             );
                           },
                         ),
-                        // TODO(monsieurtanuki): an optimization would be not to generate all tiles and use something like a ListView.builder instead
-                        ...List<ListTile>.generate(
-                          filteredList.length,
-                          (int index) {
-                            final OpenFoodFactsLanguage openFoodFactsLanguage =
-                                filteredList[index];
-                            final String nameInLanguage = _languages
-                                .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
-                                    openFoodFactsLanguage);
-                            return ListTile(
-                              title: Text(
-                                '$nameInLanguage (${_languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(openFoodFactsLanguage)})',
-                                softWrap: false,
-                                overflow: TextOverflow.fade,
-                              ),
-                              onTap: () {
-                                userPreferences.setAppLanguageCode(
-                                    openFoodFactsLanguage.code);
-                                Navigator.of(context).pop();
-                              },
-                            );
-                          },
+                        Expanded(
+                          child: ListView.builder(
+                            itemBuilder: (BuildContext context, int index) {
+                              final OpenFoodFactsLanguage
+                                  openFoodFactsLanguage = filteredList[index];
+                              final String nameInLanguage = _languages
+                                  .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
+                                      openFoodFactsLanguage);
+                              return ListTile(
+                                title: Text(
+                                  '$nameInLanguage (${_languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(openFoodFactsLanguage)})',
+                                  softWrap: false,
+                                  overflow: TextOverflow.fade,
+                                ),
+                                onTap: () {
+                                  userPreferences.setAppLanguageCode(
+                                      openFoodFactsLanguage.code);
+                                  Navigator.of(context).pop();
+                                },
+                              );
+                            },
+                            itemCount: filteredList.length,
+                            shrinkWrap: true,
+                          ),
                         ),
                       ],
                     ),
-                    positiveAction: SmoothActionButton(
-                      onPressed: () => Navigator.pop(context),
-                      text: appLocalizations.cancel,
-                    ),
-                  );
-                },
-              );
-            });
+                  ),
+                  positiveAction: SmoothActionButton(
+                    onPressed: () => Navigator.pop(context),
+                    text: appLocalizations.cancel,
+                  ),
+                );
+              },
+            );
+          },
+        );
       },
     );
   }
