@@ -20,7 +20,7 @@ jobs:
         ref: auto-perfect-product-update
 
     - name: Upgrade assets
-      run: ci/update_assets.sh
+      run: chmod +x ci/update_assets.sh && ci/update_assets.sh
 
     - name: Check for uncommitted changes
       id: check-changes
