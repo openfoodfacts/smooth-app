@@ -1,7 +1,10 @@
 name: Top issues action.
+#on:
+#  schedule:
+#  - cron:  '0 0 */1 * *'
 on:
-  schedule:
-  - cron:  '0 0 */1 * *'
+  issues:
+    types: [opened, transferred]
 
 jobs:
   ShowAndLabelTopIssues:
