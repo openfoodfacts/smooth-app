@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.20.0](https://github.com/openfoodfacts/smooth-app/compare/v3.19.0...v3.20.0) (2022-09-20)
+
+
+### Features
+
+* add paginated top issue parser ([#3041](https://github.com/openfoodfacts/smooth-app/issues/3041)) ([455b304](https://github.com/openfoodfacts/smooth-app/commit/455b3048302da4f29fb0f45e9e483034048f749e))
+
+
+### Bug Fixes
+
+* [#3038](https://github.com/openfoodfacts/smooth-app/issues/3038) - applied (colored) style for CupertinoPicker ([#3039](https://github.com/openfoodfacts/smooth-app/issues/3039)) ([a47041f](https://github.com/openfoodfacts/smooth-app/commit/a47041f5513b8223af5af4a82ad8ad7ff5447832))
+* typo in app_fr.arb ([1865609](https://github.com/openfoodfacts/smooth-app/commit/1865609759f9b51b3f5261db7b72b40c4756f312))
+* Upgrade matomo version (+ needed other deps) ([#3034](https://github.com/openfoodfacts/smooth-app/issues/3034)) ([359b362](https://github.com/openfoodfacts/smooth-app/commit/359b3626121db5b3fa8341c43ad8aa5200c159b0))
+
+
+### Miscellaneous
+
+* New Crowdin translations to review and merge ([#3033](https://github.com/openfoodfacts/smooth-app/issues/3033)) ([420d77b](https://github.com/openfoodfacts/smooth-app/commit/420d77bfcb11b44bf959089bc6aab3792080526b))
+
+
+### Automation
+
+* update PR labeler ([#2794](https://github.com/openfoodfacts/smooth-app/issues/2794)) ([a6cf19d](https://github.com/openfoodfacts/smooth-app/commit/a6cf19dd01435fd4cedd6cb552555e30ac2e99e8))
+
+
+### Documentation
+
+* mark portion calculator as done ([d24d991](https://github.com/openfoodfacts/smooth-app/commit/d24d991fdcc80e226ab014a611b0713de6e3149b))
+
 ## [3.19.0](https://github.com/openfoodfacts/smooth-app/compare/v3.18.0...v3.19.0) (2022-09-17)
 
 
