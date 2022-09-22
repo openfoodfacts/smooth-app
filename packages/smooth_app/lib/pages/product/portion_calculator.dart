@@ -63,7 +63,10 @@ class _PortionCalculatorState extends State<PortionCalculator> {
                     _grams = _fromIndexToGrams(index),
                 childCount: _fromGramsToIndex(_maxGrams) + 1,
                 itemBuilder: (final BuildContext context, final int index) =>
-                    Text('${_fromIndexToGrams(index)}'),
+                    Text(
+                  '${_fromIndexToGrams(index)}',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
             ),
             Text(UnitHelper.unitToString(Unit.G)!),

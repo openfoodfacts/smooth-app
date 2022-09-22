@@ -713,7 +713,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -791,7 +791,7 @@
             }
         }
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Authorise",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -1671,12 +1671,12 @@
     "@offline_data": {
         "description": "App bar tile for offline data page"
     },
-    "ocr_image_upload_instruction" : "Upload an image to automatically extract the provided information",
-    "@ocr_image_upload_instruction" : {
-        "description" : "Message shown when there is no image on ocr extraction page"
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
     },
-    "upload_image" : "Upload Photo",
-    "@upload_image" : {
-        "description" : "Message shown on asking to upload image"
+    "upload_image": "Upload Photo",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
     }
 }
