@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 
 /// File based camera implementation (only on Android)
 class AlternativeCameraMode {
@@ -9,8 +10,12 @@ class AlternativeCameraMode {
   static final Iterable<String> _whitelistedBrands = <String>{
     'OnePlus',
   };
-  static final Iterable<String> _whitelistedModels = <String>{
-    'CPH2409', // OnePlus Nord CE 2 Lite 5G
+
+  static final Iterable<_SupportedDevice> _whitelistedModels =
+      <_SupportedDevice>{
+    // OnePlus Nord CE 2 Lite 5G
+    const _SupportedDevice('OnePlus', 'CPH2409'),
+    const _SupportedDevice('OPPO', 'CPH2135'),
   };
 
   static bool get isSupported => Platform.isAndroid;
@@ -23,8 +28,13 @@ class AlternativeCameraMode {
 
     return DeviceInfoPlugin().androidInfo.then(
           (AndroidDeviceInfo info) =>
-              _whitelistedBrands.contains(info.brand) ||
-              _whitelistedModels.contains(info.model),
+              _whitelistedBrands.containsIgnoreCase(info.brand) ||
+              _whitelistedModels.contains(
+                _SupportedDevice(
+                  info.brand ?? '',
+                  info.model ?? '',
+                ),
+              ),
         );
   }
 
@@ -37,4 +47,11 @@ class AlternativeCameraMode {
           (AndroidDeviceInfo info) => '${info.brand} / ${info.model}',
         );
   }
+}
+
+class _SupportedDevice {
+  const _SupportedDevice(this.brand, this.model);
+
+  final String brand;
+  final String model;
 }

@@ -30,6 +30,10 @@
     "@stop": {},
     "finish": "Beëindigen",
     "@finish": {},
+    "calculate": "Calculate",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Voedselvoorkeuren resetten",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -914,36 +918,6 @@
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Hoge prestatiemodus",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Indien ingeschakeld, zou de coderingskwaliteit van streepjescodes beter moeten zijn, maar dit kan van invloed zijn op de prestaties en de levensduur van de batterij. Vereist een heropstart van de applicatie.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Focus modus",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Huidige modus: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Automatisch",
-    "camera_focus_point_algorithm_value_auto_description": "Laat het systeem automatisch kiezen tussen snelle en veilige modus.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Snelle Modus",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Een modus die wordt aanbevolen voor recente apparaten.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Veilige modus",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Als de snelle modus niet werkt, zou dit je focusproblemen moeten oplossen.",
     "camera_play_sound_title": "Een geluid afspelen bij het scannen",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -956,7 +930,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Als uw apparaat geen streepjescodes kan scannen, probeer dan deze modus. Als het goed werkt, geef ons dan uw apparaatnaam door: {device}, om deze modus de standaardmodus voor uw apparaat te maken.",
+    "camera_alternative_mode_subtitle": "Als uw apparaat geen streepjescodes kan scannen, probeer dan deze modus.\n\nAls het goed werkt, geef ons dan uw apparaatnaam door: {device}, om deze modus de standaardmodus voor uw apparaat te maken.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -968,14 +942,6 @@
     "camera_alternative_mode_confirm_dialog_title": "Scanner-modus gewijzigd!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
-    },
-    "camera_alternative_mode_confirm_dialog_body": "De nieuwe modus wordt alleen gebruikt na het stoppen en vervolgens opnieuw starten van de app!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "Ik snap het!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
     },
     "app_haptic_feedback_title": "Trillen & haptieken",
     "@app_haptic_feedback_title": {
@@ -1688,8 +1654,29 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
+    "portion_calculator_description": "Bereken voedingsfeiten voor een specifieke hoeveelheid",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
     "offline_data": "Offline gegevens",
     "@offline_data": {
         "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Upload Photo",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
     }
 }

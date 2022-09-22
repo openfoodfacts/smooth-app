@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
@@ -289,33 +290,11 @@ class _CameraAlternativeModeSetting extends StatelessWidget {
               .camera_alternative_mode_subtitle(snapshot.data![1] as String),
           value: enabled,
           onChanged: (final bool value) {
-            _showWarningAfterChange(context);
             userPreferences.setUseAlternativeCameraMode(value);
           },
         );
       },
     );
-  }
-
-  void _showWarningAfterChange(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    showDialog<void>(
-        context: context,
-        builder: (BuildContext subContext) {
-          return SmoothAlertDialog(
-            title:
-                appLocalizations.camera_alternative_mode_confirm_dialog_title,
-            body: Text(
-              appLocalizations.camera_alternative_mode_confirm_dialog_body,
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations
-                  .camera_alternative_mode_confirm_dialog_button,
-              onPressed: () => Navigator.pop(subContext),
-            ),
-          );
-        });
   }
 }
 

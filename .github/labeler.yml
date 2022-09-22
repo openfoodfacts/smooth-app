@@ -36,6 +36,9 @@ history:
 settings:
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 
+food preferences:
+- packages/smooth_app/lib/widgets/attribute_button.dart
+
 onboarding:
 - packages/smooth_app/lib/pages/onboarding/**/*
 - packages/smooth_app/assets/onboarding/**/*
@@ -59,6 +62,7 @@ mlkit:
 
 product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart
+- packages/smooth_app/lib/pages/product/new_product_page.dart
 
 product page:
 - packages/smooth_app/lib/pages/product/**/*
@@ -113,3 +117,7 @@ generic lib:
 
 photo cropping:
 - packages/smooth_app/lib/pages/image_crop_page.dart
+
+user lists:
+- packages/smooth_app/lib/pages/product_list_user_dialog_helper.dart
+- packages/smooth_app/lib/pages/product/common/product_list_page.dart
