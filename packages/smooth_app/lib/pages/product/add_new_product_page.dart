@@ -349,6 +349,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
         onPressed: () async {
+          print('coucou');
           await Navigator.push<bool>(
             context,
             MaterialPageRoute<bool>(
