@@ -43,13 +43,21 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   final Map<ImageField, List<File>> _uploadedImages =
       <ImageField, List<File>>{};
 
-  bool _nutritionFactsAdded = false;
-  bool _basicDetailsAdded = false;
   bool _isProductLoaded = false;
+
+  late Product _product;
+
+  @override
+  void initState() {
+    super.initState();
+    _product = Product(barcode: widget.barcode);
+  }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_product);
     final ThemeData themeData = Theme.of(context);
     return SmoothScaffold(
       appBar: AppBar(
@@ -74,7 +82,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   ),
                   ..._buildImageCaptureRows(context),
                   _buildNutritionInputButton(),
-                  _buildaddInputDetailsButton()
+                  _buildAddInputDetailsButton()
                 ],
               ),
             ),
@@ -235,7 +243,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   }
 
   Widget _buildNutritionInputButton() {
-    if (_nutritionFactsAdded) {
+    // if the nutrition image is null, ie no image , we return nothing
+    if (_product.imageNutritionUrl == null) {
+      return const SizedBox();
+    }
+    if (_product.nutriments != null) {
       return Padding(
         padding: _ROW_PADDING_TOP,
         child: Row(
@@ -275,21 +287,19 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             if (!mounted) {
               return;
             }
-            final SnackBar snackBar = SnackBar(
-              content: Text(
-                  AppLocalizations.of(context).nutrition_cache_loading_error),
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  AppLocalizations.of(context).nutrition_cache_loading_error,
+                ),
+              ),
             );
-            if (!mounted) {
-              return;
-            }
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
             return;
           }
           if (!mounted) {
             return;
           }
-          // TODO(monsieurtanuki): careful, waiting for pop'ed value
-          final Product? result = await Navigator.push<Product?>(
+          await Navigator.push<Product?>(
             context,
             MaterialPageRoute<Product>(
               builder: (BuildContext context) => NutritionPageLoaded(
@@ -300,17 +310,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               fullscreenDialog: true,
             ),
           );
-
-          setState(() {
-            _nutritionFactsAdded = result != null;
-          });
+          setState(() {});
         },
       ),
     );
   }
 
-  Widget _buildaddInputDetailsButton() {
-    if (_basicDetailsAdded) {
+  Widget _buildAddInputDetailsButton() {
+    if (_product.productName != null && _product.productName!.isNotEmpty) {
       final ThemeData themeData = Theme.of(context);
       return Padding(
           padding: _ROW_PADDING_TOP,
@@ -342,19 +349,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
         onPressed: () async {
-          // TODO(monsieurtanuki): careful, waiting for pop'ed value
-          final bool? result = await Navigator.push<bool>(
+          await Navigator.push<bool>(
             context,
             MaterialPageRoute<bool>(
               builder: (BuildContext context) => AddBasicDetailsPage(
-                Product(barcode: widget.barcode),
+                _product,
                 isLoggedInMandatory: false,
               ),
             ),
           );
-          setState(() {
-            _basicDetailsAdded = result == true;
-          });
+          setState(() {});
         },
       ),
     );

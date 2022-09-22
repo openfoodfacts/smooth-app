@@ -155,7 +155,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       context,
                       AppLocalizations.of(context).basic_details_add_success,
                     );
-                    Navigator.pop(context, true);
+                    Navigator.pop(context);
                   },
                 ),
               ),
