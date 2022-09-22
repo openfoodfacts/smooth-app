@@ -11,7 +11,6 @@ import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -70,6 +69,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_product);
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
     inheritedDataManager.setCurrentBarcode(_product.barcode ?? '');
@@ -101,19 +102,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               }
               return true;
             },
-            child: Consumer<UpToDateProductProvider>(
-              builder: (
-                final BuildContext context,
-                final UpToDateProductProvider provider,
-                final Widget? child,
-              ) {
-                final Product? refreshedProduct = provider.get(_product);
-                if (refreshedProduct != null) {
-                  _product = refreshedProduct;
-                }
-                return _buildProductBody(context);
-              },
-            ),
+            child: _buildProductBody(context),
           ),
           SafeArea(
             child: AnimatedContainer(
@@ -157,23 +146,19 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     _mustScrollToTheEnd = false;
   }
 
-  Future<bool> _refreshProduct(BuildContext context) async {
+  Future<void> _refreshProduct(final BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool result = await ProductRefresher().fetchAndRefresh(
+    final ProductRefresher productRefresher = ProductRefresher();
+    final Product? freshProduct = await productRefresher.fetchAndRefresh(
       context: context,
       localDatabase: localDatabase,
       barcode: _product.barcode!,
     );
-    if (mounted && result) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_refreshed),
-          duration: SnackBarDuration.short,
-        ),
-      );
+    if (mounted && freshProduct != null) {
+      productRefresher.refreshedProductSnackBar(context);
+      _product = freshProduct;
+      setState(() {});
     }
-    return result;
   }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
@@ -208,7 +193,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             child: ProductImageCarousel(
               _product,
               height: 200,
-              onUpload: _refreshProduct,
             ),
           ),
           Padding(

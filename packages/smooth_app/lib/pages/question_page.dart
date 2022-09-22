@@ -160,7 +160,6 @@ class _QuestionPageState extends State<QuestionPage>
           ProductImageCarousel(
             widget.product,
             height: screenSize.height / 6,
-            onUpload: (_) {},
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),

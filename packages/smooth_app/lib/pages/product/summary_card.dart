@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -98,33 +97,25 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<UpToDateProductProvider>(
-        builder: (
-          final BuildContext context,
-          final UpToDateProductProvider provider,
-          final Widget? child,
-        ) =>
-            LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            final Product? refreshedProduct = provider.get(_product);
-            if (refreshedProduct != null) {
-              _product = refreshedProduct;
-            }
-            if (widget.isFullVersion) {
-              return buildProductSmoothCard(
-                header: _buildProductCompatibilityHeader(context),
-                body: Padding(
-                  padding: SMOOTH_CARD_PADDING,
-                  child: _buildSummaryCardContent(context),
-                ),
-                margin: EdgeInsets.zero,
-              );
-            } else {
-              return _buildLimitedSizeSummaryCard(constraints.maxHeight);
-            }
-          },
-        ),
-      );
+  Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_product);
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (widget.isFullVersion) {
+          return buildProductSmoothCard(
+            header: _buildProductCompatibilityHeader(context),
+            body: Padding(
+              padding: SMOOTH_CARD_PADDING,
+              child: _buildSummaryCardContent(context),
+            ),
+            margin: EdgeInsets.zero,
+          );
+        }
+        return _buildLimitedSizeSummaryCard(constraints.maxHeight);
+      },
+    );
+  }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
     totalPrintableRows = parentHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
@@ -697,12 +688,22 @@ class _SummaryCardState extends State<SummaryCard> {
     if (!mounted) {
       return;
     }
+    _refreshProduct(context);
+  }
+
+  Future<void> _refreshProduct(final BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await ProductRefresher().fetchAndRefresh(
+    final ProductRefresher productRefresher = ProductRefresher();
+    final Product? freshProduct = await productRefresher.fetchAndRefresh(
       context: context,
       localDatabase: localDatabase,
       barcode: _product.barcode!,
     );
+    if (mounted && freshProduct != null) {
+      productRefresher.refreshedProductSnackBar(context);
+      _product = freshProduct;
+      setState(() {});
+    }
   }
 
   Future<List<RobotoffQuestion>>? _loadProductQuestions() async {

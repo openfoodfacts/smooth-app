@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -45,6 +44,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   final Map<ProductImageData, ImageProvider?> _unselectedImages =
       <ProductImageData, ImageProvider?>{};
 
+  late Product _product;
   bool _isRefreshed = false;
   bool _isLoadingMore = true;
 
@@ -52,90 +52,83 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       imageData.imageUrl == null ? null : NetworkImage(imageData.imageUrl!);
 
   @override
+  void initState() {
+    super.initState();
+    _product = widget.product;
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_product);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
-    return Consumer<UpToDateProductProvider>(
-      builder: (
-        BuildContext context,
-        UpToDateProductProvider provider,
-        Widget? child,
-      ) {
-        Product product = widget.product;
+    final List<ProductImageData> allProductImagesData =
+        getProductMainImagesData(_product, appLocalizations);
+    _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
+      allProductImagesData,
+      allProductImagesData.map(_provideImage),
+    );
 
-        final Product? refreshedProduct = provider.get(product);
-        if (refreshedProduct != null) {
-          product = refreshedProduct;
+    _getProductImages().then(
+      (Iterable<ProductImageData>? loadedData) {
+        if (loadedData == null) {
+          return;
         }
-        final List<ProductImageData> allProductImagesData =
-            getProductMainImagesData(product, appLocalizations);
-        _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
-          allProductImagesData,
-          allProductImagesData.map(_provideImage),
-        );
 
-        _getProductImages().then(
-          (Iterable<ProductImageData>? loadedData) {
-            if (loadedData == null) {
-              return;
-            }
-
-            final Map<ProductImageData, ImageProvider<Object>?> newMap =
-                Map<ProductImageData, ImageProvider?>.fromIterables(
-              loadedData,
-              loadedData.map(_provideImage),
-            );
-            if (mounted) {
-              setState(
-                () {
-                  _unselectedImages.clear();
-                  _unselectedImages.addAll(newMap);
-                  _isLoadingMore = false;
-                },
-              );
-            }
-          },
+        final Map<ProductImageData, ImageProvider<Object>?> newMap =
+            Map<ProductImageData, ImageProvider?>.fromIterables(
+          loadedData,
+          loadedData.map(_provideImage),
         );
-        if (_selectedImages.isEmpty) {
-          return SmoothScaffold(
-            body: Center(
-              child: Text(appLocalizations.error),
-            ),
+        if (mounted) {
+          setState(
+            () {
+              _unselectedImages.clear();
+              _unselectedImages.addAll(newMap);
+              _isLoadingMore = false;
+            },
           );
         }
-        return SmoothScaffold(
-          appBar: AppBar(
-            title: Text(appLocalizations.edit_product_form_item_photos_title),
-            leading: SmoothBackButton(
-              onPressed: () => Navigator.maybePop(context, _isRefreshed),
-            ),
-          ),
-          body: RefreshIndicator(
-            onRefresh: () async {
-              _refreshProduct(context);
-            },
-            child: Scrollbar(
-              child: CustomScrollView(
-                slivers: <Widget>[
-                  _buildTitle(appLocalizations.selected_images, theme: theme),
-                  SmoothImagesSliverList(
-                    imagesData: _selectedImages,
-                    onTap: (ProductImageData data, _) => data.imageUrl != null
-                        ? _openImage(data)
-                        : _newImage(data),
-                  ),
-                  _buildTitle(appLocalizations.all_images, theme: theme),
-                  SmoothImagesSliverGrid(
-                    imagesData: _unselectedImages,
-                    loading: _isLoadingMore,
-                    onTap: (ProductImageData data, _) => _openImage(data),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
       },
+    );
+    if (_selectedImages.isEmpty) {
+      return SmoothScaffold(
+        body: Center(
+          child: Text(appLocalizations.error),
+        ),
+      );
+    }
+    return SmoothScaffold(
+      appBar: AppBar(
+        title: Text(appLocalizations.edit_product_form_item_photos_title),
+        leading: SmoothBackButton(
+          onPressed: () => Navigator.maybePop(context, _isRefreshed),
+        ),
+      ),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          _refreshProduct(context);
+        },
+        child: Scrollbar(
+          child: CustomScrollView(
+            slivers: <Widget>[
+              _buildTitle(appLocalizations.selected_images, theme: theme),
+              SmoothImagesSliverList(
+                imagesData: _selectedImages,
+                onTap: (ProductImageData data, _) =>
+                    data.imageUrl != null ? _openImage(data) : _newImage(data),
+              ),
+              _buildTitle(appLocalizations.all_images, theme: theme),
+              SmoothImagesSliverGrid(
+                imagesData: _unselectedImages,
+                loading: _isLoadingMore,
+                onTap: (ProductImageData data, _) => _openImage(data),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -150,23 +143,19 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       );
 
-  Future<bool> _refreshProduct(BuildContext context) async {
+  Future<void> _refreshProduct(final BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool success = await ProductRefresher().fetchAndRefresh(
+    final ProductRefresher productRefresher = ProductRefresher();
+    final Product? freshProduct = await productRefresher.fetchAndRefresh(
       context: context,
       localDatabase: localDatabase,
-      barcode: widget.product.barcode!,
+      barcode: _product.barcode!,
     );
-    if (mounted && success) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_refreshed),
-          duration: SnackBarDuration.short,
-        ),
-      );
+    if (mounted && freshProduct != null) {
+      productRefresher.refreshedProductSnackBar(context);
+      _product = freshProduct;
+      setState(() {});
     }
-    return success;
   }
 
   Future<void> _openImage(ProductImageData imageData) async =>
@@ -174,7 +163,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         context,
         MaterialPageRoute<void>(
           builder: (_) => ProductImageViewer(
-            barcode: widget.product.barcode!,
+            barcode: _barcode,
             imageData: imageData,
           ),
         ),
@@ -202,7 +191,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
     final bool isUploaded = await uploadCapturedPicture(
       context,
-      barcode: widget.product.barcode!,
+      barcode: _barcode,
       imageField: data.imageField,
       imageUri: croppedImageFile.uri,
     );
@@ -228,7 +217,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
   Future<Iterable<ProductImageData>?> _getProductImages() async {
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      widget.product.barcode!,
+      _barcode,
       fields: <ProductField>[ProductField.IMAGES],
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
@@ -268,6 +257,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         // TODO(VaiTon): i18n
         title: image.imgid ?? '',
         buttonText: image.imgid ?? '',
-        imageUrl: ImageHelper.buildUrl(widget.product.barcode, image),
+        imageUrl: ImageHelper.buildUrl(_barcode, image),
       );
+
+  String get _barcode => _product.barcode!;
 }

@@ -12,13 +12,11 @@ class ImageUploadCard extends StatefulWidget {
     required this.product,
     required this.productImageData,
     required this.allProductImagesData,
-    required this.onUpload,
   });
 
   final Product product;
   final ProductImageData productImageData;
   final List<ProductImageData> allProductImagesData;
-  final Function(BuildContext) onUpload;
 
   @override
   State<ImageUploadCard> createState() => _ImageUploadCardState();
@@ -109,21 +107,14 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
             _imageFullProvider = NetworkImage(imageFullUrl);
           }
 
-          // TODO(monsieurtanuki): careful, waiting for pop'ed value
-          final bool? refreshed = await Navigator.push<bool>(
+          await Navigator.push<void>(
             context,
-            MaterialPageRoute<bool>(
+            MaterialPageRoute<void>(
               builder: (BuildContext context) => ProductImageGalleryView(
                 product: widget.product,
               ),
             ),
           );
-          if (!mounted) {
-            return;
-          }
-          if (refreshed ?? false) {
-            await widget.onUpload(context);
-          }
         },
       );
     } else {

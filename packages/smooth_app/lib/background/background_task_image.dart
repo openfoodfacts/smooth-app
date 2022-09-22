@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -95,9 +96,16 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     );
   }
 
-  /// Uploads the product image.
+  /// Executes the background task: upload, download, update locally.
   @override
-  Future<void> upload() async {
+  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
+    await _upload(localDatabase);
+    await downloadAndRefresh(localDatabase);
+    return TaskResult.success;
+  }
+
+  /// Uploads the product image.
+  Future<void> _upload(final LocalDatabase localDatabase) async {
     final SendImage image = SendImage(
       lang: getLanguage(),
       barcode: barcode,

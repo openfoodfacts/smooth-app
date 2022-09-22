@@ -5,7 +5,6 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/common/product_model.dart';
@@ -42,56 +41,50 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<UpToDateProductProvider>(
-        builder: (
-          final BuildContext context,
-          final UpToDateProductProvider provider,
-          final Widget? child,
-        ) =>
-            ChangeNotifierProvider<ProductModel>(
-          create: (final BuildContext context) => _model,
-          builder: (final BuildContext context, final Widget? wtf) {
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
-            context.watch<ProductModel>();
-            _model.setRefreshedProduct(provider.getFromBarcode(widget.barcode));
-            switch (_model.loadingStatus) {
-              case LoadingStatus.LOADING:
-                return SmoothProductCardTemplate(
-                  barcode: widget.barcode,
+  Widget build(BuildContext context) => ChangeNotifierProvider<ProductModel>(
+        create: (final BuildContext context) => _model,
+        builder: (final BuildContext context, final Widget? wtf) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+          context.watch<ProductModel>();
+          _model.setLocalUpToDate(localDatabase);
+          switch (_model.loadingStatus) {
+            case LoadingStatus.LOADING:
+              return SmoothProductCardTemplate(
+                barcode: widget.barcode,
+              );
+            case LoadingStatus.DOWNLOADING:
+              return SmoothProductCardTemplate(
+                barcode: widget.barcode,
+                message: appLocalizations.loading_dialog_default_title,
+              );
+            case LoadingStatus.LOADED:
+              if (_model.product != null) {
+                return SmoothProductCardFound(
+                  heroTag: _model.product!.barcode!,
+                  product: _model.product!,
+                  onTap: widget.onTap,
+                  onLongPress: widget.onLongPress,
+                  backgroundColor: widget.backgroundColor,
                 );
-              case LoadingStatus.DOWNLOADING:
-                return SmoothProductCardTemplate(
-                  barcode: widget.barcode,
-                  message: appLocalizations.loading_dialog_default_title,
-                );
-              case LoadingStatus.LOADED:
-                if (_model.product != null) {
-                  return SmoothProductCardFound(
-                    heroTag: _model.product!.barcode!,
-                    product: _model.product!,
-                    onTap: widget.onTap,
-                    onLongPress: widget.onLongPress,
-                    backgroundColor: widget.backgroundColor,
-                  );
-                }
-                break;
-              case LoadingStatus.ERROR:
-            }
-            Logs.w(
-              'product list item simple / could not load ${widget.barcode}',
-            );
-            return SmoothProductCardTemplate(
-              message: _getErrorMessage(appLocalizations),
-              barcode: widget.barcode,
-              actionButton: IconButton(
-                iconSize: MINIMUM_TOUCH_SIZE,
-                icon: const Icon(Icons.refresh),
-                onPressed: () async => _model.download(),
-              ),
-            );
-          },
-        ),
+              }
+              break;
+            case LoadingStatus.ERROR:
+          }
+          Logs.w(
+            'product list item simple / could not load ${widget.barcode}',
+          );
+          return SmoothProductCardTemplate(
+            message: _getErrorMessage(appLocalizations),
+            barcode: widget.barcode,
+            actionButton: IconButton(
+              iconSize: MINIMUM_TOUCH_SIZE,
+              icon: const Icon(Icons.refresh),
+              onPressed: () async => _model.download(),
+            ),
+          );
+        },
       );
 
   String _getErrorMessage(AppLocalizations appLocalizations) {

@@ -94,7 +94,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                         final Product product = Product(
                           barcode: widget.barcode,
                         );
-                        daoProduct.put(product);
+                        await daoProduct.put(product);
                         localDatabase.notifyListeners();
                       }
                       if (mounted) {
@@ -342,11 +342,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
         onPressed: () async {
-          // TODO(monsieurtanuki): probably wrong as AddBasicDetailsPage pops nothing
           // TODO(monsieurtanuki): careful, waiting for pop'ed value
-          final Product? result = await Navigator.push<Product?>(
+          final bool? result = await Navigator.push<bool>(
             context,
-            MaterialPageRoute<Product>(
+            MaterialPageRoute<bool>(
               builder: (BuildContext context) => AddBasicDetailsPage(
                 Product(barcode: widget.barcode),
                 isLoggedInMandatory: false,
@@ -354,7 +353,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             ),
           );
           setState(() {
-            _basicDetailsAdded = result != null;
+            _basicDetailsAdded = result == true;
           });
         },
       ),

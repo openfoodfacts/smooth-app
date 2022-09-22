@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -52,9 +51,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
   Future<void> _onSubmitField(ImageField imageField) async {
     setState(() => _updatingText = true);
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
-    await _updateText(_controller.text, provider, imageField);
+    await _updateText(_controller.text, imageField);
     setState(() => _updatingText = false);
   }
 
@@ -120,37 +117,31 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
   }
 
-  Future<bool> _updateText(final String text, UpToDateProductProvider provider,
-      ImageField imageField) async {
+  Future<bool> _updateText(
+    final String text,
+    final ImageField imageField,
+  ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    Product changedProduct = Product(barcode: _product.barcode);
-    Product? cachedProduct = await daoProduct.get(_product.barcode!);
-    if (cachedProduct != null) {
-      cachedProduct = _helper.getMinimalistProduct(cachedProduct, text);
-    }
-    changedProduct = _helper.getMinimalistProduct(changedProduct, text);
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
+    final Product minimalistProduct = _helper.getMinimalistProduct(
+      Product(barcode: _product.barcode),
+      text,
+    );
+    if (!await BackgroundTaskDetails.addTask(
+      localDatabase: localDatabase,
+      minimalistProduct: minimalistProduct,
       productEditTask:
           _helper.getImageField().value == ImageField.PACKAGING.value
               ? ProductEditTask.packaging
               : ProductEditTask.ingredient,
-    );
-    final Product upToDateProduct = cachedProduct ?? changedProduct;
-    await daoProduct.put(upToDateProduct);
-    provider.set(upToDateProduct);
-    localDatabase.notifyListeners();
-    if (!mounted) {
+    )) {
       return false;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          AppLocalizations.of(context).product_task_background_schedule,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
+    if (!mounted) {
+      return true;
+    }
+    AbstractBackgroundTask.showSnackBar(
+      context,
+      AppLocalizations.of(context).product_task_background_schedule,
     );
     return true;
   }
@@ -158,6 +149,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_product);
     final Size size = MediaQuery.of(context).size;
     final List<Widget> children = <Widget>[];
 
@@ -222,7 +215,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
       );
     }
 
-    final Scaffold scaffold = SmoothScaffold(
+    return SmoothScaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(_helper.getTitle(appLocalizations)),
@@ -239,19 +232,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
       body: Stack(
         children: children,
       ),
-    );
-    return Consumer<UpToDateProductProvider>(
-      builder: (
-        final BuildContext context,
-        final UpToDateProductProvider provider,
-        final Widget? child,
-      ) {
-        final Product? refreshedProduct = provider.get(_product);
-        if (refreshedProduct != null) {
-          _product = refreshedProduct;
-        }
-        return scaffold;
-      },
     );
   }
 

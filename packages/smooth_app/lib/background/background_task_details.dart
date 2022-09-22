@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -60,11 +62,31 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     return null;
   }
 
+  /// Adds the background task and the pending changes.
+  static Future<bool> addTask({
+    required final Product minimalistProduct,
+    required final LocalDatabase localDatabase,
+    final List<ProductEditTask>? productEditTasks,
+    final ProductEditTask? productEditTask,
+  }) async {
+    try {
+      await _addTask(
+        minimalistProduct,
+        productEditTask: productEditTask,
+        productEditTasks: productEditTasks,
+      );
+      localDatabase.upToDate.addChange(minimalistProduct);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
   /// Adds the background task about changing a product.
   ///
   /// Either [productEditTask] or [productEditTasks] must be populated;
   /// we need that for classification purpose (and unique id computation).
-  static Future<void> addTask(
+  static Future<void> _addTask(
     final Product minimalistProduct, {
     final List<ProductEditTask>? productEditTasks,
     final ProductEditTask? productEditTask,
@@ -106,18 +128,33 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     );
   }
 
-  /// Uploads the product changes.
+  /// Executes the background task: upload, download, update locally.
   @override
-  Future<void> upload() async {
-    final Map<String, dynamic> productMap =
-        json.decode(inputMap) as Map<String, dynamic>;
+  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
+    final List<Product>? changes = localDatabase.upToDate.getChanges(barcode);
+    if (changes == null || changes.isEmpty) {
+      // everything was already done before
+      return TaskResult.success;
+    }
+    final Product product = UpToDateProductProvider.add(
+      Product(barcode: barcode),
+      changes,
+    );
 
+    // TODO(monsieurtanuki): check return code
     await OpenFoodAPIClient.saveProduct(
       getUser(),
-      Product.fromJson(productMap),
+      product,
       language: getLanguage(),
       country: getCountry(),
     );
+
+    // TODO(monsieurtanuki): check return code
+    await downloadAndRefresh(localDatabase);
+
+    localDatabase.upToDate.removeChanges(barcode, changes.length);
+
+    return TaskResult.success;
   }
 }
 

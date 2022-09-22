@@ -6,7 +6,6 @@ import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -227,23 +226,15 @@ class _ProductListPageState extends State<ProductListPage>
                         child: _buildCompareBar(products, appLocalizations),
                       ),
                     Expanded(
-                      child: Consumer<UpToDateProductProvider>(
-                        builder: (
-                          _,
-                          final UpToDateProductProvider provider,
-                          __,
-                        ) =>
-                            ListView.builder(
-                          itemCount: products.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return _buildItem(
-                              dismissible,
-                              products,
-                              index,
-                              localDatabase,
-                              appLocalizations,
-                            );
-                          },
+                      child: ListView.builder(
+                        itemCount: products.length,
+                        itemBuilder: (BuildContext context, int index) =>
+                            _buildItem(
+                          dismissible,
+                          products,
+                          index,
+                          localDatabase,
+                          appLocalizations,
                         ),
                       ),
                     ),

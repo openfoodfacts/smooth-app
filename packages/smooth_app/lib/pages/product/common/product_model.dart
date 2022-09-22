@@ -49,11 +49,11 @@ class ProductModel with ChangeNotifier {
   FetchedProductStatus? get downloadingStatus => _downloadingStatus;
 
   /// To be called when the up-to-date provider says the product was refreshed.
-  void setRefreshedProduct(final Product? product) {
-    if (product == null) {
+  void setLocalUpToDate(final LocalDatabase localDatabase) {
+    if (_product == null) {
       return;
     }
-    _product = product;
+    _product = localDatabase.upToDate.getLocalUpToDate(_product!);
     _loadingStatus = LoadingStatus.LOADED;
   }
 

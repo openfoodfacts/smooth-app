@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -144,15 +142,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    final Product changedProduct = Product(barcode: widget.product.barcode);
+    final Product minimalistProduct = Product(barcode: widget.product.barcode);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final Product? cachedProduct = await daoProduct.get(
-      changedProduct.barcode!,
-    );
     bool changed = false;
     bool added = false;
     final List<ProductEditTask> productEditTasks = <ProductEditTask>[];
@@ -161,11 +153,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       if (helper.addItemsFromController(_controllers[i])) {
         added = true;
       }
-      if (helper.getChangedProduct(changedProduct)) {
+      if (helper.getChangedProduct(minimalistProduct)) {
         changed = true;
-        if (cachedProduct != null) {
-          helper.getChangedProduct(cachedProduct);
-        }
         productEditTasks.add(helper.getTask());
       }
     }
@@ -204,24 +193,19 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         return true;
       }
     }
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
+    if (!await BackgroundTaskDetails.addTask(
+      localDatabase: localDatabase,
+      minimalistProduct: minimalistProduct,
       productEditTasks: productEditTasks,
-    );
-    final Product upToDateProduct = cachedProduct ?? changedProduct;
-    await daoProduct.put(upToDateProduct);
-    provider.set(upToDateProduct);
-    localDatabase.notifyListeners();
-    if (!mounted) {
+    )) {
       return false;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          appLocalizations.product_task_background_schedule,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
+    if (!mounted) {
+      return true;
+    }
+    AbstractBackgroundTask.showSnackBar(
+      context,
+      AppLocalizations.of(context).product_task_background_schedule,
     );
     return true;
   }

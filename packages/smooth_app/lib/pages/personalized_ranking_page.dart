@@ -6,7 +6,6 @@ import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/personalized_ranking_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -55,81 +54,73 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Consumer<UpToDateProductProvider>(
-      builder: (
-        final BuildContext context,
-        final UpToDateProductProvider upToDateProductProvider,
-        final Widget? child,
-      ) =>
-          SmoothScaffold(
-        appBar: AppBar(
-          title: Text(widget.title, overflow: TextOverflow.fade),
-        ),
-        body: ChangeNotifierProvider<PersonalizedRankingModel>(
-          create: (final BuildContext context) => _model,
-          builder: (final BuildContext context, final Widget? wtf) {
-            context.watch<PersonalizedRankingModel>();
-            final List<String> compactPreferences =
-                productPreferences.getCompactView();
-            if (_compactPreferences == null) {
-              _compactPreferences = compactPreferences;
-              _model.refresh(context.read<LocalDatabase>(), productPreferences);
-            } else {
-              bool refresh = !_compactPreferences!.equals(compactPreferences);
-              if (!refresh) {
-                refresh = _model.needsRefresh(upToDateProductProvider);
-              }
-              if (refresh) {
-                // TODO(monsieurtanuki): could maybe be automatic with VisibilityDetector
-                return Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(SMALL_SPACE),
-                    child: SmoothLargeButtonWithIcon(
-                      icon: Icons.refresh,
-                      text: appLocalizations.refresh_with_new_preferences,
-                      onPressed: () {
-                        _compactPreferences = compactPreferences;
-                        _model.refresh(
-                            context.read<LocalDatabase>(), productPreferences);
-                      },
-                    ),
-                  ),
-                );
-              }
+    return SmoothScaffold(
+      appBar: AppBar(
+        title: Text(widget.title, overflow: TextOverflow.fade),
+      ),
+      body: ChangeNotifierProvider<PersonalizedRankingModel>(
+        create: (final BuildContext context) => _model,
+        builder: (final BuildContext context, final Widget? wtf) {
+          context.watch<PersonalizedRankingModel>();
+          final List<String> compactPreferences =
+              productPreferences.getCompactView();
+          if (_compactPreferences == null) {
+            _compactPreferences = compactPreferences;
+            _model.refresh(localDatabase, productPreferences);
+          } else {
+            bool refresh = !_compactPreferences!.equals(compactPreferences);
+            if (!refresh) {
+              refresh = _model.needsRefresh(localDatabase);
             }
-            if (_model.loadingStatus == LoadingStatus.LOADING) {
+            if (refresh) {
+              // TODO(monsieurtanuki): could maybe be automatic with VisibilityDetector
               return Center(
-                child: CircularProgressIndicator.adaptive(
-                  value: _model.getLoadingProgress() ?? 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(SMALL_SPACE),
+                  child: SmoothLargeButtonWithIcon(
+                    icon: Icons.refresh,
+                    text: appLocalizations.refresh_with_new_preferences,
+                    onPressed: () {
+                      _compactPreferences = compactPreferences;
+                      _model.refresh(localDatabase, productPreferences);
+                    },
+                  ),
                 ),
               );
             }
-            if (_model.loadingStatus != LoadingStatus.LOADED) {
-              return const Center(child: CircularProgressIndicator.adaptive());
-            }
-            AnalyticsHelper.trackPersonalizedRanking(widget.barcodes.length);
-            MatchedProductStatusV2? status;
-            final List<_VirtualItem> list = <_VirtualItem>[];
-            for (final MatchedScoreV2 score in _model.scores) {
-              if (status == null || status != score.status) {
-                status = score.status;
-                list.add(_VirtualItem.status(status));
-              }
-              list.add(_VirtualItem.score(score));
-            }
-            final bool darkMode =
-                Theme.of(context).brightness == Brightness.dark;
-            return ListView.builder(
-              itemCount: list.length,
-              itemBuilder: (BuildContext context, int index) => _buildItem(
-                list[index],
-                appLocalizations,
-                darkMode,
+          }
+          if (_model.loadingStatus == LoadingStatus.LOADING) {
+            return Center(
+              child: CircularProgressIndicator.adaptive(
+                value: _model.getLoadingProgress() ?? 1,
               ),
             );
-          },
-        ),
+          }
+          if (_model.loadingStatus != LoadingStatus.LOADED) {
+            return const Center(child: CircularProgressIndicator.adaptive());
+          }
+          AnalyticsHelper.trackPersonalizedRanking(widget.barcodes.length);
+          MatchedProductStatusV2? status;
+          final List<_VirtualItem> list = <_VirtualItem>[];
+          for (final MatchedScoreV2 score in _model.scores) {
+            if (status == null || status != score.status) {
+              status = score.status;
+              list.add(_VirtualItem.status(status));
+            }
+            list.add(_VirtualItem.score(score));
+          }
+          final bool darkMode = Theme.of(context).brightness == Brightness.dark;
+          return ListView.builder(
+            itemCount: list.length,
+            itemBuilder: (BuildContext context, int index) => _buildItem(
+              list[index],
+              appLocalizations,
+              darkMode,
+            ),
+          );
+        },
       ),
     );
   }

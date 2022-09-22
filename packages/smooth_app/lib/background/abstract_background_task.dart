@@ -7,6 +7,7 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -46,16 +47,7 @@ abstract class AbstractBackgroundTask {
   @protected
   static const int SUCCESS_CODE = 1;
 
-  /// Executes the background task: upload, download, update locally.
-  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
-    await upload();
-    await _downloadAndRefresh(localDatabase);
-    return TaskResult.success;
-  }
-
-  /// Uploads data changes.
-  @protected
-  Future<void> upload();
+  Future<TaskResult> execute(final LocalDatabase localDatabase);
 
   @protected
   OpenFoodFactsLanguage getLanguage() => LanguageHelper.fromJson(languageCode);
@@ -67,7 +59,10 @@ abstract class AbstractBackgroundTask {
   User getUser() => User.fromJson(jsonDecode(user) as Map<String, dynamic>);
 
   /// Downloads the whole product, updates locally.
-  Future<void> _downloadAndRefresh(final LocalDatabase localDatabase) async {
+  ///
+  /// Returns true if successful.
+  @protected
+  Future<bool> downloadAndRefresh(final LocalDatabase localDatabase) async {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       barcode,
@@ -83,8 +78,10 @@ abstract class AbstractBackgroundTask {
       if (product != null) {
         await daoProduct.put(product);
         localDatabase.notifyListeners();
+        return true;
       }
     }
+    return false;
   }
 
   /// Generates a unique id for the background task.
@@ -116,4 +113,15 @@ abstract class AbstractBackgroundTask {
     }
     return stringBuffer.toString();
   }
+
+  static void showSnackBar(
+    final BuildContext context,
+    final String message,
+  ) =>
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          duration: SnackBarDuration.medium,
+        ),
+      );
 }

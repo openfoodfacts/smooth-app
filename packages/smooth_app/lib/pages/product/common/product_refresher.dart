@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -46,14 +46,13 @@ class ProductRefresher {
     return false;
   }
 
-  /// Returns `true` if the fetch is successful.
-  Future<bool> fetchAndRefresh({
+  /// Returns the fetched Product if successful.
+  Future<Product?> fetchAndRefresh({
     required final BuildContext context,
     required final LocalDatabase localDatabase,
     required final String barcode,
   }) async {
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final _MetaProductRefresher? fetchAndRefreshed =
         await LoadingDialog.run<_MetaProductRefresher>(
@@ -62,14 +61,13 @@ class ProductRefresher {
       title: appLocalizations.refreshing_product,
     );
     if (fetchAndRefreshed == null) {
-      return false;
+      return null;
     }
     if (fetchAndRefreshed.product == null) {
       await LoadingDialog.error(context: context);
-      return false;
+      return null;
     }
-    provider.set(fetchAndRefreshed.product!);
-    return true;
+    return fetchAndRefreshed.product;
   }
 
   Future<_MetaProductRefresher> _fetchAndRefresh(
@@ -92,6 +90,17 @@ class ProductRefresher {
     }
     return const _MetaProductRefresher.error(null);
   }
+
+  /// Displays a standard snack bar stating that the product was refreshed.
+  ///
+  /// Typical use-case: after a successful call to [fetchAndRefresh].
+  void refreshedProductSnackBar(final BuildContext context) =>
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context).product_refreshed),
+          duration: SnackBarDuration.short,
+        ),
+      );
 }
 
 class _MetaProductRefresher {

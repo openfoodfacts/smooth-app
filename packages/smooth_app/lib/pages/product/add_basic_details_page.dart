@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -59,10 +57,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(appLocalizations.basic_details),
@@ -76,7 +70,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
               child: ProductImageCarousel(
                 _product,
                 height: size.height * 0.20,
-                onUpload: (_) {},
               ),
             ),
             SizedBox(height: _heightSpace),
@@ -142,36 +135,27 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
-                    final Product inputProduct = Product(
+                    final LocalDatabase localDatabase =
+                        context.read<LocalDatabase>();
+                    final Product minimalistProduct = Product(
                       barcode: _product.barcode,
                     );
-                    _setChangedProduct(inputProduct);
-                    final Product? cachedProduct =
-                        await daoProduct.get(_product.barcode!);
-                    if (cachedProduct != null) {
-                      _setChangedProduct(cachedProduct);
-                    }
-                    await BackgroundTaskDetails.addTask(
-                      inputProduct,
+                    _setChangedProduct(minimalistProduct);
+                    if (!await BackgroundTaskDetails.addTask(
+                      localDatabase: localDatabase,
+                      minimalistProduct: minimalistProduct,
                       productEditTask: ProductEditTask.basic,
-                    );
-                    final Product upToDateProduct =
-                        cachedProduct ?? inputProduct;
-                    await daoProduct.put(upToDateProduct);
-                    provider.set(upToDateProduct);
-                    localDatabase.notifyListeners();
+                    )) {
+                      return;
+                    }
                     if (!mounted) {
                       return;
                     }
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          appLocalizations.basic_details_add_success,
-                        ),
-                        duration: SnackBarDuration.medium,
-                      ),
+                    AbstractBackgroundTask.showSnackBar(
+                      context,
+                      AppLocalizations.of(context).basic_details_add_success,
                     );
-                    Navigator.pop(context, upToDateProduct);
+                    Navigator.pop(context, true);
                   },
                 ),
               ),

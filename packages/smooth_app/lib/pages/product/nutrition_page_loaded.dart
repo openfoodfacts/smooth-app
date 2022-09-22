@@ -8,9 +8,8 @@ import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -451,7 +450,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         _noNutritionData,
       );
 
-  Product? _getChangedProduct(Product product) {
+  Product? _getMinimalistProduct(Product product) {
     if (!_formKey.currentState!.validate()) {
       return null;
     }
@@ -492,9 +491,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
     if (!saving) {
       final bool? pleaseSave = await showDialog<bool>(
         context: context,
@@ -520,16 +516,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       }
     }
 
-    final Product? changedProduct =
-        _getChangedProduct(Product(barcode: widget.product.barcode));
-    Product? cachedProduct = await daoProduct.get(
-      _product.barcode!,
-    );
-    if (cachedProduct != null) {
-      cachedProduct = _getChangedProduct(_product);
-    }
+    final Product? minimalistProduct =
+        _getMinimalistProduct(Product(barcode: widget.product.barcode));
 
-    if (changedProduct == null) {
+    if (minimalistProduct == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -540,22 +530,20 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       }
       return false;
     }
-    // if it fails, we stay on the same page
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
+    if (!await BackgroundTaskDetails.addTask(
+      localDatabase: localDatabase,
+      minimalistProduct: minimalistProduct,
       productEditTask: ProductEditTask.nutrition,
-    );
-    final Product upToDateProduct = cachedProduct ?? changedProduct;
-    await daoProduct.put(upToDateProduct);
-    provider.set(upToDateProduct);
-    localDatabase.notifyListeners();
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_task_background_schedule),
-        ),
-      );
+    )) {
+      return false;
     }
+    if (!mounted) {
+      return true;
+    }
+    AbstractBackgroundTask.showSnackBar(
+      context,
+      AppLocalizations.of(context).product_task_background_schedule,
+    );
     return true;
   }
 }
