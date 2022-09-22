@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -113,41 +112,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                     },
                   ),
                 ),
-                Positioned(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SmoothActionButtonsBar.single(
-                      action: SmoothActionButton(
-                        text: appLocalizations.finish,
-                        onPressed: () async {
-                          final LocalDatabase localDatabase =
-                              context.read<LocalDatabase>();
-                          final DaoProduct daoProduct =
-                              DaoProduct(localDatabase);
-                          final Product? localProduct =
-                              await daoProduct.get(widget.barcode);
-                          if (localProduct == null) {
-                            product = Product(
-                              barcode: widget.barcode,
-                            );
-                            daoProduct.put(product);
-                            localDatabase.notifyListeners();
-                          }
-                          provider.set(product);
-                          if (mounted) {
-                            await Navigator.maybePop(context,
-                                _isProductLoaded ? widget.barcode : null);
-                          }
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        );
-      },
+          ],
+        ),
+      ),
     );
   }
 
@@ -380,7 +349,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
         onPressed: () async {
-          print('coucou');
           await Navigator.push<bool>(
             context,
             MaterialPageRoute<bool>(
