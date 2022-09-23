@@ -7,11 +7,33 @@ class UpToDateProductProvider {
 
   final LocalDatabase localDatabase;
 
-  // TODO(monsiertanuki): should be more persistent, like in hive.
+  // TODO(monsieurtanuki): should be more persistent, like in hive.
   final Map<String, List<Product>> _map = <String, List<Product>>{};
   final Map<String, int> _timestamps = <String, int>{};
 
   /// Returns the [product] with all the local pending changes on top.
+  ///
+  /// Typical use-case:
+  /// * I want to display data about a [Product]
+  /// * for that I use a [StatefulWidget] that has a [Product] parameter
+  /// in its constructor
+  /// * I want to have my product automatically impacted by every local change
+  ///
+  /// Here is the code for that:
+  /// ```dart
+  /// late Product _product;
+  ///
+  /// @override
+  /// void initState() {
+  ///   super.initState();
+  ///   _product = widget.product;
+  /// }
+  ///
+  /// @override
+  /// Widget build(BuildContext context) {
+  ///   final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+  ///   _product = localDatabase.upToDate.getLocalUpToDate(_product);
+  /// ```
   Product getLocalUpToDate(final Product product) {
     final List<Product>? changes = _map[product.barcode!];
     if (changes == null) {

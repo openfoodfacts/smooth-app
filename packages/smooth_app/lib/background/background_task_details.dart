@@ -63,6 +63,8 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   }
 
   /// Adds the background task and the pending changes.
+  ///
+  /// Returns true if successful.
   static Future<bool> addTask({
     required final Product minimalistProduct,
     required final LocalDatabase localDatabase,
@@ -141,16 +143,20 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       changes,
     );
 
-    // TODO(monsieurtanuki): check return code
-    await OpenFoodAPIClient.saveProduct(
+    final Status status = await OpenFoodAPIClient.saveProduct(
       getUser(),
       product,
       language: getLanguage(),
       country: getCountry(),
     );
+    if (status.status != AbstractBackgroundTask.SUCCESS_CODE) {
+      return TaskResult.errorAndRetry;
+    }
 
-    // TODO(monsieurtanuki): check return code
-    await downloadAndRefresh(localDatabase);
+    final Product? downloaded = await downloadAndRefresh(localDatabase);
+    if (downloaded == null) {
+      return TaskResult.errorAndRetry;
+    }
 
     localDatabase.upToDate.removeChanges(barcode, changes.length);
 

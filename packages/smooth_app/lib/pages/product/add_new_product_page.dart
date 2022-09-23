@@ -317,7 +317,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   }
 
   Widget _buildAddInputDetailsButton() {
-    if (_product.productName != null && _product.productName!.isNotEmpty) {
+    if (_product.productName?.isNotEmpty == true) {
       final ThemeData themeData = Theme.of(context);
       return Padding(
           padding: _ROW_PADDING_TOP,

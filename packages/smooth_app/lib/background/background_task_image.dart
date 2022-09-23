@@ -99,13 +99,6 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
   /// Executes the background task: upload, download, update locally.
   @override
   Future<TaskResult> execute(final LocalDatabase localDatabase) async {
-    await _upload(localDatabase);
-    await downloadAndRefresh(localDatabase);
-    return TaskResult.success;
-  }
-
-  /// Uploads the product image.
-  Future<void> _upload(final LocalDatabase localDatabase) async {
     final SendImage image = SendImage(
       lang: getLanguage(),
       barcode: barcode,
@@ -113,10 +106,23 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       imageUri: Uri.parse(imagePath),
     );
 
-    // TODO(AshAman999): check returned Status
-    await OpenFoodAPIClient.addProductImage(getUser(), image);
+    final Status status = await OpenFoodAPIClient.addProductImage(
+      getUser(),
+      image,
+    );
+    if (status.status != AbstractBackgroundTask.SUCCESS_CODE) {
+      return TaskResult.errorAndRetry;
+    }
 
-    // Go to the file system and delete the file that was uploaded
     File(imagePath).deleteSync();
+
+    final Product? downloaded = await downloadAndRefresh(localDatabase);
+    if (downloaded == null) {
+      return TaskResult.errorAndRetry;
+    }
+
+    // TODO(monsieurtanuki): there's something missing there in order to refresh the data locally
+
+    return TaskResult.success;
   }
 }

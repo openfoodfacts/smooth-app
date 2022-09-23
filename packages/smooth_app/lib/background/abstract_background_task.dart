@@ -60,9 +60,9 @@ abstract class AbstractBackgroundTask {
 
   /// Downloads the whole product, updates locally.
   ///
-  /// Returns true if successful.
+  /// Returns null when failed.
   @protected
-  Future<bool> downloadAndRefresh(final LocalDatabase localDatabase) async {
+  Future<Product?> downloadAndRefresh(final LocalDatabase localDatabase) async {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       barcode,
@@ -78,10 +78,10 @@ abstract class AbstractBackgroundTask {
       if (product != null) {
         await daoProduct.put(product);
         localDatabase.notifyListeners();
-        return true;
+        return product;
       }
     }
-    return false;
+    return null;
   }
 
   /// Generates a unique id for the background task.

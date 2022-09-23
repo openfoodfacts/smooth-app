@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 
 Future<bool> uploadCapturedPicture(
   BuildContext context, {
@@ -23,13 +23,9 @@ Future<bool> uploadCapturedPicture(
   );
   localDatabase.notifyListeners();
   // ignore: use_build_context_synchronously
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(
-        appLocalizations.image_upload_queued,
-      ),
-      duration: SnackBarDuration.medium,
-    ),
+  AbstractBackgroundTask.showSnackBar(
+    context,
+    appLocalizations.image_upload_queued,
   );
   //ignore: use_build_context_synchronously
   await _updateContinuousScanModel(context, barcode);
