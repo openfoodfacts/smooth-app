@@ -30,7 +30,7 @@
     "@stop": {},
     "finish": "Terminare",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "Calculează",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -713,7 +713,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "Pentru a scana codurile de bare cu camera telefonului, vă rugăm să autorizați accesul.",
+    "permissions_page_body1": "Pentru a scana coduri de bare cu camera telefonului, vă rugăm să Autorizați accesul.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -791,7 +791,7 @@
             }
         }
     },
-    "authorize_button_label": "Autorizați",
+    "authorize_button_label": "Autorizează",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -1658,7 +1658,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Valori nutriționale pentru {grams} g (sau ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -1671,11 +1671,11 @@
     "@offline_data": {
         "description": "App bar tile for offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "ocr_image_upload_instruction": "Încărcați o imagine pentru a extrage automat informațiile furnizate",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on ocr extraction page"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Încarcă o fotografie",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     }

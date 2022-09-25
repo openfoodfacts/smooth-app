@@ -30,7 +30,7 @@
     "@stop": {},
     "finish": "Terminer",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "Calculer",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -713,7 +713,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "Pour scanner des codes à barres avec la caméra de votre téléphone, veuillez autoriser l'accès.",
+    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -1658,7 +1658,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "Informations nutritionnelles pour {grams} g (ou ml)",
+    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
