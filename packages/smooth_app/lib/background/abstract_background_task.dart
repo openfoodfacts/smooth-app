@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_image.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
@@ -43,14 +46,46 @@ abstract class AbstractBackgroundTask {
   @protected
   static const int SUCCESS_CODE = 1;
 
-  /// Executes the background task.
-  Future<TaskResult> execute(final LocalDatabase localDatabase);
+  /// Executes the background task: upload, download, update locally.
+  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
+    await upload();
+    await _downloadAndRefresh(localDatabase);
+    return TaskResult.success;
+  }
+
+  /// Uploads data changes.
+  @protected
+  Future<void> upload();
 
   @protected
   OpenFoodFactsLanguage getLanguage() => LanguageHelper.fromJson(languageCode);
 
   @protected
   OpenFoodFactsCountry? getCountry() => CountryHelper.fromJson(country);
+
+  @protected
+  User getUser() => User.fromJson(jsonDecode(user) as Map<String, dynamic>);
+
+  /// Downloads the whole product, updates locally.
+  Future<void> _downloadAndRefresh(final LocalDatabase localDatabase) async {
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
+      barcode,
+      fields: ProductQuery.fields,
+      language: getLanguage(),
+      country: getCountry(),
+    );
+
+    final ProductResult queryResult =
+        await OpenFoodAPIClient.getProduct(configuration);
+    if (queryResult.status == AbstractBackgroundTask.SUCCESS_CODE) {
+      final Product? product = queryResult.product;
+      if (product != null) {
+        await daoProduct.put(product);
+        localDatabase.notifyListeners();
+      }
+    }
+  }
 
   /// Generates a unique id for the background task.
   ///

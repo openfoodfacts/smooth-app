@@ -385,40 +385,47 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                     return SmoothAlertDialog(
                       close: true,
                       title: appLocalizations.nutrition_page_add_nutrient,
-                      body: Column(
-                        children: <Widget>[
-                          TextField(
-                            decoration: InputDecoration(
-                              prefixIcon: const Icon(Icons.search),
-                              enabledBorder: const UnderlineInputBorder(),
-                              labelText: appLocalizations.search,
+                      body: SizedBox(
+                        height: MediaQuery.of(context).size.height / 2,
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
+                          children: <Widget>[
+                            TextField(
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(Icons.search),
+                                enabledBorder: const UnderlineInputBorder(),
+                                labelText: appLocalizations.search,
+                              ),
+                              onChanged: (String query) {
+                                setState(
+                                  () {
+                                    filteredList = leftovers
+                                        .where((OrderedNutrient item) => item
+                                            .name!
+                                            .toLowerCase()
+                                            .contains(query.toLowerCase()))
+                                        .toList();
+                                  },
+                                );
+                              },
                             ),
-                            onChanged: (String query) {
-                              setState(
-                                () {
-                                  filteredList = leftovers
-                                      .where((OrderedNutrient item) => item
-                                          .name!
-                                          .toLowerCase()
-                                          .contains(query.toLowerCase()))
-                                      .toList();
+                            Expanded(
+                              child: ListView.builder(
+                                itemBuilder: (BuildContext context, int index) {
+                                  final OrderedNutrient nutrient =
+                                      filteredList[index];
+                                  return ListTile(
+                                    title: Text(nutrient.name!),
+                                    onTap: () =>
+                                        Navigator.of(context).pop(nutrient),
+                                  );
                                 },
-                              );
-                            },
-                          ),
-                          ...List<ListTile>.generate(
-                            filteredList.length,
-                            (int index) {
-                              final OrderedNutrient nutrient =
-                                  filteredList[index];
-                              return ListTile(
-                                title: Text(nutrient.name!),
-                                onTap: () =>
-                                    Navigator.of(context).pop(nutrient),
-                              );
-                            },
-                          ),
-                        ],
+                                itemCount: filteredList.length,
+                                shrinkWrap: true,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       negativeAction: SmoothActionButton(
                         onPressed: () => Navigator.pop(context),
