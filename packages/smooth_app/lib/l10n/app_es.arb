@@ -368,7 +368,7 @@
     "ranking_subtitle_match_yes": "Una buena opción para ti",
     "ranking_subtitle_match_no": "Muy poco adecuado",
     "ranking_subtitle_match_maybe": "Sin información suficiente",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Actualice la lista con sus nuevas preferencias",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
