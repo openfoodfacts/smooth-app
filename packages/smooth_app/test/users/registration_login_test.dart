@@ -6,19 +6,20 @@ import 'package:openfoodfacts/utils/QueryType.dart';
 
 void main() {
   const QueryType queryType = QueryType.TEST;
-  final String name = _generateRandomString(8);
+  final String name = _generateRandomString(4);
   final String email = '$name@example.com';
   const String password = 'test_password';
 
   group('Create User & Login', () {
     test('Create User', () async {
       final SignUpStatus signUpResponse = await OpenFoodAPIClient.register(
-          user: User(userId: name, password: password),
-          name: name,
-          email: email,
-          orgName: null,
-          queryType: queryType,
-          newsletter: false);
+        user: User(userId: name, password: password),
+        name: name,
+        email: email,
+        orgName: null,
+        queryType: queryType,
+        newsletter: false,
+      );
 
       expect(signUpResponse.status, 201);
     });
@@ -31,12 +32,32 @@ void main() {
 
       expect(loginResponse, true);
     });
+
+    test('Wrong Credential User Login', () async {
+      final bool loginResponse = await OpenFoodAPIClient.login(
+        User(userId: name, password: 'somerandomnewpassword'),
+        queryType: queryType,
+      );
+      expect(loginResponse, false);
+    });
+    test('Duplicate Registration', () async {
+      final SignUpStatus signUpResponse = await OpenFoodAPIClient.register(
+        user: User(userId: name, password: password),
+        name: name,
+        email: email,
+        orgName: null,
+        queryType: queryType,
+        newsletter: false,
+      );
+      expect(signUpResponse.status, 400);
+    });
   });
 }
 
 String _generateRandomString(int length) {
   final Random r = Random();
   return String.fromCharCodes(
-    List<int>.generate(length, (int index) => r.nextInt(26) + 65),
-  ).toLowerCase();
+        List<int>.generate(length, (int index) => r.nextInt(26) + 65),
+      ).toLowerCase() +
+      (DateTime.now().microsecondsSinceEpoch).toString();
 }
