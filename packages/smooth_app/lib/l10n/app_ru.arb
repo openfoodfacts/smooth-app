@@ -72,7 +72,7 @@
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "Неизвестное солвпадение",
+    "match_unknown": "Неизвестное совпадение",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
@@ -96,7 +96,7 @@
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "Неизвестное солвпадение",
+    "match_short_unknown": "Неизвестное совпадение",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
@@ -367,7 +367,7 @@
     "ranking_tab_all": "Все",
     "ranking_subtitle_match_yes": "Хорошо подходит для вас",
     "ranking_subtitle_match_no": "Плохо подходит для вас",
-    "ranking_subtitle_match_maybe": "Неизвестное солвпадение",
+    "ranking_subtitle_match_maybe": "Неизвестное совпадение",
     "refresh_with_new_preferences": "Обновите список с вашими новыми предпочтениями",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
@@ -533,7 +533,7 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Добавить недостающие ингридиенты",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
+    "score_add_missing_nutrition_facts": "Добавить данные о пищевой ценности",
     "score_add_missing_product_category": "Добавить собственную категорию продукта",
     "score_update_nutrition_facts": "Введите данные о пищевой ценности",
     "nutrition_page_title": "Пищевая ценность",
@@ -713,7 +713,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -791,7 +791,7 @@
             }
         }
     },
-    "authorize_button_label": "Войти",
+    "authorize_button_label": "Authorise",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },

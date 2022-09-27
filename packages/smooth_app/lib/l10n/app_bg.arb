@@ -30,7 +30,7 @@
     "@stop": {},
     "finish": "Край",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "Изчисли",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -441,7 +441,7 @@
     "packaging_editing_error": "Неуспешно запазване на опаковката.",
     "packaging_editing_image_error": "Неуспешно получаване на новата снимка на опаковката.",
     "packaging_editing_title": "Редактиране на опаковката",
-    "nutrition": "Хранене",
+    "nutrition": "Хранителни стойности",
     "@nutrition": {},
     "nutrition_facts_photo": "Снимка на хранителните стойности",
     "@nutrition_facts_photo": {
@@ -791,7 +791,7 @@
             }
         }
     },
-    "authorize_button_label": "Разрешаване",
+    "authorize_button_label": "Разреши",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -1401,15 +1401,15 @@
             }
         }
     },
-    "user_search_contributor_title": "Продукта I добавени",
+    "user_search_contributor_title": "Добавени от мен продукти",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "Продукта I редактирани",
+    "user_search_informer_title": "Редактирани от мен продукти",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "Продукта I фотографирани",
+    "user_search_photographer_title": "Снимани от мен продукти",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
@@ -1658,7 +1658,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Хранителни стойности за {grams} г (или мл)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -1671,11 +1671,11 @@
     "@offline_data": {
         "description": "App bar tile for offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "ocr_image_upload_instruction": "Качи снимка, за да извлечеш автоматично предоставената информация",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on ocr extraction page"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Качи снимка",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     }
