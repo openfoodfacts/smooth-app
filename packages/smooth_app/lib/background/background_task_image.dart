@@ -120,9 +120,42 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     if (downloaded == null) {
       return TaskResult.errorAndRetry;
     }
+    localDatabase.upToDate.setLatestDownloadedProduct(downloaded);
 
-    // TODO(monsieurtanuki): there's something missing there in order to refresh the data locally
+    final Product? minimalistChange = _getMinimalistChange(downloaded);
+    if (minimalistChange != null) {
+      localDatabase.upToDate.addQuickChange(minimalistChange);
+    }
+    localDatabase.notifyListeners();
 
     return TaskResult.success;
+  }
+
+  Product? _getMinimalistChange(final Product downloadedProduct) {
+    final Product result = Product(barcode: barcode);
+    switch (ImageFieldExtension.getType(imageField)) {
+      case ImageField.OTHER:
+        return null;
+      case ImageField.PACKAGING:
+        result.imagePackagingUrl = downloadedProduct.imagePackagingUrl;
+        result.imagePackagingSmallUrl =
+            downloadedProduct.imagePackagingSmallUrl;
+        break;
+      case ImageField.INGREDIENTS:
+        result.imageIngredientsUrl = downloadedProduct.imageIngredientsUrl;
+        result.imageIngredientsSmallUrl =
+            downloadedProduct.imageIngredientsSmallUrl;
+        break;
+      case ImageField.NUTRITION:
+        result.imageNutritionUrl = downloadedProduct.imageNutritionUrl;
+        result.imageNutritionSmallUrl =
+            downloadedProduct.imageNutritionSmallUrl;
+        break;
+      case ImageField.FRONT:
+        result.imageFrontUrl = downloadedProduct.imageFrontUrl;
+        result.imageFrontSmallUrl = downloadedProduct.imageFrontSmallUrl;
+        break;
+    }
+    return result;
   }
 }

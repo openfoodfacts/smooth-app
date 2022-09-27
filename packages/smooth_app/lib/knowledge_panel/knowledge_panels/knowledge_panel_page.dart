@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -35,11 +36,21 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   String get traceName => 'Opened full knowledge panel page ${_getTitle()}';
 
   late Product _product;
+  late LocalDatabase _localDatabase;
+  late final UpToDateWidgetId _upToDateId;
 
   @override
   void initState() {
-    _product = widget.product;
     super.initState();
+    _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _upToDateId = _localDatabase.upToDate.getWidgetId();
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.disposeWidget(_upToDateId);
+    super.dispose();
   }
 
   static KnowledgePanelPanelGroupElement? _groupElementOf(
@@ -53,8 +64,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    _product = localDatabase.upToDate.getLocalUpToDate(_product);
+    _localDatabase = context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(_getTitle(), maxLines: 2),

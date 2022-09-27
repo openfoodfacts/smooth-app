@@ -100,4 +100,24 @@ class LocalDatabase extends ChangeNotifier {
     await DaoUnzippedProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
   }
+
+  /// Key for a local unique sequence number
+  static const String _localUniqueSequenceNumberKey = 'UNIQUE_SEQUENCE_NUMBER';
+
+  /// Returns a local unique sequence number.
+  ///
+  /// Starting from 1, and incrementing by 1.
+  /// The limit is like 2^53 or 2^64, we should be safe.
+  int getLocalUniqueSequenceNumber() {
+    final DaoInt daoInt = DaoInt(this);
+    int? value = daoInt.get(_localUniqueSequenceNumberKey);
+    if (value == null) {
+      value = 1;
+    } else {
+      value++;
+    }
+    // yes it's async but we don't care, it's the way hive works.
+    daoInt.put(_localUniqueSequenceNumberKey, value);
+    return value;
+  }
 }

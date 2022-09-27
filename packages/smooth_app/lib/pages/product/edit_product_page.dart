@@ -6,6 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
@@ -38,24 +39,28 @@ class _EditProductPageState extends State<EditProductPage> {
   final ScrollController _controller = ScrollController();
   bool _barcodeVisibleInAppbar = false;
   late Product _product;
+  late LocalDatabase _localDatabase;
+  late final UpToDateWidgetId _upToDateId;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _upToDateId = _localDatabase.upToDate.getWidgetId();
     _controller.addListener(_onScrollChanged);
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    _product = localDatabase.upToDate.getLocalUpToDate(_product);
+    _localDatabase = context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
     final ThemeData theme = Theme.of(context);
     final Brightness brightness = theme.brightness;
     final Size screenSize = MediaQuery.of(context).size;
-    final bool hasPendingChanges =
-        localDatabase.upToDate.hasPendingChanges(_product.barcode!);
+    final bool hasPendingOperations =
+        _localDatabase.upToDate.hasNotTerminatedOperations(_upToDateId);
 
     return SmoothScaffold(
       appBar: AppBar(
@@ -63,7 +68,7 @@ class _EditProductPageState extends State<EditProductPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             AutoSizeText(
-              '${hasPendingChanges ? '(*)' : ''}${getProductName(_product, appLocalizations)}',
+              '${hasPendingOperations ? '(*)' : ''}${getProductName(_product, appLocalizations)}',
               maxLines: _barcodeVisibleInAppbar ? 1 : 2,
             ),
             if (_product.barcode?.isNotEmpty == true)
@@ -337,6 +342,7 @@ class _EditProductPageState extends State<EditProductPage> {
   void dispose() {
     _controller.removeListener(_onScrollChanged);
     _controller.dispose();
+    _localDatabase.upToDate.disposeWidget(_upToDateId);
     super.dispose();
   }
 }

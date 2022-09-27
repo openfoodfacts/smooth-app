@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
@@ -23,14 +24,23 @@ enum LoadingStatus {
 /// Model for product database get and refresh.
 class ProductModel with ChangeNotifier {
   /// In the constructor we retrieve async'ly the product from the local db.
-  ProductModel(this.barcode, final LocalDatabase localDatabase) {
+  ProductModel(this.barcode, this.localDatabase) {
     _daoProduct = DaoProduct(localDatabase);
+    _upToDateId = localDatabase.upToDate.getWidgetId();
     _clear();
     _asyncLoad();
   }
 
+  @override
+  void dispose() {
+    localDatabase.upToDate.disposeWidget(_upToDateId);
+    super.dispose();
+  }
+
   final String barcode;
   late final DaoProduct _daoProduct;
+  final LocalDatabase localDatabase;
+  late final UpToDateWidgetId _upToDateId;
 
   Product? _product;
   Product? get product =>
@@ -53,7 +63,7 @@ class ProductModel with ChangeNotifier {
     if (_product == null) {
       return;
     }
-    _product = localDatabase.upToDate.getLocalUpToDate(_product!);
+    _product = localDatabase.upToDate.getLocalUpToDate(_product!, _upToDateId);
     _loadingStatus = LoadingStatus.LOADED;
   }
 

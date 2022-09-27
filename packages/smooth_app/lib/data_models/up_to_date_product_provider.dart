@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/up_to_date_helper.dart';
+import 'package:smooth_app/data_models/up_to_date_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 /// Provider that reflects all the user changes on [Product]s.
@@ -8,10 +11,47 @@ class UpToDateProductProvider {
   final LocalDatabase localDatabase;
 
   // TODO(monsieurtanuki): should be more persistent, like in hive.
-  final Map<String, List<Product>> _map = <String, List<Product>>{};
+  /// For a given barcode, maps the changes.
+  final UpToDateChanges _changes = UpToDateChanges();
+
+  /// For a given barcode, maps the quick changes.
+  ///
+  /// Typical quick change: after an image upload, we download the product
+  /// whose related fields are populated. No need to download again the product:
+  /// we just quickly set the fields in the up-to-date product.
+  final UpToDateChanges _quickChanges = UpToDateChanges();
+
+  /// For a given barcode, maps the downloads.
+  final UpToDateDownloads _downloads = UpToDateDownloads();
+
+  /// For a given barcode, list the impacted widgets.
+  final UpToDateBarcodeWidgets _barcodeWidgets = UpToDateBarcodeWidgets();
+
+  /// For a given barcode, returns the latest change timestamp.
   final Map<String, int> _timestamps = <String, int>{};
 
+  /// Returns a new unique widget id - to be called in the widget's initState.
+  UpToDateWidgetId getWidgetId() =>
+      UpToDateWidgetId(localDatabase.getLocalUniqueSequenceNumber());
+
+  /// Dispose a widget - to be called in the widget's dispose method.
+  void disposeWidget(final UpToDateWidgetId widgetId) {
+    final String? barcode = _barcodeWidgets.getBarcode(widgetId);
+    if (barcode == null) {
+      // very unlikely
+      return;
+    }
+    if (_barcodeWidgets.remove(barcode, widgetId)) {
+      // if the barcode has no widgets anymore
+      _changes.removeBarcode(barcode);
+      _quickChanges.removeBarcode(barcode);
+      _downloads.removeBarcode(barcode);
+    }
+  }
+
   /// Returns the [product] with all the local pending changes on top.
+  ///
+  /// Limited to what has not been already done on that [widgetId].
   ///
   /// Typical use-case:
   /// * I want to display data about a [Product]
@@ -22,63 +62,92 @@ class UpToDateProductProvider {
   /// Here is the code for that:
   /// ```dart
   /// late Product _product;
+  /// late LocalDatabase _localDatabase;
+  /// late final UpToDateWidgetId _upToDateId;
   ///
   /// @override
   /// void initState() {
   ///   super.initState();
-  ///   _product = widget.product;
+  ///   _product = Product(barcode: widget.barcode);
+  ///   _localDatabase = context.read<LocalDatabase>();
+  ///   _upToDateId = _localDatabase.upToDate.getWidgetId();
+  /// }
+  ///
+  /// @override
+  /// void dispose() {
+  ///   _localDatabase.upToDate.disposeWidget(_upToDateId);
+  ///   super.dispose();
   /// }
   ///
   /// @override
   /// Widget build(BuildContext context) {
   ///   final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-  ///   _product = localDatabase.upToDate.getLocalUpToDate(_product);
+  ///   _localDatabase = context.watch<LocalDatabase>();
+  ///   _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
   /// ```
-  Product getLocalUpToDate(final Product product) {
-    final List<Product>? changes = _map[product.barcode!];
-    if (changes == null) {
-      return product;
+  Product getLocalUpToDate(
+    final Product product,
+    final UpToDateWidgetId widgetId,
+  ) {
+    Product? result;
+    final String barcode = product.barcode!;
+    _barcodeWidgets.put(barcode, widgetId);
+    result = _quickChanges.getUpToDateProduct(product, widgetId);
+    if (result != null) {
+      return result;
     }
-    return add(product, changes);
+    result = _changes.getUpToDateProduct(product, widgetId);
+    if (result != null) {
+      return result;
+    }
+    result = _downloads.getUpToDateProduct(product, widgetId);
+    if (result != null) {
+      return result;
+    }
+    return product;
   }
 
   /// Adds a minimalist local change to the local pending changes.
-  void addChange(final Product change) {
-    final String? barcode = change.barcode;
+  void addChange(final Product minimalistProduct) {
+    final String? barcode = minimalistProduct.barcode;
     if (barcode == null) {
       // very unlikely
       return;
     }
-    _map[barcode] ??= <Product>[];
-    _map[barcode]!.add(change);
+    _changes.add(minimalistProduct, localDatabase);
     _timestamps[barcode] = LocalDatabase.nowInMillis();
     localDatabase.notifyListeners();
   }
 
-  /// Removes the first [length] changes related to this [barcode].
-  // TODO(monsieurtanuki): will be cleaner with a proper key list.
-  void removeChanges(final String barcode, final int length) {
-    if (_map[barcode] == null) {
-      // not supposed to happen
+  /// Adds a minimalist quick local change to the local pending changes.
+  void addQuickChange(final Product minimalistProduct) {
+    final String? barcode = minimalistProduct.barcode;
+    if (barcode == null) {
+      // very unlikely
       return;
     }
-    for (int i = 0; i < length; i++) {
-      try {
-        _map[barcode]!.removeAt(0);
-      } catch (e) {
-        // not supposed to happen
-      }
-    }
+    _quickChanges.add(minimalistProduct, localDatabase);
+    _timestamps[barcode] = LocalDatabase.nowInMillis();
     localDatabase.notifyListeners();
   }
 
-  /// Returns the local pending changes related to a [barcode].
-  List<Product>? getChanges(final String barcode) => _map[barcode];
+  /// Returns the local pending change ids related to a [barcode].
+  Iterable<UpToDateOperationId>? getChangeIds(final String barcode) =>
+      _changes.getActions(barcode)?.keys;
 
   /// Returns true if there are pending changes for this [barcode].
-  bool hasPendingChanges(final String barcode) {
-    final List<Product>? changes = getChanges(barcode);
-    return changes != null && changes.isNotEmpty;
+  bool hasNotTerminatedOperations(final UpToDateWidgetId widgetId) {
+    /// Not really pending changes, but changes that ere not properly removed
+    /// at the barcode level - not the widget level
+    final String? barcode = _barcodeWidgets.getBarcode(widgetId);
+    if (barcode == null) {
+      // very unlikely
+      return false;
+    }
+    if (_changes.hasNotTerminatedOperations(barcode, widgetId)) {
+      return true;
+    }
+    return false;
   }
 
   /// Returns true if at least one barcode was refreshed after the [timestamp].
@@ -96,66 +165,19 @@ class UpToDateProductProvider {
     return false;
   }
 
-  /// Returns the [initial] [Product] with successive [changes] on top.
-  static Product add(final Product initial, final List<Product> changes) {
-    for (final Product change in changes) {
-      if (initial.barcode != change.barcode) {
-        throw Exception(
-          'Invalid barcodes for changes: '
-          '${initial.barcode} and ${change.barcode})',
-        );
-      }
-      _overwrite(initial, change);
-    }
-    return initial;
-  }
+  Product prepareChangesForServer(
+    final String barcode,
+    final Iterable<UpToDateOperationId> changeIds,
+  ) =>
+      _changes.prepareChangesForServer(barcode, changeIds);
 
-  /// Overwrite the [initial] product with the non-null fields of [change].
-  ///
-  /// Currently limited to the fields modified by [BackgroundTaskDetails].
-  // TODO(monsieurtanuki): refactor this "à la copyWith" or something like that
-  static void _overwrite(final Product initial, final Product change) {
-    if (change.productName != null) {
-      initial.productName = change.productName;
-    }
-    if (change.quantity != null) {
-      initial.quantity = change.quantity;
-    }
-    if (change.brands != null) {
-      initial.brands = change.brands;
-    }
-    if (change.ingredientsText != null) {
-      initial.ingredientsText = change.ingredientsText;
-    }
-    if (change.packaging != null) {
-      initial.packaging = change.packaging;
-    }
-    if (change.noNutritionData != null) {
-      initial.noNutritionData = change.noNutritionData;
-    }
-    if (change.nutriments != null) {
-      initial.nutriments = change.nutriments;
-    }
-    if (change.servingSize != null) {
-      initial.servingSize = change.servingSize;
-    }
-    if (change.stores != null) {
-      initial.stores = change.stores;
-    }
-    if (change.origins != null) {
-      initial.origins = change.origins;
-    }
-    if (change.embCodes != null) {
-      initial.embCodes = change.embCodes;
-    }
-    if (change.labels != null) {
-      initial.labels = change.labels;
-    }
-    if (change.categories != null) {
-      initial.categories = change.categories;
-    }
-    if (change.countries != null) {
-      initial.countries = change.countries;
-    }
-  }
+  void setLatestDownloadedProduct(final Product product) =>
+      _downloads.add(product, localDatabase);
+
+  /// Closes some operations, that are completed.
+  void terminate(
+    final String barcode,
+    final Iterable<UpToDateOperationId> changeIds,
+  ) =>
+      _changes.terminate(barcode, changeIds);
 }

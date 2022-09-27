@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -79,6 +80,8 @@ class SummaryCard extends StatefulWidget {
 
 class _SummaryCardState extends State<SummaryCard> {
   late Product _product;
+  late LocalDatabase _localDatabase;
+  late final UpToDateWidgetId _upToDateId;
   late final bool allowClicking;
 
   // Number of Rows that will be printed in the SummaryCard, initialized to a
@@ -94,12 +97,20 @@ class _SummaryCardState extends State<SummaryCard> {
     super.initState();
     allowClicking = !widget.isFullVersion;
     _product = widget._product;
+    _localDatabase = context.read<LocalDatabase>();
+    _upToDateId = _localDatabase.upToDate.getWidgetId();
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.disposeWidget(_upToDateId);
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    _product = localDatabase.upToDate.getLocalUpToDate(_product);
+    _localDatabase = context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (widget.isFullVersion) {

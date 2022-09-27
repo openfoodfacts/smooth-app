@@ -7,6 +7,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -39,14 +40,24 @@ class _EditOcrPageState extends State<EditOcrPage> {
   bool _updatingImage = false;
   bool _updatingText = false;
   late Product _product;
+  late LocalDatabase _localDatabase;
+  late final UpToDateWidgetId _upToDateId;
   late OcrHelper _helper;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _upToDateId = _localDatabase.upToDate.getWidgetId();
     _helper = widget.helper;
     _controller.text = _helper.getText(_product);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.disposeWidget(_upToDateId);
+    super.dispose();
   }
 
   Future<void> _onSubmitField(ImageField imageField) async {
@@ -149,8 +160,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    _product = localDatabase.upToDate.getLocalUpToDate(_product);
+    _localDatabase = context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
     final Size size = MediaQuery.of(context).size;
     final List<Widget> children = <Widget>[];
 

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
+import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
@@ -133,14 +133,15 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   /// Executes the background task: upload, download, update locally.
   @override
   Future<TaskResult> execute(final LocalDatabase localDatabase) async {
-    final List<Product>? changes = localDatabase.upToDate.getChanges(barcode);
-    if (changes == null || changes.isEmpty) {
+    final Iterable<UpToDateOperationId>? changeIds =
+        localDatabase.upToDate.getChangeIds(barcode);
+    if (changeIds == null || changeIds.isEmpty) {
       // everything was already done before
       return TaskResult.success;
     }
-    final Product product = UpToDateProductProvider.add(
-      Product(barcode: barcode),
-      changes,
+    final Product product = localDatabase.upToDate.prepareChangesForServer(
+      barcode,
+      changeIds,
     );
 
     final Status status = await OpenFoodAPIClient.saveProduct(
@@ -157,8 +158,10 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     if (downloaded == null) {
       return TaskResult.errorAndRetry;
     }
+    localDatabase.upToDate.setLatestDownloadedProduct(downloaded);
 
-    localDatabase.upToDate.removeChanges(barcode, changes.length);
+    localDatabase.upToDate.terminate(barcode, changeIds);
+    localDatabase.notifyListeners();
 
     return TaskResult.success;
   }

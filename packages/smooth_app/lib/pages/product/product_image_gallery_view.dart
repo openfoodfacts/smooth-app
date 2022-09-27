@@ -6,6 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -45,6 +46,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       <ProductImageData, ImageProvider?>{};
 
   late Product _product;
+  late LocalDatabase _localDatabase;
+  late final UpToDateWidgetId _upToDateId;
   bool _isRefreshed = false;
   bool _isLoadingMore = true;
 
@@ -55,12 +58,20 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   void initState() {
     super.initState();
     _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _upToDateId = _localDatabase.upToDate.getWidgetId();
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.disposeWidget(_upToDateId);
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    _product = localDatabase.upToDate.getLocalUpToDate(_product);
+    _localDatabase = context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
     final List<ProductImageData> allProductImagesData =
