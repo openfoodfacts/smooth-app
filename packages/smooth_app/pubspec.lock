@@ -720,7 +720,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.6.0"
+    version: "4.7.0"
   latlong2:
     dependency: "direct main"
     description:
@@ -839,7 +839,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.24.0"
+    version: "1.25.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
