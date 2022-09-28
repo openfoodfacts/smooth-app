@@ -713,7 +713,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+    "permissions_page_body1": "Per scansionare i codici a barre con la fotocamera del tuo telefono, sei pregato di Autorizzare l'accesso.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -791,7 +791,7 @@
             }
         }
     },
-    "authorize_button_label": "Authorise",
+    "authorize_button_label": "Autorizza",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
