@@ -100,6 +100,7 @@ Future<bool> _init1() async {
     daoString: DaoString(_localDatabase),
   );
   await callbackDispatcher(_localDatabase);
+  await UserManagementProvider().checkUserLoginValidity();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);
