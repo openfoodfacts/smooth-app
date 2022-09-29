@@ -105,8 +105,7 @@ class UserManagementProvider with ChangeNotifier {
       }
     } catch (e) {
       // We don't want to crash the app if the login check fails
-      // We might want to log this error in the future
-      Logs.e('Login check failed');
+      // So we do nothing here
     }
   }
   /* Currently not in use, to be used before contributing to something
