@@ -201,10 +201,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildImageUploadedRow(
       BuildContext context, ImageField imageType, File image) {
-    return _buildInfoAddedRow(
-      _getAddPhotoButtonText(context, imageType),
-      imgStart: image
-    );
+    return _buildInfoAddedRow(_getAddPhotoButtonText(context, imageType),
+        imgStart: image);
   }
 
   String _getAddPhotoButtonText(BuildContext context, ImageField imageType) {
@@ -233,7 +231,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       return const SizedBox();
     }
     if (_nutritionFactsAdded) {
-      return _buildInfoAddedRow(AppLocalizations.of(context).nutritional_facts_added);
+      return _buildInfoAddedRow(
+          AppLocalizations.of(context).nutritional_facts_added);
     }
 
     return Padding(
@@ -284,7 +283,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildaddInputDetailsButton() {
     if (_basicDetailsAdded) {
-      return _buildInfoAddedRow(AppLocalizations.of(context).basic_details_add_success);
+      return _buildInfoAddedRow(
+          AppLocalizations.of(context).basic_details_add_success);
     }
 
     return Padding(
@@ -312,7 +312,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     );
   }
 
-  Widget _buildInfoAddedRow(String text, { File? imgStart }) {
+  Widget _buildInfoAddedRow(String text, {File? imgStart}) {
     final ThemeData themeData = Theme.of(context);
     return Padding(
       padding: _ROW_PADDING_TOP,
@@ -324,7 +324,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             width: 50,
             child: ClipRRect(
               borderRadius: ROUNDED_BORDER_RADIUS,
-              child: imgStart == null ? null : Image.file(imgStart, fit: BoxFit.cover),
+              child: imgStart == null
+                  ? null
+                  : Image.file(imgStart, fit: BoxFit.cover),
             ),
           ),
           Expanded(
