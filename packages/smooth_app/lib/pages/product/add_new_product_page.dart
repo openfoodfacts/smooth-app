@@ -201,34 +201,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildImageUploadedRow(
       BuildContext context, ImageField imageType, File image) {
-    final ThemeData themeData = Theme.of(context);
-    return Padding(
-      padding: _ROW_PADDING_TOP,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(
-            height: 50,
-            width: 50,
-            child: ClipRRect(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              child: Image.file(image, fit: BoxFit.cover),
-            ),
-          ),
-          Expanded(
-            child: Center(
-              child: Text(
-                _getAddPhotoButtonText(context, imageType),
-                style: themeData.textTheme.bodyText1,
-              ),
-            ),
-          ),
-          Icon(
-            Icons.check_box,
-            color: themeData.bottomNavigationBarTheme.selectedItemColor,
-          )
-        ],
-      ),
+    return _buildInfoAddedRow(
+      _getAddPhotoButtonText(context, imageType),
+      imgStart: image
     );
   }
 
@@ -333,30 +308,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildaddInputDetailsButton() {
     if (_basicDetailsAdded) {
-      final ThemeData themeData = Theme.of(context);
-      return Padding(
-          padding: const EdgeInsetsDirectional.only(
-            top: VERY_LARGE_SPACE,
-            // Add start padding, so text is centrally alligned with other texts
-            start: 50,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                child: Center(
-                  child: Text(
-                      AppLocalizations.of(context).basic_details_add_success,
-                      style: Theme.of(context).textTheme.bodyText1),
-                ),
-              ),
-              Icon(
-                Icons.check_box,
-                color: themeData.bottomNavigationBarTheme.selectedItemColor,
-              ),
-            ],
-          ));
+      return _buildInfoAddedRow(AppLocalizations.of(context).basic_details_add_success);
     }
 
     return Padding(
@@ -380,6 +332,35 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             _basicDetailsAdded = result != null;
           });
         },
+      ),
+    );
+  }
+
+  Widget _buildInfoAddedRow(String text, { File? imgStart }) {
+    final ThemeData themeData = Theme.of(context);
+    return Padding(
+      padding: _ROW_PADDING_TOP,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            height: 50,
+            width: 50,
+            child: ClipRRect(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              child: imgStart == null ? null : Image.file(imgStart, fit: BoxFit.cover),
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(text, style: themeData.textTheme.bodyText1),
+            ),
+          ),
+          Icon(
+            Icons.check_box,
+            color: themeData.bottomNavigationBarTheme.selectedItemColor,
+          )
+        ],
       ),
     );
   }
