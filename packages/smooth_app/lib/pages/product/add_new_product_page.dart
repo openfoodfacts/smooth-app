@@ -335,24 +335,25 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     if (_basicDetailsAdded) {
       final ThemeData themeData = Theme.of(context);
       return Padding(
-          padding: _ROW_PADDING_TOP,
+          padding: const EdgeInsetsDirectional.only(
+            top: VERY_LARGE_SPACE,
+            // Add start padding, so text is centrally alligned with other texts
+            start: 50,
+          ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              SizedBox(
-                width: 50.0,
-                child: Icon(
-                  Icons.check,
-                  color: themeData.bottomNavigationBarTheme.selectedItemColor,
-                ),
-              ),
               Expanded(
                 child: Center(
                   child: Text(
                       AppLocalizations.of(context).basic_details_add_success,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),
+              ),
+              Icon(
+                Icons.check_box,
+                color: themeData.bottomNavigationBarTheme.selectedItemColor,
               ),
             ],
           ));
