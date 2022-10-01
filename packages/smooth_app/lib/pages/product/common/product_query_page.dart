@@ -261,8 +261,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             child: Text(
               message,
               textAlign: TextAlign.center,
-              style:
-                themeData.textTheme.subtitle1!.copyWith(fontSize: 18.0),
+              style: themeData.textTheme.subtitle1!.copyWith(fontSize: 18.0),
             ),
           ),
           if (worldQuery != null)
