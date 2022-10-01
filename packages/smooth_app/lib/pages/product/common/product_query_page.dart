@@ -243,22 +243,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
-  Future<String?> _getTranslatedCountry() async {
-    if (_country == null) {
-      return null;
-    }
-    final String locale = Localizations.localeOf(context).languageCode;
-    final List<Country> localizedCountries =
-        await IsoCountries.iso_countries_for_locale(locale);
-    for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() ==
-          _country!.iso2Code.toLowerCase()) {
-        return country.name;
-      }
-    }
-    return null;
-  }
-
   Widget _getEmptyText(
     final ThemeData themeData,
     final String message,
@@ -342,6 +326,22 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         );
       },
     );
+  }
+
+  Future<String?> _getTranslatedCountry() async {
+    if (_country == null) {
+      return null;
+    }
+    final String locale = Localizations.localeOf(context).languageCode;
+    final List<Country> localizedCountries =
+        await IsoCountries.iso_countries_for_locale(locale);
+    for (final Country country in localizedCountries) {
+      if (country.countryCode.toLowerCase() ==
+          _country!.iso2Code.toLowerCase()) {
+        return country.name;
+      }
+    }
+    return null;
   }
 
   Widget _getLargeButtonWithIcon(final _Action action) =>
