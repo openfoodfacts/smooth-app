@@ -233,31 +233,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       return const SizedBox();
     }
     if (_nutritionFactsAdded) {
-      return Padding(
-        padding: _ROW_PADDING_TOP,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-              width: 50.0,
-              child: Icon(
-                Icons.check,
-                color: Theme.of(context)
-                    .bottomNavigationBarTheme
-                    .selectedItemColor,
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: Text(
-                    AppLocalizations.of(context).nutritional_facts_added,
-                    style: Theme.of(context).textTheme.bodyText1),
-              ),
-            ),
-          ],
-        ),
-      );
+      return _buildInfoAddedRow(AppLocalizations.of(context).nutritional_facts_added);
     }
 
     return Padding(
