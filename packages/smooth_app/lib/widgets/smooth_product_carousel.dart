@@ -209,16 +209,12 @@ class SearchCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 26.0,
               fontWeight: FontWeight.bold,
-              height: 1.25,
+              height: 1.00,
             ),
-            maxLines: 2,
+            maxLines: 1,
           ),
-          const Expanded(
-            child: _SearchCardTagLine(),
-          ),
-          const Expanded(
-            child: _SearchCardTagLineDeprecatedAppText(),
-          ),
+          const Expanded(child: _SearchCardTagLine()),
+          const Expanded(child: _SearchCardTagLineDeprecatedAppText()),
           SearchField(
             onFocus: () => _openSearchPage(context),
             readOnly: true,
@@ -274,10 +270,10 @@ class _SearchCardTagLine extends StatelessWidget {
             }
             return FutureBuilder<TagLineItem?>(
               future: _fetchData(),
-              builder: (BuildContext context, AsyncSnapshot<dynamic> data) {
-                if (data.connectionState == ConnectionState.done && data.data == null) {
+                  builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {               
+                 if (data.connectionState == ConnectionState.done && data.data == null) {
                   return const _SearchCardTagLineDeprecatedAppText();
-                } else if (data is TagLineItem) {
+                } else if (data.connectionState == ConnectionState.done) {
                   return _SearchCardTagLineText(
                     tagLine: data.data as TagLineItem,
                   );
@@ -336,17 +332,37 @@ class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
       ),
-      child: TextButton(
-          onPressed: () {
-            _openAppStore();
-          },
-          child: Text(
-            '${localizations.depricatedHeader}  ${localizations.clickHereToDownload}',
-            textAlign: TextAlign.center,
-            style: const 
-            TextStyle(
-              color: Colors.red,
-            ),),),
+      child: 
+      SizedBox( height: 50,
+        child: Column(
+          children: [
+            Text(
+              localizations.deprecated_header,
+              textAlign: TextAlign.center,
+              style: const 
+              TextStyle(
+                color: Colors.red,
+              ),),
+                    Text(
+              localizations.download_new_version,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.red,
+              ),),
+              TextButton(
+                onPressed: () {
+                  _openAppStore();
+                },
+                child: Text(
+                  localizations.click_here,
+                  textAlign: TextAlign.center,
+                  style: const 
+                  TextStyle(
+                    color: Colors.red,
+                  ),),),
+          ],
+        ),
+      ),
     );
   }
 
