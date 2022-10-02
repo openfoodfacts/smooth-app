@@ -335,7 +335,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             ),
           ),
           Icon(
-            Icons.check_box,
+            Icons.check,
             color: themeData.bottomNavigationBarTheme.selectedItemColor,
           )
         ],
