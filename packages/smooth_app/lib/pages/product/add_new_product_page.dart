@@ -201,8 +201,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildImageUploadedRow(
       BuildContext context, ImageField imageType, File image) {
-    return _buildInfoAddedRow(_getAddPhotoButtonText(context, imageType),
-        imgStart: image);
+    return _InfoAddedRow(
+      text: _getAddPhotoButtonText(context, imageType),
+      imgStart: image,
+    );
   }
 
   String _getAddPhotoButtonText(BuildContext context, ImageField imageType) {
@@ -231,8 +233,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       return const SizedBox();
     }
     if (_nutritionFactsAdded) {
-      return _buildInfoAddedRow(
-          AppLocalizations.of(context).nutritional_facts_added);
+      return _InfoAddedRow(
+          text: AppLocalizations.of(context).nutritional_facts_added);
     }
 
     return Padding(
@@ -283,8 +285,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildaddInputDetailsButton() {
     if (_basicDetailsAdded) {
-      return _buildInfoAddedRow(
-          AppLocalizations.of(context).basic_details_add_success);
+      return _InfoAddedRow(
+          text: AppLocalizations.of(context).basic_details_add_success);
     }
 
     return Padding(
@@ -311,35 +313,42 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       ),
     );
   }
+}
 
-  Widget _buildInfoAddedRow(String text, {File? imgStart}) {
+class _InfoAddedRow extends StatelessWidget {
+  const _InfoAddedRow({required this.text, this.imgStart});
+
+  final String text;
+  final File? imgStart;
+
+  @override
+  Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return Padding(
-      padding: _ROW_PADDING_TOP,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(
-            height: 50,
-            width: 50,
-            child: ClipRRect(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              child: imgStart == null
-                  ? null
-                  : Image.file(imgStart, fit: BoxFit.cover),
+        padding: _ROW_PADDING_TOP,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 50,
+              width: 50,
+              child: ClipRRect(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                child: imgStart == null
+                    ? null
+                    : Image.file(imgStart!, fit: BoxFit.cover),
+              ),
             ),
-          ),
-          Expanded(
-            child: Center(
-              child: Text(text, style: themeData.textTheme.bodyText1),
+            Expanded(
+              child: Center(
+                child: Text(text, style: themeData.textTheme.bodyText1),
+              ),
             ),
-          ),
-          Icon(
-            Icons.check,
-            color: themeData.bottomNavigationBarTheme.selectedItemColor,
-          )
-        ],
-      ),
-    );
+            Icon(
+              Icons.check,
+              color: themeData.bottomNavigationBarTheme.selectedItemColor,
+            )
+          ],
+        ));
   }
 }
