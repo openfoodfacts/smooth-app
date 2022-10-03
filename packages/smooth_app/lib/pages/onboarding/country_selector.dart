@@ -193,7 +193,8 @@ class _CountrySelectorState extends State<CountrySelector> {
         countryName =
             '${countryName[0].toUpperCase()}${countryName.substring(1).toLowerCase()}';
         finalCountriesList.add(Country(
-            name: countryName, countryCode: _fixCountryCode(countryCode)));
+            name: _fixCountryName(countryName),
+            countryCode: _fixCountryCode(countryCode)));
         continue;
       }
       final String fixedCountryCode = _fixCountryCode(countryCode);
@@ -212,6 +213,14 @@ class _CountrySelectorState extends State<CountrySelector> {
       countryCode = 'uk';
     }
     return countryCode;
+  }
+
+  /// Fix the issues where United Kingdom appears with lowercase 'k'.
+  String _fixCountryName(String countryName) {
+    if (countryName == 'United kingdom') {
+      countryName = 'United Kingdom';
+    }
+    return countryName;
   }
 
   /// Reorder countries alphabetically, bring user's locale country to top.

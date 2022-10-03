@@ -17,7 +17,7 @@ jobs:
       VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Get the latest version name from file
       - name: Set VERSION_NAME env
@@ -57,7 +57,7 @@ jobs:
     concurrency: 
       group: android-release
       cancel-in-progress: true
-    uses: openfoodfacts/smooth-app/.github/workflows/android-release-main.yml@develop
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
@@ -75,7 +75,7 @@ jobs:
     concurrency: 
       group: iOS-release
       cancel-in-progress: true
-    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-main.yml@develop
+    uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
