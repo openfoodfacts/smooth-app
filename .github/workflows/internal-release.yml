@@ -64,8 +64,8 @@ jobs:
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
-      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
-      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
@@ -82,8 +82,8 @@ jobs:
     uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
-      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
-      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
