@@ -45,7 +45,8 @@ jobs:
 
       - name: coolver
         id: normalized_tag
-        run: echo ::set-output name=normalized_tag::$(echo "internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr '.' '_' )
+        run: echo ::set-output name=normalized_tag::$(echo internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }} | tr '.' '_')
+        #run: echo "internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr '.' '_' | echo "::set-output name=normalized_tag::$( )"
 
 
       - name: Tag commit
