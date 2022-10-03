@@ -48,8 +48,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   bool _isRefreshed = false;
   bool _isLoadingMore = true;
 
-  ImageProvider? _provideImage(ProductImageData imageData) =>
-      imageData.imageUrl == null ? null : NetworkImage(imageData.imageUrl!);
+  ImageProvider? _provideImage(ProductImageData imageData) {
+    final String? url = imageData.getImageUrl(ImageSize.SMALL);
+    return url == null ? null : NetworkImage(url);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,9 +122,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                   _buildTitle(appLocalizations.selected_images, theme: theme),
                   SmoothImagesSliverList(
                     imagesData: _selectedImages,
-                    onTap: (ProductImageData data, _) => data.imageUrl != null
-                        ? _openImage(data)
-                        : _newImage(data),
+                    onTap: (ProductImageData data, _) =>
+                        data.getImageUrl(ImageSize.ORIGINAL) != null
+                            ? _openImage(data)
+                            : _newImage(data),
                   ),
                   _buildTitle(appLocalizations.all_images, theme: theme),
                   SmoothImagesSliverGrid(
@@ -250,24 +253,25 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       return null;
     }
 
-    return _deduplicateImages(resultProduct.images!).map(_getProductImageData);
+    return _mapToProductImageData(resultProduct.images!);
   }
 
-  /// Groups the list of [ProductImage] by [ProductImage.imgid]
-  /// and returns the first of every group
-  Iterable<ProductImage> _deduplicateImages(Iterable<ProductImage> images) =>
+  Iterable<ProductImageData> _mapToProductImageData(
+          Iterable<ProductImage> images) =>
       images
           .groupListsBy((ProductImage element) => element.imgid)
           .values
-          .map((List<ProductImage> sameIdImages) => sameIdImages.firstOrNull)
-          .whereNotNull();
+          .map(_createProductImageData);
 
-  /// Created a [ProductImageData] from a [ProductImage]
-  ProductImageData _getProductImageData(ProductImage image) => ProductImageData(
-        imageField: image.field,
-        // TODO(VaiTon): i18n
-        title: image.imgid ?? '',
-        buttonText: image.imgid ?? '',
-        imageUrl: ImageHelper.buildUrl(widget.product.barcode, image),
-      );
+  ProductImageData _createProductImageData(List<ProductImage> images) {
+    final ProductImage image = images.last;
+    return ProductImageData.from(
+      imageField: image.field,
+      // TODO(VaiTon): i18n
+      title: image.imgid ?? '',
+      buttonText: image.imgid ?? '',
+      barcode: widget.product.barcode,
+      productImages: images,
+    );
+  }
 }

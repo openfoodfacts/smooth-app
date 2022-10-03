@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
+import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +41,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   @override
   void initState() {
     imageData = widget.imageData;
-    imageProvider = NetworkImage(imageData.imageUrl!);
+    imageProvider = NetworkImage(imageData.getImageUrl(ImageSize.DISPLAY)!);
 
     super.initState();
   }
@@ -90,9 +91,14 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       );
 
   Future<void> _editImage(final DaoInt daoInt) async {
+    final String? imageUrl = imageData.getImageUrl(ImageSize.ORIGINAL);
+    if (imageUrl == null) {
+      return;
+    }
+
     final File? imageFile = await LoadingDialog.run<File>(
       context: context,
-      future: _downloadImageFile(daoInt, imageData.imageUrl!),
+      future: _downloadImageFile(daoInt, imageUrl),
     );
 
     if (imageFile == null) {
