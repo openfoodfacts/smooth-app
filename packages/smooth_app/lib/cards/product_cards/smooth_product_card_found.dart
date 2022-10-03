@@ -107,7 +107,7 @@ class SmoothProductCardFound extends StatelessWidget {
                           style: themeData.textTheme.headline4,
                         ),
                         Text(
-                          product.brands ?? appLocalizations.unknownBrand,
+                          getProductBrands(product, appLocalizations),
                           overflow: TextOverflow.ellipsis,
                           style: themeData.textTheme.subtitle1,
                         ),
