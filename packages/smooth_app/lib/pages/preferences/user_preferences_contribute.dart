@@ -86,6 +86,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           () => _contributors(),
           Icons.emoji_people,
         ),
+        _getListTile(
+          'Hunger Games',
+          () => _hungerGames(),
+          Icons.games,
+          icon:
+              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+        ),
       ];
 
   Future<void> _contribute() => showDialog<void>(
@@ -290,6 +297,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
             actionsOrder: SmoothButtonsBarOrder.numerical,
           );
         },
+      );
+
+  Future<void> _hungerGames() async => LaunchUrlHelper.launchURL(
+        'https://hunger.openfoodfacts.org/',
+        false,
       );
 
   Widget _getListTile(

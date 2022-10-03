@@ -30,17 +30,17 @@ platform :ios do
     )
     
     # build your iOS app
-    gym(
-      configuration: "Release",
-      workspace: "Runner.xcworkspace",
-      scheme: "Runner",
-      export_method: "app-store",
-      export_options: {
-          provisioningProfiles: {
-              "org.openfoodfacts.scanner" => "match AppStore org.openfoodfacts.scanner", 
-          }
-      }
-    )
+    #gym(
+    #  configuration: "Release",
+    #  workspace: "Runner.xcworkspace",
+    #  scheme: "Runner",
+    #  export_method: "app-store",
+    #  export_options: {
+    #      provisioningProfiles: {
+    #          "org.openfoodfacts.scanner" => "match AppStore org.openfoodfacts.scanner", 
+    #      }
+    #  }
+    #)
   
     # Upload to test flight
     pilot(

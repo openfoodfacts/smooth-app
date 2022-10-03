@@ -64,6 +64,7 @@ class KnowledgePanelElementCard extends StatelessWidget {
         return KnowledgePanelTableCard(
           tableElement: knowledgePanelElement.tableElement!,
           isInitiallyExpanded: isInitiallyExpanded,
+          product: product,
         );
       case KnowledgePanelElementType.MAP:
         return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);

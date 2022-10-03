@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 class UserManagementProvider with ChangeNotifier {
@@ -82,6 +83,31 @@ class UserManagementProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  /// Check if the user is still logged in and the credentials are still valid
+  /// If not, the user is logged out
+  Future<void> checkUserLoginValidity() async {
+    try {
+      if (ProductQuery.isLoggedIn()) {
+        final User user = ProductQuery.getUser();
+        final bool checkLogin = await OpenFoodAPIClient.login(
+          User(
+            userId: user.userId,
+            password: user.password,
+          ),
+        );
+        if (checkLogin) {
+          // Credentials are still valid so we just return
+          return;
+        } else {
+          // Credentials are not valid anymore so we log out
+          await logout();
+        }
+      }
+    } catch (e) {
+      // We don't want to crash the app if the login check fails
+      // So we do nothing here
+    }
+  }
   /* Currently not in use, to be used before contributing to something
   /// Checks if the saved credentials are still correct
   Future<bool> validateCredentials() async {

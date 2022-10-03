@@ -1,0 +1,25 @@
+name: Top issues action.
+#on:
+#  schedule:
+#  - cron:  '0 0 */1 * *'
+on:
+  issues:
+    types: [opened, transferred]
+
+jobs:
+  ShowAndLabelTopIssues:
+    name: Display and label top issues.
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run top issues action
+      uses: rickstaa/top-issues-action@v1
+      env:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        label: true
+        dashboard: true
+        dashboard_show_total_reactions: true
+        top_issues: true
+        top_bugs: true
+        top_features: true
+        top_pull_requests: true

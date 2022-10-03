@@ -1,0 +1,39 @@
+name: Update assets
+
+on:
+  # Allow to be run manually
+  workflow_dispatch:
+  schedule:
+  - cron: "0 19 * * *"
+
+jobs:
+  update-assets:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Upgrade assets
+      run: chmod +x ci/update_assets.sh && ci/update_assets.sh
+
+    - name: Check for uncommitted changes
+      id: check-changes
+      uses: mskri/check-uncommitted-changes-action@v1.0.1
+      
+    - name: Create Pull Request
+      if: steps.check-changes.outputs.outcome == failure()
+      id: cpr
+      uses: peter-evans/create-pull-request@v4
+      with:
+        base: develop
+        commit-message: Update assets
+        committer: GitHub <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        signoff: false
+        branch: auto-update-assets
+        delete-branch: true
+        title: 'chore: Update assets'
+        body: |
+          Automated update of asset cache

@@ -30,6 +30,10 @@
     "@stop": {},
     "finish": "Bitir",
     "@finish": {},
+    "calculate": "Hesapla",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Yemek tercihlerini sıfırla",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -274,7 +278,7 @@
     "support_join_slack": "Slack kanalımızda yardım isteyin",
     "support_via_email": "Bize bir e-posta gönder",
     "support_via_email_include_logs_dialog_title": "Uygulama günlükleri gönderilsin mi?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_body": "E-postanıza ek olarak uygulama günlüklerini eklemek ister misiniz?",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
     "about_this_app": "Bu uygulama hakkında",
@@ -320,9 +324,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Çeviriler, projenin temel görevlerinden biridir",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Open Food Facts'i arkadaşlarınızla paylaşın",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Kullanmakta olduğum uygulama olan Open Food Facts hakkında bilgi vermek istedim. Ambalaj üzerindeki barkodları okutarak çalışır. Ücretsizdir, kayıt gerektirmez ve şifresi çözülen ürün sayısını artırmaya yardımcı olabilirsiniz. İşte telefonunuza alabileceğiniz bağlantı: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -787,7 +791,7 @@
             }
         }
     },
-    "authorize_button_label": "Yetkilendir",
+    "authorize_button_label": "Yetkilendirme",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -926,7 +930,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Cihazınız barkodları okuyamıyorsa, lütfen bu modu deneyin.\n\nİyi çalışıyorsa, bu modu cihazınız için varsayılan mod yapmak için lütfen cihaz adınızı bize bildirin: {device}.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -959,7 +963,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "Etkinleştirildiğinde, uygulama kullanımıyla ilgili bazı anonim bilgiler Open Food Facts sunucularına gönderilir, böylece onları geliştirmek için özelliklerin nasıl ve ne kadar kullanıldığını anlayabiliriz.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1546,7 +1550,7 @@
     "@add_list_label": {
         "description": "Label for the add list button"
     },
-    "open_food_preferences_tooltip": "Edit your food preferences",
+    "open_food_preferences_tooltip": "Yemek tercihlerinizi düzenleyin",
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
@@ -1650,8 +1654,29 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
+    "portion_calculator_description": "Belirli bir miktar için besin değerlerini hesaplayın",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "{grams} g (veya ml) için besin değerleri",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
     "offline_data": "Çevrimdışı Veri",
     "@offline_data": {
         "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Sağlanan bilgileri otomatik olarak çıkarmak için bir resim yükleyin",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Fotoğraf Yükle",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
     }
 }

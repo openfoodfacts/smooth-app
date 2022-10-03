@@ -30,6 +30,10 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
+    "calculate": "Calculate",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Reset food preferences",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -721,7 +725,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -799,7 +803,7 @@
             }
         }
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Authorise",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -1662,8 +1666,29 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
+    "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
     "offline_data": "Offline Data",
     "@offline_data": {
         "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Upload Photo",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
     }
 }
