@@ -243,22 +243,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
-  Future<String?> _getTranslatedCountry() async {
-    if (_country == null) {
-      return null;
-    }
-    final String locale = Localizations.localeOf(context).languageCode;
-    final List<Country> localizedCountries =
-        await IsoCountries.iso_countries_for_locale(locale);
-    for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() ==
-          _country!.iso2Code.toLowerCase()) {
-        return country.name;
-      }
-    }
-    return null;
-  }
-
   Widget _getEmptyText(
     final ThemeData themeData,
     final String message,
@@ -266,32 +250,26 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        _getTopMessagesCard(),
-        Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                child: Text(
-                  message,
-                  textAlign: TextAlign.center,
-                  style:
-                      themeData.textTheme.subtitle1!.copyWith(fontSize: 18.0),
-                ),
-              ),
-              if (worldQuery != null)
-                _getLargeButtonWithIcon(
-                  _getWorldAction(appLocalizations, worldQuery),
-                ),
-            ],
+
+    return Padding(
+      padding: const EdgeInsets.all(SMALL_SPACE),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+            child: Text(
+              message,
+              textAlign: TextAlign.center,
+              style: themeData.textTheme.subtitle1!.copyWith(fontSize: 18.0),
+            ),
           ),
-        ),
-        EMPTY_WIDGET,
-      ],
+          if (worldQuery != null)
+            _getLargeButtonWithIcon(
+              _getWorldAction(appLocalizations, worldQuery),
+            ),
+        ],
+      ),
     );
   }
 
@@ -347,6 +325,22 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         );
       },
     );
+  }
+
+  Future<String?> _getTranslatedCountry() async {
+    if (_country == null) {
+      return null;
+    }
+    final String locale = Localizations.localeOf(context).languageCode;
+    final List<Country> localizedCountries =
+        await IsoCountries.iso_countries_for_locale(locale);
+    for (final Country country in localizedCountries) {
+      if (country.countryCode.toLowerCase() ==
+          _country!.iso2Code.toLowerCase()) {
+        return country.name;
+      }
+    }
+    return null;
   }
 
   Widget _getLargeButtonWithIcon(final _Action action) =>
