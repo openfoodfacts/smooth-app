@@ -270,8 +270,10 @@ class _SearchCardTagLine extends StatelessWidget {
             }
             return FutureBuilder<TagLineItem?>(
               future: _fetchData(),
-                  builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {               
-                 if (data.connectionState == ConnectionState.done && data.data == null) {
+              builder:
+                  (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
+                if (data.connectionState == ConnectionState.done &&
+                    data.data == null) {
                   return const _SearchCardTagLineDeprecatedAppText();
                 } else if (data.connectionState == ConnectionState.done) {
                   return _SearchCardTagLineText(
@@ -332,34 +334,36 @@ class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
       ),
-      child: 
-      SizedBox( height: 50,
+      child: SizedBox(
+        height: 50,
         child: Column(
           children: [
             Text(
               localizations.deprecated_header,
               textAlign: TextAlign.center,
-              style: const 
-              TextStyle(
+              style: const TextStyle(
                 color: Colors.red,
-              ),),
-                    Text(
+              ),
+            ),
+            Text(
               localizations.download_new_version,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.red,
-              ),),
-              TextButton(
-                onPressed: () {
-                  _openAppStore();
-                },
-                child: Text(
-                  localizations.click_here,
-                  textAlign: TextAlign.center,
-                  style: const 
-                  TextStyle(
-                    color: Colors.red,
-                  ),),),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                _openAppStore();
+              },
+              child: Text(
+                localizations.click_here,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.red,
+                ),
+              ),
+            ),
           ],
         ),
       ),
