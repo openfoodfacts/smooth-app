@@ -963,7 +963,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "Etkinleştirildiğinde, uygulama kullanımıyla ilgili bazı anonim bilgiler Open Food Facts sunucularına gönderilir, böylece onları geliştirmek için özelliklerin nasıl ve ne kadar kullanıldığını anlayabiliriz.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1550,7 +1550,7 @@
     "@add_list_label": {
         "description": "Label for the add list button"
     },
-    "open_food_preferences_tooltip": "Edit your food preferences",
+    "open_food_preferences_tooltip": "Yemek tercihlerinizi düzenleyin",
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
@@ -1654,7 +1654,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
+    "portion_calculator_description": "Belirli bir miktar için besin değerlerini hesaplayın",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },

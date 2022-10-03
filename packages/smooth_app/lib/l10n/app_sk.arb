@@ -12,13 +12,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Späť na začiatok",
     "save": "Uložiť",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Naozaj chcete uložiť?",
     "skip": "Skip",
     "cancel": "Zrušiť",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ignorovať",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -30,7 +30,7 @@
     "@stop": {},
     "finish": "Dokončiť",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "Vypočítať",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -44,7 +44,7 @@
     "@error_occurred": {},
     "featureInProgress": "Na tejto funkcii ešte pracujeme, zostaňte s nami",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Zobraziť na webe",
     "@label_web": {},
     "learnMore": "Zistiť viac",
     "@learnMore": {},
@@ -107,13 +107,13 @@
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Vitajte v službe Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts je globálna nezisková organizácia založená na miestnych komunitách.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Vyberte si potraviny, ktoré sú dobré pre vás a planétu.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -136,7 +136,7 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_username_or_email": "Zadajte používateľské meno alebo e-mail",
     "login_page_password_error_empty": "Prosím, zadajte heslo",
     "create_account": "Vytvoriť účet",
     "@create_account": {
@@ -146,7 +146,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Pre túto funkciu potrebujeme, aby ste sa prihlásili.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -154,7 +154,7 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Naozaj sa chcete odhlásiť?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -202,12 +202,12 @@
     "sign_up_page_display_name_error_empty": "Zadajte zobrazované meno, ktoré chcete použiť",
     "sign_up_page_email_hint": "Emailová adresa",
     "sign_up_page_email_error_empty": "E-mail je povinný",
-    "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_email_error_invalid": "Neplatný e-mail",
+    "sign_up_page_username_hint": "Používateľské meno: Verejne viditeľné",
     "sign_up_page_username_error_empty": "Prosím, zadajte užívateľské meno",
     "sign_up_page_username_error_invalid": "Zadajte platné užívateľské meno",
     "sign_up_page_username_description": "Používateľské meno nemôže obsahovať medzery, veľké písmená ani špeciálne znaky",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Používateľské meno nemôže presiahnuť {value} znakov",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -221,11 +221,11 @@
     "sign_up_page_confirm_password_hint": "Potvrdiť heslo",
     "sign_up_page_confirm_password_error_empty": "Prosím potvrďte heslo",
     "sign_up_page_confirm_password_error_invalid": "Heslá sa nezhodujú",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Súhlasím s Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "podmienkami používania a prispievaním",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -244,7 +244,7 @@
     "sign_up_page_producer_checkbox": "Som výrobca potravín",
     "sign_up_page_producer_hint": "Výrobca/značka",
     "sign_up_page_producer_error_empty": "Zadajte výrobcu alebo názov značky",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Chcem sa prihlásiť na odber noviniek Open Food Facts (z odberu sa môžete kedykoľvek odhlásiť)",
     "@Settings": {},
     "settingsTitle": "Nastavenia",
     "@settingsTitle": {
@@ -262,7 +262,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Východzie nastavenie systému",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
@@ -276,9 +276,9 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Požiadajte o pomoc na našom kanáli Slack",
-    "support_via_email": "Send us an e-mail",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email": "Pošlite nám e-mail",
+    "support_via_email_include_logs_dialog_title": "Chcete odoslať denníky aplikácie?",
+    "support_via_email_include_logs_dialog_body": "Prajete si zahrnúť denníky aplikácie do prílohy k vášmu e-mailu?",
     "termsOfUse": "Podmienky používania",
     "@termsOfUse": {},
     "about_this_app": "O tejto aplikácii",
@@ -298,8 +298,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Môžete sa pripojiť k diskusnej miestnosti Open Food Facts Slack, čo je preferovaný spôsob kladenia otázok.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "Režim DEV?",
+    "contribute_develop_dev_mode_subtitle": "Aktivujte režim DEV",
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Výrobky, ktoré sa majú dokončiť",
@@ -324,9 +324,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Preklady sú jednou z kľúčových úloh projektu",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Zdieľajte Open Food Facts so svojimi priateľmi",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Chcel by som ti dať vedieť o aplikácii ktorú používam - Open Food Facts - ktorá ti umožňuje personalizovaným spôsobom získať informácie o vplyve tvojho jedla na zdravie a životné prostredie. Funguje tak, že naskenuješ čiarový kód na obale. Je to zadarmo, nevyžaduje registráciu a dokonca môžeš pomôcť zvýšiť počet dešifrovaných produktov. Tu je odkaz na stiahnutie do telefónu: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -334,25 +334,25 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Ukladá sa vaša odpoveď",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Pomôžte zlepšiť transparentnosť potravín a získajte odmeny",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
-    "tap_to_edit_search": "Tap to edit search",
+    "question_sign_in_text": "Prihláste sa do svojho účtu Open Food Facts a získajte kredit za svoj príspevok",
+    "tap_to_edit_search": "Klepnutím upravíte vyhľadávanie",
     "@Personal preferences": {},
     "myPreferences": "My preferences",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Váš profil",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Spravujte svoj účet prispievateľa Open Food Facts.",
     "myPreferences_settings_title": "Nastavenia aplikácie",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "Tmavý režim, Analýzy,...",
     "myPreferences_food_title": "Potravinové preferencie",
     "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o jedle sú pre vás najdôležitejšie.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -1437,7 +1437,7 @@
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "terms of use and contribution",
+    "signup_page_terms_of_use_line2": "podmienkami používania a prispievaním",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
