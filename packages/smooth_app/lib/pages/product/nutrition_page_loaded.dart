@@ -426,7 +426,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                           ],
                         ),
                       ),
-                      negativeAction: SmoothActionButton(
+                      positiveAction: SmoothActionButton(
                         onPressed: () => Navigator.pop(context),
                         text: appLocalizations.cancel,
                       ),
