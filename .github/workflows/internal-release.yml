@@ -52,7 +52,7 @@ jobs:
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: echo ${{ steps.vars.outputs.normalized_tag }}
+          tag: ${{ steps.vars.outputs.normalized_tag }}
           message: "Internal release: ${{ env.VERSION_NAME }}-${{ env.VERSION_CODE }}"
 
       - name: Set output
