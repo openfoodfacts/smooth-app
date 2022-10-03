@@ -43,10 +43,15 @@ jobs:
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
 
+      - name: coolver
+        id: normalized_tag
+        run: echo ::set-output name=normalized_tag::$(echo "internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr '.' '_' )
+
+
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: echo "internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr '.' '_' 
+          tag: echo ${{ steps.vars.outputs.normalized_tag }}
           message: "Internal release: ${{ env.VERSION_NAME }}-${{ env.VERSION_CODE }}"
 
       - name: Set output
