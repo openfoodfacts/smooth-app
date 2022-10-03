@@ -45,14 +45,12 @@ jobs:
 
       - name: coolver
         id: normalized_tag
-        run: echo ::set-output name=normalized_tag::$(echo internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }} | tr '.' '_')
-        #run: echo "internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr '.' '_' | echo "::set-output name=normalized_tag::$( )"
-
+        run: echo NORMALIZED_TAG=$(internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }} | tr '.' '_')" >> $GITHUB_ENV
 
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: ${{ steps.vars.outputs.normalized_tag }}
+          tag: "${{ env.NORMALIZED_TAG }}"
           message: "Internal release: ${{ env.VERSION_NAME }}-${{ env.VERSION_CODE }}"
 
       - name: Set output
