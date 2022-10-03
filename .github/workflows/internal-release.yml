@@ -21,7 +21,7 @@ jobs:
 
       # Get the latest version name from file
       - name: Set VERSION_NAME env
-        run: echo "VERSION_NAME=$(cat version.txt)>> $GITHUB_ENV
+        run: echo "VERSION_NAME=$(cat version.txt)">> $GITHUB_ENV
         #run: echo "VERSION_NAME=1.9.0" >> $GITHUB_ENV
 
       - name: Decrypt Android API JSON file
