@@ -45,7 +45,7 @@ jobs:
 
       - name: coolver
         id: normalized_tag
-        run: echo NORMALIZED_TAG=$(internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }} | tr '.' '_')" >> $GITHUB_ENV
+        run: echo "NORMALIZED_TAG=$(internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }} | tr "." "_")" >> $GITHUB_ENV
 
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1
