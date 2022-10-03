@@ -251,6 +251,9 @@ class _SearchCardTagLine extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  static const String DEPRECATED_KEY = 'deprecated';
+  static const String TAG_LINE_KEY = 'tagline';
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -268,16 +271,19 @@ class _SearchCardTagLine extends StatelessWidget {
             if (preferences.isFirstScan) {
               return const _SearchCardTagLineDefaultText();
             }
-            return FutureBuilder<TagLineItem?>(
+            return FutureBuilder<Map<String, dynamic>>(
               future: _fetchData(),
-              builder:
-                  (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
+              builder: (BuildContext context,
+                  AsyncSnapshot<Map<String, dynamic>> data) {
                 if (data.connectionState == ConnectionState.done &&
-                    data.data == null) {
+                    data.data != null &&
+                    data.data![DEPRECATED_KEY] as bool) {
                   return const _SearchCardTagLineDeprecatedAppText();
-                } else if (data.connectionState == ConnectionState.done) {
+                } else if (data.connectionState == ConnectionState.done &&
+                    data.data != null &&
+                    data.data![TAG_LINE_KEY] != null) {
                   return _SearchCardTagLineText(
-                    tagLine: data.data as TagLineItem,
+                    tagLine: data.data![TAG_LINE_KEY] as TagLineItem,
                   );
                 } else {
                   return const _SearchCardTagLineDefaultText();
@@ -292,10 +298,11 @@ class _SearchCardTagLine extends StatelessWidget {
 
   /// We fetch first if the app is deprecated, then try to get the tagline
   /// Will return [false] if the app is deprecated or a [TagLineItem]
-  Future<TagLineItem?> _fetchData() async {
+  Future<Map<String, dynamic>> _fetchData() async {
     final bool deprecated = await _isApplicationDeprecated();
+    final TagLineItem? item = await fetchTagLine(Platform.localeName);
 
-    return fetchTagLine(Platform.localeName);
+    return <String, dynamic>{DEPRECATED_KEY: deprecated, TAG_LINE_KEY: item};
   }
 
   Future<bool> _isApplicationDeprecated() {
@@ -337,7 +344,7 @@ class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
       child: SizedBox(
         height: 50,
         child: Column(
-          children: [
+          children: <Widget>[
             Text(
               localizations.deprecated_header,
               textAlign: TextAlign.center,
