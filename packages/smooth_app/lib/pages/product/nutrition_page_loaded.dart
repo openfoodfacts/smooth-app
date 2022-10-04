@@ -15,6 +15,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -45,6 +46,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   late final NutritionContainer _nutritionContainer;
 
   late bool _noNutritionData;
+  final TextEditingController nutritonTextController = TextEditingController();
 
   // If true then serving, if false then 100g.
   bool _servingOr100g = false;
@@ -383,27 +385,24 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
                     return SmoothAlertDialog(
-                      close: true,
-                      title: appLocalizations.nutrition_page_add_nutrient,
                       body: SizedBox(
                         height: MediaQuery.of(context).size.height / 2,
                         width: MediaQuery.of(context).size.width,
                         child: Column(
                           children: <Widget>[
-                            TextField(
-                              decoration: InputDecoration(
-                                prefixIcon: const Icon(Icons.search),
-                                enabledBorder: const UnderlineInputBorder(),
-                                labelText: appLocalizations.search,
-                              ),
-                              onChanged: (String query) {
+                            SmoothTextFormField(
+                              prefixIcon: const Icon(Icons.search),
+                              hintText: appLocalizations.search,
+                              type: TextFieldTypes.PLAIN_TEXT,
+                              controller: nutritonTextController,
+                              onChanged: (String? query) {
                                 setState(
                                   () {
                                     filteredList = leftovers
                                         .where((OrderedNutrient item) => item
                                             .name!
                                             .toLowerCase()
-                                            .contains(query.toLowerCase()))
+                                            .contains(query!.toLowerCase()))
                                         .toList();
                                   },
                                 );
@@ -427,7 +426,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                           ],
                         ),
                       ),
-                      negativeAction: SmoothActionButton(
+                      positiveAction: SmoothActionButton(
                         onPressed: () => Navigator.pop(context),
                         text: appLocalizations.cancel,
                       ),

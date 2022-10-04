@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 
 class LanguageSelectorSettings extends StatelessWidget {
@@ -32,6 +33,8 @@ class LanguageSelectorSettings extends StatelessWidget {
         _languages.getLanguageNameInLanguageFromOpenFoodFactsLanguage(
       language,
     );
+    final TextEditingController languageSelectorController =
+        TextEditingController();
     return ListTile(
       leading: const Icon(Icons.language),
       title: Text(
@@ -61,13 +64,12 @@ class LanguageSelectorSettings extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: <Widget>[
-                        TextField(
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.search),
-                            enabledBorder: const UnderlineInputBorder(),
-                            labelText: appLocalizations.search,
-                          ),
-                          onChanged: (String query) {
+                        SmoothTextFormField(
+                          type: TextFieldTypes.PLAIN_TEXT,
+                          hintText: appLocalizations.search,
+                          prefixIcon: const Icon(Icons.search),
+                          controller: languageSelectorController,
+                          onChanged: (String? query) {
                             setState(
                               () {
                                 filteredList = leftovers
@@ -76,7 +78,7 @@ class LanguageSelectorSettings extends StatelessWidget {
                                             .getLanguageNameInEnglishFromOpenFoodFactsLanguage(
                                                 item)
                                             .toLowerCase()
-                                            .contains(query.toLowerCase()) ||
+                                            .contains(query!.toLowerCase()) ||
                                         _languages
                                             .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
                                                 item)
