@@ -203,18 +203,20 @@ class SearchCard extends StatelessWidget {
             width: height * 0.2,
             height: height * 0.2,
           ),
-          AutoSizeText(
-            localizations.welcomeToOpenFoodFacts,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 26.0,
-              fontWeight: FontWeight.bold,
-              height: 1.00,
+          Padding(
+            padding: const EdgeInsets.only(top: MEDIUM_SPACE),
+            child: AutoSizeText(
+              localizations.welcomeToOpenFoodFacts,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 26.0,
+                fontWeight: FontWeight.bold,
+                height: 1.00,
+              ),
+              maxLines: 1,
             ),
-            maxLines: 1,
           ),
           const Expanded(child: _SearchCardTagLine()),
-          const Expanded(child: _SearchCardTagLineDeprecatedAppText()),
           SearchField(
             onFocus: () => _openSearchPage(context),
             readOnly: true,
@@ -246,6 +248,9 @@ class SearchCard extends StatelessWidget {
 ///
 /// After that initial scan, the tagline will displayed if possible,
 /// or [_SearchCardTagLineDefaultText] in all cases (loading, error…)
+///
+/// Shows a warning instead of the TagLine if the app identifier is not the one
+/// from the official listing.
 class _SearchCardTagLine extends StatelessWidget {
   const _SearchCardTagLine({
     Key? key,
@@ -275,19 +280,22 @@ class _SearchCardTagLine extends StatelessWidget {
               future: _fetchData(),
               builder: (BuildContext context,
                   AsyncSnapshot<Map<String, dynamic>> data) {
-                if (data.connectionState == ConnectionState.done &&
-                    data.data != null &&
-                    data.data![DEPRECATED_KEY] as bool) {
+                if (data.connectionState != ConnectionState.done ||
+                    data.data == null ||
+                    !data.hasData) {
+                  return const _SearchCardTagLineDefaultText();
+                }
+
+                if (data.data![DEPRECATED_KEY] as bool) {
                   return const _SearchCardTagLineDeprecatedAppText();
-                } else if (data.connectionState == ConnectionState.done &&
-                    data.data != null &&
-                    data.data![TAG_LINE_KEY] != null) {
+                }
+
+                if (data.data![TAG_LINE_KEY] != null) {
                   return _SearchCardTagLineText(
                     tagLine: data.data![TAG_LINE_KEY] as TagLineItem,
                   );
-                } else {
-                  return const _SearchCardTagLineDefaultText();
                 }
+                return const _SearchCardTagLineDefaultText();
               },
             );
           },
@@ -297,7 +305,7 @@ class _SearchCardTagLine extends StatelessWidget {
   }
 
   /// We fetch first if the app is deprecated, then try to get the tagline
-  /// Will return [false] if the app is deprecated or a [TagLineItem]
+  /// Return a map with keys: [DEPRECATED_KEY]<bool> & [TAG_LINE_KEY]<TagLineItem?>
   Future<Map<String, dynamic>> _fetchData() async {
     final bool deprecated = await _isApplicationDeprecated();
     final TagLineItem? item = await fetchTagLine(Platform.localeName);
@@ -319,12 +327,14 @@ class _SearchCardTagLineDefaultText extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10.0,
-      ),
-      child: AutoSizeText(
-        localizations.searchPanelHeader,
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10.0,
+        ),
+        child: AutoSizeText(
+          localizations.searchPanelHeader,
+        ),
       ),
     );
   }
@@ -336,7 +346,6 @@ class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
@@ -427,10 +436,12 @@ class _SearchCardTagLineText extends StatelessWidget {
               }
             }
           : null,
-      child: AutoSizeText(
-        tagLine.message,
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.primary,
+      child: Center(
+        child: AutoSizeText(
+          tagLine.message,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+          ),
         ),
       ),
     );
