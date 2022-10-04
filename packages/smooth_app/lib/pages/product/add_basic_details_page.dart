@@ -35,30 +35,29 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late Product _product;
-
-  @override
-  void initState() {
-    super.initState();
-    _product = widget.product;
-    _initializeProduct();
-  }
+  late AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   void _initializeProduct() {
+    _product = widget.product;
     _productNameController.text = _product.productName ?? '';
     _weightController.text = _product.quantity ?? '';
-    _brandNameController.text = formatProductBrands(_product.brands ?? '');
+    _brandNameController.text = _formatProductBrands(_product.brands);
   }
 
   /// Sets a [Product] with the values from the text fields.
   void _setChangedProduct(Product product) {
     product.productName = _productNameController.text;
     product.quantity = _weightController.text;
-    product.brands = formatProductBrands(_brandNameController.text);
+    product.brands = _formatProductBrands(_brandNameController.text);
+  }
+
+  String _formatProductBrands(String? text) {
+    return text == null ? '' : formatProductBrands(text, appLocalizations);
   }
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    _initializeProduct();
     final Size size = MediaQuery.of(context).size;
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final UpToDateProductProvider provider =

@@ -6,8 +6,6 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 
-RegExp _commaRegex = RegExp(r'\s*,\s*');
-
 String getProductName(Product product, AppLocalizations appLocalizations) =>
     product.productName ?? appLocalizations.unknownProductName;
 
@@ -16,13 +14,18 @@ String getProductBrands(Product product, AppLocalizations appLocalizations) {
   if (brands == null) {
     return appLocalizations.unknownBrand;
   } else {
-    return formatProductBrands(brands);
+    return formatProductBrands(brands, appLocalizations);
   }
 }
 
-String formatProductBrands(String brands) =>
-    // Correctly format commas between words
-    brands.replaceAll(_commaRegex, ', ');
+/// Correctly format word separators between words (e.g. comma in English)
+String formatProductBrands(String brands, AppLocalizations appLocalizations) {
+  final String separator = appLocalizations.word_separator;
+  final String separatorChar =
+      RegExp.escape(appLocalizations.word_separator_char);
+  final RegExp regex = RegExp('\\s*$separatorChar\\s*');
+  return brands.replaceAll(regex, separator);
+}
 
 /// Padding to be used while building the SmoothCard on any Product card.
 const EdgeInsets SMOOTH_CARD_PADDING = EdgeInsets.symmetric(
