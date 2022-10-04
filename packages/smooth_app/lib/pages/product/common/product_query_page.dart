@@ -42,6 +42,8 @@ class ProductQueryPage extends StatefulWidget {
 
 class _ProductQueryPageState extends State<ProductQueryPage>
     with TraceableClientMixin {
+  static const int OVERSCROLL_TEMPLATE_COUNT = 1;
+
   bool _showBackToTopButton = false;
   late ScrollController _scrollController;
 
@@ -61,13 +63,15 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     _country = widget.productListSupplier.productQuery.country;
     _scrollController = ScrollController()
       ..addListener(() {
-        setState(() {
-          if (_scrollController.offset >= 400) {
-            _showBackToTopButton = true;
-          } else {
-            _showBackToTopButton = false;
+        if (_scrollController.offset >= 400) {
+          if (!_showBackToTopButton) {
+            setState(() {});
           }
-        });
+          _showBackToTopButton = true;
+        } else if (_showBackToTopButton) {
+          setState(() {});
+          _showBackToTopButton = false;
+        }
       });
   }
 
@@ -79,19 +83,25 @@ class _ProductQueryPageState extends State<ProductQueryPage>
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Size screenSize = MediaQuery.of(context).size;
+    final ThemeData themeData = Theme.of(context);
+
     return ChangeNotifierProvider<ProductQueryModel>.value(
       value: _model,
-      builder: (BuildContext context, Widget? wtf) {
+      builder: (BuildContext context, _) {
         context.watch<ProductQueryModel>();
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final Size screenSize = MediaQuery.of(context).size;
-        final ThemeData themeData = Theme.of(context);
+
         switch (_model.loadingStatus) {
+          // TODO(m123): Don't block the whole screen, just the not loaded part
           case LoadingStatus.ERROR:
             return _getErrorWidget(
-                screenSize, themeData, '${_model.loadingError}');
+              screenSize,
+              themeData,
+              '${_model.loadingError}',
+            );
           case LoadingStatus.LOADING:
-            if (!_model.isNotEmpty()) {
+            if (_model.isEmpty()) {
               return _EmptyScreen(
                 screenSize: screenSize,
                 name: widget.name,
@@ -100,7 +110,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             }
             break;
           case LoadingStatus.LOADED:
-            if (!_model.isNotEmpty()) {
+            if (_model.isEmpty()) {
               // TODO(monsieurtanuki): should be tracked as well, shouldn't it?
               return _EmptyScreen(
                 screenSize: screenSize,
@@ -112,7 +122,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 actions: _getAppBarButtons(),
               );
             }
-            // TODO(monsieurtanuki): add country, language?
             AnalyticsHelper.trackSearch(
               search: widget.name,
               searchCount: _model.displayBarcodes.length,
@@ -195,35 +204,61 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           onRefresh: () => refreshList(),
           child: ListView.builder(
             controller: _scrollController,
+            // To allow refresh even when not the whole page is filled
+            physics: const AlwaysScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
                 // on top, a message
                 return _getTopMessagesCard();
               }
               index--;
+
+              final int barcodesCount = _model.displayBarcodes.length;
+
               // TODO(monsieurtanuki): maybe call it earlier, like for first unknown page index - 5?
-              if (index >= _model.displayBarcodes.length) {
+              if (index >= barcodesCount) {
                 _downloadNextPage();
               }
-              if (index >= _model.displayBarcodes.length) {
+
+              if (index >= barcodesCount) {
                 // TODO(monsieurtanuki): maybe display something specific for data being downloaded (the next page) and unknown data (beyond next page)
-                return const SmoothProductCardTemplate();
+
+                // (+1) index starts with 0
+                final int overIndexCount = index + 1 - barcodesCount;
+
+                if (overIndexCount <= OVERSCROLL_TEMPLATE_COUNT) {
+                  return const SmoothProductCardTemplate();
+                } else if (overIndexCount == 1 + OVERSCROLL_TEMPLATE_COUNT) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (overIndexCount > 1 + OVERSCROLL_TEMPLATE_COUNT) {
+                  return SizedBox(
+                    height: MediaQuery.of(context).size.height / 4,
+                  );
+                }
               }
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: MEDIUM_SPACE,
-                  vertical: SMALL_SPACE,
-                ),
-                child: ProductListItemSimple(
-                  barcode: _model.displayBarcodes[index],
-                ),
+              return ProductListItemSimple(
+                barcode: _model.displayBarcodes[index],
               );
             },
-            // 1 additional widget, on top of ALL expected products
-            itemCount: _model.supplier.partialProductList.totalSize + 1,
+
+            itemCount: getItemCount(),
           ),
         ),
       );
+
+  int getItemCount() {
+    //  1 additional widget, on top of ALL expected products
+    final int count = _model.displayBarcodes.length + 1;
+
+    // +x loading tiles
+    // +2 further indicator that more products are loading and some space below
+    // but only while more are possible
+    if (_model.supplier.partialProductList.totalSize >
+        _model.displayBarcodes.length) {
+      return count + OVERSCROLL_TEMPLATE_COUNT + 2;
+    }
+    return count;
+  }
 
   Widget _getErrorWidget(
     final Size screenSize,
@@ -381,7 +416,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           final bool? success =
               await _loadAndRefreshDisplay(_model.loadFromTop());
           if (success == true) {
-            _scrollToTop();
+            _scrollToTop(instant: true);
           }
         },
       );
@@ -401,12 +436,16 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
-  void _scrollToTop() {
-    _scrollController.animateTo(
-      0,
-      duration: SnackBarDuration.medium,
-      curve: Curves.linear,
-    );
+  void _scrollToTop({bool instant = false}) {
+    if (instant) {
+      _scrollController.jumpTo(0);
+    } else {
+      _scrollController.animateTo(
+        0,
+        duration: SnackBarDuration.medium,
+        curve: Curves.linear,
+      );
+    }
   }
 
   Future<bool?> _loadAndRefreshDisplay(final Future<bool> loader) async {
