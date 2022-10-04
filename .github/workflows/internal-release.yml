@@ -43,11 +43,17 @@ jobs:
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
 
+      - name: Normalized tag
+        id: normalized_tag
+        run: echo "NORMALIZED_TAG=$(echo "internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr "." "_")" >> $GITHUB_ENV
+
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1
+        continue-on-error: true
         with:
-          tag: "Internal: ${{ env.VERSION_NAME }}.${{ env.VERSION_CODE }}"
-          message: "Internal release: ${{ env.VERSION_NAME }}.${{ env.VERSION_CODE }}"
+          tag: "${{ env.NORMALIZED_TAG }}"
+          message: "Internal release: ${{ env.VERSION_NAME }}-${{ env.VERSION_CODE }}"
+          force_push_tag: true
 
       - name: Set output
         id: set_output
@@ -60,8 +66,8 @@ jobs:
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
-      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
-      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
@@ -78,8 +84,8 @@ jobs:
     uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
-      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
-      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
