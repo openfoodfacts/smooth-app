@@ -42,7 +42,7 @@ class _ProductListPageState extends State<ProductListPage>
   static const String _popupActionRename = 'rename';
 
   @override
-  String get traceName => 'Opened list_page ${widget.productList.listType}';
+  String get traceName => 'Opened list_page';
 
   @override
   String get traceTitle => 'list_page';
