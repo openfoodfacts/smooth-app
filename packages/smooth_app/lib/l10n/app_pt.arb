@@ -560,6 +560,18 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "deprecated_header": "You are using a deprecated version of the app.",
+    "@deprecated_header": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "click_here": "Clique aqui",
+    "@click_here": {
+        "description": "Confirmation click to download new version of the app"
+    },
+    "download_new_version": "Download the new version of the app",
+    "@download_new_version": {
+        "description": "Download new version of the app text"
+    },
     "could_not_refresh": "Não foi possível atualizar o produto",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -914,7 +926,7 @@
     "settings_app_data": "Privacidade e monitoramento",
     "settings_app_camera": "Câmera",
     "settings_app_products": "Produtos",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Diversos",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -943,11 +955,11 @@
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "app_haptic_feedback_title": "Intensidade da vibração e da resposta tátil",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Vibração após executar algumas ações (código de barras decodificado, produto removido…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1650,7 +1662,7 @@
     },
     "all_images": "Todas as imagens",
     "selected_images": "Imagens seleccionadas",
-    "product_card_remove_product_tooltip": "Remove product",
+    "product_card_remove_product_tooltip": "Remover Produto",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
