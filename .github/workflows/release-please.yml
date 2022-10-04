@@ -8,6 +8,7 @@ on:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    if: github.owner == openfoodfacts
     outputs:
       release_created: ${{ steps.release_please.outputs.release_created }}
       major: ${{ steps.release_please.outputs.major }}
