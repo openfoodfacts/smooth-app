@@ -12,6 +12,9 @@ on:
       VERSION_CODE:
         required: true
         type: string
+      RELEASE_TAG:
+        required: false
+        type: string
     secrets:
       API_JSON_FILE_DECRYPTKEY:
         required: true
@@ -89,6 +92,16 @@ jobs:
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        if: github.event.inputs.RELEASE_TAG != ''
+        continue-on-error: true
+        with:
+          file: ./packages/smooth_app/build/app/outputs/bundle/release/app-release.aab
+          asset_name: android-release-${{ inputs.RELEASE_TAG }}.apk
+          tag: ${{ inputs.RELEASE_TAG }}
+          overwrite: true
 
       - name: Release AAB
         uses: maierj/fastlane-action@v2.2.1
