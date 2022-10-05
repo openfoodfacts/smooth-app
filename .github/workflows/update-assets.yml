@@ -8,6 +8,7 @@ on:
 
 jobs:
   update-assets:
+    if: github.owner == openfoodfacts
     runs-on: ubuntu-latest
 
     steps:

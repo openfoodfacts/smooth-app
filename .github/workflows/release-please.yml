@@ -14,6 +14,7 @@ jobs:
       major: ${{ steps.release_please.outputs.major }}
       minor: ${{ steps.release_please.outputs.minor }}
       patch: ${{ steps.release_please.outputs.patch }}
+      tag_name: ${{ steps.release_please.outputs.tag_name }}
     steps:
       - name: Release-please
         uses: google-github-actions/release-please-action@v3
@@ -75,6 +76,8 @@ jobs:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.3.x'
+      RELEASE_TYPE: 'PLAY'
+      BUILD_TYPE: 'appbundle'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
@@ -106,3 +109,25 @@ jobs:
       SPACESHIP_CONNECT_API_ISSUER_ID: ${{secrets.SPACESHIP_CONNECT_API_ISSUER_ID }}
       SPACESHIP_CONNECT_API_KEY_ID: ${{secrets.SPACESHIP_CONNECT_API_KEY_ID }}
       AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
+
+  android-release-github:
+    concurrency: 
+      group: android-release-github
+      cancel-in-progress: false
+    uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
+    needs: [release-please, create-release]
+    if: ${{ needs.release-please.outputs.release_created }}
+    with:
+      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
+      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
+      FLUTTER-CACHE-KEY: '3.3.x'
+      RELEASE_TYPE: 'GITHUB'
+      BUILD_TYPE: 'apk'
+      TAG_NAME: ${{ needs.create-release.outputs.tag_name}}
+    secrets:
+      API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
+      DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
+      STORE_JKS_DECRYPTKEY: ${{secrets.NEW_CYPHER }}
+      SIGN_STORE_PASSWORD: ${{secrets.DECRYPT_FOR_SCANNER_FILE }}
+      SIGN_KEY_ALIAS: ${{secrets.ALIAS_FOR_SCANNER }}
+      SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
