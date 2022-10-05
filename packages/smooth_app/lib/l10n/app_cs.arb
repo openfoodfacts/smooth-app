@@ -560,6 +560,18 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "deprecated_header": "Používáte zastaralou verzi aplikace.",
+    "@deprecated_header": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "click_here": "Klikněte zde",
+    "@click_here": {
+        "description": "Confirmation click to download new version of the app"
+    },
+    "download_new_version": "Stáhněte si novou verzi aplikace",
+    "@download_new_version": {
+        "description": "Download new version of the app text"
+    },
     "could_not_refresh": "Produkt se nepodařilo obnovit",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"

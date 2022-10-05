@@ -10,7 +10,7 @@ jobs:
     concurrency: 
       group: release
       cancel-in-progress: true
-    if: "!contains(github.event.commits[0].message, 'chore(develop): release')"
+    if: "!contains(github.event.commits[0].message, 'chore(develop): release') && github.owner == openfoodfacts" 
     runs-on: ubuntu-latest
     outputs:
       VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
@@ -49,9 +49,11 @@ jobs:
 
       - name: Tag commit
         uses: rickstaa/action-create-tag@v1
+        continue-on-error: true
         with:
           tag: "${{ env.NORMALIZED_TAG }}"
           message: "Internal release: ${{ env.VERSION_NAME }}-${{ env.VERSION_CODE }}"
+          force_push_tag: true
 
       - name: Set output
         id: set_output
@@ -64,9 +66,11 @@ jobs:
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
-      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
-      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.3.x'
+      RELEASE_TYPE: 'PLAY'
+      BUILD_TYPE: 'appbundle'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
@@ -82,8 +86,8 @@ jobs:
     uses: openfoodfacts/smooth-app/.github/workflows/ios-release-to-org-openfoodfacts-scanner.yml@develop
     needs: tag-commit
     with:
-      VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
-      VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
+      VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
+      VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
