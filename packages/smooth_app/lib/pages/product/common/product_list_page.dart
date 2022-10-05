@@ -275,9 +275,8 @@ class _ProductListPageState extends State<ProductListPage>
     final Widget child = InkWell(
       onTap: _selectionMode ? onTap : null,
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: _selectionMode ? 0 : MEDIUM_SPACE,
-          vertical: SMALL_SPACE,
+        padding: EdgeInsets.only(
+          left: _selectionMode ? SMALL_SPACE : 0,
         ),
         child: Row(
           children: <Widget>[

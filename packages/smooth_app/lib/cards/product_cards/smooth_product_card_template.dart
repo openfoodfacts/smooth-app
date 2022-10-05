@@ -20,6 +20,8 @@ class SmoothProductCardTemplate extends StatelessWidget {
   final String? barcode;
   final Widget? actionButton;
 
+  // TODO(m123): Animate
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -41,6 +43,10 @@ class SmoothProductCardTemplate extends StatelessWidget {
       color: itemColor,
     );
     return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: MEDIUM_SPACE,
+        vertical: SMALL_SPACE,
+      ),
       decoration: BoxDecoration(
         borderRadius: ROUNDED_BORDER_RADIUS,
         color: backgroundColor,
