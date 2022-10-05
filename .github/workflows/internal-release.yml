@@ -10,7 +10,7 @@ jobs:
     concurrency: 
       group: release
       cancel-in-progress: true
-    if: "!contains(github.event.commits[0].message, 'chore(develop): release')"
+    if: "!contains(github.event.commits[0].message, 'chore(develop): release') && github.owner == openfoodfacts" 
     runs-on: ubuntu-latest
     outputs:
       VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
@@ -69,6 +69,8 @@ jobs:
       VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
       FLUTTER-CACHE-KEY: '3.3.x'
+      RELEASE_TYPE: 'PLAY'
+      BUILD_TYPE: 'appbundle'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
