@@ -560,7 +560,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "You are using a deprecated version of the app.",
+    "deprecated_header": "Naudojate pasenusią programėlės versiją.",
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
@@ -568,7 +568,7 @@
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
-    "download_new_version": "Download the new version of the app",
+    "download_new_version": "Atsisiųskite naują programėlės versiją",
     "@download_new_version": {
         "description": "Download new version of the app text"
     },
@@ -959,7 +959,7 @@
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Vibracijos atlikus kai kuriuos veiksmus (brūkšninis kodas iššifruotas, produktas pašalintas…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1061,7 +1061,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Pridėkite visas kilmės nuorodas, kurias rasite ant pakuotės. Jums nereikia jaudintis dėl kilmės, nurodytos tiesiogiai ingredientų sąraše.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
@@ -1077,7 +1077,7 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations": "Šalys, kuriose produktas yra plačiai prieinamas (neįskaitant parduotuvių, kurių specializacija yra užsienio produktai).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1089,7 +1089,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "Europoje koduokite elipsės pavidalu su 2 šalių inicialais, po kurių seka skaičius ir CE.\nPavyzdžiai: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
@@ -1101,19 +1101,19 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Nurodykite tik konkrečiausią kategoriją. Tėvų kategorijos bus pridėtos automatiškai.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Jei kategorija nepasiekiama automatinio užbaigimo funkcija, nedvejodami pridėkite ją, nes tai padės mums patobulinti „Open Food Facts“ jūsų šalyje.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Pavyzdžiai: sardinės alyvuogių aliejuje, apelsinų sultys iš koncentrato",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation": "Ar norite išsaugoti pakeitimus prieš išeidami iš šio puslapio?",
     "edit_product_form_item_exit_confirmation_positive_button": "Išsaugoti mano pakeitimus",
     "edit_product_form_item_exit_confirmation_negative_button": "Ignoruoti mano pakeitimus",
     "edit_product_form_item_ingredients_title": "Ingredientai ir kilmė",
@@ -1139,7 +1139,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "completed_basic_details_btn_text": "Complete basic details",
+    "completed_basic_details_btn_text": "Užpildyti pagrindinę informaciją",
     "not_implemented_snackbar_text": "Dar neįgyvendinta",
     "category_picker_page_appbar_text": "Kategorijos",
     "edit_ingredients_extrait_ingredients_btn_text": "Nuskaityti ingredientus",
@@ -1243,11 +1243,11 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart Flutter to see it again.",
+    "dev_preferences_reset_onboarding_subtitle": "Tada turite iš naujo paleisti „Flutter“, kad pamatytumėte dar kartą.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
-    "dev_preferences_environment_switch_title": "Switch between openfoodfacts.org (PROD) and test env",
+    "dev_preferences_environment_switch_title": "Perjunkite tarp openfoodfacts.org (PROD) ir testavimo env",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
     },
@@ -1260,7 +1260,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test env parameters",
+    "dev_preferences_test_environment_title": "Testuoti env parametrus",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1330,7 +1330,7 @@
             }
         }
     },
-    "dev_preferences_migration_status_already_done": "success or fresh install",
+    "dev_preferences_migration_status_already_done": "sėkmė arba naujas įdiegimas",
     "dev_preferences_migration_status_success": "pavyko",
     "dev_preferences_migration_status_error": "klaida",
     "dev_preferences_migration_status_in_progress": "vykdoma",
@@ -1373,11 +1373,11 @@
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "Camera stream and full image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_full_image": "Kameros srautas ir visas išankstinis vaizdo apdorojimas, jokio nuskaitymo",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_half_image": "Išankstinis fotoaparato srauto ir pusės vaizdo apdorojimas, jokio nuskaitymo",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
@@ -1475,7 +1475,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Complete basic details",
+    "summary_card_button_add_basic_details": "Užpildyti pagrindinę informaciją",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
@@ -1551,7 +1551,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, =0{Tusčias sąrašas} =1{Vienas produktas} other{{count} produktų}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
@@ -1562,7 +1562,7 @@
     "@add_list_label": {
         "description": "Label for the add list button"
     },
-    "open_food_preferences_tooltip": "Edit your food preferences",
+    "open_food_preferences_tooltip": "Redaguokite savo maisto pageidavimus",
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
@@ -1603,7 +1603,7 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "image_upload_queued": "Produktas bus kuo greičiau atnaujintas fone.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
