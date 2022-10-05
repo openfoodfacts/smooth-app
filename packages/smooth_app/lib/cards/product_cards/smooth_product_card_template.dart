@@ -42,62 +42,60 @@ class SmoothProductCardTemplate extends StatelessWidget {
       width: svgWidth,
       color: itemColor,
     );
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: MEDIUM_SPACE,
         vertical: SMALL_SPACE,
       ),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          color: backgroundColor,
-        ),
-        child: SmoothCard(
-          elevation: SmoothProductCardFound.elevation,
-          color: Colors.transparent,
-          padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-          child: Row(
-            children: <Widget>[
-              SmoothImage(
-                width: screenSize.width * 0.20,
-                height: screenSize.width * 0.20,
-                color: itemColor,
-              ),
-              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-              Expanded(
-                child: SizedBox(
-                  height: screenSize.width * 0.2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      if (barcode == null) textWidget else Text(barcode!),
-                      if (message == null) textWidget,
-                      if (message == null) textWidget,
-                      if (message != null) AutoSizeText(message!, maxLines: 3),
-                    ],
-                  ),
+      decoration: BoxDecoration(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        color: backgroundColor,
+      ),
+      child: SmoothCard(
+        elevation: SmoothProductCardFound.elevation,
+        color: Colors.transparent,
+        padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+        child: Row(
+          children: <Widget>[
+            SmoothImage(
+              width: screenSize.width * 0.20,
+              height: screenSize.width * 0.20,
+              color: itemColor,
+            ),
+            const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+            Expanded(
+              child: SizedBox(
+                height: screenSize.width * 0.2,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    if (barcode == null) textWidget else Text(barcode!),
+                    if (message == null) textWidget,
+                    if (message == null) textWidget,
+                    if (message != null) AutoSizeText(message!, maxLines: 3),
+                  ],
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-              Padding(
-                padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                child: actionButton == null
-                    ? Column(
-                        children: <Widget>[
-                          svgWidget,
-                          Container(height: iconSize * .2),
-                          svgWidget,
-                        ],
-                      )
-                    : SizedBox(
-                        width: svgWidth,
-                        height: iconSize * (.9 * 2 + .2),
-                        child: actionButton,
-                      ),
-              ),
-            ],
-          ),
+            ),
+            const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+            Padding(
+              padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+              child: actionButton == null
+                  ? Column(
+                      children: <Widget>[
+                        svgWidget,
+                        Container(height: iconSize * .2),
+                        svgWidget,
+                      ],
+                    )
+                  : SizedBox(
+                      width: svgWidth,
+                      height: iconSize * (.9 * 2 + .2),
+                      child: actionButton,
+                    ),
+            ),
+          ],
         ),
       ),
     );

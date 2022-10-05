@@ -42,7 +42,7 @@ class ProductQueryPage extends StatefulWidget {
 
 class _ProductQueryPageState extends State<ProductQueryPage>
     with TraceableClientMixin {
-  static const int OVERSCROLL_TEMPLATE_COUNT = 1;
+  static const int _OVERSCROLL_TEMPLATE_COUNT = 1;
 
   bool _showBackToTopButton = false;
   late ScrollController _scrollController;
@@ -63,14 +63,16 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     _country = widget.productListSupplier.productQuery.country;
     _scrollController = ScrollController()
       ..addListener(() {
+        // Also checking for the value of [_showBackToTopButton] to not rebuild
+        // on every scroll call
         if (_scrollController.offset >= 400) {
           if (!_showBackToTopButton) {
+            _showBackToTopButton = true;
             setState(() {});
           }
-          _showBackToTopButton = true;
         } else if (_showBackToTopButton) {
-          setState(() {});
           _showBackToTopButton = false;
+          setState(() {});
         }
       });
   }
@@ -98,7 +100,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             return _getErrorWidget(
               screenSize,
               themeData,
-              '${_model.loadingError}',
+              _model.loadingError ?? '',
             );
           case LoadingStatus.LOADING:
             if (_model.isEmpty()) {
@@ -205,7 +207,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           child: ListView.builder(
             controller: _scrollController,
             // To allow refresh even when not the whole page is filled
-            physics: const AlwaysScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
                 // on top, a message
@@ -221,32 +222,35 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               }
 
               if (index >= barcodesCount) {
-                // TODO(monsieurtanuki): maybe display something specific for data being downloaded (the next page) and unknown data (beyond next page)
+                // When scrolling below the last loaded item (index > barcodesCount)
+                // We first show a [SmoothProductCardTemplate]
+                // and after that a loading indicator + some space below it as the next item.
 
-                // (+1) index starts with 0
-                final int overIndexCount = index + 1 - barcodesCount;
+                // The amount you scrolled over the index
+                final int overscrollIndex =
+                    index - barcodesCount + 1 - _OVERSCROLL_TEMPLATE_COUNT;
 
-                if (overIndexCount <= OVERSCROLL_TEMPLATE_COUNT) {
+                if (overscrollIndex <= 0) {
                   return const SmoothProductCardTemplate();
-                } else if (overIndexCount == 1 + OVERSCROLL_TEMPLATE_COUNT) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (overIndexCount > 1 + OVERSCROLL_TEMPLATE_COUNT) {
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height / 4,
-                  );
                 }
+                if (overscrollIndex == 1) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height / 4,
+                );
               }
               return ProductListItemSimple(
                 barcode: _model.displayBarcodes[index],
               );
             },
 
-            itemCount: getItemCount(),
+            itemCount: _getItemCount(),
           ),
         ),
       );
 
-  int getItemCount() {
+  int _getItemCount() {
     //  1 additional widget, on top of ALL expected products
     final int count = _model.displayBarcodes.length + 1;
 
@@ -255,7 +259,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     // but only while more are possible
     if (_model.supplier.partialProductList.totalSize >
         _model.displayBarcodes.length) {
-      return count + OVERSCROLL_TEMPLATE_COUNT + 2;
+      return count + _OVERSCROLL_TEMPLATE_COUNT + 2;
     }
     return count;
   }
