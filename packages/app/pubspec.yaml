@@ -19,6 +19,7 @@ dependencies:
 dependency_overrides:
   path: 1.8.0
   meta: 1.7.0
+  typed_data: 1.3.0
 
 flutter:
   generate: true

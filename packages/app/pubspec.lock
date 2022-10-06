@@ -132,14 +132,14 @@ packages:
       name: characters
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   clock:
     dependency: transitive
     description:
       name: clock
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   collection:
     dependency: transitive
     description:
@@ -441,7 +441,7 @@ packages:
       name: fwfh_text_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.22.08"
+    version: "2.22.08+1"
   google_mlkit_barcode_scanning:
     dependency: transitive
     description:
@@ -630,7 +630,7 @@ packages:
       name: material_color_utilities
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.4"
+    version: "0.1.5"
   matomo_tracker:
     dependency: transitive
     description:
@@ -1055,7 +1055,7 @@ packages:
       path: "../smooth_app"
       relative: true
     source: path
-    version: "0.0.0+600"
+    version: "0.0.0+734"
   source_span:
     dependency: transitive
     description:
@@ -1129,7 +1129,7 @@ packages:
     source: hosted
     version: "2.0.0"
   typed_data:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: typed_data
       url: "https://pub.dartlang.org"
@@ -1277,4 +1277,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.17.6 <3.0.0"
-  flutter: ">=3.0.0"
+  flutter: ">=3.1.0-0"
