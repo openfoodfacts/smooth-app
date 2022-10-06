@@ -1,0 +1,25 @@
+name: app
+description: The next generation of the Open Food Facts mobile apps.
+version: 0.0.0+600
+publish_to: "none"
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: 0.17.0
+  smooth_app:
+    path: ../smooth_app
+
+dependency_overrides:
+  path: 1.8.0
+  meta: 1.7.0
+
+flutter:
+  generate: true
+  uses-material-design: true

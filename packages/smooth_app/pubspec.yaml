@@ -99,9 +99,6 @@ dev_dependencies:
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 
-dependency_overrides:
-  path: 1.8.0
-  meta: 1.7.0
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
@@ -140,7 +137,6 @@ flutter_native_splash:
     icon_background_color_dark: "#333333"
 
 flutter:
-  uses-material-design: true
   generate: true
 
   assets:

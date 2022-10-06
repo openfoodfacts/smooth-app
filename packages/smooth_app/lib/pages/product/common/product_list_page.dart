@@ -14,6 +14,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
@@ -184,6 +185,7 @@ class _ProductListPageState extends State<ProductListPage>
                     SvgPicture.asset(
                       'assets/misc/empty-list.svg',
                       height: MediaQuery.of(context).size.height * .4,
+                      package: AppHelper.APP_PACKAGE,
                     ),
                     Text(
                       appLocalizations.product_list_empty_title,

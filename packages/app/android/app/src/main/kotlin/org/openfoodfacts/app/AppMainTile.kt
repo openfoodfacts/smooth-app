@@ -5,7 +5,7 @@ import android.os.Build
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import androidx.annotation.RequiresApi
-import org.openfoodfacts.scanner.MainActivity
+import org.openfoodfacts.app.MainActivity
 
 @RequiresApi(Build.VERSION_CODES.N)
 class AppMainTile : TileService() {

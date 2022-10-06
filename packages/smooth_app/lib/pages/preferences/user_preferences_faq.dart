@@ -5,6 +5,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
@@ -106,6 +107,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                   SvgPicture.asset(
                     logo,
                     width: MediaQuery.of(context).size.width * 0.1,
+                    package: AppHelper.APP_PACKAGE,
                   ),
                   const SizedBox(width: SMALL_SPACE),
                   Expanded(
