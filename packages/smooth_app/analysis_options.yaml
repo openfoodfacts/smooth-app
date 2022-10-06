@@ -1,2 +1,2 @@
 # Shared rules
-include: package:openfoodfacts_flutter_lints/flutter.yaml
+include: package:opencdfoodfacts_flutter_lints/flutter.yaml

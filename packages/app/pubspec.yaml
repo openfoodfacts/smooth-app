@@ -24,6 +24,7 @@ dev_dependencies:
   flutter_launcher_icons: 0.10.0
   flutter_test:
     sdk: flutter
+  flutter_lints: 2.0.1
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 
