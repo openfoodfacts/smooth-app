@@ -14,18 +14,23 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/query/robotoff_questions_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+
+const Color _noBackground = Colors.redAccent;
+const Color _yesBackground = Colors.lightGreen;
+const Color _yesNoTextColor = Colors.white;
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({
-    required this.product,
-    required this.questions,
-    required this.updateProductUponAnswers,
+    this.product,
+    this.questions,
+    this.updateProductUponAnswers,
   });
 
-  final Product product;
-  final List<RobotoffQuestion> questions;
-  final Function() updateProductUponAnswers;
+  final Product? product;
+  final List<RobotoffQuestion>? questions;
+  final Function()? updateProductUponAnswers;
 
   @override
   State<QuestionPage> createState() => _QuestionPageState();
@@ -33,14 +38,25 @@ class QuestionPage extends StatefulWidget {
 
 class _QuestionPageState extends State<QuestionPage>
     with SingleTickerProviderStateMixin, TraceableClientMixin {
-  int _currentQuestionIndex = 0;
   final Map<String, InsightAnnotation> _anonymousAnnotationList =
       <String, InsightAnnotation>{};
   InsightAnnotation? _lastAnswer;
 
-  static const Color _noBackground = Colors.redAccent;
-  static const Color _yesBackground = Colors.lightGreen;
-  static const Color _yesNoTextColor = Colors.white;
+  late Future<List<RobotoffQuestion>> questions;
+  int _currentQuestionIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    final List<RobotoffQuestion>? widgetQuestions = widget.questions;
+
+    if (widgetQuestions != null) {
+      questions = Future<List<RobotoffQuestion>>.value(widgetQuestions);
+    } else {
+      questions = _getQuestions(widget.product);
+    }
+  }
 
   @override
   String get traceTitle => 'robotoff_question_page';
@@ -49,66 +65,76 @@ class _QuestionPageState extends State<QuestionPage>
   String get traceName => 'Opened robotoff_question_page';
 
   @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        if (_lastAnswer != null) {
-          await widget.updateProductUponAnswers();
-        }
-        return true;
-      },
-      child: SmoothScaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        appBar: AppBar(),
-        body: _buildAnimationSwitcher(),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => WillPopScope(
+        onWillPop: () async {
+          final Function()? callback = widget.updateProductUponAnswers;
+          if (_lastAnswer != null && callback != null) {
+            await callback();
+          }
+          return true;
+        },
+        child: SmoothScaffold(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          appBar: AppBar(),
+          body: _buildAnimationSwitcher(),
+        ),
+      );
 
-  AnimatedSwitcher _buildAnimationSwitcher() {
-    return AnimatedSwitcher(
-      duration: SmoothAnimationsDuration.medium,
-      transitionBuilder: (Widget child, Animation<double> animation) {
-        final Offset animationStartOffset = _getAnimationStartOffset();
-        final Animation<Offset> inAnimation = Tween<Offset>(
-          begin: animationStartOffset,
-          end: Offset.zero,
-        ).animate(animation);
-        final Animation<Offset> outAnimation = Tween<Offset>(
-          begin: animationStartOffset.scale(-1, -1),
-          end: Offset.zero,
-        ).animate(animation);
+  AnimatedSwitcher _buildAnimationSwitcher() => AnimatedSwitcher(
+        duration: SmoothAnimationsDuration.medium,
+        transitionBuilder: (Widget child, Animation<double> animation) {
+          final Offset animationStartOffset = _getAnimationStartOffset();
+          final Animation<Offset> inAnimation = Tween<Offset>(
+            begin: animationStartOffset,
+            end: Offset.zero,
+          ).animate(animation);
+          final Animation<Offset> outAnimation = Tween<Offset>(
+            begin: animationStartOffset.scale(-1, -1),
+            end: Offset.zero,
+          ).animate(animation);
 
-        if (child.key == ValueKey<int>(_currentQuestionIndex)) {
-          // Animate in the new question card.
-          return ClipRect(
-            child: SlideTransition(
-              position: inAnimation,
-              child: Padding(
-                padding: const EdgeInsets.all(SMALL_SPACE),
-                child: child,
+          if (child.key == ValueKey<int>(_currentQuestionIndex)) {
+            // Animate in the new question card.
+            return ClipRect(
+              child: SlideTransition(
+                position: inAnimation,
+                child: Padding(
+                  padding: const EdgeInsets.all(SMALL_SPACE),
+                  child: child,
+                ),
               ),
-            ),
-          );
-        } else {
-          // Animate out the old question card.
-          return ClipRect(
-            child: SlideTransition(
-              position: outAnimation,
-              child: Padding(
-                padding: const EdgeInsets.all(SMALL_SPACE),
-                child: child,
+            );
+          } else {
+            // Animate out the old question card.
+            return ClipRect(
+              child: SlideTransition(
+                position: outAnimation,
+                child: Padding(
+                  padding: const EdgeInsets.all(SMALL_SPACE),
+                  child: child,
+                ),
               ),
-            ),
-          );
-        }
-      },
-      child: Container(
-        key: ValueKey<int>(_currentQuestionIndex),
-        child: _buildWidget(context, _currentQuestionIndex),
-      ),
-    );
-  }
+            );
+          }
+        },
+        child: Container(
+          key: ValueKey<int>(_currentQuestionIndex),
+          child: FutureBuilder<List<RobotoffQuestion>>(
+            future: questions,
+            builder: (
+              BuildContext context,
+              AsyncSnapshot<List<RobotoffQuestion>> snapshot,
+            ) =>
+                snapshot.hasData
+                    ? _buildWidget(
+                        context,
+                        questions: snapshot.data!,
+                        questionIndex: _currentQuestionIndex,
+                      )
+                    : const Text('Loading...'),
+          ),
+        ),
+      );
 
   Offset _getAnimationStartOffset() {
     switch (_lastAnswer) {
@@ -125,29 +151,32 @@ class _QuestionPageState extends State<QuestionPage>
     }
   }
 
-  Widget _buildWidget(BuildContext context, int currentQuestionIndex) {
-    final List<RobotoffQuestion> questions = widget.questions;
-    if (questions.length == currentQuestionIndex) {
+  Widget _buildWidget(
+    BuildContext context, {
+    required List<RobotoffQuestion> questions,
+    required int questionIndex,
+  }) {
+    if (questions.length == questionIndex) {
       return CongratsWidget(_anonymousAnnotationList);
     }
     return Column(
       children: <Widget>[
         _buildQuestionCard(
           context,
-          widget.product,
-          questions[currentQuestionIndex],
+          questions[questionIndex],
         ),
         _buildAnswerOptions(
           context,
-          questions,
-          currentQuestionIndex: currentQuestionIndex,
+          questions[questionIndex],
         )
       ],
     );
   }
 
   Widget _buildQuestionCard(
-      BuildContext context, Product product, RobotoffQuestion question) {
+    BuildContext context,
+    RobotoffQuestion question,
+  ) {
     final Size screenSize = MediaQuery.of(context).size;
     return Card(
       elevation: 4,
@@ -158,7 +187,9 @@ class _QuestionPageState extends State<QuestionPage>
       child: Column(
         children: <Widget>[
           ProductImageCarousel(
-            widget.product,
+            Product(
+              barcode: question.barcode,
+            ),
             height: screenSize.height / 6,
             onUpload: (_) {},
           ),
@@ -167,7 +198,9 @@ class _QuestionPageState extends State<QuestionPage>
             child: Column(
               children: <Widget>[
                 ProductTitleCard(
-                  widget.product,
+                  Product(
+                    barcode: question.barcode,
+                  ),
                   true,
                   dense: true,
                 ),
@@ -217,10 +250,10 @@ class _QuestionPageState extends State<QuestionPage>
   }
 
   Widget _buildAnswerOptions(
-      BuildContext context, List<RobotoffQuestion> questions,
-      {required int currentQuestionIndex}) {
+    BuildContext context,
+    RobotoffQuestion question,
+  ) {
     final double yesNoHeight = MediaQuery.of(context).size.width / (3 * 1.25);
-    final RobotoffQuestion question = questions[currentQuestionIndex];
 
     return Column(
       children: <Widget>[
@@ -231,11 +264,10 @@ class _QuestionPageState extends State<QuestionPage>
               child: SizedBox(
                 height: yesNoHeight,
                 child: _buildAnswerButton(
-                  insightId: question.insightId,
+                  question: question,
                   insightAnnotation: InsightAnnotation.NO,
                   backgroundColor: _noBackground,
                   contentColor: _yesNoTextColor,
-                  currentQuestionIndex: currentQuestionIndex,
                 ),
               ),
             ),
@@ -243,11 +275,10 @@ class _QuestionPageState extends State<QuestionPage>
               child: SizedBox(
                 height: yesNoHeight,
                 child: _buildAnswerButton(
-                  insightId: question.insightId,
+                  question: question,
                   insightAnnotation: InsightAnnotation.YES,
                   backgroundColor: _yesBackground,
                   contentColor: _yesNoTextColor,
-                  currentQuestionIndex: currentQuestionIndex,
                 ),
               ),
             ),
@@ -257,11 +288,10 @@ class _QuestionPageState extends State<QuestionPage>
           children: <Widget>[
             Expanded(
               child: _buildAnswerButton(
-                insightId: question.insightId,
+                question: question,
                 insightAnnotation: InsightAnnotation.MAYBE,
                 backgroundColor: const Color(0xFFFFEFB7),
                 contentColor: Colors.black,
-                currentQuestionIndex: currentQuestionIndex,
               ),
             ),
           ],
@@ -271,11 +301,10 @@ class _QuestionPageState extends State<QuestionPage>
   }
 
   Widget _buildAnswerButton({
-    required String? insightId,
+    required RobotoffQuestion question,
     required InsightAnnotation insightAnnotation,
     required Color backgroundColor,
     required Color contentColor,
-    required int currentQuestionIndex,
     EdgeInsets padding = const EdgeInsets.all(VERY_SMALL_SPACE),
   }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -299,8 +328,8 @@ class _QuestionPageState extends State<QuestionPage>
         onPressed: () async {
           try {
             await _saveAnswer(
-              barcode: widget.product.barcode,
-              insightId: insightId,
+              barcode: question.barcode,
+              insightId: question.insightId,
               insightAnnotation: insightAnnotation,
             );
           } catch (e) {
@@ -375,7 +404,29 @@ class _QuestionPageState extends State<QuestionPage>
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
       await robotoffInsightHelper.cacheInsightAnnotationVoted(
-          barcode, insightId);
+        barcode,
+        insightId,
+      );
+    }
+  }
+
+  Future<List<RobotoffQuestion>> _getQuestions(Product? product) async {
+    final User user = OpenFoodAPIConfiguration.globalUser!;
+
+    if (product != null) {
+      final Set<RobotoffQuestion> questions =
+          await RobotoffQuestionsQuery(product.barcode!)
+              .getRobotoffQuestionsForProduct();
+
+      return questions.toList();
+    } else {
+      final String lc = OpenFoodAPIConfiguration.globalLanguages![0].code;
+
+      final RobotoffQuestionResult result =
+          await OpenFoodAPIClient.getRandomRobotoffQuestion(lc, user,
+              types: [InsightType.CATEGORY], count: 3);
+
+      return result.questions ?? <RobotoffQuestion>[];
     }
   }
 }

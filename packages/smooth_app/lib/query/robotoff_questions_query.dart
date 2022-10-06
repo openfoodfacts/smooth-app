@@ -6,13 +6,13 @@ class RobotoffQuestionsQuery {
   RobotoffQuestionsQuery(this._barcode);
   final String _barcode;
 
-  Future<List<RobotoffQuestion>> getRobotoffQuestionsForProduct() async {
+  Future<Set<RobotoffQuestion>> getRobotoffQuestionsForProduct() async {
     final RobotoffQuestionResult result =
         await OpenFoodAPIClient.getRobotoffQuestionsForProduct(
       _barcode,
       ProductQuery.getLanguage().code,
       count: 3,
     );
-    return result.questions ?? <RobotoffQuestion>[];
+    return result.questions?.toSet() ?? <RobotoffQuestion>{};
   }
 }

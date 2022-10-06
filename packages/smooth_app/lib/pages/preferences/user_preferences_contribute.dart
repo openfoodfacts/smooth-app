@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/question_page.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 
 /// Display of "Contribute" for the preferences page.
@@ -55,6 +56,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   @override
   List<Widget> getBody() => <Widget>[
         _getListTile(
+          'Hunger Games',
+          () => _hungerGames(),
+          Icons.games,
+        ),
+        _getListTile(
           appLocalizations.contribute_improve_header,
           () => _contribute(),
           Icons.data_saver_on,
@@ -85,13 +91,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           appLocalizations.contributors,
           () => _contributors(),
           Icons.emoji_people,
-        ),
-        _getListTile(
-          'Hunger Games',
-          () => _hungerGames(),
-          Icons.games,
-          icon:
-              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         ),
       ];
 
@@ -299,10 +298,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         },
       );
 
-  Future<void> _hungerGames() async => LaunchUrlHelper.launchURL(
-        'https://hunger.openfoodfacts.org/',
-        false,
-      );
+  Future<void> _hungerGames() async => Navigator.push(
+      context,
+      MaterialPageRoute<QuestionPage>(
+        builder: (_) => const QuestionPage(),
+      ));
 
   Widget _getListTile(
     final String title,

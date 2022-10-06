@@ -609,23 +609,24 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return FutureBuilder<List<RobotoffQuestion>>(
+    return FutureBuilder<Set<RobotoffQuestion>>(
         future: _loadProductQuestions(),
         builder: (
           BuildContext context,
-          AsyncSnapshot<List<RobotoffQuestion>> snapshot,
+          AsyncSnapshot<Set<RobotoffQuestion>> snapshot,
         ) {
-          final List<RobotoffQuestion> questions =
-              snapshot.data ?? <RobotoffQuestion>[];
+          final Set<RobotoffQuestion> questions =
+              snapshot.data ?? <RobotoffQuestion>{};
+
           if (questions.isNotEmpty && !_annotationVoted) {
             return InkWell(
               onTap: () {
                 Navigator.push<void>(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) => QuestionPage(
+                    builder: (_) => QuestionPage(
                       product: _product,
-                      questions: questions,
+                      questions: questions.toList(),
                       updateProductUponAnswers: _updateProductUponAnswers,
                     ),
                     fullscreenDialog: true,
@@ -679,8 +680,8 @@ class _SummaryCardState extends State<SummaryCard> {
   Future<void> _updateProductUponAnswers() async {
     // Reload the product questions, they might have been answered.
     // Or the backend may have new ones.
-    final List<RobotoffQuestion> questions =
-        await _loadProductQuestions() ?? <RobotoffQuestion>[];
+    final Set<RobotoffQuestion> questions =
+        await _loadProductQuestions() ?? <RobotoffQuestion>{};
     if (!mounted) {
       return;
     }
@@ -691,7 +692,7 @@ class _SummaryCardState extends State<SummaryCard> {
           .removeInsightAnnotationsSavedForProdcut(_product.barcode!);
     }
     _annotationVoted =
-        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
+        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
     if (!mounted) {
@@ -705,8 +706,8 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  Future<List<RobotoffQuestion>>? _loadProductQuestions() async {
-    final List<RobotoffQuestion> questions =
+  Future<Set<RobotoffQuestion>>? _loadProductQuestions() async {
+    final Set<RobotoffQuestion> questions =
         await RobotoffQuestionsQuery(_product.barcode!)
             .getRobotoffQuestionsForProduct();
 
@@ -714,7 +715,7 @@ class _SummaryCardState extends State<SummaryCard> {
         //ignore: use_build_context_synchronously
         RobotoffInsightHelper(context.read<LocalDatabase>());
     _annotationVoted =
-        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
+        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     return questions;
   }
 
