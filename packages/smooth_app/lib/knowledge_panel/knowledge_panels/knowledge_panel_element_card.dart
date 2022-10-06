@@ -28,17 +28,21 @@ class KnowledgePanelElementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget child;
+
     switch (knowledgePanelElement.elementType) {
       case KnowledgePanelElementType.TEXT:
-        return _KnowledgePanelTextElementCard(
+        child = _KnowledgePanelTextElementCard(
           textElement: knowledgePanelElement.textElement!,
         );
+        break;
       case KnowledgePanelElementType.IMAGE:
-        return Image.network(
+        child = Image.network(
           knowledgePanelElement.imageElement!.url,
           width: knowledgePanelElement.imageElement!.width?.toDouble(),
           height: knowledgePanelElement.imageElement!.height?.toDouble(),
         );
+        break;
       case KnowledgePanelElementType.PANEL:
         final String panelId = knowledgePanelElement.panelElement!.panelId;
         final KnowledgePanel? panel =
@@ -51,35 +55,55 @@ class KnowledgePanelElementCard extends StatelessWidget {
           );
           return EMPTY_WIDGET;
         }
-        return KnowledgePanelCard(
+        child = KnowledgePanelCard(
           panelId: panelId,
           product: product,
         );
+        break;
       case KnowledgePanelElementType.PANEL_GROUP:
-        return KnowledgePanelGroupCard(
+        child = KnowledgePanelGroupCard(
           groupElement: knowledgePanelElement.panelGroupElement!,
           product: product,
         );
+        break;
       case KnowledgePanelElementType.TABLE:
-        return KnowledgePanelTableCard(
+        child = KnowledgePanelTableCard(
           tableElement: knowledgePanelElement.tableElement!,
           isInitiallyExpanded: isInitiallyExpanded,
           product: product,
         );
+        break;
       case KnowledgePanelElementType.MAP:
-        return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
+        child = KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
+        break;
       case KnowledgePanelElementType.UNKNOWN:
-        return EMPTY_WIDGET;
+        child = EMPTY_WIDGET;
+        break;
       case KnowledgePanelElementType.ACTION:
-        return KnowledgePanelActionCard(
+        child = KnowledgePanelActionCard(
           knowledgePanelElement.actionElement!,
           product,
         );
+        break;
       default:
         Logs.e('unexpected element type: ${knowledgePanelElement.elementType}');
-        return EMPTY_WIDGET;
+        child = EMPTY_WIDGET;
     }
+
+    if (_requiresMargin) {
+      child = Padding(
+        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+        child: child,
+      );
+    }
+
+    return child;
   }
+
+  bool get _requiresMargin => !<KnowledgePanelElementType>[
+        KnowledgePanelElementType.PANEL,
+        KnowledgePanelElementType.PANEL_GROUP,
+      ].contains(knowledgePanelElement.elementType);
 }
 
 /// A Knowledge Panel Text element may contain a source.
