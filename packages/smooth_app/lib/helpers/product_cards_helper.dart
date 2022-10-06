@@ -114,31 +114,31 @@ List<ProductImageData> getProductMainImagesData(
     <ProductImageData>[
       ProductImageData(
         imageField: ImageField.FRONT,
-        imageUrl: product.imageFrontUrl,
+        imageDescriptor: ImageDescriptor.fromUrl(product.imageFrontUrl),
         title: appLocalizations.product,
         buttonText: appLocalizations.front_photo,
       ),
       ProductImageData(
         imageField: ImageField.INGREDIENTS,
-        imageUrl: product.imageIngredientsUrl,
+        imageDescriptor: ImageDescriptor.fromUrl(product.imageIngredientsUrl),
         title: appLocalizations.ingredients,
         buttonText: appLocalizations.ingredients_photo,
       ),
       ProductImageData(
         imageField: ImageField.NUTRITION,
-        imageUrl: product.imageNutritionUrl,
+        imageDescriptor: ImageDescriptor.fromUrl(product.imageNutritionUrl),
         title: appLocalizations.nutrition,
         buttonText: appLocalizations.nutrition_facts_photo,
       ),
       ProductImageData(
         imageField: ImageField.PACKAGING,
-        imageUrl: product.imagePackagingUrl,
+        imageDescriptor: ImageDescriptor.fromUrl(product.imagePackagingUrl),
         title: appLocalizations.packaging_information,
         buttonText: appLocalizations.packaging_information_photo,
       ),
       ProductImageData(
         imageField: ImageField.OTHER,
-        imageUrl: null,
+        imageDescriptor: null,
         title: appLocalizations.more_photos,
         buttonText: appLocalizations.more_photos,
       ),

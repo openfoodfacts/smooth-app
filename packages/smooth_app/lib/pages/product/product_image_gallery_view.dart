@@ -48,8 +48,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   bool _isRefreshed = false;
   bool _isLoadingMore = true;
 
-  ImageProvider? _provideImage(ProductImageData imageData) =>
-      imageData.imageUrl == null ? null : NetworkImage(imageData.imageUrl!);
+  ImageProvider? _provideImage(ProductImageData imageData) {
+    final String? url = imageData.getImageUrl(ImageSize.SMALL);
+    return url == null ? null : NetworkImage(url);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,9 +122,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                   _buildTitle(appLocalizations.selected_images, theme: theme),
                   SmoothImagesSliverList(
                     imagesData: _selectedImages,
-                    onTap: (ProductImageData data, _) => data.imageUrl != null
-                        ? _openImage(data)
-                        : _newImage(data),
+                    onTap: (ProductImageData data, _) =>
+                        data.getImageUrl(ImageSize.ORIGINAL) != null
+                            ? _openImage(data)
+                            : _newImage(data),
                   ),
                   _buildTitle(appLocalizations.all_images, theme: theme),
                   SmoothImagesSliverGrid(
@@ -263,11 +266,16 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           .whereNotNull();
 
   /// Created a [ProductImageData] from a [ProductImage]
-  ProductImageData _getProductImageData(ProductImage image) => ProductImageData(
-        imageField: image.field,
-        // TODO(VaiTon): i18n
-        title: image.imgid ?? '',
-        buttonText: image.imgid ?? '',
-        imageUrl: ImageHelper.buildUrl(widget.product.barcode, image),
-      );
+  ProductImageData _getProductImageData(ProductImage image) {
+    final String? barcode = widget.product.barcode;
+    final ImageDescriptor? descriptor =
+        barcode == null ? null : ImageDescriptor.fromImage(barcode, image);
+    return ProductImageData(
+      imageField: image.field,
+      // TODO(VaiTon): i18n
+      title: image.imgid ?? '',
+      buttonText: image.imgid ?? '',
+      imageDescriptor: descriptor,
+    );
+  }
 }
