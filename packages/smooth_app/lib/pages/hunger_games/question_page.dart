@@ -20,13 +20,23 @@ const Color _noBackground = Colors.redAccent;
 const Color _yesBackground = Colors.lightGreen;
 const Color _yesNoTextColor = Colors.white;
 
+const List<InsightType> ALL_INSIGHTS = <InsightType>[
+  InsightType.CATEGORY,
+  InsightType.LABEL,
+  InsightType.PRODUCT_WEIGHT,
+  InsightType.PACKAGER_CODE,
+  InsightType.BRAND,
+];
+
 class QuestionPage extends StatefulWidget {
   const QuestionPage({
     this.product,
     this.questions,
     this.updateProductUponAnswers,
+    this.insightTypes = ALL_INSIGHTS,
   });
 
+  final List<InsightType> insightTypes;
   final Product? product;
   final List<RobotoffQuestion>? questions;
   final Function()? updateProductUponAnswers;
@@ -476,7 +486,7 @@ class _QuestionPageState extends State<QuestionPage>
           await OpenFoodAPIClient.getRandomRobotoffQuestion(
         lc,
         user,
-        types: <InsightType>[InsightType.CATEGORY],
+        types: widget.insightTypes,
         count: 3,
       );
 
