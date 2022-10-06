@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
+/// Displays an [IconButton] containing the platform-specific default
+/// back button icon.
 class SmoothBackButton extends StatelessWidget {
   const SmoothBackButton({
     this.onPressed,
@@ -14,21 +16,19 @@ class SmoothBackButton extends StatelessWidget {
   final Color? iconColor;
 
   @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed ?? () => Navigator.maybePop(context),
-      child: Tooltip(
-        message: MaterialLocalizations.of(context).backButtonTooltip,
-        child: Padding(
-          padding: _iconPadding,
-          child: Icon(
-            ConstantIcons.instance.getBackIcon(),
-            color: iconColor ?? Colors.white,
+  Widget build(BuildContext context) => InkWell(
+        onTap: onPressed ?? () => Navigator.maybePop(context),
+        child: Tooltip(
+          message: MaterialLocalizations.of(context).backButtonTooltip,
+          child: Padding(
+            padding: _iconPadding,
+            child: Icon(
+              ConstantIcons.instance.getBackIcon(),
+              color: iconColor ?? Colors.white,
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 
   /// The iOS/macOS icon requires a little padding to be well-centered
   EdgeInsetsGeometry get _iconPadding {
