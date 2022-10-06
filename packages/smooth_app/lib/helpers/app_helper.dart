@@ -11,4 +11,6 @@ class AppHelper {
     assert(asset.isNotEmpty);
     return 'packages/$APP_PACKAGE/$asset';
   }
+
+  static String get defaultAssetPath => getAssetPath('assets/');
 }
