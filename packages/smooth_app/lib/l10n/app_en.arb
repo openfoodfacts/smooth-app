@@ -1698,5 +1698,9 @@
     "word_separator": ", ",
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "robotoff_continue": "Continue",
+    "@robotoff_continue": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
 }

@@ -4,16 +4,15 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
-import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
-import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/pages/hunger_games/congrats.dart';
 import 'package:smooth_app/query/robotoff_questions_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -56,6 +55,13 @@ class _QuestionPageState extends State<QuestionPage>
     } else {
       questions = _getQuestions(widget.product);
     }
+  }
+
+  void _reloadQuestions() {
+    setState(() {
+      questions = _getQuestions(widget.product);
+      _currentQuestionIndex = 0;
+    });
   }
 
   @override
@@ -131,7 +137,7 @@ class _QuestionPageState extends State<QuestionPage>
                         questions: snapshot.data!,
                         questionIndex: _currentQuestionIndex,
                       )
-                    : const Text('Loading...'),
+                    : const Center(child: CircularProgressIndicator()),
           ),
         ),
       );
@@ -157,17 +163,23 @@ class _QuestionPageState extends State<QuestionPage>
     required int questionIndex,
   }) {
     if (questions.length == questionIndex) {
-      return CongratsWidget(_anonymousAnnotationList);
+      return CongratsWidget(
+        anonymousAnnotationList: _anonymousAnnotationList,
+        onContinue: _reloadQuestions,
+      );
     }
+
+    final RobotoffQuestion question = questions[questionIndex];
+
     return Column(
       children: <Widget>[
         _buildQuestionCard(
           context,
-          questions[questionIndex],
+          question,
         ),
         _buildAnswerOptions(
           context,
-          questions[questionIndex],
+          question,
         )
       ],
     );
@@ -177,40 +189,49 @@ class _QuestionPageState extends State<QuestionPage>
     BuildContext context,
     RobotoffQuestion question,
   ) {
+    final Future<Product> productFuture = OpenFoodAPIClient.getProduct(
+      ProductQueryConfiguration(question.barcode!),
+    ).then((ProductResult result) => result.product!);
+
     final Size screenSize = MediaQuery.of(context).size;
-    return Card(
-      elevation: 4,
-      clipBehavior: Clip.antiAlias,
-      shape: const RoundedRectangleBorder(
-        borderRadius: ROUNDED_BORDER_RADIUS,
-      ),
-      child: Column(
-        children: <Widget>[
-          ProductImageCarousel(
-            Product(
-              barcode: question.barcode,
+
+    return FutureBuilder<Product>(
+        future: productFuture,
+        builder: (BuildContext context, AsyncSnapshot<Product> snapshot) {
+          if (!snapshot.hasData) {
+            return _buildQuestionShimmer();
+          }
+          final Product product = snapshot.data!;
+          return Card(
+            elevation: 4,
+            clipBehavior: Clip.antiAlias,
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
             ),
-            height: screenSize.height / 6,
-            onUpload: (_) {},
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
             child: Column(
               children: <Widget>[
-                ProductTitleCard(
-                  Product(
-                    barcode: question.barcode,
-                  ),
-                  true,
-                  dense: true,
+                ProductImageCarousel(
+                  product,
+                  height: screenSize.height / 6,
+                  onUpload: (_) {},
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: Column(
+                    children: <Widget>[
+                      ProductTitleCard(
+                        product,
+                        true,
+                        dense: true,
+                      ),
+                    ],
+                  ),
+                ),
+                _buildQuestionText(context, question),
               ],
             ),
-          ),
-          _buildQuestionText(context, question),
-        ],
-      ),
-    );
+          );
+        });
   }
 
   Widget _buildQuestionText(BuildContext context, RobotoffQuestion question) {
@@ -249,54 +270,72 @@ class _QuestionPageState extends State<QuestionPage>
     );
   }
 
+  Widget _buildQuestionShimmer() => Shimmer.fromColors(
+        baseColor: const Color(0xFFFFEFB7),
+        highlightColor: Colors.white,
+        child: Card(
+          elevation: 4,
+          clipBehavior: Clip.antiAlias,
+          shape: const RoundedRectangleBorder(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+          ),
+          child: Container(
+            height: LARGE_SPACE * 10,
+          ),
+        ),
+      );
+
   Widget _buildAnswerOptions(
     BuildContext context,
     RobotoffQuestion question,
   ) {
     final double yesNoHeight = MediaQuery.of(context).size.width / (3 * 1.25);
 
-    return Column(
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Expanded(
-              child: SizedBox(
-                height: yesNoHeight,
-                child: _buildAnswerButton(
-                  question: question,
-                  insightAnnotation: InsightAnnotation.NO,
-                  backgroundColor: _noBackground,
-                  contentColor: _yesNoTextColor,
+    return Expanded(
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Expanded(
+                child: SizedBox(
+                  height: yesNoHeight,
+                  child: _buildAnswerButton(
+                    question: question,
+                    insightAnnotation: InsightAnnotation.NO,
+                    backgroundColor: _noBackground,
+                    contentColor: _yesNoTextColor,
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: SizedBox(
-                height: yesNoHeight,
-                child: _buildAnswerButton(
-                  question: question,
-                  insightAnnotation: InsightAnnotation.YES,
-                  backgroundColor: _yesBackground,
-                  contentColor: _yesNoTextColor,
+              Expanded(
+                child: SizedBox(
+                  height: yesNoHeight,
+                  child: _buildAnswerButton(
+                    question: question,
+                    insightAnnotation: InsightAnnotation.YES,
+                    backgroundColor: _yesBackground,
+                    contentColor: _yesNoTextColor,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: _buildAnswerButton(
+            ],
+          ),
+          const SizedBox(height: SMALL_SPACE),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _buildAnswerButton(
                 question: question,
                 insightAnnotation: InsightAnnotation.MAYBE,
                 backgroundColor: const Color(0xFFFFEFB7),
                 contentColor: Colors.black,
+                textButton: true,
               ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -305,74 +344,85 @@ class _QuestionPageState extends State<QuestionPage>
     required InsightAnnotation insightAnnotation,
     required Color backgroundColor,
     required Color contentColor,
+    bool textButton = false,
     EdgeInsets padding = const EdgeInsets.all(VERY_SMALL_SPACE),
   }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     String buttonText;
-    IconData? icon;
+    IconData iconData;
     switch (insightAnnotation) {
       case InsightAnnotation.YES:
         buttonText = appLocalizations.yes;
-        icon = Icons.check;
+        iconData = Icons.check;
         break;
       case InsightAnnotation.NO:
         buttonText = appLocalizations.no;
-        icon = Icons.clear;
+        iconData = Icons.clear;
         break;
       case InsightAnnotation.MAYBE:
         buttonText = appLocalizations.skip;
+        iconData = Icons.question_mark;
     }
+    final Icon buttonIcon = Icon(
+      iconData,
+      color: contentColor,
+      size: 36,
+    );
+    final Text buttonLabel = Text(
+      buttonText,
+      style: Theme.of(context).textTheme.headline2!.apply(color: contentColor),
+    );
+
     return Padding(
       padding: padding,
-      child: MaterialButton(
-        onPressed: () async {
-          try {
-            await _saveAnswer(
-              barcode: question.barcode,
-              insightId: question.insightId,
-              insightAnnotation: insightAnnotation,
-            );
-          } catch (e) {
-            await LoadingDialog.error(
-              context: context,
-              title: appLocalizations.error_occurred,
-            );
-            if (!mounted) {
-              return;
-            }
-            Navigator.of(context).maybePop();
-            return;
-          }
-          setState(() {
-            _lastAnswer = insightAnnotation;
-            _currentQuestionIndex++;
-          });
-        },
-        elevation: 4,
-        color: backgroundColor,
-        shape: const RoundedRectangleBorder(
-          borderRadius: ROUNDED_BORDER_RADIUS,
+      child: TextButton.icon(
+        onPressed: () => trySave(
+          question,
+          insightAnnotation,
+          appLocalizations,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            if (icon != null)
-              Icon(
-                icon,
-                color: Colors.white,
-                size: 36,
+        style: textButton
+            ? null
+            : ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(backgroundColor),
+                shape: MaterialStateProperty.all(
+                  const RoundedRectangleBorder(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                ),
               ),
-            Text(
-              buttonText,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .apply(color: contentColor),
-            ),
-          ],
-        ),
+        icon: buttonIcon,
+        label: buttonLabel,
       ),
     );
+  }
+
+  Future<void> trySave(
+    RobotoffQuestion question,
+    InsightAnnotation insightAnnotation,
+    AppLocalizations appLocalizations,
+  ) async {
+    try {
+      await _saveAnswer(
+        barcode: question.barcode,
+        insightId: question.insightId,
+        insightAnnotation: insightAnnotation,
+      );
+    } catch (e) {
+      await LoadingDialog.error(
+        context: context,
+        title: appLocalizations.error_occurred,
+      );
+      if (!mounted) {
+        return;
+      }
+      Navigator.of(context).maybePop();
+      return;
+    }
+    setState(() {
+      _lastAnswer = insightAnnotation;
+      _currentQuestionIndex++;
+    });
   }
 
   Future<void> _saveAnswer({
@@ -423,117 +473,14 @@ class _QuestionPageState extends State<QuestionPage>
       final String lc = OpenFoodAPIConfiguration.globalLanguages![0].code;
 
       final RobotoffQuestionResult result =
-          await OpenFoodAPIClient.getRandomRobotoffQuestion(lc, user,
-              types: [InsightType.CATEGORY], count: 3);
+          await OpenFoodAPIClient.getRandomRobotoffQuestion(
+        lc,
+        user,
+        types: <InsightType>[InsightType.CATEGORY],
+        count: 3,
+      );
 
       return result.questions ?? <RobotoffQuestion>[];
     }
-  }
-}
-
-class CongratsWidget extends StatelessWidget {
-  const CongratsWidget(
-    this._anonymousAnnotationList, {
-    super.key,
-  });
-
-  final Map<String, InsightAnnotation> _anonymousAnnotationList;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserManagementProvider userManagementProvider =
-        context.watch<UserManagementProvider>();
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Icon(
-            Icons.grade,
-            color: Colors.amber,
-            size: 100,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-            child: Text(
-              appLocalizations.thanks_for_contributing,
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-          ),
-          FutureBuilder<bool>(
-              future: userManagementProvider.credentialsInStorage(),
-              builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                if (snapshot.hasData) {
-                  final bool isUserLoggedIn = snapshot.data!;
-                  if (isUserLoggedIn) {
-                    // TODO(jasmeet): Show leaderboard button.
-                    return EMPTY_WIDGET;
-                  }
-                  return Column(
-                    children: <Widget>[
-                      SmoothActionButtonsBar.single(
-                        action: SmoothActionButton(
-                          text: appLocalizations.sign_in,
-                          onPressed: () async {
-                            await Navigator.push<void>(
-                              context,
-                              MaterialPageRoute<void>(
-                                builder: (_) => const LoginPage(),
-                              ),
-                            );
-                            if (OpenFoodAPIConfiguration.globalUser != null) {
-                              LoadingDialog.run<void>(
-                                context: context,
-                                title: appLocalizations.saving_answer,
-                                future: _postInsightAnnotations(
-                                  _anonymousAnnotationList,
-                                ),
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-                        child: Text(
-                          appLocalizations.question_sign_in_text,
-                          style: Theme.of(context).textTheme.bodyText2,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  );
-                } else {
-                  return EMPTY_WIDGET;
-                }
-              }),
-          TextButton(
-            child: Text(appLocalizations.close),
-            onPressed: () => Navigator.maybePop<Widget>(context),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Future<List<bool>> _postInsightAnnotations(
-    Map<String, InsightAnnotation> annotationList,
-  ) async {
-    final List<bool> results = <bool>[];
-
-    for (final MapEntry<String, InsightAnnotation> annotation
-        in annotationList.entries) {
-      final Status status = await OpenFoodAPIClient.postInsightAnnotation(
-        annotation.key,
-        annotation.value,
-        deviceId: OpenFoodAPIConfiguration.uuid,
-        user: OpenFoodAPIConfiguration.globalUser,
-      );
-
-      results.add(status.status == 1);
-    }
-
-    return results;
   }
 }

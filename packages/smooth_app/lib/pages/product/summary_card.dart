@@ -28,7 +28,7 @@ import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_category_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/question_page.dart';
+import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/robotoff_questions_query.dart';
