@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
@@ -116,47 +114,32 @@ List<ProductImageData> getProductMainImagesData(
     <ProductImageData>[
       ProductImageData(
         imageField: ImageField.FRONT,
-        imageSizeToUrlMap:
-            imageUrlToMap(product.imageFrontUrl, product.imageFrontSmallUrl),
+        imageUrl: product.imageFrontUrl,
         title: appLocalizations.product,
         buttonText: appLocalizations.front_photo,
       ),
       ProductImageData(
         imageField: ImageField.INGREDIENTS,
-        imageSizeToUrlMap: imageUrlToMap(
-            product.imageIngredientsUrl, product.imageIngredientsSmallUrl),
+        imageUrl: product.imageIngredientsUrl,
         title: appLocalizations.ingredients,
         buttonText: appLocalizations.ingredients_photo,
       ),
       ProductImageData(
         imageField: ImageField.NUTRITION,
-        imageSizeToUrlMap: imageUrlToMap(
-            product.imageNutritionUrl, product.imageNutritionSmallUrl),
+        imageUrl: product.imageNutritionUrl,
         title: appLocalizations.nutrition,
         buttonText: appLocalizations.nutrition_facts_photo,
       ),
       ProductImageData(
         imageField: ImageField.PACKAGING,
-        imageSizeToUrlMap: imageUrlToMap(
-            product.imagePackagingUrl, product.imagePackagingSmallUrl),
+        imageUrl: product.imagePackagingUrl,
         title: appLocalizations.packaging_information,
         buttonText: appLocalizations.packaging_information_photo,
       ),
       ProductImageData(
         imageField: ImageField.OTHER,
-        imageSizeToUrlMap: {},
+        imageUrl: null,
         title: appLocalizations.more_photos,
         buttonText: appLocalizations.more_photos,
       ),
     ];
-
-Map<ImageSize?, String> imageUrlToMap(String? url, String? smallUrl) {
-  Map<ImageSize?, String> map = HashMap<ImageSize?, String>();
-  if (url != null) {
-    map[ImageSize.DISPLAY] = url;
-  }
-  if (smallUrl != null) {
-    map[ImageSize.SMALL] = smallUrl;
-  }
-  return map;
-}
