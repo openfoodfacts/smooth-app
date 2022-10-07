@@ -230,8 +230,13 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   }
 
   Future<Iterable<ProductImageData>?> _getProductImages() async {
+    final String? barcode = widget.product.barcode;
+    if (barcode == null) {
+      return null;
+    }
+
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      widget.product.barcode!,
+      barcode,
       fields: <ProductField>[ProductField.IMAGES],
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
@@ -253,7 +258,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       return null;
     }
 
-    return _deduplicateImages(resultProduct.images!).map(_getProductImageData);
+    return _deduplicateImages(resultProduct.images!)
+        .map((ProductImage image) => ProductImageData.from(image, barcode));
   }
 
   /// Groups the list of [ProductImage] by [ProductImage.imgid]
@@ -264,18 +270,4 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           .values
           .map((List<ProductImage> sameIdImages) => sameIdImages.firstOrNull)
           .whereNotNull();
-
-  /// Created a [ProductImageData] from a [ProductImage]
-  ProductImageData _getProductImageData(ProductImage image) {
-    final String? barcode = widget.product.barcode;
-    final ImageDescriptor? descriptor =
-        barcode == null ? null : ImageDescriptor.fromImage(barcode, image);
-    return ProductImageData(
-      imageField: image.field,
-      // TODO(VaiTon): i18n
-      title: image.imgid ?? '',
-      buttonText: image.imgid ?? '',
-      imageDescriptor: descriptor,
-    );
-  }
 }

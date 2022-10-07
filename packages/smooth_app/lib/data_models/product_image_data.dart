@@ -8,6 +8,16 @@ class ProductImageData {
     required this.imageDescriptor,
   });
 
+  factory ProductImageData.from(ProductImage image, String barcode) {
+    return ProductImageData(
+      imageField: image.field,
+      // TODO(VaiTon): i18n
+      title: image.imgid ?? '',
+      buttonText: image.imgid ?? '',
+      imageDescriptor: ImageDescriptor.fromImage(barcode, image),
+    );
+  }
+
   final ImageField imageField;
   final String title;
   final String buttonText;
