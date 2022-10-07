@@ -68,10 +68,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     // We can already have an _imageProvider for a file that is going to be uploaded
     // or an imageUrl for a network image
     // or no image yet
-    final String? imageUrl =
-        widget.productImageData.getImageUrl(ImageSize.ORIGINAL);
-    if (imageUrl != null) {
-      _imageProvider = NetworkImage(imageUrl);
+    if (widget.productImageData.imageUrl != null) {
+      _imageProvider = NetworkImage(widget.productImageData.imageUrl!);
     } else {
       if (_imageProvider != null) {
         //Refresh when image has been deselected on server side

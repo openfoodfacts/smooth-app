@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -45,7 +44,7 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
               final MapEntry<ProductImageData, ImageProvider<Object>?> entry =
                   imageList[index];
               final ImageProvider? imageProvider = entry.value;
-              final String? imageUrl = entry.key.getImageUrl(ImageSize.THUMB);
+              final String? imageUrl = entry.key.imageUrl;
 
               return imageProvider == null || imageUrl == null
                   ? const PictureNotFound()

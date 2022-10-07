@@ -41,7 +41,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   @override
   void initState() {
     imageData = widget.imageData;
-    imageProvider = NetworkImage(imageData.getImageUrl(ImageSize.DISPLAY)!);
+    imageProvider = NetworkImage(imageData.imageUrl!);
 
     super.initState();
   }

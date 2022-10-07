@@ -48,10 +48,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   bool _isRefreshed = false;
   bool _isLoadingMore = true;
 
-  ImageProvider? _provideImage(ProductImageData imageData) {
-    final String? url = imageData.getImageUrl(ImageSize.SMALL);
-    return url == null ? null : NetworkImage(url);
-  }
+  ImageProvider? _provideImage(ProductImageData imageData) =>
+      imageData.imageUrl == null ? null : NetworkImage(imageData.imageUrl!);
 
   @override
   Widget build(BuildContext context) {
@@ -122,10 +120,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                   _buildTitle(appLocalizations.selected_images, theme: theme),
                   SmoothImagesSliverList(
                     imagesData: _selectedImages,
-                    onTap: (ProductImageData data, _) =>
-                        data.getImageUrl(ImageSize.ORIGINAL) != null
-                            ? _openImage(data)
-                            : _newImage(data),
+                    onTap: (ProductImageData data, _) => data.imageUrl != null
+                        ? _openImage(data)
+                        : _newImage(data),
                   ),
                   _buildTitle(appLocalizations.all_images, theme: theme),
                   SmoothImagesSliverGrid(
