@@ -28,21 +28,30 @@ class KnowledgePanelElementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget child;
+    final Widget child = _getWidget();
 
+    if (_requiresMargin) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+        child: child,
+      );
+    }
+
+    return child;
+  }
+
+  Widget _getWidget() {
     switch (knowledgePanelElement.elementType) {
       case KnowledgePanelElementType.TEXT:
-        child = _KnowledgePanelTextElementCard(
+        return _KnowledgePanelTextElementCard(
           textElement: knowledgePanelElement.textElement!,
         );
-        break;
       case KnowledgePanelElementType.IMAGE:
-        child = Image.network(
+        return Image.network(
           knowledgePanelElement.imageElement!.url,
           width: knowledgePanelElement.imageElement!.width?.toDouble(),
           height: knowledgePanelElement.imageElement!.height?.toDouble(),
         );
-        break;
       case KnowledgePanelElementType.PANEL:
         final String panelId = knowledgePanelElement.panelElement!.panelId;
         final KnowledgePanel? panel =
@@ -55,49 +64,40 @@ class KnowledgePanelElementCard extends StatelessWidget {
           );
           return EMPTY_WIDGET;
         }
-        child = KnowledgePanelCard(
+        return KnowledgePanelCard(
           panelId: panelId,
           product: product,
         );
-        break;
+
       case KnowledgePanelElementType.PANEL_GROUP:
-        child = KnowledgePanelGroupCard(
+        return KnowledgePanelGroupCard(
           groupElement: knowledgePanelElement.panelGroupElement!,
           product: product,
         );
-        break;
+
       case KnowledgePanelElementType.TABLE:
-        child = KnowledgePanelTableCard(
+        return KnowledgePanelTableCard(
           tableElement: knowledgePanelElement.tableElement!,
           isInitiallyExpanded: isInitiallyExpanded,
           product: product,
         );
-        break;
+
       case KnowledgePanelElementType.MAP:
-        child = KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
-        break;
+        return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
+
       case KnowledgePanelElementType.UNKNOWN:
-        child = EMPTY_WIDGET;
-        break;
+        return EMPTY_WIDGET;
+
       case KnowledgePanelElementType.ACTION:
-        child = KnowledgePanelActionCard(
+        return KnowledgePanelActionCard(
           knowledgePanelElement.actionElement!,
           product,
         );
-        break;
+
       default:
         Logs.e('unexpected element type: ${knowledgePanelElement.elementType}');
-        child = EMPTY_WIDGET;
+        return EMPTY_WIDGET;
     }
-
-    if (_requiresMargin) {
-      child = Padding(
-        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-        child: child,
-      );
-    }
-
-    return child;
   }
 
   bool get _requiresMargin => !<KnowledgePanelElementType>[
