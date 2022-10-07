@@ -265,6 +265,11 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       images
           .groupListsBy((ProductImage element) => element.imgid)
           .values
-          .map((List<ProductImage> sameIdImages) => sameIdImages.firstOrNull)
+          .map(_selectProductImage)
           .whereNotNull();
+
+  ProductImage? _selectProductImage(Iterable<ProductImage> images) =>
+      images.firstWhereOrNull(
+          (ProductImage image) => image.size == ImageSize.DISPLAY) ??
+      images.firstOrNull;
 }
