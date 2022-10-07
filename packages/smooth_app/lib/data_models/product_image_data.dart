@@ -22,4 +22,30 @@ class ProductImageData {
   final String title;
   final String buttonText;
   final String? imageUrl;
+
+  /// Convert [imageUrl] to specified [size]
+  String? getImageUrl(ImageSize size) {
+    final String? imageUrl = this.imageUrl;
+    if (imageUrl == null) {
+      return null;
+    }
+
+    const String SEPARATOR = '.';
+
+    final int extensionIndex = imageUrl.lastIndexOf(SEPARATOR);
+    if (extensionIndex < 0) {
+      return null;
+    }
+
+    final int sizeIndex = imageUrl.lastIndexOf(SEPARATOR, extensionIndex - 1);
+    if (sizeIndex < 0) {
+      return null;
+    }
+
+    final String baseUrl = imageUrl.substring(0, sizeIndex + 1);
+    final String number = size.toNumber();
+    final String extension =
+        imageUrl.substring(extensionIndex, imageUrl.length);
+    return baseUrl + number + extension;
+  }
 }
