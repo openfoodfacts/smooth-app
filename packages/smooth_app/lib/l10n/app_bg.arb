@@ -30,6 +30,10 @@
     "@stop": {},
     "finish": "Край",
     "@finish": {},
+    "calculate": "Изчисли",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Нулиране на хранителните предпочитания",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -339,6 +343,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Влез в акаунта си в Open Food Facts, за да запишеш своите приноси",
+    "tap_to_edit_search": "Докосни, за да редактираш търсенето",
     "@Personal preferences": {},
     "myPreferences": "Моите настройки",
     "@myPreferences": {
@@ -436,7 +441,7 @@
     "packaging_editing_error": "Неуспешно запазване на опаковката.",
     "packaging_editing_image_error": "Неуспешно получаване на новата снимка на опаковката.",
     "packaging_editing_title": "Редактиране на опаковката",
-    "nutrition": "Хранене",
+    "nutrition": "Хранителни стойности",
     "@nutrition": {},
     "nutrition_facts_photo": "Снимка на хранителните стойности",
     "@nutrition_facts_photo": {
@@ -554,6 +559,18 @@
     "product_refreshed": "Продуктът е актуализиран",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
+    },
+    "deprecated_header": "Използваш остаряла версия на приложението.",
+    "@deprecated_header": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "click_here": "Натисни тук",
+    "@click_here": {
+        "description": "Confirmation click to download new version of the app"
+    },
+    "download_new_version": "Изтегли новата версия на приложението",
+    "@download_new_version": {
+        "description": "Download new version of the app text"
     },
     "could_not_refresh": "Продуктът не можа да се обнови",
     "@could_not_refresh": {
@@ -704,11 +721,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Достъп до камерата",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "За да сканираш баркодове с камерата на телефона си, моля разреши достъпа.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -786,7 +803,7 @@
             }
         }
     },
-    "authorize_button_label": "Разрешаване",
+    "authorize_button_label": "Разреши",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -794,7 +811,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "По-късно",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -909,40 +926,10 @@
     "settings_app_data": "Поверителност и наблюдение",
     "settings_app_camera": "Камера",
     "settings_app_products": "Продукти",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Разни",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Режим с висока производителност",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Когато е включено, качеството на декодиране на баркодове трябва да е по-добро, но може да повлияе на производителността и живота на батерията. Изисква рестартиране на приложението.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Режим на фокусиране",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Текущ режим: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Авто",
-    "camera_focus_point_algorithm_value_auto_description": "Остави системата да избира автоматично между бърз и безопасен режим.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Бърз режим",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Препоръчителен режим за по-новите устройства.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Безопасен режим",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Ако бързият режим не работи, това трябва да разреши проблемите с фокуса.",
     "camera_play_sound_title": "Възпроизвеждане на звук при сканиране",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -951,11 +938,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
+    "camera_alternative_mode_title": "Алтернативен режим за скенера",
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode. If it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
+    "camera_alternative_mode_subtitle": "Ако твоето устройство не може да сканира баркодове, моля, опитай този режим. \n\nАко работи добре, моля, съобщи ни името на твоето устройство: {device}, за да направим този режим по подразбиране за твоето устройство.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -964,23 +951,15 @@
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
+    "camera_alternative_mode_confirm_dialog_title": "Режимът на скенера е променен!",
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "The new mode will only be used after stopping, then relaunching the app!",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "Duly noted!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
-    },
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "app_haptic_feedback_title": "Вибрация и усещане",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Вибрации след извършване на някои действия (декодиран баркод, премахнат продукт…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1434,15 +1413,15 @@
             }
         }
     },
-    "user_search_contributor_title": "Продукта I добавени",
+    "user_search_contributor_title": "Добавени от мен продукти",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "Продукта I редактирани",
+    "user_search_informer_title": "Редактирани от мен продукти",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "Продукта I фотографирани",
+    "user_search_photographer_title": "Снимани от мен продукти",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
@@ -1681,10 +1660,43 @@
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
-    "selected_images": "Selected Images",
-    "product_card_remove_product_tooltip": "Remove product",
+    "all_images": "Всички снимки",
+    "selected_images": "Избрани снимки",
+    "product_card_remove_product_tooltip": "Премахни продукт",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "portion_calculator_description": "Изчисли хранителните стойности за определено количество",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "Хранителни стойности за {grams} г (или мл)",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
+    "offline_data": "Данни извън линия",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Качи снимка, за да извлечеш автоматично предоставената информация",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Качи снимка",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
+    },
+    "word_separator_char": ",",
+    "@word_separator_char": {
+        "description": "Word separator character. In English language, this is a comma: ','"
+    },
+    "word_separator": ", ",
+    "@word_separator": {
+        "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
 import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 
 class LanguageSelectorSettings extends StatelessWidget {
@@ -32,6 +33,8 @@ class LanguageSelectorSettings extends StatelessWidget {
         _languages.getLanguageNameInLanguageFromOpenFoodFactsLanguage(
       language,
     );
+    final TextEditingController languageSelectorController =
+        TextEditingController();
     return ListTile(
       leading: const Icon(Icons.language),
       title: Text(
@@ -50,21 +53,23 @@ class LanguageSelectorSettings extends StatelessWidget {
                     .getLanguageNameInEnglishFromOpenFoodFactsLanguage(b)));
         List<OpenFoodFactsLanguage> filteredList = leftovers;
         await showDialog<void>(
-            context: context,
-            builder: (BuildContext context) {
-              return StatefulBuilder(
-                builder: (BuildContext context,
-                    void Function(VoidCallback fn) setState) {
-                  return SmoothAlertDialog(
-                    body: Column(
+          context: context,
+          builder: (BuildContext context) {
+            return StatefulBuilder(
+              builder: (BuildContext context,
+                  void Function(VoidCallback fn) setState) {
+                return SmoothAlertDialog(
+                  body: SizedBox(
+                    height: MediaQuery.of(context).size.height / 2,
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
                       children: <Widget>[
-                        TextField(
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.search),
-                            enabledBorder: const UnderlineInputBorder(),
-                            labelText: appLocalizations.search,
-                          ),
-                          onChanged: (String query) {
+                        SmoothTextFormField(
+                          type: TextFieldTypes.PLAIN_TEXT,
+                          hintText: appLocalizations.search,
+                          prefixIcon: const Icon(Icons.search),
+                          controller: languageSelectorController,
+                          onChanged: (String? query) {
                             setState(
                               () {
                                 filteredList = leftovers
@@ -73,7 +78,7 @@ class LanguageSelectorSettings extends StatelessWidget {
                                             .getLanguageNameInEnglishFromOpenFoodFactsLanguage(
                                                 item)
                                             .toLowerCase()
-                                            .contains(query.toLowerCase()) ||
+                                            .contains(query!.toLowerCase()) ||
                                         _languages
                                             .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
                                                 item)
@@ -85,39 +90,43 @@ class LanguageSelectorSettings extends StatelessWidget {
                             );
                           },
                         ),
-                        // TODO(monsieurtanuki): an optimization would be not to generate all tiles and use something like a ListView.builder instead
-                        ...List<ListTile>.generate(
-                          filteredList.length,
-                          (int index) {
-                            final OpenFoodFactsLanguage openFoodFactsLanguage =
-                                filteredList[index];
-                            final String nameInLanguage = _languages
-                                .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
-                                    openFoodFactsLanguage);
-                            return ListTile(
-                              title: Text(
-                                '$nameInLanguage (${_languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(openFoodFactsLanguage)})',
-                                softWrap: false,
-                                overflow: TextOverflow.fade,
-                              ),
-                              onTap: () {
-                                userPreferences.setAppLanguageCode(
-                                    openFoodFactsLanguage.code);
-                                Navigator.of(context).pop();
-                              },
-                            );
-                          },
+                        Expanded(
+                          child: ListView.builder(
+                            itemBuilder: (BuildContext context, int index) {
+                              final OpenFoodFactsLanguage
+                                  openFoodFactsLanguage = filteredList[index];
+                              final String nameInLanguage = _languages
+                                  .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
+                                      openFoodFactsLanguage);
+                              return ListTile(
+                                title: Text(
+                                  '$nameInLanguage (${_languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(openFoodFactsLanguage)})',
+                                  softWrap: false,
+                                  overflow: TextOverflow.fade,
+                                ),
+                                onTap: () {
+                                  userPreferences.setAppLanguageCode(
+                                      openFoodFactsLanguage.code);
+                                  Navigator.of(context).pop();
+                                },
+                              );
+                            },
+                            itemCount: filteredList.length,
+                            shrinkWrap: true,
+                          ),
                         ),
                       ],
                     ),
-                    positiveAction: SmoothActionButton(
-                      onPressed: () => Navigator.pop(context),
-                      text: appLocalizations.cancel,
-                    ),
-                  );
-                },
-              );
-            });
+                  ),
+                  positiveAction: SmoothActionButton(
+                    onPressed: () => Navigator.pop(context),
+                    text: appLocalizations.cancel,
+                  ),
+                );
+              },
+            );
+          },
+        );
       },
     );
   }

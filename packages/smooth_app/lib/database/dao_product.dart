@@ -203,4 +203,38 @@ class DaoProduct extends AbstractSqlDao
       debugPrint('$barcode;$asZipped;$asString;$factor');
     }
   }
+
+  /// Get the total number of products in the database
+  Future<int> getTotalNoOfProducts() async {
+    return Sqflite.firstIntValue(
+          await localDatabase.database.rawQuery(
+            'select count(*) from $_TABLE_PRODUCT',
+          ),
+        ) ??
+        0;
+  }
+
+  /// Get the estimated total size of the database in MegaBytes
+  Future<double> getEstimatedTotalSizeInMB() async {
+    // We get the estimated size of the database in bytes
+    // by summing the size of the gzipped json column and
+    // the size of the barcode column and last update column
+    final int? estimatedDataSize = Sqflite.firstIntValue(
+      await localDatabase.database.rawQuery('''
+        select sum(length($_TABLE_PRODUCT_COLUMN_BARCODE)) +
+        sum(length($_TABLE_PRODUCT_COLUMN_LAST_UPDATE)) + 
+        sum(length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON))
+        from $_TABLE_PRODUCT
+        '''),
+    );
+    return double.parse(
+      ((estimatedDataSize ?? 0) / ~1024 / ~1024).toStringAsFixed(2),
+    );
+  }
+
+  /// Delete all products from the database
+  Future<int> deleteAll() async {
+    // We return the number of rows deleted ie the number of products deleted
+    return localDatabase.database.delete(_TABLE_PRODUCT);
+  }
 }

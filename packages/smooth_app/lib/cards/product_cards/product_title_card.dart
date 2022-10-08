@@ -28,7 +28,7 @@ class ProductTitleCard extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     final String subtitleText;
     final Widget trailingWidget;
-    final String brands = product.brands ?? appLocalizations.unknownBrand;
+    final String brands = getProductBrands(product, appLocalizations);
     final String quantity = product.quantity ?? '';
 
     if (isRemovable && !isSelectable) {

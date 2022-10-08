@@ -3,7 +3,7 @@ import 'dart:math' as math;
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:camera/camera.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -14,6 +14,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
@@ -137,24 +138,30 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<BottomNavigationTab>(
-      builder: (BuildContext context, BottomNavigationTab tab, Widget? child) {
-        if (pendingResume && _isScreenVisible(tab: tab)) {
-          pendingResume = false;
-          _onResumeImageStream();
-        }
-
-        return child!;
+    return Listener<UserPreferences>(
+      listener: (_, __, UserPreferences prefs) {
+        _controller?.reloadImageMode();
       },
-      // [_startLiveFeed] is called both with [onResume] and [onPause] to cover
-      // all entry points
-      child: LifeCycleManager(
-        onStart: _startLiveFeed,
-        onResume: _onResumeImageStream,
-        onVisible: () => _onResumeImageStream(forceStartPreview: true),
-        onPause: _onPauseImageStream,
-        onInvisible: _onPauseImageStream,
-        child: _buildScannerWidget(),
+      child: Consumer<BottomNavigationTab>(
+        builder:
+            (BuildContext context, BottomNavigationTab tab, Widget? child) {
+          if (pendingResume && _isScreenVisible(tab: tab)) {
+            pendingResume = false;
+            _onResumeImageStream();
+          }
+
+          return child!;
+        },
+        // [_startLiveFeed] is called both with [onResume] and [onPause] to cover
+        // all entry points
+        child: LifeCycleManager(
+          onStart: _startLiveFeed,
+          onResume: _onResumeImageStream,
+          onVisible: () => _onResumeImageStream(forceStartPreview: true),
+          onPause: _onPauseImageStream,
+          onInvisible: _onPauseImageStream,
+          child: _buildScannerWidget(),
+        ),
       ),
     );
   }

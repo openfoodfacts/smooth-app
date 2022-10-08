@@ -196,18 +196,12 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
             ),
           );
         },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: MEDIUM_SPACE,
-            vertical: SMALL_SPACE,
-          ),
-          child: ProductListItemSimple(
-            barcode: matchedProduct.barcode,
-            backgroundColor:
-                ProductCompatibilityHelper.status(matchedProduct.status)
-                    .getHeaderBackgroundColor(darkMode)
-                    .withAlpha(_backgroundAlpha),
-          ),
+        child: ProductListItemSimple(
+          barcode: matchedProduct.barcode,
+          backgroundColor:
+              ProductCompatibilityHelper.status(matchedProduct.status)
+                  .getHeaderBackgroundColor(darkMode)
+                  .withAlpha(_backgroundAlpha),
         ),
       );
 }

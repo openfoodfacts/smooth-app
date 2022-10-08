@@ -50,7 +50,7 @@ platform :android do
   end
 
   desc "Deploy to internal"
-  lane :closed_beta do
+  lane :release do
     begin
       #gradle(task: "clean")
       #gradle(

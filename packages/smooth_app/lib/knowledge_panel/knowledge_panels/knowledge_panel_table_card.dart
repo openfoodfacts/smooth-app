@@ -3,9 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
+import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/pages/product/portion_calculator.dart';
 
 // Cells with a lot of text can get very large, we don't want to allocate
 // most of [availableWidth] to columns with large cells. So we cap the cell length
@@ -60,10 +63,12 @@ class KnowledgePanelTableCard extends StatefulWidget {
   const KnowledgePanelTableCard({
     required this.tableElement,
     required this.isInitiallyExpanded,
+    required this.product,
   });
 
   final KnowledgePanelTableElement tableElement;
   final bool isInitiallyExpanded;
+  final Product product;
 
   @override
   State<KnowledgePanelTableCard> createState() =>
@@ -83,6 +88,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
   @override
   Widget build(BuildContext context) {
+    final bool withPortionCalculator =
+        widget.tableElement.id == KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID;
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       final List<List<Widget>> rowsWidgets =
@@ -93,7 +100,9 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: row,
-            )
+            ),
+          if (withPortionCalculator) const Divider(),
+          if (withPortionCalculator) PortionCalculator(widget.product)
         ],
       );
     });

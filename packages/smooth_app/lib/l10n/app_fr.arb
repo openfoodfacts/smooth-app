@@ -30,6 +30,10 @@
     "@stop": {},
     "finish": "Terminer",
     "@finish": {},
+    "calculate": "Calculer",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Réinitialiser les préférences alimentaires",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -339,6 +343,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
+    "tap_to_edit_search": "Tap to edit search",
     "@Personal preferences": {},
     "myPreferences": "Mes préférences",
     "@myPreferences": {
@@ -555,6 +560,18 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "deprecated_header": "Vous utilisez une version obsolète de l'application.",
+    "@deprecated_header": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "click_here": "Cliquez ici",
+    "@click_here": {
+        "description": "Confirmation click to download new version of the app"
+    },
+    "download_new_version": "Téléchargez la nouvelle version de l'application",
+    "@download_new_version": {
+        "description": "Download new version of the app text"
+    },
     "could_not_refresh": "Impossible d'actualiser le produit",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -708,7 +725,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "Pour scanner des codes à barres avec la caméra de votre téléphone, veuillez autoriser l'accès.",
+    "permissions_page_body1": "Pour scanner un code-barre avec l'appareil photo de votre téléphone, veuillez autoriser l'accès.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -909,40 +926,10 @@
     "settings_app_data": "Confidentialité et télémetrie",
     "settings_app_camera": "Appareil photo",
     "settings_app_products": "Produits",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Divers",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Mode haute performance",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Lorsqu'il est activé, la qualité de décodage des codes-barres devrait être meilleure, mais peut avoir un impact sur les performances et la durée de vie de la batterie. Nécessite un redémarrage de l'application.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Mode de mise au point",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Mode actuel : {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Automatique",
-    "camera_focus_point_algorithm_value_auto_description": "Laissez le système choisir automatiquement entre les modes rapide et garanti.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Mode rapide",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Un paramétrage recommandé aux appareils récents.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Mode garanti",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Si le mode rapide ne fonctionne pas, cela devrait résoudre vos problèmes de mise au point.",
     "camera_play_sound_title": "Jouer un son lors du scan",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -955,7 +942,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Si votre appareil ne peut pas scanner les codes-barres, veuillez essayer ce mode. Si cela fonctionne bien, veuillez nous communiquer le nom de votre appareil : {device}, afin de faire de ce mode celui par défaut pour votre appareil.",
+    "camera_alternative_mode_subtitle": "Si votre appareil ne parvient pas à scanner les codes-barres, veuillez essayer ce mode.\n\nSi cela fonctionne, veuillez nous communiquer le nom de votre appareil : {device}, afin de faire de ce mode celui par défaut pour votre appareil.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -968,19 +955,11 @@
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "Le nouveau mode ne sera utilisé qu'après l'arrêt et le redémarrage de l'application !",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "C'est noté !",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
-    },
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "app_haptic_feedback_title": "Vibration et retours tactiles",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Vibrations après l'exécution de certaines actions (décodé en code-barre, produit supprimé…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1624,7 +1603,7 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "image_upload_queued": "L'image va être envoyée en arrière-plan dès que possible.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
@@ -1669,22 +1648,55 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "Le produit sera mis à jour en arrière-plan dès que possible.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "no_email_client_available_dialog_title": "Aucune application de messagerie n'a été trouvée!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Veuillez nous envoyer manuellement un email à contact@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
     "all_images": "Toutes les images",
     "selected_images": "Images sélectionnées",
-    "product_card_remove_product_tooltip": "Remove product",
+    "product_card_remove_product_tooltip": "Retirer le produit",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "portion_calculator_description": "Calculer les valeurs nutritionnelles pour une quantité spécifique",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
+    "offline_data": "Offline Data",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Upload Photo",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
+    },
+    "word_separator_char": ",",
+    "@word_separator_char": {
+        "description": "Word separator character. In English language, this is a comma: ','"
+    },
+    "word_separator": ", ",
+    "@word_separator": {
+        "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     }
 }

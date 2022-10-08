@@ -12,6 +12,18 @@ on:
       VERSION_CODE:
         required: true
         type: string
+      # 'PLAY' or 
+      # 'GITHUB' (requires [RELEASE_TAG] for the gh release to push to)
+      RELEASE_TYPE:
+        required: true
+        type: string
+      # 'apk' or 'appbundle'
+      BUILD_TYPE:
+        required: true
+        type: string
+      TAG_NAME:
+        required: false
+        type: string
     secrets:
       API_JSON_FILE_DECRYPTKEY:
         required: true
@@ -38,7 +50,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.4.1
+        uses: actions/setup-java@v3.5.1
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
@@ -82,18 +94,29 @@ jobs:
           VERSION_NAME: ${{ inputs.VERSION_NAME }}
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
-      - name: Build AAB
-        run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build appbundle --release
+      - name: Build app
+        run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build ${{ github.event.inputs.BUILD_TYPE }} --release
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
          SIGN_KEY_PASSWORD: ${{ secrets.SIGN_KEY_PASSWORD }}
 
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        if: github.event.inputs.RELEASE_TYPE == 'GITHUB' && github.event.inputs.BUILD_TYPE == 'apk' && github.event.inputs.TAG_NAME != ''
+        continue-on-error: true
+        with:
+          file: ./packages/smooth_app/build/app/outputs/flutter-apk/app-release.apk
+          asset_name: android-release-${{ inputs.TAG_NAME }}.apk
+          tag: ${{ inputs.TAG_NAME }}
+          overwrite: true
+
       - name: Release AAB
         uses: maierj/fastlane-action@v2.2.1
+        if: github.event.inputs.RELEASE_TYPE == 'PLAY' && github.event.inputs.BUILD_TYPE == 'appbundle'
         with:
-          lane: closed_beta
+          lane: release
           subdirectory: packages/smooth_app/android
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks

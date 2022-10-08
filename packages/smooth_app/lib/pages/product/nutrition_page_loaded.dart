@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,21 +6,20 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/background_task_helper.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:task_manager/task_manager.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -49,6 +46,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   late final NutritionContainer _nutritionContainer;
 
   late bool _noNutritionData;
+  final TextEditingController nutritonTextController = TextEditingController();
 
   // If true then serving, if false then 100g.
   bool _servingOr100g = false;
@@ -387,44 +385,48 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
                     return SmoothAlertDialog(
-                      close: true,
-                      title: appLocalizations.nutrition_page_add_nutrient,
-                      body: Column(
-                        children: <Widget>[
-                          TextField(
-                            decoration: InputDecoration(
+                      body: SizedBox(
+                        height: MediaQuery.of(context).size.height / 2,
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
+                          children: <Widget>[
+                            SmoothTextFormField(
                               prefixIcon: const Icon(Icons.search),
-                              enabledBorder: const UnderlineInputBorder(),
-                              labelText: appLocalizations.search,
+                              hintText: appLocalizations.search,
+                              type: TextFieldTypes.PLAIN_TEXT,
+                              controller: nutritonTextController,
+                              onChanged: (String? query) {
+                                setState(
+                                  () {
+                                    filteredList = leftovers
+                                        .where((OrderedNutrient item) => item
+                                            .name!
+                                            .toLowerCase()
+                                            .contains(query!.toLowerCase()))
+                                        .toList();
+                                  },
+                                );
+                              },
                             ),
-                            onChanged: (String query) {
-                              setState(
-                                () {
-                                  filteredList = leftovers
-                                      .where((OrderedNutrient item) => item
-                                          .name!
-                                          .toLowerCase()
-                                          .contains(query.toLowerCase()))
-                                      .toList();
+                            Expanded(
+                              child: ListView.builder(
+                                itemBuilder: (BuildContext context, int index) {
+                                  final OrderedNutrient nutrient =
+                                      filteredList[index];
+                                  return ListTile(
+                                    title: Text(nutrient.name!),
+                                    onTap: () =>
+                                        Navigator.of(context).pop(nutrient),
+                                  );
                                 },
-                              );
-                            },
-                          ),
-                          ...List<ListTile>.generate(
-                            filteredList.length,
-                            (int index) {
-                              final OrderedNutrient nutrient =
-                                  filteredList[index];
-                              return ListTile(
-                                title: Text(nutrient.name!),
-                                onTap: () =>
-                                    Navigator.of(context).pop(nutrient),
-                              );
-                            },
-                          ),
-                        ],
+                                itemCount: filteredList.length,
+                                shrinkWrap: true,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      negativeAction: SmoothActionButton(
+                      positiveAction: SmoothActionButton(
                         onPressed: () => Navigator.pop(context),
                         text: appLocalizations.cancel,
                       ),
@@ -545,23 +547,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return false;
     }
     // if it fails, we stay on the same page
-    final String uniqueId =
-        UniqueIdGenerator.generateUniqueId(_product.barcode!, NUTRITION_EDIT);
-    final BackgroundOtherDetailsInput nutritonInputData =
-        BackgroundOtherDetailsInput(
-      processName: PRODUCT_EDIT_TASK,
-      uniqueId: uniqueId,
-      barcode: _product.barcode!,
-      languageCode: ProductQuery.getLanguage().code,
-      inputMap: jsonEncode(changedProduct.toJson()),
-      user: jsonEncode(ProductQuery.getUser().toJson()),
-      country: ProductQuery.getCountry()!.iso2Code,
-    );
-    await TaskManager().addTask(
-      Task(
-        data: nutritonInputData.toJson(),
-        uniqueId: uniqueId,
-      ),
+    await BackgroundTaskDetails.addTask(
+      changedProduct,
+      productEditTask: ProductEditTask.nutrition,
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);

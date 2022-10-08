@@ -30,6 +30,10 @@
     "@stop": {},
     "finish": "Fine",
     "@finish": {},
+    "calculate": "Calcola",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Ripristina preferenze alimentari",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -339,6 +343,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Accedi al tuo conto Open Food Facts per ottenere credito per il tuo contributo",
+    "tap_to_edit_search": "Tocca per modificare la ricerca",
     "@Personal preferences": {},
     "myPreferences": "Le Mie preferenze",
     "@myPreferences": {
@@ -555,6 +560,18 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "deprecated_header": "Stai utilizzando una versione osboleta dell'app.",
+    "@deprecated_header": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "click_here": "Clicca qui",
+    "@click_here": {
+        "description": "Confirmation click to download new version of the app"
+    },
+    "download_new_version": "Scarica la nuova versione dell'app",
+    "@download_new_version": {
+        "description": "Download new version of the app text"
+    },
     "could_not_refresh": "Impossibile aggiornare il prodotto",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -708,7 +725,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "Per scansionare i codici a barre con la fotocamera del telefono, autorizzare l'accesso.",
+    "permissions_page_body1": "Per scansionare i codici a barre con la fotocamera del tuo telefono, sei pregato di Autorizzare l'accesso.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -909,40 +926,10 @@
     "settings_app_data": "Privacy & monitoraggio",
     "settings_app_camera": "Fotocamera",
     "settings_app_products": "Prodotti",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Varie",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "Modalità ad alte prestazioni",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "Se abilitata, la qualità della decodifica dei codici a barre dovrebbe essere migliore, ma potrebbe influire sulle prestazioni e sulla durata della batteria. Richiede il riavvio dell'applicazione.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Modalità concentrazione",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Modalità corrente: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Auto",
-    "camera_focus_point_algorithm_value_auto_description": "Lascia che il sistema scelga automaticamente tra modalità veloce e sicura.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Modalità veloce",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "Una modalità consigliata per i dispositivi recenti.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Modalità sicura",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "Se la modalità veloce non funziona, questo dovrebbe risolvere i tuoi problemi di messa a fuoco.",
     "camera_play_sound_title": "Riproduci un suono durante la scansione",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -955,7 +942,7 @@
     "@camera_alternative_mode_title": {
         "description": "Title for the Alternative mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Se il dispositivo non è in grado di scansionare i codici a barre, prova questa modalità. Se funziona bene, si prega di comunicarci il nome del dispositivo: {device}, al fine di rendere questa modalità quella predefinita per il tuo dispositivo.",
+    "camera_alternative_mode_subtitle": "Se il tuo dispositivo non consente la scansione dei codici a barre, sei pregato di provare questa modalità.\n\nSe funziona bene, sei pregato di comunicarci il nome del tuo dispositivo: {device}, così da rendere questa modalità la predefinita per il tuo dispositivo.",
     "@camera_alternative_mode_subtitle": {
         "description": "SubTitle for the Alternative mode for the camera/scanner",
         "placeholders": {
@@ -968,19 +955,11 @@
     "@camera_alternative_mode_confirm_dialog_title": {
         "description": "Title for the dialog explaining the alternative mode has changed"
     },
-    "camera_alternative_mode_confirm_dialog_body": "La nuova modalità verrà utilizzata solo dopo il riavvio dell'app.",
-    "@camera_alternative_mode_confirm_dialog_body": {
-        "description": "Content for the dialog explaining the alternative mode has changed = restart the app"
-    },
-    "camera_alternative_mode_confirm_dialog_button": "Annotato!",
-    "@camera_alternative_mode_confirm_dialog_button": {
-        "description": "Button for the dialog to confirm the user has understood"
-    },
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "app_haptic_feedback_title": "Vibrazione e Tatto",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Vibrazioni dopo l'esecuzione di certe azioni (codice a barre rilevato, prodotto rimosso…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1683,8 +1662,41 @@
     },
     "all_images": "Tutte le immagini",
     "selected_images": "Immagini selezionate",
-    "product_card_remove_product_tooltip": "Remove product",
+    "product_card_remove_product_tooltip": "Rimuovi prodotto",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "portion_calculator_description": "Calcola i valori nutrizionali per una quantità specifica",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "Valori nutrizionali per {grams} g (o ml)",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
+    "offline_data": "Dati Offline",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Carica un'immagine per estrarre automaticamente le informazioni fornite",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Carica Foto",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
+    },
+    "word_separator_char": ",",
+    "@word_separator_char": {
+        "description": "Word separator character. In English language, this is a comma: ','"
+    },
+    "word_separator": ", ",
+    "@word_separator": {
+        "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     }
 }
