@@ -15,9 +15,9 @@ abstract class CropHelper {
   static CropHelper getCurrent(final BuildContext context) => context
               .read<UserPreferences>()
               .getFlag(UserPreferencesDevMode.userPreferencesFlagNewCropTool) ??
-          false
-      ? _OldCropHelper()
-      : _NewCropHelper();
+          true
+      ? _NewCropHelper()
+      : _OldCropHelper();
 
   /// Returns the path of the image file after the crop operation.
   Future<String?> getCroppedPath(
