@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 
+// TODO(ashaman): Remove the old crop tool altogether after users don't complain.(today is 2022-10-16)
 /// Crop Helper - which crop tool do we use, and the method to use it.
 abstract class CropHelper {
   /// Returns the crop tool selected in the dev mode preferences.
@@ -15,8 +16,8 @@ abstract class CropHelper {
               .read<UserPreferences>()
               .getFlag(UserPreferencesDevMode.userPreferencesFlagNewCropTool) ??
           false
-      ? _NewCropHelper()
-      : _OldCropHelper();
+      ? _OldCropHelper()
+      : _NewCropHelper();
 
   /// Returns the path of the image file after the crop operation.
   Future<String?> getCroppedPath(
