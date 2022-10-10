@@ -31,7 +31,10 @@ class KnowledgePanelWidget extends StatelessWidget {
     final List<Widget> children = <Widget>[];
     children.add(
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
+        padding: const EdgeInsets.symmetric(
+          vertical: VERY_SMALL_SPACE,
+          horizontal: SMALL_SPACE,
+        ),
         child: Text(
           rootPanel.titleElement!.title,
           style: Theme.of(context).textTheme.headline3,

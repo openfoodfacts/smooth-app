@@ -23,26 +23,24 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
     }
     switch (knowledgePanel.titleElement!.type) {
       case TitleElementType.GRADE:
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            ScoreCard(
-              iconUrl: knowledgePanel.titleElement!.iconUrl,
-              description: knowledgePanel.titleElement!.title,
-              cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
-                knowledgePanel.titleElement!,
-              ),
-              isClickable: isClickable,
-              margin: margin,
-            ),
-          ],
+        return ScoreCard(
+          iconUrl: knowledgePanel.titleElement!.iconUrl,
+          description: knowledgePanel.titleElement!.title,
+          cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
+            knowledgePanel.titleElement!,
+          ),
+          isClickable: isClickable,
+          margin: margin,
         );
       case null:
       case TitleElementType.UNKNOWN:
-        return KnowledgePanelTitleCard(
-          knowledgePanelTitleElement: knowledgePanel.titleElement!,
-          evaluation: knowledgePanel.evaluation,
-          isClickable: isClickable,
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+          child: KnowledgePanelTitleCard(
+            knowledgePanelTitleElement: knowledgePanel.titleElement!,
+            evaluation: knowledgePanel.evaluation,
+            isClickable: isClickable,
+          ),
         );
     }
   }

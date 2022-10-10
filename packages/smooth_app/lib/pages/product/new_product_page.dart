@@ -18,6 +18,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
@@ -127,19 +128,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               ),
               child: Offstage(
                 offstage: !scrollingUp,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.maybePop(context);
-                  },
-                  child: Tooltip(
-                    message:
-                        MaterialLocalizations.of(context).backButtonTooltip,
-                    child: Icon(
-                      ConstantIcons.instance.getBackIcon(),
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                child: const SmoothBackButton(),
               ),
             ),
           )

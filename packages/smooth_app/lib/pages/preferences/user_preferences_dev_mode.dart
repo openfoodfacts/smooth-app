@@ -387,7 +387,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         SwitchListTile(
           title: const Text('Use new crop tool'),
           value:
-              userPreferences.getFlag(userPreferencesFlagNewCropTool) ?? false,
+              userPreferences.getFlag(userPreferencesFlagNewCropTool) ?? true,
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagNewCropTool, value);
