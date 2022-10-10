@@ -35,7 +35,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   String get traceTitle => 'knowledge_panel_page';
 
   @override
-  String get traceName => 'Opened full knowledge panel page ${_getTitle()}';
+  String get traceName => 'Opened full knowledge panel page';
 
   late Product _product;
 

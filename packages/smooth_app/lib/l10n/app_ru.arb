@@ -447,7 +447,7 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "Информация об упаковке",
+    "packaging_information": "Hello",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
@@ -559,6 +559,18 @@
     "product_refreshed": "Продукт обновлен",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
+    },
+    "deprecated_header": "You are using a deprecated version of the app.",
+    "@deprecated_header": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "click_here": "Нажмите здесь",
+    "@click_here": {
+        "description": "Confirmation click to download new version of the app"
+    },
+    "download_new_version": "Download the new version of the app",
+    "@download_new_version": {
+        "description": "Download new version of the app text"
     },
     "could_not_refresh": "Не удалось обновить продукт",
     "@could_not_refresh": {
@@ -1649,7 +1661,7 @@
         "description": "Content for the dialog when no email client is installed on the device"
     },
     "all_images": "All Images",
-    "selected_images": "Selected Images",
+    "selected_images": "Ważne: potrzebujemy Twojego wsparcia!\n\nOpen Food Facts to wspólny projekt stworzony przez dziesiątki tysięcy wolontariuszy i zarządzany przez organizację non-profit z 4 pracownikami.\nPotrzebujemy Twoich darowizn, aby sfinansować budżet Open Food Facts na rok 2022 i kontynuować prace nad projektem. Dziękuję! ❤️",
     "product_card_remove_product_tooltip": "Remove product",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
@@ -1678,5 +1690,13 @@
     "upload_image": "Upload Photo",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
+    },
+    "word_separator_char": ",",
+    "@word_separator_char": {
+        "description": "Word separator character. In English language, this is a comma: ','"
+    },
+    "word_separator": ", ",
+    "@word_separator": {
+        "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     }
 }

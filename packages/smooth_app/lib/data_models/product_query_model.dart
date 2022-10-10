@@ -19,7 +19,8 @@ class ProductQueryModel with ChangeNotifier {
   late LoadingStatus _loadingStatus;
   String? _loadingError;
   List<String> displayBarcodes = <String>[];
-  bool isNotEmpty() => displayBarcodes.isNotEmpty;
+
+  bool isEmpty() => displayBarcodes.isEmpty;
 
   String? get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
