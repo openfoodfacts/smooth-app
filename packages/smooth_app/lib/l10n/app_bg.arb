@@ -938,23 +938,21 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Алтернативен режим за скенера",
-    "@camera_alternative_mode_title": {
-        "description": "Title for the Alternative mode for the camera/scanner"
+    "camera_mode_title": "Scanner mode",
+    "@camera_mode_title": {
+        "description": "Title for the mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Ако твоето устройство не може да сканира баркодове, моля, опитай този режим. \n\nАко работи добре, моля, съобщи ни името на твоето устройство: {device}, за да направим този режим по подразбиране за твоето устройство.",
-    "@camera_alternative_mode_subtitle": {
-        "description": "SubTitle for the Alternative mode for the camera/scanner",
+    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "@camera_mode_subtitle": {
+        "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
-            "device": {
+            "mode": {
                 "type": "String"
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Режимът на скенера е променен!",
-    "@camera_alternative_mode_confirm_dialog_title": {
-        "description": "Title for the dialog explaining the alternative mode has changed"
-    },
+    "camera_mode_file_based": "Safe mode (by default)",
+    "camera_mode_bytes_array_based": "Quick mode",
     "app_haptic_feedback_title": "Вибрация и усещане",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1683,11 +1681,11 @@
     "@offline_data": {
         "description": "App bar tile for offline data page"
     },
-    "ocr_image_upload_instruction": "Качи снимка, за да извлечеш автоматично предоставената информация",
+    "ocr_image_upload_instruction": "Качете изображение, за да извлечете автоматично предоставената информация",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on ocr extraction page"
     },
-    "upload_image": "Качи снимка",
+    "upload_image": "Качете снимка",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },

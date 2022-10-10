@@ -938,23 +938,21 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Mode alternatif pour le scanner",
-    "@camera_alternative_mode_title": {
-        "description": "Title for the Alternative mode for the camera/scanner"
+    "camera_mode_title": "Scanner mode",
+    "@camera_mode_title": {
+        "description": "Title for the mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Si votre appareil ne parvient pas à scanner les codes-barres, veuillez essayer ce mode.\n\nSi cela fonctionne, veuillez nous communiquer le nom de votre appareil : {device}, afin de faire de ce mode celui par défaut pour votre appareil.",
-    "@camera_alternative_mode_subtitle": {
-        "description": "SubTitle for the Alternative mode for the camera/scanner",
+    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "@camera_mode_subtitle": {
+        "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
-            "device": {
+            "mode": {
                 "type": "String"
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Mode scanneur modifié !",
-    "@camera_alternative_mode_confirm_dialog_title": {
-        "description": "Title for the dialog explaining the alternative mode has changed"
-    },
+    "camera_mode_file_based": "Safe mode (by default)",
+    "camera_mode_bytes_array_based": "Quick mode",
     "app_haptic_feedback_title": "Vibration et retours tactiles",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
