@@ -175,7 +175,6 @@ class _SearchFieldState extends State<SearchField> {
   void initState() {
     super.initState();
 
-    print(widget.focusNode);
     _focusNode = widget.focusNode ?? FocusNode();
     _focusNode.addListener(_handleFocusChange);
 
