@@ -14,7 +14,7 @@
     },
     "go_back_to_top": "Quay trở lại bên trên",
     "save": "Lưu",
-    "save_confirmation": "Bạn chắc chắc muốn lưu?",
+    "save_confirmation": "Bạn chắc chắn muốn lưu?",
     "skip": "Skip",
     "cancel": "Huỷ",
     "@cancel": {},
@@ -560,7 +560,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "You are using a deprecated version of the app.",
+    "deprecated_header": "Bạn đang sử dụng phiên bản cũ của ứng dụng này.",
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
@@ -568,7 +568,7 @@
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
-    "download_new_version": "Download the new version of the app",
+    "download_new_version": "Tải xuống phiên bản mới nhất",
     "@download_new_version": {
         "description": "Download new version of the app text"
     },
@@ -938,23 +938,21 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Chế độ thay thế cho máy quét",
-    "@camera_alternative_mode_title": {
-        "description": "Title for the Alternative mode for the camera/scanner"
+    "camera_mode_title": "Scanner mode",
+    "@camera_mode_title": {
+        "description": "Title for the mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "Nếu thiết bị của bạn không quét được mã vạch, hãy dùng thử chế độ này.\n\nNếu như nó hoạt động tốt, hãy liên hệ với chúng tôi cung cấp thông tin tên thiết bị của bạn: {device}, để chúng tôi cài đặt chế độ này là mặc định cho thiết bị của bạn.",
-    "@camera_alternative_mode_subtitle": {
-        "description": "SubTitle for the Alternative mode for the camera/scanner",
+    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "@camera_mode_subtitle": {
+        "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
-            "device": {
+            "mode": {
                 "type": "String"
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Chế độ quét đã thay đổi!",
-    "@camera_alternative_mode_confirm_dialog_title": {
-        "description": "Title for the dialog explaining the alternative mode has changed"
-    },
+    "camera_mode_file_based": "Safe mode (by default)",
+    "camera_mode_bytes_array_based": "Quick mode",
     "app_haptic_feedback_title": "Rung & Phản hồi",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
