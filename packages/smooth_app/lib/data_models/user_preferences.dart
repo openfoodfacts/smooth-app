@@ -43,7 +43,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USE_FLASH_WITH_CAMERA = 'enable_flash_with_camera';
 
   // Alternative mode for the camera (file based implementation on Android)
-  static const String _TAG_CAMERA_USE_ALTERNATIVE_MODE =
+  static const String _TAG_CAMERA_USE_FILE_BASED_MODE =
       'camera_alternative_mode';
 
   // Play sound when decoding a barcode
@@ -173,13 +173,13 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool? get useAlternativeCameraMode =>
-      _sharedPreferences.getBool(_TAG_CAMERA_USE_ALTERNATIVE_MODE);
+  bool? get useFileBasedCameraMode =>
+      _sharedPreferences.getBool(_TAG_CAMERA_USE_FILE_BASED_MODE);
 
-  Future<void> setUseAlternativeCameraMode(final bool alternativeMode) async {
+  Future<void> setUseFileBasedCameraMode(final bool fileBasedMode) async {
     await _sharedPreferences.setBool(
-      _TAG_CAMERA_USE_ALTERNATIVE_MODE,
-      alternativeMode,
+      _TAG_CAMERA_USE_FILE_BASED_MODE,
+      fileBasedMode,
     );
 
     notifyListeners();
