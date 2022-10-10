@@ -92,13 +92,15 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<void> _editImage(final DaoInt daoInt) async {
     final String? imageUrl = imageData.getImageUrl(ImageSize.ORIGINAL);
-    if (imageUrl == null) {
+    final String? fallbackImageUrl = imageData.imageUrl;
+    if (imageUrl == null || fallbackImageUrl == null) {
       return;
     }
 
-    final File? imageFile = await LoadingDialog.run<File>(
+    final File? imageFile = await LoadingDialog.run<File?>(
       context: context,
-      future: _downloadImageFile(daoInt, imageUrl),
+      future:
+          _downloadImageFileWithFallback(daoInt, imageUrl, fallbackImageUrl),
     );
 
     if (imageFile == null) {
@@ -131,10 +133,21 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     }
   }
 
+  Future<File?> _downloadImageFileWithFallback(
+      DaoInt daoInt, String url, String fallbackUrl) async {
+    return await _downloadImageFile(daoInt, url) ??
+        await _downloadImageFile(daoInt, fallbackUrl);
+  }
+
   static const String _CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
 
-  Future<File> _downloadImageFile(DaoInt daoInt, String url) async {
+  Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
     final http.Response response = await http.get(Uri.parse(url));
+    if (response.statusCode > 299) {
+      // TODO: Properly handle errors
+      return null;
+    }
+
     final Directory tempDirectory = await getTemporaryDirectory();
 
     final int sequenceNumber =
