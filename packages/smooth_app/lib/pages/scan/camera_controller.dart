@@ -99,13 +99,8 @@ class SmoothCameraController extends CameraController {
   @protected
   Future<void> startStream(onLatestImageAvailable onAvailable) async {
     if (CameraModes.supportFileBasedMode) {
-      final bool? persistToFile = preferences.useFileBasedCameraMode;
-
-      if (persistToFile == null) {
-        _persistToFileMode = CameraModes.supportFileBasedMode;
-      } else {
-        _persistToFileMode = persistToFile;
-      }
+      _persistToFileMode = preferences.useFileBasedCameraMode ??
+          (CameraModes.defaultCameraMode == CameraMode.FILE_BASED);
     } else {
       _persistToFileMode = false;
     }
