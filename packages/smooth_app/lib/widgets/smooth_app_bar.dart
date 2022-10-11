@@ -98,57 +98,10 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   Widget _createAppBar() => AppBar(
-      leading: leading,
-      automaticallyImplyLeading: automaticallyImplyLeading,
-      title: title,
-      actions: actions,
-      flexibleSpace: flexibleSpace,
-      bottom: bottom,
-      elevation: elevation,
-      scrolledUnderElevation: scrolledUnderElevation,
-      shadowColor: shadowColor,
-      surfaceTintColor: surfaceTintColor,
-      backgroundColor: backgroundColor,
-      foregroundColor: foregroundColor,
-      iconTheme: iconTheme,
-      actionsIconTheme: actionsIconTheme,
-      primary: primary,
-      centerTitle: centerTitle,
-      excludeHeaderSemantics: excludeHeaderSemantics,
-      titleSpacing: titleSpacing,
-      shape: shape,
-      toolbarOpacity: toolbarOpacity,
-      bottomOpacity: bottomOpacity,
-      toolbarHeight: toolbarHeight,
-      leadingWidth: leadingWidth,
-      toolbarTextStyle: toolbarTextStyle,
-      titleTextStyle: titleTextStyle,
-      systemOverlayStyle: systemOverlayStyle,
-    );
-
-  Widget _createActionModeAppBar(BuildContext context) {
-    return IconTheme(
-      data: IconThemeData(color: PopupMenuTheme.of(context).color),
-      child: AppBar(
-        leading: _ActionModeCloseButton(
-          tooltip: AppLocalizations.of(context).cancel,
-          onPressed: () {
-            onLeaveActionMode?.call();
-          },
-        ),
-        automaticallyImplyLeading: false,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            actionModeTitle!,
-            if (actionModeSubTitle != null)
-              DefaultTextStyle(
-                  style: Theme.of(context).textTheme.bodyMedium ??
-                      const TextStyle(),
-                  child: actionModeSubTitle!),
-          ],
-        ),
-        actions: actionModeActions,
+        leading: leading,
+        automaticallyImplyLeading: automaticallyImplyLeading,
+        title: title,
+        actions: actions,
         flexibleSpace: flexibleSpace,
         bottom: bottom,
         elevation: elevation,
@@ -171,9 +124,54 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
         toolbarTextStyle: toolbarTextStyle,
         titleTextStyle: titleTextStyle,
         systemOverlayStyle: systemOverlayStyle,
-      ),
-    );
-  }
+      );
+
+  Widget _createActionModeAppBar(BuildContext context) => IconTheme(
+        data: IconThemeData(color: PopupMenuTheme.of(context).color),
+        child: AppBar(
+          leading: _ActionModeCloseButton(
+            tooltip: AppLocalizations.of(context).cancel,
+            onPressed: () {
+              onLeaveActionMode?.call();
+            },
+          ),
+          automaticallyImplyLeading: false,
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              actionModeTitle!,
+              if (actionModeSubTitle != null)
+                DefaultTextStyle(
+                    style: Theme.of(context).textTheme.bodyMedium ??
+                        const TextStyle(),
+                    child: actionModeSubTitle!),
+            ],
+          ),
+          actions: actionModeActions,
+          flexibleSpace: flexibleSpace,
+          bottom: bottom,
+          elevation: elevation,
+          scrolledUnderElevation: scrolledUnderElevation,
+          shadowColor: shadowColor,
+          surfaceTintColor: surfaceTintColor,
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          iconTheme: iconTheme,
+          actionsIconTheme: actionsIconTheme,
+          primary: primary,
+          centerTitle: centerTitle,
+          excludeHeaderSemantics: excludeHeaderSemantics,
+          titleSpacing: titleSpacing,
+          shape: shape,
+          toolbarOpacity: toolbarOpacity,
+          bottomOpacity: bottomOpacity,
+          toolbarHeight: toolbarHeight,
+          leadingWidth: leadingWidth,
+          toolbarTextStyle: toolbarTextStyle,
+          titleTextStyle: titleTextStyle,
+          systemOverlayStyle: systemOverlayStyle,
+        ),
+      );
 }
 
 class _PreferredAppBarSize extends Size {
