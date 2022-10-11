@@ -32,8 +32,11 @@ class SmoothProductCardTemplate extends StatelessWidget {
     final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
     final Widget textWidget = Container(
       width: screenSize.width * .4,
-      height: screenSize.width * .05,
-      color: itemColor,
+      height: screenSize.width * .04,
+      decoration: BoxDecoration(
+        color: itemColor,
+        borderRadius: ROUNDED_BORDER_RADIUS,
+      ),
     );
     // In the actual display, it's a 240x130 svg resized with iconSize
     final double svgWidth = 240 * iconSize / 130;
