@@ -92,9 +92,10 @@ class ProductRefresher {
         return _MetaProductRefresher.product(result.product);
       }
       return const _MetaProductRefresher.error(null);
-    } catch (e) { // added
-      return _MetaProductRefresher.error(e.toString()); // added
-    } // added
+    } catch (e) {
+      // TODO(monsieurtanuki): add call to Logs
+      return _MetaProductRefresher.error(e.toString());
+    }
   }
 }
 
