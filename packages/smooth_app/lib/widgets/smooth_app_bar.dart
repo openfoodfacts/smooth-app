@@ -125,7 +125,6 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleTextStyle: titleTextStyle,
       systemOverlayStyle: systemOverlayStyle,
     );
-  }
 
   Widget _createActionModeAppBar(BuildContext context) {
     return IconTheme(
