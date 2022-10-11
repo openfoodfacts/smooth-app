@@ -73,7 +73,7 @@ class _EditProductPageState extends State<EditProductPage> {
                 AutoSizeText(
                   getProductName(_product, appLocalizations),
                   minFontSize: (theme.primaryTextTheme.headline6?.fontSize
-                          ?.clamp(13, 17)) ??
+                          ?.clamp(13.0, 17.0)) ??
                       13.0,
                   maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
                   style: theme.primaryTextTheme.headline6
@@ -81,12 +81,13 @@ class _EditProductPageState extends State<EditProductPage> {
                 ),
                 if (_product.barcode?.isNotEmpty == true)
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 250),
+                    duration: const Duration(milliseconds: 250),
                     height: _barcodeVisibleInAppbar ? 13.0 : 0.0,
                     child: Text(
                       _product.barcode!,
-                      style: theme.textTheme.subtitle1
-                          ?.copyWith(fontWeight: FontWeight.normal),
+                      style: theme.textTheme.subtitle1?.copyWith(
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
                   ),
               ],
