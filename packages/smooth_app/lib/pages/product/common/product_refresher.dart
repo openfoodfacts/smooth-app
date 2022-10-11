@@ -76,7 +76,7 @@ class ProductRefresher {
     final LocalDatabase localDatabase,
     final String barcode,
   ) async {
-    try { // added
+    try {
       final ProductQueryConfiguration configuration = ProductQueryConfiguration(
         barcode,
         fields: ProductQuery.fields,
