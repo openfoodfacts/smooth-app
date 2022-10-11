@@ -6,12 +6,12 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class SearchHistoryView extends StatefulWidget {
   const SearchHistoryView({
-    this.scrollController,
     this.onTap,
+    this.focusNode,
   });
 
-  final ScrollController? scrollController;
   final void Function(String)? onTap;
+  final FocusNode? focusNode;
 
   @override
   State<SearchHistoryView> createState() => _SearchHistoryViewState();
@@ -35,7 +35,6 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      controller: widget.scrollController,
       itemCount: _queries.length,
       itemBuilder: (BuildContext context, int i) =>
           _buildSearchHistoryTile(context, _queries[i]),
@@ -67,7 +66,14 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
             controller.selection =
                 TextSelection.fromPosition(TextPosition(offset: query.length));
 
-            Focus.maybeOf(context)?.requestFocus();
+            // If the keyboard is hidden, show it.
+            if (WidgetsBinding.instance.window.viewInsets.bottom == 0) {
+              widget.focusNode?.unfocus();
+
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                FocusScope.of(context).requestFocus(widget.focusNode);
+              });
+            }
           },
           child: const Padding(
             padding: EdgeInsets.all(SMALL_SPACE),
