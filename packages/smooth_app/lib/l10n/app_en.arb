@@ -1172,7 +1172,7 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to a list",
+    "user_list_add_product": "Add the product to your lists",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
