@@ -39,7 +39,8 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionModeCloseTooltip,
     this.onLeaveActionMode,
     Key? key,
-  })  : preferredSize =
+  })  : assert(!actionMode || actionModeTitle != null),
+        preferredSize =
             _PreferredAppBarSize(toolbarHeight, bottom?.preferredSize.height),
         super(key: key);
 
