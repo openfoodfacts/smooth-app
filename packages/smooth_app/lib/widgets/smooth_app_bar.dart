@@ -97,8 +97,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _createAppBar() {
-    return AppBar(
+  Widget _createAppBar() => AppBar(
       leading: leading,
       automaticallyImplyLeading: automaticallyImplyLeading,
       title: title,
