@@ -23,7 +23,8 @@ class ProductImageData {
   final String buttonText;
   final String? imageUrl;
 
-  /// Convert [imageUrl] to specified [size]
+  /// Try to convert [imageUrl] to specified [size].
+  /// Note that url for specified [size] might not exist on API.
   String? getImageUrl(ImageSize size) {
     final String? imageUrl = this.imageUrl;
     if (imageUrl == null) {
