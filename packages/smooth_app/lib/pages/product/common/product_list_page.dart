@@ -458,7 +458,7 @@ class _CompareProductsButton extends StatelessWidget {
         await Navigator.push<void>(
           context,
           MaterialPageRoute<void>(
-            builder: (BuildContext context) => PersonalizedRankingPage(
+            builder: (_) => PersonalizedRankingPage(
               barcodes: list,
               title: appLocalizations.product_list_your_ranking,
             ),
