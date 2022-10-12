@@ -16,6 +16,7 @@ import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Editing with OCR a product field and the corresponding image.
@@ -224,8 +225,15 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
     final Scaffold scaffold = SmoothScaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(_helper.getTitle(appLocalizations)),
+        subTitle: widget.product.productName != null
+            ? Text(
+                widget.product.productName!,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              )
+            : null,
         backgroundColor: Colors.transparent,
         flexibleSpace: ClipRect(
           child: BackdropFilter(
