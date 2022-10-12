@@ -275,9 +275,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             MapEntry<ImageSize?, ProductImage>(key, value.first));
     return map[ImageSize.DISPLAY] ??
         map[ImageSize.SMALL] ??
-        map[ImageSize.THUMB] ??
-        map[ImageSize.ORIGINAL] ??
-        map[ImageSize.UNKNOWN] ??
-        map[null];
+        map[ImageSize.THUMB];
   }
 }
