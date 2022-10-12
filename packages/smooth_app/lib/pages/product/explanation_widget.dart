@@ -20,13 +20,15 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
       return EMPTY_WIDGET;
     }
     if (!_expanded) {
-      return ListTile(
-        title: Text(
-          widget.explanations!,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+      return _wrapListTitle(
+        ListTile(
+          title: Text(
+            widget.explanations!,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          trailing: const Icon(Icons.info_outline),
         ),
-        trailing: const Icon(Icons.info_outline),
         onTap: () => setState(() => _expanded = true),
       );
     }
@@ -37,9 +39,11 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
       if (first) {
         first = false;
         result.add(
-          ListTile(
-            title: Text(item),
-            trailing: const Icon(Icons.expand_less),
+          _wrapListTitle(
+            ListTile(
+              title: Text(item),
+              trailing: const Icon(Icons.expand_less),
+            ),
             onTap: () => setState(() => _expanded = false),
           ),
         );
@@ -49,4 +53,13 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
     }
     return Column(children: result);
   }
+
+  Widget _wrapListTitle(final ListTile child, {VoidCallback? onTap}) =>
+      Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onTap,
+          child: child,
+        ),
+      );
 }
