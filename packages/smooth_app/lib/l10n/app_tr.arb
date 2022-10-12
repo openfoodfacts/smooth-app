@@ -938,11 +938,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Tarayıcı modu",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Bu değeri yalnızca tarayıcıyla ilgili bazı sorunlarınız varsa (barkodları çözemiyorsanız) değiştirin. İki mod arasında geçiş yapmak için dokunun.\nGeçerli olan: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -951,8 +951,8 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_file_based": "Güvenli mod (varsayılan olarak)",
+    "camera_mode_bytes_array_based": "Hızlı mod",
     "app_haptic_feedback_title": "Titreşim ve Dokunma",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
