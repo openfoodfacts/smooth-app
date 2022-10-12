@@ -265,11 +265,19 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       images
           .groupListsBy((ProductImage element) => element.imgid)
           .values
-          .map(_selectProductImage)
+          .map(_findBestProductImage)
           .whereNotNull();
 
-  ProductImage? _selectProductImage(Iterable<ProductImage> images) =>
-      images.firstWhereOrNull(
-          (ProductImage image) => image.size == ImageSize.DISPLAY) ??
-      images.firstOrNull;
+  ProductImage? _findBestProductImage(Iterable<ProductImage> images) {
+    final Map<ImageSize?, ProductImage> map = images
+        .groupListsBy((ProductImage image) => image.size)
+        .map((ImageSize? key, List<ProductImage> value) =>
+            MapEntry<ImageSize?, ProductImage>(key, value.first));
+    return map[ImageSize.DISPLAY] ??
+        map[ImageSize.SMALL] ??
+        map[ImageSize.THUMB] ??
+        map[ImageSize.ORIGINAL] ??
+        map[ImageSize.UNKNOWN] ??
+        map[null];
+  }
 }
