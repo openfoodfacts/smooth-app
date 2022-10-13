@@ -73,15 +73,22 @@ class _EditProductPageState extends State<EditProductPage> {
               children: <Widget>[
                 AutoSizeText(
                   getProductName(_product, appLocalizations),
-                  maxLines: _barcodeVisibleInAppbar ? 1 : 2,
+                  minFontSize: (theme.primaryTextTheme.headline6?.fontSize
+                          ?.clamp(13.0, 17.0)) ??
+                      13.0,
+                  maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
+                  style: theme.primaryTextTheme.headline6
+                      ?.copyWith(fontWeight: FontWeight.w500),
                 ),
                 if (_product.barcode?.isNotEmpty == true)
-                  Visibility(
-                    visible: _barcodeVisibleInAppbar,
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 250),
+                    height: _barcodeVisibleInAppbar ? 13.0 : 0.0,
                     child: Text(
                       _product.barcode!,
-                      style: theme.textTheme.subtitle1
-                          ?.copyWith(fontWeight: FontWeight.normal),
+                      style: theme.textTheme.subtitle1?.copyWith(
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
                   ),
               ],
