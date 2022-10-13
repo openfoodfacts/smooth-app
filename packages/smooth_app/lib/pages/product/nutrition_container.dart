@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/interface/JsonObject.dart';
 import 'package:openfoodfacts/model/Nutriments.dart';
@@ -6,6 +5,7 @@ import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
+import 'package:smooth_app/pages/text_field_helper.dart';
 
 /// Nutrition data, for nutrient order and conversions.
 class NutritionContainer {
@@ -87,8 +87,14 @@ class NutritionContainer {
   /// Returns true if the [OrderedNutrient] is not relevant.
   bool _isNotRelevant(final OrderedNutrient orderedNutrient) {
     final String nutrientId = orderedNutrient.id;
-    final double? value100g = getValue(getValueKey(nutrientId, false));
-    final double? valueServing = getValue(getValueKey(nutrientId, true));
+    final double? value100g = getValue(getValueKey(
+      nutrientId,
+      NutritionUnit.per100g,
+    ));
+    final double? valueServing = getValue(getValueKey(
+      nutrientId,
+      NutritionUnit.perServing,
+    ));
     return value100g == null &&
         valueServing == null &&
         (!orderedNutrient.important) &&
@@ -118,8 +124,14 @@ class NutritionContainer {
     final Map<String, dynamic> map = <String, dynamic>{};
     for (final OrderedNutrient orderedNutrient in getDisplayableNutrients()) {
       final String nutrientId = orderedNutrient.id;
-      final String key100g = getValueKey(nutrientId, false);
-      final String keyServing = getValueKey(nutrientId, true);
+      final String key100g = getValueKey(
+        nutrientId,
+        NutritionUnit.per100g,
+      );
+      final String keyServing = getValueKey(
+        nutrientId,
+        NutritionUnit.perServing,
+      );
       final double? value100g = getValue(key100g);
       final double? valueServing = getValue(keyServing);
       if (value100g == null && valueServing == null) {
@@ -142,16 +154,16 @@ class NutritionContainer {
   double? getValue(final String valueKey) => _values[valueKey];
 
   /// Stores the text from the end-user input.
-  void setControllerText(final String controllerKey, final String text) {
+  void setControllerText(final String controllerKey, final String? text) {
     if (controllerKey == fakeNutrientIdServingSize) {
-      _servingSize = text.trim().isEmpty ? null : text;
+      _servingSize = text?.trim().isNotEmpty == false ? null : text;
       return;
     }
 
     double? value;
-    if (text.isNotEmpty) {
+    if (text?.isNotEmpty == true) {
       try {
-        value = double.parse(text.replaceAll(',', '.'));
+        value = double.parse(text!.replaceAll(',', '.'));
       } catch (e) {
         //
       }
@@ -227,9 +239,11 @@ class NutritionContainer {
   /// * [perServing] false: per 100g.
   static String getValueKey(
     String nutrientId,
-    final bool perServing,
+    final NutritionUnit nutritionUnit,
   ) {
+    final bool perServing = nutritionUnit == NutritionUnit.perServing;
     nutrientId = _fixNutrientId(nutrientId);
+
     // 'energy-kcal' is directly for serving (no 'energy-kcal_serving')
     if (nutrientId == _energyKCalId && perServing) {
       return _energyKCalId;
@@ -330,7 +344,8 @@ class NutritionContainer {
       final String nutrientId = orderedNutrient.id;
       final Unit unit = getUnit(nutrientId);
       for (int i = 0; i < 2; i++) {
-        final bool perServing = i == 0;
+        final NutritionUnit perServing =
+            i == 0 ? NutritionUnit.perServing : NutritionUnit.per100g;
         final String valueKey = getValueKey(nutrientId, perServing);
         final double? value = convertWeightFromG(
           JsonObject.parseDouble(json[valueKey]),
@@ -344,14 +359,18 @@ class NutritionContainer {
   }
 
   bool isEdited(
-    final Map<String, TextEditingController> controllers,
+    final Map<String, TextEditingControllerWithInitialValue> controllers,
     final NumberFormat numberFormat,
     final bool noNutritionData,
+    final bool nutritionUnitHasChanged,
   ) {
-    if (_isEditedControllers(controllers, numberFormat)) {
+    if (_isEditedControllers(controllers)) {
       return true;
     }
     if (this.noNutritionData != noNutritionData) {
+      return true;
+    }
+    if (nutritionUnitHasChanged) {
       return true;
     }
     if (_isEditedUnits()) {
@@ -361,18 +380,10 @@ class NutritionContainer {
   }
 
   bool _isEditedControllers(
-    final Map<String, TextEditingController> controllers,
-    final NumberFormat numberFormat,
+    final Map<String, TextEditingControllerWithInitialValue> controllers,
   ) {
     for (final String key in controllers.keys) {
-      final TextEditingController controller = controllers[key]!;
-      final String text = controller.value.text;
-      final double? value = getValue(key);
-      if (value == null) {
-        if (text != '') {
-          return true;
-        }
-      } else if (numberFormat.format(value) != text) {
+      if (controllers[key]!.valueHasChanged) {
         return true;
       }
     }
@@ -387,4 +398,9 @@ class NutritionContainer {
     }
     return false;
   }
+}
+
+enum NutritionUnit {
+  per100g,
+  perServing,
 }
