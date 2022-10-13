@@ -44,11 +44,12 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
               final MapEntry<ProductImageData, ImageProvider<Object>?> entry =
                   imageList[index];
               final ImageProvider? imageProvider = entry.value;
+              final String? imageUrl = entry.key.imageUrl;
 
-              return imageProvider == null
+              return imageProvider == null || imageUrl == null
                   ? const PictureNotFound()
                   : Hero(
-                      tag: entry.key.imageUrl!,
+                      tag: imageUrl,
                       child: _ImageTile(
                         image: imageProvider,
                         onTap: onTap == null

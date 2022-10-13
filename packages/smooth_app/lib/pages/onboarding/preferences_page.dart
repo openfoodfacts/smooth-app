@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
@@ -82,6 +83,7 @@ class _HelperState extends State<_Helper> {
       SvgPicture.asset(
         'assets/onboarding/preferences.svg',
         height: MediaQuery.of(context).size.height * .25,
+        package: AppHelper.APP_PACKAGE,
       ),
       Padding(
         padding: const EdgeInsetsDirectional.only(

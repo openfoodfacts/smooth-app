@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
@@ -64,8 +65,12 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         context.read<UpToDateProductProvider>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     return SmoothScaffold(
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(appLocalizations.basic_details),
+        subTitle: widget.product.productName != null
+            ? Text(widget.product.productName!,
+                overflow: TextOverflow.ellipsis, maxLines: 1)
+            : null,
       ),
       body: Form(
         key: _formKey,

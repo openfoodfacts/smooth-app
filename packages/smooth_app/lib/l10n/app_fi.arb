@@ -1696,5 +1696,13 @@
     "word_separator": ", ",
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "image_download_error": "Failed to download image",
+    "@image_download_error": {
+        "description": "Error message, when image download fails"
+    },
+    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "@image_edit_url_error": {
+        "description": "Error message, when editing image fails, due to missing url."
     }
 }

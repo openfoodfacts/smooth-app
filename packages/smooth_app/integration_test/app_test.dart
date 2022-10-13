@@ -52,7 +52,7 @@ void main() {
       await tester.runAsync(() async {
         await _initScreenshot(binding);
 
-        await app.main(screenshots: true);
+        await app.launchSmoothApp(screenshots: true);
         await tester.pumpAndSettle();
 
         sleep(const Duration(seconds: 30));

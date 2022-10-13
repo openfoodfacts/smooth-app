@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
@@ -66,6 +67,7 @@ class _AllUserProductListLoadedState extends State<_AllUserProductListLoaded> {
                     SvgPicture.asset(
                       'assets/misc/empty-list.svg',
                       height: MediaQuery.of(context).size.height * .4,
+                      package: AppHelper.APP_PACKAGE,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(SMALL_SPACE),

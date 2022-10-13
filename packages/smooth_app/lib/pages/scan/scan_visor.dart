@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/scan/scan_flash_toggle.dart';
 
@@ -40,6 +41,7 @@ class ScannerVisorWidgetState extends State<ScannerVisorWidget> {
                 'assets/icons/visor_icon.svg',
                 width: 35.0,
                 height: 32.0,
+                package: AppHelper.APP_PACKAGE,
               ),
             ),
           ),

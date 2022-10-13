@@ -938,11 +938,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Scannermodus",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Wijzig deze waarde alleen als u problemen heeft met de scanner (barcodes kunnen niet worden gedecodeerd). Tik om tussen de twee modi te schakelen.\nDe huidige is: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -951,8 +951,8 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_file_based": "Veilige modus (standaard)",
+    "camera_mode_bytes_array_based": "Snelle modus",
     "app_haptic_feedback_title": "Trillen & haptieken",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1696,5 +1696,13 @@
     "word_separator": ", ",
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "image_download_error": "Failed to download image",
+    "@image_download_error": {
+        "description": "Error message, when image download fails"
+    },
+    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "@image_edit_url_error": {
+        "description": "Error message, when editing image fails, due to missing url."
     }
 }

@@ -11,6 +11,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -67,20 +68,28 @@ class _EditProductPageState extends State<EditProductPage> {
 
         return SmoothScaffold(
           appBar: AppBar(
+            centerTitle: false,
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 AutoSizeText(
                   getProductName(_product, appLocalizations),
-                  maxLines: _barcodeVisibleInAppbar ? 1 : 2,
+                  minFontSize: (theme.primaryTextTheme.headline6?.fontSize
+                          ?.clamp(13.0, 17.0)) ??
+                      13.0,
+                  maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
+                  style: theme.primaryTextTheme.headline6
+                      ?.copyWith(fontWeight: FontWeight.w500),
                 ),
                 if (_product.barcode?.isNotEmpty == true)
-                  Visibility(
-                    visible: _barcodeVisibleInAppbar,
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 250),
+                    height: _barcodeVisibleInAppbar ? 13.0 : 0.0,
                     child: Text(
                       _product.barcode!,
-                      style: theme.textTheme.subtitle1
-                          ?.copyWith(fontWeight: FontWeight.normal),
+                      style: theme.textTheme.subtitle1?.copyWith(
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
                   ),
               ],
@@ -410,6 +419,7 @@ class _SvgIcon extends StatelessWidget {
         height: DEFAULT_ICON_SIZE,
         width: DEFAULT_ICON_SIZE,
         color: _iconColor(Theme.of(context)),
+        package: AppHelper.APP_PACKAGE,
       );
 
   /// Returns the standard icon color in a [ListTile].

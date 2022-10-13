@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
@@ -58,7 +59,10 @@ class _PermissionsPageState extends State<PermissionsPage> {
                       widthFactor: 0.5,
                       child: Transform.rotate(
                         angle: -0.2,
-                        child: Lottie.asset('assets/animations/barcode.json'),
+                        child: Lottie.asset(
+                          'assets/animations/barcode.json',
+                          package: AppHelper.APP_PACKAGE,
+                        ),
                       ),
                     ),
                     const SizedBox(height: LARGE_SPACE),
