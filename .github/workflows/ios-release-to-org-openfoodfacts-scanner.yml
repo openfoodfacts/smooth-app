@@ -112,10 +112,10 @@ jobs:
           CI_RELEASE: true
 
       - name: cat Podfile
-        run: cd ./packages/smooth_app/ios && cat Podfile
+        run: cd ./packages/app/ios && cat Podfile
  
       - name: Release ipa
-        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
+        run: cd ./packages/app/ios && bundle exec fastlane beta
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
