@@ -19,6 +19,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Actual nutrition page, with data already loaded.
@@ -118,11 +119,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           title: AutoSizeText(
             appLocalizations.nutrition_page_title,
-            maxLines: 2,
+            maxLines: widget.product.productName?.isNotEmpty == true ? 1 : 2,
           ),
+          subTitle: widget.product.productName != null
+              ? Text(
+                  widget.product.productName!,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                )
+              : null,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(
