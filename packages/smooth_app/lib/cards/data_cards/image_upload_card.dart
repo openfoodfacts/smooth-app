@@ -104,9 +104,11 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           // we need to load the full resolution image
 
           if (_imageFullProvider == null) {
-            final String imageFullUrl =
-                widget.productImageData.imageUrl!.replaceAll('.400.', '.full.');
-            _imageFullProvider = NetworkImage(imageFullUrl);
+            final String? imageFullUrl =
+                widget.productImageData.getImageUrl(ImageSize.ORIGINAL);
+            if (imageFullUrl != null) {
+              _imageFullProvider = NetworkImage(imageFullUrl);
+            }
           }
 
           // TODO(monsieurtanuki): careful, waiting for pop'ed value
