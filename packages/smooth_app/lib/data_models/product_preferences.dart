@@ -11,6 +11,7 @@ import 'package:openfoodfacts/personalized_search/product_preferences_manager.da
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:smooth_app/data_models/downloadable_string.dart';
 import 'package:smooth_app/database/dao_string.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ProductPreferences(
@@ -38,10 +39,14 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   void notifyListeners() => super.notifyListeners();
 
   static const String _DEFAULT_LANGUAGE_CODE = 'en';
+
   static String _getImportanceAssetPath(final String languageCode) =>
-      'assets/metadata/init_preferences_$languageCode.json';
+      AppHelper.getAssetPath(
+          'assets/metadata/init_preferences_$languageCode.json');
+
   static String _getAttributeAssetPath(final String languageCode) =>
-      'assets/metadata/init_attribute_groups_$languageCode.json';
+      AppHelper.getAssetPath(
+          'assets/metadata/init_attribute_groups_$languageCode.json');
 
   /// Inits with the best available not-network references.
   ///

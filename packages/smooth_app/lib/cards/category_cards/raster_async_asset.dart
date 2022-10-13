@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 
 /// Widget with async load of raster asset file (png, jpeg).
 class RasterAsyncAsset extends StatefulWidget {
@@ -19,7 +20,7 @@ class _RasterAsyncAssetState extends State<RasterAsyncAsset> {
     for (final String cachedFilename
         in widget.assetCacheHelper.cachedFilenames) {
       try {
-        return rootBundle.load(cachedFilename);
+        return rootBundle.load(AppHelper.getAssetPath(cachedFilename));
       } catch (e) {
         //
       }

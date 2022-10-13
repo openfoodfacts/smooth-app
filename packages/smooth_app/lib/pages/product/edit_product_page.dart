@@ -11,6 +11,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -410,6 +411,7 @@ class _SvgIcon extends StatelessWidget {
         height: DEFAULT_ICON_SIZE,
         width: DEFAULT_ICON_SIZE,
         color: _iconColor(Theme.of(context)),
+        package: AppHelper.APP_PACKAGE,
       );
 
   /// Returns the standard icon color in a [ListTile].

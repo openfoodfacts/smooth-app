@@ -43,7 +43,7 @@ jobs:
         #run: echo "VERSION_NAME=1.9.0" >> $GITHUB_ENV
 
       - name: Decrypt Android API JSON file
-        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+        run: cd ./packages/app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
@@ -56,7 +56,7 @@ jobs:
         uses: maierj/fastlane-action@v2.2.1
         with:
           lane: getOldVersionCode
-          subdirectory: packages/smooth_app/android
+          subdirectory: packages/app/android
 
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"

@@ -9,6 +9,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class OfflineDataPage extends StatefulWidget {
@@ -109,7 +110,11 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
             Container(
               color: dark ? null : Colors.white,
               padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-              child: SvgPicture.asset(headerAsset, height: backgroundHeight),
+              child: SvgPicture.asset(
+                headerAsset,
+                height: backgroundHeight,
+                package: AppHelper.APP_PACKAGE,
+              ),
             ),
             _StatsWidget(
               daoProduct: daoProduct,
@@ -179,6 +184,7 @@ class _StatsWidget extends StatelessWidget {
     required this.daoProduct,
   }) : super(key: key);
   final DaoProduct daoProduct;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -229,6 +235,7 @@ class _OfflinePageListTile extends StatelessWidget {
   final String subtitle;
   final Widget trailing;
   final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

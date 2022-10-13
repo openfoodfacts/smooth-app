@@ -32,7 +32,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 late bool _screenshots;
 
-Future<void> main({final bool screenshots = false}) async {
+Future<void> launchSmoothApp({final bool screenshots = false}) async {
   _screenshots = screenshots;
   if (_screenshots) {
     await _init1();

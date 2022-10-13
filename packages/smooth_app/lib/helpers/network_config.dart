@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 
 /// Initializes both the user agent && the SSL certificate
 Future<void> setupAppNetworkConfig() async {
@@ -72,7 +73,7 @@ Future<void> _importSSLCertificate() async {
   }
 
   final ByteData data = await PlatformAssetBundle().load(
-    'assets/network/cert.pem',
+    AppHelper.getAssetPath('assets/network/cert.pem'),
   );
 
   SecurityContext.defaultContext.setTrustedCertificatesBytes(

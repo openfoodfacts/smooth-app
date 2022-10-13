@@ -6,6 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
@@ -97,6 +98,7 @@ class _KnowledgePanelPageTemplateState
                             SvgPicture.asset(
                               widget.svgAsset,
                               height: MediaQuery.of(context).size.height * .25,
+                              package: AppHelper.APP_PACKAGE,
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(
