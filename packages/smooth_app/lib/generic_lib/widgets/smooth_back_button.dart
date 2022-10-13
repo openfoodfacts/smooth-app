@@ -18,6 +18,7 @@ class SmoothBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => InkWell(
         onTap: onPressed ?? () => Navigator.maybePop(context),
+        customBorder: const CircleBorder(),
         child: Tooltip(
           message: MaterialLocalizations.of(context).backButtonTooltip,
           child: Padding(

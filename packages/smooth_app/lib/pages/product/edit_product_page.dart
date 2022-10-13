@@ -68,6 +68,7 @@ class _EditProductPageState extends State<EditProductPage> {
 
         return SmoothScaffold(
           appBar: AppBar(
+            centerTitle: false,
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
