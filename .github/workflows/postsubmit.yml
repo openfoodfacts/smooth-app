@@ -54,7 +54,7 @@ jobs:
       # Build apk.
       - name: Build APK
         run: flutter build apk --debug
-        working-directory: ./packages/smooth_app
+        working-directory: ./packages/app
 
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
