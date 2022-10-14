@@ -1,0 +1,6 @@
+# If you make some changes in this file, also think to copy/paste them in
+# packages/smooth_app/l10n.yaml
+arb-dir: ../smooth_app/lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+nullable-getter: false

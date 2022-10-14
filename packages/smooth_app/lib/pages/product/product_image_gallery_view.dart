@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// ProductImageGalleryView is a page that displays a list of product images.
@@ -104,8 +105,15 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           );
         }
         return SmoothScaffold(
-          appBar: AppBar(
+          appBar: SmoothAppBar(
             title: Text(appLocalizations.edit_product_form_item_photos_title),
+            subTitle: widget.product.productName != null
+                ? Text(
+                    widget.product.productName!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                : null,
             leading: SmoothBackButton(
               onPressed: () => Navigator.maybePop(context, _isRefreshed),
             ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -38,10 +39,12 @@ class WelcomePage extends StatelessWidget {
                 SvgPicture.asset(
                   'assets/onboarding/title.svg',
                   height: screenSize.height * .10,
+                  package: AppHelper.APP_PACKAGE,
                 ),
                 SvgPicture.asset(
                   'assets/onboarding/globe.svg',
                   height: screenSize.height * .20,
+                  package: AppHelper.APP_PACKAGE,
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),

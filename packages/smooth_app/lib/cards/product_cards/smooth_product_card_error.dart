@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 
 /// Product Card when an exception is caught
@@ -29,6 +30,7 @@ class SmoothProductCardError extends StatelessWidget {
           SvgPicture.asset(
             'assets/misc/error.svg',
             width: MINIMUM_TOUCH_SIZE * 2,
+            package: AppHelper.APP_PACKAGE,
           ),
           const SizedBox(
             height: SMALL_SPACE,

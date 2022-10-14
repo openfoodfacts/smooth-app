@@ -11,6 +11,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionModeTitle,
     this.actionModeSubTitle,
     this.title,
+    this.subTitle,
     this.actionModeActions,
     this.actions,
     this.flexibleSpace,
@@ -47,6 +48,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final bool automaticallyImplyLeading;
   final Widget? title;
+  final Widget? subTitle;
   final Widget? actionModeTitle;
   final Widget? actionModeSubTitle;
   final List<Widget>? actions;
@@ -100,7 +102,9 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget _createAppBar() => AppBar(
         leading: leading,
         automaticallyImplyLeading: automaticallyImplyLeading,
-        title: title,
+        title: title != null
+            ? _AppBarTitle(title: title!, subTitle: subTitle)
+            : null,
         actions: actions,
         flexibleSpace: flexibleSpace,
         bottom: bottom,
@@ -136,17 +140,12 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
           ),
           automaticallyImplyLeading: false,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              actionModeTitle!,
-              if (actionModeSubTitle != null)
-                DefaultTextStyle(
-                    style: Theme.of(context).textTheme.bodyMedium ??
-                        const TextStyle(),
-                    child: actionModeSubTitle!),
-            ],
-          ),
+          title: actionModeTitle != null
+              ? _AppBarTitle(
+                  title: actionModeTitle!,
+                  subTitle: actionModeSubTitle,
+                )
+              : null,
           actions: actionModeActions,
           flexibleSpace: flexibleSpace,
           bottom: bottom,
@@ -206,6 +205,32 @@ class _ActionModeCloseButton extends StatelessWidget {
           Navigator.maybePop(context);
         }
       },
+    );
+  }
+}
+
+class _AppBarTitle extends StatelessWidget {
+  const _AppBarTitle({
+    required this.title,
+    required this.subTitle,
+    Key? key,
+  }) : super(key: key);
+
+  final Widget title;
+  final Widget? subTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        title,
+        if (subTitle != null)
+          DefaultTextStyle(
+            style: Theme.of(context).textTheme.bodyMedium ?? const TextStyle(),
+            child: subTitle!,
+          ),
+      ],
     );
   }
 }

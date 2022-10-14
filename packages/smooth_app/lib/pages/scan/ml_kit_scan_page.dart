@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
@@ -508,6 +509,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     }
 
     _musicPlayer = AudioPlayer(playerId: '1');
+    _musicPlayer!.audioCache.prefix = AppHelper.defaultAssetPath;
     await _musicPlayer!.setSourceAsset('audio/beep.ogg');
     await _musicPlayer!.setPlayerMode(PlayerMode.lowLatency);
     await _musicPlayer!.setAudioContext(

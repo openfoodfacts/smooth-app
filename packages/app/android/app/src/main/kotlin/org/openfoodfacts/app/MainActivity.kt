@@ -1,4 +1,4 @@
-package org.openfoodfacts.scanner
+package org.openfoodfacts.app
 
 import io.flutter.embedding.android.FlutterActivity
 

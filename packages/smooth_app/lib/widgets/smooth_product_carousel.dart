@@ -16,6 +16,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/tagline.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
@@ -202,6 +203,7 @@ class SearchCard extends StatelessWidget {
                 : 'assets/app/release_icon_dark_transparent_no_border.svg',
             width: height * 0.2,
             height: height * 0.2,
+            package: AppHelper.APP_PACKAGE,
           ),
           Padding(
             padding: const EdgeInsets.only(top: MEDIUM_SPACE),
