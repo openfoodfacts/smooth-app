@@ -124,8 +124,9 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   String _getTitle() {
     final KnowledgePanelPanelGroupElement? groupElement =
         _groupElementOf(context);
-    if (groupElement?.title.isNotEmpty == true) {
-      return groupElement!.title;
+    if (groupElement?.title != null &&
+        groupElement?.title!.isNotEmpty == true) {
+      return groupElement!.title!;
     }
     final KnowledgePanel? panel =
         KnowledgePanelWidget.getKnowledgePanel(_product, widget.panelId);

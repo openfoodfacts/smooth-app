@@ -30,15 +30,6 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             ),
             zoom: 6.0,
           ),
-          layers: <LayerOptions>[
-            TileLayerOptions(
-              urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-              subdomains: <String>['a', 'b', 'c'],
-            ),
-            MarkerLayerOptions(
-              markers: getMarkers(mapElement.pointers),
-            ),
-          ],
           nonRotatedChildren: <Widget>[
             AttributionWidget(
               attributionBuilder: (BuildContext context) {
@@ -73,6 +64,16 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                 );
               },
             )
+          ],
+          children: <Widget>[
+            TileLayer(
+              urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+              subdomains: const <String>['a', 'b', 'c'],
+              userAgentPackageName: 'world.openfoodfacts.org',
+            ),
+            MarkerLayer(
+              markers: getMarkers(mapElement.pointers),
+            ),
           ],
         ),
       ),

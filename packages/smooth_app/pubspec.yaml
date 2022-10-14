@@ -17,20 +17,20 @@ dependencies:
   carousel_slider: 4.1.1
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
-  flutter_svg: 1.1.4
-  flutter_map: 1.1.1
+  flutter_svg: 1.1.5
+  flutter_map: 3.0.0
   flutter_widget_from_html_core: any
   fwfh_selectable_text: 0.8.3+1
   flutter_secure_storage: 5.0.2
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 0.13.5
-  image_picker: 0.8.5+3
+  image_picker: 0.8.6
   iso_countries: 2.1.0
   latlong2: 0.8.1
-  matomo_tracker: 1.4.1
-  modal_bottom_sheet: 2.1.0
-  openfoodfacts: 1.25.0
+  matomo_tracker: 1.5.0
+  modal_bottom_sheet: 2.1.2
+  openfoodfacts: 1.26.0
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
   package_info_plus: 1.4.3+1

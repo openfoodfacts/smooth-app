@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:openfoodfacts/model/LoginStatus.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
@@ -10,21 +11,26 @@ class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
 
+  // TODO(m123): Show why its failing
   /// Checks credentials and conditionally saves them
   Future<bool> login(User user) async {
-    final bool rightCredentials;
+    final LoginStatus? loginStatus;
     try {
-      rightCredentials = await OpenFoodAPIClient.login(user);
+      loginStatus = await OpenFoodAPIClient.login2(user);
     } catch (e) {
       throw Exception(e);
     }
 
-    if (rightCredentials) {
+    if (loginStatus == null) {
+      return false;
+    }
+
+    if (loginStatus.successful) {
       await putUser(user);
       notifyListeners();
     }
 
-    return rightCredentials && await credentialsInStorage();
+    return loginStatus.successful && await credentialsInStorage();
   }
 
   /// Deletes saved credentials from storage
@@ -89,17 +95,22 @@ class UserManagementProvider with ChangeNotifier {
     try {
       if (ProductQuery.isLoggedIn()) {
         final User user = ProductQuery.getUser();
-        final bool checkLogin = await OpenFoodAPIClient.login(
+        final LoginStatus? loginStatus = await OpenFoodAPIClient.login2(
           User(
             userId: user.userId,
             password: user.password,
           ),
         );
-        if (checkLogin) {
+        if (loginStatus == null) {
+          // No internet or sever down
+          return;
+        }
+        if (loginStatus.successful) {
           // Credentials are still valid so we just return
           return;
         } else {
           // Credentials are not valid anymore so we log out
+          // TODO(m123): Notify the user
           await logout();
         }
       }
@@ -108,31 +119,4 @@ class UserManagementProvider with ChangeNotifier {
       // So we do nothing here
     }
   }
-  /* Currently not in use, to be used before contributing to something
-  /// Checks if the saved credentials are still correct
-  Future<bool> validateCredentials() async {
-    final String? userId = await DaoSecuredString.get(_USER_ID);
-    final String? password = await DaoSecuredString.get(_PASSWORD);
-
-    if (userId == null || password == null) {
-      return false;
-    }
-
-    final User user = User(userId: userId, password: password);
-
-    final bool rightCredentials;
-    try {
-      rightCredentials = await OpenFoodAPIClient.login(user);
-    } catch (e) {
-      throw Exception(e);
-    }
-
-    if (rightCredentials) {
-      OpenFoodAPIConfiguration.globalUser = user;
-    }
-
-    return rightCredentials;
-  }
-  */
-
 }
