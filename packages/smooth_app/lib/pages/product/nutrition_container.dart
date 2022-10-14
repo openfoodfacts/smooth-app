@@ -268,7 +268,7 @@ class NutritionContainer {
     void populateOrderedNutrientList(final List<OrderedNutrient> list) {
       for (final OrderedNutrient nutrient in list) {
         if (nutrient.id != energyKJId &&
-            Nutrient.values.map((Nutrient e) {
+            !Nutrient.values.map((Nutrient e) {
               return e.offTag;
             }).contains(nutrient.id)) {
           continue;
