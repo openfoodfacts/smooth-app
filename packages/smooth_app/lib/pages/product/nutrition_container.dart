@@ -1,5 +1,6 @@
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/interface/JsonObject.dart';
+import 'package:openfoodfacts/model/Nutrient.dart';
 import 'package:openfoodfacts/model/Nutriments.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
@@ -267,7 +268,9 @@ class NutritionContainer {
     void populateOrderedNutrientList(final List<OrderedNutrient> list) {
       for (final OrderedNutrient nutrient in list) {
         if (nutrient.id != energyKJId &&
-            !Nutriments.supportedNutrientIds.contains(nutrient.id)) {
+            Nutrient.values.map((Nutrient e) {
+              return e.offTag;
+            }).contains(nutrient.id)) {
           continue;
         }
         final bool nowEnergy =
