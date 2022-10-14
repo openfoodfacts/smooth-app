@@ -40,8 +40,9 @@ void main() {
         User(userId: name, password: 'somerandomnewpassword'),
         queryType: queryType,
       );
-      expect(loginResponse?.successful, false);
-    }, skip: '403 code and null response');
+      expect(loginResponse?.successful, isNull);
+    });
+
     test('Duplicate Registration', () async {
       final SignUpStatus signUpResponse = await OpenFoodAPIClient.register(
         user: User(userId: name, password: password),

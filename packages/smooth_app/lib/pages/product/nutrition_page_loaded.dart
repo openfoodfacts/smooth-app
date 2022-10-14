@@ -653,72 +653,25 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   NutritionUnit _detectUnit(Product product) {
     if (product.nutriments == null) {
       return NutritionUnit.per100g;
-    } else if (<dynamic>[
-          product.nutriments!.getValue(Nutrient.saturatedFat, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.proteins, PerSize.serving),
-          //product.nutriments!.getValue(Nutrient.novaGroup, PerSize.serving),
-          //product.nutriments!.getValue(Nutrient.energy, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.carbohydrates, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.caffeine, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.calcium, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.iron, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminA, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminB1, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminB2, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminB6, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminB9, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminB12, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminC, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminD, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminE, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminK, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.vitaminPP, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.magnesium, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.phosphorus, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.potassium, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.sodium, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.zinc, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.copper, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.selenium, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.cholesterol, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.butyricAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.caproicAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.caprylicAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.lauricAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.myristicAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.palmiticAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.stearicAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.oleicAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.linoleicAcid, PerSize.serving),
-          product.nutriments!
-              .getValue(Nutrient.docosahexaenoicAcid, PerSize.serving),
-          product.nutriments!
-              .getValue(Nutrient.eicosapentaenoicAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.erucicAcid, PerSize.serving),
-          product.nutriments!
-              .getValue(Nutrient.monounsaturatedFat, PerSize.serving),
-          product.nutriments!
-              .getValue(Nutrient.polyunsaturatedFat, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.alcohol, PerSize.serving),
-          product.nutriments!
-              .getValue(Nutrient.pantothenicAcid, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.biotin, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.chloride, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.chromium, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.fluoride, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.iodine, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.manganese, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.molybdenum, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.omega3, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.omega6, PerSize.serving),
-          product.nutriments!.getValue(Nutrient.transFat, PerSize.serving),
-        ].firstWhere((dynamic element) => element != null,
-            orElse: () => null) !=
-        null) {
+    } else if (_hasNutrientsInServingSize(product)) {
       return NutritionUnit.perServing;
     } else {
       return NutritionUnit.per100g;
     }
+  }
+
+  bool _hasNutrientsInServingSize(Product product) {
+    if (product.nutriments == null) {
+      return false;
+    }
+
+    for (final Nutrient e in Nutrient.values) {
+      final double? value = product.nutriments!.getValue(e, PerSize.serving);
+      if (value != null) {
+        return true;
+      }
+    }
+    return false;
   }
 
   bool get _unitAsChanged => _nutritionUnit != _initialNutritionUnit;
