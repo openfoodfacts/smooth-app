@@ -26,7 +26,7 @@ class ProductModel with ChangeNotifier {
   /// In the constructor we retrieve async'ly the product from the local db.
   ProductModel(this.barcode, this.localDatabase) {
     _daoProduct = DaoProduct(localDatabase);
-    _upToDateId = localDatabase.upToDate.getWidgetId();
+    // TODO 0000 _upToDateId = localDatabase.upToDate.getWidgetId(_product);
     _clear();
     _asyncLoad();
   }
@@ -63,7 +63,7 @@ class ProductModel with ChangeNotifier {
     if (_product == null) {
       return;
     }
-    _product = localDatabase.upToDate.getLocalUpToDate(_product!, _upToDateId);
+    _product = localDatabase.upToDate.getLocalUpToDate(_upToDateId);
     _loadingStatus = LoadingStatus.LOADED;
   }
 
@@ -124,6 +124,7 @@ class ProductModel with ChangeNotifier {
       ).getFetchedProduct();
       if (fetchedProduct.status == FetchedProductStatus.ok) {
         _product = fetchedProduct.product;
+        // TODO
         _loadingStatus = LoadingStatus.LOADED;
         _safeNotifyListeners();
         return;

@@ -47,7 +47,7 @@ class _EditProductPageState extends State<EditProductPage> {
     super.initState();
     _product = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId();
+    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
     _controller.addListener(_onScrollChanged);
   }
 
@@ -55,7 +55,7 @@ class _EditProductPageState extends State<EditProductPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
+    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
     final ThemeData theme = Theme.of(context);
     final Brightness brightness = theme.brightness;
     final Size screenSize = MediaQuery.of(context).size;

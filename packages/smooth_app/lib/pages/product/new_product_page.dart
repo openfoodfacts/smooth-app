@@ -62,7 +62,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     super.initState();
     _product = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId();
+    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
     _scrollController = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
@@ -81,7 +81,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   @override
   Widget build(BuildContext context) {
     _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
+    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
     inheritedDataManager.setCurrentBarcode(_product.barcode ?? '');
@@ -158,35 +158,35 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Future<void> _refreshProduct(final BuildContext context) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final ProductRefresher productRefresher = ProductRefresher();
     final Product? freshProduct = await productRefresher.fetchAndRefresh(
       context: context,
-      localDatabase: localDatabase,
+      localDatabase: _localDatabase,
       barcode: _product.barcode!,
     );
-    if (mounted && freshProduct != null) {
+    if (freshProduct == null) {
+      return;
+    }
+    _localDatabase.upToDate
+        .setLatestDownloadedProduct(freshProduct); // TODO 0000 is that OK?
+    if (mounted) {
       productRefresher.refreshedProductSnackBar(context);
-      _product = freshProduct;
-      setState(() {});
     }
   }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
   ) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductList(localDatabase).push(
+    await DaoProductList(_localDatabase).push(
       ProductList.history(),
       _product.barcode!,
     );
-    localDatabase.notifyListeners();
+    _localDatabase.notifyListeners();
   }
 
   Widget _buildProductBody(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final DaoProductList daoProductList = DaoProductList(_localDatabase);
     return RefreshIndicator(
       onRefresh: () => _refreshProduct(context),
       child: ListView(
@@ -257,8 +257,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Future<void> _editList() async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final DaoProductList daoProductList = DaoProductList(_localDatabase);
     final bool refreshed = await ProductListUserDialogHelper(daoProductList)
         .showUserListsWithBarcodeDialog(context, widget.product);
     if (refreshed) {

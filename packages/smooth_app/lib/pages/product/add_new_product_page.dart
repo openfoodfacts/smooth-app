@@ -55,7 +55,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     super.initState();
     _product = Product(barcode: widget.barcode);
     _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId();
+    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
   }
 
   @override
@@ -68,7 +68,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
+    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
     final ThemeData themeData = Theme.of(context);
     return SmoothScaffold(
       appBar: AppBar(

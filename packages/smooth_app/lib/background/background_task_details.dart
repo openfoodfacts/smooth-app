@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
-import 'package:smooth_app/data_models/up_to_date_helper.dart';
+import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
@@ -64,7 +64,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
 
   /// Adds the background task and the pending changes.
   ///
-  /// Returns true if successful.
+  /// Returns true if successful (task added, local change added).
   static Future<bool> addTask({
     required final Product minimalistProduct,
     required final LocalDatabase localDatabase,
@@ -72,27 +72,38 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     final ProductEditTask? productEditTask,
   }) async {
     try {
-      await _addTask(
+      localDatabase.upToDate.addChange(minimalistProduct);
+      final BackgroundTaskDetails backgroundTask = _computeNewTask(
         minimalistProduct,
         productEditTask: productEditTask,
         productEditTasks: productEditTasks,
       );
-      localDatabase.upToDate.addChange(minimalistProduct);
+      /*
+      // TODO 0000 temporairement, ne pas utiliser les taches de fond
+      // background version
+      final Task task = Task(
+        data: backgroundTask.toJson(),
+        uniqueId: backgroundTask.uniqueId,
+      );
+      await TaskManager().addTask(task);
+      */
+      // TODO temporarily, execute now!
+      backgroundTask.execute(localDatabase); // no `await`
     } catch (e) {
       return false;
     }
     return true;
   }
 
-  /// Adds the background task about changing a product.
+  /// Returns the background task about changing a product.
   ///
   /// Either [productEditTask] or [productEditTasks] must be populated;
   /// we need that for classification purpose (and unique id computation).
-  static Future<void> _addTask(
+  static BackgroundTaskDetails _computeNewTask(
     final Product minimalistProduct, {
     final List<ProductEditTask>? productEditTasks,
     final ProductEditTask? productEditTask,
-  }) async {
+  }) {
     final String code;
     if (productEditTask != null) {
       if (productEditTasks != null) {
@@ -113,7 +124,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       minimalistProduct.barcode!,
       code,
     );
-    final BackgroundTaskDetails backgroundTask = BackgroundTaskDetails._(
+    return BackgroundTaskDetails._(
       uniqueId: uniqueId,
       processName: _PROCESS_NAME,
       barcode: minimalistProduct.barcode!,
@@ -122,19 +133,13 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       user: jsonEncode(ProductQuery.getUser().toJson()),
       country: ProductQuery.getCountry()!.iso2Code,
     );
-    await TaskManager().addTask(
-      Task(
-        data: backgroundTask.toJson(),
-        uniqueId: uniqueId,
-      ),
-    );
   }
 
   /// Executes the background task: upload, download, update locally.
   @override
   Future<TaskResult> execute(final LocalDatabase localDatabase) async {
-    final Iterable<UpToDateOperationId>? changeIds =
-        localDatabase.upToDate.getChangeIds(barcode);
+    final Iterable<TransientOperation>? changeIds =
+        localDatabase.upToDate.getChangeActions(barcode);
     if (changeIds == null || changeIds.isEmpty) {
       // everything was already done before
       return TaskResult.success;

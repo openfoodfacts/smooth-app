@@ -44,7 +44,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     super.initState();
     _product = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId();
+    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
   }
 
   @override
@@ -65,7 +65,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   @override
   Widget build(BuildContext context) {
     _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
+    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(_getTitle(), maxLines: 2),

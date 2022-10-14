@@ -49,7 +49,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     super.initState();
     _product = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId();
+    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
     _helper = widget.helper;
     _controller.text = _helper.getText(_product);
   }
@@ -161,7 +161,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
+    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
     final Size size = MediaQuery.of(context).size;
     final List<Widget> children = <Widget>[];
 

@@ -98,7 +98,7 @@ class _SummaryCardState extends State<SummaryCard> {
     allowClicking = !widget.isFullVersion;
     _product = widget._product;
     _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId();
+    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
   }
 
   @override
@@ -110,7 +110,7 @@ class _SummaryCardState extends State<SummaryCard> {
   @override
   Widget build(BuildContext context) {
     _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
+    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (widget.isFullVersion) {

@@ -59,7 +59,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     super.initState();
     _product = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId();
+    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
   }
 
   @override
@@ -71,7 +71,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   @override
   Widget build(BuildContext context) {
     _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
+    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
     final List<ProductImageData> allProductImagesData =
