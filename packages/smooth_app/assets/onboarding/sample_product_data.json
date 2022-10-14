@@ -1273,6 +1273,7 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "panel_group_id" : "packaging_recycling",
                      "panel_ids" : [
                         "packaging_recycling"
                      ],
@@ -1334,12 +1335,22 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "panel_group_id" : "nutrition",
                      "panel_ids" : [
                         "nutriscore",
                         "nutrient_level_fat",
                         "nutrient_level_saturated-fat",
                         "nutrient_level_sugars",
-                        "nutrient_level_salt",
+                        "nutrient_level_salt"
+                     ],
+                     "title" : "Nutrition",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
                         "nutrition_facts_table"
                      ],
                      "title" : ""
@@ -1348,10 +1359,12 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "panel_group_id" : "ingredients",
                      "panel_ids" : [
                         "ingredients"
                      ],
-                     "title" : "Ingredients"
+                     "title" : "Ingredients",
+                     "type" : "subcard"
                   }
                },
                {
@@ -1810,7 +1823,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-49%"
+                                 "text" : "-50%"
                               }
                            ]
                         },
@@ -1826,7 +1839,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-66%"
+                                 "text" : "-67%"
                               }
                            ]
                         },
@@ -1842,7 +1855,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-24%"
+                                 "text" : "-31%"
                               }
                            ]
                         },
@@ -1889,7 +1902,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "+127%"
+                                 "text" : "+129%"
                               }
                            ]
                         },
@@ -1921,7 +1934,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "-36%"
+                                 "text" : "-37%"
                               }
                            ]
                         },
