@@ -113,6 +113,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
+                    //Changes for the issue 
                     InkWell(
                       onTap: () async {
                         final LocalDatabase localDatabase =
@@ -152,6 +153,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                           style: const TextStyle(
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
+
                       ),
                     )
                   ],
