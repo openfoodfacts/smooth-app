@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:openfoodfacts/model/Nutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/model/PerSize.dart';
@@ -651,27 +650,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   NutritionUnit _detectUnit(Product product) {
-    if (product.nutriments == null) {
-      return NutritionUnit.per100g;
-    } else if (_hasNutrientsInServingSize(product)) {
+    if (product.nutrimentDataPer == PerSize.serving.offTag) {
       return NutritionUnit.perServing;
-    } else {
-      return NutritionUnit.per100g;
     }
-  }
-
-  bool _hasNutrientsInServingSize(Product product) {
-    if (product.nutriments == null) {
-      return false;
-    }
-
-    for (final Nutrient e in Nutrient.values) {
-      final double? value = product.nutriments!.getValue(e, PerSize.serving);
-      if (value != null) {
-        return true;
-      }
-    }
-    return false;
+    return NutritionUnit.per100g;
   }
 
   bool get _unitAsChanged => _nutritionUnit != _initialNutritionUnit;
