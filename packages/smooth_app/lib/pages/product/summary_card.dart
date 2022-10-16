@@ -708,8 +708,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Future<Set<RobotoffQuestion>>? _loadProductQuestions() async {
     final Set<RobotoffQuestion> questions =
-        await ProductQuestionsQuery(_product.barcode!)
-            .getQuestions();
+        await ProductQuestionsQuery(_product.barcode!).getQuestions();
 
     final RobotoffInsightHelper robotoffInsightHelper =
         //ignore: use_build_context_synchronously
