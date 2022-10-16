@@ -703,7 +703,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Selecteer minimaal twee producten",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -1180,7 +1180,7 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Voeg het product toe aan je lijsten",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1188,7 +1188,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "Er is nog geen lijst beschikbaar,\nBegin met het maken van een nieuwe",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1717,11 +1717,11 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Kan afbeelding niet downloaden",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "Bewerken van afbeelding mislukt, afbeelding url niet ingesteld.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     }
