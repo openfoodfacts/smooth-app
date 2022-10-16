@@ -609,14 +609,14 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return FutureBuilder<Set<RobotoffQuestion>>(
+    return FutureBuilder<List<RobotoffQuestion>>(
         future: _loadProductQuestions(),
         builder: (
           BuildContext context,
-          AsyncSnapshot<Set<RobotoffQuestion>> snapshot,
+          AsyncSnapshot<List<RobotoffQuestion>> snapshot,
         ) {
-          final Set<RobotoffQuestion> questions =
-              snapshot.data ?? <RobotoffQuestion>{};
+          final List<RobotoffQuestion> questions =
+              snapshot.data ?? <RobotoffQuestion>[];
 
           if (questions.isNotEmpty && !_annotationVoted) {
             return InkWell(
@@ -680,8 +680,8 @@ class _SummaryCardState extends State<SummaryCard> {
   Future<void> _updateProductUponAnswers() async {
     // Reload the product questions, they might have been answered.
     // Or the backend may have new ones.
-    final Set<RobotoffQuestion> questions =
-        await _loadProductQuestions() ?? <RobotoffQuestion>{};
+    final List<RobotoffQuestion> questions =
+        await _loadProductQuestions() ?? <RobotoffQuestion>[];
     if (!mounted) {
       return;
     }
@@ -706,8 +706,8 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  Future<Set<RobotoffQuestion>>? _loadProductQuestions() async {
-    final Set<RobotoffQuestion> questions =
+  Future<List<RobotoffQuestion>>? _loadProductQuestions() async {
+    final List<RobotoffQuestion> questions =
         await ProductQuestionsQuery(_product.barcode!).getQuestions();
 
     final RobotoffInsightHelper robotoffInsightHelper =

@@ -16,20 +16,22 @@ class RobotoffInsightHelper {
   }
 
   Future<bool> areQuestionsAlreadyVoted(
-    Set<RobotoffQuestion> questionSet,
+    List<RobotoffQuestion> questions,
   ) async {
     final Map<String, List<String>> votedHist =
         await DaoStringListMap(_localDatabase).getAll();
 
-    final Set<String> newIdsSet = questionSet
+    final Set<String> newIdsSet = questions
         .map((RobotoffQuestion e) => e.insightId)
         .whereType<String>()
         .toSet();
 
     final Iterable<List<String>> dbInsights = votedHist.values;
 
-    return dbInsights
-        .any((List<String> votedIds) => setEquals(newIdsSet, votedIds.toSet()));
+    return dbInsights.any((List<String> votedIds) {
+      final Set<String> votedSet = votedIds.toSet();
+      return setEquals(newIdsSet, votedSet);
+    });
   }
 
   Future<void> removeInsightAnnotationsSavedForProdcut(String barcode) async {
@@ -40,7 +42,7 @@ class RobotoffInsightHelper {
     final Map<String, List<String>> records =
         await DaoStringListMap(_localDatabase).getAll();
     for (final String barcode in records.keys) {
-      final Set<RobotoffQuestion> questions =
+      final List<RobotoffQuestion> questions =
           await ProductQuestionsQuery(barcode).getQuestions();
       if (questions.isEmpty) {
         await DaoStringListMap(_localDatabase).removeKey(barcode);
