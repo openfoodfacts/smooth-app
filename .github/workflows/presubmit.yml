@@ -2,9 +2,6 @@ name: SmoothApp Pre-Submit Tests
 
 on:
   pull_request:
-  push:
-    branches-ignore:
-      - develop
 
 env:
   FLUTTER_VERSION: '3.3.x'
