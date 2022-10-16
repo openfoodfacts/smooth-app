@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/query/robotoff_questions_query.dart';
+import 'package:smooth_app/query/product_questions_query.dart';
 
 class RobotoffInsightHelper {
   const RobotoffInsightHelper(this._localDatabase);
@@ -41,8 +41,8 @@ class RobotoffInsightHelper {
         await DaoStringListMap(_localDatabase).getAll();
     for (final String barcode in records.keys) {
       final Set<RobotoffQuestion> questions =
-          await RobotoffQuestionsQuery(barcode)
-              .getRobotoffQuestionsForProduct();
+          await ProductQuestionsQuery(barcode)
+              .getQuestions();
       if (questions.isEmpty) {
         await DaoStringListMap(_localDatabase).removeKey(barcode);
       }

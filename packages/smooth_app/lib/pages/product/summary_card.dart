@@ -31,7 +31,7 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/query/robotoff_questions_query.dart';
+import 'package:smooth_app/query/product_questions_query.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -708,8 +708,8 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Future<Set<RobotoffQuestion>>? _loadProductQuestions() async {
     final Set<RobotoffQuestion> questions =
-        await RobotoffQuestionsQuery(_product.barcode!)
-            .getRobotoffQuestionsForProduct();
+        await ProductQuestionsQuery(_product.barcode!)
+            .getQuestions();
 
     final RobotoffInsightHelper robotoffInsightHelper =
         //ignore: use_build_context_synchronously

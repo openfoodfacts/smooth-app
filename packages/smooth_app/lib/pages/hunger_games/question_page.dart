@@ -13,7 +13,8 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/hunger_games/congrats.dart';
-import 'package:smooth_app/query/robotoff_questions_query.dart';
+import 'package:smooth_app/query/product_questions_query.dart';
+import 'package:smooth_app/query/questions_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const Color _noBackground = Colors.redAccent;
@@ -470,27 +471,8 @@ class _QuestionPageState extends State<QuestionPage>
     }
   }
 
-  Future<List<RobotoffQuestion>> _getQuestions(Product? product) async {
-    final User user = OpenFoodAPIConfiguration.globalUser!;
-
-    if (product != null) {
-      final Set<RobotoffQuestion> questions =
-          await RobotoffQuestionsQuery(product.barcode!)
-              .getRobotoffQuestionsForProduct();
-
-      return questions.toList();
-    } else {
-      final String lc = OpenFoodAPIConfiguration.globalLanguages![0].code;
-
-      final RobotoffQuestionResult result =
-          await OpenFoodAPIClient.getRandomRobotoffQuestion(
-        lc,
-        user,
-        types: widget.insightTypes,
-        count: 3,
-      );
-
-      return result.questions ?? <RobotoffQuestion>[];
-    }
-  }
+  Future<List<RobotoffQuestion>> _getQuestions(Product? product) async =>
+      product != null
+          ? ProductQuestionsQuery(product.barcode!).getQuestions()
+          : QuestionsQuery().getQuestions();
 }
