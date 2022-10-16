@@ -23,11 +23,11 @@ class KnowledgePanelGroupCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          if (groupElement.title.isNotEmpty)
+          if (groupElement.title != null && groupElement.title!.isNotEmpty)
             Padding(
               padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
               child: Text(
-                groupElement.title,
+                groupElement.title!,
                 style: themeData.textTheme.subtitle2!.apply(color: Colors.grey),
               ),
             ),

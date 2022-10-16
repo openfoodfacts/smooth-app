@@ -123,7 +123,7 @@ jobs:
       FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'GITHUB'
       BUILD_TYPE: 'apk'
-      TAG_NAME: ${{ needs.create-release.outputs.tag_name}}
+      TAG_NAME: ${{ needs.release-please.outputs.tag_name}}
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
