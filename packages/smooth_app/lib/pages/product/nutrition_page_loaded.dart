@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
+import 'package:openfoodfacts/model/PerSize.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
@@ -649,69 +650,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   NutritionUnit _detectUnit(Product product) {
-    if (product.nutriments == null) {
-      return NutritionUnit.per100g;
-    } else if (<dynamic>[
-          product.nutriments!.saturatedFatServing,
-          product.nutriments!.proteinsServing,
-          product.nutriments!.novaGroupServing,
-          product.nutriments!.energyServing,
-          product.nutriments!.carbohydratesServing,
-          product.nutriments!.caffeineServing,
-          product.nutriments!.calciumServing,
-          product.nutriments!.ironServing,
-          product.nutriments!.vitaminAServing,
-          product.nutriments!.vitaminB1Serving,
-          product.nutriments!.vitaminB2Serving,
-          product.nutriments!.vitaminB6Serving,
-          product.nutriments!.vitaminB9Serving,
-          product.nutriments!.vitaminB12Serving,
-          product.nutriments!.vitaminCServing,
-          product.nutriments!.vitaminDServing,
-          product.nutriments!.vitaminEServing,
-          product.nutriments!.vitaminKServing,
-          product.nutriments!.vitaminPPServing,
-          product.nutriments!.magnesiumServing,
-          product.nutriments!.phosphorusServing,
-          product.nutriments!.potassiumServing,
-          product.nutriments!.sodiumServing,
-          product.nutriments!.zincServing,
-          product.nutriments!.copperServing,
-          product.nutriments!.seleniumServing,
-          product.nutriments!.cholesterolServing,
-          product.nutriments!.butyricAcidServing,
-          product.nutriments!.caproicAcidServing,
-          product.nutriments!.caprylicAcidServing,
-          product.nutriments!.lauricAcidServing,
-          product.nutriments!.myristicAcidServing,
-          product.nutriments!.palmiticAcidServing,
-          product.nutriments!.stearicAcidServing,
-          product.nutriments!.oleicAcidServing,
-          product.nutriments!.linoleicAcidServing,
-          product.nutriments!.docosahexaenoicAcidServing,
-          product.nutriments!.eicosapentaenoicAcidServing,
-          product.nutriments!.erucicAcidServing,
-          product.nutriments!.monounsaturatedServing,
-          product.nutriments!.polyunsaturatedServing,
-          product.nutriments!.alcoholServing,
-          product.nutriments!.pantothenicAcidServing,
-          product.nutriments!.biotinServing,
-          product.nutriments!.chlorideServing,
-          product.nutriments!.chromiumServing,
-          product.nutriments!.fluorideServing,
-          product.nutriments!.iodineServing,
-          product.nutriments!.manganeseServing,
-          product.nutriments!.molybdenumServing,
-          product.nutriments!.omega3FatServing,
-          product.nutriments!.omega6FatServing,
-          product.nutriments!.transFatServing
-        ].firstWhere((dynamic element) => element != null,
-            orElse: () => null) !=
-        null) {
+    if (product.nutrimentDataPer == PerSize.serving.offTag) {
       return NutritionUnit.perServing;
-    } else {
-      return NutritionUnit.per100g;
     }
+    return NutritionUnit.per100g;
   }
 
   bool get _unitAsChanged => _nutritionUnit != _initialNutritionUnit;
