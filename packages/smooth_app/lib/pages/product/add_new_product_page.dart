@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -47,28 +46,19 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   bool _isProductLoaded = false;
 
   late Product _product;
-  late LocalDatabase _localDatabase;
-  late final UpToDateWidgetId _upToDateId;
+  late final Product _initialProduct;
 
   @override
   void initState() {
     super.initState();
-    _product = Product(barcode: widget.barcode);
-    _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
-  }
-
-  @override
-  void dispose() {
-    _localDatabase.upToDate.disposeWidget(_upToDateId);
-    super.dispose();
+    _initialProduct = Product(barcode: widget.barcode);
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final ThemeData themeData = Theme.of(context);
     return SmoothScaffold(
       appBar: AppBar(

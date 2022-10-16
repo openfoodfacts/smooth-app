@@ -392,6 +392,7 @@ class _ProductListPageState extends State<ProductListPage>
         return false;
       }
       await DaoProduct(localDatabase).putAll(freshProducts);
+      localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
       await robotoffInsightHelper.clearInsightAnnotationsSaved();

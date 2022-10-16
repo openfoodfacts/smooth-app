@@ -138,15 +138,15 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   /// Executes the background task: upload, download, update locally.
   @override
   Future<TaskResult> execute(final LocalDatabase localDatabase) async {
-    final Iterable<TransientOperation>? changeIds =
-        localDatabase.upToDate.getChangeActions(barcode);
-    if (changeIds == null || changeIds.isEmpty) {
+    final Iterable<TransientOperation>? sortedOperations =
+        localDatabase.upToDate.getSortedChangeOperations(barcode);
+    if (sortedOperations == null || sortedOperations.isEmpty) {
       // everything was already done before
       return TaskResult.success;
     }
     final Product product = localDatabase.upToDate.prepareChangesForServer(
       barcode,
-      changeIds,
+      sortedOperations,
     );
 
     final Status status = await OpenFoodAPIClient.saveProduct(
@@ -163,10 +163,8 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     if (downloaded == null) {
       return TaskResult.errorAndRetry;
     }
+    localDatabase.upToDate.terminate(barcode, sortedOperations);
     localDatabase.upToDate.setLatestDownloadedProduct(downloaded);
-
-    localDatabase.upToDate.terminate(barcode, changeIds);
-    localDatabase.notifyListeners();
 
     return TaskResult.success;
   }

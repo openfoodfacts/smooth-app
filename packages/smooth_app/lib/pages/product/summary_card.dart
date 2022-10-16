@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -80,8 +79,7 @@ class SummaryCard extends StatefulWidget {
 
 class _SummaryCardState extends State<SummaryCard> {
   late Product _product;
-  late LocalDatabase _localDatabase;
-  late final UpToDateWidgetId _upToDateId;
+  late final Product _initialProduct;
   late final bool allowClicking;
 
   // Number of Rows that will be printed in the SummaryCard, initialized to a
@@ -96,21 +94,13 @@ class _SummaryCardState extends State<SummaryCard> {
   void initState() {
     super.initState();
     allowClicking = !widget.isFullVersion;
-    _product = widget._product;
-    _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
-  }
-
-  @override
-  void dispose() {
-    _localDatabase.upToDate.disposeWidget(_upToDateId);
-    super.dispose();
+    _initialProduct = widget._product;
   }
 
   @override
   Widget build(BuildContext context) {
-    _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (widget.isFullVersion) {
@@ -699,22 +689,11 @@ class _SummaryCardState extends State<SummaryCard> {
     if (!mounted) {
       return;
     }
-    _refreshProduct(context);
-  }
-
-  Future<void> _refreshProduct(final BuildContext context) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final ProductRefresher productRefresher = ProductRefresher();
-    final Product? freshProduct = await productRefresher.fetchAndRefresh(
+    ProductRefresher().fetchAndRefresh(
       context: context,
-      localDatabase: localDatabase,
-      barcode: _product.barcode!,
+      barcode: _initialProduct.barcode!,
+      widget: this,
     );
-    if (mounted && freshProduct != null) {
-      productRefresher.refreshedProductSnackBar(context);
-      _product = freshProduct;
-      setState(() {});
-    }
   }
 
   Future<List<RobotoffQuestion>>? _loadProductQuestions() async {

@@ -1,58 +1,26 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:smooth_app/data_models/up_to_date_helper.dart';
-import 'package:smooth_app/data_models/up_to_date_operation.dart';
+import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 /// Provider that reflects all the user changes on [Product]s.
 class UpToDateProductProvider {
   UpToDateProductProvider(this.localDatabase)
-      : _changes = UpToDateChanges(localDatabase),
-        _downloads = UpToDateDownloads(localDatabase);
+      : _changes = UpToDateChanges(localDatabase);
 
   final LocalDatabase localDatabase;
 
   /// For a given barcode, maps the changes.
   final UpToDateChanges _changes;
 
-  /// For a given barcode, maps the downloads.
-  final UpToDateDownloads _downloads;
-
-  /// For a given barcode, list the impacted widgets.
-  final UpToDateBarcodeWidgets _barcodeWidgets = UpToDateBarcodeWidgets();
-
   /// For a given barcode, returns the latest change timestamp.
   final Map<String, int> _timestamps = <String, int>{};
 
-  /// Product versions when the widget was created.
-  final Map<UpToDateWidgetId, Product> _initialProducts =
-      <UpToDateWidgetId, Product>{};
-
-  /// Returns a new unique widget id - to be called in the widget's initState.
-  UpToDateWidgetId getWidgetId(final Product product) {
-    final String barcode = product.barcode!;
-    final UpToDateWidgetId widgetId =
-        UpToDateWidgetId(localDatabase.getLocalUniqueSequenceNumber());
-    _initialProducts[widgetId] = product;
-    _barcodeWidgets.put(barcode, widgetId);
-    return widgetId;
-  }
-
-  /// Dispose a widget - to be called in the widget's dispose method.
-  void disposeWidget(final UpToDateWidgetId widgetId) {
-    final String? barcode = _barcodeWidgets.getBarcode(widgetId);
-    if (barcode == null) {
-      // very unlikely
-      return;
-    }
-    _initialProducts.remove(widgetId);
-    if (_barcodeWidgets.remove(barcode, widgetId)) {
-      // if the barcode has no widgets anymore
-      _changes.removeBarcode(barcode);
-      _downloads.removeBarcode(barcode);
-    }
-  }
+  /// Latest product version for a barcode.
+  final Map<String, Product> _latestProductVersions = <String, Product>{};
 
   /// Returns the [product] with all the local pending changes on top.
   ///
@@ -67,35 +35,34 @@ class UpToDateProductProvider {
   /// Here is the code for that:
   /// ```dart
   /// late Product _product;
-  /// late LocalDatabase _localDatabase;
-  /// late final UpToDateWidgetId _upToDateId;
+  /// late final Product _initialProduct;
   ///
   /// @override
   /// void initState() {
   ///   super.initState();
-  ///   _product = Product(barcode: widget.barcode);
-  ///   _localDatabase = context.read<LocalDatabase>();
-  ///   _upToDateId = _localDatabase.upToDate.getWidgetId();
-  /// }
-  ///
-  /// @override
-  /// void dispose() {
-  ///   _localDatabase.upToDate.disposeWidget(_upToDateId);
-  ///   super.dispose();
+  ///   _initialProduct = widget.product;
   /// }
   ///
   /// @override
   /// Widget build(BuildContext context) {
   ///   final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-  ///   _localDatabase = context.watch<LocalDatabase>();
-  ///   _product = _localDatabase.upToDate.getLocalUpToDate(_product, _upToDateId);
+  ///   _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
   /// ```
-  Product getLocalUpToDate(final UpToDateWidgetId widgetId) {
-    Product result = _initialProducts[widgetId]!;
-    result = _downloads.getUpToDateProduct(result);
+  Product getLocalUpToDate(final Product initialProduct) {
+    final String barcode = initialProduct.barcode!;
+    _interestingBarcodes.add(barcode);
+    Product result = copy(_latestProductVersions[barcode] ?? initialProduct);
     result = _changes.getUpToDateProduct(result);
     return result;
   }
+
+  // TODO: add and remove from that set, so that we can GC
+  final Set<String> _interestingBarcodes = <String>{};
+
+  // TODO(monsieurtanuki): move code to off-dart Product
+  Product copy(final Product source) => Product.fromJson(
+        jsonDecode(jsonEncode(source.toJson())) as Map<String, dynamic>,
+      );
 
   /// Adds a minimalist local change to the local pending changes.
   void addChange(final Product minimalistProduct) {
@@ -104,31 +71,26 @@ class UpToDateProductProvider {
       // very unlikely
       return;
     }
-    _changes.add(minimalistProduct, localDatabase);
+    _changes.add(minimalistProduct);
     _timestamps[barcode] = LocalDatabase.nowInMillis();
     localDatabase.notifyListeners();
   }
 
+  /// Adds an empty change that will trigger a refresh.
+  void addRefreshChange(final String barcode) =>
+      addChange(Product(barcode: barcode));
+
   /// Returns the local pending change ids related to a [barcode].
-  Iterable<TransientOperation>? getChangeActions(final String barcode) =>
-      _changes.getSortedActions(barcode);
+  Iterable<TransientOperation>? getSortedChangeOperations(
+          final String barcode) =>
+      _changes.getSortedOperations(barcode);
 
   /// Returns true if there are pending changes for this [barcode].
-  bool hasNotTerminatedOperations(final UpToDateWidgetId widgetId) {
-    print('hasTerminated?');
-
+  bool hasNotTerminatedOperations(final String barcode) {
     /// Not really pending changes, but changes that ere not properly removed
     /// at the barcode level - not the widget level
-    final String? barcode = _barcodeWidgets.getBarcode(widgetId);
-    if (barcode == null) {
-      // very unlikely
-      return false;
-    }
-    print('barcode: $barcode');
-    if (_changes.hasNotTerminatedOperations(barcode, widgetId)) {
-      return true;
-    }
-    return false;
+    // TODO what about uploads?
+    return _changes.hasNotTerminatedOperations(barcode);
   }
 
   /// Returns true if at least one barcode was refreshed after the [timestamp].
@@ -148,12 +110,38 @@ class UpToDateProductProvider {
 
   Product prepareChangesForServer(
     final String barcode,
-    final Iterable<TransientOperation> changeIds,
+    final Iterable<TransientOperation> sortedOperations,
   ) =>
-      _changes.prepareChangesForServer(barcode, changeIds);
+      _changes.prepareChangesForServer(barcode, sortedOperations);
 
-  void setLatestDownloadedProduct(final Product product) =>
-      _downloads.add(product, localDatabase);
+  /// Typical use-case: a product page is refreshed through a pull-gesture.
+  void setLatestDownloadedProduct(
+    final Product product, {
+    final bool notify = true,
+  }) {
+    _latestProductVersions[product.barcode!] = product;
+    if (notify) {
+      localDatabase.notifyListeners();
+    }
+  }
+
+  /// Typical use-case: a product list page is refreshed through a pull-gesture.
+  void setLatestDownloadedProducts(
+    final Iterable<Product> products, {
+    final bool notify = true,
+  }) {
+    if (_interestingBarcodes.isEmpty) {
+      return;
+    }
+    for (final Product product in products) {
+      if (_interestingBarcodes.contains(product.barcode)) {
+        setLatestDownloadedProduct(product, notify: false);
+      }
+    }
+    if (notify) {
+      localDatabase.notifyListeners();
+    }
+  }
 
   /// Closes some operations, that are completed.
   void terminate(

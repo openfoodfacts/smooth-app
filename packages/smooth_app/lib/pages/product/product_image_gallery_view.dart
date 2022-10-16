@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -46,8 +45,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       <ProductImageData, ImageProvider?>{};
 
   late Product _product;
-  late LocalDatabase _localDatabase;
-  late final UpToDateWidgetId _upToDateId;
+  late final Product _initialProduct;
   bool _isRefreshed = false;
   bool _isLoadingMore = true;
 
@@ -57,21 +55,13 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   @override
   void initState() {
     super.initState();
-    _product = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
-  }
-
-  @override
-  void dispose() {
-    _localDatabase.upToDate.disposeWidget(_upToDateId);
-    super.dispose();
+    _initialProduct = widget.product;
   }
 
   @override
   Widget build(BuildContext context) {
-    _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
     final List<ProductImageData> allProductImagesData =
@@ -118,9 +108,11 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       ),
       body: RefreshIndicator(
-        onRefresh: () async {
-          _refreshProduct(context);
-        },
+        onRefresh: () async => ProductRefresher().fetchAndRefresh(
+          context: context,
+          barcode: _initialProduct.barcode!,
+          widget: this,
+        ),
         child: Scrollbar(
           child: CustomScrollView(
             slivers: <Widget>[
@@ -153,21 +145,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           ),
         ),
       );
-
-  Future<void> _refreshProduct(final BuildContext context) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final ProductRefresher productRefresher = ProductRefresher();
-    final Product? freshProduct = await productRefresher.fetchAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      barcode: _product.barcode!,
-    );
-    if (mounted && freshProduct != null) {
-      productRefresher.refreshedProductSnackBar(context);
-      _product = freshProduct;
-      setState(() {});
-    }
-  }
 
   Future<void> _openImage(ProductImageData imageData) async =>
       Navigator.push<void>(

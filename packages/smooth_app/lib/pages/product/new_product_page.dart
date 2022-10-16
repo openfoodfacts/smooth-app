@@ -11,7 +11,6 @@ import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -44,8 +43,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late Product _product;
-  late LocalDatabase _localDatabase;
-  late final UpToDateWidgetId _upToDateId;
+  late final Product _initialProduct;
   late ProductPreferences _productPreferences;
   late ScrollController _scrollController;
   bool _mustScrollToTheEnd = false;
@@ -60,28 +58,20 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   @override
   void initState() {
     super.initState();
-    _product = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _upToDateId = _localDatabase.upToDate.getWidgetId(_product);
+    _initialProduct = widget.product;
     _scrollController = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
     AnalyticsHelper.trackProductPageOpen(
-      product: _product,
+      product: _initialProduct,
     );
   }
 
   @override
-  void dispose() {
-    _localDatabase.upToDate.disposeWidget(_upToDateId);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    _localDatabase = context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_upToDateId);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    _product = localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
     inheritedDataManager.setCurrentBarcode(_product.barcode ?? '');
@@ -157,38 +147,27 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     _mustScrollToTheEnd = false;
   }
 
-  Future<void> _refreshProduct(final BuildContext context) async {
-    final ProductRefresher productRefresher = ProductRefresher();
-    final Product? freshProduct = await productRefresher.fetchAndRefresh(
-      context: context,
-      localDatabase: _localDatabase,
-      barcode: _product.barcode!,
-    );
-    if (freshProduct == null) {
-      return;
-    }
-    _localDatabase.upToDate
-        .setLatestDownloadedProduct(freshProduct); // TODO 0000 is that OK?
-    if (mounted) {
-      productRefresher.refreshedProductSnackBar(context);
-    }
-  }
-
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
   ) async {
-    await DaoProductList(_localDatabase).push(
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    await DaoProductList(localDatabase).push(
       ProductList.history(),
       _product.barcode!,
     );
-    _localDatabase.notifyListeners();
+    localDatabase.notifyListeners();
   }
 
   Widget _buildProductBody(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final DaoProductList daoProductList = DaoProductList(_localDatabase);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
-      onRefresh: () => _refreshProduct(context),
+      onRefresh: () async => ProductRefresher().fetchAndRefresh(
+        context: context,
+        barcode: _initialProduct.barcode!,
+        widget: this,
+      ),
       child: ListView(
         // /!\ Smart Dart
         // `physics: const AlwaysScrollableScrollPhysics()`
@@ -257,7 +236,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Future<void> _editList() async {
-    final DaoProductList daoProductList = DaoProductList(_localDatabase);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
     final bool refreshed = await ProductListUserDialogHelper(daoProductList)
         .showUserListsWithBarcodeDialog(context, widget.product);
     if (refreshed) {

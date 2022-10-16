@@ -120,6 +120,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     if (downloaded == null) {
       return TaskResult.errorAndRetry;
     }
+    localDatabase.upToDate.addRefreshChange(barcode);
     localDatabase.upToDate.setLatestDownloadedProduct(downloaded);
 
     return TaskResult.success;

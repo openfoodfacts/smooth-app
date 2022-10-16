@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
-import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
@@ -26,23 +25,16 @@ class ProductModel with ChangeNotifier {
   /// In the constructor we retrieve async'ly the product from the local db.
   ProductModel(this.barcode, this.localDatabase) {
     _daoProduct = DaoProduct(localDatabase);
-    // TODO 0000 _upToDateId = localDatabase.upToDate.getWidgetId(_product);
     _clear();
     _asyncLoad();
-  }
-
-  @override
-  void dispose() {
-    localDatabase.upToDate.disposeWidget(_upToDateId);
-    super.dispose();
   }
 
   final String barcode;
   late final DaoProduct _daoProduct;
   final LocalDatabase localDatabase;
-  late final UpToDateWidgetId _upToDateId;
 
   Product? _product;
+  Product? _initialProduct;
   Product? get product =>
       _loadingStatus == LoadingStatus.LOADED ? _product : null;
 
@@ -60,10 +52,10 @@ class ProductModel with ChangeNotifier {
 
   /// To be called when the up-to-date provider says the product was refreshed.
   void setLocalUpToDate(final LocalDatabase localDatabase) {
-    if (_product == null) {
+    if (_initialProduct == null) {
       return;
     }
-    _product = localDatabase.upToDate.getLocalUpToDate(_upToDateId);
+    _product = localDatabase.upToDate.getLocalUpToDate(_initialProduct!);
     _loadingStatus = LoadingStatus.LOADED;
   }
 
@@ -97,8 +89,8 @@ class ProductModel with ChangeNotifier {
 
   Future<void> _asyncLoad() async {
     try {
-      _product = await _daoProduct.get(barcode);
-      if (_product != null) {
+      _initialProduct = await _daoProduct.get(barcode);
+      if (_initialProduct != null) {
         // from the local database, no error, perfect!
         _loadingStatus = LoadingStatus.LOADED;
         _safeNotifyListeners();
@@ -123,8 +115,8 @@ class ProductModel with ChangeNotifier {
         isScanned: false,
       ).getFetchedProduct();
       if (fetchedProduct.status == FetchedProductStatus.ok) {
-        _product = fetchedProduct.product;
-        // TODO
+        localDatabase.upToDate
+            .setLatestDownloadedProduct(fetchedProduct.product!);
         _loadingStatus = LoadingStatus.LOADED;
         _safeNotifyListeners();
         return;

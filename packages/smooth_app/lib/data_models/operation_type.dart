@@ -1,11 +1,8 @@
-import 'package:smooth_app/data_models/up_to_date_helper.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 /// Type of a transient operation.
 enum OperationType {
-  download('S'),
-  image('I'),
   details('D');
 
   const OperationType(this.header);
@@ -18,8 +15,7 @@ enum OperationType {
     final LocalDatabase localDatabase,
     final String barcode,
   ) {
-    final UpToDateOperationId id =
-        UpToDateOperationId(localDatabase.getLocalUniqueSequenceNumber());
+    final int id = localDatabase.getLocalUniqueSequenceNumber();
     return '$header'
         '$_transientHeaderSeparator$id'
         '$_transientHeaderSeparator$barcode';

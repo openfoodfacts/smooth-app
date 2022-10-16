@@ -31,7 +31,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         actions: <Widget>[
           PopupMenuButton<int>(
             onSelected: (_) async {
-              await _cancelAllTask();
+              await _cancelAllTask(); // TODO(monsieurtanuki): what does it mean to cancel tasks with UpToDateProvider?
             },
             itemBuilder: (BuildContext context) => <PopupMenuItem<int>>[
               const PopupMenuItem<int>(
@@ -171,7 +171,8 @@ class _TaskListTileState extends State<TaskListTile> {
 
   Future<void> _cancelTask(String uniqueId) async {
     try {
-      await TaskManager().cancelTask(uniqueId);
+      await TaskManager().cancelTask(
+          uniqueId); // TODO(monsieurtanuki): what does it mean to cancel a task with UpToDateProvider?
       const SnackBar snackBar = SnackBar(
         content: Text('Cancelled'),
         duration: SnackBarDuration.medium,

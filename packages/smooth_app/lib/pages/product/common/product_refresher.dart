@@ -49,8 +49,8 @@ class ProductRefresher {
   /// Returns the fetched Product if successful.
   Future<Product?> fetchAndRefresh({
     required final BuildContext context,
-    required final LocalDatabase localDatabase,
     required final String barcode,
+    required final State<StatefulWidget> widget,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -67,7 +67,17 @@ class ProductRefresher {
       await LoadingDialog.error(context: context);
       return null;
     }
-    return fetchAndRefreshed.product;
+    final Product product = fetchAndRefreshed.product!;
+    localDatabase.upToDate.setLatestDownloadedProduct(product);
+    if (widget.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context).product_refreshed),
+          duration: SnackBarDuration.short,
+        ),
+      );
+    }
+    return product;
   }
 
   Future<_MetaProductRefresher> _fetchAndRefresh(
@@ -94,17 +104,6 @@ class ProductRefresher {
       return _MetaProductRefresher.error(e.toString());
     }
   }
-
-  /// Displays a standard snack bar stating that the product was refreshed.
-  ///
-  /// Typical use-case: after a successful call to [fetchAndRefresh].
-  void refreshedProductSnackBar(final BuildContext context) =>
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).product_refreshed),
-          duration: SnackBarDuration.short,
-        ),
-      );
 }
 
 class _MetaProductRefresher {

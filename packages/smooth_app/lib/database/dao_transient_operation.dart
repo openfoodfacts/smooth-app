@@ -68,7 +68,7 @@ class DaoTransientOperation extends AbstractDao {
 
   Product? get(final String key) => _getBox().get(key);
 
-  Future<void> insert(final String key, final Product product) =>
+  Future<void> put(final String key, final Product product) =>
       _getBox().put(key, product);
 
   Future<void> delete(final String key) async => _getBox().delete(key);
