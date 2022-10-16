@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Gooogle Play flavor",
+            "type": "dart",
+            "request": "launch",
+            "program": "packages/app/lib/entrypoints/android/main_google_play.dart"
+        }
+    ]
+}
