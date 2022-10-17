@@ -8,6 +8,7 @@ const Color _yesBackground = Colors.lightGreen;
 const Color _noBackground = Colors.redAccent;
 const Color _yesNoTextColor = Colors.white;
 
+/// Display of the typical Yes / No / Maybe options for Robotoff
 class QuestionAnswersOptions extends StatelessWidget {
   const QuestionAnswersOptions(
     this.question, {

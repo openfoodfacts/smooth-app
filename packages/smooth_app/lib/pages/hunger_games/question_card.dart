@@ -5,6 +5,7 @@ import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
+/// Display of a Robotoff question text.
 class QuestionCard extends StatelessWidget {
   const QuestionCard(
     this.question, {
