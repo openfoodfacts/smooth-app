@@ -101,40 +101,65 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
           return SmoothAlertDialog(
-            title: appLocalizations.contribute_improve_header,
-            body: Column(
-              children: <Widget>[
-                Text(
-                  appLocalizations.contribute_improve_text,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextButton(
-                  onPressed: () async {
-                    final LocalDatabase localDatabase =
-                        context.read<LocalDatabase>();
-                    Navigator.of(context).pop();
-                    ProductQueryPageHelper().openBestChoice(
-                      name: appLocalizations.all_search_to_be_completed_title,
-                      localDatabase: localDatabase,
-                      productQuery: PagedToBeCompletedProductQuery(),
-                      // the other "context"s being popped
-                      context: this.context,
-                    );
-                  },
-                  child: Text(
-                    appLocalizations.contribute_improve_ProductsToBeCompleted,
+              title: appLocalizations.contribute_improve_header,
+              body: Column(
+                children: <Widget>[
+                  Text(
+                    appLocalizations.contribute_improve_text,
                   ),
-                ),
-              ],
-            ),
-            positiveAction: SmoothActionButton(
-              onPressed: () => Navigator.of(context).pop(),
-              text: appLocalizations.okay,
-              minWidth: 100,
-            ),
-          );
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      //Changes for the issue
+                      InkWell(
+                        onTap: () async {
+                          final LocalDatabase localDatabase =
+                              context.read<LocalDatabase>();
+                          Navigator.of(context).pop();
+                          ProductQueryPageHelper().openBestChoice(
+                            name: appLocalizations
+                                .all_search_to_be_completed_title,
+                            localDatabase: localDatabase,
+                            productQuery: PagedToBeCompletedProductQuery(),
+                            // the other "context"s being popped
+                            context: this.context,
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 5),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 1),
+                              borderRadius: BorderRadius.circular(23)),
+                          child: Text(
+                            appLocalizations
+                                .contribute_improve_ProductsToBeCompleted,
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 22, vertical: 5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(23)),
+                          child: Text(
+                            appLocalizations.okay,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ));
         },
       );
 
