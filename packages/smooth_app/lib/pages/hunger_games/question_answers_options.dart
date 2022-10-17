@@ -4,19 +4,17 @@ import 'package:openfoodfacts/model/Insight.dart';
 import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
+const Color _yesBackground = Colors.lightGreen;
+const Color _noBackground = Colors.redAccent;
+const Color _yesNoTextColor = Colors.white;
+
 class QuestionAnswersOptions extends StatelessWidget {
   const QuestionAnswersOptions(
     this.question, {
     Key? key,
     required this.onAnswer,
-    this.yesBackground = Colors.lightGreen,
-    this.noBackground = Colors.redAccent,
-    this.yesNoTextColor = Colors.white,
   }) : super(key: key);
 
-  final Color noBackground;
-  final Color yesBackground;
-  final Color yesNoTextColor;
   final RobotoffQuestion question;
   final Function(InsightAnnotation) onAnswer;
 
@@ -36,8 +34,8 @@ class QuestionAnswersOptions extends StatelessWidget {
                   child: _buildAnswerButton(
                     context,
                     insightAnnotation: InsightAnnotation.NO,
-                    backgroundColor: noBackground,
-                    contentColor: yesNoTextColor,
+                    backgroundColor: _noBackground,
+                    contentColor: _yesNoTextColor,
                   ),
                 ),
               ),
@@ -47,8 +45,8 @@ class QuestionAnswersOptions extends StatelessWidget {
                   child: _buildAnswerButton(
                     context,
                     insightAnnotation: InsightAnnotation.YES,
-                    backgroundColor: yesBackground,
-                    contentColor: yesNoTextColor,
+                    backgroundColor: _yesBackground,
+                    contentColor: _yesNoTextColor,
                   ),
                 ),
               ),
