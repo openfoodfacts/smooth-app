@@ -16,7 +16,6 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
       return EMPTY_WIDGET;
     }
     // TODO(monsieurtanuki): Zoom the map to show all [mapElement.pointers]
-    // TODO(monsieurtanuki): Add a OSM copyright.
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
       child: SizedBox(
@@ -30,15 +29,6 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             ),
             zoom: 6.0,
           ),
-          layers: <LayerOptions>[
-            TileLayerOptions(
-              urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-              subdomains: <String>['a', 'b', 'c'],
-            ),
-            MarkerLayerOptions(
-              markers: getMarkers(mapElement.pointers),
-            ),
-          ],
           nonRotatedChildren: <Widget>[
             AttributionWidget(
               attributionBuilder: (BuildContext context) {
@@ -73,6 +63,15 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                 );
               },
             )
+          ],
+          children: <Widget>[
+            TileLayer(
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+              userAgentPackageName: 'world.openfoodfacts.org',
+            ),
+            MarkerLayer(
+              markers: getMarkers(mapElement.pointers),
+            ),
           ],
         ),
       ),
