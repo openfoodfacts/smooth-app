@@ -9,38 +9,37 @@ class ProductImageCarousel extends StatelessWidget {
   const ProductImageCarousel(
     this.product, {
     required this.height,
-    required this.onUpload,
+    this.onUpload,
   });
 
   final Product product;
   final double height;
-  final Function(BuildContext) onUpload;
+  final Function(BuildContext)? onUpload;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<ProductImageData> allProductImagesData =
+    final List<ProductImageData> productImagesData =
         getProductMainImagesData(product, appLocalizations);
 
     return SizedBox(
       height: height,
-      child: ListView(
+      child: ListView.builder(
         // This next line does the trick.
         scrollDirection: Axis.horizontal,
-        children: allProductImagesData
-            .map(
-              (ProductImageData item) => Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                decoration: const BoxDecoration(color: Colors.black12),
-                child: ImageUploadCard(
-                  product: product,
-                  productImageData: item,
-                  allProductImagesData: allProductImagesData,
-                  onUpload: onUpload,
-                ),
-              ),
-            )
-            .toList(),
+        itemCount: productImagesData.length,
+        itemBuilder: (_, int index) {
+          final ProductImageData data = productImagesData[index];
+          return Container(
+            margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+            decoration: const BoxDecoration(color: Colors.black12),
+            child: ImageUploadCard(
+              product: product,
+              productImageData: data,
+              onUpload: onUpload ?? (_) {},
+            ),
+          );
+        },
       ),
     );
   }

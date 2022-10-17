@@ -11,13 +11,11 @@ class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
     required this.product,
     required this.productImageData,
-    required this.allProductImagesData,
     required this.onUpload,
   });
 
   final Product product;
   final ProductImageData productImageData;
-  final List<ProductImageData> allProductImagesData;
   final Function(BuildContext) onUpload;
 
   @override
