@@ -4,6 +4,7 @@ import 'package:openfoodfacts/model/Insight.dart';
 import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
+/// Display of the typical Yes / No / Maybe options for Robotoff
 class QuestionAnswersOptions extends StatelessWidget {
   const QuestionAnswersOptions(
     this.question, {
