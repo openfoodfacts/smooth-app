@@ -13,6 +13,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
@@ -54,45 +55,51 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   Color? getHeaderColor() => const Color(0xFFFFF2DF);
 
   @override
-  List<Widget> getBody() => <Widget>[
-        _getListTile(
-          'Hunger Games',
-          () => _hungerGames(),
-          Icons.games,
-        ),
-        _getListTile(
-          appLocalizations.contribute_improve_header,
-          () => _contribute(),
-          Icons.data_saver_on,
-        ),
-        _getListTile(
-          appLocalizations.contribute_sw_development,
-          () => _develop(),
-          Icons.app_shortcut,
-        ),
-        _getListTile(
-          appLocalizations.contribute_translate_header,
-          () => _translate(),
-          Icons.translate,
-        ),
-        _getListTile(
-          appLocalizations.contribute_share_header,
-          () => _share(appLocalizations.contribute_share_content),
-          Icons.adaptive.share,
-        ),
-        _getListTile(
-          appLocalizations.contribute_donate_header,
-          () => _donate(),
-          Icons.volunteer_activism,
-          icon:
-              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-        ),
-        _getListTile(
-          appLocalizations.contributors,
-          () => _contributors(),
-          Icons.emoji_people,
-        ),
-      ];
+  List<Widget> getBody() {
+    final bool hungerGamesEnabled = userPreferences
+            .getFlag(UserPreferencesDevMode.userPreferencesFlagHungerGames) ??
+        false;
+
+    return <Widget>[
+      _getListTile(
+        'Hunger Games',
+        () => _hungerGames(),
+        Icons.games,
+        showed: hungerGamesEnabled,
+      ),
+      _getListTile(
+        appLocalizations.contribute_improve_header,
+        () => _contribute(),
+        Icons.data_saver_on,
+      ),
+      _getListTile(
+        appLocalizations.contribute_sw_development,
+        () => _develop(),
+        Icons.app_shortcut,
+      ),
+      _getListTile(
+        appLocalizations.contribute_translate_header,
+        () => _translate(),
+        Icons.translate,
+      ),
+      _getListTile(
+        appLocalizations.contribute_share_header,
+        () => _share(appLocalizations.contribute_share_content),
+        Icons.adaptive.share,
+      ),
+      _getListTile(
+        appLocalizations.contribute_donate_header,
+        () => _donate(),
+        Icons.volunteer_activism,
+        icon: UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+      ),
+      _getListTile(
+        appLocalizations.contributors,
+        () => _contributors(),
+        Icons.emoji_people,
+      ),
+    ];
+  }
 
   Future<void> _contribute() => showDialog<void>(
         context: context,
@@ -309,13 +316,16 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     final VoidCallback onTap,
     final IconData leading, {
     final Icon? icon,
+    final bool showed = true,
   }) =>
-      UserPreferencesListTile(
-        title: Text(title),
-        onTap: onTap,
-        trailing: icon ?? getForwardIcon(),
-        leading: UserPreferencesListTile.getTintedIcon(leading, context),
-      );
+      showed
+          ? UserPreferencesListTile(
+              title: Text(title),
+              onTap: onTap,
+              trailing: icon ?? getForwardIcon(),
+              leading: UserPreferencesListTile.getTintedIcon(leading, context),
+            )
+          : EMPTY_WIDGET;
 }
 
 class _DevModeSetting extends StatelessWidget {

@@ -61,6 +61,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__accessibilityNoColor';
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
+  static const String userPreferencesFlagHungerGames = '__hungerGames';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -394,6 +395,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             setState(() {});
           },
         ),
+        SwitchListTile(
+            value: userPreferences.getFlag(userPreferencesFlagHungerGames) ??
+                false,
+            title: const Text('Activate Hunger Games'),
+            onChanged: (bool value) async {
+              await userPreferences.setFlag(
+                userPreferencesFlagHungerGames,
+                value,
+              );
+              setState(() {});
+            }),
         ListTile(
           // Do not translate
           title: const Text('Reset App Language'),
