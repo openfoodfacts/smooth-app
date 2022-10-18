@@ -101,65 +101,46 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
           return SmoothAlertDialog(
-              title: appLocalizations.contribute_improve_header,
-              body: Column(
-                children: <Widget>[
-                  Text(
-                    appLocalizations.contribute_improve_text,
+            title: appLocalizations.contribute_improve_header,
+            body: Column(
+              children: <Widget>[
+                Text(
+                  appLocalizations.contribute_improve_text,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: () async {
+                    final LocalDatabase localDatabase =
+                        context.read<LocalDatabase>();
+                    Navigator.of(context).pop();
+                    ProductQueryPageHelper().openBestChoice(
+                      name: appLocalizations.all_search_to_be_completed_title,
+                      localDatabase: localDatabase,
+                      productQuery: PagedToBeCompletedProductQuery(),
+                      // the other "context"s being popped
+                      context: this.context,
+                    );
+                  },
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 1),
+                        borderRadius: BorderRadius.circular(23)),
+                    child: Text(
+                      appLocalizations.contribute_improve_ProductsToBeCompleted,
+                    ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      //Changes for the issue
-                      InkWell(
-                        onTap: () async {
-                          final LocalDatabase localDatabase =
-                              context.read<LocalDatabase>();
-                          Navigator.of(context).pop();
-                          ProductQueryPageHelper().openBestChoice(
-                            name: appLocalizations
-                                .all_search_to_be_completed_title,
-                            localDatabase: localDatabase,
-                            productQuery: PagedToBeCompletedProductQuery(),
-                            // the other "context"s being popped
-                            context: this.context,
-                          );
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 5),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 1),
-                              borderRadius: BorderRadius.circular(23)),
-                          child: Text(
-                            appLocalizations
-                                .contribute_improve_ProductsToBeCompleted,
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () => Navigator.of(context).pop(),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 22, vertical: 5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(23)),
-                          child: Text(
-                            appLocalizations.okay,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ));
+                ),
+              ],
+            ),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.okay,
+              onPressed: () => Navigator.pop(context),
+            ),
+          );
         },
       );
 
