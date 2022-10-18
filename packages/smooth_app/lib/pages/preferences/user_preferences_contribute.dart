@@ -138,6 +138,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
             ),
             positiveAction: SmoothActionButton(
               text: appLocalizations.okay,
+              minWidth: 100,
               onPressed: () => Navigator.pop(context),
             ),
           );
