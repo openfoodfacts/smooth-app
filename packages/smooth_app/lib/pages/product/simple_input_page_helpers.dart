@@ -133,6 +133,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   void dispose() {
     // Ignored on purposed
   }
+
+  /// Returns the current language.
+  @protected
+  OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage()!;
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -226,77 +230,20 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   ProductEditTask getTask() => ProductEditTask.emb;
 }
 
-/// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
-abstract class AbstractSimpleInputPageInLanguageHelper
-    extends AbstractSimpleInputPageHelper {
-  final Map<String, String> _termToTags = <String, String>{};
-
-  /// Returns the value of the tags list of field for a product.
-  ///
-  /// E.g. `product.categoriesTags`
-  @protected
-  List<String>? getTags();
-
-  /// Returns the value of the translations of a field for a product.
-  ///
-  /// E.g. `product.categoriesTagsInLanguages`
-  @protected
-  Map<OpenFoodFactsLanguage, List<String>>? getInLanguages();
-
-  /// Sets the value of a field for a product.
-  ///
-  /// e.g. `product.categories = value`
-  @protected
-  void setValue(final Product changedProduct, final String value);
-
+/// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() {
-    final List<String>? tags = getTags();
-    final Map<OpenFoodFactsLanguage, List<String>>? inLanguages =
-        getInLanguages();
-    if (tags != null && inLanguages != null) {
-      final List<String>? translations = inLanguages[_getLanguage()];
-      if (translations != null && translations.length == tags.length) {
-        for (int i = 0; i < translations.length; i++) {
-          _termToTags[translations[i]] = tags[i];
-        }
-        return List<String>.from(translations);
-      }
-    }
-    return <String>[];
-  }
+  List<String> initTerms() =>
+      product.labelsTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
   void changeProduct(final Product changedProduct) {
-    final StringBuffer result = StringBuffer();
-    for (int i = 0; i < terms.length; i++) {
-      final String term = terms[i];
-      String? tag = _termToTags[term];
-      tag ??= '${_getLanguage().code}:$term';
-      if (i > 0) {
-        result.write(_separator);
-      }
-      result.write(tag);
-    }
-    setValue(changedProduct, result.toString());
+    // for the local change
+    changedProduct.labelsTagsInLanguages =
+        <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
+    // for the server - write-only
+    changedProduct.labels = terms.join(_separator);
   }
-
-  OpenFoodFactsLanguage _getLanguage() => ProductQuery.getLanguage()!;
-}
-
-/// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
-class SimpleInputPageLabelHelper
-    extends AbstractSimpleInputPageInLanguageHelper {
-  @override
-  List<String>? getTags() => product.labelsTags;
-
-  @override
-  Map<OpenFoodFactsLanguage, List<String>>? getInLanguages() =>
-      product.labelsTagsInLanguages;
-
-  @override
-  void setValue(final Product changedProduct, final String value) =>
-      changedProduct.labels = value;
 
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
@@ -321,18 +268,19 @@ class SimpleInputPageLabelHelper
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
-class SimpleInputPageCategoryHelper
-    extends AbstractSimpleInputPageInLanguageHelper {
+class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String>? getTags() => product.categoriesTags;
+  List<String> initTerms() =>
+      product.categoriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
-  Map<OpenFoodFactsLanguage, List<String>>? getInLanguages() =>
-      product.categoriesTagsInLanguages;
-
-  @override
-  void setValue(final Product changedProduct, final String value) =>
-      changedProduct.categories = value;
+  void changeProduct(final Product changedProduct) {
+    // for the local change
+    changedProduct.categoriesTagsInLanguages =
+        <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
+    // for the server - write-only
+    changedProduct.categories = terms.join(_separator);
+  }
 
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
@@ -361,18 +309,19 @@ class SimpleInputPageCategoryHelper
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
-class SimpleInputPageCountryHelper
-    extends AbstractSimpleInputPageInLanguageHelper {
+class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String>? getTags() => product.countriesTags;
+  List<String> initTerms() =>
+      product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
-  Map<OpenFoodFactsLanguage, List<String>>? getInLanguages() =>
-      product.countriesTagsInLanguages;
-
-  @override
-  void setValue(final Product changedProduct, final String value) =>
-      changedProduct.countries = value;
+  void changeProduct(final Product changedProduct) {
+    // for the temporary local change
+    changedProduct.countriesTagsInLanguages =
+        <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
+    // for the server - write-only
+    changedProduct.countries = terms.join(_separator);
+  }
 
   @override
   String getTitle(final AppLocalizations appLocalizations) =>

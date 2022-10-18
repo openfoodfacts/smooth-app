@@ -93,6 +93,7 @@ abstract class AbstractBackgroundTask {
   static String generateUniqueId(
     String barcode,
     String processIdentifier, {
+    final int? sequenceNumber,
     final bool appendTimestamp = false,
   }) {
     final StringBuffer stringBuffer = StringBuffer();
@@ -106,6 +107,11 @@ abstract class AbstractBackgroundTask {
       ..write(ProductQuery.getCountry()!.iso2Code)
       ..write('_')
       ..write(ProductQuery.getUser().userId);
+    if (sequenceNumber != null) {
+      stringBuffer
+        ..write('_')
+        ..write(sequenceNumber);
+    }
     if (appendTimestamp) {
       stringBuffer
         ..write('_')

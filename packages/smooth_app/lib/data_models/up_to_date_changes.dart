@@ -122,11 +122,20 @@ class UpToDateChanges {
     if (change.labels != null) {
       initial.labels = change.labels;
     }
+    if (change.labelsTagsInLanguages != null) {
+      initial.labelsTagsInLanguages = change.labelsTagsInLanguages;
+    }
     if (change.categories != null) {
       initial.categories = change.categories;
     }
+    if (change.categoriesTagsInLanguages != null) {
+      initial.categoriesTagsInLanguages = change.categoriesTagsInLanguages;
+    }
     if (change.countries != null) {
       initial.countries = change.countries;
+    }
+    if (change.countriesTagsInLanguages != null) {
+      initial.countriesTagsInLanguages = change.countriesTagsInLanguages;
     }
     if (change.imageFrontUrl != null) {
       initial.imageFrontUrl = change.imageFrontUrl;

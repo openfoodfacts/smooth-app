@@ -77,6 +77,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
         minimalistProduct,
         productEditTask: productEditTask,
         productEditTasks: productEditTasks,
+        sequenceNumber: localDatabase.getLocalUniqueSequenceNumber(),
       );
       /*
       // TODO 0000 temporairement, ne pas utiliser les taches de fond
@@ -103,6 +104,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     final Product minimalistProduct, {
     final List<ProductEditTask>? productEditTasks,
     final ProductEditTask? productEditTask,
+    required final int sequenceNumber,
   }) {
     final String code;
     if (productEditTask != null) {
@@ -123,6 +125,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     final String uniqueId = AbstractBackgroundTask.generateUniqueId(
       minimalistProduct.barcode!,
       code,
+      sequenceNumber: sequenceNumber,
     );
     return BackgroundTaskDetails._(
       uniqueId: uniqueId,
