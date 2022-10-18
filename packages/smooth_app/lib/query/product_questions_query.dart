@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-class RobotoffQuestionsQuery {
-  RobotoffQuestionsQuery(this._barcode);
+class ProductQuestionsQuery {
+  ProductQuestionsQuery(this._barcode);
   final String _barcode;
 
-  Future<List<RobotoffQuestion>> getRobotoffQuestionsForProduct() async {
+  Future<List<RobotoffQuestion>> getQuestions() async {
     final RobotoffQuestionResult result =
         await OpenFoodAPIClient.getRobotoffQuestionsForProduct(
       _barcode,
