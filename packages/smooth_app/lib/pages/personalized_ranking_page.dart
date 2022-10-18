@@ -47,7 +47,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   @override
   void initState() {
     super.initState();
-    _model = PersonalizedRankingModel(widget.barcodes);
+    _model = PersonalizedRankingModel(
+      widget.barcodes,
+      context.read<LocalDatabase>(),
+    );
   }
 
   @override

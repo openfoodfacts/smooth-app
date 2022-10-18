@@ -30,14 +30,20 @@ class ProductListItemSimple extends StatefulWidget {
 
 class _ProductListItemSimpleState extends State<ProductListItemSimple> {
   late final ProductModel _model;
+  late final LocalDatabase _localDatabase;
 
   @override
   void initState() {
     super.initState();
-    _model = ProductModel(
-      widget.barcode,
-      context.read<LocalDatabase>(),
-    );
+    _localDatabase = context.read<LocalDatabase>();
+    _model = ProductModel(widget.barcode, _localDatabase);
+    _localDatabase.upToDate.showInterest(widget.barcode);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(widget.barcode);
+    super.dispose();
   }
 
   @override

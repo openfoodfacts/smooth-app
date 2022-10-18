@@ -40,14 +40,23 @@ class _EditOcrPageState extends State<EditOcrPage> {
   bool _updatingText = false;
   late Product _product;
   late final Product _initialProduct;
+  late final LocalDatabase _localDatabase;
   late OcrHelper _helper;
 
   @override
   void initState() {
     super.initState();
     _initialProduct = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
     _helper = widget.helper;
     _controller.text = _helper.getText(_product);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
+    super.dispose();
   }
 
   Future<void> _onSubmitField(ImageField imageField) async {

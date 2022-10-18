@@ -44,6 +44,7 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late Product _product;
   late final Product _initialProduct;
+  late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
   late ScrollController _scrollController;
   bool _mustScrollToTheEnd = false;
@@ -59,6 +60,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   void initState() {
     super.initState();
     _initialProduct = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
     _scrollController = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
@@ -66,6 +69,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     AnalyticsHelper.trackProductPageOpen(
       product: _initialProduct,
     );
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
+    super.dispose();
   }
 
   @override

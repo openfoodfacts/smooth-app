@@ -39,11 +39,14 @@ class _EditProductPageState extends State<EditProductPage> {
   bool _barcodeVisibleInAppbar = false;
   late Product _product;
   late final Product _initialProduct;
+  late final LocalDatabase _localDatabase;
 
   @override
   void initState() {
     super.initState();
     _initialProduct = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
     _controller.addListener(_onScrollChanged);
   }
 
@@ -327,6 +330,7 @@ class _EditProductPageState extends State<EditProductPage> {
   void dispose() {
     _controller.removeListener(_onScrollChanged);
     _controller.dispose();
+    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
     super.dispose();
   }
 }

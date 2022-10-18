@@ -6,7 +6,7 @@ import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 
-/// Provider that reflects all the user changes on [Product]s.
+/// Provider that reflects changes on [Product]s.
 class UpToDateProductProvider {
   UpToDateProductProvider(this.localDatabase)
       : _changes = UpToDateChanges(localDatabase);
@@ -21,6 +21,24 @@ class UpToDateProductProvider {
 
   /// Latest product version for a barcode.
   final Map<String, Product> _latestProductVersions = <String, Product>{};
+
+  final Map<String, int> _interestingBarcodes = <String, int>{};
+
+  void showInterest(final String barcode) {
+    final int result = (_interestingBarcodes[barcode] ?? 0) + 1;
+    _interestingBarcodes[barcode] = result;
+  }
+
+  void loseInterest(final String barcode) {
+    final int result = (_interestingBarcodes[barcode] ?? 0) - 1;
+    if (result <= 0) {
+      _interestingBarcodes.remove(barcode);
+      _latestProductVersions.remove(barcode);
+      _timestamps.remove(barcode);
+    } else {
+      _interestingBarcodes[barcode] = result;
+    }
+  }
 
   /// Returns the [product] with all the local pending changes on top.
   ///
@@ -50,14 +68,10 @@ class UpToDateProductProvider {
   /// ```
   Product getLocalUpToDate(final Product initialProduct) {
     final String barcode = initialProduct.barcode!;
-    _interestingBarcodes.add(barcode);
     Product result = copy(_latestProductVersions[barcode] ?? initialProduct);
     result = _changes.getUpToDateProduct(result);
     return result;
   }
-
-  // TODO: add and remove from that set, so that we can GC
-  final Set<String> _interestingBarcodes = <String>{};
 
   // TODO(monsieurtanuki): move code to off-dart Product
   Product copy(final Product source) => Product.fromJson(
@@ -134,7 +148,7 @@ class UpToDateProductProvider {
       return;
     }
     for (final Product product in products) {
-      if (_interestingBarcodes.contains(product.barcode)) {
+      if (_interestingBarcodes.containsKey(product.barcode)) {
         setLatestDownloadedProduct(product, notify: false);
       }
     }

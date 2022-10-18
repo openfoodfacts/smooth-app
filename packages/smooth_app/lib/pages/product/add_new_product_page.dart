@@ -47,11 +47,20 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   late Product _product;
   late final Product _initialProduct;
+  late final LocalDatabase _localDatabase;
 
   @override
   void initState() {
     super.initState();
     _initialProduct = Product(barcode: widget.barcode);
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
+    super.dispose();
   }
 
   @override

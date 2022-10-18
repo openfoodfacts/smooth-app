@@ -13,9 +13,15 @@ enum LoadingStatus {
 
 /// Model that computes the scores and sorts the barcodes accordingly.
 class PersonalizedRankingModel with ChangeNotifier {
-  PersonalizedRankingModel(this.initialBarcodes);
+  PersonalizedRankingModel(
+    this.initialBarcodes,
+    this.localDatabase,
+  ) {
+    initialBarcodes.forEach(localDatabase.upToDate.showInterest);
+  }
 
   final List<String> initialBarcodes;
+  final LocalDatabase localDatabase;
 
   late LoadingStatus _loadingStatus;
   String? _loadingError;
@@ -26,6 +32,12 @@ class PersonalizedRankingModel with ChangeNotifier {
   final List<MatchedScoreV2> scores = <MatchedScoreV2>[];
 
   int? _timestamp;
+
+  @override
+  void dispose() {
+    initialBarcodes.forEach(localDatabase.upToDate.loseInterest);
+    super.dispose();
+  }
 
   /// Refreshes the computations.
   Future<void> refresh(
@@ -56,6 +68,7 @@ class PersonalizedRankingModel with ChangeNotifier {
 
   /// Removes a barcode from the barcodes and from the scores.
   void dismiss(final String barcode) {
+    localDatabase.upToDate.loseInterest(barcode);
     initialBarcodes.remove(barcode);
     int? index;
     int i = 0;
