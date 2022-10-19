@@ -65,9 +65,7 @@ jobs:
         with:
           channel: stable
           cache: true
-          flutter-version: '3.0.5'
-          #cache-key: ${{ inputs.FLUTTER-CACHE-KEY }}
-          cache-key: revert-3.0.5
+          cache-key: ${{ inputs.FLUTTER-CACHE-KEY }}
 
       - name: Flutter version    
         run: flutter --version
@@ -76,26 +74,26 @@ jobs:
         run: ci/pub_upgrade.sh
       
       - name: Bundle install
-        run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
+        run: cd ./packages/app/ios && gem install bundler:1.17.3 && bundle install
 
       - name: Decrypt iOS AuthKey file
-        run: cd ./packages/smooth_app/ios/fastlane/envfiles && ./decrypt_secrets.sh
+        run: cd ./packages/app/ios/fastlane/envfiles && ./decrypt_secrets.sh
         env:
           AUTH_KEY_FILE_DECRYPTKEY: ${{ secrets.AUTH_KEY_FILE_DECRYPTKEY }}
 
       # We are using the android version code here to have the version codes from iOS and android in sync 
       # in order for Sentry and other tools to work properly
       - name: Bump version
-        uses: maierj/fastlane-action@v2.2.1
+        uses: maierj/fastlane-action@v2.3.0
         with:
           lane: setVersion
-          subdirectory: packages/smooth_app/android
+          subdirectory: packages/app/android
         env:
           VERSION_NAME: ${{ inputs.VERSION_NAME }}
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
       - name: Build app
-        run: cd ./packages/smooth_app && cd ios && pod update Sentry && cd .. && flutter build ios --release --no-codesign
+        run: cd ./packages/app && cd ios && pod update Sentry && cd .. && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -112,10 +110,10 @@ jobs:
           CI_RELEASE: true
 
       - name: cat Podfile
-        run: cd ./packages/smooth_app/ios && cat Podfile
+        run: cd ./packages/app/ios && cat Podfile
  
       - name: Release ipa
-        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
+        run: cd ./packages/app/ios && bundle exec fastlane beta
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}

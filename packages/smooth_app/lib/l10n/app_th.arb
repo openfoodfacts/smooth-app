@@ -6,6 +6,10 @@
     "@add": {},
     "okay": "โอเค",
     "@okay": {},
+    "create": "Create",
+    "@create": {
+        "description": "An action to create"
+    },
     "applyButtonText": "ใช้",
     "@applyButtonText": {},
     "next_label": "ถัดไป",
@@ -695,6 +699,14 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
+    "compare_products_appbar_title": "Compare products",
+    "@compare_products_appbar_title": {
+        "description": "AppBar title when in comparison mode "
+    },
+    "compare_products_appbar_subtitle": "Please select at least two products",
+    "@compare_products_appbar_subtitle": {
+        "description": "AppBar subtitle when in comparison mode"
+    },
     "retry_button_label": "ลองใหม่อีกครั้ง",
     "connect_with_us": "Connect with us",
     "instagram": "Instagram",
@@ -1168,9 +1180,17 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_button_new": "New list",
+    "user_list_add_product": "Add the product to your lists",
+    "@user_list_add_product": {
+        "description": "Label for the dialog to add a product to a list"
+    },
+    "user_list_button_new": "Create a new list",
     "@user_list_button_new": {
-        "description": "Short label of a 'new list' button"
+        "description": "Short label of a 'create a new list' button"
+    },
+    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "@user_list_empty_label": {
+        "description": "Content displayed when there is no list"
     },
     "user_list_button_add_product": "Add to list",
     "@user_list_button_add_product": {
@@ -1696,5 +1716,13 @@
     "word_separator": ", ",
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "image_download_error": "Failed to download image",
+    "@image_download_error": {
+        "description": "Error message, when image download fails"
+    },
+    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "@image_edit_url_error": {
+        "description": "Error message, when editing image fails, due to missing url."
     }
 }

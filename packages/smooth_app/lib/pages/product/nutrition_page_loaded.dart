@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
+import 'package:openfoodfacts/model/PerSize.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,9 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
+import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Actual nutrition page, with data already loaded.
@@ -46,10 +49,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   late final NutritionContainer _nutritionContainer;
 
   late bool _noNutritionData;
-  final TextEditingController nutritonTextController = TextEditingController();
+  final TextEditingControllerWithInitialValue _nutritionTextController =
+      TextEditingControllerWithInitialValue();
 
-  // If true then serving, if false then 100g.
-  bool _servingOr100g = false;
+  late NutritionUnit _nutritionUnit;
+  late NutritionUnit _initialNutritionUnit;
 
   double getColumnSizeFromContext(
     BuildContext context,
@@ -59,8 +63,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     return columnSize * adjustmentFactor;
   }
 
-  final Map<String, TextEditingController> _controllers =
-      <String, TextEditingController>{};
+  final Map<String, TextEditingControllerWithInitialValue> _controllers =
+      <String, TextEditingControllerWithInitialValue>{};
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late Product _product;
 
@@ -71,11 +75,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     _nutritionContainer = _getFreshContainer(widget.product);
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
     _noNutritionData = _product.noNutritionData ?? false;
+    _nutritionUnit = _initialNutritionUnit = _detectUnit(_product);
   }
 
   @override
   void dispose() {
-    for (final TextEditingController controller in _controllers.values) {
+    for (final TextEditingControllerWithInitialValue controller
+        in _controllers.values) {
       controller.dispose();
     }
     super.dispose();
@@ -118,11 +124,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           title: AutoSizeText(
             appLocalizations.nutrition_page_title,
-            maxLines: 2,
+            maxLines: widget.product.productName?.isNotEmpty == true ? 1 : 2,
           ),
+          subTitle: widget.product.productName != null
+              ? Text(
+                  widget.product.productName!,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                )
+              : null,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(
@@ -179,7 +192,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             child: _getNutrientCell(
               appLocalizations,
               orderedNutrient,
-              _servingOr100g,
+              _nutritionUnit,
               position,
             ),
           ),
@@ -193,22 +206,47 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Widget _getNutrientCell(
     final AppLocalizations appLocalizations,
     final OrderedNutrient orderedNutrient,
-    final bool perServing,
+    final NutritionUnit nutritionUnit,
     final int position,
   ) {
     final String valueKey = NutritionContainer.getValueKey(
       orderedNutrient.id,
-      perServing,
+      nutritionUnit,
     );
-    final TextEditingController controller;
+
+    final TextEditingControllerWithInitialValue controller;
     if (_controllers[valueKey] != null) {
       controller = _controllers[valueKey]!;
     } else {
-      final double? value = _nutritionContainer.getValue(valueKey);
-      controller = TextEditingController();
-      controller.text = value == null ? '' : _numberFormat.format(value);
-      _controllers[valueKey] = controller;
+      // If a value is available for the other unit, let's switch the values
+      String? otherUnitKey;
+      if (_nutritionUnit == NutritionUnit.perServing &&
+          valueKey.endsWith('_serving')) {
+        otherUnitKey =
+            '${valueKey.substring(0, valueKey.lastIndexOf('_serving'))}_100g';
+      } else if (_nutritionUnit == NutritionUnit.per100g) {
+        // Only case, where "_serving" is missing at the end
+        if (valueKey == 'energy-kcal_100g') {
+          otherUnitKey = 'energy-kcal';
+        } else if (valueKey.endsWith('_100g')) {
+          otherUnitKey =
+              '${valueKey.substring(0, valueKey.lastIndexOf('_100g'))}_serving';
+        }
+      }
+
+      if (otherUnitKey != null && _controllers[otherUnitKey] != null) {
+        _controllers[valueKey] = _controllers[otherUnitKey]!;
+        _controllers.remove(otherUnitKey);
+      } else {
+        final double? value = _nutritionContainer.getValue(valueKey);
+        _controllers[valueKey] = TextEditingControllerWithInitialValue(
+          text: value == null ? '' : _numberFormat.format(value),
+        );
+      }
+
+      controller = _controllers[valueKey]!;
     }
+
     return Builder(
       builder: (BuildContext context) {
         final List<FocusNode> focusNodes = Provider.of<List<FocusNode>>(
@@ -289,9 +327,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   Widget _getServingField(final AppLocalizations appLocalizations) {
-    final TextEditingController controller = TextEditingController();
-    controller.text = _nutritionContainer.servingSize ?? '';
-    _controllers[NutritionContainer.fakeNutrientIdServingSize] = controller;
+    final String value = _nutritionContainer.servingSize ?? '';
+
+    if (_controllers[NutritionContainer.fakeNutrientIdServingSize] != null) {
+      _controllers[NutritionContainer.fakeNutrientIdServingSize]!.text = value;
+    } else {
+      _controllers[NutritionContainer.fakeNutrientIdServingSize] =
+          TextEditingControllerWithInitialValue(text: value);
+    }
+
+    final TextEditingControllerWithInitialValue controller =
+        _controllers[NutritionContainer.fakeNutrientIdServingSize]!;
+
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: VERY_LARGE_SPACE),
       child: Builder(
@@ -325,13 +372,45 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(appLocalizations.nutrition_page_per_100g),
-          Switch(
-            value: _servingOr100g,
-            onChanged: (final bool value) =>
-                setState(() => _servingOr100g = !_servingOr100g),
+          Expanded(
+            child: Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: AnimatedDefaultTextStyle(
+                duration: const Duration(milliseconds: 200),
+                style: _nutritionUnit == NutritionUnit.per100g
+                    ? const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline)
+                    : const TextStyle(),
+                child: Text(
+                  appLocalizations.nutrition_page_per_100g,
+                ),
+              ),
+            ),
           ),
-          Text(appLocalizations.nutrition_page_per_serving)
+          Switch(
+            value: _nutritionUnit == NutritionUnit.perServing,
+            onChanged: (final bool value) => setState(
+              () => _nutritionUnit =
+                  value ? NutritionUnit.perServing : NutritionUnit.per100g,
+            ),
+          ),
+          Expanded(
+            child: Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: AnimatedDefaultTextStyle(
+                duration: const Duration(milliseconds: 200),
+                style: _nutritionUnit == NutritionUnit.perServing
+                    ? const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline)
+                    : const TextStyle(),
+                child: Text(
+                  appLocalizations.nutrition_page_per_serving,
+                ),
+              ),
+            ),
+          )
         ],
       );
 
@@ -394,7 +473,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
                               prefixIcon: const Icon(Icons.search),
                               hintText: appLocalizations.search,
                               type: TextFieldTypes.PLAIN_TEXT,
-                              controller: nutritonTextController,
+                              controller: _nutritionTextController,
                               onChanged: (String? query) {
                                 setState(
                                   () {
@@ -455,6 +534,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         _controllers,
         _numberFormat,
         _noNutritionData,
+        _unitAsChanged,
       );
 
   Product? _getChangedProduct(Product product) {
@@ -466,13 +546,17 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final NutritionContainer output = _getFreshContainer(product);
     // we copy the values
     for (final String key in _controllers.keys) {
-      final TextEditingController controller = _controllers[key]!;
+      final TextEditingControllerWithInitialValue controller =
+          _controllers[key]!;
       output.setControllerText(key, controller.text);
     }
+
     // we copy the "with nutrition data true/false"
     output.noNutritionData = _noNutritionData;
+
     // we copy the units
     output.copyUnitsFrom(_nutritionContainer);
+
     return output.getProduct(product);
   }
 
@@ -564,4 +648,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     return true;
   }
+
+  NutritionUnit _detectUnit(Product product) {
+    if (product.nutrimentDataPer == PerSize.serving.offTag) {
+      return NutritionUnit.perServing;
+    }
+    return NutritionUnit.per100g;
+  }
+
+  bool get _unitAsChanged => _nutritionUnit != _initialNutritionUnit;
 }

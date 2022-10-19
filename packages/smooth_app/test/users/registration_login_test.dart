@@ -1,5 +1,7 @@
 import 'dart:math';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:openfoodfacts/model/LoginStatus.dart';
 import 'package:openfoodfacts/model/SignUpStatus.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/QueryType.dart';
@@ -25,21 +27,22 @@ void main() {
     });
 
     test('Login User', () async {
-      final bool loginResponse = await OpenFoodAPIClient.login(
+      final LoginStatus? loginResponse = await OpenFoodAPIClient.login2(
         User(userId: name, password: password),
         queryType: queryType,
       );
 
-      expect(loginResponse, true);
+      expect(loginResponse?.successful, true);
     });
 
     test('Wrong Credential User Login', () async {
-      final bool loginResponse = await OpenFoodAPIClient.login(
+      final LoginStatus? loginResponse = await OpenFoodAPIClient.login2(
         User(userId: name, password: 'somerandomnewpassword'),
         queryType: queryType,
       );
-      expect(loginResponse, false);
+      expect(loginResponse?.successful, isNull);
     });
+
     test('Duplicate Registration', () async {
       final SignUpStatus signUpResponse = await OpenFoodAPIClient.register(
         user: User(userId: name, password: password),

@@ -6,6 +6,10 @@
     "@add": {},
     "okay": "Ok",
     "@okay": {},
+    "create": "Criar",
+    "@create": {
+        "description": "An action to create"
+    },
     "applyButtonText": "Candidatar",
     "@applyButtonText": {},
     "next_label": "Seguinte",
@@ -695,6 +699,14 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
+    "compare_products_appbar_title": "Comparar produtos",
+    "@compare_products_appbar_title": {
+        "description": "AppBar title when in comparison mode "
+    },
+    "compare_products_appbar_subtitle": "Selecione ao menos dois produtos",
+    "@compare_products_appbar_subtitle": {
+        "description": "AppBar subtitle when in comparison mode"
+    },
     "retry_button_label": "Repetir",
     "connect_with_us": "Conecte-se conosco",
     "instagram": "Instagram",
@@ -938,11 +950,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Modo scanner",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Altere apenas se tiver algum problema com o scanner (incapaz de decodificar códigos de barras). Toque para alternar entre os dois modos.\nO atual é: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -951,8 +963,8 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_file_based": "Modo de segurança (por padrão)",
+    "camera_mode_bytes_array_based": "Modo rápido",
     "app_haptic_feedback_title": "Intensidade da vibração e da resposta tátil",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1168,9 +1180,17 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_button_new": "Nova lista",
+    "user_list_add_product": "Adicione o produto às suas listas",
+    "@user_list_add_product": {
+        "description": "Label for the dialog to add a product to a list"
+    },
+    "user_list_button_new": "Criar uma nova lista",
     "@user_list_button_new": {
-        "description": "Short label of a 'new list' button"
+        "description": "Short label of a 'create a new list' button"
+    },
+    "user_list_empty_label": "Nenhuma lista disponível ainda,\ncomece criando uma lista",
+    "@user_list_empty_label": {
+        "description": "Content displayed when there is no list"
     },
     "user_list_button_add_product": "Adicionar à lista",
     "@user_list_button_add_product": {
@@ -1696,5 +1716,13 @@
     "word_separator": ", ",
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "image_download_error": "Falha ao baixar a imagem",
+    "@image_download_error": {
+        "description": "Error message, when image download fails"
+    },
+    "image_edit_url_error": "Falha ao editar a imagem, URL da imagem não definido.",
+    "@image_edit_url_error": {
+        "description": "Error message, when editing image fails, due to missing url."
     }
 }

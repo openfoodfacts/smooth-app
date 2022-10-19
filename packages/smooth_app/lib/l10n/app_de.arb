@@ -6,6 +6,10 @@
     "@add": {},
     "okay": "Okay",
     "@okay": {},
+    "create": "Erstellen",
+    "@create": {
+        "description": "An action to create"
+    },
     "applyButtonText": "Übernehmen",
     "@applyButtonText": {},
     "next_label": "Weiter",
@@ -695,6 +699,14 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
+    "compare_products_appbar_title": "Produkte vergleichen",
+    "@compare_products_appbar_title": {
+        "description": "AppBar title when in comparison mode "
+    },
+    "compare_products_appbar_subtitle": "Bitte wählen Sie mindestens zwei Produkte",
+    "@compare_products_appbar_subtitle": {
+        "description": "AppBar subtitle when in comparison mode"
+    },
     "retry_button_label": "Wiederholen",
     "connect_with_us": "Mit uns in Verbindung treten",
     "instagram": "Instagram",
@@ -938,11 +950,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Scanner Modus",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Ändern Sie diesen Wert nur, wenn Sie Probleme mit dem Scanner haben (nicht in der Lage sind Barcodes zu dekodieren). Tippen Sie, um zwischen den beiden Modi zu wechseln.\nDer aktuelle Modus ist: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -951,8 +963,8 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_file_based": "Sicherer Modus (Standard)",
+    "camera_mode_bytes_array_based": "Schnellmodus",
     "app_haptic_feedback_title": "Vibration und haptisches Feedback",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1168,9 +1180,17 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_button_new": "Neue Liste",
+    "user_list_add_product": "Produkt zu Ihren Listen hinzufügen",
+    "@user_list_add_product": {
+        "description": "Label for the dialog to add a product to a list"
+    },
+    "user_list_button_new": "Neue Liste erstellen",
     "@user_list_button_new": {
-        "description": "Short label of a 'new list' button"
+        "description": "Short label of a 'create a new list' button"
+    },
+    "user_list_empty_label": "Noch keine Liste vorhanden,\nbitte beginnen Sie mit der Erstellung einer neuen Liste",
+    "@user_list_empty_label": {
+        "description": "Content displayed when there is no list"
     },
     "user_list_button_add_product": "Zur Liste hinzufügen",
     "@user_list_button_add_product": {
@@ -1696,5 +1716,13 @@
     "word_separator": ", ",
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "image_download_error": "Bild konnte nicht heruntergeladen werden",
+    "@image_download_error": {
+        "description": "Error message, when image download fails"
+    },
+    "image_edit_url_error": "Bild konnte nicht bearbeitet werden, Bild-URL nicht festgelegt.",
+    "@image_edit_url_error": {
+        "description": "Error message, when editing image fails, due to missing url."
     }
 }

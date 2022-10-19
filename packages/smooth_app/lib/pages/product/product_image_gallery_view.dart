@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// ProductImageGalleryView is a page that displays a list of product images.
@@ -104,8 +105,15 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           );
         }
         return SmoothScaffold(
-          appBar: AppBar(
+          appBar: SmoothAppBar(
             title: Text(appLocalizations.edit_product_form_item_photos_title),
+            subTitle: widget.product.productName != null
+                ? Text(
+                    widget.product.productName!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                : null,
             leading: SmoothBackButton(
               onPressed: () => Navigator.maybePop(context, _isRefreshed),
             ),
@@ -227,8 +235,13 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   }
 
   Future<Iterable<ProductImageData>?> _getProductImages() async {
+    final String? barcode = widget.product.barcode;
+    if (barcode == null) {
+      return null;
+    }
+
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      widget.product.barcode!,
+      barcode,
       fields: <ProductField>[ProductField.IMAGES],
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
@@ -250,7 +263,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       return null;
     }
 
-    return _deduplicateImages(resultProduct.images!).map(_getProductImageData);
+    return _deduplicateImages(resultProduct.images!)
+        .map((ProductImage image) => ProductImageData.from(image, barcode));
   }
 
   /// Groups the list of [ProductImage] by [ProductImage.imgid]
@@ -259,15 +273,16 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       images
           .groupListsBy((ProductImage element) => element.imgid)
           .values
-          .map((List<ProductImage> sameIdImages) => sameIdImages.firstOrNull)
+          .map(_findBestProductImage)
           .whereNotNull();
 
-  /// Created a [ProductImageData] from a [ProductImage]
-  ProductImageData _getProductImageData(ProductImage image) => ProductImageData(
-        imageField: image.field,
-        // TODO(VaiTon): i18n
-        title: image.imgid ?? '',
-        buttonText: image.imgid ?? '',
-        imageUrl: ImageHelper.buildUrl(widget.product.barcode, image),
-      );
+  ProductImage? _findBestProductImage(Iterable<ProductImage> images) {
+    final Map<ImageSize?, ProductImage> map = images
+        .groupListsBy((ProductImage image) => image.size)
+        .map((ImageSize? key, List<ProductImage> value) =>
+            MapEntry<ImageSize?, ProductImage>(key, value.first));
+    return map[ImageSize.DISPLAY] ??
+        map[ImageSize.SMALL] ??
+        map[ImageSize.THUMB];
+  }
 }

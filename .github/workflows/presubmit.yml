@@ -2,9 +2,6 @@ name: SmoothApp Pre-Submit Tests
 
 on:
   pull_request:
-  push:
-    branches-ignore:
-      - develop
 
 env:
   FLUTTER_VERSION: '3.3.x'
@@ -27,9 +24,7 @@ jobs:
         with:
           channel: stable
           cache: true
-          flutter-version: '3.0.5'
-          #cache-key: flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock')}}
-          cache-key: revert-3.0.5
+          cache-key: flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock')}}
 
       - run: flutter --version
 

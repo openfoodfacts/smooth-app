@@ -6,6 +6,10 @@
     "@add": {},
     "okay": "はい",
     "@okay": {},
+    "create": "Create",
+    "@create": {
+        "description": "An action to create"
+    },
     "applyButtonText": "適用",
     "@applyButtonText": {},
     "next_label": "次",
@@ -695,6 +699,14 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
+    "compare_products_appbar_title": "Compare products",
+    "@compare_products_appbar_title": {
+        "description": "AppBar title when in comparison mode "
+    },
+    "compare_products_appbar_subtitle": "Please select at least two products",
+    "@compare_products_appbar_subtitle": {
+        "description": "AppBar subtitle when in comparison mode"
+    },
     "retry_button_label": "再試行",
     "connect_with_us": "私たちとつながる",
     "instagram": "Instagram",
@@ -938,11 +950,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "スキャナーモード",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "スキャナーに問題がある (バーコードをデコードできない) 場合にのみ、この値を変更してください。タップして 2 つのモードを切り替えます。\n現在のものは: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -951,8 +963,8 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_file_based": "セーフモード (デフォルト)",
+    "camera_mode_bytes_array_based": "クイックモード",
     "app_haptic_feedback_title": "振動と触覚フィードバック",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1168,9 +1180,17 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_button_new": "New list",
+    "user_list_add_product": "Add the product to your lists",
+    "@user_list_add_product": {
+        "description": "Label for the dialog to add a product to a list"
+    },
+    "user_list_button_new": "Create a new list",
     "@user_list_button_new": {
-        "description": "Short label of a 'new list' button"
+        "description": "Short label of a 'create a new list' button"
+    },
+    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "@user_list_empty_label": {
+        "description": "Content displayed when there is no list"
     },
     "user_list_button_add_product": "Add to list",
     "@user_list_button_add_product": {
@@ -1696,5 +1716,13 @@
     "word_separator": ", ",
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "image_download_error": "画像のダウンロードに失敗しました\n%@",
+    "@image_download_error": {
+        "description": "Error message, when image download fails"
+    },
+    "image_edit_url_error": "画像の編集に失敗しました。画像の Url が設定されていません。",
+    "@image_edit_url_error": {
+        "description": "Error message, when editing image fails, due to missing url."
     }
 }

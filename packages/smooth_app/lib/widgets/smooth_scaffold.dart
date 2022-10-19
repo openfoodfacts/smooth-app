@@ -121,7 +121,23 @@ class SmoothScaffoldState extends ScaffoldState {
       SmoothBrightnessOverride.of(context)?.brightness;
 
   SystemUiOverlayStyle get _overlayStyle {
-    switch (_brightness) {
+    final Brightness? brightness;
+
+    // Invert brightness on iOS devices
+    if (Platform.isIOS) {
+      switch (Theme.of(context).brightness) {
+        case Brightness.dark:
+          brightness = Brightness.light;
+          break;
+        case Brightness.light:
+          brightness = Brightness.dark;
+          break;
+      }
+    } else {
+      brightness = _brightness;
+    }
+
+    switch (brightness) {
       case Brightness.dark:
         return const SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,

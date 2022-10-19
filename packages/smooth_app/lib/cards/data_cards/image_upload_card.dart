@@ -11,13 +11,11 @@ class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
     required this.product,
     required this.productImageData,
-    required this.allProductImagesData,
     required this.onUpload,
   });
 
   final Product product;
   final ProductImageData productImageData;
-  final List<ProductImageData> allProductImagesData;
   final Function(BuildContext) onUpload;
 
   @override
@@ -104,9 +102,11 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           // we need to load the full resolution image
 
           if (_imageFullProvider == null) {
-            final String imageFullUrl =
-                widget.productImageData.imageUrl!.replaceAll('.400.', '.full.');
-            _imageFullProvider = NetworkImage(imageFullUrl);
+            final String? imageFullUrl =
+                widget.productImageData.getImageUrl(ImageSize.ORIGINAL);
+            if (imageFullUrl != null) {
+              _imageFullProvider = NetworkImage(imageFullUrl);
+            }
           }
 
           // TODO(monsieurtanuki): careful, waiting for pop'ed value

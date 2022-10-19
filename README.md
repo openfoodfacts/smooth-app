@@ -7,14 +7,6 @@
 # New Open Food Facts mobile app for Android and iPhone - Codename: "Smooth App"
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-## Alert!
-
-We are currently using Flutter 3.0.5 as the new 3.3.0 [has some bugs](https://github.com/openfoodfacts/smooth-app/issues/2919).
-
-Running `flutter downgrade 3.0.5` downgrades the version.
-
-------
-
 Latest commit deployed to App Stores: (Released on Sep 6 6:29 PM as Build 731 (3.13.1)) https://github.com/openfoodfacts/smooth-app/compare/v3.8.1...v3.13.1
 
 A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
@@ -111,9 +103,10 @@ We are always looking for new contributors, if you're willing to help please let
 
 ## Building
 
-In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
+In order to build the application, make sure you are in the packages/app directory and run these commands :
  - flutter pub get
- - flutter run
+ - On Android 🤖: flutter run -t lib/entrypoints/android/main_google_play.dart 
+ - On iOS 🍎: flutter run -t lib/entrypoints/ios/main_ios.dart on iOS
 
 ## Contributing
 

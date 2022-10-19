@@ -15,6 +15,7 @@ import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
@@ -89,11 +90,14 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           title: AutoSizeText(
             getProductName(widget.product, appLocalizations),
-            maxLines: 2,
+            maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
           ),
+          subTitle: widget.product.barcode != null
+              ? Text(widget.product.barcode!)
+              : null,
         ),
         body: Padding(
           padding: const EdgeInsets.all(SMALL_SPACE),

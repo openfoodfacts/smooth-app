@@ -68,7 +68,8 @@ class PortionHelper {
     final String nutrientName,
   ) {
     double? value =
-        _json[NutritionContainer.getValueKey(nutrientId, false)] as double?;
+        _json[NutritionContainer.getValueKey(nutrientId, NutritionUnit.per100g)]
+            as double?;
     if (value == null) {
       return;
     }
