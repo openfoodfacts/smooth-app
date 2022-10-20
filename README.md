@@ -40,14 +40,28 @@
 
 <br>
 
-## About Repo 
+## About this Repository
 
 ![GitHub language count](https://img.shields.io/github/languages/count/openfoodfacts/smooth-app?style=for-the-badge&color=brightgreen)
 ![GitHub top language](https://img.shields.io/github/languages/top/openfoodfacts/smooth-app?style=for-the-badge&color=aqua)
 ![GitHub last commit](https://img.shields.io/github/last-commit/openfoodfacts/smooth-app?style=for-the-badge&color=blue)
 ![Github Repo Size](https://img.shields.io/github/repo-size/openfoodfacts/smooth-app?style=for-the-badge&color=aqua)
 
+
+
+
 <br>
+
+
+<b>How to run the project:</b>
+
+In order to run the application, make sure you are in the `packages/app` directory and run these commands :
+
+- `flutter pub get .`
+  
+- On Android 🤖: `flutter run -t lib/entrypoints/android/main_google_play.dart`
+
+- On iOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
 
 - [Contributing Guidelines](https://github.com/openfoodfacts/smooth-app/blob/develop/CONTRIBUTING.md)
 

@@ -1,6 +1,47 @@
-* Please name your PR's using Conventional Commits e.g. "fix: ..." or "feat: ..."
+
+
+## Building
+
+In order to build the application, make sure you are in the packages/app directory and run these commands :
+ - flutter pub get
+ - On Android 🤖: flutter run -t lib/entrypoints/android/main_google_play.dart 
+ - On iOS 🍎: flutter run -t lib/entrypoints/ios/main_ios.dart on iOS
+
+## Contributing
+
+
 * You don't have to do anything to the CHANGELOG.md yourself, this is done automatically.
+  
 * Please ensure to add a before/after screenshot when doing a PR that has visual impacts.
+
+* Please name your pull request following this scheme: `type: What you did` this allows us to automatically generate the changelog
+Following `type`s are allowed:
+
+  - `feat`, for Features
+  - `fix`, for Bug Fixes
+  - `docs`, for Documentation
+  - `ci`, for Automation
+  - `refactor`, for code Refactoring
+  - `chore`, for Miscellaneous things
+
+### Dev Mode
+
+- How to activate it: We now have a in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by going to Preferences screen > Contribute > Software Development, and then enabling Dev Mode.
+
+- Feel free to file an issue if you'd like new switches in this dev mode.
+  
+- You can also add new flags for your features.
+  - example: https://github.com/openfoodfacts/smooth-app/pull/834
+
+## Internationalization
+
+- Translations of the interface are managed using the new [Flutter internationalization](https://github.com/openfoodfacts/openfoodfacts-hungergames/blob/master/src/i18n/common.json) introduced in Flutter 1.22.
+- New strings need to be added to lib/l10n/app_en.arb and the [corresponding translations can be added through CrowdIn](https://translate.openfoodfacts.org/translate/openfoodfacts/1322). Do not edit the other app_*.arb files as they will be overwritten by CrowdIn.
+
+![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
+
+### Error reporting - Sentry
+[Track crashes](https://sentry.io/organizations/openfoodfacts/issues/?project=5376745)
 
 <br><br>
 
@@ -71,38 +112,5 @@ We are always looking for new contributors, if you're willing to help please let
 
 - [ ] Fix HTTP header and contribution comments
 
-## Building
 
-In order to build the application, make sure you are in the packages/app directory and run these commands :
- - flutter pub get
- - On Android 🤖: flutter run -t lib/entrypoints/android/main_google_play.dart 
- - On iOS 🍎: flutter run -t lib/entrypoints/ios/main_ios.dart on iOS
-
-## Contributing
-
-Please name your pull request following this scheme: `type: What you did` this allows us to automatically generate the changelog
-Following `type`s are allowed:
-
-- `feat`, for Features
-- `fix`, for Bug Fixes
-- `docs`, for Documentation
-- `ci`, for Automation
-- `refactor`, for code Refactoring
-- `chore`, for Miscellaneous things
-
-### Dev Mode
-- How to activate it: We now have a in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by going to Preferences screen > Contribute > Software Development, and then enabling Dev Mode.
-- Feel free to file an issue if you'd like new switches in this dev mode.
-- You can also add new flags for your features.
-  - example: https://github.com/openfoodfacts/smooth-app/pull/834
-
-## Internationalization
-
-- Translations of the interface are managed using the new [Flutter internationalization](https://github.com/openfoodfacts/openfoodfacts-hungergames/blob/master/src/i18n/common.json) introduced in Flutter 1.22.
-- New strings need to be added to lib/l10n/app_en.arb and the [corresponding translations can be added through CrowdIn](https://translate.openfoodfacts.org/translate/openfoodfacts/1322). Do not edit the other app_*.arb files as they will be overwritten by CrowdIn.
-
-![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
-
-### Error reporting - Sentry
-[Track crashes](https://sentry.io/organizations/openfoodfacts/issues/?project=5376745)
 
