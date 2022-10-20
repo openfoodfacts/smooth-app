@@ -41,6 +41,7 @@ class QuestionCard extends StatelessWidget {
                   product,
                   height: screenSize.height / 6,
                   onUpload: (_) {},
+                  alternateImageUrl: question.imageUrl,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
