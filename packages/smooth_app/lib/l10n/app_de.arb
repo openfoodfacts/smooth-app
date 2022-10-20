@@ -1724,5 +1724,9 @@
     "image_edit_url_error": "Bild konnte nicht bearbeitet werden, Bild-URL nicht festgelegt.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "robotoff_continue": "Weiter",
+    "@robotoff_continue": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
 }
