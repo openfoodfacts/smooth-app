@@ -5,7 +5,7 @@
 In order to build the application, make sure you are in the packages/app directory and run these commands :
  - flutter pub get
  - On Android 🤖: flutter run -t lib/entrypoints/android/main_google_play.dart 
- - On iOS 🍎: flutter run -t lib/entrypoints/ios/main_ios.dart on iOS
+ - On iOS 🍎: flutter run -t lib/entrypoints/ios/main_ios.dart
 
 ## Contributing
 
