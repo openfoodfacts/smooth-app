@@ -646,7 +646,7 @@
     },
     "really_clear": "Ви справді хочете видалити цей список?",
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "{percent}% збігів",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
@@ -886,15 +886,15 @@
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
-    "loading_dialog_default_error_message": "Could not download data",
+    "loading_dialog_default_error_message": "Не вдалося завантажити дані",
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
-    "account_delete": "Delete account",
+    "account_delete": "Видалити обліковий запис",
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "user_profile": "Account",
+    "user_profile": "Обліковий запис",
     "@user_profile": {
         "description": "User account (if connected)"
     },
@@ -902,8 +902,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Увійдіть або зареєструйтеся, щоб приєднатися до спільноти Open Food Facts",
+    "user_profile_title_id_email": "Логін Open Food Facts: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -912,7 +912,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "Ласкаво просимо {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -921,11 +921,11 @@
             }
         }
     },
-    "email_subject_account_deletion": "Delete account",
+    "email_subject_account_deletion": "Видалити обліковий запис",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Привіт, будь ласка, видаліть мій обліковий запис Open Food Facts: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -934,27 +934,27 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "Додаток",
+    "settings_app_data": "Конфіденційність і моніторинг",
+    "settings_app_camera": "Камера",
     "settings_app_products": "Товари",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Різне",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_play_sound_title": "Play a sound on scan",
+    "camera_play_sound_title": "Відтворення звуку під час сканування",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "Буде відтворення звукового сигналу після кожного успішного сканування",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Режим сканера",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Змінюйте це значення, тільки якщо у вас виникли проблеми зі сканером (не вдається декодувати штрих-коди). Натисніть для перемикання між двома режимами.\nПоточний режим: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -963,13 +963,13 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "camera_mode_file_based": "Безпечний режим (за замовчуванням)",
+    "camera_mode_bytes_array_based": "Швидкий режим",
+    "app_haptic_feedback_title": "Вібрація та тактильні відчуття",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Вібрації після виконання певних дій (зчитування штрих-коду, вилучення товару...).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -977,7 +977,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Якщо увімкнено, звіти про збої автоматично надсилаються до системи відстеження помилок Open Food Facts, щоб можна було виправити помилки та, таким чином, покращити додаток.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -997,8 +997,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Дозволити використання камери для сканування штрих-кодів",
+    "permission_photo_denied_message": "Для кращого досвіду дозвольте {appName} доступ до камери. Ви зможете безпосередньо сканувати штрих-коди.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -1007,15 +1007,15 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Дозволити",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "У доступі відмовлено",
+    "permission_photo_denied_dialog_settings_message": "Оскільки ви раніше відмовили у дозволі на камеру, ви повинні дозволити його вручну в Налаштуваннях.",
     "permission_photo_denied_dialog_settings_button_open": "Open Settings",
     "permission_photo_denied_dialog_settings_button_cancel": "Відмінити",
-    "permission_photo_denied": "No camera access granted",
+    "permission_photo_denied": "Доступ до камери не надано",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -1027,11 +1027,11 @@
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
-    "edit_product_form_item_details_title": "Basic details",
+    "edit_product_form_item_details_title": "Основні деталі",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
     },
-    "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
+    "edit_product_form_item_details_subtitle": "Назва продукту, бренд, кількість",
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Title"
     },
@@ -1039,11 +1039,11 @@
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
-    "edit_product_form_item_photos_subtitle": "Add or refresh photos",
+    "edit_product_form_item_photos_subtitle": "Додайте або оновіть фотографії",
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "Labels & Certifications",
+    "edit_product_form_item_labels_title": "Маркування та сертифікація",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
@@ -1463,7 +1463,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Я погоджуюся з Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1471,11 +1471,11 @@
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
-    "analytics_consent_image_semantic_label": "Analytics icon",
+    "analytics_consent_image_semantic_label": "Значок аналітики",
     "@analytics_consent_image_semantic_label": {
         "description": "Consent Analytics icon semantics label"
     },
-    "knowledge_panel_page_loading_error": "Fatal Error: {error}",
+    "knowledge_panel_page_loading_error": "Фатальна помилка: {error}",
     "@knowledge_panel_page_loading_error": {
         "description": "Knowledge panel page template - Error while loading future",
         "placeholders": {
@@ -1484,7 +1484,7 @@
             }
         }
     },
-    "preferences_page_loading_error": "Fatal Error: {error}",
+    "preferences_page_loading_error": "Фатальна помилка: {error}",
     "@preferences_page_loading_error": {
         "description": "Preferences page - Error while loading future",
         "placeholders": {
@@ -1505,14 +1505,14 @@
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
-    "basic_details": "Basic Details",
-    "product_name": "Product Name",
-    "add_basic_details_product_name_error": "Please enter the product name",
-    "brand_name": "Brand name",
-    "add_basic_details_brand_name_error": "Please enter the brand name",
-    "quantity": "Quantity and weight",
+    "basic_details": "Основні деталі",
+    "product_name": "Назва продукту",
+    "add_basic_details_product_name_error": "Будь ласка, введіть назву продукту",
+    "brand_name": "Назва бренду",
+    "add_basic_details_brand_name_error": "Будь ласка, введіть назву бренду",
+    "quantity": "Кількість і вага",
     "barcode": "Код товару",
-    "barcode_barcode": "Barcode: {barcode}",
+    "barcode_barcode": "Штрих-код: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
         "placeholders": {
@@ -1522,16 +1522,16 @@
         }
     },
     "barcode_invalid_error": "Штрих-код не є дійсним",
-    "basic_details_add_success": "Basic details added succesfully",
-    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "basic_details_add_success": "Основні деталі успішно додано",
+    "basic_details_add_error": "Неможливо додати основні деталі. Спробуйте ще раз через деякий час",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
+    "confirm_clear": "Ви збираєтеся очистити всю свою історію: ви впевнені, що бажаєте продовжити?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
+    "confirm_clear_user_list": "Ви збираєтеся очистити цей список ({name}): ви впевнені, що бажаєте продовжити?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
         "placeholders": {
@@ -1540,7 +1540,7 @@
             }
         }
     },
-    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
+    "confirm_delete_user_list": "Ви збираєтеся видалити цей список ({name}): ви впевнені, що бажаєте продовжити?",
     "@confirm_delete_user_list": {
         "description": "Asking about whether to delete the list or not",
         "placeholders": {
@@ -1565,7 +1565,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list!",
+    "user_list_all_empty": "Створіть свій перший список!",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1576,7 +1576,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Додати список",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1584,7 +1584,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Додати фотографію",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
@@ -1613,7 +1613,7 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "Зробити нове фото",
     "@capture": {
         "description": "Button label for taking a photo"
     },
@@ -1625,16 +1625,16 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Розгорнути таблицю фактів про поживні речовини",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_nutrition_facts_body": "Тримайте таблицю фактів харчування розширеною",
     "expand_ingredients": "Розгорнути інгредієнти",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "Keep the ingredients panel expanded",
+    "expand_ingredients_body": "Тримайте панель інгредієнтів розгорнутою",
     "no_internet_connection": "Відсутнє підключення до Інтернету",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
@@ -1724,5 +1724,9 @@
     "image_edit_url_error": "Не вдалося редагувати зображення, URL-адресу зображення не встановлено.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "robotoff_continue": "Продовжити",
+    "@robotoff_continue": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
 }

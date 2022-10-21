@@ -1724,5 +1724,9 @@
     "image_edit_url_error": "画像の編集に失敗しました。画像の Url が設定されていません。",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "robotoff_continue": "続ける",
+    "@robotoff_continue": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
 }
