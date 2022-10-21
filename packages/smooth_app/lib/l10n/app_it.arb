@@ -1724,5 +1724,9 @@
     "image_edit_url_error": "Impossibile modificare l'immagine, URL dell'immagine non impostato.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "robotoff_continue": "Continua",
+    "@robotoff_continue": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
 }

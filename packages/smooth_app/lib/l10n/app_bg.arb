@@ -703,7 +703,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Моля, изберете поне два продукта",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -1180,7 +1180,7 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Добавете продукта към вашите списъци",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1188,7 +1188,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "Все още няма наличен списък,\nмоля, започнете със създаване на нов",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1724,5 +1724,9 @@
     "image_edit_url_error": "Неуспешно редактиране на снимката, Url адресът на снимката не е зададен.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "robotoff_continue": "Продължи",
+    "@robotoff_continue": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
 }

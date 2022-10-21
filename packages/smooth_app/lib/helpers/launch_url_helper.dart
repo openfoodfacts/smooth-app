@@ -19,15 +19,15 @@ class LaunchUrlHelper {
 
     AnalyticsHelper.trackOpenLink(url: url);
 
-    if (await canLaunchUrl(Uri.parse(url))) {
+    try {
       await launchUrl(
         Uri.parse(url),
         mode: Platform.isAndroid
             ? LaunchMode.externalApplication
             : LaunchMode.platformDefault,
       );
-    } else {
-      throw 'Could not launch $url';
+    } catch (e) {
+      throw 'Could not launch $url,Error: $e';
     }
   }
 
