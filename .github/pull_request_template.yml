@@ -1,7 +1,16 @@
 ### What
 <!-- description of the PR -->
 - <!-- Changed x to achieve y -->
-
+<!-- 
+Please name your pull request following this scheme: `type: What you did` this allows us to automatically generate the changelog
+Following `type`s are allowed:
+  - `feat`, for Features
+  - `fix`, for Bug Fixes
+  - `docs`, for Documentation
+  - `ci`, for Automation
+  - `refactor`, for code Refactoring
+  - `chore`, for Miscellaneous things
+-->
 ### Screenshot
 <!-- Insert a screenshot to provide visual record of your changes, if visible -->
 
