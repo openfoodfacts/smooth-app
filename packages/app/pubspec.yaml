@@ -24,6 +24,9 @@ dependencies:
   scanner_mlkit:
     path: ../scanner/mlkit
 
+  scanner_zxing:
+    path: ../scanner/zxing
+
 dev_dependencies:
   integration_test:
     sdk: flutter
