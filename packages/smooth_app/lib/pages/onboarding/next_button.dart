@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -45,6 +47,9 @@ class NextButton extends StatelessWidget {
               backgroundColor: Colors.white,
               foregroundColor: Colors.black,
               icon: ConstantIcons.instance.getBackIcon(),
+              iconPadding: Platform.isIOS
+                  ? const EdgeInsetsDirectional.only(end: 2.5)
+                  : EdgeInsets.zero,
             ),
       rightButton: OnboardingBottomButton(
         onPressed: () async {
