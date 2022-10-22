@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -84,6 +86,7 @@ class _KnowledgePanelPageTemplateState
           return Container(
             color: widget.backgroundColor,
             child: SafeArea(
+              bottom: Platform.isAndroid,
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
