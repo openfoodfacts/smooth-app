@@ -2,24 +2,17 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:isolate';
 
-import 'package:camera/camera.dart';
 import 'package:flutter_isolate/flutter_isolate.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
-import 'package:smooth_app/pages/scan/camera_image_cropper.dart';
-import 'package:smooth_app/pages/scan/camera_image_full_getter.dart';
-import 'package:smooth_app/services/smooth_services.dart';
+import 'package:scanner_mlkit/src/utils/abstract_camera_image_getter.dart';
+import 'package:scanner_mlkit/src/utils/camera_image_cropper.dart';
+import 'package:scanner_mlkit/src/utils/camera_image_full_getter.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 
-/// ML Kit bar code decoder (within an Isolate)
-class MLKitScanDecoder {
-  MLKitScanDecoder({
-    required CameraDescription camera,
-    required this.scanMode,
-  }) : _mainIsolate = _MLKitScanDecoderMainIsolate(
-          camera: camera,
-          scanMode: scanMode,
-        );
+class MLKitCameraScanner extends CameraScanner {
+  bool _initialized = false;
+  late DevModeScanMode _scanMode;
+  late _MLKitScanDecoderMainIsolate _mainIsolate;
 
   /// Ensures the dispose() method is called if this class is GC'ed.
   static final Finalizer<_MLKitScanDecoderMainIsolate> _finalizer =
@@ -27,19 +20,31 @@ class MLKitScanDecoder {
     (_MLKitScanDecoderMainIsolate isolate) => isolate.dispose(),
   );
 
-  final DevModeScanMode scanMode;
-  final _MLKitScanDecoderMainIsolate _mainIsolate;
+  @override
+  Future<void> onInit({
+    required CameraDescription camera,
+    required DevModeScanMode mode,
+  }) async {
+    _scanMode = mode;
+    _mainIsolate = _MLKitScanDecoderMainIsolate(
+      camera: camera,
+      scanMode: mode,
+    );
 
-  /// Extract barcodes from an image
-  /// An image may be a [CameraImage] or a [String] file path.
-  ///
-  /// A null result is sent when the [scanMode] is unsupported or if a current
-  /// decoding is already in progress
-  /// Otherwise a list of decoded barcoded is returned
-  /// Note: This list may be empty if no barcode is detected
-  Future<List<String>?> processImage(dynamic image) async {
+    _initialized = true;
+  }
+
+  @override
+  Future<List<String?>?> onNewCameraImage(CameraImage image) async =>
+      _onNewImage(image);
+
+  @override
+  Future<List<String?>?> onNewCameraFile(String path) async =>
+      _onNewImage(path);
+
+  Future<List<String?>?> _onNewImage(dynamic image) async {
     // TODO(g123k): Not implemented
-    switch (scanMode) {
+    switch (_scanMode) {
       case DevModeScanMode.CAMERA_ONLY:
       case DevModeScanMode.PREPROCESS_FULL_IMAGE:
       case DevModeScanMode.PREPROCESS_HALF_IMAGE:
@@ -58,10 +63,23 @@ class MLKitScanDecoder {
     return _mainIsolate.decode(image);
   }
 
-  Future<void> dispose() async {
+  @override
+  bool get supportCameraFile => !Platform.isIOS;
+
+  @override
+  bool get supportCameraImage => true;
+
+  @override
+  bool get isInitialized => _initialized;
+
+  @override
+  Future<void> onDispose() async {
+    _initialized = false;
     _mainIsolate.dispose();
     _finalizer.detach(this);
-    Logs.d(tag: 'MLKitScanDecoder', 'Disposed');
+    addLog(message: 'Disposed');
+
+    return super.onDispose();
   }
 }
 
