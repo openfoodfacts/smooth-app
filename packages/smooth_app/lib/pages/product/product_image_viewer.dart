@@ -66,6 +66,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
           elevation: 0,
           title: Text(imageData.title),
           leading: SmoothBackButton(
+            iconColor: Colors.white,
             onPressed: () => Navigator.maybePop(context, _isEdited),
           ),
         ),
