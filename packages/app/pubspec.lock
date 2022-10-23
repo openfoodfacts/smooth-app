@@ -752,10 +752,10 @@ packages:
   openfoodfacts:
     dependency: transitive
     description:
-      name: openfoodfacts
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.26.0"
+      path: "../../../openfoodfacts-dart"
+      relative: true
+    source: path
+    version: "1.0.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:

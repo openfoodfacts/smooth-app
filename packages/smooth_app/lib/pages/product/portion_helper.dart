@@ -1,6 +1,8 @@
 import 'package:intl/intl.dart';
+import 'package:openfoodfacts/model/Nutrient.dart';
 import 'package:openfoodfacts/model/Nutriments.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
+import 'package:openfoodfacts/model/PerSize.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -9,13 +11,14 @@ import 'package:smooth_app/query/product_query.dart';
 class PortionHelper {
   PortionHelper(
     final List<OrderedNutrient> localizedNutrients,
-    final Nutriments productNutriments,
+    this.productNutriments,
     this.grams,
   ) {
     _numberFormat = NumberFormat('####0.###', ProductQuery.getLocaleString());
-    _json = productNutriments.toJson();
     _populateFactoredNutrients(localizedNutrients);
   }
+
+  final Nutriments productNutriments;
 
   /// Size of the portion, in grams.
   final int grams;
@@ -25,9 +28,6 @@ class PortionHelper {
 
   /// Localized number formatter.
   late final NumberFormat _numberFormat;
-
-  /// Product nutriments as json.
-  late final Map<String, dynamic> _json;
 
   /// Have we already process energy or energyKJ? (redundant data)
   bool _alreadyEnergyKJ = false;
@@ -48,42 +48,41 @@ class PortionHelper {
   void _populateFactoredNutrients(
     final List<OrderedNutrient> orderedNutrients,
   ) {
-    for (final OrderedNutrient nutrient in orderedNutrients) {
-      if (nutrient.name != null) {
-        try {
-          _populateFactoredNutrient(nutrient.id, nutrient.name!);
-        } catch (e) {
-          // just ignore
+    for (final OrderedNutrient orderedNutrient in orderedNutrients) {
+      final Nutrient? nutrient =
+          NutritionContainer.getNutrient(orderedNutrient);
+      if (nutrient != null) {
+        if (orderedNutrient.name != null) {
+          try {
+            _populateFactoredNutrient(nutrient, orderedNutrient.name!);
+          } catch (e) {
+            // just ignore
+          }
         }
       }
-      if (nutrient.subNutrients != null) {
-        _populateFactoredNutrients(nutrient.subNutrients!);
+      if (orderedNutrient.subNutrients != null) {
+        _populateFactoredNutrients(orderedNutrient.subNutrients!);
       }
     }
   }
 
   /// Populates for a single nutrient the portion value.
   void _populateFactoredNutrient(
-    final String nutrientId,
+    final Nutrient nutrient,
     final String nutrientName,
   ) {
     double? value =
-        _json[NutritionContainer.getValueKey(nutrientId, NutritionUnit.per100g)]
-            as double?;
+        productNutriments.getValue(nutrient, PerSize.oneHundredGrams);
     if (value == null) {
       return;
     }
-    final Unit unit = UnitHelper.stringToUnit(
-          _json[NutritionContainer.getUnitKey(nutrientId)] as String?,
-        ) ??
-        NutritionContainer.getProbableUnit(nutrientId);
+    final Unit unit = nutrient.typicalUnit;
     value = NutritionContainer.convertWeightFromG(value, unit);
     if (unit != Unit.PERCENT) {
       // Percents are not impacted by the portion size
       value = value! * grams / 100;
     }
-    if (nutrientId == NutritionContainer.energyKJId ||
-        nutrientId == NutritionContainer.energyId) {
+    if (nutrient == Nutrient.energyKJ) {
       // Redundant data with energyKJ and energy: one is enough (the first one).
       if (_alreadyEnergyKJ) {
         return;

@@ -1,12 +1,11 @@
 import 'package:intl/intl.dart';
-import 'package:openfoodfacts/interface/JsonObject.dart';
 import 'package:openfoodfacts/model/Nutrient.dart';
 import 'package:openfoodfacts/model/Nutriments.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
+import 'package:openfoodfacts/model/PerSize.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
-import 'package:smooth_app/pages/text_field_helper.dart';
 
 /// Nutrition data, for nutrient order and conversions.
 class NutritionContainer {
@@ -14,23 +13,27 @@ class NutritionContainer {
     required final OrderedNutrients orderedNutrients,
     required final Product product,
   }) {
+    _initialPerSize = perSize =
+        PerSize.fromOffTag(product.nutrimentDataPer) ?? PerSize.oneHundredGrams;
     _loadNutrients(orderedNutrients.nutrients);
-    final Map<String, dynamic>? json = product.nutriments?.toJson();
-    if (json != null) {
-      _loadUnits(json);
-      _loadValues(json);
+    _loadUnits();
+    if (product.nutriments != null) {
+      _loadValues(product.nutriments!);
     }
-    _servingSize = product.servingSize;
-    _barcode = product.barcode!;
-    noNutritionData = product.noNutritionData ?? false;
+    setServingText(product.servingSize);
+    _initialNoNutritionData =
+        noNutritionData = product.noNutritionData ?? false;
   }
 
-  static const String energyId = 'energy';
-
-  /// special case: present id [OrderedNutrient] but not in [Nutriments] map.
-  static const String energyKJId = 'energy-kj';
-  static const String _energyKCalId = 'energy-kcal';
-  static const String fakeNutrientIdServingSize = '_servingSize';
+  /// Returns the [Nutrient] that matches the [orderedNutrient].
+  ///
+  /// Special case: energy is considered as energyKJ
+  static Nutrient? getNutrient(final OrderedNutrient orderedNutrient) {
+    if (orderedNutrient.id == 'energy') {
+      return Nutrient.energyKJ;
+    }
+    return orderedNutrient.nutrient;
+  }
 
   static const Map<Unit, Unit> _nextWeightUnits = <Unit, Unit>{
     Unit.G: Unit.MILLI_G,
@@ -38,42 +41,28 @@ class NutritionContainer {
     Unit.MICRO_G: Unit.G,
   };
 
-  // For the moment we only care about "weight or not weight?"
-  // Could be refined with values taken from https://static.openfoodfacts.org/data/taxonomies/nutrients.json
-  // Fun fact: most of them are not supported (yet) by [Nutriments].
-  static const Map<String, Unit> _defaultNotWeightUnits = <String, Unit>{
-    energyId: Unit.KJ,
-    _energyKCalId: Unit.KCAL,
-    'alcohol': Unit.PERCENT,
-    'cocoa': Unit.PERCENT,
-    'collagen-meat-protein-ratio': Unit.PERCENT,
-    'fruits-vegetables-nuts': Unit.PERCENT,
-    'fruits-vegetables-nuts-dried': Unit.PERCENT,
-    'fruits-vegetables-nuts-estimate': Unit.PERCENT,
-  };
-
-  /// All the nutrients (country-related).
+  /// All the nutrients (country-related) that do match [Nutrient]s.
   final List<OrderedNutrient> _nutrients = <OrderedNutrient>[];
 
-  /// Nutrient values for 100g and serving.
-  final Map<String, double> _values = <String, double>{};
+  /// Nutrient values.
+  final Map<Nutrient, double?> _values = <Nutrient, double?>{};
 
   /// Nutrient units.
-  final Map<String, Unit> _units = <String, Unit>{};
+  final Map<Nutrient, Unit> _units = <Nutrient, Unit>{};
 
   /// Initial nutrient units.
-  final Map<String, Unit> _initialUnits = <String, Unit>{};
+  final Map<Nutrient, Unit> _initialUnits = <Nutrient, Unit>{};
 
-  /// Nutrient Ids added by the end-user
-  final Set<String> _added = <String>{};
+  /// Nutrients added by the end-user.
+  final Set<Nutrient> _added = <Nutrient>{};
 
-  String? _servingSize;
-
-  String? get servingSize => _servingSize;
-
-  late final String _barcode;
+  late String servingSize;
 
   late bool noNutritionData;
+  late bool _initialNoNutritionData;
+
+  late PerSize perSize;
+  late PerSize _initialPerSize;
 
   /// Returns the not interesting nutrients, for a "Please add me!" list.
   Iterable<OrderedNutrient> getLeftoverNutrients() => _nutrients.where(
@@ -87,170 +76,79 @@ class NutritionContainer {
 
   /// Returns true if the [OrderedNutrient] is not relevant.
   bool _isNotRelevant(final OrderedNutrient orderedNutrient) {
-    final String nutrientId = orderedNutrient.id;
-    final double? value100g = getValue(getValueKey(
-      nutrientId,
-      NutritionUnit.per100g,
-    ));
-    final double? valueServing = getValue(getValueKey(
-      nutrientId,
-      NutritionUnit.perServing,
-    ));
-    return value100g == null &&
-        valueServing == null &&
+    final Nutrient nutrient = getNutrient(orderedNutrient)!;
+    return getValue(nutrient) == null &&
         (!orderedNutrient.important) &&
-        (!_added.contains(nutrientId));
+        (!_added.contains(nutrient));
   }
-
-  /// Returns a [Product] with changed nutrients data.
-  Product getProduct(Product product) {
-    product.barcode = _barcode;
-    product.noNutritionData = noNutritionData;
-    product.nutriments = _getNutriments();
-    product.servingSize = _servingSize;
-    return product;
-  }
-
-  void copyUnitsFrom(final NutritionContainer other) =>
-      _units.addAll(other._units);
 
   /// Converts all the data to a [Nutriments].
-  ///
-  /// When we WRITE, that's rather simple.
-  /// If we want to say "120 mg", we put "120" as value and "mg" as unit.
-  /// When we READ it's not the same, as the weight values are ALWAYS in g.
-  /// If the server data is "120 mg", we get "0.12" as value (in g)
-  /// and "mg" as unit (as suggested unit).
   Nutriments _getNutriments() {
-    final Map<String, dynamic> map = <String, dynamic>{};
-    for (final OrderedNutrient orderedNutrient in getDisplayableNutrients()) {
-      final String nutrientId = orderedNutrient.id;
-      final String key100g = getValueKey(
-        nutrientId,
-        NutritionUnit.per100g,
+    final Nutriments nutriments = Nutriments.empty();
+    for (final MapEntry<Nutrient, double?> entry in _values.entries) {
+      final Nutrient nutrient = entry.key;
+      final double? value = entry.value;
+      nutriments.setValue(
+        nutrient,
+        perSize,
+        convertWeightToG(value, getUnit(nutrient)),
       );
-      final String keyServing = getValueKey(
-        nutrientId,
-        NutritionUnit.perServing,
-      );
-      final double? value100g = getValue(key100g);
-      final double? valueServing = getValue(keyServing);
-      if (value100g == null && valueServing == null) {
-        continue;
-      }
-      final Unit unit = getUnit(nutrientId);
-      if (value100g != null) {
-        map[key100g] = value100g;
-      }
-      if (valueServing != null) {
-        map[keyServing] = valueServing;
-      }
-      map[getUnitKey(nutrientId)] = UnitHelper.unitToString(unit);
     }
-
-    return Nutriments.fromJson(map);
+    return nutriments;
   }
 
   /// Returns the stored product nutrient's value.
-  double? getValue(final String valueKey) => _values[valueKey];
+  double? getValue(final Nutrient nutrient) => _values[nutrient];
 
   /// Stores the text from the end-user input.
-  void setControllerText(final String controllerKey, final String? text) {
-    if (controllerKey == fakeNutrientIdServingSize) {
-      _servingSize = text?.trim().isNotEmpty == false ? null : text;
-      return;
-    }
-
-    double? value;
+  void setNutrientValueText(
+    final Nutrient nutrient,
+    final String? text,
+    final NumberFormat numberFormat,
+  ) {
+    num? value;
     if (text?.isNotEmpty == true) {
       try {
-        value = double.parse(text!.replaceAll(',', '.'));
+        value = numberFormat.parse(text!);
       } catch (e) {
         //
       }
     }
-    if (value == null) {
-      _values.remove(controllerKey);
-    } else {
-      _values[controllerKey] = value;
-    }
+    _values[nutrient] = value?.toDouble();
   }
 
+  /// Stores the text from the end-user input.
+  void setServingText(final String? text) =>
+      servingSize = text?.trim().isNotEmpty == false ? '' : text!;
+
   /// Typical use-case: should we make the [Unit] button clickable?
-  static bool isEditableWeight(final OrderedNutrient orderedNutrient) =>
-      getDefaultUnit(orderedNutrient.id) == null;
+  bool isEditableWeight(final Unit unit) => _nextWeightUnits[unit] != null;
 
   /// Typical use-case: [Unit] button action.
   void setNextWeightUnit(final OrderedNutrient orderedNutrient) {
-    final Unit unit = getUnit(orderedNutrient.id);
-    _setUnit(orderedNutrient.id, _nextWeightUnits[unit] ?? unit, init: false);
+    final Nutrient nutrient = orderedNutrient.nutrient!;
+    final Unit unit = getUnit(nutrient);
+    _setUnit(nutrient, _nextWeightUnits[unit] ?? unit, init: false);
   }
 
-  /// Returns the nutrient [Unit], after possible alterations.
-  Unit getUnit(String nutrientId) {
-    nutrientId = _fixNutrientId(nutrientId);
-    switch (nutrientId) {
-      case energyId:
-      case energyKJId:
-        return Unit.KJ;
-      case _energyKCalId:
-        return Unit.KCAL;
-      default:
-        return _units[nutrientId] ?? getDefaultUnit(nutrientId) ?? Unit.G;
-    }
-  }
-
-  /// Returns the probable nutrient [Unit], after possible alterations.
-  static Unit getProbableUnit(String nutrientId) {
-    nutrientId = _fixNutrientId(nutrientId);
-    switch (nutrientId) {
-      case energyId:
-      case energyKJId:
-        return Unit.KJ;
-      case _energyKCalId:
-        return Unit.KCAL;
-      default:
-        return getDefaultUnit(nutrientId) ?? Unit.G;
-    }
-  }
+  /// Returns the nutrient [Unit].
+  Unit getUnit(final Nutrient nutrient) => _units[nutrient]!;
 
   /// Stores the nutrient [Unit].
   void _setUnit(
-    final String nutrientId,
+    final Nutrient nutrient,
     final Unit unit, {
     required final bool init,
   }) {
-    final String tag = _fixNutrientId(nutrientId);
-    _units[tag] = unit;
+    _units[nutrient] = unit;
     if (init) {
-      _initialUnits[tag] = unit;
+      _initialUnits[nutrient] = unit;
     }
   }
-
-  static Unit? getDefaultUnit(final String nutrientId) =>
-      _defaultNotWeightUnits[_fixNutrientId(nutrientId)];
 
   /// To be used when an [OrderedNutrient] is added to the input list
   void add(final OrderedNutrient orderedNutrient) =>
-      _added.add(orderedNutrient.id);
-
-  /// Returns the [Nutriments] map key for the nutrient value.
-  ///
-  /// * [perServing] true: per serving.
-  /// * [perServing] false: per 100g.
-  static String getValueKey(
-    String nutrientId,
-    final NutritionUnit nutritionUnit,
-  ) {
-    final bool perServing = nutritionUnit == NutritionUnit.perServing;
-    nutrientId = _fixNutrientId(nutrientId);
-
-    // 'energy-kcal' is directly for serving (no 'energy-kcal_serving')
-    if (nutrientId == _energyKCalId && perServing) {
-      return _energyKCalId;
-    }
-    return '$nutrientId${perServing ? '_serving' : '_100g'}';
-  }
+      _added.add(getNutrient(orderedNutrient)!);
 
   /// Returns a vertical list of nutrients from a tree structure.
   ///
@@ -266,27 +164,22 @@ class NutritionContainer {
 
     // inner method, in order to use alreadyEnergyKJ without a private variable.
     void populateOrderedNutrientList(final List<OrderedNutrient> list) {
-      for (final OrderedNutrient nutrient in list) {
-        if (nutrient.id != energyKJId &&
-            !Nutrient.values.map((Nutrient e) {
-              return e.offTag;
-            }).contains(nutrient.id)) {
-          continue;
-        }
-        final bool nowEnergy =
-            nutrient.id == energyId || nutrient.id == energyKJId;
-        bool addNutrient = true;
-        if (nowEnergy) {
-          if (alreadyEnergyKJ) {
-            addNutrient = false;
+      for (final OrderedNutrient orderedNutrient in list) {
+        final Nutrient? nutrient = getNutrient(orderedNutrient);
+        if (nutrient != null) {
+          bool addNutrient = true;
+          if (nutrient == Nutrient.energyKJ) {
+            if (alreadyEnergyKJ) {
+              addNutrient = false;
+            }
+            alreadyEnergyKJ = true;
           }
-          alreadyEnergyKJ = true;
+          if (addNutrient) {
+            _nutrients.add(orderedNutrient);
+          }
         }
-        if (addNutrient) {
-          _nutrients.add(nutrient);
-        }
-        if (nutrient.subNutrients != null) {
-          populateOrderedNutrientList(nutrient.subNutrients!);
+        if (orderedNutrient.subNutrients != null) {
+          populateOrderedNutrientList(orderedNutrient.subNutrients!);
         }
       }
     }
@@ -298,13 +191,6 @@ class NutritionContainer {
     }
   }
 
-  /// Returns the unit key according to [Nutriments] json map.
-  static String getUnitKey(final String nutrientId) =>
-      '${_fixNutrientId(nutrientId)}_unit';
-
-  static String _fixNutrientId(final String nutrientId) =>
-      nutrientId == energyKJId ? energyId : nutrientId;
-
   /// Converts a double (weight) value from grams.
   ///
   /// Typical use-case: after receiving a value from the BE.
@@ -312,98 +198,84 @@ class NutritionContainer {
     if (value == null) {
       return null;
     }
-    if (unit == Unit.MILLI_G) {
-      return value * 1E3;
-    }
-    if (unit == Unit.MICRO_G) {
-      return value * 1E6;
+    final double? factor = _conversionFactorFromG[unit];
+    if (factor != null) {
+      return value * factor;
     }
     return value;
   }
 
+  /// Converts a double (weight) value from grams.
+  ///
+  /// Typical use-case: sending a value to the BE.
+  static double? convertWeightToG(final double? value, final Unit unit) {
+    if (value == null) {
+      return null;
+    }
+    final double? factor = _conversionFactorFromG[unit];
+    if (factor != null) {
+      return value / factor;
+    }
+    return value;
+  }
+
+  /// Conversion factors of a value in [Unit] to [Unit.G].
+  static const Map<Unit, double> _conversionFactorFromG = <Unit, double>{
+    Unit.MILLI_G: 1E3,
+    Unit.MICRO_G: 1E6,
+  };
+
   /// Loads product nutrient units into a map.
   ///
   /// Needs nutrients to be loaded first.
-  void _loadUnits(final Map<String, dynamic> json) {
+  void _loadUnits() {
     for (final OrderedNutrient orderedNutrient in _nutrients) {
-      final String nutrientId = orderedNutrient.id;
-      final String unitKey = getUnitKey(nutrientId);
-      final dynamic value = json[unitKey];
-      if (value == null || value is! String) {
-        continue;
-      }
-      final Unit? unit = UnitHelper.stringToUnit(value);
-      if (unit != null) {
-        _setUnit(nutrientId, unit, init: true);
-      }
+      final Nutrient nutrient = getNutrient(orderedNutrient)!;
+      _setUnit(nutrient, nutrient.typicalUnit, init: true);
     }
   }
 
   /// Loads product nutrients into a map.
   ///
   /// Needs nutrients and units to be loaded first.
-  void _loadValues(final Map<String, dynamic> json) {
+  void _loadValues(final Nutriments nutriments) {
     for (final OrderedNutrient orderedNutrient in _nutrients) {
-      final String nutrientId = orderedNutrient.id;
-      final Unit unit = getUnit(nutrientId);
-      for (int i = 0; i < 2; i++) {
-        final NutritionUnit perServing =
-            i == 0 ? NutritionUnit.perServing : NutritionUnit.per100g;
-        final String valueKey = getValueKey(nutrientId, perServing);
-        final double? value = convertWeightFromG(
-          JsonObject.parseDouble(json[valueKey]),
-          unit,
-        );
-        if (value != null) {
-          _values[valueKey] = value;
-        }
+      final Nutrient nutrient = getNutrient(orderedNutrient)!;
+      final Unit unit = getUnit(nutrient);
+      final double? value = convertWeightFromG(
+        nutrient == Nutrient.energyKJ
+            ? nutriments.getComputedKJ(perSize)?.roundToDouble()
+            : nutriments.getValue(nutrient, perSize),
+        unit,
+      );
+      if (value != null) {
+        _values[nutrient] = value;
       }
     }
   }
 
-  bool isEdited(
-    final Map<String, TextEditingControllerWithInitialValue> controllers,
-    final NumberFormat numberFormat,
-    final bool noNutritionData,
-    final bool nutritionUnitHasChanged,
-  ) {
-    if (_isEditedControllers(controllers)) {
+  /// Returns true if the user edited something.
+  bool isEdited() {
+    if (noNutritionData != _initialNoNutritionData) {
       return true;
     }
-    if (this.noNutritionData != noNutritionData) {
+    if (perSize != _initialPerSize) {
       return true;
     }
-    if (nutritionUnitHasChanged) {
-      return true;
-    }
-    if (_isEditedUnits()) {
-      return true;
-    }
-    return false;
-  }
-
-  bool _isEditedControllers(
-    final Map<String, TextEditingControllerWithInitialValue> controllers,
-  ) {
-    for (final String key in controllers.keys) {
-      if (controllers[key]!.valueHasChanged) {
+    for (final Nutrient nutrient in _units.keys) {
+      if (_initialUnits[nutrient] != _units[nutrient]) {
         return true;
       }
     }
     return false;
   }
 
-  bool _isEditedUnits() {
-    for (final String tag in _units.keys) {
-      if (_initialUnits[tag] != _units[tag]) {
-        return true;
-      }
-    }
-    return false;
+  /// Returns a [Product] with changed nutrients data.
+  Product getChangedProduct(Product product) {
+    product.noNutritionData = noNutritionData;
+    product.nutrimentDataPer = perSize.offTag;
+    product.nutriments = _getNutriments();
+    product.servingSize = servingSize;
+    return product;
   }
-}
-
-enum NutritionUnit {
-  per100g,
-  perServing,
 }
