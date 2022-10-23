@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="iOS app" type="FlutterRunConfigurationType" factoryName="Flutter" folderName="New Folder">
+    <option name="filePath" value="$PROJECT_DIR$/packages/app/lib/entrypoints/ios/main_ios.dart" />
+    <method v="2" />
+  </configuration>
+</component>

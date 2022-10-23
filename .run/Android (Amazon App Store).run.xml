@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Android (Amazon App Store)" type="FlutterRunConfigurationType" factoryName="Flutter" folderName="New Folder">
+    <option name="filePath" value="$PROJECT_DIR$/packages/app/lib/entrypoints/android/main_amazon_appstore.dart" />
+    <method v="2" />
+  </configuration>
+</component>
