@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -27,10 +29,11 @@ class ReinventionPage extends StatelessWidget {
     return SmoothScaffold(
       backgroundColor: backgroundColor,
       brightness: Brightness.dark,
-      body: SafeArea(
-        child: Stack(
-          children: <Widget>[
-            Column(
+      body: Stack(
+        children: <Widget>[
+          SafeArea(
+            bottom: false,
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -85,16 +88,19 @@ class ReinventionPage extends StatelessWidget {
                 ),
               ],
             ),
-            const Positioned(
-              bottom: 0,
-              child: NextButton(
+          ),
+          Positioned(
+            bottom: 0,
+            child: SafeArea(
+              bottom: !Platform.isIOS,
+              child: const NextButton(
                 OnboardingPage.REINVENTION,
                 backgroundColor: null,
                 nextKey: Key('nextAfterReinvention'),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

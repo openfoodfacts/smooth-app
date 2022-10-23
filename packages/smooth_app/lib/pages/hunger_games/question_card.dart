@@ -14,6 +14,8 @@ class QuestionCard extends StatelessWidget {
 
   final RobotoffQuestion question;
 
+  static const Color robotoffBackground = Color(0xFFFFEFB7);
+
   @override
   Widget build(BuildContext context) {
     final Future<Product> productFuture = OpenFoodAPIClient.getProduct(
@@ -64,7 +66,7 @@ class QuestionCard extends StatelessWidget {
 
   Widget _buildQuestionText(BuildContext context, RobotoffQuestion question) {
     return Container(
-      color: const Color(0xFFFFEFB7),
+      color: robotoffBackground,
       padding: const EdgeInsets.all(SMALL_SPACE),
       child: Column(
         children: <Widget>[
@@ -99,7 +101,7 @@ class QuestionCard extends StatelessWidget {
   }
 
   Widget _buildQuestionShimmer() => Shimmer.fromColors(
-        baseColor: const Color(0xFFFFEFB7),
+        baseColor: robotoffBackground,
         highlightColor: Colors.white,
         child: Card(
           elevation: 4,

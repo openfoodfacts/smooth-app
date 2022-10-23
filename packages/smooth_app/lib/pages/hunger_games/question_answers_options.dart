@@ -3,10 +3,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Insight.dart';
 import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/hunger_games/question_card.dart';
 
 const Color _yesBackground = Colors.lightGreen;
 const Color _noBackground = Colors.redAccent;
+const Color _maybeBackground = QuestionCard.robotoffBackground;
 const Color _yesNoTextColor = Colors.white;
+const Color _maybeTextColor = Colors.black;
 
 /// Display of the typical Yes / No / Maybe options for Robotoff
 class QuestionAnswersOptions extends StatelessWidget {
@@ -53,18 +56,14 @@ class QuestionAnswersOptions extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: SMALL_SPACE),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildAnswerButton(
-                context,
-                insightAnnotation: InsightAnnotation.MAYBE,
-                backgroundColor: const Color(0xFFFFEFB7),
-                contentColor: Colors.black,
-                textButton: true,
-              ),
-            ],
+          SizedBox(
+            width: double.infinity,
+            child: _buildAnswerButton(
+              context,
+              insightAnnotation: InsightAnnotation.MAYBE,
+              backgroundColor: _maybeBackground,
+              contentColor: _maybeTextColor,
+            ),
           ),
         ],
       ),
@@ -76,7 +75,6 @@ class QuestionAnswersOptions extends StatelessWidget {
     required InsightAnnotation insightAnnotation,
     required Color backgroundColor,
     required Color contentColor,
-    bool textButton = false,
     EdgeInsets padding = const EdgeInsets.all(VERY_SMALL_SPACE),
   }) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -102,16 +100,14 @@ class QuestionAnswersOptions extends StatelessWidget {
       padding: padding,
       child: TextButton.icon(
         onPressed: () => onAnswer(insightAnnotation),
-        style: textButton
-            ? null
-            : ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(backgroundColor),
-                shape: MaterialStateProperty.all(
-                  const RoundedRectangleBorder(
-                    borderRadius: ROUNDED_BORDER_RADIUS,
-                  ),
-                ),
-              ),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(backgroundColor),
+          shape: MaterialStateProperty.all(
+            const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+          ),
+        ),
         icon: Icon(
           iconData,
           color: contentColor,
