@@ -23,7 +23,7 @@ class ScanExample extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(),
+          const SizedBox.shrink(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
             child: Column(

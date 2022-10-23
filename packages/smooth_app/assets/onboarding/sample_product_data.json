@@ -744,9 +744,7 @@
       },
       "ecoscore_grade" : "a",
       "ecoscore_score" : 114,
-      "environment_impact_level_tags" : [
-         "en:low"
-      ],
+      "environment_impact_level_tags" : [],
       "ingredients_analysis_tags" : [
          "en:palm-oil-free",
          "en:vegan",
@@ -759,7 +757,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "html" : "\n                    <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    (Source: ADEME Agribalyse Database)\n                    </p>\n                    ",
-                     "text_type" : "summary"
+                     "type" : "summary"
                   }
                },
                {
@@ -943,7 +941,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.09\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 0.50\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
-                     "text_type" : "summary"
+                     "type" : "summary"
                   }
                },
                {
