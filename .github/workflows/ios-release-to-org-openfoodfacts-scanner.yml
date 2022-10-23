@@ -70,6 +70,9 @@ jobs:
       - name: Flutter version    
         run: flutter --version
 
+      - name: Enable MLKit dependency
+        run: ci/enable_mlkit_dependency.sh
+
       - name: Get dependencies
         run: ci/pub_upgrade.sh
       
