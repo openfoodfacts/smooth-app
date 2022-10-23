@@ -40,7 +40,7 @@ void main() {
         User(userId: name, password: 'somerandomnewpassword'),
         queryType: queryType,
       );
-      expect(loginResponse?.successful, isNull);
+      expect(loginResponse?.successful, isFalse);
     });
 
     test('Duplicate Registration', () async {
