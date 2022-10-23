@@ -74,6 +74,10 @@ robotoff:
 - packages/smooth_app/lib/database/robotoff_questions_query.dart
 - packages/smooth_app/lib/cards/product_cards/question_card.dart
 
+hunger games:
+- packages/smooth_app/lib/pages/hunger_games/question_answers_options.dart
+- packages/smooth_app/lib/pages/hunger_games/question_card.dart
+
 summary card:
 - packages/smooth_app/lib/pages/product/summary_card.dart
 
