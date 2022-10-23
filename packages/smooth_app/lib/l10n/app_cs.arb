@@ -1149,7 +1149,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "completed_basic_details_btn_text": "Kompletní základní detaily",
+    "completed_basic_details_btn_text": "Vyplňte základní údaje",
     "not_implemented_snackbar_text": "Zatím neimplementováno",
     "category_picker_page_appbar_text": "Kategorie",
     "edit_ingredients_extrait_ingredients_btn_text": "Aut. rozpoznat složení",
@@ -1278,7 +1278,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Parametry testovacího protředí",
+    "dev_preferences_test_environment_title": "Parametry testovacího prostředí",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1493,7 +1493,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Kompletní základní detaily",
+    "summary_card_button_add_basic_details": "Vyplňte základní údaje",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
