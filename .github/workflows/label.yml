@@ -12,7 +12,7 @@ on:
 jobs:
   label:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    #if: github.event.pull_request.head.repo.full_name == github.repository
     #if: ${{ github.repository_owner == 'openfoodfacts' }}
     permissions:
       contents: read
