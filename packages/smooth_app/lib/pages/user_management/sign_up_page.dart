@@ -159,9 +159,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   return null;
                 },
               ),
-
               const SizedBox(height: space),
-
               SmoothTextFormField(
                 type: TextFieldTypes.PASSWORD,
                 controller: _password1Controller,
@@ -209,57 +207,17 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 },
               ),
               const SizedBox(height: space),
-
-              // careful with CheckboxListTile and hyperlinks
-              // cf. https://github.com/flutter/flutter/issues/31437
-              ListTile(
-                onTap: () {
-                  setState(() => _agree = !_agree);
+              _TermsOfUseCheckbox(
+                agree: _agree,
+                disagree: _disagreed,
+                checkboxColorResolver: getCheckBoxColor,
+                onCheckboxChanged: (bool checked) {
+                  setState(
+                    () {
+                      _agree = checked;
+                    },
+                  );
                 },
-                contentPadding: EdgeInsets.zero,
-                leading: IgnorePointer(
-                  ignoring: true,
-                  child: Checkbox(
-                    value: _agree,
-                    fillColor:
-                        MaterialStateProperty.resolveWith(getCheckBoxColor),
-                    onChanged: (_) {},
-                  ),
-                ),
-                title: RichText(
-                  text: TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(
-                        // additional space needed because of the next text span
-                        text: '${appLocalizations.sign_up_page_agree_text} ',
-                        style: theme.textTheme.bodyText2
-                            ?.copyWith(color: theme.colorScheme.onBackground),
-                      ),
-                      TextSpan(
-                        style: theme.textTheme.bodyText2
-                            ?.copyWith(color: Colors.blue),
-                        text: appLocalizations.sign_up_page_terms_text,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () async {
-                            final String url =
-                                appLocalizations.sign_up_page_agree_url;
-                            if (await canLaunchUrl(Uri.parse(url))) {
-                              await launchUrl(
-                                Uri.parse(url),
-                                mode: LaunchMode.platformDefault,
-                              );
-                            }
-                          },
-                      ),
-                    ],
-                  ),
-                ),
-                subtitle: !_disagreed
-                    ? null
-                    : Text(
-                        appLocalizations.sign_up_page_agree_error_invalid,
-                        style: TextStyle(color: theme.errorColor),
-                      ),
               ),
               const SizedBox(height: space),
               ListTile(
@@ -415,5 +373,108 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     Navigator.of(context).pop<bool>(true);
+  }
+}
+
+class _TermsOfUseCheckbox extends StatelessWidget {
+  const _TermsOfUseCheckbox({
+    required this.agree,
+    required this.disagree,
+    required this.onCheckboxChanged,
+    required this.checkboxColorResolver,
+    Key? key,
+  }) : super(key: key);
+
+  final bool agree;
+  final bool disagree;
+  final MaterialPropertyResolver<Color?> checkboxColorResolver;
+  final ValueChanged<bool> onCheckboxChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return InkWell(
+      onTap: () {
+        onCheckboxChanged(!agree);
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          IntrinsicHeight(
+            child: Row(
+              children: <Widget>[
+                IgnorePointer(
+                  ignoring: true,
+                  child: Checkbox(
+                    value: agree,
+                    fillColor: MaterialStateProperty.resolveWith(
+                      checkboxColorResolver,
+                    ),
+                    onChanged: (_) {},
+                  ),
+                ),
+                const SizedBox(width: 20.0),
+                Expanded(
+                  child: RichText(
+                    text: TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(
+                          // additional space needed because of the next text span
+                          text: '${appLocalizations.sign_up_page_agree_text} ',
+                          style: theme.textTheme.bodyText2?.copyWith(
+                            color: theme.colorScheme.onBackground,
+                          ),
+                        ),
+                        TextSpan(
+                          style: theme.textTheme.bodyText2?.copyWith(
+                            color: Colors.blue,
+                          ),
+                          text: appLocalizations.sign_up_page_terms_text,
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => _onTermsClicked(appLocalizations),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => _onTermsClicked(appLocalizations),
+                  customBorder: const CircleBorder(),
+                  child: AspectRatio(
+                    aspectRatio: 1.0,
+                    child: Icon(
+                      Icons.info,
+                      color: checkboxColorResolver(
+                        <MaterialState>{MaterialState.selected},
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Offstage(
+            offstage: !disagree,
+            child: Text(
+              appLocalizations.sign_up_page_agree_error_invalid,
+              style: TextStyle(color: theme.errorColor),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Future<void> _onTermsClicked(AppLocalizations appLocalizations) async {
+    final String url = appLocalizations.sign_up_page_agree_url;
+
+    try {
+      await launchUrl(
+        Uri.parse(url),
+        mode: LaunchMode.platformDefault,
+      );
+    } catch (_) {}
   }
 }
