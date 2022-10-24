@@ -237,7 +237,7 @@ packages:
       name: connectivity_plus_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.3"
   connectivity_plus_web:
     dependency: transitive
     description:
@@ -603,7 +603,7 @@ packages:
       name: html
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.0"
+    version: "0.15.1"
   http:
     dependency: "direct main"
     description:
@@ -734,7 +734,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   lists:
     dependency: transitive
     description:
@@ -832,7 +832,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.26.0"
+    version: "1.26.1"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -988,7 +988,7 @@ packages:
       name: permission_handler_apple
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "9.0.6"
+    version: "9.0.7"
   permission_handler_platform_interface:
     dependency: transitive
     description:
@@ -1002,14 +1002,14 @@ packages:
       name: permission_handler_windows
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   petitparser:
     dependency: transitive
     description:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0"
+    version: "5.1.0"
   photo_view:
     dependency: "direct main"
     description:
@@ -1100,7 +1100,7 @@ packages:
       name: sentry
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.12.2"
+    version: "6.13.1"
   sentry_flutter:
     dependency: "direct main"
     description:
@@ -1135,7 +1135,7 @@ packages:
       name: share_plus_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.1"
+    version: "3.1.2"
   share_plus_web:
     dependency: transitive
     description:
@@ -1464,7 +1464,7 @@ packages:
       name: workmanager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.0"
+    version: "0.5.1"
   xdg_directories:
     dependency: transitive
     description:
