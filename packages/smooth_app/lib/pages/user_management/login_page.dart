@@ -86,6 +86,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       extendBodyBehindAppBar: true,
       statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
       contentBehindStatusBar: true,
+      fixKeyboard: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -178,7 +179,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         hintText: appLocalizations.password,
                         prefixIcon: const Icon(Icons.vpn_key),
                         enabled: !_runningQuery,
-                        textInputAction: TextInputAction.done,
+                        textInputAction: TextInputAction.send,
                         // Hides the keyboard
                         autofillHints: const <String>[
                           AutofillHints.password,
