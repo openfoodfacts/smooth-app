@@ -6,6 +6,8 @@ class AppHelper {
   static String getAssetPath(String asset) {
     if (asset.startsWith('/')) {
       asset = asset.substring(0);
+    } else if (asset.startsWith('packages/')) {
+      return asset;
     }
 
     assert(asset.isNotEmpty);
