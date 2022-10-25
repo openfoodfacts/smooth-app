@@ -27,7 +27,7 @@ void main() {
         ];
         for (final String dialogType in dialogTypes) {
           testWidgets(
-            theme,
+            '${dialogType}_Page_${theme}_Theme',
             (WidgetTester tester) async {
               late UserPreferences userPreferences;
               late ProductPreferences productPreferences;
