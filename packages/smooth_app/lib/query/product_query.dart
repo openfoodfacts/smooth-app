@@ -126,6 +126,8 @@ abstract class ProductQuery {
         ProductField.PACKAGING_TEXT_IN_LANGUAGES,
         ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
         ProductField.NO_NUTRITION_DATA,
+        ProductField.NUTRIMENT_DATA_PER,
+        ProductField.NUTRITION_DATA,
         ProductField.NUTRIMENTS,
         ProductField.NUTRIENT_LEVELS,
         ProductField.NUTRIMENT_ENERGY_UNIT,
