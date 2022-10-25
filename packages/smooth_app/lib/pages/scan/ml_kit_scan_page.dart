@@ -425,6 +425,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       } on CameraException catch (_) {
         // Dart Controller is OK, but native part is KO
         return _stopImageStream();
+      } on DisposedControllerException catch (_) {
+        // Dart Controller is OK, but native part is KO
+        return _stopImageStream();
       }
     }
     stoppingCamera = false;

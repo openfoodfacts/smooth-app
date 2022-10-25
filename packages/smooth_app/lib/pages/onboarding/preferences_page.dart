@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -125,9 +127,10 @@ class _HelperState extends State<_Helper> {
         themeData: Theme.of(context),
       ).getOnboardingContent(),
     );
-    return Container(
+    return ColoredBox(
       color: widget.backgroundColor,
       child: SafeArea(
+        bottom: Platform.isAndroid,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,

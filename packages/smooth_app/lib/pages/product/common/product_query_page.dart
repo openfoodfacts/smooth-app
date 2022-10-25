@@ -196,7 +196,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         ),
         appBar: AppBar(
           backgroundColor: themeData.scaffoldBackgroundColor,
-          elevation: 0,
+          elevation: 2,
           automaticallyImplyLeading: false,
           leading: const SmoothBackButton(),
           title: _AppBarTitle(name: widget.name),
