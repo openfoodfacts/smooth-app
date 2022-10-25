@@ -193,6 +193,8 @@ class SmoothCameraController extends CameraController {
   Future<void> resumePreviewIfNecessary() async {
     if (!isPauseResumePreviewSupported) {
       throw UnimplementedError('This feature is not supported!');
+    } else if (_state.isDisposedOrBeing) {
+      throw const DisposedControllerException();
     } else if (_state == _CameraState.beingPaused) {
       // The pause process can sometimes be too long, in that case, we just for
       // it to be finished
@@ -210,6 +212,10 @@ class SmoothCameraController extends CameraController {
   @protected
   @override
   Future<void> resumePreview() async {
+    if (_state.isDisposedOrBeing) {
+      throw const DisposedControllerException();
+    }
+
     _updateState(_CameraState.beingResumed);
     await super.resumePreview();
     await _resumeFlash();
@@ -370,5 +376,12 @@ enum _CameraState {
   resumed,
   stopped,
   isBeingDisposed,
-  disposed,
+  disposed;
+
+  bool get isDisposedOrBeing =>
+      this == _CameraState.isBeingDisposed || this == _CameraState.disposed;
+}
+
+class DisposedControllerException implements Exception {
+  const DisposedControllerException();
 }
