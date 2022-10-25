@@ -9,7 +9,6 @@ import 'package:smooth_app/pages/text_field_helper.dart';
 
 /// Button that opens an "add nutrient" dialog.
 ///
-/// The code was moved here in order to declutter  [NutritionPageLoaded].
 /// The [nutritionContainer] will tell which nutrients can be added, and that's
 /// where the "new" nutrient will eventually be added.
 /// The [refreshParent] will refresh the parent widget when a nutrient is added.
