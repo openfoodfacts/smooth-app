@@ -31,10 +31,6 @@ void main() {
           testWidgets(
             theme,
             (WidgetTester tester) async {
-              // Override & mock out HTTP Requests
-              final HttpOverrides? priorOverrides = HttpOverrides.current;
-              HttpOverrides.global = MockHttpOverrides();
-
               late UserPreferences userPreferences;
               late ProductPreferences productPreferences;
               late ThemeProvider themeProvider;
@@ -79,8 +75,6 @@ void main() {
               expect(tester, meetsGuideline(labeledTapTargetGuideline));
               expect(tester, meetsGuideline(iOSTapTargetGuideline));
               expect(tester, meetsGuideline(androidTapTargetGuideline));
-              // Restore prior overrides
-              HttpOverrides.global = priorOverrides;
             },
           );
         }
