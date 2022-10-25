@@ -189,7 +189,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 type: TextFieldTypes.PASSWORD,
                 controller: _password2Controller,
                 focusNode: _password2FocusNode,
-                textInputAction: TextInputAction.next,
+                textInputAction: TextInputAction.send,
                 hintText: appLocalizations.sign_up_page_confirm_password_hint,
                 prefixIcon: const Icon(Icons.vpn_key),
                 autofillHints: const <String>[
@@ -205,6 +205,13 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                         .sign_up_page_confirm_password_error_invalid;
                   } else {
                     return null;
+                  }
+                },
+                onFieldSubmitted: (String password) {
+                  if (password.isNotEmpty) {
+                    _signUp();
+                  } else {
+                    _formKey.currentState!.validate();
                   }
                 },
               ),
