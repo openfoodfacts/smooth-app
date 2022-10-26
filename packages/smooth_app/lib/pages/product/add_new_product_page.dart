@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -51,82 +50,74 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final ThemeData themeData = Theme.of(context);
-    final UpToDateProductProvider provider =
-        Provider.of<UpToDateProductProvider>(context);
     Product product = Product(barcode: widget.barcode);
-    return Consumer<UpToDateProductProvider>(
-      builder: (
-        BuildContext context,
-        Object? value,
-        Widget? child,
-      ) {
-        final Product? refreshedProduct = provider.get(product);
-        if (refreshedProduct != null) {
-          product = refreshedProduct;
-        }
-        return SmoothScaffold(
-          appBar: AppBar(
-              title: Text(appLocalizations.new_product),
-              automaticallyImplyLeading: !_isProductLoaded),
-          body: Padding(
-            padding: const EdgeInsetsDirectional.only(
-              top: VERY_LARGE_SPACE,
-              start: VERY_LARGE_SPACE,
-              end: VERY_LARGE_SPACE,
+    final Product? refreshedProduct = localDatabase.upToDate.get(product);
+    if (refreshedProduct != null) {
+      product = refreshedProduct;
+    }
+    return SmoothScaffold(
+      appBar: AppBar(
+          title: Text(appLocalizations.new_product),
+          automaticallyImplyLeading: !_isProductLoaded),
+      body: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          top: VERY_LARGE_SPACE,
+          start: VERY_LARGE_SPACE,
+          end: VERY_LARGE_SPACE,
+        ),
+        child: Stack(
+          children: <Widget>[
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    appLocalizations.add_product_take_photos_descriptive,
+                    style: themeData.textTheme.bodyText1!
+                        .apply(color: themeData.colorScheme.onBackground),
+                  ),
+                  ..._buildImageCaptureRows(context),
+                  _buildNutritionInputButton(product),
+                  _buildaddInputDetailsButton()
+                ],
+              ),
             ),
-            child: Stack(
-              children: <Widget>[
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        appLocalizations.add_product_take_photos_descriptive,
-                        style: themeData.textTheme.bodyText1!
-                            .apply(color: themeData.colorScheme.onBackground),
-                      ),
-                      ..._buildImageCaptureRows(context),
-                      _buildNutritionInputButton(product),
-                      _buildaddInputDetailsButton()
-                    ],
+            Positioned(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: SmoothActionButtonsBar.single(
+                  action: SmoothActionButton(
+                    text: appLocalizations.finish,
+                    onPressed: () async {
+                      final LocalDatabase localDatabase =
+                          context.read<LocalDatabase>();
+                      final DaoProduct daoProduct = DaoProduct(localDatabase);
+                      final Product? localProduct =
+                          await daoProduct.get(widget.barcode);
+                      if (localProduct == null) {
+                        product = Product(
+                          barcode: widget.barcode,
+                        );
+                        daoProduct.put(product);
+                        localDatabase.notifyListeners();
+                      }
+                      localDatabase.upToDate.set(product);
+                      if (mounted) {
+                        await Navigator.maybePop(
+                          context,
+                          _isProductLoaded ? widget.barcode : null,
+                        );
+                      }
+                    },
                   ),
                 ),
-                Positioned(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SmoothActionButtonsBar.single(
-                      action: SmoothActionButton(
-                        text: appLocalizations.finish,
-                        onPressed: () async {
-                          final LocalDatabase localDatabase =
-                              context.read<LocalDatabase>();
-                          final DaoProduct daoProduct =
-                              DaoProduct(localDatabase);
-                          final Product? localProduct =
-                              await daoProduct.get(widget.barcode);
-                          if (localProduct == null) {
-                            product = Product(
-                              barcode: widget.barcode,
-                            );
-                            daoProduct.put(product);
-                            localDatabase.notifyListeners();
-                          }
-                          provider.set(product);
-                          if (mounted) {
-                            await Navigator.maybePop(context,
-                                _isProductLoaded ? widget.barcode : null);
-                          }
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        );
-      },
+          ],
+        ),
+      ),
     );
   }
 

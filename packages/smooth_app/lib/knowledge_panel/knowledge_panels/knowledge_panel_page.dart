@@ -5,7 +5,6 @@ import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -41,8 +40,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
 
   @override
   void initState() {
-    _product = widget.product;
     super.initState();
+    _product = widget.product;
   }
 
   static KnowledgePanelPanelGroupElement? _groupElementOf(
@@ -55,42 +54,37 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<UpToDateProductProvider>(
-        builder: (
-          final BuildContext context,
-          final UpToDateProductProvider provider,
-          final Widget? child,
-        ) {
-          final Product? refreshedProduct = provider.get(_product);
-          if (refreshedProduct != null) {
-            _product = refreshedProduct;
-          }
-          return SmoothScaffold(
-            appBar: AppBar(
-              title: Text(
-                _getTitle(),
-                maxLines: 2,
-              ),
+  Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
+    if (refreshedProduct != null) {
+      _product = refreshedProduct;
+    }
+    return SmoothScaffold(
+      appBar: AppBar(
+        title: Text(
+          _getTitle(),
+          maxLines: 2,
+        ),
+      ),
+      body: RefreshIndicator(
+        onRefresh: () => _refreshProduct(context),
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: SmoothCard(
+            padding: const EdgeInsets.all(
+              SMALL_SPACE,
             ),
-            body: RefreshIndicator(
-              onRefresh: () => _refreshProduct(context),
-              child: SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                child: SmoothCard(
-                  padding: const EdgeInsets.all(
-                    SMALL_SPACE,
-                  ),
-                  child: KnowledgePanelExpandedCard(
-                    panelId: widget.panelId,
-                    product: _product,
-                    isInitiallyExpanded: true,
-                  ),
-                ),
-              ),
+            child: KnowledgePanelExpandedCard(
+              panelId: widget.panelId,
+              product: _product,
+              isInitiallyExpanded: true,
             ),
-          );
-        },
-      );
+          ),
+        ),
+      ),
+    );
+  }
 
   Future<bool> _refreshProduct(BuildContext context) async {
     try {

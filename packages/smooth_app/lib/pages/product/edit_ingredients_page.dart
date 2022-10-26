@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -53,9 +52,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
   Future<void> _onSubmitField(ImageField imageField) async {
     setState(() => _updatingText = true);
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
-    await _updateText(_controller.text, provider, imageField);
+    await _updateText(_controller.text, imageField);
     setState(() => _updatingText = false);
   }
 
@@ -121,8 +118,10 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
   }
 
-  Future<bool> _updateText(final String text, UpToDateProductProvider provider,
-      ImageField imageField) async {
+  Future<bool> _updateText(
+    final String text,
+    final ImageField imageField,
+  ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     Product changedProduct = Product(barcode: _product.barcode);
@@ -140,8 +139,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
-    provider.set(upToDateProduct);
-    localDatabase.notifyListeners();
+    localDatabase.upToDate.set(upToDateProduct);
     if (!mounted) {
       return false;
     }
@@ -159,6 +157,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final Size size = MediaQuery.of(context).size;
     final List<Widget> children = <Widget>[];
 
@@ -248,19 +247,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
         children: children,
       ),
     );
-    return Consumer<UpToDateProductProvider>(
-      builder: (
-        final BuildContext context,
-        final UpToDateProductProvider provider,
-        final Widget? child,
-      ) {
-        final Product? refreshedProduct = provider.get(_product);
-        if (refreshedProduct != null) {
-          _product = refreshedProduct;
-        }
-        return scaffold;
-      },
-    );
+    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
+    if (refreshedProduct != null) {
+      _product = refreshedProduct;
+    }
+    return scaffold;
   }
 
   Widget _buildZoomableImage(ImageProvider imageSource) {

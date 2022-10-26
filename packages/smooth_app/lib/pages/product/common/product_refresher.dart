@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -52,8 +50,6 @@ class ProductRefresher {
     required final LocalDatabase localDatabase,
     required final String barcode,
   }) async {
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final _MetaProductRefresher? fetchAndRefreshed =
         await LoadingDialog.run<_MetaProductRefresher>(
@@ -68,7 +64,7 @@ class ProductRefresher {
       await LoadingDialog.error(context: context);
       return false;
     }
-    provider.set(fetchAndRefreshed.product!);
+    localDatabase.upToDate.set(fetchAndRefreshed.product!);
     return true;
   }
 

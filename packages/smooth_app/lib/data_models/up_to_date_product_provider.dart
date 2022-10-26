@@ -1,10 +1,12 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 /// Provider that reflects all the user changes on [Product]s.
-class UpToDateProductProvider with ChangeNotifier {
+class UpToDateProductProvider {
+  UpToDateProductProvider(this.localDatabase);
+
+  final LocalDatabase localDatabase;
+
   final Map<String, Product> _map = <String, Product>{};
   final Map<String, int> _timestamps = <String, int>{};
 
@@ -12,15 +14,10 @@ class UpToDateProductProvider with ChangeNotifier {
 
   Product? getFromBarcode(final String barcode) => _map[barcode];
 
-  void set(
-    final Product product, {
-    final bool notify = true,
-  }) {
+  void set(final Product product) {
     _map[product.barcode!] = product;
     _timestamps[product.barcode!] = LocalDatabase.nowInMillis();
-    if (notify) {
-      notifyListeners();
-    }
+    localDatabase.notifyListeners();
   }
 
   /// Returns true if at least one barcode was refreshed after the [timestamp].

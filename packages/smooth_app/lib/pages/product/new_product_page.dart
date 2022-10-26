@@ -11,7 +11,6 @@ import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -80,8 +79,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
         _scrollToTheEnd();
       }
     });
-    // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
+    if (refreshedProduct != null) {
+      _product = refreshedProduct;
+    }
 
     return SmoothScaffold(
       contentBehindStatusBar: true,
@@ -102,19 +105,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               }
               return true;
             },
-            child: Consumer<UpToDateProductProvider>(
-              builder: (
-                final BuildContext context,
-                final UpToDateProductProvider provider,
-                final Widget? child,
-              ) {
-                final Product? refreshedProduct = provider.get(_product);
-                if (refreshedProduct != null) {
-                  _product = refreshedProduct;
-                }
-                return _buildProductBody(context);
-              },
-            ),
+            child: _buildProductBody(context),
           ),
           SafeArea(
             child: AnimatedContainer(

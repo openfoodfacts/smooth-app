@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/tmp_matched_product_v2.dart';
@@ -99,6 +98,6 @@ class PersonalizedRankingModel with ChangeNotifier {
     return _loadingStatus == LoadingStatus.LOADED;
   }
 
-  bool needsRefresh(final UpToDateProductProvider provider) =>
-      provider.needsRefresh(_timestamp, initialBarcodes);
+  bool needsRefresh(final LocalDatabase localDatabase) =>
+      localDatabase.upToDate.needsRefresh(_timestamp, initialBarcodes);
 }
