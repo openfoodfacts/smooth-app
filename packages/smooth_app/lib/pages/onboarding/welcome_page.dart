@@ -25,6 +25,7 @@ class WelcomePage extends StatelessWidget {
     return SmoothScaffold(
       backgroundColor: backgroundColor,
       brightness: Brightness.dark,
+      resizeToAvoidBottomInset: false,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
