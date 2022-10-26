@@ -1725,7 +1725,7 @@
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "robotoff_continue": "Continue",
+    "robotoff_continue": "Continuați",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
