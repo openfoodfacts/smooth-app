@@ -110,31 +110,23 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 const SizedBox(
                   height: 10,
                 ),
-                InkWell(
-                  onTap: () async {
-                    final LocalDatabase localDatabase =
-                        context.read<LocalDatabase>();
-                    Navigator.of(context).pop();
-                    ProductQueryPageHelper().openBestChoice(
-                      name: appLocalizations.all_search_to_be_completed_title,
-                      localDatabase: localDatabase,
-                      productQuery: PagedToBeCompletedProductQuery(),
-                      // the other "context"s being popped
-                      context: this.context,
-                    );
-                  },
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 1),
-                        borderRadius: BorderRadius.circular(23)),
-                    child: Text(
-                      appLocalizations.contribute_improve_ProductsToBeCompleted,
-                    ),
-                  ),
-                ),
               ],
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.contribute_improve_ProductsToBeCompleted,
+              minWidth: 100,
+              onPressed: () async {
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
+                Navigator.of(context).pop();
+                ProductQueryPageHelper().openBestChoice(
+                  name: appLocalizations.all_search_to_be_completed_title,
+                  localDatabase: localDatabase,
+                  productQuery: PagedToBeCompletedProductQuery(),
+                  // the other "context"s being popped
+                  context: this.context,
+                );
+              },
             ),
             positiveAction: SmoothActionButton(
               text: appLocalizations.okay,
