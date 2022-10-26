@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:openfoodfacts/model/Nutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrient.dart';
 import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/model/PerSize.dart';
@@ -16,8 +17,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
+import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -48,13 +49,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   late final NumberFormat _numberFormat;
   late final NutritionContainer _nutritionContainer;
 
-  late bool _noNutritionData;
-  final TextEditingControllerWithInitialValue _nutritionTextController =
-      TextEditingControllerWithInitialValue();
-
-  late NutritionUnit _nutritionUnit;
-  late NutritionUnit _initialNutritionUnit;
-
   double getColumnSizeFromContext(
     BuildContext context,
     double adjustmentFactor,
@@ -63,8 +57,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     return columnSize * adjustmentFactor;
   }
 
-  final Map<String, TextEditingControllerWithInitialValue> _controllers =
-      <String, TextEditingControllerWithInitialValue>{};
+  final Map<Nutrient, TextEditingControllerWithInitialValue> _controllers =
+      <Nutrient, TextEditingControllerWithInitialValue>{};
+  TextEditingControllerWithInitialValue? _servingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late Product _product;
 
@@ -72,10 +67,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   void initState() {
     super.initState();
     _product = widget.product;
-    _nutritionContainer = _getFreshContainer(widget.product);
+    _nutritionContainer = NutritionContainer(
+      orderedNutrients: widget.orderedNutrients,
+      product: _product,
+    );
     _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
-    _noNutritionData = _product.noNutritionData ?? false;
-    _nutritionUnit = _initialNutritionUnit = _detectUnit(_product);
   }
 
   @override
@@ -84,6 +80,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         in _controllers.values) {
       controller.dispose();
     }
+    _servingController?.dispose();
     super.dispose();
   }
 
@@ -97,7 +94,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
     children.add(_switchNoNutrition(appLocalizations));
 
-    if (!_noNutritionData) {
+    if (!_nutritionContainer.noNutritionData) {
       children.add(_getServingField(appLocalizations));
       children.add(_getServingSwitch(appLocalizations));
 
@@ -116,7 +113,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               appLocalizations, displayableNutrients.elementAt(i), i),
         );
       }
-      children.add(_addNutrientButton(appLocalizations));
+      children.add(
+        NutritionAddNutrientButton(
+          nutritionContainer: _nutritionContainer,
+          refreshParent: () => setState(() {}),
+        ),
+      );
     } else {
       focusNodes = <FocusNode>[];
     }
@@ -192,7 +194,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             child: _getNutrientCell(
               appLocalizations,
               orderedNutrient,
-              _nutritionUnit,
               position,
             ),
           ),
@@ -206,46 +207,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Widget _getNutrientCell(
     final AppLocalizations appLocalizations,
     final OrderedNutrient orderedNutrient,
-    final NutritionUnit nutritionUnit,
     final int position,
   ) {
-    final String valueKey = NutritionContainer.getValueKey(
-      orderedNutrient.id,
-      nutritionUnit,
-    );
+    final Nutrient nutrient = orderedNutrient.nutrient!;
 
-    final TextEditingControllerWithInitialValue controller;
-    if (_controllers[valueKey] != null) {
-      controller = _controllers[valueKey]!;
-    } else {
-      // If a value is available for the other unit, let's switch the values
-      String? otherUnitKey;
-      if (_nutritionUnit == NutritionUnit.perServing &&
-          valueKey.endsWith('_serving')) {
-        otherUnitKey =
-            '${valueKey.substring(0, valueKey.lastIndexOf('_serving'))}_100g';
-      } else if (_nutritionUnit == NutritionUnit.per100g) {
-        // Only case, where "_serving" is missing at the end
-        if (valueKey == 'energy-kcal_100g') {
-          otherUnitKey = 'energy-kcal';
-        } else if (valueKey.endsWith('_100g')) {
-          otherUnitKey =
-              '${valueKey.substring(0, valueKey.lastIndexOf('_100g'))}_serving';
-        }
-      }
-
-      if (otherUnitKey != null && _controllers[otherUnitKey] != null) {
-        _controllers[valueKey] = _controllers[otherUnitKey]!;
-        _controllers.remove(otherUnitKey);
-      } else {
-        final double? value = _nutritionContainer.getValue(valueKey);
-        _controllers[valueKey] = TextEditingControllerWithInitialValue(
-          text: value == null ? '' : _numberFormat.format(value),
-        );
-      }
-
-      controller = _controllers[valueKey]!;
+    if (_controllers[nutrient] == null) {
+      final double? value = _nutritionContainer.getValue(nutrient);
+      _controllers[nutrient] = TextEditingControllerWithInitialValue(
+        text: value == null ? '' : _numberFormat.format(value),
+      );
     }
+    final TextEditingControllerWithInitialValue controller =
+        _controllers[nutrient]!;
 
     return Builder(
       builder: (BuildContext context) {
@@ -312,12 +285,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
 
   Widget _getUnitCell(final OrderedNutrient orderedNutrient) {
-    final Unit unit = _nutritionContainer.getUnit(orderedNutrient.id);
+    final Unit unit = _nutritionContainer.getUnit(orderedNutrient.nutrient!);
     return ElevatedButton(
-      onPressed: NutritionContainer.isEditableWeight(orderedNutrient)
+      onPressed: _nutritionContainer.isEditableWeight(unit)
           ? () => setState(
-                () => _nutritionContainer.setNextWeightUnit(orderedNutrient),
-              )
+              () => _nutritionContainer.setNextWeightUnit(orderedNutrient))
           : null,
       child: Text(
         _getUnitLabel(unit),
@@ -327,17 +299,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   }
 
   Widget _getServingField(final AppLocalizations appLocalizations) {
-    final String value = _nutritionContainer.servingSize ?? '';
+    final String value = _nutritionContainer.servingSize;
 
-    if (_controllers[NutritionContainer.fakeNutrientIdServingSize] != null) {
-      _controllers[NutritionContainer.fakeNutrientIdServingSize]!.text = value;
+    if (_servingController != null) {
+      _servingController!.text = value;
     } else {
-      _controllers[NutritionContainer.fakeNutrientIdServingSize] =
-          TextEditingControllerWithInitialValue(text: value);
+      _servingController = TextEditingControllerWithInitialValue(text: value);
     }
 
     final TextEditingControllerWithInitialValue controller =
-        _controllers[NutritionContainer.fakeNutrientIdServingSize]!;
+        _servingController!;
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: VERY_LARGE_SPACE),
@@ -375,39 +346,33 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           Expanded(
             child: Align(
               alignment: AlignmentDirectional.centerEnd,
-              child: AnimatedDefaultTextStyle(
-                duration: const Duration(milliseconds: 200),
-                style: _nutritionUnit == NutritionUnit.per100g
+              child: Text(
+                appLocalizations.nutrition_page_per_100g,
+                style: _nutritionContainer.perSize == PerSize.oneHundredGrams
                     ? const TextStyle(
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline)
-                    : const TextStyle(),
-                child: Text(
-                  appLocalizations.nutrition_page_per_100g,
-                ),
+                    : null,
               ),
             ),
           ),
           Switch(
-            value: _nutritionUnit == NutritionUnit.perServing,
+            value: _nutritionContainer.perSize == PerSize.serving,
             onChanged: (final bool value) => setState(
-              () => _nutritionUnit =
-                  value ? NutritionUnit.perServing : NutritionUnit.per100g,
+              () => _nutritionContainer.perSize =
+                  value ? PerSize.serving : PerSize.oneHundredGrams,
             ),
           ),
           Expanded(
             child: Align(
               alignment: AlignmentDirectional.centerStart,
-              child: AnimatedDefaultTextStyle(
-                duration: const Duration(milliseconds: 200),
-                style: _nutritionUnit == NutritionUnit.perServing
+              child: Text(
+                appLocalizations.nutrition_page_per_serving,
+                style: _nutritionContainer.perSize == PerSize.serving
                     ? const TextStyle(
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline)
-                    : const TextStyle(),
-                child: Text(
-                  appLocalizations.nutrition_page_per_serving,
-                ),
+                    : null,
               ),
             ),
           )
@@ -426,9 +391,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Switch(
-              value: _noNutritionData,
+              value: _nutritionContainer.noNutritionData,
               onChanged: (final bool value) =>
-                  setState(() => _noNutritionData = !_noNutritionData),
+                  setState(() => _nutritionContainer.noNutritionData = value),
               trackColor: MaterialStateProperty.all(
                   Theme.of(context).colorScheme.onPrimary),
             ),
@@ -447,123 +412,38 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ),
       );
 
-  Widget _addNutrientButton(final AppLocalizations appLocalizations) =>
-      ElevatedButton.icon(
-        onPressed: () async {
-          final List<OrderedNutrient> leftovers = List<OrderedNutrient>.from(
-            _nutritionContainer.getLeftoverNutrients(),
-          );
-          leftovers.sort((final OrderedNutrient a, final OrderedNutrient b) =>
-              a.name!.compareTo(b.name!));
-          List<OrderedNutrient> filteredList =
-              List<OrderedNutrient>.from(leftovers);
-          final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
-              context: context,
-              builder: (BuildContext context) {
-                return StatefulBuilder(
-                  builder: (BuildContext context,
-                      void Function(VoidCallback fn) setState) {
-                    return SmoothAlertDialog(
-                      body: SizedBox(
-                        height: MediaQuery.of(context).size.height / 2,
-                        width: MediaQuery.of(context).size.width,
-                        child: Column(
-                          children: <Widget>[
-                            SmoothTextFormField(
-                              prefixIcon: const Icon(Icons.search),
-                              hintText: appLocalizations.search,
-                              type: TextFieldTypes.PLAIN_TEXT,
-                              controller: _nutritionTextController,
-                              onChanged: (String? query) {
-                                setState(
-                                  () {
-                                    filteredList = leftovers
-                                        .where((OrderedNutrient item) => item
-                                            .name!
-                                            .toLowerCase()
-                                            .contains(query!.toLowerCase()))
-                                        .toList();
-                                  },
-                                );
-                              },
-                            ),
-                            Expanded(
-                              child: ListView.builder(
-                                itemBuilder: (BuildContext context, int index) {
-                                  final OrderedNutrient nutrient =
-                                      filteredList[index];
-                                  return ListTile(
-                                    title: Text(nutrient.name!),
-                                    onTap: () =>
-                                        Navigator.of(context).pop(nutrient),
-                                  );
-                                },
-                                itemCount: filteredList.length,
-                                shrinkWrap: true,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      positiveAction: SmoothActionButton(
-                        onPressed: () => Navigator.pop(context),
-                        text: appLocalizations.cancel,
-                      ),
-                    );
-                  },
-                );
-              });
-          if (selected != null) {
-            setState(() => _nutritionContainer.add(selected));
-          }
-        },
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              side: BorderSide.none,
-            ),
-          ),
-        ),
-        icon: const Icon(Icons.add),
-        label: Text(appLocalizations.nutrition_page_add_nutrient),
-      );
-
-  /// Returns `true` if any value differs between form and container.
-  bool _isEdited() => _nutritionContainer.isEdited(
-        _controllers,
-        _numberFormat,
-        _noNutritionData,
-        _unitAsChanged,
-      );
+  /// Returns `true` if any value differs with initial state.
+  bool _isEdited() {
+    if (_servingController != null && _servingController!.valueHasChanged) {
+      return true;
+    }
+    for (final TextEditingControllerWithInitialValue controller
+        in _controllers.values) {
+      if (controller.valueHasChanged) {
+        return true;
+      }
+    }
+    return _nutritionContainer.isEdited();
+  }
 
   Product? _getChangedProduct(Product product) {
     if (!_formKey.currentState!.validate()) {
       return null;
     }
-    // We use a separate fresh container here.
-    // If something breaks while saving, we won't get a half written object.
-    final NutritionContainer output = _getFreshContainer(product);
-    // we copy the values
-    for (final String key in _controllers.keys) {
+    for (final Nutrient nutrient in _controllers.keys) {
       final TextEditingControllerWithInitialValue controller =
-          _controllers[key]!;
-      output.setControllerText(key, controller.text);
-    }
-
-    // we copy the "with nutrition data true/false"
-    output.noNutritionData = _noNutritionData;
-
-    // we copy the units
-    output.copyUnitsFrom(_nutritionContainer);
-
-    return output.getProduct(product);
-  }
-
-  NutritionContainer _getFreshContainer(Product product) => NutritionContainer(
-        orderedNutrients: widget.orderedNutrients,
-        product: product,
+          _controllers[nutrient]!;
+      _nutritionContainer.setNutrientValueText(
+        nutrient,
+        controller.text,
+        _numberFormat,
       );
+    }
+    if (_servingController != null) {
+      _nutritionContainer.setServingText(_servingController?.text);
+    }
+    return _nutritionContainer.getChangedProduct(product);
+  }
 
   /// Exits the page if the [flag] is `true`.
   void _exitPage(final bool flag) {
@@ -648,13 +528,4 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     return true;
   }
-
-  NutritionUnit _detectUnit(Product product) {
-    if (product.nutrimentDataPer == PerSize.serving.offTag) {
-      return NutritionUnit.perServing;
-    }
-    return NutritionUnit.per100g;
-  }
-
-  bool get _unitAsChanged => _nutritionUnit != _initialNutritionUnit;
 }
