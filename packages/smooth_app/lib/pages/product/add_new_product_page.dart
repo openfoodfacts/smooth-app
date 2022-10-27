@@ -75,24 +75,20 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               start: VERY_LARGE_SPACE,
               end: VERY_LARGE_SPACE,
             ),
-            child: Stack(
-              children: <Widget>[
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        appLocalizations.add_product_take_photos_descriptive,
-                        style: themeData.textTheme.bodyText1!
-                            .apply(color: themeData.colorScheme.onBackground),
-                      ),
-                      ..._buildImageCaptureRows(context),
-                      _buildNutritionInputButton(product),
-                      _buildaddInputDetailsButton()
-                    ],
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    appLocalizations.add_product_take_photos_descriptive,
+                    style: themeData.textTheme.bodyText1!
+                        .apply(color: themeData.colorScheme.onBackground),
                   ),
-                ),
-              ],
+                  ..._buildImageCaptureRows(context),
+                  _buildNutritionInputButton(product),
+                  _buildaddInputDetailsButton()
+                ],
+              ),
             ),
           ),
           floatingActionButton: FloatingActionButton.extended(
