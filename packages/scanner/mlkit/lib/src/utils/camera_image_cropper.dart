@@ -1,9 +1,9 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
-import 'package:smooth_app/pages/scan/abstract_camera_image_getter.dart';
-import 'package:typed_data/typed_data.dart';
+import 'package:scanner_mlkit/src/utils/abstract_camera_image_getter.dart';
+import 'package:scanner_shared/scanner_shared.dart';
+import 'package:typed_data/typed_buffers.dart';
 
 /// Camera Image Cropper, in order to limit the barcode scan computations.
 ///

@@ -133,7 +133,7 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "8.4.1"
+    version: "8.4.2"
   camera:
     dependency: "direct main"
     description:
@@ -237,7 +237,7 @@ packages:
       name: connectivity_plus_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.3"
   connectivity_plus_web:
     dependency: transitive
     description:
@@ -423,13 +423,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.1.0"
-  flutter_isolate:
-    dependency: "direct main"
-    description:
-      name: flutter_isolate
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.3"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -569,20 +562,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  google_mlkit_barcode_scanning:
-    dependency: "direct main"
-    description:
-      name: google_mlkit_barcode_scanning
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.0"
-  google_mlkit_commons:
-    dependency: transitive
-    description:
-      name: google_mlkit_commons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.0"
   hive:
     dependency: "direct main"
     description:
@@ -603,7 +582,7 @@ packages:
       name: html
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.0"
+    version: "0.15.1"
   http:
     dependency: "direct main"
     description:
@@ -734,7 +713,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   lists:
     dependency: transitive
     description:
@@ -988,7 +967,7 @@ packages:
       name: permission_handler_apple
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "9.0.6"
+    version: "9.0.7"
   permission_handler_platform_interface:
     dependency: transitive
     description:
@@ -1002,14 +981,14 @@ packages:
       name: permission_handler_windows
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   petitparser:
     dependency: transitive
     description:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0"
+    version: "5.1.0"
   photo_view:
     dependency: "direct main"
     description:
@@ -1094,13 +1073,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.4"
+  scanner_shared:
+    dependency: "direct main"
+    description:
+      path: "../scanner/shared"
+      relative: true
+    source: path
+    version: "1.0.0"
   sentry:
     dependency: transitive
     description:
       name: sentry
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.12.2"
+    version: "6.13.1"
   sentry_flutter:
     dependency: "direct main"
     description:
@@ -1135,7 +1121,7 @@ packages:
       name: share_plus_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.1"
+    version: "3.2.0"
   share_plus_web:
     dependency: transitive
     description:
@@ -1245,7 +1231,7 @@ packages:
       name: sqflite_common
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.0"
+    version: "2.4.0+2"
   stack_trace:
     dependency: transitive
     description:
@@ -1359,7 +1345,7 @@ packages:
       name: url_launcher_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.19"
+    version: "6.0.20"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -1464,7 +1450,7 @@ packages:
       name: workmanager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.0"
+    version: "0.5.1"
   xdg_directories:
     dependency: transitive
     description:
