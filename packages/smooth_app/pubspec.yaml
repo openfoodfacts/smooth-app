@@ -64,7 +64,7 @@ dependencies:
   audioplayers: 1.0.0
   percent_indicator: 4.2.2
   flutter_email_sender: 5.1.0
-  flutter_native_splash: 2.2.3+1
+  flutter_native_splash: ^2.2.11
   image: 3.2.0
   image_cropper: 2.0.3
   auto_size_text: 3.0.0
