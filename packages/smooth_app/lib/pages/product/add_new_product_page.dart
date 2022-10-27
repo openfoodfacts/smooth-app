@@ -92,36 +92,30 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                     ],
                   ),
                 ),
-                Positioned(
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: FloatingActionButton.extended(
-                      onPressed: () async {
-                        final LocalDatabase localDatabase =
-                            context.read<LocalDatabase>();
-                        final DaoProduct daoProduct = DaoProduct(localDatabase);
-                        final Product? localProduct =
-                            await daoProduct.get(widget.barcode);
-                        if (localProduct == null) {
-                          product = Product(
-                            barcode: widget.barcode,
-                          );
-                          daoProduct.put(product);
-                          localDatabase.notifyListeners();
-                        }
-                        provider.set(product);
-                        if (mounted) {
-                          await Navigator.maybePop(context,
-                              _isProductLoaded ? widget.barcode : null);
-                        }
-                      },
-                      label: Text(appLocalizations.finish),
-                      icon: const Icon(Icons.done),
-                    ),
-                  ),
-                ),
               ],
             ),
+          ),
+          floatingActionButton: FloatingActionButton.extended(
+            onPressed: () async {
+              final LocalDatabase localDatabase = context.read<LocalDatabase>();
+              final DaoProduct daoProduct = DaoProduct(localDatabase);
+              final Product? localProduct =
+                  await daoProduct.get(widget.barcode);
+              if (localProduct == null) {
+                product = Product(
+                  barcode: widget.barcode,
+                );
+                daoProduct.put(product);
+                localDatabase.notifyListeners();
+              }
+              provider.set(product);
+              if (mounted) {
+                await Navigator.maybePop(
+                    context, _isProductLoaded ? widget.barcode : null);
+              }
+            },
+            label: Text(appLocalizations.finish),
+            icon: const Icon(Icons.done),
           ),
         );
       },
