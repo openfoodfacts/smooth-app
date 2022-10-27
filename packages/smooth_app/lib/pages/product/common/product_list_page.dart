@@ -238,7 +238,8 @@ class _ProductListPageState extends State<ProductListPage>
                   ),
                   child: ListView.builder(
                     itemCount: products.length,
-                    itemBuilder: (BuildContext context, int index) => _buildItem(
+                    itemBuilder: (BuildContext context, int index) =>
+                        _buildItem(
                       dismissible,
                       products,
                       index,
