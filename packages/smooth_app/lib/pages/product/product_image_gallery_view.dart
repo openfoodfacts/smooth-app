@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -56,94 +55,85 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
-    return Consumer<UpToDateProductProvider>(
-      builder: (
-        BuildContext context,
-        UpToDateProductProvider provider,
-        Widget? child,
-      ) {
-        Product product = widget.product;
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    Product product = widget.product;
+    final Product? refreshedProduct = localDatabase.upToDate.get(product);
+    if (refreshedProduct != null) {
+      product = refreshedProduct;
+    }
+    final List<ProductImageData> allProductImagesData =
+        getProductMainImagesData(product, appLocalizations);
+    _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
+      allProductImagesData,
+      allProductImagesData.map(_provideImage),
+    );
 
-        final Product? refreshedProduct = provider.get(product);
-        if (refreshedProduct != null) {
-          product = refreshedProduct;
+    _getProductImages().then(
+      (Iterable<ProductImageData>? loadedData) {
+        if (loadedData == null) {
+          return;
         }
-        final List<ProductImageData> allProductImagesData =
-            getProductMainImagesData(product, appLocalizations);
-        _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
-          allProductImagesData,
-          allProductImagesData.map(_provideImage),
-        );
 
-        _getProductImages().then(
-          (Iterable<ProductImageData>? loadedData) {
-            if (loadedData == null) {
-              return;
-            }
-
-            final Map<ProductImageData, ImageProvider<Object>?> newMap =
-                Map<ProductImageData, ImageProvider?>.fromIterables(
-              loadedData,
-              loadedData.map(_provideImage),
-            );
-            if (mounted) {
-              setState(
-                () {
-                  _unselectedImages.clear();
-                  _unselectedImages.addAll(newMap);
-                  _isLoadingMore = false;
-                },
-              );
-            }
-          },
+        final Map<ProductImageData, ImageProvider<Object>?> newMap =
+            Map<ProductImageData, ImageProvider?>.fromIterables(
+          loadedData,
+          loadedData.map(_provideImage),
         );
-        if (_selectedImages.isEmpty) {
-          return SmoothScaffold(
-            body: Center(
-              child: Text(appLocalizations.error),
-            ),
+        if (mounted) {
+          setState(
+            () {
+              _unselectedImages.clear();
+              _unselectedImages.addAll(newMap);
+              _isLoadingMore = false;
+            },
           );
         }
-        return SmoothScaffold(
-          appBar: SmoothAppBar(
-            title: Text(appLocalizations.edit_product_form_item_photos_title),
-            subTitle: widget.product.productName != null
-                ? Text(
-                    widget.product.productName!,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  )
-                : null,
-            leading: SmoothBackButton(
-              onPressed: () => Navigator.maybePop(context, _isRefreshed),
-            ),
-          ),
-          body: RefreshIndicator(
-            onRefresh: () async {
-              _refreshProduct(context);
-            },
-            child: Scrollbar(
-              child: CustomScrollView(
-                slivers: <Widget>[
-                  _buildTitle(appLocalizations.selected_images, theme: theme),
-                  SmoothImagesSliverList(
-                    imagesData: _selectedImages,
-                    onTap: (ProductImageData data, _) => data.imageUrl != null
-                        ? _openImage(data)
-                        : _newImage(data),
-                  ),
-                  _buildTitle(appLocalizations.all_images, theme: theme),
-                  SmoothImagesSliverGrid(
-                    imagesData: _unselectedImages,
-                    loading: _isLoadingMore,
-                    onTap: (ProductImageData data, _) => _openImage(data),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
       },
+    );
+    if (_selectedImages.isEmpty) {
+      return SmoothScaffold(
+        body: Center(
+          child: Text(appLocalizations.error),
+        ),
+      );
+    }
+    return SmoothScaffold(
+      appBar: SmoothAppBar(
+        title: Text(appLocalizations.edit_product_form_item_photos_title),
+        subTitle: widget.product.productName != null
+            ? Text(
+                widget.product.productName!,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              )
+            : null,
+        leading: SmoothBackButton(
+          onPressed: () => Navigator.maybePop(context, _isRefreshed),
+        ),
+      ),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          _refreshProduct(context);
+        },
+        child: Scrollbar(
+          child: CustomScrollView(
+            slivers: <Widget>[
+              _buildTitle(appLocalizations.selected_images, theme: theme),
+              SmoothImagesSliverList(
+                imagesData: _selectedImages,
+                onTap: (ProductImageData data, _) =>
+                    data.imageUrl != null ? _openImage(data) : _newImage(data),
+              ),
+              _buildTitle(appLocalizations.all_images, theme: theme),
+              SmoothImagesSliverGrid(
+                imagesData: _unselectedImages,
+                loading: _isLoadingMore,
+                onTap: (ProductImageData data, _) => _openImage(data),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 

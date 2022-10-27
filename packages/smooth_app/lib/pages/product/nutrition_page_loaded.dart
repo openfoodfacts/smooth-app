@@ -11,7 +11,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -462,8 +461,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     if (!saving) {
       final bool? pleaseSave = await showDialog<bool>(
@@ -517,8 +514,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
-    provider.set(upToDateProduct);
-    localDatabase.notifyListeners();
+    localDatabase.upToDate.set(upToDateProduct);
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
