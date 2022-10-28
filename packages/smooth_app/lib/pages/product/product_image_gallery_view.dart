@@ -39,6 +39,8 @@ class ProductImageGalleryView extends StatefulWidget {
 }
 
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
+  late final LocalDatabase _localDatabase;
+
   Map<ProductImageData, ImageProvider?> _selectedImages =
       <ProductImageData, ImageProvider<Object>?>{};
 
@@ -50,6 +52,21 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
   ImageProvider? _provideImage(ProductImageData imageData) =>
       imageData.imageUrl == null ? null : NetworkImage(imageData.imageUrl!);
+
+  String get _barcode => widget.product.barcode!;
+
+  @override
+  void initState() {
+    super.initState();
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_barcode);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_barcode);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,9 +129,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       ),
       body: RefreshIndicator(
-        onRefresh: () async {
-          _refreshProduct(context);
-        },
+        onRefresh: () async => ProductRefresher().fetchAndRefresh(
+          barcode: _barcode,
+          widget: this,
+        ),
         child: Scrollbar(
           child: CustomScrollView(
             slivers: <Widget>[
@@ -148,31 +166,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       );
 
-  Future<bool> _refreshProduct(BuildContext context) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool success = await ProductRefresher().fetchAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      barcode: widget.product.barcode!,
-    );
-    if (mounted && success) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_refreshed),
-          duration: SnackBarDuration.short,
-        ),
-      );
-    }
-    return success;
-  }
-
   Future<void> _openImage(ProductImageData imageData) async =>
       Navigator.push<void>(
         context,
         MaterialPageRoute<void>(
           builder: (_) => ProductImageViewer(
-            barcode: widget.product.barcode!,
+            barcode: _barcode,
             imageData: imageData,
           ),
         ),
@@ -199,8 +198,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       return;
     }
     final bool isUploaded = await uploadCapturedPicture(
-      context,
-      barcode: widget.product.barcode!,
+      widget: this,
+      barcode: _barcode,
       imageField: data.imageField,
       imageUri: croppedImageFile.uri,
     );
@@ -225,13 +224,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   }
 
   Future<Iterable<ProductImageData>?> _getProductImages() async {
-    final String? barcode = widget.product.barcode;
-    if (barcode == null) {
-      return null;
-    }
-
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      barcode,
+      _barcode,
       fields: <ProductField>[ProductField.IMAGES],
       language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
@@ -254,7 +248,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     }
 
     return _deduplicateImages(resultProduct.images!)
-        .map((ProductImage image) => ProductImageData.from(image, barcode));
+        .map((ProductImage image) => ProductImageData.from(image, _barcode));
   }
 
   /// Groups the list of [ProductImage] by [ProductImage.imgid]

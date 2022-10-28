@@ -44,6 +44,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late Product _product;
+  late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
   late ScrollController _scrollController;
   bool _mustScrollToTheEnd = false;
@@ -59,6 +60,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   void initState() {
     super.initState();
     _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_product.barcode!);
     _scrollController = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
@@ -66,6 +69,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    super.dispose();
   }
 
   @override
@@ -137,24 +146,11 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     _mustScrollToTheEnd = false;
   }
 
-  Future<bool> _refreshProduct(BuildContext context) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool result = await ProductRefresher().fetchAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      barcode: _product.barcode!,
-    );
-    if (mounted && result) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_refreshed),
-          duration: SnackBarDuration.short,
-        ),
+  Future<void> _refreshProduct(BuildContext context) async =>
+      ProductRefresher().fetchAndRefresh(
+        barcode: _product.barcode!,
+        widget: this,
       );
-    }
-    return result;
-  }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,

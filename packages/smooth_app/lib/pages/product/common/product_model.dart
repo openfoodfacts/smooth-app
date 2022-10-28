@@ -23,13 +23,14 @@ enum LoadingStatus {
 /// Model for product database get and refresh.
 class ProductModel with ChangeNotifier {
   /// In the constructor we retrieve async'ly the product from the local db.
-  ProductModel(this.barcode, final LocalDatabase localDatabase) {
+  ProductModel(this.barcode, this.localDatabase) {
     _daoProduct = DaoProduct(localDatabase);
     _clear();
     _asyncLoad();
   }
 
   final String barcode;
+  final LocalDatabase localDatabase;
   late final DaoProduct _daoProduct;
 
   Product? _product;
@@ -113,7 +114,8 @@ class ProductModel with ChangeNotifier {
         isScanned: false,
       ).getFetchedProduct();
       if (fetchedProduct.status == FetchedProductStatus.ok) {
-        _product = fetchedProduct.product;
+        localDatabase.upToDate
+            .setLatestDownloadedProduct(fetchedProduct.product!);
         _loadingStatus = LoadingStatus.LOADED;
         _safeNotifyListeners();
         return;

@@ -40,14 +40,23 @@ class _EditOcrPageState extends State<EditOcrPage> {
   bool _updatingImage = false;
   bool _updatingText = false;
   late Product _product;
+  late final LocalDatabase _localDatabase;
   late OcrHelper _helper;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_product.barcode!);
     _helper = widget.helper;
     _controller.text = _helper.getText(_product);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    super.dispose();
   }
 
   Future<void> _onSubmitField(ImageField imageField) async {
@@ -100,7 +109,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
         return;
       }
       await uploadCapturedPicture(
-        context,
+        widget: this,
         barcode: _product.barcode!,
         imageField: _helper.getImageField(),
         imageUri: croppedImageFile.uri,
@@ -118,7 +127,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
   }
 
-  Future<bool> _updateText(
+  Future<void> _updateText(
     final String text,
     final ImageField imageField,
   ) async {
@@ -136,22 +145,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
           _helper.getImageField().value == ImageField.PACKAGING.value
               ? ProductEditTask.packaging
               : ProductEditTask.ingredient,
+      widget: this,
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
     localDatabase.upToDate.set(upToDateProduct);
-    if (!mounted) {
-      return false;
-    }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          AppLocalizations.of(context).product_task_background_schedule,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
-    );
-    return true;
   }
 
   @override

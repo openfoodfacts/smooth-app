@@ -1,8 +1,10 @@
 import 'dart:convert';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -68,6 +70,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     final Product minimalistProduct, {
     final List<ProductEditTask>? productEditTasks,
     final ProductEditTask? productEditTask,
+    required final State<StatefulWidget> widget,
   }) async {
     final String code;
     if (productEditTask != null) {
@@ -102,6 +105,18 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       Task(
         data: backgroundTask.toJson(),
         uniqueId: uniqueId,
+      ),
+    );
+    if (!widget.mounted) {
+      return;
+    }
+    final BuildContext context = widget.context;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          AppLocalizations.of(context).product_task_background_schedule,
+        ),
+        duration: SnackBarDuration.medium,
       ),
     );
   }
