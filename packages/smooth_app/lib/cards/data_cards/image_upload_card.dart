@@ -46,15 +46,11 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         return;
       }
       await uploadCapturedPicture(
-        context,
+        widget: this,
         barcode: widget.product.barcode!,
         imageField: widget.productImageData.imageField,
         imageUri: croppedImageFile.uri,
       );
-
-      if (!mounted) {
-        return;
-      }
     }
   }
 

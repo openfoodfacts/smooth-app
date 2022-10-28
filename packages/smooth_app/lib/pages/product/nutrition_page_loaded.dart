@@ -507,10 +507,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       }
       return false;
     }
-    // if it fails, we stay on the same page
     await BackgroundTaskDetails.addTask(
       changedProduct,
       productEditTask: ProductEditTask.nutrition,
+      widget: this,
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);

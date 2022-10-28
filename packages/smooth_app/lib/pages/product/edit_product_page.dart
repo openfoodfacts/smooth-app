@@ -8,7 +8,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -40,11 +39,14 @@ class _EditProductPageState extends State<EditProductPage> {
   final ScrollController _controller = ScrollController();
   bool _barcodeVisibleInAppbar = false;
   late Product _product;
+  late final LocalDatabase _localDatabase;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_product.barcode!);
     _controller.addListener(_onScrollChanged);
   }
 
@@ -109,7 +111,10 @@ class _EditProductPageState extends State<EditProductPage> {
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: () => _refreshProduct(context),
+        onRefresh: () async => ProductRefresher().fetchAndRefresh(
+          barcode: _product.barcode!,
+          widget: this,
+        ),
         child: Scrollbar(
           child: ListView(
             controller: _controller,
@@ -180,11 +185,8 @@ class _EditProductPageState extends State<EditProductPage> {
                   if (!mounted) {
                     return;
                   }
-                  final LocalDatabase localDatabase =
-                      context.read<LocalDatabase>();
                   await ProductRefresher().fetchAndRefresh(
-                    context: context,
-                    localDatabase: localDatabase,
+                    widget: this,
                     barcode: _product.barcode!,
                   );
                 },
@@ -307,25 +309,6 @@ class _EditProductPageState extends State<EditProductPage> {
     );
   }
 
-  Future<bool> _refreshProduct(BuildContext context) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool success = await ProductRefresher().fetchAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      barcode: _product.barcode!,
-    );
-    if (mounted && success) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_refreshed),
-          duration: SnackBarDuration.short,
-        ),
-      );
-    }
-    return success;
-  }
-
   Widget _getMultipleListTileItem(
     final List<AbstractSimpleInputPageHelper> helpers,
   ) {
@@ -369,6 +352,7 @@ class _EditProductPageState extends State<EditProductPage> {
   void dispose() {
     _controller.removeListener(_onScrollChanged);
     _controller.dispose();
+    _localDatabase.upToDate.loseInterest(_product.barcode!);
     super.dispose();
   }
 }

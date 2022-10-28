@@ -79,6 +79,7 @@ class SummaryCard extends StatefulWidget {
 
 class _SummaryCardState extends State<SummaryCard> {
   late Product _product;
+  late final LocalDatabase _localDatabase;
   late final bool allowClicking;
 
   // Number of Rows that will be printed in the SummaryCard, initialized to a
@@ -94,6 +95,14 @@ class _SummaryCardState extends State<SummaryCard> {
     super.initState();
     allowClicking = !widget.isFullVersion;
     _product = widget._product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_product.barcode!);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    super.dispose();
   }
 
   @override
@@ -692,10 +701,8 @@ class _SummaryCardState extends State<SummaryCard> {
     if (!mounted) {
       return;
     }
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await ProductRefresher().fetchAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
+      widget: this,
       barcode: _product.barcode!,
     );
   }

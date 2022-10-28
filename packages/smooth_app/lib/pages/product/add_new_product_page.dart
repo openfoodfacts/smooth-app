@@ -43,9 +43,24 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   final Map<ImageField, List<File>> _uploadedImages =
       <ImageField, List<File>>{};
 
+  late final LocalDatabase _localDatabase;
+
   bool _nutritionFactsAdded = false;
   bool _basicDetailsAdded = false;
   bool _isProductLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(widget.barcode);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(widget.barcode);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
