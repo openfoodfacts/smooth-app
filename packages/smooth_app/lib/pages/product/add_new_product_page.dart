@@ -9,7 +9,6 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
@@ -73,7 +72,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             daoProduct.put(product);
             localDatabase.notifyListeners();
           }
-          provider.set(product);
+          localDatabase.upToDate.set(product);
           if (mounted) {
             await Navigator.maybePop(
               context,
