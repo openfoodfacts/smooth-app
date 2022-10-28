@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -44,28 +46,38 @@ class ProductRefresher {
     return false;
   }
 
-  /// Returns `true` if the fetch is successful.
-  Future<bool> fetchAndRefresh({
-    required final BuildContext context,
-    required final LocalDatabase localDatabase,
+  /// Fetches the product from the server and refreshes the local database.
+  Future<void> fetchAndRefresh({
     required final String barcode,
+    required final State<StatefulWidget> widget,
   }) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final AppLocalizations appLocalizations =
+        AppLocalizations.of(widget.context);
     final _MetaProductRefresher? fetchAndRefreshed =
         await LoadingDialog.run<_MetaProductRefresher>(
       future: _fetchAndRefresh(localDatabase, barcode),
-      context: context,
+      context: widget.context,
       title: appLocalizations.refreshing_product,
     );
     if (fetchAndRefreshed == null) {
-      return false;
+      return;
+    }
+    if (!widget.mounted) {
+      return;
     }
     if (fetchAndRefreshed.product == null) {
-      await LoadingDialog.error(context: context);
-      return false;
+      await LoadingDialog.error(context: widget.context);
+      return;
     }
-    localDatabase.upToDate.set(fetchAndRefreshed.product!);
-    return true;
+    localDatabase.upToDate
+        .setLatestDownloadedProduct(fetchAndRefreshed.product!);
+    ScaffoldMessenger.of(widget.context).showSnackBar(
+      SnackBar(
+        content: Text(appLocalizations.product_refreshed),
+        duration: SnackBarDuration.short,
+      ),
+    );
   }
 
   Future<_MetaProductRefresher> _fetchAndRefresh(

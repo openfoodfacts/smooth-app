@@ -47,14 +47,16 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   @override
   void initState() {
     super.initState();
-    _model = PersonalizedRankingModel(widget.barcodes);
+    _model = PersonalizedRankingModel(
+      widget.barcodes,
+      context.read<LocalDatabase>(),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
       appBar: AppBar(
@@ -68,11 +70,11 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
               productPreferences.getCompactView();
           if (_compactPreferences == null) {
             _compactPreferences = compactPreferences;
-            _model.refresh(context.read<LocalDatabase>(), productPreferences);
+            _model.refresh(productPreferences);
           } else {
             bool refresh = !_compactPreferences!.equals(compactPreferences);
             if (!refresh) {
-              refresh = _model.needsRefresh(localDatabase);
+              refresh = _model.needsRefresh();
             }
             if (refresh) {
               // TODO(monsieurtanuki): could maybe be automatic with VisibilityDetector
@@ -84,8 +86,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
                     text: appLocalizations.refresh_with_new_preferences,
                     onPressed: () {
                       _compactPreferences = compactPreferences;
-                      _model.refresh(
-                          context.read<LocalDatabase>(), productPreferences);
+                      _model.refresh(productPreferences);
                     },
                   ),
                 ),

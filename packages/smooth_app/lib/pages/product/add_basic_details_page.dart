@@ -156,6 +156,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     await BackgroundTaskDetails.addTask(
                       inputProduct,
                       productEditTask: ProductEditTask.basic,
+                      widget: this,
                     );
                     final Product upToDateProduct =
                         cachedProduct ?? inputProduct;

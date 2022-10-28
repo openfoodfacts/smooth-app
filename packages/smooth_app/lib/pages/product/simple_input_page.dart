@@ -8,7 +8,6 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -208,6 +207,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     await BackgroundTaskDetails.addTask(
       changedProduct,
       productEditTasks: productEditTasks,
+      widget: this,
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
@@ -215,14 +215,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     if (!mounted) {
       return false;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          appLocalizations.product_task_background_schedule,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
-    );
     return true;
   }
 
