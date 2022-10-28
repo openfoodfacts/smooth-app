@@ -55,7 +55,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
       
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.5.1
+        uses: actions/setup-java@v3.6.0
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
@@ -69,6 +69,9 @@ jobs:
 
       - name: Flutter version    
         run: flutter --version
+
+      - name: Enable MLKit dependency
+        run: chmod +x ci/enable_mlkit_dependency.sh && ci/enable_mlkit_dependency.sh
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh

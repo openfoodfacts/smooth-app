@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -151,8 +150,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final Product changedProduct = Product(barcode: widget.product.barcode);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final Product? cachedProduct = await daoProduct.get(
       changedProduct.barcode!,
@@ -214,8 +211,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
-    provider.set(upToDateProduct);
-    localDatabase.notifyListeners();
+    localDatabase.upToDate.set(upToDateProduct);
     if (!mounted) {
       return false;
     }

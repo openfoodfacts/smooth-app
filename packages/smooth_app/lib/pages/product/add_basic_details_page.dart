@@ -4,7 +4,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -60,9 +59,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   Widget build(BuildContext context) {
     _initializeProduct();
     final Size size = MediaQuery.of(context).size;
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -163,8 +160,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     final Product upToDateProduct =
                         cachedProduct ?? inputProduct;
                     await daoProduct.put(upToDateProduct);
-                    provider.set(upToDateProduct);
-                    localDatabase.notifyListeners();
+                    localDatabase.upToDate.set(upToDateProduct);
                     if (!mounted) {
                       return;
                     }

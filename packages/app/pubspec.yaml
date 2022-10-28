@@ -16,6 +16,14 @@ dependencies:
   smooth_app:
     path: ../smooth_app
 
+  scanner_shared:
+    path: ../scanner/shared
+
+  # According to the build variant, only one "scanner" implementation must be added when building a release
+  # Call "flutter pub remove xxxx" to remove unused dependencies
+  scanner_mlkit:
+    path: ../scanner/mlkit
+
 dev_dependencies:
   integration_test:
     sdk: flutter

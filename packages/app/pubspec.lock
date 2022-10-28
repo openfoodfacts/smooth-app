@@ -366,7 +366,7 @@ packages:
       name: flutter_isolate
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.3"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -1003,6 +1003,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.4"
+  scanner_mlkit:
+    dependency: "direct main"
+    description:
+      path: "../scanner/mlkit"
+      relative: true
+    source: path
+    version: "0.0.1"
+  scanner_shared:
+    dependency: "direct main"
+    description:
+      path: "../scanner/shared"
+      relative: true
+    source: path
+    version: "1.0.0"
   sentry:
     dependency: transitive
     description:
