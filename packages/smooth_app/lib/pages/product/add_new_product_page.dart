@@ -9,7 +9,6 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
@@ -76,61 +75,49 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       appBar: AppBar(
           title: Text(appLocalizations.new_product),
           automaticallyImplyLeading: !_isProductLoaded),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          final LocalDatabase localDatabase = context.read<LocalDatabase>();
+          final DaoProduct daoProduct = DaoProduct(localDatabase);
+          final Product? localProduct = await daoProduct.get(widget.barcode);
+          if (localProduct == null) {
+            product = Product(
+              barcode: widget.barcode,
+            );
+            daoProduct.put(product);
+            localDatabase.notifyListeners();
+          }
+          localDatabase.upToDate.set(product);
+          if (mounted) {
+            await Navigator.maybePop(
+              context,
+              _isProductLoaded ? widget.barcode : null,
+            );
+          }
+        },
+        label: Text(appLocalizations.finish),
+        icon: const Icon(Icons.done),
+      ),
       body: Padding(
         padding: const EdgeInsetsDirectional.only(
           top: VERY_LARGE_SPACE,
           start: VERY_LARGE_SPACE,
           end: VERY_LARGE_SPACE,
         ),
-        child: Stack(
-          children: <Widget>[
-            SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    appLocalizations.add_product_take_photos_descriptive,
-                    style: themeData.textTheme.bodyText1!
-                        .apply(color: themeData.colorScheme.onBackground),
-                  ),
-                  ..._buildImageCaptureRows(context),
-                  _buildNutritionInputButton(product),
-                  _buildaddInputDetailsButton()
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                appLocalizations.add_product_take_photos_descriptive,
+                style: themeData.textTheme.bodyText1!
+                    .apply(color: themeData.colorScheme.onBackground),
               ),
-            ),
-            Positioned(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: SmoothActionButtonsBar.single(
-                  action: SmoothActionButton(
-                    text: appLocalizations.finish,
-                    onPressed: () async {
-                      final LocalDatabase localDatabase =
-                          context.read<LocalDatabase>();
-                      final DaoProduct daoProduct = DaoProduct(localDatabase);
-                      final Product? localProduct =
-                          await daoProduct.get(widget.barcode);
-                      if (localProduct == null) {
-                        product = Product(
-                          barcode: widget.barcode,
-                        );
-                        daoProduct.put(product);
-                        localDatabase.notifyListeners();
-                      }
-                      localDatabase.upToDate.set(product);
-                      if (mounted) {
-                        await Navigator.maybePop(
-                          context,
-                          _isProductLoaded ? widget.barcode : null,
-                        );
-                      }
-                    },
-                  ),
-                ),
-              ),
-            ),
-          ],
+              ..._buildImageCaptureRows(context),
+              _buildNutritionInputButton(product),
+              _buildaddInputDetailsButton()
+            ],
+          ),
         ),
       ),
     );
