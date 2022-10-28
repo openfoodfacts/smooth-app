@@ -57,6 +57,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
+    context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
       appBar: AppBar(

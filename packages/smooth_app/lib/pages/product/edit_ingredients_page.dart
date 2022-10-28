@@ -127,7 +127,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
   }
 
-  Future<bool> _updateText(
+  Future<void> _updateText(
     final String text,
     final ImageField imageField,
   ) async {
@@ -150,10 +150,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
     localDatabase.upToDate.set(upToDateProduct);
-    if (!mounted) {
-      return false;
-    }
-    return true;
   }
 
   @override
