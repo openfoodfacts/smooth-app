@@ -34,7 +34,7 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "Hitung",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -347,7 +347,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Masuk ke akun Open Food Facts anda untuk mendapatkan kredit atas kontribusi anda",
-    "tap_to_edit_search": "Tap to edit search",
+    "tap_to_edit_search": "Ketuk untuk menyunting pencarian",
     "@Personal preferences": {},
     "myPreferences": "Preferensi Saya",
     "@myPreferences": {
@@ -372,7 +372,7 @@
     "ranking_subtitle_match_yes": "Pilihan cocok untuk Anda",
     "ranking_subtitle_match_no": "Sangat tidak cocok",
     "ranking_subtitle_match_maybe": "Hasil tidak diketahui",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Segarkan daftar dengan preferensi baru Anda",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -564,7 +564,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "You are using a deprecated version of the app.",
+    "deprecated_header": "Anda sedang menggunakan aplikasi versi lama.",
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
@@ -572,7 +572,7 @@
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
-    "download_new_version": "Download the new version of the app",
+    "download_new_version": "Unduh versi terbaru aplikasi",
     "@download_new_version": {
         "description": "Download new version of the app text"
     },
@@ -703,7 +703,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Silahkan pilih minimal dua produk",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -733,11 +733,11 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Akses kamera",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+    "permissions_page_body1": "Untuk memindai kode batang menggunakan kamera ponsel Anda, harap otorisasi akses.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -745,7 +745,7 @@
     "@permissions_page_body2": {
         "description": "second paragraph for the camera permission's page (onboarding)"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Rilis: {release})\nModel: {model}\nProduk: {product}\nPerangkat: {device}\nJenama:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -815,7 +815,7 @@
             }
         }
     },
-    "authorize_button_label": "Authorise",
+    "authorize_button_label": "Mengizinkan",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -823,7 +823,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "Nanti",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -938,7 +938,7 @@
     "settings_app_data": "Privasi dan pemantauan",
     "settings_app_camera": "Kamera",
     "settings_app_products": "Produk - produk",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Lain-lain",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -950,11 +950,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Mode pemindai",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Ubah nilai ini jika Anda memiliki beberapa masalah denga pemindai (tidak dapat membaca kode batang). Ketuk untuk beralih di antara dua mode.\nMode saat ini: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -963,8 +963,8 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_file_based": "Mode aman (secara bawaan)",
+    "camera_mode_bytes_array_based": "Mode cepat",
     "app_haptic_feedback_title": "Vibration & Haptics",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
