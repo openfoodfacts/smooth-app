@@ -113,8 +113,9 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               ],
             ),
             negativeAction: SmoothActionButton(
-              text: appLocalizations.contribute_improve_ProductsToBeCompleted,
-              minWidth: 100,
+              text: AppLocalizations.of(context)
+                  .contribute_improve_ProductsToBeCompleted,
+              minWidth: 185,
               onPressed: () async {
                 final LocalDatabase localDatabase =
                     context.read<LocalDatabase>();
