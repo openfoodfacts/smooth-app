@@ -12,7 +12,7 @@ import '../tests_utils/goldens.dart';
 import '../tests_utils/mocks.dart';
 
 void main() {
-  group('Forgot Password Page looks as expected', () {
+  group('LoginPage looks as expected', () {
     for (final bool themeDark in <bool>[true, false]) {
       final String theme = themeDark ? 'Dark' : 'Light';
 
