@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
@@ -19,9 +17,6 @@ void main() {
       final String theme = themeDark ? 'Dark' : 'Light';
 
       testWidgets(theme, (WidgetTester tester) async {
-        final HttpOverrides? priorOverrides = HttpOverrides.current;
-        HttpOverrides.global = MockHttpOverrides();
-
         late UserPreferences userPreferences;
         late ProductPreferences productPreferences;
         late ThemeProvider themeProvider;
@@ -61,9 +56,6 @@ void main() {
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
         expect(tester, meetsGuideline(iOSTapTargetGuideline));
         expect(tester, meetsGuideline(androidTapTargetGuideline));
-
-        // Restore prior overrides
-        HttpOverrides.global = priorOverrides;
       });
     }
   });
