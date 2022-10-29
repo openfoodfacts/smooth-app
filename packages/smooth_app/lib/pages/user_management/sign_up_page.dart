@@ -402,74 +402,81 @@ class _TermsOfUseCheckbox extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return InkWell(
-      onTap: () {
-        onCheckboxChanged(!agree);
-      },
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          IntrinsicHeight(
-            child: Row(
-              children: <Widget>[
-                IgnorePointer(
-                  ignoring: true,
-                  child: Checkbox(
-                    value: agree,
-                    fillColor: MaterialStateProperty.resolveWith(
-                      checkboxColorResolver,
-                    ),
-                    onChanged: (_) {},
-                  ),
-                ),
-                const SizedBox(width: 20.0),
-                Expanded(
-                  child: RichText(
-                    text: TextSpan(
-                      children: <InlineSpan>[
-                        TextSpan(
-                          // additional space needed because of the next text span
-                          text: '${appLocalizations.sign_up_page_agree_text} ',
-                          style: theme.textTheme.bodyText2?.copyWith(
-                            color: theme.colorScheme.onBackground,
-                          ),
-                        ),
-                        TextSpan(
-                          style: theme.textTheme.bodyText2?.copyWith(
-                            color: Colors.blue,
-                          ),
-                          text: appLocalizations.sign_up_page_terms_text,
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => _onTermsClicked(appLocalizations),
-                        ),
-                      ],
+    return Tooltip(
+      message: 'Agree to the terms of use',
+      child: InkWell(
+        onTap: () {
+          onCheckboxChanged(!agree);
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            IntrinsicHeight(
+              child: Row(
+                children: <Widget>[
+                  IgnorePointer(
+                    ignoring: true,
+                    child: Checkbox(
+                      value: agree,
+                      fillColor: MaterialStateProperty.resolveWith(
+                        checkboxColorResolver,
+                      ),
+                      onChanged: (_) {},
                     ),
                   ),
-                ),
-                InkWell(
-                  onTap: () => _onTermsClicked(appLocalizations),
-                  customBorder: const CircleBorder(),
-                  child: AspectRatio(
-                    aspectRatio: 1.0,
-                    child: Icon(
-                      Icons.info,
-                      color: checkboxColorResolver(
-                        <MaterialState>{MaterialState.selected},
+                  const SizedBox(width: 20.0),
+                  Expanded(
+                    child: RichText(
+                      text: TextSpan(
+                        children: <InlineSpan>[
+                          TextSpan(
+                            // additional space needed because of the next text span
+                            text:
+                                '${appLocalizations.sign_up_page_agree_text} ',
+                            style: theme.textTheme.bodyText2?.copyWith(
+                              color: theme.colorScheme.onBackground,
+                            ),
+                          ),
+                          TextSpan(
+                            style: theme.textTheme.bodyText2?.copyWith(
+                              color: Colors.blue,
+                            ),
+                            text: appLocalizations.sign_up_page_terms_text,
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => _onTermsClicked(appLocalizations),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ),
-              ],
+                  Tooltip(
+                    message: 'Show Terms of Use on Browser',
+                    child: InkWell(
+                      onTap: () => _onTermsClicked(appLocalizations),
+                      customBorder: const CircleBorder(),
+                      child: AspectRatio(
+                        aspectRatio: 1.0,
+                        child: Icon(
+                          Icons.info,
+                          color: checkboxColorResolver(
+                            <MaterialState>{MaterialState.selected},
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          Offstage(
-            offstage: !disagree,
-            child: Text(
-              appLocalizations.sign_up_page_agree_error_invalid,
-              style: TextStyle(color: theme.errorColor),
-            ),
-          )
-        ],
+            Offstage(
+              offstage: !disagree,
+              child: Text(
+                appLocalizations.sign_up_page_agree_error_invalid,
+                style: TextStyle(color: theme.errorColor),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

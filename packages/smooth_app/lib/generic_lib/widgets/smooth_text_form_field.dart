@@ -108,6 +108,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         ),
         suffixIcon: widget.type == TextFieldTypes.PASSWORD
             ? IconButton(
+                tooltip: 'Show password',
                 splashRadius: 10.0,
                 onPressed: () => setState(() {
                   _obscureText = !_obscureText;
