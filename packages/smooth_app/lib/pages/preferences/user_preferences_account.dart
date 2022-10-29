@@ -128,7 +128,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   Widget? getAdditionalSubtitle() {
     if (_getUserId() != null) {
       // we are already connected: no "LOGIN" button
-      return null;
+      return const SizedBox.shrink();
     }
     final ThemeData theme = Theme.of(context);
     final Size size = MediaQuery.of(context).size;
