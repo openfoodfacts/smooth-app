@@ -1,16 +1,23 @@
 ### What
 <!-- description of the PR -->
-- Changed x to achieve y
-
+- <!-- Changed x to achieve y -->
+<!-- 
+Please name your pull request following this scheme: `type: What you did` this allows us to automatically generate the changelog
+Following `type`s are allowed:
+  - `feat`, for Features
+  - `fix`, for Bug Fixes
+  - `docs`, for Documentation
+  - `ci`, for Automation
+  - `refactor`, for code Refactoring
+  - `chore`, for Miscellaneous things
+-->
 ### Screenshot
 <!-- Insert a screenshot to provide visual record of your changes, if visible -->
 
 ### Fixes bug(s)
 <!-- change by appropriate issues. -->
 <!-- Please use a linking keyword https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword -->
-- Fixes: #1
-- Closes: #2
+- Fixes: <!-- #1 Note: you can also use Closes: -->
 
 ### Part of 
-- https://github.com/openfoodfacts/smooth-app/issues/525
-<!-- please be as granular as possible -->
+- #525 <!-- Add the most granular issue possible -->

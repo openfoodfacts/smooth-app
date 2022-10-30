@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_summary_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class KnowledgePanelCard extends StatelessWidget {
   const KnowledgePanelCard({
-    required this.panel,
-    required this.allPanels,
+    required this.panelId,
     required this.product,
   });
 
-  final KnowledgePanel panel;
-  final KnowledgePanels allPanels;
+  final String panelId;
   final Product product;
 
   static const String PANEL_NUTRITION_TABLE_ID = 'nutrition_facts_table';
@@ -31,18 +28,19 @@ class KnowledgePanelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    if (_isExpandedByUser(panel, allPanels, userPreferences) ||
+    final KnowledgePanel? panel =
+        KnowledgePanelWidget.getKnowledgePanel(product, panelId);
+    if (panel == null) {
+      return EMPTY_WIDGET;
+    }
+    if (_isExpandedByUser(panel, userPreferences) ||
         (panel.expanded ?? false)) {
       return KnowledgePanelExpandedCard(
-        panel: panel,
-        allPanels: allPanels,
+        panelId: panelId,
         product: product,
         isInitiallyExpanded: false,
       );
     }
-
-    final KnowledgePanelPanelGroupElement? group =
-        KnowledgePanelGroupCard.groupElementOf(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
@@ -54,14 +52,18 @@ class KnowledgePanelCard extends StatelessWidget {
           margin: EdgeInsets.zero,
         ),
         onTap: () {
+          final Brightness? brightness =
+              SmoothBrightnessOverride.of(context)?.brightness;
+
           Navigator.push<Widget>(
             context,
             MaterialPageRoute<Widget>(
-              builder: (BuildContext context) => KnowledgePanelPage(
-                groupElement: group,
-                panel: panel,
-                allPanels: allPanels,
-                product: product,
+              builder: (BuildContext context) => SmoothBrightnessOverride(
+                brightness: brightness,
+                child: KnowledgePanelPage(
+                  panelId: panelId,
+                  product: product,
+                ),
               ),
             ),
           );
@@ -72,7 +74,6 @@ class KnowledgePanelCard extends StatelessWidget {
 
   bool _isExpandedByUser(
     final KnowledgePanel panel,
-    final KnowledgePanels allPanels,
     final UserPreferences userPreferences,
   ) {
     final List<String> expandedPanelIds = <String>[
@@ -82,7 +83,9 @@ class KnowledgePanelCard extends StatelessWidget {
     for (final String panelId in expandedPanelIds) {
       if (panel.titleElement != null &&
           panel.titleElement!.title ==
-              allPanels.panelIdToPanelMap[panelId]?.titleElement?.title) {
+              KnowledgePanelWidget.getKnowledgePanel(product, panelId)
+                  ?.titleElement
+                  ?.title) {
         if (userPreferences.getFlag(getExpandFlagTag(panelId)) ?? false) {
           return true;
         }

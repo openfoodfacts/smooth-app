@@ -5,7 +5,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
@@ -14,7 +16,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/tagline.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
@@ -141,7 +143,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   /// instead in the meanwhile.
   Widget _getWidget(final int index) {
     if (index >= barcodes.length) {
-      return Container();
+      return EMPTY_WIDGET;
     }
     final String barcode = barcodes[index];
     switch (_model.getBarcodeState(barcode)!) {
@@ -188,54 +190,46 @@ class SearchCard extends StatelessWidget {
     final AppLocalizations localizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     final bool isDarkmode = themeData.brightness == Brightness.dark;
-    return SmoothCard(
-      color: Theme.of(context).brightness == Brightness.light
-          ? Colors.white.withOpacity(OPACITY)
-          : Colors.black.withOpacity(OPACITY),
-      elevation: 0,
-      padding: SmoothProductCarousel.carouselItemHorizontalPadding,
-      child: SizedBox(
-        height: height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            SvgPicture.asset(
-              Theme.of(context).brightness == Brightness.light
-                  ? 'assets/app/release_icon_light_transparent_no_border.svg'
-                  : 'assets/app/release_icon_dark_transparent_no_border.svg',
-              width: height * 0.2,
-              height: height * 0.2,
-            ),
-            AutoSizeText(
+
+    return SmoothProductBaseCard(
+      backgroundColorOpacity: OPACITY,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          SvgPicture.asset(
+            Theme.of(context).brightness == Brightness.light
+                ? 'assets/app/release_icon_light_transparent_no_border.svg'
+                : 'assets/app/release_icon_dark_transparent_no_border.svg',
+            width: height * 0.2,
+            height: height * 0.2,
+            package: AppHelper.APP_PACKAGE,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: MEDIUM_SPACE),
+            child: AutoSizeText(
               localizations.welcomeToOpenFoodFacts,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 26.0,
                 fontWeight: FontWeight.bold,
-                height: 1.25,
+                height: 1.00,
               ),
-              maxLines: 2,
+              maxLines: 1,
             ),
-            SizedBox(
-              height: height * 0.05,
-            ),
-            const Expanded(
-              child: _SearchCardTagLine(),
-            ),
-            SearchField(
-              onFocus: () => _openSearchPage(context),
-              readOnly: true,
-              showClearButton: false,
-              backgroundColor: isDarkmode
-                  ? Colors.white10
-                  : const Color.fromARGB(255, 240, 240, 240)
-                      .withOpacity(OPACITY),
-              foregroundColor:
-                  themeData.colorScheme.onSurface.withOpacity(OPACITY),
-            ),
-          ],
-        ),
+          ),
+          const Expanded(child: _SearchCardTagLine()),
+          SearchField(
+            onFocus: () => _openSearchPage(context),
+            readOnly: true,
+            showClearButton: false,
+            backgroundColor: isDarkmode
+                ? Colors.white10
+                : const Color.fromARGB(255, 240, 240, 240).withOpacity(OPACITY),
+            foregroundColor:
+                themeData.colorScheme.onSurface.withOpacity(OPACITY),
+          ),
+        ],
       ),
     );
   }
@@ -256,10 +250,16 @@ class SearchCard extends StatelessWidget {
 ///
 /// After that initial scan, the tagline will displayed if possible,
 /// or [_SearchCardTagLineDefaultText] in all cases (loading, error…)
+///
+/// Shows a warning instead of the TagLine if the app identifier is not the one
+/// from the official listing.
 class _SearchCardTagLine extends StatelessWidget {
   const _SearchCardTagLine({
     Key? key,
   }) : super(key: key);
+
+  static const String DEPRECATED_KEY = 'deprecated';
+  static const String TAG_LINE_KEY = 'tagline';
 
   @override
   Widget build(BuildContext context) {
@@ -278,40 +278,46 @@ class _SearchCardTagLine extends StatelessWidget {
             if (preferences.isFirstScan) {
               return const _SearchCardTagLineDefaultText();
             }
-
-            return FutureBuilder<TagLineItem?>(
-              future: fetchTagLine(Platform.localeName),
-              builder:
-                  (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
-                if (data.data == null) {
+            return FutureBuilder<Map<String, dynamic>>(
+              future: _fetchData(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<Map<String, dynamic>> data) {
+                if (data.connectionState != ConnectionState.done ||
+                    data.data == null ||
+                    !data.hasData) {
                   return const _SearchCardTagLineDefaultText();
-                } else {
-                  return InkWell(
-                    borderRadius: ANGULAR_BORDER_RADIUS,
-                    onTap: data.data!.hasLink
-                        ? () async {
-                            if (await canLaunchUrlString(data.data!.url)) {
-                              await launchUrl(
-                                Uri.parse(data.data!.url),
-                                // forms.gle links are not handled by the WebView
-                                mode: LaunchMode.externalApplication,
-                              );
-                            }
-                          }
-                        : null,
-                    child: AutoSizeText(
-                      data.data!.message,
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    ),
+                }
+
+                if (data.data![DEPRECATED_KEY] as bool) {
+                  return const _SearchCardTagLineDeprecatedAppText();
+                }
+
+                if (data.data![TAG_LINE_KEY] != null) {
+                  return _SearchCardTagLineText(
+                    tagLine: data.data![TAG_LINE_KEY] as TagLineItem,
                   );
                 }
+                return const _SearchCardTagLineDefaultText();
               },
             );
           },
         ),
       ),
+    );
+  }
+
+  /// We fetch first if the app is deprecated, then try to get the tagline
+  /// Return a map with keys: [DEPRECATED_KEY]<bool> & [TAG_LINE_KEY]<TagLineItem?>
+  Future<Map<String, dynamic>> _fetchData() async {
+    final bool deprecated = await _isApplicationDeprecated();
+    final TagLineItem? item = await fetchTagLine(Platform.localeName);
+
+    return <String, dynamic>{DEPRECATED_KEY: deprecated, TAG_LINE_KEY: item};
+  }
+
+  Future<bool> _isApplicationDeprecated() {
+    return PackageInfo.fromPlatform().then(
+      (PackageInfo value) => value.packageName != 'org.openfoodfacts.scanner',
     );
   }
 }
@@ -323,12 +329,122 @@ class _SearchCardTagLineDefaultText extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10.0,
+        ),
+        child: AutoSizeText(
+          localizations.searchPanelHeader,
+        ),
+      ),
+    );
+  }
+}
+
+class _SearchCardTagLineDeprecatedAppText extends StatelessWidget {
+  const _SearchCardTagLineDeprecatedAppText({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
       ),
-      child: AutoSizeText(
-        localizations.searchPanelHeader,
+      child: SizedBox(
+        height: 50,
+        child: Column(
+          children: <Widget>[
+            Text(
+              localizations.deprecated_header,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            Text(
+              localizations.download_new_version,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                _openAppStore();
+              },
+              child: Text(
+                localizations.click_here,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.red,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Opens the App Store or Google Play of the production app
+  Future<bool> _openAppStore() async {
+    final String url;
+
+    if (Platform.isIOS) {
+      url = 'https://apps.apple.com/us/app/open-food-facts/id588797948';
+    } else if (Platform.isAndroid) {
+      url =
+          'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner';
+    } else {
+      // Not supported
+      return false;
+    }
+
+    return canLaunchUrlString(url).then((bool canLaunch) async {
+      if (canLaunch) {
+        return launchUrlString(
+          url,
+          mode: LaunchMode.externalNonBrowserApplication,
+        );
+      } else {
+        return false;
+      }
+    });
+  }
+}
+
+class _SearchCardTagLineText extends StatelessWidget {
+  const _SearchCardTagLineText({
+    required this.tagLine,
+    Key? key,
+  }) : super(key: key);
+
+  final TagLineItem tagLine;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: ANGULAR_BORDER_RADIUS,
+      onTap: tagLine.hasLink
+          ? () async {
+              if (await canLaunchUrlString(tagLine.url)) {
+                await launchUrl(
+                  Uri.parse(tagLine.url),
+                  // forms.gle links are not handled by the WebView
+                  mode: LaunchMode.externalApplication,
+                );
+              }
+            }
+          : null,
+      child: Center(
+        child: AutoSizeText(
+          tagLine.message,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
       ),
     );
   }

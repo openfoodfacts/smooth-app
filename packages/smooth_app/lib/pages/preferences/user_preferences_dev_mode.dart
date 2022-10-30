@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -13,6 +14,8 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
+import 'package:smooth_app/pages/offline_data_page.dart';
+import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
@@ -49,6 +52,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesTestEnvHost = '__testEnvHost';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
+  static const String userPreferencesFlagNewCropTool = '__newCropTool';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
@@ -58,6 +62,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__accessibilityNoColor';
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
+  static const String userPreferencesFlagHungerGames = '__hungerGames';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -270,6 +275,28 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         _dataImporterTile(),
         ListTile(
+          title: Text(appLocalizations.offline_data),
+          onTap: () {
+            Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const OfflineDataPage(),
+              ),
+            );
+          },
+        ),
+        ListTile(
+          title: const Text('Pending Tasks'),
+          onTap: () {
+            Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const OfflineTaskPage(),
+              ),
+            );
+          },
+        ),
+        ListTile(
           title: Text(
             appLocalizations.dev_preferences_import_history_title,
           ),
@@ -359,6 +386,27 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             setState(() {});
           },
         ),
+        SwitchListTile(
+          title: const Text('Use new crop tool'),
+          value:
+              userPreferences.getFlag(userPreferencesFlagNewCropTool) ?? true,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagNewCropTool, value);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+            value: userPreferences.getFlag(userPreferencesFlagHungerGames) ??
+                false,
+            title: const Text('Activate Hunger Games'),
+            onChanged: (bool value) async {
+              await userPreferences.setFlag(
+                userPreferencesFlagHungerGames,
+                value,
+              );
+              setState(() {});
+            }),
         ListTile(
           // Do not translate
           title: const Text('Reset App Language'),
@@ -457,30 +505,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   }
 }
 
-enum DevModeScanMode {
-  CAMERA_ONLY,
-  PREPROCESS_FULL_IMAGE,
-  PREPROCESS_HALF_IMAGE,
-  SCAN_FULL_IMAGE,
-  SCAN_HALF_IMAGE;
-
-  static DevModeScanMode get defaultScanMode => DevModeScanMode.SCAN_FULL_IMAGE;
-
-  String get label {
-    switch (this) {
-      case DevModeScanMode.CAMERA_ONLY:
-        return 'Only camera stream, no scanning';
-      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
-        return 'Camera stream and full image preprocessing, no scanning';
-      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
-        return 'Camera stream and half image preprocessing, no scanning';
-      case DevModeScanMode.SCAN_FULL_IMAGE:
-        return 'Full image scanning';
-      case DevModeScanMode.SCAN_HALF_IMAGE:
-        return 'Half image scanning';
-    }
-  }
-
+extension DevModeScanModeExt on DevModeScanMode {
   String localizedLabel(AppLocalizations appLocalizations) {
     switch (this) {
       case DevModeScanMode.CAMERA_ONLY:
@@ -494,32 +519,5 @@ enum DevModeScanMode {
       case DevModeScanMode.SCAN_HALF_IMAGE:
         return appLocalizations.dev_mode_scan_scan_half_image;
     }
-  }
-
-  int get idx {
-    switch (this) {
-      case DevModeScanMode.CAMERA_ONLY:
-        return 4;
-      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
-        return 3;
-      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
-        return 2;
-      case DevModeScanMode.SCAN_FULL_IMAGE:
-        return 0;
-      case DevModeScanMode.SCAN_HALF_IMAGE:
-        return 1;
-    }
-  }
-
-  static DevModeScanMode fromIndex(final int? index) {
-    if (index == null) {
-      return defaultScanMode;
-    }
-    for (final DevModeScanMode scanMode in DevModeScanMode.values) {
-      if (scanMode.index == index) {
-        return scanMode;
-      }
-    }
-    throw Exception('Unknown index $index');
   }
 }

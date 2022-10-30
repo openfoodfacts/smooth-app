@@ -38,6 +38,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   final FocusNode _userFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _password1FocusNode = FocusNode();
+  final FocusNode _password2FocusNode = FocusNode();
 
   bool _foodProducer = false;
   bool _agree = false;
@@ -75,6 +76,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     }
 
     return SmoothScaffold(
+      fixKeyboard: true,
       appBar: AppBar(
         title: Text(appLocalizations.sign_up_page_title),
         backgroundColor: Colors.transparent,
@@ -83,259 +85,231 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       body: Form(
         onChanged: () => setState(() {}),
         key: _formKey,
-        child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-          children: <Widget>[
-            SmoothTextFormField(
-              textInputType: TextInputType.name,
-              type: TextFieldTypes.PLAIN_TEXT,
-              controller: _displayNameController,
-              textInputAction: TextInputAction.next,
-              hintText: appLocalizations.sign_up_page_display_name_hint,
-              prefixIcon: const Icon(Icons.person),
-              autofillHints: const <String>[
-                AutofillHints.name,
-              ],
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return appLocalizations.sign_up_page_display_name_error_empty;
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: space),
-            SmoothTextFormField(
-              textInputType: TextInputType.emailAddress,
-              type: TextFieldTypes.PLAIN_TEXT,
-              controller: _emailController,
-              focusNode: _emailFocusNode,
-              textInputAction: TextInputAction.next,
-              hintText: appLocalizations.sign_up_page_email_hint,
-              prefixIcon: const Icon(Icons.person),
-              autofillHints: const <String>[
-                AutofillHints.email,
-              ],
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return appLocalizations.sign_up_page_email_error_empty;
-                } else if (!UserManagementHelper.isEmailValid(
-                    _emailController.trimmedText)) {
-                  return appLocalizations.sign_up_page_email_error_invalid;
-                } else {
-                  return null;
-                }
-              },
-            ),
-            const SizedBox(height: space),
-            SmoothTextFormField(
-              type: TextFieldTypes.PLAIN_TEXT,
-              controller: _userController,
-              focusNode: _userFocusNode,
-              textInputAction: TextInputAction.next,
-              hintText: appLocalizations.sign_up_page_username_hint,
-              prefixIcon: const Icon(Icons.person),
-              autofillHints: const <String>[
-                AutofillHints.newUsername,
-              ],
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return appLocalizations.sign_up_page_username_error_empty;
-                }
-                if (!UserManagementHelper.isUsernameValid(
-                    _userController.trimmedText)) {
-                  return appLocalizations.sign_up_page_username_description;
-                }
-                if (!UserManagementHelper.isUsernameLengthValid(
-                    _userController.trimmedText)) {
-                  const int maxLength = OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
-                  return appLocalizations
-                      .sign_up_page_username_length_invalid(maxLength);
-                }
-                return null;
-              },
-            ),
-
-            const SizedBox(height: space),
-
-            SmoothTextFormField(
-              type: TextFieldTypes.PASSWORD,
-              controller: _password1Controller,
-              focusNode: _password1FocusNode,
-              textInputAction: TextInputAction.next,
-              hintText: appLocalizations.sign_up_page_password_hint,
-              prefixIcon: const Icon(Icons.vpn_key),
-              autofillHints: const <String>[
-                AutofillHints.newPassword,
-              ],
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return appLocalizations.sign_up_page_password_error_empty;
-                } else if (!UserManagementHelper.isPasswordValid(value)) {
-                  return appLocalizations.sign_up_page_password_error_invalid;
-                } else {
-                  return null;
-                }
-              },
-            ),
-            const SizedBox(height: space),
-            SmoothTextFormField(
-              type: TextFieldTypes.PASSWORD,
-              controller: _password2Controller,
-              textInputAction: TextInputAction.next,
-              hintText: appLocalizations.sign_up_page_confirm_password_hint,
-              prefixIcon: const Icon(Icons.vpn_key),
-              autofillHints: const <String>[
-                AutofillHints.newPassword,
-              ],
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return appLocalizations
-                      .sign_up_page_confirm_password_error_empty;
-                } else if (_password2Controller.text !=
-                    _password1Controller.text) {
-                  return appLocalizations
-                      .sign_up_page_confirm_password_error_invalid;
-                } else {
-                  return null;
-                }
-              },
-            ),
-            const SizedBox(height: space),
-
-            // careful with CheckboxListTile and hyperlinks
-            // cf. https://github.com/flutter/flutter/issues/31437
-            ListTile(
-              onTap: () {
-                setState(() => _agree = !_agree);
-              },
-              contentPadding: EdgeInsets.zero,
-              leading: IgnorePointer(
-                ignoring: true,
-                child: Checkbox(
-                  value: _agree,
-                  fillColor:
-                      MaterialStateProperty.resolveWith(getCheckBoxColor),
-                  onChanged: (_) {},
-                ),
-              ),
-              title: RichText(
-                text: TextSpan(
-                  children: <InlineSpan>[
-                    TextSpan(
-                      // additional space needed because of the next text span
-                      text: '${appLocalizations.sign_up_page_agree_text} ',
-                      style: theme.textTheme.bodyText2
-                          ?.copyWith(color: theme.colorScheme.onBackground),
-                    ),
-                    TextSpan(
-                      style: theme.textTheme.bodyText2
-                          ?.copyWith(color: Colors.blue),
-                      text: appLocalizations.sign_up_page_terms_text,
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () async {
-                          final String url =
-                              appLocalizations.sign_up_page_agree_url;
-                          if (await canLaunchUrl(Uri.parse(url))) {
-                            await launchUrl(
-                              Uri.parse(url),
-                              mode: LaunchMode.platformDefault,
-                            );
-                          }
-                        },
-                    ),
-                  ],
-                ),
-              ),
-              subtitle: !_disagreed
-                  ? null
-                  : Text(
-                      appLocalizations.sign_up_page_agree_error_invalid,
-                      style: TextStyle(color: theme.errorColor),
-                    ),
-            ),
-            const SizedBox(height: space),
-            ListTile(
-              onTap: () {
-                setState(() => _foodProducer = !_foodProducer);
-              },
-              contentPadding: EdgeInsets.zero,
-              leading: IgnorePointer(
-                ignoring: true,
-                child: Checkbox(
-                  value: _foodProducer,
-                  fillColor:
-                      MaterialStateProperty.resolveWith(getCheckBoxColor),
-                  onChanged: (_) {},
-                ),
-              ),
-              title: Text(
-                appLocalizations.sign_up_page_producer_checkbox,
-                style: theme.textTheme.bodyText2
-                    ?.copyWith(color: theme.colorScheme.onBackground),
-              ),
-            ),
-            if (_foodProducer) ...<Widget>[
-              const SizedBox(height: space),
+        child: Scrollbar(
+          child: ListView(
+            padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+            children: <Widget>[
               SmoothTextFormField(
+                textInputType: TextInputType.name,
                 type: TextFieldTypes.PLAIN_TEXT,
-                controller: _brandController,
+                controller: _displayNameController,
                 textInputAction: TextInputAction.next,
-                hintText: appLocalizations.sign_up_page_producer_hint,
+                hintText: appLocalizations.sign_up_page_display_name_hint,
                 prefixIcon: const Icon(Icons.person),
-                autofillHints: const <String>[AutofillHints.name],
+                autofillHints: const <String>[
+                  AutofillHints.name,
+                ],
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return appLocalizations.sign_up_page_producer_error_empty;
+                    return appLocalizations
+                        .sign_up_page_display_name_error_empty;
                   }
                   return null;
                 },
-              )
-            ],
-            const SizedBox(height: space),
-            ListTile(
-              onTap: () {
-                setState(() => _subscribe = !_subscribe);
-              },
-              contentPadding: EdgeInsets.zero,
-              leading: IgnorePointer(
-                ignoring: true,
-                child: Checkbox(
-                  value: _subscribe,
-                  fillColor:
-                      MaterialStateProperty.resolveWith(getCheckBoxColor),
-                  onChanged: (_) {},
+              ),
+              const SizedBox(height: space),
+              SmoothTextFormField(
+                textInputType: TextInputType.emailAddress,
+                type: TextFieldTypes.PLAIN_TEXT,
+                controller: _emailController,
+                focusNode: _emailFocusNode,
+                textInputAction: TextInputAction.next,
+                hintText: appLocalizations.sign_up_page_email_hint,
+                prefixIcon: const Icon(Icons.person),
+                autofillHints: const <String>[
+                  AutofillHints.email,
+                ],
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return appLocalizations.sign_up_page_email_error_empty;
+                  } else if (!UserManagementHelper.isEmailValid(
+                      _emailController.trimmedText)) {
+                    return appLocalizations.sign_up_page_email_error_invalid;
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              const SizedBox(height: space),
+              SmoothTextFormField(
+                type: TextFieldTypes.PLAIN_TEXT,
+                controller: _userController,
+                focusNode: _userFocusNode,
+                textInputAction: TextInputAction.next,
+                hintText: appLocalizations.sign_up_page_username_hint,
+                prefixIcon: const Icon(Icons.person),
+                autofillHints: const <String>[
+                  AutofillHints.newUsername,
+                ],
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return appLocalizations.sign_up_page_username_error_empty;
+                  }
+                  if (!UserManagementHelper.isUsernameValid(
+                      _userController.trimmedText)) {
+                    return appLocalizations.sign_up_page_username_description;
+                  }
+                  if (!UserManagementHelper.isUsernameLengthValid(
+                      _userController.trimmedText)) {
+                    const int maxLength =
+                        OpenFoodAPIClient.USER_NAME_MAX_LENGTH;
+                    return appLocalizations
+                        .sign_up_page_username_length_invalid(maxLength);
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: space),
+              SmoothTextFormField(
+                type: TextFieldTypes.PASSWORD,
+                controller: _password1Controller,
+                focusNode: _password1FocusNode,
+                textInputAction: TextInputAction.next,
+                hintText: appLocalizations.sign_up_page_password_hint,
+                onFieldSubmitted: (_) =>
+                    FocusScope.of(context).requestFocus(_password2FocusNode),
+                prefixIcon: const Icon(Icons.vpn_key),
+                autofillHints: const <String>[
+                  AutofillHints.newPassword,
+                ],
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return appLocalizations.sign_up_page_password_error_empty;
+                  } else if (!UserManagementHelper.isPasswordValid(value)) {
+                    return appLocalizations.sign_up_page_password_error_invalid;
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              const SizedBox(height: space),
+              SmoothTextFormField(
+                type: TextFieldTypes.PASSWORD,
+                controller: _password2Controller,
+                focusNode: _password2FocusNode,
+                textInputAction: TextInputAction.send,
+                hintText: appLocalizations.sign_up_page_confirm_password_hint,
+                prefixIcon: const Icon(Icons.vpn_key),
+                autofillHints: const <String>[
+                  AutofillHints.newPassword,
+                ],
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return appLocalizations
+                        .sign_up_page_confirm_password_error_empty;
+                  } else if (_password2Controller.text !=
+                      _password1Controller.text) {
+                    return appLocalizations
+                        .sign_up_page_confirm_password_error_invalid;
+                  } else {
+                    return null;
+                  }
+                },
+                onFieldSubmitted: (String password) {
+                  if (password.isNotEmpty) {
+                    _signUp();
+                  } else {
+                    _formKey.currentState!.validate();
+                  }
+                },
+              ),
+              const SizedBox(height: space),
+              _TermsOfUseCheckbox(
+                agree: _agree,
+                disagree: _disagreed,
+                checkboxColorResolver: getCheckBoxColor,
+                onCheckboxChanged: (bool checked) {
+                  setState(
+                    () {
+                      _agree = checked;
+                    },
+                  );
+                },
+              ),
+              const SizedBox(height: space),
+              ListTile(
+                onTap: () {
+                  setState(() => _foodProducer = !_foodProducer);
+                },
+                contentPadding: EdgeInsets.zero,
+                leading: IgnorePointer(
+                  ignoring: true,
+                  child: Checkbox(
+                    value: _foodProducer,
+                    fillColor:
+                        MaterialStateProperty.resolveWith(getCheckBoxColor),
+                    onChanged: (_) {},
+                  ),
+                ),
+                title: Text(
+                  appLocalizations.sign_up_page_producer_checkbox,
+                  style: theme.textTheme.bodyText2
+                      ?.copyWith(color: theme.colorScheme.onBackground),
                 ),
               ),
-              title: Text(
-                appLocalizations.sign_up_page_subscribe_checkbox,
-                style: theme.textTheme.bodyText2
-                    ?.copyWith(color: theme.colorScheme.onBackground),
-              ),
-            ),
-            const SizedBox(height: space),
-            ElevatedButton(
-              onPressed: () async => _signUp(),
-              style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all<Size>(
-                  Size(size.width * 0.5, theme.buttonTheme.height + 10),
+              if (_foodProducer) ...<Widget>[
+                const SizedBox(height: space),
+                SmoothTextFormField(
+                  type: TextFieldTypes.PLAIN_TEXT,
+                  controller: _brandController,
+                  textInputAction: TextInputAction.next,
+                  hintText: appLocalizations.sign_up_page_producer_hint,
+                  prefixIcon: const Icon(Icons.person),
+                  autofillHints: const <String>[AutofillHints.name],
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return appLocalizations.sign_up_page_producer_error_empty;
+                    }
+                    return null;
+                  },
+                )
+              ],
+              const SizedBox(height: space),
+              ListTile(
+                onTap: () {
+                  setState(() => _subscribe = !_subscribe);
+                },
+                contentPadding: EdgeInsets.zero,
+                leading: IgnorePointer(
+                  ignoring: true,
+                  child: Checkbox(
+                    value: _subscribe,
+                    fillColor:
+                        MaterialStateProperty.resolveWith(getCheckBoxColor),
+                    onChanged: (_) {},
+                  ),
                 ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  const RoundedRectangleBorder(
-                    borderRadius: CIRCULAR_BORDER_RADIUS,
+                title: Text(
+                  appLocalizations.sign_up_page_subscribe_checkbox,
+                  style: theme.textTheme.bodyText2
+                      ?.copyWith(color: theme.colorScheme.onBackground),
+                ),
+              ),
+              const SizedBox(height: space),
+              ElevatedButton(
+                onPressed: () async => _signUp(),
+                style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all<Size>(
+                    Size(size.width * 0.5, theme.buttonTheme.height + 10),
+                  ),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    const RoundedRectangleBorder(
+                      borderRadius: CIRCULAR_BORDER_RADIUS,
+                    ),
+                  ),
+                ),
+                child: Text(
+                  appLocalizations.sign_up_page_action_button,
+                  style: theme.textTheme.bodyText2?.copyWith(
+                    fontSize: 18.0,
+                    color: theme.colorScheme.onPrimary,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              child: Text(
-                appLocalizations.sign_up_page_action_button,
-                style: theme.textTheme.bodyText2?.copyWith(
-                  fontSize: 18.0,
-                  color: theme.colorScheme.onPrimary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: space),
-          ],
+              const SizedBox(height: space),
+            ],
+          ),
         ),
       ),
     );
@@ -406,5 +380,108 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     Navigator.of(context).pop<bool>(true);
+  }
+}
+
+class _TermsOfUseCheckbox extends StatelessWidget {
+  const _TermsOfUseCheckbox({
+    required this.agree,
+    required this.disagree,
+    required this.onCheckboxChanged,
+    required this.checkboxColorResolver,
+    Key? key,
+  }) : super(key: key);
+
+  final bool agree;
+  final bool disagree;
+  final MaterialPropertyResolver<Color?> checkboxColorResolver;
+  final ValueChanged<bool> onCheckboxChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return InkWell(
+      onTap: () {
+        onCheckboxChanged(!agree);
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          IntrinsicHeight(
+            child: Row(
+              children: <Widget>[
+                IgnorePointer(
+                  ignoring: true,
+                  child: Checkbox(
+                    value: agree,
+                    fillColor: MaterialStateProperty.resolveWith(
+                      checkboxColorResolver,
+                    ),
+                    onChanged: (_) {},
+                  ),
+                ),
+                const SizedBox(width: 20.0),
+                Expanded(
+                  child: RichText(
+                    text: TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(
+                          // additional space needed because of the next text span
+                          text: '${appLocalizations.sign_up_page_agree_text} ',
+                          style: theme.textTheme.bodyText2?.copyWith(
+                            color: theme.colorScheme.onBackground,
+                          ),
+                        ),
+                        TextSpan(
+                          style: theme.textTheme.bodyText2?.copyWith(
+                            color: Colors.blue,
+                          ),
+                          text: appLocalizations.sign_up_page_terms_text,
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => _onTermsClicked(appLocalizations),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => _onTermsClicked(appLocalizations),
+                  customBorder: const CircleBorder(),
+                  child: AspectRatio(
+                    aspectRatio: 1.0,
+                    child: Icon(
+                      Icons.info,
+                      color: checkboxColorResolver(
+                        <MaterialState>{MaterialState.selected},
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Offstage(
+            offstage: !disagree,
+            child: Text(
+              appLocalizations.sign_up_page_agree_error_invalid,
+              style: TextStyle(color: theme.errorColor),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Future<void> _onTermsClicked(AppLocalizations appLocalizations) async {
+    final String url = appLocalizations.sign_up_page_agree_url;
+
+    try {
+      await launchUrl(
+        Uri.parse(url),
+        mode: LaunchMode.platformDefault,
+      );
+    } catch (_) {}
   }
 }

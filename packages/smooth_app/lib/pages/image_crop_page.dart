@@ -2,141 +2,128 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/pages/crop_helper.dart';
 
-Future<File?> startImageCropping(
-  BuildContext context, {
-  File? existingImage,
-  bool showOptionDialog = false,
-  bool chooseFromGallery = false,
-  LoadingCallback? beforeScreenVisibleCallback,
-  LoadingCallback? afterScreenVisibleCallback,
+/// Crops an image from an existing file.
+Future<File?> startImageCroppingNoPick(
+  final BuildContext context, {
+  required final File existingImage,
 }) async {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  late XFile? pickedXFile;
-
-  // Show a loading page on the Flutter side
   final NavigatorState navigator = Navigator.of(context);
-  await _showScreenBetween(beforeScreenVisibleCallback, navigator);
+  final CropHelper cropHelper = CropHelper.getCurrent(context);
+  await _showScreenBetween(navigator);
 
-  if (existingImage == null) {
-    final ImagePicker picker = ImagePicker();
-    // open a dialog to ask the user if they want to take a picture or select one from the gallery
-    if (showOptionDialog) {
-      pickedXFile = await showDialog<XFile>(
-        context: context,
-        builder: (BuildContext context) {
-          return SmoothAlertDialog(
-            title: appLocalizations.choose_image_source_title,
-            body: Text(appLocalizations.choose_image_source_body),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.settings_app_camera,
-              onPressed: () async {
-                final XFile? pickedFile = await picker.pickImage(
-                  source: ImageSource.camera,
-                );
-                // ignore: use_build_context_synchronously
-                Navigator.pop(context, pickedFile);
-              },
-            ),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.gallery_source_label,
-              onPressed: () async {
-                final XFile? pickedFile = await picker.pickImage(
-                  source: ImageSource.gallery,
-                );
-                // ignore: use_build_context_synchronously
-                Navigator.pop(context, pickedFile);
-              },
-            ),
-          );
-        },
-      );
-    } else {
-      if (chooseFromGallery) {
-        pickedXFile = await picker.pickImage(
-          source: ImageSource.gallery,
-        );
-      } else {
-        pickedXFile = await picker.pickImage(
-          source: ImageSource.camera,
-        );
-      }
-    }
-
-    if (pickedXFile == null) {
-      await _hideScreenBetween(afterScreenVisibleCallback, navigator);
-      return null;
-    }
-  }
-
-  final CroppedFile? croppedFile = await ImageCropper().cropImage(
-    sourcePath: existingImage?.path ?? pickedXFile!.path,
-    aspectRatioPresets: <CropAspectRatioPreset>[
-      CropAspectRatioPreset.square,
-      CropAspectRatioPreset.ratio3x2,
-      CropAspectRatioPreset.original,
-      CropAspectRatioPreset.ratio4x3,
-      CropAspectRatioPreset.ratio16x9
-    ],
-    uiSettings: <PlatformUiSettings>[
-      AndroidUiSettings(
-        initAspectRatio: CropAspectRatioPreset.original,
-        lockAspectRatio: false,
-        toolbarTitle: appLocalizations.product_edit_photo_title,
-        // They all need to be the same for dark/light mode as we can't change
-        // the background color and the action bar color
-        statusBarColor: Colors.black,
-        toolbarWidgetColor: Colors.black,
-        backgroundColor: Colors.black,
-        activeControlsWidgetColor: const Color(0xFF85746C),
-      ),
-    ],
+  // ignore: use_build_context_synchronously
+  final String? croppedPath = await cropHelper.getCroppedPath(
+    context,
+    existingImage.path,
   );
 
-  await _hideScreenBetween(afterScreenVisibleCallback, navigator);
+  await _hideScreenBetween(navigator);
 
-  //attempting to create a file from a null path will throw an exception so return null if that happens
-  if (croppedFile == null) {
+  if (croppedPath == null) {
     return null;
   }
 
-  return File(croppedFile.path);
+  return File(croppedPath);
 }
 
-Future<void> _showScreenBetween(
-  LoadingCallback? callback,
-  NavigatorState navigator,
-) {
-  return (callback ??
-          (NavigatorState navigator) async {
-            navigator.push<dynamic>(
-              MaterialPageRoute<dynamic>(
-                settings: _LoadingPage._settings,
-                builder: (_) => const _LoadingPage(),
-              ),
-            );
-          })
-      .call(navigator);
+/// Picks an image file from gallery or camera.
+Future<XFile?> pickImageFile(
+  final BuildContext context, {
+  final bool showOptionDialog = false,
+  bool chooseFromGallery = false,
+}) async {
+  if (showOptionDialog) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool? dialogFromGallery = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.choose_image_source_title,
+        actionsAxis: Axis.vertical,
+        body: Text(appLocalizations.choose_image_source_body),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.settings_app_camera,
+          onPressed: () async => Navigator.pop(context, false),
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.gallery_source_label,
+          onPressed: () async => Navigator.pop(context, true),
+        ),
+      ),
+    );
+    if (dialogFromGallery == null) {
+      return null;
+    }
+    chooseFromGallery = dialogFromGallery;
+  }
+  final ImagePicker picker = ImagePicker();
+  if (chooseFromGallery) {
+    return picker.pickImage(source: ImageSource.gallery);
+  }
+  return picker.pickImage(source: ImageSource.camera);
 }
 
-Future<void> _hideScreenBetween(
-  LoadingCallback? callback,
-  NavigatorState navigator,
-) async {
-  return (callback ??
-          (NavigatorState navigator) async {
-            return navigator.popUntil((Route<dynamic> route) {
-              // Remove the screen, only if it's the loading screen
-              if (route.settings == _LoadingPage._settings) {
-                return true;
-              }
-              return false;
-            });
-          })
-      .call(navigator);
+/// Crops an image picked from the gallery or camera.
+Future<File?> startImageCropping(
+  BuildContext context, {
+  bool showOptionDialog = false,
+  bool chooseFromGallery = false,
+}) async {
+  // Show a loading page on the Flutter side
+  final NavigatorState navigator = Navigator.of(context);
+  final CropHelper cropHelper = CropHelper.getCurrent(context);
+  await _showScreenBetween(navigator);
+
+  // ignore: use_build_context_synchronously
+  final XFile? pickedXFile = await pickImageFile(
+    context,
+    chooseFromGallery: chooseFromGallery,
+    showOptionDialog: showOptionDialog,
+  );
+  if (pickedXFile == null) {
+    await _hideScreenBetween(navigator);
+    return null;
+  }
+
+  // ignore: use_build_context_synchronously
+  final String? croppedPath = await cropHelper.getCroppedPath(
+    context,
+    pickedXFile.path,
+  );
+
+  await _hideScreenBetween(navigator);
+
+  if (croppedPath == null) {
+    return null;
+  }
+
+  return File(croppedPath);
+}
+
+Future<void> _showScreenBetween(NavigatorState navigator) {
+  return ((NavigatorState navigator) async {
+    navigator.push<dynamic>(
+      MaterialPageRoute<dynamic>(
+        settings: _LoadingPage._settings,
+        builder: (_) => const _LoadingPage(),
+      ),
+    );
+  }).call(navigator);
+}
+
+Future<void> _hideScreenBetween(NavigatorState navigator) async {
+  return ((NavigatorState navigator) async {
+    return navigator.pop((Route<dynamic> route) {
+      // Remove the screen, only if it's the loading screen
+      if (route.settings == _LoadingPage._settings) {
+        return true;
+      }
+      return false;
+    });
+  }).call(navigator);
 }
 
 /// A screen being displayed once an image is taken, but the cropper is not yet
@@ -160,5 +147,3 @@ class _LoadingPage extends StatelessWidget {
     );
   }
 }
-
-typedef LoadingCallback = Future<void> Function(NavigatorState navigator);

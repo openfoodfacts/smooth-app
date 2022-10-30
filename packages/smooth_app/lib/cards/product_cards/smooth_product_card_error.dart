@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 
 /// Product Card when an exception is caught
@@ -19,32 +21,23 @@ class SmoothProductCardError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData themeData = Theme.of(context);
 
-    return Container(
-      decoration: BoxDecoration(
-        color: themeData.brightness == Brightness.light
-            ? Colors.white
-            : Colors.black,
-        borderRadius: ROUNDED_BORDER_RADIUS,
-      ),
+    return SmoothProductBaseCard(
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(SMALL_SPACE),
-            child: SvgPicture.asset(
-              'assets/misc/error.svg',
-              width: MINIMUM_TOUCH_SIZE * 2,
-            ),
+          SvgPicture.asset(
+            'assets/misc/error.svg',
+            width: MINIMUM_TOUCH_SIZE * 2,
+            package: AppHelper.APP_PACKAGE,
           ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(barcode, style: Theme.of(context).textTheme.subtitle1),
-            ],
+          const SizedBox(
+            height: SMALL_SPACE,
+          ),
+          Text(
+            barcode,
+            style: Theme.of(context).textTheme.subtitle1,
           ),
           const SizedBox(
             height: MEDIUM_SPACE,

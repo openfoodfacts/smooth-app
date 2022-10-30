@@ -11,13 +11,13 @@ import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
@@ -44,6 +44,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late Product _product;
+  late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
   late ScrollController _scrollController;
   bool _mustScrollToTheEnd = false;
@@ -59,6 +60,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   void initState() {
     super.initState();
     _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_product.barcode!);
     _scrollController = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
@@ -66,6 +69,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     AnalyticsHelper.trackProductPageOpen(
       product: _product,
     );
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    super.dispose();
   }
 
   @override
@@ -79,8 +88,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
         _scrollToTheEnd();
       }
     });
-    // All watchers defined here:
     _productPreferences = context.watch<ProductPreferences>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
+    if (refreshedProduct != null) {
+      _product = refreshedProduct;
+    }
 
     return SmoothScaffold(
       contentBehindStatusBar: true,
@@ -101,19 +114,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               }
               return true;
             },
-            child: Consumer<UpToDateProductProvider>(
-              builder: (
-                final BuildContext context,
-                final UpToDateProductProvider provider,
-                final Widget? child,
-              ) {
-                final Product? refreshedProduct = provider.get(_product);
-                if (refreshedProduct != null) {
-                  _product = refreshedProduct;
-                }
-                return _buildProductBody(context);
-              },
-            ),
+            child: _buildProductBody(context),
           ),
           SafeArea(
             child: AnimatedContainer(
@@ -127,19 +128,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               ),
               child: Offstage(
                 offstage: !scrollingUp,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.maybePop(context);
-                  },
-                  child: Tooltip(
-                    message:
-                        MaterialLocalizations.of(context).backButtonTooltip,
-                    child: Icon(
-                      ConstantIcons.instance.getBackIcon(),
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                child: const SmoothBackButton(),
               ),
             ),
           )
@@ -157,24 +146,11 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     _mustScrollToTheEnd = false;
   }
 
-  Future<bool> _refreshProduct(BuildContext context) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final bool result = await ProductRefresher().fetchAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
-      barcode: _product.barcode!,
-    );
-    if (mounted && result) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_refreshed),
-          duration: const Duration(seconds: 2),
-        ),
+  Future<void> _refreshProduct(BuildContext context) async =>
+      ProductRefresher().fetchAndRefresh(
+        barcode: _product.barcode!,
+        widget: this,
       );
-    }
-    return result;
-  }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
@@ -247,12 +223,11 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final List<Widget> knowledgePanelWidgets = <Widget>[];
     if (_product.knowledgePanels != null) {
       final List<KnowledgePanelElement> elements =
-          KnowledgePanelWidget.getPanelElements(_product.knowledgePanels!);
+          KnowledgePanelWidget.getPanelElements(_product);
       for (final KnowledgePanelElement panelElement in elements) {
         knowledgePanelWidgets.add(
           KnowledgePanelWidget(
             panelElement: panelElement,
-            knowledgePanels: _product.knowledgePanels!,
             product: _product,
             onboardingMode: false,
           ),
@@ -300,9 +275,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             _buildActionBarItem(
               Icons.edit,
               appLocalizations.edit_product_label,
-              () async => Navigator.push<bool>(
+              () async => Navigator.push<void>(
                 context,
-                MaterialPageRoute<bool>(
+                MaterialPageRoute<void>(
                   builder: (BuildContext context) => EditProductPage(_product),
                 ),
               ),
@@ -334,7 +309,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(
                   18), // TODO(monsieurtanuki): cf. FloatingActionButton
-              primary: colorScheme.primary,
+              backgroundColor: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
           ),

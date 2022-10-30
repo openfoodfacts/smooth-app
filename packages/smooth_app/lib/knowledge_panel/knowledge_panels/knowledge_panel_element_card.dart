@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
@@ -13,23 +12,35 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
   const KnowledgePanelElementCard({
     required this.knowledgePanelElement,
-    required this.allPanels,
     required this.product,
     required this.isInitiallyExpanded,
   });
 
   final KnowledgePanelElement knowledgePanelElement;
-  final KnowledgePanels allPanels;
   final Product product;
   final bool isInitiallyExpanded;
 
   @override
   Widget build(BuildContext context) {
+    final Widget child = _getWidget();
+
+    if (_requiresMargin) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+        child: child,
+      );
+    }
+
+    return child;
+  }
+
+  Widget _getWidget() {
     switch (knowledgePanelElement.elementType) {
       case KnowledgePanelElementType.TEXT:
         return _KnowledgePanelTextElementCard(
@@ -43,7 +54,8 @@ class KnowledgePanelElementCard extends StatelessWidget {
         );
       case KnowledgePanelElementType.PANEL:
         final String panelId = knowledgePanelElement.panelElement!.panelId;
-        final KnowledgePanel? panel = allPanels.panelIdToPanelMap[panelId];
+        final KnowledgePanel? panel =
+            KnowledgePanelWidget.getKnowledgePanel(product, panelId);
         if (panel == null) {
           // happened in https://github.com/openfoodfacts/smooth-app/issues/2682
           // due to some inconsistencies in the data sent by the server
@@ -53,35 +65,45 @@ class KnowledgePanelElementCard extends StatelessWidget {
           return EMPTY_WIDGET;
         }
         return KnowledgePanelCard(
-          panel: panel,
-          allPanels: allPanels,
+          panelId: panelId,
           product: product,
         );
+
       case KnowledgePanelElementType.PANEL_GROUP:
         return KnowledgePanelGroupCard(
           groupElement: knowledgePanelElement.panelGroupElement!,
-          allPanels: allPanels,
           product: product,
         );
+
       case KnowledgePanelElementType.TABLE:
         return KnowledgePanelTableCard(
           tableElement: knowledgePanelElement.tableElement!,
           isInitiallyExpanded: isInitiallyExpanded,
+          product: product,
         );
+
       case KnowledgePanelElementType.MAP:
         return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
+
       case KnowledgePanelElementType.UNKNOWN:
         return EMPTY_WIDGET;
+
       case KnowledgePanelElementType.ACTION:
         return KnowledgePanelActionCard(
           knowledgePanelElement.actionElement!,
           product,
         );
+
       default:
         Logs.e('unexpected element type: ${knowledgePanelElement.elementType}');
         return EMPTY_WIDGET;
     }
   }
+
+  bool get _requiresMargin => !<KnowledgePanelElementType>[
+        KnowledgePanelElementType.PANEL,
+        KnowledgePanelElementType.PANEL_GROUP,
+      ].contains(knowledgePanelElement.elementType);
 }
 
 /// A Knowledge Panel Text element may contain a source.

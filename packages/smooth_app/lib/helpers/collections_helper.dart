@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:math' as math show max;
 
 import 'package:collection/collection.dart';
 
@@ -14,6 +15,12 @@ class AverageList<T extends num> with ListMixin<T> {
     } else {
       return _elements.average.floor();
     }
+  }
+
+  /// Same as [average], but ensures a minimum value of [minValue] is returned.
+  int averageMin({required int defaultValueIfEmpty, required int minValue}) {
+    final int averageRes = average(defaultValueIfEmpty);
+    return math.max(averageRes, minValue);
   }
 
   @override
@@ -49,11 +56,33 @@ class AverageList<T extends num> with ListMixin<T> {
   }
 }
 
+extension StringIterable on Iterable<String> {
+  bool containsIgnoreCase(String? element) {
+    if (element == null) {
+      return false;
+    }
+
+    for (final String item in this) {
+      if (item.toLowerCase() == element.toLowerCase()) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
 extension ListExtensions<T> on List<T> {
   void addAllSafe(Iterable<T>? elements) {
     if (elements != null) {
       addAll(elements);
     }
+  }
+
+  void replace(int position, T element) {
+    if (length > position) {
+      remove(position);
+    }
+    insert(position, element);
   }
 }
 
@@ -74,17 +103,6 @@ extension SetExtensions<T> on Set<T> {
     } while (consumedCapacity < length);
 
     return res;
-  }
-}
-
-extension IterableExtensions<T> on Iterable<T> {
-  T? firstWhereOrNull(bool Function(T element) test) {
-    for (final T element in this) {
-      if (test(element)) {
-        return element;
-      }
-    }
-    return null;
   }
 }
 

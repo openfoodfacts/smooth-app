@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -12,13 +11,11 @@ class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
     required this.product,
     required this.productImageData,
-    required this.allProductImagesData,
     required this.onUpload,
   });
 
   final Product product;
   final ProductImageData productImageData;
-  final List<ProductImageData> allProductImagesData;
   final Function(BuildContext) onUpload;
 
   @override
@@ -26,9 +23,11 @@ class ImageUploadCard extends StatefulWidget {
 }
 
 class _ImageUploadCardState extends State<ImageUploadCard> {
-  ImageProvider? _imageProvider; // Normal size image to display in carousel
-  ImageProvider?
-      _imageFullProvider; // Full resolution image to display in image page
+  /// Normal size image to display in carousel
+  ImageProvider? _imageProvider;
+
+  /// Full resolution image to display in image page
+  ImageProvider? _imageFullProvider;
 
   Future<void> _getImage() async {
     final File? croppedImageFile =
@@ -46,35 +45,12 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       if (!mounted) {
         return;
       }
-      final bool isUploaded = await uploadCapturedPicture(
-        context,
-        barcode: widget.product
-            .barcode!, //Probably throws an error, but this is not a big problem when we got a product without a barcode
+      await uploadCapturedPicture(
+        widget: this,
+        barcode: widget.product.barcode!,
         imageField: widget.productImageData.imageField,
         imageUri: croppedImageFile.uri,
       );
-      croppedImageFile.delete();
-      if (!mounted) {
-        return;
-      }
-      if (isUploaded) {
-        if (widget.productImageData.imageField == ImageField.OTHER) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(appLocalizations.other_photo_uploaded),
-              duration: const Duration(seconds: 3),
-              action: SnackBarAction(
-                label: appLocalizations.more_photos,
-                onPressed: _getImage,
-              ),
-            ),
-          );
-        } else {
-          await widget.onUpload(context);
-        }
-      }
     }
   }
 
@@ -122,19 +98,19 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           // we need to load the full resolution image
 
           if (_imageFullProvider == null) {
-            final String imageFullUrl =
-                widget.productImageData.imageUrl!.replaceAll('.400.', '.full.');
-            _imageFullProvider = NetworkImage(imageFullUrl);
+            final String? imageFullUrl =
+                widget.productImageData.getImageUrl(ImageSize.ORIGINAL);
+            if (imageFullUrl != null) {
+              _imageFullProvider = NetworkImage(imageFullUrl);
+            }
           }
 
+          // TODO(monsieurtanuki): careful, waiting for pop'ed value
           final bool? refreshed = await Navigator.push<bool>(
             context,
             MaterialPageRoute<bool>(
               builder: (BuildContext context) => ProductImageGalleryView(
-                productImageData: widget.productImageData,
-                allProductImagesData: widget.allProductImagesData,
-                title: widget.productImageData.title,
-                barcode: widget.product.barcode,
+                product: widget.product,
               ),
             ),
           );

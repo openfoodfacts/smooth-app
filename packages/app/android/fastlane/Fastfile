@@ -1,0 +1,80 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+
+  desc "Stores the last used version code + 1 on the playstore in env: VERSION_CODE, is used for all platforms to keep this in sync"
+  lane :getOldVersionCode do
+      begin
+          old_version_code = google_play_track_version_codes(
+              package_name: "org.openfoodfacts.scanner",
+              track: "internal",
+              json_key: "./fastlane/envfiles/api-4712693179220384697-162836-33ea08672303.json",
+          ).last().to_i
+          puts "old_version_code: " + old_version_code.to_s
+          version_code = old_version_code.to_i + 1
+          version_code = version_code.to_s
+          sh("echo VERSION_CODE=#{version_code} >> $GITHUB_ENV")
+      end
+  end
+
+  desc "Set's version to env:VERSION_NAME and the version code env:VERSION_CODE used for android + iOS"
+  lane :setVersion do
+      begin
+          version_code = ENV["VERSION_CODE"]
+          puts "version_code: " + version_code.to_s
+
+          new_version_name = ENV["VERSION_NAME"]
+          puts new_version_name
+
+          flutter_set_version(
+            path_to_yaml: "../pubspec.yaml",
+            version_name: new_version_name.to_s,
+            version_code: version_code.to_s,
+          )
+      end
+  end
+
+  desc "Deploy to internal"
+  lane :release do
+    begin
+      #gradle(task: "clean")
+      #gradle(
+      #  task: "bundle",
+      #  build_type: 'Release'
+      #)
+      upload_to_play_store(
+        track: 'internal',
+        aab: '../build/app/outputs/bundle/release/app-release.aab',
+        skip_upload_metadata: true,
+        package_name: "org.openfoodfacts.scanner",
+        skip_upload_images: true,
+        skip_upload_screenshots: true,
+        skip_upload_changelogs: true,
+        skip_upload_apk: true,
+        version_code: flutter_version(pubspec_location: '../pubspec.yaml')["version_code"],
+      )
+    end
+  end
+
+
+end
+
+
+
+
+

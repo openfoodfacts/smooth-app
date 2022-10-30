@@ -1,12 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/model/KnowledgePanels.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
@@ -43,7 +45,6 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
 class _KnowledgePanelPageTemplateState
     extends State<KnowledgePanelPageTemplate> {
   late Future<void> _initFuture;
-  late KnowledgePanels _knowledgePanels;
   bool _isHintDismissed = false;
   late final AppLocalizations appLocalizations = AppLocalizations.of(context);
   late final Product _product;
@@ -57,7 +58,6 @@ class _KnowledgePanelPageTemplateState
   Future<void> _init() async {
     _product = await OnboardingDataProduct.forProduct(widget.localDatabase)
         .getData(rootBundle);
-    _knowledgePanels = _product.knowledgePanels!;
   }
 
   @override
@@ -73,20 +73,20 @@ class _KnowledgePanelPageTemplateState
             );
           }
           if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator.adaptive());
           }
           final Widget knowledgePanelWidget = KnowledgePanelWidget(
             panelElement: KnowledgePanelWidget.getPanelElement(
-              _knowledgePanels,
+              _product,
               widget.panelId,
             )!,
-            knowledgePanels: _knowledgePanels,
             product: _product,
             onboardingMode: true,
           );
           return Container(
             color: widget.backgroundColor,
             child: SafeArea(
+              bottom: Platform.isAndroid,
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
@@ -101,6 +101,7 @@ class _KnowledgePanelPageTemplateState
                             SvgPicture.asset(
                               widget.svgAsset,
                               height: MediaQuery.of(context).size.height * .25,
+                              package: AppHelper.APP_PACKAGE,
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(
@@ -164,19 +165,22 @@ class _KnowledgePanelPageTemplateState
             OnboardingPage.HEALTH_CARD_EXAMPLE) &&
         !OnboardingFlowNavigator.isOnboardingPagedInHistory(
             OnboardingPage.ECO_CARD_EXAMPLE)) {
-      hitPopup.add(InkWell(
-        child: const DecoratedBox(
-          decoration: BoxDecoration(color: Colors.transparent),
+      hitPopup.add(
+        Positioned(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                // slightly lower than bottom bar top
+                bottom: 2 * VERY_LARGE_SPACE +
+                    MINIMUM_TOUCH_SIZE -
+                    .5 * VERY_LARGE_SPACE,
+              ),
+              child: hintPopup,
+            ),
+          ),
         ),
-        onTap: () {
-          setState(() {
-            _isHintDismissed = true;
-          });
-        },
-      ));
-      hitPopup.add(Positioned(
-        child: Align(alignment: Alignment.center, child: hintPopup),
-      ));
+      );
     }
     return hitPopup;
   }

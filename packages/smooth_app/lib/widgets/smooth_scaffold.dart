@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,8 @@ class SmoothScaffold extends Scaffold {
     this.statusBarBackgroundColor,
     this.contentBehindStatusBar = false,
     this.spaceBehindStatusBar = false,
+    this.fixKeyboard = false,
+    bool? resizeToAvoidBottomInset,
     super.key,
     super.appBar,
     super.body,
@@ -24,7 +27,6 @@ class SmoothScaffold extends Scaffold {
     super.bottomNavigationBar,
     super.bottomSheet,
     super.backgroundColor,
-    super.resizeToAvoidBottomInset,
     super.primary = true,
     super.drawerDragStartBehavior = DragStartBehavior.start,
     super.extendBody = false,
@@ -34,7 +36,10 @@ class SmoothScaffold extends Scaffold {
     super.drawerEnableOpenDragGesture = true,
     super.endDrawerEnableOpenDragGesture = true,
     super.restorationId,
-  });
+  }) : super(
+          resizeToAvoidBottomInset:
+              fixKeyboard ? false : resizeToAvoidBottomInset,
+        );
 
   static Color get semiTranslucentStatusBar {
     if (Platform.isIOS || Platform.isMacOS) {
@@ -49,6 +54,10 @@ class SmoothScaffold extends Scaffold {
   final bool contentBehindStatusBar;
   final bool spaceBehindStatusBar;
 
+  /// On some screens an extra padding maybe wrongly added when the keyboard is
+  /// visible
+  final bool fixKeyboard;
+
   @override
   ScaffoldState createState() => SmoothScaffoldState();
 }
@@ -57,6 +66,8 @@ class SmoothScaffoldState extends ScaffoldState {
   @override
   Widget build(BuildContext context) {
     Widget child = super.build(context);
+
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
 
     if (_contentBehindStatusBar) {
       final Color statusBarColor =
@@ -69,7 +80,7 @@ class SmoothScaffoldState extends ScaffoldState {
           children: <Widget>[
             SizedBox(
               width: double.infinity,
-              height: MediaQuery.of(context).viewPadding.top,
+              height: mediaQuery.viewPadding.top,
               child: ColoredBox(
                 color: statusBarColor,
               ),
@@ -88,7 +99,7 @@ class SmoothScaffoldState extends ScaffoldState {
             child,
             SizedBox(
               width: double.infinity,
-              height: MediaQuery.of(context).viewPadding.top,
+              height: mediaQuery.viewPadding.top,
               child: ColoredBox(
                 color: statusBarColor,
               ),
@@ -98,9 +109,30 @@ class SmoothScaffoldState extends ScaffoldState {
       }
     }
 
+    if ((widget as SmoothScaffold).fixKeyboard) {
+      double padding = MediaQuery.of(context).viewInsets.bottom;
+
+      if (DevicePreview.isEnabled(context)) {
+        padding -= MediaQuery.of(context).viewPadding.top;
+      }
+
+      if (padding > 0.0) {
+        child = Padding(
+          padding: EdgeInsets.only(bottom: padding),
+          child: child,
+        );
+      }
+    }
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
-      child: child,
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          appBarTheme: AppBarTheme.of(context)
+              .copyWith(systemOverlayStyle: _overlayStyle),
+        ),
+        child: child,
+      ),
     );
   }
 
@@ -110,10 +142,28 @@ class SmoothScaffoldState extends ScaffoldState {
   bool get _spaceBehindStatusBar =>
       (widget as SmoothScaffold).spaceBehindStatusBar == true;
 
-  Brightness? get _brightness => (widget as SmoothScaffold).brightness;
+  Brightness? get _brightness =>
+      (widget as SmoothScaffold).brightness ??
+      SmoothBrightnessOverride.of(context)?.brightness;
 
   SystemUiOverlayStyle get _overlayStyle {
-    switch (_brightness) {
+    final Brightness? brightness;
+
+    // Invert brightness on iOS devices
+    if (Platform.isIOS) {
+      switch (Theme.of(context).brightness) {
+        case Brightness.dark:
+          brightness = Brightness.light;
+          break;
+        case Brightness.light:
+          brightness = Brightness.dark;
+          break;
+      }
+    } else {
+      brightness = _brightness;
+    }
+
+    switch (brightness) {
       case Brightness.dark:
         return const SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
@@ -128,5 +178,26 @@ class SmoothScaffoldState extends ScaffoldState {
           systemNavigationBarContrastEnforced: false,
         );
     }
+  }
+}
+
+/// Class allowing to override the default [Brightness] of
+/// a [SmoothScaffold].
+class SmoothBrightnessOverride extends InheritedWidget {
+  const SmoothBrightnessOverride({
+    required Widget child,
+    Key? key,
+    this.brightness,
+  }) : super(key: key, child: child);
+
+  final Brightness? brightness;
+
+  @override
+  bool updateShouldNotify(SmoothBrightnessOverride oldWidget) =>
+      brightness != oldWidget.brightness;
+
+  static SmoothBrightnessOverride? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<SmoothBrightnessOverride>();
   }
 }

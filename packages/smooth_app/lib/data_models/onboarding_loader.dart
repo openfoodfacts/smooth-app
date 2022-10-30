@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
@@ -33,7 +34,7 @@ class OnboardingLoader {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(appLocalizations.onboarding_welcome_loading_error),
-              duration: const Duration(seconds: 2),
+              duration: SnackBarDuration.short,
               behavior: SnackBarBehavior.floating,
               elevation: 0,
             ),
@@ -46,6 +47,7 @@ class OnboardingLoader {
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
+      case OnboardingPage.PERMISSIONS_PAGE:
         // nothing special to do
         return;
       case OnboardingPage.CONSENT_PAGE:

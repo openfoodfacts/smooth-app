@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 
 class ScannerFlashToggleWidget extends StatelessWidget {
   const ScannerFlashToggleWidget();
@@ -38,7 +38,7 @@ class ScannerFlashToggleWidget extends StatelessWidget {
                 ),
               ),
               onTap: () async {
-                await HapticFeedback.selectionClick();
+                await SmoothHapticFeedback.click();
                 await CameraHelper.controller?.enableFlash(!value);
               },
             ),

@@ -1,9 +1,10 @@
 name: SmoothApp Pre-Submit Tests
 
-on: pull_request
+on:
+  pull_request:
 
 env:
-  FLUTTER_VERSION: '3.0.x'
+  FLUTTER_VERSION: '3.3.x'
 
 jobs:
   build:
@@ -22,7 +23,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
           cache-key: flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock')}}
 
@@ -47,5 +47,4 @@ jobs:
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
         with:
-          fail_ci_if_error: true
-          verbose: true
+          fail_ci_if_error: false

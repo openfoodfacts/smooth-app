@@ -43,7 +43,7 @@ class _ScanPageState extends State<ScanPage> {
   @override
   Widget build(BuildContext context) {
     if (_model == null) {
-      return const Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator.adaptive());
     }
 
     return SmoothScaffold(
@@ -166,75 +166,83 @@ class _ScanPageTopWidget extends StatelessWidget {
         if (listener.value.isGranted) {
           return const ScannerVisorWidget();
         } else {
-          final AppLocalizations localizations = AppLocalizations.of(context);
-
-          return SafeArea(
-            child: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                return Container(
-                  alignment: Alignment.topCenter,
-                  constraints: BoxConstraints.tightForFinite(
-                    width: constraints.maxWidth *
-                        SmoothProductCarousel.carouselViewPortFraction,
-                    height: math.min(constraints.maxHeight * 0.9, 200),
-                  ),
-                  padding: SmoothProductCarousel.carouselItemInternalPadding,
-                  child: SmoothCard(
-                    padding: const EdgeInsetsDirectional.only(
-                      top: 10.0,
-                      start: SMALL_SPACE,
-                      end: SMALL_SPACE,
-                      bottom: 5.0,
-                    ),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            localizations.permission_photo_denied_title,
-                            style: const TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10.0,
-                                  vertical: 10.0,
-                                ),
-                                child: Text(
-                                  localizations.permission_photo_denied_message(
-                                    APP_NAME,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    height: 1.4,
-                                    fontSize: 15.5,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SmoothActionButtonsBar.single(
-                            action: SmoothActionButton(
-                              text:
-                                  localizations.permission_photo_denied_button,
-                              onPressed: () => _askPermission(context),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
+          return const _PermissionDeniedCard();
         }
       },
+    );
+  }
+}
+
+class _PermissionDeniedCard extends StatelessWidget {
+  const _PermissionDeniedCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+
+    return SafeArea(
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Container(
+            alignment: Alignment.topCenter,
+            constraints: BoxConstraints.tightForFinite(
+              width: constraints.maxWidth *
+                  SmoothProductCarousel.carouselViewPortFraction,
+              height: math.min(constraints.maxHeight * 0.9, 200),
+            ),
+            padding: SmoothProductCarousel.carouselItemInternalPadding,
+            child: SmoothCard(
+              padding: const EdgeInsetsDirectional.only(
+                top: 10.0,
+                start: SMALL_SPACE,
+                end: SMALL_SPACE,
+                bottom: 5.0,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      localizations.permission_photo_denied_title,
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0,
+                            vertical: 10.0,
+                          ),
+                          child: Text(
+                            localizations.permission_photo_denied_message(
+                              APP_NAME,
+                            ),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              height: 1.4,
+                              fontSize: 15.5,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SmoothActionButtonsBar.single(
+                      action: SmoothActionButton(
+                        text: localizations.permission_photo_denied_button,
+                        onPressed: () => _askPermission(context),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -242,7 +250,7 @@ class _ScanPageTopWidget extends StatelessWidget {
     return Provider.of<PermissionListener>(
       context,
       listen: false,
-    ).askPermission(() async {
+    ).askPermission(onRationaleNotAvailable: () async {
       return showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -269,6 +277,7 @@ class _ScanPageTopWidget extends StatelessWidget {
                 onPressed: () => Navigator.of(context).pop(true),
                 lines: 2,
               ),
+              actionsAxis: Axis.vertical,
             );
           });
     });

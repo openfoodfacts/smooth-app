@@ -1,0 +1,53 @@
+setup_travis
+default_platform(:ios)
+
+before_all do
+  xcversion(version: "~> 13.4.1")
+end
+
+platform :ios do
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+
+    APP_IDENTIFIER = "org.openfoodfacts.scanner"
+    
+    puts "Releasing beta version for identifier #{APP_IDENTIFIER}"
+
+    sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
+    update_code_signing_settings(
+      path: "Runner.xcodeproj",
+      use_automatic_signing: false,
+      build_configurations: "Release",
+      code_sign_identity: 'iPhone Distribution',
+      profile_name: 'match AppStore org.openfoodfacts.scanner',
+      targets: ["Runner"]
+    )
+  
+    update_project_team(
+      path: "Runner.xcodeproj",
+      teamid: "ZC9CYWD334"
+    )
+    
+    # build your iOS app
+    gym(
+      configuration: "Release",
+      workspace: "Runner.xcworkspace",
+      scheme: "Runner",
+      export_method: "app-store",
+      export_options: {
+          provisioningProfiles: {
+              "org.openfoodfacts.scanner" => "match AppStore org.openfoodfacts.scanner", 
+          }
+      }
+    )
+  
+    # Upload to test flight
+    pilot(
+      app_identifier: APP_IDENTIFIER,
+      skip_submission: true,
+      skip_waiting_for_build_processing: true,
+      ipa: "./Runner.ipa"
+    )
+  end
+end

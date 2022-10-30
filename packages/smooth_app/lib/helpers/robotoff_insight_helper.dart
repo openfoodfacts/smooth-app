@@ -1,30 +1,37 @@
+import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/query/robotoff_questions_query.dart';
+import 'package:smooth_app/query/product_questions_query.dart';
 
 class RobotoffInsightHelper {
   const RobotoffInsightHelper(this._localDatabase);
   final LocalDatabase _localDatabase;
+
   Future<void> cacheInsightAnnotationVoted(
-      String barcode, String insightId) async {
+    String barcode,
+    String insightId,
+  ) async {
     await DaoStringListMap(_localDatabase).add(barcode, insightId);
   }
 
-  Future<bool> haveInsightAnnotationsVoted(
-      List<RobotoffQuestion> questions) async {
+  Future<bool> areQuestionsAlreadyVoted(
+    List<RobotoffQuestion> questions,
+  ) async {
     final Map<String, List<String>> votedHist =
         await DaoStringListMap(_localDatabase).getAll();
-    bool result = false;
-    for (final String barcode in votedHist.keys) {
-      final List<String> insights = votedHist[barcode] ?? <String>[];
-      if (questions.every((RobotoffQuestion question) =>
-          insights.contains(question.insightId))) {
-        result = true;
-        break;
-      }
-    }
-    return result;
+
+    final Set<String> newIdsSet = questions
+        .map((RobotoffQuestion e) => e.insightId)
+        .whereType<String>()
+        .toSet();
+
+    final Iterable<List<String>> dbInsights = votedHist.values;
+
+    return dbInsights.any((List<String> votedIds) {
+      final Set<String> votedSet = votedIds.toSet();
+      return setEquals(newIdsSet, votedSet);
+    });
   }
 
   Future<void> removeInsightAnnotationsSavedForProdcut(String barcode) async {
@@ -36,8 +43,7 @@ class RobotoffInsightHelper {
         await DaoStringListMap(_localDatabase).getAll();
     for (final String barcode in records.keys) {
       final List<RobotoffQuestion> questions =
-          await RobotoffQuestionsQuery(barcode)
-              .getRobotoffQuestionsForProduct();
+          await ProductQuestionsQuery(barcode).getQuestions();
       if (questions.isEmpty) {
         await DaoStringListMap(_localDatabase).removeKey(barcode);
       }

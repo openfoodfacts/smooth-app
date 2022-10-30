@@ -2,23 +2,25 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:audioplayers/audioplayers.dart';
-import 'package:camera/camera.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/pages/scan/camera_image_preview.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
-import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
@@ -34,7 +36,7 @@ class MLKitScannerPage extends LifecycleAwareStatefulWidget {
 }
 
 class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
-    with TraceableClientMixin {
+    with TraceableClientMixin, WidgetsBindingObserver {
   /// If the camera is being closed (when [stoppingCamera] == true) and this
   /// Widget is visible again, we add a post frame callback to detect if the
   /// Widget is still visible
@@ -49,7 +51,12 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   /// every [_processingTimeWindows] time windows.
 
   /// Until the first barcode is decoded, this is default timeout
+  /// It's also the minimum window between two decodings
+  /// Note: A decoding happens by multiplying a window by [_processingTimeWindows]
   static const int _defaultProcessingTime = 50; // in milliseconds
+  /// In the case where [deviceInLowMemoryMode] is true, this value becomes the
+  /// minimum window, which will be multiplied by [_processingTimeWindows]
+  static const int _lowMemoryProcessingTime = 500; // in milliseconds
   /// Minimal processing windows between two decodings
   static const int _processingTimeWindows = 5;
 
@@ -62,11 +69,10 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   AudioPlayer? _musicPlayer;
 
   /// Subject notifying when a new image is available
-  PublishSubject<CameraImage> _subject = PublishSubject<CameraImage>();
+  PublishSubject<dynamic> _subject = PublishSubject<dynamic>();
 
   /// Stream calling the barcode detection
   StreamSubscription<List<String>?>? _streamSubscription;
-  MLKitScanDecoder? _barcodeDecoder;
 
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
@@ -89,14 +95,19 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   /// The next time this tab is visible, we will force relaunching the camera.
   bool pendingResume = false;
 
+  /// If the device is in low memory pressure, lower as possible the decoding
+  bool deviceInLowMemoryMode = false;
+
   @override
   void initState() {
     super.initState();
     _camera = CameraHelper.findBestCamera();
 
     if (_camera != null) {
-      _subject = PublishSubject<CameraImage>();
+      _subject = PublishSubject<dynamic>();
     }
+
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
@@ -113,9 +124,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       if (_controller == null) {
         _startLiveFeed();
       } else {
-        _controller!.updateFocusPointAlgorithm(
-          _userPreferences.cameraFocusPointAlgorithm,
-        );
+        _controller!.forceFocus();
       }
     }
   }
@@ -128,24 +137,30 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<BottomNavigationTab>(
-      builder: (BuildContext context, BottomNavigationTab tab, Widget? child) {
-        if (pendingResume && _isScreenVisible(tab: tab)) {
-          pendingResume = false;
-          _onResumeImageStream();
-        }
-
-        return child!;
+    return Listener<UserPreferences>(
+      listener: (_, __, UserPreferences prefs) {
+        _controller?.reloadImageMode();
       },
-      // [_startLiveFeed] is called both with [onResume] and [onPause] to cover
-      // all entry points
-      child: LifeCycleManager(
-        onStart: _startLiveFeed,
-        onResume: _onResumeImageStream,
-        onVisible: () => _onResumeImageStream(forceStartPreview: true),
-        onPause: _onPauseImageStream,
-        onInvisible: _onPauseImageStream,
-        child: _buildScannerWidget(),
+      child: Consumer<BottomNavigationTab>(
+        builder:
+            (BuildContext context, BottomNavigationTab tab, Widget? child) {
+          if (pendingResume && _isScreenVisible(tab: tab)) {
+            pendingResume = false;
+            _onResumeImageStream();
+          }
+
+          return child!;
+        },
+        // [_startLiveFeed] is called both with [onResume] and [onPause] to cover
+        // all entry points
+        child: LifeCycleManager(
+          onStart: _startLiveFeed,
+          onResume: _onResumeImageStream,
+          onVisible: () => _onResumeImageStream(forceStartPreview: true),
+          onPause: _onPauseImageStream,
+          onInvisible: _onPauseImageStream,
+          child: _buildScannerWidget(),
+        ),
       ),
     );
   }
@@ -231,23 +246,11 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
     stoppingCamera = false;
 
-    // If the controller is initialized update the UI.
-    _barcodeDecoder ??= MLKitScanDecoder(
-      camera: _camera!,
-      scanMode: DevModeScanMode.fromIndex(
-        _userPreferences.getDevModeIndex(
-          UserPreferencesDevMode.userPreferencesEnumScanMode,
-        ),
-      ),
-    );
-
     CameraHelper.initController(
       SmoothCameraController(
         _userPreferences,
         _camera!,
-        _userPreferences.useVeryHighResolutionPreset
-            ? ResolutionPreset.veryHigh
-            : ResolutionPreset.high,
+        ResolutionPreset.high,
         imageFormatGroup: ImageFormatGroup.yuv420,
       ),
     );
@@ -257,28 +260,49 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     _subject
         .throttleTime(
           Duration(
-            milliseconds:
-                _averageProcessingTime.average(_defaultProcessingTime) *
-                    _processingTimeWindows,
+            milliseconds: _averageProcessingTime.averageMin(
+                  defaultValueIfEmpty: _processingTime,
+                  minValue: _processingTime,
+                ) *
+                _processingTimeWindows,
           ),
         )
-        .asyncMap((CameraImage image) async {
+        .asyncMap((dynamic image) async {
           final DateTime start = DateTime.now();
 
           try {
-            final List<String?>? res =
-                await _barcodeDecoder?.processImage(image);
+            if (!_barcodeDecoder.isInitialized) {
+              // If the decoder is not initialized yet…
+              _barcodeDecoder.onInit(
+                camera: _camera!,
+                mode: DevModeScanMode.fromIndex(
+                  _userPreferences.getDevModeIndex(
+                    UserPreferencesDevMode.userPreferencesEnumScanMode,
+                  ),
+                ),
+              );
+            }
+
+            final List<String?>? res = await _barcodeDecoder
+                .processImage(image)
+                .timeout(const Duration(seconds: 5));
 
             _averageProcessingTime.add(
               DateTime.now().difference(start).inMilliseconds,
             );
 
-            return res;
+            return res ?? <String>[];
           } catch (err) {
             // Isolate is stopped
             return <String>[];
           }
         })
+        // Remove list with empty strings
+        .map(
+          (List<String?> res) => res
+              .where((String? e) => e != null && e.trim().isNotEmpty)
+              .toList(growable: false),
+        )
         .where(
           (List<String?>? barcodes) => barcodes?.isNotEmpty == true,
         )
@@ -292,7 +316,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         focusMode: FocusMode.auto,
         focusPoint: point.offset,
         deviceOrientation: DeviceOrientation.portraitUp,
-        onAvailable: (CameraImage image) => _subject.add(image),
+        onAvailable: (dynamic image) => _subject.add(image),
       );
 
       // If the Widget tree isn't ready, wait for the first frame
@@ -300,7 +324,6 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _controller?.setFocusPointTo(
             _focusPoint.offset,
-            _userPreferences.cameraFocusPointAlgorithm,
           );
         });
       }
@@ -320,7 +343,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     for (final String barcode in barcodes) {
       if (await _model.onScan(barcode)) {
         // Both are Future methods, but it doesn't matter to wait here
-        HapticFeedback.lightImpact();
+        SmoothHapticFeedback.lightNotification();
 
         if (_userPreferences.playCameraSound) {
           await _initSoundManagerIfNecessary();
@@ -342,7 +365,6 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       if (_controller!.value.isClosed) {
         _stopImageStream();
       } else {
-        // TODO(M123): Handle errors better
         Logs.e(
           'On camera controller error : ${_controller!.value.errorDescription}',
         );
@@ -403,6 +425,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       } on CameraException catch (_) {
         // Dart Controller is OK, but native part is KO
         return _stopImageStream();
+      } on DisposedControllerException catch (_) {
+        // Dart Controller is OK, but native part is KO
+        return _stopImageStream();
       }
     }
     stoppingCamera = false;
@@ -429,9 +454,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     CameraHelper.destroyControllerInstance();
 
     await _streamSubscription?.cancel();
-
-    await _barcodeDecoder?.dispose();
-    _barcodeDecoder = null;
+    await _barcodeDecoder.onDispose();
 
     stoppingCamera = false;
 
@@ -443,6 +466,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   void _redrawScreen() {
     setStateSafe(() {});
   }
+
+  int get _processingTime =>
+      deviceInLowMemoryMode ? _lowMemoryProcessingTime : _defaultProcessingTime;
 
   /// The camera is fully closed at this step.
   /// However, the user may have "reopened" this Widget during this
@@ -484,6 +510,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     }
 
     _musicPlayer = AudioPlayer(playerId: '1');
+    _musicPlayer!.audioCache.prefix = AppHelper.defaultAssetPath;
     await _musicPlayer!.setSourceAsset('audio/beep.ogg');
     await _musicPlayer!.setPlayerMode(PlayerMode.lowLatency);
     await _musicPlayer!.setAudioContext(
@@ -513,11 +540,18 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   @override
+  void didHaveMemoryPressure() {
+    deviceInLowMemoryMode = true;
+    Logs.w('The device enters in low memory mode!');
+  }
+
+  @override
   void dispose() {
     // /!\ This call is a Future, which may leads to some issues.
     // This should be handled by [_restartCameraIfNecessary]
     _stopImageStream();
     _disposeSoundManager();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -553,6 +587,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   SmoothCameraController? get _controller => CameraHelper.controller;
+
+  CameraScanner get _barcodeDecoder => context.read<CameraScanner>();
 }
 
 /// Provides the position to the center of the visor

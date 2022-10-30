@@ -16,7 +16,7 @@ import '../tests_utils/mocks.dart';
 void main() {
   group('UserPreferencesPage looks as expected', () {
     for (final bool themeDark in <bool>[true, false]) {
-      final String theme = themeDark ? 'dark' : 'light';
+      final String theme = themeDark ? 'Dark' : 'Light';
 
       testWidgets(theme, (WidgetTester tester) async {
         // Override & mock out HTTP Requests
@@ -28,12 +28,12 @@ void main() {
         late ThemeProvider themeProvider;
 
         SharedPreferences.setMockInitialValues(
-          mockSharedPreferences(
-            themeDark: themeDark,
-          ),
+          mockSharedPreferences(),
         );
 
         userPreferences = await UserPreferences.getUserPreferences();
+        userPreferences.setTheme(theme);
+
         productPreferences = ProductPreferences(ProductPreferencesSelection(
           setImportance: userPreferences.setImportance,
           getImportance: userPreferences.getImportance,
@@ -43,17 +43,23 @@ void main() {
         await userPreferences.init(productPreferences);
         themeProvider = ThemeProvider(userPreferences);
 
-        await tester.pumpWidget(MockSmoothApp(
-          userPreferences,
-          UserManagementProvider(),
-          productPreferences,
-          themeProvider,
-          const UserPreferencesPage(),
-        ));
+        await tester.pumpWidget(
+          MockSmoothApp(
+            userPreferences,
+            UserManagementProvider(),
+            productPreferences,
+            themeProvider,
+            const UserPreferencesPage(),
+          ),
+        );
         await tester.pump();
 
-        await expectGoldenMatches(find.byType(UserPreferencesPage),
-            'user_preferences_page-$theme.png');
+        // We need to lowercase the theme, as on some platforms
+        // the name is always lowercase
+        await expectGoldenMatches(
+          find.byType(UserPreferencesPage),
+          'user_preferences_page-${theme.toLowerCase()}.png',
+        );
         expect(tester, meetsGuideline(textContrastGuideline));
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
         expect(tester, meetsGuideline(iOSTapTargetGuideline));

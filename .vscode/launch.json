@@ -1,0 +1,34 @@
+{
+  "configurations": [
+    {
+      "name": "Android - Google Play",
+      "type": "dart",
+      "request": "launch",
+      "program": "packages/app/lib/entrypoints/android/main_google_play.dart"
+    },
+    {
+      "name": "iOS",
+      "type": "dart",
+      "request": "launch",
+      "program": "packages/app/lib/entrypoints/ios/main_ios.dart"
+    },
+    {
+      "name": "Android - FDroid",
+      "type": "dart",
+      "request": "launch",
+      "program": "packages/app/lib/entrypoints/android/main_fdroid.dart"
+    },
+    {
+      "name": "Android - Amazon App Store",
+      "type": "dart",
+      "request": "launch",
+      "program": "packages/app/lib/entrypoints/android/main_amazon_appstore.dart"
+    },
+    {
+      "name": "Android - Huawei App Gallery",
+      "type": "dart",
+      "request": "launch",
+      "program": "packages/app/lib/entrypoints/android/main_huawei_appgallery.dart"
+    }
+  ]
+}

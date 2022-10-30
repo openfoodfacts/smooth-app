@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/tmp_matched_product_v2.dart';
@@ -14,9 +13,15 @@ enum LoadingStatus {
 
 /// Model that computes the scores and sorts the barcodes accordingly.
 class PersonalizedRankingModel with ChangeNotifier {
-  PersonalizedRankingModel(this.initialBarcodes);
+  PersonalizedRankingModel(
+    this.initialBarcodes,
+    this.localDatabase,
+  ) {
+    initialBarcodes.forEach(localDatabase.upToDate.showInterest);
+  }
 
   final List<String> initialBarcodes;
+  final LocalDatabase localDatabase;
 
   late LoadingStatus _loadingStatus;
   String? _loadingError;
@@ -28,9 +33,14 @@ class PersonalizedRankingModel with ChangeNotifier {
 
   int? _timestamp;
 
+  @override
+  void dispose() {
+    initialBarcodes.forEach(localDatabase.upToDate.loseInterest);
+    super.dispose();
+  }
+
   /// Refreshes the computations.
   Future<void> refresh(
-    final LocalDatabase localDatabase,
     final ProductPreferences productPreferences,
   ) async {
     _clear();
@@ -57,6 +67,7 @@ class PersonalizedRankingModel with ChangeNotifier {
 
   /// Removes a barcode from the barcodes and from the scores.
   void dismiss(final String barcode) {
+    localDatabase.upToDate.loseInterest(barcode);
     initialBarcodes.remove(barcode);
     int? index;
     int i = 0;
@@ -99,6 +110,6 @@ class PersonalizedRankingModel with ChangeNotifier {
     return _loadingStatus == LoadingStatus.LOADED;
   }
 
-  bool needsRefresh(final UpToDateProductProvider provider) =>
-      provider.needsRefresh(_timestamp, initialBarcodes);
+  bool needsRefresh() =>
+      localDatabase.upToDate.needsRefresh(_timestamp, initialBarcodes);
 }

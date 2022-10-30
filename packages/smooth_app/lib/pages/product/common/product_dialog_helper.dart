@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
@@ -70,9 +71,12 @@ class ProductDialogHelper {
         },
       );
 
-  static Widget getErrorMessage(final String message) => ListTile(
-        leading: const Icon(Icons.error_outline, color: Colors.red),
-        title: Text(message),
+  static Widget getErrorMessage(final String message) => Row(
+        children: <Widget>[
+          const Icon(Icons.error_outline, color: Colors.red),
+          const SizedBox(width: SMALL_SPACE),
+          Expanded(child: Text(message))
+        ],
       );
 
   void _openErrorMessage(final String message) => showDialog<void>(

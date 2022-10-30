@@ -6,6 +6,10 @@
     "@add": {},
     "okay": "Tamam",
     "@okay": {},
+    "create": "Oluştur",
+    "@create": {
+        "description": "An action to create"
+    },
     "applyButtonText": "Uygula",
     "@applyButtonText": {},
     "next_label": "Sonraki",
@@ -30,6 +34,10 @@
     "@stop": {},
     "finish": "Bitir",
     "@finish": {},
+    "calculate": "Hesapla",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Yemek tercihlerini sıfırla",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -273,8 +281,8 @@
     },
     "support_join_slack": "Slack kanalımızda yardım isteyin",
     "support_via_email": "Bize bir e-posta gönder",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_title": "Uygulama günlükleri gönderilsin mi?",
+    "support_via_email_include_logs_dialog_body": "E-postanıza ek olarak uygulama günlüklerini eklemek ister misiniz?",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
     "about_this_app": "Bu uygulama hakkında",
@@ -294,8 +302,8 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Soru sormanın genelde tercih edilen yolu olan Open Food Facts Slack sohbet odasına katılabilirsiniz.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "Geliştirici Modu?",
+    "contribute_develop_dev_mode_subtitle": "DEV Modunu Etkinleştirin",
     "contribute_donate_header": "Open Food Facts'e Bağışta Bulunun",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Tamamlanacak ürünler",
@@ -320,9 +328,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Çeviriler, projenin temel görevlerinden biridir",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Open Food Facts'i arkadaşlarınızla paylaşın",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Kullanmakta olduğum uygulama olan Open Food Facts hakkında bilgi vermek istedim. Ambalaj üzerindeki barkodları okutarak çalışır. Ücretsizdir, kayıt gerektirmez ve şifresi çözülen ürün sayısını artırmaya yardımcı olabilirsiniz. İşte telefonunuza alabileceğiniz bağlantı: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -339,6 +347,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Yapacağın katkıların karşılığını alabilmek için Open Food Facts hesabına giriş yap",
+    "tap_to_edit_search": "Aramayı düzenlemek için dokunun",
     "@Personal preferences": {},
     "myPreferences": "Tercihlerim",
     "@myPreferences": {
@@ -347,7 +356,7 @@
     "myPreferences_profile_title": "Profiliniz",
     "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
     "myPreferences_settings_title": "Uygulama Ayarları",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
+    "myPreferences_settings_subtitle": "Karanlık mod, Analytics, ...",
     "myPreferences_food_title": "Yiyecek tercihleri",
     "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -363,7 +372,7 @@
     "ranking_subtitle_match_yes": "Sizin için harika bir eşleşme",
     "ranking_subtitle_match_no": "Çok zayıf eşleşme",
     "ranking_subtitle_match_maybe": "Bilinmeyen eşleşme",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Listeyi yeni tercihlerinizle yenileyin",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -435,7 +444,7 @@
     "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
     "packaging_editing_error": "Failed to save the packaging.",
     "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_title": "Paketlemeyi Düzenle",
     "nutrition": "Beslenme",
     "@nutrition": {},
     "nutrition_facts_photo": "Besin değerleri fotoğrafı",
@@ -554,6 +563,18 @@
     "product_refreshed": "Ürün yenilendi",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
+    },
+    "deprecated_header": "Uygulamanın kullanımdan kaldırılmış bir sürümünü kullanıyorsunuz.",
+    "@deprecated_header": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "click_here": "Buraya tıklayın",
+    "@click_here": {
+        "description": "Confirmation click to download new version of the app"
+    },
+    "download_new_version": "Uygulamanın yeni sürümünü indirin",
+    "@download_new_version": {
+        "description": "Download new version of the app text"
     },
     "could_not_refresh": "Ürün yenilenemedi",
     "@could_not_refresh": {
@@ -678,8 +699,16 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
+    "compare_products_appbar_title": "Ürünleri karşılaştırın",
+    "@compare_products_appbar_title": {
+        "description": "AppBar title when in comparison mode "
+    },
+    "compare_products_appbar_subtitle": "Lütfen en az iki ürün seçin",
+    "@compare_products_appbar_subtitle": {
+        "description": "AppBar subtitle when in comparison mode"
+    },
     "retry_button_label": "Tekrar dene",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Bizimle iletişime geçin",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
@@ -687,22 +716,34 @@
     "blog": "Blog",
     "faq": "SSS",
     "discover": "Keşfet",
-    "how_to_contribute": "How to Contribute",
+    "how_to_contribute": "Nasıl Katkıda Bulunulur",
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
-    "consent_analytics_title": "Send anonymous analytics",
+    "consent_analytics_title": "Anonim analizler gönder",
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Uygulamayı geliştirmek için Open Food Facts gönüllülerine yardım edin. Anonim analizlerin gönderilip gönderilmeyeceğine siz karar verirsiniz.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Fikrinizi değiştirirseniz, bu seçenek istediğiniz zaman ayarlardan etkinleştirilebilir ve devre dışı bırakılabilir.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
+    },
+    "permissions_page_title": "Kamera erişimi",
+    "@permissions_page_title": {
+        "description": "Title for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body1": "Barkodları telefonunuzun kamerasıyla taramak için lütfen erişimi yetkilendirin.",
+    "@permissions_page_body1": {
+        "description": "first paragraph for the camera permission's page (onboarding)"
+    },
+    "permissions_page_body2": "Fikrinizi değiştirirseniz, bu seçenek istediğiniz zaman ayarlardan etkinleştirilebilir ve devre dışı bırakılabilir.",
+    "@permissions_page_body2": {
+        "description": "second paragraph for the camera permission's page (onboarding)"
     },
     "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
     "@contact_form_body_android": {
@@ -774,13 +815,17 @@
             }
         }
     },
-    "authorize_button_label": "Yetkilendir",
+    "authorize_button_label": "Yetkilendirme",
     "@authorize": {
-        "description": "Button to accept the request of sending the anonymous analytics"
+        "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
     "refuse_button_label": "Reddet",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
+    },
+    "ask_me_later_button_label": "Daha sonra",
+    "@ask_me_later": {
+        "description": "Button to ignore the camera permission request"
     },
     "knowledge_panel_text_source": "Go further on {source_name}",
     "@knowledge_panel_text_source": {
@@ -811,7 +856,7 @@
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "History not available",
+    "product_list_empty_icon_desc": "Geçmiş kullanılamıyor",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
@@ -867,7 +912,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "{id} hoş geldiniz!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -889,42 +934,14 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "Uygulama",
+    "settings_app_data": "Gizlilik ve izleme",
+    "settings_app_camera": "Kamera",
+    "settings_app_products": "Ürünler",
+    "settings_app_miscellaneous": "Çeşitli",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_high_resolution_preset_toggle_title": "High performance mode",
-    "@camera_high_resolution_preset_toggle_title": {
-        "description": "Title for the Camera high resolution toggle"
-    },
-    "camera_high_resolution_preset_toggle_subtitle": "When enabled, barcodes decoding quality should be better, but may impact performance and battery life. Requires an application restart.",
-    "@camera_high_resolution_preset_toggle_subtitle": {
-        "description": "SubTitle for the Camera high resolution toggle"
-    },
-    "camera_focus_point_algorithm_title": "Focus mode",
-    "@camera_focus_point_algorithm_title": {
-        "description": "Title for the Camera focus mode (Android only)"
-    },
-    "camera_focus_point_algorithm_subtitle": "Current mode: {mode}\n{reason}",
-    "@camera_focus_point_algorithm_subtitle": {
-        "description": "SubTitle for the Camera focus mode (Android only)",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            },
-            "reason": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_focus_point_algorithm_value_auto_label": "Otomatik",
-    "camera_focus_point_algorithm_value_auto_description": "Let the system choose automatically between fast and safe modes.",
-    "camera_focus_point_algorithm_value_new_algorithm_label": "Fast mode",
-    "camera_focus_point_algorithm_value_new_algorithm_description": "A mode recommended to recent devices.",
-    "camera_focus_point_algorithm_value_old_algorithm_label": "Safe mode",
-    "camera_focus_point_algorithm_value_old_algorithm_description": "If fast mode doesn't work, this should resolve your focus issues.",
     "camera_play_sound_title": "Taranınca ses çıkar",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
@@ -933,7 +950,30 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "crash_reporting_toggle_title": "Crash reporting",
+    "camera_mode_title": "Tarayıcı modu",
+    "@camera_mode_title": {
+        "description": "Title for the mode for the camera/scanner"
+    },
+    "camera_mode_subtitle": "Bu değeri yalnızca tarayıcıyla ilgili bazı sorunlarınız varsa (barkodları çözemiyorsanız) değiştirin. İki mod arasında geçiş yapmak için dokunun.\nGeçerli olan: {mode}",
+    "@camera_mode_subtitle": {
+        "description": "SubTitle for the mode for the camera/scanner",
+        "placeholders": {
+            "mode": {
+                "type": "String"
+            }
+        }
+    },
+    "camera_mode_file_based": "Güvenli mod (varsayılan olarak)",
+    "camera_mode_bytes_array_based": "Hızlı mod",
+    "app_haptic_feedback_title": "Titreşim ve Dokunma",
+    "@app_haptic_feedback_title": {
+        "description": "Title for the Haptic feedback toggle"
+    },
+    "app_haptic_feedback_subtitle": "Bazı eylemler gerçekleştirildikten sonra titreşimler (barkod kodu çözüldü, ürün kaldırıldı…).",
+    "@app_haptic_feedback_subtitle": {
+        "description": "SubTitle for the Haptic feedback toggle"
+    },
+    "crash_reporting_toggle_title": "Çökme raporlaması",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
@@ -941,11 +981,11 @@
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
-    "send_anonymous_data_toggle_title": "Send anonymous data",
+    "send_anonymous_data_toggle_title": "Anonim veri gönder",
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "Etkinleştirildiğinde, uygulama kullanımıyla ilgili bazı anonim bilgiler Open Food Facts sunucularına gönderilir, böylece onları geliştirmek için özelliklerin nasıl ve ne kadar kullanıldığını anlayabiliriz.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -958,7 +998,7 @@
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
     "permission_photo_denied_title": "Barkodları taramak için kamera kullanımına izin verin",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_message": "Gelişmiş bir deneyim için lütfen {appName} kameranıza erişmesine izin verin. Barkodları doğrudan tarayabileceksiniz.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -1027,7 +1067,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spain",
+    "edit_product_form_item_origins_hint": "İspanya",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1035,7 +1075,7 @@
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Örnekler: Arjantin'den sığır eti, Soya Avrupa Birliği'nden gelmiyor",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1043,7 +1083,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "İspanya",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1079,15 +1119,20 @@
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Örnekler: Zeytinyağında sardalya, Konsantreden portakal suyu",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Sayfadan ayrılmadan önce değişiklikleri kaydetmek istiyor musunuz?",
+    "edit_product_form_item_exit_confirmation_positive_button": "Değişikliklerimi kaydet",
+    "edit_product_form_item_exit_confirmation_negative_button": "Değişikliklerimi yoksay",
     "edit_product_form_item_ingredients_title": "İçerikler ve kökenleri",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
+    "edit_product_form_item_add_valid_item_tooltip": "Ekle",
+    "edit_product_form_item_add_invalid_item_tooltip": "Lütfen önce bir metin girin",
+    "edit_product_form_item_remove_item_tooltip": "Kaldır",
     "edit_product_form_item_packaging_title": "Ambalaj",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1105,7 +1150,7 @@
         "description": "Product edition - Nutrition facts - Save button"
     },
     "completed_basic_details_btn_text": "Temel bilgileri tamamlayın",
-    "not_implemented_snackbar_text": "Not implemented yet",
+    "not_implemented_snackbar_text": "Henüz uygulanmadı",
     "category_picker_page_appbar_text": "Kategoriler",
     "edit_ingredients_extrait_ingredients_btn_text": "İçindekileri çıkartın",
     "@edit_ingredients_extrait_ingredients_btn_text": {
@@ -1135,9 +1180,17 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_button_new": "Yeni liste",
+    "user_list_add_product": "Ürünü listelerinize ekleyin",
+    "@user_list_add_product": {
+        "description": "Label for the dialog to add a product to a list"
+    },
+    "user_list_button_new": "Yeni bir liste oluştur",
     "@user_list_button_new": {
-        "description": "Short label of a 'new list' button"
+        "description": "Short label of a 'create a new list' button"
+    },
+    "user_list_empty_label": "Henüz liste yok,\nlütfen yeni bir tane oluşturarak başlayın",
+    "@user_list_empty_label": {
+        "description": "Content displayed when there is no list"
     },
     "user_list_button_add_product": "Listeye ekle",
     "@user_list_button_add_product": {
@@ -1225,7 +1278,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test env parameters",
+    "dev_preferences_test_environment_title": "Ortam parametrelerini test edin",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1238,19 +1291,19 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test Env Host",
+    "dev_preferences_test_environment_dialog_title": "Ortam Ana Bilgisayarını Test Et",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
-    "dev_preferences_ml_kit_title": "Use ML Kit",
+    "dev_preferences_ml_kit_title": "ML Kitini Kullan",
     "@dev_preferences_ml_kit_title": {
         "description": "User dev preferences - Enable ML Kit - Title"
     },
-    "dev_preferences_ml_kit_subtitle": "then you have to restart this app",
+    "dev_preferences_ml_kit_subtitle": "o zaman bu uygulamayı yeniden başlatmanız gerekiyor",
     "@dev_preferences_ml_kit_subtitle": {
         "description": "User dev preferences - Enable ML Kit - Subtitle"
     },
-    "dev_preferences_product_additional_features_title": "Additional button on product page",
+    "dev_preferences_product_additional_features_title": "Ürün sayfasındaki ek düğme",
     "@dev_preferences_product_additional_features_title": {
         "description": "User dev preferences - Additional buttons on product page - Title"
     },
@@ -1262,7 +1315,7 @@
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
-    "dev_preferences_export_history_progress_error": "exception",
+    "dev_preferences_export_history_progress_error": "istisna",
     "@dev_preferences_export_history_progress_error": {
         "description": "User dev preferences - Export history - Item - Error"
     },
@@ -1295,7 +1348,7 @@
             }
         }
     },
-    "dev_preferences_migration_status_already_done": "success or fresh install",
+    "dev_preferences_migration_status_already_done": "başarı veya yeni yükleme",
     "dev_preferences_migration_status_success": "başarı",
     "dev_preferences_migration_status_error": "hata",
     "dev_preferences_migration_status_in_progress": "devam ediyor",
@@ -1305,7 +1358,7 @@
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
     },
-    "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
+    "dev_preferences_import_history_subtitle": "Geçmişi temizleyecek ve oraya 3 ürün koyacak",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
@@ -1338,19 +1391,19 @@
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "Camera stream and full image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_full_image": "Kamera akışı ve tam görüntü ön işleme, tarama yok",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_half_image": "Kamera akışı ve yarım görüntü ön işleme, tarama yok",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "Full image scanning",
+    "dev_mode_scan_scan_full_image": "Tam görüntü tarama",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Yarım görüntü tarama",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
@@ -1378,15 +1431,15 @@
             }
         }
     },
-    "user_search_contributor_title": "Products I added",
+    "user_search_contributor_title": "Eklediğim Ürünler",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "Products I edited",
+    "user_search_informer_title": "Düzenlediğim ürünler",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "Products I photographed",
+    "user_search_photographer_title": "Fotoğrafını çektiğim ürünler",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
@@ -1410,7 +1463,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Open Food Facts'i kabul ediyorum ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1474,9 +1527,27 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "You're about to delete your entire history, are you sure you want to continue?",
+    "confirm_clear": "Tüm geçmişinizi temizlemek üzeresiniz: devam etmek istediğinizden emin misiniz?",
     "@confirm_clear": {
-        "description": "Asking about whether to clear the list or not"
+        "description": "Asking about whether to clear the history list or not"
+    },
+    "confirm_clear_user_list": "Bu listeyi temizlemek üzeresiniz ({name}): devam etmek istediğinizden emin misiniz?",
+    "@confirm_clear_user_list": {
+        "description": "Asking about whether to clear the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "confirm_delete_user_list": "Bu listeyi silmek üzeresiniz ({name}): devam etmek istediğinizden emin misiniz?",
+    "@confirm_delete_user_list": {
+        "description": "Asking about whether to delete the list or not",
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
     },
     "importance_label": "{name} önemi: {id}",
     "@importance_label": {
@@ -1509,7 +1580,7 @@
     "@add_list_label": {
         "description": "Label for the add list button"
     },
-    "open_food_preferences_tooltip": "Edit your food preferences",
+    "open_food_preferences_tooltip": "Yemek tercihlerinizi düzenleyin",
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
@@ -1517,15 +1588,15 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "choose_image_source_title": "Choose image source",
+    "choose_image_source_title": "Görüntü kaynağını seçin",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "Please choose a image source",
+    "choose_image_source_body": "Lütfen bir resim kaynağı seçin",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },
-    "gallery_source_label": "Gallery",
+    "gallery_source_label": "Galeri",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
@@ -1542,37 +1613,41 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "Yeni Yakala",
     "@capture": {
         "description": "Button label for taking a photo"
     },
-    "choose_from_gallery": "Choose from gallery",
+    "choose_from_gallery": "Galeriden seç",
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
+    },
+    "image_upload_queued": "Resim en kısa sürede arka planda yüklenecektir.",
+    "@image_upload_queued": {
+        "description": "Message when a photo is queued for upload"
     },
     "expand_nutrition_facts": "Expand nutrition facts table",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
     "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-    "expand_ingredients": "Expand ingredients",
+    "expand_ingredients": "Malzemeleri genişlet",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "Keep the ingredients panel expanded",
-    "no_internet_connection": "No internet connection",
+    "expand_ingredients_body": "Malzemeler panelini genişletilmiş tutun",
+    "no_internet_connection": "İnternet bağlantısı yok",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Results from the entire world",
+    "world_results_label": "Tüm dünya",
     "@world_results_label": {
-        "description": "Label describing the current source of the results: the entire world"
+        "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Search world",
+    "world_results_action": "Aramanızı dünyaya genişletin",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
+    "clipboard_barcode_copy": "Barkodu panoya kopyala",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1582,12 +1657,76 @@
             }
         }
     },
-    "choose_app_language": "Choose App Language",
+    "clipboard_barcode_copied": "Barkod {barcode} panoya kopyalandı!",
+    "choose_app_language": "Uygulama Dilini Seçin",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Help with OpenFoodFacts",
+    "help_with_openfoodfacts": "OpenFoodFacts ile Yardım",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
+    },
+    "product_task_background_schedule": "Ürün en kısa sürede arka planda güncellenecektir.",
+    "@product_task_background_schedule": {
+        "description": "Message when a product is scheduled for background update"
+    },
+    "no_email_client_available_dialog_title": "E-posta uygulaması yok!",
+    "@no_email_client_available_dialog_title": {
+        "description": "Title for the dialog when no email client is installed on the device"
+    },
+    "no_email_client_available_dialog_content": "Lütfen bize manuel olarak contact@openfoodfacts.org adresine bir e-posta gönderin",
+    "@no_email_client_available_dialog_content": {
+        "description": "Content for the dialog when no email client is installed on the device"
+    },
+    "all_images": "Tüm Resimler",
+    "selected_images": "Seçilmiş Resimler",
+    "product_card_remove_product_tooltip": "Ürünü kaldır",
+    "@product_card_remove_product_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "portion_calculator_description": "Belirli bir miktar için besin değerlerini hesaplayın",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "{grams} g (veya ml) için besin değerleri",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
+    "offline_data": "Çevrimdışı Veri",
+    "@offline_data": {
+        "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Sağlanan bilgileri otomatik olarak çıkarmak için bir resim yükleyin",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Fotoğraf Yükle",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
+    },
+    "word_separator_char": ",",
+    "@word_separator_char": {
+        "description": "Word separator character. In English language, this is a comma: ','"
+    },
+    "word_separator": ", ",
+    "@word_separator": {
+        "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "image_download_error": "Resim indirilemedi",
+    "@image_download_error": {
+        "description": "Error message, when image download fails"
+    },
+    "image_edit_url_error": "Resim düzenlenemedi, resim url'si ayarlanmadı.",
+    "@image_edit_url_error": {
+        "description": "Error message, when editing image fails, due to missing url."
+    },
+    "robotoff_continue": "Devam et",
+    "@robotoff_continue": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
 }

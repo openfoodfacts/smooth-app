@@ -4,17 +4,23 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/scan/camera_controller.dart';
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
       : _sharedPreferences = sharedPreferences;
 
+  /// Singleton
+  static UserPreferences? _instance;
   final SharedPreferences _sharedPreferences;
 
   static Future<UserPreferences> getUserPreferences() async {
-    final SharedPreferences preferences = await SharedPreferences.getInstance();
-    return UserPreferences._shared(preferences);
+    if (_instance == null) {
+      final SharedPreferences preferences =
+          await SharedPreferences.getInstance();
+      _instance = UserPreferences._shared(preferences);
+    }
+
+    return _instance!;
   }
 
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
@@ -32,16 +38,19 @@ class UserPreferences extends ChangeNotifier {
   // Detect if a first successful scan was achieved (condition to show the
   // tagline)
   static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
-  // Which preset to use
-  static const String _TAG_SCAN_CAMERA_RESOLUTION_PRESET =
-      'camera_resolution_preset';
+
   // Use the flash/torch with the camera
   static const String _TAG_USE_FLASH_WITH_CAMERA = 'enable_flash_with_camera';
+
+  // Alternative mode for the camera (file based implementation on Android)
+  static const String _TAG_CAMERA_USE_FILE_BASED_MODE =
+      'camera_alternative_mode';
+
   // Play sound when decoding a barcode
   static const String _TAG_PLAY_CAMERA_SCAN_SOUND = 'camera_scan_sound';
-  // Which algorithm to use with the camera (Android only)
-  static const String _TAG_CAMERA_FOCUS_POINT_ALGORITHM =
-      'camera_focus_point_algorithm';
+
+  /// Vibrations / haptic feedback
+  static const String _TAG_HAPTIC_FEEDBACK_IN_APP = 'haptic_feedback_enabled';
 
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
@@ -164,14 +173,17 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> setUseVeryHighResolutionPreset(bool enableFeature) async {
+  bool? get useFileBasedCameraMode =>
+      _sharedPreferences.getBool(_TAG_CAMERA_USE_FILE_BASED_MODE);
+
+  Future<void> setUseFileBasedCameraMode(final bool fileBasedMode) async {
     await _sharedPreferences.setBool(
-        _TAG_SCAN_CAMERA_RESOLUTION_PRESET, enableFeature);
+      _TAG_CAMERA_USE_FILE_BASED_MODE,
+      fileBasedMode,
+    );
+
     notifyListeners();
   }
-
-  bool get useVeryHighResolutionPreset =>
-      _sharedPreferences.getBool(_TAG_SCAN_CAMERA_RESOLUTION_PRESET) ?? false;
 
   Future<void> setPlayCameraSound(bool playSound) async {
     await _sharedPreferences.setBool(_TAG_PLAY_CAMERA_SCAN_SOUND, playSound);
@@ -181,16 +193,13 @@ class UserPreferences extends ChangeNotifier {
   bool get playCameraSound =>
       _sharedPreferences.getBool(_TAG_PLAY_CAMERA_SCAN_SOUND) ?? false;
 
-  Future<void> setCameraFocusAlgorithm(
-      CameraFocusPointAlgorithm algorithm) async {
-    await _sharedPreferences.setInt(
-        _TAG_CAMERA_FOCUS_POINT_ALGORITHM, algorithm.index);
+  Future<void> setHapticFeedbackEnabled(bool enabled) async {
+    await _sharedPreferences.setBool(_TAG_HAPTIC_FEEDBACK_IN_APP, enabled);
     notifyListeners();
   }
 
-  CameraFocusPointAlgorithm get cameraFocusPointAlgorithm =>
-      CameraFocusPointAlgorithm.values[
-          _sharedPreferences.getInt(_TAG_CAMERA_FOCUS_POINT_ALGORITHM) ?? 0];
+  bool get hapticFeedbackEnabled =>
+      _sharedPreferences.getBool(_TAG_HAPTIC_FEEDBACK_IN_APP) ?? true;
 
   Future<void> setDevMode(final int value) async {
     await _sharedPreferences.setInt(_TAG_DEV_MODE, value);

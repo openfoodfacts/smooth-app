@@ -101,22 +101,27 @@ class OnboardingBottomIcon extends StatelessWidget {
     required this.backgroundColor,
     required this.foregroundColor,
     required this.icon,
+    this.iconPadding,
   });
 
   final VoidCallback onPressed;
   final Color backgroundColor;
   final Color foregroundColor;
   final IconData icon;
+  final EdgeInsetsGeometry? iconPadding;
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(MEDIUM_SPACE),
-          primary: backgroundColor,
-          onPrimary: foregroundColor,
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
         ),
         onPressed: onPressed,
-        child: Icon(icon),
+        child: Padding(
+          padding: iconPadding ?? EdgeInsets.zero,
+          child: Icon(icon),
+        ),
       );
 }

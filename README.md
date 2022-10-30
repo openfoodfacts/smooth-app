@@ -4,26 +4,68 @@
   <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
 </picture>
 
-# New Open Food Facts mobile app for Android and iPhone - Codename: "Smooth App"
+<br>
+
+## Smooth App : The new Open Food Facts mobile app for Android and iPhone
+
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-Latest commit deployed to App Stores: (August 4th 2022) https://github.com/openfoodfacts/smooth-app/releases/tag/v3.6.0
+- Latest deployed release: [here](https://github.com/openfoodfacts/smooth-app/releases/tag/v3.23.0)
 
-A new Flutter application by [Open Food Facts](https://github.com/openfoodfacts). You can install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
+- A <b> Flutter application </b> by [Open Food Facts](https://github.com/openfoodfacts). 
 
-Smoothie. We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up, and this time, it’s personal.
+- We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up.
 
-## You get: 
+- Install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
+
+
+
+<br>
+
+<details><summary><h2> More Info </h2></summary>
+
+## You get : 
 - a scan that truly matches who you are (Green: the product matches your criteria, Red: there is a problem, Gray: Help us answer you by photographing the products)
 - a product page that's knowledgeable, building on the vast amount of food facts we collect collaboratively, and other sources of knowledge, to help you make better food decisions
-## You can: 
+## You can : 
 - scan and compare in 15 seconds the 3 brands of tomato sauces left on the shelf, on your terms.
 - get a tailored comparison of any food category
 - set your preferences without ruining your privacy
 
-## Criteria you can pick: 
+## Criteria you can pick : 
 - Environment: Eco-Score
 - Health: Additives & Ultra processed foods, Salt, Allergens, Nutri-Score
+
+</details>
+
+<br>
+
+## About this Repository
+
+![GitHub language count](https://img.shields.io/github/languages/count/openfoodfacts/smooth-app?style=for-the-badge&color=brightgreen)
+![GitHub top language](https://img.shields.io/github/languages/top/openfoodfacts/smooth-app?style=for-the-badge&color=aqua)
+![GitHub last commit](https://img.shields.io/github/last-commit/openfoodfacts/smooth-app?style=for-the-badge&color=blue)
+![Github Repo Size](https://img.shields.io/github/repo-size/openfoodfacts/smooth-app?style=for-the-badge&color=aqua)
+
+
+
+
+<br>
+
+
+<b>How to run the project:</b>
+
+In order to run the application, make sure you are in the `packages/app` directory and run these commands :
+
+- `flutter pub get .`
+  
+- On Android 🤖: `flutter run -t lib/entrypoints/android/main_google_play.dart`
+
+- On iOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
+
+- [Contributing Guidelines](https://github.com/openfoodfacts/smooth-app/blob/develop/CONTRIBUTING.md)
+
+<br>
 
 ## Presentation
 
@@ -34,84 +76,19 @@ This new mobile application aims to showcase Open Food Facts's power to a broad 
 Smooth-app is developed in parallel to the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which provides a high level interface with the Open Food Facts API.
 Every new interaction with the API should be implemented in the plugin in order to provide these new features to other developers.
 
-## Contributing - What can I work on ?
+<br>
 
-Are you a developer? A graphic designer? Full of innovative ideas to help users improve their mode of consumption? Then join us!
-We are always looking for new contributors, if you're willing to help please let us know, we'll be pleased to introduce you to the project.
+<details><summary><h3> Thanking Message </h3></summary>
 
-- On GitHub, [you can start here to get some inspiration](https://github.com/openfoodfacts/smooth-app/issues/525) 
-- You can join the Open Food Facts's Slack here : [Get an invite](https://slack.openfoodfacts.org) - [Open our Slack](https://openfoodfacts.slack.com).
+The app was initially created by Primael. The new Open Food Facts app (smooth_app) was then made possible thanks to an initial grant by the Mozilla Foundation in February 2020, after Pierre pitched them the idea at FOSDEM. A HUGE THANKS 🧡
+In addition to the core role of the community, we also had the support from several Google.org fellows and a ShareIt fellow that helped us eventually release the app in June 2022.
 
-## Wiki & Doc 
-- [Project Smoothie - Open Food Facts wiki](https://wiki.openfoodfacts.org/Project_Smoothie)
-- [Documentation (from code), on GitHub Pages](https://openfoodfacts.github.io/smooth-app/)
-- [Project Smoothie GitHub wiki](https://github.com/openfoodfacts/smooth-app/wiki)
-- [Project Smoothie marketing automation repository](https://github.com/openfoodfacts/fastlane-descriptions-smoothie/pulls)
-- [UX mockups are located here](https://www.figma.com/file/lhRhMulB4Ek9NYDWl3FxAo/Fellowship-Jam-file?node-id=12%3A358). Please be aware that some of them have not been validated, so don't rush in implementing them. 
-- [Continuous Integration documentation](.github/workflows/README.md)
-- [Project Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
-- Private app signing for iOS certificates repository - please ask @teolemon
+</details>
 
-## Custom dependencies (forked versions)
-- [g123k/plugins](https://github.com/g123k/plugins) - We use our own fork of the camera plugin to be able to hotfix problems in it we find.
+<br>
 
-## V1 Roadmap (Shipped on June 15th 2022 for Vivatech)
-- [x] We should be able to ship the Smoothie code to the main listing on Android and iOS
-- [x] The app should be able to scan very well
-- [x] Minimal Road to Scores (you should be able to get Nutri-Score and Eco-Score on any unknown/uncomplete product in 2 minutes, using editing and/or product addition
-  - [x] Initial photo taking, good ingredient extraction, Nutrition input, Category input (TODO)
-- [ ] Personalization system that does not feel weird during setup, where people understand consequence, and where ranking match their expectations even in stretch cases (lack of data on some product, selecting Nutri-Score and all Low-in Nutrients…), where red-lines are clearly shown (allergens) with potential caveats, where solutions are proposed and warning issued in case of lack of data.
-- [x] Database migration for existing Android and iOS users (minimum: history, credentials, if possible with allergen alerts, lists)
-- [x] A Welcome scan card that can broadcast a message from the Open Food Facts team per country/language (Tagline)
-- [x] On-page photo refresh capabilities (Not working well)
-- [ ] Revamped settings that are less cluttered, and can make way in the future for things the user will go see more often.
-- [x] [V1 tracking](https://github.com/orgs/openfoodfacts/projects/7)
+## Contributors
 
-## V1.1 - Later Roadmap
-- [ ] Speedup image upload
-- [ ] Fix HTTP header and contribution comments
-- [ ] Add power edit mode that concatenates all the editable things for faster contribution
-- [ ] Add a list of things to do contribution wise on the product (via KP or natively)
-- [ ] Clarify the alternative product proposition
-- [ ] Allow to switch languages
-- [ ] Allow to expand search results to the world
-- [ ] Reintroduce the portion calculator
-
-## V2 - Later Roadmap
-
-
-### Gamification
-- [ ] User management + Small point system for contributions
-
-### Scanning
-- [ ] [Add offline scanning to ensure results in all conditions](https://github.com/openfoodfacts/smooth-app/issues/18)
-
-
-### Screenshot automation (nice to have)
-- [ ] [Add multilingual screenshot generation using Fastlane (Scan screen, settings screen, personalized ranking screen, home screen)](https://github.com/openfoodfacts/smooth-app/issues/217)
-
-## Building
-
-In order to build the application, make sure you are in the packages/smooth_app directory and run these commands :
- - flutter pub get
- - flutter run
-
-### Dev Mode
-- How to activate it: We now have a in-app dev mode which allows you to debug things faster, or access not-ready-for-primetime features. You can access it by going to Preferences screen > Contribute > Software Development, and then enabling Dev Mode.
-- Feel free to file an issue if you'd like new switches in this dev mode.
-- You can also add new flags for your features.
-  - example: https://github.com/openfoodfacts/smooth-app/pull/834
-
-## Internationalization
-
-- Translations of the interface are managed using the new [Flutter internationalization](https://github.com/openfoodfacts/openfoodfacts-hungergames/blob/master/src/i18n/common.json) introduced in Flutter 1.22.
-- New strings need to be added to lib/l10n/app_en.arb and the [corresponding translations can be added through CrowdIn](https://translate.openfoodfacts.org/translate/openfoodfacts/1322). Do not edit the other app_*.arb files as they will be overwritten by CrowdIn.
-
-![Crowdin Action](https://github.com/openfoodfacts/smooth-app/workflows/Crowdin%20Action/badge.svg)
-
-### Error reporting - Sentry
-[Track crashes](https://sentry.io/organizations/openfoodfacts/issues/?project=5376745)
-
-
-## Thank you
-The new Open Food Facts app (smooth_app) is made possible thanks to a grant by the Mozilla Foundation, after pitching them the idea at FOSDEM. a HUGE thank you :-) 
+<a href="https://github.com/openfoodfacts/smooth-app/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=openfoodfacts/smooth-app" />
+</a>

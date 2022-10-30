@@ -1,5 +1,6 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,6 +8,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
@@ -55,6 +57,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           leading: SvgPicture.asset(
             'assets/preferences/instagram-camera.svg',
             width: DEFAULT_ICON_SIZE,
+            package: AppHelper.APP_PACKAGE,
           ),
         ),
         _getListTile(
@@ -63,6 +66,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           leading: SvgPicture.asset(
             'assets/preferences/twitter-bird.svg',
             width: DEFAULT_ICON_SIZE,
+            package: AppHelper.APP_PACKAGE,
           ),
         ),
         _getListTile(
@@ -108,7 +112,28 @@ class UserPreferencesConnect extends AbstractUserPreferences {
               attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
             );
 
-            await FlutterEmailSender.send(email);
+            try {
+              await FlutterEmailSender.send(email);
+            } on PlatformException catch (e) {
+              if (e.code == 'not_available') {
+                // No email client installed on the device
+                showDialog<void>(
+                  context: context,
+                  builder: (_) => SmoothAlertDialog(
+                    title:
+                        appLocalizations.no_email_client_available_dialog_title,
+                    body: Text(appLocalizations
+                        .no_email_client_available_dialog_content),
+                    positiveAction: SmoothActionButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      text: appLocalizations.okay,
+                    ),
+                  ),
+                );
+              }
+            }
           },
         ),
       ];

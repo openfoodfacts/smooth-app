@@ -4,6 +4,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/onboarding/consent_analytics_page.dart';
+import 'package:smooth_app/pages/onboarding/permissions_page.dart';
 import 'package:smooth_app/pages/onboarding/preferences_page.dart';
 import 'package:smooth_app/pages/onboarding/reinvention_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_eco_card_page.dart';
@@ -21,6 +22,7 @@ enum OnboardingPage {
   HEALTH_CARD_EXAMPLE,
   ECO_CARD_EXAMPLE,
   PREFERENCES_PAGE,
+  PERMISSIONS_PAGE,
   CONSENT_PAGE,
   ONBOARDING_COMPLETE,
 }
@@ -53,6 +55,8 @@ class OnboardingFlowNavigator {
       case OnboardingPage.ECO_CARD_EXAMPLE:
         return OnboardingPage.PREFERENCES_PAGE;
       case OnboardingPage.PREFERENCES_PAGE:
+        return OnboardingPage.PERMISSIONS_PAGE;
+      case OnboardingPage.PERMISSIONS_PAGE:
         return OnboardingPage.CONSENT_PAGE;
       case OnboardingPage.CONSENT_PAGE:
         return OnboardingPage.ONBOARDING_COMPLETE;
@@ -76,8 +80,10 @@ class OnboardingFlowNavigator {
         return OnboardingPage.HEALTH_CARD_EXAMPLE;
       case OnboardingPage.PREFERENCES_PAGE:
         return OnboardingPage.ECO_CARD_EXAMPLE;
-      case OnboardingPage.CONSENT_PAGE:
+      case OnboardingPage.PERMISSIONS_PAGE:
         return OnboardingPage.PREFERENCES_PAGE;
+      case OnboardingPage.CONSENT_PAGE:
+        return OnboardingPage.PERMISSIONS_PAGE;
       case OnboardingPage.ONBOARDING_COMPLETE:
         return OnboardingPage.CONSENT_PAGE;
     }
@@ -92,6 +98,7 @@ class OnboardingFlowNavigator {
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
+      case OnboardingPage.PERMISSIONS_PAGE:
       case OnboardingPage.CONSENT_PAGE:
         return false;
       case OnboardingPage.ONBOARDING_COMPLETE:
@@ -150,11 +157,17 @@ class OnboardingFlowNavigator {
           page,
           PreferencesPage(localDatabase, getBackgroundColor(page)),
         );
+      case OnboardingPage.PERMISSIONS_PAGE:
+        return _wrapWidgetInCustomBackNavigator(
+          context,
+          page,
+          PermissionsPage(getBackgroundColor(page)),
+        );
       case OnboardingPage.CONSENT_PAGE:
         return _wrapWidgetInCustomBackNavigator(
           context,
           page,
-          ConsentAnalytics(getBackgroundColor(page)),
+          ConsentAnalyticsPage(getBackgroundColor(page)),
         );
       case OnboardingPage.ONBOARDING_COMPLETE:
         return InheritedDataManager(child: PageManager());
@@ -176,6 +189,8 @@ class OnboardingFlowNavigator {
         return const Color(0xFFE3F6DE);
       case OnboardingPage.PREFERENCES_PAGE:
         return const Color(0xFFEBF1FF);
+      case OnboardingPage.PERMISSIONS_PAGE:
+        return const Color(0xFFEBF1FF);
       case OnboardingPage.CONSENT_PAGE:
         return const Color(0xFFFFF2DF);
       case OnboardingPage.ONBOARDING_COMPLETE:
@@ -192,6 +207,7 @@ class OnboardingFlowNavigator {
       child: Builder(
         builder: (BuildContext context) => SmoothScaffold(
           body: widget,
+          brightness: Brightness.dark,
         ),
       ),
     );

@@ -1,10 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.openfoodfacts.scanner"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:installLocation="auto">
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+<manifest package="org.openfoodfacts.smooth_app">
 
     <!-- Provide required visibility configuration for API level 30 and above -->
     <queries>
@@ -24,18 +18,15 @@
             <data android:mimeType="*/*"/>
         </intent>
         <intent>
-            <action android:name="android.intent.action.SENDTO" />
-            <data android:scheme="mailto" />
+            <action android:name="android.intent.action.SENDTO"/>
+            <data android:scheme="mailto"/>
         </intent>
     </queries>
 
     <application
-            android:label="OpenFoodFacts"
-            android:name="${applicationName}"
-            android:icon="@mipmap/ic_launcher"
             android:allowBackup="true"
-            android:fullBackupContent="@xml/backup_scheme"
-            android:hasFragileUserData="true" tools:targetApi="q">
+            android:fullBackupContent="@xml/backup_scheme">
+
         <activity
                 android:name=".MainActivity"
                 android:exported="true"
@@ -58,6 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data

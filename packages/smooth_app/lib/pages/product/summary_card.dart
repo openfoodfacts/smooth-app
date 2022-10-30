@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:openfoodfacts/personalized_search/preference_importance.dart';
@@ -11,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -22,17 +20,17 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_category_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/question_page.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/query/robotoff_questions_query.dart';
+import 'package:smooth_app/query/product_questions_query.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -81,6 +79,7 @@ class SummaryCard extends StatefulWidget {
 
 class _SummaryCardState extends State<SummaryCard> {
   late Product _product;
+  late final LocalDatabase _localDatabase;
   late final bool allowClicking;
 
   // Number of Rows that will be printed in the SummaryCard, initialized to a
@@ -96,36 +95,39 @@ class _SummaryCardState extends State<SummaryCard> {
     super.initState();
     allowClicking = !widget.isFullVersion;
     _product = widget._product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_product.barcode!);
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<UpToDateProductProvider>(
-        builder: (
-          final BuildContext context,
-          final UpToDateProductProvider provider,
-          final Widget? child,
-        ) =>
-            LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            final Product? refreshedProduct = provider.get(_product);
-            if (refreshedProduct != null) {
-              _product = refreshedProduct;
-            }
-            if (widget.isFullVersion) {
-              return buildProductSmoothCard(
-                header: _buildProductCompatibilityHeader(context),
-                body: Padding(
-                  padding: SMOOTH_CARD_PADDING,
-                  child: _buildSummaryCardContent(context),
-                ),
-                margin: EdgeInsets.zero,
-              );
-            } else {
-              return _buildLimitedSizeSummaryCard(constraints.maxHeight);
-            }
-          },
-        ),
-      );
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final Product? refreshedProduct = localDatabase.upToDate.get(_product);
+        if (refreshedProduct != null) {
+          _product = refreshedProduct;
+        }
+        if (widget.isFullVersion) {
+          return buildProductSmoothCard(
+            header: _buildProductCompatibilityHeader(context),
+            body: Padding(
+              padding: SMOOTH_CARD_PADDING,
+              child: _buildSummaryCardContent(context),
+            ),
+            margin: EdgeInsets.zero,
+          );
+        }
+        return _buildLimitedSizeSummaryCard(constraints.maxHeight);
+      },
+    );
+  }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
     totalPrintableRows = parentHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
@@ -321,9 +323,9 @@ class _SummaryCardState extends State<SummaryCard> {
           addPanelButton(
             localizations.completed_basic_details_btn_text,
             onPressed: () async {
-              await Navigator.push<Product?>(
+              await Navigator.push<void>(
                 context,
-                MaterialPageRoute<Product>(
+                MaterialPageRoute<void>(
                   builder: (BuildContext context) =>
                       AddBasicDetailsPage(_product),
                 ),
@@ -433,9 +435,9 @@ class _SummaryCardState extends State<SummaryCard> {
           InkWell(
             borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
             onTap: widget.isSettingClickable
-                ? () async => Navigator.push<Widget>(
+                ? () async => Navigator.push<void>(
                       context,
-                      MaterialPageRoute<Widget>(
+                      MaterialPageRoute<void>(
                         builder: (BuildContext context) =>
                             const UserPreferencesPage(
                           type: PreferencePageType.FOOD,
@@ -618,17 +620,19 @@ class _SummaryCardState extends State<SummaryCard> {
         ) {
           final List<RobotoffQuestion> questions =
               snapshot.data ?? <RobotoffQuestion>[];
+
           if (questions.isNotEmpty && !_annotationVoted) {
             return InkWell(
-              onTap: () async {
-                await Navigator.push<Widget>(
+              onTap: () {
+                Navigator.push<void>(
                   context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => QuestionPage(
+                  MaterialPageRoute<void>(
+                    builder: (_) => QuestionPage(
                       product: _product,
-                      questions: questions,
+                      questions: questions.toList(),
                       updateProductUponAnswers: _updateProductUponAnswers,
                     ),
+                    fullscreenDialog: true,
                   ),
                 );
               },
@@ -691,30 +695,27 @@ class _SummaryCardState extends State<SummaryCard> {
           .removeInsightAnnotationsSavedForProdcut(_product.barcode!);
     }
     _annotationVoted =
-        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
+        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     // Reload the product as it may have been updated because of the
     // new answers.
     if (!mounted) {
       return;
     }
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await ProductRefresher().fetchAndRefresh(
-      context: context,
-      localDatabase: localDatabase,
+      widget: this,
       barcode: _product.barcode!,
     );
   }
 
   Future<List<RobotoffQuestion>>? _loadProductQuestions() async {
     final List<RobotoffQuestion> questions =
-        await RobotoffQuestionsQuery(_product.barcode!)
-            .getRobotoffQuestionsForProduct();
+        await ProductQuestionsQuery(_product.barcode!).getQuestions();
 
     final RobotoffInsightHelper robotoffInsightHelper =
         //ignore: use_build_context_synchronously
         RobotoffInsightHelper(context.read<LocalDatabase>());
     _annotationVoted =
-        await robotoffInsightHelper.haveInsightAnnotationsVoted(questions);
+        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     return questions;
   }
 
@@ -730,23 +731,24 @@ class _SummaryCardState extends State<SummaryCard> {
       return;
     }
 
+    final String? panelId = attribute.panelId;
+    if (panelId == null) {
+      return;
+    }
     final KnowledgePanel? knowledgePanel =
-        _product.knowledgePanels?.panelIdToPanelMap[attribute.panelId];
-
+        KnowledgePanelWidget.getKnowledgePanel(
+      _product,
+      panelId,
+    );
     if (knowledgePanel == null) {
       return;
     }
 
-    final KnowledgePanelPanelGroupElement? group =
-        KnowledgePanelGroupCard.groupElementOf(context);
-
-    Navigator.push<Widget>(
+    Navigator.push<void>(
       context,
-      MaterialPageRoute<Widget>(
+      MaterialPageRoute<void>(
         builder: (BuildContext context) => KnowledgePanelPage(
-          groupElement: group,
-          panel: knowledgePanel,
-          allPanels: _product.knowledgePanels!,
+          panelId: panelId,
           product: _product,
         ),
       ),

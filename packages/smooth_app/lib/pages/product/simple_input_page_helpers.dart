@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/TagType.dart';
+import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -9,7 +10,7 @@ import 'package:smooth_app/query/product_query.dart';
 /// * we retrieve the initial list of terms.
 /// * we add a term to the list.
 /// * we remove a term from the list.
-abstract class AbstractSimpleInputPageHelper {
+abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Product we are about to edit.
   late Product product;
 
@@ -24,6 +25,7 @@ abstract class AbstractSimpleInputPageHelper {
     this.product = product;
     _terms = initTerms();
     _changed = false;
+    notifyListeners();
   }
 
   final String _separator = ',';
@@ -46,6 +48,7 @@ abstract class AbstractSimpleInputPageHelper {
     }
     _terms.add(term);
     _changed = true;
+    notifyListeners();
     return true;
   }
 
@@ -56,6 +59,7 @@ abstract class AbstractSimpleInputPageHelper {
   bool removeTerm(final String term) {
     if (_terms.remove(term)) {
       _changed = true;
+      notifyListeners();
       return true;
     }
     return false;
@@ -82,6 +86,9 @@ abstract class AbstractSimpleInputPageHelper {
 
   /// Returns the icon data for the list tile.
   Widget? getIcon() => null;
+
+  /// Returns the background task.
+  ProductEditTask getTask();
 
   /// Returns true if changes were made.
   bool getChangedProduct(final Product product) {
@@ -120,6 +127,12 @@ abstract class AbstractSimpleInputPageHelper {
     }
     return result;
   }
+
+  @override
+  // ignore: must_call_super
+  void dispose() {
+    // Ignored on purposed
+  }
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -144,6 +157,9 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.shopping_cart);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.store;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -170,10 +186,13 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
       '${appLocalizations.edit_product_form_item_origins_explainer_2}';
 
   @override
-  TagType? getTagType() => null;
+  TagType? getTagType() => TagType.ORIGINS;
 
   @override
   Widget? getIcon() => const Icon(Icons.travel_explore);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.origin;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -202,6 +221,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.factory);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.emb;
 }
 
 /// Abstraction, for "in language" field, of an [AbstractSimpleInputPageHelper].
@@ -293,6 +315,9 @@ class SimpleInputPageLabelHelper
 
   @override
   Widget? getIcon() => const Icon(Icons.local_offer);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.label;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -330,6 +355,9 @@ class SimpleInputPageCategoryHelper
 
   @override
   Widget? getIcon() => const Icon(Icons.restaurant);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.category;
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
@@ -363,4 +391,7 @@ class SimpleInputPageCountryHelper
 
   @override
   Widget? getIcon() => const Icon(Icons.public);
+
+  @override
+  ProductEditTask getTask() => ProductEditTask.country;
 }
