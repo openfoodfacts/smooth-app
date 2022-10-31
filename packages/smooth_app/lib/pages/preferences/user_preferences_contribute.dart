@@ -112,10 +112,15 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 ),
               ],
             ),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.okay,
+              minWidth: 100,
+              onPressed: () => Navigator.pop(context),
+            ),
             negativeAction: SmoothActionButton(
               text: AppLocalizations.of(context)
                   .contribute_improve_ProductsToBeCompleted,
-              minWidth: 185,
+              minWidth: 150,
               onPressed: () async {
                 final LocalDatabase localDatabase =
                     context.read<LocalDatabase>();
@@ -129,11 +134,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 );
               },
             ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.okay,
-              minWidth: 100,
-              onPressed: () => Navigator.pop(context),
-            ),
+            actionsAxis: Axis.vertical,
+            actionsOrder: SmoothButtonsBarOrder.numerical,
           );
         },
       );
