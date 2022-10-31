@@ -95,8 +95,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
   // otherwise it will resolve with the relevant error.
   Future<void> _getImage(bool isNewImage) async {
     if (isNewImage) {
-      final File? croppedImageFile =
-          await startImageCropping(context, showOptionDialog: true);
+      final File? croppedImageFile = await startImageCropping(this);
 
       // If the user cancels.
       if (croppedImageFile == null) {

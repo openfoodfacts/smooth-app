@@ -73,17 +73,28 @@ class _ApplicationSettings extends StatelessWidget {
           label: appLocalizations.settings_app_app,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: LARGE_SPACE,
-            vertical: MEDIUM_SPACE,
+          padding: const EdgeInsets.only(
+            left: LARGE_SPACE,
+            top: MEDIUM_SPACE,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Text(
                 appLocalizations.darkmode,
                 style: themeData.textTheme.headline4,
               ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            right: LARGE_SPACE,
+            bottom: MEDIUM_SPACE,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
               DropdownButton<String>(
                 value: themeProvider.currentTheme,
                 elevation: 16,
@@ -121,6 +132,53 @@ class _ApplicationSettings extends StatelessWidget {
             appLocalizations: appLocalizations,
           ),
           minVerticalPadding: MEDIUM_SPACE,
+        ),
+        const UserPreferencesListItemDivider(),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: LARGE_SPACE,
+            top: MEDIUM_SPACE,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                appLocalizations.choose_image_source_title,
+                style: themeData.textTheme.headline4,
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            right: LARGE_SPACE,
+            bottom: MEDIUM_SPACE,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              DropdownButton<UserPictureSource>(
+                value: userPreferences.userPictureSource,
+                elevation: 16,
+                onChanged: (final UserPictureSource? newValue) async =>
+                    userPreferences.setUserPictureSource(newValue!),
+                items: <DropdownMenuItem<UserPictureSource>>[
+                  DropdownMenuItem<UserPictureSource>(
+                    value: UserPictureSource.SELECT,
+                    child: Text(appLocalizations.user_picture_source_select),
+                  ),
+                  DropdownMenuItem<UserPictureSource>(
+                    value: UserPictureSource.CAMERA,
+                    child: Text(appLocalizations.settings_app_camera),
+                  ),
+                  DropdownMenuItem<UserPictureSource>(
+                    value: UserPictureSource.GALLERY,
+                    child: Text(appLocalizations.gallery_source_label),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ],
     );
