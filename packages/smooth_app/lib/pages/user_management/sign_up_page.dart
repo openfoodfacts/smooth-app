@@ -371,7 +371,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     if (status.error != null) {
-      await LoadingDialog.error(context: context, title: "Enter Valid Email");
+      await LoadingDialog.error(context: context, title: 'Enter Valid Email');
 
       // Highlight the field with the error
       if (status.statusErrors?.isNotEmpty == true) {
