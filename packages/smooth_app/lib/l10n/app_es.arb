@@ -441,7 +441,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Enumere todas las partes del empaquetado separadas por una coma o salto de línea, con su cantidad (por ejemplo, 1 o 6), tipo (por ejemplo, botella, caja, lata), material (por ejemplo, plástico, metal, aluminio) y, si está disponible, su tamaño (por ejemplo, 33cl) y instrucciones de reciclaje.\nEjemplo: 1 botella de vidrio para reciclar, 1 corcho de plástico para tirar",
     "packaging_editing_error": "No se pudo guardar el envase.",
     "packaging_editing_image_error": "No se pudo obtener la nueva imagen del envase.",
     "packaging_editing_title": "Editar el envase",
@@ -703,7 +703,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Por favor, seleccione al menos dos productos",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -938,7 +938,7 @@
     "settings_app_data": "Privacidad y monitorización",
     "settings_app_camera": "Cámara",
     "settings_app_products": "Productos",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Miscelánea",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -950,11 +950,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Modo escáner",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Solo cambie este valor si tiene algún problema con el escáner (no puede decodificar códigos de barras). Toque para cambiar entre los dos modos.\nEl actual es: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -963,13 +963,13 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "camera_mode_file_based": "Modo seguro (por defecto)",
+    "camera_mode_bytes_array_based": "Modo rápido",
+    "app_haptic_feedback_title": "Vibración y háptica",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Vibraciones después de ejecutar algunas acciones (código de barras decodificado, producto eliminado…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1071,7 +1071,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Añade cualquier indicación de origen que puedas encontrar en el empaquetado. No tienes que preocuparte por los orígenes indicados directamente en la lista de ingredientes.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
@@ -1119,7 +1119,7 @@
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Ejemplos: sardinas en aceite de oliva, jugo de naranja de concentrado",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1131,8 +1131,8 @@
         "description": "Product edition - Ingredients - Title"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Añadir",
-    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-    "edit_product_form_item_remove_item_tooltip": "Remove",
+    "edit_product_form_item_add_invalid_item_tooltip": "Por favor ingrese un texto primero",
+    "edit_product_form_item_remove_item_tooltip": "Eliminar",
     "edit_product_form_item_packaging_title": "Envase",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1180,7 +1180,7 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Añade el producto a tus listas",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1188,7 +1188,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "No hay lista disponible todavía,\npor favor comience creando una nueva",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1680,7 +1680,7 @@
     },
     "all_images": "Todas las imágenes",
     "selected_images": "Imágenes seleccionadas",
-    "product_card_remove_product_tooltip": "Remove product",
+    "product_card_remove_product_tooltip": "Eliminar producto",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
@@ -1717,15 +1717,23 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Error al descargar la imagen",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "Error al editar la imagen, la url de la imagen no está definida.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "robotoff_continue": "Continue",
+    "user_picture_source_remember": "Remember my choice",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Select each time",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
+    },
+    "robotoff_continue": "Continuar",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
