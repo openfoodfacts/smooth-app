@@ -109,8 +109,9 @@ Widget addPanelButton(
 
 List<ProductImageData> getProductMainImagesData(
   Product product,
-  AppLocalizations appLocalizations,
-) =>
+  AppLocalizations appLocalizations, {
+  final bool includeOther = true,
+}) =>
     <ProductImageData>[
       ProductImageData(
         imageField: ImageField.FRONT,
@@ -136,10 +137,11 @@ List<ProductImageData> getProductMainImagesData(
         title: appLocalizations.packaging_information,
         buttonText: appLocalizations.packaging_information_photo,
       ),
-      ProductImageData(
-        imageField: ImageField.OTHER,
-        imageUrl: null,
-        title: appLocalizations.more_photos,
-        buttonText: appLocalizations.more_photos,
-      ),
+      if (includeOther)
+        ProductImageData(
+          imageField: ImageField.OTHER,
+          imageUrl: null,
+          title: appLocalizations.more_photos,
+          buttonText: appLocalizations.more_photos,
+        ),
     ];
