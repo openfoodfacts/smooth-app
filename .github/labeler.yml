@@ -2,6 +2,9 @@
 android:
 - packages/smooth_app/android/**/*
 
+macos:
+- packages/app/macos/**/*
+
 assets cache:
 - packages/smooth_app/assets/cache/
 
