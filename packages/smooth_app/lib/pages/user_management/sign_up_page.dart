@@ -371,11 +371,12 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     if (status.error != null) {
-      await LoadingDialog.error(context: context, title: 'Enter Valid Email');
-
       // Highlight the field with the error
       if (status.statusErrors?.isNotEmpty == true) {
-        if (status.statusErrors!
+        if (status.statusErrors!.contains(SignUpStatusError.UNKNOWN)) {
+          //On Server Side Code this a new Error "SignUpStatusError.notValidEmail" needs to be added
+          _emailFocusNode.requestFocus();
+        } else if (status.statusErrors!
             .contains(SignUpStatusError.EMAIL_ALREADY_USED)) {
           _emailFocusNode.requestFocus();
         } else if (status.statusErrors!
