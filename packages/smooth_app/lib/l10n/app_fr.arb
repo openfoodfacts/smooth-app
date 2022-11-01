@@ -347,7 +347,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
-    "tap_to_edit_search": "Tap to edit search",
+    "tap_to_edit_search": "Appuyez pour modifier la recherche",
     "@Personal preferences": {},
     "myPreferences": "Mes préférences",
     "@myPreferences": {
@@ -703,7 +703,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Veuillez sélectionner au moins deux produits",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -950,11 +950,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Mode scanner",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Ne modifiez cette valeur que si vous rencontrez des problèmes avec le scanner (impossible de décoder les codes-barres). Appuyez pour basculer entre les deux modes.\nLe mode actuel est : {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -963,8 +963,8 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_file_based": "Mode sans échec (par défaut)",
+    "camera_mode_bytes_array_based": "Mode rapide",
     "app_haptic_feedback_title": "Vibration et retours tactiles",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1180,7 +1180,7 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Ajouter le produit à vos listes",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1188,7 +1188,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "Aucune liste disponible pour le moment,\nveuillez commencer par en créer une nouvelle",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1688,7 +1688,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Valeurs nutritionnelles pour {grams} g (ou ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -1697,15 +1697,15 @@
             }
         }
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Données hors-ligne",
     "@offline_data": {
         "description": "App bar tile for offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "ocr_image_upload_instruction": "Envoyez une image pour en extraire automatiquement les informations fournies",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on ocr extraction page"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Envoyer une photo",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -1717,23 +1717,23 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Échec du téléchargement de l'image",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "Impossible d'éditer l'image, l'URL de l'image n'a pas été définie.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "Mémoriser mon choix",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "Sélectionner à chaque fois",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
-    "robotoff_continue": "Continue",
+    "robotoff_continue": "Continuer",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
