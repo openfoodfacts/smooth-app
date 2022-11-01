@@ -52,11 +52,9 @@ object ZXingUtils {
             )
         )
 
-        return try {
+        return runCathing {
             MultiFormatReader().decode(binaryBitmap).text
-        } catch (e: NotFoundException) {
-            null
-        }
+        }.getOrNull()
     }
 
 }
