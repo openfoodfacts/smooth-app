@@ -162,7 +162,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: _getAddPhotoButtonText(context, imageType),
         icon: Icons.camera_alt,
         onPressed: () async {
-          final File? initialPhoto = await startImageCropping(context);
+          final File? initialPhoto = await startImageCropping(this);
           if (initialPhoto == null) {
             return;
           }
