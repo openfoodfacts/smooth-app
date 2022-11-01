@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:scanner_mlkit/src/utils/abstract_camera_image_getter.dart';
