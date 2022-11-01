@@ -8,7 +8,6 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-/** ScannerZxingPlugin */
 class ScannerZxingPlugin : FlutterPlugin, MethodCallHandler {
 
     private lateinit var channel: MethodChannel
