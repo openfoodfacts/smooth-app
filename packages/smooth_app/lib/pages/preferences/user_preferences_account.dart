@@ -10,6 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -226,6 +227,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
+    final TextEditingController reasonController = TextEditingController();
 
     final List<Widget> result;
 
@@ -298,8 +300,36 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _getListTile(
           appLocalizations.account_delete,
           () async {
+            await showDialog<SmoothAlertDialog>(
+                context: context,
+                builder: (BuildContext context) {
+                  return SmoothAlertDialog(
+                    title: appLocalizations.account_delete,
+                    body: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                            'Are you sure you want to delete your account? \n Is there a specific reason share below '),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        SmoothTextFormField(
+                            type: TextFieldTypes.PLAIN_TEXT,
+                            textInputType: TextInputType.text,
+                            controller: reasonController,
+                            hintText: 'Reasons'),
+                      ],
+                    ),
+                    positiveAction: SmoothActionButton(
+                      text: appLocalizations.okay,
+                      onPressed: () => Navigator.maybePop(context),
+                    ),
+                  );
+                });
             final Email email = Email(
-              body: appLocalizations.email_body_account_deletion(userId),
+              body: appLocalizations.email_body_account_deletion(userId) +
+                  reasonController.text,
               subject: appLocalizations.email_subject_account_deletion,
               recipients: <String>['contact@openfoodfacts.org'],
             );
