@@ -125,7 +125,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }
 
   @override
-  Widget? getAdditionalSubtitle() {
+  Widget getAdditionalSubtitle() {
     if (_getUserId() != null) {
       // we are already connected: no "LOGIN" button
       return EMPTY_WIDGET;
