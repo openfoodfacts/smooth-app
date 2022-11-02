@@ -442,8 +442,8 @@
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
     "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
-    "packaging_editing_error": "Failed to save the packaging.",
-    "packaging_editing_image_error": "Failed to get a new packaging image.",
+    "packaging_editing_error": "Ambalaj kaydedilemedi.",
+    "packaging_editing_image_error": "Yeni bir paketleme görüntüsü alınamadı.",
     "packaging_editing_title": "Paketlemeyi Düzenle",
     "nutrition": "Beslenme",
     "@nutrition": {},
@@ -469,7 +469,7 @@
     "@new_product": {},
     "front_packaging_photo_button_label": "Ürünün önden bir fotoğrafı",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
+    "confirm_front_packaging_photo_button_label": "Ürünün ön fotoğrafının yüklenmesini onaylayın",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -608,7 +608,7 @@
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Beslenme resmi eskidir: lütfen yenileyin.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -903,7 +903,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_title_id_email": "Open Food Facts giriş: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -925,7 +925,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Merhaba, lütfen Open Food Facts hesabımı silin: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1071,7 +1071,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Ambalajın üzerinde bulabileceğiniz herhangi bir menşe belirtisi ekleyin. Doğrudan içerik listesinde belirtilen kökenler hakkında endişelenmenize gerek yok.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
@@ -1087,7 +1087,7 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations": "Ürünün yaygın olarak bulunduğu ülkeler (yabancı ürünlerde uzmanlaşmış mağazalar hariç).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1111,11 +1111,11 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Yalnızca en spesifik kategoriyi belirtin. Üst kategoriler otomatik olarak eklenecektir.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Otomatik tamamlamada bir kategori mevcut değilse, yine de eklemekten çekinmeyin; bu, ülkenizdeki Open Food Facts'i iyileştirmemize yardımcı olacaktır.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1261,15 +1261,15 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart Flutter to see it again.",
+    "dev_preferences_reset_onboarding_subtitle": "Daha sonra tekrar görmek için Flutter'ı yeniden başlatmanız gerekir.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
-    "dev_preferences_environment_switch_title": "Switch between openfoodfacts.org (PROD) and test env",
+    "dev_preferences_environment_switch_title": "Openfoodfacts.org (PROD) ve test ortamı arasında geçiş yapın",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
     },
-    "dev_preferences_environment_switch_subtitle": "Current query type is {query}",
+    "dev_preferences_environment_switch_subtitle": "Geçerli sorgu türü {query}",
     "@dev_preferences_environment_switch_subtitle": {
         "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
         "placeholders": {
@@ -1282,7 +1282,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
+    "dev_preferences_test_environment_subtitle": "Mevcut test ortamı için temel URL: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1307,7 +1307,7 @@
     "@dev_preferences_product_additional_features_title": {
         "description": "User dev preferences - Additional buttons on product page - Title"
     },
-    "dev_preferences_edit_ingredients_title": "Edit ingredients via a knowledge panel button",
+    "dev_preferences_edit_ingredients_title": "Bir bilgi paneli düğmesi aracılığıyla içindeki malzemeleri düzenleyin",
     "@dev_preferences_edit_ingredients_title": {
         "description": "User dev preferences - Additional buttons on product page - Subtitle"
     },
@@ -1407,7 +1407,7 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
+    "product_search_no_more_results": "Tüm {totalSize} ürünleri indirdiniz.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1443,11 +1443,11 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "My to-be-completed products",
+    "user_search_to_be_completed_title": "Tamamlanacak ürünlerim",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "all_search_to_be_completed_title": "All to-be-completed products",
+    "all_search_to_be_completed_title": "Tamamlanacak tüm ürünler",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
@@ -1471,7 +1471,7 @@
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
-    "analytics_consent_image_semantic_label": "Analytics icon",
+    "analytics_consent_image_semantic_label": "Analitik simgesi",
     "@analytics_consent_image_semantic_label": {
         "description": "Consent Analytics icon semantics label"
     },
@@ -1625,11 +1625,11 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Beslenme değerleri tablosunu genişletin",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_nutrition_facts_body": "Beslenme değerleri tablosunu genişletin",
     "expand_ingredients": "Malzemeleri genişlet",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1724,6 +1724,14 @@
     "image_edit_url_error": "Resim düzenlenemedi, resim url'si ayarlanmadı.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Seçimimi hatırla",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Her seferinde seç",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Devam et",
     "@robotoff_continue": {

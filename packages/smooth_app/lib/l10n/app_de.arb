@@ -1725,6 +1725,14 @@
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
+    "user_picture_source_remember": "Meine Auswahl speichern",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Jedes Mal auswählen",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
+    },
     "robotoff_continue": "Weiter",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
