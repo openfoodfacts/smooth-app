@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
@@ -12,7 +14,11 @@ class CameraHelper {
 
   /// Mandatory method to call before [findBestCamera]
   static Future<void> init() async {
-    _cameras = await availableCameras();
+    if (!isSupported) {
+      _cameras = <CameraDescription>[];
+    } else {
+      _cameras = await availableCameras();
+    }
   }
 
   /// Returns if the device has at least one camera
@@ -80,6 +86,8 @@ class CameraHelper {
   /// destroyed
   static CameraControllerNotifier get cameraControllerNotifier =>
       _cameraControllerWrapper;
+
+  static bool get isSupported => kIsWeb || Platform.isAndroid || Platform.isIOS;
 }
 
 /// Custom implementation to prevent the use of a [ValueNotifier] which may be
