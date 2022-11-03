@@ -308,7 +308,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                     body: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
+                      children: <Widget>[
                         const Text(
                             'Are you sure you want to delete your account? \n Is there a specific reason share below '),
                         const SizedBox(
