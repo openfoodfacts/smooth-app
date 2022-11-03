@@ -10,7 +10,15 @@
 
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 
-- Latest deployed release: [here](https://github.com/openfoodfacts/smooth-app/releases/tag/v3.23.0)
+## Alert!
+
+We are currently using Flutter 3.0.5 as the new 3.3.0 [has some bugs](https://github.com/openfoodfacts/smooth-app/issues/2919).
+
+Running `flutter downgrade 3.0.5` downgrades the version.
+
+------
+
+Latest commit deployed to App Stores: (Released on Sep 6 6:29 PM as Build 731 (3.13.1)) https://github.com/openfoodfacts/smooth-app/compare/v3.8.1...v3.13.1
 
 - A <b> Flutter application </b> by [Open Food Facts](https://github.com/openfoodfacts). 
 

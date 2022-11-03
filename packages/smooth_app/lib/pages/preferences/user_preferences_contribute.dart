@@ -116,30 +116,32 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 const SizedBox(
                   height: 10,
                 ),
-                TextButton(
-                  onPressed: () async {
-                    final LocalDatabase localDatabase =
-                        context.read<LocalDatabase>();
-                    Navigator.of(context).pop();
-                    ProductQueryPageHelper().openBestChoice(
-                      name: appLocalizations.all_search_to_be_completed_title,
-                      localDatabase: localDatabase,
-                      productQuery: PagedToBeCompletedProductQuery(),
-                      // the other "context"s being popped
-                      context: this.context,
-                    );
-                  },
-                  child: Text(
-                    appLocalizations.contribute_improve_ProductsToBeCompleted,
-                  ),
-                ),
               ],
             ),
             positiveAction: SmoothActionButton(
-              onPressed: () => Navigator.of(context).pop(),
               text: appLocalizations.okay,
               minWidth: 100,
+              onPressed: () => Navigator.pop(context),
             ),
+            negativeAction: SmoothActionButton(
+              text: AppLocalizations.of(context)
+                  .contribute_improve_ProductsToBeCompleted,
+              minWidth: 150,
+              onPressed: () async {
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
+                Navigator.of(context).pop();
+                ProductQueryPageHelper().openBestChoice(
+                  name: appLocalizations.all_search_to_be_completed_title,
+                  localDatabase: localDatabase,
+                  productQuery: PagedToBeCompletedProductQuery(),
+                  // the other "context"s being popped
+                  context: this.context,
+                );
+              },
+            ),
+            actionsAxis: Axis.vertical,
+            actionsOrder: SmoothButtonsBarOrder.numerical,
           );
         },
       );

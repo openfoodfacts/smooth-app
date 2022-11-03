@@ -2,6 +2,9 @@
 android:
 - packages/smooth_app/android/**/*
 
+macos:
+- packages/app/macos/**/*
+
 assets cache:
 - packages/smooth_app/assets/cache/
 
@@ -82,6 +85,18 @@ scan:
 mlkit:
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
+Amazon Appstore:
+- packages/app/lib/entrypoints/android/main_amazon_appstore.dart, 
+
+fdroid:
+- packages/app/lib/entrypoints/android/main_fdroid.dart, 
+
+Huawei AppGallery:
+- packages/app/lib/entrypoints/android/main_huawei_appgallery.dart, 
+
+zxing:
+- packages/scanner/zxing/**/*
+
 product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart
 - packages/smooth_app/lib/pages/product/new_product_page.dart
@@ -109,6 +124,17 @@ analytics:
 
 goldens:
 - packages/smooth_app/test/pages/goldens
+- packages/smooth_app/test/tests_utils/goldens.dart
+- packages/smooth_app/test/pages/goldens/user_preferences_page-dark.png
+- packages/smooth_app/test/pages/goldens/user_preferences_page-light.png
+- packages/smooth_app/test/smooth_ui_library/widgets/goldens/smooth_view_finder.png
+- packages/smooth_app/test/smooth_ui_library/widgets/goldens/smooth_view_finder-animation.png
+- packages/smooth_app/test/dialogs/generic_lib/goldens/user_preferences_page_dialogs_Improving-dark.png
+- packages/smooth_app/test/dialogs/generic_lib/goldens/user_preferences_page_dialogs_Translate-dark.png
+- packages/smooth_app/test/dialogs/generic_lib/goldens/user_preferences_page_dialogs_Improving-light.png
+- packages/smooth_app/test/dialogs/generic_lib/goldens/user_preferences_page_dialogs_Translate-light.png
+- packages/smooth_app/test/dialogs/generic_lib/goldens/user_preferences_page_dialogs_Software development-dark.png
+- packages/smooth_app/test/dialogs/generic_lib/goldens/user_preferences_page_dialogs_Software development-light.png
 
 github:
 - .github/**/*

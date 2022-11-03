@@ -186,7 +186,7 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
       '${appLocalizations.edit_product_form_item_origins_explainer_2}';
 
   @override
-  TagType? getTagType() => null;
+  TagType? getTagType() => TagType.ORIGINS;
 
   @override
   Widget? getIcon() => const Icon(Icons.travel_explore);
