@@ -52,7 +52,7 @@ object ZXingUtils {
             )
         )
 
-        return runCathing {
+        return runCatching {
             MultiFormatReader().decode(binaryBitmap).text
         }.getOrNull()
     }
