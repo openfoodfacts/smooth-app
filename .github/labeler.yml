@@ -2,6 +2,9 @@
 android:
 - packages/smooth_app/android/**/*
 
+macos:
+- packages/app/macos/**/*
+
 assets cache:
 - packages/smooth_app/assets/cache/
 
@@ -81,6 +84,18 @@ scan:
 
 mlkit:
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
+
+Amazon Appstore:
+- packages/app/lib/entrypoints/android/main_amazon_appstore.dart, 
+
+fdroid:
+- packages/app/lib/entrypoints/android/main_fdroid.dart, 
+
+Huawei AppGallery:
+- packages/app/lib/entrypoints/android/main_huawei_appgallery.dart, 
+
+zxing:
+- packages/scanner/zxing/**/*
 
 product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart

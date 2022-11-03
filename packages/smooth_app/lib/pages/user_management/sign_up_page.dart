@@ -403,6 +403,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return InkWell(
+      excludeFromSemantics: true,
       onTap: () {
         onCheckboxChanged(!agree);
       },
@@ -452,6 +453,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
                   child: AspectRatio(
                     aspectRatio: 1.0,
                     child: Icon(
+                      semanticLabel: appLocalizations.termsOfUse,
                       Icons.info,
                       color: checkboxColorResolver(
                         <MaterialState>{MaterialState.selected},

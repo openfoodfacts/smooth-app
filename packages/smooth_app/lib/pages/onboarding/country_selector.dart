@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
@@ -36,8 +37,21 @@ class _CountrySelectorState extends State<CountrySelector> {
 
   Future<void> _init() async {
     final String locale = Localizations.localeOf(context).languageCode;
-    final List<Country> localizedCountries =
-        await IsoCountries.iso_countries_for_locale(locale);
+    List<Country> localizedCountries;
+
+    try {
+      localizedCountries = await IsoCountries.iso_countries_for_locale(locale);
+    } on MissingPluginException catch (_) {
+      // Locales are not implemented on desktop and web
+      // TODO(g123k): Add a complete list
+      localizedCountries = <Country>[
+        const Country(name: 'United States', countryCode: 'US'),
+        const Country(name: 'France', countryCode: 'FR'),
+        const Country(name: 'Germany', countryCode: 'DE'),
+        const Country(name: 'India', countryCode: 'IN'),
+      ];
+    }
+
     _userPreferences = await UserPreferences.getUserPreferences();
     _countryList = _sanitizeCountriesList(localizedCountries);
     _chosenValue = _countryList[0];
