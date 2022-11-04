@@ -128,7 +128,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               ),
               child: Offstage(
                 offstage: !scrollingUp,
-                child: const SmoothBackButton(),
+                child: const SmoothBackButton(iconColor: Colors.white),
               ),
             ),
           )
