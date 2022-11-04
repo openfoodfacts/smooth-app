@@ -80,7 +80,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       allProductImagesData,
       allProductImagesData.map(_provideImage),
     );
-
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: widget.product.productName != null
