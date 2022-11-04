@@ -46,7 +46,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   bool _nutritionFactsAdded = false;
   bool _basicDetailsAdded = false;
-  bool _isProductLoaded = false;
 
   @override
   void initState() {
@@ -74,7 +73,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return SmoothScaffold(
       appBar: AppBar(
           title: Text(appLocalizations.new_product),
-          automaticallyImplyLeading: !_isProductLoaded),
+          automaticallyImplyLeading: _uploadedImages.isEmpty),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           if (_basicDetailsAdded ||
@@ -192,9 +191,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (finalPhoto != null) {
             _uploadedImages[imageType] = _uploadedImages[imageType] ?? <File>[];
             _uploadedImages[imageType]!.add(initialPhoto);
-            setState(() {
-              _isProductLoaded = true;
-            });
           }
         },
       ),
