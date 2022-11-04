@@ -77,22 +77,34 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           automaticallyImplyLeading: !_isProductLoaded),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          final LocalDatabase localDatabase = context.read<LocalDatabase>();
-          final DaoProduct daoProduct = DaoProduct(localDatabase);
-          final Product? localProduct = await daoProduct.get(widget.barcode);
-          if (localProduct == null) {
-            product = Product(
-              barcode: widget.barcode,
-            );
-            daoProduct.put(product);
-            localDatabase.notifyListeners();
-          }
-          localDatabase.upToDate.set(product);
-          if (mounted) {
-            await Navigator.maybePop(
-              context,
-              _isProductLoaded ? widget.barcode : null,
-            );
+          if (_isProductLoaded ||
+              _basicDetailsAdded ||
+              _nutritionFactsAdded ||
+              _uploadedImages.isNotEmpty) {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final DaoProduct daoProduct = DaoProduct(localDatabase);
+            final Product? localProduct = await daoProduct.get(widget.barcode);
+            if (localProduct == null) {
+              product = Product(
+                barcode: widget.barcode,
+              );
+              daoProduct.put(product);
+              localDatabase.notifyListeners();
+            }
+            localDatabase.upToDate.set(product);
+            if (mounted) {
+              await Navigator.maybePop(
+                context,
+                _isProductLoaded ? widget.barcode : null,
+              );
+            }
+          } else {
+            if (mounted) {
+              await Navigator.maybePop(
+                context,
+                null,
+              );
+            }
           }
         },
         label: Text(appLocalizations.finish),
