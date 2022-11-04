@@ -330,30 +330,31 @@ class _InfoAddedRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return Padding(
-        padding: _ROW_PADDING_TOP,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              height: 50,
-              width: 50,
-              child: ClipRRect(
-                borderRadius: ROUNDED_BORDER_RADIUS,
-                child: imgStart == null
-                    ? null
-                    : Image.file(imgStart!, fit: BoxFit.cover),
-              ),
+      padding: _ROW_PADDING_TOP,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            height: 50,
+            width: 50,
+            child: ClipRRect(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              child: imgStart == null
+                  ? null
+                  : Image.file(imgStart!, fit: BoxFit.cover),
             ),
-            Expanded(
-              child: Center(
-                child: Text(text, style: themeData.textTheme.bodyText1),
-              ),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(text, style: themeData.textTheme.bodyText1),
             ),
-            Icon(
-              Icons.check,
-              color: themeData.bottomNavigationBarTheme.selectedItemColor,
-            )
-          ],
-        ));
+          ),
+          Icon(
+            Icons.check,
+            color: themeData.bottomNavigationBarTheme.selectedItemColor,
+          )
+        ],
+      ),
+    );
   }
 }
