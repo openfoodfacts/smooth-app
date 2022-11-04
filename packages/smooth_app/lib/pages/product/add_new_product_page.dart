@@ -77,8 +77,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           automaticallyImplyLeading: !_isProductLoaded),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          if (_isProductLoaded ||
-              _basicDetailsAdded ||
+          if (_basicDetailsAdded ||
               _nutritionFactsAdded ||
               _uploadedImages.isNotEmpty) {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -95,16 +94,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             if (mounted) {
               await Navigator.maybePop(
                 context,
-                _isProductLoaded ? widget.barcode : null,
+                widget.barcode,
               );
             }
           } else {
-            if (mounted) {
-              await Navigator.maybePop(
-                context,
-                null,
-              );
-            }
+            await Navigator.maybePop(
+              context,
+              null,
+            );
           }
         },
         label: Text(appLocalizations.finish),
