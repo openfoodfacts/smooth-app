@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -16,6 +15,7 @@ import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Editing with OCR a product field and the corresponding image.
@@ -40,21 +40,28 @@ class _EditOcrPageState extends State<EditOcrPage> {
   bool _updatingImage = false;
   bool _updatingText = false;
   late Product _product;
+  late final LocalDatabase _localDatabase;
   late OcrHelper _helper;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_product.barcode!);
     _helper = widget.helper;
     _controller.text = _helper.getText(_product);
   }
 
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    super.dispose();
+  }
+
   Future<void> _onSubmitField(ImageField imageField) async {
     setState(() => _updatingText = true);
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
-    await _updateText(_controller.text, provider, imageField);
+    await _updateText(_controller.text, imageField);
     setState(() => _updatingText = false);
   }
 
@@ -88,8 +95,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
   // otherwise it will resolve with the relevant error.
   Future<void> _getImage(bool isNewImage) async {
     if (isNewImage) {
-      final File? croppedImageFile =
-          await startImageCropping(context, showOptionDialog: true);
+      final File? croppedImageFile = await startImageCropping(this);
 
       // If the user cancels.
       if (croppedImageFile == null) {
@@ -102,7 +108,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
         return;
       }
       await uploadCapturedPicture(
-        context,
+        widget: this,
         barcode: _product.barcode!,
         imageField: _helper.getImageField(),
         imageUri: croppedImageFile.uri,
@@ -120,8 +126,10 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
   }
 
-  Future<bool> _updateText(final String text, UpToDateProductProvider provider,
-      ImageField imageField) async {
+  Future<void> _updateText(
+    final String text,
+    final ImageField imageField,
+  ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     Product changedProduct = Product(barcode: _product.barcode);
@@ -136,29 +144,18 @@ class _EditOcrPageState extends State<EditOcrPage> {
           _helper.getImageField().value == ImageField.PACKAGING.value
               ? ProductEditTask.packaging
               : ProductEditTask.ingredient,
+      widget: this,
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
-    provider.set(upToDateProduct);
-    localDatabase.notifyListeners();
-    if (!mounted) {
-      return false;
-    }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          AppLocalizations.of(context).product_task_background_schedule,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
-    );
-    return true;
+    localDatabase.upToDate.set(upToDateProduct);
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final Size size = MediaQuery.of(context).size;
     final List<Widget> children = <Widget>[];
 
     if (_imageProvider != null) {
@@ -178,7 +175,27 @@ class _EditOcrPageState extends State<EditOcrPage> {
           ),
         );
       } else {
-        children.add(Container(color: Colors.white));
+        children.add(
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(bottom: size.height * 0.25),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.image_not_supported,
+                  size: size.height / 4,
+                ),
+                Text(
+                  appLocalizations.ocr_image_upload_instruction,
+                  style: Theme.of(context).textTheme.bodyText2,
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
+          ),
+        );
       }
     }
 
@@ -204,8 +221,15 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
     final Scaffold scaffold = SmoothScaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(_helper.getTitle(appLocalizations)),
+        subTitle: widget.product.productName != null
+            ? Text(
+                widget.product.productName!,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              )
+            : null,
         backgroundColor: Colors.transparent,
         flexibleSpace: ClipRect(
           child: BackdropFilter(
@@ -220,19 +244,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
         children: children,
       ),
     );
-    return Consumer<UpToDateProductProvider>(
-      builder: (
-        final BuildContext context,
-        final UpToDateProductProvider provider,
-        final Widget? child,
-      ) {
-        final Product? refreshedProduct = provider.get(_product);
-        if (refreshedProduct != null) {
-          _product = refreshedProduct;
-        }
-        return scaffold;
-      },
-    );
+    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
+    if (refreshedProduct != null) {
+      _product = refreshedProduct;
+    }
+    return scaffold;
   }
 
   Widget _buildZoomableImage(ImageProvider imageSource) {
@@ -292,7 +308,10 @@ class _OcrWidget extends StatelessWidget {
                 ),
                 child: SmoothActionButtonsBar(
                   positiveAction: SmoothActionButton(
-                    text: helper.getActionRefreshPhoto(appLocalizations),
+                    text: (hasImageProvider ||
+                            helper.getImageUrl(product) != null)
+                        ? helper.getActionRefreshPhoto(appLocalizations)
+                        : appLocalizations.upload_image,
                     onPressed: () => onTapGetImage(true),
                   ),
                 ),

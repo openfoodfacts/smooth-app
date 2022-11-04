@@ -1,11 +1,11 @@
 name: smooth_app
 description: The next generation of the Open Food Facts mobile apps.
-version: 0.0.0+600
+version: 0.0.0+734
 publish_to: "none"
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=3.0.0"
+  flutter: "<3.3.0"
 
 dependencies:
   flutter:
@@ -17,29 +17,29 @@ dependencies:
   carousel_slider: 4.1.1
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
-  flutter_svg: 1.1.4
-  flutter_map: 1.1.1
+  flutter_svg: 1.1.5
+  flutter_map: 2.2.0
   flutter_widget_from_html_core: any
   fwfh_selectable_text: 0.8.3+1
   flutter_secure_storage: 5.0.2
   hive: 2.2.3
   hive_flutter: 1.1.0
-  http: 0.13.4
-  image_picker: 0.8.5+3
+  http: 0.13.5
+  image_picker: 0.8.6
   iso_countries: 2.1.0
   latlong2: 0.8.1
-  matomo_tracker: 1.3.0
-  modal_bottom_sheet: 2.1.0
-  openfoodfacts: 1.24.0
+  matomo_tracker: 1.5.0
+  modal_bottom_sheet: 2.1.2
+  openfoodfacts: 1.27.0
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
-  package_info_plus: 1.4.3
-  device_info_plus: 4.0.1
+  package_info_plus: 1.4.3+1
+  device_info_plus: 4.1.2
   permission_handler: 9.2.0
   photo_view: 0.14.0
   uuid: 3.0.6
   provider: 6.0.3
-  sentry_flutter: 6.9.1 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
+  sentry_flutter: 6.11.0 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
   sqflite: 2.0.2+1
   url_launcher: 6.1.3
   visibility_detector: 0.3.3
@@ -55,6 +55,8 @@ dependencies:
       url: "https://github.com/g123k/plugins.git"
       ref: "smooth_camera"
       path: "packages/camera/camera_platform_interface"
+  scanner_shared:
+    path: ../scanner/shared
   task_manager:
     git:
       url: "https://github.com/g123k/flutter_task_manager.git"
@@ -63,17 +65,15 @@ dependencies:
   percent_indicator: 4.2.2
   flutter_email_sender: 5.1.0
   flutter_native_splash: 2.2.3+1
-  google_mlkit_barcode_scanning: 0.3.0
   image: 3.2.0
   image_cropper: 2.0.3
   auto_size_text: 3.0.0
   shared_preferences: 2.0.15
   typed_data: 1.3.0 # careful with 1.3.1 because of flutter_driver dependence
   intl: 0.17.0
-  flutter_isolate: 2.0.2
   rxdart: 0.27.4
   collection: 1.16.0
-  path: 1.8.2 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
+  path: ^1.8.2 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
   path_provider: 2.0.11
   data_importer_shared:
     path: ../data_importer_shared
@@ -99,9 +99,11 @@ dev_dependencies:
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 
+# These overrides must also be present in the [app] package.
 dependency_overrides:
   path: 1.8.0
   meta: 1.7.0
+  typed_data: 1.3.0
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
@@ -140,7 +142,6 @@ flutter_native_splash:
     icon_background_color_dark: "#333333"
 
 flutter:
-  uses-material-design: true
   generate: true
 
   assets:

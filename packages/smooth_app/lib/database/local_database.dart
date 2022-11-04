@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_hive_product.dart';
 import 'package:smooth_app/database/dao_int.dart';
@@ -18,11 +19,16 @@ import 'package:smooth_app/database/dao_unzipped_product.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LocalDatabase extends ChangeNotifier {
-  LocalDatabase._(final Database database) : _database = database;
+  LocalDatabase._(final Database database) : _database = database {
+    _upToDateProductProvider = UpToDateProductProvider(this);
+  }
 
   final Database _database;
+  late final UpToDateProductProvider _upToDateProductProvider;
 
   Database get database => _database;
+
+  UpToDateProductProvider get upToDate => _upToDateProductProvider;
 
   /// Notify listeners
   /// Comments added only in order to avoid a "warning"

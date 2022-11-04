@@ -101,12 +101,14 @@ class OnboardingBottomIcon extends StatelessWidget {
     required this.backgroundColor,
     required this.foregroundColor,
     required this.icon,
+    this.iconPadding,
   });
 
   final VoidCallback onPressed;
   final Color backgroundColor;
   final Color foregroundColor;
   final IconData icon;
+  final EdgeInsetsGeometry? iconPadding;
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
@@ -117,6 +119,9 @@ class OnboardingBottomIcon extends StatelessWidget {
           onPrimary: foregroundColor,
         ),
         onPressed: onPressed,
-        child: Icon(icon),
+        child: Padding(
+          padding: iconPadding ?? EdgeInsets.zero,
+          child: Icon(icon),
+        ),
       );
 }

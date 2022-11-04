@@ -28,6 +28,19 @@ class KnowledgePanelElementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Widget child = _getWidget();
+
+    if (_requiresMargin) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+        child: child,
+      );
+    }
+
+    return child;
+  }
+
+  Widget _getWidget() {
     switch (knowledgePanelElement.elementType) {
       case KnowledgePanelElementType.TEXT:
         return _KnowledgePanelTextElementCard(
@@ -55,30 +68,42 @@ class KnowledgePanelElementCard extends StatelessWidget {
           panelId: panelId,
           product: product,
         );
+
       case KnowledgePanelElementType.PANEL_GROUP:
         return KnowledgePanelGroupCard(
           groupElement: knowledgePanelElement.panelGroupElement!,
           product: product,
         );
+
       case KnowledgePanelElementType.TABLE:
         return KnowledgePanelTableCard(
           tableElement: knowledgePanelElement.tableElement!,
           isInitiallyExpanded: isInitiallyExpanded,
+          product: product,
         );
+
       case KnowledgePanelElementType.MAP:
         return KnowledgePanelWorldMapCard(knowledgePanelElement.mapElement!);
+
       case KnowledgePanelElementType.UNKNOWN:
         return EMPTY_WIDGET;
+
       case KnowledgePanelElementType.ACTION:
         return KnowledgePanelActionCard(
           knowledgePanelElement.actionElement!,
           product,
         );
+
       default:
         Logs.e('unexpected element type: ${knowledgePanelElement.elementType}');
         return EMPTY_WIDGET;
     }
   }
+
+  bool get _requiresMargin => !<KnowledgePanelElementType>[
+        KnowledgePanelElementType.PANEL,
+        KnowledgePanelElementType.PANEL_GROUP,
+      ].contains(knowledgePanelElement.elementType);
 }
 
 /// A Knowledge Panel Text element may contain a source.

@@ -4,8 +4,6 @@ import 'dart:io';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -97,12 +95,9 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     );
   }
 
-  /// Uploads the product image, downloads the whole product, updates locally.
+  /// Uploads the product image.
   @override
-  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
-    final User user =
-        User.fromJson(jsonDecode(this.user) as Map<String, dynamic>);
-
+  Future<void> upload() async {
     final SendImage image = SendImage(
       lang: getLanguage(),
       barcode: barcode,
@@ -110,28 +105,10 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       imageUri: Uri.parse(imagePath),
     );
 
-    await OpenFoodAPIClient.addProductImage(user, image);
+    // TODO(AshAman999): check returned Status
+    await OpenFoodAPIClient.addProductImage(getUser(), image);
 
     // Go to the file system and delete the file that was uploaded
     File(imagePath).deleteSync();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      barcode,
-      fields: ProductQuery.fields,
-      language: getLanguage(),
-      country: getCountry(),
-    );
-
-    final ProductResult queryResult =
-        await OpenFoodAPIClient.getProduct(configuration);
-    if (queryResult.status == AbstractBackgroundTask.SUCCESS_CODE) {
-      final Product? product = queryResult.product;
-      if (product != null) {
-        await daoProduct.put(product);
-        localDatabase.notifyListeners();
-      }
-    }
-
-    return TaskResult.success;
   }
 }

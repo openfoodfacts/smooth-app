@@ -12,7 +12,7 @@ import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/pages/scan/alternative_camera_mode.dart';
+import 'package:smooth_app/pages/scan/camera_modes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
@@ -73,17 +73,28 @@ class _ApplicationSettings extends StatelessWidget {
           label: appLocalizations.settings_app_app,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: LARGE_SPACE,
-            vertical: MEDIUM_SPACE,
+          padding: const EdgeInsets.only(
+            left: LARGE_SPACE,
+            top: MEDIUM_SPACE,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Text(
                 appLocalizations.darkmode,
                 style: themeData.textTheme.headline4,
               ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            right: LARGE_SPACE,
+            bottom: MEDIUM_SPACE,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
               DropdownButton<String>(
                 value: themeProvider.currentTheme,
                 elevation: 16,
@@ -121,6 +132,53 @@ class _ApplicationSettings extends StatelessWidget {
             appLocalizations: appLocalizations,
           ),
           minVerticalPadding: MEDIUM_SPACE,
+        ),
+        const UserPreferencesListItemDivider(),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: LARGE_SPACE,
+            top: MEDIUM_SPACE,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                appLocalizations.choose_image_source_title,
+                style: themeData.textTheme.headline4,
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            right: LARGE_SPACE,
+            bottom: MEDIUM_SPACE,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              DropdownButton<UserPictureSource>(
+                value: userPreferences.userPictureSource,
+                elevation: 16,
+                onChanged: (final UserPictureSource? newValue) async =>
+                    userPreferences.setUserPictureSource(newValue!),
+                items: <DropdownMenuItem<UserPictureSource>>[
+                  DropdownMenuItem<UserPictureSource>(
+                    value: UserPictureSource.SELECT,
+                    child: Text(appLocalizations.user_picture_source_select),
+                  ),
+                  DropdownMenuItem<UserPictureSource>(
+                    value: UserPictureSource.CAMERA,
+                    child: Text(appLocalizations.settings_app_camera),
+                  ),
+                  DropdownMenuItem<UserPictureSource>(
+                    value: UserPictureSource.GALLERY,
+                    child: Text(appLocalizations.gallery_source_label),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -232,8 +290,8 @@ class _CameraSettings extends StatelessWidget {
         UserPreferencesTitle(
           label: appLocalizations.settings_app_camera,
         ),
-        if (AlternativeCameraMode.isSupported) ...<Widget>[
-          const _CameraAlternativeModeSetting(),
+        if (CameraModes.supportBothModes) ...<Widget>[
+          const _CameraModesSelectorSetting(),
           const UserPreferencesListItemDivider(),
         ],
         const _CameraPlayScanSoundSetting(),
@@ -261,36 +319,37 @@ class _CameraPlayScanSoundSetting extends StatelessWidget {
   }
 }
 
-class _CameraAlternativeModeSetting extends StatelessWidget {
-  const _CameraAlternativeModeSetting({Key? key}) : super(key: key);
+/// This setting will act as a toggle between the two camera modes.
+class _CameraModesSelectorSetting extends StatelessWidget {
+  const _CameraModesSelectorSetting({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
-    return FutureBuilder<List<Object>>(
-      future: Future.wait<Object>(<Future<Object>>[
-        AlternativeCameraMode.isAWhitelistedDevice,
-        AlternativeCameraMode.getDeviceName()
-      ]),
-      builder: (BuildContext context, AsyncSnapshot<List<Object>> snapshot) {
-        if (!snapshot.hasData) {
-          return const SizedBox.shrink();
-        }
+    CameraMode mode;
 
-        final bool enabled = userPreferences.useAlternativeCameraMode ??
-            snapshot.data![0] as bool;
+    if (userPreferences.useFileBasedCameraMode == true) {
+      mode = CameraMode.FILE_BASED;
+    } else if (userPreferences.useFileBasedCameraMode == false) {
+      mode = CameraMode.BYTES_ARRAY;
+    } else {
+      mode = CameraModes.defaultCameraMode;
+    }
 
-        return UserPreferencesSwitchItem(
-          title: appLocalizations.camera_alternative_mode_title,
-          subtitle: appLocalizations
-              .camera_alternative_mode_subtitle(snapshot.data![1] as String),
-          value: enabled,
-          onChanged: (final bool value) {
-            userPreferences.setUseAlternativeCameraMode(value);
-          },
-        );
+    // File-based mode is called "Safe mode" for users
+    // Bytes array mode is called "Quick mode"
+    return UserPreferencesSwitchItem(
+      title: appLocalizations.camera_mode_title,
+      subtitle: appLocalizations.camera_mode_subtitle(
+        mode == CameraMode.FILE_BASED
+            ? appLocalizations.camera_mode_file_based
+            : appLocalizations.camera_mode_bytes_array_based,
+      ),
+      value: mode == CameraMode.FILE_BASED,
+      onChanged: (final bool value) {
+        userPreferences.setUseFileBasedCameraMode(value);
       },
     );
   }

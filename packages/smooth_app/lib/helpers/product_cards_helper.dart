@@ -9,6 +9,24 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 String getProductName(Product product, AppLocalizations appLocalizations) =>
     product.productName ?? appLocalizations.unknownProductName;
 
+String getProductBrands(Product product, AppLocalizations appLocalizations) {
+  final String? brands = product.brands;
+  if (brands == null) {
+    return appLocalizations.unknownBrand;
+  } else {
+    return formatProductBrands(brands, appLocalizations);
+  }
+}
+
+/// Correctly format word separators between words (e.g. comma in English)
+String formatProductBrands(String brands, AppLocalizations appLocalizations) {
+  final String separator = appLocalizations.word_separator;
+  final String separatorChar =
+      RegExp.escape(appLocalizations.word_separator_char);
+  final RegExp regex = RegExp('\\s*$separatorChar\\s*');
+  return brands.replaceAll(regex, separator);
+}
+
 /// Padding to be used while building the SmoothCard on any Product card.
 const EdgeInsets SMOOTH_CARD_PADDING = EdgeInsets.symmetric(
   horizontal: MEDIUM_SPACE,
@@ -91,8 +109,9 @@ Widget addPanelButton(
 
 List<ProductImageData> getProductMainImagesData(
   Product product,
-  AppLocalizations appLocalizations,
-) =>
+  AppLocalizations appLocalizations, {
+  final bool includeOther = true,
+}) =>
     <ProductImageData>[
       ProductImageData(
         imageField: ImageField.FRONT,
@@ -118,10 +137,11 @@ List<ProductImageData> getProductMainImagesData(
         title: appLocalizations.packaging_information,
         buttonText: appLocalizations.packaging_information_photo,
       ),
-      ProductImageData(
-        imageField: ImageField.OTHER,
-        imageUrl: null,
-        title: appLocalizations.more_photos,
-        buttonText: appLocalizations.more_photos,
-      ),
+      if (includeOther)
+        ProductImageData(
+          imageField: ImageField.OTHER,
+          imageUrl: null,
+          title: appLocalizations.more_photos,
+          buttonText: appLocalizations.more_photos,
+        ),
     ];

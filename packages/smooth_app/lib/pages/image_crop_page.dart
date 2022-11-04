@@ -3,7 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 
 /// Crops an image from an existing file.
@@ -31,66 +34,95 @@ Future<File?> startImageCroppingNoPick(
 }
 
 /// Picks an image file from gallery or camera.
-Future<XFile?> pickImageFile(
-  final BuildContext context, {
-  final bool showOptionDialog = false,
-  bool chooseFromGallery = false,
-}) async {
-  if (showOptionDialog) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool? dialogFromGallery = await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => SmoothAlertDialog(
-        title: appLocalizations.choose_image_source_title,
-        actionsAxis: Axis.vertical,
-        body: Text(appLocalizations.choose_image_source_body),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.settings_app_camera,
-          onPressed: () async => Navigator.pop(context, false),
-        ),
-        negativeAction: SmoothActionButton(
-          text: appLocalizations.gallery_source_label,
-          onPressed: () async => Navigator.pop(context, true),
-        ),
-      ),
-    );
-    if (dialogFromGallery == null) {
-      return null;
-    }
-    chooseFromGallery = dialogFromGallery;
+Future<XFile?> pickImageFile(final State<StatefulWidget> widget) async {
+  final UserPictureSource? source = await _getUserPictureSource(widget.context);
+  if (source == null) {
+    return null;
   }
   final ImagePicker picker = ImagePicker();
-  if (chooseFromGallery) {
+  if (source == UserPictureSource.GALLERY) {
     return picker.pickImage(source: ImageSource.gallery);
   }
   return picker.pickImage(source: ImageSource.camera);
 }
 
+/// Returns the picture source selected by the user.
+Future<UserPictureSource?> _getUserPictureSource(
+  final BuildContext context,
+) async {
+  if (!CameraHelper.hasACamera) {
+    return UserPictureSource.GALLERY;
+  }
+  final UserPreferences userPreferences = context.read<UserPreferences>();
+  final UserPictureSource source = userPreferences.userPictureSource;
+  if (source != UserPictureSource.SELECT) {
+    return source;
+  }
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  bool? remember = false;
+  return showDialog<UserPictureSource>(
+    context: context,
+    builder: (BuildContext context) => StatefulBuilder(
+      builder: (
+        final BuildContext context,
+        final void Function(VoidCallback fn) setState,
+      ) =>
+          SmoothAlertDialog(
+        title: appLocalizations.choose_image_source_title,
+        actionsAxis: Axis.vertical,
+        body: CheckboxListTile(
+          value: remember,
+          onChanged: (final bool? value) => setState(
+            () => remember = value,
+          ),
+          title: Text(appLocalizations.user_picture_source_remember),
+        ),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.settings_app_camera,
+          onPressed: () {
+            const UserPictureSource result = UserPictureSource.CAMERA;
+            if (remember == true) {
+              userPreferences.setUserPictureSource(result);
+            }
+            Navigator.pop(context, result);
+          },
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.gallery_source_label,
+          onPressed: () {
+            const UserPictureSource result = UserPictureSource.GALLERY;
+            if (remember == true) {
+              userPreferences.setUserPictureSource(result);
+            }
+            Navigator.pop(context, result);
+          },
+        ),
+      ),
+    ),
+  );
+}
+
 /// Crops an image picked from the gallery or camera.
-Future<File?> startImageCropping(
-  BuildContext context, {
-  bool showOptionDialog = false,
-  bool chooseFromGallery = false,
-}) async {
+Future<File?> startImageCropping(final State<StatefulWidget> widget) async {
   // Show a loading page on the Flutter side
-  final NavigatorState navigator = Navigator.of(context);
-  final CropHelper cropHelper = CropHelper.getCurrent(context);
+  final NavigatorState navigator = Navigator.of(widget.context);
+  final CropHelper cropHelper = CropHelper.getCurrent(widget.context);
   await _showScreenBetween(navigator);
 
-  // ignore: use_build_context_synchronously
-  final XFile? pickedXFile = await pickImageFile(
-    context,
-    chooseFromGallery: chooseFromGallery,
-    showOptionDialog: showOptionDialog,
-  );
+  if (!widget.mounted) {
+    return null;
+  }
+  final XFile? pickedXFile = await pickImageFile(widget);
   if (pickedXFile == null) {
     await _hideScreenBetween(navigator);
     return null;
   }
 
-  // ignore: use_build_context_synchronously
+  if (!widget.mounted) {
+    return null;
+  }
   final String? croppedPath = await cropHelper.getCroppedPath(
-    context,
+    widget.context,
     pickedXFile.path,
   );
 

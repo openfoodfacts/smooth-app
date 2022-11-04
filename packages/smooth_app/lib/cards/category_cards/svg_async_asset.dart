@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 
 /// Widget with async load of SVG asset file
 ///
@@ -30,7 +31,9 @@ class _SvgAsyncAssetState extends State<SvgAsyncAsset> {
     for (final String cachedFilename
         in widget.assetCacheHelper.cachedFilenames) {
       try {
-        return await rootBundle.loadString(cachedFilename);
+        return await rootBundle.loadString(
+          AppHelper.getAssetPath(cachedFilename),
+        );
       } catch (e) {
         //
       }

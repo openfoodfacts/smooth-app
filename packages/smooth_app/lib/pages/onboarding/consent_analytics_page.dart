@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -39,6 +40,7 @@ class ConsentAnalyticsPage extends StatelessWidget {
                     SvgPicture.asset(
                       'assets/onboarding/analytics.svg',
                       width: screenSize.width * .50,
+                      package: AppHelper.APP_PACKAGE,
                     ),
                     const SizedBox(height: LARGE_SPACE),
                     AutoSizeText(

@@ -1,29 +1,28 @@
-def localProperties = new Properties()
-def localPropertiesFile = rootProject.file('local.properties')
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
-        localProperties.load(reader)
+group 'org.openfoodfacts.smooth_app'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.6.10'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
-def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
-}
-
-def flutterVersionName = localProperties.getProperty('flutter.versionName')
-if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
-}
-
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion 31
@@ -42,38 +41,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "org.openfoodfacts.scanner"
-        minSdkVersion 21
-        targetSdkVersion 31
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
-        multiDexEnabled true
+        minSdkVersion 16
     }
-
-    signingConfigs {
-        release {
-            storeFile System.getenv('SIGN_STORE_PATH') ? file(System.getenv('SIGN_STORE_PATH')) : null
-            storePassword System.getenv('SIGN_STORE_PASSWORD')
-            keyAlias System.getenv('SIGN_KEY_ALIAS')
-            keyPassword System.getenv('SIGN_KEY_PASSWORD')
-        }
-    }
-
-    buildTypes {
-        release {
-            signingConfig signingConfigs.release
-        }
-        debug{
-            signingConfig signingConfigs.debug
-        }
-    }
-}
-
-flutter {
-    source '../..'
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.multidex:multidex:2.0.1'
 }

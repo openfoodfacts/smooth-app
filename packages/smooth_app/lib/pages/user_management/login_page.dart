@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -85,6 +86,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       extendBodyBehindAppBar: true,
       statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
       contentBehindStatusBar: true,
+      fixKeyboard: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -117,6 +119,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       SvgPicture.asset(
                         'assets/preferences/login.svg',
                         height: MediaQuery.of(context).size.height * .15,
+                        package: AppHelper.APP_PACKAGE,
                       ),
                       Text(
                         appLocalizations.sign_in_text,
@@ -176,7 +179,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         hintText: appLocalizations.password,
                         prefixIcon: const Icon(Icons.vpn_key),
                         enabled: !_runningQuery,
-                        textInputAction: TextInputAction.done,
+                        textInputAction: TextInputAction.send,
                         // Hides the keyboard
                         autofillHints: const <String>[
                           AutofillHints.password,

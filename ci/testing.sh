@@ -18,8 +18,16 @@ SHARD="${SHARD:-${1:-test}}"
 
 if [[ "$SHARD" == "test" ]]; then
   echo "Running tests."
+
+  # Ignore scanner/ folder and navigate instead to the sub-folders
   for file in "$REPO_DIR/packages/"*; do
-    if [[ -d $file ]]; then
+    if [[ "$file" == *scanner ]]; then
+      for file in "$file/"*; do
+        if [[ -d $file ]]; then
+          (cd "$file" && flutter test --coverage)
+        fi
+      done
+    elif [[ -d $file ]]; then
       (cd "$file" && flutter test --coverage)
     fi
   done

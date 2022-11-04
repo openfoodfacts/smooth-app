@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/pages/scan/alternative_camera_mode.dart';
+import 'package:smooth_app/pages/scan/camera_modes.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// A lifecycle-aware [CameraController]
@@ -98,8 +98,12 @@ class SmoothCameraController extends CameraController {
 
   @protected
   Future<void> startStream(onLatestImageAvailable onAvailable) async {
-    _persistToFileMode = preferences.useAlternativeCameraMode ??
-        await AlternativeCameraMode.isAWhitelistedDevice;
+    if (CameraModes.supportFileBasedMode) {
+      _persistToFileMode = preferences.useFileBasedCameraMode ??
+          (CameraModes.defaultCameraMode == CameraMode.FILE_BASED);
+    } else {
+      _persistToFileMode = false;
+    }
 
     return startImageStream(
       onAvailable,
@@ -108,15 +112,15 @@ class SmoothCameraController extends CameraController {
   }
 
   Future<void> reloadImageMode() async {
-    final bool? alternativeCameraMode = preferences.useAlternativeCameraMode;
+    final bool? fileBasedCameraMode = preferences.useFileBasedCameraMode;
 
     /// Keep using the default value
-    if (alternativeCameraMode == null) {
+    if (fileBasedCameraMode == null) {
       return;
     }
 
-    if (alternativeCameraMode != _persistToFileMode) {
-      _persistToFileMode = alternativeCameraMode;
+    if (fileBasedCameraMode != _persistToFileMode) {
+      _persistToFileMode = fileBasedCameraMode;
       await changeImageMode(_persistToFileMode);
     }
   }
@@ -189,6 +193,8 @@ class SmoothCameraController extends CameraController {
   Future<void> resumePreviewIfNecessary() async {
     if (!isPauseResumePreviewSupported) {
       throw UnimplementedError('This feature is not supported!');
+    } else if (_state.isDisposedOrBeing) {
+      throw const DisposedControllerException();
     } else if (_state == _CameraState.beingPaused) {
       // The pause process can sometimes be too long, in that case, we just for
       // it to be finished
@@ -206,6 +212,10 @@ class SmoothCameraController extends CameraController {
   @protected
   @override
   Future<void> resumePreview() async {
+    if (_state.isDisposedOrBeing) {
+      throw const DisposedControllerException();
+    }
+
     _updateState(_CameraState.beingResumed);
     await super.resumePreview();
     await _resumeFlash();
@@ -366,5 +376,12 @@ enum _CameraState {
   resumed,
   stopped,
   isBeingDisposed,
-  disposed,
+  disposed;
+
+  bool get isDisposedOrBeing =>
+      this == _CameraState.isBeingDisposed || this == _CameraState.disposed;
+}
+
+class DisposedControllerException implements Exception {
+  const DisposedControllerException();
 }

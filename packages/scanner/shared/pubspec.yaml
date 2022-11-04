@@ -1,0 +1,33 @@
+name: scanner_shared
+description: Shared interfaces between implementations
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: "<3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Camera (custom implementation for Android)
+  camera:
+    git:
+      url: "https://github.com/g123k/plugins.git"
+      ref: "smooth_camera"
+      path: "packages/camera/camera"
+  camera_platform_interface:
+    git:
+      url: "https://github.com/g123k/plugins.git"
+      ref: "smooth_camera"
+      path: "packages/camera/camera_platform_interface"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 2.0.1
+  openfoodfacts_flutter_lints:
+    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
+
+flutter:

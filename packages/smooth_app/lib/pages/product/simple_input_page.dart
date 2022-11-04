@@ -4,17 +4,16 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
@@ -89,11 +88,14 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           title: AutoSizeText(
             getProductName(widget.product, appLocalizations),
-            maxLines: 2,
+            maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
           ),
+          subTitle: widget.product.barcode != null
+              ? Text(widget.product.barcode!)
+              : null,
         ),
         body: Padding(
           padding: const EdgeInsets.all(SMALL_SPACE),
@@ -147,8 +149,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final Product changedProduct = Product(barcode: widget.product.barcode);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final Product? cachedProduct = await daoProduct.get(
       changedProduct.barcode!,
@@ -207,22 +207,14 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     await BackgroundTaskDetails.addTask(
       changedProduct,
       productEditTasks: productEditTasks,
+      widget: this,
     );
     final Product upToDateProduct = cachedProduct ?? changedProduct;
     await daoProduct.put(upToDateProduct);
-    provider.set(upToDateProduct);
-    localDatabase.notifyListeners();
+    localDatabase.upToDate.set(upToDateProduct);
     if (!mounted) {
       return false;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          appLocalizations.product_task_background_schedule,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
-    );
     return true;
   }
 

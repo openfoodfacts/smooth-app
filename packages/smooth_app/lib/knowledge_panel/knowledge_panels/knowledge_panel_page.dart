@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
@@ -35,14 +32,23 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   String get traceTitle => 'knowledge_panel_page';
 
   @override
-  String get traceName => 'Opened full knowledge panel page ${_getTitle()}';
+  String get traceName => 'Opened full knowledge panel page';
 
   late Product _product;
+  late final LocalDatabase _localDatabase;
 
   @override
   void initState() {
-    _product = widget.product;
     super.initState();
+    _product = widget.product;
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_product.barcode!);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    super.dispose();
   }
 
   static KnowledgePanelPanelGroupElement? _groupElementOf(
@@ -55,77 +61,59 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<UpToDateProductProvider>(
-        builder: (
-          final BuildContext context,
-          final UpToDateProductProvider provider,
-          final Widget? child,
-        ) {
-          final Product? refreshedProduct = provider.get(_product);
-          if (refreshedProduct != null) {
-            _product = refreshedProduct;
-          }
-          return SmoothScaffold(
-            appBar: AppBar(
-              title: Text(
-                _getTitle(),
-                maxLines: 2,
-              ),
+  Widget build(BuildContext context) {
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
+    if (refreshedProduct != null) {
+      _product = refreshedProduct;
+    }
+    return SmoothScaffold(
+      appBar: AppBar(
+        title: Text(
+          _getTitle(),
+          maxLines: 2,
+        ),
+      ),
+      body: RefreshIndicator(
+        onRefresh: () => _refreshProduct(context),
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: SmoothCard(
+            padding: const EdgeInsets.all(
+              SMALL_SPACE,
             ),
-            body: RefreshIndicator(
-              onRefresh: () => _refreshProduct(context),
-              child: SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                child: SmoothCard(
-                  padding: const EdgeInsets.all(
-                    SMALL_SPACE,
-                  ),
-                  child: KnowledgePanelExpandedCard(
-                    panelId: widget.panelId,
-                    product: _product,
-                    isInitiallyExpanded: true,
-                  ),
-                ),
-              ),
+            child: KnowledgePanelExpandedCard(
+              panelId: widget.panelId,
+              product: _product,
+              isInitiallyExpanded: true,
             ),
-          );
-        },
-      );
+          ),
+        ),
+      ),
+    );
+  }
 
-  Future<bool> _refreshProduct(BuildContext context) async {
+  Future<void> _refreshProduct(BuildContext context) async {
     try {
-      if (InheritedDataManager.of(context).currentBarcode.isNotEmpty) {
-        final LocalDatabase localDatabase = context.read<LocalDatabase>();
-        final bool result = await ProductRefresher().fetchAndRefresh(
-          context: context,
-          localDatabase: localDatabase,
-          barcode: InheritedDataManager.of(context).currentBarcode,
-        );
-        if (mounted && result) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(appLocalizations.product_refreshed),
-              duration: SnackBarDuration.short,
-            ),
-          );
-        }
-        return result;
-      } else {
-        return false;
+      final String barcode = InheritedDataManager.of(context).currentBarcode;
+      if (barcode.isEmpty) {
+        return;
       }
+      await ProductRefresher().fetchAndRefresh(
+        barcode: barcode,
+        widget: this,
+      );
     } catch (e) {
       //no refreshing during onboarding
-      return false;
     }
   }
 
   String _getTitle() {
     final KnowledgePanelPanelGroupElement? groupElement =
         _groupElementOf(context);
-    if (groupElement?.title.isNotEmpty == true) {
-      return groupElement!.title;
+    if (groupElement?.title != null &&
+        groupElement?.title!.isNotEmpty == true) {
+      return groupElement!.title!;
     }
     final KnowledgePanel? panel =
         KnowledgePanelWidget.getKnowledgePanel(_product, widget.panelId);

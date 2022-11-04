@@ -121,6 +121,7 @@ class _SearchPageState extends State<SearchPage> {
             ),
             Expanded(
               child: SearchHistoryView(
+                focusNode: _searchFocusNode,
                 onTap: (String query) => _performSearch(
                   context,
                   query,

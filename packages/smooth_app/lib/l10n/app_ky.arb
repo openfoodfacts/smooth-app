@@ -6,6 +6,10 @@
     "@add": {},
     "okay": "Okay",
     "@okay": {},
+    "create": "Түзүү",
+    "@create": {
+        "description": "An action to create"
+    },
     "applyButtonText": "Apply",
     "@applyButtonText": {},
     "next_label": "Next",
@@ -30,6 +34,10 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
+    "calculate": "Calculate",
+    "@calculate": {
+        "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
+    },
     "reset_food_prefs": "Reset food preferences",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
@@ -556,6 +564,18 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "deprecated_header": "You are using a deprecated version of the app.",
+    "@deprecated_header": {
+        "description": "Confirmation, that the user can upgrade to new version of the app"
+    },
+    "click_here": "Click here",
+    "@click_here": {
+        "description": "Confirmation click to download new version of the app"
+    },
+    "download_new_version": "Download the new version of the app",
+    "@download_new_version": {
+        "description": "Download new version of the app text"
+    },
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -679,6 +699,14 @@
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
+    "compare_products_appbar_title": "Compare products",
+    "@compare_products_appbar_title": {
+        "description": "AppBar title when in comparison mode "
+    },
+    "compare_products_appbar_subtitle": "Please select at least two products",
+    "@compare_products_appbar_subtitle": {
+        "description": "AppBar subtitle when in comparison mode"
+    },
     "retry_button_label": "Кайталоо",
     "connect_with_us": "Connect with us",
     "instagram": "Instagram",
@@ -709,7 +737,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorize the access.",
+    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -787,7 +815,7 @@
             }
         }
     },
-    "authorize_button_label": "Authorize",
+    "authorize_button_label": "Authorise",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -922,23 +950,21 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_alternative_mode_title": "Alternative mode for the scanner",
-    "@camera_alternative_mode_title": {
-        "description": "Title for the Alternative mode for the camera/scanner"
+    "camera_mode_title": "Scanner mode",
+    "@camera_mode_title": {
+        "description": "Title for the mode for the camera/scanner"
     },
-    "camera_alternative_mode_subtitle": "If your device is unable to scan barcodes, please try this mode.\n\nIf it works well, please communicate us your device name: {device}, in order to make this mode the default one for your device.",
-    "@camera_alternative_mode_subtitle": {
-        "description": "SubTitle for the Alternative mode for the camera/scanner",
+    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "@camera_mode_subtitle": {
+        "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
-            "device": {
+            "mode": {
                 "type": "String"
             }
         }
     },
-    "camera_alternative_mode_confirm_dialog_title": "Scanner mode changed!",
-    "@camera_alternative_mode_confirm_dialog_title": {
-        "description": "Title for the dialog explaining the alternative mode has changed"
-    },
+    "camera_mode_file_based": "Safe mode (by default)",
+    "camera_mode_bytes_array_based": "Quick mode",
     "app_haptic_feedback_title": "Vibration & Haptics",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1154,9 +1180,17 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_button_new": "New list",
+    "user_list_add_product": "Add the product to your lists",
+    "@user_list_add_product": {
+        "description": "Label for the dialog to add a product to a list"
+    },
+    "user_list_button_new": "Create a new list",
     "@user_list_button_new": {
-        "description": "Short label of a 'new list' button"
+        "description": "Short label of a 'create a new list' button"
+    },
+    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "@user_list_empty_label": {
+        "description": "Content displayed when there is no list"
     },
     "user_list_button_add_product": "Add to list",
     "@user_list_button_add_product": {
@@ -1650,8 +1684,57 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
+    "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
+    "@portion_calculator_description": {
+        "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "@portion_calculator_result_title": {
+        "description": "Title of the results of the portion calculator.",
+        "placeholders": {
+            "grams": {
+                "type": "int"
+            }
+        }
+    },
     "offline_data": "Offline Data",
     "@offline_data": {
         "description": "App bar tile for offline data page"
+    },
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "@ocr_image_upload_instruction": {
+        "description": "Message shown when there is no image on ocr extraction page"
+    },
+    "upload_image": "Upload Photo",
+    "@upload_image": {
+        "description": "Message shown on asking to upload image"
+    },
+    "word_separator_char": ",",
+    "@word_separator_char": {
+        "description": "Word separator character. In English language, this is a comma: ','"
+    },
+    "word_separator": ", ",
+    "@word_separator": {
+        "description": "Word separator string. In English, this is a comma followed by a space: ', '"
+    },
+    "image_download_error": "Failed to download image",
+    "@image_download_error": {
+        "description": "Error message, when image download fails"
+    },
+    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "@image_edit_url_error": {
+        "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Remember my choice",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Select each time",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
+    },
+    "robotoff_continue": "Continue",
+    "@robotoff_continue": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     }
 }

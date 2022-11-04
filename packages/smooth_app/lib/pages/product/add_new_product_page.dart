@@ -9,7 +9,6 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
@@ -43,70 +42,82 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   final Map<ImageField, List<File>> _uploadedImages =
       <ImageField, List<File>>{};
 
+  late final LocalDatabase _localDatabase;
+
   bool _nutritionFactsAdded = false;
   bool _basicDetailsAdded = false;
   bool _isProductLoaded = false;
 
   @override
+  void initState() {
+    super.initState();
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(widget.barcode);
+  }
+
+  @override
+  void dispose() {
+    _localDatabase.upToDate.loseInterest(widget.barcode);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final ThemeData themeData = Theme.of(context);
+    Product product = Product(barcode: widget.barcode);
+    final Product? refreshedProduct = localDatabase.upToDate.get(product);
+    if (refreshedProduct != null) {
+      product = refreshedProduct;
+    }
     return SmoothScaffold(
       appBar: AppBar(
           title: Text(appLocalizations.new_product),
           automaticallyImplyLeading: !_isProductLoaded),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          final LocalDatabase localDatabase = context.read<LocalDatabase>();
+          final DaoProduct daoProduct = DaoProduct(localDatabase);
+          final Product? localProduct = await daoProduct.get(widget.barcode);
+          if (localProduct == null) {
+            product = Product(
+              barcode: widget.barcode,
+            );
+            daoProduct.put(product);
+            localDatabase.notifyListeners();
+          }
+          localDatabase.upToDate.set(product);
+          if (mounted) {
+            await Navigator.maybePop(
+              context,
+              _isProductLoaded ? widget.barcode : null,
+            );
+          }
+        },
+        label: Text(appLocalizations.finish),
+        icon: const Icon(Icons.done),
+      ),
       body: Padding(
         padding: const EdgeInsetsDirectional.only(
           top: VERY_LARGE_SPACE,
           start: VERY_LARGE_SPACE,
           end: VERY_LARGE_SPACE,
         ),
-        child: Stack(
-          children: <Widget>[
-            SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    appLocalizations.add_product_take_photos_descriptive,
-                    style: themeData.textTheme.bodyText1!
-                        .apply(color: themeData.colorScheme.onBackground),
-                  ),
-                  ..._buildImageCaptureRows(context),
-                  _buildNutritionInputButton(),
-                  _buildaddInputDetailsButton()
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                appLocalizations.add_product_take_photos_descriptive,
+                style: themeData.textTheme.bodyText1!
+                    .apply(color: themeData.colorScheme.onBackground),
               ),
-            ),
-            Positioned(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: SmoothActionButtonsBar.single(
-                  action: SmoothActionButton(
-                    text: appLocalizations.finish,
-                    onPressed: () async {
-                      final LocalDatabase localDatabase =
-                          context.read<LocalDatabase>();
-                      final DaoProduct daoProduct = DaoProduct(localDatabase);
-                      final Product? product =
-                          await daoProduct.get(widget.barcode);
-                      if (product == null) {
-                        final Product product = Product(
-                          barcode: widget.barcode,
-                        );
-                        daoProduct.put(product);
-                        localDatabase.notifyListeners();
-                      }
-                      if (mounted) {
-                        await Navigator.maybePop(
-                            context, _isProductLoaded ? widget.barcode : null);
-                      }
-                    },
-                  ),
-                ),
-              ),
-            ),
-          ],
+              ..._buildImageCaptureRows(context),
+              _buildNutritionInputButton(product),
+              _buildaddInputDetailsButton()
+            ],
+          ),
         ),
       ),
     );
@@ -151,7 +162,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: _getAddPhotoButtonText(context, imageType),
         icon: Icons.camera_alt,
         onPressed: () async {
-          final File? initialPhoto = await startImageCropping(context);
+          final File? initialPhoto = await startImageCropping(this);
           if (initialPhoto == null) {
             return;
           }
@@ -183,34 +194,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildImageUploadedRow(
       BuildContext context, ImageField imageType, File image) {
-    final ThemeData themeData = Theme.of(context);
-    return Padding(
-      padding: _ROW_PADDING_TOP,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(
-            height: 50,
-            width: 50,
-            child: ClipRRect(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              child: Image.file(image, fit: BoxFit.cover),
-            ),
-          ),
-          Expanded(
-            child: Center(
-              child: Text(
-                _getAddPhotoButtonText(context, imageType),
-                style: themeData.textTheme.bodyText1,
-              ),
-            ),
-          ),
-          Icon(
-            Icons.check_box,
-            color: themeData.bottomNavigationBarTheme.selectedItemColor,
-          )
-        ],
-      ),
+    return _InfoAddedRow(
+      text: _getAddPhotoButtonText(context, imageType),
+      imgStart: image,
     );
   }
 
@@ -234,33 +220,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return (_uploadedImages[imageType] ?? <File>[]).isNotEmpty;
   }
 
-  Widget _buildNutritionInputButton() {
+  Widget _buildNutritionInputButton(Product product) {
+    // if the nutrition image is null, ie no image , we return nothing
+    if (product.imageNutritionUrl == null) {
+      return const SizedBox();
+    }
     if (_nutritionFactsAdded) {
-      return Padding(
-        padding: _ROW_PADDING_TOP,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-              width: 50.0,
-              child: Icon(
-                Icons.check,
-                color: Theme.of(context)
-                    .bottomNavigationBarTheme
-                    .selectedItemColor,
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: Text(
-                    AppLocalizations.of(context).nutritional_facts_added,
-                    style: Theme.of(context).textTheme.bodyText1),
-              ),
-            ),
-          ],
-        ),
-      );
+      return _InfoAddedRow(
+          text: AppLocalizations.of(context).nutritional_facts_added);
     }
 
     return Padding(
@@ -311,29 +278,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   Widget _buildaddInputDetailsButton() {
     if (_basicDetailsAdded) {
-      final ThemeData themeData = Theme.of(context);
-      return Padding(
-          padding: _ROW_PADDING_TOP,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(
-                width: 50.0,
-                child: Icon(
-                  Icons.check,
-                  color: themeData.bottomNavigationBarTheme.selectedItemColor,
-                ),
-              ),
-              Expanded(
-                child: Center(
-                  child: Text(
-                      AppLocalizations.of(context).basic_details_add_success,
-                      style: Theme.of(context).textTheme.bodyText1),
-                ),
-              ),
-            ],
-          ));
+      return _InfoAddedRow(
+          text: AppLocalizations.of(context).basic_details_add_success);
     }
 
     return Padding(
@@ -359,5 +305,43 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         },
       ),
     );
+  }
+}
+
+class _InfoAddedRow extends StatelessWidget {
+  const _InfoAddedRow({required this.text, this.imgStart});
+
+  final String text;
+  final File? imgStart;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    return Padding(
+        padding: _ROW_PADDING_TOP,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 50,
+              width: 50,
+              child: ClipRRect(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                child: imgStart == null
+                    ? null
+                    : Image.file(imgStart!, fit: BoxFit.cover),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(text, style: themeData.textTheme.bodyText1),
+              ),
+            ),
+            Icon(
+              Icons.check,
+              color: themeData.bottomNavigationBarTheme.selectedItemColor,
+            )
+          ],
+        ));
   }
 }

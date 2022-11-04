@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
+import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,7 @@ class ProductImageViewer extends StatefulWidget {
 
 class _ProductImageViewerState extends State<ProductImageViewer> {
   late final ProductImageData imageData;
+  late final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   /// When the image is edited, this is the new image
   late ImageProvider imageProvider;
@@ -50,7 +52,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.black,
         floatingActionButton: FloatingActionButton.extended(
-          label: Text(AppLocalizations.of(context).edit_photo_button_label),
+          label: Text(appLocalizations.edit_photo_button_label),
           icon: const Icon(Icons.edit),
           backgroundColor: Theme.of(context).colorScheme.primary,
           onPressed: () {
@@ -64,6 +66,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
           elevation: 0,
           title: Text(imageData.title),
           leading: SmoothBackButton(
+            iconColor: Colors.white,
             onPressed: () => Navigator.maybePop(context, _isEdited),
           ),
         ),
@@ -90,12 +93,17 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       );
 
   Future<void> _editImage(final DaoInt daoInt) async {
-    final File? imageFile = await LoadingDialog.run<File>(
-      context: context,
-      future: _downloadImageFile(daoInt, imageData.imageUrl!),
-    );
+    final String? imageUrl = imageData.getImageUrl(ImageSize.ORIGINAL);
+    if (imageUrl == null) {
+      await _showDownloadFailedDialog(appLocalizations.image_edit_url_error);
+      return;
+    }
+
+    final File? imageFile = await LoadingDialog.run<File?>(
+        context: context, future: _downloadImageFile(daoInt, imageUrl));
 
     if (imageFile == null) {
+      await _showDownloadFailedDialog(appLocalizations.image_download_error);
       return;
     }
 
@@ -125,10 +133,19 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     }
   }
 
+  Future<void> _showDownloadFailedDialog(String? title) =>
+      LoadingDialog.error(context: context, title: title);
+
   static const String _CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
 
-  Future<File> _downloadImageFile(DaoInt daoInt, String url) async {
-    final http.Response response = await http.get(Uri.parse(url));
+  Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
+    final Uri uri = Uri.parse(url);
+    final http.Response response = await http.get(uri);
+    final int code = response.statusCode;
+    if (code != 200) {
+      throw NetworkImageLoadException(statusCode: code, uri: uri);
+    }
+
     final Directory tempDirectory = await getTemporaryDirectory();
 
     final int sequenceNumber =

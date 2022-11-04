@@ -6,7 +6,6 @@ import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -14,6 +13,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
@@ -21,6 +21,7 @@ import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductListPage extends StatefulWidget {
@@ -42,7 +43,7 @@ class _ProductListPageState extends State<ProductListPage>
   static const String _popupActionRename = 'rename';
 
   @override
-  String get traceName => 'Opened list_page ${widget.productList.listType}';
+  String get traceName => 'Opened list_page';
 
   @override
   String get traceTitle => 'list_page';
@@ -102,8 +103,8 @@ class _ProductListPageState extends State<ProductListPage>
               label: Text(appLocalizations.compare_products_mode),
               icon: const Icon(Icons.compare_arrows),
             ),
-      appBar: AppBar(
-        actions: _selectionMode || !(enableClear || enableRename)
+      appBar: SmoothAppBar(
+        actions: !(enableClear || enableRename)
             ? null
             : <Widget>[
                 PopupMenuButton<String>(
@@ -172,8 +173,23 @@ class _ProductListPageState extends State<ProductListPage>
         title: Text(
           ProductQueryPageHelper.getProductListLabel(productList, context),
           overflow: TextOverflow.fade,
-          //style: TextStyle(color: Colors.black),
         ),
+        actionMode: _selectionMode,
+        onLeaveActionMode: () {
+          setState(() => _selectionMode = false);
+        },
+        actionModeTitle: Text(appLocalizations.compare_products_appbar_title),
+        actionModeSubTitle:
+            Text(appLocalizations.compare_products_appbar_subtitle),
+        actionModeActions: <Widget>[
+          _CompareProductsButton(
+            selectedBarcodes: _selectedBarcodes,
+            barcodes: products,
+            onComparisonEnded: () {
+              setState(() => _selectionMode = false);
+            },
+          )
+        ],
       ),
       body: products.isEmpty
           ? GestureDetector(
@@ -184,6 +200,7 @@ class _ProductListPageState extends State<ProductListPage>
                     SvgPicture.asset(
                       'assets/misc/empty-list.svg',
                       height: MediaQuery.of(context).size.height * .4,
+                      package: AppHelper.APP_PACKAGE,
                     ),
                     Text(
                       appLocalizations.product_list_empty_title,
@@ -218,36 +235,15 @@ class _ProductListPageState extends State<ProductListPage>
                   localDatabase,
                   appLocalizations,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    if (_selectionMode)
-                      Padding(
-                        padding: const EdgeInsets.all(SMALL_SPACE),
-                        child: _buildCompareBar(products, appLocalizations),
-                      ),
-                    Expanded(
-                      child: Consumer<UpToDateProductProvider>(
-                        builder: (
-                          _,
-                          final UpToDateProductProvider provider,
-                          __,
-                        ) =>
-                            ListView.builder(
-                          itemCount: products.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return _buildItem(
-                              dismissible,
-                              products,
-                              index,
-                              localDatabase,
-                              appLocalizations,
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
+                child: ListView.builder(
+                  itemCount: products.length,
+                  itemBuilder: (BuildContext context, int index) => _buildItem(
+                    dismissible,
+                    products,
+                    index,
+                    localDatabase,
+                    appLocalizations,
+                  ),
                 ),
               ),
             ),
@@ -275,16 +271,22 @@ class _ProductListPageState extends State<ProductListPage>
     final Widget child = InkWell(
       onTap: _selectionMode ? onTap : null,
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: _selectionMode ? 0 : MEDIUM_SPACE,
-          vertical: SMALL_SPACE,
+        padding: EdgeInsets.only(
+          left: _selectionMode ? SMALL_SPACE : 0,
         ),
         child: Row(
           children: <Widget>[
-            if (_selectionMode)
-              Icon(
-                selected ? Icons.check_box : Icons.check_box_outline_blank,
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              width:
+                  _selectionMode ? (IconTheme.of(context).size ?? 20.0) : 0.0,
+              child: Offstage(
+                offstage: !_selectionMode,
+                child: Icon(
+                  selected ? Icons.check_box : Icons.check_box_outline_blank,
+                ),
               ),
+            ),
             Expanded(
               child: ProductListItemSimple(
                 barcode: barcode,
@@ -401,6 +403,7 @@ class _ProductListPageState extends State<ProductListPage>
         return false;
       }
       await DaoProduct(localDatabase).putAll(freshProducts);
+      localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
       await robotoffInsightHelper.clearInsightAnnotationsSaved();
@@ -410,50 +413,53 @@ class _ProductListPageState extends State<ProductListPage>
     }
     return false;
   }
+}
 
-  Widget _buildCompareBar(
-    final List<String> barcodes,
-    final AppLocalizations appLocalizations,
-  ) =>
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: _selectedBarcodes.length >=
-                    2 // compare button is enabled only if 2 or more products have been selected
-                ? () async {
-                    final List<String> list = <String>[];
-                    for (final String barcode in barcodes) {
-                      if (_selectedBarcodes.contains(barcode)) {
-                        list.add(barcode);
-                      }
-                    }
-                    if (!mounted) {
-                      return;
-                    }
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            PersonalizedRankingPage(
-                          barcodes: list,
-                          title: appLocalizations.product_list_your_ranking,
-                        ),
-                      ),
-                    );
-                    setState(() => _selectionMode = false);
-                  }
-                : null,
-            child: Text(
-              appLocalizations.plural_compare_x_products(
-                _selectedBarcodes.length,
-              ),
+class _CompareProductsButton extends StatelessWidget {
+  const _CompareProductsButton({
+    required this.selectedBarcodes,
+    required this.barcodes,
+    this.onComparisonEnded,
+    Key? key,
+  }) : super(key: key);
+
+  final Set<String> selectedBarcodes;
+  final List<String> barcodes;
+  final VoidCallback? onComparisonEnded;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    if (selectedBarcodes.length < 2) {
+      return const SizedBox.shrink();
+    }
+
+    return IconButton(
+      icon: const Icon(Icons.compare_arrows),
+      tooltip: appLocalizations.plural_compare_x_products(
+        selectedBarcodes.length,
+      ),
+      onPressed: () async {
+        final List<String> list = <String>[];
+        for (final String barcode in barcodes) {
+          if (selectedBarcodes.contains(barcode)) {
+            list.add(barcode);
+          }
+        }
+
+        await Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+            builder: (_) => PersonalizedRankingPage(
+              barcodes: list,
+              title: appLocalizations.product_list_your_ranking,
             ),
           ),
-          ElevatedButton(
-            onPressed: () => setState(() => _selectionMode = false),
-            child: Text(appLocalizations.cancel),
-          ),
-        ],
-      );
+        );
+
+        onComparisonEnded?.call();
+      },
+    );
+  }
 }

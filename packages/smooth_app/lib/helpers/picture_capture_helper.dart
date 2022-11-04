@@ -8,22 +8,24 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 
-Future<bool> uploadCapturedPicture(
-  BuildContext context, {
+Future<bool> uploadCapturedPicture({
   required String barcode,
   required ImageField imageField,
   required Uri imageUri,
+  required State<StatefulWidget> widget,
 }) async {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final LocalDatabase localDatabase = context.read<LocalDatabase>();
+  final AppLocalizations appLocalizations = AppLocalizations.of(widget.context);
+  final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
   await BackgroundTaskImage.addTask(
     barcode,
     imageField: imageField,
     imageFile: File(imageUri.path),
   );
   localDatabase.notifyListeners();
-  // ignore: use_build_context_synchronously
-  ScaffoldMessenger.of(context).showSnackBar(
+  if (!widget.mounted) {
+    return true;
+  }
+  ScaffoldMessenger.of(widget.context).showSnackBar(
     SnackBar(
       content: Text(
         appLocalizations.image_upload_queued,
@@ -31,8 +33,7 @@ Future<bool> uploadCapturedPicture(
       duration: SnackBarDuration.medium,
     ),
   );
-  //ignore: use_build_context_synchronously
-  await _updateContinuousScanModel(context, barcode);
+  await _updateContinuousScanModel(widget.context, barcode);
   return true;
 }
 

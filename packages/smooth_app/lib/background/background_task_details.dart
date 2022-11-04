@@ -1,10 +1,10 @@
 import 'dart:convert';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -70,6 +70,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     final Product minimalistProduct, {
     final List<ProductEditTask>? productEditTasks,
     final ProductEditTask? productEditTask,
+    required final State<StatefulWidget> widget,
   }) async {
     final String code;
     if (productEditTask != null) {
@@ -106,44 +107,32 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
         uniqueId: uniqueId,
       ),
     );
+    if (!widget.mounted) {
+      return;
+    }
+    final BuildContext context = widget.context;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          AppLocalizations.of(context).product_task_background_schedule,
+        ),
+        duration: SnackBarDuration.medium,
+      ),
+    );
   }
 
-  /// Uploads the product changes, downloads the whole product, updates locally.
+  /// Uploads the product changes.
   @override
-  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
+  Future<void> upload() async {
     final Map<String, dynamic> productMap =
         json.decode(inputMap) as Map<String, dynamic>;
-    final User user =
-        User.fromJson(jsonDecode(this.user) as Map<String, dynamic>);
 
     await OpenFoodAPIClient.saveProduct(
-      user,
+      getUser(),
       Product.fromJson(productMap),
       language: getLanguage(),
       country: getCountry(),
     );
-
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      barcode,
-      fields: ProductQuery.fields,
-      language: getLanguage(),
-      country: getCountry(),
-    );
-
-    final ProductResult queryResult =
-        await OpenFoodAPIClient.getProduct(configuration);
-
-    if (queryResult.status == AbstractBackgroundTask.SUCCESS_CODE) {
-      final Product? product = queryResult.product;
-      if (product != null) {
-        await daoProduct.put(product);
-        localDatabase.notifyListeners();
-      }
-    }
-
-    // Returns true to let platform know that the task is completed
-    return TaskResult.success;
   }
 }
 

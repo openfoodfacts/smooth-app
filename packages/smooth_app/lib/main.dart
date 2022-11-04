@@ -9,10 +9,11 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
@@ -32,32 +33,38 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 late bool _screenshots;
 
-Future<void> main({final bool screenshots = false}) async {
+Future<void> launchSmoothApp({
+  required CameraScanner scanner,
+  final bool screenshots = false,
+}) async {
   _screenshots = screenshots;
   if (_screenshots) {
     await _init1();
-    runApp(const SmoothApp());
+    runApp(SmoothApp(scanner));
     return;
   }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () => runApp(const SmoothApp()),
+      appRunner: () => runApp(SmoothApp(scanner)),
     );
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (_) => const SmoothApp(),
+        builder: (_) => SmoothApp(scanner),
       ),
     );
   }
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp();
+  const SmoothApp(this.scanner);
+
+  final CameraScanner scanner;
 
   // This widget is the root of your application
   @override
@@ -72,8 +79,6 @@ late ThemeProvider _themeProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 final PermissionListener _permissionListener =
     PermissionListener(permission: Permission.camera);
-final UpToDateProductProvider _upToDateProductProvider =
-    UpToDateProductProvider();
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -100,6 +105,7 @@ Future<bool> _init1() async {
     daoString: DaoString(_localDatabase),
   );
   await callbackDispatcher(_localDatabase);
+  UserManagementProvider().checkUserLoginValidity();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);
@@ -170,7 +176,7 @@ class _SmoothAppState extends State<SmoothApp> {
         }
 
         return MultiProvider(
-          providers: <ChangeNotifierProvider<ChangeNotifier>>[
+          providers: <SingleChildWidget>[
             provide<UserPreferences>(_userPreferences),
             provide<ProductPreferences>(_productPreferences),
             provide<LocalDatabase>(_localDatabase),
@@ -178,10 +184,13 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
-            provide<UpToDateProductProvider>(_upToDateProductProvider),
             provide<PermissionListener>(_permissionListener),
             provide<CameraControllerNotifier>(
-                CameraHelper.cameraControllerNotifier),
+              CameraHelper.cameraControllerNotifier,
+            ),
+            Provider<CameraScanner>.value(
+              value: widget.scanner,
+            ),
           ],
           builder: _buildApp,
         );

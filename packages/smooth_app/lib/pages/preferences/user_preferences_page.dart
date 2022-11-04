@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_account.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_connect.dart';
@@ -140,7 +141,11 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       Container(
         color: dark ? null : headerColor,
         padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-        child: SvgPicture.asset(headerAsset, height: backgroundHeight),
+        child: SvgPicture.asset(
+          headerAsset,
+          height: backgroundHeight,
+          package: AppHelper.APP_PACKAGE,
+        ),
       ),
     );
     return SmoothScaffold(

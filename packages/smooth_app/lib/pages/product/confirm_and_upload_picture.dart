@@ -67,7 +67,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                   alignment: WrapAlignment.center,
                   children: <Widget>[
                     OutlinedButton.icon(
-                      icon: const Icon(Icons.camera),
+                      icon: const Icon(Icons.camera_alt),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                           themeData.colorScheme.background,
@@ -79,8 +79,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        retakenPhoto = await startImageCropping(context,
-                            chooseFromGallery: false);
+                        retakenPhoto = await startImageCropping(this);
                         if (retakenPhoto == null) {
                           if (!mounted) {
                             return;
@@ -96,37 +95,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         );
                       },
                       label: Text(appLocalizations.capture),
-                    ),
-                    OutlinedButton.icon(
-                      icon: const Icon(Icons.photo_sharp),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          themeData.colorScheme.background,
-                        ),
-                        shape: MaterialStateProperty.all(
-                          const RoundedRectangleBorder(
-                            borderRadius: ROUNDED_BORDER_RADIUS,
-                          ),
-                        ),
-                      ),
-                      onPressed: () async {
-                        retakenPhoto = await startImageCropping(context,
-                            chooseFromGallery: true);
-                        if (retakenPhoto == null) {
-                          if (!mounted) {
-                            return;
-                          }
-                          // User chose not to upload the image.
-                          Navigator.pop(context);
-                          return;
-                        }
-                        setState(
-                          () {
-                            photo = retakenPhoto!;
-                          },
-                        );
-                      },
-                      label: Text(appLocalizations.choose_from_gallery),
                     ),
                     OutlinedButton.icon(
                       icon: const Icon(Icons.edit),
@@ -177,7 +145,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                       ),
                       onPressed: () async {
                         uploadCapturedPicture(
-                          context,
+                          widget: this,
                           barcode: widget.barcode,
                           imageField: widget.imageType,
                           imageUri: photo.uri,

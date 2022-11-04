@@ -2,15 +2,16 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:audioplayers/audioplayers.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
@@ -20,7 +21,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/camera_controller.dart';
 import 'package:smooth_app/pages/scan/camera_image_preview.dart';
 import 'package:smooth_app/pages/scan/lifecycle_manager.dart';
-import 'package:smooth_app/pages/scan/mkit_scan_helper.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
@@ -73,7 +73,6 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
 
   /// Stream calling the barcode detection
   StreamSubscription<List<String>?>? _streamSubscription;
-  MLKitScanDecoder? _barcodeDecoder;
 
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
@@ -272,18 +271,20 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
           final DateTime start = DateTime.now();
 
           try {
-            // If the decoder is not initialized yet…
-            _barcodeDecoder ??= MLKitScanDecoder(
-              camera: _camera!,
-              scanMode: DevModeScanMode.fromIndex(
-                _userPreferences.getDevModeIndex(
-                  UserPreferencesDevMode.userPreferencesEnumScanMode,
+            if (!_barcodeDecoder.isInitialized) {
+              // If the decoder is not initialized yet…
+              _barcodeDecoder.onInit(
+                camera: _camera!,
+                mode: DevModeScanMode.fromIndex(
+                  _userPreferences.getDevModeIndex(
+                    UserPreferencesDevMode.userPreferencesEnumScanMode,
+                  ),
                 ),
-              ),
-            );
+              );
+            }
 
             final List<String?>? res = await _barcodeDecoder
-                ?.processImage(image)
+                .processImage(image)
                 .timeout(const Duration(seconds: 5));
 
             _averageProcessingTime.add(
@@ -424,6 +425,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       } on CameraException catch (_) {
         // Dart Controller is OK, but native part is KO
         return _stopImageStream();
+      } on DisposedControllerException catch (_) {
+        // Dart Controller is OK, but native part is KO
+        return _stopImageStream();
       }
     }
     stoppingCamera = false;
@@ -450,9 +454,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     CameraHelper.destroyControllerInstance();
 
     await _streamSubscription?.cancel();
-
-    await _barcodeDecoder?.dispose();
-    _barcodeDecoder = null;
+    await _barcodeDecoder.onDispose();
 
     stoppingCamera = false;
 
@@ -508,6 +510,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     }
 
     _musicPlayer = AudioPlayer(playerId: '1');
+    _musicPlayer!.audioCache.prefix = AppHelper.defaultAssetPath;
     await _musicPlayer!.setSourceAsset('audio/beep.ogg');
     await _musicPlayer!.setPlayerMode(PlayerMode.lowLatency);
     await _musicPlayer!.setAudioContext(
@@ -584,6 +587,8 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
   }
 
   SmoothCameraController? get _controller => CameraHelper.controller;
+
+  CameraScanner get _barcodeDecoder => context.read<CameraScanner>();
 }
 
 /// Provides the position to the center of the visor

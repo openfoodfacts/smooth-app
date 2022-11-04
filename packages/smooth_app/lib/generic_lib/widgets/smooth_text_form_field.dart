@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
 enum TextFieldTypes {
@@ -60,6 +61,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
     final TextStyle textStyle = DefaultTextStyle.of(context).style;
     final double textSize =
         widget.hintTextFontSize ?? textStyle.fontSize ?? 20.0;
+    final AppLocalizations appLocalization = AppLocalizations.of(context);
 
     return TextFormField(
       keyboardType: widget.textInputType,
@@ -108,6 +110,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         ),
         suffixIcon: widget.type == TextFieldTypes.PASSWORD
             ? IconButton(
+                tooltip: appLocalization.show_password,
                 splashRadius: 10.0,
                 onPressed: () => setState(() {
                   _obscureText = !_obscureText;

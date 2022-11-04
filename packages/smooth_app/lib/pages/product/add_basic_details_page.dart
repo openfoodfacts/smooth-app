@@ -4,13 +4,14 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
-import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class AddBasicDetailsPage extends StatefulWidget {
@@ -34,38 +35,39 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late Product _product;
-
-  @override
-  void initState() {
-    super.initState();
-    _product = widget.product;
-    _initializeProduct();
-  }
+  late AppLocalizations appLocalizations = AppLocalizations.of(context);
 
   void _initializeProduct() {
+    _product = widget.product;
     _productNameController.text = _product.productName ?? '';
     _weightController.text = _product.quantity ?? '';
-    _brandNameController.text = _product.brands ?? '';
+    _brandNameController.text = _formatProductBrands(_product.brands);
   }
 
   /// Sets a [Product] with the values from the text fields.
   void _setChangedProduct(Product product) {
     product.productName = _productNameController.text;
     product.quantity = _weightController.text;
-    product.brands = _brandNameController.text;
+    product.brands = _formatProductBrands(_brandNameController.text);
+  }
+
+  String _formatProductBrands(String? text) {
+    return text == null ? '' : formatProductBrands(text, appLocalizations);
   }
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    _initializeProduct();
     final Size size = MediaQuery.of(context).size;
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final UpToDateProductProvider provider =
-        context.read<UpToDateProductProvider>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     return SmoothScaffold(
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(appLocalizations.basic_details),
+        subTitle: widget.product.productName != null
+            ? Text(widget.product.productName!,
+                overflow: TextOverflow.ellipsis, maxLines: 1)
+            : null,
       ),
       body: Form(
         key: _formKey,
@@ -154,12 +156,12 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     await BackgroundTaskDetails.addTask(
                       inputProduct,
                       productEditTask: ProductEditTask.basic,
+                      widget: this,
                     );
                     final Product upToDateProduct =
                         cachedProduct ?? inputProduct;
                     await daoProduct.put(upToDateProduct);
-                    provider.set(upToDateProduct);
-                    localDatabase.notifyListeners();
+                    localDatabase.upToDate.set(upToDateProduct);
                     if (!mounted) {
                       return;
                     }

@@ -11,7 +11,9 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
@@ -53,40 +55,51 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   Color? getHeaderColor() => const Color(0xFFFFF2DF);
 
   @override
-  List<Widget> getBody() => <Widget>[
-        _getListTile(
-          appLocalizations.contribute_improve_header,
-          () => _contribute(),
-          Icons.data_saver_on,
-        ),
-        _getListTile(
-          appLocalizations.contribute_sw_development,
-          () => _develop(),
-          Icons.app_shortcut,
-        ),
-        _getListTile(
-          appLocalizations.contribute_translate_header,
-          () => _translate(),
-          Icons.translate,
-        ),
-        _getListTile(
-          appLocalizations.contribute_share_header,
-          () => _share(appLocalizations.contribute_share_content),
-          Icons.adaptive.share,
-        ),
-        _getListTile(
-          appLocalizations.contribute_donate_header,
-          () => _donate(),
-          Icons.volunteer_activism,
-          icon:
-              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-        ),
-        _getListTile(
-          appLocalizations.contributors,
-          () => _contributors(),
-          Icons.emoji_people,
-        ),
-      ];
+  List<Widget> getBody() {
+    final bool hungerGamesEnabled = userPreferences
+            .getFlag(UserPreferencesDevMode.userPreferencesFlagHungerGames) ??
+        false;
+
+    return <Widget>[
+      _getListTile(
+        'Hunger Games',
+        () => _hungerGames(),
+        Icons.games,
+        showed: hungerGamesEnabled,
+      ),
+      _getListTile(
+        appLocalizations.contribute_improve_header,
+        () => _contribute(),
+        Icons.data_saver_on,
+      ),
+      _getListTile(
+        appLocalizations.contribute_sw_development,
+        () => _develop(),
+        Icons.app_shortcut,
+      ),
+      _getListTile(
+        appLocalizations.contribute_translate_header,
+        () => _translate(),
+        Icons.translate,
+      ),
+      _getListTile(
+        appLocalizations.contribute_share_header,
+        () => _share(appLocalizations.contribute_share_content),
+        Icons.adaptive.share,
+      ),
+      _getListTile(
+        appLocalizations.contribute_donate_header,
+        () => _donate(),
+        Icons.volunteer_activism,
+        icon: UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+      ),
+      _getListTile(
+        appLocalizations.contributors,
+        () => _contributors(),
+        Icons.emoji_people,
+      ),
+    ];
+  }
 
   Future<void> _contribute() => showDialog<void>(
         context: context,
@@ -103,30 +116,32 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 const SizedBox(
                   height: 10,
                 ),
-                TextButton(
-                  onPressed: () async {
-                    final LocalDatabase localDatabase =
-                        context.read<LocalDatabase>();
-                    Navigator.of(context).pop();
-                    ProductQueryPageHelper().openBestChoice(
-                      name: appLocalizations.all_search_to_be_completed_title,
-                      localDatabase: localDatabase,
-                      productQuery: PagedToBeCompletedProductQuery(),
-                      // the other "context"s being popped
-                      context: this.context,
-                    );
-                  },
-                  child: Text(
-                    appLocalizations.contribute_improve_ProductsToBeCompleted,
-                  ),
-                ),
               ],
             ),
             positiveAction: SmoothActionButton(
-              onPressed: () => Navigator.of(context).pop(),
               text: appLocalizations.okay,
               minWidth: 100,
+              onPressed: () => Navigator.pop(context),
             ),
+            negativeAction: SmoothActionButton(
+              text: AppLocalizations.of(context)
+                  .contribute_improve_ProductsToBeCompleted,
+              minWidth: 150,
+              onPressed: () async {
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
+                Navigator.of(context).pop();
+                ProductQueryPageHelper().openBestChoice(
+                  name: appLocalizations.all_search_to_be_completed_title,
+                  localDatabase: localDatabase,
+                  productQuery: PagedToBeCompletedProductQuery(),
+                  // the other "context"s being popped
+                  context: this.context,
+                );
+              },
+            ),
+            actionsAxis: Axis.vertical,
+            actionsOrder: SmoothButtonsBarOrder.numerical,
           );
         },
       );
@@ -292,18 +307,27 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         },
       );
 
+  Future<void> _hungerGames() async => Navigator.push(
+      context,
+      MaterialPageRoute<QuestionPage>(
+        builder: (_) => const QuestionPage(),
+      ));
+
   Widget _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
     final Icon? icon,
+    final bool showed = true,
   }) =>
-      UserPreferencesListTile(
-        title: Text(title),
-        onTap: onTap,
-        trailing: icon ?? getForwardIcon(),
-        leading: UserPreferencesListTile.getTintedIcon(leading, context),
-      );
+      showed
+          ? UserPreferencesListTile(
+              title: Text(title),
+              onTap: onTap,
+              trailing: icon ?? getForwardIcon(),
+              leading: UserPreferencesListTile.getTintedIcon(leading, context),
+            )
+          : EMPTY_WIDGET;
 }
 
 class _DevModeSetting extends StatelessWidget {
