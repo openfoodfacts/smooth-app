@@ -375,20 +375,19 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       userId: OpenFoodAPIConfiguration.globalUser!.userId,
       pageSize: 1,
       language: ProductQuery.getLanguage(),
-      fields: [],
+      fields: <ProductField>[],
     );
 
-    final SearchResult result;
     try {
-      result = await OpenFoodAPIClient.searchProducts(
+      final SearchResult result = await OpenFoodAPIClient.searchProducts(
         OpenFoodAPIConfiguration.globalUser,
         configuration,
         queryType: OpenFoodAPIConfiguration.globalQueryType,
       );
+      return result.count;
     } catch (e) {
       return null;
     }
-    return result.count;
   }
 
   Widget _buildProductQueryTile({
