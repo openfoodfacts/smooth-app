@@ -1736,5 +1736,9 @@
     "robotoff_continue": "Pokračovat",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Zobrazit heslo",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

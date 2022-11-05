@@ -46,7 +46,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   bool _nutritionFactsAdded = false;
   bool _basicDetailsAdded = false;
-  bool _isProductLoaded = false;
 
   @override
   void initState() {
@@ -74,24 +73,33 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return SmoothScaffold(
       appBar: AppBar(
           title: Text(appLocalizations.new_product),
-          automaticallyImplyLeading: !_isProductLoaded),
+          automaticallyImplyLeading: _uploadedImages.isEmpty),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          final LocalDatabase localDatabase = context.read<LocalDatabase>();
-          final DaoProduct daoProduct = DaoProduct(localDatabase);
-          final Product? localProduct = await daoProduct.get(widget.barcode);
-          if (localProduct == null) {
-            product = Product(
-              barcode: widget.barcode,
-            );
-            daoProduct.put(product);
-            localDatabase.notifyListeners();
-          }
-          localDatabase.upToDate.set(product);
-          if (mounted) {
+          if (_basicDetailsAdded ||
+              _nutritionFactsAdded ||
+              _uploadedImages.isNotEmpty) {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final DaoProduct daoProduct = DaoProduct(localDatabase);
+            final Product? localProduct = await daoProduct.get(widget.barcode);
+            if (localProduct == null) {
+              product = Product(
+                barcode: widget.barcode,
+              );
+              daoProduct.put(product);
+              localDatabase.notifyListeners();
+            }
+            localDatabase.upToDate.set(product);
+            if (mounted) {
+              await Navigator.maybePop(
+                context,
+                widget.barcode,
+              );
+            }
+          } else {
             await Navigator.maybePop(
               context,
-              _isProductLoaded ? widget.barcode : null,
+              null,
             );
           }
         },
@@ -183,9 +191,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (finalPhoto != null) {
             _uploadedImages[imageType] = _uploadedImages[imageType] ?? <File>[];
             _uploadedImages[imageType]!.add(initialPhoto);
-            setState(() {
-              _isProductLoaded = true;
-            });
           }
         },
       ),
@@ -318,30 +323,31 @@ class _InfoAddedRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     return Padding(
-        padding: _ROW_PADDING_TOP,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              height: 50,
-              width: 50,
-              child: ClipRRect(
-                borderRadius: ROUNDED_BORDER_RADIUS,
-                child: imgStart == null
-                    ? null
-                    : Image.file(imgStart!, fit: BoxFit.cover),
-              ),
+      padding: _ROW_PADDING_TOP,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            height: 50,
+            width: 50,
+            child: ClipRRect(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              child: imgStart == null
+                  ? null
+                  : Image.file(imgStart!, fit: BoxFit.cover),
             ),
-            Expanded(
-              child: Center(
-                child: Text(text, style: themeData.textTheme.bodyText1),
-              ),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(text, style: themeData.textTheme.bodyText1),
             ),
-            Icon(
-              Icons.check,
-              color: themeData.bottomNavigationBarTheme.selectedItemColor,
-            )
-          ],
-        ));
+          ),
+          Icon(
+            Icons.check,
+            color: themeData.bottomNavigationBarTheme.selectedItemColor,
+          )
+        ],
+      ),
+    );
   }
 }
