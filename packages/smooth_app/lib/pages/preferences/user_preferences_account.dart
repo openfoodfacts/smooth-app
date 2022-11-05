@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:openfoodfacts/utils/UserProductSearchQueryConfiguration.dart';
 import 'package:provider/provider.dart';
@@ -216,6 +217,33 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     );
   }
 
+  Future<int?> _getMyCount(
+    final String userId,
+    final UserProductSearchType type,
+    final OpenFoodFactsLanguage language,
+  ) async {
+    final UserProductSearchQueryConfiguration configuration =
+        UserProductSearchQueryConfiguration(
+      type: type,
+      userId: userId,
+      pageSize: 1,
+      language: language,
+      fields: [],
+    );
+
+    final SearchResult result;
+    try {
+      result = await OpenFoodAPIClient.searchProducts(
+        OpenFoodAPIConfiguration.globalUser,
+        configuration,
+        queryType: OpenFoodAPIConfiguration.globalQueryType,
+      );
+    } catch (e) {
+      return null;
+    }
+    return result.count;
+  }
+
   @override
   Widget build(BuildContext context) {
     // We need to listen to reflect login's from outside of the preferences page
@@ -226,6 +254,11 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
+
+    final String currentLanguageCode =
+        Localizations.localeOf(context).toString();
+    final OpenFoodFactsLanguage language =
+        LanguageHelper.fromJson(currentLanguageCode);
 
     final List<Widget> result;
 
@@ -243,6 +276,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.add_circle_outline,
           context: context,
           localDatabase: localDatabase,
+          userId: userId,
+          type: UserProductSearchType.CONTRIBUTOR,
+          language: language,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -254,6 +290,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.edit,
           context: context,
           localDatabase: localDatabase,
+          userId: userId,
+          type: UserProductSearchType.INFORMER,
+          language: language,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -265,6 +304,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.add_a_photo,
           context: context,
           localDatabase: localDatabase,
+          userId: userId,
+          type: UserProductSearchType.PHOTOGRAPHER,
+          language: language,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -367,6 +409,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     required final IconData iconData,
     required final BuildContext context,
     required final LocalDatabase localDatabase,
+    final String? userId,
+    final UserProductSearchType? type,
+    final OpenFoodFactsLanguage? language,
   }) =>
       _getListTile(
         title,
@@ -377,16 +422,32 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           context: context,
         ),
         iconData,
+        userId: userId,
+        type: type,
+        language: language,
       );
 
   Widget _getListTile(
     final String title,
     final VoidCallback onTap,
-    final IconData leading,
-  ) =>
+    final IconData leading, {
+    final String? userId,
+    final UserProductSearchType? type,
+    final OpenFoodFactsLanguage? language,
+  }) =>
       UserPreferencesListTile(
         title: Text(title),
         onTap: onTap,
         leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        trailing: (userId != null && type != null && language != null)
+            ? FutureBuilder<int?>(
+                future: _getMyCount(userId, type, language),
+                builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
+                  return Text(
+                    snapshot.data == null ? '0' : snapshot.data.toString(),
+                  );
+                },
+              )
+            : null,
       );
 }
