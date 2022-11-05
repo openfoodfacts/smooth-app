@@ -1678,9 +1678,9 @@
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
-    "selected_images": "Selected Images",
-    "product_card_remove_product_tooltip": "Remove product",
+    "all_images": "Semua Gambar",
+    "selected_images": "Gambar yang dipilih",
+    "product_card_remove_product_tooltip": "Hapus produk",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
@@ -1688,7 +1688,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Informasi nilai gizi untuk {grams} g (or ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -1697,15 +1697,15 @@
             }
         }
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Data Luring",
     "@offline_data": {
         "description": "App bar tile for offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "ocr_image_upload_instruction": "Unggah sebuah gambar untuk mengekstrak informasi yang diberikan secara otomatis",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on ocr extraction page"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Unggah Foto",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -1717,13 +1717,21 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Gagal mengunduh gambar",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "Gagal menyunting gambar, url gambar tidak diatur.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Ingat pilihan saya",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Pilih tiap kali",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Selanjutnya",
     "@robotoff_continue": {

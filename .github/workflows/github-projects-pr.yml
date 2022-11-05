@@ -1,9 +1,8 @@
 name: Add PRs to the Release Smoothie GitHub Project
 
 on:
-  pull_request:
-    types:
-      - opened
+- pull_request_target
+
 jobs:
   add-to-project:
     name: Add issue to project
