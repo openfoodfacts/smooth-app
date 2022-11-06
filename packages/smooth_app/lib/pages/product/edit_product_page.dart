@@ -120,24 +120,26 @@ class _EditProductPageState extends State<EditProductPage> {
           child: ListView(
             controller: _controller,
             children: <Widget>[
-              BarcodeWidget(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenSize.width / 4,
-                  vertical: SMALL_SPACE,
+              if (_product.barcode != null)
+                BarcodeWidget(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: screenSize.width / 4,
+                    vertical: SMALL_SPACE,
+                  ),
+                  barcode: _product.barcode!.length <= 8
+                      ? Barcode.ean8()
+                      : Barcode.ean13(),
+                  data: _product.barcode!,
+                  color: brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
+                  errorBuilder: (final BuildContext context, String? _) => Text(
+                    '${appLocalizations.edit_product_form_item_barcode}\n'
+                    '${_product.barcode}',
+                    textAlign: TextAlign.center,
+                  ),
+                  height: _barcodeHeight,
                 ),
-                barcode: _product.barcode!.length == 8
-                    ? Barcode.ean8()
-                    : Barcode.ean13(),
-                data: _barcode,
-                color:
-                    brightness == Brightness.dark ? Colors.white : Colors.black,
-                errorBuilder: (final BuildContext context, String? _) => Text(
-                  '${appLocalizations.edit_product_form_item_barcode}\n'
-                  '$_barcode',
-                  textAlign: TextAlign.center,
-                ),
-                height: _barcodeHeight,
-              ),
               _ListTitleItem(
                 title: appLocalizations.edit_product_form_item_details_title,
                 subtitle:
