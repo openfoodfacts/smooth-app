@@ -171,8 +171,7 @@ class _SimpleInputWidgetField extends StatelessWidget {
           AutocompleteOnSelected<String> onSelected,
           Iterable<String> options,
         ) {
-          final MediaQueryData mediaQuery = MediaQuery.of(context);
-          final double screenHeight = mediaQuery.size.height;
+          final double screenHeight = MediaQuery.of(context).size.height;
           final double keyboardHeight =
               MediaQuery.of(lContext).viewInsets.bottom;
 
