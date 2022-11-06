@@ -178,7 +178,7 @@ class _SimpleInputWidgetField extends StatelessWidget {
           final double widgetPosition =
               (context.findRenderObject() as RenderBox?)
                       ?.localToGlobal(Offset.zero)
-                      ?.dy ??
+                      .dy ??
                   0.0;
 
           return AutocompleteOptions<String>(
