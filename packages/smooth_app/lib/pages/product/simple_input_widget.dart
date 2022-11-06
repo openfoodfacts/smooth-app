@@ -175,9 +175,11 @@ class _SimpleInputWidgetField extends StatelessWidget {
           final double keyboardHeight =
               MediaQuery.of(lContext).viewInsets.bottom;
 
-          final Offset? widgetPosition =
+          final double widgetPosition =
               (context.findRenderObject() as RenderBox?)
-                  ?.localToGlobal(Offset.zero);
+                      ?.localToGlobal(Offset.zero)
+                      ?.dy ??
+                  0.0;
 
           return AutocompleteOptions<String>(
             displayStringForOption: RawAutocomplete.defaultStringForOption,
@@ -189,7 +191,7 @@ class _SimpleInputWidgetField extends StatelessWidget {
                 (keyboardHeight == 0
                     ? kBottomNavigationBarHeight
                     : keyboardHeight) -
-                (widgetPosition?.dy ?? 0.0) -
+                widgetPosition -
                 // Vertical padding
                 (LARGE_SPACE * 2) -
                 // Height of the TextField
