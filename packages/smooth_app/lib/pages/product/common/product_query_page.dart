@@ -15,7 +15,6 @@ import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
@@ -203,9 +202,12 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
-          onRefresh: () => refreshList(),
+          onRefresh: () async {
+            await refreshList();
+          },
           child: ListView.builder(
             controller: _scrollController,
+            physics: const AlwaysScrollableScrollPhysics(),
             // To allow refresh even when not the whole page is filled
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
@@ -319,7 +321,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     return <Widget>[
       if (worldQuery != null)
         _getIconButton(_getWorldAction(appLocalizations, worldQuery)),
-      _getIconButton(_getRefreshAction(appLocalizations)),
     ];
   }
 
@@ -410,21 +411,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         ),
       );
 
-  _Action _getRefreshAction(
-    final AppLocalizations appLocalizations,
-  ) =>
-      _Action(
-        text: appLocalizations.label_refresh,
-        iconData: Icons.refresh,
-        onPressed: () async {
-          final bool? success =
-              await _loadAndRefreshDisplay(_model.loadFromTop());
-          if (success == true) {
-            _scrollToTop(instant: true);
-          }
-        },
-      );
-
   void retryConnection() =>
       setState(() => _model = _getModel(widget.productListSupplier));
 
@@ -432,12 +418,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       ProductQueryModel(supplier);
 
   Future<void> refreshList() async {
-    final ProductListSupplier? refreshSupplier =
-        widget.productListSupplier.getRefreshSupplier();
-    setState(
-      // How do we refresh a supplier that has no refresher? With itself.
-      () => _model = _getModel(refreshSupplier ?? widget.productListSupplier),
-    );
+    final bool success = await _model.loadFromTop();
+    if (success == true) {
+      _scrollToTop(instant: true);
+    }
+    setState(() {});
   }
 
   void _scrollToTop({bool instant = false}) {
@@ -450,22 +435,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         curve: Curves.linear,
       );
     }
-  }
-
-  Future<bool?> _loadAndRefreshDisplay(final Future<bool> loader) async {
-    final bool? success = await LoadingDialog.run<bool>(
-      context: context,
-      future: loader,
-    );
-    if (success == false) {
-      await LoadingDialog.error(
-        context: context,
-        title: _model.loadingError,
-      );
-    } else if (success == true) {
-      setState(() {});
-    }
-    return success;
   }
 
   /// Flags if the next page is currently being downloaded.
