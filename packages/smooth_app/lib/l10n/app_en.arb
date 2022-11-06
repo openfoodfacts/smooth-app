@@ -1701,7 +1701,7 @@
     "@offline_data": {
         "description": "App bar tile for offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on ocr extraction page"
     },
