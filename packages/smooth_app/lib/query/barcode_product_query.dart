@@ -49,12 +49,14 @@ class BarcodeProductQuery {
         (result.barcode == null || result.barcode!.isEmpty)) {
       return FetchedProduct.error(FetchedProductStatus.codeInvalid);
     }
-    AnalyticsHelper.trackUnknownProduct(
-      barcode: barcode,
-      isScanned: isScanned,
-      language: language,
-      country: country,
+
+    AnalyticsHelper.trackEvent(
+      AnalyticsMessage.couldNotFindProduct,
+      isScanned ? 'scan' : 'not scan',
+      '${language?.code ?? 'xx'}_${country?.iso2Code ?? 'xx'}',
+      eventValue: int.tryParse(barcode),
     );
+
     return FetchedProduct.error(FetchedProductStatus.internetNotFound);
   }
 }

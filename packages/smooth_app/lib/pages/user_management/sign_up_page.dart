@@ -361,7 +361,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
       return;
     }
-    AnalyticsHelper.trackRegister();
+    AnalyticsHelper.trackEvent(
+      AnalyticsMessage.registerAction,
+      AnalyticsMessage.userManagementCategory.toString(),
+      'Register',
+    );
     if (!mounted) {
       return;
     }

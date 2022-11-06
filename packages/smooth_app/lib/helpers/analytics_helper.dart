@@ -2,12 +2,24 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+
+enum AnalyticsMessage<T extends String> {
+  scanAction<String>('scanned product'),
+  productPageAction<String>('opened product page'),
+  personalizedRankingAction<String>('personalized ranking'),
+  shareProductAction<String>('shared product'),
+  loginAction<String>('logged in'),
+  registerAction<String>('register'),
+  logoutAction<String>('logged out'),
+  userManagementCategory<String>('user management'),
+  couldNotFindProduct<String>('could not find product');
+
+  const AnalyticsMessage(this.value);
+  final T value;
+}
 
 /// Helper for logging usage of core features and exceptions
 /// Logging:
@@ -23,15 +35,6 @@ class AnalyticsHelper {
   AnalyticsHelper._();
 
   static bool _crashReports = false;
-
-  static const String _scanAction = 'scanned product';
-  static const String _productPageAction = 'opened product page';
-  static const String _personalizedRankingAction = 'personalized ranking';
-  static const String _shareProductAction = 'shared product';
-  static const String _loginAction = 'logged in';
-  static const String _registerAction = 'register';
-  static const String _userManagementCategory = 'user management';
-  static const String _couldNotFindProduct = 'could not find product';
 
   static String latestSearch = '';
 
@@ -82,8 +85,6 @@ class AnalyticsHelper {
         siteId: 2,
         visitorId: uuid,
       );
-      MatomoTracker.instance
-          .setVisitorUserId(OpenFoodAPIConfiguration.globalUser?.userId);
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized
     }
@@ -93,29 +94,30 @@ class AnalyticsHelper {
   static String? get uuid =>
       kDebugMode ? 'smoothie-debug--' : OpenFoodAPIConfiguration.uuid;
 
-  // TODO(m123): Matomo removes leading 0 from the barcode
-  static void trackScannedProduct({required String barcode}) =>
+  static void trackEvent(
+    AnalyticsMessage<String> name,
+    String category,
+    String action, {
+    int? eventValue,
+  }) =>
       MatomoTracker.instance.trackEvent(
-        eventName: _scanAction,
-        eventCategory: 'Scan',
-        action: 'Scanned',
+        eventName: name.toString(),
+        eventCategory: category,
+        action: action,
+        eventValue: eventValue,
+      );
+
+  static void trackEventWithBarcode(
+    AnalyticsMessage<String> name,
+    String category,
+    String action,
+    String barcode,
+  ) =>
+      MatomoTracker.instance.trackEvent(
+        eventName: name.toString(),
+        eventCategory: category,
+        action: action,
         eventValue: _formatBarcode(barcode),
-      );
-
-  static void trackProductPageOpen({required Product product}) =>
-      MatomoTracker.instance.trackEvent(
-        eventName: _productPageAction,
-        action: 'opened',
-        eventCategory: 'Page',
-        eventValue: _formatBarcode(product.barcode!),
-      );
-
-  static void trackPersonalizedRanking(int count) =>
-      MatomoTracker.instance.trackEvent(
-        eventName: _personalizedRankingAction,
-        action: 'opened',
-        eventCategory: 'Page',
-        eventValue: count,
       );
 
   static void trackSearch({
@@ -130,6 +132,7 @@ class AnalyticsHelper {
     }
 
     latestSearch = searchString;
+
     MatomoTracker.instance.trackSearch(
       searchKeyword: search,
       searchCount: searchCount,
@@ -137,35 +140,8 @@ class AnalyticsHelper {
     );
   }
 
-  static void trackOpenLink({required String url}) =>
+  static void trackOutlink({required String url}) =>
       MatomoTracker.instance.trackOutlink(url);
-
-  static void trackShareProduct({required String barcode}) =>
-      MatomoTracker.instance.trackEvent(
-        eventName: _shareProductAction,
-        action: 'shared',
-        eventCategory: 'product page',
-        eventValue: int.tryParse(barcode),
-      );
-
-  static void trackLogin() => MatomoTracker.instance
-      .trackEvent(action: _loginAction, eventCategory: _userManagementCategory);
-
-  static void trackRegister() => MatomoTracker.instance.trackEvent(
-      action: _registerAction, eventCategory: _userManagementCategory);
-
-  static void trackUnknownProduct({
-    required String barcode,
-    required bool isScanned,
-    required OpenFoodFactsLanguage? language,
-    required OpenFoodFactsCountry? country,
-  }) =>
-      MatomoTracker.instance.trackEvent(
-        eventName: _couldNotFindProduct,
-        action: '${language?.code ?? 'xx'}_${country?.iso2Code ?? 'xx'}',
-        eventCategory: isScanned ? 'scan' : 'not scan',
-        eventValue: int.tryParse(barcode),
-      );
 
   static int _formatBarcode(String barcode) {
     const int fallback = 000000000;
