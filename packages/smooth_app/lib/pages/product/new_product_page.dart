@@ -245,11 +245,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Future<void> _shareProduct() async {
-    AnalyticsHelper.trackEventWithBarcode(
-      AnalyticsMessage.shareProductAction,
-      'Share',
-      'Share',
-      widget.product.barcode!,
+    AnalyticsHelper.trackEvent(
+      AnalyticsMessage.shareProduct,
+      barcode: widget.product.barcode,
     );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // We need to provide a sharePositionOrigin to make the plugin work on ipad

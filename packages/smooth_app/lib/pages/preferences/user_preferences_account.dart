@@ -203,8 +203,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             text: localizations.yes,
             onPressed: () async {
               context.read<UserManagementProvider>().logout();
-              AnalyticsHelper.trackEvent(AnalyticsMessage.logoutAction,
-                  AnalyticsMessage.userManagementCategory.toString(), 'LogOut');
+              AnalyticsHelper.trackEvent(AnalyticsMessage.logoutAction);
               Navigator.pop(context, true);
             },
           ),

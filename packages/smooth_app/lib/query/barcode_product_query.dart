@@ -50,12 +50,17 @@ class BarcodeProductQuery {
       return FetchedProduct.error(FetchedProductStatus.codeInvalid);
     }
 
-    AnalyticsHelper.trackEvent(
-      AnalyticsMessage.couldNotFindProduct,
-      isScanned ? 'scan' : 'not scan',
-      '${language?.code ?? 'xx'}_${country?.iso2Code ?? 'xx'}',
-      eventValue: int.tryParse(barcode),
-    );
+    if (isScanned) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsMessage.couldNotScanProduct,
+        barcode: barcode,
+      );
+    } else {
+      AnalyticsHelper.trackEvent(
+        AnalyticsMessage.couldNotFindProduct,
+        barcode: barcode,
+      );
+    }
 
     return FetchedProduct.error(FetchedProductStatus.internetNotFound);
   }

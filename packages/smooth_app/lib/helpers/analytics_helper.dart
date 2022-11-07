@@ -6,19 +6,34 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-enum AnalyticsMessage<T extends String> {
-  scanAction<String>('scanned product'),
-  productPageAction<String>('opened product page'),
-  personalizedRankingAction<String>('personalized ranking'),
-  shareProductAction<String>('shared product'),
-  loginAction<String>('logged in'),
-  registerAction<String>('register'),
-  logoutAction<String>('logged out'),
-  userManagementCategory<String>('user management'),
-  couldNotFindProduct<String>('could not find product');
+enum AnalyticsCategory {
+  userManagement(tag: 'user management'),
+  scanning(tag: 'scanning'),
+  share(tag: 'share'),
+  couldNotFindProduct(tag: 'could not find product');
 
-  const AnalyticsMessage(this.value);
-  final T value;
+  const AnalyticsCategory({required this.tag});
+  final String tag;
+}
+
+enum AnalyticsMessage {
+  scanAction(tag: 'scanned product', category: AnalyticsCategory.scanning),
+  shareProduct(tag: 'shared product', category: AnalyticsCategory.share),
+  loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
+  registerAction(tag: 'register', category: AnalyticsCategory.userManagement),
+  logoutAction(tag: 'logged out', category: AnalyticsCategory.userManagement),
+  couldNotScanProduct(
+    tag: 'could not scan product',
+    category: AnalyticsCategory.couldNotFindProduct,
+  ),
+  couldNotFindProduct(
+    tag: 'could not find product',
+    category: AnalyticsCategory.couldNotFindProduct,
+  );
+
+  const AnalyticsMessage({required this.tag, required this.category});
+  final String tag;
+  final AnalyticsCategory category;
 }
 
 /// Helper for logging usage of core features and exceptions
@@ -95,29 +110,15 @@ class AnalyticsHelper {
       kDebugMode ? 'smoothie-debug--' : OpenFoodAPIConfiguration.uuid;
 
   static void trackEvent(
-    AnalyticsMessage<String> name,
-    String category,
-    String action, {
+    AnalyticsMessage msg, {
     int? eventValue,
+    String? barcode,
   }) =>
       MatomoTracker.instance.trackEvent(
-        eventName: name.toString(),
-        eventCategory: category,
-        action: action,
-        eventValue: eventValue,
-      );
-
-  static void trackEventWithBarcode(
-    AnalyticsMessage<String> name,
-    String category,
-    String action,
-    String barcode,
-  ) =>
-      MatomoTracker.instance.trackEvent(
-        eventName: name.toString(),
-        eventCategory: category,
-        action: action,
-        eventValue: _formatBarcode(barcode),
+        eventName: msg.name,
+        eventCategory: msg.category.tag,
+        action: msg.name,
+        eventValue: eventValue ?? _formatBarcode(barcode),
       );
 
   static void trackSearch({
@@ -143,7 +144,11 @@ class AnalyticsHelper {
   static void trackOutlink({required String url}) =>
       MatomoTracker.instance.trackOutlink(url);
 
-  static int _formatBarcode(String barcode) {
+  static int? _formatBarcode(String? barcode) {
+    if (barcode == null) {
+      return null;
+    }
+
     const int fallback = 000000000;
     try {
       return int.tryParse(barcode) ?? fallback;

@@ -50,11 +50,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     );
 
     if (login) {
-      AnalyticsHelper.trackEvent(
-        AnalyticsMessage.loginAction,
-        AnalyticsMessage.userManagementCategory.toString(),
-        'Login',
-      );
+      AnalyticsHelper.trackEvent(AnalyticsMessage.loginAction);
       if (!mounted) {
         return;
       }
