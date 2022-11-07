@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
-import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 
@@ -15,12 +12,14 @@ class ProductTitleCard extends StatelessWidget {
     this.isSelectable, {
     this.dense = false,
     this.isRemovable = true,
+    this.onRemove,
   });
 
   final Product product;
   final bool dense;
   final bool isSelectable;
   final bool isRemovable;
+  final OnRemoveCallback? onRemove;
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +31,10 @@ class ProductTitleCard extends StatelessWidget {
     final String quantity = product.quantity ?? '';
 
     if (isRemovable && !isSelectable) {
-      final ContinuousScanModel model = context.watch<ContinuousScanModel>();
       subtitleText = '$brands${quantity == '' ? '' : ', $quantity'}';
       trailingWidget = InkWell(
         customBorder: const CircleBorder(),
-        onTap: () async {
-          await model.removeBarcode(product.barcode!);
-
-          // Vibrate twice
-          SmoothHapticFeedback.confirm();
-        },
+        onTap: () => onRemove?.call(context),
         child: Tooltip(
           message: appLocalizations.product_card_remove_product_tooltip,
           child: const Padding(
@@ -91,3 +84,5 @@ class ProductTitleCard extends StatelessWidget {
     );
   }
 }
+
+typedef OnRemoveCallback = void Function(BuildContext context);
