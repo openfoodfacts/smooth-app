@@ -35,8 +35,6 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> {
-  static const double _barcodeHeight = 120.0;
-
   final ScrollController _controller = ScrollController();
   bool _barcodeVisibleInAppbar = false;
   late Product _product;
@@ -60,8 +58,6 @@ class _EditProductPageState extends State<EditProductPage> {
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final ThemeData theme = Theme.of(context);
-    final Brightness brightness = theme.brightness;
-    final Size screenSize = MediaQuery.of(context).size;
 
     return SmoothScaffold(
       appBar: AppBar(
@@ -120,26 +116,7 @@ class _EditProductPageState extends State<EditProductPage> {
           child: ListView(
             controller: _controller,
             children: <Widget>[
-              if (_product.barcode != null)
-                BarcodeWidget(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: screenSize.width / 4,
-                    vertical: SMALL_SPACE,
-                  ),
-                  barcode: _product.barcode!.length <= 8
-                      ? Barcode.ean8()
-                      : Barcode.ean13(),
-                  data: _product.barcode!,
-                  color: brightness == Brightness.dark
-                      ? Colors.white
-                      : Colors.black,
-                  errorBuilder: (final BuildContext context, String? _) => Text(
-                    '${appLocalizations.edit_product_form_item_barcode}\n'
-                    '${_product.barcode}',
-                    textAlign: TextAlign.center,
-                  ),
-                  height: _barcodeHeight,
-                ),
+              if (_product.barcode != null) _ProductBarcode(product: _product),
               _ListTitleItem(
                 title: appLocalizations.edit_product_form_item_details_title,
                 subtitle:
@@ -391,5 +368,40 @@ class _SvgIcon extends StatelessWidget {
       case Brightness.dark:
         return Colors.white;
     }
+  }
+}
+
+/// Barcodes only allowed have a length of 7, 8, 12 or 13 characters
+class _ProductBarcode extends StatelessWidget {
+  _ProductBarcode({required this.product, Key? key})
+      : assert(product.barcode?.isNotEmpty == true),
+        assert(<int>[7, 8, 12, 13].contains(product.barcode!.length)),
+        super(key: key);
+
+  static const double _barcodeHeight = 120.0;
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Brightness brightness = Theme.of(context).brightness;
+    final Size screenSize = MediaQuery.of(context).size;
+
+    return BarcodeWidget(
+      padding: EdgeInsets.symmetric(
+        horizontal: screenSize.width / 4,
+        vertical: SMALL_SPACE,
+      ),
+      barcode: product.barcode!.length <= 8 ? Barcode.ean8() : Barcode.ean13(),
+      data: product.barcode!,
+      color: brightness == Brightness.dark ? Colors.white : Colors.black,
+      errorBuilder: (final BuildContext context, String? _) => Text(
+        '${appLocalizations.edit_product_form_item_barcode}\n'
+        '${product.barcode}',
+        textAlign: TextAlign.center,
+      ),
+      height: _barcodeHeight,
+    );
   }
 }
