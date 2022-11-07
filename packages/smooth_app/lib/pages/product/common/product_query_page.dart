@@ -202,13 +202,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
-          onRefresh: () async {
-            await refreshList();
-          },
+          /// To allow refresh even when not the whole page is filled
+          onRefresh: () async => refreshList(),
           child: ListView.builder(
             controller: _scrollController,
             physics: const AlwaysScrollableScrollPhysics(),
-            // To allow refresh even when not the whole page is filled
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
                 // on top, a message
@@ -246,7 +244,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 barcode: _model.displayBarcodes[index],
               );
             },
-
             itemCount: _getItemCount(),
           ),
         ),
@@ -418,11 +415,17 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       ProductQueryModel(supplier);
 
   Future<void> refreshList() async {
-    final bool success = await _model.loadFromTop();
-    if (success == true) {
-      _scrollToTop(instant: true);
+    bool successfullyLoaded = false;
+    try {
+      successfullyLoaded = await _model.loadFromTop();
+    } catch (e) {
+      //Add snackbar to show error?
+    } finally {
+      if (successfullyLoaded) {
+        _scrollToTop(instant: true);
+      }
+      setState(() {});
     }
-    setState(() {});
   }
 
   void _scrollToTop({bool instant = false}) {
