@@ -303,7 +303,8 @@ class _EditProductPageState extends State<EditProductPage> {
   }
 
   void _onScrollChanged() {
-    final bool visibleBarcode = _controller.offset > _barcodeHeight;
+    final bool visibleBarcode =
+        _controller.offset > _ProductBarcode._barcodeHeight;
 
     if (visibleBarcode != _barcodeVisibleInAppbar) {
       setState(() {
