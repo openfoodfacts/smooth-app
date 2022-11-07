@@ -424,6 +424,12 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             ? FutureBuilder<int?>(
                 future: _getMyCount(type),
                 builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
+                  if (snapshot.connectionState != ConnectionState.done) {
+                    return const SizedBox(
+                        height: LARGE_SPACE,
+                        width: LARGE_SPACE,
+                        child: CircularProgressIndicator.adaptive());
+                  }
                   return Text(
                     snapshot.data == null ? '0' : snapshot.data.toString(),
                   );
