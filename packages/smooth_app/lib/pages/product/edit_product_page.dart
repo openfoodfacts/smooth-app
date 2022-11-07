@@ -394,7 +394,7 @@ class _ProductBarcode extends StatelessWidget {
         horizontal: screenSize.width / 4,
         vertical: SMALL_SPACE,
       ),
-      barcode: product.barcode!.length <= 8 ? Barcode.ean8() : Barcode.ean13(),
+      barcode: _barcodeType,
       data: product.barcode!,
       color: brightness == Brightness.dark ? Colors.white : Colors.black,
       errorBuilder: (final BuildContext context, String? _) => Text(
@@ -404,5 +404,18 @@ class _ProductBarcode extends StatelessWidget {
       ),
       height: _barcodeHeight,
     );
+  }
+
+  Barcode get _barcodeType {
+    switch (product.barcode!.length) {
+      case 7:
+      case 8:
+        return Barcode.ean8();
+      case 12:
+      case 13:
+        return Barcode.ean13();
+      default:
+        throw Exception('Unknown barcode type!');
+    }
   }
 }
