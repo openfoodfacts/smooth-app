@@ -373,8 +373,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     if (status.error != null) {
       // Highlight the field with the error
       if (status.statusErrors?.isNotEmpty == true) {
-        if (status.statusErrors!.contains(SignUpStatusError.UNKNOWN)) {
-          //On Server Side Code this a new Error "SignUpStatusError.notValidEmail" needs to be added
+        if (status.statusErrors!.contains(SignUpStatusError.INCORRECT_EMAIL)) {
           _emailFocusNode.requestFocus();
         } else if (status.statusErrors!
             .contains(SignUpStatusError.EMAIL_ALREADY_USED)) {
