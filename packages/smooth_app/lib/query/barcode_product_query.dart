@@ -52,12 +52,12 @@ class BarcodeProductQuery {
 
     if (isScanned) {
       AnalyticsHelper.trackEvent(
-        AnalyticsMessage.couldNotScanProduct,
+        AnalyticsEvent.couldNotScanProduct,
         barcode: barcode,
       );
     } else {
       AnalyticsHelper.trackEvent(
-        AnalyticsMessage.couldNotFindProduct,
+        AnalyticsEvent.couldNotFindProduct,
         barcode: barcode,
       );
     }

@@ -116,7 +116,7 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
     AnalyticsHelper.trackEvent(
-      AnalyticsMessage.scanAction,
+      AnalyticsEvent.scanAction,
       barcode: code,
     );
 

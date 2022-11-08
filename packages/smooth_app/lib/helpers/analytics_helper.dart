@@ -6,6 +6,7 @@ import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
+/// Category for Matomo Events
 enum AnalyticsCategory {
   userManagement(tag: 'user management'),
   scanning(tag: 'scanning'),
@@ -16,7 +17,8 @@ enum AnalyticsCategory {
   final String tag;
 }
 
-enum AnalyticsMessage {
+/// Event types for Matomo analytics
+enum AnalyticsEvent {
   scanAction(tag: 'scanned product', category: AnalyticsCategory.scanning),
   shareProduct(tag: 'shared product', category: AnalyticsCategory.share),
   loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
@@ -31,7 +33,7 @@ enum AnalyticsMessage {
     category: AnalyticsCategory.couldNotFindProduct,
   );
 
-  const AnalyticsMessage({required this.tag, required this.category});
+  const AnalyticsEvent({required this.tag, required this.category});
   final String tag;
   final AnalyticsCategory category;
 }
@@ -110,7 +112,7 @@ class AnalyticsHelper {
       kDebugMode ? 'smoothie-debug--' : OpenFoodAPIConfiguration.uuid;
 
   static void trackEvent(
-    AnalyticsMessage msg, {
+    AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
   }) =>

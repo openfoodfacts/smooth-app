@@ -246,7 +246,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   Future<void> _shareProduct() async {
     AnalyticsHelper.trackEvent(
-      AnalyticsMessage.shareProduct,
+      AnalyticsEvent.shareProduct,
       barcode: widget.product.barcode,
     );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
