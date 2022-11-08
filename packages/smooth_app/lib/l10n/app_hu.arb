@@ -1737,7 +1737,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "show_password": "Show Password",
+    "show_password": "Jelszó mutatása",
     "@show_password": {
         "description": "Show hidden password in password field"
     }
