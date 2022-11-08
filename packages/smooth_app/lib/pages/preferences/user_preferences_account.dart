@@ -309,8 +309,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
-                            'Are you sure you want to delete your account? \n Is there a specific reason share below '),
+                        Text(appLocalizations.account_delete_message),
                         const SizedBox(
                           height: 5,
                         ),
@@ -318,7 +317,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                             type: TextFieldTypes.PLAIN_TEXT,
                             textInputType: TextInputType.text,
                             controller: reasonController,
-                            hintText: 'Reasons'),
+                            hintText: appLocalizations.reason),
                       ],
                     ),
                     positiveAction: SmoothActionButton(
@@ -328,8 +327,8 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                   );
                 });
             final Email email = Email(
-              body: appLocalizations.email_body_account_deletion(userId) +
-                  reasonController.text,
+              body:
+                  '${appLocalizations.email_body_account_deletion(userId)}{reasonController.text}',
               subject: appLocalizations.email_subject_account_deletion,
               recipients: <String>['contact@openfoodfacts.org'],
             );
