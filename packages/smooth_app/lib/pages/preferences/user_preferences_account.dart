@@ -11,6 +11,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -204,6 +205,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             text: localizations.yes,
             onPressed: () async {
               context.read<UserManagementProvider>().logout();
+              AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
               Navigator.pop(context, true);
             },
           ),
