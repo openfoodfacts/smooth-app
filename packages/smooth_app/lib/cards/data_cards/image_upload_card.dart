@@ -30,8 +30,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
   ImageProvider? _imageFullProvider;
 
   Future<void> _getImage() async {
-    final File? croppedImageFile =
-        await startImageCropping(context, showOptionDialog: true);
+    final File? croppedImageFile = await startImageCropping(this);
 
     if (croppedImageFile != null) {
       if (widget.productImageData.imageField != ImageField.OTHER) {
