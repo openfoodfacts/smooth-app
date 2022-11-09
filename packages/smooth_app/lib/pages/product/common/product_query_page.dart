@@ -15,6 +15,7 @@ import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
@@ -202,10 +203,10 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
-          /// To allow refresh even when not the whole page is filled
-          onRefresh: () async => refreshList(),
+          onRefresh: () async => _refreshList(),
           child: ListView.builder(
             controller: _scrollController,
+            // To allow refresh even when not the whole page is filled
             physics: const AlwaysScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
@@ -414,12 +415,15 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   ProductQueryModel _getModel(final ProductListSupplier supplier) =>
       ProductQueryModel(supplier);
 
-  Future<void> refreshList() async {
+  Future<void> _refreshList() async {
     bool successfullyLoaded = false;
     try {
       successfullyLoaded = await _model.loadFromTop();
     } catch (e) {
-      //Add snackbar to show error?
+      await LoadingDialog.error(
+        context: context,
+        title: _model.loadingError,
+      );
     } finally {
       if (successfullyLoaded) {
         _scrollToTop(instant: true);
