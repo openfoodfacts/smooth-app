@@ -19,7 +19,8 @@ void _performSearch(
   String query, {
   EditProductQueryCallback? editProductQueryCallback,
 }) {
-  if (query.trim().isEmpty) {
+  query = query.trim();
+  if (query.isEmpty) {
     return;
   }
 

@@ -27,8 +27,8 @@ class SmoothBackButton extends StatelessWidget {
               ConstantIcons.instance.getBackIcon(),
               color: iconColor ??
                   (Theme.of(context).colorScheme.brightness == Brightness.light
-                      ? Colors.white
-                      : Colors.black),
+                      ? Colors.black
+                      : Colors.white),
             ),
           ),
         ),
