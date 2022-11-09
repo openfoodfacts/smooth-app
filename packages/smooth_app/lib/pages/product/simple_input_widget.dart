@@ -167,18 +167,39 @@ class _SimpleInputWidgetField extends StatelessWidget {
           focusNode: focusNode,
         ),
         optionsViewBuilder: (
-          BuildContext context,
+          BuildContext lContext,
           AutocompleteOnSelected<String> onSelected,
           Iterable<String> options,
-        ) =>
-            AutocompleteOptions<String>(
-          displayStringForOption: RawAutocomplete.defaultStringForOption,
-          onSelected: onSelected,
-          options: options,
-          // Width = Row width - horizontal padding
-          maxOptionsWidth: constraints.maxWidth - (LARGE_SPACE * 2),
-          maxOptionsHeight: MediaQuery.of(context).size.height / 2,
-        ),
+        ) {
+          final double screenHeight = MediaQuery.of(context).size.height;
+          final double keyboardHeight =
+              MediaQuery.of(lContext).viewInsets.bottom;
+
+          final double widgetPosition =
+              (context.findRenderObject() as RenderBox?)
+                      ?.localToGlobal(Offset.zero)
+                      .dy ??
+                  0.0;
+
+          return AutocompleteOptions<String>(
+            displayStringForOption: RawAutocomplete.defaultStringForOption,
+            onSelected: onSelected,
+            options: options,
+            // Width = Row width - horizontal padding
+            maxOptionsWidth: constraints.maxWidth - (LARGE_SPACE * 2),
+            maxOptionsHeight: screenHeight -
+                (keyboardHeight == 0
+                    ? kBottomNavigationBarHeight
+                    : keyboardHeight) -
+                widgetPosition -
+                // Vertical padding
+                (LARGE_SPACE * 2) -
+                // Height of the TextField
+                (DefaultTextStyle.of(context).style.fontSize ?? 0) -
+                // Elevation
+                4.0,
+          );
+        },
       ),
     );
   }

@@ -9,12 +9,15 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
@@ -342,6 +345,16 @@ class _SummaryCardState extends State<SummaryCard> {
           _product,
           widget.isFullVersion,
           isRemovable: widget.isRemovable,
+          onRemove: (BuildContext context) async {
+            HideableContainerState.of(context).hide(() async {
+              final ContinuousScanModel model =
+                  context.read<ContinuousScanModel>();
+              await model.removeBarcode(_product.barcode!);
+
+              // Vibrate twice
+              SmoothHapticFeedback.confirm();
+            });
+          },
         ),
         ...getAttributes(scoreAttributes),
         if (widget.isFullVersion) _buildProductQuestionsWidget(),
@@ -753,5 +766,72 @@ class _SummaryCardState extends State<SummaryCard> {
         ),
       ),
     );
+  }
+}
+
+class HideableContainer extends StatefulWidget {
+  const HideableContainer({
+    required this.child,
+    Key? key,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  State<HideableContainer> createState() => HideableContainerState();
+}
+
+class HideableContainerState extends State<HideableContainer>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Tween<double> _tween;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _tween = Tween<double>(begin: 1.0, end: 0.0);
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: SmoothAnimationsDuration.medium,
+    );
+
+    _animation = _tween.animate(_controller)
+      ..addListener(() => setState(() {}));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Provider<HideableContainerState>.value(
+      value: this,
+      child: Transform.translate(
+        offset: Offset(0.0, (1 - _animation.value) * 100),
+        child: Opacity(
+          opacity: _animation.value,
+          child: widget.child,
+        ),
+      ),
+    );
+  }
+
+  void hide(VoidCallback onAnimationEnded) {
+    _controller.forward(from: 0.0);
+    _controller.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.completed) {
+        onAnimationEnded();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  static HideableContainerState of(BuildContext context) {
+    return context.read<HideableContainerState>();
   }
 }
