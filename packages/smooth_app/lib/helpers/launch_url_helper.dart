@@ -17,7 +17,7 @@ class LaunchUrlHelper {
       url = _replaceSubdomainWithCodes(url);
     }
 
-    AnalyticsHelper.trackOpenLink(url: url);
+    AnalyticsHelper.trackOutlink(url: url);
 
     try {
       await launchUrl(

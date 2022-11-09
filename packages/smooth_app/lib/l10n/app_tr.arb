@@ -150,7 +150,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Bu özellik için oturum açmanız gerekiyor.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -1736,5 +1736,9 @@
     "robotoff_continue": "Devam et",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Şifreyi Göster",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

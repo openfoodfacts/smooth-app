@@ -349,6 +349,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
             .contains(SignUpStatusError.EMAIL_ALREADY_USED)) {
           _emailFocusNode.requestFocus();
         } else if (status.statusErrors!
+            .contains(SignUpStatusError.INCORRECT_EMAIL)) {
+          _emailFocusNode.requestFocus();
+        } else if (status.statusErrors!
             .contains(SignUpStatusError.INVALID_PASSWORD)) {
           _password1FocusNode.requestFocus();
         } else if (status.statusErrors!
@@ -361,7 +364,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
       return;
     }
-    AnalyticsHelper.trackRegister();
+    AnalyticsHelper.trackEvent(AnalyticsEvent.registerAction);
     if (!mounted) {
       return;
     }
