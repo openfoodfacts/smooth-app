@@ -703,7 +703,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Lütfen en az iki ürün seçin",
+    "compare_products_appbar_subtitle": "Lütfen en az iki ürünü seçiniz",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
