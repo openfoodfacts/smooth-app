@@ -429,13 +429,11 @@ class _SearchCardTagLineText extends StatelessWidget {
       borderRadius: ANGULAR_BORDER_RADIUS,
       onTap: tagLine.hasLink
           ? () async {
-              if (await canLaunchUrlString(tagLine.url)) {
-                await launchUrl(
-                  Uri.parse(tagLine.url),
-                  // forms.gle links are not handled by the WebView
-                  mode: LaunchMode.externalApplication,
-                );
-              }
+              await launchUrlString(
+                tagLine.url,
+                // forms.gle links are not handled by the WebView
+                mode: LaunchMode.externalApplication,
+              );
             }
           : null,
       child: Center(
