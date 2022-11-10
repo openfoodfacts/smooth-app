@@ -137,6 +137,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                   productQuery: PagedToBeCompletedProductQuery(),
                   // the other "context"s being popped
                   context: this.context,
+                  editableAppBarTitle: false,
                 );
               },
             ),

@@ -407,6 +407,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
           productQuery: productQuery,
           context: context,
+          editableAppBarTitle: false,
         ),
         iconData,
         type: type,

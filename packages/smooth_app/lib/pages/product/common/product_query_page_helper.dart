@@ -14,6 +14,7 @@ class ProductQueryPageHelper {
     required final LocalDatabase localDatabase,
     required final String name,
     required final BuildContext context,
+    bool editableAppBarTitle = true,
     EditProductQueryCallback? editQueryCallback,
   }) async {
     final ProductListSupplier supplier =
@@ -29,6 +30,7 @@ class ProductQueryPageHelper {
         builder: (BuildContext context) => ProductQueryPage(
           productListSupplier: supplier,
           name: name,
+          editableAppBarTitle: editableAppBarTitle,
         ),
       ),
     );
