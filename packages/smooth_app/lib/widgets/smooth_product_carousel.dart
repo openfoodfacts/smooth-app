@@ -20,7 +20,6 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
