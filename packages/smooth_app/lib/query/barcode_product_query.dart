@@ -42,6 +42,7 @@ class BarcodeProductQuery {
       final Product? product = result.product;
       if (product != null) {
         await daoProduct.put(product);
+        daoProduct.localDatabase.upToDate.setLatestDownloadedProduct(product);
         return FetchedProduct(product);
       }
     }
