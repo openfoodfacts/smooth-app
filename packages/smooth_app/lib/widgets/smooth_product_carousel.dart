@@ -154,10 +154,8 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
-          callback: (String? barcodeLoaded) async {
-            if (barcodeLoaded != null) {
-              await _model.refresh();
-            }
+          callback: () async {
+            await _model.refresh();
             setState(() {});
           },
         );
