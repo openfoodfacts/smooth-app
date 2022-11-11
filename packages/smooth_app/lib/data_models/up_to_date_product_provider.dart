@@ -1,13 +1,24 @@
+import 'dart:convert';
+
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/up_to_date_changes.dart';
+import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 /// Provider that reflects all the user changes on [Product]s.
 class UpToDateProductProvider {
-  UpToDateProductProvider(this.localDatabase);
+  UpToDateProductProvider(this.localDatabase)
+      : _changes = UpToDateChanges(localDatabase);
 
   final LocalDatabase localDatabase;
 
+  // TODO(monsieurtanuki): remove ASAP
   final Map<String, Product> _map = <String, Product>{};
+
+  /// For a given barcode, maps the changes.
+  final UpToDateChanges _changes;
+
+  /// For a given barcode, returns the latest change timestamp.
   final Map<String, int> _timestamps = <String, int>{};
 
   /// Latest downloaded product for a barcode.
@@ -20,10 +31,13 @@ class UpToDateProductProvider {
   /// because we cannot cache all products in memory.
   final Map<String, int> _interestingBarcodes = <String, int>{};
 
+  // TODO(monsieurtanuki): remove ASAP
   Product? get(final Product product) => _map[product.barcode!];
 
+  // TODO(monsieurtanuki): remove ASAP
   Product? getFromBarcode(final String barcode) => _map[barcode];
 
+  // TODO(monsieurtanuki): remove ASAP
   void set(final Product product) {
     _map[product.barcode!] = product;
     _timestamps[product.barcode!] = LocalDatabase.nowInMillis();
@@ -97,5 +111,49 @@ class UpToDateProductProvider {
     if (notify && atLeastOne) {
       localDatabase.notifyListeners();
     }
+  }
+
+  /// Returns the [product] with all the local pending changes on top.
+  Product getLocalUpToDate(final Product initialProduct) {
+    final String barcode = initialProduct.barcode!;
+    Product result = copy(_latestDownloadedProducts[barcode] ?? initialProduct);
+    result = _changes.getUpToDateProduct(result);
+    return result;
+  }
+
+  // TODO(monsieurtanuki): move code to off-dart Product?
+  Product copy(final Product source) => Product.fromJson(
+        jsonDecode(jsonEncode(source.toJson())) as Map<String, dynamic>,
+      );
+
+  /// Returns the key of a new minimalist local change added to pending ones.
+  ///
+  /// To make it clearer:
+  /// * the method creates a new minimalist change
+  /// * that change has a (new) key
+  /// * after creating the change, the method returns the key
+  Future<String> addChange(final Product minimalistProduct) async {
+    final String barcode = minimalistProduct.barcode!;
+    final String key = await _changes.add(minimalistProduct);
+    _timestamps[barcode] = LocalDatabase.nowInMillis();
+    localDatabase.notifyListeners();
+    return key;
+  }
+
+  /// Returns the local pending change ids related to a [barcode].
+  Iterable<TransientOperation>? getSortedChangeOperations(
+          final String barcode) =>
+      _changes.getSortedOperations(barcode);
+
+  Product prepareChangesForServer(
+    final String barcode,
+    final Iterable<TransientOperation> sortedOperations,
+  ) =>
+      _changes.prepareChangesForServer(barcode, sortedOperations);
+
+  /// Closes a single operation, successful or failed.
+  void terminate(final String operationKey) {
+    _changes.terminate(operationKey);
+    localDatabase.notifyListeners();
   }
 }

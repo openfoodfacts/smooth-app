@@ -56,9 +56,9 @@ class ProductDialogHelper {
             ),
             positiveAction: SmoothActionButton(
               text: AppLocalizations.of(context).contribute,
-              onPressed: () => Navigator.push<bool?>(
+              onPressed: () => Navigator.push<void>(
                 context,
-                MaterialPageRoute<bool?>(
+                MaterialPageRoute<void>(
                   builder: (BuildContext context) => AddNewProductPage(barcode),
                 ),
               ),
