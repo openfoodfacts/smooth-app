@@ -235,7 +235,7 @@
     },
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -254,7 +254,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Chế độ tối",
+    "darkmode": "Dark mode",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -346,7 +346,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Đăng nhập vào tài khoản Open Foof Facts của bạn để lưu những đóng góp của mình",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "tap_to_edit_search": "Chạm để chỉnh sửa tìm kiếm",
     "@Personal preferences": {},
     "myPreferences": "Tuỳ chọn của tôi",
@@ -461,7 +461,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Chụp ảnh bao bì để thêm sản phẩm này vào Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Vui lòng chụp thêm một vài bức ảnh và Open Food Facts sẽ có thể xử lý các phần việc còn lại!",
+    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
@@ -476,9 +476,9 @@
     "confirm_button_label": "Xác nhận",
     "front_packaging_photo_title": "Ảnh bao bì phía trước",
     "ingredients_photo_title": "Ảnh thành phần",
-    "nutritional_facts_photo_title": "Ảnh thông tin dinh dưỡng",
+    "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "Ảnh quy định tái chế",
-    "other_interesting_photo_title": "Các hình ảnh thú vị khác",
+    "other_interesting_photo_title": "Hình ảnh thú vị khác",
     "front_photo_uploaded": "Đã tải ảnh mặt trước lên",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ảnh chụp thành phần",
@@ -1278,7 +1278,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Kiểm tra các tham số env",
+    "dev_preferences_test_environment_title": "Test environment parameters",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1291,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Kiểm tra máy chủ Env",
+    "dev_preferences_test_environment_dialog_title": "Test environment host",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1383,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Loại trừ EcoScore",
+    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1522,7 @@
         }
     },
     "barcode_invalid_error": "Mã vạch không hợp lệ",
-    "basic_details_add_success": "Thông tin chi tiết cơ bản đã được thêm thành công",
+    "basic_details_add_success": "Basic details added successfully",
     "basic_details_add_error": "Không thể thêm thông tin chi tiết cơ bản. Vui lòng thử lại lúc khác",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1565,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Tạo danh sách sản phẩm đầu tiên!",
+    "user_list_all_empty": "Create your first list",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1699,11 +1699,11 @@
     },
     "offline_data": "Dữ liệu ngoại tuyến",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Tải lên hình ảnh để tự động trích xuất thông tin được cung cấp",
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
     "upload_image": "Tải ảnh lên",
     "@upload_image": {
@@ -1721,7 +1721,7 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Không thể chỉnh sửa hình ảnh, url hình ảnh chưa được đặt.",
+    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
