@@ -66,9 +66,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
-    AnalyticsHelper.trackProductPageOpen(
-      product: _product,
-    );
   }
 
   @override
@@ -248,7 +245,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Future<void> _shareProduct() async {
-    AnalyticsHelper.trackShareProduct(barcode: widget.product.barcode!);
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.shareProduct,
+      barcode: widget.product.barcode,
+    );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
