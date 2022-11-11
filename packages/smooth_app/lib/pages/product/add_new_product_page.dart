@@ -177,7 +177,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             MaterialPageRoute<File?>(
               builder: (BuildContext context) => ConfirmAndUploadPicture(
                 barcode: widget.barcode,
-                imageField: imageType,
+                imageType: imageType,
                 initialPhoto: initialPhoto,
               ),
             ),
