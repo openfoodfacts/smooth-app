@@ -641,6 +641,7 @@ class _SummaryCardState extends State<SummaryCard> {
                   context,
                   MaterialPageRoute<void>(
                     builder: (_) => QuestionPage(
+                      shouldDisplayContinueButton: false,
                       product: _product,
                       questions: questions.toList(),
                       updateProductUponAnswers: _updateProductUponAnswers,

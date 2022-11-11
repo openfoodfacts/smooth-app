@@ -18,12 +18,14 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({
+    required this.shouldDisplayContinueButton,
     this.product,
     this.questions,
     this.updateProductUponAnswers,
     this.insightTypes,
   });
 
+  final bool shouldDisplayContinueButton;
   final List<InsightType>? insightTypes;
   final Product? product;
   final List<RobotoffQuestion>? questions;
@@ -162,6 +164,7 @@ class _QuestionPageState extends State<QuestionPage>
   }) {
     if (questions.length == questionIndex) {
       return CongratsWidget(
+        shouldDisplayContinueButton: widget.shouldDisplayContinueButton,
         anonymousAnnotationList: _anonymousAnnotationList,
         onContinue: _reloadQuestions,
       );
