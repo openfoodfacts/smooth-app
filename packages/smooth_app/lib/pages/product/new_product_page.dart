@@ -43,10 +43,13 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
+  final ScrollController _carouselController = ScrollController();
+
   late Product _product;
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
+
   bool scrollingUp = true;
 
   @override
@@ -126,6 +129,15 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     );
   }
 
+  Future<void> _refreshProduct(BuildContext context) async =>
+      ProductRefresher().fetchAndRefresh(
+          barcode: _product.barcode!,
+          widget: this,
+          onSuccessCallback: () {
+            // Reset the carousel to the beginning
+            _carouselController.jumpTo(0.0);
+          });
+
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
   ) async {
@@ -161,6 +173,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             child: ProductImageCarousel(
               _product,
               height: 200,
+              controller: _carouselController,
+              onUpload: _refreshProduct,
             ),
           ),
           Padding(
