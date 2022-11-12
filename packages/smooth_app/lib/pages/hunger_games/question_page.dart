@@ -18,18 +18,17 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({
-    required this.shouldDisplayContinueButton,
     this.product,
     this.questions,
     this.updateProductUponAnswers,
     this.insightTypes,
   });
 
-  final bool shouldDisplayContinueButton;
   final List<InsightType>? insightTypes;
   final Product? product;
   final List<RobotoffQuestion>? questions;
   final Function()? updateProductUponAnswers;
+  bool get shouldDisplayContinueButton => product == null;
 
   @override
   State<QuestionPage> createState() => _QuestionPageState();

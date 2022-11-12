@@ -311,7 +311,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
       context,
       MaterialPageRoute<QuestionPage>(
         builder: (_) => const QuestionPage(
-          shouldDisplayContinueButton: true,
+     
         ),
       ));
 
