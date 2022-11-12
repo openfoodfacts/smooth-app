@@ -42,6 +42,7 @@ class BarcodeProductQuery {
       final Product? product = result.product;
       if (product != null) {
         await daoProduct.put(product);
+        daoProduct.localDatabase.upToDate.setLatestDownloadedProduct(product);
         return FetchedProduct(product);
       }
     }
@@ -49,12 +50,19 @@ class BarcodeProductQuery {
         (result.barcode == null || result.barcode!.isEmpty)) {
       return FetchedProduct.error(FetchedProductStatus.codeInvalid);
     }
-    AnalyticsHelper.trackUnknownProduct(
-      barcode: barcode,
-      isScanned: isScanned,
-      language: language,
-      country: country,
-    );
+
+    if (isScanned) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.couldNotScanProduct,
+        barcode: barcode,
+      );
+    } else {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.couldNotFindProduct,
+        barcode: barcode,
+      );
+    }
+
     return FetchedProduct.error(FetchedProductStatus.internetNotFound);
   }
 }

@@ -18,8 +18,8 @@ Running `flutter downgrade 3.0.5` downgrades the version.
 
 ------
 
-Latest commit deployed to App Stores: (Released on Sep 6 6:29 PM as Build 731 (3.13.1)) https://github.com/openfoodfacts/smooth-app/compare/v3.8.1...v3.13.1
-
+Latest commit deployed to Apple App Store: (Released on Sep 6 6:29 PM as Build 731 (3.13.1)) https://github.com/openfoodfacts/smooth-app/compare/v3.8.1...v3.13.1
+Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 - A <b> Flutter application </b> by [Open Food Facts](https://github.com/openfoodfacts). 
 
 - We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up.
