@@ -82,6 +82,7 @@ abstract class AbstractBackgroundTask {
       final Product? product = queryResult.product;
       if (product != null) {
         await daoProduct.put(product);
+        localDatabase.upToDate.setLatestDownloadedProduct(product);
         localDatabase.notifyListeners();
       }
     }

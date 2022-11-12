@@ -34,6 +34,7 @@ class ProductModel with ChangeNotifier {
   late final DaoProduct _daoProduct;
 
   Product? _product;
+  Product? _initialProduct;
   Product? get product =>
       _loadingStatus == LoadingStatus.LOADED ? _product : null;
 
@@ -49,12 +50,11 @@ class ProductModel with ChangeNotifier {
   FetchedProductStatus? _downloadingStatus;
   FetchedProductStatus? get downloadingStatus => _downloadingStatus;
 
-  /// To be called when the up-to-date provider says the product was refreshed.
-  void setRefreshedProduct(final Product? product) {
-    if (product == null) {
+  void setLocalUpToDate() {
+    if (_initialProduct == null) {
       return;
     }
-    _product = product;
+    _product = localDatabase.upToDate.getLocalUpToDate(_initialProduct!);
     _loadingStatus = LoadingStatus.LOADED;
   }
 
@@ -88,8 +88,8 @@ class ProductModel with ChangeNotifier {
 
   Future<void> _asyncLoad() async {
     try {
-      _product = await _daoProduct.get(barcode);
-      if (_product != null) {
+      _initialProduct = await _daoProduct.get(barcode);
+      if (_initialProduct != null) {
         // from the local database, no error, perfect!
         _loadingStatus = LoadingStatus.LOADED;
         _safeNotifyListeners();
@@ -114,8 +114,6 @@ class ProductModel with ChangeNotifier {
         isScanned: false,
       ).getFetchedProduct();
       if (fetchedProduct.status == FetchedProductStatus.ok) {
-        localDatabase.upToDate
-            .setLatestDownloadedProduct(fetchedProduct.product!);
         _loadingStatus = LoadingStatus.LOADED;
         _safeNotifyListeners();
         return;

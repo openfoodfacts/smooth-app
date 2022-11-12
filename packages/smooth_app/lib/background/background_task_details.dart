@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
@@ -62,64 +64,62 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     return null;
   }
 
+  @override
+  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
+    try {
+      await super.execute(localDatabase);
+    } catch (e) {
+      //
+    } finally {
+      localDatabase.upToDate.terminate(uniqueId);
+    }
+    return TaskResult.success;
+  }
+
   /// Adds the background task about changing a product.
-  ///
-  /// Either [productEditTask] or [productEditTasks] must be populated;
-  /// we need that for classification purpose (and unique id computation).
   static Future<void> addTask(
     final Product minimalistProduct, {
-    final List<ProductEditTask>? productEditTasks,
-    final ProductEditTask? productEditTask,
     required final State<StatefulWidget> widget,
   }) async {
-    final String code;
-    if (productEditTask != null) {
-      if (productEditTasks != null) {
-        throw Exception();
-      }
-      code = productEditTask.code;
-    } else {
-      if (productEditTasks == null || productEditTasks.isEmpty) {
-        throw Exception();
-      }
-      final StringBuffer buffer = StringBuffer();
-      for (final ProductEditTask task in productEditTasks) {
-        buffer.write(task.code);
-      }
-      code = buffer.toString();
-    }
-    final String uniqueId = AbstractBackgroundTask.generateUniqueId(
-      minimalistProduct.barcode!,
-      code,
+    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final String uniqueId =
+        await localDatabase.upToDate.addChange(minimalistProduct);
+    final BackgroundTaskDetails backgroundTask = _getNewTask(
+      minimalistProduct,
+      uniqueId,
     );
-    final BackgroundTaskDetails backgroundTask = BackgroundTaskDetails._(
-      uniqueId: uniqueId,
-      processName: _PROCESS_NAME,
-      barcode: minimalistProduct.barcode!,
-      languageCode: ProductQuery.getLanguage().code,
-      inputMap: jsonEncode(minimalistProduct.toJson()),
-      user: jsonEncode(ProductQuery.getUser().toJson()),
-      country: ProductQuery.getCountry()!.iso2Code,
-    );
-    await TaskManager().addTask(
-      Task(
-        data: backgroundTask.toJson(),
-        uniqueId: uniqueId,
-      ),
-    );
+    // TODO(monsieurtanuki): currently we run the task immediately and just once - if it fails we rollback the changes.
+    backgroundTask.execute(localDatabase); // async
     if (!widget.mounted) {
       return;
     }
-    final BuildContext context = widget.context;
-    ScaffoldMessenger.of(context).showSnackBar(
+    ScaffoldMessenger.of(widget.context).showSnackBar(
       SnackBar(
         content: Text(
-          AppLocalizations.of(context).product_task_background_schedule,
+          AppLocalizations.of(widget.context).product_task_background_schedule,
         ),
         duration: SnackBarDuration.medium,
       ),
     );
   }
+
+  /// Returns a new background task about changing a product.
+  ///
+  /// Either [productEditTask] or [productEditTasks] must be populated;
+  /// we need that for classification purpose (and unique id computation).
+  static BackgroundTaskDetails _getNewTask(
+    final Product minimalistProduct,
+    final String uniqueId,
+  ) =>
+      BackgroundTaskDetails._(
+        uniqueId: uniqueId,
+        processName: _PROCESS_NAME,
+        barcode: minimalistProduct.barcode!,
+        languageCode: ProductQuery.getLanguage().code,
+        inputMap: jsonEncode(minimalistProduct.toJson()),
+        user: jsonEncode(ProductQuery.getUser().toJson()),
+        country: ProductQuery.getCountry()!.iso2Code,
+      );
 
   /// Uploads the product changes.
   @override
@@ -134,27 +134,4 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       country: getCountry(),
     );
   }
-}
-
-/// Product edit single tasks.
-///
-/// Used for classification (and unique id computation).
-enum ProductEditTask {
-  nutrition('N'),
-  packaging('P'),
-  ingredient('I'),
-  basic('B'),
-  store('S'),
-  origin('O'),
-  emb('E'),
-  label('L'),
-  category('K'),
-  country('C');
-
-  const ProductEditTask(this.code);
-
-  /// Code used to distinguish the tasks.
-  ///
-  /// Of course there shouldn't be duplicates.
-  final String code;
 }

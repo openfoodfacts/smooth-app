@@ -35,19 +35,20 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   String get traceName => 'Opened full knowledge panel page';
 
   late Product _product;
+  late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
 
   @override
   void initState() {
     super.initState();
-    _product = widget.product;
+    _initialProduct = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_product.barcode!);
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
     super.dispose();
   }
 
@@ -62,11 +63,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
-    if (refreshedProduct != null) {
-      _product = refreshedProduct;
-    }
+    context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(

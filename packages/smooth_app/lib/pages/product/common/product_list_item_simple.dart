@@ -53,10 +53,8 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
           context.watch<ProductModel>();
-          final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-          _model.setRefreshedProduct(
-            localDatabase.upToDate.getFromBarcode(widget.barcode),
-          );
+          context.watch<LocalDatabase>();
+          _model.setLocalUpToDate();
           switch (_model.loadingStatus) {
             case LoadingStatus.LOADING:
               return SmoothProductCardTemplate(
