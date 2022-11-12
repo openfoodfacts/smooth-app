@@ -82,6 +82,7 @@ class SummaryCard extends StatefulWidget {
 
 class _SummaryCardState extends State<SummaryCard> {
   late Product _product;
+  late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late final bool allowClicking;
 
@@ -97,38 +98,34 @@ class _SummaryCardState extends State<SummaryCard> {
   void initState() {
     super.initState();
     allowClicking = !widget.isFullVersion;
-    _product = widget._product;
+    _initialProduct = widget._product;
     _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_product.barcode!);
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    if (widget.isFullVersion) {
+      return buildProductSmoothCard(
+        header: _buildProductCompatibilityHeader(context),
+        body: Padding(
+          padding: SMOOTH_CARD_PADDING,
+          child: _buildSummaryCardContent(context),
+        ),
+        margin: EdgeInsets.zero,
+      );
+    }
     return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final Product? refreshedProduct = localDatabase.upToDate.get(_product);
-        if (refreshedProduct != null) {
-          _product = refreshedProduct;
-        }
-        if (widget.isFullVersion) {
-          return buildProductSmoothCard(
-            header: _buildProductCompatibilityHeader(context),
-            body: Padding(
-              padding: SMOOTH_CARD_PADDING,
-              child: _buildSummaryCardContent(context),
-            ),
-            margin: EdgeInsets.zero,
-          );
-        }
-        return _buildLimitedSizeSummaryCard(constraints.maxHeight);
-      },
+      builder: (BuildContext context, BoxConstraints constraints) =>
+          _buildLimitedSizeSummaryCard(constraints.maxHeight),
     );
   }
 
@@ -188,7 +185,6 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildSummaryCardContent(BuildContext context) {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
@@ -311,7 +307,7 @@ class _SummaryCardState extends State<SummaryCard> {
             iconData: Icons.leaderboard,
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
               name: categoryLabel!,
-              localDatabase: localDatabase,
+              localDatabase: _localDatabase,
               productQuery: CategoryProductQuery(categoryTag!),
               context: context,
             ),
@@ -325,15 +321,13 @@ class _SummaryCardState extends State<SummaryCard> {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () async {
-              await Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      AddBasicDetailsPage(_product),
-                ),
-              );
-            },
+            onPressed: () async => Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) =>
+                    AddBasicDetailsPage(_product),
+              ),
+            ),
           ),
         );
       }
@@ -625,11 +619,11 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return FutureBuilder<List<RobotoffQuestion>>(
+    return FutureBuilder<List<RobotoffQuestion>?>(
         future: _loadProductQuestions(),
         builder: (
           BuildContext context,
-          AsyncSnapshot<List<RobotoffQuestion>> snapshot,
+          AsyncSnapshot<List<RobotoffQuestion>?> snapshot,
         ) {
           final List<RobotoffQuestion> questions =
               snapshot.data ?? <RobotoffQuestion>[];
@@ -702,7 +696,7 @@ class _SummaryCardState extends State<SummaryCard> {
       return;
     }
     final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(context.read<LocalDatabase>());
+        RobotoffInsightHelper(_localDatabase);
     if (questions.isEmpty) {
       await robotoffInsightHelper
           .removeInsightAnnotationsSavedForProdcut(_product.barcode!);
@@ -720,13 +714,14 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  Future<List<RobotoffQuestion>>? _loadProductQuestions() async {
+  Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
     final List<RobotoffQuestion> questions =
         await ProductQuestionsQuery(_product.barcode!).getQuestions();
-
+    if (!mounted) {
+      return null;
+    }
     final RobotoffInsightHelper robotoffInsightHelper =
-        //ignore: use_build_context_synchronously
-        RobotoffInsightHelper(context.read<LocalDatabase>());
+        RobotoffInsightHelper(_localDatabase);
     _annotationVoted =
         await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     return questions;
