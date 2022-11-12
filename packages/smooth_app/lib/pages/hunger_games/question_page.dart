@@ -28,6 +28,7 @@ class QuestionPage extends StatefulWidget {
   final Product? product;
   final List<RobotoffQuestion>? questions;
   final Function()? updateProductUponAnswers;
+  bool get shouldDisplayContinueButton => product == null;
 
   @override
   State<QuestionPage> createState() => _QuestionPageState();
@@ -162,6 +163,7 @@ class _QuestionPageState extends State<QuestionPage>
   }) {
     if (questions.length == questionIndex) {
       return CongratsWidget(
+        shouldDisplayContinueButton: widget.shouldDisplayContinueButton,
         anonymousAnnotationList: _anonymousAnnotationList,
         onContinue: _reloadQuestions,
       );
