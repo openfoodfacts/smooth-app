@@ -254,7 +254,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Dark mode",
+    "darkmode": "Donkere modus",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -346,7 +346,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_sign_in_text": "Log in op uw Open Food Facts-account om krediet te krijgen voor uw bijdragen",
     "tap_to_edit_search": "Tik om de zoekopdracht te bewerken",
     "@Personal preferences": {},
     "myPreferences": "Mijn voorkeuren",
@@ -461,7 +461,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Neem foto's van de verpakking om dit product toe te voegen aan onze database",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
+    "add_product_take_photos_descriptive": "Gelieve eerst wat foto's te maken. Je kunt het product altijd op een later tijdstip voltooien.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Voeg productinformatie toe",
     "@add_product_information_button_label": {},
@@ -476,7 +476,7 @@
     "confirm_button_label": "Bevestig",
     "front_packaging_photo_title": "Foto van voorkant verpakking",
     "ingredients_photo_title": "Foto van de ingrediëntenlijst",
-    "nutritional_facts_photo_title": "Nutrition Facts Photo",
+    "nutritional_facts_photo_title": "Foto van voedingswaarden",
     "recycling_photo_title": "Recycling afbeelding",
     "other_interesting_photo_title": "Andere interessante foto's",
     "front_photo_uploaded": "Foto voorkant geüpload",
@@ -1278,7 +1278,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test environment parameters",
+    "dev_preferences_test_environment_title": "Testomgevingsparameters",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1291,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test environment host",
+    "dev_preferences_test_environment_dialog_title": "Testomgeving host",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1383,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
+    "dev_mode_hide_ecoscore_title": "Eco-Score uitsluiten",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1522,7 @@
         }
     },
     "barcode_invalid_error": "Ongeldige barcode",
-    "basic_details_add_success": "Basic details added successfully",
+    "basic_details_add_success": "Basisgegevens succesvol toegevoegd",
     "basic_details_add_error": "Kan de basisgegevens niet toevoegen. Probeer het later opnieuw",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1565,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list",
+    "user_list_all_empty": "Maak je eerste lijst aan",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1701,7 +1701,7 @@
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Upload een afbeelding om automatisch de informatie die erop staat te extraheren.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
@@ -1721,7 +1721,7 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+    "image_edit_url_error": "Kan afbeelding niet bewerken omdat de afbeeldings-URL niet is ingesteld.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
