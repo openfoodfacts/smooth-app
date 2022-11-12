@@ -64,7 +64,7 @@ class CongratsWidget extends StatelessWidget {
               child: Text(appLocalizations.robotoff_continue),
             )
           else
-            const SizedBox(),
+            EMPTY_WIDGET,
           TextButton(
             child: Text(appLocalizations.close),
             onPressed: () => Navigator.maybePop<Widget>(context),

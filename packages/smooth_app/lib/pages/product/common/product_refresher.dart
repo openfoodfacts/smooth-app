@@ -70,8 +70,6 @@ class ProductRefresher {
       await LoadingDialog.error(context: widget.context);
       return;
     }
-    localDatabase.upToDate
-        .setLatestDownloadedProduct(fetchAndRefreshed.product!);
     ScaffoldMessenger.of(widget.context).showSnackBar(
       SnackBar(
         content: Text(appLocalizations.product_refreshed),
@@ -96,6 +94,7 @@ class ProductRefresher {
       );
       if (result.product != null) {
         await DaoProduct(localDatabase).put(result.product!);
+        localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
         localDatabase.notifyListeners();
         return _MetaProductRefresher.product(result.product);
       }
