@@ -121,6 +121,7 @@ summary card:
 analytics:
 - packages/smooth_app/lib/pages/onboarding/consent_analytics_page.dart
 - packages/smooth_app/assets/onboarding/analytics.svg
+- packages/smooth_app/lib/helpers/analytics_helper.dart
 
 goldens:
 - packages/smooth_app/test/pages/goldens

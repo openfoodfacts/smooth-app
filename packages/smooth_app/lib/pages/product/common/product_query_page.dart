@@ -203,10 +203,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
-          onRefresh: () => refreshList(),
+          onRefresh: () async => _refreshList(),
           child: ListView.builder(
             controller: _scrollController,
             // To allow refresh even when not the whole page is filled
+            physics: const AlwaysScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
                 // on top, a message
@@ -244,7 +245,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 barcode: _model.displayBarcodes[index],
               );
             },
-
             itemCount: _getItemCount(),
           ),
         ),
@@ -319,7 +319,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     return <Widget>[
       if (worldQuery != null)
         _getIconButton(_getWorldAction(appLocalizations, worldQuery)),
-      _getIconButton(_getRefreshAction(appLocalizations)),
     ];
   }
 
@@ -410,34 +409,27 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         ),
       );
 
-  _Action _getRefreshAction(
-    final AppLocalizations appLocalizations,
-  ) =>
-      _Action(
-        text: appLocalizations.label_refresh,
-        iconData: Icons.refresh,
-        onPressed: () async {
-          final bool? success =
-              await _loadAndRefreshDisplay(_model.loadFromTop());
-          if (success == true) {
-            _scrollToTop(instant: true);
-          }
-        },
-      );
-
   void retryConnection() =>
       setState(() => _model = _getModel(widget.productListSupplier));
 
   ProductQueryModel _getModel(final ProductListSupplier supplier) =>
       ProductQueryModel(supplier);
 
-  Future<void> refreshList() async {
-    final ProductListSupplier? refreshSupplier =
-        widget.productListSupplier.getRefreshSupplier();
-    setState(
-      // How do we refresh a supplier that has no refresher? With itself.
-      () => _model = _getModel(refreshSupplier ?? widget.productListSupplier),
-    );
+  Future<void> _refreshList() async {
+    bool successfullyLoaded = false;
+    try {
+      successfullyLoaded = await _model.loadFromTop();
+    } catch (e) {
+      await LoadingDialog.error(
+        context: context,
+        title: _model.loadingError,
+      );
+    } finally {
+      if (successfullyLoaded) {
+        _scrollToTop(instant: true);
+      }
+      setState(() {});
+    }
   }
 
   void _scrollToTop({bool instant = false}) {
@@ -450,22 +442,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         curve: Curves.linear,
       );
     }
-  }
-
-  Future<bool?> _loadAndRefreshDisplay(final Future<bool> loader) async {
-    final bool? success = await LoadingDialog.run<bool>(
-      context: context,
-      future: loader,
-    );
-    if (success == false) {
-      await LoadingDialog.error(
-        context: context,
-        title: _model.loadingError,
-      );
-    } else if (success == true) {
-      setState(() {});
-    }
-    return success;
   }
 
   /// Flags if the next page is currently being downloaded.

@@ -28,7 +28,9 @@ class ScanProductCard extends StatelessWidget {
       },
       child: Hero(
         tag: product.barcode ?? '',
-        child: SummaryCard(product, productPreferences),
+        child: HideableContainer(
+          child: SummaryCard(product, productPreferences),
+        ),
       ),
     );
   }

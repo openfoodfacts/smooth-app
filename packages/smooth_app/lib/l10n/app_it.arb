@@ -1725,16 +1725,20 @@
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "Ricorda la mia scelta",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "Seleziona ogni volta",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Continua",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Mostra la Password",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }
