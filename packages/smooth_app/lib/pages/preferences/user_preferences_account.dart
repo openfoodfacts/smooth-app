@@ -321,19 +321,24 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                       ],
                     ),
                     positiveAction: SmoothActionButton(
-                      text: appLocalizations.okay,
-                      onPressed: () => Navigator.maybePop(context),
+                      text: appLocalizations.account_delete,
+                      onPressed: () async {
+                        final Email email = Email(
+                          body:
+                              '${appLocalizations.email_body_account_deletion(userId)} ${reasonController.text}',
+                          subject:
+                              appLocalizations.email_subject_account_deletion,
+                          recipients: <String>['contact@openfoodfacts.org'],
+                        );
+
+                        await FlutterEmailSender.send(email);
+                      },
                     ),
+                    negativeAction: SmoothActionButton(
+                        text: appLocalizations.cancel,
+                        onPressed: () => Navigator.pop(context)),
                   );
                 });
-            final Email email = Email(
-              body:
-                  '${appLocalizations.email_body_account_deletion(userId)}{reasonController.text}',
-              subject: appLocalizations.email_subject_account_deletion,
-              recipients: <String>['contact@openfoodfacts.org'],
-            );
-
-            await FlutterEmailSender.send(email);
           },
           Icons.delete,
         ),
