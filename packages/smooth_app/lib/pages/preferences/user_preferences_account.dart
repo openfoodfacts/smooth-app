@@ -11,6 +11,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
@@ -230,6 +231,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
+    final TextEditingController reasonController = TextEditingController();
 
     final List<Widget> result;
 
@@ -305,13 +307,46 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _getListTile(
           appLocalizations.account_delete,
           () async {
-            final Email email = Email(
-              body: appLocalizations.email_body_account_deletion(userId),
-              subject: appLocalizations.email_subject_account_deletion,
-              recipients: <String>['contact@openfoodfacts.org'],
-            );
+            final String? reason = await showDialog<String>(
+                context: context,
+                builder: (BuildContext context) {
+                  return SmoothAlertDialog(
+                    title: appLocalizations.account_delete,
+                    body: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(appLocalizations.account_delete_message),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        SmoothTextFormField(
+                            type: TextFieldTypes.PLAIN_TEXT,
+                            textInputType: TextInputType.text,
+                            controller: reasonController,
+                            hintText: appLocalizations.reason),
+                      ],
+                    ),
+                    positiveAction: SmoothActionButton(
+                      text: appLocalizations.account_delete,
+                      onPressed: () =>
+                          Navigator.pop(context, reasonController.text),
+                    ),
+                    negativeAction: SmoothActionButton(
+                        text: appLocalizations.cancel,
+                        onPressed: () => Navigator.pop(context)),
+                  );
+                });
+            if (reason != null) {
+              final Email email = Email(
+                body:
+                    '${appLocalizations.email_body_account_deletion(userId)} $reason',
+                subject: appLocalizations.email_subject_account_deletion,
+                recipients: <String>['contact@openfoodfacts.org'],
+              );
 
-            await FlutterEmailSender.send(email);
+              await FlutterEmailSender.send(email);
+            }
           },
           Icons.delete,
         ),
