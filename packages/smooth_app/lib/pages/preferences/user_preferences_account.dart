@@ -307,7 +307,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _getListTile(
           appLocalizations.account_delete,
           () async {
-            await showDialog<SmoothAlertDialog>(
+            final String? reason = await showDialog<String>(
                 context: context,
                 builder: (BuildContext context) {
                   return SmoothAlertDialog(
@@ -329,23 +329,24 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                     ),
                     positiveAction: SmoothActionButton(
                       text: appLocalizations.account_delete,
-                      onPressed: () async {
-                        final Email email = Email(
-                          body:
-                              '${appLocalizations.email_body_account_deletion(userId)} ${reasonController.text}',
-                          subject:
-                              appLocalizations.email_subject_account_deletion,
-                          recipients: <String>['contact@openfoodfacts.org'],
-                        );
-
-                        await FlutterEmailSender.send(email);
-                      },
+                      onPressed: () =>
+                          Navigator.pop(context, reasonController.text),
                     ),
                     negativeAction: SmoothActionButton(
                         text: appLocalizations.cancel,
                         onPressed: () => Navigator.pop(context)),
                   );
                 });
+            if (reason != null) {
+              final Email email = Email(
+                body:
+                    '${appLocalizations.email_body_account_deletion(userId)} $reason',
+                subject: appLocalizations.email_subject_account_deletion,
+                recipients: <String>['contact@openfoodfacts.org'],
+              );
+
+              await FlutterEmailSender.send(email);
+            }
           },
           Icons.delete,
         ),
