@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -65,6 +66,7 @@ class _EditProductPageState extends State<EditProductPage> {
     return SmoothScaffold(
       appBar: AppBar(
         centerTitle: false,
+        leading: const SmoothBackButton(),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
