@@ -104,9 +104,6 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   }
 
   /// Returns a new background task about changing a product.
-  ///
-  /// Either [productEditTask] or [productEditTasks] must be populated;
-  /// we need that for classification purpose (and unique id computation).
   static BackgroundTaskDetails _getNewTask(
     final Product minimalistProduct,
     final String uniqueId,

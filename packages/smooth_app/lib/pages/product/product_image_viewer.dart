@@ -111,12 +111,12 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       return;
     }
 
-    final File? photoUploaded = await Navigator.push<File?>(
+    final File? photoUploaded = await Navigator.push<File>(
       context,
-      MaterialPageRoute<File?>(
+      MaterialPageRoute<File>(
         builder: (BuildContext context) => ConfirmAndUploadPicture(
           barcode: widget.barcode,
-          imageType: imageData.imageField,
+          imageField: imageData.imageField,
           initialPhoto: imageFile,
         ),
       ),
