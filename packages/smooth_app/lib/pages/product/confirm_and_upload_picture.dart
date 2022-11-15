@@ -3,19 +3,22 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_image.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ConfirmAndUploadPicture extends StatefulWidget {
   const ConfirmAndUploadPicture({
     required this.barcode,
-    required this.imageType,
+    required this.imageField,
     required this.initialPhoto,
   });
 
-  final ImageField imageType;
+  final ImageField imageField;
   final String barcode;
   final File initialPhoto;
 
@@ -30,7 +33,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   @override
   void initState() {
     super.initState();
-    //clear cache or the cached image will be shwon in File(photo)
+    //clear cache or the cached image will be shown in File(photo)
     imageCache.clear();
     photo = widget.initialPhoto;
   }
@@ -47,7 +50,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     return SmoothScaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(_getAppBarTitle(context, widget.imageType)),
+        title: Text(_getAppBarTitle(appLocalizations, widget.imageField)),
       ),
       body: Stack(
         children: <Widget>[
@@ -109,8 +112,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        retakenPhoto = await startImageCroppingNoPick(
-                          context,
+                        retakenPhoto = await startImageCropping(
+                          this,
                           existingImage: photo,
                         );
                         if (retakenPhoto == null) {
@@ -144,10 +147,10 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         ),
                       ),
                       onPressed: () async {
-                        uploadCapturedPicture(
+                        await _uploadCapturedPicture(
                           widget: this,
                           barcode: widget.barcode,
-                          imageField: widget.imageType,
+                          imageField: widget.imageField,
                           imageUri: photo.uri,
                         );
                         if (!mounted) {
@@ -172,9 +175,11 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     );
   }
 
-  String _getAppBarTitle(BuildContext context, ImageField imageType) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    switch (imageType) {
+  String _getAppBarTitle(
+    final AppLocalizations appLocalizations,
+    final ImageField imageField,
+  ) {
+    switch (imageField) {
       case ImageField.FRONT:
         return appLocalizations.front_packaging_photo_title;
       case ImageField.INGREDIENTS:
@@ -186,5 +191,27 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
       case ImageField.OTHER:
         return appLocalizations.other_interesting_photo_title;
     }
+  }
+
+  Future<void> _uploadCapturedPicture({
+    required String barcode,
+    required ImageField imageField,
+    required Uri imageUri,
+    required State<StatefulWidget> widget,
+  }) async {
+    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    await BackgroundTaskImage.addTask(
+      barcode,
+      imageField: imageField,
+      imageFile: File(imageUri.path),
+      widget: widget,
+    );
+    localDatabase.notifyListeners();
+    if (!widget.mounted) {
+      return;
+    }
+    final ContinuousScanModel model =
+        widget.context.read<ContinuousScanModel>();
+    await model.onCreateProduct(barcode); // TODO(monsieurtanuki): a bit fishy
   }
 }

@@ -12,9 +12,6 @@ class UpToDateProductProvider {
 
   final LocalDatabase localDatabase;
 
-  // TODO(monsieurtanuki): remove ASAP
-  final Map<String, Product> _map = <String, Product>{};
-
   /// For a given barcode, maps the changes.
   final UpToDateChanges _changes;
 
@@ -30,19 +27,6 @@ class UpToDateProductProvider {
   /// products in memory for instant access. And we should cache only them,
   /// because we cannot cache all products in memory.
   final Map<String, int> _interestingBarcodes = <String, int>{};
-
-  // TODO(monsieurtanuki): remove ASAP
-  Product? get(final Product product) => _map[product.barcode!];
-
-  // TODO(monsieurtanuki): remove ASAP
-  Product? getFromBarcode(final String barcode) => _map[barcode];
-
-  // TODO(monsieurtanuki): remove ASAP
-  void set(final Product product) {
-    _map[product.barcode!] = product;
-    _timestamps[product.barcode!] = LocalDatabase.nowInMillis();
-    localDatabase.notifyListeners();
-  }
 
   /// Returns true if at least one barcode was refreshed after the [timestamp].
   bool needsRefresh(final int? latestTimestamp, final List<String> barcodes) {

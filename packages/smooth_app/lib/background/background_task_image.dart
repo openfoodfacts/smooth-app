@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
 
@@ -69,6 +72,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     final String barcode, {
     required final ImageField imageField,
     required final File imageFile,
+    required final State<StatefulWidget> widget,
   }) async {
     // For "OTHER" images we randomize the id with timestamp
     // so that it runs separately.
@@ -91,6 +95,17 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       Task(
         data: backgroundImageInputData.toJson(),
         uniqueId: uniqueId,
+      ),
+    );
+    if (!widget.mounted) {
+      return;
+    }
+    ScaffoldMessenger.of(widget.context).showSnackBar(
+      SnackBar(
+        content: Text(
+          AppLocalizations.of(widget.context).image_upload_queued,
+        ),
+        duration: SnackBarDuration.medium,
       ),
     );
   }

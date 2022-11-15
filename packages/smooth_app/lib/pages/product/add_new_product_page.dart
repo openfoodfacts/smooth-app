@@ -29,6 +29,7 @@ const List<ImageField> _SORTED_IMAGE_FIELD_LIST = <ImageField>[
   ImageField.OTHER,
 ];
 
+/// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage(this.barcode);
 
@@ -157,11 +158,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return rows;
   }
 
-  Widget _buildAddImageButton(BuildContext context, ImageField imageType) {
+  Widget _buildAddImageButton(BuildContext context, ImageField imageField) {
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
-        text: _getAddPhotoButtonText(context, imageType),
+        text: _getAddPhotoButtonText(context, imageField),
         icon: Icons.camera_alt,
         onPressed: () async {
           final File? initialPhoto = await startImageCropping(this);
@@ -172,19 +173,20 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           // may choose to retake the image.
           // TODO(monsieurtanuki): careful, waiting for pop'ed value
           //ignore: use_build_context_synchronously
-          final File? finalPhoto = await Navigator.push<File?>(
+          final File? finalPhoto = await Navigator.push<File>(
             context,
-            MaterialPageRoute<File?>(
+            MaterialPageRoute<File>(
               builder: (BuildContext context) => ConfirmAndUploadPicture(
                 barcode: widget.barcode,
-                imageType: imageType,
+                imageField: imageField,
                 initialPhoto: initialPhoto,
               ),
             ),
           );
           if (finalPhoto != null) {
-            _uploadedImages[imageType] = _uploadedImages[imageType] ?? <File>[];
-            _uploadedImages[imageType]!.add(initialPhoto);
+            _uploadedImages[imageField] =
+                _uploadedImages[imageField] ?? <File>[];
+            _uploadedImages[imageField]!.add(initialPhoto);
           }
         },
       ),
