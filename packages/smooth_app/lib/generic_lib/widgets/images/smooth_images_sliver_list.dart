@@ -36,7 +36,11 @@ class SmoothImagesSliverList extends SmoothImagesView {
           ),
           onTap: onTap == null
               ? null
-              : () => onTap!(imageList[index].key, imageList[index].value),
+              : () => onTap!(
+                    imageList[index].key,
+                    imageList[index].value,
+                    index,
+                  ),
         ),
       ),
     );

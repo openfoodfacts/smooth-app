@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -107,8 +108,17 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
               ),
               SmoothImagesSliverList(
                 imagesData: _selectedImages,
-                onTap: (ProductImageData data, _) =>
-                    data.imageUrl != null ? _openImage(data) : _newImage(data),
+                onTap: (
+                  ProductImageData data,
+                  _,
+                  int? currentProductImageDataIndex,
+                ) =>
+                    data.imageUrl != null
+                        ? _openImage(
+                            selectedImages: _selectedImages,
+                            index: currentProductImageDataIndex ?? 0,
+                          )
+                        : _newImage(data),
               ),
             ],
           ),
@@ -128,14 +138,20 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       );
 
-  Future<void> _openImage(ProductImageData imageData) async =>
-      Navigator.push<void>(
+  Future<void> _openImage({
+    required int index,
+    required Map<ProductImageData, ImageProvider?> selectedImages,
+  }) async =>
+      Navigator.push(
         context,
         MaterialPageRoute<void>(
-          builder: (_) => ProductImageViewer(
-            barcode: _barcode,
-            imageData: imageData,
-          ),
+          builder: (_) {
+            return ProductImageSwipeableView(
+              barcode: _barcode,
+              initialProductImageDataIndex: index,
+              selectedImages: _selectedImages,
+            );
+          },
         ),
       );
 

@@ -36,28 +36,33 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
       padding: const EdgeInsets.all(MEDIUM_SPACE),
       sliver: SliverGrid(
         delegate: LoadingSliverChildBuilderDelegate(
-            loading: loading,
-            childCount: imageList.length,
-            loadingWidget: _buildShimmer(),
-            loadingCount: loadingCount,
-            childBuilder: (BuildContext context, int index) {
-              final MapEntry<ProductImageData, ImageProvider<Object>?> entry =
-                  imageList[index];
-              final ImageProvider? imageProvider = entry.value;
-              final String? imageUrl = entry.key.imageUrl;
+          loading: loading,
+          childCount: imageList.length,
+          loadingWidget: _buildShimmer(),
+          loadingCount: loadingCount,
+          childBuilder: (BuildContext context, int index) {
+            final MapEntry<ProductImageData, ImageProvider<Object>?> entry =
+                imageList[index];
+            final ImageProvider? imageProvider = entry.value;
+            final String? imageUrl = entry.key.imageUrl;
 
-              return imageProvider == null || imageUrl == null
-                  ? const PictureNotFound()
-                  : Hero(
-                      tag: imageUrl,
-                      child: _ImageTile(
-                        image: imageProvider,
-                        onTap: onTap == null
-                            ? null
-                            : () => onTap!(entry.key, entry.value),
-                      ),
-                    );
-            }),
+            return imageProvider == null || imageUrl == null
+                ? const PictureNotFound()
+                : Hero(
+                    tag: imageUrl,
+                    child: _ImageTile(
+                      image: imageProvider,
+                      onTap: onTap == null
+                          ? null
+                          : () => onTap!(
+                                entry.key,
+                                entry.value,
+                                null,
+                              ),
+                    ),
+                  );
+          },
+        ),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: maxTileWidth,
           childAspectRatio: childAspectRatio,
