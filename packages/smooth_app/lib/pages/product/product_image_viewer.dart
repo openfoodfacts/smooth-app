@@ -42,7 +42,9 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   @override
   void initState() {
     imageData = widget.imageData;
-    imageProvider = NetworkImage(imageData.imageUrl!);
+    imageProvider = NetworkImage(
+      imageData.imageUrl ?? '',
+    );
 
     super.initState();
   }
@@ -59,16 +61,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             final DaoInt daoInt = DaoInt(context.read<LocalDatabase>());
             _editImage(daoInt);
           },
-        ),
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          foregroundColor: WHITE_COLOR,
-          elevation: 0,
-          title: Text(imageData.title),
-          leading: SmoothBackButton(
-            iconColor: Colors.white,
-            onPressed: () => Navigator.maybePop(context, _isEdited),
-          ),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
