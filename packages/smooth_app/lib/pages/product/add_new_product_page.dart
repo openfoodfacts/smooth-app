@@ -29,6 +29,7 @@ const List<ImageField> _SORTED_IMAGE_FIELD_LIST = <ImageField>[
   ImageField.OTHER,
 ];
 
+/// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage(this.barcode);
 
@@ -42,14 +43,18 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   final Map<ImageField, List<File>> _uploadedImages =
       <ImageField, List<File>>{};
 
+  late Product _product;
+  late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
 
-  bool _nutritionFactsAdded = false;
-  bool _basicDetailsAdded = false;
+  bool get _nutritionFactsAdded => _product.nutriments != null;
+  bool get _basicDetailsAdded =>
+      AddBasicDetailsPage.isProductBasicValid(_product);
 
   @override
   void initState() {
     super.initState();
+    _initialProduct = Product(barcode: widget.barcode);
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(widget.barcode);
   }
@@ -63,13 +68,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    context.watch<LocalDatabase>();
     final ThemeData themeData = Theme.of(context);
-    Product product = Product(barcode: widget.barcode);
-    final Product? refreshedProduct = localDatabase.upToDate.get(product);
-    if (refreshedProduct != null) {
-      product = refreshedProduct;
-    }
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     return SmoothScaffold(
       appBar: AppBar(
           title: Text(appLocalizations.new_product),
@@ -79,29 +80,23 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           if (_basicDetailsAdded ||
               _nutritionFactsAdded ||
               _uploadedImages.isNotEmpty) {
-            final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            final DaoProduct daoProduct = DaoProduct(localDatabase);
+            // Tricky situation: we've launched background tasks,
+            // but is at least one of them completed?
+            final DaoProduct daoProduct = DaoProduct(_localDatabase);
             final Product? localProduct = await daoProduct.get(widget.barcode);
+            // No background task was completed yet: we create a dummy product,
+            // so that the pending changes can go on top of something.
             if (localProduct == null) {
-              product = Product(
-                barcode: widget.barcode,
-              );
-              daoProduct.put(product);
-              localDatabase.notifyListeners();
+              await daoProduct.put(_initialProduct);
+              _localDatabase.upToDate
+                  .setLatestDownloadedProduct(_initialProduct);
+              _localDatabase.notifyListeners();
             }
-            localDatabase.upToDate.set(product);
-            if (mounted) {
-              await Navigator.maybePop(
-                context,
-                widget.barcode,
-              );
-            }
-          } else {
-            await Navigator.maybePop(
-              context,
-              null,
-            );
           }
+          if (!mounted) {
+            return;
+          }
+          await Navigator.maybePop(context);
         },
         label: Text(appLocalizations.finish),
         icon: const Icon(Icons.done),
@@ -122,7 +117,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                     .apply(color: themeData.colorScheme.onBackground),
               ),
               ..._buildImageCaptureRows(context),
-              _buildNutritionInputButton(product),
+              _buildNutritionInputButton(),
               _buildaddInputDetailsButton()
             ],
           ),
@@ -163,11 +158,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return rows;
   }
 
-  Widget _buildAddImageButton(BuildContext context, ImageField imageType) {
+  Widget _buildAddImageButton(BuildContext context, ImageField imageField) {
     return Padding(
       padding: _ROW_PADDING_TOP,
       child: SmoothLargeButtonWithIcon(
-        text: _getAddPhotoButtonText(context, imageType),
+        text: _getAddPhotoButtonText(context, imageField),
         icon: Icons.camera_alt,
         onPressed: () async {
           final File? initialPhoto = await startImageCropping(this);
@@ -178,19 +173,20 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           // may choose to retake the image.
           // TODO(monsieurtanuki): careful, waiting for pop'ed value
           //ignore: use_build_context_synchronously
-          final File? finalPhoto = await Navigator.push<File?>(
+          final File? finalPhoto = await Navigator.push<File>(
             context,
-            MaterialPageRoute<File?>(
+            MaterialPageRoute<File>(
               builder: (BuildContext context) => ConfirmAndUploadPicture(
                 barcode: widget.barcode,
-                imageType: imageType,
+                imageField: imageField,
                 initialPhoto: initialPhoto,
               ),
             ),
           );
           if (finalPhoto != null) {
-            _uploadedImages[imageType] = _uploadedImages[imageType] ?? <File>[];
-            _uploadedImages[imageType]!.add(initialPhoto);
+            _uploadedImages[imageField] =
+                _uploadedImages[imageField] ?? <File>[];
+            _uploadedImages[imageField]!.add(initialPhoto);
           }
         },
       ),
@@ -225,9 +221,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     return (_uploadedImages[imageType] ?? <File>[]).isNotEmpty;
   }
 
-  Widget _buildNutritionInputButton(Product product) {
+  Widget _buildNutritionInputButton() {
     // if the nutrition image is null, ie no image , we return nothing
-    if (product.imageNutritionUrl == null) {
+    if (_product.imageNutritionUrl == null) {
       return const SizedBox();
     }
     if (_nutritionFactsAdded) {
@@ -243,27 +239,21 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         onPressed: () async {
           final OrderedNutrientsCache? cache =
               await OrderedNutrientsCache.getCache(context);
-          if (cache == null) {
-            if (!mounted) {
-              return;
-            }
-            final SnackBar snackBar = SnackBar(
-              content: Text(
-                  AppLocalizations.of(context).nutrition_cache_loading_error),
-            );
-            if (!mounted) {
-              return;
-            }
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            return;
-          }
           if (!mounted) {
             return;
           }
-          // TODO(monsieurtanuki): careful, waiting for pop'ed value
-          final Product? result = await Navigator.push<Product?>(
+          if (cache == null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                    AppLocalizations.of(context).nutrition_cache_loading_error),
+              ),
+            );
+            return;
+          }
+          await Navigator.push<void>(
             context,
-            MaterialPageRoute<Product>(
+            MaterialPageRoute<void>(
               builder: (BuildContext context) => NutritionPageLoaded(
                 Product(barcode: widget.barcode),
                 cache.orderedNutrients,
@@ -272,10 +262,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               fullscreenDialog: true,
             ),
           );
-
-          setState(() {
-            _nutritionFactsAdded = result != null;
-          });
         },
       ),
     );
@@ -292,22 +278,15 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       child: SmoothLargeButtonWithIcon(
         text: AppLocalizations.of(context).completed_basic_details_btn_text,
         icon: Icons.edit,
-        onPressed: () async {
-          // TODO(monsieurtanuki): probably wrong as AddBasicDetailsPage pops nothing
-          // TODO(monsieurtanuki): careful, waiting for pop'ed value
-          final Product? result = await Navigator.push<Product?>(
-            context,
-            MaterialPageRoute<Product>(
-              builder: (BuildContext context) => AddBasicDetailsPage(
-                Product(barcode: widget.barcode),
-                isLoggedInMandatory: false,
-              ),
+        onPressed: () async => Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => AddBasicDetailsPage(
+              Product(barcode: widget.barcode),
+              isLoggedInMandatory: false,
             ),
-          );
-          setState(() {
-            _basicDetailsAdded = result != null;
-          });
-        },
+          ),
+        ),
       ),
     );
   }

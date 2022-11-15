@@ -9,32 +9,8 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 
-/// Crops an image from an existing file.
-Future<File?> startImageCroppingNoPick(
-  final BuildContext context, {
-  required final File existingImage,
-}) async {
-  final NavigatorState navigator = Navigator.of(context);
-  final CropHelper cropHelper = CropHelper.getCurrent(context);
-  await _showScreenBetween(navigator);
-
-  // ignore: use_build_context_synchronously
-  final String? croppedPath = await cropHelper.getCroppedPath(
-    context,
-    existingImage.path,
-  );
-
-  await _hideScreenBetween(navigator);
-
-  if (croppedPath == null) {
-    return null;
-  }
-
-  return File(croppedPath);
-}
-
 /// Picks an image file from gallery or camera.
-Future<XFile?> pickImageFile(final State<StatefulWidget> widget) async {
+Future<XFile?> _pickImageFile(final State<StatefulWidget> widget) async {
   final UserPictureSource? source = await _getUserPictureSource(widget.context);
   if (source == null) {
     return null;
@@ -102,8 +78,11 @@ Future<UserPictureSource?> _getUserPictureSource(
   );
 }
 
-/// Crops an image picked from the gallery or camera.
-Future<File?> startImageCropping(final State<StatefulWidget> widget) async {
+/// Crops an image, either existing or picked from the gallery or camera.
+Future<File?> startImageCropping(
+  final State<StatefulWidget> widget, {
+  final File? existingImage,
+}) async {
   // Show a loading page on the Flutter side
   final NavigatorState navigator = Navigator.of(widget.context);
   final CropHelper cropHelper = CropHelper.getCurrent(widget.context);
@@ -112,10 +91,16 @@ Future<File?> startImageCropping(final State<StatefulWidget> widget) async {
   if (!widget.mounted) {
     return null;
   }
-  final XFile? pickedXFile = await pickImageFile(widget);
-  if (pickedXFile == null) {
-    await _hideScreenBetween(navigator);
-    return null;
+  final String sourceImagePath;
+  if (existingImage != null) {
+    sourceImagePath = existingImage.path;
+  } else {
+    final XFile? pickedXFile = await _pickImageFile(widget);
+    if (pickedXFile == null) {
+      await _hideScreenBetween(navigator);
+      return null;
+    }
+    sourceImagePath = pickedXFile.path;
   }
 
   if (!widget.mounted) {
@@ -123,7 +108,7 @@ Future<File?> startImageCropping(final State<StatefulWidget> widget) async {
   }
   final String? croppedPath = await cropHelper.getCroppedPath(
     widget.context,
-    pickedXFile.path,
+    sourceImagePath,
   );
 
   await _hideScreenBetween(navigator);

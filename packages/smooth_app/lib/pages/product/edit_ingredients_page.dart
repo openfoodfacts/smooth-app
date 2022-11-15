@@ -6,18 +6,18 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+// TODO(monsieurtanuki): rename file as `edit_ocr_page.dart`
 /// Editing with OCR a product field and the corresponding image.
 ///
 /// Typical use-cases: ingredients and packaging.
@@ -37,20 +37,23 @@ class EditOcrPage extends StatefulWidget {
 class _EditOcrPageState extends State<EditOcrPage> {
   final TextEditingController _controller = TextEditingController();
   ImageProvider? _imageProvider;
+  // TODO(monsieurtanuki): probably not relevant as relying on background task
   bool _updatingImage = false;
+  // TODO(monsieurtanuki): probably not relevant as relying on background task
   bool _updatingText = false;
   late Product _product;
+  late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late OcrHelper _helper;
 
   @override
   void initState() {
     super.initState();
-    _product = widget.product;
+    _initialProduct = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_product.barcode!);
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
     _helper = widget.helper;
-    _controller.text = _helper.getText(_product);
+    _controller.text = _helper.getText(_initialProduct);
   }
 
   @override
@@ -107,11 +110,15 @@ class _EditOcrPageState extends State<EditOcrPage> {
       if (!mounted) {
         return;
       }
-      await uploadCapturedPicture(
-        widget: this,
-        barcode: _product.barcode!,
-        imageField: _helper.getImageField(),
-        imageUri: croppedImageFile.uri,
+      await Navigator.push<File>(
+        context,
+        MaterialPageRoute<File>(
+          builder: (BuildContext context) => ConfirmAndUploadPicture(
+            barcode: _product.barcode!,
+            imageField: _helper.getImageField(),
+            initialPhoto: croppedImageFile,
+          ),
+        ),
       );
     }
 
@@ -129,32 +136,17 @@ class _EditOcrPageState extends State<EditOcrPage> {
   Future<void> _updateText(
     final String text,
     final ImageField imageField,
-  ) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    Product changedProduct = Product(barcode: _product.barcode);
-    Product? cachedProduct = await daoProduct.get(_product.barcode!);
-    if (cachedProduct != null) {
-      cachedProduct = _helper.getMinimalistProduct(cachedProduct, text);
-    }
-    changedProduct = _helper.getMinimalistProduct(changedProduct, text);
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
-      productEditTask:
-          _helper.getImageField().value == ImageField.PACKAGING.value
-              ? ProductEditTask.packaging
-              : ProductEditTask.ingredient,
-      widget: this,
-    );
-    final Product upToDateProduct = cachedProduct ?? changedProduct;
-    await daoProduct.put(upToDateProduct);
-    localDatabase.upToDate.set(upToDateProduct);
-  }
+  ) async =>
+      BackgroundTaskDetails.addTask(
+        _helper.getMinimalistProduct(Product(barcode: _product.barcode), text),
+        widget: this,
+      );
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final Size size = MediaQuery.of(context).size;
     final List<Widget> children = <Widget>[];
 
@@ -219,13 +211,13 @@ class _EditOcrPageState extends State<EditOcrPage> {
       );
     }
 
-    final Scaffold scaffold = SmoothScaffold(
+    return SmoothScaffold(
       extendBodyBehindAppBar: true,
       appBar: SmoothAppBar(
         title: Text(_helper.getTitle(appLocalizations)),
-        subTitle: widget.product.productName != null
+        subTitle: _product.productName != null
             ? Text(
-                widget.product.productName!,
+                _product.productName!,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               )
@@ -244,11 +236,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
         children: children,
       ),
     );
-    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
-    if (refreshedProduct != null) {
-      _product = refreshedProduct;
-    }
-    return scaffold;
   }
 
   Widget _buildZoomableImage(ImageProvider imageSource) {

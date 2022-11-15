@@ -11,8 +11,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -460,8 +458,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       return true;
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
     if (!saving) {
       final bool? pleaseSave = await showDialog<bool>(
         context: context,
@@ -486,42 +482,25 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         return true;
       }
     }
+    if (!mounted) {
+      return false;
+    }
 
     final Product? changedProduct =
         _getChangedProduct(Product(barcode: widget.product.barcode));
-    Product? cachedProduct = await daoProduct.get(
-      _product.barcode!,
-    );
-    if (cachedProduct != null) {
-      cachedProduct = _getChangedProduct(_product);
-    }
-
     if (changedProduct == null) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            // here I cheat and I reuse the only invalid case.
-            content: Text(appLocalizations.nutrition_page_invalid_number),
-          ),
-        );
-      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          // here I cheat and I reuse the only invalid case.
+          content: Text(appLocalizations.nutrition_page_invalid_number),
+        ),
+      );
       return false;
     }
     await BackgroundTaskDetails.addTask(
       changedProduct,
-      productEditTask: ProductEditTask.nutrition,
       widget: this,
     );
-    final Product upToDateProduct = cachedProduct ?? changedProduct;
-    await daoProduct.put(upToDateProduct);
-    localDatabase.upToDate.set(upToDateProduct);
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(appLocalizations.product_task_background_schedule),
-        ),
-      );
-    }
     return true;
   }
 }

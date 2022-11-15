@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
 
@@ -95,7 +96,8 @@ class _CropPageState extends State<CropPage> {
       return;
     }
     final Uint8List data = Uint8List.fromList(image2.encodeJpg(rawImage));
-    final int sequenceNumber = await _getNextSequenceNumber(daoInt);
+    final int sequenceNumber =
+        await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
 
     final Directory tempDirectory = await getTemporaryDirectory();
     final String path = '${tempDirectory.path}/crop_$sequenceNumber.jpeg';
@@ -109,15 +111,4 @@ class _CropPageState extends State<CropPage> {
   }
 
   static const String _CROP_PAGE_SEQUENCE_KEY = 'crop_page_sequence';
-
-  Future<int> _getNextSequenceNumber(final DaoInt daoInt) async {
-    int? result = daoInt.get(_CROP_PAGE_SEQUENCE_KEY);
-    if (result == null) {
-      result = 1;
-    } else {
-      result++;
-    }
-    await daoInt.put(_CROP_PAGE_SEQUENCE_KEY, result);
-    return result;
-  }
 }

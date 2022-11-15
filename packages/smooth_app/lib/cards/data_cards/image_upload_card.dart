@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/helpers/picture_capture_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 
+// TODO(monsieurtanuki): rename that class, like `ProductImageCarouselItem`
+/// Displays a product image in the carousel: access to gallery, or new image.
+///
+/// If the image exists, it's displayed and a tap gives access to the gallery.
+/// If not, a "add image" button is displayed.
 class ImageUploadCard extends StatefulWidget {
   const ImageUploadCard({
     required this.product,
@@ -44,11 +49,15 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
       if (!mounted) {
         return;
       }
-      await uploadCapturedPicture(
-        widget: this,
-        barcode: widget.product.barcode!,
-        imageField: widget.productImageData.imageField,
-        imageUri: croppedImageFile.uri,
+      await Navigator.push<File>(
+        context,
+        MaterialPageRoute<File>(
+          builder: (BuildContext context) => ConfirmAndUploadPicture(
+            barcode: widget.product.barcode!,
+            imageField: widget.productImageData.imageField,
+            initialPhoto: croppedImageFile,
+          ),
+        ),
       );
     }
   }

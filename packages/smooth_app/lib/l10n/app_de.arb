@@ -254,7 +254,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Dark mode",
+    "darkmode": "Dunkel Modus",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -346,7 +346,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um eine Gutschrift für Ihre Beiträge zu erhalten",
     "tap_to_edit_search": "Antippen Sie, um Suche zu bearbeiten",
     "@Personal preferences": {},
     "myPreferences": "Meine Einstellungen",
@@ -461,7 +461,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Nimm Fotos von der Verpackung auf, um dieses Produkt zu Open Food Facts hinzuzufügen",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
+    "add_product_take_photos_descriptive": "Bitte nehmen Sie zuerst ein paar Fotos auf. Sie können das Produkt jederzeit zu einem späteren Zeitpunkt vervollständigen.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Produktinformation hinzufügen",
     "@add_product_information_button_label": {},
@@ -476,7 +476,7 @@
     "confirm_button_label": "Bestätigen",
     "front_packaging_photo_title": "Foto der Vorderseite der Verpackung",
     "ingredients_photo_title": "Foto der Zutatenliste",
-    "nutritional_facts_photo_title": "Nutrition Facts Photo",
+    "nutritional_facts_photo_title": "Foto der Nährwertangaben",
     "recycling_photo_title": "Foto der Recycling-Informationen",
     "other_interesting_photo_title": "Weitere interessante Fotos",
     "front_photo_uploaded": "Foto der Vorderseite der Verpackung hochgeladen",
@@ -1278,7 +1278,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test environment parameters",
+    "dev_preferences_test_environment_title": "Testumgebungsparameter",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1291,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test environment host",
+    "dev_preferences_test_environment_dialog_title": "Testumgebungs-Host",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1383,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
+    "dev_mode_hide_ecoscore_title": "Eco-Score ausschließen",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1522,7 @@
         }
     },
     "barcode_invalid_error": "Strichcode ungültig",
-    "basic_details_add_success": "Basic details added successfully",
+    "basic_details_add_success": "Allgemeine Details erfolgreich hinzugefügt",
     "basic_details_add_error": "Allgemeine Details konnten nicht hinzugefügt werden. Bitte versuche es nach einiger Zeit erneut",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1565,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list",
+    "user_list_all_empty": "Erstellen Sie Ihre erste Liste",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1701,7 +1701,7 @@
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Laden Sie ein Bild hoch, um die darin enthaltenen Informationen automatisch auszulesen.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
@@ -1721,7 +1721,7 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+    "image_edit_url_error": "Fehler beim Bearbeiten des Bildes, da die Bild-URL nicht festgelegt wurde.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
