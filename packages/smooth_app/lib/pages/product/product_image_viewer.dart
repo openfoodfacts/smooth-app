@@ -10,9 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -37,7 +35,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   /// When the image is edited, this is the new image
   late ImageProvider imageProvider;
-  bool _isEdited = false;
 
   @override
   void initState() {
@@ -114,7 +111,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       ),
     );
     if (photoUploaded != null) {
-      _isEdited = true;
       if (!mounted) {
         return;
       }
