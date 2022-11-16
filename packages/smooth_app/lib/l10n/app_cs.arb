@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Přidat",
     "@add": {},
+    "account_delete_message": "Opravdu chcete smazat svůj účet?\nPokud existuje konkrétní důvod, podělte se prosím níže",
+    "@account_delete_message": {},
+    "reason": "Důvod",
+    "@reason": {},
     "okay": "Potvrdit",
     "@okay": {},
     "create": "Vytvořit",
@@ -1278,7 +1282,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test environment parameters",
+    "dev_preferences_test_environment_title": "Parametry testovacího prostředí",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1295,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test environment host",
+    "dev_preferences_test_environment_dialog_title": "Hostitel testovacího prostředí",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
