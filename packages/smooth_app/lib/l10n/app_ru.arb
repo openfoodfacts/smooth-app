@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Добавить",
     "@add": {},
+    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "@account_delete_message": {},
+    "reason": "Reason",
+    "@reason": {},
     "okay": "Окей",
     "@okay": {},
     "create": "Создать",
@@ -34,7 +38,7 @@
     "@stop": {},
     "finish": "Готово",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "Рассчитать",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -254,7 +258,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Dark mode",
+    "darkmode": "Тёмный режим",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -476,7 +480,7 @@
     "confirm_button_label": "Подтвердить",
     "front_packaging_photo_title": "Фото упаковки спереди",
     "ingredients_photo_title": "Фото состава",
-    "nutritional_facts_photo_title": "Nutrition Facts Photo",
+    "nutritional_facts_photo_title": "Фото информации о пищевой ценности",
     "recycling_photo_title": "Изображение сведений о переработке",
     "other_interesting_photo_title": "Другие интересные фото",
     "front_photo_uploaded": "Загружено переднее фото",
@@ -564,7 +568,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "You are using a deprecated version of the app.",
+    "deprecated_header": "Вы используете устаревшую версию приложения.",
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
@@ -608,7 +612,7 @@
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Изображение пищевой ценности устарело: обновите его.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -733,7 +737,7 @@
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Доступ к камере",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
@@ -823,7 +827,7 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "Позже",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -1067,7 +1071,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spain",
+    "edit_product_form_item_origins_hint": "Испания",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1083,7 +1087,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "Испания",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
