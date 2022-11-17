@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:task_manager/task_manager.dart';
@@ -74,6 +77,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     required final File imageFile,
     required final State<StatefulWidget> widget,
   }) async {
+    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     // For "OTHER" images we randomize the id with timestamp
     // so that it runs separately.
     final String uniqueId = AbstractBackgroundTask.generateUniqueId(
@@ -81,7 +85,8 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       imageField.value,
       appendTimestamp: imageField == ImageField.OTHER,
     );
-    final BackgroundTaskImage backgroundImageInputData = BackgroundTaskImage._(
+    TransientFile.putImage(imageField, barcode, localDatabase, imageFile);
+    final BackgroundTaskImage backgroundTask = BackgroundTaskImage._(
       uniqueId: uniqueId,
       barcode: barcode,
       processName: _PROCESS_NAME,
@@ -91,12 +96,8 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       user: jsonEncode(ProductQuery.getUser().toJson()),
       country: ProductQuery.getCountry()!.iso2Code,
     );
-    await TaskManager().addTask(
-      Task(
-        data: backgroundImageInputData.toJson(),
-        uniqueId: uniqueId,
-      ),
-    );
+    // TODO(monsieurtanuki): currently we run the task immediately and just once - if it fails we rollback the changes.
+    backgroundTask.execute(localDatabase); // async
     if (!widget.mounted) {
       return;
     }
@@ -108,6 +109,23 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         duration: SnackBarDuration.medium,
       ),
     );
+  }
+
+  @override
+  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
+    try {
+      await super.execute(localDatabase);
+    } catch (e) {
+      //
+    } finally {
+      TransientFile.removeImage(
+        ImageFieldExtension.getType(imageField),
+        barcode,
+        localDatabase,
+      );
+      localDatabase.notifyListeners();
+    }
+    return TaskResult.success;
   }
 
   /// Uploads the product image.
@@ -122,8 +140,5 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
 
     // TODO(AshAman999): check returned Status
     await OpenFoodAPIClient.addProductImage(getUser(), image);
-
-    // Go to the file system and delete the file that was uploaded
-    File(imagePath).deleteSync();
   }
 }

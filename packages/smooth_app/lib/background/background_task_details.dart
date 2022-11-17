@@ -124,6 +124,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     final Map<String, dynamic> productMap =
         json.decode(inputMap) as Map<String, dynamic>;
 
+    // TODO(AshAman999): check returned Status
     await OpenFoodAPIClient.saveProduct(
       getUser(),
       Product.fromJson(productMap),

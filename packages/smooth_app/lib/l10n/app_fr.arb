@@ -1168,6 +1168,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Impossible de trouver du texte dans l'image.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "Nouvelle liste de produits",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
