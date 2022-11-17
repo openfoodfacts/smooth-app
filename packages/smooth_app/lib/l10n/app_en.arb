@@ -4,7 +4,7 @@
     "@yes": {},
     "add": "Add",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIs there a specific reason share below",
+    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
     "@account_delete_message":{},
     "reason": "Reason",
     "@reason":{} ,
