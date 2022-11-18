@@ -8,8 +8,8 @@ import 'package:smooth_app/pages/product/product_image_viewer.dart';
 ///Opens product image with [initialProductImageDataIndex] from list of images Typecasted from [selectedImages]
 ///
 ///Field [selectedImages],[initialProductImageDataIndex],[barcode] cannot be null
-class ProductImageSwipeableView extends StatelessWidget {
-  ProductImageSwipeableView({
+class ProductImageSwipeableView extends StatefulWidget {
+  const ProductImageSwipeableView({
     Key? key,
     required this.selectedImages,
     required this.initialProductImageDataIndex,
@@ -19,18 +19,29 @@ class ProductImageSwipeableView extends StatelessWidget {
   final Map<ProductImageData, ImageProvider?> selectedImages;
   final int initialProductImageDataIndex;
   final String barcode;
+
+  @override
+  State<ProductImageSwipeableView> createState() =>
+      _ProductImageSwipeableViewState();
+}
+
+class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
   final ValueNotifier<int> currentImageDataIndex = ValueNotifier<int>(0);
+  List<MapEntry<ProductImageData, ImageProvider?>> imageList = [];
+  PageController? controller;
+
+  @override
+  void initState() {
+    currentImageDataIndex.value = widget.initialProductImageDataIndex;
+    imageList = widget.selectedImages.entries.toList();
+    controller = PageController(
+      initialPage: widget.initialProductImageDataIndex,
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      currentImageDataIndex.value = initialProductImageDataIndex;
-    });
-    final List<MapEntry<ProductImageData, ImageProvider?>> imageList =
-        selectedImages.entries.toList();
-    final PageController controller = PageController(
-      initialPage: initialProductImageDataIndex,
-    );
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -54,10 +65,11 @@ class ProductImageSwipeableView extends StatelessWidget {
           currentImageDataIndex.value = index;
         },
         controller: controller,
-        itemCount: selectedImages.keys.length,
+        itemCount: widget.selectedImages.keys.length,
         itemBuilder: (BuildContext context, int index) {
           return ProductImageViewer(
-            barcode: barcode,
+            selectedImages: widget.selectedImages,
+            barcode: widget.barcode,
             imageData: imageList[index].key,
           );
         },
