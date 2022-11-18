@@ -585,7 +585,6 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
-            "agribalyse_food_code" : "25903",
             "agribalyse_proxy_food_code" : "25903",
             "co2_agriculture" : 0.099163319,
             "co2_consumption" : 0.0079267752,
@@ -1466,7 +1465,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent_max:&nbsp;45</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;8</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent_max:&nbsp;40</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;8</li>\n</ol>\n"
                   }
                },
                {
@@ -1592,7 +1591,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    \n        \n    \n\n"
+                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Category: Meals</li>\n            \n                <li>Ingredient: Salt</li>\n            \n            </ul>\n        \n    \n\n"
                   }
                },
                {
