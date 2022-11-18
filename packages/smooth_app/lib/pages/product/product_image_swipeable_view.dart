@@ -27,7 +27,7 @@ class ProductImageSwipeableView extends StatefulWidget {
 
 class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
   final ValueNotifier<int> currentImageDataIndex = ValueNotifier<int>(0);
-  List<MapEntry<ProductImageData, ImageProvider?>> imageList = [];
+  List<MapEntry<ProductImageData, ImageProvider?>>? imageList;
   PageController? controller;
 
   @override
@@ -51,7 +51,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
           valueListenable: currentImageDataIndex,
           builder: (_, int index, __) {
             return Text(
-              imageList[index].key.title,
+              imageList![index].key.title,
             );
           },
         ),
@@ -70,7 +70,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
           return ProductImageViewer(
             selectedImages: widget.selectedImages,
             barcode: widget.barcode,
-            imageData: imageList[index].key,
+            imageData: imageList![index].key,
           );
         },
       ),
