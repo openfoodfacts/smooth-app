@@ -1,11 +1,15 @@
-import 'package:scanner_mlkit/scanner_mlkit.dart';
-import 'package:smooth_app/main.dart';
-
 /// Samsung Gallery version with:
 /// - Barcode decoding algorithm: MLKit
 /// - Intent to launch the review
 void main() {
-  launchSmoothApp(
+  throw Exception('Missing Huawei App Gallery URI!');
+
+  /*launchSmoothApp(
     scanner: MLKitCameraScanner(),
-  );
+    appStore: URIAppStore(
+      Uri.parse(
+        'https://galaxystore.samsung.com/detail/packagename',
+      ),
+    ),
+  );*/
 }

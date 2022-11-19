@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:app_store_shared/app_store_shared.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ late bool _screenshots;
 
 Future<void> launchSmoothApp({
   required CameraScanner scanner,
+  required AppStore appStore,
   final bool screenshots = false,
 }) async {
   _screenshots = screenshots;

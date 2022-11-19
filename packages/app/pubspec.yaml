@@ -27,6 +27,21 @@ dependencies:
   scanner_zxing:
     path: ../scanner/zxing
 
+
+  app_store_shared:
+    path: ../app_store/shared
+
+  # According to the build variant, only one "app store" implementation must be added when building a release
+  # Call "flutter pub remove xxxx" to remove unused dependencies
+  app_store_apple_store:
+    path: ../app_store/apple_app_store
+
+  app_store_google_play:
+    path: ../app_store/google_play
+
+  app_store_uri:
+    path: ../app_store/uri_store
+
 dev_dependencies:
   integration_test:
     sdk: flutter
