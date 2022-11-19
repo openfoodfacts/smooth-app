@@ -42,7 +42,6 @@ class QuestionCard extends StatelessWidget {
                 ProductImageCarousel(
                   product,
                   height: screenSize.height / 6,
-                  onUpload: (_) {},
                   alternateImageUrl: question.imageUrl,
                 ),
                 Padding(
