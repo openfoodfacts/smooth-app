@@ -59,6 +59,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       }
 
       await showInAppReviewIfNecessary(context);
+
+      if (!mounted) {
+        return;
+      }
       Navigator.pop(context);
     } else {
       setState(() {
