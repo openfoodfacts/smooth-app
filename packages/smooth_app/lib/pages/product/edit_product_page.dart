@@ -116,7 +116,8 @@ class _EditProductPageState extends State<EditProductPage> {
           child: ListView(
             controller: _controller,
             children: <Widget>[
-              if (_product.barcode != null) _ProductBarcode(product: _product),
+              if (_ProductBarcode.isAValidBarcode(_product.barcode))
+                _ProductBarcode(product: _product),
               _ListTitleItem(
                 title: appLocalizations.edit_product_form_item_details_title,
                 subtitle:
@@ -376,7 +377,7 @@ class _SvgIcon extends StatelessWidget {
 class _ProductBarcode extends StatelessWidget {
   _ProductBarcode({required this.product, Key? key})
       : assert(product.barcode?.isNotEmpty == true),
-        assert(<int>[7, 8, 12, 13].contains(product.barcode!.length)),
+        assert(isAValidBarcode(product.barcode)),
         super(key: key);
 
   static const double _barcodeHeight = 120.0;
@@ -418,4 +419,7 @@ class _ProductBarcode extends StatelessWidget {
         throw Exception('Unknown barcode type!');
     }
   }
+
+  static bool isAValidBarcode(String? barcode) =>
+      barcode != null && <int>[7, 8, 12, 13].contains(barcode.length);
 }
