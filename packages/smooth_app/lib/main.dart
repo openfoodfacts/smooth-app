@@ -41,8 +41,8 @@ Future<void> launchSmoothApp({
 }) async {
   _screenshots = screenshots;
   if (_screenshots) {
-    await _init1();
-    runApp(SmoothApp(scanner));
+    await _init1(appStore);
+    runApp(SmoothApp(scanner, appStore));
     return;
   }
   final WidgetsBinding widgetsBinding =
@@ -51,22 +51,23 @@ Future<void> launchSmoothApp({
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () => runApp(SmoothApp(scanner)),
+      appRunner: () => runApp(SmoothApp(scanner, appStore)),
     );
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (_) => SmoothApp(scanner),
+        builder: (_) => SmoothApp(scanner, appStore),
       ),
     );
   }
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp(this.scanner);
+  const SmoothApp(this.scanner, this.appStore);
 
   final CameraScanner scanner;
+  final AppStore appStore;
 
   // This widget is the root of your application
   @override
@@ -86,12 +87,12 @@ bool _init1done = false;
 // Had to split init in 2 methods, for test/screenshots reasons.
 // Don't know why, but some init codes seem to freeze the test.
 // Now we run them before running the app, during the tests.
-Future<bool> _init1() async {
+Future<bool> _init1(AppStore appStore) async {
   if (_init1done) {
     return false;
   }
 
-  await SmoothServices().init();
+  await SmoothServices().init(appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
@@ -140,7 +141,7 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   Future<bool> _init2() async {
-    await _init1();
+    await _init1(widget.appStore);
     systemDarkmodeOn = brightness == Brightness.dark;
     if (!mounted) {
       return false;
