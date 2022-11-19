@@ -29,3 +29,5 @@ class SmoothServices {
 }
 
 LogsService get Logs => SmoothServices()._logsService;
+
+AppStoreService get ApplicationStore => SmoothServices()._appStoreService;
