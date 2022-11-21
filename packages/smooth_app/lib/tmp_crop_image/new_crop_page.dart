@@ -42,6 +42,9 @@ class _CropPageState extends State<CropPage> {
 
   Future<void> _load() async {
     _image = await loadUiImage();
+    if (!mounted) {
+      return;
+    }
     setState(() {});
   }
 

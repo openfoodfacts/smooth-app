@@ -7,11 +7,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:task_manager/task_manager.dart';
 
 /// Background task about product image upload.
 class BackgroundTaskImage extends AbstractBackgroundTask {
@@ -41,6 +40,8 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
   /// Task ID.
   static const String _PROCESS_NAME = 'IMAGE_UPLOAD';
 
+  static const OperationType _operationType = OperationType.image;
+
   final String imageField;
   final String imagePath;
 
@@ -57,10 +58,9 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       };
 
   /// Returns the deserialized background task if possible, or null.
-  static AbstractBackgroundTask? fromTask(final Task task) {
+  static AbstractBackgroundTask? fromJson(final Map<String, dynamic> map) {
     try {
-      final AbstractBackgroundTask result =
-          BackgroundTaskImage._fromJson(task.data!);
+      final AbstractBackgroundTask result = BackgroundTaskImage._fromJson(map);
       if (result.processName == _PROCESS_NAME) {
         return result;
       }
@@ -78,55 +78,57 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     required final State<StatefulWidget> widget,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
-    // For "OTHER" images we randomize the id with timestamp
-    // so that it runs separately.
-    final String uniqueId = AbstractBackgroundTask.generateUniqueId(
+    final String uniqueId = await _operationType.getNewKey(
+      localDatabase,
       barcode,
-      imageField.value,
-      appendTimestamp: imageField == ImageField.OTHER,
     );
-    TransientFile.putImage(imageField, barcode, localDatabase, imageFile);
-    final BackgroundTaskImage backgroundTask = BackgroundTaskImage._(
-      uniqueId: uniqueId,
-      barcode: barcode,
-      processName: _PROCESS_NAME,
-      imageField: imageField.value,
-      imagePath: imageFile.path,
-      languageCode: ProductQuery.getLanguage().code,
-      user: jsonEncode(ProductQuery.getUser().toJson()),
-      country: ProductQuery.getCountry()!.iso2Code,
+    final AbstractBackgroundTask task = _getNewTask(
+      barcode,
+      imageField,
+      imageFile,
+      uniqueId,
     );
-    // TODO(monsieurtanuki): currently we run the task immediately and just once - if it fails we rollback the changes.
-    backgroundTask.execute(localDatabase); // async
-    if (!widget.mounted) {
-      return;
-    }
-    ScaffoldMessenger.of(widget.context).showSnackBar(
-      SnackBar(
-        content: Text(
-          AppLocalizations.of(widget.context).image_upload_queued,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
-    );
+    await task.addToManager(widget);
   }
 
   @override
-  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
-    try {
-      await super.execute(localDatabase);
-    } catch (e) {
-      //
-    } finally {
+  String getSnackBarMessage(final AppLocalizations appLocalizations) =>
+      appLocalizations.image_upload_queued;
+
+  /// Returns a new background task about changing a product.
+  static BackgroundTaskImage _getNewTask(
+    final String barcode,
+    final ImageField imageField,
+    final File imageFile,
+    final String uniqueId,
+  ) =>
+      BackgroundTaskImage._(
+        uniqueId: uniqueId,
+        barcode: barcode,
+        processName: _PROCESS_NAME,
+        imageField: imageField.value,
+        imagePath: imageFile.path,
+        languageCode: ProductQuery.getLanguage().code,
+        user: jsonEncode(ProductQuery.getUser().toJson()),
+        country: ProductQuery.getCountry()!.iso2Code,
+      );
+
+  @override
+  Future<void> preExecute(final LocalDatabase localDatabase) async =>
+      TransientFile.putImage(
+        ImageFieldExtension.getType(imageField),
+        barcode,
+        localDatabase,
+        File(imagePath),
+      );
+
+  @override
+  Future<void> postExecute(final LocalDatabase localDatabase) async =>
       TransientFile.removeImage(
         ImageFieldExtension.getType(imageField),
         barcode,
         localDatabase,
       );
-      localDatabase.notifyListeners();
-    }
-    return TaskResult.success;
-  }
 
   /// Uploads the product image.
   @override
