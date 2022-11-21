@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -6,15 +7,13 @@ import 'package:smooth_app/pages/product/product_image_viewer.dart';
 
 ///Widget to display swipeable product images,
 ///Opens product image with [initialProductImageDataIndex] from list of images Typecasted from [selectedImages]
-///
-///Field [selectedImages],[initialProductImageDataIndex],[barcode] cannot be null
 class ProductImageSwipeableView extends StatefulWidget {
   const ProductImageSwipeableView({
-    Key? key,
+    super.key,
     required this.selectedImages,
     required this.initialProductImageDataIndex,
     required this.barcode,
-  }) : super(key: key);
+  });
 
   final Map<ProductImageData, ImageProvider?> selectedImages;
   final int initialProductImageDataIndex;
@@ -26,18 +25,18 @@ class ProductImageSwipeableView extends StatefulWidget {
 }
 
 class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
-  final ValueNotifier<int> currentImageDataIndex = ValueNotifier<int>(0);
-  List<MapEntry<ProductImageData, ImageProvider?>>? imageList;
-  PageController? controller;
+  final ValueNotifier<int> _currentImageDataIndex = ValueNotifier<int>(0);
+  late List<ProductImageData> _imageDataList;
+  late PageController _controller;
 
   @override
   void initState() {
-    currentImageDataIndex.value = widget.initialProductImageDataIndex;
-    imageList = widget.selectedImages.entries.toList();
-    controller = PageController(
+    super.initState();
+    _currentImageDataIndex.value = widget.initialProductImageDataIndex;
+    _imageDataList = List<ProductImageData>.from(widget.selectedImages.keys);
+    _controller = PageController(
       initialPage: widget.initialProductImageDataIndex,
     );
-    super.initState();
   }
 
   @override
@@ -48,10 +47,10 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
         foregroundColor: WHITE_COLOR,
         elevation: 0,
         title: ValueListenableBuilder<int>(
-          valueListenable: currentImageDataIndex,
+          valueListenable: _currentImageDataIndex,
           builder: (_, int index, __) {
             return Text(
-              imageList![index].key.title,
+              _imageDataList[index].title,
             );
           },
         ),
@@ -62,15 +61,14 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
       ),
       body: PageView.builder(
         onPageChanged: (int index) {
-          currentImageDataIndex.value = index;
+          _currentImageDataIndex.value = index;
         },
-        controller: controller,
+        controller: _controller,
         itemCount: widget.selectedImages.keys.length,
         itemBuilder: (BuildContext context, int index) {
           return ProductImageViewer(
-            selectedImages: widget.selectedImages,
             barcode: widget.barcode,
-            imageData: imageList![index].key,
+            imageData: _imageDataList[index],
           );
         },
       ),
