@@ -11,6 +11,7 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract background task.
@@ -102,26 +103,9 @@ abstract class AbstractBackgroundTask {
   User getUser() => User.fromJson(jsonDecode(user) as Map<String, dynamic>);
 
   /// Downloads the whole product, updates locally.
-  Future<void> _downloadAndRefresh(final LocalDatabase localDatabase) async {
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      barcode,
-      fields: ProductQuery.fields,
-      language: getLanguage(),
-      country: getCountry(),
-    );
-
-    final ProductResult queryResult =
-        await OpenFoodAPIClient.getProduct(configuration);
-    if (queryResult.status == AbstractBackgroundTask.SUCCESS_CODE) {
-      final Product? product = queryResult.product;
-      if (product != null) {
-        await daoProduct.put(product);
-        localDatabase.upToDate.setLatestDownloadedProduct(product);
-        localDatabase.notifyListeners();
-        return;
-      }
-    }
-    throw Exception('Could not download product!');
-  }
+  Future<void> _downloadAndRefresh(final LocalDatabase localDatabase) async =>
+      ProductRefresher().silentFetchAndRefresh(
+        barcode: barcode,
+        localDatabase: localDatabase,
+      );
 }

@@ -30,7 +30,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_category_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
@@ -703,15 +702,6 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     _annotationVoted =
         await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
-    // Reload the product as it may have been updated because of the
-    // new answers.
-    if (!mounted) {
-      return;
-    }
-    await ProductRefresher().fetchAndRefresh(
-      widget: this,
-      barcode: _product.barcode!,
-    );
   }
 
   Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
