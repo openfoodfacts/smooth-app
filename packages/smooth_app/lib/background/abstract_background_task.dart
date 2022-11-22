@@ -8,11 +8,9 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract background task.
 abstract class AbstractBackgroundTask {
