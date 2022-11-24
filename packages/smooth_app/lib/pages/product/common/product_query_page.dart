@@ -433,16 +433,12 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   }
 
   void _scrollToTop({bool instant = false}) {
-    double time = 0;
-    for (int i = 1; i <= _getItemCount(); i++) {
-      time += 1 / i;
-    }
     if (instant) {
       _scrollController.jumpTo(0);
     } else {
       _scrollController.animateTo(
         0,
-        duration: Duration(milliseconds: time.toInt()),
+        duration: const Duration(milliseconds: 6),
         curve: Curves.linear,
       );
     }
