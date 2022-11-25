@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Hinzufügen",
     "@add": {},
+    "account_delete_message": "Möchten Sie Ihr Konto wirklich löschen?\nWenn es einen bestimmten Grund gibt, teilen Sie ihn uns bitte unten mit",
+    "@account_delete_message": {},
+    "reason": "Grund",
+    "@reason": {},
     "okay": "Okay",
     "@okay": {},
     "create": "Erstellen",
@@ -1167,6 +1171,10 @@
     "edit_packaging_refresh_photo_btn_text": "Foto aktualisieren",
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
+    },
+    "edit_ocr_extract_failed": "Text im Bild konnte nicht erkannt werden.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
     },
     "user_list_dialog_new_title": "Neue Produktliste",
     "@user_list_dialog_new_title": {

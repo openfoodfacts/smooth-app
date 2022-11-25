@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Ekle",
     "@add": {},
+    "account_delete_message": "Hesabınızı silmek istediğinizden emin misiniz?\nBelirli bir nedeni varsa aşağıda paylaşın",
+    "@account_delete_message": {},
+    "reason": "Sebep",
+    "@reason": {},
     "okay": "Tamam",
     "@okay": {},
     "create": "Oluştur",
@@ -1167,6 +1171,10 @@
     "edit_packaging_refresh_photo_btn_text": "Fotoğrafı yenileyin",
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
+    },
+    "edit_ocr_extract_failed": "Resimdeki metin algılanamadı.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
     },
     "user_list_dialog_new_title": "Ürünlerin yeni listesi",
     "@user_list_dialog_new_title": {

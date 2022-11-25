@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Pridėti",
     "@add": {},
+    "account_delete_message": "Ar tikrai norite ištrinti savo paskyrą?\nJei yra kokia nors konkreti priežastis, nurodykite toliau",
+    "@account_delete_message": {},
+    "reason": "Priežastis",
+    "@reason": {},
     "okay": "Gerai",
     "@okay": {},
     "create": "Kurti",
@@ -1167,6 +1171,10 @@
     "edit_packaging_refresh_photo_btn_text": "Atnaujinti nuotrauką",
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
+    },
+    "edit_ocr_extract_failed": "Nepavyko aptikti teksto vaizde.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
     },
     "user_list_dialog_new_title": "Naujas produktų sąrašas",
     "@user_list_dialog_new_title": {

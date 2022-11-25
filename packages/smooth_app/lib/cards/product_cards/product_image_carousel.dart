@@ -10,13 +10,11 @@ class ProductImageCarousel extends StatelessWidget {
   const ProductImageCarousel(
     this.product, {
     required this.height,
-    this.onUpload,
     this.alternateImageUrl,
   });
 
   final Product product;
   final double height;
-  final Function(BuildContext)? onUpload;
   final String? alternateImageUrl;
 
   @override
@@ -49,7 +47,6 @@ class ProductImageCarousel extends StatelessWidget {
             child: ImageUploadCard(
               product: product,
               productImageData: data,
-              onUpload: onUpload ?? (_) {},
             ),
           );
         },

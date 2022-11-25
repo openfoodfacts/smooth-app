@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Přidat",
     "@add": {},
+    "account_delete_message": "Opravdu chcete smazat svůj účet?\nPokud existuje konkrétní důvod, podělte se prosím níže",
+    "@account_delete_message": {},
+    "reason": "Důvod",
+    "@reason": {},
     "okay": "Potvrdit",
     "@okay": {},
     "create": "Vytvořit",
@@ -290,7 +294,7 @@
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "Přispět",
+    "contribute": "Přispějte",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
@@ -304,7 +308,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV režim?",
     "contribute_develop_dev_mode_subtitle": "Aktivovat DEV režim",
-    "contribute_donate_header": "Přispět Open Food Facts",
+    "contribute_donate_header": "Přispějte na Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Nedokončené",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Nepodařilo se rozpoznat text v obrázku.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "Nový seznam produktů",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1278,7 +1286,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test environment parameters",
+    "dev_preferences_test_environment_title": "Parametry testovacího prostředí",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test environment host",
+    "dev_preferences_test_environment_dialog_title": "Hostitel testovacího prostředí",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },

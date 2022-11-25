@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
+import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 
 /// Picks an image file from gallery or camera.
 Future<XFile?> _pickImageFile(final State<StatefulWidget> widget) async {
@@ -78,8 +80,45 @@ Future<UserPictureSource?> _getUserPictureSource(
   );
 }
 
+Future<File?> confirmAndUploadNewPicture(
+  final State<StatefulWidget> widget, {
+  required final ImageField imageField,
+  required final String barcode,
+}) async {
+  final File? croppedPhoto = await startNewImageCropping(widget);
+  if (croppedPhoto == null) {
+    return null;
+  }
+  if (!widget.mounted) {
+    return null;
+  }
+  return Navigator.push<File>(
+    widget.context,
+    MaterialPageRoute<File>(
+      builder: (BuildContext context) => ConfirmAndUploadPicture(
+        barcode: barcode,
+        imageField: imageField,
+        initialPhoto: croppedPhoto,
+      ),
+    ),
+  );
+}
+
+/// Crops an image picked from the gallery or camera.
+Future<File?> startNewImageCropping(
+  final State<StatefulWidget> widget,
+) async =>
+    _startImageCropping(widget);
+
+/// Crops an existing image.
+Future<File?> startExistingImageCropping(
+  final State<StatefulWidget> widget,
+  final File? existingImage,
+) async =>
+    _startImageCropping(widget, existingImage: existingImage);
+
 /// Crops an image, either existing or picked from the gallery or camera.
-Future<File?> startImageCropping(
+Future<File?> _startImageCropping(
   final State<StatefulWidget> widget, {
   final File? existingImage,
 }) async {

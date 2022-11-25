@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "追加",
     "@add": {},
+    "account_delete_message": "アカウントを削除してもよろしいですか？\n具体的な理由がある場合は、お知らせいただけるとありがたいです。",
+    "@account_delete_message": {},
+    "reason": "原因",
+    "@reason": {},
     "okay": "はい",
     "@okay": {},
     "create": "Create",
@@ -1167,6 +1171,10 @@
     "edit_packaging_refresh_photo_btn_text": "Refresh photo",
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
+    },
+    "edit_ocr_extract_failed": "画像内のテキストを検出できませんでした。",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
     },
     "user_list_dialog_new_title": "New list of products",
     "@user_list_dialog_new_title": {
