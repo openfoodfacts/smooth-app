@@ -42,6 +42,22 @@ enum OperationType {
     return int.parse(keyItems[1]);
   }
 
+  static String getBarcode(final String key) {
+    final List<String> keyItems = key.split(_transientHeaderSeparator);
+    return keyItems[2];
+  }
+
+  static OperationType? getOperationType(final String key) {
+    final List<String> keyItems = key.split(_transientHeaderSeparator);
+    final String find = keyItems[0];
+    for (final OperationType operationType in OperationType.values) {
+      if (operationType.header == find) {
+        return operationType;
+      }
+    }
+    return null;
+  }
+
   static int sort(
     final TransientOperation operationA,
     final TransientOperation operationB,

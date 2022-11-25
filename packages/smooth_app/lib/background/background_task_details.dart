@@ -5,10 +5,9 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:task_manager/task_manager.dart';
 
 /// Background task that changes product details (data, but no image upload).
 class BackgroundTaskDetails extends AbstractBackgroundTask {
@@ -36,6 +35,8 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   /// Task ID.
   static const String _PROCESS_NAME = 'PRODUCT_EDIT';
 
+  static const OperationType _operationType = OperationType.details;
+
   /// Serialized product.
   final String inputMap;
 
@@ -51,10 +52,9 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       };
 
   /// Returns the deserialized background task if possible, or null.
-  static AbstractBackgroundTask? fromTask(final Task task) {
+  static BackgroundTaskDetails? fromJson(final Map<String, dynamic> map) {
     try {
-      final AbstractBackgroundTask result =
-          BackgroundTaskDetails._fromJson(task.data!);
+      final BackgroundTaskDetails result = BackgroundTaskDetails._fromJson(map);
       if (result.processName == _PROCESS_NAME) {
         return result;
       }
@@ -65,16 +65,12 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   }
 
   @override
-  Future<TaskResult> execute(final LocalDatabase localDatabase) async {
-    try {
-      await super.execute(localDatabase);
-    } catch (e) {
-      //
-    } finally {
+  Future<void> preExecute(final LocalDatabase localDatabase) async =>
+      localDatabase.upToDate.addChange(uniqueId, _product);
+
+  @override
+  Future<void> postExecute(final LocalDatabase localDatabase) async =>
       localDatabase.upToDate.terminate(uniqueId);
-    }
-    return TaskResult.success;
-  }
 
   /// Adds the background task about changing a product.
   static Future<void> addTask(
@@ -82,26 +78,20 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     required final State<StatefulWidget> widget,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
-    final String uniqueId =
-        await localDatabase.upToDate.addChange(minimalistProduct);
-    final BackgroundTaskDetails backgroundTask = _getNewTask(
+    final String uniqueId = await _operationType.getNewKey(
+      localDatabase,
+      minimalistProduct.barcode!,
+    );
+    final AbstractBackgroundTask task = _getNewTask(
       minimalistProduct,
       uniqueId,
     );
-    // TODO(monsieurtanuki): currently we run the task immediately and just once - if it fails we rollback the changes.
-    backgroundTask.execute(localDatabase); // async
-    if (!widget.mounted) {
-      return;
-    }
-    ScaffoldMessenger.of(widget.context).showSnackBar(
-      SnackBar(
-        content: Text(
-          AppLocalizations.of(widget.context).product_task_background_schedule,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
-    );
+    await task.addToManager(widget);
   }
+
+  @override
+  String getSnackBarMessage(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_task_background_schedule;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskDetails _getNewTask(
@@ -118,16 +108,16 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
         country: ProductQuery.getCountry()!.iso2Code,
       );
 
+  Product get _product =>
+      Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
+
   /// Uploads the product changes.
   @override
   Future<void> upload() async {
-    final Map<String, dynamic> productMap =
-        json.decode(inputMap) as Map<String, dynamic>;
-
     // TODO(AshAman999): check returned Status
     await OpenFoodAPIClient.saveProduct(
       getUser(),
-      Product.fromJson(productMap),
+      _product,
       language: getLanguage(),
       country: getCountry(),
     );
