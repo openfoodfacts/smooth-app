@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "추가하기",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "계정을 삭제하시겠습니까?\n특별한 이유가 있다면 아래에 공유해주세요.",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "사유",
     "@reason": {},
     "okay": "확인",
     "@okay": {},
@@ -38,7 +38,7 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "계산하기",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -125,21 +125,21 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "당신의 선호도와 관련된 식품 데이터를 확인하세요.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "당신에게 좋은 음식을 선택하십시오.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "지구에 좋은 음식을 선택하십시오.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
     "sign_in_text": "기여를 저장하려면 Open Food Facts 계정에 로그인하세요",
-    "incorrect_credentials": "Incorrect username or password.",
+    "incorrect_credentials": "잘못된 사용자 이름 또는 암호입니다.",
     "login": "Username",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
