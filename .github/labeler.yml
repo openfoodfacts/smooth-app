@@ -36,7 +36,6 @@ tests:
 - packages/smooth_app/test/plural_translation_test.dart
 - packages/smooth_app/test/smooth_ui_library/basic_test.dart
 - packages/smooth_app/test/utils/string_extensions_test.dart
-- packages/smooth_app/test/users/registration_login_test.dart
 - packages/smooth_app/test/dialogs/generic_lib/dialogs_test.dart
 - packages/smooth_app/test/pages/user_preferences_page_test.dart
 - packages/smooth_app/test/utils/text_input_formatters_tests.dart
