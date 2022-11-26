@@ -126,12 +126,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     );
   }
 
-  Future<void> _refreshProduct(BuildContext context) async =>
-      ProductRefresher().fetchAndRefresh(
-        barcode: _barcode,
-        widget: this,
-      );
-
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
   ) async {
@@ -148,7 +142,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
-      onRefresh: () => _refreshProduct(context),
+      onRefresh: () => ProductRefresher().fetchAndRefresh(
+        barcode: _barcode,
+        widget: this,
+      ),
       child: ListView(
         // /!\ Smart Dart
         // `physics: const AlwaysScrollableScrollPhysics()`
@@ -164,7 +161,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             child: ProductImageCarousel(
               _product,
               height: 200,
-              onUpload: _refreshProduct,
             ),
           ),
           Padding(

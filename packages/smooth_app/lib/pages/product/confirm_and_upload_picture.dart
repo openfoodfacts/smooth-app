@@ -11,6 +11,12 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+/// Display of a full size picture with edit tools.
+///
+/// That's the only place where we upload images to the server.
+/// Picture is captured, shown it to the user one last time and ask for
+/// confirmation before uploading. Also present an option to retake the
+/// picture as sometimes the picture can be blurry.
 class ConfirmAndUploadPicture extends StatefulWidget {
   const ConfirmAndUploadPicture({
     required this.barcode,
@@ -28,6 +34,7 @@ class ConfirmAndUploadPicture extends StatefulWidget {
 }
 
 class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
+  // The local up-to-date photo, before any upload.
   late File photo;
 
   @override
@@ -41,12 +48,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData themeData = Theme.of(context);
-    File? retakenPhoto;
-
-    // Picture is captured, show it to the user one last time and ask for
-    // confirmation before uploading. Also present an option to retake the
-    // picture as sometimes the picture can be blurry.
     return SmoothScaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -69,83 +70,39 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                   spacing: MEDIUM_SPACE,
                   alignment: WrapAlignment.center,
                   children: <Widget>[
-                    OutlinedButton.icon(
-                      icon: const Icon(Icons.camera_alt),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          themeData.colorScheme.background,
-                        ),
-                        shape: MaterialStateProperty.all(
-                          const RoundedRectangleBorder(
-                            borderRadius: ROUNDED_BORDER_RADIUS,
-                          ),
-                        ),
-                      ),
+                    _OutlinedButton(
+                      iconData: Icons.camera_alt,
+                      label: appLocalizations.capture,
                       onPressed: () async {
-                        retakenPhoto = await startImageCropping(this);
+                        final File? retakenPhoto =
+                            await startNewImageCropping(this);
                         if (retakenPhoto == null) {
-                          if (!mounted) {
-                            return;
-                          }
-                          // User chose not to upload the image.
-                          Navigator.pop(context);
                           return;
                         }
-                        setState(
-                          () {
-                            photo = retakenPhoto!;
-                          },
-                        );
-                      },
-                      label: Text(appLocalizations.capture),
-                    ),
-                    OutlinedButton.icon(
-                      icon: const Icon(Icons.edit),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          themeData.colorScheme.background,
-                        ),
-                        shape: MaterialStateProperty.all(
-                          const RoundedRectangleBorder(
-                            borderRadius: ROUNDED_BORDER_RADIUS,
-                          ),
-                        ),
-                      ),
-                      onPressed: () async {
-                        retakenPhoto = await startImageCropping(
-                          this,
-                          existingImage: photo,
-                        );
-                        if (retakenPhoto == null) {
-                          if (!mounted) {
-                            return;
-                          }
-                          // User chose not to upload the image.
-                          Navigator.pop(context);
+                        if (!mounted) {
                           return;
                         }
-                        setState(
-                          () {
-                            photo = retakenPhoto!;
-                          },
-                        );
+                        setState(() => photo = retakenPhoto);
                       },
-                      label: Text(
-                        appLocalizations.edit_photo_button_label,
-                      ),
                     ),
-                    OutlinedButton.icon(
-                      icon: const Icon(Icons.check),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          themeData.colorScheme.background,
-                        ),
-                        shape: MaterialStateProperty.all(
-                          const RoundedRectangleBorder(
-                            borderRadius: ROUNDED_BORDER_RADIUS,
-                          ),
-                        ),
-                      ),
+                    _OutlinedButton(
+                      iconData: Icons.edit,
+                      label: appLocalizations.edit_photo_button_label,
+                      onPressed: () async {
+                        final File? croppedPhoto =
+                            await startExistingImageCropping(this, photo);
+                        if (croppedPhoto == null) {
+                          return;
+                        }
+                        if (!mounted) {
+                          return;
+                        }
+                        setState(() => photo = croppedPhoto);
+                      },
+                    ),
+                    _OutlinedButton(
+                      iconData: Icons.check,
+                      label: appLocalizations.confirm_button_label,
                       onPressed: () async {
                         await _uploadCapturedPicture(
                           widget: this,
@@ -156,14 +113,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                         if (!mounted) {
                           return;
                         }
-                        Navigator.pop(
-                          context,
-                          photo,
-                        );
+                        Navigator.pop(context, photo);
                       },
-                      label: Text(
-                        appLocalizations.confirm_button_label,
-                      ),
                     ),
                   ],
                 ),
@@ -213,5 +164,36 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     final ContinuousScanModel model =
         widget.context.read<ContinuousScanModel>();
     await model.onCreateProduct(barcode); // TODO(monsieurtanuki): a bit fishy
+  }
+}
+
+/// Standard button for this page.
+class _OutlinedButton extends StatelessWidget {
+  const _OutlinedButton({
+    required this.iconData,
+    required this.label,
+    required this.onPressed,
+  });
+
+  final IconData iconData;
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    return OutlinedButton.icon(
+      icon: Icon(iconData),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(
+          themeData.colorScheme.background,
+        ),
+        shape: MaterialStateProperty.all(
+          const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+        ),
+      ),
+      onPressed: onPressed,
+      label: Text(label),
+    );
   }
 }

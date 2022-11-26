@@ -1172,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "Nieuwe lijst met producten",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"

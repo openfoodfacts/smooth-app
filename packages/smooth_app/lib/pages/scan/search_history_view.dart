@@ -26,9 +26,10 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
     _fetchQueries();
   }
 
-  Future<void> _fetchQueries() async {
+  void _fetchQueries() {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final List<String> queries = await DaoStringList(localDatabase).getAll();
+    final List<String> queries =
+        DaoStringList(localDatabase).getAll(DaoStringList.keySearchHistory);
     setState(() => _queries = queries.reversed.toList());
   }
 
@@ -92,7 +93,8 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
     _queries.remove(query);
     // and we need to impact the database too
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoStringList(localDatabase).remove(query);
+    await DaoStringList(localDatabase)
+        .remove(DaoStringList.keySearchHistory, query);
     setState(() {});
   }
 }
