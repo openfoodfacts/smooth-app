@@ -332,12 +332,12 @@
       ],
       "brands" : "Open Food Facts",
       "categories_tags_fr" : [
-         "Aliments et boissons Ã  base de vÃ©gÃ©taux",
-         "Aliments d'origine vÃ©gÃ©tale",
-         "Aliments Ã  base de fruits et de lÃ©gumes",
-         "Plats prÃ©parÃ©s",
+         "Aliments et boissons à base de végétaux",
+         "Aliments d'origine végétale",
+         "Aliments à base de fruits et de légumes",
+         "Plats préparés",
          "Soupes",
-         "Soupes de lÃ©gumes"
+         "Soupes de légumes"
       ],
       "code" : "093270067481501",
       "ecoscore_data" : {
@@ -604,7 +604,7 @@
             "ef_transportation" : 0.010237564,
             "is_beverage" : 0,
             "name_en" : "Soup, mixed vegetables, prepacked, to be reheated",
-            "name_fr" : "Soupe aux lÃ©gumes variÃ©s, prÃ©emballÃ©e Ã  rÃ©chauffer",
+            "name_fr" : "Soupe aux légumes variés, préemballée à réchauffer",
             "score" : 97
          },
          "grade" : "a",
@@ -864,7 +864,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/car.svg",
-               "subtitle" : "50 g COÂ² per 100g of product",
+               "subtitle" : "50 g CO² per 100g of product",
                "title" : "Equal to driving 0.3 km in a petrol car"
             },
             "topics" : [
@@ -1242,7 +1242,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "a",
-               "subtitle" : "Product: A good product for you - Open Food Facts - 200Â g",
+               "subtitle" : "Product: A good product for you - Open Food Facts - 200 g",
                "title" : "Impact for this product: A (Score: 114/100)",
                "type" : "grade"
             },
@@ -1940,7 +1940,7 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruitsâ vegetablesâ nuts and rapeseedâ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
                                  "text" : "60 %"
@@ -2076,8 +2076,8 @@
       ],
       "labels_tags_fr" : [
          "Bio",
-         "Bio europÃ©en",
-         "Commerce Ã©quitable"
+         "Bio européen",
+         "Commerce équitable"
       ],
       "lang" : "en",
       "nutrient_levels" : {
