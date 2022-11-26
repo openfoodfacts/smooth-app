@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app_store_shared/app_store_shared.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
@@ -35,6 +36,7 @@ const String device = String.fromEnvironment('DEVICE'); // e.g. iPhone8Plus
 flutter drive --driver=test_driver/screenshot_driver.dart --target=integration_test/app_test.dart \
  --dart-define=LANGUAGE=fr --dart-define=COUNTRY=FR --dart-define=PLATFORM=ios --dart-define=DEVICE=iPhone8Plus
  */
+
 /// Onboarding screenshots.
 void main() {
   final IntegrationTestWidgetsFlutterBinding binding =
@@ -54,7 +56,10 @@ void main() {
         await _initScreenshot(binding);
 
         await app.launchSmoothApp(
-            scanner: MockedCameraScanner(), screenshots: true);
+          scanner: MockedCameraScanner(),
+          appStore: const MockedAppStore(),
+          screenshots: true,
+        );
         await tester.pumpAndSettle();
 
         sleep(const Duration(seconds: 30));

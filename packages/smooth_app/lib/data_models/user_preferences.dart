@@ -80,6 +80,10 @@ class UserPreferences extends ChangeNotifier {
   /// User picture source
   static const String _TAG_USER_PICTURE_SOURCE = 'userPictureSource';
 
+  /// If the in-app review was asked at least one time (false by default)
+  static const String _TAG_IN_APP_REVIEW_ALREADY_DISPLAYED =
+      'inAppReviewAlreadyAsked';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
       return;
@@ -151,6 +155,17 @@ class UserPreferences extends ChangeNotifier {
 
   bool get isFirstScan =>
       _sharedPreferences.getBool(_TAG_IS_FIRST_SCAN) ?? true;
+
+  Future<void> markInAppReviewAsShown() async {
+    await _sharedPreferences.setBool(
+      _TAG_IN_APP_REVIEW_ALREADY_DISPLAYED,
+      true,
+    );
+    notifyListeners();
+  }
+
+  bool get inAppReviewAlreadyAsked =>
+      _sharedPreferences.getBool(_TAG_IN_APP_REVIEW_ALREADY_DISPLAYED) ?? false;
 
   Future<void> setAppLanguageCode(String? languageCode) async {
     if (languageCode == null) {

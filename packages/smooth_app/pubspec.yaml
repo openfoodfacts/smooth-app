@@ -57,7 +57,8 @@ dependencies:
       path: "packages/camera/camera_platform_interface"
   scanner_shared:
     path: ../scanner/shared
-
+  app_store_shared:
+    path: ../app_store/shared
   audioplayers: 1.0.0
   percent_indicator: 4.2.2
   flutter_email_sender: 5.1.0
