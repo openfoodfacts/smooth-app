@@ -79,6 +79,7 @@ jobs:
       RELEASE_TYPE: 'PLAY'
       BUILD_TYPE: 'appbundle'
       FLAVOR: 'main_google_play'
+      SCANNER: 'mlkit'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
@@ -126,6 +127,7 @@ jobs:
       BUILD_TYPE: 'apk'
       TAG_NAME: ${{ needs.release-please.outputs.tag_name}}
       FLAVOR: 'main_google_play'
+      SCANNER: 'mlkit'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
@@ -134,9 +136,9 @@ jobs:
       SIGN_KEY_ALIAS: ${{secrets.ALIAS_FOR_SCANNER }}
       SIGN_KEY_PASSWORD: ${{secrets.KEY_FOR_SCANNER }}
 
-  android-release-github-ml:
+  android-release-github-fdroid:
     concurrency: 
-      group: android-release-github-ml
+      group: android-release-github-fdroid
       cancel-in-progress: false
     uses: openfoodfacts/smooth-app/.github/workflows/android-release-to-org-openfoodfacts-scanner.yml@develop
     needs: [release-please, create-release]
@@ -149,6 +151,7 @@ jobs:
       BUILD_TYPE: 'apk'
       TAG_NAME: ${{ needs.release-please.outputs.tag_name}}
       FLAVOR: 'main_fdroid'
+      SCANNER: 'zxing'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}

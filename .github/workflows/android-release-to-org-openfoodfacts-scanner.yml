@@ -27,6 +27,10 @@ on:
       FLAVOR:
         required: true
         type: string
+      # 'mlkit' or 'zxing'
+      SCANNER:
+        required: true
+        type: string
       TAG_NAME:
         required: false
         type: string
@@ -88,8 +92,8 @@ jobs:
       - name: Flutter version    
         run: flutter --version
 
-      - name: Enable MLKit dependency
-        run: chmod +x ci/enable_mlkit_dependency.sh && ci/enable_mlkit_dependency.sh
+      - name: Enable correct scanner dependency
+        run: chmod +x ci/enable_${{ inputs.SCANNER }}_dependency.sh && ci/enable_${{ inputs.SCANNER }}_dependency.sh
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh
