@@ -2098,6 +2098,7 @@
          "energy-kj_100g" : 120,
          "energy-kj_unit" : "kJ",
          "energy-kj_value" : 120,
+         "energy-kj_value_computed" : 127.5,
          "energy_100g" : 120,
          "energy_unit" : "kJ",
          "energy_value" : 120,
