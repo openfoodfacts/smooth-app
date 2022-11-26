@@ -332,12 +332,12 @@
       ],
       "brands" : "Open Food Facts",
       "categories_tags_fr" : [
-         "Aliments et boissons Ã  base de vÃ©gÃ©taux",
-         "Aliments d'origine vÃ©gÃ©tale",
-         "Aliments Ã  base de fruits et de lÃ©gumes",
-         "Plats prÃ©parÃ©s",
+         "Aliments et boissons à base de végétaux",
+         "Aliments d'origine végétale",
+         "Aliments à base de fruits et de légumes",
+         "Plats préparés",
          "Soupes",
-         "Soupes de lÃ©gumes"
+         "Soupes de légumes"
       ],
       "code" : "093270067481501",
       "ecoscore_data" : {
@@ -585,7 +585,6 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
-            "agribalyse_food_code" : "25903",
             "agribalyse_proxy_food_code" : "25903",
             "co2_agriculture" : 0.099163319,
             "co2_consumption" : 0.0079267752,
@@ -605,7 +604,7 @@
             "ef_transportation" : 0.010237564,
             "is_beverage" : 0,
             "name_en" : "Soup, mixed vegetables, prepacked, to be reheated",
-            "name_fr" : "Soupe aux lÃ©gumes variÃ©s, prÃ©emballÃ©e Ã  rÃ©chauffer",
+            "name_fr" : "Soupe aux légumes variés, préemballée à réchauffer",
             "score" : 97
          },
          "grade" : "a",
@@ -865,7 +864,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/car.svg",
-               "subtitle" : "50 g COÂ² per 100g of product",
+               "subtitle" : "50 g CO² per 100g of product",
                "title" : "Equal to driving 0.3 km in a petrol car"
             },
             "topics" : [
@@ -1243,7 +1242,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "a",
-               "subtitle" : "Product: A good product for you - Open Food Facts - 200Â g",
+               "subtitle" : "Product: A good product for you - Open Food Facts - 200 g",
                "title" : "Impact for this product: A (Score: 114/100)",
                "type" : "grade"
             },
@@ -1466,7 +1465,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent_max:&nbsp;45</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;8</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent_max:&nbsp;40</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;8</li>\n</ol>\n"
                   }
                },
                {
@@ -1592,7 +1591,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    \n        \n    \n\n"
+                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Category: Meals</li>\n            \n                <li>Ingredient: Salt</li>\n            \n            </ul>\n        \n    \n\n"
                   }
                },
                {
@@ -1821,7 +1820,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-50%"
+                                 "text" : "-52%"
                               }
                            ]
                         },
@@ -1853,7 +1852,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-31%"
+                                 "text" : "-29%"
                               }
                            ]
                         },
@@ -1869,7 +1868,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-33%"
+                                 "text" : "-34%"
                               }
                            ]
                         },
@@ -1884,7 +1883,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "-55%"
+                                 "text" : "-59%"
                               }
                            ]
                         },
@@ -1900,7 +1899,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "+129%"
+                                 "text" : "+117%"
                               }
                            ]
                         },
@@ -1932,7 +1931,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "-37%"
+                                 "text" : "-48%"
                               }
                            ]
                         },
@@ -1941,7 +1940,7 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruitsâ vegetablesâ nuts and rapeseedâ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
                                  "text" : "60 %"
@@ -2077,8 +2076,8 @@
       ],
       "labels_tags_fr" : [
          "Bio",
-         "Bio europÃ©en",
-         "Commerce Ã©quitable"
+         "Bio européen",
+         "Commerce équitable"
       ],
       "lang" : "en",
       "nutrient_levels" : {

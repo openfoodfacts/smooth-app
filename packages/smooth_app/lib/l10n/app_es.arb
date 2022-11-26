@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Añadir",
     "@add": {},
+    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "@account_delete_message": {},
+    "reason": "Reason",
+    "@reason": {},
     "okay": "Vale",
     "@okay": {},
     "create": "Crear",
@@ -235,7 +239,7 @@
     },
     "sign_up_page_agree_url": "https://world-es.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://world-es.openfoodfacts.org/dar-a-open-food-facts",
     "@donate_url": {
@@ -346,7 +350,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Inicia sesión en tu cuenta de Open Food Facts para obtener crédito por tu contribución",
+    "question_sign_in_text": "Inicia sesión en tu cuenta de Open Food Facts para obtener crédito por tus contribuciones",
     "tap_to_edit_search": "Tocar para editar la búsqueda",
     "@Personal preferences": {},
     "myPreferences": "Mis preferencias",
@@ -441,7 +445,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Enumere todas las partes del empaquetado separadas por una coma o salto de línea, con su cantidad (por ejemplo, 1 o 6), tipo (por ejemplo, botella, caja, lata), material (por ejemplo, plástico, metal, aluminio) y, si está disponible, su tamaño (por ejemplo, 33cl) y instrucciones de reciclaje.\nEjemplo: 1 botella de vidrio para reciclar, 1 corcho de plástico para tirar",
     "packaging_editing_error": "No se pudo guardar el envase.",
     "packaging_editing_image_error": "No se pudo obtener la nueva imagen del envase.",
     "packaging_editing_title": "Editar el envase",
@@ -461,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Haz fotos del envase para añadir el producto a Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "¡Haz algunas fotos y el motor Open Food Facts hará el resto!",
+    "add_product_take_photos_descriptive": "Por favor, tome algunas fotos primero. Siempre puede completar el producto en un momento posterior.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Agregar información del producto",
     "@add_product_information_button_label": {},
@@ -476,9 +480,9 @@
     "confirm_button_label": "Confirmar",
     "front_packaging_photo_title": "Foto frontal del envase",
     "ingredients_photo_title": "Foto de los ingredientes",
-    "nutritional_facts_photo_title": "Foto de la información nutricional",
+    "nutritional_facts_photo_title": "Foto de información nutricional",
     "recycling_photo_title": "Foto sobre el reciclaje",
-    "other_interesting_photo_title": "Otras fotos de interés",
+    "other_interesting_photo_title": "Otras fotos interesantes",
     "front_photo_uploaded": "Foto frontal subida",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto de los ingredientes",
@@ -703,7 +707,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Por favor, seleccione al menos dos productos",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -938,7 +942,7 @@
     "settings_app_data": "Privacidad y monitorización",
     "settings_app_camera": "Cámara",
     "settings_app_products": "Productos",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Miscelánea",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -950,11 +954,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Modo escáner",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Solo cambie este valor si tiene algún problema con el escáner (no puede decodificar códigos de barras). Toque para cambiar entre los dos modos.\nEl actual es: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -963,13 +967,13 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "camera_mode_file_based": "Modo seguro (por defecto)",
+    "camera_mode_bytes_array_based": "Modo rápido",
+    "app_haptic_feedback_title": "Vibración y háptica",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Vibraciones después de ejecutar algunas acciones (código de barras decodificado, producto eliminado…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1071,7 +1075,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Añade cualquier indicación de origen que puedas encontrar en el empaquetado. No tienes que preocuparte por los orígenes indicados directamente en la lista de ingredientes.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
@@ -1119,7 +1123,7 @@
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Ejemplos: sardinas en aceite de oliva, jugo de naranja de concentrado",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1131,8 +1135,8 @@
         "description": "Product edition - Ingredients - Title"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Añadir",
-    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-    "edit_product_form_item_remove_item_tooltip": "Remove",
+    "edit_product_form_item_add_invalid_item_tooltip": "Por favor ingrese un texto primero",
+    "edit_product_form_item_remove_item_tooltip": "Eliminar",
     "edit_product_form_item_packaging_title": "Envase",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Error al detectar texto en la imagen.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "Nueva lista de productos",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1180,7 +1188,7 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Añade el producto a tus listas",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1188,7 +1196,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "No hay lista disponible todavía,\npor favor comience creando una nueva",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1278,7 +1286,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Parámetros de entorno de prueba",
+    "dev_preferences_test_environment_title": "Parámetros del entorno de prueba",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Probar host Env",
+    "dev_preferences_test_environment_dialog_title": "Entorno de prueba host",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1391,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Excluir EcoScore",
+    "dev_mode_hide_ecoscore_title": "Excluir Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1530,7 @@
         }
     },
     "barcode_invalid_error": "Código de barras no válido",
-    "basic_details_add_success": "Detalles básicos añadidos con éxito",
+    "basic_details_add_success": "Detalles básicos agregados con éxito",
     "basic_details_add_error": "No hemos podido añadir los datos básicos. Vuelve a intentarlo en un rato",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1573,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "¡Crea tu primera lista!",
+    "user_list_all_empty": "Crea tu primera lista",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1680,7 +1688,7 @@
     },
     "all_images": "Todas las imágenes",
     "selected_images": "Imágenes seleccionadas",
-    "product_card_remove_product_tooltip": "Remove product",
+    "product_card_remove_product_tooltip": "Eliminar producto",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
@@ -1699,11 +1707,11 @@
     },
     "offline_data": "Datos sin conexión",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Subir una imagen para extraer automáticamente la información proporcionada",
+    "ocr_image_upload_instruction": "Sube una imagen para extraer automáticamente la información que contiene.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
     "upload_image": "Subir foto",
     "@upload_image": {
@@ -1717,16 +1725,28 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Error al descargar la imagen",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "No se pudo editar la imagen porque no se configuró la URL de la imagen.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "robotoff_continue": "Continue",
+    "user_picture_source_remember": "Recuerda mi elección",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Seleccione cada vez",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
+    },
+    "robotoff_continue": "Continuar",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Show Password",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

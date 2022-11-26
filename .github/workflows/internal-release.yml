@@ -71,6 +71,7 @@ jobs:
       FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'PLAY'
       BUILD_TYPE: 'appbundle'
+      FLAVOR: 'main_google_play'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}

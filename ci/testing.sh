@@ -21,7 +21,7 @@ if [[ "$SHARD" == "test" ]]; then
 
   # Ignore scanner/ folder and navigate instead to the sub-folders
   for file in "$REPO_DIR/packages/"*; do
-    if [[ "$file" == *scanner ]]; then
+    if [[ "$file" == *app_store || "$file" == *scanner ]]; then
       for file in "$file/"*; do
         if [[ -d $file ]]; then
           (cd "$file" && flutter test --coverage)

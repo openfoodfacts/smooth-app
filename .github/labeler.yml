@@ -2,6 +2,9 @@
 android:
 - packages/smooth_app/android/**/*
 
+macos:
+- packages/app/macos/**/*
+
 assets cache:
 - packages/smooth_app/assets/cache/
 
@@ -33,7 +36,6 @@ tests:
 - packages/smooth_app/test/plural_translation_test.dart
 - packages/smooth_app/test/smooth_ui_library/basic_test.dart
 - packages/smooth_app/test/utils/string_extensions_test.dart
-- packages/smooth_app/test/users/registration_login_test.dart
 - packages/smooth_app/test/dialogs/generic_lib/dialogs_test.dart
 - packages/smooth_app/test/pages/user_preferences_page_test.dart
 - packages/smooth_app/test/utils/text_input_formatters_tests.dart
@@ -82,6 +84,18 @@ scan:
 mlkit:
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
+Amazon Appstore:
+- packages/app/lib/entrypoints/android/main_amazon_appstore.dart, 
+
+fdroid:
+- packages/app/lib/entrypoints/android/main_fdroid.dart, 
+
+Huawei AppGallery:
+- packages/app/lib/entrypoints/android/main_huawei_appgallery.dart, 
+
+zxing:
+- packages/scanner/zxing/**/*
+
 product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart
 - packages/smooth_app/lib/pages/product/new_product_page.dart
@@ -106,6 +120,7 @@ summary card:
 analytics:
 - packages/smooth_app/lib/pages/onboarding/consent_analytics_page.dart
 - packages/smooth_app/assets/onboarding/analytics.svg
+- packages/smooth_app/lib/helpers/analytics_helper.dart
 
 goldens:
 - packages/smooth_app/test/pages/goldens

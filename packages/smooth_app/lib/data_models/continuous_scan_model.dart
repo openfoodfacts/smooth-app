@@ -115,7 +115,10 @@ class ContinuousScanModel with ChangeNotifier {
       lastConsultedBarcode = code;
       return false;
     }
-    AnalyticsHelper.trackScannedProduct(barcode: code);
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.scanAction,
+      barcode: code,
+    );
 
     _latestScannedBarcode = code;
     return _addBarcode(code);

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:app_store_shared/app_store_shared.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -19,7 +21,6 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/network_config.dart';
@@ -35,12 +36,13 @@ late bool _screenshots;
 
 Future<void> launchSmoothApp({
   required CameraScanner scanner,
+  required AppStore appStore,
   final bool screenshots = false,
 }) async {
   _screenshots = screenshots;
   if (_screenshots) {
-    await _init1();
-    runApp(SmoothApp(scanner));
+    await _init1(appStore);
+    runApp(SmoothApp(scanner, appStore));
     return;
   }
   final WidgetsBinding widgetsBinding =
@@ -49,22 +51,23 @@ Future<void> launchSmoothApp({
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () => runApp(SmoothApp(scanner)),
+      appRunner: () => runApp(SmoothApp(scanner, appStore)),
     );
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (_) => SmoothApp(scanner),
+        builder: (_) => SmoothApp(scanner, appStore),
       ),
     );
   }
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp(this.scanner);
+  const SmoothApp(this.scanner, this.appStore);
 
   final CameraScanner scanner;
+  final AppStore appStore;
 
   // This widget is the root of your application
   @override
@@ -84,12 +87,12 @@ bool _init1done = false;
 // Had to split init in 2 methods, for test/screenshots reasons.
 // Don't know why, but some init codes seem to freeze the test.
 // Now we run them before running the app, during the tests.
-Future<bool> _init1() async {
+Future<bool> _init1(AppStore appStore) async {
   if (_init1done) {
     return false;
   }
 
-  await SmoothServices().init();
+  await SmoothServices().init(appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
@@ -104,7 +107,7 @@ Future<bool> _init1() async {
     ),
     daoString: DaoString(_localDatabase),
   );
-  await callbackDispatcher(_localDatabase);
+  BackgroundTaskManager(_localDatabase).run();
   UserManagementProvider().checkUserLoginValidity();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
@@ -138,7 +141,7 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   Future<bool> _init2() async {
-    await _init1();
+    await _init1(widget.appStore);
     systemDarkmodeOn = brightness == Brightness.dark;
     if (!mounted) {
       return false;

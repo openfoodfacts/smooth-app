@@ -31,10 +31,12 @@ class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
     required this.productListSupplier,
     required this.name,
+    required this.editableAppBarTitle,
   });
 
   final ProductListSupplier productListSupplier;
   final String name;
+  final bool editableAppBarTitle;
 
   @override
   State<ProductQueryPage> createState() => _ProductQueryPageState();
@@ -199,14 +201,18 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           elevation: 2,
           automaticallyImplyLeading: false,
           leading: const SmoothBackButton(),
-          title: _AppBarTitle(name: widget.name),
+          title: _AppBarTitle(
+            name: widget.name,
+            editableAppBarTitle: widget.editableAppBarTitle,
+          ),
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
-          onRefresh: () => refreshList(),
+          onRefresh: () async => _refreshList(),
           child: ListView.builder(
             controller: _scrollController,
             // To allow refresh even when not the whole page is filled
+            physics: const AlwaysScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
                 // on top, a message
@@ -244,7 +250,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 barcode: _model.displayBarcodes[index],
               );
             },
-
             itemCount: _getItemCount(),
           ),
         ),
@@ -319,7 +324,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     return <Widget>[
       if (worldQuery != null)
         _getIconButton(_getWorldAction(appLocalizations, worldQuery)),
-      _getIconButton(_getRefreshAction(appLocalizations)),
     ];
   }
 
@@ -410,34 +414,27 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         ),
       );
 
-  _Action _getRefreshAction(
-    final AppLocalizations appLocalizations,
-  ) =>
-      _Action(
-        text: appLocalizations.label_refresh,
-        iconData: Icons.refresh,
-        onPressed: () async {
-          final bool? success =
-              await _loadAndRefreshDisplay(_model.loadFromTop());
-          if (success == true) {
-            _scrollToTop(instant: true);
-          }
-        },
-      );
-
   void retryConnection() =>
       setState(() => _model = _getModel(widget.productListSupplier));
 
   ProductQueryModel _getModel(final ProductListSupplier supplier) =>
       ProductQueryModel(supplier);
 
-  Future<void> refreshList() async {
-    final ProductListSupplier? refreshSupplier =
-        widget.productListSupplier.getRefreshSupplier();
-    setState(
-      // How do we refresh a supplier that has no refresher? With itself.
-      () => _model = _getModel(refreshSupplier ?? widget.productListSupplier),
-    );
+  Future<void> _refreshList() async {
+    bool successfullyLoaded = false;
+    try {
+      successfullyLoaded = await _model.loadFromTop();
+    } catch (e) {
+      await LoadingDialog.error(
+        context: context,
+        title: _model.loadingError,
+      );
+    } finally {
+      if (successfullyLoaded) {
+        _scrollToTop(instant: true);
+      }
+      setState(() {});
+    }
   }
 
   void _scrollToTop({bool instant = false}) {
@@ -446,26 +443,10 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     } else {
       _scrollController.animateTo(
         0,
-        duration: SnackBarDuration.medium,
+        duration: const Duration(milliseconds: 6),
         curve: Curves.linear,
       );
     }
-  }
-
-  Future<bool?> _loadAndRefreshDisplay(final Future<bool> loader) async {
-    final bool? success = await LoadingDialog.run<bool>(
-      context: context,
-      future: loader,
-    );
-    if (success == false) {
-      await LoadingDialog.error(
-        context: context,
-        title: _model.loadingError,
-      );
-    } else if (success == true) {
-      setState(() {});
-    }
-    return success;
   }
 
   /// Flags if the next page is currently being downloaded.
@@ -509,7 +490,10 @@ class _EmptyScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: const SmoothBackButton(),
-        title: _AppBarTitle(name: name),
+        title: _AppBarTitle(
+          name: name,
+          editableAppBarTitle: false,
+        ),
         actions: actions,
       ),
       body: Center(child: emptiness),
@@ -520,27 +504,35 @@ class _EmptyScreen extends StatelessWidget {
 class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
     required this.name,
+    required this.editableAppBarTitle,
     Key? key,
   }) : super(key: key);
 
   final String name;
+  final bool editableAppBarTitle;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
-      },
-      child: Tooltip(
-        message: appLocalizations.tap_to_edit_search,
-        child: AutoSizeText(
-          name,
-          maxLines: 2,
-        ),
-      ),
+    final Widget child = AutoSizeText(
+      name,
+      maxLines: 2,
     );
+
+    if (editableAppBarTitle) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+      return GestureDetector(
+        onTap: () {
+          Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
+        },
+        child: Tooltip(
+          message: appLocalizations.tap_to_edit_search,
+          child: child,
+        ),
+      );
+    } else {
+      return child;
+    }
   }
 }
 

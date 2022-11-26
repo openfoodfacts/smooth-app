@@ -109,37 +109,84 @@ Widget addPanelButton(
 
 List<ProductImageData> getProductMainImagesData(
   Product product,
-  AppLocalizations appLocalizations,
-) =>
+  AppLocalizations appLocalizations, {
+  final bool includeOther = true,
+}) =>
     <ProductImageData>[
-      ProductImageData(
-        imageField: ImageField.FRONT,
-        imageUrl: product.imageFrontUrl,
-        title: appLocalizations.product,
-        buttonText: appLocalizations.front_photo,
-      ),
-      ProductImageData(
-        imageField: ImageField.INGREDIENTS,
-        imageUrl: product.imageIngredientsUrl,
-        title: appLocalizations.ingredients,
-        buttonText: appLocalizations.ingredients_photo,
-      ),
-      ProductImageData(
-        imageField: ImageField.NUTRITION,
-        imageUrl: product.imageNutritionUrl,
-        title: appLocalizations.nutrition,
-        buttonText: appLocalizations.nutrition_facts_photo,
-      ),
-      ProductImageData(
-        imageField: ImageField.PACKAGING,
-        imageUrl: product.imagePackagingUrl,
-        title: appLocalizations.packaging_information,
-        buttonText: appLocalizations.packaging_information_photo,
-      ),
-      ProductImageData(
-        imageField: ImageField.OTHER,
-        imageUrl: null,
-        title: appLocalizations.more_photos,
-        buttonText: appLocalizations.more_photos,
-      ),
+      getProductImageData(product, appLocalizations, ImageField.FRONT),
+      getProductImageData(product, appLocalizations, ImageField.INGREDIENTS),
+      getProductImageData(product, appLocalizations, ImageField.NUTRITION),
+      getProductImageData(product, appLocalizations, ImageField.PACKAGING),
+      if (includeOther)
+        getProductImageData(product, appLocalizations, ImageField.OTHER),
     ];
+
+ProductImageData getProductImageData(
+  final Product product,
+  final AppLocalizations? appLocalizations,
+  final ImageField imageField,
+) =>
+    ProductImageData(
+      imageField: imageField,
+      imageUrl: getProductImageUrl(product, imageField),
+      title: appLocalizations == null
+          ? ''
+          : getProductImageTitle(appLocalizations, imageField),
+      buttonText: appLocalizations == null
+          ? ''
+          : getProductImageButtonText(appLocalizations, imageField),
+    );
+
+String? getProductImageUrl(
+  final Product product,
+  final ImageField imageField,
+) {
+  switch (imageField) {
+    case ImageField.FRONT:
+      return product.imageFrontUrl;
+    case ImageField.INGREDIENTS:
+      return product.imageIngredientsUrl;
+    case ImageField.NUTRITION:
+      return product.imageNutritionUrl;
+    case ImageField.PACKAGING:
+      return product.imagePackagingUrl;
+    case ImageField.OTHER:
+      return null;
+  }
+}
+
+String getProductImageTitle(
+  final AppLocalizations appLocalizations,
+  final ImageField imageField,
+) {
+  switch (imageField) {
+    case ImageField.FRONT:
+      return appLocalizations.product;
+    case ImageField.INGREDIENTS:
+      return appLocalizations.ingredients;
+    case ImageField.NUTRITION:
+      return appLocalizations.nutrition;
+    case ImageField.PACKAGING:
+      return appLocalizations.packaging_information;
+    case ImageField.OTHER:
+      return appLocalizations.more_photos;
+  }
+}
+
+String getProductImageButtonText(
+  final AppLocalizations appLocalizations,
+  final ImageField imageField,
+) {
+  switch (imageField) {
+    case ImageField.FRONT:
+      return appLocalizations.front_photo;
+    case ImageField.INGREDIENTS:
+      return appLocalizations.ingredients_photo;
+    case ImageField.NUTRITION:
+      return appLocalizations.nutrition_facts_photo;
+    case ImageField.PACKAGING:
+      return appLocalizations.packaging_information_photo;
+    case ImageField.OTHER:
+      return appLocalizations.more_photos;
+  }
+}

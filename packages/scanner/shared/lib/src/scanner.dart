@@ -14,9 +14,9 @@ abstract class CameraScanner with CameraScannerLogMixin {
   Future<List<String?>?> processImage(dynamic image) {
     assert(isInitialized, 'onInit() must be called before _onNewImage()');
 
-    if (image is CameraImage) {
+    if (image is CameraImage && supportCameraImage) {
       return onNewCameraImage(image);
-    } else if (image is String) {
+    } else if (image is String && supportCameraFile) {
       return onNewCameraFile(image);
     } else {
       throw Exception('Unsupported image type: $image');
@@ -43,9 +43,7 @@ abstract class CameraScanner with CameraScannerLogMixin {
   Future<void> onResume() async {}
 
   @mustCallSuper
-  Future<void> onDispose() async {
-    disposeLogs();
-  }
+  Future<void> onDispose() async => disposeLogs();
 
   @protected
   Stream<CameraScannerLog> listenToLogs() => controller;

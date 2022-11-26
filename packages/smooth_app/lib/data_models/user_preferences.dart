@@ -5,6 +5,28 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 
+/// User choice regarding the picture source.
+enum UserPictureSource {
+  /// Always select between Gallery and Camera
+  SELECT('S'),
+
+  /// Always use Gallery
+  GALLERY('G'),
+
+  /// Always use Camera
+  CAMERA('C');
+
+  const UserPictureSource(this.tag);
+
+  final String tag;
+
+  static UserPictureSource get defaultValue => UserPictureSource.SELECT;
+
+  static UserPictureSource fromString(final String tag) =>
+      UserPictureSource.values
+          .firstWhere((final UserPictureSource source) => source.tag == tag);
+}
+
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
       : _sharedPreferences = sharedPreferences;
@@ -54,6 +76,13 @@ class UserPreferences extends ChangeNotifier {
 
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
+
+  /// User picture source
+  static const String _TAG_USER_PICTURE_SOURCE = 'userPictureSource';
+
+  /// If the in-app review was asked at least one time (false by default)
+  static const String _TAG_IN_APP_REVIEW_ALREADY_DISPLAYED =
+      'inAppReviewAlreadyAsked';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -126,6 +155,17 @@ class UserPreferences extends ChangeNotifier {
 
   bool get isFirstScan =>
       _sharedPreferences.getBool(_TAG_IS_FIRST_SCAN) ?? true;
+
+  Future<void> markInAppReviewAsShown() async {
+    await _sharedPreferences.setBool(
+      _TAG_IN_APP_REVIEW_ALREADY_DISPLAYED,
+      true,
+    );
+    notifyListeners();
+  }
+
+  bool get inAppReviewAlreadyAsked =>
+      _sharedPreferences.getBool(_TAG_IN_APP_REVIEW_ALREADY_DISPLAYED) ?? false;
 
   Future<void> setAppLanguageCode(String? languageCode) async {
     if (languageCode == null) {
@@ -229,4 +269,14 @@ class UserPreferences extends ChangeNotifier {
   String get activeAttributeGroup =>
       _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
       'nutritional_quality'; // TODO(monsieurtanuki): relatively safe but not nice to put a hard-coded value (even when highly probable)
+
+  UserPictureSource get userPictureSource => UserPictureSource.fromString(
+        _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
+            UserPictureSource.defaultValue.tag,
+      );
+
+  Future<void> setUserPictureSource(final UserPictureSource source) async {
+    await _sharedPreferences.setString(_TAG_USER_PICTURE_SOURCE, source.tag);
+    notifyListeners();
+  }
 }

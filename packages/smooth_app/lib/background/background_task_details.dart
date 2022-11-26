@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:task_manager/task_manager.dart';
 
 /// Background task that changes product details (data, but no image upload).
 class BackgroundTaskDetails extends AbstractBackgroundTask {
@@ -34,6 +35,8 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   /// Task ID.
   static const String _PROCESS_NAME = 'PRODUCT_EDIT';
 
+  static const OperationType _operationType = OperationType.details;
+
   /// Serialized product.
   final String inputMap;
 
@@ -49,10 +52,9 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       };
 
   /// Returns the deserialized background task if possible, or null.
-  static AbstractBackgroundTask? fromTask(final Task task) {
+  static BackgroundTaskDetails? fromJson(final Map<String, dynamic> map) {
     try {
-      final AbstractBackgroundTask result =
-          BackgroundTaskDetails._fromJson(task.data!);
+      final BackgroundTaskDetails result = BackgroundTaskDetails._fromJson(map);
       if (result.processName == _PROCESS_NAME) {
         return result;
       }
@@ -62,99 +64,62 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     return null;
   }
 
+  @override
+  Future<void> preExecute(final LocalDatabase localDatabase) async =>
+      localDatabase.upToDate.addChange(uniqueId, _product);
+
+  @override
+  Future<void> postExecute(final LocalDatabase localDatabase) async =>
+      localDatabase.upToDate.terminate(uniqueId);
+
   /// Adds the background task about changing a product.
-  ///
-  /// Either [productEditTask] or [productEditTasks] must be populated;
-  /// we need that for classification purpose (and unique id computation).
   static Future<void> addTask(
     final Product minimalistProduct, {
-    final List<ProductEditTask>? productEditTasks,
-    final ProductEditTask? productEditTask,
     required final State<StatefulWidget> widget,
   }) async {
-    final String code;
-    if (productEditTask != null) {
-      if (productEditTasks != null) {
-        throw Exception();
-      }
-      code = productEditTask.code;
-    } else {
-      if (productEditTasks == null || productEditTasks.isEmpty) {
-        throw Exception();
-      }
-      final StringBuffer buffer = StringBuffer();
-      for (final ProductEditTask task in productEditTasks) {
-        buffer.write(task.code);
-      }
-      code = buffer.toString();
-    }
-    final String uniqueId = AbstractBackgroundTask.generateUniqueId(
+    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final String uniqueId = await _operationType.getNewKey(
+      localDatabase,
       minimalistProduct.barcode!,
-      code,
     );
-    final BackgroundTaskDetails backgroundTask = BackgroundTaskDetails._(
-      uniqueId: uniqueId,
-      processName: _PROCESS_NAME,
-      barcode: minimalistProduct.barcode!,
-      languageCode: ProductQuery.getLanguage().code,
-      inputMap: jsonEncode(minimalistProduct.toJson()),
-      user: jsonEncode(ProductQuery.getUser().toJson()),
-      country: ProductQuery.getCountry()!.iso2Code,
+    final AbstractBackgroundTask task = _getNewTask(
+      minimalistProduct,
+      uniqueId,
     );
-    await TaskManager().addTask(
-      Task(
-        data: backgroundTask.toJson(),
-        uniqueId: uniqueId,
-      ),
-    );
-    if (!widget.mounted) {
-      return;
-    }
-    final BuildContext context = widget.context;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          AppLocalizations.of(context).product_task_background_schedule,
-        ),
-        duration: SnackBarDuration.medium,
-      ),
-    );
+    await task.addToManager(widget);
   }
+
+  @override
+  String getSnackBarMessage(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_task_background_schedule;
+
+  /// Returns a new background task about changing a product.
+  static BackgroundTaskDetails _getNewTask(
+    final Product minimalistProduct,
+    final String uniqueId,
+  ) =>
+      BackgroundTaskDetails._(
+        uniqueId: uniqueId,
+        processName: _PROCESS_NAME,
+        barcode: minimalistProduct.barcode!,
+        languageCode: ProductQuery.getLanguage().code,
+        inputMap: jsonEncode(minimalistProduct.toJson()),
+        user: jsonEncode(ProductQuery.getUser().toJson()),
+        country: ProductQuery.getCountry()!.iso2Code,
+      );
+
+  Product get _product =>
+      Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
 
   /// Uploads the product changes.
   @override
   Future<void> upload() async {
-    final Map<String, dynamic> productMap =
-        json.decode(inputMap) as Map<String, dynamic>;
-
+    // TODO(AshAman999): check returned Status
     await OpenFoodAPIClient.saveProduct(
       getUser(),
-      Product.fromJson(productMap),
+      _product,
       language: getLanguage(),
       country: getCountry(),
     );
   }
-}
-
-/// Product edit single tasks.
-///
-/// Used for classification (and unique id computation).
-enum ProductEditTask {
-  nutrition('N'),
-  packaging('P'),
-  ingredient('I'),
-  basic('B'),
-  store('S'),
-  origin('O'),
-  emb('E'),
-  label('L'),
-  category('K'),
-  country('C');
-
-  const ProductEditTask(this.code);
-
-  /// Code used to distinguish the tasks.
-  ///
-  /// Of course there shouldn't be duplicates.
-  final String code;
 }

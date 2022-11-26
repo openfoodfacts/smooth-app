@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Pridėti",
     "@add": {},
+    "account_delete_message": "Ar tikrai norite ištrinti savo paskyrą?\nJei yra kokia nors konkreti priežastis, nurodykite toliau",
+    "@account_delete_message": {},
+    "reason": "Priežastis",
+    "@reason": {},
     "okay": "Gerai",
     "@okay": {},
     "create": "Kurti",
@@ -235,7 +239,7 @@
     },
     "sign_up_page_agree_url": "https://world-lt.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -254,7 +258,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Tamsus režimas",
+    "darkmode": "Tamsusis režimas",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -346,7 +350,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Prisijunkite prie „Open Food Facts“ paskyros, kad išsaugotumėte savo indėlį",
+    "question_sign_in_text": "Prisijunkite prie savo „Open Food Facts“ paskyros, kad gautumėte atlygį už savo indėlį",
     "tap_to_edit_search": "Paliesti ir redaguoti paiešką",
     "@Personal preferences": {},
     "myPreferences": "Mano nustatymai",
@@ -461,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Nufotografuokite pakuotę, kad įtrauktumėte šį produktą į ,,Open Food Facts\" duomenų bazę.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Nufotografuokite šias nuotraukas, o „Open Food Facts“ variklis galės išspręsti visa kita!",
+    "add_product_take_photos_descriptive": "Pirmiausia padarykite kelias nuotraukas. Produktą visada galite užbaigti vėliau.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
@@ -476,9 +480,9 @@
     "confirm_button_label": "Patvirtinti",
     "front_packaging_photo_title": "Priekinės pakuotės nuotrauka",
     "ingredients_photo_title": "Sudėties Nuotrauka",
-    "nutritional_facts_photo_title": "Maistingumo Nuotrauka",
+    "nutritional_facts_photo_title": "Maistingumo duomenų nuotrauka",
     "recycling_photo_title": "Perdirbimo Nuotrauka",
-    "other_interesting_photo_title": "Kita Įdomi Nuotrauka",
+    "other_interesting_photo_title": "Kitos įdomios nuotraukos",
     "front_photo_uploaded": "Priekinė nuotrauka įkelta",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Sudėties nuotrauka",
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Nepavyko aptikti teksto vaizde.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "Naujas produktų sąrašas",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1278,7 +1286,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Testuoti env parametrus",
+    "dev_preferences_test_environment_title": "Bandomosios aplinkos parametrai",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test Env Host",
+    "dev_preferences_test_environment_dialog_title": "Bandomosios aplinkos svetainės kompiuteris",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1391,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Išskirti „Eco-Score“",
+    "dev_mode_hide_ecoscore_title": "Neįtraukti Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1530,7 @@
         }
     },
     "barcode_invalid_error": "Netinkamas brūkšninis kodas",
-    "basic_details_add_success": "Sėkmingai pridėta pagrindinė informacija",
+    "basic_details_add_success": "Pagrindinė informacija pridėta sėkmingai",
     "basic_details_add_error": "Nepavyko pridėti pagrindinės informacijos. Po kurio laiko bandykite dar kartą",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1573,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Sukurkite savo pirmąjį sąrašą!",
+    "user_list_all_empty": "Sukurkite savo pirmąjį sąrašą",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1699,11 +1707,11 @@
     },
     "offline_data": "Duomenys neprisijungus",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Įkelkite vaizdą, kad automatiškai ištraukti pateiktą informaciją",
+    "ocr_image_upload_instruction": "Įkelkite vaizdą, kad automatiškai išskleistumėte jame esančią informaciją.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
     "upload_image": "Įkelti nuotrauką",
     "@upload_image": {
@@ -1721,12 +1729,24 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "Nepavyko redaguoti vaizdo, nes nebuvo nustatytas URL.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Remember my choice",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Select each time",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Continue",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Show Password",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

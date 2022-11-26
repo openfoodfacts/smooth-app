@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "डालिए",
     "@add": {},
+    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "@account_delete_message": {},
+    "reason": "Reason",
+    "@reason": {},
     "okay": "Okay",
     "@okay": {},
     "create": "Create",
@@ -235,7 +239,7 @@
     },
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -254,7 +258,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Darkmode",
+    "darkmode": "Dark mode",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -346,7 +350,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "tap_to_edit_search": "Tap to edit search",
     "@Personal preferences": {},
     "myPreferences": "My preferences",
@@ -461,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos and the Open Food Facts engine can work out the rest!",
+    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
@@ -476,9 +480,9 @@
     "confirm_button_label": "Confirm",
     "front_packaging_photo_title": "Front Packaging Photo",
     "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutritional Facts Photo",
+    "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other Interesting Photo",
+    "other_interesting_photo_title": "Other interesting photos",
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingredients photo",
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "New list of products",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1278,7 +1286,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test env parameters",
+    "dev_preferences_test_environment_title": "Test environment parameters",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test Env Host",
+    "dev_preferences_test_environment_dialog_title": "Test environment host",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1391,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
+    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1530,7 @@
         }
     },
     "barcode_invalid_error": "Invalid barcode",
-    "basic_details_add_success": "Basic details added succesfully",
+    "basic_details_add_success": "Basic details added successfully",
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1573,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list!",
+    "user_list_all_empty": "Create your first list",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1699,11 +1707,11 @@
     },
     "offline_data": "Offline Data",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
     "upload_image": "Upload Photo",
     "@upload_image": {
@@ -1721,12 +1729,24 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Remember my choice",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Select each time",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Continue",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Show Password",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

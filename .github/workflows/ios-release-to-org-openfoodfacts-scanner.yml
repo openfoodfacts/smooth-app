@@ -65,13 +65,18 @@ jobs:
         with:
           channel: stable
           cache: true
-          cache-key: ${{ inputs.FLUTTER-CACHE-KEY }}
+          flutter-version: '3.0.5'
+          #cache-key: ${{ inputs.FLUTTER-CACHE-KEY }}
+          cache-key: revert-3.0.5
 
       - name: Flutter version    
         run: flutter --version
 
       - name: Enable MLKit dependency
-        run: chmod +x ci/enable_mlkit_dependency.sh && ci/enable_mlkit_dependency.sh
+        run: chmod +x ci/dependencies/scanner/enable_mlkit_dependency.sh && ci/dependencies/scanner/enable_mlkit_dependency.sh
+
+      - name: Enable Apple App Store dependency
+        run: chmod +x ci/dependencies/app_store/enable_apple_app_store_dependency.sh && ci/dependencies/app_store/enable_apple_app_store_dependency.sh
 
       - name: Get dependencies
         run: ci/pub_upgrade.sh

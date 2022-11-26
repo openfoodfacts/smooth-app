@@ -10,12 +10,14 @@ class ProductImageCarousel extends StatelessWidget {
   const ProductImageCarousel(
     this.product, {
     required this.height,
+    this.controller,
     this.onUpload,
     this.alternateImageUrl,
   });
 
   final Product product;
   final double height;
+  final ScrollController? controller;
   final Function(BuildContext)? onUpload;
   final String? alternateImageUrl;
 
@@ -40,6 +42,7 @@ class ProductImageCarousel extends StatelessWidget {
       child: ListView.builder(
         // This next line does the trick.
         scrollDirection: Axis.horizontal,
+        controller: controller,
         itemCount: productImagesData.length,
         itemBuilder: (_, int index) {
           final ProductImageData data = productImagesData[index];
@@ -49,7 +52,6 @@ class ProductImageCarousel extends StatelessWidget {
             child: ImageUploadCard(
               product: product,
               productImageData: data,
-              onUpload: onUpload ?? (_) {},
             ),
           );
         },

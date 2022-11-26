@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class BarcodeProductQuery {
@@ -19,42 +19,33 @@ class BarcodeProductQuery {
   final bool isScanned;
 
   Future<FetchedProduct> getFetchedProduct() async {
-    final OpenFoodFactsLanguage? language = ProductQuery.getLanguage();
-    final OpenFoodFactsCountry? country = ProductQuery.getCountry();
-    final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-      barcode,
-      fields: ProductQuery.fields,
-      language: language,
-      country: country,
-    );
-
-    final ProductResult result;
     try {
       ProductQuery.setUserAgentComment(isScanned ? 'scan' : 'search');
-      result = await OpenFoodAPIClient.getProduct(configuration);
-    } catch (e) {
-      ProductQuery.setUserAgentComment('');
-      return FetchedProduct.error(FetchedProductStatus.internetError);
-    }
-    ProductQuery.setUserAgentComment('');
-
-    if (result.status == 1) {
-      final Product? product = result.product;
+      final Product? product = await ProductRefresher().silentFetchAndRefresh(
+        barcode: barcode,
+        localDatabase: daoProduct.localDatabase,
+      );
       if (product != null) {
-        await daoProduct.put(product);
         return FetchedProduct(product);
       }
+    } catch (e) {
+      return FetchedProduct.error(FetchedProductStatus.internetError);
+    } finally {
+      ProductQuery.setUserAgentComment('');
     }
-    if (barcode.trim().isNotEmpty &&
-        (result.barcode == null || result.barcode!.isEmpty)) {
-      return FetchedProduct.error(FetchedProductStatus.codeInvalid);
+
+    if (isScanned) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.couldNotScanProduct,
+        barcode: barcode,
+      );
+    } else {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.couldNotFindProduct,
+        barcode: barcode,
+      );
     }
-    AnalyticsHelper.trackUnknownProduct(
-      barcode: barcode,
-      isScanned: isScanned,
-      language: language,
-      country: country,
-    );
+
     return FetchedProduct.error(FetchedProductStatus.internetNotFound);
   }
 }

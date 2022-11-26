@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:openfoodfacts/utils/UserProductSearchQueryConfiguration.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -21,6 +24,7 @@ import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
@@ -125,10 +129,10 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }
 
   @override
-  Widget? getAdditionalSubtitle() {
+  Widget getAdditionalSubtitle() {
     if (_getUserId() != null) {
       // we are already connected: no "LOGIN" button
-      return null;
+      return EMPTY_WIDGET;
     }
     final ThemeData theme = Theme.of(context);
     final Size size = MediaQuery.of(context).size;
@@ -202,6 +206,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             text: localizations.yes,
             onPressed: () async {
               context.read<UserManagementProvider>().logout();
+              AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
               Navigator.pop(context, true);
             },
           ),
@@ -226,6 +231,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
+    final TextEditingController reasonController = TextEditingController();
 
     final List<Widget> result;
 
@@ -243,6 +249,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.add_circle_outline,
           context: context,
           localDatabase: localDatabase,
+          type: UserProductSearchType.CONTRIBUTOR,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -254,6 +261,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.edit,
           context: context,
           localDatabase: localDatabase,
+          type: UserProductSearchType.INFORMER,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -265,6 +273,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.add_a_photo,
           context: context,
           localDatabase: localDatabase,
+          type: UserProductSearchType.PHOTOGRAPHER,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -298,13 +307,46 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _getListTile(
           appLocalizations.account_delete,
           () async {
-            final Email email = Email(
-              body: appLocalizations.email_body_account_deletion(userId),
-              subject: appLocalizations.email_subject_account_deletion,
-              recipients: <String>['contact@openfoodfacts.org'],
-            );
+            final String? reason = await showDialog<String>(
+                context: context,
+                builder: (BuildContext context) {
+                  return SmoothAlertDialog(
+                    title: appLocalizations.account_delete,
+                    body: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(appLocalizations.account_delete_message),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        SmoothTextFormField(
+                            type: TextFieldTypes.PLAIN_TEXT,
+                            textInputType: TextInputType.text,
+                            controller: reasonController,
+                            hintText: appLocalizations.reason),
+                      ],
+                    ),
+                    positiveAction: SmoothActionButton(
+                      text: appLocalizations.account_delete,
+                      onPressed: () =>
+                          Navigator.pop(context, reasonController.text),
+                    ),
+                    negativeAction: SmoothActionButton(
+                        text: appLocalizations.cancel,
+                        onPressed: () => Navigator.pop(context)),
+                  );
+                });
+            if (reason != null) {
+              final Email email = Email(
+                body:
+                    '${appLocalizations.email_body_account_deletion(userId)} $reason',
+                subject: appLocalizations.email_subject_account_deletion,
+                recipients: <String>['contact@openfoodfacts.org'],
+              );
 
-            await FlutterEmailSender.send(email);
+              await FlutterEmailSender.send(email);
+            }
           },
           Icons.delete,
         ),
@@ -361,12 +403,37 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     return Column(children: result);
   }
 
+  Future<int?> _getMyCount(
+    final UserProductSearchType type,
+  ) async {
+    final UserProductSearchQueryConfiguration configuration =
+        UserProductSearchQueryConfiguration(
+      type: type,
+      userId: OpenFoodAPIConfiguration.globalUser!.userId,
+      pageSize: 1,
+      language: ProductQuery.getLanguage(),
+      fields: <ProductField>[],
+    );
+
+    try {
+      final SearchResult result = await OpenFoodAPIClient.searchProducts(
+        OpenFoodAPIConfiguration.globalUser,
+        configuration,
+        queryType: OpenFoodAPIConfiguration.globalQueryType,
+      );
+      return result.count;
+    } catch (e) {
+      return null;
+    }
+  }
+
   Widget _buildProductQueryTile({
     required final PagedProductQuery productQuery,
     required final String title,
     required final IconData iconData,
     required final BuildContext context,
     required final LocalDatabase localDatabase,
+    final UserProductSearchType? type,
   }) =>
       _getListTile(
         title,
@@ -375,18 +442,37 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
           productQuery: productQuery,
           context: context,
+          editableAppBarTitle: false,
         ),
         iconData,
+        type: type,
       );
 
   Widget _getListTile(
     final String title,
     final VoidCallback onTap,
-    final IconData leading,
-  ) =>
+    final IconData leading, {
+    final UserProductSearchType? type,
+  }) =>
       UserPreferencesListTile(
         title: Text(title),
         onTap: onTap,
         leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        trailing: (type != null)
+            ? FutureBuilder<int?>(
+                future: _getMyCount(type),
+                builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
+                  if (snapshot.connectionState != ConnectionState.done) {
+                    return const SizedBox(
+                        height: LARGE_SPACE,
+                        width: LARGE_SPACE,
+                        child: CircularProgressIndicator.adaptive());
+                  }
+                  return Text(
+                    snapshot.data == null ? '0' : snapshot.data.toString(),
+                  );
+                },
+              )
+            : null,
       );
 }

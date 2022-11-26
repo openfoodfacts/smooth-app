@@ -1,13 +1,21 @@
+import 'dart:convert';
+
 import 'package:openfoodfacts/model/Product.dart';
+import 'package:smooth_app/data_models/up_to_date_changes.dart';
+import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 
 /// Provider that reflects all the user changes on [Product]s.
 class UpToDateProductProvider {
-  UpToDateProductProvider(this.localDatabase);
+  UpToDateProductProvider(this.localDatabase)
+      : _changes = UpToDateChanges(localDatabase);
 
   final LocalDatabase localDatabase;
 
-  final Map<String, Product> _map = <String, Product>{};
+  /// For a given barcode, maps the changes.
+  final UpToDateChanges _changes;
+
+  /// For a given barcode, returns the latest change timestamp.
   final Map<String, int> _timestamps = <String, int>{};
 
   /// Latest downloaded product for a barcode.
@@ -19,16 +27,6 @@ class UpToDateProductProvider {
   /// products in memory for instant access. And we should cache only them,
   /// because we cannot cache all products in memory.
   final Map<String, int> _interestingBarcodes = <String, int>{};
-
-  Product? get(final Product product) => _map[product.barcode!];
-
-  Product? getFromBarcode(final String barcode) => _map[barcode];
-
-  void set(final Product product) {
-    _map[product.barcode!] = product;
-    _timestamps[product.barcode!] = LocalDatabase.nowInMillis();
-    localDatabase.notifyListeners();
-  }
 
   /// Returns true if at least one barcode was refreshed after the [timestamp].
   bool needsRefresh(final int? latestTimestamp, final List<String> barcodes) {
@@ -97,5 +95,52 @@ class UpToDateProductProvider {
     if (notify && atLeastOne) {
       localDatabase.notifyListeners();
     }
+  }
+
+  /// Returns the [product] with all the local pending changes on top.
+  Product getLocalUpToDate(final Product initialProduct) {
+    final String barcode = initialProduct.barcode!;
+    Product result = copy(_latestDownloadedProducts[barcode] ?? initialProduct);
+    result = _changes.getUpToDateProduct(result);
+    return result;
+  }
+
+  // TODO(monsieurtanuki): move code to off-dart Product?
+  Product copy(final Product source) => Product.fromJson(
+        jsonDecode(jsonEncode(source.toJson())) as Map<String, dynamic>,
+      );
+
+  /// Returns the key of a new minimalist local change added to pending ones.
+  ///
+  /// To make it clearer:
+  /// * the method creates a new minimalist change
+  /// * that change has a (new) key
+  /// * after creating the change, the method returns the key
+  Future<String> addChange(
+    final String key,
+    final Product minimalistProduct,
+  ) async {
+    final String barcode = minimalistProduct.barcode!;
+    await _changes.add(key, minimalistProduct);
+    _timestamps[barcode] = LocalDatabase.nowInMillis();
+    localDatabase.notifyListeners();
+    return key;
+  }
+
+  /// Returns the local pending change ids related to a [barcode].
+  Iterable<TransientOperation>? getSortedChangeOperations(
+          final String barcode) =>
+      _changes.getSortedOperations(barcode);
+
+  Product prepareChangesForServer(
+    final String barcode,
+    final Iterable<TransientOperation> sortedOperations,
+  ) =>
+      _changes.prepareChangesForServer(barcode, sortedOperations);
+
+  /// Closes a single operation, successful or failed.
+  void terminate(final String operationKey) {
+    _changes.terminate(operationKey);
+    localDatabase.notifyListeners();
   }
 }

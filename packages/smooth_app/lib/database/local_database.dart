@@ -5,9 +5,11 @@ import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_hive_product.dart';
+import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -15,6 +17,7 @@ import 'package:smooth_app/database/dao_product_migration.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
+import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/dao_unzipped_product.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -35,7 +38,10 @@ class LocalDatabase extends ChangeNotifier {
   /// For the record, we need to override the method
   /// because the parent's is protected
   @override
-  void notifyListeners() => super.notifyListeners();
+  void notifyListeners() {
+    BackgroundTaskManager(this).run(); // no await
+    super.notifyListeners();
+  }
 
   static Future<LocalDatabase> getLocalDatabase() async {
     // sql from there
@@ -64,8 +70,10 @@ class LocalDatabase extends ChangeNotifier {
       DaoProductList(localDatabase),
       DaoStringList(localDatabase),
       DaoString(localDatabase),
+      DaoInstantString(localDatabase),
       DaoInt(localDatabase),
       DaoStringListMap(localDatabase),
+      DaoTransientOperation(localDatabase),
     ];
     for (final AbstractDao dao in daos) {
       dao.registerAdapter();

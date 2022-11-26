@@ -43,11 +43,13 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
+  final ScrollController _carouselController = ScrollController();
+
   late Product _product;
+  late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
-  late ScrollController _scrollController;
-  bool _mustScrollToTheEnd = false;
+
   bool scrollingUp = true;
 
   @override
@@ -56,24 +58,22 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   @override
   String get traceTitle => 'product_page';
 
+  String get _barcode => _initialProduct.barcode!;
+
   @override
   void initState() {
     super.initState();
-    _product = widget.product;
+    _initialProduct = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_product.barcode!);
-    _scrollController = ScrollController();
+    _localDatabase.upToDate.showInterest(_barcode);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
-    AnalyticsHelper.trackProductPageOpen(
-      product: _product,
-    );
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    _localDatabase.upToDate.loseInterest(_barcode);
     super.dispose();
   }
 
@@ -81,19 +81,11 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   Widget build(BuildContext context) {
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
-    inheritedDataManager.setCurrentBarcode(_product.barcode ?? '');
+    inheritedDataManager.setCurrentBarcode(_barcode);
     final ThemeData themeData = Theme.of(context);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (_mustScrollToTheEnd) {
-        _scrollToTheEnd();
-      }
-    });
     _productPreferences = context.watch<ProductPreferences>();
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
-    if (refreshedProduct != null) {
-      _product = refreshedProduct;
-    }
+    context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
 
     return SmoothScaffold(
       contentBehindStatusBar: true,
@@ -128,7 +120,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               ),
               child: Offstage(
                 offstage: !scrollingUp,
-                child: const SmoothBackButton(),
+                child: const SmoothBackButton(iconColor: Colors.white),
               ),
             ),
           )
@@ -137,20 +129,14 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     );
   }
 
-  void _scrollToTheEnd() {
-    _scrollController.animateTo(
-      _scrollController.position.maxScrollExtent,
-      curve: Curves.easeOut,
-      duration: SmoothAnimationsDuration.long,
-    );
-    _mustScrollToTheEnd = false;
-  }
-
   Future<void> _refreshProduct(BuildContext context) async =>
       ProductRefresher().fetchAndRefresh(
-        barcode: _product.barcode!,
-        widget: this,
-      );
+          barcode: _product.barcode!,
+          widget: this,
+          onSuccessCallback: () {
+            // Reset the carousel to the beginning
+            _carouselController.jumpTo(0.0);
+          });
 
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
@@ -158,7 +144,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoProductList(localDatabase).push(
       ProductList.history(),
-      _product.barcode!,
+      _barcode,
     );
     localDatabase.notifyListeners();
   }
@@ -168,7 +154,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
-      onRefresh: () => _refreshProduct(context),
+      onRefresh: () => ProductRefresher().fetchAndRefresh(
+        barcode: _barcode,
+        widget: this,
+      ),
       child: ListView(
         // /!\ Smart Dart
         // `physics: const AlwaysScrollableScrollPhysics()`
@@ -184,6 +173,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             child: ProductImageCarousel(
               _product,
               height: 200,
+              controller: _carouselController,
               onUpload: _refreshProduct,
             ),
           ),
@@ -192,7 +182,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               horizontal: SMALL_SPACE,
             ),
             child: Hero(
-              tag: _product.barcode ?? '',
+              tag: _barcode,
               child: SummaryCard(
                 _product,
                 _productPreferences,
@@ -248,13 +238,16 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   }
 
   Future<void> _shareProduct() async {
-    AnalyticsHelper.trackShareProduct(barcode: widget.product.barcode!);
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.shareProduct,
+      barcode: _barcode,
+    );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
     final String url = 'https://'
         '${ProductQuery.getCountry()!.iso2Code}.openfoodfacts.org'
-        '/product/${widget.product.barcode}';
+        '/product/$_barcode';
     Share.share(
       appLocalizations.share_product_text(url),
       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
@@ -309,7 +302,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(
                   18), // TODO(monsieurtanuki): cf. FloatingActionButton
-              backgroundColor: colorScheme.primary,
+              primary: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
           ),
@@ -325,7 +318,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList,
   ) =>
       FutureBuilder<List<String>>(
-        future: daoProductList.getUserLists(withBarcode: _product.barcode),
+        future: daoProductList.getUserLists(withBarcode: _barcode),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<String>> snapshot,

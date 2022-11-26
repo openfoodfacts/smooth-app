@@ -19,12 +19,13 @@ void _performSearch(
   String query, {
   EditProductQueryCallback? editProductQueryCallback,
 }) {
-  if (query.trim().isEmpty) {
+  query = query.trim();
+  if (query.isEmpty) {
     return;
   }
 
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
-  DaoStringList(localDatabase).add(query);
+  DaoStringList(localDatabase).add(DaoStringList.keySearchHistory, query);
 
   if (int.tryParse(query) != null) {
     _onSubmittedBarcode(

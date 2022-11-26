@@ -9,12 +9,15 @@ import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
@@ -27,7 +30,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_category_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
@@ -79,6 +81,7 @@ class SummaryCard extends StatefulWidget {
 
 class _SummaryCardState extends State<SummaryCard> {
   late Product _product;
+  late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late final bool allowClicking;
 
@@ -94,38 +97,34 @@ class _SummaryCardState extends State<SummaryCard> {
   void initState() {
     super.initState();
     allowClicking = !widget.isFullVersion;
-    _product = widget._product;
+    _initialProduct = widget._product;
     _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_product.barcode!);
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    if (widget.isFullVersion) {
+      return buildProductSmoothCard(
+        header: _buildProductCompatibilityHeader(context),
+        body: Padding(
+          padding: SMOOTH_CARD_PADDING,
+          child: _buildSummaryCardContent(context),
+        ),
+        margin: EdgeInsets.zero,
+      );
+    }
     return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final Product? refreshedProduct = localDatabase.upToDate.get(_product);
-        if (refreshedProduct != null) {
-          _product = refreshedProduct;
-        }
-        if (widget.isFullVersion) {
-          return buildProductSmoothCard(
-            header: _buildProductCompatibilityHeader(context),
-            body: Padding(
-              padding: SMOOTH_CARD_PADDING,
-              child: _buildSummaryCardContent(context),
-            ),
-            margin: EdgeInsets.zero,
-          );
-        }
-        return _buildLimitedSizeSummaryCard(constraints.maxHeight);
-      },
+      builder: (BuildContext context, BoxConstraints constraints) =>
+          _buildLimitedSizeSummaryCard(constraints.maxHeight),
     );
   }
 
@@ -185,7 +184,6 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildSummaryCardContent(BuildContext context) {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations localizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
@@ -308,7 +306,7 @@ class _SummaryCardState extends State<SummaryCard> {
             iconData: Icons.leaderboard,
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
               name: categoryLabel!,
-              localDatabase: localDatabase,
+              localDatabase: _localDatabase,
               productQuery: CategoryProductQuery(categoryTag!),
               context: context,
             ),
@@ -322,15 +320,13 @@ class _SummaryCardState extends State<SummaryCard> {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () async {
-              await Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      AddBasicDetailsPage(_product),
-                ),
-              );
-            },
+            onPressed: () async => Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) =>
+                    AddBasicDetailsPage(_product),
+              ),
+            ),
           ),
         );
       }
@@ -342,6 +338,16 @@ class _SummaryCardState extends State<SummaryCard> {
           _product,
           widget.isFullVersion,
           isRemovable: widget.isRemovable,
+          onRemove: (BuildContext context) async {
+            HideableContainerState.of(context).hide(() async {
+              final ContinuousScanModel model =
+                  context.read<ContinuousScanModel>();
+              await model.removeBarcode(_product.barcode!);
+
+              // Vibrate twice
+              SmoothHapticFeedback.confirm();
+            });
+          },
         ),
         ...getAttributes(scoreAttributes),
         if (widget.isFullVersion) _buildProductQuestionsWidget(),
@@ -612,11 +618,11 @@ class _SummaryCardState extends State<SummaryCard> {
   Widget _buildProductQuestionsWidget() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return FutureBuilder<List<RobotoffQuestion>>(
+    return FutureBuilder<List<RobotoffQuestion>?>(
         future: _loadProductQuestions(),
         builder: (
           BuildContext context,
-          AsyncSnapshot<List<RobotoffQuestion>> snapshot,
+          AsyncSnapshot<List<RobotoffQuestion>?> snapshot,
         ) {
           final List<RobotoffQuestion> questions =
               snapshot.data ?? <RobotoffQuestion>[];
@@ -689,31 +695,23 @@ class _SummaryCardState extends State<SummaryCard> {
       return;
     }
     final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(context.read<LocalDatabase>());
+        RobotoffInsightHelper(_localDatabase);
     if (questions.isEmpty) {
       await robotoffInsightHelper
           .removeInsightAnnotationsSavedForProdcut(_product.barcode!);
     }
     _annotationVoted =
         await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
-    // Reload the product as it may have been updated because of the
-    // new answers.
-    if (!mounted) {
-      return;
-    }
-    await ProductRefresher().fetchAndRefresh(
-      widget: this,
-      barcode: _product.barcode!,
-    );
   }
 
-  Future<List<RobotoffQuestion>>? _loadProductQuestions() async {
+  Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
     final List<RobotoffQuestion> questions =
         await ProductQuestionsQuery(_product.barcode!).getQuestions();
-
+    if (!mounted) {
+      return null;
+    }
     final RobotoffInsightHelper robotoffInsightHelper =
-        //ignore: use_build_context_synchronously
-        RobotoffInsightHelper(context.read<LocalDatabase>());
+        RobotoffInsightHelper(_localDatabase);
     _annotationVoted =
         await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     return questions;
@@ -753,5 +751,72 @@ class _SummaryCardState extends State<SummaryCard> {
         ),
       ),
     );
+  }
+}
+
+class HideableContainer extends StatefulWidget {
+  const HideableContainer({
+    required this.child,
+    Key? key,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  State<HideableContainer> createState() => HideableContainerState();
+}
+
+class HideableContainerState extends State<HideableContainer>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Tween<double> _tween;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _tween = Tween<double>(begin: 1.0, end: 0.0);
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: SmoothAnimationsDuration.medium,
+    );
+
+    _animation = _tween.animate(_controller)
+      ..addListener(() => setState(() {}));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Provider<HideableContainerState>.value(
+      value: this,
+      child: Transform.translate(
+        offset: Offset(0.0, (1 - _animation.value) * 100),
+        child: Opacity(
+          opacity: _animation.value,
+          child: widget.child,
+        ),
+      ),
+    );
+  }
+
+  void hide(VoidCallback onAnimationEnded) {
+    _controller.forward(from: 0.0);
+    _controller.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.completed) {
+        onAnimationEnded();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  static HideableContainerState of(BuildContext context) {
+    return context.read<HideableContainerState>();
   }
 }

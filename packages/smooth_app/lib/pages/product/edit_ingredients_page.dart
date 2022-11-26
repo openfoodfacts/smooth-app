@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
@@ -6,18 +5,19 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/helpers/picture_capture_helper.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/pages/product/ocr_widget.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+// TODO(monsieurtanuki): rename file as `edit_ocr_page.dart`
 /// Editing with OCR a product field and the corresponding image.
 ///
 /// Typical use-cases: ingredients and packaging.
@@ -36,21 +36,19 @@ class EditOcrPage extends StatefulWidget {
 
 class _EditOcrPageState extends State<EditOcrPage> {
   final TextEditingController _controller = TextEditingController();
-  ImageProvider? _imageProvider;
-  bool _updatingImage = false;
-  bool _updatingText = false;
   late Product _product;
+  late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
-  late OcrHelper _helper;
+
+  OcrHelper get _helper => widget.helper;
 
   @override
   void initState() {
     super.initState();
-    _product = widget.product;
+    _initialProduct = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_product.barcode!);
-    _helper = widget.helper;
-    _controller.text = _helper.getText(_product);
+    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
+    _controller.text = _helper.getText(_initialProduct);
   }
 
   @override
@@ -59,174 +57,71 @@ class _EditOcrPageState extends State<EditOcrPage> {
     super.dispose();
   }
 
-  Future<void> _onSubmitField(ImageField imageField) async {
-    setState(() => _updatingText = true);
-    await _updateText(_controller.text, imageField);
-    setState(() => _updatingText = false);
-  }
+  Future<void> _onSubmitField(ImageField imageField) async =>
+      _updateText(_controller.text, imageField);
 
-  Future<void> _onTapGetImage(bool isNewImage) async {
-    setState(() => _updatingImage = true);
+  /// Opens a page to upload a new image.
+  Future<void> _newImage() async => confirmAndUploadNewPicture(
+        this,
+        barcode: _product.barcode!,
+        imageField: _helper.getImageField(),
+      );
 
+  /// Extracts data with OCR from the image stored on the server.
+  ///
+  /// When done, populates the related page field.
+  Future<void> _extractData() async {
+    // TODO(monsieurtanuki): hide the "extract" button while extracting, or display a loading dialog on top
     try {
-      await _getImage(isNewImage);
-    } catch (error) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      _showError(_helper.getImageError(appLocalizations));
-    }
-
-    setState(() => _updatingImage = false);
-  }
-
-  // Show the given error message to the user in a SnackBar.
-  void _showError(String error) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(error),
-        duration: SnackBarDuration.medium,
-      ),
-    );
-  }
-
-  // Get an image from the camera, run OCR on it, and update the product's
-  // ingredients.
-  //
-  // Returns a Future that resolves successfully only if everything succeeds,
-  // otherwise it will resolve with the relevant error.
-  Future<void> _getImage(bool isNewImage) async {
-    if (isNewImage) {
-      final File? croppedImageFile =
-          await startImageCropping(context, showOptionDialog: true);
-
-      // If the user cancels.
-      if (croppedImageFile == null) {
-        return;
-      }
-
-      // Update the image to load the new image file.
-      setState(() => _imageProvider = FileImage(croppedImageFile));
+      final String? extractedText = await _helper.getExtractedText(_product);
       if (!mounted) {
         return;
       }
-      await uploadCapturedPicture(
-        widget: this,
-        barcode: _product.barcode!,
-        imageField: _helper.getImageField(),
-        imageUri: croppedImageFile.uri,
-      );
-    }
 
-    final String? extractedText = await _helper.getExtractedText(_product);
-    if (extractedText == null || extractedText.isEmpty) {
-      throw Exception('Failed to detect text in image.');
-    }
+      if (extractedText == null || extractedText.isEmpty) {
+        await LoadingDialog.error(
+          context: context,
+          title: AppLocalizations.of(context).edit_ocr_extract_failed,
+        );
+        return;
+      }
 
-    // Save the product's ingredients if needed.
-    if (_controller.text != extractedText) {
-      setState(() => _controller.text = extractedText);
+      if (_controller.text != extractedText) {
+        setState(() => _controller.text = extractedText);
+      }
+    } catch (e) {
+      //
     }
   }
 
+  /// Updates the product field on the server.
   Future<void> _updateText(
     final String text,
     final ImageField imageField,
-  ) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    Product changedProduct = Product(barcode: _product.barcode);
-    Product? cachedProduct = await daoProduct.get(_product.barcode!);
-    if (cachedProduct != null) {
-      cachedProduct = _helper.getMinimalistProduct(cachedProduct, text);
-    }
-    changedProduct = _helper.getMinimalistProduct(changedProduct, text);
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
-      productEditTask:
-          _helper.getImageField().value == ImageField.PACKAGING.value
-              ? ProductEditTask.packaging
-              : ProductEditTask.ingredient,
-      widget: this,
-    );
-    final Product upToDateProduct = cachedProduct ?? changedProduct;
-    await daoProduct.put(upToDateProduct);
-    localDatabase.upToDate.set(upToDateProduct);
-  }
+  ) async =>
+      BackgroundTaskDetails.addTask(
+        _helper.getMinimalistProduct(Product(barcode: _product.barcode), text),
+        widget: this,
+      );
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final Size size = MediaQuery.of(context).size;
-    final List<Widget> children = <Widget>[];
+    context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    final ProductImageData productImageData = getProductImageData(
+      _product,
+      appLocalizations,
+      _helper.getImageField(),
+    );
 
-    if (_imageProvider != null) {
-      children.add(
-        ConstrainedBox(
-          constraints: const BoxConstraints.expand(),
-          child: _buildZoomableImage(_imageProvider!),
-        ),
-      );
-    } else {
-      final String? imageUrl = _helper.getImageUrl(_product);
-      if (imageUrl != null) {
-        children.add(
-          ConstrainedBox(
-            constraints: const BoxConstraints.expand(),
-            child: _buildZoomableImage(NetworkImage(imageUrl)),
-          ),
-        );
-      } else {
-        children.add(
-          Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.only(bottom: size.height * 0.25),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Icon(
-                  Icons.image_not_supported,
-                  size: size.height / 4,
-                ),
-                Text(
-                  appLocalizations.ocr_image_upload_instruction,
-                  style: Theme.of(context).textTheme.bodyText2,
-                  textAlign: TextAlign.center,
-                )
-              ],
-            ),
-          ),
-        );
-      }
-    }
-
-    if (_updatingImage) {
-      children.add(
-        const Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
-      );
-    } else {
-      children.add(
-        _OcrWidget(
-          controller: _controller,
-          onTapGetImage: _onTapGetImage,
-          onSubmitField: _onSubmitField,
-          updatingText: _updatingText,
-          hasImageProvider: _imageProvider != null,
-          product: _product,
-          helper: _helper,
-        ),
-      );
-    }
-
-    final Scaffold scaffold = SmoothScaffold(
+    return SmoothScaffold(
       extendBodyBehindAppBar: true,
       appBar: SmoothAppBar(
         title: Text(_helper.getTitle(appLocalizations)),
-        subTitle: widget.product.productName != null
+        subTitle: _product.productName != null
             ? Text(
-                widget.product.productName!,
+                _product.productName!,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               )
@@ -242,148 +137,66 @@ class _EditOcrPageState extends State<EditOcrPage> {
         ),
       ),
       body: Stack(
-        children: children,
-      ),
-    );
-    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
-    if (refreshedProduct != null) {
-      _product = refreshedProduct;
-    }
-    return scaffold;
-  }
-
-  Widget _buildZoomableImage(ImageProvider imageSource) {
-    return InteractiveViewer(
-      boundaryMargin: const EdgeInsets.only(
-        left: VERY_LARGE_SPACE,
-        top: 10,
-        right: VERY_LARGE_SPACE,
-        bottom: 200,
-      ),
-      minScale: 0.1,
-      maxScale: 5,
-      child: Image(
-        fit: BoxFit.contain,
-        image: imageSource,
-      ),
-    );
-  }
-}
-
-class _OcrWidget extends StatelessWidget {
-  const _OcrWidget({
-    required this.controller,
-    required this.onSubmitField,
-    required this.onTapGetImage,
-    required this.updatingText,
-    required this.hasImageProvider,
-    required this.product,
-    required this.helper,
-  });
-
-  final TextEditingController controller;
-  final bool updatingText;
-  final Future<void> Function(bool) onTapGetImage;
-  final Future<void> Function(ImageField) onSubmitField;
-  final bool hasImageProvider;
-  final Product product;
-  final OcrHelper helper;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Align(
-      alignment: AlignmentDirectional.bottomStart,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Flexible(
-            flex: 1,
-            child: Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  bottom: LARGE_SPACE,
-                  start: LARGE_SPACE,
-                  end: LARGE_SPACE,
-                ),
-                child: SmoothActionButtonsBar(
-                  positiveAction: SmoothActionButton(
-                    text: (hasImageProvider ||
-                            helper.getImageUrl(product) != null)
-                        ? helper.getActionRefreshPhoto(appLocalizations)
-                        : appLocalizations.upload_image,
-                    onPressed: () => onTapGetImage(true),
-                  ),
-                ),
-              ),
-            ),
+          _getImageWidget(productImageData),
+          OcrWidget(
+            controller: _controller,
+            onTapNewImage: _newImage,
+            onTapExtractData: _extractData,
+            onSubmitField: _onSubmitField,
+            productImageData: productImageData,
+            product: _product,
+            helper: _helper,
           ),
-          Flexible(
-            flex: 1,
-            child: SingleChildScrollView(
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.background,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: ANGULAR_RADIUS,
-                      topRight: ANGULAR_RADIUS,
-                    )),
-                child: Padding(
-                  padding: const EdgeInsets.all(LARGE_SPACE),
-                  child: Column(
-                    children: <Widget>[
-                      if (hasImageProvider ||
-                          helper.getImageUrl(product) != null)
-                        SmoothActionButtonsBar.single(
-                          action: SmoothActionButton(
-                            text: helper.getActionExtractText(appLocalizations),
-                            onPressed: () => onTapGetImage(false),
-                          ),
-                        ),
-                      const SizedBox(height: MEDIUM_SPACE),
-                      TextField(
-                        enabled: !updatingText,
-                        controller: controller,
-                        decoration: InputDecoration(
-                          fillColor: Colors.white.withOpacity(0.2),
-                          filled: true,
-                          enabledBorder: const OutlineInputBorder(
-                            borderRadius: ANGULAR_BORDER_RADIUS,
-                          ),
-                        ),
-                        maxLines: null,
-                        textInputAction: TextInputAction.done,
-                        onSubmitted: (_) =>
-                            onSubmitField(helper.getImageField()),
-                      ),
-                      const SizedBox(height: SMALL_SPACE),
-                      ExplanationWidget(
-                        helper.getInstructions(appLocalizations),
-                      ),
-                      const SizedBox(height: MEDIUM_SPACE),
-                      SmoothActionButtonsBar(
-                        axis: Axis.horizontal,
-                        negativeAction: SmoothActionButton(
-                          text: appLocalizations.cancel,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.save,
-                          onPressed: () async {
-                            await onSubmitField(helper.getImageField());
-                            //ignore: use_build_context_synchronously
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: MEDIUM_SPACE),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _getImageWidget(final ProductImageData productImageData) {
+    final Size size = MediaQuery.of(context).size;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ImageProvider? imageProvider = TransientFile.getImageProvider(
+      productImageData,
+      _initialProduct.barcode!,
+    );
+
+    if (imageProvider != null) {
+      return ConstrainedBox(
+        constraints: const BoxConstraints.expand(),
+        child: InteractiveViewer(
+          boundaryMargin: const EdgeInsets.only(
+            left: VERY_LARGE_SPACE,
+            top: 10,
+            right: VERY_LARGE_SPACE,
+            bottom: 200,
           ),
+          minScale: 0.1,
+          maxScale: 5,
+          child: Image(
+            fit: BoxFit.contain,
+            image: imageProvider,
+          ),
+        ),
+      );
+    }
+
+    return Container(
+      alignment: Alignment.center,
+      margin: EdgeInsets.only(bottom: size.height * 0.25),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            Icons.image_not_supported,
+            size: size.height / 4,
+          ),
+          Text(
+            appLocalizations.ocr_image_upload_instruction,
+            style: Theme.of(context).textTheme.bodyText2,
+            textAlign: TextAlign.center,
+          )
         ],
       ),
     );

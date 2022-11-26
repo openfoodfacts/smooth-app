@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "הוספה",
     "@add": {},
+    "account_delete_message": "למחוק את חשבונך?\nאם יש לכך סיבה כלשהי, נשמע לקבל הסבר כאן למטה",
+    "@account_delete_message": {},
+    "reason": "סיבה",
+    "@reason": {},
     "okay": "בסדר",
     "@okay": {},
     "create": "יצירה",
@@ -235,7 +239,7 @@
     },
     "sign_up_page_agree_url": "https://world-he.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://world-he.openfoodfacts.org/donate",
     "@donate_url": {
@@ -461,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "יש לצלם את האריזה כדי להוסיף את המוצר הזה ל־Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "נא לצלם תמונות והמנוע של Open Food Facts ידאג לשאר!",
+    "add_product_take_photos_descriptive": "נא לצלם תחילה מספר תמונות. תמיד ניתן להשלים את המוצר בהמשך.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "הוספת פרטי מוצר",
     "@add_product_information_button_label": {},
@@ -478,7 +482,7 @@
     "ingredients_photo_title": "תמונת רכיבים",
     "nutritional_facts_photo_title": "תמונת פירוט תזונתי",
     "recycling_photo_title": "תמונת מיחזור",
-    "other_interesting_photo_title": "תמונה מעניינת נוספת",
+    "other_interesting_photo_title": "תמונות מעניינות נוספות",
     "front_photo_uploaded": "תמונת החזית נשלחה",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "תמונת רכיבים",
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "זיהוי טקסט בתמונה נכשל.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "רשימת מוצרים חדשה",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1565,7 +1573,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "כאן ניתן ליצור את הרשימה הראשונה שלך!",
+    "user_list_all_empty": "כאן ניתן ליצור את הרשימה הראשונה שלך",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1699,11 +1707,11 @@
     },
     "offline_data": "נתונים בלתי מקוונים",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "ניתן להעלות תמונה כדי לחלץ את המידע המסופק אוטומטית",
+    "ocr_image_upload_instruction": "ניתן להעלות תמונה כדי לחלץ את המידע שהיא מכילה אוטומטית.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
     "upload_image": "העלאת תמונה",
     "@upload_image": {
@@ -1721,12 +1729,24 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "עריכת התמונה נכשלה, לא הוגדרה כתובת לתמונה.",
+    "image_edit_url_error": "עריכת התמונה נכשלה מכיוון שכתובת התמונה לא הוגדרה.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "לזכור את הבחירה שלי",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "לבחור בכל פעם מחדש",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "להמשיך",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "הצגת סיסמה",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

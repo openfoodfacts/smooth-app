@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Добави",
     "@add": {},
+    "account_delete_message": "Сигурен ли си, че искаш да изтриеш акаунта си?\nАко има конкретна причина, моля сподели по-долу",
+    "@account_delete_message": {},
+    "reason": "Причина",
+    "@reason": {},
     "okay": "Добре",
     "@okay": {},
     "create": "Създай",
@@ -235,7 +239,7 @@
     },
     "sign_up_page_agree_url": "https://bg.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -461,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Направи снимки на опаковката, за да добавиш този продукт в Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Моля, направи няколко снимки и Open Food Facts ще направи останалото!",
+    "add_product_take_photos_descriptive": "Моля, първо направи няколко снимки. Винаги можеш да завършиш продукта по-късно.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Добави информация за продукта",
     "@add_product_information_button_label": {},
@@ -954,7 +958,7 @@
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Променете тази стойност само ако имате проблеми със скенера (не може да декодира баркодове). Докоснете, за да превключите между двата режима.\nТекущият е: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Неуспешно откриване на текст в снимката.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "Нов списък с продукти",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1278,7 +1286,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Параметри на test env",
+    "dev_preferences_test_environment_title": "Параметри на тестовата среда",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test Env хост",
+    "dev_preferences_test_environment_dialog_title": "Хост на тестовата среда",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1391,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Изключи EcoScore",
+    "dev_mode_hide_ecoscore_title": "Изключи Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1530,7 @@
         }
     },
     "barcode_invalid_error": "Невалиден баркод",
-    "basic_details_add_success": "Основните подробности бяха добавени успешно",
+    "basic_details_add_success": "Основните подробности са добавени успешно",
     "basic_details_add_error": "Не може да се добавят основните подробности. Моля, опитай отново по-късно",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1573,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Създай своя първи списък!",
+    "user_list_all_empty": "Създай първия си списък",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1699,11 +1707,11 @@
     },
     "offline_data": "Данни извън линия",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Качете изображение, за да извлечете автоматично предоставената информация",
+    "ocr_image_upload_instruction": "Качи снимка, за да извлечеш автоматично информацията, която съдържа.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
     "upload_image": "Качете снимка",
     "@upload_image": {
@@ -1721,12 +1729,24 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Неуспешно редактиране на снимката, Url адресът на снимката не е зададен.",
+    "image_edit_url_error": "Редактирането на снимката не бе успешно, защото URL адресът на снимката не беше зададен.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Запомни моя избор",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Избери всеки път",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Продължи",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Покажи паролата",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

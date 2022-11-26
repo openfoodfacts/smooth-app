@@ -20,7 +20,6 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
@@ -155,10 +154,8 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
-          callback: (String? barcodeLoaded) async {
-            if (barcodeLoaded != null) {
-              await _model.refresh();
-            }
+          callback: () async {
+            await _model.refresh();
             setState(() {});
           },
         );
@@ -429,13 +426,11 @@ class _SearchCardTagLineText extends StatelessWidget {
       borderRadius: ANGULAR_BORDER_RADIUS,
       onTap: tagLine.hasLink
           ? () async {
-              if (await canLaunchUrlString(tagLine.url)) {
-                await launchUrl(
-                  Uri.parse(tagLine.url),
-                  // forms.gle links are not handled by the WebView
-                  mode: LaunchMode.externalApplication,
-                );
-              }
+              await launchUrlString(
+                tagLine.url,
+                // forms.gle links are not handled by the WebView
+                mode: LaunchMode.externalApplication,
+              );
             }
           : null,
       child: Center(

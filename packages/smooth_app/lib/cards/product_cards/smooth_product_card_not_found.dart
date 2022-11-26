@@ -11,7 +11,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
     this.callback,
   }) : assert(barcode.isNotEmpty);
 
-  final Future<void> Function(String?)? callback;
+  final Future<void> Function()? callback;
   final String barcode;
 
   @override
@@ -58,16 +58,15 @@ class SmoothProductCardNotFound extends StatelessWidget {
               icon: Icons.add,
               padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
               onPressed: () async {
-                // TODO(monsieurtanuki): careful, waiting for pop'ed value
-                final String? result = await Navigator.push<String>(
+                await Navigator.push<void>(
                   context,
-                  MaterialPageRoute<String>(
+                  MaterialPageRoute<void>(
                     builder: (BuildContext context) =>
                         AddNewProductPage(barcode),
                   ),
                 );
                 if (callback != null) {
-                  await callback!(result);
+                  await callback!();
                 }
               },
             ),

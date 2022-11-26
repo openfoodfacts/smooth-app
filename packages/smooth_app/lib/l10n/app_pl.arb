@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Dodaj",
     "@add": {},
+    "account_delete_message": "Czy na pewno chcesz usunąć swoje konto?\nJeśli istnieje konkretny powód, podziel się nim poniżej",
+    "@account_delete_message": {},
+    "reason": "Powód",
+    "@reason": {},
     "okay": "OK",
     "@okay": {},
     "create": "Stwórz",
@@ -235,7 +239,7 @@
     },
     "sign_up_page_agree_url": "https://world-pl.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -461,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Zrób zdjęcia opakowania, aby dodać ten produkt do Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Zrób, proszę, kilka zdjęć, a silnik Open Food Facts poradzi sobie z resztą!",
+    "add_product_take_photos_descriptive": "Proszę najpierw zrobić kilka zdjęć. Zawsze możesz dokończyć edytować produkt w późniejszym czasie.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Dodaj informacje o produkcie",
     "@add_product_information_button_label": {},
@@ -476,9 +480,9 @@
     "confirm_button_label": "Potwierdź",
     "front_packaging_photo_title": "Zdjęcie opakowania z przodu",
     "ingredients_photo_title": "Zdjęcie listy składników",
-    "nutritional_facts_photo_title": "Zdjęcie wartości odżywczych",
+    "nutritional_facts_photo_title": "Zdjęcie tabeli wartości odżywczych",
     "recycling_photo_title": "Zdjęcie informacji o recyklingu",
-    "other_interesting_photo_title": "Inne, interesujące zdjęcie",
+    "other_interesting_photo_title": "Inne ciekawe zdjęcia",
     "front_photo_uploaded": "Przesłano zdjęcie przodu",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Zdjęcie listy składników",
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Nie udało się wykryć tekstu na obrazie.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "Nowa lista produktów",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1291,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Host środowiska testowego:",
+    "dev_preferences_test_environment_dialog_title": "Środowisko testowe",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1522,7 +1530,7 @@
         }
     },
     "barcode_invalid_error": "Nieprawidłowy kod kreskowy",
-    "basic_details_add_success": "Pomyślnie dodano podstawowe informacje",
+    "basic_details_add_success": "Podstawowe informacje dodane pomyślnie",
     "basic_details_add_error": "Nie można dodać podstawowych informacji. Spróbuj ponownie za jakiś czas",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1573,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Stwórz swoją pierwszą listę!",
+    "user_list_all_empty": "Utwórz pierwszą listę",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1699,11 +1707,11 @@
     },
     "offline_data": "Dane offline",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Prześlij obraz, aby automatycznie wyodrębnić podane informacje",
+    "ocr_image_upload_instruction": "Prześlij obraz, aby automatycznie wyodrębnić podane informacje.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
     "upload_image": "Prześlij zdjęcie",
     "@upload_image": {
@@ -1721,12 +1729,24 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Nie udało się edytować obrazu, adres URL obrazu nie został ustawiony.",
+    "image_edit_url_error": "Nie udało się edytować zdjęcia, ponieważ nie podano adresu URL obrazu.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Zapamiętaj mój wybór",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Wybierz za każdym razem",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Kontynuuj",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Pokaż hasło",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

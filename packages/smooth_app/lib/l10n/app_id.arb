@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "Tambahkan",
     "@add": {},
+    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "@account_delete_message": {},
+    "reason": "Reason",
+    "@reason": {},
     "okay": "Baik",
     "@okay": {},
     "create": "Buat",
@@ -235,7 +239,7 @@
     },
     "sign_up_page_agree_url": "https://world.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -254,7 +258,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Mode gelap",
+    "darkmode": "Dark mode",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -346,7 +350,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Masuk ke akun Open Food Facts anda untuk mendapatkan kredit atas kontribusi anda",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "tap_to_edit_search": "Ketuk untuk menyunting pencarian",
     "@Personal preferences": {},
     "myPreferences": "Preferensi Saya",
@@ -461,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Ambil foto kemasan untuk menambahkan produk ini ke Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Silakan ambil beberapa foto dan mesin Open Food Facts akan mengerjakan sisanya!",
+    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Tambahkan informasi produk",
     "@add_product_information_button_label": {},
@@ -476,9 +480,9 @@
     "confirm_button_label": "Konfirmasi",
     "front_packaging_photo_title": "Foto Kemasan Depan",
     "ingredients_photo_title": "Foto Komposisi",
-    "nutritional_facts_photo_title": "Foto Informasi Nilai Gizi",
+    "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "Foto daur ulang",
-    "other_interesting_photo_title": "Foto Menarik Lainnya",
+    "other_interesting_photo_title": "Foto menarik lainnya",
     "front_photo_uploaded": "Foto depan diunggah",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto kandungan bahan",
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "New list of products",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1278,7 +1286,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "Test env parameters",
+    "dev_preferences_test_environment_title": "Test environment parameters",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test Env Host",
+    "dev_preferences_test_environment_dialog_title": "Test environment host",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1391,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude EcoScore",
+    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1530,7 @@
         }
     },
     "barcode_invalid_error": "Kode batang tidak valid",
-    "basic_details_add_success": "Informasi dasar berhasil ditambahkan",
+    "basic_details_add_success": "Basic details added successfully",
     "basic_details_add_error": "Tidak dapat menambahkan informasi dasar. Silakan coba lagi setelah beberapa saat",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1573,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list!",
+    "user_list_all_empty": "Create your first list",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1678,9 +1686,9 @@
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
-    "selected_images": "Selected Images",
-    "product_card_remove_product_tooltip": "Remove product",
+    "all_images": "Semua Gambar",
+    "selected_images": "Gambar yang dipilih",
+    "product_card_remove_product_tooltip": "Hapus produk",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
@@ -1688,7 +1696,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Informasi nilai gizi untuk {grams} g (or ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -1697,15 +1705,15 @@
             }
         }
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Data Luring",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Unggah Foto",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -1717,16 +1725,28 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Gagal mengunduh gambar",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Ingat pilihan saya",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Pilih tiap kali",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Selanjutnya",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Tampilkan Kata Sandi",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

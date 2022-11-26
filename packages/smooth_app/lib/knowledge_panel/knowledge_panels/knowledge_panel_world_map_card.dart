@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -29,6 +30,14 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             ),
             zoom: 6.0,
           ),
+          layers: <LayerOptions>[
+            TileLayerOptions(
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            ),
+            MarkerLayerOptions(
+              markers: getMarkers(mapElement.pointers),
+            ),
+          ],
           nonRotatedChildren: <Widget>[
             AttributionWidget(
               attributionBuilder: (BuildContext context) {
@@ -63,15 +72,6 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                 );
               },
             )
-          ],
-          children: <Widget>[
-            TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-              userAgentPackageName: 'world.openfoodfacts.org',
-            ),
-            MarkerLayer(
-              markers: getMarkers(mapElement.pointers),
-            ),
           ],
         ),
       ),

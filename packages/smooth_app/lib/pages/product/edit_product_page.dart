@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -34,37 +35,34 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> {
-  static const double _barcodeHeight = 120.0;
-
   final ScrollController _controller = ScrollController();
   bool _barcodeVisibleInAppbar = false;
   late Product _product;
+  late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
+
+  String get _barcode => _initialProduct.barcode!;
 
   @override
   void initState() {
     super.initState();
-    _product = widget.product;
+    _initialProduct = widget.product;
     _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_product.barcode!);
+    _localDatabase.upToDate.showInterest(_barcode);
     _controller.addListener(_onScrollChanged);
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final Product? refreshedProduct = localDatabase.upToDate.get(_product);
-    if (refreshedProduct != null) {
-      _product = refreshedProduct;
-    }
+    context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final ThemeData theme = Theme.of(context);
-    final Brightness brightness = theme.brightness;
-    final Size screenSize = MediaQuery.of(context).size;
 
     return SmoothScaffold(
       appBar: AppBar(
         centerTitle: false,
+        leading: const SmoothBackButton(),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -77,12 +75,12 @@ class _EditProductPageState extends State<EditProductPage> {
               style: theme.primaryTextTheme.headline6
                   ?.copyWith(fontWeight: FontWeight.w500),
             ),
-            if (_product.barcode?.isNotEmpty == true)
+            if (_barcode.isNotEmpty)
               AnimatedContainer(
                 duration: const Duration(milliseconds: 250),
                 height: _barcodeVisibleInAppbar ? 13.0 : 0.0,
                 child: Text(
-                  _product.barcode!,
+                  _barcode,
                   style: theme.textTheme.subtitle1?.copyWith(
                     fontWeight: FontWeight.normal,
                   ),
@@ -96,13 +94,12 @@ class _EditProductPageState extends State<EditProductPage> {
             tooltip: appLocalizations.clipboard_barcode_copy,
             onPressed: () {
               Clipboard.setData(
-                ClipboardData(text: _product.barcode),
+                ClipboardData(text: _barcode),
               );
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    appLocalizations
-                        .clipboard_barcode_copied(_product.barcode!),
+                    appLocalizations.clipboard_barcode_copied(_barcode),
                   ),
                 ),
               );
@@ -112,33 +109,15 @@ class _EditProductPageState extends State<EditProductPage> {
       ),
       body: RefreshIndicator(
         onRefresh: () async => ProductRefresher().fetchAndRefresh(
-          barcode: _product.barcode!,
+          barcode: _barcode,
           widget: this,
         ),
         child: Scrollbar(
           child: ListView(
             controller: _controller,
             children: <Widget>[
-              if (_product.barcode != null)
-                BarcodeWidget(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: screenSize.width / 4,
-                    vertical: SMALL_SPACE,
-                  ),
-                  barcode: _product.barcode!.length == 8
-                      ? Barcode.ean8()
-                      : Barcode.ean13(),
-                  data: _product.barcode!,
-                  color: brightness == Brightness.dark
-                      ? Colors.white
-                      : Colors.black,
-                  errorBuilder: (final BuildContext context, String? _) => Text(
-                    '${appLocalizations.edit_product_form_item_barcode}\n'
-                    '${_product.barcode}',
-                    textAlign: TextAlign.center,
-                  ),
-                  height: _barcodeHeight,
-                ),
+              if (_ProductBarcode.isAValidBarcode(_product.barcode))
+                _ProductBarcode(product: _product),
               _ListTitleItem(
                 title: appLocalizations.edit_product_form_item_details_title,
                 subtitle:
@@ -165,29 +144,15 @@ class _EditProductPageState extends State<EditProductPage> {
                   if (!await ProductRefresher().checkIfLoggedIn(context)) {
                     return;
                   }
-                  // TODO(monsieurtanuki): careful, waiting for pop'ed value
-                  final bool? refreshed = await Navigator.push<bool>(
+                  await Navigator.push<void>(
                     context,
-                    MaterialPageRoute<bool>(
+                    MaterialPageRoute<void>(
                       builder: (BuildContext context) =>
                           ProductImageGalleryView(
                         product: _product,
                       ),
                       fullscreenDialog: true,
                     ),
-                  );
-
-                  // TODO(monsieurtanuki): do the refresh uptream with a new ProductRefresher method
-                  if (refreshed != true) {
-                    return;
-                  }
-                  //Refetch product if needed for new urls, since no product in ProductImageGalleryView
-                  if (!mounted) {
-                    return;
-                  }
-                  await ProductRefresher().fetchAndRefresh(
-                    widget: this,
-                    barcode: _product.barcode!,
                   );
                 },
               ),
@@ -339,7 +304,8 @@ class _EditProductPageState extends State<EditProductPage> {
   }
 
   void _onScrollChanged() {
-    final bool visibleBarcode = _controller.offset > _barcodeHeight;
+    final bool visibleBarcode =
+        _controller.offset > _ProductBarcode._barcodeHeight;
 
     if (visibleBarcode != _barcodeVisibleInAppbar) {
       setState(() {
@@ -352,7 +318,7 @@ class _EditProductPageState extends State<EditProductPage> {
   void dispose() {
     _controller.removeListener(_onScrollChanged);
     _controller.dispose();
-    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    _localDatabase.upToDate.loseInterest(_barcode);
     super.dispose();
   }
 }
@@ -405,4 +371,55 @@ class _SvgIcon extends StatelessWidget {
         return Colors.white;
     }
   }
+}
+
+/// Barcodes only allowed have a length of 7, 8, 12 or 13 characters
+class _ProductBarcode extends StatelessWidget {
+  _ProductBarcode({required this.product, Key? key})
+      : assert(product.barcode?.isNotEmpty == true),
+        assert(isAValidBarcode(product.barcode)),
+        super(key: key);
+
+  static const double _barcodeHeight = 120.0;
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Brightness brightness = Theme.of(context).brightness;
+    final Size screenSize = MediaQuery.of(context).size;
+
+    return BarcodeWidget(
+      padding: EdgeInsets.symmetric(
+        horizontal: screenSize.width / 4,
+        vertical: SMALL_SPACE,
+      ),
+      barcode: _barcodeType,
+      data: product.barcode!,
+      color: brightness == Brightness.dark ? Colors.white : Colors.black,
+      errorBuilder: (final BuildContext context, String? _) => Text(
+        '${appLocalizations.edit_product_form_item_barcode}\n'
+        '${product.barcode}',
+        textAlign: TextAlign.center,
+      ),
+      height: _barcodeHeight,
+    );
+  }
+
+  Barcode get _barcodeType {
+    switch (product.barcode!.length) {
+      case 7:
+      case 8:
+        return Barcode.ean8();
+      case 12:
+      case 13:
+        return Barcode.ean13();
+      default:
+        throw Exception('Unknown barcode type!');
+    }
+  }
+
+  static bool isAValidBarcode(String? barcode) =>
+      barcode != null && <int>[7, 8, 12, 13].contains(barcode.length);
 }

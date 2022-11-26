@@ -119,7 +119,7 @@ class NutritionContainer {
 
   /// Stores the text from the end-user input.
   void setServingText(final String? text) =>
-      servingSize = text?.trim().isNotEmpty == false ? '' : text!;
+      servingSize = text?.trim().isNotEmpty == true ? text! : '';
 
   /// Typical use-case: should we make the [Unit] button clickable?
   bool isEditableWeight(final Unit unit) => _nextWeightUnits[unit] != null;

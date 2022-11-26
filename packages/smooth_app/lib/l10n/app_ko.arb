@@ -4,6 +4,10 @@
     "@yes": {},
     "add": "추가하기",
     "@add": {},
+    "account_delete_message": "계정을 삭제하시겠습니까?\n특별한 이유가 있다면 아래에 공유해주세요.",
+    "@account_delete_message": {},
+    "reason": "사유",
+    "@reason": {},
     "okay": "확인",
     "@okay": {},
     "create": "만들기",
@@ -34,7 +38,7 @@
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "계산하기",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -121,21 +125,21 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "당신의 선호도와 관련된 식품 데이터를 확인하세요.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "당신에게 좋은 음식을 선택하십시오.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "지구에 좋은 음식을 선택하십시오.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
     "sign_in_text": "기여를 저장하려면 Open Food Facts 계정에 로그인하세요",
-    "incorrect_credentials": "Incorrect username or password.",
+    "incorrect_credentials": "잘못된 사용자 이름 또는 암호입니다.",
     "login": "Username",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -235,7 +239,7 @@
     },
     "sign_up_page_agree_url": "https://world-ko.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the openfoodfacts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -254,7 +258,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "다크 모드",
+    "darkmode": "Dark mode",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -346,7 +350,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contribution",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "tap_to_edit_search": "Tap to edit search",
     "@Personal preferences": {},
     "myPreferences": "내 설정",
@@ -461,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "사진만 조금 찍어주시면 나머지는 Open Food Facts 엔진이 알아서 해결합니다!",
+    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "제품 정보 추가하기",
     "@add_product_information_button_label": {},
@@ -476,9 +480,9 @@
     "confirm_button_label": "확인",
     "front_packaging_photo_title": "전면 포장 사진",
     "ingredients_photo_title": "재료 사진",
-    "nutritional_facts_photo_title": "영양 성분 사진",
+    "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "재활용 사진",
-    "other_interesting_photo_title": "기타 흥미로운 사진",
+    "other_interesting_photo_title": "다른 흥미로운 사진",
     "front_photo_uploaded": "전면 사진 갱신됨",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "재료 사진",
@@ -1168,6 +1172,10 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
+    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
+    },
     "user_list_dialog_new_title": "새 상품 목록",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
@@ -1278,7 +1286,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_title": "테스트 환경 매개변수",
+    "dev_preferences_test_environment_title": "Test environment parameters",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1291,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "테스트 환경 호스트",
+    "dev_preferences_test_environment_dialog_title": "Test environment host",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1383,7 +1391,7 @@
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "EcoScore 제외",
+    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
@@ -1522,7 +1530,7 @@
         }
     },
     "barcode_invalid_error": "잘못된 바코드",
-    "basic_details_add_success": "기본 정보를 성공적으로 추가했습니다",
+    "basic_details_add_success": "Basic details added successfully",
     "basic_details_add_error": "기본 정보를 추가할 수 없습니다. 나중에 다시 시도해주세요",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1565,7 +1573,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "첫 목록을 만드세요!",
+    "user_list_all_empty": "Create your first list",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1699,11 +1707,11 @@
     },
     "offline_data": "Offline Data",
     "@offline_data": {
-        "description": "App bar tile for offline data page"
+        "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the provided information",
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
     "@ocr_image_upload_instruction": {
-        "description": "Message shown when there is no image on ocr extraction page"
+        "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
     "upload_image": "Upload Photo",
     "@upload_image": {
@@ -1721,12 +1729,24 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image, image url not set.",
+    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "user_picture_source_remember": "Remember my choice",
+    "@user_picture_source_remember": {
+        "description": "Checkbox label when select a picture source"
+    },
+    "user_picture_source_select": "Select each time",
+    "@user_picture_source_select": {
+        "description": "Choice of selecting the picture source each time"
     },
     "robotoff_continue": "Continue",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "show_password": "Show Password",
+    "@show_password": {
+        "description": "Show hidden password in password field"
     }
 }

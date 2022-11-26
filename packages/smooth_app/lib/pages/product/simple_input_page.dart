@@ -4,8 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/database/dao_product.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -44,8 +42,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   void initState() {
     super.initState();
 
-    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
-      helper.reInit(widget.product);
+    for (int i = 0; i < widget.helpers.length; i++) {
       _controllers.add(TextEditingController());
     }
   }
@@ -147,15 +144,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
     final Product changedProduct = Product(barcode: widget.product.barcode);
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final Product? cachedProduct = await daoProduct.get(
-      changedProduct.barcode!,
-    );
     bool changed = false;
     bool added = false;
-    final List<ProductEditTask> productEditTasks = <ProductEditTask>[];
     for (int i = 0; i < widget.helpers.length; i++) {
       final AbstractSimpleInputPageHelper helper = widget.helpers[i];
       if (helper.addItemsFromController(_controllers[i])) {
@@ -163,10 +154,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
       if (helper.getChangedProduct(changedProduct)) {
         changed = true;
-        if (cachedProduct != null) {
-          helper.getChangedProduct(cachedProduct);
-        }
-        productEditTasks.add(helper.getTask());
       }
     }
     if (added) {
@@ -206,15 +193,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     }
     await BackgroundTaskDetails.addTask(
       changedProduct,
-      productEditTasks: productEditTasks,
       widget: this,
     );
-    final Product upToDateProduct = cachedProduct ?? changedProduct;
-    await daoProduct.put(upToDateProduct);
-    localDatabase.upToDate.set(upToDateProduct);
-    if (!mounted) {
-      return false;
-    }
     return true;
   }
 

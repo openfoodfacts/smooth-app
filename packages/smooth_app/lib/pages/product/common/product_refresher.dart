@@ -46,10 +46,36 @@ class ProductRefresher {
     return false;
   }
 
+  /// Returns the standard configuration for barcode product query.
+  ProductQueryConfiguration getBarcodeQueryConfiguration(
+    final String barcode,
+  ) =>
+      ProductQueryConfiguration(
+        barcode,
+        fields: ProductQuery.fields,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
+      );
+
   /// Fetches the product from the server and refreshes the local database.
+  ///
+  /// Silent version.
+  Future<Product?> silentFetchAndRefresh({
+    required final String barcode,
+    required final LocalDatabase localDatabase,
+  }) async {
+    final _MetaProductRefresher meta =
+        await _fetchAndRefresh(localDatabase, barcode);
+    return meta.product;
+  }
+
+  /// Fetches the product from the server and refreshes the local database.
+  ///
+  /// With a waiting dialog.
   Future<void> fetchAndRefresh({
     required final String barcode,
     required final State<StatefulWidget> widget,
+    VoidCallback? onSuccessCallback,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final AppLocalizations appLocalizations =
@@ -70,14 +96,14 @@ class ProductRefresher {
       await LoadingDialog.error(context: widget.context);
       return;
     }
-    localDatabase.upToDate
-        .setLatestDownloadedProduct(fetchAndRefreshed.product!);
     ScaffoldMessenger.of(widget.context).showSnackBar(
       SnackBar(
         content: Text(appLocalizations.product_refreshed),
         duration: SnackBarDuration.short,
       ),
     );
+
+    onSuccessCallback?.call();
   }
 
   Future<_MetaProductRefresher> _fetchAndRefresh(
@@ -85,17 +111,12 @@ class ProductRefresher {
     final String barcode,
   ) async {
     try {
-      final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-        barcode,
-        fields: ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-      );
       final ProductResult result = await OpenFoodAPIClient.getProduct(
-        configuration,
+        getBarcodeQueryConfiguration(barcode),
       );
       if (result.product != null) {
         await DaoProduct(localDatabase).put(result.product!);
+        localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
         localDatabase.notifyListeners();
         return _MetaProductRefresher.product(result.product);
       }
