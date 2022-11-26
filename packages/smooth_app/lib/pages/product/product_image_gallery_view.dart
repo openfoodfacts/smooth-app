@@ -139,7 +139,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       );
   Future<void> _newImage(ProductImageData data) async {
-    final File? croppedImageFile = await startImageCropping(this);
+    final File? croppedImageFile = await startNewImageCropping(this);
     if (croppedImageFile == null) {
       return;
     }

@@ -96,7 +96,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         ),
       );
   Future<void> _newImage(ProductImageData data) async {
-    final File? croppedImageFile = await startImageCropping(this);
+    final File? croppedImageFile = await startNewImageCropping(this);
     if (croppedImageFile == null) {
       return;
     }
