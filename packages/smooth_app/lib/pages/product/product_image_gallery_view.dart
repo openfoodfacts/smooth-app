@@ -46,11 +46,13 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(_barcode);
   }
+
   @override
   void dispose() {
     _localDatabase.upToDate.loseInterest(_barcode);
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -112,6 +114,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       ),
     );
   }
+
   SliverPadding _buildTitle(String title, {required ThemeData theme}) =>
       SliverPadding(
         padding: const EdgeInsets.all(LARGE_SPACE),
