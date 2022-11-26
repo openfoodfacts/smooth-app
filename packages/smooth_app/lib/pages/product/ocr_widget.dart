@@ -86,8 +86,7 @@ class OcrWidget extends StatelessWidget {
                         )
                       else
                         // TODO(monsieurtanuki): what if slow upload? text instead?
-                        const CircularProgressIndicator.adaptive(),
-                      const SizedBox(height: MEDIUM_SPACE),
+                        const SizedBox(height: MEDIUM_SPACE),
                       TextField(
                         controller: controller,
                         decoration: InputDecoration(
