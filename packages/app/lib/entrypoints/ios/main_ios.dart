@@ -1,3 +1,4 @@
+import 'package:app_store_apple_store/app_store_apple.dart';
 import 'package:scanner_mlkit/scanner_mlkit.dart';
 import 'package:smooth_app/main.dart';
 
@@ -7,5 +8,6 @@ import 'package:smooth_app/main.dart';
 void main() {
   launchSmoothApp(
     scanner: MLKitCameraScanner(),
+    appStore: AppleAppStore('588797948'),
   );
 }

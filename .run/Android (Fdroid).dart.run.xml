@@ -3,6 +3,7 @@
     <option name="filePath" value="$PROJECT_DIR$/packages/app/lib/entrypoints/android/main_fdroid.dart" />
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Enable scanner_zxing dependency" run_configuration_type="ShConfigurationType" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Enable uri_store dependency" run_configuration_type="ShConfigurationType" />
     </method>
   </configuration>
 </component>

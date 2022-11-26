@@ -5,13 +5,16 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class LoginPage extends StatefulWidget {
@@ -51,6 +54,12 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
     if (login) {
       AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
+      if (!mounted) {
+        return;
+      }
+
+      await showInAppReviewIfNecessary(context);
+
       if (!mounted) {
         return;
       }
@@ -331,5 +340,39 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         ),
       ),
     );
+  }
+
+  Future<void> showInAppReviewIfNecessary(BuildContext context) async {
+    final UserPreferences preferences = context.read<UserPreferences>();
+
+    if (!preferences.inAppReviewAlreadyAsked) {
+      assert(mounted);
+
+      if (await showDialog<bool>(
+            context: context,
+            builder: (BuildContext context) {
+              final AppLocalizations appLocalizations =
+                  AppLocalizations.of(context);
+
+              return SmoothAlertDialog(
+                title: appLocalizations.app_rating_dialog_title,
+                body: Text(appLocalizations.app_rating_dialog_body),
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.app_rating_dialog_positive_action,
+                  onPressed: () async => Navigator.of(context).pop(
+                    await ApplicationStore.openAppReview(),
+                  ),
+                ),
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.app_rating_dialog_negative_action,
+                  onPressed: () => Navigator.of(context).pop(false),
+                ),
+              );
+            },
+          ) ==
+          true) {
+        await preferences.markInAppReviewAsShown();
+      }
+    }
   }
 }
