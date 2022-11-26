@@ -443,7 +443,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     } else {
       _scrollController.animateTo(
         0,
-        duration: SnackBarDuration.medium,
+        duration: const Duration(milliseconds: 6),
         curve: Curves.linear,
       );
     }
