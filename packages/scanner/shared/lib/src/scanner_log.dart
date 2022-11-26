@@ -5,9 +5,8 @@ mixin CameraScannerLogMixin {
       StreamController<CameraScannerLog>.broadcast();
 
   void addLog(
-          {required String message,
-          dynamic exception,
-          StackTrace? stackTrace}) =>
+      {required String message, dynamic exception, StackTrace? stackTrace}) {
+    if (!_controller.isClosed) {
       _controller.add(
         CameraScannerLog(
           message,
@@ -15,6 +14,8 @@ mixin CameraScannerLogMixin {
           stackTrace: stackTrace,
         ),
       );
+    }
+  }
 
   Stream<CameraScannerLog> get controller => _controller.stream;
 
