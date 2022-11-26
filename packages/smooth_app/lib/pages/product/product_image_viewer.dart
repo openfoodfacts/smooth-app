@@ -11,7 +11,6 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
