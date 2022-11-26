@@ -388,9 +388,24 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     await _disposeSoundManager();
   }
 
-  Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
+  /// [shouldRetry] indicates if we should retry to resume if the screen is invisible
+  Future<void> _onResumeImageStream({
+    bool forceStartPreview = false,
+    bool shouldRetry = true,
+  }) async {
     if (stoppingCamera ||
         (!forceStartPreview && ScreenVisibilityDetector.invisible(context))) {
+      if (shouldRetry) {
+        SchedulerBinding.instance.addPostFrameCallback((_) {
+          _onResumeImageStream(
+            forceStartPreview: forceStartPreview,
+            shouldRetry: false,
+          );
+        });
+
+        _redrawScreen();
+      }
+
       return;
     }
 
@@ -412,7 +427,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         // Just wait
         return;
       }
-      return _stopImageStream();
+      return _stopImageStream(autoRestart: true);
     }
 
     if (_streamSubscription?.isPaused == true) {
@@ -430,6 +445,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         return _stopImageStream();
       }
     }
+
     stoppingCamera = false;
   }
 
@@ -454,7 +470,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     CameraHelper.destroyControllerInstance();
 
     await _streamSubscription?.cancel();
-    await _barcodeDecoder.onDispose();
+    try {
+      await _barcodeDecoder.onDispose().timeout(const Duration(seconds: 5));
+    } catch (_) {}
 
     stoppingCamera = false;
 

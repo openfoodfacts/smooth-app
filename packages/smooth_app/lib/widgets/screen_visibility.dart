@@ -25,10 +25,16 @@ class _ScreenVisibilityDetectorState extends State<ScreenVisibilityDetector> {
 
   @override
   Widget build(BuildContext context) {
+    // The first time the Widget is called, [onVisibilityChanged] is not called
+    // And it will keep the initial value -> [false] which is wrong
+    if (!_notifier.isVisible) {
+      _notifier.updateValue(true);
+    }
+
     return VisibilityDetector(
       key: const ValueKey<String>('ScreenVisibility'),
       onVisibilityChanged: (VisibilityInfo info) {
-        _notifier.updateValue(info);
+        _notifier.updateValue(info.visible);
       },
       child: ChangeNotifierProvider<ScreenVisibility>.value(
         value: _notifier,
@@ -43,9 +49,7 @@ class ScreenVisibility extends ValueNotifier<bool> {
 
   bool get isVisible => value;
 
-  void updateValue(VisibilityInfo info) {
-    final bool visible = info.visible;
-
+  void updateValue(bool visible) {
     if (value != visible) {
       value = visible;
     }
