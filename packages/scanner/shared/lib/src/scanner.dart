@@ -43,9 +43,7 @@ abstract class CameraScanner with CameraScannerLogMixin {
   Future<void> onResume() async {}
 
   @mustCallSuper
-  Future<void> onDispose() async {
-    disposeLogs();
-  }
+  Future<void> onDispose() async => disposeLogs();
 
   @protected
   Stream<CameraScannerLog> listenToLogs() => controller;
