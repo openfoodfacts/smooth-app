@@ -31,10 +31,12 @@ class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
     required this.productListSupplier,
     required this.name,
+    required this.editableAppBarTitle,
   });
 
   final ProductListSupplier productListSupplier;
   final String name;
+  final bool editableAppBarTitle;
 
   @override
   State<ProductQueryPage> createState() => _ProductQueryPageState();
@@ -199,7 +201,10 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           elevation: 2,
           automaticallyImplyLeading: false,
           leading: const SmoothBackButton(),
-          title: _AppBarTitle(name: widget.name),
+          title: _AppBarTitle(
+            name: widget.name,
+            editableAppBarTitle: widget.editableAppBarTitle,
+          ),
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
@@ -438,7 +443,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     } else {
       _scrollController.animateTo(
         0,
-        duration: SnackBarDuration.medium,
+        duration: const Duration(milliseconds: 6),
         curve: Curves.linear,
       );
     }
@@ -485,7 +490,10 @@ class _EmptyScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: const SmoothBackButton(),
-        title: _AppBarTitle(name: name),
+        title: _AppBarTitle(
+          name: name,
+          editableAppBarTitle: false,
+        ),
         actions: actions,
       ),
       body: Center(child: emptiness),
@@ -496,27 +504,35 @@ class _EmptyScreen extends StatelessWidget {
 class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
     required this.name,
+    required this.editableAppBarTitle,
     Key? key,
   }) : super(key: key);
 
   final String name;
+  final bool editableAppBarTitle;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
-      },
-      child: Tooltip(
-        message: appLocalizations.tap_to_edit_search,
-        child: AutoSizeText(
-          name,
-          maxLines: 2,
-        ),
-      ),
+    final Widget child = AutoSizeText(
+      name,
+      maxLines: 2,
     );
+
+    if (editableAppBarTitle) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+      return GestureDetector(
+        onTap: () {
+          Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
+        },
+        child: Tooltip(
+          message: appLocalizations.tap_to_edit_search,
+          child: child,
+        ),
+      );
+    } else {
+      return child;
+    }
   }
 }
 

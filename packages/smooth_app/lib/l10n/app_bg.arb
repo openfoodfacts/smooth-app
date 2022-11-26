@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "Добави",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "Сигурен ли си, че искаш да изтриеш акаунта си?\nАко има конкретна причина, моля сподели по-долу",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "Причина",
     "@reason": {},
     "okay": "Добре",
     "@okay": {},
@@ -1171,6 +1171,10 @@
     "edit_packaging_refresh_photo_btn_text": "Обнови снимката",
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
+    },
+    "edit_ocr_extract_failed": "Неуспешно откриване на текст в снимката.",
+    "@edit_ocr_extract_failed": {
+        "description": "OCR extraction - message for failed"
     },
     "user_list_dialog_new_title": "Нов списък с продукти",
     "@user_list_dialog_new_title": {

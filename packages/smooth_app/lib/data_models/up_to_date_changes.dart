@@ -55,14 +55,8 @@ class UpToDateChanges {
     return product;
   }
 
-  Future<String> add(final Product product) async {
-    final String key = await taskActionable.getNewKey(
-      localDatabase,
-      product.barcode!,
-    );
-    _daoTransientProduct.put(key, product);
-    return key;
-  }
+  Future<void> add(final String key, final Product product) async =>
+      _daoTransientProduct.put(key, product);
 
   /// Returns true if some actions have not been terminated.
   bool hasNotTerminatedOperations(final String barcode) {

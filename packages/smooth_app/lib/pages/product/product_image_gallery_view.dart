@@ -1,18 +1,16 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_images_sliver_list.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -37,10 +35,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
   late Map<ProductImageData, ImageProvider?> _selectedImages;
 
-  bool _isRefreshed = false;
-
   ImageProvider? _provideImage(ProductImageData imageData) =>
-      imageData.imageUrl == null ? null : NetworkImage(imageData.imageUrl!);
+      TransientFile.getImageProvider(imageData, _barcode);
 
   String get _barcode => _initialProduct.barcode!;
 
@@ -84,7 +80,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
               )
             : null,
         leading: SmoothBackButton(
-          onPressed: () => Navigator.maybePop(context, _isRefreshed),
+          onPressed: () => Navigator.maybePop(context),
         ),
       ),
       body: RefreshIndicator(
@@ -102,7 +98,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
               SmoothImagesSliverList(
                 imagesData: _selectedImages,
                 onTap: (ProductImageData data, _) =>
-                    data.imageUrl != null ? _openImage(data) : _newImage(data),
+                    TransientFile.isImageAvailable(data, _barcode)
+                        ? _openImage(data)
+                        : _newImage(data),
               ),
             ],
           ),
@@ -127,44 +125,16 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         context,
         MaterialPageRoute<void>(
           builder: (_) => ProductImageViewer(
-            barcode: _barcode,
-            imageData: imageData,
+            product: _product,
+            imageField: imageData.imageField,
           ),
         ),
       );
 
-  Future<void> _newImage(ProductImageData data) async {
-    final File? croppedImageFile = await startImageCropping(this);
-    if (croppedImageFile == null) {
-      return;
-    }
-    if (!mounted) {
-      return;
-    }
-    setState(() {
-      final FileImage fileImage = FileImage(croppedImageFile);
-      final ImageField imageField = data.imageField;
-      for (final ProductImageData productImageData in _selectedImages.keys) {
-        if (productImageData.imageField == imageField) {
-          _selectedImages[productImageData] = fileImage;
-          return;
-        }
-      }
-    });
-    final File? uploaded = await Navigator.push<File>(
-      context,
-      MaterialPageRoute<File>(
-        builder: (BuildContext context) => ConfirmAndUploadPicture(
-          barcode: _barcode,
-          imageField: data.imageField,
-          initialPhoto: croppedImageFile,
-        ),
-      ),
-    );
-    final bool isUploaded = uploaded != null;
-
-    if (isUploaded) {
-      _isRefreshed = true;
-    }
-  }
+  Future<void> _newImage(ProductImageData data) async =>
+      confirmAndUploadNewPicture(
+        this,
+        barcode: _barcode,
+        imageField: data.imageField,
+      );
 }

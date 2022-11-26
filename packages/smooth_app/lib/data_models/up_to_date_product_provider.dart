@@ -116,9 +116,12 @@ class UpToDateProductProvider {
   /// * the method creates a new minimalist change
   /// * that change has a (new) key
   /// * after creating the change, the method returns the key
-  Future<String> addChange(final Product minimalistProduct) async {
+  Future<String> addChange(
+    final String key,
+    final Product minimalistProduct,
+  ) async {
     final String barcode = minimalistProduct.barcode!;
-    final String key = await _changes.add(minimalistProduct);
+    await _changes.add(key, minimalistProduct);
     _timestamps[barcode] = LocalDatabase.nowInMillis();
     localDatabase.notifyListeners();
     return key;

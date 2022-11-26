@@ -62,7 +62,6 @@ dependencies:
   task_manager:
     git:
       url: "https://github.com/g123k/flutter_task_manager.git"
-
   audioplayers: 1.0.0
   percent_indicator: 4.2.2
   flutter_email_sender: 5.1.0
