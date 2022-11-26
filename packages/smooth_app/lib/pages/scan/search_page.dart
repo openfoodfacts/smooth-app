@@ -25,7 +25,7 @@ void _performSearch(
   }
 
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
-  DaoStringList(localDatabase).add(query);
+  DaoStringList(localDatabase).add(DaoStringList.keySearchHistory, query);
 
   if (int.tryParse(query) != null) {
     _onSubmittedBarcode(

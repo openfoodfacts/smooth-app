@@ -34,16 +34,11 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   late final LocalDatabase _localDatabase;
   late final Product _initialProduct;
   late Product _product;
-
   late Map<ProductImageData, ImageProvider?> _selectedImages;
-
   bool _isRefreshed = false;
-
   ImageProvider? _provideImage(ProductImageData imageData) =>
       imageData.imageUrl == null ? null : NetworkImage(imageData.imageUrl!);
-
   String get _barcode => _initialProduct.barcode!;
-
   @override
   void initState() {
     super.initState();
@@ -51,13 +46,11 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(_barcode);
   }
-
   @override
   void dispose() {
     _localDatabase.upToDate.loseInterest(_barcode);
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -119,7 +112,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       ),
     );
   }
-
   SliverPadding _buildTitle(String title, {required ThemeData theme}) =>
       SliverPadding(
         padding: const EdgeInsets.all(LARGE_SPACE),
@@ -130,7 +122,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           ),
         ),
       );
-
   Future<void> _openImage({
     required int index,
     required Map<ProductImageData, ImageProvider?> selectedImages,
@@ -147,7 +138,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           },
         ),
       );
-
   Future<void> _newImage(ProductImageData data) async {
     final File? croppedImageFile = await startImageCropping(this);
     if (croppedImageFile == null) {

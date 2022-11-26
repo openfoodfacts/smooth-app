@@ -20,6 +20,9 @@ class _HistoryPageState extends State<HistoryPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     DaoProductList(context.watch<LocalDatabase>()).get(productList).then((_) {
+      if (!mounted) {
+        return;
+      }
       setState(() {});
     });
   }
