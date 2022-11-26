@@ -87,7 +87,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
               child: ProductImageCarousel(
                 _product,
                 height: size.height * 0.20,
-                onUpload: (_) {},
               ),
             ),
             SizedBox(height: _heightSpace),

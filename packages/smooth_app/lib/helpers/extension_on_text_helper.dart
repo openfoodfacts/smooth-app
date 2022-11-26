@@ -6,6 +6,11 @@ extension Selectable on Text {
         ? SelectableText(
             data!,
             style: style,
+            strutStyle: strutStyle,
+            textDirection: textDirection,
+            textScaleFactor: textScaleFactor,
+            textAlign: textAlign,
+            maxLines: maxLines,
             toolbarOptions: const ToolbarOptions(
               copy: true,
               selectAll: true,
@@ -14,6 +19,11 @@ extension Selectable on Text {
         : Text(
             data!,
             style: style,
+            strutStyle: strutStyle,
+            textDirection: textDirection,
+            textScaleFactor: textScaleFactor,
+            textAlign: textAlign,
+            maxLines: maxLines,
           );
   }
 }
