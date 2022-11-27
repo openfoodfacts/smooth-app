@@ -9,7 +9,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
-import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/scan/camera_scan_page.dart';
 import 'package:smooth_app/pages/scan/scan_visor.dart';
 import 'package:smooth_app/pages/scan/scanner_overlay.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
