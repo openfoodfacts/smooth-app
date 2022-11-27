@@ -54,7 +54,11 @@ class SmoothImagesSliverGrid extends SmoothImagesView {
                         image: imageProvider,
                         onTap: onTap == null
                             ? null
-                            : () => onTap!(entry.key, entry.value),
+                            : () => onTap!(
+                                  entry.key,
+                                  entry.value,
+                                  null,
+                                ),
                       ),
                     );
             }),
