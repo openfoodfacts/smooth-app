@@ -108,33 +108,24 @@ Widget addPanelButton(
     );
 
 List<ProductImageData> getProductMainImagesData(
-  Product product,
-  AppLocalizations appLocalizations, {
+  Product product, {
   final bool includeOther = true,
 }) =>
     <ProductImageData>[
-      getProductImageData(product, appLocalizations, ImageField.FRONT),
-      getProductImageData(product, appLocalizations, ImageField.INGREDIENTS),
-      getProductImageData(product, appLocalizations, ImageField.NUTRITION),
-      getProductImageData(product, appLocalizations, ImageField.PACKAGING),
-      if (includeOther)
-        getProductImageData(product, appLocalizations, ImageField.OTHER),
+      getProductImageData(product, ImageField.FRONT),
+      getProductImageData(product, ImageField.INGREDIENTS),
+      getProductImageData(product, ImageField.NUTRITION),
+      getProductImageData(product, ImageField.PACKAGING),
+      if (includeOther) getProductImageData(product, ImageField.OTHER),
     ];
 
 ProductImageData getProductImageData(
   final Product product,
-  final AppLocalizations? appLocalizations,
   final ImageField imageField,
 ) =>
     ProductImageData(
       imageField: imageField,
       imageUrl: getProductImageUrl(product, imageField),
-      title: appLocalizations == null
-          ? ''
-          : getProductImageTitle(appLocalizations, imageField),
-      buttonText: appLocalizations == null
-          ? ''
-          : getProductImageButtonText(appLocalizations, imageField),
     );
 
 String? getProductImageUrl(
@@ -155,6 +146,7 @@ String? getProductImageUrl(
   }
 }
 
+/// Returns a compact description of the image field.
 String getProductImageTitle(
   final AppLocalizations appLocalizations,
   final ImageField imageField,
@@ -170,6 +162,25 @@ String getProductImageTitle(
       return appLocalizations.packaging_information;
     case ImageField.OTHER:
       return appLocalizations.more_photos;
+  }
+}
+
+/// Returns a verbose description of the image field.
+String getImagePageTitle(
+  final AppLocalizations appLocalizations,
+  final ImageField imageField,
+) {
+  switch (imageField) {
+    case ImageField.FRONT:
+      return appLocalizations.front_packaging_photo_title;
+    case ImageField.INGREDIENTS:
+      return appLocalizations.ingredients_photo_title;
+    case ImageField.NUTRITION:
+      return appLocalizations.nutritional_facts_photo_title;
+    case ImageField.PACKAGING:
+      return appLocalizations.recycling_photo_title;
+    case ImageField.OTHER:
+      return appLocalizations.other_interesting_photo_title;
   }
 }
 

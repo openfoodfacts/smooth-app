@@ -61,11 +61,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    _imageData = getProductImageData(
-      _product,
-      appLocalizations,
-      widget.imageField,
-    );
+    _imageData = getProductImageData(_product, widget.imageField);
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       _imageData,
       _barcode,

@@ -8,6 +8,7 @@ import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -51,7 +52,7 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     return SmoothScaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(_getAppBarTitle(appLocalizations, widget.imageField)),
+        title: Text(getImagePageTitle(appLocalizations, widget.imageField)),
       ),
       body: Stack(
         children: <Widget>[
@@ -74,8 +75,10 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                       iconData: Icons.camera_alt,
                       label: appLocalizations.capture,
                       onPressed: () async {
-                        final File? retakenPhoto =
-                            await startNewImageCropping(this);
+                        final File? retakenPhoto = await startNewImageCropping(
+                          this,
+                          widget.imageField,
+                        );
                         if (retakenPhoto == null) {
                           return;
                         }
@@ -90,7 +93,11 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
                       label: appLocalizations.edit_photo_button_label,
                       onPressed: () async {
                         final File? croppedPhoto =
-                            await startExistingImageCropping(this, photo);
+                            await startExistingImageCropping(
+                          this,
+                          widget.imageField,
+                          photo,
+                        );
                         if (croppedPhoto == null) {
                           return;
                         }
@@ -124,24 +131,6 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
         ],
       ),
     );
-  }
-
-  String _getAppBarTitle(
-    final AppLocalizations appLocalizations,
-    final ImageField imageField,
-  ) {
-    switch (imageField) {
-      case ImageField.FRONT:
-        return appLocalizations.front_packaging_photo_title;
-      case ImageField.INGREDIENTS:
-        return appLocalizations.ingredients_photo_title;
-      case ImageField.NUTRITION:
-        return appLocalizations.nutritional_facts_photo_title;
-      case ImageField.PACKAGING:
-        return appLocalizations.recycling_photo_title;
-      case ImageField.OTHER:
-        return appLocalizations.other_interesting_photo_title;
-    }
   }
 
   Future<void> _uploadCapturedPicture({

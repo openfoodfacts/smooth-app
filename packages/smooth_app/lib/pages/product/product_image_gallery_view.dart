@@ -61,11 +61,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final List<ProductImageData> allProductImagesData =
-        getProductMainImagesData(
-      _product,
-      appLocalizations,
-      includeOther: false,
-    );
+        getProductMainImagesData(_product, includeOther: false);
     _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
       allProductImagesData,
       allProductImagesData.map(_provideImage),

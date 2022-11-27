@@ -109,11 +109,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    final ProductImageData productImageData = getProductImageData(
-      _product,
-      appLocalizations,
-      _helper.getImageField(),
-    );
+    final ProductImageData productImageData =
+        getProductImageData(_product, _helper.getImageField());
 
     return SmoothScaffold(
       extendBodyBehindAppBar: true,
