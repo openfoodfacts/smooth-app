@@ -73,7 +73,7 @@ jobs:
       BUILD_TYPE: 'appbundle'
       FLAVOR: 'main_google_play'
       SCANNER: 'google_play'
-      APP_REVIEW: ''
+      APP_REVIEW: 'uri_store'
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
       DECRYPT_GPG_KEYSTORE: ${{secrets.DECRYPT_GPG_KEYSTORE }}
