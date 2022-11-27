@@ -72,7 +72,7 @@ jobs:
       RELEASE_TYPE: 'PLAY'
       BUILD_TYPE: 'appbundle'
       FLAVOR: 'main_google_play'
-      SCANNER: ''
+      SCANNER: 'google_play'
       APP_REVIEW: ''
     secrets:
       API_JSON_FILE_DECRYPTKEY: ${{secrets.API_JSON_FILE_DECRYPTKEY }}
