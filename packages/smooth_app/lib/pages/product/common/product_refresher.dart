@@ -75,6 +75,7 @@ class ProductRefresher {
   Future<void> fetchAndRefresh({
     required final String barcode,
     required final State<StatefulWidget> widget,
+    VoidCallback? onSuccessCallback,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final AppLocalizations appLocalizations =
@@ -101,6 +102,8 @@ class ProductRefresher {
         duration: SnackBarDuration.short,
       ),
     );
+
+    onSuccessCallback?.call();
   }
 
   Future<_MetaProductRefresher> _fetchAndRefresh(

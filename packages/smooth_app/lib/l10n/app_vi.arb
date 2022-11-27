@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "Thêm vào",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "Bạn có chắc rằng bạn muốn xóa tài khoản của bạn?\nNếu có lý do cụ thể hãy chia sẻ bên dưới",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "Lý do",
     "@reason": {},
     "okay": "Okay",
     "@okay": {},
@@ -23,7 +23,7 @@
     "go_back_to_top": "Quay trở lại bên trên",
     "save": "Lưu",
     "save_confirmation": "Bạn chắc chắn muốn lưu?",
-    "skip": "Skip",
+    "skip": "Bỏ qua",
     "cancel": "Huỷ",
     "@cancel": {},
     "ignore": "Bỏ qua",
@@ -36,7 +36,7 @@
     "@no": {},
     "stop": "Dừng",
     "@stop": {},
-    "finish": "Finish",
+    "finish": "Hoàn thành",
     "@finish": {},
     "calculate": "Tính toán",
     "@calculate": {
@@ -278,8 +278,8 @@
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Contributors",
-    "support": "Support",
+    "contributors": "Người đóng góp",
+    "support": "Hỗ Trợ",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
@@ -1172,7 +1172,7 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "edit_ocr_extract_failed": "Không thể phát hiện văn bản trong hình ảnh.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
@@ -1299,7 +1299,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test environment host",
+    "dev_preferences_test_environment_dialog_title": "Máy chủ môi trường thử nghiệm",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -1748,5 +1748,9 @@
     "show_password": "Hiện mật khẩu",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "Do you like our app?",
+    "app_rating_dialog_body": "Please give us 5 stars on the store!",
+    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_negative_action": "Để sau"
 }

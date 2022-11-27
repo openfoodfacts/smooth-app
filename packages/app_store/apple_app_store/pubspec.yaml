@@ -1,0 +1,24 @@
+name: app_store_apple_store
+description: Apple App Store implementation
+version: 0.0.1
+publish_to: "none"
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: "<3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  in_app_review: 2.0.4
+
+  app_store_shared:
+    path: ../shared
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 2.0.1
+  openfoodfacts_flutter_lints:
+    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
