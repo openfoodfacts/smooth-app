@@ -18,7 +18,6 @@ import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
 import 'package:smooth_app/pages/product/ocr_packaging_helper.dart';
-import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
@@ -194,29 +193,11 @@ class _EditProductPageState extends State<EditProductPage> {
                     .edit_product_form_item_nutrition_facts_title,
                 subtitle: appLocalizations
                     .edit_product_form_item_nutrition_facts_subtitle,
-                onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                    return;
-                  }
-                  final OrderedNutrientsCache? cache =
-                      await OrderedNutrientsCache.getCache(context);
-                  if (cache == null) {
-                    return;
-                  }
-                  if (!mounted) {
-                    return;
-                  }
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => NutritionPageLoaded(
-                        _product,
-                        cache.orderedNutrients,
-                      ),
-                      fullscreenDialog: true,
-                    ),
-                  );
-                },
+                onTap: () async => NutritionPageLoaded.showNutritionPage(
+                  product: _product,
+                  isLoggedInMandatory: true,
+                  widget: this,
+                ),
               ),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
