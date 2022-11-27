@@ -100,13 +100,13 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 onTap: (
                   ProductImageData data,
                   _,
-                  int? initialProductImageCategoryIndex,
+                  int? initialImageIndex,
                 ) =>
                     TransientFile.isImageAvailable(data, _barcode)
                         ? _openImage(
                             imageData: data,
-                            initialProductImageCategoryIndex:
-                                initialProductImageCategoryIndex ?? 0,
+                            initialImageIndex:
+                                initialImageIndex ?? 0,
                           )
                         : _newImage(data),
               ),
@@ -130,13 +130,13 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
   Future<void> _openImage({
     required ProductImageData imageData,
-    required int initialProductImageCategoryIndex,
+    required int initialImageIndex,
   }) async =>
       Navigator.push(
         context,
         MaterialPageRoute<void>(
           builder: (_) => ProductImageSwipeableView(
-            initialProductImageCategoryIndex: initialProductImageCategoryIndex,
+            initialImageIndex: initialImageIndex,
             product: _product,
           ),
         ),

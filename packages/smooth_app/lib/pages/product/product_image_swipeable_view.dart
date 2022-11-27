@@ -12,15 +12,15 @@ import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 ///Widget to display swipeable product images of particular category,
-///Opens product image with [initialProductImageCategoryIndex].
+///Opens product image with [initialImageIndex].
 class ProductImageSwipeableView extends StatefulWidget {
   const ProductImageSwipeableView({
     super.key,
     required this.product,
-    required this.initialProductImageCategoryIndex,
+    required this.initialImageIndex,
   });
   final Product product;
-  final int initialProductImageCategoryIndex;
+  final int initialImageIndex;
   @override
   State<ProductImageSwipeableView> createState() =>
       _ProductImageSwipeableViewState();
@@ -28,6 +28,8 @@ class ProductImageSwipeableView extends StatefulWidget {
 
 class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
   late final LocalDatabase _localDatabase;
+  //Making use of [ValueNotifier] such that to avoid performance issues 
+  //while swipping between pages by making sure only [Text] widget for product title is rebuilt
   final ValueNotifier<int> _currentImageDataIndex = ValueNotifier<int>(0);
   late Map<ProductImageData, ImageProvider?> _selectedImages;
   late List<ProductImageData> _imageDataList;
@@ -47,7 +49,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(_barcode);
     _controller = PageController(
-      initialPage: widget.initialProductImageCategoryIndex,
+      initialPage: widget.initialImageIndex,
     );
   }
 

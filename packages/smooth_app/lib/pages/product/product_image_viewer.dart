@@ -92,7 +92,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             constraints: BoxConstraints.tight(
               Size(double.infinity, MediaQuery.of(context).size.height / 2),
             ),
-            // TODO(monsieurtanuki): what if null?
             child: imageProvider == null
                 ? const PictureNotFound()
                 : PhotoView(
