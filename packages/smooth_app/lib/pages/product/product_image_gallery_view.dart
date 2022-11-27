@@ -11,7 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/product_image_viewer.dart';
+import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -97,9 +97,17 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
               ),
               SmoothImagesSliverList(
                 imagesData: _selectedImages,
-                onTap: (ProductImageData data, _) =>
+                onTap: (
+                  ProductImageData data,
+                  _,
+                  int? initialProductImageCategoryIndex,
+                ) =>
                     TransientFile.isImageAvailable(data, _barcode)
-                        ? _openImage(data)
+                        ? _openImage(
+                            imageData: data,
+                            initialProductImageCategoryIndex:
+                                initialProductImageCategoryIndex ?? 0,
+                          )
                         : _newImage(data),
               ),
             ],
@@ -120,13 +128,16 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       );
 
-  Future<void> _openImage(ProductImageData imageData) async =>
-      Navigator.push<void>(
+  Future<void> _openImage({
+    required ProductImageData imageData,
+    required int initialProductImageCategoryIndex,
+  }) async =>
+      Navigator.push(
         context,
         MaterialPageRoute<void>(
-          builder: (_) => ProductImageViewer(
+          builder: (_) => ProductImageSwipeableView(
+            initialProductImageCategoryIndex: initialProductImageCategoryIndex,
             product: _product,
-            imageField: imageData.imageField,
           ),
         ),
       );

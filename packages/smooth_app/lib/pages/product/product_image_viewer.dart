@@ -14,6 +14,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -75,20 +76,16 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
       floatingActionButton: FloatingActionButton.extended(
-        label: Text(appLocalizations.edit_photo_button_label),
-        icon: const Icon(Icons.edit),
+        label: Text(
+          imageProvider == null
+              ? appLocalizations.add
+              : appLocalizations.edit_photo_button_label,
+        ),
+        icon: Icon(
+          imageProvider == null ? Icons.add : Icons.edit,
+        ),
         backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () async => _editImage(),
-      ),
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        foregroundColor: WHITE_COLOR,
-        elevation: 0,
-        title: Text(_imageData.title),
-        leading: SmoothBackButton(
-          iconColor: Colors.white,
-          onPressed: () => Navigator.maybePop(context),
-        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -97,18 +94,20 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             constraints: BoxConstraints.tight(
               Size(double.infinity, MediaQuery.of(context).size.height / 2),
             ),
-            child: PhotoView(
-              minScale: 0.2,
-              imageProvider:
-                  imageProvider, // TODO(monsieurtanuki): what if null?
-              heroAttributes: PhotoViewHeroAttributes(
-                tag: imageProvider ??
-                    Object(), // TODO(monsieurtanuki): what if null?
-              ),
-              backgroundDecoration: const BoxDecoration(
-                color: Colors.black,
-              ),
-            ),
+            child: imageProvider == null
+                ? const PictureNotFound()
+                : PhotoView(
+                    minScale: 0.2,
+                    imageProvider:
+                        imageProvider, // TODO(monsieurtanuki): what if null?
+                    heroAttributes: PhotoViewHeroAttributes(
+                      tag: imageProvider ??
+                          Object(), // TODO(monsieurtanuki): what if null?
+                    ),
+                    backgroundDecoration: const BoxDecoration(
+                      color: Colors.black,
+                    ),
+                  ),
           ),
         ],
       ),
