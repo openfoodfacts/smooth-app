@@ -105,8 +105,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                     TransientFile.isImageAvailable(data, _barcode)
                         ? _openImage(
                             imageData: data,
-                            initialImageIndex:
-                                initialImageIndex ?? 0,
+                            initialImageIndex: initialImageIndex ?? 0,
                           )
                         : _newImage(data),
               ),
