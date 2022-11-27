@@ -11,7 +11,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
-import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const EdgeInsetsGeometry _ROW_PADDING_TOP = EdgeInsetsDirectional.only(
@@ -203,33 +202,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       child: SmoothLargeButtonWithIcon(
         text: AppLocalizations.of(context).nutritional_facts_input_button_label,
         icon: Icons.edit,
-        onPressed: () async {
-          final OrderedNutrientsCache? cache =
-              await OrderedNutrientsCache.getCache(context);
-          if (!mounted) {
-            return;
-          }
-          if (cache == null) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                    AppLocalizations.of(context).nutrition_cache_loading_error),
-              ),
-            );
-            return;
-          }
-          await Navigator.push<void>(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => NutritionPageLoaded(
-                Product(barcode: widget.barcode),
-                cache.orderedNutrients,
-                isLoggedInMandatory: false,
-              ),
-              fullscreenDialog: true,
-            ),
-          );
-        },
+        onPressed: () async => NutritionPageLoaded.showNutritionPage(
+          product: Product(barcode: widget.barcode),
+          isLoggedInMandatory: false,
+          widget: this,
+        ),
       ),
     );
   }

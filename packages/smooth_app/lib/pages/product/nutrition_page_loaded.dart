@@ -15,8 +15,10 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
+import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -27,7 +29,7 @@ class NutritionPageLoaded extends StatefulWidget {
   const NutritionPageLoaded(
     this.product,
     this.orderedNutrients, {
-    this.isLoggedInMandatory = true,
+    required this.isLoggedInMandatory,
   });
 
   final Product product;
@@ -36,6 +38,51 @@ class NutritionPageLoaded extends StatefulWidget {
 
   @override
   State<NutritionPageLoaded> createState() => _NutritionPageLoadedState();
+
+  /// Shows the nutrition page after loading the ordered nutrient list.
+  static Future<void> showNutritionPage({
+    required final Product product,
+    required final bool isLoggedInMandatory,
+    required final State<StatefulWidget> widget,
+  }) async {
+    if (!widget.mounted) {
+      return;
+    }
+    if (isLoggedInMandatory) {
+      if (!await ProductRefresher().checkIfLoggedIn(widget.context)) {
+        return;
+      }
+    }
+    if (!widget.mounted) {
+      return;
+    }
+    final OrderedNutrientsCache? cache =
+        await OrderedNutrientsCache.getCache(widget.context);
+    if (!widget.mounted) {
+      return;
+    }
+    if (cache == null) {
+      ScaffoldMessenger.of(widget.context).showSnackBar(
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(widget.context).nutrition_cache_loading_error,
+          ),
+        ),
+      );
+      return;
+    }
+    await Navigator.push<void>(
+      widget.context,
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) => NutritionPageLoaded(
+          product,
+          cache.orderedNutrients,
+          isLoggedInMandatory: isLoggedInMandatory,
+        ),
+        fullscreenDialog: true,
+      ),
+    );
+  }
 }
 
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
