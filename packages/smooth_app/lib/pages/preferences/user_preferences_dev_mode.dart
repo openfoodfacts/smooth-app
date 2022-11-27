@@ -20,7 +20,7 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/scan/camera_scan_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/products_preload_helper.dart';
 
@@ -475,7 +475,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   }
 
   Future<void> _changeCameraPostFrameCallbackDuration() async {
-    const int minValue = MLKitScannerPageState.postFrameCallbackStandardDelay;
+    const int minValue = CameraScannerPageState.postFrameCallbackStandardDelay;
     final int initialValue = userPreferences.getDevModeIndex(
           userPreferencesCameraPostFrameDuration,
         ) ??
