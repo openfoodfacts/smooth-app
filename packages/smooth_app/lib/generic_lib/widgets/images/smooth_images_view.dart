@@ -10,6 +10,6 @@ abstract class SmoothImagesView extends StatelessWidget {
   });
 
   final Map<ProductImageData, ImageProvider?> imagesData;
-  final void Function(ProductImageData, ImageProvider?)? onTap;
+  final void Function(ProductImageData, ImageProvider?, int?)? onTap;
   final bool loading;
 }
