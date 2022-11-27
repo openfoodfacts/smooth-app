@@ -475,7 +475,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   }
 
   Future<void> _changeCameraPostFrameCallbackDuration() async {
-    const int minValue = MLKitScannerPageState.postFrameCallbackStandardDelay;
+    const int minValue = CameraScannerPageState.postFrameCallbackStandardDelay;
     final int initialValue = userPreferences.getDevModeIndex(
           userPreferencesCameraPostFrameDuration,
         ) ??

@@ -65,7 +65,7 @@ class _ScanPageBackgroundWidget extends StatelessWidget {
     return Consumer<PermissionListener>(
       builder: (BuildContext context, PermissionListener listener, _) {
         if (listener.value.isGranted) {
-          return const MLKitScannerPage();
+          return const CameraScannerPage();
         } else {
           return const SizedBox();
         }
