@@ -1748,5 +1748,9 @@
     "show_password": "הצגת סיסמה",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "איך היישומון שלנו?",
+    "app_rating_dialog_body": "נא לדרג אותנו ב־5 כוכבים בחנות!",
+    "app_rating_dialog_positive_action": "דירוג היישומון",
+    "app_rating_dialog_negative_action": "אחר כך"
 }

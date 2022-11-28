@@ -1748,5 +1748,9 @@
     "show_password": "Şifreyi Göster",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "Uygulamamızı beğendiniz mi?",
+    "app_rating_dialog_body": "Lütfen mağazada bize 5 yıldız verin!",
+    "app_rating_dialog_positive_action": "Uygulamaya puan verin",
+    "app_rating_dialog_negative_action": "Daha sonra"
 }

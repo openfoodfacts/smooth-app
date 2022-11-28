@@ -1172,7 +1172,7 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "edit_ocr_extract_failed": "Impossibile rilevare del testo nell'immagine.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
@@ -1748,5 +1748,9 @@
     "show_password": "Mostra la Password",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "Ti piace la nostra app?",
+    "app_rating_dialog_body": "Please give us 5 stars on the store!",
+    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_negative_action": "In seguito"
 }

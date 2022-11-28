@@ -22,8 +22,9 @@ abstract class CropHelper {
   /// Returns the path of the image file after the crop operation.
   Future<String?> getCroppedPath(
     final BuildContext context,
-    final String inputPath,
-  );
+    final String inputPath, {
+    final String? pageTitle,
+  });
 }
 
 /// New version of the image cropper.
@@ -31,12 +32,16 @@ class _NewCropHelper extends CropHelper {
   @override
   Future<String?> getCroppedPath(
     final BuildContext context,
-    final String inputPath,
-  ) async =>
+    final String inputPath, {
+    final String? pageTitle,
+  }) async =>
       Navigator.push<String>(
         context,
         MaterialPageRoute<String>(
-          builder: (BuildContext context) => CropPage(File(inputPath)),
+          builder: (BuildContext context) => CropPage(
+            File(inputPath),
+            title: pageTitle,
+          ),
           fullscreenDialog: true,
         ),
       );
@@ -47,8 +52,9 @@ class _OldCropHelper extends CropHelper {
   @override
   Future<String?> getCroppedPath(
     final BuildContext context,
-    final String inputPath,
-  ) async =>
+    final String inputPath, {
+    final String? pageTitle,
+  }) async =>
       (await ImageCropper().cropImage(
         sourcePath: inputPath,
         aspectRatioPresets: <CropAspectRatioPreset>[
@@ -62,7 +68,8 @@ class _OldCropHelper extends CropHelper {
           AndroidUiSettings(
             initAspectRatio: CropAspectRatioPreset.original,
             lockAspectRatio: false,
-            toolbarTitle: AppLocalizations.of(context).product_edit_photo_title,
+            toolbarTitle: pageTitle ??
+                AppLocalizations.of(context).product_edit_photo_title,
             // They all need to be the same for dark/light mode as we can't change
             // the background color and the action bar color
             statusBarColor: Colors.black,

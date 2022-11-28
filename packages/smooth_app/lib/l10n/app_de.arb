@@ -1748,5 +1748,9 @@
     "show_password": "Passwort anzeigen",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "Gefällt Ihnen unsere App?",
+    "app_rating_dialog_body": "Bitte geben Sie uns 5 Sterne im Store!",
+    "app_rating_dialog_positive_action": "App bewerten",
+    "app_rating_dialog_negative_action": "Später"
 }

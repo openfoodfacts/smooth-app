@@ -1748,5 +1748,9 @@
     "show_password": "Vis adgangskode",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "Synes du om vores app?",
+    "app_rating_dialog_body": "Giv os venligst 5 stjerner i butikken!",
+    "app_rating_dialog_positive_action": "Bedøm appen",
+    "app_rating_dialog_negative_action": "Senere"
 }

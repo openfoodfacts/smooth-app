@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/loading_sliver.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_images_view.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 
 /// Displays a [SliverList] by using [SmoothListTileCard] for showing images
 /// passed via [imagesData].
@@ -18,6 +20,7 @@ class SmoothImagesSliverList extends SmoothImagesView {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
     final List<MapEntry<ProductImageData, ImageProvider?>> imageList =
         imagesData.entries.toList();
@@ -31,12 +34,19 @@ class SmoothImagesSliverList extends SmoothImagesView {
         childBuilder: (_, int index) => SmoothListTileCard.image(
           imageProvider: imageList[index].value,
           title: Text(
-            imageList[index].key.title,
+            getProductImageTitle(
+              appLocalizations,
+              imageList[index].key.imageField,
+            ),
             style: themeData.textTheme.headline4,
           ),
           onTap: onTap == null
               ? null
-              : () => onTap!(imageList[index].key, imageList[index].value),
+              : () => onTap!(
+                    imageList[index].key,
+                    imageList[index].value,
+                    index,
+                  ),
         ),
       ),
     );

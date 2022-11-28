@@ -26,16 +26,18 @@ import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/lifecycle_aware_widget.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 
-class MLKitScannerPage extends LifecycleAwareStatefulWidget {
-  const MLKitScannerPage({
+/// A page showing the camera feed and using a [CameraScanner] to decode
+/// barcodes. Depending on the store/platform, it can be MLKit or ZXing.
+class CameraScannerPage extends LifecycleAwareStatefulWidget {
+  const CameraScannerPage({
     super.key,
   });
 
   @override
-  MLKitScannerPageState createState() => MLKitScannerPageState();
+  CameraScannerPageState createState() => CameraScannerPageState();
 }
 
-class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
+class CameraScannerPageState extends LifecycleAwareState<CameraScannerPage>
     with TraceableClientMixin, WidgetsBindingObserver {
   /// If the camera is being closed (when [stoppingCamera] == true) and this
   /// Widget is visible again, we add a post frame callback to detect if the
@@ -388,9 +390,24 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     await _disposeSoundManager();
   }
 
-  Future<void> _onResumeImageStream({bool forceStartPreview = false}) async {
+  /// [shouldRetry] indicates if we should retry to resume if the screen is invisible
+  Future<void> _onResumeImageStream({
+    bool forceStartPreview = false,
+    bool shouldRetry = true,
+  }) async {
     if (stoppingCamera ||
         (!forceStartPreview && ScreenVisibilityDetector.invisible(context))) {
+      if (shouldRetry) {
+        SchedulerBinding.instance.addPostFrameCallback((_) {
+          _onResumeImageStream(
+            forceStartPreview: forceStartPreview,
+            shouldRetry: false,
+          );
+        });
+
+        _redrawScreen();
+      }
+
       return;
     }
 
@@ -412,7 +429,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         // Just wait
         return;
       }
-      return _stopImageStream();
+      return _stopImageStream(autoRestart: true);
     }
 
     if (_streamSubscription?.isPaused == true) {
@@ -430,6 +447,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
         return _stopImageStream();
       }
     }
+
     stoppingCamera = false;
   }
 
@@ -454,7 +472,9 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
     CameraHelper.destroyControllerInstance();
 
     await _streamSubscription?.cancel();
-    await _barcodeDecoder.onDispose();
+    try {
+      await _barcodeDecoder.onDispose().timeout(const Duration(seconds: 5));
+    } catch (_) {}
 
     stoppingCamera = false;
 
@@ -500,7 +520,7 @@ class MLKitScannerPageState extends LifecycleAwareState<MLKitScannerPage>
       _userPreferences.getDevModeIndex(
         UserPreferencesDevMode.userPreferencesCameraPostFrameDuration,
       ) ??
-      MLKitScannerPageState.postFrameCallbackStandardDelay;
+      CameraScannerPageState.postFrameCallbackStandardDelay;
 
   /// Only initialize the "beep" player when needed
   /// (at least one camera available + settings set to ON)

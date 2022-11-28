@@ -1748,5 +1748,9 @@
     "show_password": "Show Password",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "アプリを気に入っていただけましたか？",
+    "app_rating_dialog_body": "当店に5つ星をください！",
+    "app_rating_dialog_positive_action": "アプリを評価する",
+    "app_rating_dialog_negative_action": "後で"
 }

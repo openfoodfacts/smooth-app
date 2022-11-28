@@ -1153,6 +1153,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "product_field_website_title": "Site web",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
+    },
     "completed_basic_details_btn_text": "Compléter les informations de base",
     "not_implemented_snackbar_text": "Pas encore disponible",
     "category_picker_page_appbar_text": "Catégories",
@@ -1748,5 +1752,9 @@
     "show_password": "Afficher le Mot de Passe",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "Do you like our app?",
+    "app_rating_dialog_body": "Please give us 5 stars on the store!",
+    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_negative_action": "Plus tard"
 }
