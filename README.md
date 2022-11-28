@@ -104,5 +104,5 @@ In addition to the core role of the community, we also had the support from seve
 ## Contributors
 
 <a href="https://github.com/openfoodfacts/smooth-app/graphs/contributors">
-  <img alt="" src="https://contrib.rocks/image?repo=openfoodfacts/smooth-app" />
+  <img alt="List of contributors to this repository" src="https://contrib.rocks/image?repo=openfoodfacts/smooth-app" />
 </a>
