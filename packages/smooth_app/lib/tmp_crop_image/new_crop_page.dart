@@ -17,9 +17,13 @@ import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
 
 /// Page dedicated to image cropping. Pops the resulting file path if relevant.
 class CropPage extends StatefulWidget {
-  const CropPage(this.inputFile);
+  const CropPage(
+    this.inputFile, {
+    this.title,
+  });
 
   final File inputFile;
+  final String? title;
 
   @override
   State<CropPage> createState() => _CropPageState();
@@ -57,7 +61,12 @@ class _CropPageState extends State<CropPage> {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context).product_edit_photo_title),
+          title: Text(
+            AppLocalizations.of(context).product_edit_photo_title +
+                (widget.title == null ? '' : '\n${widget.title}'),
+            maxLines: 2,
+            overflow: TextOverflow.fade,
+          ),
         ),
         backgroundColor: Colors.black,
         body: _image == null

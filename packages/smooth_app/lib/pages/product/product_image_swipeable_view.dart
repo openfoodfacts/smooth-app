@@ -65,11 +65,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final List<ProductImageData> allProductImagesData =
-        getProductMainImagesData(
-      _product,
-      appLocalizations,
-      includeOther: false,
-    );
+        getProductMainImagesData(_product, includeOther: false);
     _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
       allProductImagesData,
       allProductImagesData.map(_provideImage),
@@ -82,11 +78,10 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
         elevation: 0,
         title: ValueListenableBuilder<int>(
           valueListenable: _currentImageDataIndex,
-          builder: (_, int index, __) {
-            return Text(
-              _imageDataList[index].title,
-            );
-          },
+          builder: (_, int index, __) => Text(getImagePageTitle(
+            appLocalizations,
+            _imageDataList[index].imageField,
+          )),
         ),
         leading: SmoothBackButton(
           iconColor: Colors.white,

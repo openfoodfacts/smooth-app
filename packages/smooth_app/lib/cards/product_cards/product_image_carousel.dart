@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
@@ -23,19 +22,16 @@ class ProductImageCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<ProductImageData> productImagesData;
     if (alternateImageUrl != null) {
       productImagesData = <ProductImageData>[
         ProductImageData(
           imageUrl: alternateImageUrl,
           imageField: ImageField.OTHER,
-          title: '',
-          buttonText: '',
         ),
       ];
     } else {
-      productImagesData = getProductMainImagesData(product, appLocalizations);
+      productImagesData = getProductMainImagesData(product);
     }
     return SizedBox(
       height: height,
