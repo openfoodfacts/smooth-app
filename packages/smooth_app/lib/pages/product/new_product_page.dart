@@ -222,33 +222,35 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
         child: buildProductSmoothCard(
           header: Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: VERY_SMALL_SPACE,
-              horizontal: SMALL_SPACE,
+              vertical: SMALL_SPACE,
+              horizontal: LARGE_SPACE,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: VERY_SMALL_SPACE,
-                    horizontal: SMALL_SPACE,
-                  ),
-                  child: Text(
-                    AppLocalizations.of(context).product_field_website_title,
-                    style: Theme.of(context).textTheme.headline3,
-                  ),
+                Text(
+                  AppLocalizations.of(context).product_field_website_title,
+                  style: Theme.of(context).textTheme.headline3,
                 ),
               ],
             ),
           ),
           body: Padding(
-            padding: const EdgeInsets.only(bottom: SMALL_SPACE),
-            child: Text(
-              website,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText2
-                  ?.copyWith(color: Colors.blue),
+            padding: const EdgeInsets.only(
+              bottom: LARGE_SPACE,
+              left: LARGE_SPACE,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  website,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(color: Colors.blue),
+                ),
+              ],
             ),
           ),
         ),
