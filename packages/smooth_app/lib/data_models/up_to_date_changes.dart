@@ -15,22 +15,6 @@ class UpToDateChanges {
 
   OperationType get taskActionable => OperationType.details;
 
-  /// Returns a minimalist [Product] with successive changes on top.
-  Product prepareChangesForServer(
-    final String barcode,
-    final Iterable<TransientOperation> sortedOperations,
-  ) {
-    final Product initial = Product(barcode: barcode);
-    for (final TransientOperation transientOperation in sortedOperations) {
-      if (initial.barcode != transientOperation.product.barcode) {
-        // very unlikely
-        continue;
-      }
-      _overwrite(initial, transientOperation.product);
-    }
-    return initial;
-  }
-
   /// Returns all the actions related to a barcode, sorted by id.
   Iterable<TransientOperation> getSortedOperations(final String barcode) {
     final List<TransientOperation> result = <TransientOperation>[];
@@ -149,6 +133,9 @@ class UpToDateChanges {
     }
     if (change.imagePackagingSmallUrl != null) {
       initial.imagePackagingSmallUrl = change.imagePackagingSmallUrl;
+    }
+    if (change.website != null) {
+      initial.website = change.website;
     }
     return initial;
   }
