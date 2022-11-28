@@ -97,10 +97,10 @@ jobs:
         run: flutter --version
 
       - name: Enable correct scanner dependency
-        run: chmod +x ci/scanner/enable_${{ inputs.SCANNER }}_dependency.sh && ci/scanner/enable_${{ inputs.SCANNER }}_dependency.sh
+        run: chmod +x ci/dependencies/scanner/enable_${{ inputs.SCANNER }}_dependency.sh && ci/dependencies/scanner/enable_${{ inputs.SCANNER }}_dependency.sh
 
       - name: Enable correct app review dependency
-        run: chmod +x ci/dependencies/app_store/enable_${{ inputs.SCANNER }}_dependency.sh && ci/dependencies/app_store/enable_${{ inputs.SCANNER }}_dependency.sh
+        run: chmod +x ci/dependencies/app_store/enable_${{ inputs.APP_REVIEW }}_dependency.sh && ci/dependencies/app_store/enable_${{ inputs.APP_REVIEW }}_dependency.sh
 
 
       - name: Get dependencies
