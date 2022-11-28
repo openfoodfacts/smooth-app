@@ -1153,6 +1153,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "product_field_website_title": "Site web",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
+    },
     "completed_basic_details_btn_text": "Compléter les informations de base",
     "not_implemented_snackbar_text": "Pas encore disponible",
     "category_picker_page_appbar_text": "Catégories",

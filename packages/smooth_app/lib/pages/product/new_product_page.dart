@@ -20,6 +20,8 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
@@ -197,6 +199,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             daoProductList,
           ),
           _buildKnowledgePanelCards(),
+          if (_product.website != null) _buildWebsiteWidget(_product.website!),
           if (context.read<UserPreferences>().getFlag(
                   UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
               false)
@@ -208,6 +211,50 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
       ),
     );
   }
+
+  Widget _buildWebsiteWidget(String website) => InkWell(
+        onTap: () async {
+          if (!website.startsWith('http')) {
+            website = 'http://$website';
+          }
+          LaunchUrlHelper.launchURL(website, false);
+        }, // _product.website!
+        child: buildProductSmoothCard(
+          header: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: SMALL_SPACE,
+              horizontal: LARGE_SPACE,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  AppLocalizations.of(context).product_field_website_title,
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              ],
+            ),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.only(
+              bottom: LARGE_SPACE,
+              left: LARGE_SPACE,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  website,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(color: Colors.blue),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
 
   Widget _buildKnowledgePanelCards() {
     final List<Widget> knowledgePanelWidgets = <Widget>[];

@@ -84,7 +84,10 @@ class OcrWidget extends StatelessWidget {
                             onPressed: () async => onTapExtractData(),
                           ),
                         )
-                      else
+                      else if (TransientFile.isImageAvailable(
+                        productImageData,
+                        product.barcode!,
+                      ))
                         // TODO(monsieurtanuki): what if slow upload? text instead?
                         const CircularProgressIndicator.adaptive(),
                       const SizedBox(height: MEDIUM_SPACE),

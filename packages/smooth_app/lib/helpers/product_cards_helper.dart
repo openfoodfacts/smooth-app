@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
+import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 
 String getProductName(Product product, AppLocalizations appLocalizations) =>
     product.productName ?? appLocalizations.unknownProductName;
@@ -82,6 +86,71 @@ List<Attribute> getPopulatedAttributes(
       );
     }
     result.add(attribute);
+  }
+  return result;
+}
+
+/// Returns the mandatory attributes, ordered by attribute group order
+List<Attribute> getMandatoryAttributes(
+  final Product product,
+  final List<String> attributeGroupOrder,
+  final Set<String> attributesToExcludeIfStatusIsUnknown,
+  final ProductPreferences preferences,
+) {
+  final List<Attribute> result = <Attribute>[];
+  if (product.attributeGroups == null) {
+    return result;
+  }
+  final Map<String, List<Attribute>> mandatoryAttributesByGroup =
+      <String, List<Attribute>>{};
+  // collecting all the mandatory attributes, by group
+  for (final AttributeGroup attributeGroup in product.attributeGroups!) {
+    mandatoryAttributesByGroup[attributeGroup.id!] = getFilteredAttributes(
+      attributeGroup,
+      PreferenceImportance.ID_MANDATORY,
+      attributesToExcludeIfStatusIsUnknown,
+      preferences,
+    );
+  }
+
+  // now ordering by attribute group order
+  for (final String attributeGroupId in attributeGroupOrder) {
+    final List<Attribute>? attributes =
+        mandatoryAttributesByGroup[attributeGroupId];
+    if (attributes != null) {
+      result.addAll(attributes);
+    }
+  }
+  return result;
+}
+
+/// Returns the attributes that match the filter
+///
+/// [SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
+/// dealt with somewhere else.
+List<Attribute> getFilteredAttributes(
+  final AttributeGroup attributeGroup,
+  final String importance,
+  final Set<String> attributesToExcludeIfStatusIsUnknown,
+  final ProductPreferences preferences,
+) {
+  final List<Attribute> result = <Attribute>[];
+  if (attributeGroup.attributes == null) {
+    return result;
+  }
+  for (final Attribute attribute in attributeGroup.attributes!) {
+    final String attributeId = attribute.id!;
+    if (SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
+      continue;
+    }
+    if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {
+      attributesToExcludeIfStatusIsUnknown.add(attributeId);
+    }
+    final String importanceId =
+        preferences.getImportanceIdForAttributeId(attributeId);
+    if (importance == importanceId) {
+      result.add(attribute);
+    }
   }
   return result;
 }
