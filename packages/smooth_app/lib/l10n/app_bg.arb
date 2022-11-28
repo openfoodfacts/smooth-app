@@ -1749,8 +1749,8 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Do you like our app?",
-    "app_rating_dialog_body": "Please give us 5 stars on the store!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_title": "Харесва ли ти нашето приложение?",
+    "app_rating_dialog_body": "Моля, дай ни 5 звезди в магазина!",
+    "app_rating_dialog_positive_action": "Оцени приложението",
     "app_rating_dialog_negative_action": "По-късно"
 }
