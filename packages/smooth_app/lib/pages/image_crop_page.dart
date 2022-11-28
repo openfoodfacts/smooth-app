@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 
@@ -85,7 +86,7 @@ Future<File?> confirmAndUploadNewPicture(
   required final ImageField imageField,
   required final String barcode,
 }) async {
-  final File? croppedPhoto = await startNewImageCropping(widget);
+  final File? croppedPhoto = await startNewImageCropping(widget, imageField);
   if (croppedPhoto == null) {
     return null;
   }
@@ -107,19 +108,22 @@ Future<File?> confirmAndUploadNewPicture(
 /// Crops an image picked from the gallery or camera.
 Future<File?> startNewImageCropping(
   final State<StatefulWidget> widget,
+  final ImageField imageField,
 ) async =>
-    _startImageCropping(widget);
+    _startImageCropping(widget, imageField);
 
 /// Crops an existing image.
 Future<File?> startExistingImageCropping(
   final State<StatefulWidget> widget,
+  final ImageField imageField,
   final File? existingImage,
 ) async =>
-    _startImageCropping(widget, existingImage: existingImage);
+    _startImageCropping(widget, imageField, existingImage: existingImage);
 
 /// Crops an image, either existing or picked from the gallery or camera.
 Future<File?> _startImageCropping(
-  final State<StatefulWidget> widget, {
+  final State<StatefulWidget> widget,
+  final ImageField imageField, {
   final File? existingImage,
 }) async {
   // Show a loading page on the Flutter side
@@ -148,6 +152,10 @@ Future<File?> _startImageCropping(
   final String? croppedPath = await cropHelper.getCroppedPath(
     widget.context,
     sourceImagePath,
+    pageTitle: getImagePageTitle(
+      AppLocalizations.of(widget.context),
+      imageField,
+    ),
   );
 
   await _hideScreenBetween(navigator);
