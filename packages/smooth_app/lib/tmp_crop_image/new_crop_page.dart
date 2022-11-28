@@ -62,8 +62,10 @@ class _CropPageState extends State<CropPage> {
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text(
-            widget.title ??
-                AppLocalizations.of(context).product_edit_photo_title,
+            AppLocalizations.of(context).product_edit_photo_title +
+                (widget.title == null ? '' : '\n${widget.title}'),
+            maxLines: 2,
+            overflow: TextOverflow.fade,
           ),
         ),
         backgroundColor: Colors.black,
