@@ -86,11 +86,11 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       minimalistProduct,
       uniqueId,
     );
-    await task.addToManager(widget);
+    await task.addToManager(localDatabase, widget: widget);
   }
 
   @override
-  String getSnackBarMessage(final AppLocalizations appLocalizations) =>
+  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
       appLocalizations.product_task_background_schedule;
 
   /// Returns a new background task about changing a product.

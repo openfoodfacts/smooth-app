@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -81,6 +82,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    BackgroundTaskManager(_localDatabase).run(); // no await
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
     inheritedDataManager.setCurrentBarcode(_barcode);

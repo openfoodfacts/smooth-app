@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
+import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -40,11 +40,9 @@ abstract class AbstractBackgroundTask {
 
   /// Returns the deserialized background task if possible, or null.
   static AbstractBackgroundTask? fromJson(final Map<String, dynamic> map) =>
-      BackgroundTaskDetails.fromJson(map) ?? BackgroundTaskImage.fromJson(map);
-
-  /// Response code sent by the server in case of a success.
-  @protected
-  static const int SUCCESS_CODE = 1;
+      BackgroundTaskDetails.fromJson(map) ??
+      BackgroundTaskImage.fromJson(map) ??
+      BackgroundTaskRefreshLater.fromJson(map);
 
   /// Executes the background task: upload, download, update locally.
   Future<void> execute(final LocalDatabase localDatabase) async {
@@ -66,29 +64,38 @@ abstract class AbstractBackgroundTask {
   @protected
   Future<void> upload();
 
+  /// Returns true if the task may run now.
+  ///
+  /// Most tasks should always run immediately, but some should not, like
+  /// [BackgroundTaskRefreshLater].
+  bool mayRunNow() => true;
+
   /// SnackBar message when we add the task, like "Added to the task queue!"
+  ///
+  /// Null if no SnackBar message wanted (like, stealth mode).
   @protected
-  String getSnackBarMessage(final AppLocalizations appLocalizations);
+  String? getSnackBarMessage(final AppLocalizations appLocalizations);
 
   /// Adds this task to the [BackgroundTaskManager].
   @protected
-  Future<void> addToManager(final State<StatefulWidget> widget) async {
-    if (!widget.mounted) {
-      return;
-    }
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+  Future<void> addToManager(
+    final LocalDatabase localDatabase, {
+    final State<StatefulWidget>? widget,
+  }) async {
     await BackgroundTaskManager(localDatabase).add(this);
-    if (!widget.mounted) {
+    if (widget == null || !widget.mounted) {
       return;
     }
-    ScaffoldMessenger.of(widget.context).showSnackBar(
-      SnackBar(
-        content: Text(
-          getSnackBarMessage(AppLocalizations.of(widget.context)),
+    final String? snackBarMessage =
+        getSnackBarMessage(AppLocalizations.of(widget.context));
+    if (snackBarMessage != null) {
+      ScaffoldMessenger.of(widget.context).showSnackBar(
+        SnackBar(
+          content: Text(snackBarMessage),
+          duration: SnackBarDuration.medium,
         ),
-        duration: SnackBarDuration.medium,
-      ),
-    );
+      );
+    }
   }
 
   @protected
