@@ -11,6 +11,19 @@
 [![SmoothApp Post-Submit Tests](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/postsubmit.yml)
 [![Create internal releases](https://github.com/openfoodfacts/smooth-app/actions/workflows/internal-release.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/internal-release.yml)
 
+## Weekly meetings
+- We e-meet Thursdays at 17:30 Paris Time (16:30 London Time, 22:00 IST, 08:30 AM PT)
+- Video call link: https://meet.google.com/gnp-frks-esc
+- Join by phone: https://tel.meet/gnp-frks-esc?pin=1110549945262
+- Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
+- [Weekly Agenda](https://docs.google.com/document/d/1MGQqMV7M4JTjFcRsiRvMZ8bnmd9vJWdSyRR3wJHUBMk/edit): please add the Agenda items as early as you can. Make sure to check the Agenda items in advance of the meeting, so that we have the most informed discussions possible, leading to argumented decisions. 
+- The meeting will handle Agenda items first, and if time permits, collaborative bug triage.
+- We strive to timebox the core of the meeting (decision making) to 30 minutes, with an optional free discussion/live debugging afterwards.
+- We take comprehensive notes in the Weekly Agenda of agenda item discussions and of decisions taken.
+
+## Feature Sprint 
+- We use feature-based sprints, [tracked here](https://github.com/orgs/openfoodfacts/projects/83)
+
 ## Alert!
 
 We are currently using Flutter 3.0.5 as the new 3.3.0 [has some bugs](https://github.com/openfoodfacts/smooth-app/issues/2919).
@@ -56,11 +69,7 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 ![GitHub last commit](https://img.shields.io/github/last-commit/openfoodfacts/smooth-app?style=for-the-badge&color=blue)
 ![Github Repo Size](https://img.shields.io/github/repo-size/openfoodfacts/smooth-app?style=for-the-badge&color=aqua)
 
-
-
-
 <br>
-
 
 <b>How to run the project:</b>
 
@@ -80,24 +89,20 @@ In order to run the application, make sure you are in the `packages/app` directo
 
 This new mobile application aims to showcase Open Food Facts's power to a broad range of users through a smooth user experience and sleek user interface.
 
-<img height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
+<img alt="app showcase" height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
 
 Smooth-app is developed in parallel to the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which provides a high level interface with the Open Food Facts API.
 Every new interaction with the API should be implemented in the plugin in order to provide these new features to other developers.
-
 <br>
 
-<details><summary><h3> Thanking Message </h3></summary>
-
+<details><summary><h3>Thanks</h3></summary>
 The app was initially created by Primael. The new Open Food Facts app (smooth_app) was then made possible thanks to an initial grant by the Mozilla Foundation in February 2020, after Pierre pitched them the idea at FOSDEM. A HUGE THANKS 🧡
 In addition to the core role of the community, we also had the support from several Google.org fellows and a ShareIt fellow that helped us eventually release the app in June 2022.
-
 </details>
-
 <br>
 
 ## Contributors
 
 <a href="https://github.com/openfoodfacts/smooth-app/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=openfoodfacts/smooth-app" />
+  <img alt="List of contributors to this repository" src="https://contrib.rocks/image?repo=openfoodfacts/smooth-app" />
 </a>
