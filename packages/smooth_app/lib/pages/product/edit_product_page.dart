@@ -13,6 +13,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
+import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
@@ -223,6 +224,24 @@ class _EditProductPageState extends State<EditProductPage> {
               _getSimpleListTileItem(SimpleInputPageOriginHelper()),
               _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
               _getSimpleListTileItem(SimpleInputPageCountryHelper()),
+              _ListTitleItem(
+                title:
+                    appLocalizations.edit_product_form_item_other_details_title,
+                subtitle: appLocalizations
+                    .edit_product_form_item_other_details_subtitle,
+                onTap: () async {
+                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                    return;
+                  }
+                  await Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (_) => AddOtherDetailsPage(_product),
+                      fullscreenDialog: true,
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
