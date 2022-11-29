@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/database_helper.dart';
 /// * possibly, which barcode (not useful yet)
 enum OperationType {
   image('I'),
+  refreshLater('R'),
   details('D');
 
   const OperationType(this.header);

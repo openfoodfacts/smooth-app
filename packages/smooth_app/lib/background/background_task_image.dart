@@ -7,6 +7,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
@@ -88,11 +89,11 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       imageFile,
       uniqueId,
     );
-    await task.addToManager(widget);
+    await task.addToManager(localDatabase, widget: widget);
   }
 
   @override
-  String getSnackBarMessage(final AppLocalizations appLocalizations) =>
+  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
       appLocalizations.image_upload_queued;
 
   /// Returns a new background task about changing a product.
@@ -123,12 +124,17 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       );
 
   @override
-  Future<void> postExecute(final LocalDatabase localDatabase) async =>
-      TransientFile.removeImage(
-        ImageFieldExtension.getType(imageField),
-        barcode,
-        localDatabase,
-      );
+  Future<void> postExecute(final LocalDatabase localDatabase) async {
+    TransientFile.removeImage(
+      ImageFieldExtension.getType(imageField),
+      barcode,
+      localDatabase,
+    );
+    await BackgroundTaskRefreshLater.addTask(
+      barcode,
+      localDatabase: localDatabase,
+    );
+  }
 
   /// Uploads the product image.
   @override
