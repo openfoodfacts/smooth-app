@@ -12,7 +12,7 @@
 [![Create internal releases](https://github.com/openfoodfacts/smooth-app/actions/workflows/internal-release.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/internal-release.yml)
 
 ## Weekly meetings
-- We e-meet Thursdays at 17:30 Paris Time (1630 London Time, 22:00 IST, 0830 AM PT)
+- We e-meet Thursdays at 17:30 Paris Time (16:30 London Time, 22:00 IST, 08:30 AM PT)
 - Video call link: https://meet.google.com/gnp-frks-esc
 - Join by phone: https://tel.meet/gnp-frks-esc?pin=1110549945262
 - Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
