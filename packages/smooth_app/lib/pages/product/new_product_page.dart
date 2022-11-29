@@ -199,7 +199,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             daoProductList,
           ),
           _buildKnowledgePanelCards(),
-          if (_product.website != null) _buildWebsiteWidget(_product.website!),
+          if (_product.website != null && _product.website!.trim().isNotEmpty)
+            _buildWebsiteWidget(_product.website!.trim()),
           if (context.read<UserPreferences>().getFlag(
                   UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
               false)

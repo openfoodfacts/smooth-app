@@ -1037,7 +1037,15 @@
     },
     "edit_product_form_item_details_subtitle": "Nom du produit, marque, quantité",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Informations complémentaires",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "Site web, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "Photos",
     "@edit_product_form_item_photos_title": {
