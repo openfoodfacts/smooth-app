@@ -17,11 +17,6 @@ dependencies:
       url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
       ref: "smooth_camera"
       path: "packages/camera/camera"
-  camera_platform_interface:
-    git:
-      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
-      ref: "smooth_camera"
-      path: "packages/camera/camera_platform_interface"
 
 dev_dependencies:
   flutter_test:
