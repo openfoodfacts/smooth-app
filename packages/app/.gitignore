@@ -44,3 +44,5 @@ app.*.map.json
 /android/app/release
 
 coverage/
+
+generated_plugin_registrant.dart
