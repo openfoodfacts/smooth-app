@@ -64,10 +64,11 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 ## About this Repository
 
-![GitHub language count](https://img.shields.io/github/languages/count/openfoodfacts/smooth-app?style=for-the-badge&color=brightgreen)
-![GitHub top language](https://img.shields.io/github/languages/top/openfoodfacts/smooth-app?style=for-the-badge&color=aqua)
-![GitHub last commit](https://img.shields.io/github/last-commit/openfoodfacts/smooth-app?style=for-the-badge&color=blue)
-![Github Repo Size](https://img.shields.io/github/repo-size/openfoodfacts/smooth-app?style=for-the-badge&color=aqua)
+![GitHub language count](https://img.shields.io/github/languages/count/openfoodfacts/smooth-app)
+![GitHub top language](https://img.shields.io/github/languages/top/openfoodfacts/smooth-app)
+![GitHub last commit](https://img.shields.io/github/last-commit/openfoodfacts/smooth-app)
+![Github Repo Size](https://img.shields.io/github/repo-size/openfoodfacts/smooth-app)
+
 
 <br>
 
