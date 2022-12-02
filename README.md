@@ -35,7 +35,7 @@ Running `flutter downgrade 3.0.5` downgrades the version.
 
 ------
 
-Latest commit deployed to Apple App Store: Released on Nov 29th as Build XXX
+Latest commit deployed to Apple App Store: Released on Nov 29th as Build 835
 Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 - A <b> Flutter application </b> by [Open Food Facts](https://github.com/openfoodfacts). 
 
