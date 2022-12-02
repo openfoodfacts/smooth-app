@@ -324,7 +324,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         ListTile(
           title: const Text('Add cards to scanner'),
-          subtitle: const Text('Adds 4 sample products to the scanner'),
+          subtitle: const Text('Adds 3 sample products to the scanner'),
           onTap: () async {
             final ContinuousScanModel model =
                 context.read<ContinuousScanModel>();
