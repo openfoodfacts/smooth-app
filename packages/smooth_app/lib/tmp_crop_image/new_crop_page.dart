@@ -8,12 +8,16 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image/image.dart' as image2;
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
+import 'package:smooth_app/tmp_crop_image/rotation.dart';
 
 /// Page dedicated to image cropping. Pops the resulting file path if relevant.
 class CropPage extends StatefulWidget {
@@ -30,22 +34,29 @@ class CropPage extends StatefulWidget {
 }
 
 class _CropPageState extends State<CropPage> {
-  final RotatedCropController controller = RotatedCropController(
-    // TODO(monsieurtanuki): could be improved (was the default in crop_image)
-    defaultCrop: const Rect.fromLTRB(0.1, 0.1, 0.9, 0.9),
-  );
+  late RotatedCropController _controller;
+  late ui.Image _image;
 
-  ui.Image? _image;
+  /// Are we currently processing data (for action buttons hiding).
+  bool _processing = true;
 
-  Future<ui.Image> loadUiImage() async {
-    final Uint8List list = await widget.inputFile.readAsBytes();
+  /// Is that the same picture as the initial input file?
+  bool _samePicture = true;
+
+  static const Rect _initialRect = Rect.fromLTRB(0, 0, 1, 1);
+
+  Future<ui.Image> _loadUiImage(final File file) async {
+    final Uint8List list = await file.readAsBytes();
     final Completer<ui.Image> completer = Completer<ui.Image>();
     ui.decodeImageFromList(list, completer.complete);
     return completer.future;
   }
 
-  Future<void> _load() async {
-    _image = await loadUiImage();
+  Future<void> _load(final File file) async {
+    setState(() => _processing = true);
+    _image = await _loadUiImage(file);
+    _controller = RotatedCropController(defaultCrop: _initialRect);
+    _processing = false;
     if (!mounted) {
       return;
     }
@@ -55,55 +66,72 @@ class _CropPageState extends State<CropPage> {
   @override
   void initState() {
     super.initState();
-    _load();
+    _load(widget.inputFile);
   }
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
+  Widget build(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return WillPopScope(
+      onWillPop: () async => _mayExitPage(saving: false),
+      child: Scaffold(
         appBar: AppBar(
           title: Text(
-            AppLocalizations.of(context).product_edit_photo_title +
-                (widget.title == null ? '' : '\n${widget.title}'),
+            widget.title ?? appLocalizations.product_edit_photo_title,
             maxLines: 2,
-            overflow: TextOverflow.fade,
           ),
+          actions: _processing
+              ? null
+              : <Widget>[
+                  IconButton(
+                    icon: const Icon(Icons.camera_alt),
+                    onPressed: () async {
+                      setState(() => _processing = true);
+                      final XFile? pickedXFile = await pickImageFile(this);
+                      if (pickedXFile == null) {
+                        return;
+                      }
+                      await _load(File(pickedXFile.path));
+                      _processing = false;
+                      _samePicture = false;
+                      if (!mounted) {
+                        return;
+                      }
+                      setState(() {});
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.rotate_right),
+                    onPressed: () => setState(() => _controller.rotateRight()),
+                  ),
+                ],
         ),
+        floatingActionButton: _processing
+            ? null
+            : FloatingActionButton.extended(
+                onPressed: () async => _mayExitPage(saving: true),
+                label: Text(appLocalizations.okay),
+              ),
         backgroundColor: Colors.black,
-        body: _image == null
-            ? const CircularProgressIndicator.adaptive()
+        body: _processing
+            ? const Center(child: CircularProgressIndicator.adaptive())
             : Center(
                 child: Padding(
                   padding: const EdgeInsets.all(MEDIUM_SPACE),
                   child: RotatedCropImage(
-                    controller: controller,
-                    image: _image!,
+                    controller: _controller,
+                    image: _image,
                     minimumImageSize: 1,
                   ),
                 ),
               ),
-        bottomNavigationBar: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-              color: Colors.white,
-              icon: const Icon(Icons.rotate_right),
-              onPressed: () => setState(() => controller.rotateRight()),
-            ),
-            TextButton(
-              onPressed: _finished,
-              child: Text(
-                AppLocalizations.of(context).okay,
-                style: const TextStyle(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-      );
+      ),
+    );
+  }
 
-  Future<void> _finished() async {
+  Future<void> _saveFileAndExit() async {
     final DaoInt daoInt = DaoInt(context.read<LocalDatabase>());
-    final image2.Image? rawImage = await controller.croppedBitmap();
+    final image2.Image? rawImage = await _controller.croppedBitmap();
     if (rawImage == null) {
       return;
     }
@@ -123,4 +151,35 @@ class _CropPageState extends State<CropPage> {
   }
 
   static const String _CROP_PAGE_SEQUENCE_KEY = 'crop_page_sequence';
+
+  /// Returns `true` if we should really exit the page.
+  ///
+  /// Parameter [saving] tells about the context: are we leaving the page,
+  /// or have we clicked on the "save" button?
+  Future<bool> _mayExitPage({required final bool saving}) async {
+    if (_controller.value.rotation == Rotation.noon &&
+        _controller.value.crop == _initialRect &&
+        _samePicture) {
+      // nothing has changed, let's leave
+      if (saving) {
+        Navigator.of(context).pop();
+      }
+      return true;
+    }
+
+    // the cropped image has changed, but the user went back without saving
+    if (!saving) {
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+      if (pleaseSave == null) {
+        return false;
+      }
+      if (pleaseSave == false) {
+        return true;
+      }
+    }
+
+    await _saveFileAndExit();
+    return true;
+  }
 }

@@ -13,7 +13,7 @@ import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 
 /// Picks an image file from gallery or camera.
-Future<XFile?> _pickImageFile(final State<StatefulWidget> widget) async {
+Future<XFile?> pickImageFile(final State<StatefulWidget> widget) async {
   final UserPictureSource? source = await _getUserPictureSource(widget.context);
   if (source == null) {
     return null;
@@ -138,7 +138,7 @@ Future<File?> _startImageCropping(
   if (existingImage != null) {
     sourceImagePath = existingImage.path;
   } else {
-    final XFile? pickedXFile = await _pickImageFile(widget);
+    final XFile? pickedXFile = await pickImageFile(widget);
     if (pickedXFile == null) {
       await _hideScreenBetween(navigator);
       return null;
