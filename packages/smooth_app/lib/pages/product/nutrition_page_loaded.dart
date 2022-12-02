@@ -253,7 +253,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final OrderedNutrient orderedNutrient,
     final int position,
   ) {
-    final Nutrient nutrient = orderedNutrient.nutrient!;
+    final Nutrient nutrient = _getNutrient(orderedNutrient);
 
     if (_controllers[nutrient] == null) {
       final double? value = _nutritionContainer.getValue(nutrient);
@@ -329,7 +329,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
 
   Widget _getUnitCell(final OrderedNutrient orderedNutrient) {
-    final Unit unit = _nutritionContainer.getUnit(orderedNutrient.nutrient!);
+    final Unit unit =
+        _nutritionContainer.getUnit(_getNutrient(orderedNutrient));
     return ElevatedButton(
       onPressed: _nutritionContainer.isEditableWeight(unit)
           ? () => setState(
@@ -549,5 +550,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       widget: this,
     );
     return true;
+  }
+
+  // cf. https://github.com/openfoodfacts/smooth-app/issues/3387
+  Nutrient _getNutrient(final OrderedNutrient orderedNutrient) {
+    if (orderedNutrient.nutrient != null) {
+      return orderedNutrient.nutrient!;
+    }
+    if (orderedNutrient.id == 'energy') {
+      return Nutrient.energyKJ;
+    }
+    throw Exception('unknown nutrient for "${orderedNutrient.id}"');
   }
 }
