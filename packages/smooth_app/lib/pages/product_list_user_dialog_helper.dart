@@ -106,6 +106,59 @@ class ProductListUserDialogHelper {
     return res ?? true;
   }
 
+  /// Shows all user lists with checkboxes, adds all [barcodes] to the selected list
+  /// Filters for duplicates
+  Future<void> showBulkInsertUserListsDialog(
+    final BuildContext context,
+    final List<String> barcodes,
+  ) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final List<String> lists = await daoProductList.getUserLists();
+    final Set<String> selectedLists = <String>{};
+
+    await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) => StatefulBuilder(
+        builder: (
+          BuildContext context,
+          void Function(VoidCallback fn) setState,
+        ) {
+          return SmoothAlertDialog(
+            body: _UserLists(
+              lists: lists,
+              selectedLists: selectedLists,
+              onListSelected: (String name) {
+                selectedLists.add(name);
+                setState(() {});
+              },
+              onListUnselected: (String name) {
+                selectedLists.removeWhere((String element) => element == name);
+                setState(() {});
+              },
+            ),
+            positiveAction: SmoothActionButton(
+                text: appLocalizations.save,
+                onPressed: () async {
+                  for (final String name in selectedLists) {
+                    await daoProductList.bulkInsert(
+                      ProductList.user(name),
+                      barcodes,
+                    );
+                  }
+
+                  //ignore: use_build_context_synchronously
+                  Navigator.pop(context);
+                }),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.pop(context),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   /// Shows a "rename list" dialog; returns renamed [ProductList] if relevant.
   Future<ProductList?> showRenameUserListDialog(
     final BuildContext context,

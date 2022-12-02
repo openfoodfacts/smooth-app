@@ -6,12 +6,14 @@ import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/personalized_ranking_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
+import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/pages/tmp_matched_product_v2.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -58,9 +60,41 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         context.watch<ProductPreferences>();
     context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    Future<void> _addToList() async {
+      final LocalDatabase localDatabase = context.read<LocalDatabase>();
+      final DaoProductList daoProductList = DaoProductList(localDatabase);
+      await ProductListUserDialogHelper(daoProductList)
+          .showBulkInsertUserListsDialog(
+        context,
+        widget.barcodes,
+      );
+    }
+
+    void handlePopUpClick(String value) {
+      switch (value) {
+        case 'add_to_list':
+          _addToList();
+          break;
+      }
+    }
+
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(widget.title, overflow: TextOverflow.fade),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            onSelected: handlePopUpClick,
+            itemBuilder: (BuildContext context) {
+              return <PopupMenuEntry<String>>[
+                PopupMenuItem<String>(
+                  value: 'add_to_list',
+                  child: Text(appLocalizations.user_list_button_add_product),
+                ),
+              ];
+            },
+          ),
+        ],
       ),
       body: ChangeNotifierProvider<PersonalizedRankingModel>(
         create: (final BuildContext context) => _model,
