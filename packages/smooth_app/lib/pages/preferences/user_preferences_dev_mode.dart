@@ -5,6 +5,7 @@ import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -319,6 +320,23 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               ),
             );
             localDatabase.notifyListeners();
+          },
+        ),
+        ListTile(
+          title: const Text('Add cards to scanner'),
+          subtitle: const Text('Adds 3 sample products to the scanner'),
+          onTap: () async {
+            final ContinuousScanModel model =
+                context.read<ContinuousScanModel>();
+
+            const List<String> barcodes = <String>[
+              '5449000000996',
+              '3017620425035',
+              '3175680011480',
+            ];
+            for (int i = 0; i < barcodes.length; i++) {
+              await model.onScan(barcodes[i]);
+            }
           },
         ),
         ListTile(

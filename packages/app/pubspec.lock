@@ -132,8 +132,8 @@ packages:
     description:
       path: "packages/camera/camera"
       ref: smooth_camera
-      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
-      url: "https://github.com/g123k/plugins.git"
+      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
+      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
     source: git
     version: "0.9.6"
   camera_platform_interface:
@@ -141,8 +141,8 @@ packages:
     description:
       path: "packages/camera/camera_platform_interface"
       ref: smooth_camera
-      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
-      url: "https://github.com/g123k/plugins.git"
+      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
+      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
     source: git
     version: "2.1.6"
   camera_web:
@@ -150,8 +150,8 @@ packages:
     description:
       path: "packages/camera/camera_web"
       ref: smooth_camera
-      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
-      url: "https://github.com/g123k/plugins.git"
+      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
+      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
     source: git
     version: "0.2.1+6"
   carousel_slider:
@@ -203,48 +203,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
-  connectivity_plus:
-    dependency: transitive
-    description:
-      name: connectivity_plus
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.3.9"
-  connectivity_plus_linux:
-    dependency: transitive
-    description:
-      name: connectivity_plus_linux
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.1"
-  connectivity_plus_macos:
-    dependency: transitive
-    description:
-      name: connectivity_plus_macos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.6"
-  connectivity_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: connectivity_plus_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.3"
-  connectivity_plus_web:
-    dependency: transitive
-    description:
-      name: connectivity_plus_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.5"
-  connectivity_plus_windows:
-    dependency: transitive
-    description:
-      name: connectivity_plus_windows
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.2"
   cross_file:
     dependency: transitive
     description:
@@ -287,13 +245,6 @@ packages:
       relative: true
     source: path
     version: "0.0.0"
-  dbus:
-    dependency: transitive
-    description:
-      name: dbus
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.8"
   device_frame:
     dependency: transitive
     description:
@@ -791,13 +742,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  nm:
-    dependency: transitive
-    description:
-      name: nm
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.0"
   openfoodfacts:
     dependency: transitive
     description:
@@ -1267,15 +1211,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0+3"
-  task_manager:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "29e009e760c973359adc99fb86e861dd948daa26"
-      url: "https://github.com/g123k/flutter_task_manager.git"
-    source: git
-    version: "0.0.1"
   term_glyph:
     dependency: transitive
     description:
@@ -1430,13 +1365,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-  workmanager:
-    dependency: transitive
-    description:
-      name: workmanager
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.0"
   xdg_directories:
     dependency: transitive
     description:
@@ -1459,5 +1387,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.17.6 <3.0.0"
+  dart: ">=2.17.0 <3.0.0"
   flutter: ">=3.0.0"
