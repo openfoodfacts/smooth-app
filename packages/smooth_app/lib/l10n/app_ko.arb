@@ -1037,7 +1037,15 @@
     },
     "edit_product_form_item_details_subtitle": "상품 이름, 브랜드, 양",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Additional details",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "사진",
     "@edit_product_form_item_photos_title": {
@@ -1152,6 +1160,10 @@
     "edit_product_form_save": "수정",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "Website",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "기본 세부 정보 완성",
     "not_implemented_snackbar_text": "아직 구현되지 않았어요",

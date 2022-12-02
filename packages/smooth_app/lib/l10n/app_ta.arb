@@ -1037,7 +1037,15 @@
     },
     "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Additional details",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "புகைப்படங்கள்",
     "@edit_product_form_item_photos_title": {
@@ -1152,6 +1160,10 @@
     "edit_product_form_save": "திருத்து",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "Website",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
