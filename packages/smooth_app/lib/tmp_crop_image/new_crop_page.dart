@@ -80,50 +80,77 @@ class _CropPageState extends State<CropPage> {
             widget.title ?? appLocalizations.product_edit_photo_title,
             maxLines: 2,
           ),
-          actions: _processing
-              ? null
-              : <Widget>[
-                  IconButton(
-                    icon: const Icon(Icons.camera_alt),
-                    onPressed: () async {
-                      setState(() => _processing = true);
-                      final XFile? pickedXFile = await pickImageFile(this);
-                      if (pickedXFile == null) {
-                        return;
-                      }
-                      await _load(File(pickedXFile.path));
-                      _processing = false;
-                      _samePicture = false;
-                      if (!mounted) {
-                        return;
-                      }
-                      setState(() {});
-                    },
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.rotate_right),
-                    onPressed: () => setState(() => _controller.rotateRight()),
-                  ),
-                ],
         ),
-        floatingActionButton: _processing
-            ? null
-            : FloatingActionButton.extended(
-                onPressed: () async => _mayExitPage(saving: true),
-                label: Text(appLocalizations.okay),
-              ),
         backgroundColor: Colors.black,
         body: _processing
             ? const Center(child: CircularProgressIndicator.adaptive())
-            : Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(MEDIUM_SPACE),
-                  child: RotatedCropImage(
-                    controller: _controller,
-                    image: _image,
-                    minimumImageSize: 1,
+            : Stack(
+                children: <Widget>[
+                  Positioned(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: RotatedCropImage(
+                        controller: _controller,
+                        image: _image,
+                        minimumImageSize: 1,
+                      ),
+                    ),
                   ),
-                ),
+                  Positioned(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          bottom: MEDIUM_SPACE,
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () => setState(
+                            () => _controller.rotateRight(),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            shape: const CircleBorder(),
+                          ),
+                          child:
+                              const Icon(Icons.rotate_90_degrees_cw_outlined),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                            bottom: MEDIUM_SPACE),
+                        child: Wrap(
+                          spacing: MEDIUM_SPACE,
+                          alignment: WrapAlignment.center,
+                          children: <Widget>[
+                            _OutlinedButton(
+                              iconData: Icons.camera_alt,
+                              label: appLocalizations.capture,
+                              onPressed: () async {
+                                setState(() => _processing = true);
+                                final XFile? pickedXFile =
+                                    await pickImageFile(this);
+                                if (pickedXFile == null) {
+                                  return;
+                                }
+                                await _load(File(pickedXFile.path));
+                                _processing = false;
+                                _samePicture = false;
+                                if (!mounted) {
+                                  return;
+                                }
+                                setState(() {});
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
       ),
     );
@@ -181,5 +208,36 @@ class _CropPageState extends State<CropPage> {
 
     await _saveFileAndExit();
     return true;
+  }
+}
+
+/// Standard button for this page.
+class _OutlinedButton extends StatelessWidget {
+  const _OutlinedButton({
+    required this.iconData,
+    required this.label,
+    required this.onPressed,
+  });
+
+  final IconData iconData;
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    return OutlinedButton.icon(
+      icon: Icon(iconData),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(
+          themeData.colorScheme.background,
+        ),
+        shape: MaterialStateProperty.all(
+          const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+        ),
+      ),
+      onPressed: onPressed,
+      label: Text(label),
+    );
   }
 }
