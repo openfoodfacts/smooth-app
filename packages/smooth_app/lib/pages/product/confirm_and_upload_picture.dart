@@ -52,6 +52,8 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     return SmoothScaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        centerTitle: false,
+        titleSpacing: 0.0,
         title: Text(getImagePageTitle(appLocalizations, widget.imageField)),
       ),
       body: Stack(

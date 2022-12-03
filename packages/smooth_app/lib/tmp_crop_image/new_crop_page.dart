@@ -61,6 +61,8 @@ class _CropPageState extends State<CropPage> {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(
+          centerTitle: false,
+          titleSpacing: 0.0,
           title: Text(
             AppLocalizations.of(context).product_edit_photo_title +
                 (widget.title == null ? '' : '\n${widget.title}'),
