@@ -14,6 +14,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
 /// Page dedicated to image cropping. Pops the resulting file path if relevant.
 class CropPage extends StatefulWidget {
@@ -60,7 +61,9 @@ class _CropPageState extends State<CropPage> {
 
   @override
   Widget build(final BuildContext context) => Scaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
+          centerTitle: false,
+          titleSpacing: 0.0,
           title: Text(
             AppLocalizations.of(context).product_edit_photo_title +
                 (widget.title == null ? '' : '\n${widget.title}'),
