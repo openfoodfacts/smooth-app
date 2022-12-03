@@ -363,7 +363,7 @@
     "myPreferences_settings_subtitle": "Karanlık mod, Analytics, ...",
     "myPreferences_food_title": "Yiyecek tercihleri",
     "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Yiyecekleri tercihlerinize göre sıralamak, önemsediğiniz bilgileri ilk önce görmek ve uyumluluk özeti almak için yiyeceklerle ilgili sizin için en önemli olan bilgileri seçin. Bu yemek tercihleri cihazınızda kalır ve varsa Open Food Facts katılımcı hesabınızla ilişkilendirilmez.",
     "confirmResetPreferences": "Yiyecek tercihleriniz sıfırlansın mı?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -445,7 +445,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_instructions": "Tüm ambalaj parçalarını virgülle veya satır beslemesiyle ayırarak, miktarları (ör. 1 veya 6), türü (ör. şişe, kutu, kutu), malzemesi (ör. plastik, metal, alüminyum) ve varsa boyutları (ör. 33 cl) ve geri dönüşüm talimatları.\nÖrnek: Geri dönüştürülecek 1 cam şişe, çöpe atılacak 1 plastik mantar",
     "packaging_editing_error": "Ambalaj kaydedilemedi.",
     "packaging_editing_image_error": "Yeni bir paketleme görüntüsü alınamadı.",
     "packaging_editing_title": "Paketlemeyi Düzenle",
@@ -840,19 +840,19 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "İşbirliğine dayalı tarama uygulamasını 2012'de icat ettik",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "10 yaşına geldiğimizde, onu sıfırdan yeniden keşfediyoruz!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "İlk örnek ürününüz yükleniyor",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "onboarding_welcome_loading_error": "Dilinizde örnek ürün yok gibi görünüyor",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
@@ -868,7 +868,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Taranan ürünler burada görünecektir. Onlar hakkında detaylı bilgileri kontrol edebilirsiniz",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -906,7 +906,7 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_subtitle_guest": "Open Food Facts topluluğuna katılmak için oturum açın veya kaydolun",
     "user_profile_title_id_email": "Open Food Facts giriş: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
@@ -1037,7 +1037,15 @@
     },
     "edit_product_form_item_details_subtitle": "Ürün adı, markası, miktarı",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Ek ayrıntılar",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "İnternet sitesi, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "Fotoğraflar",
     "@edit_product_form_item_photos_title": {
@@ -1152,6 +1160,10 @@
     "edit_product_form_save": "Düzenle",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "Web sitesi",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "Temel bilgileri tamamlayın",
     "not_implemented_snackbar_text": "Henüz uygulanmadı",
