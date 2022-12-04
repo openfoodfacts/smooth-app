@@ -106,7 +106,7 @@ class ProductListUserDialogHelper {
     return res ?? true;
   }
 
-  /// Shows all user lists with checkboxes, adds all [barcodes] to the selected list
+  /// Shows all user lists with checkboxes, adds all [barcodes] to the selected lists.
   /// Filters for duplicates
   Future<void> showBulkInsertUserListsDialog(
     final BuildContext context,

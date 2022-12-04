@@ -61,7 +61,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    Future<void> _addToList() async {
+    Future<void> addToLists() async {
       final LocalDatabase localDatabase = context.read<LocalDatabase>();
       final DaoProductList daoProductList = DaoProductList(localDatabase);
       await ProductListUserDialogHelper(daoProductList)
@@ -69,13 +69,26 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         context,
         widget.barcodes,
       );
+      if (!mounted) {
+        return;
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            appLocalizations.added_to_list_msg,
+          ),
+          duration: SnackBarDuration.medium,
+        ),
+      );
     }
 
-    void handlePopUpClick(String value) {
+    Future<void> handlePopUpClick(String value) async {
       switch (value) {
         case 'add_to_list':
-          _addToList();
+          await addToLists();
           break;
+        default:
+          throw Exception('Unknown case $value');
       }
     }
 

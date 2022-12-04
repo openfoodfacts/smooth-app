@@ -221,7 +221,8 @@ class DaoProductList extends AbstractDao {
     return true;
   }
 
-  Future<bool> bulkInsert(
+  /// Adds a list of barcodes to a [productList] in one go
+  Future<void> bulkInsert(
     final ProductList productList,
     final List<String> barcodesToAdd,
   ) async {
@@ -234,15 +235,14 @@ class DaoProductList extends AbstractDao {
       barcodes = _getSafeBarcodeListCopy(list.barcodes);
     }
 
-    for (int i = 0; i < barcodesToAdd.length; i++) {
-      if (!barcodes.contains(barcodesToAdd[i])) {
-        barcodes.add(barcodesToAdd[i]);
+    for (final String barcode in barcodesToAdd) {
+      if (!barcodes.contains(barcode)) {
+        barcodes.add(barcode);
       }
     }
 
     final _BarcodeList newList = _BarcodeList.now(barcodes);
     await _put(_getKey(productList), newList);
-    return true;
   }
 
   Future<ProductList> rename(
