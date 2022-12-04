@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
 import 'package:smooth_app/tmp_crop_image/rotation.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
 /// Page dedicated to image cropping. Pops the resulting file path if relevant.
 class CropPage extends StatefulWidget {
@@ -75,7 +76,9 @@ class _CropPageState extends State<CropPage> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: Scaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
+          centerTitle: false,
+          titleSpacing: 0.0,
           title: Text(
             widget.title ?? appLocalizations.product_edit_photo_title,
             maxLines: 2,

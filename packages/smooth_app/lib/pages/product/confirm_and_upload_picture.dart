@@ -10,6 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Display of a full size picture with edit tools.
@@ -51,7 +52,9 @@ class _ConfirmAndUploadPictureState extends State<ConfirmAndUploadPicture> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
+      appBar: SmoothAppBar(
+        centerTitle: false,
+        titleSpacing: 0.0,
         title: Text(getImagePageTitle(appLocalizations, widget.imageField)),
       ),
       body: Stack(
