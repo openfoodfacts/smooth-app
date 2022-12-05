@@ -8,9 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/crop_helper.dart';
-import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
+import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 
 /// Picks an image file from gallery or camera.
 Future<XFile?> pickImageFile(final State<StatefulWidget> widget) async {
@@ -81,12 +79,13 @@ Future<UserPictureSource?> _getUserPictureSource(
   );
 }
 
+/// Lets the user pick a picture, crop it, and save it.
 Future<File?> confirmAndUploadNewPicture(
   final State<StatefulWidget> widget, {
   required final ImageField imageField,
   required final String barcode,
 }) async {
-  final File? croppedPhoto = await startNewImageCropping(widget, imageField);
+  final XFile? croppedPhoto = await pickImageFile(widget);
   if (croppedPhoto == null) {
     return null;
   }
@@ -96,117 +95,12 @@ Future<File?> confirmAndUploadNewPicture(
   return Navigator.push<File>(
     widget.context,
     MaterialPageRoute<File>(
-      builder: (BuildContext context) => ConfirmAndUploadPicture(
+      builder: (BuildContext context) => CropPage(
         barcode: barcode,
         imageField: imageField,
-        initialPhoto: croppedPhoto,
+        inputFile: File(croppedPhoto.path),
       ),
+      fullscreenDialog: true,
     ),
   );
-}
-
-/// Crops an image picked from the gallery or camera.
-Future<File?> startNewImageCropping(
-  final State<StatefulWidget> widget,
-  final ImageField imageField,
-) async =>
-    _startImageCropping(widget, imageField);
-
-/// Crops an existing image.
-Future<File?> startExistingImageCropping(
-  final State<StatefulWidget> widget,
-  final ImageField imageField,
-  final File? existingImage,
-) async =>
-    _startImageCropping(widget, imageField, existingImage: existingImage);
-
-/// Crops an image, either existing or picked from the gallery or camera.
-Future<File?> _startImageCropping(
-  final State<StatefulWidget> widget,
-  final ImageField imageField, {
-  final File? existingImage,
-}) async {
-  // Show a loading page on the Flutter side
-  final NavigatorState navigator = Navigator.of(widget.context);
-  await _showScreenBetween(navigator);
-
-  if (!widget.mounted) {
-    return null;
-  }
-  final String sourceImagePath;
-  if (existingImage != null) {
-    sourceImagePath = existingImage.path;
-  } else {
-    final XFile? pickedXFile = await pickImageFile(widget);
-    if (pickedXFile == null) {
-      await _hideScreenBetween(navigator);
-      return null;
-    }
-    sourceImagePath = pickedXFile.path;
-  }
-
-  if (!widget.mounted) {
-    return null;
-  }
-  final String? croppedPath = await NewCropHelper().getCroppedPath(
-    widget.context,
-    sourceImagePath,
-    pageTitle: getImagePageTitle(
-      AppLocalizations.of(widget.context),
-      imageField,
-    ),
-  );
-
-  await _hideScreenBetween(navigator);
-
-  if (croppedPath == null) {
-    return null;
-  }
-
-  return File(croppedPath);
-}
-
-Future<void> _showScreenBetween(NavigatorState navigator) {
-  return ((NavigatorState navigator) async {
-    navigator.push<dynamic>(
-      MaterialPageRoute<dynamic>(
-        settings: _LoadingPage._settings,
-        builder: (_) => const _LoadingPage(),
-      ),
-    );
-  }).call(navigator);
-}
-
-Future<void> _hideScreenBetween(NavigatorState navigator) async {
-  return ((NavigatorState navigator) async {
-    return navigator.pop((Route<dynamic> route) {
-      // Remove the screen, only if it's the loading screen
-      if (route.settings == _LoadingPage._settings) {
-        return true;
-      }
-      return false;
-    });
-  }).call(navigator);
-}
-
-/// A screen being displayed once an image is taken, but the cropper is not yet
-/// visible
-class _LoadingPage extends StatelessWidget {
-  const _LoadingPage({
-    Key? key,
-  }) : super(key: key);
-
-  static const RouteSettings _settings = RouteSettings(name: 'loading_page');
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox.expand(
-      child: ColoredBox(
-        color: Colors.black,
-        child: Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
-      ),
-    );
-  }
 }

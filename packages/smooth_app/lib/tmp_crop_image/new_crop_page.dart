@@ -6,13 +6,17 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image/image.dart' as image2;
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
+import 'package:smooth_app/background/background_task_image.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
@@ -22,13 +26,15 @@ import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
 /// Page dedicated to image cropping. Pops the resulting file path if relevant.
 class CropPage extends StatefulWidget {
-  const CropPage(
-    this.inputFile, {
-    this.title,
+  const CropPage({
+    required this.inputFile,
+    required this.barcode,
+    required this.imageField,
   });
 
   final File inputFile;
-  final String? title;
+  final ImageField imageField;
+  final String barcode;
 
   @override
   State<CropPage> createState() => _CropPageState();
@@ -80,7 +86,7 @@ class _CropPageState extends State<CropPage> {
           centerTitle: false,
           titleSpacing: 0.0,
           title: Text(
-            widget.title ?? appLocalizations.product_edit_photo_title,
+            getImagePageTitle(appLocalizations, widget.imageField),
             maxLines: 2,
           ),
         ),
@@ -171,7 +177,8 @@ class _CropPageState extends State<CropPage> {
   }
 
   Future<void> _saveFileAndExit() async {
-    final DaoInt daoInt = DaoInt(context.read<LocalDatabase>());
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoInt daoInt = DaoInt(localDatabase);
     final image2.Image? rawImage = await _controller.croppedBitmap();
     if (rawImage == null) {
       return;
@@ -182,13 +189,31 @@ class _CropPageState extends State<CropPage> {
 
     final Directory tempDirectory = await getTemporaryDirectory();
     final String path = '${tempDirectory.path}/crop_$sequenceNumber.jpeg';
-    await File(path).writeAsBytes(data);
+    final File file = File(path);
+    await file.writeAsBytes(data);
 
     if (!mounted) {
       return;
     }
 
-    Navigator.of(context).pop<String>(path);
+    await BackgroundTaskImage.addTask(
+      widget.barcode,
+      imageField: widget.imageField,
+      imageFile: file,
+      widget: this,
+    );
+    localDatabase.notifyListeners();
+    if (!mounted) {
+      return;
+    }
+    final ContinuousScanModel model = context.read<ContinuousScanModel>();
+    await model
+        .onCreateProduct(widget.barcode); // TODO(monsieurtanuki): a bit fishy
+
+    if (!mounted) {
+      return;
+    }
+    Navigator.of(context).pop<File>(file);
   }
 
   static const String _CROP_PAGE_SEQUENCE_KEY = 'crop_page_sequence';
