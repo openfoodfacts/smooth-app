@@ -4,7 +4,7 @@
     "@yes": {},
     "add": "Toevoegen",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "Weet je zeker dat je je account wilt verwijderen?\nAls er een specifieke reden is, deel deze dan hieronder",
     "@account_delete_message": {},
     "reason": "Reden",
     "@reason": {},
@@ -1037,7 +1037,15 @@
     },
     "edit_product_form_item_details_subtitle": "Productnaam, merk, hoeveelheid",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Aanvullende details",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "Foto's",
     "@edit_product_form_item_photos_title": {
@@ -1152,6 +1160,10 @@
     "edit_product_form_save": "Bewerken",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "Website",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "Basisdetails aanvullen",
     "not_implemented_snackbar_text": "Nog niet geïmplementeerd",
@@ -1749,8 +1761,8 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Do you like our app?",
-    "app_rating_dialog_body": "Please give us 5 stars on the store!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_title": "Vindt u onze app leuk?",
+    "app_rating_dialog_body": "Geef ons 5 sterren in de winkel!",
+    "app_rating_dialog_positive_action": "Beoordeel de app",
     "app_rating_dialog_negative_action": "Later"
 }

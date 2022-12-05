@@ -1037,7 +1037,15 @@
     },
     "edit_product_form_item_details_subtitle": "Nome prodotto, marca, quantità",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Ulteriori dettagli",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "Sito Web, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "Foto",
     "@edit_product_form_item_photos_title": {
@@ -1152,6 +1160,10 @@
     "edit_product_form_save": "Modifica",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "Sito web",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "Completa i dettagli di base",
     "not_implemented_snackbar_text": "Non ancora implementato",
@@ -1750,7 +1762,7 @@
         "description": "Show hidden password in password field"
     },
     "app_rating_dialog_title": "Ti piace la nostra app?",
-    "app_rating_dialog_body": "Please give us 5 stars on the store!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_body": "Per favore, vota l'app con 5 stelle!",
+    "app_rating_dialog_positive_action": "Valuta l'app",
     "app_rating_dialog_negative_action": "In seguito"
 }
