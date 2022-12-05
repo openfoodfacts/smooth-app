@@ -110,6 +110,15 @@ class RotatedCropController extends ValueNotifier<RotatedCropControllerValue> {
     );
   }
 
+  void rotateLeft() {
+    rotation = value.rotation.rotateLeft;
+    crop = Rect.fromCenter(
+      center: Offset(crop.center.dy, 1 - crop.center.dx),
+      width: crop.height,
+      height: crop.width,
+    );
+  }
+
   Rect _adjustRatio(Rect rect, double aspectRatio) {
     final double width = rect.width * _bitmapSize.width;
     final double height = rect.height * _bitmapSize.height;

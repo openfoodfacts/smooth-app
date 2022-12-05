@@ -121,6 +121,26 @@ class _CropPageState extends State<CropPage> {
                   ),
                   Positioned(
                     child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          bottom: MEDIUM_SPACE,
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () => setState(
+                            () => _controller.rotateLeft(),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            shape: const CircleBorder(),
+                          ),
+                          child:
+                              const Icon(Icons.rotate_90_degrees_ccw_outlined),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    child: Align(
                       alignment: Alignment.bottomCenter,
                       child: Padding(
                         padding: const EdgeInsetsDirectional.only(
@@ -132,21 +152,12 @@ class _CropPageState extends State<CropPage> {
                             _OutlinedButton(
                               iconData: Icons.camera_alt,
                               label: appLocalizations.capture,
-                              onPressed: () async {
-                                setState(() => _processing = true);
-                                final XFile? pickedXFile =
-                                    await pickImageFile(this);
-                                if (pickedXFile == null) {
-                                  return;
-                                }
-                                await _load(File(pickedXFile.path));
-                                _processing = false;
-                                _samePicture = false;
-                                if (!mounted) {
-                                  return;
-                                }
-                                setState(() {});
-                              },
+                              onPressed: () async => _capture(),
+                            ),
+                            _OutlinedButton(
+                              iconData: Icons.check,
+                              label: appLocalizations.confirm_button_label,
+                              onPressed: () async => _mayExitPage(saving: true),
                             ),
                           ],
                         ),
@@ -211,6 +222,21 @@ class _CropPageState extends State<CropPage> {
 
     await _saveFileAndExit();
     return true;
+  }
+
+  Future<void> _capture() async {
+    setState(() => _processing = true);
+    final XFile? pickedXFile = await pickImageFile(this);
+    if (pickedXFile == null) {
+      return;
+    }
+    await _load(File(pickedXFile.path));
+    _processing = false;
+    _samePicture = false;
+    if (!mounted) {
+      return;
+    }
+    setState(() {});
   }
 }
 

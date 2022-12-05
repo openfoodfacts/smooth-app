@@ -128,7 +128,6 @@ Future<File?> _startImageCropping(
 }) async {
   // Show a loading page on the Flutter side
   final NavigatorState navigator = Navigator.of(widget.context);
-  final CropHelper cropHelper = CropHelper.getCurrent(widget.context);
   await _showScreenBetween(navigator);
 
   if (!widget.mounted) {
@@ -149,7 +148,7 @@ Future<File?> _startImageCropping(
   if (!widget.mounted) {
     return null;
   }
-  final String? croppedPath = await cropHelper.getCroppedPath(
+  final String? croppedPath = await NewCropHelper().getCroppedPath(
     widget.context,
     sourceImagePath,
     pageTitle: getImagePageTitle(

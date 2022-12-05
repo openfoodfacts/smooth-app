@@ -53,7 +53,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesTestEnvHost = '__testEnvHost';
   static const String userPreferencesFlagAdditionalButton =
       '__additionalButtonOnProductPage';
-  static const String userPreferencesFlagNewCropTool = '__newCropTool';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
@@ -405,26 +404,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         SwitchListTile(
-          title: const Text('Use new crop tool'),
           value:
-              userPreferences.getFlag(userPreferencesFlagNewCropTool) ?? true,
+              userPreferences.getFlag(userPreferencesFlagHungerGames) ?? false,
+          title: const Text('Activate Hunger Games'),
           onChanged: (bool value) async {
             await userPreferences.setFlag(
-                userPreferencesFlagNewCropTool, value);
+              userPreferencesFlagHungerGames,
+              value,
+            );
             setState(() {});
           },
         ),
-        SwitchListTile(
-            value: userPreferences.getFlag(userPreferencesFlagHungerGames) ??
-                false,
-            title: const Text('Activate Hunger Games'),
-            onChanged: (bool value) async {
-              await userPreferences.setFlag(
-                userPreferencesFlagHungerGames,
-                value,
-              );
-              setState(() {});
-            }),
         ListTile(
           // Do not translate
           title: const Text('Reset App Language'),
