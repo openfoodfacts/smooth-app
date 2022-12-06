@@ -145,16 +145,19 @@ class _ProductTitleCardTrailing extends StatelessWidget {
     if (removable && !selectable) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-      return InkWell(
-        customBorder: const CircleBorder(),
-        onTap: () => onRemove?.call(context),
-        child: Tooltip(
-          message: appLocalizations.product_card_remove_product_tooltip,
-          child: const Padding(
-            padding: EdgeInsets.all(SMALL_SPACE),
-            child: Icon(
-              Icons.clear_rounded,
-              size: DEFAULT_ICON_SIZE,
+      return Align(
+        alignment: Alignment.centerRight,
+        child: InkWell(
+          customBorder: const CircleBorder(),
+          onTap: () => onRemove?.call(context),
+          child: Tooltip(
+            message: appLocalizations.product_card_remove_product_tooltip,
+            child: const Padding(
+              padding: EdgeInsets.all(SMALL_SPACE),
+              child: Icon(
+                Icons.clear_rounded,
+                size: DEFAULT_ICON_SIZE,
+              ),
             ),
           ),
         ),
