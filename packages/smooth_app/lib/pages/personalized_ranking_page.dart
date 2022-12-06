@@ -54,24 +54,19 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
-    context.watch<LocalDatabase>();
+  Future<void> _addToLists(BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    Future<void> addToLists() async {
-      final LocalDatabase localDatabase = context.read<LocalDatabase>();
-      final DaoProductList daoProductList = DaoProductList(localDatabase);
-      await ProductListUserDialogHelper(daoProductList)
-          .showBulkInsertUserListsDialog(
-        context,
-        widget.barcodes,
-      );
-      if (!mounted) {
-        return;
-      }
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final bool? added = await ProductListUserDialogHelper(daoProductList)
+        .showUserAddProductsDialog(
+      context,
+      widget.barcodes.toSet(),
+    );
+    if (!mounted) {
+      return;
+    }
+    if (added != null && added) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -81,23 +76,31 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         ),
       );
     }
+  }
 
-    Future<void> handlePopUpClick(String value) async {
-      switch (value) {
-        case 'add_to_list':
-          await addToLists();
-          break;
-        default:
-          throw Exception('Unknown case $value');
-      }
+  Future<void> _handlePopUpClick(String value) async {
+    switch (value) {
+      case 'add_to_list':
+        await _addToLists(context);
+        break;
+      default:
+        throw Exception('Unknown case $value');
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ProductPreferences productPreferences =
+        context.watch<ProductPreferences>();
+    context.watch<LocalDatabase>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(widget.title, overflow: TextOverflow.fade),
         actions: <Widget>[
           PopupMenuButton<String>(
-            onSelected: handlePopUpClick,
+            onSelected: _handlePopUpClick,
             itemBuilder: (BuildContext context) {
               return <PopupMenuEntry<String>>[
                 PopupMenuItem<String>(

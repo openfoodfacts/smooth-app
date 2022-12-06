@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 /// Dialog helper class for user product list.
@@ -44,11 +44,12 @@ class ProductListUserDialogHelper {
                 }
                 return null;
               },
-              onFieldSubmitted: (_) => _onNewListValueSubmitted(
-                context,
-                formKey,
-                textEditingController,
-              ),
+              onFieldSubmitted: (_) {
+                if (!formKey.currentState!.validate()) {
+                  return;
+                }
+                Navigator.pop(context, textEditingController.text);
+              },
             ),
           ),
           actionsAxis: Axis.vertical,
@@ -57,11 +58,12 @@ class ProductListUserDialogHelper {
             text: appLocalizations.cancel,
           ),
           positiveAction: SmoothActionButton(
-            onPressed: () => _onNewListValueSubmitted(
-              context,
-              formKey,
-              textEditingController,
-            ),
+            onPressed: () {
+              if (!formKey.currentState!.validate()) {
+                return;
+              }
+              Navigator.pop(context, textEditingController.text);
+            },
             text: appLocalizations.create,
           ),
         );
@@ -76,87 +78,6 @@ class ProductListUserDialogHelper {
     await daoProductList.put(productList);
     daoProductList.localDatabase.notifyListeners();
     return productList;
-  }
-
-  /// Event raised when the user validates a new list name.
-  void _onNewListValueSubmitted(
-    final BuildContext context,
-    final GlobalKey<FormState> formKey,
-    final TextEditingController textEditingController,
-  ) {
-    if (!formKey.currentState!.validate()) {
-      return;
-    }
-    Navigator.pop(context, textEditingController.text);
-  }
-
-  /// Shows all user lists with "contains [barcode]?" checkboxes.
-  Future<bool> showUserListsWithBarcodeDialog(
-    final BuildContext context,
-    final Product product,
-  ) async {
-    final bool? res = await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => _UserListsDialogContent(
-        daoProductList: daoProductList,
-        product: product,
-      ),
-    );
-
-    return res ?? true;
-  }
-
-  /// Shows all user lists with checkboxes, adds all [barcodes] to the selected lists.
-  /// Filters for duplicates
-  Future<void> showBulkInsertUserListsDialog(
-    final BuildContext context,
-    final List<String> barcodes,
-  ) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<String> lists = await daoProductList.getUserLists();
-    final Set<String> selectedLists = <String>{};
-
-    await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => StatefulBuilder(
-        builder: (
-          BuildContext context,
-          void Function(VoidCallback fn) setState,
-        ) {
-          return SmoothAlertDialog(
-            body: _UserLists(
-              lists: lists,
-              selectedLists: selectedLists,
-              onListSelected: (String name) {
-                selectedLists.add(name);
-                setState(() {});
-              },
-              onListUnselected: (String name) {
-                selectedLists.removeWhere((String element) => element == name);
-                setState(() {});
-              },
-            ),
-            positiveAction: SmoothActionButton(
-                text: appLocalizations.save,
-                onPressed: () async {
-                  for (final String name in selectedLists) {
-                    await daoProductList.bulkInsert(
-                      ProductList.user(name),
-                      barcodes,
-                    );
-                  }
-
-                  //ignore: use_build_context_synchronously
-                  Navigator.pop(context);
-                }),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.cancel,
-              onPressed: () => Navigator.pop(context),
-            ),
-          );
-        },
-      ),
-    );
   }
 
   /// Shows a "rename list" dialog; returns renamed [ProductList] if relevant.
@@ -254,17 +175,62 @@ class ProductListUserDialogHelper {
     }
     return result;
   }
+
+  /// Shows all user lists with checkboxes, adds all [barcodes] to the selected lists.
+  /// Pre-checks all lists where [barcodes][0] is included if [barcodes.length] == 1
+  /// Returns true if products were added
+  Future<bool?> showUserAddProductsDialog(
+    final BuildContext context,
+    final Set<String> barcodes,
+  ) async {
+    final List<String>? lists = await LoadingDialog.run<List<String>>(
+      context: context,
+      future: daoProductList.getUserLists(),
+    );
+
+    late final Widget widget;
+
+    if (lists == null || lists.isEmpty) {
+      widget = _UserEmptyLists(daoProductList);
+    } else {
+      List<String>? selectedLists = <String>[];
+
+      // We only check if the barcode is in the list if we only pass a single barcode
+      if (barcodes.length == 1) {
+        selectedLists = await LoadingDialog.run<List<String>>(
+          context: context,
+          future: daoProductList.getUserLists(withBarcode: barcodes.first),
+        );
+      }
+
+      widget = _UserListsDialogContent(
+        daoProductList: daoProductList,
+        allLists: lists.toSet(),
+        selectedLists: selectedLists?.toSet() ?? <String>{},
+        barcodes: barcodes,
+      );
+    }
+
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) => widget,
+    );
+  }
 }
 
-/// Dialog to add/remove a product from users' lists
+/// Dialog content to add/remove products from users' lists
 class _UserListsDialogContent extends StatefulWidget {
   const _UserListsDialogContent({
-    required this.product,
+    required this.barcodes,
+    required this.allLists,
+    this.selectedLists = const <String>{},
     required this.daoProductList,
     Key? key,
   }) : super(key: key);
 
-  final Product product;
+  final Set<String> barcodes;
+  final Set<String> allLists;
+  final Set<String> selectedLists;
   final DaoProductList daoProductList;
 
   @override
@@ -273,163 +239,59 @@ class _UserListsDialogContent extends StatefulWidget {
 }
 
 class _UserListsDialogContentState extends State<_UserListsDialogContent> {
-  final List<String> all = <String>[];
-  final List<String> withBarcode = <String>[];
-  final Set<String> newWithBarcode = <String>{};
-
-  late bool _isLoading;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadUserLists();
-  }
-
-  Future<void> _loadUserLists() async {
-    _isLoading = true;
-
-    await _loadAllUserLists();
-
-    withBarcode.clear();
-    withBarcode.addAll(await widget.daoProductList
-        .getUserLists(withBarcode: widget.product.barcode));
-
-    newWithBarcode.clear();
-    newWithBarcode.addAll(withBarcode);
-
-    if (mounted) {
-      _isLoading = false;
-      setState(() {});
-    }
-  }
-
-  Future<void> _loadAllUserLists() async {
-    all.clear();
-    all.addAll(await widget.daoProductList.getUserLists());
-  }
+  final Set<String> addTo = <String>{};
+  final Set<String> removeFrom = <String>{};
 
   @override
   Widget build(BuildContext context) {
-    final Widget content;
-
-    if (_isLoading) {
-      content = const Center(
-        child: CircularProgressIndicator.adaptive(),
-      );
-    } else {
-      content = _hasLists
-          ? _UserLists(
-              lists: all,
-              selectedLists: newWithBarcode,
-              onListSelected: (String barcode) {
-                setState(() {
-                  newWithBarcode.add(barcode);
-                });
-              },
-              onListUnselected: (String barcode) {
-                setState(() {
-                  newWithBarcode.remove(barcode);
-                });
-              },
-            )
-          : const _UserEmptyLists();
-    }
-
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SmoothAlertDialog(
       close: true,
       title: appLocalizations.user_list_add_product,
-      body: content,
-      actionsAxis: Axis.vertical,
-      actionsOrder: _order,
-      negativeAction: _negativeButton(appLocalizations),
-      positiveAction: _positiveButton(appLocalizations),
-    );
-  }
-
-  String get _barcode => widget.product.barcode!;
-
-  bool get _hasLists => all.isNotEmpty;
-
-  SmoothButtonsBarOrder get _order {
-    if (_hasLists) {
-      return SmoothButtonsBarOrder.numerical;
-    } else {
-      return SmoothButtonsBarOrder.auto;
-    }
-  }
-
-  SmoothActionButton _positiveButton(AppLocalizations appLocalizations) {
-    if (_hasLists) {
-      return _saveListsButton(appLocalizations);
-    } else {
-      return _createListButton(appLocalizations);
-    }
-  }
-
-  SmoothActionButton _negativeButton(AppLocalizations appLocalizations) {
-    if (_hasLists) {
-      return _createListButton(appLocalizations);
-    } else {
-      return _createCancelButton(appLocalizations);
-    }
-  }
-
-  SmoothActionButton _createListButton(AppLocalizations appLocalizations) =>
-      SmoothActionButton(
-        onPressed: () async {
-          final ProductList? productList =
-              await ProductListUserDialogHelper(widget.daoProductList)
-                  .showCreateUserListDialog(context);
-
-          if (productList != null) {
-            await _loadUserLists();
-            setState(() {});
-          }
+      body: _UserLists(
+        lists: widget.allLists,
+        selectedLists: widget.selectedLists,
+        onListSelected: (String list) {
+          addTo.add(list);
+          removeFrom.removeWhere((String e) => e == list);
         },
-        text: appLocalizations.user_list_button_new,
-      );
-
-  SmoothActionButton _createCancelButton(AppLocalizations appLocalizations) =>
-      SmoothActionButton(
-        onPressed: () => Navigator.pop(context, true),
-        text: appLocalizations.cancel,
-      );
-
-  SmoothActionButton _saveListsButton(AppLocalizations appLocalizations) {
-    return SmoothActionButton(
-      onPressed: () async {
-        final Set<String> possibleChanges = <String>{};
-        possibleChanges.addAll(withBarcode);
-        possibleChanges.addAll(newWithBarcode);
-        for (final String name in possibleChanges) {
-          if (withBarcode.contains(name) && newWithBarcode.contains(name)) {
-            continue;
+        onListUnselected: (String list) {
+          removeFrom.add(list);
+          addTo.removeWhere((String e) => e == list);
+        },
+      ),
+      negativeAction: _cancelButton(appLocalizations, context),
+      positiveAction: SmoothActionButton(
+        onPressed: () async {
+          for (final String name in removeFrom) {
+            await widget.daoProductList.set(
+              ProductList.user(name),
+              // Removal only works for single product addition
+              widget.barcodes.first,
+              false,
+            );
           }
-          if ((!withBarcode.contains(name)) &&
-              (!newWithBarcode.contains(name))) {
-            continue;
+
+          for (final String name in addTo) {
+            await widget.daoProductList
+                .bulkInsert(ProductList.user(name), widget.barcodes.toList());
           }
-          final ProductList productList = ProductList.user(name);
-          await widget.daoProductList.set(
-            productList,
-            _barcode,
-            newWithBarcode.contains(name),
-          );
-        }
 
-        widget.daoProductList.localDatabase.notifyListeners();
+          widget.daoProductList.localDatabase.notifyListeners();
 
-        // ignore: use_build_context_synchronously
-        Navigator.pop(context, true);
-      },
-      text: appLocalizations.save,
+          // ignore: use_build_context_synchronously
+          Navigator.pop(context, true);
+        },
+        text: appLocalizations.save,
+      ),
     );
   }
 }
 
-class _UserLists extends StatelessWidget {
+/// List of all lists the user has
+/// Handles click rebuilds
+class _UserLists extends StatefulWidget {
   const _UserLists({
     Key? key,
     required this.lists,
@@ -438,15 +300,28 @@ class _UserLists extends StatelessWidget {
     required this.onListUnselected,
   }) : super(key: key);
 
-  final List<String> lists;
+  final Set<String> lists;
   final Set<String> selectedLists;
   final void Function(String) onListSelected;
   final void Function(String) onListUnselected;
 
   @override
+  State<_UserLists> createState() => _UserListsState();
+}
+
+class _UserListsState extends State<_UserLists> {
+  late Set<String> selectedLists;
+
+  @override
+  void initState() {
+    selectedLists = widget.selectedLists;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
-      children: lists.map((String name) {
+      children: widget.lists.map((String name) {
         return ListTile(
             leading: Icon(
               selectedLists.contains(name)
@@ -456,44 +331,76 @@ class _UserLists extends StatelessWidget {
             title: Text(name),
             onTap: () {
               if (selectedLists.contains(name)) {
-                onListUnselected(name);
+                widget.onListUnselected(name);
+                selectedLists.removeWhere((String e) => e == name);
               } else {
-                onListSelected(name);
+                widget.onListSelected(name);
+                selectedLists.add(name);
               }
+              setState(() {});
             });
       }).toList(growable: false),
     );
   }
 }
 
-class _UserEmptyLists extends StatelessWidget {
-  const _UserEmptyLists({Key? key}) : super(key: key);
+/// Widget indicate that the user has no lists yet
+class _UserEmptyLists extends StatefulWidget {
+  const _UserEmptyLists(this.daoProductList, {Key? key}) : super(key: key);
 
+  final DaoProductList daoProductList;
+
+  @override
+  State<_UserEmptyLists> createState() => _UserEmptyListsState();
+}
+
+class _UserEmptyListsState extends State<_UserEmptyLists> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return Column(
-      children: <Widget>[
-        const Icon(Icons.warning),
-        const SizedBox(height: VERY_SMALL_SPACE),
-        Container(
-          alignment: Alignment.center,
-          padding: const EdgeInsets.symmetric(
-            horizontal: MEDIUM_SPACE,
-            vertical: SMALL_SPACE,
-          ),
-          child: Text(
-            appLocalizations.user_list_empty_label,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
+    return SmoothAlertDialog(
+      body: Column(
+        children: <Widget>[
+          const Icon(Icons.warning),
+          const SizedBox(height: VERY_SMALL_SPACE),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(
+              horizontal: MEDIUM_SPACE,
+              vertical: SMALL_SPACE,
+            ),
+            child: Text(
+              appLocalizations.user_list_empty_label,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: LARGE_SPACE * 2.5),
-        const Icon(Icons.arrow_circle_down),
-      ],
+          const SizedBox(height: LARGE_SPACE * 2.5),
+        ],
+      ),
+      positiveAction: SmoothActionButton(
+        onPressed: () async {
+          final ProductList? productList =
+              await ProductListUserDialogHelper(widget.daoProductList)
+                  .showCreateUserListDialog(context);
+
+          if (productList != null && mounted) {
+            Navigator.pop<bool>(context, true);
+          }
+        },
+        text: appLocalizations.user_list_button_new,
+      ),
+      negativeAction: _cancelButton(appLocalizations, context),
     );
   }
 }
+
+SmoothActionButton _cancelButton(
+        AppLocalizations appLocalizations, BuildContext context) =>
+    SmoothActionButton(
+      onPressed: () => Navigator.pop(context, true),
+      text: appLocalizations.cancel,
+    );

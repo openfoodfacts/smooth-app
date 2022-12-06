@@ -283,6 +283,7 @@ class DaoProductList extends AbstractDao {
   ///
   /// Possibly restricted to the user lists that contain the given barcode.
   Future<List<String>> getUserLists({String? withBarcode}) async {
+    // TODO(m123): change return type to a set
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
       final String tmp = key.toString();

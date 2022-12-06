@@ -85,7 +85,7 @@ class _AllUserProductListLoadedState extends State<_AllUserProductListLoaded> {
           : ListView.builder(
               itemCount: userLists.length,
               itemBuilder: (final BuildContext context, final int index) {
-                final String userList = userLists[index];
+                final String userList = userLists.elementAt(index);
                 final ProductList productList = ProductList.user(userList);
                 return UserPreferencesListTile(
                   title: Text(userList),
