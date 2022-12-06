@@ -20,6 +20,7 @@ In order to build the application, make sure you are in the packages/smooth_app 
 - [Project Smoothie - Open Food Facts wiki](https://wiki.openfoodfacts.org/Project_Smoothie)
 - [Documentation (from code), on GitHub Pages](https://openfoodfacts.github.io/smooth-app/)
 - [Smoothie GitHub wiki](https://github.com/openfoodfacts/smooth-app/wiki)
+- [Documentation (from code) of openfoodfacts-dart, on GitHub Pages](https://openfoodfacts.github.io/openfoodfacts-dart/)
 
 ## General Flutter docs
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)

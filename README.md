@@ -27,6 +27,10 @@
 
 ## Feature Sprint 
 - We use feature-based sprints, [tracked here](https://github.com/orgs/openfoodfacts/projects/83)
+
+## Code documentation
+[Code documentation on GitHub pages](https://openfoodfacts.github.io/smooth-app/).
+
 ## Alert!
 
 We are currently using Flutter 3.0.5 as the new 3.3.0 [has some bugs](https://github.com/openfoodfacts/smooth-app/issues/2919).
@@ -36,7 +40,7 @@ Running `flutter downgrade 3.0.5` downgrades the version.
 ------
 ## Current Release
 
-Latest commit deployed to Apple App Store: (Released on Sep 6 6:29 PM as Build 731 (3.13.1)) https://github.com/openfoodfacts/smooth-app/compare/v3.8.1...v3.13.1
+Latest commit deployed to Apple App Store: Released on Nov 29th as Build 835
 Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 ## Presentation
