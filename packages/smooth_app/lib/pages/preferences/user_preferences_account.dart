@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
@@ -11,11 +10,11 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
@@ -306,47 +305,13 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         const UserPreferencesListItemDivider(),
         _getListTile(
           appLocalizations.account_delete,
-          () async {
-            final String? reason = await showDialog<String>(
-                context: context,
-                builder: (BuildContext context) {
-                  return SmoothAlertDialog(
-                    title: appLocalizations.account_delete,
-                    body: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(appLocalizations.account_delete_message),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        SmoothTextFormField(
-                            type: TextFieldTypes.PLAIN_TEXT,
-                            textInputType: TextInputType.text,
-                            controller: reasonController,
-                            hintText: appLocalizations.reason),
-                      ],
-                    ),
-                    positiveAction: SmoothActionButton(
-                      text: appLocalizations.account_delete,
-                      onPressed: () =>
-                          Navigator.pop(context, reasonController.text),
-                    ),
-                    negativeAction: SmoothActionButton(
-                        text: appLocalizations.cancel,
-                        onPressed: () => Navigator.pop(context)),
-                  );
-                });
-            if (reason != null) {
-              final Email email = Email(
-                body:
-                    '${appLocalizations.email_body_account_deletion(userId)} $reason',
-                subject: appLocalizations.email_subject_account_deletion,
-                recipients: <String>['contact@openfoodfacts.org'],
-              );
-
-              await FlutterEmailSender.send(email);
-            }
+          () {
+            Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => AccountDeletionWebview(),
+              ),
+            );
           },
           Icons.delete,
         ),
