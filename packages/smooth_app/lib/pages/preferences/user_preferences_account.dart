@@ -230,7 +230,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
-    final TextEditingController reasonController = TextEditingController();
 
     final List<Widget> result;
 
