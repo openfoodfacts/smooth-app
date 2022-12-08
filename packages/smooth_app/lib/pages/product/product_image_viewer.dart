@@ -17,7 +17,7 @@ import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
+import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Displays a full-screen image with an "edit" floating button.
@@ -154,14 +154,15 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       return;
     }
 
-    await Navigator.push<void>(
+    await Navigator.push<File>(
       context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => ConfirmAndUploadPicture(
+      MaterialPageRoute<File>(
+        builder: (BuildContext context) => CropPage(
           barcode: _barcode,
           imageField: _imageData.imageField,
-          initialPhoto: imageFile!,
+          inputFile: imageFile!,
         ),
+        fullscreenDialog: true,
       ),
     );
   }
