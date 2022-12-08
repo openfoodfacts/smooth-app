@@ -35,7 +35,7 @@ jobs:
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
-        uses: maierj/fastlane-action@v2.3.0
+        uses: maierj/fastlane-action@v3.0.0
         with:
           lane: getOldVersionCode
           subdirectory: packages/app/android
