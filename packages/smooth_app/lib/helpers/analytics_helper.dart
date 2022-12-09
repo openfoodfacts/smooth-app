@@ -5,6 +5,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/main.dart';
 
 /// Category for Matomo Events
 enum AnalyticsCategory {
@@ -55,7 +56,9 @@ class AnalyticsHelper {
 
   static String latestSearch = '';
 
-  static Future<void> initSentry({Function()? appRunner}) async {
+  static Future<void> initSentry({
+    required Function()? appRunner,
+  }) async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
     await SentryFlutter.init(
@@ -67,6 +70,7 @@ class AnalyticsHelper {
         // To set a uniform sample rate
         options.tracesSampleRate = 1.0;
         options.beforeSend = _beforeSend;
+        options.environment = flavour;
       },
       appRunner: appRunner,
     );

@@ -9,5 +9,6 @@ void main() {
   launchSmoothApp(
     scanner: MLKitCameraScanner(),
     appStore: GooglePlayStore(),
+    appFlavour: 'ml-play',
   );
 }

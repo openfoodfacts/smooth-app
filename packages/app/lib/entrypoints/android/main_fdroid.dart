@@ -13,5 +13,6 @@ void main() {
         'https://f-droid.org/fr/packages/openfoodfacts.github.scrachx.openfood/',
       ),
     ),
+    appFlavour: 'zxing-uri',
   );
 }
