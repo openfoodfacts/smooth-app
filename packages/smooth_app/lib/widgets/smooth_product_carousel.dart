@@ -279,9 +279,7 @@ class _SearchCardTagLine extends StatelessWidget {
               future: _fetchData(),
               builder: (BuildContext context,
                   AsyncSnapshot<Map<String, dynamic>> data) {
-                if (data.connectionState != ConnectionState.done ||
-                    data.data == null ||
-                    !data.hasData) {
+                if (data.data == null || !data.hasData) {
                   return const _SearchCardTagLineDefaultText();
                 }
 
