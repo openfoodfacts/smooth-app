@@ -80,6 +80,7 @@ dependencies:
   fimber: 0.6.6
   shimmer: 2.0.0
   lottie: 1.4.2
+  webview_flutter: ^3.0.4
 
 dev_dependencies:
   integration_test:
