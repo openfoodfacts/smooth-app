@@ -25,7 +25,7 @@ class AccountDeletionWebviewState extends State<AccountDeletionWebview> {
   }
 
   String _getUrl(UserPreferences userPreferences) {
-    final String langageCode = userPreferences.appLanguageCode ??
+    final String languageCode = userPreferences.appLanguageCode ??
         Localizations.localeOf(context).toString();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -38,7 +38,7 @@ class AccountDeletionWebviewState extends State<AccountDeletionWebview> {
         scheme: 'https',
         host: 'blog.openfoodfacts.org',
         pathSegments: <String>[
-          langageCode,
+          languageCode,
           pathSegment,
         ],
         queryParameters: <String, String>{
