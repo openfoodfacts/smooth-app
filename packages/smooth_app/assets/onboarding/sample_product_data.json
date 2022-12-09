@@ -330,7 +330,7 @@
             "name" : "Labels"
          }
       ],
-      "brands" : "text",
+      "brands" : "Open Food Facts",
       "categories_tags_fr" : [
          "Aliments et boissons à base de végétaux",
          "Aliments d'origine végétale",
@@ -1272,7 +1272,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "a",
-               "subtitle" : "Product: text - 200 g",
+               "subtitle" : "Product: A good product for you - Open Food Facts - 200 g",
                "title" : "Impact for this product: A (Score: 115/100)",
                "type" : "grade"
             },
@@ -2169,7 +2169,7 @@
          "sugars_value" : 0.5
       },
       "nutrition_grade_fr" : "a",
-      "product_name" : "text",
+      "product_name" : "A good product for you",
       "product_quantity" : "200",
       "quantity" : "200 g",
       "states_tags" : [
