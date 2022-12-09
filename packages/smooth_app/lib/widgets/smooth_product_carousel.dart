@@ -260,6 +260,7 @@ class _SearchCardTagLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TagLineItem? tagline;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
       child: DefaultTextStyle.merge(
@@ -279,17 +280,26 @@ class _SearchCardTagLine extends StatelessWidget {
               future: _fetchData(),
               builder: (BuildContext context,
                   AsyncSnapshot<Map<String, dynamic>> data) {
-                if (data.data == null || !data.hasData) {
+                if (data.connectionState == ConnectionState.done) {
+                  if (data.hasData) {
+                    if (data.data![TAG_LINE_KEY] != null) {
+                      tagline = data.data![TAG_LINE_KEY] as TagLineItem;
+                      return _SearchCardTagLineText(
+                        tagLine: tagline!,
+                      );
+                    }
+                    if (data.data![DEPRECATED_KEY] as bool) {
+                      return const _SearchCardTagLineDeprecatedAppText();
+                    }
+                  }
                   return const _SearchCardTagLineDefaultText();
                 }
 
-                if (data.data![DEPRECATED_KEY] as bool) {
-                  return const _SearchCardTagLineDeprecatedAppText();
-                }
-
-                if (data.data![TAG_LINE_KEY] != null) {
+                ///This is to avoid blinking issue caused, Due to [ConnectionState.done] followed by [ConnectionState.waiting]
+                ///When [Consumer] refreshes the [FutureBuilder] causing [_fetchData()] to be called again.
+                if (tagline != null) {
                   return _SearchCardTagLineText(
-                    tagLine: data.data![TAG_LINE_KEY] as TagLineItem,
+                    tagLine: tagline!,
                   );
                 }
                 return const _SearchCardTagLineDefaultText();
