@@ -902,10 +902,6 @@
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
-    "account_deletion_path_segment": "account-deletion",
-    "@account_deletion_path_segment": {
-        "description": "Path segment of the url open in a webview open when the user wants to delete his account"
-    },
     "user_profile": "Account",
     "@user_profile": {
         "description": "User account (if connected)"
