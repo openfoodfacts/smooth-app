@@ -562,6 +562,7 @@
                      "ecoscore_material_score" : 81,
                      "ecoscore_shape_ratio" : 1,
                      "material" : "en:glass",
+                     "number_of_units" : 1,
                      "recycling" : "en:recycle",
                      "shape" : "en:bottle"
                   },
@@ -569,6 +570,7 @@
                      "ecoscore_material_score" : 76,
                      "ecoscore_shape_ratio" : 0.1,
                      "material" : "en:steel",
+                     "number_of_units" : 1,
                      "recycling" : "en:recycle",
                      "shape" : "en:bottle-cap"
                   }
@@ -586,26 +588,27 @@
          },
          "agribalyse" : {
             "agribalyse_proxy_food_code" : "25903",
-            "co2_agriculture" : 0.099163319,
-            "co2_consumption" : 0.0079267752,
-            "co2_distribution" : 0.025340163,
-            "co2_packaging" : 0.098786634,
-            "co2_processing" : 0.13521664,
-            "co2_total" : 0.49805172,
-            "co2_transportation" : 0.1316182,
+            "co2_agriculture" : 0.10397607,
+            "co2_consumption" : 0.011045523,
+            "co2_distribution" : 0.015708527,
+            "co2_packaging" : 0.10010411,
+            "co2_processing" : 0.15010908,
+            "co2_total" : 0.51124686,
+            "co2_transportation" : 0.13030355,
             "code" : "25903",
             "dqr" : "2.42",
-            "ef_agriculture" : 0.023834065,
-            "ef_consumption" : 0.004012423,
-            "ef_distribution" : 0.0095369029,
-            "ef_packaging" : 0.014974093,
-            "ef_processing" : 0.030870892,
-            "ef_total" : 0.093465939,
-            "ef_transportation" : 0.010237564,
+            "ef_agriculture" : 0.023979953,
+            "ef_consumption" : 0.0040545827,
+            "ef_distribution" : 0.0045028964,
+            "ef_packaging" : 0.0099703815,
+            "ef_processing" : 0.029521443,
+            "ef_total" : 0.0824320616,
+            "ef_transportation" : 0.010402805,
             "is_beverage" : 0,
             "name_en" : "Soup, mixed vegetables, prepacked, to be reheated",
             "name_fr" : "Soupe aux légumes variés, préemballée à réchauffer",
-            "score" : 97
+            "score" : 98,
+            "version" : "3.1"
          },
          "grade" : "a",
          "grades" : {
@@ -673,76 +676,103 @@
             "world" : "a",
             "xk" : "a"
          },
-         "score" : 114,
+         "previous_data" : {
+            "agribalyse" : {
+               "agribalyse_proxy_food_code" : "25903",
+               "co2_agriculture" : 0.099163319,
+               "co2_consumption" : 0.0079267752,
+               "co2_distribution" : 0.025340163,
+               "co2_packaging" : 0.098786634,
+               "co2_processing" : 0.13521664,
+               "co2_total" : 0.49805172,
+               "co2_transportation" : 0.1316182,
+               "code" : "25903",
+               "dqr" : "2.42",
+               "ef_agriculture" : 0.023834065,
+               "ef_consumption" : 0.004012423,
+               "ef_distribution" : 0.0095369029,
+               "ef_packaging" : 0.014974093,
+               "ef_processing" : 0.030870892,
+               "ef_total" : 0.093465939,
+               "ef_transportation" : 0.010237564,
+               "is_beverage" : 0,
+               "name_en" : "Soup, mixed vegetables, prepacked, to be reheated",
+               "name_fr" : "Soupe aux légumes variés, préemballée à réchauffer",
+               "score" : 97
+            },
+            "grade" : "a",
+            "score" : 122
+         },
+         "score" : 115,
          "scores" : {
-            "ad" : 122,
-            "al" : 114,
-            "at" : 120,
-            "ax" : 122,
-            "ba" : 116,
-            "be" : 122,
-            "bg" : 117,
-            "ch" : 122,
-            "cy" : 120,
-            "cz" : 121,
-            "de" : 122,
-            "dk" : 120,
-            "dz" : 121,
-            "ee" : 122,
-            "eg" : 119,
-            "es" : 120,
-            "fi" : 122,
-            "fo" : 122,
-            "fr" : 122,
-            "gg" : 122,
-            "gi" : 115,
-            "gr" : 121,
-            "hr" : 119,
-            "hu" : 118,
-            "ie" : 121,
-            "il" : 119,
-            "im" : 122,
-            "is" : 122,
-            "it" : 121,
-            "je" : 122,
-            "lb" : 120,
-            "li" : 122,
-            "lt" : 122,
-            "lu" : 122,
-            "lv" : 122,
-            "ly" : 122,
-            "ma" : 122,
-            "mc" : 122,
-            "md" : 118,
-            "me" : 120,
-            "mk" : 118,
-            "mt" : 122,
-            "nl" : 122,
-            "no" : 117,
-            "pl" : 118,
-            "ps" : 120,
-            "pt" : 116,
-            "ro" : 119,
-            "rs" : 115,
-            "se" : 116,
-            "si" : 120,
-            "sj" : 122,
-            "sk" : 118,
-            "sm" : 120,
-            "sy" : 118,
-            "tn" : 115,
-            "tr" : 115,
-            "ua" : 120,
-            "uk" : 122,
-            "us" : 114,
-            "va" : 118,
-            "world" : 114,
-            "xk" : 118
+            "ad" : 123,
+            "al" : 115,
+            "at" : 121,
+            "ax" : 123,
+            "ba" : 117,
+            "be" : 123,
+            "bg" : 118,
+            "ch" : 123,
+            "cy" : 121,
+            "cz" : 122,
+            "de" : 123,
+            "dk" : 121,
+            "dz" : 122,
+            "ee" : 123,
+            "eg" : 120,
+            "es" : 121,
+            "fi" : 123,
+            "fo" : 123,
+            "fr" : 123,
+            "gg" : 123,
+            "gi" : 116,
+            "gr" : 122,
+            "hr" : 120,
+            "hu" : 119,
+            "ie" : 122,
+            "il" : 120,
+            "im" : 123,
+            "is" : 123,
+            "it" : 122,
+            "je" : 123,
+            "lb" : 121,
+            "li" : 123,
+            "lt" : 123,
+            "lu" : 123,
+            "lv" : 123,
+            "ly" : 123,
+            "ma" : 123,
+            "mc" : 123,
+            "md" : 119,
+            "me" : 121,
+            "mk" : 119,
+            "mt" : 123,
+            "nl" : 123,
+            "no" : 118,
+            "pl" : 119,
+            "ps" : 121,
+            "pt" : 117,
+            "ro" : 120,
+            "rs" : 116,
+            "se" : 117,
+            "si" : 121,
+            "sj" : 123,
+            "sk" : 119,
+            "sm" : 121,
+            "sy" : 119,
+            "tn" : 116,
+            "tr" : 116,
+            "ua" : 121,
+            "uk" : 123,
+            "us" : 115,
+            "va" : 119,
+            "world" : 115,
+            "xk" : 119
          },
          "status" : "known"
       },
       "ecoscore_grade" : "a",
-      "ecoscore_score" : 114,
+      "ecoscore_score" : 115,
       "environment_impact_level_tags" : [],
       "ingredients_analysis_tags" : [
          "en:palm-oil-free",
@@ -782,8 +812,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 19.9102452652909,
-                                 "text" : "19.9 %"
+                                 "percent" : 20.3377425144479,
+                                 "text" : "20.3 %"
                               }
                            ]
                         },
@@ -795,8 +825,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 27.1491161600647,
-                                 "text" : "27.1 %"
+                                 "percent" : 29.3613695739862,
+                                 "text" : "29.4 %"
                               }
                            ]
                         },
@@ -808,8 +838,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 19.8346135618205,
-                                 "text" : "19.8 %"
+                                 "percent" : 19.5803862736683,
+                                 "text" : "19.6 %"
                               }
                            ]
                         },
@@ -821,8 +851,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 26.4266128826942,
-                                 "text" : "26.4 %"
+                                 "percent" : 25.4874034825368,
+                                 "text" : "25.5 %"
                               }
                            ]
                         },
@@ -834,8 +864,8 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 5.08785774296693,
-                                 "text" : "5.1 %"
+                                 "percent" : 3.07259138960775,
+                                 "text" : "3.1 %"
                               }
                            ]
                         },
@@ -847,8 +877,8 @@
                                  "text" : "Consumption"
                               },
                               {
-                                 "percent" : 1.59155663592528,
-                                 "text" : "1.6 %"
+                                 "percent" : 2.16050676575305,
+                                 "text" : "2.2 %"
                               }
                            ]
                         }
@@ -864,7 +894,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/car.svg",
-               "subtitle" : "50 g CO² per 100g of product",
+               "subtitle" : "51 g CO² per 100g of product",
                "title" : "Equal to driving 0.3 km in a petrol car"
             },
             "topics" : [
@@ -939,7 +969,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.09\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 0.50\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.08\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 0.51\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -966,8 +996,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 25.5002680709173,
-                                 "text" : "25.5 %"
+                                 "percent" : 29.0905656543716,
+                                 "text" : "29.1 %"
                               }
                            ]
                         },
@@ -979,8 +1009,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 33.0290288957563,
-                                 "text" : "33.0 %"
+                                 "percent" : 35.8130591750237,
+                                 "text" : "35.8 %"
                               }
                            ]
                         },
@@ -992,8 +1022,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 16.0209089644945,
-                                 "text" : "16.0 %"
+                                 "percent" : 12.0952713137045,
+                                 "text" : "12.1 %"
                               }
                            ]
                         },
@@ -1005,8 +1035,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 10.9532564584838,
-                                 "text" : "11.0 %"
+                                 "percent" : 12.6198530014685,
+                                 "text" : "12.6 %"
                               }
                            ]
                         },
@@ -1018,8 +1048,8 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 10.2036132114395,
-                                 "text" : "10.2 %"
+                                 "percent" : 5.46255463299004,
+                                 "text" : "5.5 %"
                               }
                            ]
                         },
@@ -1031,8 +1061,8 @@
                                  "text" : "Consumption"
                               },
                               {
-                                 "percent" : 4.29292536182619,
-                                 "text" : "4.3 %"
+                                 "percent" : 4.91869622244168,
+                                 "text" : "4.9 %"
                               }
                            ]
                         }
@@ -1046,7 +1076,7 @@
             "title_element" : {
                "grade" : "a",
                "subtitle" : "Category: Soup, mixed vegetables, prepacked, to be reheated",
-               "title" : "Average impact of products of the same category: A (Score: 97/100)",
+               "title" : "Average impact of products of the same category: A (Score: 98/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1143,7 +1173,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "Bottle"
+                                 "text" : "1 Bottle"
                               },
                               {
                                  "text" : "Glass"
@@ -1161,7 +1191,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "Bottle cap"
+                                 "text" : "1 Bottle cap"
                               },
                               {
                                  "text" : "Steel"
@@ -1234,7 +1264,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 97<br>\n                Sum of bonuses and maluses:\n                    \n                        +17\n                    <br><br>\n                Final score: 114/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 98<br>\n                Sum of bonuses and maluses:\n                    \n                        +17\n                    <br><br>\n                Final score: 115/100\n                \n                ",
                      "type" : "summary"
                   }
                }
@@ -1243,7 +1273,7 @@
             "title_element" : {
                "grade" : "a",
                "subtitle" : "Product: A good product for you - Open Food Facts - 200 g",
-               "title" : "Impact for this product: A (Score: 114/100)",
+               "title" : "Impact for this product: A (Score: 115/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1820,7 +1850,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-52%"
+                                 "text" : "-51%"
                               }
                            ]
                         },
@@ -1931,7 +1961,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "-47%"
+                                 "text" : "-46%"
                               }
                            ]
                         },
@@ -2030,7 +2060,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                <strong>Bottle</strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                                <strong>Bottle cap</strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/recycle-variant.svg",
