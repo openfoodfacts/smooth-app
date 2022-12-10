@@ -180,3 +180,6 @@ photo cropping:
 user lists:
 - packages/smooth_app/lib/pages/product_list_user_dialog_helper.dart
 - packages/smooth_app/lib/pages/product/common/product_list_page.dart
+
+product scan carousel:
+- packages/smooth_app/lib/widgets/smooth_product_carousel.dart
