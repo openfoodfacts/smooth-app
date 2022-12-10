@@ -9,5 +9,6 @@ void main() {
   launchSmoothApp(
     scanner: MLKitCameraScanner(),
     appStore: AppleAppStore('588797948'),
+    appFlavour: 'ml-ios',
   );
 }
