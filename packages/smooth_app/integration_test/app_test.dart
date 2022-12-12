@@ -58,6 +58,7 @@ void main() {
         await app.launchSmoothApp(
           scanner: MockedCameraScanner(),
           appStore: const MockedAppStore(),
+          appFlavour: 'test-runner',
           screenshots: true,
         );
         await tester.pumpAndSettle();

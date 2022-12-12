@@ -33,10 +33,12 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 late bool _screenshots;
+late String flavour;
 
 Future<void> launchSmoothApp({
   required CameraScanner scanner,
   required AppStore appStore,
+  required String appFlavour,
   final bool screenshots = false,
 }) async {
   _screenshots = screenshots;
@@ -49,10 +51,11 @@ Future<void> launchSmoothApp({
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+  flavour = appFlavour;
+
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () => runApp(SmoothApp(scanner, appStore)),
-    );
+        appRunner: () => runApp(SmoothApp(scanner, appStore)));
   } else {
     runApp(
       DevicePreview(
