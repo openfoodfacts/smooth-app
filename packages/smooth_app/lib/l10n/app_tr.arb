@@ -721,7 +721,7 @@
     "faq": "SSS",
     "discover": "Keşfet",
     "how_to_contribute": "Nasıl Katkıda Bulunulur",
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "hint_knowledge_panel_message": "Gördüğünüz şey hakkında daha fazla ayrıntı almak için kartın herhangi bir yerine dokunabilirsiniz. Şimdi dene!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
