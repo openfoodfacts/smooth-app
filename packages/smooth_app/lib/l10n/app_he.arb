@@ -898,7 +898,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "account_deletion_subject": "Delete my account",
+    "account_deletion_subject": "מחיקת החשבון שלי",
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
