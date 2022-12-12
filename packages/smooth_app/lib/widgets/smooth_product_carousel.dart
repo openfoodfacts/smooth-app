@@ -250,7 +250,7 @@ class SearchCard extends StatelessWidget {
 ///
 /// Shows a warning instead of the TagLine if the app identifier is not the one
 /// from the official listing.
-class _SearchCardTagLine extends StatelessWidget {
+class _SearchCardTagLine extends StatefulWidget {
   const _SearchCardTagLine({
     Key? key,
   }) : super(key: key);
@@ -259,8 +259,20 @@ class _SearchCardTagLine extends StatelessWidget {
   static const String TAG_LINE_KEY = 'tagline';
 
   @override
+  State<_SearchCardTagLine> createState() => _SearchCardTagLineState();
+}
+
+class _SearchCardTagLineState extends State<_SearchCardTagLine> {
+  late Future<Map<String, dynamic>> _initTagLineData;
+  @override
+  void initState() {
+    super.initState();
+    _initTagLineData = _fetchData();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TagLineItem? tagline;
+    final UserPreferences preferences = context.watch<UserPreferences>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
       child: DefaultTextStyle.merge(
@@ -271,53 +283,45 @@ class _SearchCardTagLine extends StatelessWidget {
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
         maxLines: 5,
-        child: Consumer<UserPreferences>(
-          builder: (BuildContext context, UserPreferences preferences, _) {
-            if (preferences.isFirstScan) {
-              return const _SearchCardTagLineDefaultText();
-            }
-            return FutureBuilder<Map<String, dynamic>>(
-              future: _fetchData(),
-              builder: (BuildContext context,
-                  AsyncSnapshot<Map<String, dynamic>> data) {
-                if (data.connectionState == ConnectionState.done) {
-                  if (data.hasData) {
-                    if (data.data![TAG_LINE_KEY] != null) {
-                      tagline = data.data![TAG_LINE_KEY] as TagLineItem;
-                      return _SearchCardTagLineText(
-                        tagLine: tagline!,
-                      );
-                    }
-                    if (data.data![DEPRECATED_KEY] as bool) {
-                      return const _SearchCardTagLineDeprecatedAppText();
-                    }
+        child: preferences.isFirstScan
+            ? const _SearchCardTagLineDefaultText()
+            : FutureBuilder<Map<String, dynamic>>(
+                future: _initTagLineData,
+                builder: (BuildContext context,
+                    AsyncSnapshot<Map<String, dynamic>> data) {
+                  if (data.connectionState != ConnectionState.done ||
+                      data.data == null ||
+                      !data.hasData) {
+                    return const _SearchCardTagLineDefaultText();
+                  }
+
+                  if (data.data![_SearchCardTagLine.DEPRECATED_KEY] as bool) {
+                    return const _SearchCardTagLineDeprecatedAppText();
+                  }
+
+                  if (data.data![_SearchCardTagLine.TAG_LINE_KEY] != null) {
+                    return _SearchCardTagLineText(
+                      tagLine: data.data![_SearchCardTagLine.TAG_LINE_KEY]
+                          as TagLineItem,
+                    );
                   }
                   return const _SearchCardTagLineDefaultText();
-                }
-
-                ///This is to avoid blinking issue caused, Due to [ConnectionState.done] followed by [ConnectionState.waiting]
-                ///When [Consumer] refreshes the [FutureBuilder] causing [_fetchData()] to be called again.
-                if (tagline != null) {
-                  return _SearchCardTagLineText(
-                    tagLine: tagline!,
-                  );
-                }
-                return const _SearchCardTagLineDefaultText();
-              },
-            );
-          },
-        ),
+                },
+              ),
       ),
     );
   }
 
   /// We fetch first if the app is deprecated, then try to get the tagline
-  /// Return a map with keys: [DEPRECATED_KEY]<bool> & [TAG_LINE_KEY]<TagLineItem?>
+  /// Return a map with keys: [_SearchCardTagLine.DEPRECATED_KEY]<bool> & [_SearchCardTagLine.TAG_LINE_KEY]<TagLineItem?>
   Future<Map<String, dynamic>> _fetchData() async {
     final bool deprecated = await _isApplicationDeprecated();
     final TagLineItem? item = await fetchTagLine(Platform.localeName);
 
-    return <String, dynamic>{DEPRECATED_KEY: deprecated, TAG_LINE_KEY: item};
+    return <String, dynamic>{
+      _SearchCardTagLine.DEPRECATED_KEY: deprecated,
+      _SearchCardTagLine.TAG_LINE_KEY: item
+    };
   }
 
   Future<bool> _isApplicationDeprecated() {
