@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
   Future<void> _login(BuildContext context) async {
     final UserManagementProvider userManagementProvider =
-        context.read<UserManagementProvider>();
+    context.read<UserManagementProvider>();
     if (!_formKey.currentState!.validate()) {
       return;
     }
@@ -253,7 +253,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                             ),
                           ),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          MaterialStateProperty.all<RoundedRectangleBorder>(
                             const RoundedRectangleBorder(
                               borderRadius: CIRCULAR_BORDER_RADIUS,
                             ),
@@ -264,7 +264,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                             context,
                             MaterialPageRoute<void>(
                               builder: (BuildContext context) =>
-                                  const ForgotPasswordPage(),
+                              const ForgotPasswordPage(),
                             ),
                           );
                         },
@@ -292,7 +292,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                               context,
                               MaterialPageRoute<bool>(
                                 builder: (BuildContext context) =>
-                                    const SignUpPage(),
+                                const SignUpPage(),
                               ),
                             );
                             if (registered == true) {
@@ -319,7 +319,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           ),
                           child: Padding(
                             padding:
-                                const EdgeInsetsDirectional.only(bottom: 2.0),
+                            const EdgeInsetsDirectional.only(bottom: 2.0),
                             child: Text(
                               appLocalizations.create_account,
                               style: theme.textTheme.bodyText2?.copyWith(
@@ -344,33 +344,79 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
   Future<void> showInAppReviewIfNecessary(BuildContext context) async {
     final UserPreferences preferences = context.read<UserPreferences>();
-
     if (!preferences.inAppReviewAlreadyAsked) {
       assert(mounted);
+      bool? enjoyingApp = await showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) {
+          final AppLocalizations appLocalizations =
+          AppLocalizations.of(context);
 
-      if (await showDialog<bool>(
-            context: context,
-            builder: (BuildContext context) {
-              final AppLocalizations appLocalizations =
-                  AppLocalizations.of(context);
+          return SmoothAlertDialog(
+            body: Text(appLocalizations.app_rating_dialog_title_enjoying_app),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations
+                  .app_rating_dialog_title_enjoying_positive_actions,
+              onPressed: () async => Navigator.of(context).pop(true),
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.not_really,
+              onPressed: () => Navigator.of(context).pop(false),
+            ),
+          );
+        },
+      );
+      if (enjoyingApp != null && !enjoyingApp) {
+        await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            final AppLocalizations appLocalizations =
+            AppLocalizations.of(context);
 
-              return SmoothAlertDialog(
-                title: appLocalizations.app_rating_dialog_title,
-                body: Text(appLocalizations.app_rating_dialog_body),
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.app_rating_dialog_positive_action,
-                  onPressed: () async => Navigator.of(context).pop(
-                    await ApplicationStore.openAppReview(),
-                  ),
+            return SmoothAlertDialog(
+              body: Text(
+                  appLocalizations.app_rating_dialog_title_not_enjoying_app),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.okay,
+                onPressed: () {
+                  //TODO: implement feedback form and link here
+                  print("opening feedback form");
+                  Navigator.of(context).pop(true);
+                },
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.not_really,
+                onPressed: () => Navigator.of(context).pop(false),
+              ),
+            );
+          },
+        );
+      }
+      bool? userRatedApp;
+      if (enjoyingApp != null && enjoyingApp) {
+        userRatedApp =await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            final AppLocalizations appLocalizations =
+            AppLocalizations.of(context);
+
+            return SmoothAlertDialog(
+              body: Text(appLocalizations.app_rating_dialog_title),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.app_rating_dialog_positive_action,
+                onPressed: () async => Navigator.of(context).pop(
+                  await ApplicationStore.openAppReview(),
                 ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.app_rating_dialog_negative_action,
-                  onPressed: () => Navigator.of(context).pop(false),
-                ),
-              );
-            },
-          ) ==
-          true) {
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.ask_me_later_button_label,
+                onPressed: () => Navigator.of(context).pop(false),
+              ),
+            );
+          },
+        );
+      }
+      if(userRatedApp!=null && userRatedApp) {
         await preferences.markInAppReviewAsShown();
       }
     }
