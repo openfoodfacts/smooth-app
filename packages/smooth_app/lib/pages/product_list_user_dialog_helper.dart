@@ -177,7 +177,7 @@ class ProductListUserDialogHelper {
   }
 
   /// Shows all user lists with checkboxes, adds all [barcodes] to the selected lists.
-  /// Pre-checks all lists where [barcodes][0] is included if [barcodes.length] == 1
+  /// Pre-checks all lists where all the selected barcodes are already contained
   /// Returns true if products were added
   Future<bool?> showUserAddProductsDialog(
     final BuildContext context,
@@ -200,99 +200,47 @@ class ProductListUserDialogHelper {
       return false;
     }
 
-    List<String>? selectedLists = <String>[];
-
-    // We only check if the barcode is in the list if we only pass a single barcode
-    if (barcodes.length == 1) {
-      selectedLists = await LoadingDialog.run<List<String>>(
-        context: context,
-        future: daoProductList.getUserLists(withBarcode: barcodes.first),
-      );
-    }
+    final List<String> selectedLists = await LoadingDialog.run<List<String>>(
+          context: context,
+          future: daoProductList.getUserLists(
+            withBarcodes: barcodes.toList(growable: false),
+          ),
+        ) ??
+        <String>[];
 
     return showDialog<bool?>(
       context: context,
-      builder: (BuildContext context) => _UserListsDialogContent(
-        daoProductList: daoProductList,
-        allLists: lists.toSet(),
-        selectedLists: selectedLists?.toSet() ?? <String>{},
-        barcodes: barcodes,
-      ),
-    );
-  }
-}
+      builder: (BuildContext context) => _UserLists(
+        lists: lists.toSet(),
+        selectedLists: selectedLists.toSet(),
+        onListsSubmitted: (Set<String> newSelectedLists) {
+          for (final String list in lists) {
+            // Nothing changed
+            if (selectedLists.contains(list) &&
+                newSelectedLists.contains(list)) {
+              continue;
+            }
 
-/// Dialog content to add/remove products from users' lists
-class _UserListsDialogContent extends StatefulWidget {
-  const _UserListsDialogContent({
-    required this.barcodes,
-    required this.allLists,
-    this.selectedLists = const <String>{},
-    required this.daoProductList,
-    Key? key,
-  }) : super(key: key);
+            // List got selected
+            if (!selectedLists.contains(list) &&
+                newSelectedLists.contains(list)) {
+              daoProductList.bulkSet(
+                ProductList.user(list),
+                barcodes.toList(),
+              );
+            }
 
-  final Set<String> barcodes;
-  final Set<String> allLists;
-  final Set<String> selectedLists;
-  final DaoProductList daoProductList;
-
-  @override
-  State<_UserListsDialogContent> createState() =>
-      _UserListsDialogContentState();
-}
-
-class _UserListsDialogContentState extends State<_UserListsDialogContent> {
-  // To keep track of the changes
-  // The products should be added from these lists
-  final Set<String> _addTo = <String>{};
-  // The products should be removed from these lists
-  final Set<String> _removeFrom = <String>{};
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return SmoothAlertDialog(
-      close: true,
-      title: appLocalizations.user_list_add_product,
-      body: _UserLists(
-        lists: widget.allLists,
-        selectedLists: widget.selectedLists,
-        onListSelected: (String list) {
-          _addTo.add(list);
-          _removeFrom.removeWhere((String e) => e == list);
-        },
-        onListUnselected: (String list) {
-          _removeFrom.add(list);
-          _addTo.removeWhere((String e) => e == list);
-        },
-      ),
-      negativeAction: _cancelButton(appLocalizations, context),
-      positiveAction: SmoothActionButton(
-        onPressed: () async {
-          for (final String name in _removeFrom) {
-            await widget.daoProductList.set(
-              ProductList.user(name),
-              // Removal only works for single product addition
-              widget.barcodes.first,
-              false,
-            );
+            // List got unselected
+            if (selectedLists.contains(list) &&
+                !newSelectedLists.contains(list)) {
+              daoProductList.bulkSet(
+                ProductList.user(list),
+                barcodes.toList(),
+                include: false,
+              );
+            }
           }
-
-          for (final String name in _addTo) {
-            await widget.daoProductList
-                .bulkInsert(ProductList.user(name), widget.barcodes.toList());
-          }
-
-          widget.daoProductList.localDatabase.notifyListeners();
-
-          if (!mounted) {
-            return;
-          }
-          Navigator.pop(context, true);
         },
-        text: appLocalizations.save,
       ),
     );
   }
@@ -305,14 +253,12 @@ class _UserLists extends StatefulWidget {
     Key? key,
     required this.lists,
     required this.selectedLists,
-    required this.onListSelected,
-    required this.onListUnselected,
+    required this.onListsSubmitted,
   }) : super(key: key);
 
   final Set<String> lists;
   final Set<String> selectedLists;
-  final void Function(String) onListSelected;
-  final void Function(String) onListUnselected;
+  final void Function(Set<String> selectedLists) onListsSubmitted;
 
   @override
   State<_UserLists> createState() => _UserListsState();
@@ -329,26 +275,38 @@ class _UserListsState extends State<_UserLists> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: widget.lists.map((String name) {
-        return ListTile(
-            leading: Icon(
-              selectedLists.contains(name)
-                  ? Icons.check_box
-                  : Icons.check_box_outline_blank,
-            ),
-            title: Text(name),
-            onTap: () {
-              if (selectedLists.contains(name)) {
-                widget.onListUnselected(name);
-                selectedLists.removeWhere((String e) => e == name);
-              } else {
-                widget.onListSelected(name);
-                selectedLists.add(name);
-              }
-              setState(() {});
-            });
-      }).toList(growable: false),
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return SmoothAlertDialog(
+      close: true,
+      title: appLocalizations.user_list_add_product,
+      negativeAction: _cancelButton(appLocalizations, context),
+      positiveAction: SmoothActionButton(
+        text: appLocalizations.save,
+        onPressed: () {
+          widget.onListsSubmitted.call(selectedLists);
+          Navigator.of(context).pop();
+        },
+      ),
+      body: Column(
+        children: widget.lists.map((String name) {
+          return ListTile(
+              leading: Icon(
+                selectedLists.contains(name)
+                    ? Icons.check_box
+                    : Icons.check_box_outline_blank,
+              ),
+              title: Text(name),
+              onTap: () {
+                if (selectedLists.contains(name)) {
+                  selectedLists.removeWhere((String e) => e == name);
+                } else {
+                  selectedLists.add(name);
+                }
+                setState(() {});
+              });
+        }).toList(growable: false),
+      ),
     );
   }
 }

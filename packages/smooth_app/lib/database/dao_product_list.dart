@@ -221,11 +221,12 @@ class DaoProductList extends AbstractDao {
     return true;
   }
 
-  /// Adds a list of barcodes to a [productList] in one go
-  Future<void> bulkInsert(
+  /// Adds or removes list of barcodes to/from a [productList] in one go (depending on [include])
+  Future<void> bulkSet(
     final ProductList productList,
-    final List<String> barcodesToAdd,
-  ) async {
+    final List<String> barcodesToAdd, {
+    final bool include = true,
+  }) async {
     final _BarcodeList? list = await _get(productList);
     final List<String> barcodes;
 
@@ -236,8 +237,14 @@ class DaoProductList extends AbstractDao {
     }
 
     for (final String barcode in barcodesToAdd) {
-      if (!barcodes.contains(barcode)) {
-        barcodes.add(barcode);
+      if (include) {
+        if (!barcodes.contains(barcode)) {
+          barcodes.add(barcode);
+        }
+      } else {
+        if (barcodes.contains(barcode)) {
+          barcodes.remove(barcode);
+        }
       }
     }
 
@@ -281,8 +288,8 @@ class DaoProductList extends AbstractDao {
 
   /// Returns the names of the user lists.
   ///
-  /// Possibly restricted to the user lists that contain the given barcode.
-  Future<List<String>> getUserLists({String? withBarcode}) async {
+  /// Possibly restricted to the user lists that contains ALL the given barcodes.
+  Future<List<String>> getUserLists({List<String>? withBarcodes}) async {
     // TODO(m123): change return type to a set
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
@@ -291,14 +298,23 @@ class DaoProductList extends AbstractDao {
       if (productListType != ProductListType.USER) {
         continue;
       }
-      if (withBarcode != null) {
+      if (withBarcodes != null) {
         final _BarcodeList? barcodeList = await _getBox().get(key);
-        if (barcodeList == null ||
-            !barcodeList.barcodes.contains(withBarcode)) {
+        if (barcodeList == null) {
           continue;
         }
+        for (final String barcode in withBarcodes) {
+          if (!barcodeList.barcodes.contains(barcode)) {
+            break;
+          }
+          if (withBarcodes.last == barcode) {
+            result.add(getProductListParameters(tmp));
+            break;
+          }
+        }
+      } else {
+        result.add(getProductListParameters(tmp));
       }
-      result.add(getProductListParameters(tmp));
     }
     return result;
   }

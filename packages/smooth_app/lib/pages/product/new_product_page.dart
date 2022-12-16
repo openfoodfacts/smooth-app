@@ -371,7 +371,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList,
   ) =>
       FutureBuilder<List<String>>(
-        future: daoProductList.getUserLists(withBarcode: _barcode),
+        future: daoProductList.getUserLists(withBarcodes: <String>[_barcode]),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<String>> snapshot,
