@@ -200,20 +200,15 @@ class ProductListUserDialogHelper {
       return false;
     }
 
-    final List<String> selectedLists = await LoadingDialog.run<List<String>>(
-          context: context,
-          future: daoProductList.getUserLists(
-            withBarcodes: barcodes.toList(growable: false),
-          ),
-        ) ??
-        <String>[];
+    final List<String> selectedLists = await daoProductList.getUserLists(
+        withBarcodes: barcodes.toList(growable: false));
 
     return showDialog<bool?>(
       context: context,
       builder: (BuildContext context) => _UserLists(
         lists: lists.toSet(),
         selectedLists: selectedLists.toSet(),
-        onListsSubmitted: (Set<String> newSelectedLists) {
+        onListsSubmitted: (Set<String> newSelectedLists) async {
           for (final String list in lists) {
             // Nothing changed
             if (selectedLists.contains(list) &&
@@ -224,7 +219,7 @@ class ProductListUserDialogHelper {
             // List got selected
             if (!selectedLists.contains(list) &&
                 newSelectedLists.contains(list)) {
-              daoProductList.bulkSet(
+              await daoProductList.bulkSet(
                 ProductList.user(list),
                 barcodes.toList(),
               );
@@ -233,7 +228,7 @@ class ProductListUserDialogHelper {
             // List got unselected
             if (selectedLists.contains(list) &&
                 !newSelectedLists.contains(list)) {
-              daoProductList.bulkSet(
+              await daoProductList.bulkSet(
                 ProductList.user(list),
                 barcodes.toList(),
                 include: false,
