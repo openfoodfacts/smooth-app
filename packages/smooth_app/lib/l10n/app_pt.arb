@@ -592,7 +592,7 @@
     "@Product Addition": {},
     "added_product_thanks": "Obrigado por adicionar este produto!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare com Categoria",
+    "product_search_same_category": "Compare com categoria",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
@@ -692,7 +692,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Compare um produto} other{Compare {count} produtos}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {

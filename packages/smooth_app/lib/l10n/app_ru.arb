@@ -1139,7 +1139,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
+    "edit_product_form_item_exit_confirmation": "Хотите ли Вы сохранить изменения прежде чем покинуть страницу?",
     "edit_product_form_item_exit_confirmation_positive_button": "Save my changes",
     "edit_product_form_item_exit_confirmation_negative_button": "Ignore my changes",
     "edit_product_form_item_ingredients_title": "Ингредиенты и происхождение",
@@ -1204,7 +1204,7 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Добавить этот продукт в ваши списки",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1455,7 +1455,7 @@
             }
         }
     },
-    "user_search_contributor_title": "Products I added",
+    "user_search_contributor_title": "Дообавленные мной продукты",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
