@@ -1573,7 +1573,7 @@
             }
         }
     },
-    "importance_label": "{name} importância: {id}",
+    "importance_label": "Importância de {name}: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {
