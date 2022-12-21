@@ -197,7 +197,7 @@ class ProductListUserDialogHelper {
     }
 
     final List<String> selectedLists = await daoProductList.getUserLists(
-        withBarcodes: barcodes.toList(growable: false),
+      withBarcodes: barcodes.toList(growable: false),
     );
 
     return showDialog<bool?>(
