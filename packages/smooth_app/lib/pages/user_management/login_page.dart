@@ -346,7 +346,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     final UserPreferences preferences = context.read<UserPreferences>();
     if (!preferences.inAppReviewAlreadyAsked) {
       assert(mounted);
-      bool? enjoyingApp = await showDialog<bool>(
+      final bool? enjoyingApp = await showDialog<bool>(
         context: context,
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
@@ -379,8 +379,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
               positiveAction: SmoothActionButton(
                 text: appLocalizations.okay,
                 onPressed: () {
-                  //TODO: implement feedback form and link here
-                  print("opening feedback form");
+                  // TODO(omegaviv): implement feedback form and link here,https://github.com/openfoodfacts/smooth-app/issues/3419
                   Navigator.of(context).pop(true);
                 },
               ),
