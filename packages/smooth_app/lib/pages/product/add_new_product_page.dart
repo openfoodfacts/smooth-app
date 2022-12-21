@@ -51,6 +51,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   final ProductList _history = ProductList.history();
 
+  //likely broken: see https://github.com/openfoodfacts/smooth-app/issues/3445
   bool get _nutritionFactsAdded => _product.nutriments != null;
   bool get _basicDetailsAdded =>
       AddBasicDetailsPage.isProductBasicValid(_product);
@@ -78,19 +79,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     final ThemeData themeData = Theme.of(context);
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final bool empty = _uploadedImages.isEmpty && _otherUploadedImages.isEmpty;
+
+    _addToHistory();
+
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(appLocalizations.new_product),
         automaticallyImplyLeading: empty,
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async {
-          await _daoProductList.push(_history, _product.barcode!);
-          if (!mounted) {
-            return;
-          }
-          Navigator.maybePop(context);
-        },
+        onPressed: () => Navigator.maybePop(context),
         label: Text(appLocalizations.finish),
         icon: const Icon(Icons.done),
       ),
@@ -117,6 +115,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         ),
       ),
     );
+  }
+
+  /// Adds the product to history if at least one of the fields is set.
+  Future<void> _addToHistory() async {
+    // TODO(open): Add _nutritionFactsAdded , see (https://github.com/openfoodfacts/smooth-app/issues/3445)
+    if (_basicDetailsAdded ||
+        _uploadedImages.isNotEmpty ||
+        _otherUploadedImages.isNotEmpty) {
+      await _daoProductList.push(_history, _product.barcode!);
+    }
   }
 
   List<Widget> _buildImageCaptureRows(BuildContext context) {
