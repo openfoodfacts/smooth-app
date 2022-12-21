@@ -224,7 +224,7 @@ class DaoProductList extends AbstractDao {
   /// Adds or removes list of barcodes to/from a [productList] in one go (depending on [include])
   Future<void> bulkSet(
     final ProductList productList,
-    List<String> barcodes, {
+    final List<String> barcodes, {
     final bool include = true,
   }) async {
     final _BarcodeList? list = await _get(productList);
