@@ -5,6 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/model/ProductImage.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -45,6 +47,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   late Product _product;
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
+  late DaoProductList _daoProductList;
+
+  final ProductList _history = ProductList.history();
 
   bool get _nutritionFactsAdded => _product.nutriments != null;
   bool get _basicDetailsAdded =>
@@ -56,6 +61,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     _initialProduct = Product(barcode: widget.barcode);
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(widget.barcode);
+    _daoProductList = DaoProductList(_localDatabase);
   }
 
   @override
@@ -67,6 +73,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     context.watch<LocalDatabase>();
     final ThemeData themeData = Theme.of(context);
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
@@ -77,7 +84,13 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         automaticallyImplyLeading: empty,
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async => Navigator.maybePop(context),
+        onPressed: () async {
+          await _daoProductList.push(_history, _product.barcode!);
+          if (!mounted) {
+            return;
+          }
+          Navigator.maybePop(context);
+        },
         label: Text(appLocalizations.finish),
         icon: const Icon(Icons.done),
       ),
