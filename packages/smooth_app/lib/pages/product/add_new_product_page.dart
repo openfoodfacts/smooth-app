@@ -56,6 +56,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   bool get _basicDetailsAdded =>
       AddBasicDetailsPage.isProductBasicValid(_product);
 
+  bool _alreadyPushedtToHistory = false;
+
   @override
   void initState() {
     super.initState();
@@ -88,7 +90,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         automaticallyImplyLeading: empty,
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.maybePop(context),
+        onPressed: () async => Navigator.maybePop(context),
         label: Text(appLocalizations.finish),
         icon: const Icon(Icons.done),
       ),
@@ -119,11 +121,15 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   /// Adds the product to history if at least one of the fields is set.
   Future<void> _addToHistory() async {
+    if (_alreadyPushedtToHistory) {
+      return;
+    }
     // TODO(open): Add _nutritionFactsAdded , see (https://github.com/openfoodfacts/smooth-app/issues/3445)
     if (_basicDetailsAdded ||
         _uploadedImages.isNotEmpty ||
         _otherUploadedImages.isNotEmpty) {
       await _daoProductList.push(_history, _product.barcode!);
+      _alreadyPushedtToHistory = true;
     }
   }
 
