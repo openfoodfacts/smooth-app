@@ -4,7 +4,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 
 /// Dialog helper class for user product list.
@@ -183,12 +182,9 @@ class ProductListUserDialogHelper {
     final BuildContext context,
     final Set<String> barcodes,
   ) async {
-    final List<String>? lists = await LoadingDialog.run<List<String>>(
-      context: context,
-      future: daoProductList.getUserLists(),
-    );
+    final List<String> lists = await daoProductList.getUserLists();
 
-    if (lists == null || lists.isEmpty) {
+    if (lists.isEmpty) {
       final bool? newListCreated = await showDialog<bool>(
         context: context,
         builder: (BuildContext context) => _UserEmptyLists(daoProductList),
@@ -201,7 +197,8 @@ class ProductListUserDialogHelper {
     }
 
     final List<String> selectedLists = await daoProductList.getUserLists(
-        withBarcodes: barcodes.toList(growable: false));
+        withBarcodes: barcodes.toList(growable: false),
+    );
 
     return showDialog<bool?>(
       context: context,
