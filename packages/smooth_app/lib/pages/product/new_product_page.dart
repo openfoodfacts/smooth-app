@@ -280,9 +280,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   Future<void> _editList() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final bool refreshed = await ProductListUserDialogHelper(daoProductList)
-        .showUserListsWithBarcodeDialog(context, widget.product);
-    if (refreshed) {
+    final bool? refreshed = await ProductListUserDialogHelper(daoProductList)
+        .showUserAddProductsDialog(
+      context,
+      <String>{widget.product.barcode!},
+    );
+    if (refreshed != null && refreshed) {
       setState(() {});
     }
   }
@@ -368,7 +371,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList,
   ) =>
       FutureBuilder<List<String>>(
-        future: daoProductList.getUserLists(withBarcode: _barcode),
+        future: daoProductList.getUserLists(withBarcodes: <String>[_barcode]),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<String>> snapshot,
