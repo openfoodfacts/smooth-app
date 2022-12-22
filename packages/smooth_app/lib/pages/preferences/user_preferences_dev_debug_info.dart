@@ -2,7 +2,6 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/main.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -25,7 +24,6 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
     'QueryType': OpenFoodAPIConfiguration.globalQueryType.toString(),
     'UserAgent-name': '${OpenFoodAPIConfiguration.userAgent?.name}',
     'UserAgent-system': '${OpenFoodAPIConfiguration.userAgent?.system}',
-    'UserAgent-version': '${OpenFoodAPIConfiguration.userAgent?.version}',
   };
 
   Future<void> loadAsyncData() async {
@@ -73,9 +71,6 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
                   title: Text(
                     '${infos.keys.elementAt(index)}: ${infos.values.elementAt(index).toString()}',
                   ),
-                  onTap: () {
-                    Sentry.captureMessage('GetDebugInfo');
-                  },
                 );
               },
             );
