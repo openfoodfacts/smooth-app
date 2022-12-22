@@ -2,15 +2,17 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// A tagline is the text displayed on the homepage
 /// It may contain a link to an external resource
 /// No cache is expected here
 /// API URL: [https://world.openfoodfacts.org/files/tagline-off-ios-v2.json] or
 /// [https://world.openfoodfacts.org/files/tagline-off-android-v2.json]
-Future<TagLineItem?> fetchTagLine(String locale) {
-  assert(locale.isNotEmpty);
+Future<TagLineItem?> fetchTagLine() {
+  final String locale = ProductQuery.getLanguage().code;
 
   return http
       .get(
@@ -23,7 +25,7 @@ Future<TagLineItem?> fetchTagLine(String locale) {
           (http.Response value) => const Utf8Decoder().convert(value.bodyBytes))
       .then((String value) =>
           _TagLine.fromJSON(jsonDecode(value) as List<dynamic>))
-      .then((_TagLine tagLine) => tagLine[locale] ?? tagLine['en'])
+      .then((_TagLine tagLine) => tagLine[locale])
       .catchError((dynamic err) => null);
 }
 
