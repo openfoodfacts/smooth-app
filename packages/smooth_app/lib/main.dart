@@ -215,7 +215,7 @@ class _SmoothAppState extends State<SmoothApp> {
     themeProvider.setOnboardingComplete(isOnboardingComplete);
 
     // Still need the value of the UP here, not the ProductQuery as the value is
-    // at this time
+    // not available at this time
     // will refresh each time the language changes
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
@@ -257,15 +257,15 @@ class _SmoothAppState extends State<SmoothApp> {
 /// Layer needed because we need to know the language. Language isn't available
 /// in the [context] in top level widget ([SmoothApp])
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage(this.appWidget, this.up);
+  const SmoothAppGetLanguage(this.appWidget, this.userPreferences);
 
   final Widget appWidget;
-  final UserPreferences up;
+  final UserPreferences userPreferences;
 
   @override
   Widget build(BuildContext context) {
     // TODO(monsieurtanuki): refactor removing the `SmoothAppGetLanguage` layer?
-    ProductQuery.setLanguage(context, up);
+    ProductQuery.setLanguage(context, userPreferences);
     context.read<ProductPreferences>().refresh();
 
     // The migration requires the language to be set in the app!
