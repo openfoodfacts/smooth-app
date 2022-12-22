@@ -25,7 +25,7 @@ Future<TagLineItem?> fetchTagLine() {
           (http.Response value) => const Utf8Decoder().convert(value.bodyBytes))
       .then((String value) =>
           _TagLine.fromJSON(jsonDecode(value) as List<dynamic>))
-      .then((_TagLine tagLine) => tagLine[locale])
+      .then((_TagLine tagLine) => tagLine[locale] ?? tagLine['en'])
       .catchError((dynamic err) => null);
 }
 
