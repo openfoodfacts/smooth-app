@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
@@ -24,7 +25,21 @@ abstract class ProductQuery {
   }
 
   /// Sets the global language for API queries.
-  static void setLanguage(final String languageCode) {
+  static void setLanguage(
+    final BuildContext context,
+    final UserPreferences userPreferences, {
+    String? languageCode,
+  }) {
+    final Locale locale = Localizations.localeOf(context);
+
+    if (languageCode != null) {
+      userPreferences.setAppLanguageCode(languageCode);
+    } else if (userPreferences.appLanguageCode != null) {
+      languageCode = userPreferences.appLanguageCode;
+    } else {
+      languageCode = locale.languageCode;
+    }
+
     final OpenFoodFactsLanguage language =
         LanguageHelper.fromJson(languageCode);
     OpenFoodAPIConfiguration.globalLanguages = <OpenFoodFactsLanguage>[

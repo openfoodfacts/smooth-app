@@ -12,6 +12,7 @@ import 'package:openfoodfacts/personalized_search/product_preferences_selection.
 import 'package:smooth_app/data_models/downloadable_string.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ProductPreferences(
@@ -68,11 +69,12 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   }
 
   /// Refreshes the references with network data.
-  Future<void> refresh(final String languageCode) async {
+  Future<void> refresh() async {
+    final String currentLanguageCode = ProductQuery.getLocaleString();
     if (daoString != null) {
       final String? latestLanguage =
           await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
-      if (latestLanguage == null || latestLanguage != languageCode) {
+      if (latestLanguage == null || latestLanguage != currentLanguageCode) {
         // we restart from scratch
         // typical use-case: language change
         _isNetwork = false;
@@ -86,11 +88,11 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       return;
     }
     _isDownloading = true;
-    final bool successful = await _loadFromNetwork(languageCode);
+    final bool successful = await _loadFromNetwork(currentLanguageCode);
     if (successful) {
       _isNetwork = true;
       if (daoString != null) {
-        await daoString!.put(_DAO_STRING_KEY_LANGUAGE, languageCode);
+        await daoString!.put(_DAO_STRING_KEY_LANGUAGE, currentLanguageCode);
       }
       notify();
     }

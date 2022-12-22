@@ -418,7 +418,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           // Do not translate
           title: const Text('Reset App Language'),
-          onTap: () async => userPreferences.setAppLanguageCode(null),
+          onTap: () async {
+            userPreferences.setAppLanguageCode(null);
+            ProductQuery.setLanguage(context, userPreferences);
+          },
         ),
       ];
 
