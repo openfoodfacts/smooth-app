@@ -22,7 +22,7 @@ class LanguageSelectorSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // The languages that are supported by flutter widget
-    final String currentLanguageCode = ProductQuery.getLocaleString();
+    final String currentLanguageCode = ProductQuery.getLanguage().code;
     final OpenFoodFactsLanguage language =
         LanguageHelper.fromJson(currentLanguageCode);
     final String nameInEnglish =

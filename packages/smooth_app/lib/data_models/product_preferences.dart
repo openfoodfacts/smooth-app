@@ -3,6 +3,7 @@ import 'dart:async' show Future;
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/available_attribute_groups.dart';
 import 'package:openfoodfacts/personalized_search/available_preference_importances.dart';
 import 'package:openfoodfacts/personalized_search/available_product_preferences.dart';
@@ -70,11 +71,12 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   /// Refreshes the references with network data.
   Future<void> refresh() async {
-    final String currentLanguageCode = ProductQuery.getLocaleString();
+    final String currentLocal = ProductQuery.getLocaleString();
+    final String lc = ProductQuery.getLanguage().code;
     if (daoString != null) {
       final String? latestLanguage =
           await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
-      if (latestLanguage == null || latestLanguage != currentLanguageCode) {
+      if (latestLanguage == null || latestLanguage != currentLocal) {
         // we restart from scratch
         // typical use-case: language change
         _isNetwork = false;
@@ -88,11 +90,11 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       return;
     }
     _isDownloading = true;
-    final bool successful = await _loadFromNetwork(currentLanguageCode);
+    final bool successful = await _loadFromNetwork(lc);
     if (successful) {
       _isNetwork = true;
       if (daoString != null) {
-        await daoString!.put(_DAO_STRING_KEY_LANGUAGE, currentLanguageCode);
+        await daoString!.put(_DAO_STRING_KEY_LANGUAGE, currentLocal);
       }
       notify();
     }
