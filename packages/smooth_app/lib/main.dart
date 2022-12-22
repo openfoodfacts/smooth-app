@@ -214,8 +214,8 @@ class _SmoothAppState extends State<SmoothApp> {
         OnboardingFlowNavigator.isOnboardingComplete(lastVisitedOnboardingPage);
     themeProvider.setOnboardingComplete(isOnboardingComplete);
 
-    // Still need the value of the UP here, not the ProductQuery as the value is
-    // not available at this time
+    // Still need the value from the UserPreferences here, not the ProductQuery
+    // as the value is not available at this time
     // will refresh each time the language changes
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
