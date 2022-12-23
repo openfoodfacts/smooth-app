@@ -405,6 +405,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           positiveAction: SmoothActionButton(
                             onPressed: () {
                               Navigator.of(context).pop();
+                              Navigator.of(context).pop();
                             },
                             text: appLocalizations.okay,
                           ),
