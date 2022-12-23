@@ -1,5 +1,6 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/main.dart';
@@ -55,6 +56,21 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
     return SmoothScaffold(
       appBar: AppBar(
         title: const Text("Debug info's"),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () async {
+                StringBuffer buffer = StringBuffer();
+
+                for (final MapEntry<String, dynamic> e in infos.entries) {
+                  buffer.writeln('${e.key}: ${e.value}');
+                }
+
+                await Clipboard.setData(
+                  ClipboardData(text: buffer.toString()),
+                );
+              },
+              icon: const Icon(Icons.copy))
+        ],
       ),
       body: FutureBuilder<void>(
           future: loadAsyncData(),
