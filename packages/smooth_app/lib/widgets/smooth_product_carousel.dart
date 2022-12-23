@@ -316,7 +316,7 @@ class _SearchCardTagLineState extends State<_SearchCardTagLine> {
   /// Return a map with keys: [_SearchCardTagLine.DEPRECATED_KEY]<bool> & [_SearchCardTagLine.TAG_LINE_KEY]<TagLineItem?>
   Future<Map<String, dynamic>> _fetchData() async {
     final bool deprecated = await _isApplicationDeprecated();
-    final TagLineItem? item = await fetchTagLine(Platform.localeName);
+    final TagLineItem? item = await fetchTagLine();
 
     return <String, dynamic>{
       _SearchCardTagLine.DEPRECATED_KEY: deprecated,
