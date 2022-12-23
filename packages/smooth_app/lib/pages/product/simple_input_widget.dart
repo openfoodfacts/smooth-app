@@ -64,6 +64,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                     autocompleteKey: _autocompleteKey,
                     focusNode: _focusNode,
                     constraints: constraints,
+                    helper: widget.helper,
                   ),
                 ),
                 const _SimpleInputWidgetFieldButton()
@@ -72,7 +73,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           },
         ),
         Divider(color: themeData.colorScheme.onBackground),
-        const _SimpleInputWidgetItems()
+        _SimpleInputWidgetItems(helper: widget.helper),
       ],
     );
   }
@@ -95,19 +96,18 @@ class _SimpleInputWidgetField extends StatelessWidget {
     required this.focusNode,
     required this.autocompleteKey,
     required this.constraints,
+    required this.helper,
     Key? key,
   }) : super(key: key);
 
   final FocusNode focusNode;
   final Key autocompleteKey;
   final BoxConstraints constraints;
+  final AbstractSimpleInputPageHelper helper;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final AbstractSimpleInputPageHelper helper = _SimpleInputWidgetState.helper(
-      context,
-    );
 
     return Padding(
       padding: const EdgeInsets.only(left: LARGE_SPACE),
@@ -238,47 +238,47 @@ class _SimpleInputWidgetFieldButton extends StatelessWidget {
 }
 
 class _SimpleInputWidgetItems extends StatelessWidget {
-  const _SimpleInputWidgetItems();
+  const _SimpleInputWidgetItems({
+    required this.helper,
+  });
+
+  final AbstractSimpleInputPageHelper helper;
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AbstractSimpleInputPageHelper>(
-      builder: (BuildContext context, AbstractSimpleInputPageHelper helper, _) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return ListView.builder(
-          itemCount: helper.terms.length,
-          itemBuilder: (BuildContext context, int position) {
-            final String term = helper.terms[position];
-            return KeyedSubtree(
-              key: ValueKey<String>(term),
-              child: ListTile(
-                trailing: Tooltip(
-                  message: appLocalizations
-                      .edit_product_form_item_remove_item_tooltip,
-                  child: InkWell(
-                    customBorder: const CircleBorder(),
-                    onTap: () => helper.removeTerm(term),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: MEDIUM_SPACE,
-                        vertical: SMALL_SPACE,
-                      ),
-                      child: Icon(Icons.delete),
-                    ),
+    return ListView.builder(
+      itemCount: helper.terms.length,
+      itemBuilder: (BuildContext context, int position) {
+        final String term = helper.terms[position];
+        return KeyedSubtree(
+          key: ValueKey<String>(term),
+          child: ListTile(
+            trailing: Tooltip(
+              message:
+                  appLocalizations.edit_product_form_item_remove_item_tooltip,
+              child: InkWell(
+                customBorder: const CircleBorder(),
+                onTap: () => helper.removeTerm(term),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: MEDIUM_SPACE,
+                    vertical: SMALL_SPACE,
                   ),
+                  child: Icon(Icons.delete),
                 ),
-                contentPadding: const EdgeInsetsDirectional.only(
-                  start: LARGE_SPACE,
-                ),
-                title: Text(term),
               ),
-            );
-          },
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
+            ),
+            contentPadding: const EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
+            ),
+            title: Text(term),
+          ),
         );
       },
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
     );
   }
 }
