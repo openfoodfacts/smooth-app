@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:openfoodfacts/utils/QueryType.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -94,6 +95,10 @@ abstract class ProductQuery {
       uuidString.put(_UUID_NAME, uuid);
     }
     OpenFoodAPIConfiguration.uuid = uuid;
+    await Sentry.configureScope((Scope scope) {
+      scope.setExtra('uuid', OpenFoodAPIConfiguration.uuid);
+      scope.setUser(SentryUser(username: OpenFoodAPIConfiguration.uuid));
+    });
   }
 
   static User getUser() =>

@@ -12,7 +12,6 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -26,7 +25,6 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
@@ -203,13 +201,6 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
           _buildKnowledgePanelCards(),
           if (_product.website != null && _product.website!.trim().isNotEmpty)
             _buildWebsiteWidget(_product.website!.trim()),
-          if (context.read<UserPreferences>().getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
-              false)
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Additional Button'),
-            ),
         ],
       ),
     );
