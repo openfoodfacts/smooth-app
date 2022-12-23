@@ -1281,30 +1281,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Usuń tryb deweloperski",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Zrestartuj wskazówki",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Aby wskazówki pojawiły się ponownie, zrestartuj aplikację.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Przełącz pomiędzy openfoodfacts.org (PROD) a test env",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "Aktualny rodzaj zapytania to {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Parametry środowiska testowego",
     "@dev_preferences_test_environment_title": {
@@ -1674,6 +1661,10 @@
     "world_results_action": "Rozszerz swoje poszukiwania na cały świat",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
+    },
+    "copy_to_clipboard": "Copy",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
     },
     "clipboard_barcode_copy": "Skopiuj kod kreskowy do schowka",
     "@clipboard_barcode_copied": {

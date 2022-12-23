@@ -1281,30 +1281,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Remover modo de desenvolvimento",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Reiniciar tutorial",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Você então precisa reiniciar o Flutter para vê-lo novamente.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Alternar entre openfoodfacts.org (PROD) e ambiente de teste",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "O tipo de consulta atual é {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Parâmetros do ambiente de teste",
     "@dev_preferences_test_environment_title": {
@@ -1674,6 +1661,10 @@
     "world_results_action": "Amplie sua pesquisa para o mundo",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
+    },
+    "copy_to_clipboard": "Copy",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
     },
     "clipboard_barcode_copy": "Copiar o código de barras para a área de transferência",
     "@clipboard_barcode_copied": {
