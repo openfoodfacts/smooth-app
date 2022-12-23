@@ -59,7 +59,7 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
         actions: <Widget>[
           IconButton(
               onPressed: () async {
-                StringBuffer buffer = StringBuffer();
+                final StringBuffer buffer = StringBuffer();
 
                 for (final MapEntry<String, dynamic> e in infos.entries) {
                   buffer.writeln('${e.key}: ${e.value}');
