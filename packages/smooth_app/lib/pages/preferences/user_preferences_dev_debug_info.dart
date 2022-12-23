@@ -26,6 +26,7 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
     'UserAgent-system': '${OpenFoodAPIConfiguration.userAgent?.system}',
   };
 
+  // TODO(m123): Add sentry id https://github.com/getsentry/sentry-dart/issues/1205
   Future<void> loadAsyncData() async {
     final BaseDeviceInfo deviceInfo = await DeviceInfoPlugin().deviceInfo;
 
