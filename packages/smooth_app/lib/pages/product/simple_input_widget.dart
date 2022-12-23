@@ -67,7 +67,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                     helper: widget.helper,
                   ),
                 ),
-                const _SimpleInputWidgetFieldButton()
+                _SimpleInputWidgetFieldButton(helper: widget.helper)
               ],
             );
           },
@@ -77,9 +77,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       ],
     );
   }
-
-  static AbstractSimpleInputPageHelper helper(BuildContext context) =>
-      Provider.of<AbstractSimpleInputPageHelper>(context, listen: false);
 
   static TextEditingController controller(
     BuildContext context, {
@@ -206,7 +203,12 @@ class _SimpleInputWidgetField extends StatelessWidget {
 }
 
 class _SimpleInputWidgetFieldButton extends StatelessWidget {
-  const _SimpleInputWidgetFieldButton({Key? key}) : super(key: key);
+  const _SimpleInputWidgetFieldButton({
+    required this.helper,
+    Key? key,
+  }) : super(key: key);
+
+  final AbstractSimpleInputPageHelper helper;
 
   @override
   Widget build(BuildContext context) {
@@ -223,8 +225,7 @@ class _SimpleInputWidgetFieldButton extends StatelessWidget {
           child: IconButton(
             onPressed: hasValue
                 ? () {
-                    _SimpleInputWidgetState.helper(context)
-                        .addItemsFromController(
+                    helper.addItemsFromController(
                       controller,
                     );
                   }
