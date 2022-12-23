@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -357,7 +359,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
             positiveAction: SmoothActionButton(
               text: appLocalizations
                   .app_rating_dialog_title_enjoying_positive_actions,
-              onPressed: () async => Navigator.of(context).pop(true),
+              onPressed: () => Navigator.of(context).pop(true),
             ),
             negativeAction: SmoothActionButton(
               text: appLocalizations.not_really,
@@ -378,9 +380,38 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                   appLocalizations.app_rating_dialog_title_not_enjoying_app),
               positiveAction: SmoothActionButton(
                 text: appLocalizations.okay,
-                onPressed: () {
+                onPressed: () async {
                   // TODO(omegaviv): implement feedback form and link here,https://github.com/openfoodfacts/smooth-app/issues/3419
-                  Navigator.of(context).pop(true);
+                  // currently asking user to manually write an email
+                  final Email email = Email(
+                    body:'',
+                    subject:
+                    appLocalizations.feed_back,
+                    recipients: <String>['contact@openfoodfacts.org'],
+                  );
+
+                  try {
+                    await FlutterEmailSender.send(email);
+                  } on PlatformException catch (e) {
+                    if (e.code == 'not_available') {
+                      // No email client installed on the device
+                      showDialog<void>(
+                        context: context,
+                        builder: (_) => SmoothAlertDialog(
+                          title:
+                          appLocalizations.no_email_client_available_dialog_title,
+                          body: Text(appLocalizations
+                              .no_email_client_available_dialog_content),
+                          positiveAction: SmoothActionButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            text: appLocalizations.okay,
+                          ),
+                        ),
+                      );
+                    }
+                  }
                 },
               ),
               negativeAction: SmoothActionButton(
