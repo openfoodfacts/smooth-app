@@ -1281,30 +1281,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Ieșiți din modul dezvoltare",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Reporniți integrarea",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Apoi trebuie să reporniți Flutter pentru a-l vedea din nou.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Comutați între openfoodfacts.org (PROD) și testați mediul",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "Tipul de interogare curent este {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Testarea parametrilor mediului",
     "@dev_preferences_test_environment_title": {
@@ -1674,6 +1661,10 @@
     "world_results_action": "Extindeți-vă căutarea în lume",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
+    },
+    "copy_to_clipboard": "Copy",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
     },
     "clipboard_barcode_copy": "Copy barcode to clipboard",
     "@clipboard_barcode_copied": {

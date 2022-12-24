@@ -1220,7 +1220,7 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "목록에 추가됨",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
@@ -1281,30 +1281,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "개발자 모드 해제",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "온보딩 다시 시작",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "다시 보려면 Flutter를 재시작해야 합니다.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "openfoodfacts.org(PROD)와 테스트 환경 간 전환",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "현재 쿼리 유형은 {query}입니다",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "테스트 환경 매개변수",
     "@dev_preferences_test_environment_title": {
@@ -1674,6 +1661,10 @@
     "world_results_action": "검색을 세계로 확장",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
+    },
+    "copy_to_clipboard": "Copy",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
     },
     "clipboard_barcode_copy": "바코드를 클립보드에 복사",
     "@clipboard_barcode_copied": {
