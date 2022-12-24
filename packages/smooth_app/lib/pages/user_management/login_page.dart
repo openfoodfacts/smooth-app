@@ -384,9 +384,8 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                   // TODO(omegaviv): implement feedback form and link here,https://github.com/openfoodfacts/smooth-app/issues/3419
                   // currently asking user to manually write an email
                   final Email email = Email(
-                    body:'',
-                    subject:
-                    appLocalizations.feed_back,
+                    body: '',
+                    subject: appLocalizations.feed_back,
                     recipients: <String>['contact@openfoodfacts.org'],
                   );
 
@@ -398,8 +397,8 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       showDialog<void>(
                         context: context,
                         builder: (_) => SmoothAlertDialog(
-                          title:
-                          appLocalizations.no_email_client_available_dialog_title,
+                          title: appLocalizations
+                              .no_email_client_available_dialog_title,
                           body: Text(appLocalizations
                               .no_email_client_available_dialog_content),
                           positiveAction: SmoothActionButton(
