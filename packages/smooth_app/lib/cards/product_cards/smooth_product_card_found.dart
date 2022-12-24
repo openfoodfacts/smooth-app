@@ -79,7 +79,7 @@ class SmoothProductCardFound extends StatelessWidget {
         },
         child: Hero(
           tag: heroTag,
-          child: Ink(
+          child: Container(
             decoration: BoxDecoration(
               borderRadius: ROUNDED_BORDER_RADIUS,
               color:

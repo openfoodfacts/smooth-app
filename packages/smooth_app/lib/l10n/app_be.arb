@@ -4,11 +4,11 @@
     "@yes": {},
     "add": "Дадаць",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "Вы ўпэўнены, што хочаце выдаліць свой уліковы запіс?\nКалі ёсць канкрэтная прычына, паведаміце пра яе ніжэй",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "Прычына",
     "@reason": {},
-    "okay": "Okay",
+    "okay": "Добра",
     "@okay": {},
     "create": "Create",
     "@create": {
@@ -20,13 +20,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Вярнуцца ў пачатак",
     "save": "Save",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Вы ўпэўнены, што хочаце захаваць?",
     "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ігнараваць",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -34,27 +34,27 @@
     "@close": {},
     "no": "No",
     "@no": {},
-    "stop": "Stop",
+    "stop": "Спыніць",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "Вылічыць",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Скінуць налады харчовых пераваг",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Здарылася памылка",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "Мы яшчэ працуем над гэтай функцыяй, сачыце за абнаўленнямі",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Адкрыць у браўзеры",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "Даведацца больш",
     "@learnMore": {},
     "unknown": "Unknown",
     "@unknown": {
@@ -110,18 +110,18 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Шукаю",
     "@looking_for": {
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
+    "welcomeToOpenFoodFacts": "Запрашаем у Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Абірайце ежу, карысную для вас і планеты.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
@@ -129,24 +129,24 @@
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Абірайце прадукты, карысныя для вас.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Абірайце прадукты, карысныя для планеты.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Увайдзіце ў свой уліковы запіс Open Food Facts, каб захаваць вашы ўнёскі",
+    "incorrect_credentials": "Няправільнае імя карыстальніка або пароль.",
     "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
-    "login_page_password_error_empty": "Please enter a password",
-    "create_account": "Create account",
+    "login_page_username_or_email": "Увядзіце імя карыстальніка або электронную пошту",
+    "login_page_password_error_empty": "Увядзіце пароль",
+    "create_account": "Стварыць уліковы запіс",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -154,24 +154,24 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Для выкарыстання гэтай функцыі вам трэба ўвайсці ў сістэму.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
-    "sign_out": "Sign out",
+    "sign_out": "Выйсці",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Are you sure you want to sign out?",
+    "sign_out_confirmation": "Хочаце выйсці з уліковага запісу?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Password",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Не памятаю пароль",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "View profile",
+    "view_profile": "Паглядзець профіль",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -179,42 +179,42 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "Калі вы забылі пароль, увядзіце імя карыстальніка або адрас электроннай пошты, каб атрымаць інструкцыі для скіду пароля. Не забудзьце праверыць папку «Спам».",
+    "username_or_email": "Імя карыстальніка або эл. пошта",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "На адрас электроннай пошты, звязаны з вашым уліковым запісам, адпраўлены ліст са спасылкай для скіду пароля. Таксама праверце папку «Спам»",
+    "send_reset_password_mail": "Змяніць пароль",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Калі ласка, увядзіце тэкст",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Зарэгістравацца",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Зарэгістравацца",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up...",
+    "sign_up_page_action_doing_it": "Рэгіструецца...",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
+    "sign_up_page_action_ok": "Віншуем! Ваш уліковы запіс толькі што створаны.",
     "sign_up_page_display_name_hint": "Name",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
+    "sign_up_page_email_hint": "Эл. пошта",
     "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_email_error_invalid": "Памылковы адрас эл. пошты",
+    "sign_up_page_username_hint": "Імя карыстальніка: бачнае ўсім",
+    "sign_up_page_username_error_empty": "Увядзіце імя карыстальніка",
+    "sign_up_page_username_error_invalid": "Увядзіце сапраўднае імя карыстальніка",
+    "sign_up_page_username_description": "Імя карыстальніка не можа змяшчаць прабелы, вялікія літары або спецыяльныя сімвалы",
     "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -224,9 +224,9 @@
         }
     },
     "sign_up_page_password_hint": "Password",
-    "sign_up_page_password_error_empty": "Please enter a password",
+    "sign_up_page_password_error_empty": "Увядзіце пароль",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
+    "sign_up_page_confirm_password_hint": "Пацвердзіць пароль",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
     "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
     "sign_up_page_agree_text": "I agree to the Open Food Facts",
@@ -1220,6 +1220,10 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
+    "added_to_list_msg": "Added to list",
+    "@added_to_list_msg": {
+        "description": "Message when products have been successfully added to a list"
+    },
     "user_list_popup_clear": "Clear",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear list' popup"
@@ -1277,30 +1281,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Remove dev mode",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Restart onboarding",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart Flutter to see it again.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Switch between openfoodfacts.org (PROD) and test env",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "Current query type is {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Test environment parameters",
     "@dev_preferences_test_environment_title": {
@@ -1670,6 +1661,10 @@
     "world_results_action": "Extend your search to the world",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
+    },
+    "copy_to_clipboard": "Copy",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
     },
     "clipboard_barcode_copy": "Copy barcode to clipboard",
     "@clipboard_barcode_copied": {

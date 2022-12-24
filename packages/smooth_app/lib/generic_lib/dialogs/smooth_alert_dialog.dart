@@ -333,7 +333,7 @@ List<Widget>? _buildActions(
   }
 
   if (Directionality.of(context) == TextDirection.rtl) {
-    return actions.reversed.toList(growable: false);
+    return actions.reversed.toList();
   } else {
     return actions;
   }
