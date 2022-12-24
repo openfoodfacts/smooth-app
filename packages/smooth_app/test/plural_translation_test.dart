@@ -156,11 +156,6 @@ void main() {
           );
           expect(
             appLocalizations
-                .dev_preferences_environment_switch_subtitle(crazyString),
-            contains(crazyString),
-          );
-          expect(
-            appLocalizations
                 .dev_preferences_test_environment_subtitle(crazyString),
             contains(crazyString),
           );
