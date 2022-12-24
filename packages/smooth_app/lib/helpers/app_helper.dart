@@ -1,7 +1,8 @@
 class AppHelper {
   const AppHelper._();
 
-  static const String APP_PACKAGE = 'smooth_app';
+  //static const String APP_PACKAGE = 'smooth_app';
+  static const String? APP_PACKAGE = null;
 
   static String getAssetPath(String asset) {
     if (asset.startsWith('/')) {
@@ -11,7 +12,7 @@ class AppHelper {
     }
 
     assert(asset.isNotEmpty);
-    return 'packages/$APP_PACKAGE/$asset';
+    return asset;
   }
 
   static String get defaultAssetPath => getAssetPath('assets/');
