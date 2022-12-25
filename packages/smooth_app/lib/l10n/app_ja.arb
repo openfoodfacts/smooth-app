@@ -1760,8 +1760,12 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "アプリを気に入っていただけましたか？",
-    "app_rating_dialog_body": "当店に5つ星をください！",
+    "app_rating_dialog_title": "Great! Let others know what you think of this app!",
     "app_rating_dialog_positive_action": "アプリを評価する",
-    "app_rating_dialog_negative_action": "後で"
+    "app_rating_dialog_negative_action": "後で",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
+    "not_really": "Not really",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "feed_back": "Feedback"
 }

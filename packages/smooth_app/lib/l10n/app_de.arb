@@ -1760,8 +1760,12 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Gefällt Ihnen unsere App?",
-    "app_rating_dialog_body": "Bitte geben Sie uns 5 Sterne im Store!",
+    "app_rating_dialog_title": "Großartig! Lassen Sie andere wissen, was Sie von dieser App halten!",
     "app_rating_dialog_positive_action": "App bewerten",
-    "app_rating_dialog_negative_action": "Später"
+    "app_rating_dialog_negative_action": "Später",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
+    "not_really": "Not really",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "feed_back": "Feedback"
 }

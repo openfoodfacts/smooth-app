@@ -1760,8 +1760,12 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Synes du om vores app?",
-    "app_rating_dialog_body": "Giv os venligst 5 stjerner i butikken!",
+    "app_rating_dialog_title": "Storartet! Lad andre vide, hvad du synes om appen!",
     "app_rating_dialog_positive_action": "Bedøm appen",
-    "app_rating_dialog_negative_action": "Senere"
+    "app_rating_dialog_negative_action": "Senere",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
+    "not_really": "Not really",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "feed_back": "Feedback"
 }
