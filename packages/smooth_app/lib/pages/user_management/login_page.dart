@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -344,33 +346,107 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
   Future<void> showInAppReviewIfNecessary(BuildContext context) async {
     final UserPreferences preferences = context.read<UserPreferences>();
-
     if (!preferences.inAppReviewAlreadyAsked) {
       assert(mounted);
+      final bool? enjoyingApp = await showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
 
-      if (await showDialog<bool>(
-            context: context,
-            builder: (BuildContext context) {
-              final AppLocalizations appLocalizations =
-                  AppLocalizations.of(context);
+          return SmoothAlertDialog(
+            body: Text(appLocalizations.app_rating_dialog_title_enjoying_app),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations
+                  .app_rating_dialog_title_enjoying_positive_actions,
+              onPressed: () => Navigator.of(context).pop(true),
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.not_really,
+              onPressed: () => Navigator.of(context).pop(false),
+            ),
+          );
+        },
+      );
+      if (enjoyingApp != null && !enjoyingApp) {
+        await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context);
 
-              return SmoothAlertDialog(
-                title: appLocalizations.app_rating_dialog_title,
-                body: Text(appLocalizations.app_rating_dialog_body),
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.app_rating_dialog_positive_action,
-                  onPressed: () async => Navigator.of(context).pop(
-                    await ApplicationStore.openAppReview(),
-                  ),
+            return SmoothAlertDialog(
+              body: Text(
+                  appLocalizations.app_rating_dialog_title_not_enjoying_app),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.okay,
+                onPressed: () async {
+                  // TODO(omegaviv): implement feedback form and link here,https://github.com/openfoodfacts/smooth-app/issues/3419
+                  // currently asking user to manually write an email
+                  final Email email = Email(
+                    body: '',
+                    subject: appLocalizations.feed_back,
+                    recipients: <String>['contact@openfoodfacts.org'],
+                  );
+
+                  try {
+                    await FlutterEmailSender.send(email);
+                  } on PlatformException catch (e) {
+                    if (e.code == 'not_available') {
+                      // No email client installed on the device
+                      showDialog<void>(
+                        context: context,
+                        builder: (_) => SmoothAlertDialog(
+                          title: appLocalizations
+                              .no_email_client_available_dialog_title,
+                          body: Text(appLocalizations
+                              .no_email_client_available_dialog_content),
+                          positiveAction: SmoothActionButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              Navigator.of(context).pop();
+                            },
+                            text: appLocalizations.okay,
+                          ),
+                        ),
+                      );
+                    }
+                  }
+                },
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.not_really,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            );
+          },
+        );
+      }
+      bool? userRatedApp;
+      if (enjoyingApp != null && enjoyingApp) {
+        userRatedApp = await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context);
+
+            return SmoothAlertDialog(
+              body: Text(appLocalizations.app_rating_dialog_title),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.app_rating_dialog_positive_action,
+                onPressed: () async => Navigator.of(context).pop(
+                  await ApplicationStore.openAppReview(),
                 ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.app_rating_dialog_negative_action,
-                  onPressed: () => Navigator.of(context).pop(false),
-                ),
-              );
-            },
-          ) ==
-          true) {
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.ask_me_later_button_label,
+                onPressed: () => Navigator.of(context).pop(false),
+              ),
+            );
+          },
+        );
+      }
+      if (userRatedApp != null && userRatedApp) {
         await preferences.markInAppReviewAsShown();
       }
     }
