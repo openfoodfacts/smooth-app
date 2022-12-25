@@ -209,7 +209,7 @@
     "sign_up_page_display_name_hint": "Name",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "Эл. пошта",
-    "sign_up_page_email_error_empty": "E-mail is required",
+    "sign_up_page_email_error_empty": "Эл. пошта — абавязкова",
     "sign_up_page_email_error_invalid": "Памылковы адрас эл. пошты",
     "sign_up_page_username_hint": "Імя карыстальніка: бачнае ўсім",
     "sign_up_page_username_error_empty": "Увядзіце імя карыстальніка",

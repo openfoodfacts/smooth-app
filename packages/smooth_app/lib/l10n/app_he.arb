@@ -1220,7 +1220,7 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "נוסף לרשימה",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
