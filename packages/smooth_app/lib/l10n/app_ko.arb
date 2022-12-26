@@ -1760,8 +1760,12 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "저희의 앱이 마음에 드십니까?",
-    "app_rating_dialog_body": "스토어에서 별 5개를 주세요!",
+    "app_rating_dialog_title": "좋아요! 다른 사람들에게 당신이 이 앱에 대해 어떻게 생각하는지 알려주세요!",
     "app_rating_dialog_positive_action": "앱 평가하기",
-    "app_rating_dialog_negative_action": "다음에"
+    "app_rating_dialog_negative_action": "다음에",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
+    "not_really": "Not really",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "feed_back": "Feedback"
 }

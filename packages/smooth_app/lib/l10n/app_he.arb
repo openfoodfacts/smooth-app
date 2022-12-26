@@ -1760,8 +1760,12 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "איך היישומון שלנו?",
-    "app_rating_dialog_body": "נא לדרג אותנו ב־5 כוכבים בחנות!",
+    "app_rating_dialog_title": "מצוין! אנו בטוחים שכולם ישמחו לשמוע מה דעתך על היישומון!",
     "app_rating_dialog_positive_action": "דירוג היישומון",
-    "app_rating_dialog_negative_action": "אחר כך"
+    "app_rating_dialog_negative_action": "אחר כך",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
+    "not_really": "Not really",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "feed_back": "Feedback"
 }
