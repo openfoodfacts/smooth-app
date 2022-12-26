@@ -54,6 +54,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
     parametersList: <Parameter>[
       BarcodeParameter.list(productsWithoutKnowledgePanel),
     ],
+    version: ProductQuery.productQueryVersion,
   );
 
   final SearchResult result = await OpenFoodAPIClient.searchProducts(
@@ -75,6 +76,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
     parametersList: <Parameter>[
       BarcodeParameter.list(completeProducts),
     ],
+    version: ProductQuery.productQueryVersion,
   );
 
   final SearchResult resultForFullProducts =

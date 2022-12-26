@@ -77,7 +77,7 @@ class OrderedNutrientsCache {
     final OpenFoodFactsCountry country = ProductQuery.getCountry()!;
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
     return 'nutrients.pl'
-        '/${country.iso2Code}'
+        '/${country.offTag}'
         '/${language.code}'
         '/${OpenFoodAPIConfiguration.globalQueryType}';
   }
