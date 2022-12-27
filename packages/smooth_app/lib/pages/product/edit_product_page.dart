@@ -205,7 +205,7 @@ class _EditProductPageState extends State<EditProductPage> {
               _ListTitleItem(
                 leading: const Icon(
                     Icons.recycling), // TODO(monsieurtanuki): different logo?
-                title: 'NEW PACKAGING', // TODO(monsieurtanuki): localize
+                title: '(Beta) Structured packaging', // TODO(monsieurtanuki): localize
                 onTap: () async {
                   if (!await ProductRefresher().checkIfLoggedIn(context)) {
                     return;
