@@ -13,6 +13,8 @@ import 'package:uuid/uuid.dart';
 
 // ignore: avoid_classes_with_only_static_members
 abstract class ProductQuery {
+  static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v2;
+
   static OpenFoodFactsCountry? _country;
 
   /// Returns the global language for API queries.
@@ -61,7 +63,7 @@ abstract class ProductQuery {
   /// Returns the global locale string (e.g. 'pt_BR')
   static String getLocaleString() => '${getLanguage()!.code}'
       '_'
-      '${getCountry()!.iso2Code.toUpperCase()}';
+      '${getCountry()!.offTag.toUpperCase()}';
 
   /// Sets a comment for the user agent.
   ///
@@ -141,6 +143,7 @@ abstract class ProductQuery {
         ProductField.SERVING_SIZE,
         ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
+        // ignore: deprecated_member_use
         ProductField.PACKAGING,
         ProductField.PACKAGING_TAGS,
         ProductField.PACKAGING_TEXT_IN_LANGUAGES,

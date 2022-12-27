@@ -76,6 +76,7 @@ class ProductListImportExport {
         parametersList: <Parameter>[
           BarcodeParameter.list(barcodes.toList(growable: false)),
         ],
+        version: ProductQuery.productQueryVersion,
       ),
     );
 

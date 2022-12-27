@@ -24,6 +24,7 @@ import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
@@ -370,23 +371,30 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
   Future<int?> _getMyCount(
     final UserProductSearchType type,
   ) async {
+    final User user = OpenFoodAPIConfiguration.globalUser!;
     final UserProductSearchQueryConfiguration configuration =
         UserProductSearchQueryConfiguration(
       type: type,
-      userId: OpenFoodAPIConfiguration.globalUser!.userId,
+      userId: user.userId,
       pageSize: 1,
       language: ProductQuery.getLanguage(),
-      fields: <ProductField>[],
+      // one field is enough as we want only the count
+      // and we need at least one field (no field meaning all fields)
+      fields: <ProductField>[ProductField.BARCODE],
     );
 
     try {
       final SearchResult result = await OpenFoodAPIClient.searchProducts(
-        OpenFoodAPIConfiguration.globalUser,
+        user,
         configuration,
         queryType: OpenFoodAPIConfiguration.globalQueryType,
       );
       return result.count;
     } catch (e) {
+      Logs.e(
+        'Could not count the number of products for $type, ${user.userId}',
+        ex: e,
+      );
       return null;
     }
   }
@@ -432,9 +440,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                         width: LARGE_SPACE,
                         child: CircularProgressIndicator.adaptive());
                   }
-                  return Text(
-                    snapshot.data == null ? '0' : snapshot.data.toString(),
-                  );
+                  return snapshot.data == null
+                      ? EMPTY_WIDGET
+                      : Text(snapshot.data.toString());
                 },
               )
             : null,

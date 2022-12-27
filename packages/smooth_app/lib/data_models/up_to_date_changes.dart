@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';

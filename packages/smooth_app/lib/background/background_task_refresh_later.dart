@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -107,7 +106,7 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
         barcode: barcode,
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.iso2Code,
+        country: ProductQuery.getCountry()!.offTag,
         timestamp: LocalDatabase.nowInMillis(),
       );
 
