@@ -22,7 +22,7 @@ class PagedUserProductQuery extends PagedProductQuery {
         pageSize: pageSize,
         pageNumber: pageNumber,
         language: language,
-        fields: ProductQuery.fields,
+        fields: ProductQuery.tmpFieldsForPackagingIssue,
       );
 
   @override

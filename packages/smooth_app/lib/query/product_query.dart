@@ -13,7 +13,7 @@ import 'package:uuid/uuid.dart';
 
 // ignore: avoid_classes_with_only_static_members
 abstract class ProductQuery {
-  static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v2;
+  static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v3;
 
   static OpenFoodFactsCountry? _country;
 
@@ -127,7 +127,7 @@ abstract class ProductQuery {
     }
   }
 
-  static List<ProductField> get fields => <ProductField>[
+  static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
         ProductField.BRANDS,
         ProductField.BARCODE,
@@ -145,6 +145,7 @@ abstract class ProductQuery {
         ProductField.PACKAGING_QUANTITY,
         // ignore: deprecated_member_use
         ProductField.PACKAGING,
+        ProductField.PACKAGINGS,
         ProductField.PACKAGING_TAGS,
         ProductField.PACKAGING_TEXT_IN_LANGUAGES,
         ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
@@ -176,4 +177,11 @@ abstract class ProductQuery {
         ProductField.ORIGINS,
         ProductField.WEBSITE,
       ];
+
+  // TODO(monsieurtanuki): remove this list when packagings are correctly dealt with in user-related searches.
+  static List<ProductField> get tmpFieldsForPackagingIssue {
+    final List<ProductField> result = List<ProductField>.from(fields);
+    result.remove(ProductField.PACKAGINGS);
+    return result;
+  }
 }

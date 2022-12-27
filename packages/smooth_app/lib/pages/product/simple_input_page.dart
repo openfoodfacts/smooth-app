@@ -76,6 +76,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
               child: SimpleInputWidget(
                 helper: widget.helpers[i],
                 product: widget.product,
+                controller: _controllers[i],
               ),
             ),
           ),
@@ -182,7 +183,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
 
   @override
   void dispose() {
-    // Disposed is managed by the provider
+    for (final TextEditingController controller in _controllers) {
+      controller.dispose();
+    }
     _controllers.clear();
     super.dispose();
   }
