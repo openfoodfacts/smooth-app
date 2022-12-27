@@ -6,7 +6,7 @@
 ### 🤖 Automation
 
 * Upload ml kit apk to github release ([#3330](https://github.com/openfoodfacts/smooth-app/issues/3330)) ([b0b52c5](https://github.com/openfoodfacts/smooth-app/commit/b0b52c5fdc210a761454cc1eee87c0d53578c210))
-
+Test
 
 ### 🐛 Bug Fixes
 
