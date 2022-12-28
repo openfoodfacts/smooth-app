@@ -54,7 +54,7 @@ on:
   
 env:
   JAVA_VERSION: 17
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.2.0
     
 jobs:
   deploy_android:
