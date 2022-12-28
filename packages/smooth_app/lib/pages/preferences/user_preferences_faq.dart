@@ -66,7 +66,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           url: 'https://world.openfoodfacts.org/contribute',
         ),
         _getListTile(
-          title: 'App Feedback',
+          title: appLocalizations.feed_back,
           leading: Icons.feedback_sharp,
           url: getFeedbackUrl(),
         ),
