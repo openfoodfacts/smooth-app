@@ -1763,9 +1763,9 @@
     "app_rating_dialog_title": "מצוין! אנו בטוחים שכולם ישמחו לשמוע מה דעתך על היישומון!",
     "app_rating_dialog_positive_action": "דירוג היישומון",
     "app_rating_dialog_negative_action": "אחר כך",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "feed_back": "Feedback"
+    "app_rating_dialog_title_enjoying_app": "היישומון הזה נושא חן בעיניך?",
+    "app_rating_dialog_title_enjoying_positive_actions": "ברור!",
+    "not_really": "ככה ככה",
+    "app_rating_dialog_title_not_enjoying_app": "צר לי לשמוע על כך! אוכל להבין ממך מה קרה?",
+    "feed_back": "משוב"
 }

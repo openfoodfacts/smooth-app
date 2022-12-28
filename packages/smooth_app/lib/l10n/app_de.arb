@@ -1763,9 +1763,9 @@
     "app_rating_dialog_title": "Großartig! Lassen Sie andere wissen, was Sie von dieser App halten!",
     "app_rating_dialog_positive_action": "App bewerten",
     "app_rating_dialog_negative_action": "Später",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "app_rating_dialog_title_enjoying_app": "Gefällt Ihnen diese App?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
+    "not_really": "Nicht wirklich",
+    "app_rating_dialog_title_not_enjoying_app": "Es tut uns leid, das zu hören! Könnten Sie uns die Gründe dafür nennen?",
     "feed_back": "Feedback"
 }
