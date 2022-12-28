@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -14,8 +12,10 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -381,37 +381,29 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
               positiveAction: SmoothActionButton(
                 text: appLocalizations.okay,
                 onPressed: () async {
-                  // TODO(omegaviv): implement feedback form and link here,https://github.com/openfoodfacts/smooth-app/issues/3419
-                  // currently asking user to manually write an email
-                  final Email email = Email(
-                    body: '',
-                    subject: appLocalizations.feed_back,
-                    recipients: <String>['contact@openfoodfacts.org'],
-                  );
 
-                  try {
-                    await FlutterEmailSender.send(email);
-                  } on PlatformException catch (e) {
-                    if (e.code == 'not_available') {
-                      // No email client installed on the device
-                      showDialog<void>(
-                        context: context,
-                        builder: (_) => SmoothAlertDialog(
-                          title: appLocalizations
-                              .no_email_client_available_dialog_title,
-                          body: Text(appLocalizations
-                              .no_email_client_available_dialog_content),
-                          positiveAction: SmoothActionButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                              Navigator.of(context).pop();
-                            },
-                            text: appLocalizations.okay,
-                          ),
-                        ),
-                      );
-                    }
+                  final String languageCode = ProductQuery.getLanguage().code;
+
+                  if (languageCode == 'en') {
+                    LaunchUrlHelper.launchURL(
+                        'https://forms.gle/AuNZG6fXyAPqN5tL7', false);
+                  } else if (languageCode == 'de') {
+                    LaunchUrlHelper.launchURL(
+                        'https://forms.gle/vCurhD2Y3ewS1YPv5', false);
+                  } else if (languageCode == 'es') {
+                    LaunchUrlHelper.launchURL(
+                        'https://forms.gle/CSMmuzR8i4LJBjbM9', false);
+                  } else if (languageCode == 'fr') {
+                    LaunchUrlHelper.launchURL(
+                        'https://forms.gle/cTR4wqGmW7pGUiaBA', false);
+                  } else if (languageCode == 'it') {
+                    LaunchUrlHelper.launchURL(
+                        'https://forms.gle/9HcCLFznym1ByQgB6', false);
+                  } else {
+                    LaunchUrlHelper.launchURL(
+                        'https://forms.gle/AuNZG6fXyAPqN5tL7', false);
                   }
+                  Navigator.of(context).pop();
                 },
               ),
               negativeAction: SmoothActionButton(
