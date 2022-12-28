@@ -381,7 +381,6 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
               positiveAction: SmoothActionButton(
                 text: appLocalizations.okay,
                 onPressed: () async {
-
                   final String languageCode = ProductQuery.getLanguage().code;
 
                   if (languageCode == 'en') {

@@ -64,7 +64,8 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           title: appLocalizations.how_to_contribute,
           leading: Icons.volunteer_activism,
           url: 'https://world.openfoodfacts.org/contribute',
-        ),_getListTile(
+        ),
+        _getListTile(
           title: 'App Feedback',
           leading: Icons.feedback_sharp,
           url: getFeedbackUrl(),
@@ -97,29 +98,24 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   static const String _iconDarkAssetPath =
       'assets/app/release_icon_dark_transparent_no_border.svg';
 
-  String getFeedbackUrl(){
-
+  String getFeedbackUrl() {
     final String languageCode = ProductQuery.getLanguage().code;
 
     if (languageCode == 'en') {
-          return 'https://forms.gle/AuNZG6fXyAPqN5tL7';
+      return 'https://forms.gle/AuNZG6fXyAPqN5tL7';
     } else if (languageCode == 'de') {
-      return
-          'https://forms.gle/vCurhD2Y3ewS1YPv5';
+      return 'https://forms.gle/vCurhD2Y3ewS1YPv5';
     } else if (languageCode == 'es') {
-      return
-          'https://forms.gle/CSMmuzR8i4LJBjbM9';
+      return 'https://forms.gle/CSMmuzR8i4LJBjbM9';
     } else if (languageCode == 'fr') {
-      return
-          'https://forms.gle/cTR4wqGmW7pGUiaBA';
+      return 'https://forms.gle/cTR4wqGmW7pGUiaBA';
     } else if (languageCode == 'it') {
-     return
-          'https://forms.gle/9HcCLFznym1ByQgB6';
+      return 'https://forms.gle/9HcCLFznym1ByQgB6';
     } else {
-      return
-          'https://forms.gle/AuNZG6fXyAPqN5tL7';
+      return 'https://forms.gle/AuNZG6fXyAPqN5tL7';
     }
   }
+
   Future<void> _about() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
     showDialog<void>(
