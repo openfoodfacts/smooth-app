@@ -3,6 +3,9 @@ on:
    push:
      branches:
        - develop
+
+env:
+  RUBY_VERSION: 3.2.0
     
 
 jobs:
@@ -49,11 +52,17 @@ jobs:
           DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ env.RUBY_VERSION }}
+
       # We are using the android version code for iOS as well to have the version codes in sync 
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
-        uses: maierj/fastlane-action@v2.3.0
+        uses: maierj/fastlane-action@v3.0.0
         with:
           lane: getOldVersionCode
           subdirectory: packages/app/android
