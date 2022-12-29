@@ -73,7 +73,7 @@ class SummaryCard extends StatefulWidget {
   /// If true, the icon setting will be clickable.
   final bool isSettingClickable;
 
-  ///If true, then the product will be editable
+  /// If true, the product will be editable
   final bool isProductEditable;
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -324,13 +324,15 @@ class _SummaryCardState extends State<SummaryCard> {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () async =>widget.isProductEditable ? Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) =>
-                    AddBasicDetailsPage(_product),
-              ),
-            ):null,
+            onPressed: () async => widget.isProductEditable
+                ? Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          AddBasicDetailsPage(_product),
+                    ),
+                  )
+                : null,
           ),
         );
       }
