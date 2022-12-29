@@ -14,7 +14,7 @@
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "Apply",
+    "applyButtonText": "Ужыць",
     "@applyButtonText": {},
     "next_label": "Next",
     "@next_label": {

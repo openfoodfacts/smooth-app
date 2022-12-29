@@ -1220,7 +1220,7 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "Toegevoegd aan lijst",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
@@ -1285,7 +1285,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
+    "dev_preferences_reset_onboarding_subtitle": "U moet de app dan opnieuw opstarten.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1662,7 +1662,7 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Kopiëren",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
@@ -1763,9 +1763,9 @@
     "app_rating_dialog_title": "Geweldig! Laat anderen weten wat je vindt van deze app!",
     "app_rating_dialog_positive_action": "Beoordeel de app",
     "app_rating_dialog_negative_action": "Later",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "app_rating_dialog_title_enjoying_app": "Geniet je van de app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
+    "not_really": "Niet echt",
+    "app_rating_dialog_title_not_enjoying_app": "Het spijt me dat te horen! Kun je me vertellen wat er is gebeurd?",
     "feed_back": "Feedback"
 }

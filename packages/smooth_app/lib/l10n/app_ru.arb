@@ -1763,9 +1763,9 @@
     "app_rating_dialog_title": "Замечательно! Поделитесь с друзьями своим мнением о приложении!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Позже",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "feed_back": "Feedback"
+    "app_rating_dialog_title_enjoying_app": "Вам нравится это приложение?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Да!",
+    "not_really": "Не совсем",
+    "app_rating_dialog_title_not_enjoying_app": "Мне очень жаль это слышать! Не могли бы вы рассказать мне, что случилось?",
+    "feed_back": "Обратная связь"
 }

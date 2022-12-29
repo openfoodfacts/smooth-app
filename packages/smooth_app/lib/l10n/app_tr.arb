@@ -1763,9 +1763,9 @@
     "app_rating_dialog_title": "Harika! Diğerlerine bu uygulama hakkında ne düşündüğünüzü bildirin!",
     "app_rating_dialog_positive_action": "Uygulamaya puan verin",
     "app_rating_dialog_negative_action": "Daha sonra",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "feed_back": "Feedback"
+    "app_rating_dialog_title_enjoying_app": "Bu uygulamanın tadını çıkarıyor musunuz?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Evet!",
+    "not_really": "Pek sayılmaz",
+    "app_rating_dialog_title_not_enjoying_app": "Bunu duyduğuma çok üzüldüm! Bana ne olduğunu anlatır mısın?",
+    "feed_back": "Geri bildirim"
 }

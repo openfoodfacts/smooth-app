@@ -1763,9 +1763,9 @@
     "app_rating_dialog_title": "Skvěle! Dejte ostatním vědět, co si o aplikaci myslíte!",
     "app_rating_dialog_positive_action": "Ohodnoťte aplikaci",
     "app_rating_dialog_negative_action": "Později",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "feed_back": "Feedback"
+    "app_rating_dialog_title_enjoying_app": "Baví vás tato aplikace?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Jasně!",
+    "not_really": "Ani ne",
+    "app_rating_dialog_title_not_enjoying_app": "To nás moc mrzí! Můžete nám dát vědět, co se stalo?",
+    "feed_back": "Zpětná vazba"
 }

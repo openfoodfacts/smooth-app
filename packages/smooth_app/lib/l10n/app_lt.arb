@@ -1763,9 +1763,9 @@
     "app_rating_dialog_title": "Puiku! Praneškite kitiems, ką manote apie šią programą!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Vėliau",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "feed_back": "Feedback"
+    "app_rating_dialog_title_enjoying_app": "Ar Jums patinka ši programėlė?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Aha!",
+    "not_really": "Nelabai",
+    "app_rating_dialog_title_not_enjoying_app": "Man labai gaila dėl to! Gal galėtumėte pasakyti, kas nutiko?",
+    "feed_back": "Atsiliepimas"
 }

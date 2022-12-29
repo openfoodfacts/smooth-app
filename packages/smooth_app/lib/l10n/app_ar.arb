@@ -1763,9 +1763,9 @@
     "app_rating_dialog_title": "رائع! دع اﻷخرين يعرفون رأيك في هذا التطبيق!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "لاحقاً",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "feed_back": "Feedback"
+    "app_rating_dialog_title_enjoying_app": "هل تستمتع بالتطبيق؟",
+    "app_rating_dialog_title_enjoying_positive_actions": "نعم!",
+    "not_really": "ليس تماماً",
+    "app_rating_dialog_title_not_enjoying_app": "أنا آسف جدا لسماع ذلك! هل يمكنك أن تخبرنا ما السبب؟",
+    "feed_back": "ملاحظات"
 }
