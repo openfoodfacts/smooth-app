@@ -241,7 +241,7 @@
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
-    "donate_url": "https://donate.openfoodfacts.org/",
+    "donate_url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=mobile&utm_term=settings-button",
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
