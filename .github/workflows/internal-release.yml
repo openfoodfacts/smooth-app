@@ -19,7 +19,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ env.RUBY_VERSION }}
       # Get the latest version name from file
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=$(cat version.txt)">> $GITHUB_ENV
@@ -31,12 +36,6 @@ jobs:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          ruby-version: ${{ env.RUBY_VERSION }}
 
       # We are using the Android version code for iOS as well to have the version codes in sync 
       # in order for Sentry and other tools to work properly
