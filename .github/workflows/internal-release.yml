@@ -27,6 +27,8 @@ jobs:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
           subdirectory: packages/app/android
+      - name: bundle install
+        run: bundle install
       # Get the latest version name from file
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=$(cat version.txt)">> $GITHUB_ENV
