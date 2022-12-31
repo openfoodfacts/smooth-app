@@ -18,9 +18,8 @@ jobs:
       VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
 
     steps:
+      - name: Checkout
       - uses: actions/checkout@v3
-      - name: CD
-        run: cd packages/app/android
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -28,7 +27,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           #working-directory: packages/app/android
       - name: CD
-        run: cd ./packages/app/android
+        run: cd /home/runner/work/smooth-app/smooth-app/packages/app/android
       - name: PWD
         run: pwd
       - name: bundle install
