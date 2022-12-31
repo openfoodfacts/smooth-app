@@ -26,7 +26,11 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-          subdirectory: packages/app/android
+          working-directory: packages/app/android
+      - name: CD
+        run: cd packages/app/android
+      - name: CD
+        run: pwd
       - name: bundle install
         run: bundle install
       # Get the latest version name from file
