@@ -26,10 +26,10 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-          working-directory: packages/app/android
+          #working-directory: packages/app/android
       - name: CD
         run: cd packages/app/android
-      - name: CD
+      - name: PWD
         run: pwd
       - name: bundle install
         run: bundle install
