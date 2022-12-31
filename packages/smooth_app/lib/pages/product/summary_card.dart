@@ -51,6 +51,7 @@ class SummaryCard extends StatefulWidget {
     this.showUnansweredQuestions = false,
     this.isRemovable = true,
     this.isSettingClickable = true,
+    this.isProductEditable = true,
   });
 
   final Product _product;
@@ -72,6 +73,8 @@ class SummaryCard extends StatefulWidget {
   /// If true, the icon setting will be clickable.
   final bool isSettingClickable;
 
+  /// If true, the product will be editable
+  final bool isProductEditable;
   @override
   State<SummaryCard> createState() => _SummaryCardState();
 }
@@ -321,13 +324,15 @@ class _SummaryCardState extends State<SummaryCard> {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () async => Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) =>
-                    AddBasicDetailsPage(_product),
-              ),
-            ),
+            onPressed: () async => widget.isProductEditable
+                ? Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          AddBasicDetailsPage(_product),
+                    ),
+                  )
+                : null,
           ),
         );
       }
