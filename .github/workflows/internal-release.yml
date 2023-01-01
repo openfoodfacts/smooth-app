@@ -27,7 +27,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           #working-directory: packages/app/android
       - name: CD
-        run: cd ./packages/app/android
+        run: cd /home/runner/work/smooth-app/smooth-app/packages/app/android/
       - name: PWD
         run: pwd
       - name: bundle install
