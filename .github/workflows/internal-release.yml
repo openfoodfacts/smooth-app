@@ -26,12 +26,9 @@ jobs:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
           #working-directory: packages/app/android
-      - name: CD
-        run: cd /home/runner/work/smooth-app/smooth-app/packages/app/android/
-      - name: PWD
-        run: pwd
       - name: bundle install
         run: bundle install
+        working-directory: ./packages/app/android/
       # Get the latest version name from file
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=$(cat version.txt)">> $GITHUB_ENV
