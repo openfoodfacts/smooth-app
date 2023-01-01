@@ -56,6 +56,9 @@ jobs:
       - name: bundle install
         run: bundle install
         working-directory: ./packages/app/ios/    
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/app/android/    
       - name: Setup Java JDK
         uses: actions/setup-java@v3.6.0
         with:
