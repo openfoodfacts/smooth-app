@@ -37,10 +37,12 @@ enum UserSearchType {
           TagFilter.fromType(tagFilterType: type, tagName: userId),
           PageSize(size: pageSize),
           PageNumber(page: pageNumber),
-          TagFilter.fromType(
-            tagFilterType: TagFilterType.STATES,
-            tagName: ProductState.COMPLETED.toBeCompletedTag,
-          ),
+          if (toBeCompleted)
+            StatesTagsParameter(
+              map: <ProductState, bool>{
+                ProductState.COMPLETED: false,
+              },
+            ),
         ],
         language: language,
         fields: fields,
