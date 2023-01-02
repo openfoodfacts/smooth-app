@@ -1,7 +1,7 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/main.dart';
 import 'package:smooth_app/query/product_query.dart';

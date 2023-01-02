@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
-import 'package:openfoodfacts/utils/UserProductSearchQueryConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -242,48 +240,49 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.CONTRIBUTOR,
+            type: UserSearchType.CONTRIBUTOR,
           ),
           title: appLocalizations.user_search_contributor_title,
           iconData: Icons.add_circle_outline,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.CONTRIBUTOR,
+          type: UserSearchType.CONTRIBUTOR,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.INFORMER,
+            type: UserSearchType.INFORMER,
           ),
           title: appLocalizations.user_search_informer_title,
           iconData: Icons.edit,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.INFORMER,
+          type: UserSearchType.INFORMER,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.PHOTOGRAPHER,
+            type: UserSearchType.PHOTOGRAPHER,
           ),
           title: appLocalizations.user_search_photographer_title,
           iconData: Icons.add_a_photo,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.PHOTOGRAPHER,
+          type: UserSearchType.PHOTOGRAPHER,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.TO_BE_COMPLETED,
+            type: UserSearchType.TO_BE_COMPLETED,
           ),
           title: appLocalizations.user_search_to_be_completed_title,
           iconData: Icons.more_horiz,
           context: context,
           localDatabase: localDatabase,
+          type: UserSearchType.TO_BE_COMPLETED,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -369,18 +368,17 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
   }
 
   Future<int?> _getMyCount(
-    final UserProductSearchType type,
+    final UserSearchType type,
   ) async {
     final User user = OpenFoodAPIConfiguration.globalUser!;
-    final UserProductSearchQueryConfiguration configuration =
-        UserProductSearchQueryConfiguration(
-      type: type,
-      userId: user.userId,
-      pageSize: 1,
-      language: ProductQuery.getLanguage(),
+    final ProductSearchQueryConfiguration configuration = type.getConfiguration(
+      user.userId,
+      1,
+      1,
+      ProductQuery.getLanguage(),
       // one field is enough as we want only the count
       // and we need at least one field (no field meaning all fields)
-      fields: <ProductField>[ProductField.BARCODE],
+      <ProductField>[ProductField.BARCODE],
     );
 
     try {
@@ -405,7 +403,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     required final IconData iconData,
     required final BuildContext context,
     required final LocalDatabase localDatabase,
-    final UserProductSearchType? type,
+    final UserSearchType? type,
   }) =>
       _getListTile(
         title,
@@ -424,7 +422,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
-    final UserProductSearchType? type,
+    final UserSearchType? type,
   }) =>
       UserPreferencesListTile(
         title: Text(title),

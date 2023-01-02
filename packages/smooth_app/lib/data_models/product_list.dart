@@ -1,5 +1,4 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 
 enum ProductListType {
   /// API search by [SearchTerms] keywords
