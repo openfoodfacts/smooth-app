@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 import 'package:smooth_app/pages/product/add_category_button.dart';

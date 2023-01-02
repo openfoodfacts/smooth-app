@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:webview_flutter/webview_flutter.dart';

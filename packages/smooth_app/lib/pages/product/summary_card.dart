@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
-import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';

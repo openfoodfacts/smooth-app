@@ -1,4 +1,4 @@
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';

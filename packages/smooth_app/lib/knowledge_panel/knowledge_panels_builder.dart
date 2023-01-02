@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/KnowledgePanel.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';

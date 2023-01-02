@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/UserAgent.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
-import 'package:openfoodfacts/utils/QueryType.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';

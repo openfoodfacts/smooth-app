@@ -1,9 +1,4 @@
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
-import 'package:openfoodfacts/personalized_search/product_preferences_manager.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 
 // TODO(monsieurtanuki): merge to off-dart
 /// This is a copy of the algorithm in off-dart's [MatchedProductV2].

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:openfoodfacts/model/RobotoffQuestion.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
