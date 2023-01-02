@@ -24,7 +24,12 @@ class UserManagementProvider with ChangeNotifier {
     }
 
     if (loginStatus.successful) {
-      await putUser(user);
+      await putUser(
+        User(
+          userId: loginStatus.userId!,
+          password: user.password,
+        ),
+      );
       notifyListeners();
     }
 
