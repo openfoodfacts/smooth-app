@@ -71,8 +71,13 @@ class UpToDateChanges {
     if (change.ingredientsText != null) {
       initial.ingredientsText = change.ingredientsText;
     }
+    // ignore: deprecated_member_use
     if (change.packaging != null) {
+      // ignore: deprecated_member_use
       initial.packaging = change.packaging;
+    }
+    if (change.packagings != null) {
+      initial.packagings = change.packagings;
     }
     if (change.noNutritionData != null) {
       initial.noNutritionData = change.noNutritionData;

@@ -1220,6 +1220,10 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
+    "added_to_list_msg": "נוסף לרשימה",
+    "@added_to_list_msg": {
+        "description": "Message when products have been successfully added to a list"
+    },
     "user_list_popup_clear": "פינוי",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear list' popup"
@@ -1277,30 +1281,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "הסרת מצב פיתוח",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "הפעלת תהליך קליטה מחדש",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "לאחר מכן יהיה עליך להפעיל את Flutter מחדש כדי לראות זאת שוב.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "החלפה בין openfoodfacts.org (הסביבה המבצעית) לבין סביבת הבדיקות",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "סוג השאילתה הנוכחית הוא {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "בדיקת משתני הסביבה",
     "@dev_preferences_test_environment_title": {
@@ -1671,6 +1662,10 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
+    "copy_to_clipboard": "Copy",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
+    },
     "clipboard_barcode_copy": "העתקת ברקוד ללוח הגזירים",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
@@ -1765,8 +1760,12 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "איך היישומון שלנו?",
-    "app_rating_dialog_body": "נא לדרג אותנו ב־5 כוכבים בחנות!",
+    "app_rating_dialog_title": "מצוין! אנו בטוחים שכולם ישמחו לשמוע מה דעתך על היישומון!",
     "app_rating_dialog_positive_action": "דירוג היישומון",
-    "app_rating_dialog_negative_action": "אחר כך"
+    "app_rating_dialog_negative_action": "אחר כך",
+    "app_rating_dialog_title_enjoying_app": "היישומון הזה נושא חן בעיניך?",
+    "app_rating_dialog_title_enjoying_positive_actions": "ברור!",
+    "not_really": "ככה ככה",
+    "app_rating_dialog_title_not_enjoying_app": "צר לי לשמוע על כך! אוכל להבין ממך מה קרה?",
+    "feed_back": "משוב"
 }

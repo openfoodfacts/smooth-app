@@ -113,6 +113,7 @@ class _HelperState extends State<_Helper> {
             isFullVersion: _isProductExpanded,
             isRemovable: false,
             isSettingClickable: false,
+            isProductEditable: false,
           ),
         ),
       ),

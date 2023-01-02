@@ -8,10 +8,12 @@ import 'package:smooth_app/pages/product/ocr_helper.dart';
 /// OCR Helper for packaging.
 class OcrPackagingHelper extends OcrHelper {
   @override
+  // ignore: deprecated_member_use
   String getText(final Product product) => product.packaging ?? '';
 
   @override
   Product getMinimalistProduct(Product product, final String text) {
+    // ignore: deprecated_member_use
     product.packaging = text;
     return product;
   }

@@ -393,6 +393,7 @@ class _ProductListPageState extends State<ProductListPage>
           parametersList: <Parameter>[
             BarcodeParameter.list(barcodes),
           ],
+          version: ProductQuery.productQueryVersion,
         ),
       );
       final List<Product>? freshProducts = searchResult.products;

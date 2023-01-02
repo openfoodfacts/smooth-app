@@ -3,6 +3,7 @@ import 'dart:async' show Future;
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/model/Attribute.dart';
 import 'package:openfoodfacts/model/AttributeGroup.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/personalized_search/available_attribute_groups.dart';
 import 'package:openfoodfacts/personalized_search/available_preference_importances.dart';
 import 'package:openfoodfacts/personalized_search/available_product_preferences.dart';
@@ -12,6 +13,7 @@ import 'package:openfoodfacts/personalized_search/product_preferences_selection.
 import 'package:smooth_app/data_models/downloadable_string.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ProductPreferences(
@@ -68,11 +70,12 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   }
 
   /// Refreshes the references with network data.
-  Future<void> refresh(final String languageCode) async {
+  Future<void> refresh() async {
+    final String lc = ProductQuery.getLanguage().code;
     if (daoString != null) {
       final String? latestLanguage =
           await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
-      if (latestLanguage == null || latestLanguage != languageCode) {
+      if (latestLanguage == null || latestLanguage != lc) {
         // we restart from scratch
         // typical use-case: language change
         _isNetwork = false;
@@ -86,11 +89,11 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       return;
     }
     _isDownloading = true;
-    final bool successful = await _loadFromNetwork(languageCode);
+    final bool successful = await _loadFromNetwork(lc);
     if (successful) {
       _isNetwork = true;
       if (daoString != null) {
-        await daoString!.put(_DAO_STRING_KEY_LANGUAGE, languageCode);
+        await daoString!.put(_DAO_STRING_KEY_LANGUAGE, lc);
       }
       notify();
     }

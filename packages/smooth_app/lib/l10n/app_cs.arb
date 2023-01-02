@@ -1220,6 +1220,10 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
+    "added_to_list_msg": "Přidáno do seznamu",
+    "@added_to_list_msg": {
+        "description": "Message when products have been successfully added to a list"
+    },
     "user_list_popup_clear": "Vymazat",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear list' popup"
@@ -1277,30 +1281,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Odebrat vývojářský režim",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Restartovat zapojení",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Poté musíte restartovat Flutter, abyste jej znovu viděli.",
+    "dev_preferences_reset_onboarding_subtitle": "Poté je nutné aplikaci restartovat.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Přepínání mezi openfoodfacts.org (PROD) a testovacím prostředím",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "Typ aktuálního dotazu je {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Parametry testovacího prostředí",
     "@dev_preferences_test_environment_title": {
@@ -1671,6 +1662,10 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
+    "copy_to_clipboard": "Kopírovat",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
+    },
     "clipboard_barcode_copy": "Kopírovat čárový kód do schránky",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
@@ -1765,8 +1760,12 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Líbí se vám naše aplikace?",
-    "app_rating_dialog_body": "Dejte nám 5 hvězdiček v obchodě!",
+    "app_rating_dialog_title": "Skvěle! Dejte ostatním vědět, co si o aplikaci myslíte!",
     "app_rating_dialog_positive_action": "Ohodnoťte aplikaci",
-    "app_rating_dialog_negative_action": "Později"
+    "app_rating_dialog_negative_action": "Později",
+    "app_rating_dialog_title_enjoying_app": "Baví vás tato aplikace?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Jasně!",
+    "not_really": "Ani ne",
+    "app_rating_dialog_title_not_enjoying_app": "To nás moc mrzí! Můžete nám dát vědět, co se stalo?",
+    "feed_back": "Zpětná vazba"
 }

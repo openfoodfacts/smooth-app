@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:openfoodfacts/utils/TagType.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
@@ -14,10 +13,12 @@ class SimpleInputWidget extends StatefulWidget {
   const SimpleInputWidget({
     required this.helper,
     required this.product,
+    required this.controller,
   });
 
   final AbstractSimpleInputPageHelper helper;
   final Product product;
+  final TextEditingController controller;
 
   @override
   State<SimpleInputWidget> createState() => _SimpleInputWidgetState();
@@ -60,64 +61,96 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
               children: <Widget>[
                 Flexible(
                   flex: 1,
-                  child: _SimpleInputWidgetField(
+                  child: SimpleInputWidgetField(
                     autocompleteKey: _autocompleteKey,
                     focusNode: _focusNode,
                     constraints: constraints,
+                    tagType: widget.helper.getTagType(),
+                    hintText: widget.helper.getAddHint(appLocalizations),
+                    controller: widget.controller,
                   ),
                 ),
-                const _SimpleInputWidgetFieldButton()
+                IconButton(
+                  onPressed: () {
+                    if (widget.helper
+                        .addItemsFromController(widget.controller)) {
+                      setState(() {});
+                    }
+                  },
+                  icon: const Icon(Icons.add_circle),
+                )
               ],
             );
           },
         ),
         Divider(color: themeData.colorScheme.onBackground),
-        const _SimpleInputWidgetItems()
+        ListView.builder(
+          itemCount: widget.helper.terms.length,
+          itemBuilder: (BuildContext context, int position) {
+            final String term = widget.helper.terms[position];
+            return KeyedSubtree(
+              key: ValueKey<String>(term),
+              child: ListTile(
+                trailing: Tooltip(
+                  message: appLocalizations
+                      .edit_product_form_item_remove_item_tooltip,
+                  child: InkWell(
+                    customBorder: const CircleBorder(),
+                    onTap: () {
+                      if (widget.helper.removeTerm(term)) {
+                        setState(() {});
+                      }
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MEDIUM_SPACE,
+                        vertical: SMALL_SPACE,
+                      ),
+                      child: Icon(Icons.delete),
+                    ),
+                  ),
+                ),
+                contentPadding: const EdgeInsetsDirectional.only(
+                  start: LARGE_SPACE,
+                ),
+                title: Text(term),
+              ),
+            );
+          },
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+        ),
       ],
     );
   }
-
-  static AbstractSimpleInputPageHelper helper(BuildContext context) =>
-      Provider.of<AbstractSimpleInputPageHelper>(context, listen: false);
-
-  static TextEditingController controller(
-    BuildContext context, {
-    bool listen = false,
-  }) =>
-      Provider.of<TextEditingController>(
-        context,
-        listen: listen,
-      );
 }
 
-class _SimpleInputWidgetField extends StatelessWidget {
-  const _SimpleInputWidgetField({
+// TODO(monsieurtanuki): put it in its own file as it's not private anymore.
+class SimpleInputWidgetField extends StatelessWidget {
+  const SimpleInputWidgetField({
     required this.focusNode,
     required this.autocompleteKey,
     required this.constraints,
-    Key? key,
-  }) : super(key: key);
+    required this.tagType,
+    required this.hintText,
+    required this.controller,
+  });
 
   final FocusNode focusNode;
   final Key autocompleteKey;
   final BoxConstraints constraints;
+  final TagType? tagType;
+  final String hintText;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final AbstractSimpleInputPageHelper helper = _SimpleInputWidgetState.helper(
-      context,
-    );
-
     return Padding(
       padding: const EdgeInsets.only(left: LARGE_SPACE),
       child: RawAutocomplete<String>(
         key: autocompleteKey,
         focusNode: focusNode,
-        textEditingController: _SimpleInputWidgetState.controller(
-          context,
-          listen: true,
-        ),
+        textEditingController: controller,
         optionsBuilder: (final TextEditingValue value) async {
           final List<String> result = <String>[];
           final String input = value.text.trim();
@@ -126,7 +159,6 @@ class _SimpleInputWidgetField extends StatelessWidget {
             return result;
           }
 
-          final TagType? tagType = helper.getTagType();
           if (tagType == null) {
             return result;
           }
@@ -134,7 +166,7 @@ class _SimpleInputWidgetField extends StatelessWidget {
           // TODO(monsieurtanuki): ask off-dart to return Strings instead of dynamic?
           final List<dynamic> data =
               await OpenFoodAPIClient.getAutocompletedSuggestions(
-            tagType,
+            tagType!,
             language: ProductQuery.getLanguage()!,
             limit: 1000000, // lower max count on the server anyway
             input: value.text.trim(),
@@ -161,7 +193,7 @@ class _SimpleInputWidgetField extends StatelessWidget {
               horizontal: SMALL_SPACE,
               vertical: SMALL_SPACE,
             ),
-            hintText: helper.getAddHint(appLocalizations),
+            hintText: hintText,
           ),
           autofocus: true,
           focusNode: focusNode,
@@ -201,84 +233,6 @@ class _SimpleInputWidgetField extends StatelessWidget {
           );
         },
       ),
-    );
-  }
-}
-
-class _SimpleInputWidgetFieldButton extends StatelessWidget {
-  const _SimpleInputWidgetFieldButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<TextEditingController>(
-      builder: (BuildContext context, TextEditingController controller,
-          Widget? child) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final bool hasValue = controller.text.trim().isNotEmpty;
-
-        return Tooltip(
-          message: !hasValue
-              ? appLocalizations.edit_product_form_item_add_invalid_item_tooltip
-              : appLocalizations.edit_product_form_item_add_valid_item_tooltip,
-          child: IconButton(
-            onPressed: hasValue
-                ? () {
-                    _SimpleInputWidgetState.helper(context)
-                        .addItemsFromController(
-                      controller,
-                    );
-                  }
-                : null,
-            icon: const Icon(Icons.add_circle),
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _SimpleInputWidgetItems extends StatelessWidget {
-  const _SimpleInputWidgetItems();
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<AbstractSimpleInputPageHelper>(
-      builder: (BuildContext context, AbstractSimpleInputPageHelper helper, _) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-        return ListView.builder(
-          itemCount: helper.terms.length,
-          itemBuilder: (BuildContext context, int position) {
-            final String term = helper.terms[position];
-            return KeyedSubtree(
-              key: ValueKey<String>(term),
-              child: ListTile(
-                trailing: Tooltip(
-                  message: appLocalizations
-                      .edit_product_form_item_remove_item_tooltip,
-                  child: InkWell(
-                    customBorder: const CircleBorder(),
-                    onTap: () => helper.removeTerm(term),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: MEDIUM_SPACE,
-                        vertical: SMALL_SPACE,
-                      ),
-                      child: Icon(Icons.delete),
-                    ),
-                  ),
-                ),
-                contentPadding: const EdgeInsetsDirectional.only(
-                  start: LARGE_SPACE,
-                ),
-                title: Text(term),
-              ),
-            );
-          },
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-        );
-      },
     );
   }
 }

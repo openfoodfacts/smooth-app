@@ -1220,6 +1220,10 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
+    "added_to_list_msg": "Ajouté à la liste",
+    "@added_to_list_msg": {
+        "description": "Message when products have been successfully added to a list"
+    },
     "user_list_popup_clear": "Effacer",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear list' popup"
@@ -1277,30 +1281,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Supprimer le mode développeur",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Relancer l'expérience de bienvenue",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Vous devez ensuite redémarrer Flutter pour la revoir.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Basculer entre openfoodfacts.org (PROD) et test env",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "Le type de requête actuel est {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Tester les paramètres d'environnement",
     "@dev_preferences_test_environment_title": {
@@ -1671,6 +1662,10 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
+    "copy_to_clipboard": "Copier",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
+    },
     "clipboard_barcode_copy": "Copier le code-barres dans le presse-papiers",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
@@ -1765,8 +1760,12 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Aimez-vous notre application ?",
-    "app_rating_dialog_body": "S'il vous plaît donnez nous 5 étoiles sur le playstore!",
+    "app_rating_dialog_title": "Super ! Faites savoir aux autres ce que vous pensez de cette application !",
     "app_rating_dialog_positive_action": "Noter l'application",
-    "app_rating_dialog_negative_action": "Plus tard"
+    "app_rating_dialog_negative_action": "Plus tard",
+    "app_rating_dialog_title_enjoying_app": "Cette application vous plaît ?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ouais!",
+    "not_really": "Pas vraiment",
+    "app_rating_dialog_title_not_enjoying_app": "Oh non ! Pourriez-vous me dire ce qu'il s'est passé ?",
+    "feed_back": "Commentaires"
 }

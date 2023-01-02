@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/model/ProductResultV3.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -9,6 +10,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
@@ -55,6 +57,7 @@ class ProductRefresher {
         fields: ProductQuery.fields,
         language: ProductQuery.getLanguage(),
         country: ProductQuery.getCountry(),
+        version: ProductQuery.productQueryVersion,
       );
 
   /// Fetches the product from the server and refreshes the local database.
@@ -111,7 +114,8 @@ class ProductRefresher {
     final String barcode,
   ) async {
     try {
-      final ProductResult result = await OpenFoodAPIClient.getProduct(
+      // ignore: deprecated_member_use
+      final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
         getBarcodeQueryConfiguration(barcode),
       );
       if (result.product != null) {
@@ -122,7 +126,7 @@ class ProductRefresher {
       }
       return const _MetaProductRefresher.error(null);
     } catch (e) {
-      // TODO(monsieurtanuki): add call to Logs
+      Logs.e('Refresh from server error', ex: e);
       return _MetaProductRefresher.error(e.toString());
     }
   }

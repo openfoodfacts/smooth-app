@@ -378,8 +378,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final List<Country> localizedCountries =
         await IsoCountries.iso_countries_for_locale(locale);
     for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() ==
-          _country!.iso2Code.toLowerCase()) {
+      if (country.countryCode.toLowerCase() == _country!.offTag.toLowerCase()) {
         return country.name;
       }
     }

@@ -189,7 +189,7 @@ class _CountrySelectorState extends State<CountrySelector> {
         <String, OpenFoodFactsCountry>{};
     final Map<String, Country> localizedIsoCodeToCountry = <String, Country>{};
     for (final OpenFoodFactsCountry c in OpenFoodFactsCountry.values) {
-      oFFIsoCodeToCountry[c.iso2Code.toLowerCase()] = c;
+      oFFIsoCodeToCountry[c.offTag.toLowerCase()] = c;
     }
     for (final Country c in localizedCountries) {
       localizedIsoCodeToCountry.putIfAbsent(

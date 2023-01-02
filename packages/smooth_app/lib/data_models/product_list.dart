@@ -268,7 +268,7 @@ class ProductList {
             ',$pageSize'
             ',$pageNumber'
             ',${language?.code ?? ''}'
-            ',${country?.iso2Code ?? ''}';
+            ',${country?.offTag ?? ''}';
     }
   }
 }
