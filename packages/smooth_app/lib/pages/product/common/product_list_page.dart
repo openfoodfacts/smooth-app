@@ -96,8 +96,14 @@ class _ProductListPageState extends State<ProductListPage>
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
     return SmoothScaffold(
-      floatingActionButton: _selectionMode || products.length <= 1
-          ? null
+      floatingActionButton: _selectionMode
+          ? _CompareProductsButton(
+              selectedBarcodes: _selectedBarcodes,
+              barcodes: products,
+              onComparisonEnded: () {
+                setState(() => _selectionMode = false);
+              },
+            )
           : FloatingActionButton.extended(
               onPressed: () => setState(() => _selectionMode = true),
               label: Text(appLocalizations.compare_products_mode),
@@ -181,15 +187,6 @@ class _ProductListPageState extends State<ProductListPage>
         actionModeTitle: Text(appLocalizations.compare_products_appbar_title),
         actionModeSubTitle:
             Text(appLocalizations.compare_products_appbar_subtitle),
-        actionModeActions: <Widget>[
-          _CompareProductsButton(
-            selectedBarcodes: _selectedBarcodes,
-            barcodes: products,
-            onComparisonEnded: () {
-              setState(() => _selectionMode = false);
-            },
-          )
-        ],
       ),
       body: products.isEmpty
           ? GestureDetector(
@@ -435,7 +432,8 @@ class _CompareProductsButton extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return IconButton(
+    return FloatingActionButton.extended(
+      label: Text(appLocalizations.compare_products_mode),
       icon: const Icon(Icons.compare_arrows),
       tooltip: appLocalizations.plural_compare_x_products(
         selectedBarcodes.length,
