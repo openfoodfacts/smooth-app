@@ -1777,7 +1777,7 @@
     },
     "edit_packagings_element_title": "Element #{index}",
     "@edit_packagings_element_title": {
-        "description": "Element title",
+        "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
             "index": {
                 "type": "int"
