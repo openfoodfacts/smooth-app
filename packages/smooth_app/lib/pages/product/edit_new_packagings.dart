@@ -38,6 +38,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
       <TextEditingController>[];
   final List<TextEditingController> _controllerRecyclings =
       <TextEditingController>[];
+  final List<TextEditingController> _controllerQuantities =
+      <TextEditingController>[];
+  final List<TextEditingController> _controllerWeights =
+      <TextEditingController>[];
 
   void _initPackagings() {
     if (widget.product.packagings == null) {
@@ -49,6 +53,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
           ..material = packaging.material
           ..shape = packaging.shape
           ..recycling = packaging.recycling
+          ..quantityPerUnit = packaging.quantityPerUnit
+          ..weightMeasured = packaging.weightMeasured
           ..numberOfUnits = packaging.numberOfUnits,
       );
     }
@@ -60,6 +66,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     _controllerShapes.add(TextEditingController());
     _controllerMaterials.add(TextEditingController());
     _controllerRecyclings.add(TextEditingController());
+    _controllerQuantities.add(TextEditingController());
+    _controllerWeights.add(TextEditingController());
   }
 
   void _removePackagingAt(final int index) {
@@ -68,6 +76,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     _controllerShapes.removeAt(index);
     _controllerMaterials.removeAt(index);
     _controllerRecyclings.removeAt(index);
+    _controllerQuantities.removeAt(index);
+    _controllerWeights.removeAt(index);
   }
 
   @override
@@ -101,16 +111,20 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
           controllerShape: _controllerShapes[index],
           controllerMaterial: _controllerMaterials[index],
           controllerRecycling: _controllerRecyclings[index],
+          controllerQuantity: _controllerQuantities[index],
+          controllerWeight: _controllerWeights[index],
         ),
       );
       index++;
     }
     children.add(
-      ElevatedButton.icon(
-        label:
-            const Text('Ajouter un élément'), // TODO(monsieurtanuki): localize
-        icon: const Icon(Icons.add),
-        onPressed: () => setState(() => _addPackaging(ProductPackaging())),
+      Padding(
+        padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+        child: ElevatedButton.icon(
+          label: Text(appLocalizations.edit_packagings_element_add),
+          icon: const Icon(Icons.add),
+          onPressed: () => setState(() => _addPackaging(ProductPackaging())),
+        ),
       ),
     );
     children.add(
@@ -137,7 +151,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
         appBar: SmoothAppBar(
-          title: Text(appLocalizations.edit_product_form_item_packaging_title),
+          title: Text(appLocalizations.edit_packagings_title),
           subTitle: widget.product.productName != null
               ? Text(
                   widget.product.productName!,
@@ -146,7 +160,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
                 )
               : null,
         ),
-        body: ListView(children: children),
+        body: ListView(
+          padding: const EdgeInsets.only(top: LARGE_SPACE),
+          children: children,
+        ),
       ),
     );
   }
@@ -166,12 +183,23 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     return LocalizedTag()..lcName = text;
   }
 
+  String? _getString(final TextEditingController controller) {
+    final String text = controller.text;
+    if (text.isEmpty) {
+      return null;
+    }
+    return text;
+  }
+
   void _loadPackagingsFromControllers() {
     for (int i = 0; i < _packagings.length; i++) {
       final ProductPackaging packaging = _packagings[i];
       packaging.shape = _getLocalizedTag(_controllerShapes[i]);
       packaging.material = _getLocalizedTag(_controllerMaterials[i]);
       packaging.recycling = _getLocalizedTag(_controllerRecyclings[i]);
+      packaging.quantityPerUnit = _getString(_controllerQuantities[i]);
+      packaging.weightMeasured = double.tryParse(_controllerWeights[i]
+          .text); // TODO(monsieurtanuki): handle the "not a number" case
       packaging.numberOfUnits = int.tryParse(_controllerUnits[i]
           .text); // TODO(monsieurtanuki): handle the "not a number" case
     }
@@ -180,12 +208,13 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   bool _isPackagingDifferent(
     final ProductPackaging p1,
     final ProductPackaging p2,
-  ) {
-    return p1.shape?.lcName != p2.shape?.lcName ||
-        p1.material?.lcName != p2.material?.lcName ||
-        p1.recycling?.lcName != p2.recycling?.lcName ||
-        p1.numberOfUnits != p2.numberOfUnits;
-  }
+  ) =>
+      p1.shape?.lcName != p2.shape?.lcName ||
+      p1.material?.lcName != p2.material?.lcName ||
+      p1.recycling?.lcName != p2.recycling?.lcName ||
+      p1.quantityPerUnit != p2.quantityPerUnit ||
+      p1.weightMeasured != p2.weightMeasured ||
+      p1.numberOfUnits != p2.numberOfUnits;
 
   bool _hasPackagingsChanged() {
     if (widget.product.packagings == null) {
@@ -247,6 +276,8 @@ class _EditSinglePackagings extends StatelessWidget {
     required this.controllerShape,
     required this.controllerMaterial,
     required this.controllerRecycling,
+    required this.controllerQuantity,
+    required this.controllerWeight,
   });
 
   final ProductPackaging packaging;
@@ -256,9 +287,12 @@ class _EditSinglePackagings extends StatelessWidget {
   final TextEditingController controllerShape;
   final TextEditingController controllerMaterial;
   final TextEditingController controllerRecycling;
+  final TextEditingController controllerQuantity;
+  final TextEditingController controllerWeight;
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (packaging.numberOfUnits != null) {
       controllerUnits.text = '${packaging.numberOfUnits!}';
     }
@@ -271,6 +305,12 @@ class _EditSinglePackagings extends StatelessWidget {
     if (packaging.recycling?.lcName != null) {
       controllerRecycling.text = (packaging.recycling?.lcName)!;
     }
+    if (packaging.quantityPerUnit != null) {
+      controllerQuantity.text = packaging.quantityPerUnit!;
+    }
+    if (packaging.weightMeasured != null) {
+      controllerWeight.text = '${packaging.weightMeasured!}';
+    }
     return SmoothCard(
       color:
           Colors.grey[300], // TODO(monsieurtanuki): different color? +dark mode
@@ -279,36 +319,42 @@ class _EditSinglePackagings extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ListTile(
-              title: Text(
-                  'Element ${index + 1}'), // TODO(monsieurtanuki): localize
-              trailing: IconButton(
-                icon: const Icon(Icons.delete),
-                onPressed: deleteCallback,
-              )),
+            title: Text(
+              appLocalizations.edit_packagings_element_title(index + 1),
+            ),
+            trailing: IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: deleteCallback,
+            ),
+          ),
           _EditLine(
             // TODO(monsieurtanuki): different display for numbers
-            title: 'Number of units', // TODO(monsieurtanuki): localize
+            title: appLocalizations.edit_packagings_element_field_units,
             controller: controllerUnits,
-            tagType: null,
-            hintText: 'hintText', // TODO(monsieurtanuki): localize and specific
           ),
           _EditLine(
-            title: 'Shape', // TODO(monsieurtanuki): localize
+            title: appLocalizations.edit_packagings_element_field_shape,
             controller: controllerShape,
             tagType: TagType.PACKAGING_SHAPES,
-            hintText: 'hintText', // TODO(monsieurtanuki): localize and specific
           ),
           _EditLine(
-            title: 'Material', // TODO(monsieurtanuki): localize
+            title: appLocalizations.edit_packagings_element_field_material,
             controller: controllerMaterial,
             tagType: TagType.PACKAGING_MATERIALS,
-            hintText: 'hintText', // TODO(monsieurtanuki): localize and specific
           ),
           _EditLine(
-            title: 'Recycling', // TODO(monsieurtanuki): localize
+            title: appLocalizations.edit_packagings_element_field_recycling,
             controller: controllerRecycling,
             tagType: TagType.PACKAGING_RECYCLING,
-            hintText: 'hintText', // TODO(monsieurtanuki): localize and specific
+          ),
+          _EditLine(
+            title: appLocalizations.edit_packagings_element_field_quantity,
+            controller: controllerQuantity,
+          ),
+          _EditLine(
+            // TODO(monsieurtanuki): different display for numbers
+            title: appLocalizations.edit_packagings_element_field_weight,
+            controller: controllerWeight,
           ),
         ],
       ),
@@ -321,14 +367,12 @@ class _EditLine extends StatelessWidget {
   const _EditLine({
     required this.title,
     required this.controller,
-    required this.tagType,
-    required this.hintText,
+    this.tagType,
   });
 
   final String title;
   final TextEditingController controller;
   final TagType? tagType;
-  final String hintText;
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
@@ -347,7 +391,7 @@ class _EditLine extends StatelessWidget {
                 autocompleteKey: UniqueKey(),
                 constraints: constraints,
                 tagType: tagType,
-                hintText: hintText,
+                hintText: '',
                 controller: controller,
               ),
             ),
