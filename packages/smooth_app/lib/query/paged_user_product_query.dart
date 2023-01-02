@@ -66,7 +66,7 @@ class PagedUserProductQuery extends PagedProductQuery {
         pageSize,
         pageNumber,
         language,
-        ProductQuery.tmpFieldsForPackagingIssue,
+        ProductQuery.fields,
       );
 
   @override

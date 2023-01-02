@@ -173,11 +173,4 @@ abstract class ProductQuery {
         ProductField.ORIGINS,
         ProductField.WEBSITE,
       ];
-
-  // TODO(monsieurtanuki): remove this list when packagings are correctly dealt with in user-related searches.
-  static List<ProductField> get tmpFieldsForPackagingIssue {
-    final List<ProductField> result = List<ProductField>.from(fields);
-    result.remove(ProductField.PACKAGINGS);
-    return result;
-  }
 }
