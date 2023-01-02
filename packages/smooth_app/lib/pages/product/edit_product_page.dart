@@ -203,10 +203,8 @@ class _EditProductPageState extends State<EditProductPage> {
               ),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
-                leading: const Icon(
-                    Icons.recycling), // TODO(monsieurtanuki): different logo?
-                title:
-                    '(Beta) Structured packaging', // TODO(monsieurtanuki): localize
+                leading: const Icon(Icons.recycling),
+                title: appLocalizations.edit_packagings_title,
                 onTap: () async {
                   if (!await ProductRefresher().checkIfLoggedIn(context)) {
                     return;
