@@ -46,7 +46,7 @@ enum UserSearchType {
         ],
         language: language,
         fields: fields,
-        version: ProductQueryVersion.v3,
+        version: ProductQuery.productQueryVersion,
       );
 }
 
