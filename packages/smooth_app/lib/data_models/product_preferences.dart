@@ -1,15 +1,7 @@
 import 'dart:async' show Future;
 
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/personalized_search/available_attribute_groups.dart';
-import 'package:openfoodfacts/personalized_search/available_preference_importances.dart';
-import 'package:openfoodfacts/personalized_search/available_product_preferences.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
-import 'package:openfoodfacts/personalized_search/product_preferences_manager.dart';
-import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
 import 'package:smooth_app/data_models/downloadable_string.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/helpers/app_helper.dart';

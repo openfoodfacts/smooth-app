@@ -1,5 +1,4 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/AbstractQueryConfiguration.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 
