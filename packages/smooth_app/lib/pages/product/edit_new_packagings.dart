@@ -312,8 +312,9 @@ class _EditSinglePackagings extends StatelessWidget {
       controllerWeight.text = '${packaging.weightMeasured!}';
     }
     return SmoothCard(
-      color:
-          Colors.grey[300], // TODO(monsieurtanuki): different color? +dark mode
+      color: Theme.of(context).brightness == Brightness.light
+          ? GREY_COLOR
+          : PRIMARY_GREY_COLOR,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
