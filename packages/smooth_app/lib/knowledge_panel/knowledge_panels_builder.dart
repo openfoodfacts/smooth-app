@@ -5,8 +5,9 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_element_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/product/add_ingredients_button.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
+import 'package:smooth_app/pages/product/add_ocr_button.dart';
+import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
 
 /// "Knowledge Panel" widget.
 class KnowledgePanelWidget extends StatelessWidget {
@@ -51,8 +52,8 @@ class KnowledgePanelWidget extends StatelessWidget {
     }
     if (!onboardingMode) {
       if (panelId == 'health_card') {
-        final bool nutritionAddOrUpdate = product.statesTags
-                ?.contains('en:nutrition-facts-to-be-completed') ??
+        final bool nutritionAddOrUpdate = product.statesTags?.contains(
+                ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag) ??
             false;
         if (nutritionAddOrUpdate) {
           children.add(AddNutritionButton(product));
@@ -68,7 +69,12 @@ class KnowledgePanelWidget extends StatelessWidget {
             needEditIngredients) {
           // When the flag is removed, this should be the following:
           // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
-          children.add(AddIngredientsButton(product));
+          children.add(
+            AddOCRButton(
+              product: product,
+              helper: OcrIngredientsHelper(),
+            ),
+          );
         }
       }
     }

@@ -36,6 +36,9 @@ abstract class OcrHelper {
   /// Returns the page title.
   String getTitle(final AppLocalizations appLocalizations);
 
+  /// Returns the label of the corresponding "add" button.
+  String getAddButtonLabel(final AppLocalizations appLocalizations);
+
   /// Returns the image field we try to run OCR on.
   ImageField getImageField();
 

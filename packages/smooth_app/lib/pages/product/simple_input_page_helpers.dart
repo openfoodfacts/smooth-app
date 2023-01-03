@@ -69,6 +69,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the subtitle on the main "edit product" page.
   String? getSubtitle(final AppLocalizations appLocalizations) => null;
 
+  /// Returns the label of the corresponding "add" button.
+  String getAddButtonLabel(final AppLocalizations appLocalizations);
+
   /// Returns the hint of the "add" text field.
   String getAddHint(final AppLocalizations appLocalizations);
 
@@ -142,6 +145,10 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_stores_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_stores;
+
+  @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_hint;
 
@@ -164,6 +171,10 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_origins_title;
+
+  @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_origins;
 
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
@@ -194,6 +205,10 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_title;
+
+  @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_emb;
 
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
@@ -234,6 +249,10 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_labels_subtitle;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_labels;
+
+  @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_hint;
 
@@ -262,6 +281,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_title;
+
+  @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_category;
 
   @override
   String? getAddExplanations(final AppLocalizations appLocalizations) =>
@@ -300,6 +323,10 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_title;
+
+  @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_countries;
 
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
