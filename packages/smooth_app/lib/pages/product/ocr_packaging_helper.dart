@@ -45,6 +45,10 @@ class OcrPackagingHelper extends OcrHelper {
       appLocalizations.packaging_editing_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_packaging_image;
+
+  @override
   ImageField getImageField() => ImageField.PACKAGING;
 
   @override

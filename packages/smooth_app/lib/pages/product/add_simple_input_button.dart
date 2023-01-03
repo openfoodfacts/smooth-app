@@ -6,15 +6,19 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
-/// "Add category" button for user contribution.
-class AddCategoryButton extends StatelessWidget {
-  const AddCategoryButton(this.product);
+/// "Add simple input" button for user contribution.
+class AddSimpleInputButton extends StatelessWidget {
+  const AddSimpleInputButton({
+    required this.product,
+    required this.helper,
+  });
 
   final Product product;
+  final AbstractSimpleInputPageHelper helper;
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-        AppLocalizations.of(context).score_add_missing_product_category,
+        helper.getAddButtonLabel(AppLocalizations.of(context)),
         onPressed: () async {
           if (!await ProductRefresher().checkIfLoggedIn(context)) {
             return;
@@ -23,7 +27,7 @@ class AddCategoryButton extends StatelessWidget {
             context,
             MaterialPageRoute<void>(
               builder: (BuildContext context) => SimpleInputPage(
-                helper: SimpleInputPageCategoryHelper(),
+                helper: helper,
                 product: product,
               ),
               fullscreenDialog: true,

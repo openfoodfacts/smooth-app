@@ -41,6 +41,10 @@ class OcrIngredientsHelper extends OcrHelper {
       appLocalizations.ingredients_editing_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_ingredients;
+
+  @override
   ImageField getImageField() => ImageField.INGREDIENTS;
 
   @override
