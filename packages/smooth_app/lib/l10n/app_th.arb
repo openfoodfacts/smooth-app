@@ -1285,7 +1285,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the app to see it.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1754,7 +1754,7 @@
     },
     "robotoff_continue": "Continue",
     "@robotoff_continue": {
-        "description": "Shown when robotoff questions are all answered and user wants to continue answering"
+        "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
     "show_password": "Show Password",
     "@show_password": {
@@ -1763,10 +1763,10 @@
     "app_rating_dialog_title": "Great! Let others know what you think of this app!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Later",
-    "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yes!",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "We're so sorry to hear that! Could you tell us what happened?",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
     "edit_packagings_title": "(Beta) Structured packaging",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"

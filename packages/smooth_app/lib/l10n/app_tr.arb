@@ -1767,15 +1767,15 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Evet!",
     "not_really": "Pek sayılmaz",
     "app_rating_dialog_title_not_enjoying_app": "Bunu duyduğuma çok üzüldüm! Bana ne olduğunu anlatır mısın?",
-    "edit_packagings_title": "(Beta) Structured packaging",
+    "edit_packagings_title": "(Beta) Yapılandırılmış paketleme",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add an element",
+    "edit_packagings_element_add": "Öğe ekle",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_element_title": "Element #{index}",
+    "edit_packagings_element_title": "Öğe #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1800,11 +1800,11 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Quantity per unit",
+    "edit_packagings_element_field_quantity": "Birim başına miktar",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Weight measured (g)",
+    "edit_packagings_element_field_weight": "Ölçülen ağırlık (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },

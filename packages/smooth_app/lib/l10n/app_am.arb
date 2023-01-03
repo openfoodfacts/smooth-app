@@ -1458,7 +1458,7 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "My to-be-completed products",
+    "user_search_to_be_completed_title": "O",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
