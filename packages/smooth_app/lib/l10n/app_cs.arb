@@ -1767,15 +1767,15 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Jasně!",
     "not_really": "Ani ne",
     "app_rating_dialog_title_not_enjoying_app": "To nás moc mrzí! Můžete nám dát vědět, co se stalo?",
-    "edit_packagings_title": "(Beta) Structured packaging",
+    "edit_packagings_title": "(Beta) Strukturované balení",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add an element",
+    "edit_packagings_element_add": "Přidat prvek",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_element_title": "Element #{index}",
+    "edit_packagings_element_title": "Prvek #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1800,7 +1800,7 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Quantity per unit",
+    "edit_packagings_element_field_quantity": "Množství na jednotku",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },

@@ -2102,12 +2102,14 @@
       "labels_tags" : [
          "en:organic",
          "en:eu-organic",
-         "en:fair-trade"
+         "en:fair-trade",
+         "en:green-dot"
       ],
       "labels_tags_fr" : [
          "Bio",
          "Bio européen",
-         "Commerce équitable"
+         "Commerce équitable",
+         "Point Vert"
       ],
       "lang" : "en",
       "nutrient_levels" : {
@@ -2185,7 +2187,12 @@
          "en:packaging-to-be-completed",
          "en:quantity-completed",
          "en:product-name-completed",
-         "en:photos-to-be-uploaded"
+         "en:photos-to-be-validated",
+         "en:packaging-photo-to-be-selected",
+         "en:nutrition-photo-to-be-selected",
+         "en:ingredients-photo-to-be-selected",
+         "en:front-photo-to-be-selected",
+         "en:photos-uploaded"
       ]
    },
    "status" : 1,
