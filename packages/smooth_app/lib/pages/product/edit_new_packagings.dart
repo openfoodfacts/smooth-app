@@ -27,8 +27,7 @@ class EditNewPackagings extends StatefulWidget {
 class _EditNewPackagingsState extends State<EditNewPackagings> {
   late final LocalDatabase _localDatabase;
 
-  /// Current packagings.
-  final List<ProductPackaging> _packagings = <ProductPackaging>[];
+  late bool? _packagingsComplete;
 
   final List<TextEditingController> _controllerUnits =
       <TextEditingController>[];
@@ -44,34 +43,53 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
       <TextEditingController>[];
 
   void _initPackagings() {
-    if (widget.product.packagings == null) {
-      return;
+    if (widget.product.packagings != null) {
+      widget.product.packagings!.forEach(_addPackagingToControllers);
     }
-    for (final ProductPackaging packaging in widget.product.packagings!) {
-      _addPackaging(
-        ProductPackaging()
-          ..material = packaging.material
-          ..shape = packaging.shape
-          ..recycling = packaging.recycling
-          ..quantityPerUnit = packaging.quantityPerUnit
-          ..weightMeasured = packaging.weightMeasured
-          ..numberOfUnits = packaging.numberOfUnits,
-      );
-    }
+    _packagingsComplete = widget.product.packagingsComplete;
   }
 
-  void _addPackaging(final ProductPackaging packaging) {
-    _packagings.add(packaging);
-    _controllerUnits.add(TextEditingController());
-    _controllerShapes.add(TextEditingController());
-    _controllerMaterials.add(TextEditingController());
-    _controllerRecyclings.add(TextEditingController());
-    _controllerQuantities.add(TextEditingController());
-    _controllerWeights.add(TextEditingController());
+  void _addPackagingToControllers(final ProductPackaging packaging) {
+    _controllerUnits.add(
+      TextEditingController(
+        text: packaging.numberOfUnits == null
+            ? null
+            : '${packaging.numberOfUnits!}',
+      ),
+    );
+    _controllerShapes.add(
+      TextEditingController(
+        text:
+            packaging.shape?.lcName == null ? null : (packaging.shape?.lcName)!,
+      ),
+    );
+    _controllerMaterials.add(
+      TextEditingController(
+        text: packaging.material?.lcName == null
+            ? null
+            : (packaging.material?.lcName)!,
+      ),
+    );
+    _controllerRecyclings.add(
+      TextEditingController(
+        text: packaging.recycling?.lcName == null
+            ? null
+            : (packaging.recycling?.lcName)!,
+      ),
+    );
+    _controllerQuantities.add(
+      TextEditingController(text: packaging.quantityPerUnit),
+    );
+    _controllerWeights.add(
+      TextEditingController(
+        text: packaging.weightMeasured == null
+            ? null
+            : '${packaging.weightMeasured!}',
+      ),
+    );
   }
 
   void _removePackagingAt(final int index) {
-    _packagings.removeAt(index);
     _controllerUnits.removeAt(index);
     _controllerShapes.removeAt(index);
     _controllerMaterials.removeAt(index);
@@ -91,6 +109,14 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   @override
   void dispose() {
     _localDatabase.upToDate.loseInterest(widget.product.barcode!);
+    for (int i = 0; i < _controllerUnits.length; i++) {
+      _controllerUnits[i].dispose();
+      _controllerShapes[i].dispose();
+      _controllerMaterials[i].dispose();
+      _controllerRecyclings[i].dispose();
+      _controllerQuantities[i].dispose();
+      _controllerWeights[i].dispose();
+    }
     super.dispose();
   }
 
@@ -98,14 +124,12 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> children = <Widget>[];
-    int index = 0;
-    for (final ProductPackaging packaging in _packagings) {
+    for (int index = 0; index < _controllerUnits.length; index++) {
       // needed for deleteCallback (if not final, will take unreachable value)
       final int deleteIndex = index;
       children.add(
         _EditSinglePackagings(
-          packaging: packaging,
-          index: index,
+          title: appLocalizations.edit_packagings_element_title(index + 1),
           deleteCallback: () => setState(() => _removePackagingAt(deleteIndex)),
           controllerUnits: _controllerUnits[index],
           controllerShape: _controllerShapes[index],
@@ -115,15 +139,39 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
           controllerWeight: _controllerWeights[index],
         ),
       );
-      index++;
     }
+    children.add(
+      SmoothCard(
+        color: _getSmoothCardColor(context),
+        child: ListTile(
+          title: Text(appLocalizations.edit_packagings_completed),
+          trailing: Icon(
+            _packagingsComplete == null
+                ? Icons.indeterminate_check_box
+                : _packagingsComplete == true
+                    ? Icons.check_box
+                    : Icons.check_box_outline_blank,
+          ),
+          onTap: () => setState(
+            () {
+              if (_packagingsComplete == null) {
+                _packagingsComplete = true;
+              } else {
+                _packagingsComplete = !_packagingsComplete!;
+              }
+            },
+          ),
+        ),
+      ),
+    );
     children.add(
       Padding(
         padding: const EdgeInsets.all(VERY_LARGE_SPACE),
         child: ElevatedButton.icon(
           label: Text(appLocalizations.edit_packagings_element_add),
           icon: const Icon(Icons.add),
-          onPressed: () => setState(() => _addPackaging(ProductPackaging())),
+          onPressed: () =>
+              setState(() => _addPackagingToControllers(ProductPackaging())),
         ),
       ),
     );
@@ -191,9 +239,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     return text;
   }
 
-  void _loadPackagingsFromControllers() {
-    for (int i = 0; i < _packagings.length; i++) {
-      final ProductPackaging packaging = _packagings[i];
+  List<ProductPackaging> _getPackagingsFromControllers() {
+    final List<ProductPackaging> result = <ProductPackaging>[];
+    for (int i = 0; i < _controllerUnits.length; i++) {
+      final ProductPackaging packaging = ProductPackaging();
       packaging.shape = _getLocalizedTag(_controllerShapes[i]);
       packaging.material = _getLocalizedTag(_controllerMaterials[i]);
       packaging.recycling = _getLocalizedTag(_controllerRecyclings[i]);
@@ -202,7 +251,9 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
           .text); // TODO(monsieurtanuki): handle the "not a number" case
       packaging.numberOfUnits = int.tryParse(_controllerUnits[i]
           .text); // TODO(monsieurtanuki): handle the "not a number" case
+      result.add(packaging);
     }
+    return result;
   }
 
   bool _isPackagingDifferent(
@@ -216,16 +267,16 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
       p1.weightMeasured != p2.weightMeasured ||
       p1.numberOfUnits != p2.numberOfUnits;
 
-  bool _hasPackagingsChanged() {
+  bool _hasPackagingsChanged(final List<ProductPackaging> packagings) {
     if (widget.product.packagings == null) {
-      return _packagings.isEmpty;
+      return packagings.isNotEmpty;
     }
-    if (widget.product.packagings!.length != _packagings.length) {
+    if (widget.product.packagings!.length != packagings.length) {
       return true;
     }
-    for (int i = 0; i < _packagings.length; i++) {
+    for (int i = 0; i < packagings.length; i++) {
       if (_isPackagingDifferent(
-        _packagings[i],
+        packagings[i],
         widget.product.packagings![i],
       )) {
         return true;
@@ -239,14 +290,23 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    _loadPackagingsFromControllers();
-    final bool changed = _hasPackagingsChanged();
+    final Product changedProduct = Product(barcode: widget.product.barcode);
+    bool changed = false;
+
+    final List<ProductPackaging> packagings = _getPackagingsFromControllers();
+    if (_hasPackagingsChanged(packagings)) {
+      changed = true;
+      changedProduct.packagings = packagings;
+    }
+
+    if (_packagingsComplete != widget.product.packagingsComplete) {
+      changed = true;
+      changedProduct.packagingsComplete = _packagingsComplete;
+    }
+
     if (!changed) {
       return true;
     }
-
-    final Product changedProduct = Product(barcode: widget.product.barcode)
-      ..packagings = _packagings;
 
     if (!saving) {
       final bool? pleaseSave =
@@ -269,8 +329,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
 /// Edit display of a single [ProductPackaging].
 class _EditSinglePackagings extends StatelessWidget {
   const _EditSinglePackagings({
-    required this.packaging,
-    required this.index,
+    required this.title,
     required this.deleteCallback,
     required this.controllerUnits,
     required this.controllerShape,
@@ -280,8 +339,7 @@ class _EditSinglePackagings extends StatelessWidget {
     required this.controllerWeight,
   });
 
-  final ProductPackaging packaging;
-  final int index;
+  final String title;
   final VoidCallback deleteCallback;
   final TextEditingController controllerUnits;
   final TextEditingController controllerShape;
@@ -293,36 +351,14 @@ class _EditSinglePackagings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (packaging.numberOfUnits != null) {
-      controllerUnits.text = '${packaging.numberOfUnits!}';
-    }
-    if (packaging.shape?.lcName != null) {
-      controllerShape.text = (packaging.shape?.lcName)!;
-    }
-    if (packaging.material?.lcName != null) {
-      controllerMaterial.text = (packaging.material?.lcName)!;
-    }
-    if (packaging.recycling?.lcName != null) {
-      controllerRecycling.text = (packaging.recycling?.lcName)!;
-    }
-    if (packaging.quantityPerUnit != null) {
-      controllerQuantity.text = packaging.quantityPerUnit!;
-    }
-    if (packaging.weightMeasured != null) {
-      controllerWeight.text = '${packaging.weightMeasured!}';
-    }
     return SmoothCard(
-      color: Theme.of(context).brightness == Brightness.light
-          ? GREY_COLOR
-          : PRIMARY_GREY_COLOR,
+      color: _getSmoothCardColor(context),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ListTile(
-            title: Text(
-              appLocalizations.edit_packagings_element_title(index + 1),
-            ),
+            title: Text(title),
             trailing: IconButton(
               icon: const Icon(Icons.delete),
               onPressed: deleteCallback,
@@ -383,7 +419,7 @@ class _EditLine extends StatelessWidget {
           children: <Widget>[
             SizedBox(
               width: constraints.maxWidth / 2,
-              child: Text(title),
+              child: ListTile(title: Text(title)),
             ),
             SizedBox(
               width: constraints.maxWidth / 2,
@@ -400,3 +436,8 @@ class _EditLine extends StatelessWidget {
         ),
       );
 }
+
+Color _getSmoothCardColor(final BuildContext context) =>
+    Theme.of(context).brightness == Brightness.light
+        ? GREY_COLOR
+        : PRIMARY_GREY_COLOR;

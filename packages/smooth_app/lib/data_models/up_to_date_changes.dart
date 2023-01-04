@@ -79,6 +79,9 @@ class UpToDateChanges {
     if (change.packagings != null) {
       initial.packagings = change.packagings;
     }
+    if (change.packagingsComplete != null) {
+      initial.packagingsComplete = change.packagingsComplete;
+    }
     if (change.noNutritionData != null) {
       initial.noNutritionData = change.noNutritionData;
     }

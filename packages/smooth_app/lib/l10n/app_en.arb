@@ -1781,6 +1781,7 @@
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
+    "edit_packagings_completed": "The packaging is complete",
     "edit_packagings_element_title": "Packaging component #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
