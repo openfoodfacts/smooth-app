@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Fehlende Zutaten hinzufügen",
+    "score_add_missing_packaging_image": "Fehlendes Foto der Verpackung hinzufügen",
     "score_add_missing_nutrition_facts": "Fehlende Nährwertangaben hinzufügen",
     "score_add_missing_product_category": "Fehlende Produktkategorie hinzufügen",
+    "score_add_missing_product_countries": "Fehlende Produktländer hinzufügen",
+    "score_add_missing_product_emb": "Fehlende Produktrückverfolgbarkeitscodes hinzufügen",
+    "score_add_missing_product_labels": "Fehlende Etiketten für Produkte hinzufügen",
+    "score_add_missing_product_origins": "Fehlende Herkunft der Produkte hinzufügen",
+    "score_add_missing_product_stores": "Fehlende Shops für Produkte hinzufügen",
     "score_update_nutrition_facts": "Nährwertangaben aktualisieren",
     "nutrition_page_title": "Nährwertangaben",
     "nutrition_page_unspecified": "Auf dem Produkt sind keine Nährwertangaben angegeben",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Hinzufügen",
     "edit_product_form_item_add_invalid_item_tooltip": "Bitte zuerst einen Text eingeben",
     "edit_product_form_item_remove_item_tooltip": "Entfernen",
-    "edit_product_form_item_packaging_title": "Art der Verpackung",
+    "edit_product_form_item_packaging_title": "Foto der Recycling-Anweisungen",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1767,15 +1773,16 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
     "not_really": "Nicht wirklich",
     "app_rating_dialog_title_not_enjoying_app": "Es tut uns leid, das zu hören! Könnten Sie uns erklären, was passiert ist?",
-    "edit_packagings_title": "(Beta) Structured packaging",
+    "edit_packagings_title": "Verpackungsbestandteile",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Neues Element hinzufügen",
+    "edit_packagings_element_add": "Verpackungsbestandteil hinzufügen",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_element_title": "Element #{index}",
+    "edit_packagings_completed": "Die Verpackung ist abgeschlossen",
+    "edit_packagings_element_title": "Verpackungsbestandteil #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1796,17 +1803,25 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_recycling": "Wiederverwertung",
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Recycling-Anweisungen",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Menge pro Einheit",
+    "edit_packagings_element_field_quantity": "Nettomenge des Produkts pro Einheit",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Gemessenes Gewicht (g)",
+    "edit_packagings_element_field_weight": "Gewicht einer leeren Einheit (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
     },
     "feed_back": "Feedback"
 }
