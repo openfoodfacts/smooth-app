@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "不足している原材料を追加",
+    "score_add_missing_packaging_image": "不足しているパッケージ画像を追加",
     "score_add_missing_nutrition_facts": "不足している栄養成分を追加",
     "score_add_missing_product_category": "不足している製品カテゴリを追加",
+    "score_add_missing_product_countries": "不足している製品の国を追加する",
+    "score_add_missing_product_emb": "不足している製品トレーサビリティ コードを追加する",
+    "score_add_missing_product_labels": "不足している製品ラベルを追加",
+    "score_add_missing_product_origins": "不足している製品の産地を追加",
+    "score_add_missing_product_stores": "不足している商品ストアを追加する",
     "score_update_nutrition_facts": "栄養成分を更新",
     "nutrition_page_title": "栄養成分表",
     "nutrition_page_unspecified": "栄養成分データが製品に表示されていません",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "追加",
     "edit_product_form_item_add_invalid_item_tooltip": "文字を入力してください。",
     "edit_product_form_item_remove_item_tooltip": "削除する",
-    "edit_product_form_item_packaging_title": "パッケージング",
+    "edit_product_form_item_packaging_title": "リサイクル手順の写真",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1767,15 +1773,16 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
     "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "edit_packagings_title": "(ベータ版) 構造化パッケージ",
+    "edit_packagings_title": "パッケージコンポーネント",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "要素の追加",
+    "edit_packagings_element_add": "パッケージング コンポーネントを追加する",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_element_title": "要素 #{index}",
+    "edit_packagings_completed": "梱包が完了しました",
+    "edit_packagings_element_title": "パッケージング コンポーネント #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1796,17 +1803,25 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_recycling": "Recycling",
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "リサイクル手順",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "単位あたりの数量",
+    "edit_packagings_element_field_quantity": "単位あたりの製品の正味数量",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "重量 (g)",
+    "edit_packagings_element_field_weight": "空の単位の重量 (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
     },
     "feed_back": "Feedback"
 }

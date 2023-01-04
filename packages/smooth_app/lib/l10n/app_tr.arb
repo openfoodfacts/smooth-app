@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Eksik içindekiler bilgileri ekle",
+    "score_add_missing_packaging_image": "Eksik paketleme resmini ekleyin",
     "score_add_missing_nutrition_facts": "Eksik besin değerlerini ekle",
     "score_add_missing_product_category": "Eksik ürün kategori bilgisini ekle",
+    "score_add_missing_product_countries": "Eksik ürün ülkelerini ekleyin",
+    "score_add_missing_product_emb": "Eksik ürün izlenebilirlik kodlarını ekleyin",
+    "score_add_missing_product_labels": "Eksik ürün etiketlerini ekleyin",
+    "score_add_missing_product_origins": "Eksik ürün menşelerini ekleyin",
+    "score_add_missing_product_stores": "Eksik ürün mağazalarını ekleyin",
     "score_update_nutrition_facts": "Besin değerleri bilgilerini güncelle",
     "nutrition_page_title": "Besin Değerleri",
     "nutrition_page_unspecified": "Ürünün üzerinde besin değerleri bilgisi yer almıyor",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Ekle",
     "edit_product_form_item_add_invalid_item_tooltip": "Lütfen önce bir metin girin",
     "edit_product_form_item_remove_item_tooltip": "Kaldır",
-    "edit_product_form_item_packaging_title": "Ambalaj",
+    "edit_product_form_item_packaging_title": "Geri dönüşüm talimatları fotoğrafı",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1767,15 +1773,16 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Evet!",
     "not_really": "Pek sayılmaz",
     "app_rating_dialog_title_not_enjoying_app": "Bunu duyduğuma çok üzüldüm! Bana ne olduğunu anlatır mısın?",
-    "edit_packagings_title": "(Beta) Yapılandırılmış paketleme",
+    "edit_packagings_title": "Ambalaj bileşenleri",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Öğe ekle",
+    "edit_packagings_element_add": "Bir paketleme bileşeni ekleyin",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_element_title": "Öğe #{index}",
+    "edit_packagings_completed": "Paketleme tamamlandı",
+    "edit_packagings_element_title": "Paketleme bileşeni #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1796,17 +1803,25 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_recycling": "Geri Dönüşüm",
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Geri dönüşüm talimatı",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Birim başına miktar",
+    "edit_packagings_element_field_quantity": "Birim başına net ürün miktarı",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Ölçülen ağırlık (g)",
+    "edit_packagings_element_field_weight": "Bir boş birimin ağırlığı (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
     },
     "feed_back": "Geri bildirim"
 }

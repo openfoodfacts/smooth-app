@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Přidejte chybějící přísady",
+    "score_add_missing_packaging_image": "Přidat chybějící obrázek obalu",
     "score_add_missing_nutrition_facts": "Přidejte chybějící výživová fakta",
     "score_add_missing_product_category": "Přidejte chybějící kategorii produktu",
+    "score_add_missing_product_countries": "Přidat chybějící země produktu",
+    "score_add_missing_product_emb": "Přidat chybějící kódy sledovatelnosti produktu",
+    "score_add_missing_product_labels": "Add missing product labels",
+    "score_add_missing_product_origins": "Add missing product origins",
+    "score_add_missing_product_stores": "Add missing product stores",
     "score_update_nutrition_facts": "Aktualizujte výživová fakta",
     "nutrition_page_title": "Nutriční hodnoty",
     "nutrition_page_unspecified": "Výživové údaje nejsou u produktu uvedeny",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Přidat",
     "edit_product_form_item_add_invalid_item_tooltip": "Nejprve prosím zadejte text",
     "edit_product_form_item_remove_item_tooltip": "Odstranit",
-    "edit_product_form_item_packaging_title": "Obal",
+    "edit_product_form_item_packaging_title": "Fotografie pokynů pro recyklaci",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1767,15 +1773,16 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Jasně!",
     "not_really": "Ani ne",
     "app_rating_dialog_title_not_enjoying_app": "To nás moc mrzí! Můžete nám dát vědět, co se stalo?",
-    "edit_packagings_title": "(Beta) Strukturované balení",
+    "edit_packagings_title": "Součásti obalu",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Přidat prvek",
+    "edit_packagings_element_add": "Přidejte součást obalu",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_element_title": "Prvek #{index}",
+    "edit_packagings_completed": "Balení je kompletní",
+    "edit_packagings_element_title": "Packaging component #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1796,17 +1803,25 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_recycling": "Recyklace",
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Pokyny k recyklaci",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Množství na jednotku",
+    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Weight measured (g)",
+    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
     },
     "feed_back": "Zpětná vazba"
 }
