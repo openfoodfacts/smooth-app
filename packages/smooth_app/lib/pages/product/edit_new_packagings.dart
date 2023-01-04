@@ -452,17 +452,17 @@ class _EditLine extends StatelessWidget {
               ),
             ),
             title: Text(title),
-            trailing: LayoutBuilder(
-              builder: (_, BoxConstraints constraints) => SizedBox(
-                width: constraints.maxWidth * .35,
-                child: SimpleInputWidgetField(
-                  focusNode: FocusNode(),
-                  autocompleteKey: UniqueKey(),
-                  constraints: constraints,
-                  tagType: tagType,
-                  hintText: '',
-                  controller: controller,
-                ),
+          ),
+          LayoutBuilder(
+            builder: (_, BoxConstraints constraints) => SizedBox(
+              width: constraints.maxWidth,
+              child: SimpleInputWidgetField(
+                focusNode: FocusNode(),
+                autocompleteKey: UniqueKey(),
+                constraints: constraints,
+                tagType: tagType,
+                hintText: '',
+                controller: controller,
               ),
             ),
           ),
