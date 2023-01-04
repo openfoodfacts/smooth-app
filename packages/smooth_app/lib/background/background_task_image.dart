@@ -145,7 +145,12 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       imageUri: Uri.parse(imagePath),
     );
 
-    // TODO(AshAman999): check returned Status
-    await OpenFoodAPIClient.addProductImage(getUser(), image);
+    final Status status =
+        await OpenFoodAPIClient.addProductImage(getUser(), image);
+    if (status.status == 'status ok') {
+      return;
+    }
+    throw Exception(
+        'Could not upload picture: ${status.status} / ${status.error}');
   }
 }
