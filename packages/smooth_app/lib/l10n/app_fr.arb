@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Ajouter les ingrédients manquants",
+    "score_add_missing_packaging_image": "Ajouter l'image d'emballage manquante",
     "score_add_missing_nutrition_facts": "Ajouter les informations nutritionnelles manquantes",
     "score_add_missing_product_category": "Ajouter une catégorie de produit manquante",
+    "score_add_missing_product_countries": "Ajouter les pays de vente manquants",
+    "score_add_missing_product_emb": "Ajouter les codes de traçabilité manquants",
+    "score_add_missing_product_labels": "Ajouter les labels manquants",
+    "score_add_missing_product_origins": "Ajouter les origines manquantes",
+    "score_add_missing_product_stores": "Ajouter les magasins de vente manquants",
     "score_update_nutrition_facts": "Mettre à jour les informations nutritionnelles",
     "nutrition_page_title": "Informations nutritionnelles",
     "nutrition_page_unspecified": "Les valeurs nutritionnelles ne sont pas spécifiées sur le produit",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Ajouter",
     "edit_product_form_item_add_invalid_item_tooltip": "Veuillez d'abord saisir un texte",
     "edit_product_form_item_remove_item_tooltip": "Retirer",
-    "edit_product_form_item_packaging_title": "Conditionnement",
+    "edit_product_form_item_packaging_title": "Photo des informations de recyclage",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1767,15 +1773,16 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Ouais!",
     "not_really": "Pas vraiment",
     "app_rating_dialog_title_not_enjoying_app": "Oh non ! Pourriez-vous me dire ce qu'il s'est passé ?",
-    "edit_packagings_title": "(Beta) Emballages structurés",
+    "edit_packagings_title": "Composants d'emballage",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Ajouter un élément",
+    "edit_packagings_element_add": "Ajouter un composant d'emballage",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_element_title": "Élément #{index}",
+    "edit_packagings_completed": "L'emballage est complet",
+    "edit_packagings_element_title": "Composant d'emballage #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1796,15 +1803,15 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_recycling": "Recyclage",
+    "edit_packagings_element_field_recycling": "Consigne de tri",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Quantité par unité",
+    "edit_packagings_element_field_quantity": "Quantité nette de produit par unité",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Poids mesuré (g)",
+    "edit_packagings_element_field_weight": "Poids d'une unité vide (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
