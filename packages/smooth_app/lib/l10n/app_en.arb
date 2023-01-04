@@ -1155,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Add",
     "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
     "edit_product_form_item_remove_item_tooltip": "Remove",
-    "edit_product_form_item_packaging_title": "Packaging",
+    "edit_product_form_item_packaging_title": "Recycling instructions photo",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1773,15 +1773,15 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
     "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "edit_packagings_title": "(Beta) Structured packaging",
+    "edit_packagings_title": "Add packaging components",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add an element",
+    "edit_packagings_element_add": "Add a packaging component",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_element_title": "Element #{index}",
+    "edit_packagings_element_title": "Packaging component #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1802,15 +1802,15 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_recycling": "Recycling",
+    "edit_packagings_element_field_recycling": "Recycling instruction",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Quantity per unit",
+    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Weight measured (g)",
+    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
