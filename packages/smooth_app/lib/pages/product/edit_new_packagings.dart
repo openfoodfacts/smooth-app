@@ -3,10 +3,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
+import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -351,6 +354,8 @@ class _EditSinglePackagings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
+    final Color iconColor = dark ? Colors.white : Colors.black;
     return SmoothCard(
       color: _getSmoothCardColor(context),
       child: Column(
@@ -368,30 +373,45 @@ class _EditSinglePackagings extends StatelessWidget {
             // TODO(monsieurtanuki): different display for numbers
             title: appLocalizations.edit_packagings_element_field_units,
             controller: controllerUnits,
+            // this icon has 2 colors: we need 2 distinct files
+            iconName: dark ? 'counter-dark' : 'counter-light',
+            iconColor: null,
           ),
           _EditLine(
             title: appLocalizations.edit_packagings_element_field_shape,
             controller: controllerShape,
             tagType: TagType.PACKAGING_SHAPES,
+            iconName: 'shape',
+            iconColor: iconColor,
           ),
           _EditLine(
             title: appLocalizations.edit_packagings_element_field_material,
             controller: controllerMaterial,
             tagType: TagType.PACKAGING_MATERIALS,
+            iconName: 'material',
+            iconColor: iconColor,
+            hint: appLocalizations.edit_packagings_element_hint_material,
           ),
           _EditLine(
             title: appLocalizations.edit_packagings_element_field_recycling,
             controller: controllerRecycling,
             tagType: TagType.PACKAGING_RECYCLING,
+            iconName: 'recycling',
+            iconColor: iconColor,
           ),
           _EditLine(
             title: appLocalizations.edit_packagings_element_field_quantity,
             controller: controllerQuantity,
+            iconName: 'quantity',
+            iconColor: iconColor,
           ),
           _EditLine(
             // TODO(monsieurtanuki): different display for numbers
             title: appLocalizations.edit_packagings_element_field_weight,
             controller: controllerWeight,
+            iconName: 'weight',
+            iconColor: iconColor,
+            hint: appLocalizations.edit_packagings_element_hint_weight,
           ),
         ],
       ),
@@ -404,36 +424,54 @@ class _EditLine extends StatelessWidget {
   const _EditLine({
     required this.title,
     required this.controller,
+    required this.iconName,
+    required this.iconColor,
+    this.hint,
     this.tagType,
   });
 
   final String title;
   final TextEditingController controller;
   final TagType? tagType;
+  final String iconName;
+  final Color? iconColor;
+  final String? hint;
 
   @override
-  Widget build(BuildContext context) => LayoutBuilder(
-        builder: (_, BoxConstraints constraints) => Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              width: constraints.maxWidth / 2,
-              child: ListTile(title: Text(title)),
-            ),
-            SizedBox(
-              width: constraints.maxWidth / 2,
-              child: SimpleInputWidgetField(
-                focusNode: FocusNode(),
-                autocompleteKey: UniqueKey(),
-                constraints: constraints,
-                tagType: tagType,
-                hintText: '',
-                controller: controller,
+  Widget build(BuildContext context) => Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          ListTile(
+            leading: SvgAsyncAsset(
+              AssetCacheHelper(
+                <String>['assets/packagings/$iconName.svg'],
+                'no url for packagings/$iconName',
+                color: iconColor,
+                width: MINIMUM_TOUCH_SIZE,
               ),
             ),
-          ],
-        ),
+            title: Text(title),
+            trailing: LayoutBuilder(
+              builder: (_, BoxConstraints constraints) => SizedBox(
+                width: constraints.maxWidth * .35,
+                child: SimpleInputWidgetField(
+                  focusNode: FocusNode(),
+                  autocompleteKey: UniqueKey(),
+                  constraints: constraints,
+                  tagType: tagType,
+                  hintText: '',
+                  controller: controller,
+                ),
+              ),
+            ),
+          ),
+          if (hint != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: LARGE_SPACE),
+              child: ExplanationWidget(hint!),
+            ),
+        ],
       );
 }
 

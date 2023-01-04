@@ -37,6 +37,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String? explanations =
+        widget.helper.getAddExplanations(appLocalizations);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -51,7 +53,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
             style: themeData.textTheme.headline3,
           ),
         ),
-        ExplanationWidget(widget.helper.getAddExplanations(appLocalizations)),
+        if (explanations != null) ExplanationWidget(explanations),
         LayoutBuilder(
           builder: (_, BoxConstraints constraints) {
             return Row(

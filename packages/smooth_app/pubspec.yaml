@@ -152,6 +152,7 @@ flutter:
     - assets/misc/
     - assets/network/cert.pem
     - assets/onboarding/
+    - assets/packagings/
     - assets/preferences/
     - assets/product/
     - assets/icons/visor_icon.svg
