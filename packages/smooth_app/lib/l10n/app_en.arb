@@ -1778,6 +1778,7 @@
         "description": "Title of the structured packagings page"
     },
     "edit_packagings_element_add": "Add an element",
+    "edit_packagings_completed": "The packaging is complete",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },

@@ -113,14 +113,15 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   /// Uploads the product changes.
   @override
   Future<void> upload() async {
-    if (_product.packagings != null) {
-      // For the moment, we can only save "packagings" with V3,
-      // and V3 can only save "packagings".
+    if (_product.packagings != null || _product.packagingsComplete != null) {
+      // For the moment, some fields can only be saved in V3,
+      // and V3 can only save those fields.
       final ProductResultV3 result =
           await OpenFoodAPIClient.temporarySaveProductV3(
         getUser(),
         _product.barcode!,
         packagings: _product.packagings,
+        packagingsComplete: _product.packagingsComplete,
         language: getLanguage(),
         country: getCountry(),
       );

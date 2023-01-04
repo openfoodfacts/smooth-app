@@ -142,6 +142,7 @@ abstract class ProductQuery {
         // ignore: deprecated_member_use
         ProductField.PACKAGING,
         ProductField.PACKAGINGS,
+        ProductField.PACKAGINGS_COMPLETE,
         ProductField.PACKAGING_TAGS,
         ProductField.PACKAGING_TEXT_IN_LANGUAGES,
         ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
