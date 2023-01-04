@@ -1,10 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/rendering.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
 class BackgroundTaskManager {
@@ -111,6 +114,8 @@ class BackgroundTaskManager {
         await _runTask(nextTask!);
       }
     } catch (e) {
+      debugPrint('Background task error ($e)');
+      Logs.e('Background task error', ex: e);
       return;
     } finally {
       _justFinished();
