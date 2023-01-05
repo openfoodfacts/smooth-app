@@ -243,6 +243,9 @@ class _CropPageState extends State<CropPage> {
       if (pleaseSave == false) {
         return true;
       }
+      if (!mounted) {
+        return false;
+      }
     }
 
     await _saveFileAndExit();
