@@ -57,6 +57,9 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/app/android/
 
       # We are using the android version code for iOS as well to have the version codes in sync 
       # in order for Sentry and other tools to work properly
