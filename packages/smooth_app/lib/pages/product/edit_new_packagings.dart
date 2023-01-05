@@ -320,7 +320,11 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
       if (pleaseSave == false) {
         return true;
       }
+      if (!mounted) {
+        return false;
+      }
     }
+
     await BackgroundTaskDetails.addTask(
       changedProduct,
       widget: this,

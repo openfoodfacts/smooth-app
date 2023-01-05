@@ -173,7 +173,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       if (pleaseSave == false) {
         return true;
       }
+      if (!mounted) {
+        return false;
+      }
     }
+
     await BackgroundTaskDetails.addTask(
       changedProduct,
       widget: this,
