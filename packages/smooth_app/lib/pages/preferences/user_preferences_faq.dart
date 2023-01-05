@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -68,7 +69,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         _getListTile(
           title: appLocalizations.feed_back,
           leading: Icons.feedback_sharp,
-          url: getFeedbackUrl(),
+          url: SmoothHapticFeedback.getFeedbackFormLink(),
         ),
         _getListTile(
           title: appLocalizations.about_this_app,
@@ -97,24 +98,6 @@ class UserPreferencesFaq extends AbstractUserPreferences {
       'assets/app/release_icon_light_transparent_no_border.svg';
   static const String _iconDarkAssetPath =
       'assets/app/release_icon_dark_transparent_no_border.svg';
-
-  String getFeedbackUrl() {
-    final String languageCode = ProductQuery.getLanguage().code;
-
-    if (languageCode == 'en') {
-      return 'https://forms.gle/AuNZG6fXyAPqN5tL7';
-    } else if (languageCode == 'de') {
-      return 'https://forms.gle/vCurhD2Y3ewS1YPv5';
-    } else if (languageCode == 'es') {
-      return 'https://forms.gle/CSMmuzR8i4LJBjbM9';
-    } else if (languageCode == 'fr') {
-      return 'https://forms.gle/cTR4wqGmW7pGUiaBA';
-    } else if (languageCode == 'it') {
-      return 'https://forms.gle/9HcCLFznym1ByQgB6';
-    } else {
-      return 'https://forms.gle/AuNZG6fXyAPqN5tL7';
-    }
-  }
 
   Future<void> _about() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
