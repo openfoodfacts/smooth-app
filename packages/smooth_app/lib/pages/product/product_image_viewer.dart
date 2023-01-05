@@ -160,6 +160,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
           barcode: _barcode,
           imageField: _imageData.imageField,
           inputFile: imageFile!,
+          brandNewPicture: false,
         ),
         fullscreenDialog: true,
       ),
