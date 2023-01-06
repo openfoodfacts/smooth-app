@@ -1,4 +1,4 @@
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -14,22 +14,6 @@ class UpToDateChanges {
   final DaoTransientOperation _daoTransientProduct;
 
   OperationType get taskActionable => OperationType.details;
-
-  /// Returns a minimalist [Product] with successive changes on top.
-  Product prepareChangesForServer(
-    final String barcode,
-    final Iterable<TransientOperation> sortedOperations,
-  ) {
-    final Product initial = Product(barcode: barcode);
-    for (final TransientOperation transientOperation in sortedOperations) {
-      if (initial.barcode != transientOperation.product.barcode) {
-        // very unlikely
-        continue;
-      }
-      _overwrite(initial, transientOperation.product);
-    }
-    return initial;
-  }
 
   /// Returns all the actions related to a barcode, sorted by id.
   Iterable<TransientOperation> getSortedOperations(final String barcode) {
@@ -87,8 +71,16 @@ class UpToDateChanges {
     if (change.ingredientsText != null) {
       initial.ingredientsText = change.ingredientsText;
     }
+    // ignore: deprecated_member_use
     if (change.packaging != null) {
+      // ignore: deprecated_member_use
       initial.packaging = change.packaging;
+    }
+    if (change.packagings != null) {
+      initial.packagings = change.packagings;
+    }
+    if (change.packagingsComplete != null) {
+      initial.packagingsComplete = change.packagingsComplete;
     }
     if (change.noNutritionData != null) {
       initial.noNutritionData = change.noNutritionData;
@@ -149,6 +141,9 @@ class UpToDateChanges {
     }
     if (change.imagePackagingSmallUrl != null) {
       initial.imagePackagingSmallUrl = change.imagePackagingSmallUrl;
+    }
+    if (change.website != null) {
+      initial.website = change.website;
     }
     return initial;
   }

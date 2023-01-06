@@ -26,6 +26,7 @@ class PreloadDataHelper {
         ],
         language: ProductQuery.getLanguage(),
         country: ProductQuery.getCountry(),
+        version: ProductQuery.productQueryVersion,
       );
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),

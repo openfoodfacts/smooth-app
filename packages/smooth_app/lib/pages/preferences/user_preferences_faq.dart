@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -121,7 +122,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                           ),
                         ),
                         Text(
-                          '${packageInfo.version}+${packageInfo.buildNumber}',
+                          '${packageInfo.version}+${packageInfo.buildNumber}-$flavour',
                           style: themeData.textTheme.subtitle2,
                         )
                       ],

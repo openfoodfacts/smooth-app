@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -75,6 +76,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
               child: SimpleInputWidget(
                 helper: widget.helpers[i],
                 product: widget.product,
+                controller: _controllers[i],
               ),
             ),
           ),
@@ -144,7 +146,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
     final Product changedProduct = Product(barcode: widget.product.barcode);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     bool changed = false;
     bool added = false;
     for (int i = 0; i < widget.helpers.length; i++) {
@@ -164,33 +165,19 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave = await showDialog<bool>(
-        context: context,
-        builder: (final BuildContext context) => SmoothAlertDialog(
-          close: true,
-          actionsAxis: Axis.vertical,
-          body: Text(appLocalizations.edit_product_form_item_exit_confirmation),
-          title: appLocalizations.edit_product_label,
-          negativeAction: SmoothActionButton(
-            text: appLocalizations
-                .edit_product_form_item_exit_confirmation_negative_button,
-            onPressed: () => Navigator.pop(context, false),
-          ),
-          positiveAction: SmoothActionButton(
-            text: appLocalizations
-                .edit_product_form_item_exit_confirmation_positive_button,
-            onPressed: () => Navigator.pop(context, true),
-          ),
-          actionsOrder: SmoothButtonsBarOrder.numerical,
-        ),
-      );
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         return false;
       }
       if (pleaseSave == false) {
         return true;
       }
+      if (!mounted) {
+        return false;
+      }
     }
+
     await BackgroundTaskDetails.addTask(
       changedProduct,
       widget: this,
@@ -200,7 +187,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
 
   @override
   void dispose() {
-    // Disposed is managed by the provider
+    for (final TextEditingController controller in _controllers) {
+      controller.dispose();
+    }
     _controllers.clear();
     super.dispose();
   }

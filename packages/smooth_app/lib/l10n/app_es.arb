@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Añadir los ingredientes que faltan",
+    "score_add_missing_packaging_image": "Añadir imagen faltante del embalaje",
     "score_add_missing_nutrition_facts": "Añadir la información nutricional que falta",
     "score_add_missing_product_category": "Agregar las categorías del producto que faltan",
+    "score_add_missing_product_countries": "Añadir países faltantes de los productos",
+    "score_add_missing_product_emb": "Añadir códigos de trazabilidad faltantes de productos",
+    "score_add_missing_product_labels": "Añadir etiquetas faltantes de productos",
+    "score_add_missing_product_origins": "Añadir orígenes faltantes en productos",
+    "score_add_missing_product_stores": "Agregar tiendas faltantes de productos",
     "score_update_nutrition_facts": "Actualizar información nutricional",
     "nutrition_page_title": "Información nutricional",
     "nutrition_page_unspecified": "La información nutricional no aparece en el producto",
@@ -898,6 +904,10 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
+    "account_deletion_subject": "Delete my account",
+    "@account_deletion_subject": {
+        "description": "Subject of the webview open when the user wants to delete his account"
+    },
     "user_profile": "Cuenta",
     "@user_profile": {
         "description": "User account (if connected)"
@@ -1037,7 +1047,15 @@
     },
     "edit_product_form_item_details_subtitle": "Nombre del producto, marca, cantidad",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Additional details",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "Fotos",
     "@edit_product_form_item_photos_title": {
@@ -1137,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Añadir",
     "edit_product_form_item_add_invalid_item_tooltip": "Por favor ingrese un texto primero",
     "edit_product_form_item_remove_item_tooltip": "Eliminar",
-    "edit_product_form_item_packaging_title": "Envase",
+    "edit_product_form_item_packaging_title": "Foto de instrucciones de reciclaje",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1152,6 +1170,10 @@
     "edit_product_form_save": "Editar",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "Website",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "Completa los datos básicos",
     "not_implemented_snackbar_text": "Aún no está implementado",
@@ -1203,6 +1225,10 @@
     "user_list_button_add_product": "Añadir a la lista",
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
+    },
+    "added_to_list_msg": "Added to list",
+    "@added_to_list_msg": {
+        "description": "Message when products have been successfully added to a list"
     },
     "user_list_popup_clear": "Limpiar",
     "@user_list_popup_clear": {
@@ -1261,30 +1287,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Eliminar el modo de desarrollo",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Reiniciar incorporación",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Luego debe reiniciar Flutter para verlo nuevamente.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Cambiar entre openfoodfacts.org (PROD) y test env",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "El tipo de consulta actual es {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Parámetros del entorno de prueba",
     "@dev_preferences_test_environment_title": {
@@ -1655,6 +1668,10 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
+    "copy_to_clipboard": "Copy",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
+    },
     "clipboard_barcode_copy": "Copiar código de barras al portapapeles",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
@@ -1748,5 +1765,63 @@
     "show_password": "Show Password",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "¡Genial! ¡Hazle saber a los demás lo que piensas de esta aplicación!",
+    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_negative_action": "Después",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
+    "not_really": "Not really",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "edit_packagings_title": "Componentes del embalaje",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Añadir un componente de embalaje",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "El envase está completo",
+    "edit_packagings_element_title": "Componente del embalaje #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Number of units",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Forma",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Material",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Instrucción de reciclaje",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Cantidad neta de producto por unidad",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Peso de una unidad vacía (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "feed_back": "Feedback"
 }

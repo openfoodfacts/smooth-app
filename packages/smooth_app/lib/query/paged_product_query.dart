@@ -1,7 +1,4 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/AbstractQueryConfiguration.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 

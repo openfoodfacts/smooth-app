@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "הוספת רכיבים חסרים",
+    "score_add_missing_packaging_image": "הוספת תמונת אריזה חסרה",
     "score_add_missing_nutrition_facts": "הוספת עובדות תזונתיות חסרות",
     "score_add_missing_product_category": "הוספת קטגוריית מוצר חסרה",
+    "score_add_missing_product_countries": "הוספת מדינות מוצר חסרות",
+    "score_add_missing_product_emb": "הוספת קודים למעקב חסרים של מוצר",
+    "score_add_missing_product_labels": "הוספת תוויות מוצר חסרות",
+    "score_add_missing_product_origins": "הוספת מקורות מוצר חסרים",
+    "score_add_missing_product_stores": "הוספת חנויות מוצר חסרות",
     "score_update_nutrition_facts": "עדכון העובדות התזונתיות",
     "nutrition_page_title": "מפרט תזונתי",
     "nutrition_page_unspecified": "העובדות התזונתיות לא מופיעות על המוצר",
@@ -898,6 +904,10 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
+    "account_deletion_subject": "מחיקת החשבון שלי",
+    "@account_deletion_subject": {
+        "description": "Subject of the webview open when the user wants to delete his account"
+    },
     "user_profile": "חשבון",
     "@user_profile": {
         "description": "User account (if connected)"
@@ -1037,7 +1047,15 @@
     },
     "edit_product_form_item_details_subtitle": "שם, מותג, כמות המוצר",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "פרטים נוספים",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "אתר, …",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "תמונות",
     "@edit_product_form_item_photos_title": {
@@ -1137,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "הוספה",
     "edit_product_form_item_add_invalid_item_tooltip": "נא למלא טקסט תחילה",
     "edit_product_form_item_remove_item_tooltip": "הסרה",
-    "edit_product_form_item_packaging_title": "אריזה",
+    "edit_product_form_item_packaging_title": "תמונת הנחיות מיחזור",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1152,6 +1170,10 @@
     "edit_product_form_save": "עריכה",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "אתר",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "השלמת הפרטים הבסיסיים",
     "not_implemented_snackbar_text": "לא מיושם עדיין",
@@ -1203,6 +1225,10 @@
     "user_list_button_add_product": "הוספה לרשימה",
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
+    },
+    "added_to_list_msg": "נוסף לרשימה",
+    "@added_to_list_msg": {
+        "description": "Message when products have been successfully added to a list"
     },
     "user_list_popup_clear": "פינוי",
     "@user_list_popup_clear": {
@@ -1261,30 +1287,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "הסרת מצב פיתוח",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "הפעלת תהליך קליטה מחדש",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "לאחר מכן יהיה עליך להפעיל את Flutter מחדש כדי לראות זאת שוב.",
+    "dev_preferences_reset_onboarding_subtitle": "לאחר מכן צריך להפעיל את היישומון מחדש.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "החלפה בין openfoodfacts.org (הסביבה המבצעית) לבין סביבת הבדיקות",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "סוג השאילתה הנוכחית הוא {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "בדיקת משתני הסביבה",
     "@dev_preferences_test_environment_title": {
@@ -1655,6 +1668,10 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
+    "copy_to_clipboard": "העתקה",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
+    },
     "clipboard_barcode_copy": "העתקת ברקוד ללוח הגזירים",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
@@ -1748,5 +1765,63 @@
     "show_password": "הצגת סיסמה",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "מצוין! אנו בטוחים שכולם ישמחו לשמוע מה דעתך על היישומון!",
+    "app_rating_dialog_positive_action": "דירוג היישומון",
+    "app_rating_dialog_negative_action": "אחר כך",
+    "app_rating_dialog_title_enjoying_app": "היישומון הזה נושא חן בעיניך?",
+    "app_rating_dialog_title_enjoying_positive_actions": "ברור!",
+    "not_really": "ככה ככה",
+    "app_rating_dialog_title_not_enjoying_app": "צר לי לשמוע על כך! אוכל להבין ממך מה קרה?",
+    "edit_packagings_title": "רכיבי אריזה",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "הוספת רכיב אריזה",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "האריזה שלמה",
+    "edit_packagings_element_title": "רכיב אריזה מס׳ {index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "מספר יחידות",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "צורה",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "חומר גלם",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "הנחיות מיחזור",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "כמות נטו של המוצר ליחידה",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "משקל של יחידה ריקה אחת (גרם)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "feed_back": "משוב"
 }

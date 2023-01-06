@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -76,6 +75,7 @@ class ProductListImportExport {
         parametersList: <Parameter>[
           BarcodeParameter.list(barcodes.toList(growable: false)),
         ],
+        version: ProductQuery.productQueryVersion,
       ),
     );
 

@@ -146,8 +146,8 @@ packages:
     description:
       path: "packages/camera/camera"
       ref: smooth_camera
-      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
-      url: "https://github.com/g123k/plugins.git"
+      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
+      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
     source: git
     version: "0.9.6"
   camera_platform_interface:
@@ -155,8 +155,8 @@ packages:
     description:
       path: "packages/camera/camera_platform_interface"
       ref: smooth_camera
-      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
-      url: "https://github.com/g123k/plugins.git"
+      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
+      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
     source: git
     version: "2.1.6"
   camera_web:
@@ -164,8 +164,8 @@ packages:
     description:
       path: "packages/camera/camera_web"
       ref: smooth_camera
-      resolved-ref: "3c62b56bb6cc0ae1c9594f417ce6305ea45e214f"
-      url: "https://github.com/g123k/plugins.git"
+      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
+      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
     source: git
     version: "0.2.1+6"
   carousel_slider:
@@ -569,27 +569,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.2.0"
-  image_cropper:
-    dependency: "direct main"
-    description:
-      name: image_cropper
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.3"
-  image_cropper_for_web:
-    dependency: transitive
-    description:
-      name: image_cropper_for_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4"
-  image_cropper_platform_interface:
-    dependency: transitive
-    description:
-      name: image_cropper_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   image_picker:
     dependency: "direct main"
     description:
@@ -769,7 +748,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.27.1"
+    version: "2.0.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1379,6 +1358,34 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+  webview_flutter:
+    dependency: "direct main"
+    description:
+      name: webview_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.4"
+  webview_flutter_android:
+    dependency: transitive
+    description:
+      name: webview_flutter_android
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.10.4"
+  webview_flutter_platform_interface:
+    dependency: transitive
+    description:
+      name: webview_flutter_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.9.5"
+  webview_flutter_wkwebview:
+    dependency: transitive
+    description:
+      name: webview_flutter_wkwebview
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.9.5"
   win32:
     dependency: transitive
     description:

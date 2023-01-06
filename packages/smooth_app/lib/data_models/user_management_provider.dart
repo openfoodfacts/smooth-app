@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:openfoodfacts/model/LoginStatus.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -26,7 +24,12 @@ class UserManagementProvider with ChangeNotifier {
     }
 
     if (loginStatus.successful) {
-      await putUser(user);
+      await putUser(
+        User(
+          userId: loginStatus.userId!,
+          password: user.password,
+        ),
+      );
       notifyListeners();
     }
 
@@ -44,13 +47,16 @@ class UserManagementProvider with ChangeNotifier {
   }
 
   /// Mounts already stored credentials, called at app startup
-  static Future<void> mountCredentials() async {
-    String? userId;
-    String? password;
+  ///
+  /// We can use optional parameters to mock in tests
+  static Future<void> mountCredentials(
+      {String? userId, String? password}) async {
+    String? effectiveUserId;
+    String? effectivePassword;
 
     try {
-      userId = await DaoSecuredString.get(_USER_ID);
-      password = await DaoSecuredString.get(_PASSWORD);
+      effectiveUserId = userId ?? await DaoSecuredString.get(_USER_ID);
+      effectivePassword = password ?? await DaoSecuredString.get(_PASSWORD);
     } on PlatformException {
       /// Decrypting the values can go wrong if, for example, the app was
       /// manually overwritten from an external apk.
@@ -59,11 +65,12 @@ class UserManagementProvider with ChangeNotifier {
       Logs.e('Credentials query failed, you have been logged out');
     }
 
-    if (userId == null || password == null) {
+    if (effectiveUserId == null || effectivePassword == null) {
       return;
     }
 
-    final User user = User(userId: userId, password: password);
+    final User user =
+        User(userId: effectiveUserId, password: effectivePassword);
     OpenFoodAPIConfiguration.globalUser = user;
   }
 

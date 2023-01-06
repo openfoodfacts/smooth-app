@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/model/ProductImage.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
@@ -12,13 +11,12 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
+import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Displays a full-screen image with an "edit" floating button.
@@ -62,11 +60,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    _imageData = getProductImageData(
-      _product,
-      appLocalizations,
-      widget.imageField,
-    );
+    _imageData = getProductImageData(_product, widget.imageField);
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       _imageData,
       _barcode,
@@ -75,20 +69,16 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
       floatingActionButton: FloatingActionButton.extended(
-        label: Text(appLocalizations.edit_photo_button_label),
-        icon: const Icon(Icons.edit),
+        label: Text(
+          imageProvider == null
+              ? appLocalizations.add
+              : appLocalizations.edit_photo_button_label,
+        ),
+        icon: Icon(
+          imageProvider == null ? Icons.add : Icons.edit,
+        ),
         backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () async => _editImage(),
-      ),
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        foregroundColor: WHITE_COLOR,
-        elevation: 0,
-        title: Text(_imageData.title),
-        leading: SmoothBackButton(
-          iconColor: Colors.white,
-          onPressed: () => Navigator.maybePop(context),
-        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -97,18 +87,18 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             constraints: BoxConstraints.tight(
               Size(double.infinity, MediaQuery.of(context).size.height / 2),
             ),
-            child: PhotoView(
-              minScale: 0.2,
-              imageProvider:
-                  imageProvider, // TODO(monsieurtanuki): what if null?
-              heroAttributes: PhotoViewHeroAttributes(
-                tag: imageProvider ??
-                    Object(), // TODO(monsieurtanuki): what if null?
-              ),
-              backgroundDecoration: const BoxDecoration(
-                color: Colors.black,
-              ),
-            ),
+            child: imageProvider == null
+                ? const PictureNotFound()
+                : PhotoView(
+                    minScale: 0.2,
+                    imageProvider: imageProvider,
+                    heroAttributes: PhotoViewHeroAttributes(
+                      tag: imageProvider,
+                    ),
+                    backgroundDecoration: const BoxDecoration(
+                      color: Colors.black,
+                    ),
+                  ),
           ),
         ],
       ),
@@ -163,14 +153,16 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       return;
     }
 
-    await Navigator.push<void>(
+    await Navigator.push<File>(
       context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => ConfirmAndUploadPicture(
+      MaterialPageRoute<File>(
+        builder: (BuildContext context) => CropPage(
           barcode: _barcode,
           imageField: _imageData.imageField,
-          initialPhoto: imageFile!,
+          inputFile: imageFile!,
+          brandNewPicture: false,
         ),
+        fullscreenDialog: true,
       ),
     );
   }

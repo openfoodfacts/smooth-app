@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Přidejte chybějící přísady",
+    "score_add_missing_packaging_image": "Přidat chybějící obrázek obalu",
     "score_add_missing_nutrition_facts": "Přidejte chybějící výživová fakta",
     "score_add_missing_product_category": "Přidejte chybějící kategorii produktu",
+    "score_add_missing_product_countries": "Přidat chybějící země produktu",
+    "score_add_missing_product_emb": "Přidat chybějící kódy sledovatelnosti produktu",
+    "score_add_missing_product_labels": "Přidat chybějící štítky produktu",
+    "score_add_missing_product_origins": "Přidat chybějící původ produktu",
+    "score_add_missing_product_stores": "Přidat chybějící obchody produktů",
     "score_update_nutrition_facts": "Aktualizujte výživová fakta",
     "nutrition_page_title": "Nutriční hodnoty",
     "nutrition_page_unspecified": "Výživové údaje nejsou u produktu uvedeny",
@@ -898,6 +904,10 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
+    "account_deletion_subject": "Odstranit můj účet",
+    "@account_deletion_subject": {
+        "description": "Subject of the webview open when the user wants to delete his account"
+    },
     "user_profile": "Účet",
     "@user_profile": {
         "description": "User account (if connected)"
@@ -1037,7 +1047,15 @@
     },
     "edit_product_form_item_details_subtitle": "Název produktu, značka, množství",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Další detaily",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "Webová stránka, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "Fotky",
     "@edit_product_form_item_photos_title": {
@@ -1137,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Přidat",
     "edit_product_form_item_add_invalid_item_tooltip": "Nejprve prosím zadejte text",
     "edit_product_form_item_remove_item_tooltip": "Odstranit",
-    "edit_product_form_item_packaging_title": "Obal",
+    "edit_product_form_item_packaging_title": "Fotografie pokynů pro recyklaci",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1152,6 +1170,10 @@
     "edit_product_form_save": "Upravit",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "Webová stránka",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "Vyplňte základní údaje",
     "not_implemented_snackbar_text": "Zatím neimplementováno",
@@ -1203,6 +1225,10 @@
     "user_list_button_add_product": "Přidat na seznam",
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
+    },
+    "added_to_list_msg": "Přidáno do seznamu",
+    "@added_to_list_msg": {
+        "description": "Message when products have been successfully added to a list"
     },
     "user_list_popup_clear": "Vymazat",
     "@user_list_popup_clear": {
@@ -1261,30 +1287,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Odebrat vývojářský režim",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Restartovat zapojení",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Poté musíte restartovat Flutter, abyste jej znovu viděli.",
+    "dev_preferences_reset_onboarding_subtitle": "Poté je nutné aplikaci restartovat.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Přepínání mezi openfoodfacts.org (PROD) a testovacím prostředím",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "Typ aktuálního dotazu je {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Parametry testovacího prostředí",
     "@dev_preferences_test_environment_title": {
@@ -1655,6 +1668,10 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
+    "copy_to_clipboard": "Kopírovat",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
+    },
     "clipboard_barcode_copy": "Kopírovat čárový kód do schránky",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
@@ -1748,5 +1765,63 @@
     "show_password": "Zobrazit heslo",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "Skvěle! Dejte ostatním vědět, co si o aplikaci myslíte!",
+    "app_rating_dialog_positive_action": "Ohodnoťte aplikaci",
+    "app_rating_dialog_negative_action": "Později",
+    "app_rating_dialog_title_enjoying_app": "Baví vás tato aplikace?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Jasně!",
+    "not_really": "Ani ne",
+    "app_rating_dialog_title_not_enjoying_app": "To nás moc mrzí! Můžete nám dát vědět, co se stalo?",
+    "edit_packagings_title": "Součásti obalu",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Přidejte součást obalu",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "Balení je kompletní",
+    "edit_packagings_element_title": "Packaging component #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Počet jednotek",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Tvar",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Materiál",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Někdy jsou materiály jako ♵ skryty pod obalem, ve 3D, na plastu.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Pokyny k recyklaci",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Čisté množství produktu na jednotku",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "Pro přesné měření hmotnosti balení očistěte všechny zbytky jídla a poté osušte veškerou vodu.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "feed_back": "Zpětná vazba"
 }

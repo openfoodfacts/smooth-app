@@ -11,7 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/product_image_viewer.dart';
+import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -61,11 +61,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final List<ProductImageData> allProductImagesData =
-        getProductMainImagesData(
-      _product,
-      appLocalizations,
-      includeOther: false,
-    );
+        getProductMainImagesData(_product, includeOther: false);
     _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
       allProductImagesData,
       allProductImagesData.map(_provideImage),
@@ -97,9 +93,16 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
               ),
               SmoothImagesSliverList(
                 imagesData: _selectedImages,
-                onTap: (ProductImageData data, _) =>
+                onTap: (
+                  ProductImageData data,
+                  _,
+                  int? initialImageIndex,
+                ) =>
                     TransientFile.isImageAvailable(data, _barcode)
-                        ? _openImage(data)
+                        ? _openImage(
+                            imageData: data,
+                            initialImageIndex: initialImageIndex ?? 0,
+                          )
                         : _newImage(data),
               ),
             ],
@@ -120,13 +123,16 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       );
 
-  Future<void> _openImage(ProductImageData imageData) async =>
-      Navigator.push<void>(
+  Future<void> _openImage({
+    required ProductImageData imageData,
+    required int initialImageIndex,
+  }) async =>
+      Navigator.push(
         context,
         MaterialPageRoute<void>(
-          builder: (_) => ProductImageViewer(
+          builder: (_) => ProductImageSwipeableView(
+            initialImageIndex: initialImageIndex,
             product: _product,
-            imageField: imageData.imageField,
           ),
         ),
       );

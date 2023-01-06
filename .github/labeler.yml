@@ -8,6 +8,13 @@ macos:
 assets cache:
 - packages/smooth_app/assets/cache/
 
+documentation:
+- README.md
+- packages/app/README.md
+- packages/app/android/fastlane/README.md
+- packages/smooth_app/README.md
+- packages/smooth_app/lib/l10n/README.md
+
 dependencies:
 - packages/smooth_app/pubspec.yaml
 
@@ -173,3 +180,6 @@ photo cropping:
 user lists:
 - packages/smooth_app/lib/pages/product_list_user_dialog_helper.dart
 - packages/smooth_app/lib/pages/product/common/product_list_page.dart
+
+product scan carousel:
+- packages/smooth_app/lib/widgets/smooth_product_carousel.dart

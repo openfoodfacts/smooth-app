@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
@@ -378,8 +378,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final List<Country> localizedCountries =
         await IsoCountries.iso_countries_for_locale(locale);
     for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() ==
-          _country!.iso2Code.toLowerCase()) {
+      if (country.countryCode.toLowerCase() == _country!.offTag.toLowerCase()) {
         return country.name;
       }
     }

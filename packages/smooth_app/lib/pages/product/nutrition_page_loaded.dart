@@ -3,20 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:openfoodfacts/model/Nutrient.dart';
-import 'package:openfoodfacts/model/OrderedNutrient.dart';
-import 'package:openfoodfacts/model/OrderedNutrients.dart';
-import 'package:openfoodfacts/model/PerSize.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
+import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -27,7 +25,7 @@ class NutritionPageLoaded extends StatefulWidget {
   const NutritionPageLoaded(
     this.product,
     this.orderedNutrients, {
-    this.isLoggedInMandatory = true,
+    required this.isLoggedInMandatory,
   });
 
   final Product product;
@@ -36,6 +34,51 @@ class NutritionPageLoaded extends StatefulWidget {
 
   @override
   State<NutritionPageLoaded> createState() => _NutritionPageLoadedState();
+
+  /// Shows the nutrition page after loading the ordered nutrient list.
+  static Future<void> showNutritionPage({
+    required final Product product,
+    required final bool isLoggedInMandatory,
+    required final State<StatefulWidget> widget,
+  }) async {
+    if (!widget.mounted) {
+      return;
+    }
+    if (isLoggedInMandatory) {
+      if (!await ProductRefresher().checkIfLoggedIn(widget.context)) {
+        return;
+      }
+    }
+    if (!widget.mounted) {
+      return;
+    }
+    final OrderedNutrientsCache? cache =
+        await OrderedNutrientsCache.getCache(widget.context);
+    if (!widget.mounted) {
+      return;
+    }
+    if (cache == null) {
+      ScaffoldMessenger.of(widget.context).showSnackBar(
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(widget.context).nutrition_cache_loading_error,
+          ),
+        ),
+      );
+      return;
+    }
+    await Navigator.push<void>(
+      widget.context,
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) => NutritionPageLoaded(
+          product,
+          cache.orderedNutrients,
+          isLoggedInMandatory: isLoggedInMandatory,
+        ),
+        fullscreenDialog: true,
+      ),
+    );
+  }
 }
 
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
@@ -206,7 +249,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     final OrderedNutrient orderedNutrient,
     final int position,
   ) {
-    final Nutrient nutrient = orderedNutrient.nutrient!;
+    final Nutrient nutrient = _getNutrient(orderedNutrient);
 
     if (_controllers[nutrient] == null) {
       final double? value = _nutritionContainer.getValue(nutrient);
@@ -282,7 +325,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
 
   Widget _getUnitCell(final OrderedNutrient orderedNutrient) {
-    final Unit unit = _nutritionContainer.getUnit(orderedNutrient.nutrient!);
+    final Unit unit =
+        _nutritionContainer.getUnit(_getNutrient(orderedNutrient));
     return ElevatedButton(
       onPressed: _nutritionContainer.isEditableWeight(unit)
           ? () => setState(
@@ -459,36 +503,25 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!saving) {
-      final bool? pleaseSave = await showDialog<bool>(
-        context: context,
-        builder: (final BuildContext context) => SmoothAlertDialog(
-          close: true,
-          body: Text(appLocalizations.edit_product_form_item_exit_confirmation),
-          title: appLocalizations.nutrition_page_title,
-          negativeAction: SmoothActionButton(
-            text: appLocalizations.ignore,
-            onPressed: () => Navigator.pop(context, false),
-          ),
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.save,
-            onPressed: () => Navigator.pop(context, true),
-          ),
-        ),
-      );
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         return false;
       }
       if (pleaseSave == false) {
         return true;
       }
-    }
-    if (!mounted) {
-      return false;
+      if (!mounted) {
+        return false;
+      }
     }
 
     final Product? changedProduct =
         _getChangedProduct(Product(barcode: widget.product.barcode));
     if (changedProduct == null) {
+      if (!mounted) {
+        return false;
+      }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           // here I cheat and I reuse the only invalid case.
@@ -502,5 +535,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       widget: this,
     );
     return true;
+  }
+
+  // cf. https://github.com/openfoodfacts/smooth-app/issues/3387
+  Nutrient _getNutrient(final OrderedNutrient orderedNutrient) {
+    if (orderedNutrient.nutrient != null) {
+      return orderedNutrient.nutrient!;
+    }
+    if (orderedNutrient.id == 'energy') {
+      return Nutrient.energyKJ;
+    }
+    throw Exception('unknown nutrient for "${orderedNutrient.id}"');
   }
 }

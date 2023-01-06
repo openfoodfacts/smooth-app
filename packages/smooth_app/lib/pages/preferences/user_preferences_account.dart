@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
-import 'package:openfoodfacts/utils/UserProductSearchQueryConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -11,11 +8,11 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
@@ -25,6 +22,7 @@ import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
@@ -231,7 +229,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.of(context).size;
-    final TextEditingController reasonController = TextEditingController();
 
     final List<Widget> result;
 
@@ -243,48 +240,49 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.CONTRIBUTOR,
+            type: UserSearchType.CONTRIBUTOR,
           ),
           title: appLocalizations.user_search_contributor_title,
           iconData: Icons.add_circle_outline,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.CONTRIBUTOR,
+          type: UserSearchType.CONTRIBUTOR,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.INFORMER,
+            type: UserSearchType.INFORMER,
           ),
           title: appLocalizations.user_search_informer_title,
           iconData: Icons.edit,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.INFORMER,
+          type: UserSearchType.INFORMER,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.PHOTOGRAPHER,
+            type: UserSearchType.PHOTOGRAPHER,
           ),
           title: appLocalizations.user_search_photographer_title,
           iconData: Icons.add_a_photo,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.PHOTOGRAPHER,
+          type: UserSearchType.PHOTOGRAPHER,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.TO_BE_COMPLETED,
+            type: UserSearchType.TO_BE_COMPLETED,
           ),
           title: appLocalizations.user_search_to_be_completed_title,
           iconData: Icons.more_horiz,
           context: context,
           localDatabase: localDatabase,
+          type: UserSearchType.TO_BE_COMPLETED,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -306,47 +304,13 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         const UserPreferencesListItemDivider(),
         _getListTile(
           appLocalizations.account_delete,
-          () async {
-            final String? reason = await showDialog<String>(
-                context: context,
-                builder: (BuildContext context) {
-                  return SmoothAlertDialog(
-                    title: appLocalizations.account_delete,
-                    body: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(appLocalizations.account_delete_message),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        SmoothTextFormField(
-                            type: TextFieldTypes.PLAIN_TEXT,
-                            textInputType: TextInputType.text,
-                            controller: reasonController,
-                            hintText: appLocalizations.reason),
-                      ],
-                    ),
-                    positiveAction: SmoothActionButton(
-                      text: appLocalizations.account_delete,
-                      onPressed: () =>
-                          Navigator.pop(context, reasonController.text),
-                    ),
-                    negativeAction: SmoothActionButton(
-                        text: appLocalizations.cancel,
-                        onPressed: () => Navigator.pop(context)),
-                  );
-                });
-            if (reason != null) {
-              final Email email = Email(
-                body:
-                    '${appLocalizations.email_body_account_deletion(userId)} $reason',
-                subject: appLocalizations.email_subject_account_deletion,
-                recipients: <String>['contact@openfoodfacts.org'],
-              );
-
-              await FlutterEmailSender.send(email);
-            }
+          () {
+            Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => AccountDeletionWebview(),
+              ),
+            );
           },
           Icons.delete,
         ),
@@ -404,25 +368,31 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
   }
 
   Future<int?> _getMyCount(
-    final UserProductSearchType type,
+    final UserSearchType type,
   ) async {
-    final UserProductSearchQueryConfiguration configuration =
-        UserProductSearchQueryConfiguration(
-      type: type,
-      userId: OpenFoodAPIConfiguration.globalUser!.userId,
-      pageSize: 1,
-      language: ProductQuery.getLanguage(),
-      fields: <ProductField>[],
+    final User user = OpenFoodAPIConfiguration.globalUser!;
+    final ProductSearchQueryConfiguration configuration = type.getConfiguration(
+      user.userId,
+      1,
+      1,
+      ProductQuery.getLanguage(),
+      // one field is enough as we want only the count
+      // and we need at least one field (no field meaning all fields)
+      <ProductField>[ProductField.BARCODE],
     );
 
     try {
       final SearchResult result = await OpenFoodAPIClient.searchProducts(
-        OpenFoodAPIConfiguration.globalUser,
+        user,
         configuration,
         queryType: OpenFoodAPIConfiguration.globalQueryType,
       );
       return result.count;
     } catch (e) {
+      Logs.e(
+        'Could not count the number of products for $type, ${user.userId}',
+        ex: e,
+      );
       return null;
     }
   }
@@ -433,7 +403,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     required final IconData iconData,
     required final BuildContext context,
     required final LocalDatabase localDatabase,
-    final UserProductSearchType? type,
+    final UserSearchType? type,
   }) =>
       _getListTile(
         title,
@@ -452,7 +422,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
-    final UserProductSearchType? type,
+    final UserSearchType? type,
   }) =>
       UserPreferencesListTile(
         title: Text(title),
@@ -468,9 +438,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                         width: LARGE_SPACE,
                         child: CircularProgressIndicator.adaptive());
                   }
-                  return Text(
-                    snapshot.data == null ? '0' : snapshot.data.toString(),
-                  );
+                  return snapshot.data == null
+                      ? EMPTY_WIDGET
+                      : Text(snapshot.data.toString());
                 },
               )
             : null,

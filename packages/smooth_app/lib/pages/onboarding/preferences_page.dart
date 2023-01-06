@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -113,6 +113,7 @@ class _HelperState extends State<_Helper> {
             isFullVersion: _isProductExpanded,
             isRemovable: false,
             isSettingClickable: false,
+            isProductEditable: false,
           ),
         ),
       ),

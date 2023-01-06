@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:hive/hive.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product_migration.dart';
 import 'package:smooth_app/database/local_database.dart';

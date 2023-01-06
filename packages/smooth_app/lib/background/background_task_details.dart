@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
@@ -86,11 +85,11 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       minimalistProduct,
       uniqueId,
     );
-    await task.addToManager(widget);
+    await task.addToManager(localDatabase, widget: widget);
   }
 
   @override
-  String getSnackBarMessage(final AppLocalizations appLocalizations) =>
+  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
       appLocalizations.product_task_background_schedule;
 
   /// Returns a new background task about changing a product.
@@ -105,7 +104,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
         languageCode: ProductQuery.getLanguage().code,
         inputMap: jsonEncode(minimalistProduct.toJson()),
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.iso2Code,
+        country: ProductQuery.getCountry()!.offTag,
       );
 
   Product get _product =>
@@ -114,12 +113,32 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   /// Uploads the product changes.
   @override
   Future<void> upload() async {
-    // TODO(AshAman999): check returned Status
-    await OpenFoodAPIClient.saveProduct(
+    if (_product.packagings != null || _product.packagingsComplete != null) {
+      // For the moment, some fields can only be saved in V3,
+      // and V3 can only save those fields.
+      final ProductResultV3 result =
+          await OpenFoodAPIClient.temporarySaveProductV3(
+        getUser(),
+        _product.barcode!,
+        packagings: _product.packagings,
+        packagingsComplete: _product.packagingsComplete,
+        language: getLanguage(),
+        country: getCountry(),
+      );
+      if (result.status != ProductResultV3.statusSuccess &&
+          result.status != ProductResultV3.statusWarning) {
+        throw Exception('Could not save product - ${result.errors}');
+      }
+      return;
+    }
+    final Status status = await OpenFoodAPIClient.saveProduct(
       getUser(),
       _product,
       language: getLanguage(),
       country: getCountry(),
     );
+    if (status.status != 1) {
+      throw Exception('Could not save product - ${status.error}');
+    }
   }
 }

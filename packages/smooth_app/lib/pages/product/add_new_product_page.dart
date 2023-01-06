@@ -2,16 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/model/ProductImage.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
-import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const EdgeInsetsGeometry _ROW_PADDING_TOP = EdgeInsetsDirectional.only(
@@ -46,10 +46,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   late Product _product;
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
+  late DaoProductList _daoProductList;
 
+  final ProductList _history = ProductList.history();
+
+  //likely broken: see https://github.com/openfoodfacts/smooth-app/issues/3445
   bool get _nutritionFactsAdded => _product.nutriments != null;
   bool get _basicDetailsAdded =>
       AddBasicDetailsPage.isProductBasicValid(_product);
+
+  bool _alreadyPushedtToHistory = false;
 
   @override
   void initState() {
@@ -57,6 +63,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     _initialProduct = Product(barcode: widget.barcode);
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(widget.barcode);
+    _daoProductList = DaoProductList(_localDatabase);
   }
 
   @override
@@ -68,10 +75,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     context.watch<LocalDatabase>();
     final ThemeData themeData = Theme.of(context);
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final bool empty = _uploadedImages.isEmpty && _otherUploadedImages.isEmpty;
+
+    _addToHistory();
+
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(appLocalizations.new_product),
@@ -105,6 +116,20 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         ),
       ),
     );
+  }
+
+  /// Adds the product to history if at least one of the fields is set.
+  Future<void> _addToHistory() async {
+    if (_alreadyPushedtToHistory) {
+      return;
+    }
+    // TODO(open): Add _nutritionFactsAdded , see (https://github.com/openfoodfacts/smooth-app/issues/3445)
+    if (_basicDetailsAdded ||
+        _uploadedImages.isNotEmpty ||
+        _otherUploadedImages.isNotEmpty) {
+      await _daoProductList.push(_history, _product.barcode!);
+      _alreadyPushedtToHistory = true;
+    }
   }
 
   List<Widget> _buildImageCaptureRows(BuildContext context) {
@@ -203,33 +228,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       child: SmoothLargeButtonWithIcon(
         text: AppLocalizations.of(context).nutritional_facts_input_button_label,
         icon: Icons.edit,
-        onPressed: () async {
-          final OrderedNutrientsCache? cache =
-              await OrderedNutrientsCache.getCache(context);
-          if (!mounted) {
-            return;
-          }
-          if (cache == null) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                    AppLocalizations.of(context).nutrition_cache_loading_error),
-              ),
-            );
-            return;
-          }
-          await Navigator.push<void>(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => NutritionPageLoaded(
-                Product(barcode: widget.barcode),
-                cache.orderedNutrients,
-                isLoggedInMandatory: false,
-              ),
-              fullscreenDialog: true,
-            ),
-          );
-        },
+        onPressed: () async => NutritionPageLoaded.showNutritionPage(
+          product: Product(barcode: widget.barcode),
+          isLoggedInMandatory: false,
+          widget: this,
+        ),
       ),
     );
   }

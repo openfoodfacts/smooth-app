@@ -4,9 +4,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
@@ -88,11 +88,11 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       imageFile,
       uniqueId,
     );
-    await task.addToManager(widget);
+    await task.addToManager(localDatabase, widget: widget);
   }
 
   @override
-  String getSnackBarMessage(final AppLocalizations appLocalizations) =>
+  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
       appLocalizations.image_upload_queued;
 
   /// Returns a new background task about changing a product.
@@ -106,29 +106,34 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         uniqueId: uniqueId,
         barcode: barcode,
         processName: _PROCESS_NAME,
-        imageField: imageField.value,
+        imageField: imageField.offTag,
         imagePath: imageFile.path,
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.iso2Code,
+        country: ProductQuery.getCountry()!.offTag,
       );
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async =>
       TransientFile.putImage(
-        ImageFieldExtension.getType(imageField),
+        ImageField.fromOffTag(imageField)!,
         barcode,
         localDatabase,
         File(imagePath),
       );
 
   @override
-  Future<void> postExecute(final LocalDatabase localDatabase) async =>
-      TransientFile.removeImage(
-        ImageFieldExtension.getType(imageField),
-        barcode,
-        localDatabase,
-      );
+  Future<void> postExecute(final LocalDatabase localDatabase) async {
+    TransientFile.removeImage(
+      ImageField.fromOffTag(imageField)!,
+      barcode,
+      localDatabase,
+    );
+    await BackgroundTaskRefreshLater.addTask(
+      barcode,
+      localDatabase: localDatabase,
+    );
+  }
 
   /// Uploads the product image.
   @override
@@ -136,11 +141,16 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     final SendImage image = SendImage(
       lang: getLanguage(),
       barcode: barcode,
-      imageField: ImageFieldExtension.getType(imageField),
+      imageField: ImageField.fromOffTag(imageField)!,
       imageUri: Uri.parse(imagePath),
     );
 
-    // TODO(AshAman999): check returned Status
-    await OpenFoodAPIClient.addProductImage(getUser(), image);
+    final Status status =
+        await OpenFoodAPIClient.addProductImage(getUser(), image);
+    if (status.status == 'status ok') {
+      return;
+    }
+    throw Exception(
+        'Could not upload picture: ${status.status} / ${status.error}');
   }
 }

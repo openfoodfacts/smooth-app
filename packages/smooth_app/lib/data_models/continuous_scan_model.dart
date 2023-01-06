@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -35,7 +35,6 @@ class ContinuousScanModel with ChangeNotifier {
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
   String? _latestConsultedBarcode;
-  String? _barcodeTrustCheck; // TODO(monsieurtanuki): could probably be removed
   late DaoProduct _daoProduct;
   late DaoProductList _daoProductList;
 
@@ -70,7 +69,6 @@ class ContinuousScanModel with ChangeNotifier {
     try {
       _latestScannedBarcode = null;
       _latestFoundBarcode = null;
-      _barcodeTrustCheck = null;
       _barcodes.clear();
       _states.clear();
       _latestScannedBarcode = null;
@@ -107,10 +105,6 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
 
-    if (_barcodeTrustCheck != code) {
-      _barcodeTrustCheck = code;
-      return false;
-    }
     if (_latestScannedBarcode == code || _barcodes.contains(code)) {
       lastConsultedBarcode = code;
       return false;

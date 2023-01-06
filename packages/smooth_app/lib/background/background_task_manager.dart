@@ -1,10 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/rendering.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
 class BackgroundTaskManager {
@@ -45,7 +48,7 @@ class BackgroundTaskManager {
   }
 
   /// Returns the related task, or null but that is unexpected.
-  Future<AbstractBackgroundTask?> _get(final String taskId) async {
+  AbstractBackgroundTask? _get(final String taskId) {
     try {
       final String? json = DaoInstantString(localDatabase)
           .get(_taskIdToDaoInstantStringKey(taskId));
@@ -102,15 +105,17 @@ class BackgroundTaskManager {
     if (!_canStartNow()) {
       return;
     }
-    String? nextTaskId;
+    AbstractBackgroundTask? nextTask;
     try {
-      while ((nextTaskId = _getNextTaskId()) != null) {
+      while ((nextTask = await _getNextTask()) != null) {
         if (blocked) {
           return;
         }
-        await _runTask(nextTaskId!);
+        await _runTask(nextTask!);
       }
     } catch (e) {
+      debugPrint('Background task error ($e)');
+      Logs.e('Background task error', ex: e);
       return;
     } finally {
       _justFinished();
@@ -118,24 +123,29 @@ class BackgroundTaskManager {
   }
 
   /// Runs a single task. Possible exception.
-  Future<void> _runTask(final String taskId) async {
-    final AbstractBackgroundTask? task = await _get(taskId);
-    if (task == null) {
-      await _remove(taskId);
-      return;
-    }
+  Future<void> _runTask(final AbstractBackgroundTask task) async {
     await task.execute(localDatabase);
     await task.postExecute(localDatabase);
-    await _remove(taskId);
+    await _remove(task.uniqueId);
   }
 
-  /// Returns the next task id
-  String? _getNextTaskId() {
+  /// Returns the next task we can run now.
+  Future<AbstractBackgroundTask?> _getNextTask() async {
     final List<String> list = getAllTaskIds();
     if (list.isEmpty) {
       return null;
     }
-    return list.first;
+    for (final String taskId in list) {
+      final AbstractBackgroundTask? task = _get(taskId);
+      if (task == null) {
+        await _remove(taskId);
+        continue;
+      }
+      if (task.mayRunNow()) {
+        return task;
+      }
+    }
+    return null;
   }
 
   /// Returns all the task ids.

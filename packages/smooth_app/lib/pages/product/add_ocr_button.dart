@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
-import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
+import 'package:smooth_app/pages/product/ocr_helper.dart';
 
-/// "Add ingredients" button for user contribution.
-class AddIngredientsButton extends StatelessWidget {
-  const AddIngredientsButton(this.product);
+/// "Add OCR image" button for user contribution.
+class AddOCRButton extends StatelessWidget {
+  const AddOCRButton({
+    required this.product,
+    required this.helper,
+  });
 
   final Product product;
+  final OcrHelper helper;
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-        AppLocalizations.of(context).score_add_missing_ingredients,
+        helper.getAddButtonLabel(AppLocalizations.of(context)),
         onPressed: () async {
           if (!await ProductRefresher().checkIfLoggedIn(context)) {
             return;
@@ -24,7 +28,7 @@ class AddIngredientsButton extends StatelessWidget {
             MaterialPageRoute<void>(
               builder: (BuildContext context) => EditOcrPage(
                 product: product,
-                helper: OcrIngredientsHelper(),
+                helper: helper,
               ),
             ),
           );

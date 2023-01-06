@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
-import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
@@ -14,25 +9,23 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
-import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
-import 'package:smooth_app/pages/product/add_category_button.dart';
+import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/hideable_container.dart';
+import 'package:smooth_app/pages/product/product_questions_widget.dart';
+import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/query/product_questions_query.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -44,7 +37,7 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
 ];
 
 // Each row in the summary card takes roughly 40px.
-const int SUMMARY_CARD_ROW_HEIGHT = 40;
+const int _SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
   const SummaryCard(
@@ -54,6 +47,7 @@ class SummaryCard extends StatefulWidget {
     this.showUnansweredQuestions = false,
     this.isRemovable = true,
     this.isSettingClickable = true,
+    this.isProductEditable = true,
   });
 
   final Product _product;
@@ -75,6 +69,8 @@ class SummaryCard extends StatefulWidget {
   /// If true, the icon setting will be clickable.
   final bool isSettingClickable;
 
+  /// If true, the product will be editable
+  final bool isProductEditable;
   @override
   State<SummaryCard> createState() => _SummaryCardState();
 }
@@ -83,20 +79,17 @@ class _SummaryCardState extends State<SummaryCard> {
   late Product _product;
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
-  late final bool allowClicking;
 
   // Number of Rows that will be printed in the SummaryCard, initialized to a
   // very high number for infinite rows.
-  int totalPrintableRows = 10000;
+  int _totalPrintableRows = 10000;
 
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
-  bool _annotationVoted = false;
 
   @override
   void initState() {
     super.initState();
-    allowClicking = !widget.isFullVersion;
     _initialProduct = widget._product;
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
@@ -129,7 +122,7 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
-    totalPrintableRows = parentHeight ~/ SUMMARY_CARD_ROW_HEIGHT;
+    _totalPrintableRows = parentHeight ~/ _SUMMARY_CARD_ROW_HEIGHT;
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: SMALL_SPACE,
@@ -198,15 +191,20 @@ class _SummaryCardState extends State<SummaryCard> {
     // Header takes 1 row.
     // Product Title Tile takes 2 rows to render.
     // Footer takes 1 row.
-    totalPrintableRows -= 4;
+    _totalPrintableRows -= 4;
     // Each Score card takes about 1.5 rows to render.
-    totalPrintableRows -= (1.5 * scoreAttributes.length).ceil();
+    _totalPrintableRows -= (1.5 * scoreAttributes.length).ceil();
 
     final List<Widget> displayedGroups = <Widget>[];
 
     // First, a virtual group with mandatory attributes of all groups
     final List<Widget> attributeChips = _buildAttributeChips(
-      _getMandatoryAttributes(),
+      getMandatoryAttributes(
+        _product,
+        _ATTRIBUTE_GROUP_ORDER,
+        _attributesToExcludeIfStatusIsUnknown,
+        widget._productPreferences,
+      ),
     );
     if (attributeChips.isNotEmpty) {
       displayedGroups.add(
@@ -232,9 +230,11 @@ class _SummaryCardState extends State<SummaryCard> {
       }
       final AttributeGroup group = groupIterable.single;
       final List<Widget> attributeChips = _buildAttributeChips(
-        _getFilteredAttributes(
+        getFilteredAttributes(
           group,
           PreferenceImportance.ID_IMPORTANT,
+          _attributesToExcludeIfStatusIsUnknown,
+          widget._productPreferences,
         ),
       );
       if (attributeChips.isNotEmpty) {
@@ -294,8 +294,14 @@ class _SummaryCardState extends State<SummaryCard> {
 
     if (widget.isFullVersion) {
       // Complete category
-      if (statesTags.contains('en:categories-to-be-completed')) {
-        summaryCardButtons.add(AddCategoryButton(_product));
+      if (statesTags
+          .contains(ProductState.CATEGORIES_COMPLETED.toBeCompletedTag)) {
+        summaryCardButtons.add(
+          AddSimpleInputButton(
+            product: _product,
+            helper: SimpleInputPageCategoryHelper(),
+          ),
+        );
       }
 
       // Compare to category
@@ -315,18 +321,22 @@ class _SummaryCardState extends State<SummaryCard> {
       }
 
       // Complete basic details
-      if (statesTags.contains('en:product-name-to-be-completed') ||
-          statesTags.contains('en:quantity-to-be-completed')) {
+      if (statesTags
+              .contains(ProductState.PRODUCT_NAME_COMPLETED.toBeCompletedTag) ||
+          statesTags
+              .contains(ProductState.QUANTITY_COMPLETED.toBeCompletedTag)) {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () async => Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) =>
-                    AddBasicDetailsPage(_product),
-              ),
-            ),
+            onPressed: () async => widget.isProductEditable
+                ? Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          AddBasicDetailsPage(_product),
+                    ),
+                  )
+                : null,
           ),
         );
       }
@@ -349,15 +359,15 @@ class _SummaryCardState extends State<SummaryCard> {
             });
           },
         ),
-        ...getAttributes(scoreAttributes),
-        if (widget.isFullVersion) _buildProductQuestionsWidget(),
+        ..._getAttributes(scoreAttributes),
+        if (widget.isFullVersion) ProductQuestionsWidget(_product),
         attributesContainer,
         ...summaryCardButtons,
       ],
     );
   }
 
-  List<Widget> getAttributes(List<Attribute> scoreAttributes) {
+  List<Widget> _getAttributes(List<Attribute> scoreAttributes) {
     final List<Widget> attributes = <Widget>[];
 
     for (final Attribute attribute in scoreAttributes) {
@@ -367,7 +377,7 @@ class _SummaryCardState extends State<SummaryCard> {
             padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
             child: InkWell(
               borderRadius: ANGULAR_BORDER_RADIUS,
-              onTap: () async => openFullKnowledgePanel(
+              onTap: () async => _openFullKnowledgePanel(
                 attribute: attribute,
               ),
               child: ScoreCard(
@@ -473,7 +483,7 @@ class _SummaryCardState extends State<SummaryCard> {
     final Widget header,
     final List<Widget> attributeChips,
   ) {
-    totalPrintableRows -= (attributeChips.length / 2).ceil();
+    _totalPrintableRows -= (attributeChips.length / 2).ceil();
     return Column(
       children: <Widget>[
         header,
@@ -493,7 +503,7 @@ class _SummaryCardState extends State<SummaryCard> {
     for (final Attribute attribute in attributes) {
       final Widget? attributeChip =
           _buildAttributeChipForValidAttributes(attribute);
-      if (attributeChip != null && result.length / 2 < totalPrintableRows) {
+      if (attributeChip != null && result.length / 2 < _totalPrintableRows) {
         result.add(attributeChip);
       }
     }
@@ -541,8 +551,8 @@ class _SummaryCardState extends State<SummaryCard> {
         return SizedBox(
           width: constraints.maxWidth / 2,
           child: InkWell(
-            enableFeedback: allowAttributeOpening(attribute),
-            onTap: () async => openFullKnowledgePanel(
+            enableFeedback: _isAttributeOpeningAllowed(attribute),
+            onTap: () async => _openFullKnowledgePanel(
               attribute: attribute,
             ),
             child: Row(
@@ -559,173 +569,15 @@ class _SummaryCardState extends State<SummaryCard> {
     );
   }
 
-  /// Returns the mandatory attributes, ordered by attribute group order
-  List<Attribute> _getMandatoryAttributes() {
-    final List<Attribute> result = <Attribute>[];
-    if (_product.attributeGroups == null) {
-      return result;
-    }
-    final Map<String, List<Attribute>> mandatoryAttributesByGroup =
-        <String, List<Attribute>>{};
-    // collecting all the mandatory attributes, by group
-    for (final AttributeGroup attributeGroup in _product.attributeGroups!) {
-      mandatoryAttributesByGroup[attributeGroup.id!] = _getFilteredAttributes(
-        attributeGroup,
-        PreferenceImportance.ID_MANDATORY,
-      );
-    }
-
-    // now ordering by attribute group order
-    for (final String attributeGroupId in _ATTRIBUTE_GROUP_ORDER) {
-      final List<Attribute>? attributes =
-          mandatoryAttributesByGroup[attributeGroupId];
-      if (attributes != null) {
-        result.addAll(attributes);
-      }
-    }
-    return result;
-  }
-
-  /// Returns the attributes that match the filter
-  ///
-  /// [SCORE_ATTRIBUTE_IDS] attributes are not included, as they are already
-  /// dealt with somewhere else.
-  List<Attribute> _getFilteredAttributes(
-    final AttributeGroup attributeGroup,
-    final String importance,
-  ) {
-    final List<Attribute> result = <Attribute>[];
-    if (attributeGroup.attributes == null) {
-      return result;
-    }
-    for (final Attribute attribute in attributeGroup.attributes!) {
-      final String attributeId = attribute.id!;
-      if (SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
-        continue;
-      }
-      if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {
-        _attributesToExcludeIfStatusIsUnknown.add(attributeId);
-      }
-      final String importanceId =
-          widget._productPreferences.getImportanceIdForAttributeId(attributeId);
-      if (importance == importanceId) {
-        result.add(attribute);
-      }
-    }
-    return result;
-  }
-
-  Widget _buildProductQuestionsWidget() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return FutureBuilder<List<RobotoffQuestion>?>(
-        future: _loadProductQuestions(),
-        builder: (
-          BuildContext context,
-          AsyncSnapshot<List<RobotoffQuestion>?> snapshot,
-        ) {
-          final List<RobotoffQuestion> questions =
-              snapshot.data ?? <RobotoffQuestion>[];
-
-          if (questions.isNotEmpty && !_annotationVoted) {
-            return InkWell(
-              onTap: () {
-                Navigator.push<void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (_) => QuestionPage(
-                      product: _product,
-                      questions: questions.toList(),
-                      updateProductUponAnswers: _updateProductUponAnswers,
-                    ),
-                    fullscreenDialog: true,
-                  ),
-                );
-              },
-              child: SmoothCard.angular(
-                margin: EdgeInsets.zero,
-                color: Theme.of(context).colorScheme.primary,
-                elevation: 0,
-                padding: const EdgeInsets.all(
-                  SMALL_SPACE,
-                ),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Column(
-                    children: <Widget>[
-                      // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
-                      Text(
-                        '🏅 ${appLocalizations.tap_to_answer}',
-                        style: Theme.of(context)
-                            .primaryTextTheme
-                            .bodyLarge!
-                            .copyWith(
-                              color: isDarkMode ? Colors.black : WHITE_COLOR,
-                            ),
-                      ),
-                      Container(
-                        padding:
-                            const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-                        child: Text(
-                          appLocalizations.contribute_to_get_rewards,
-                          style: Theme.of(context)
-                              .primaryTextTheme
-                              .bodyText2!
-                              .copyWith(
-                                color: isDarkMode ? Colors.black : WHITE_COLOR,
-                              ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          }
-          return EMPTY_WIDGET;
-        });
-  }
-
-  Future<void> _updateProductUponAnswers() async {
-    // Reload the product questions, they might have been answered.
-    // Or the backend may have new ones.
-    final List<RobotoffQuestion> questions =
-        await _loadProductQuestions() ?? <RobotoffQuestion>[];
-    if (!mounted) {
-      return;
-    }
-    final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(_localDatabase);
-    if (questions.isEmpty) {
-      await robotoffInsightHelper
-          .removeInsightAnnotationsSavedForProdcut(_product.barcode!);
-    }
-    _annotationVoted =
-        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
-  }
-
-  Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
-    final List<RobotoffQuestion> questions =
-        await ProductQuestionsQuery(_product.barcode!).getQuestions();
-    if (!mounted) {
-      return null;
-    }
-    final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(_localDatabase);
-    _annotationVoted =
-        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
-    return questions;
-  }
-
-  bool allowAttributeOpening(Attribute attribute) =>
+  bool _isAttributeOpeningAllowed(Attribute attribute) =>
       widget.isFullVersion &&
       _product.knowledgePanels != null &&
       attribute.panelId != null;
 
-  Future<void> openFullKnowledgePanel({
+  Future<void> _openFullKnowledgePanel({
     required final Attribute attribute,
   }) async {
-    if (!allowAttributeOpening(attribute)) {
+    if (!_isAttributeOpeningAllowed(attribute)) {
       return;
     }
 
@@ -751,72 +603,5 @@ class _SummaryCardState extends State<SummaryCard> {
         ),
       ),
     );
-  }
-}
-
-class HideableContainer extends StatefulWidget {
-  const HideableContainer({
-    required this.child,
-    Key? key,
-  }) : super(key: key);
-
-  final Widget child;
-
-  @override
-  State<HideableContainer> createState() => HideableContainerState();
-}
-
-class HideableContainerState extends State<HideableContainer>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Tween<double> _tween;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _tween = Tween<double>(begin: 1.0, end: 0.0);
-
-    _controller = AnimationController(
-      vsync: this,
-      duration: SmoothAnimationsDuration.medium,
-    );
-
-    _animation = _tween.animate(_controller)
-      ..addListener(() => setState(() {}));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Provider<HideableContainerState>.value(
-      value: this,
-      child: Transform.translate(
-        offset: Offset(0.0, (1 - _animation.value) * 100),
-        child: Opacity(
-          opacity: _animation.value,
-          child: widget.child,
-        ),
-      ),
-    );
-  }
-
-  void hide(VoidCallback onAnimationEnded) {
-    _controller.forward(from: 0.0);
-    _controller.addStatusListener((AnimationStatus status) {
-      if (status == AnimationStatus.completed) {
-        onAnimationEnded();
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  static HideableContainerState of(BuildContext context) {
-    return context.read<HideableContainerState>();
   }
 }

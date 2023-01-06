@@ -1,38 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/scan/ml_kit_scan_page.dart';
+import 'package:smooth_app/pages/scan/camera_scan_page.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/query/products_preload_helper.dart';
 
-/// Collapsed/expanded display of "dev mode" for the preferences page.
+/// Full page display of "dev mode" for the preferences page.
 ///
-/// The dev mode is triggered this way:
-/// * go to the "forgotten password" page
-/// * click 10 times on the action button (in French "Changer le mot de passe")
-/// * you'll see a dialog; obviously click "yes"
-/// * go to the preferences page
-/// * expand/collapse any item
-/// * then you'll see the dev mode in red
+/// The dev mode is triggered by a switch in
+/// Settings => FAQ => Develop => Clicking switch
 class UserPreferencesDevMode extends AbstractUserPreferences {
   UserPreferencesDevMode({
     required final Function(Function()) setState,
@@ -50,9 +44,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesTestEnvHost = '__testEnvHost';
-  static const String userPreferencesFlagAdditionalButton =
-      '__additionalButtonOnProductPage';
-  static const String userPreferencesFlagNewCropTool = '__newCropTool';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
@@ -92,42 +83,20 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   @override
   List<Widget> getBody() => <Widget>[
-        ListTile(
+        SwitchListTile(
           title: Text(
-            appLocalizations.dev_preferences_disable_mode,
+            appLocalizations.contribute_develop_dev_mode_title,
           ),
-          onTap: () async {
+          onChanged: (bool value) async {
+            final NavigatorState navigator = Navigator.of(context);
             // resetting back to "no dev mode"
             await userPreferences.setDevMode(0);
             // resetting back to PROD
             await userPreferences.setFlag(userPreferencesFlagProd, true);
             ProductQuery.setQueryType(userPreferences);
-            setState(() {});
+            navigator.pop();
           },
-        ),
-        ListTile(
-          title: const Text(
-            'Download Data',
-          ),
-          subtitle: const Text(
-              'Download the top 1000 products in your country for instant scanning'),
-          onTap: () async {
-            final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            final DaoProduct daoProduct = DaoProduct(localDatabase);
-            final int newlyAddedProducts = await LoadingDialog.run<int>(
-                  title: 'Downloading data\nThis may take a while',
-                  context: context,
-                  future: PreloadDataHelper(daoProduct).downloadTopProducts(),
-                ) ??
-                0;
-            // ignore: use_build_context_synchronously
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('$newlyAddedProducts products added'),
-              ),
-            );
-            localDatabase.notifyListeners();
-          },
+          value: userPreferences.devMode == 1,
         ),
         ListTile(
           title: Text(
@@ -146,17 +115,25 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           title: Text(
             appLocalizations.dev_preferences_environment_switch_title,
           ),
-          subtitle: Text(
-            appLocalizations.dev_preferences_environment_switch_subtitle(
-              OpenFoodAPIConfiguration.globalQueryType.toString(),
-            ),
+          trailing: DropdownButton<bool>(
+            value: OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD,
+            elevation: 16,
+            onChanged: (bool? newValue) async {
+              await userPreferences.setFlag(userPreferencesFlagProd, newValue);
+              ProductQuery.setQueryType(userPreferences);
+              setState(() {});
+            },
+            items: const <DropdownMenuItem<bool>>[
+              DropdownMenuItem<bool>(
+                value: true,
+                child: Text('PROD'),
+              ),
+              DropdownMenuItem<bool>(
+                value: false,
+                child: Text('TEST'),
+              ),
+            ],
           ),
-          onTap: () async {
-            await userPreferences.setFlag(userPreferencesFlagProd,
-                !(userPreferences.getFlag(userPreferencesFlagProd) ?? true));
-            ProductQuery.setQueryType(userPreferences);
-            setState(() {});
-          },
         ),
         ListTile(
           title: Text(
@@ -172,18 +149,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ListTile(
           title: const Text('Change camera post frame callback duration'),
           onTap: () async => _changeCameraPostFrameCallbackDuration(),
-        ),
-        SwitchListTile(
-          title: Text(
-            appLocalizations.dev_preferences_product_additional_features_title,
-          ),
-          value: userPreferences.getFlag(userPreferencesFlagAdditionalButton) ??
-              false,
-          onChanged: (bool value) async {
-            await userPreferences.setFlag(
-                userPreferencesFlagAdditionalButton, value);
-            _showSuccessMessage();
-          },
         ),
         SwitchListTile(
           title: Text(
@@ -227,6 +192,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           title: Text(
             appLocalizations.dev_preferences_export_history_title,
           ),
+          subtitle: Text(appLocalizations.clipboard_barcode_copy),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
             final Map<String, dynamic> export =
@@ -255,6 +221,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 ),
               );
             }
+
             await showDialog<void>(
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(
@@ -264,6 +231,20 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                   height: 400,
                   width: 300,
                   child: ListView(children: children),
+                ),
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.copy_to_clipboard,
+                  onPressed: () async {
+                    final StringBuffer data = StringBuffer();
+
+                    for (final String key in export.keys) {
+                      data.write('$key, ');
+                    }
+
+                    await Clipboard.setData(
+                      ClipboardData(text: data.toString()),
+                    );
+                  },
                 ),
                 positiveAction: SmoothActionButton(
                   text: appLocalizations.okay,
@@ -319,6 +300,23 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               ),
             );
             localDatabase.notifyListeners();
+          },
+        ),
+        ListTile(
+          title: const Text('Add cards to scanner'),
+          subtitle: const Text('Adds 3 sample products to the scanner'),
+          onTap: () async {
+            final ContinuousScanModel model =
+                context.read<ContinuousScanModel>();
+
+            const List<String> barcodes = <String>[
+              '5449000000996',
+              '3017620425035',
+              '3175680011480',
+            ];
+            for (int i = 0; i < barcodes.length; i++) {
+              await model.onScan(barcodes[i]);
+            }
           },
         ),
         ListTile(
@@ -387,31 +385,31 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         SwitchListTile(
-          title: const Text('Use new crop tool'),
           value:
-              userPreferences.getFlag(userPreferencesFlagNewCropTool) ?? true,
+              userPreferences.getFlag(userPreferencesFlagHungerGames) ?? false,
+          title: const Text('Activate Hunger Games'),
           onChanged: (bool value) async {
             await userPreferences.setFlag(
-                userPreferencesFlagNewCropTool, value);
+              userPreferencesFlagHungerGames,
+              value,
+            );
             setState(() {});
           },
         ),
-        SwitchListTile(
-            value: userPreferences.getFlag(userPreferencesFlagHungerGames) ??
-                false,
-            title: const Text('Activate Hunger Games'),
-            onChanged: (bool value) async {
-              await userPreferences.setFlag(
-                userPreferencesFlagHungerGames,
-                value,
-              );
-              setState(() {});
-            }),
         ListTile(
           // Do not translate
           title: const Text('Reset App Language'),
-          onTap: () async => userPreferences.setAppLanguageCode(null),
+          onTap: () async {
+            userPreferences.setAppLanguageCode(null);
+            ProductQuery.setLanguage(context, userPreferences);
+          },
         ),
+        ListTile(
+          title: const Text("Debug info's"),
+          onTap: () async => Navigator.of(context).push(MaterialPageRoute<void>(
+              builder: (BuildContext context) =>
+                  const UserPreferencesDebugInfo())),
+        )
       ];
 
   ListTile _dataImporterTile() {
@@ -475,7 +473,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   }
 
   Future<void> _changeCameraPostFrameCallbackDuration() async {
-    const int minValue = MLKitScannerPageState.postFrameCallbackStandardDelay;
+    const int minValue = CameraScannerPageState.postFrameCallbackStandardDelay;
     final int initialValue = userPreferences.getDevModeIndex(
           userPreferencesCameraPostFrameDuration,
         ) ??

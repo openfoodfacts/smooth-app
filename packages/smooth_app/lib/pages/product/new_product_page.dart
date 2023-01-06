@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -20,10 +18,11 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
@@ -79,6 +78,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    BackgroundTaskManager(_localDatabase).run(); // no await
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
     inheritedDataManager.setCurrentBarcode(_barcode);
@@ -197,17 +197,56 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             daoProductList,
           ),
           _buildKnowledgePanelCards(),
-          if (context.read<UserPreferences>().getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
-              false)
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Additional Button'),
-            ),
+          if (_product.website != null && _product.website!.trim().isNotEmpty)
+            _buildWebsiteWidget(_product.website!.trim()),
         ],
       ),
     );
   }
+
+  Widget _buildWebsiteWidget(String website) => InkWell(
+        onTap: () async {
+          if (!website.startsWith('http')) {
+            website = 'http://$website';
+          }
+          LaunchUrlHelper.launchURL(website, false);
+        }, // _product.website!
+        child: buildProductSmoothCard(
+          header: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: SMALL_SPACE,
+              horizontal: LARGE_SPACE,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  AppLocalizations.of(context).product_field_website_title,
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              ],
+            ),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.only(
+              bottom: LARGE_SPACE,
+              left: LARGE_SPACE,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  website,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(color: Colors.blue),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
 
   Widget _buildKnowledgePanelCards() {
     final List<Widget> knowledgePanelWidgets = <Widget>[];
@@ -230,9 +269,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   Future<void> _editList() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final bool refreshed = await ProductListUserDialogHelper(daoProductList)
-        .showUserListsWithBarcodeDialog(context, widget.product);
-    if (refreshed) {
+    final bool? refreshed = await ProductListUserDialogHelper(daoProductList)
+        .showUserAddProductsDialog(
+      context,
+      <String>{widget.product.barcode!},
+    );
+    if (refreshed != null && refreshed) {
       setState(() {});
     }
   }
@@ -246,7 +288,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
     final String url = 'https://'
-        '${ProductQuery.getCountry()!.iso2Code}.openfoodfacts.org'
+        '${ProductQuery.getCountry()!.offTag}.openfoodfacts.org'
         '/product/$_barcode';
     Share.share(
       appLocalizations.share_product_text(url),
@@ -318,7 +360,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList,
   ) =>
       FutureBuilder<List<String>>(
-        future: daoProductList.getUserLists(withBarcode: _barcode),
+        future: daoProductList.getUserLists(withBarcodes: <String>[_barcode]),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<String>> snapshot,

@@ -1,4 +1,4 @@
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Helper around product data migration.
 abstract class DaoProductMigration {

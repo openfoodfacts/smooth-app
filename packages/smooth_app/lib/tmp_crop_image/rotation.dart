@@ -38,6 +38,20 @@ extension RotationExtension on Rotation {
     }
   }
 
+  /// Returns the rotation rotated 90 degrees to the left.
+  Rotation get rotateLeft {
+    switch (this) {
+      case Rotation.noon:
+        return Rotation.nineOClock;
+      case Rotation.nineOClock:
+        return Rotation.sixOClock;
+      case Rotation.sixOClock:
+        return Rotation.threeOClock;
+      case Rotation.threeOClock:
+        return Rotation.noon;
+    }
+  }
+
   /// Returns true if the rotated width is the initial height.
   bool get isTilted {
     switch (this) {

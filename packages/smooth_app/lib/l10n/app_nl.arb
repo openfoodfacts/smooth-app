@@ -4,7 +4,7 @@
     "@yes": {},
     "add": "Toevoegen",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "Weet je zeker dat je je account wilt verwijderen?\nAls er een specifieke reden is, deel deze dan hieronder",
     "@account_delete_message": {},
     "reason": "Reden",
     "@reason": {},
@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Ontbrekende ingrediënten toevoegen",
+    "score_add_missing_packaging_image": "Add missing packaging image",
     "score_add_missing_nutrition_facts": "Ontbrekende voedingswaarden toevoegen",
     "score_add_missing_product_category": "Ontbrekende productcategorie toevoegen",
+    "score_add_missing_product_countries": "Add missing product countries",
+    "score_add_missing_product_emb": "Add missing product traceability codes",
+    "score_add_missing_product_labels": "Add missing product labels",
+    "score_add_missing_product_origins": "Add missing product origins",
+    "score_add_missing_product_stores": "Add missing product stores",
     "score_update_nutrition_facts": "Voedingswaarden bijwerken",
     "nutrition_page_title": "Voedingswaarden",
     "nutrition_page_unspecified": "De voedingswaarden zijn niet op het product vermeld",
@@ -898,6 +904,10 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
+    "account_deletion_subject": "Verwijder mijn account",
+    "@account_deletion_subject": {
+        "description": "Subject of the webview open when the user wants to delete his account"
+    },
     "user_profile": "Account",
     "@user_profile": {
         "description": "User account (if connected)"
@@ -1037,7 +1047,15 @@
     },
     "edit_product_form_item_details_subtitle": "Productnaam, merk, hoeveelheid",
     "@edit_product_form_item_details_subtitle": {
-        "description": "Product edition - Basic Details - Title"
+        "description": "Product edition - Basic Details - Subtitle"
+    },
+    "edit_product_form_item_other_details_title": "Aanvullende details",
+    "@edit_product_form_item_other_details_title": {
+        "description": "Product edition - Other Details - Title"
+    },
+    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "@edit_product_form_item_other_details_subtitle": {
+        "description": "Product edition - Other Details - Subtitle"
     },
     "edit_product_form_item_photos_title": "Foto's",
     "@edit_product_form_item_photos_title": {
@@ -1137,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Toevoegen",
     "edit_product_form_item_add_invalid_item_tooltip": "Voer eerst een tekst in alsjeblieft",
     "edit_product_form_item_remove_item_tooltip": "Verwijderen",
-    "edit_product_form_item_packaging_title": "Verpakking",
+    "edit_product_form_item_packaging_title": "Recycling instructions photo",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1152,6 +1170,10 @@
     "edit_product_form_save": "Bewerken",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "product_field_website_title": "Website",
+    "@product_field_website_title": {
+        "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "Basisdetails aanvullen",
     "not_implemented_snackbar_text": "Nog niet geïmplementeerd",
@@ -1203,6 +1225,10 @@
     "user_list_button_add_product": "Toevoegen aan lijst",
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
+    },
+    "added_to_list_msg": "Toegevoegd aan lijst",
+    "@added_to_list_msg": {
+        "description": "Message when products have been successfully added to a list"
     },
     "user_list_popup_clear": "Wissen",
     "@user_list_popup_clear": {
@@ -1261,30 +1287,17 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_disable_mode": "Dev-modus verwijderen",
-    "@dev_preferences_disable_mode": {
-        "description": "User dev preferences - Remove dev mode label"
-    },
     "dev_preferences_reset_onboarding_title": "Onboarding opnieuw starten",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Je moet dan Flutter opnieuw opstarten om het weer te zien.",
+    "dev_preferences_reset_onboarding_subtitle": "U moet de app dan opnieuw opstarten.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
     "dev_preferences_environment_switch_title": "Schakel tussen openfoodfacts.org (PROD) en test env",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
-    },
-    "dev_preferences_environment_switch_subtitle": "Huidig zoektype is {query}",
-    "@dev_preferences_environment_switch_subtitle": {
-        "description": "User dev preferences - Environment (prod/test) switcher - Subtitle",
-        "placeholders": {
-            "query": {
-                "type": "String"
-            }
-        }
     },
     "dev_preferences_test_environment_title": "Testomgevingsparameters",
     "@dev_preferences_test_environment_title": {
@@ -1655,6 +1668,10 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
+    "copy_to_clipboard": "Kopiëren",
+    "@copy_to_clipboard": {
+        "description": "Copy to clipboard button description"
+    },
     "clipboard_barcode_copy": "Kopieer de barcode naar het klembord",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
@@ -1748,5 +1765,63 @@
     "show_password": "Laat wachtwoord zien",
     "@show_password": {
         "description": "Show hidden password in password field"
-    }
+    },
+    "app_rating_dialog_title": "Geweldig! Laat anderen weten wat je vindt van deze app!",
+    "app_rating_dialog_positive_action": "Beoordeel de app",
+    "app_rating_dialog_negative_action": "Later",
+    "app_rating_dialog_title_enjoying_app": "Geniet je van de app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
+    "not_really": "Niet echt",
+    "app_rating_dialog_title_not_enjoying_app": "Het spijt me dat te horen! Kun je me vertellen wat er is gebeurd?",
+    "edit_packagings_title": "Packaging components",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Add a packaging component",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "The packaging is complete",
+    "edit_packagings_element_title": "Packaging component #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Number of units",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Vorm",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Materiaal",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "feed_back": "Feedback"
 }
