@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.2.1](https://github.com/openfoodfacts/smooth-app/compare/v4.2.0...v4.2.1) (2023-01-06)
+
+
+### 🛠 Miscellaneous
+
+* New Crowdin translations ([#3531](https://github.com/openfoodfacts/smooth-app/issues/3531)) ([984fa73](https://github.com/openfoodfacts/smooth-app/commit/984fa7343526e6fc87f4ad7f5af5557cd1720f7e))
+
+
+### 🤖 Automation
+
+* fix failing CI ([62f7769](https://github.com/openfoodfacts/smooth-app/commit/62f7769a36e87cc62979dc01ddd408ea0877d6db))
+
+
+### 🐛 Bug Fixes
+
+* [#3536](https://github.com/openfoodfacts/smooth-app/issues/3536) don't force entry into edit screen on card tap ([#3540](https://github.com/openfoodfacts/smooth-app/issues/3540)) ([f39de2a](https://github.com/openfoodfacts/smooth-app/commit/f39de2aac37c60a133ec8d098e0e06f01c41ddac))
+* 3533 - using a not temporary directory for images to be uploaded ([#3539](https://github.com/openfoodfacts/smooth-app/issues/3539)) ([1190474](https://github.com/openfoodfacts/smooth-app/commit/1190474c9b28a995047c12e2465de75c19d02019))
+
 ## [4.2.0](https://github.com/openfoodfacts/smooth-app/compare/v4.1.0...v4.2.0) (2023-01-05)
 
 
