@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 
 class ProductTitleCard extends StatelessWidget {
   const ProductTitleCard(
