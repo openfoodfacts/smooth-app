@@ -98,82 +98,49 @@ class _CropPageState extends State<CropPage> {
         backgroundColor: Colors.black,
         body: _processing
             ? const Center(child: CircularProgressIndicator.adaptive())
-            : Stack(
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Positioned(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: RotatedCropImage(
-                        controller: _controller,
-                        image: _image,
-                        minimumImageSize: 1,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      _IconButton(
+                        iconData: Icons.rotate_90_degrees_ccw_outlined,
+                        onPressed: () => setState(
+                          () => _controller.rotateLeft(),
+                        ),
                       ),
+                      _IconButton(
+                        iconData: Icons.rotate_90_degrees_cw_outlined,
+                        onPressed: () => setState(
+                          () => _controller.rotateRight(),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: RotatedCropImage(
+                      controller: _controller,
+                      image: _image,
+                      minimumImageSize: 1,
                     ),
                   ),
-                  Positioned(
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                          bottom: MEDIUM_SPACE,
-                        ),
-                        child: ElevatedButton(
-                          onPressed: () => setState(
-                            () => _controller.rotateRight(),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            shape: const CircleBorder(),
-                          ),
-                          child:
-                              const Icon(Icons.rotate_90_degrees_cw_outlined),
-                        ),
+                  Wrap(
+                    spacing: MEDIUM_SPACE,
+                    alignment: WrapAlignment.center,
+                    children: <Widget>[
+                      _OutlinedButton(
+                        iconData: Icons.camera_alt,
+                        label: appLocalizations.capture,
+                        onPressed: () async => _capture(),
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                          bottom: MEDIUM_SPACE,
-                        ),
-                        child: ElevatedButton(
-                          onPressed: () => setState(
-                            () => _controller.rotateLeft(),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            shape: const CircleBorder(),
-                          ),
-                          child:
-                              const Icon(Icons.rotate_90_degrees_ccw_outlined),
-                        ),
+                      _OutlinedButton(
+                        iconData: Icons.check,
+                        label: appLocalizations.confirm_button_label,
+                        onPressed: () async => _mayExitPage(saving: true),
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                            bottom: MEDIUM_SPACE),
-                        child: Wrap(
-                          spacing: MEDIUM_SPACE,
-                          alignment: WrapAlignment.center,
-                          children: <Widget>[
-                            _OutlinedButton(
-                              iconData: Icons.camera_alt,
-                              label: appLocalizations.capture,
-                              onPressed: () async => _capture(),
-                            ),
-                            _OutlinedButton(
-                              iconData: Icons.check,
-                              label: appLocalizations.confirm_button_label,
-                              onPressed: () async => _mayExitPage(saving: true),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    ],
                   ),
                 ],
               ),
@@ -285,7 +252,25 @@ class _CropPageState extends State<CropPage> {
   }
 }
 
-/// Standard button for this page.
+/// Standard icon button for this page.
+class _IconButton extends StatelessWidget {
+  const _IconButton({
+    required this.iconData,
+    required this.onPressed,
+  });
+
+  final IconData iconData;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) => ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(shape: const CircleBorder()),
+        child: Icon(iconData),
+      );
+}
+
+/// Standard text button for this page.
 class _OutlinedButton extends StatelessWidget {
   const _OutlinedButton({
     required this.iconData,
@@ -298,20 +283,17 @@ class _OutlinedButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
-    return OutlinedButton.icon(
-      icon: Icon(iconData),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-          themeData.colorScheme.background,
+  Widget build(BuildContext context) => OutlinedButton.icon(
+        icon: Icon(iconData),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(
+            Theme.of(context).colorScheme.background,
+          ),
+          shape: MaterialStateProperty.all(
+            const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+          ),
         ),
-        shape: MaterialStateProperty.all(
-          const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-        ),
-      ),
-      onPressed: onPressed,
-      label: Text(label),
-    );
-  }
+        onPressed: onPressed,
+        label: Text(label),
+      );
 }

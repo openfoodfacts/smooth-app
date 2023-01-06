@@ -162,13 +162,7 @@ class _RotatedCropImageState extends State<RotatedCropImage> {
     }
   }
 
-  final double maxWidthPct = 1;
-  final double maxHeightPct = .75;
-
-  double _getWidth(final BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double maxWidth = screenSize.width * maxWidthPct;
-    final double maxHeight = screenSize.height * maxHeightPct;
+  double _getWidth(final double maxWidth, final double maxHeight) {
     double imageRatio = widget.image.width / widget.image.height;
     final double screenRatio = maxWidth / maxHeight;
     if (widget.controller!.value.rotation.isTilted) {
@@ -180,10 +174,7 @@ class _RotatedCropImageState extends State<RotatedCropImage> {
     return maxHeight * imageRatio;
   }
 
-  double _getHeight(final BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double maxWidth = screenSize.width * maxWidthPct;
-    final double maxHeight = screenSize.height * maxHeightPct;
+  double _getHeight(final double maxWidth, final double maxHeight) {
     double imageRatio = widget.image.width / widget.image.height;
     final double screenRatio = maxWidth / maxHeight;
     if (widget.controller!.value.rotation.isTilted) {
@@ -196,38 +187,49 @@ class _RotatedCropImageState extends State<RotatedCropImage> {
   }
 
   @override
-  Widget build(BuildContext context) => Stack(
-        children: <Widget>[
-          //Container(color: Colors.red),
-          SizedBox(
-            width: _getWidth(context),
-            height: _getHeight(context),
-            child: CustomPaint(
-              painter: ImageCustomPainter(
-                widget.image,
-                widget.controller!.value.rotation,
-              ),
-            ),
-          ),
-          Positioned.fill(
-            child: GestureDetector(
-              onPanStart: onPanStart,
-              onPanUpdate: onPanUpdate,
-              onPanEnd: onPanEnd,
-              child: CropGrid(
-                crop: currentCrop,
-                gridColor: widget.gridColor,
-                cornerSize: widget.gridCornerSize,
-                thinWidth: widget.gridThinWidth,
-                thickWidth: widget.gridThickWidth,
-                scrimColor: widget.scrimColor,
-                alwaysShowThirdLines: widget.alwaysShowThirdLines,
-                isMoving: panStart != null,
-                onSize: (final Size size) => this.size = size,
-              ),
-            ),
-          )
-        ],
+  Widget build(BuildContext context) => Center(
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            final double maxWidth = constraints.maxWidth;
+            final double maxHeight = constraints.maxHeight;
+            final double width = _getWidth(maxWidth, maxHeight);
+            final double height = _getHeight(maxWidth, maxHeight);
+            return Stack(
+              children: <Widget>[
+                SizedBox(
+                  width: width,
+                  height: height,
+                  child: CustomPaint(
+                    painter: ImageCustomPainter(
+                      widget.image,
+                      widget.controller!.value.rotation,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: width,
+                  height: height,
+                  child: GestureDetector(
+                    onPanStart: onPanStart,
+                    onPanUpdate: onPanUpdate,
+                    onPanEnd: onPanEnd,
+                    child: CropGrid(
+                      crop: currentCrop,
+                      gridColor: widget.gridColor,
+                      cornerSize: widget.gridCornerSize,
+                      thinWidth: widget.gridThinWidth,
+                      thickWidth: widget.gridThickWidth,
+                      scrimColor: widget.scrimColor,
+                      alwaysShowThirdLines: widget.alwaysShowThirdLines,
+                      isMoving: panStart != null,
+                      onSize: (final Size size) => this.size = size,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
       );
 
   void onPanStart(DragStartDetails details) {
