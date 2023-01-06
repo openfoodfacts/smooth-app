@@ -235,6 +235,8 @@ android_keys.zip
 /packages/smooth_app/ios/fastlane/envfiles/AuthKey_KDAUTTM76R.p8
 /packages/smooth_app/ios/fastlane/.env
 
+# Flutter version manager
+.fvm/
 
 # Unsupported locals
 app_ach.arb 

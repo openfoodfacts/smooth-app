@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// Initializes both the user agent && the SSL certificate
 Future<void> setupAppNetworkConfig() async {
@@ -13,48 +14,31 @@ Future<void> setupAppNetworkConfig() async {
 }
 
 Future<void> _initUserAgent() async {
-  final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  try {
+    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
-  final String name = 'Smoothie - ${packageInfo.appName}';
-  final String version = '${packageInfo.version}+${packageInfo.buildNumber}';
-  final String system =
-      '${Platform.operatingSystem}+${Platform.operatingSystemVersion}';
-  final String comment = _getAppInfoComment(
-    name: name,
-    version: version,
-    system: system,
-  );
-  OpenFoodAPIConfiguration.userAgent = UserAgent(
+    final String name = 'Smoothie - ${packageInfo.appName}';
+    final String version = '${packageInfo.version}+${packageInfo.buildNumber}';
+    final String system =
+        '${Platform.operatingSystem}+${Platform.operatingSystemVersion}';
+
+    // Setting no comment here as this will be overridden at runtime
+    OpenFoodAPIConfiguration.userAgent = UserAgent(
       name: name,
       version: version,
       system: system,
       url: 'https://world.openfoodfacts.org/',
-      comment: comment);
-}
-
-String _getAppInfoComment({
-  bool withName = true,
-  String name = '',
-  bool withVersion = true,
-  String version = '',
-  bool withSystem = true,
-  String system = '',
-}) {
-  String appInfo = '';
-  const String infoDelimiter = ' - ';
-  if (withName) {
-    appInfo += infoDelimiter;
-    appInfo += name;
+    );
+  } catch (e) {
+    Logs.e('Failed to set user agent $e');
+    OpenFoodAPIConfiguration.userAgent = UserAgent(
+      name: 'Smoothie (error)',
+      version: '',
+      system:
+          'isAndroid: ${Platform.isAndroid}, isIOS: ${Platform.isIOS}, error: $e',
+      url: 'https://world.openfoodfacts.org/',
+    );
   }
-  if (withVersion) {
-    appInfo += infoDelimiter;
-    appInfo += version;
-  }
-  if (withSystem) {
-    appInfo += infoDelimiter;
-    appInfo += system;
-  }
-  return appInfo;
 }
 
 /// Imports the OFF SSL certificate (for Android 7.1+ / iOS devices)

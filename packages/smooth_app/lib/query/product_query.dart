@@ -5,6 +5,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:uuid/uuid.dart';
 
 // ignore: avoid_classes_with_only_static_members
@@ -61,12 +62,15 @@ abstract class ProductQuery {
       '_'
       '${getCountry()!.offTag.toUpperCase()}';
 
-  /// Sets a comment for the user agent.
+  /// Sets a dynamic comment for the user agent.
   ///
   /// cf. https://github.com/openfoodfacts/smooth-app/issues/2248
   static void setUserAgentComment(final String comment) {
     final UserAgent? previous = OpenFoodAPIConfiguration.userAgent;
     if (previous == null) {
+      Logs.e(
+        'Failed to set dynamic user agent, userAgent == null',
+      );
       return;
     }
     OpenFoodAPIConfiguration.userAgent = UserAgent(
