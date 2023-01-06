@@ -192,7 +192,7 @@ class _CropPageState extends State<CropPage> {
     final int sequenceNumber =
         await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
 
-    final Directory tempDirectory = await getTemporaryDirectory();
+    final Directory tempDirectory = await getApplicationSupportDirectory();
     final String path = '${tempDirectory.path}/crop_$sequenceNumber.jpeg';
     final File file = File(path);
     await file.writeAsBytes(data);
