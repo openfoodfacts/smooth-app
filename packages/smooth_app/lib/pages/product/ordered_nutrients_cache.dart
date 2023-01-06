@@ -1,10 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/OrderedNutrients.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -77,7 +74,7 @@ class OrderedNutrientsCache {
     final OpenFoodFactsCountry country = ProductQuery.getCountry()!;
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
     return 'nutrients.pl'
-        '/${country.iso2Code}'
+        '/${country.offTag}'
         '/${language.code}'
         '/${OpenFoodAPIConfiguration.globalQueryType}';
   }

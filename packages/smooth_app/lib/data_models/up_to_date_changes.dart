@@ -1,4 +1,4 @@
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -71,8 +71,16 @@ class UpToDateChanges {
     if (change.ingredientsText != null) {
       initial.ingredientsText = change.ingredientsText;
     }
+    // ignore: deprecated_member_use
     if (change.packaging != null) {
+      // ignore: deprecated_member_use
       initial.packaging = change.packaging;
+    }
+    if (change.packagings != null) {
+      initial.packagings = change.packagings;
+    }
+    if (change.packagingsComplete != null) {
+      initial.packagingsComplete = change.packagingsComplete;
     }
     if (change.noNutritionData != null) {
       initial.noNutritionData = change.noNutritionData;

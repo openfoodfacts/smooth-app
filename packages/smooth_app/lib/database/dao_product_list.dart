@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -221,6 +221,37 @@ class DaoProductList extends AbstractDao {
     return true;
   }
 
+  /// Adds or removes list of barcodes to/from a [productList] in one go (depending on [include])
+  Future<void> bulkSet(
+    final ProductList productList,
+    final List<String> barcodes, {
+    final bool include = true,
+  }) async {
+    final _BarcodeList? list = await _get(productList);
+    final List<String> allBarcodes;
+
+    if (list == null) {
+      allBarcodes = <String>[];
+    } else {
+      allBarcodes = _getSafeBarcodeListCopy(list.barcodes);
+    }
+
+    for (final String barcode in barcodes) {
+      if (include) {
+        if (!allBarcodes.contains(barcode)) {
+          allBarcodes.add(barcode);
+        }
+      } else {
+        if (allBarcodes.contains(barcode)) {
+          allBarcodes.remove(barcode);
+        }
+      }
+    }
+
+    final _BarcodeList newList = _BarcodeList.now(allBarcodes);
+    await _put(_getKey(productList), newList);
+  }
+
   Future<ProductList> rename(
     final ProductList initialList,
     final String newName,
@@ -257,8 +288,9 @@ class DaoProductList extends AbstractDao {
 
   /// Returns the names of the user lists.
   ///
-  /// Possibly restricted to the user lists that contain the given barcode.
-  Future<List<String>> getUserLists({String? withBarcode}) async {
+  /// Possibly restricted to the user lists that contains ALL the given barcodes.
+  Future<List<String>> getUserLists({List<String>? withBarcodes}) async {
+    // TODO(m123): change return type to a set
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
       final String tmp = key.toString();
@@ -266,14 +298,23 @@ class DaoProductList extends AbstractDao {
       if (productListType != ProductListType.USER) {
         continue;
       }
-      if (withBarcode != null) {
+      if (withBarcodes != null) {
         final _BarcodeList? barcodeList = await _getBox().get(key);
-        if (barcodeList == null ||
-            !barcodeList.barcodes.contains(withBarcode)) {
+        if (barcodeList == null) {
           continue;
         }
+        for (final String barcode in withBarcodes) {
+          if (!barcodeList.barcodes.contains(barcode)) {
+            break;
+          }
+          if (withBarcodes.last == barcode) {
+            result.add(getProductListParameters(tmp));
+            break;
+          }
+        }
+      } else {
+        result.add(getProductListParameters(tmp));
       }
-      result.add(getProductListParameters(tmp));
     }
     return result;
   }

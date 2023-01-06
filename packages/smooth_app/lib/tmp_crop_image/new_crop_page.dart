@@ -15,6 +15,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
@@ -30,11 +31,15 @@ class CropPage extends StatefulWidget {
     required this.inputFile,
     required this.barcode,
     required this.imageField,
+    required this.brandNewPicture,
   });
 
   final File inputFile;
   final ImageField imageField;
   final String barcode;
+
+  /// Is that a new picture we crop, or an existing picture?
+  final bool brandNewPicture;
 
   @override
   State<CropPage> createState() => _CropPageState();
@@ -176,12 +181,12 @@ class _CropPageState extends State<CropPage> {
     );
   }
 
-  Future<void> _saveFileAndExit() async {
+  Future<bool> _saveFileAndExit() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoInt daoInt = DaoInt(localDatabase);
     final image2.Image? rawImage = await _controller.croppedBitmap();
     if (rawImage == null) {
-      return;
+      return true;
     }
     final Uint8List data = Uint8List.fromList(image2.encodeJpg(rawImage));
     final int sequenceNumber =
@@ -193,7 +198,7 @@ class _CropPageState extends State<CropPage> {
     await file.writeAsBytes(data);
 
     if (!mounted) {
-      return;
+      return true;
     }
 
     await BackgroundTaskImage.addTask(
@@ -204,16 +209,17 @@ class _CropPageState extends State<CropPage> {
     );
     localDatabase.notifyListeners();
     if (!mounted) {
-      return;
+      return true;
     }
     final ContinuousScanModel model = context.read<ContinuousScanModel>();
     await model
         .onCreateProduct(widget.barcode); // TODO(monsieurtanuki): a bit fishy
 
     if (!mounted) {
-      return;
+      return true;
     }
     Navigator.of(context).pop<File>(file);
+    return true;
   }
 
   static const String _CROP_PAGE_SEQUENCE_KEY = 'crop_page_sequence';
@@ -225,7 +231,8 @@ class _CropPageState extends State<CropPage> {
   Future<bool> _mayExitPage({required final bool saving}) async {
     if (_controller.value.rotation == Rotation.noon &&
         _controller.value.crop == _initialRect &&
-        _samePicture) {
+        _samePicture &&
+        !widget.brandNewPicture) {
       // nothing has changed, let's leave
       if (saving) {
         Navigator.of(context).pop();
@@ -243,10 +250,23 @@ class _CropPageState extends State<CropPage> {
       if (pleaseSave == false) {
         return true;
       }
+      if (!mounted) {
+        return false;
+      }
     }
 
-    await _saveFileAndExit();
-    return true;
+    try {
+      return _saveFileAndExit();
+    } catch (e) {
+      if (mounted) {
+        // not likely to happen, but you never know...
+        await LoadingDialog.error(
+          context: context,
+          title: 'Could not prepare picture with exception $e',
+        );
+      }
+      return false;
+    }
   }
 
   Future<void> _capture() async {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -11,6 +10,8 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+
+import 'package:smooth_app/query/products_preload_helper.dart';
 
 class OfflineDataPage extends StatefulWidget {
   const OfflineDataPage({Key? key}) : super(key: key);
@@ -52,6 +53,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
     parametersList: <Parameter>[
       BarcodeParameter.list(productsWithoutKnowledgePanel),
     ],
+    version: ProductQuery.productQueryVersion,
   );
 
   final SearchResult result = await OpenFoodAPIClient.searchProducts(
@@ -73,6 +75,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
     parametersList: <Parameter>[
       BarcodeParameter.list(completeProducts),
     ],
+    version: ProductQuery.productQueryVersion,
   );
 
   final SearchResult resultForFullProducts =
@@ -118,6 +121,31 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
             ),
             _StatsWidget(
               daoProduct: daoProduct,
+            ),
+            _OfflinePageListTile(
+              title: 'Download Data',
+              subtitle:
+                  'Download the top 1000 products in your country for instant scanning',
+              onTap: () async {
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
+                final DaoProduct daoProduct = DaoProduct(localDatabase);
+                final int newlyAddedProducts = await LoadingDialog.run<int>(
+                      title: 'Downloading data\nThis may take a while',
+                      context: context,
+                      future:
+                          PreloadDataHelper(daoProduct).downloadTopProducts(),
+                    ) ??
+                    0;
+                // ignore: use_build_context_synchronously
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('$newlyAddedProducts products added'),
+                  ),
+                );
+                localDatabase.notifyListeners();
+              },
+              trailing: const Icon(Icons.download),
             ),
             _OfflinePageListTile(
               title: 'Update Offline Product Data',

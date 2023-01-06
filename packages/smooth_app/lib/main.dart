@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -213,6 +213,10 @@ class _SmoothAppState extends State<SmoothApp> {
     final bool isOnboardingComplete =
         OnboardingFlowNavigator.isOnboardingComplete(lastVisitedOnboardingPage);
     themeProvider.setOnboardingComplete(isOnboardingComplete);
+
+    // Still need the value from the UserPreferences here, not the ProductQuery
+    // as the value is not available at this time
+    // will refresh each time the language changes
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
 
@@ -233,7 +237,7 @@ class _SmoothAppState extends State<SmoothApp> {
         themeProvider,
       ),
       themeMode: themeProvider.currentThemeMode,
-      home: SmoothAppGetLanguage(appWidget),
+      home: SmoothAppGetLanguage(appWidget, _userPreferences),
     );
   }
 
@@ -253,23 +257,18 @@ class _SmoothAppState extends State<SmoothApp> {
 /// Layer needed because we need to know the language. Language isn't available
 /// in the [context] in top level widget ([SmoothApp])
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage(this.appWidget);
+  const SmoothAppGetLanguage(this.appWidget, this.userPreferences);
 
   final Widget appWidget;
+  final UserPreferences userPreferences;
 
   @override
   Widget build(BuildContext context) {
     // TODO(monsieurtanuki): refactor removing the `SmoothAppGetLanguage` layer?
-    // will refresh each time the language changes
-    context.select(
-      (final UserPreferences userPreferences) =>
-          userPreferences.appLanguageCode,
-    );
-    final String languageCode = Localizations.localeOf(context).languageCode;
-    ProductQuery.setLanguage(languageCode);
-    context.read<ProductPreferences>().refresh(languageCode);
+    ProductQuery.setLanguage(context, userPreferences);
+    context.read<ProductPreferences>().refresh();
 
-    // The migration requires the language to be set in the app
+    // The migration requires the language to be set in the app!
     _appDataImporter.startMigrationAsync();
 
     return appWidget;

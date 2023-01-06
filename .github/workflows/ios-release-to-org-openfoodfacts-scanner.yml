@@ -38,7 +38,7 @@ on:
 
 env:
   JAVA_VERSION: 17
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.2.0
  
 jobs:
   testflight-release:
@@ -53,7 +53,12 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-      
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/app/ios/    
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/app/android/    
       - name: Setup Java JDK
         uses: actions/setup-java@v3.6.0
         with:
@@ -92,10 +97,10 @@ jobs:
       # We are using the android version code here to have the version codes from iOS and android in sync 
       # in order for Sentry and other tools to work properly
       - name: Bump version
-        uses: maierj/fastlane-action@v2.3.0
+        uses: maierj/fastlane-action@v3.0.0
         with:
           lane: setVersion
-          subdirectory: packages/app/android
+          subdirectory: ./packages/app/android/
         env:
           VERSION_NAME: ${{ inputs.VERSION_NAME }}
           VERSION_CODE: ${{ inputs.VERSION_CODE }}

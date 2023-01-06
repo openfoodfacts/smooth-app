@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
+import 'package:smooth_app/pages/product/edit_new_packagings.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
 import 'package:smooth_app/pages/product/ocr_packaging_helper.dart';
@@ -201,6 +202,24 @@ class _EditProductPageState extends State<EditProductPage> {
                 ),
               ),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
+              _ListTitleItem(
+                leading: const Icon(Icons.recycling),
+                title: appLocalizations.edit_packagings_title,
+                onTap: () async {
+                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                    return;
+                  }
+                  await Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => EditNewPackagings(
+                        product: _product,
+                      ),
+                      fullscreenDialog: true,
+                    ),
+                  );
+                },
+              ),
               _ListTitleItem(
                 leading: const Icon(Icons.recycling),
                 title: appLocalizations.edit_product_form_item_packaging_title,

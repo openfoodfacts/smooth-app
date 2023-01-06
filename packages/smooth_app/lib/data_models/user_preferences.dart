@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -167,6 +167,7 @@ class UserPreferences extends ChangeNotifier {
   bool get inAppReviewAlreadyAsked =>
       _sharedPreferences.getBool(_TAG_IN_APP_REVIEW_ALREADY_DISPLAYED) ?? false;
 
+  /// Please use [ProductQuery.setLanguage] as interface
   Future<void> setAppLanguageCode(String? languageCode) async {
     if (languageCode == null) {
       await _sharedPreferences
@@ -178,6 +179,7 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Please use [ProductQuery.getLanguage] as interface
   String? get appLanguageCode =>
       getDevModeString(UserPreferencesDevMode.userPreferencesAppLanguageCode);
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';

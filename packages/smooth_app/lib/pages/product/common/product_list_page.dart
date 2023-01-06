@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -96,8 +95,14 @@ class _ProductListPageState extends State<ProductListPage>
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
     return SmoothScaffold(
-      floatingActionButton: _selectionMode || products.length <= 1
-          ? null
+      floatingActionButton: _selectionMode
+          ? _CompareProductsButton(
+              selectedBarcodes: _selectedBarcodes,
+              barcodes: products,
+              onComparisonEnded: () {
+                setState(() => _selectionMode = false);
+              },
+            )
           : FloatingActionButton.extended(
               onPressed: () => setState(() => _selectionMode = true),
               label: Text(appLocalizations.compare_products_mode),
@@ -181,15 +186,6 @@ class _ProductListPageState extends State<ProductListPage>
         actionModeTitle: Text(appLocalizations.compare_products_appbar_title),
         actionModeSubTitle:
             Text(appLocalizations.compare_products_appbar_subtitle),
-        actionModeActions: <Widget>[
-          _CompareProductsButton(
-            selectedBarcodes: _selectedBarcodes,
-            barcodes: products,
-            onComparisonEnded: () {
-              setState(() => _selectionMode = false);
-            },
-          )
-        ],
       ),
       body: products.isEmpty
           ? GestureDetector(
@@ -396,6 +392,7 @@ class _ProductListPageState extends State<ProductListPage>
           parametersList: <Parameter>[
             BarcodeParameter.list(barcodes),
           ],
+          version: ProductQuery.productQueryVersion,
         ),
       );
       final List<Product>? freshProducts = searchResult.products;
@@ -435,7 +432,8 @@ class _CompareProductsButton extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return IconButton(
+    return FloatingActionButton.extended(
+      label: Text(appLocalizations.compare_products_mode),
       icon: const Icon(Icons.compare_arrows),
       tooltip: appLocalizations.plural_compare_x_products(
         selectedBarcodes.length,

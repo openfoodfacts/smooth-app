@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/model/ProductImage.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
@@ -161,6 +160,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
           barcode: _barcode,
           imageField: _imageData.imageField,
           inputFile: imageFile!,
+          brandNewPicture: false,
         ),
         fullscreenDialog: true,
       ),
