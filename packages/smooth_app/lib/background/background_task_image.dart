@@ -122,13 +122,20 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         File(imagePath),
       );
 
+  // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
   @override
   Future<void> postExecute(final LocalDatabase localDatabase) async {
+    try {
+      File(imagePath).deleteSync();
+    } catch (e) {
+      // not likely, but let's not spoil the task for that either.
+    }
     TransientFile.removeImage(
       ImageField.fromOffTag(imageField)!,
       barcode,
       localDatabase,
     );
+    localDatabase.notifyListeners();
     await BackgroundTaskRefreshLater.addTask(
       barcode,
       localDatabase: localDatabase,
