@@ -122,11 +122,15 @@ class BackgroundTaskManager {
     }
   }
 
-  /// Runs a single task. Possible exception.
+  // TODO(monsieurtanuki): when we are more relaxed, enable the tasks to be tried several times.
+  /// Runs a single task, once and for all.
   Future<void> _runTask(final AbstractBackgroundTask task) async {
-    await task.execute(localDatabase);
-    await task.postExecute(localDatabase);
-    await _remove(task.uniqueId);
+    try {
+      await task.execute(localDatabase);
+      await task.postExecute(localDatabase);
+    } finally {
+      await _remove(task.uniqueId);
+    }
   }
 
   /// Returns the next task we can run now.
