@@ -28,50 +28,35 @@ class ProductTitleCard extends StatelessWidget {
       value: product,
       child: Align(
         alignment: AlignmentDirectional.topStart,
-        child: InkWell(
-          onTap: _hasProductName
-              ? () async {
-                  await Navigator.push<Product?>(
-                    context,
-                    MaterialPageRoute<Product>(
-                      builder: (BuildContext context) =>
-                          AddBasicDetailsPage(product),
-                    ),
-                  );
-                }
-              : null,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    child: _ProductTitleCardName(
-                      selectable: isSelectable,
-                    ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  child: _ProductTitleCardName(
+                    selectable: isSelectable,
                   ),
-                  Expanded(
-                    child: _ProductTitleCardTrailing(
-                      removable: isRemovable,
-                      selectable: isSelectable,
-                      onRemove: onRemove,
-                    ),
-                  )
-                ],
-              ),
-              _ProductTitleCardBrand(
-                removable: isRemovable,
-                selectable: isSelectable,
-              ),
-            ],
-          ),
+                ),
+                Expanded(
+                  child: _ProductTitleCardTrailing(
+                    removable: isRemovable,
+                    selectable: isSelectable,
+                    onRemove: onRemove,
+                  ),
+                )
+              ],
+            ),
+            _ProductTitleCardBrand(
+              removable: isRemovable,
+              selectable: isSelectable,
+            ),
+          ],
         ),
       ),
     );
   }
-
-  bool get _hasProductName => product.productName != null;
 }
 
 class _ProductTitleCardName extends StatelessWidget {
