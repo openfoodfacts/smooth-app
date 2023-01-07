@@ -19,6 +19,7 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
     required super.languageCode,
     required super.user,
     required super.country,
+    required super.stamp,
     required this.timestamp,
   });
 
@@ -30,6 +31,10 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
           languageCode: json['languageCode'] as String,
           user: json['user'] as String,
           country: json['country'] as String,
+          // dealing with when 'stamp' did not exist
+          stamp: json.containsKey('stamp')
+              ? json['stamp'] as String
+              : getStamp(json['barcode'] as String),
           timestamp: json['timestamp'] as int,
         );
 
@@ -54,6 +59,7 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
         'languageCode': languageCode,
         'user': user,
         'country': country,
+        'stamp': stamp,
         'timestamp': timestamp,
       };
 
@@ -108,7 +114,10 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
         timestamp: LocalDatabase.nowInMillis(),
+        stamp: getStamp(barcode),
       );
+
+  static String getStamp(final String barcode) => '$barcode;refresh';
 
   /// Here we change nothing, therefore we do nothing.
   @override

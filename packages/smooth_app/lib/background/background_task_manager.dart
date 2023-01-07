@@ -2,7 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/rendering.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/background/background_task_image.dart';
+import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
@@ -100,25 +103,50 @@ class BackgroundTaskManager {
         block ? '' : null,
       );
 
-  /// Runs all the pending tasks, until it crashes.
+  /// Runs all the pending tasks, and then smoothly ends.
   Future<void> run() async {
+    await _run();
+    _justFinished();
+  }
+
+  /// Runs all the pending tasks.
+  ///
+  /// If a task fails, we continue with the other tasks: and we'll retry the
+  /// failed tasks later.
+  /// If a task fails and another task with the same stamp comes after,
+  /// we can remove the failed task from the list: it would have been
+  /// overwritten anyway.
+  Future<void> _run() async {
     if (!_canStartNow()) {
       return;
     }
-    AbstractBackgroundTask? nextTask;
-    try {
-      while ((nextTask = await _getNextTask()) != null) {
-        if (blocked) {
+    final List<AbstractBackgroundTask> tasks = await _getAllTasks();
+    final Map<String, String> failedTaskFromStamps = <String, String>{};
+    for (final AbstractBackgroundTask task in tasks) {
+      if (blocked) {
+        return;
+      }
+      final String stamp = task.stamp;
+      final String? previousFailedTaskId = failedTaskFromStamps[stamp];
+      if (previousFailedTaskId != null) {
+        // there was a similar task that failed previously and we can dismiss it
+        // as the current one would overwrite it.
+        // not only will we spare a to-be-overwritten call, but we avoid the
+        // "save latest change" and then "save initial change" dilemma.
+        await _remove(previousFailedTaskId);
+        failedTaskFromStamps.remove(stamp);
+      }
+      try {
+        await _runTask(task);
+      } catch (e) {
+        // Most likely, no internet, no reason to go on.
+        if (e.toString().startsWith('Failed host lookup: ')) {
           return;
         }
-        await _runTask(nextTask!);
+        debugPrint('Background task error ($e)');
+        Logs.e('Background task error', ex: e);
+        failedTaskFromStamps[stamp] = task.uniqueId;
       }
-    } catch (e) {
-      debugPrint('Background task error ($e)');
-      Logs.e('Background task error', ex: e);
-      return;
-    } finally {
-      _justFinished();
     }
   }
 
@@ -129,23 +157,57 @@ class BackgroundTaskManager {
     await _remove(task.uniqueId);
   }
 
-  /// Returns the next task we can run now.
-  Future<AbstractBackgroundTask?> _getNextTask() async {
+  /// Returns the list of tasks we can run now.
+  ///
+  /// We put in the list:
+  /// * tasks that are not delayed (e.g. [BackgroundTaskRefreshLater])
+  /// * only the latest task for a given stamp (except for OTHER uploads)
+  Future<List<AbstractBackgroundTask>> _getAllTasks() async {
+    final List<AbstractBackgroundTask> result = <AbstractBackgroundTask>[];
     final List<String> list = getAllTaskIds();
+    final List<String> duplicateTaskIds = <String>[];
     if (list.isEmpty) {
-      return null;
+      return result;
     }
     for (final String taskId in list) {
       final AbstractBackgroundTask? task = _get(taskId);
       if (task == null) {
+        // unexpected, but let's remove that null task anyway.
         await _remove(taskId);
         continue;
       }
-      if (task.mayRunNow()) {
-        return task;
+      if (!task.mayRunNow()) {
+        // let's ignore this task: it's not supposed to be run now.
+        continue;
       }
+      // now let's get rid of stamp duplicates.
+      final String stamp = task.stamp;
+      // for image/OTHER we don't remove duplicates (they are NOT duplicates)
+      if (stamp !=
+          BackgroundTaskImage.getStamp(
+            task.barcode,
+            ImageField.OTHER.offTag,
+          )) {
+        int? removeMe;
+        for (int i = 0; i < result.length; i++) {
+          // it's the same stamp, we can remove the previous task.
+          // it would have been overwritten anyway.
+          if (result[i].stamp == stamp) {
+            duplicateTaskIds.add(result[i].uniqueId);
+            removeMe = i;
+            break;
+          }
+        }
+        if (removeMe != null) {
+          result.removeAt(removeMe); // TODO(monsieurtanuki): double-check
+        }
+      }
+      result.add(task);
     }
-    return null;
+    for (final String taskId in duplicateTaskIds) {
+      await _remove(taskId);
+    }
+    return result;
   }
 
   /// Returns all the task ids.

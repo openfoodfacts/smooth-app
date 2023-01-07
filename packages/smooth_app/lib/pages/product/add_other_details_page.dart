@@ -100,6 +100,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
                     await BackgroundTaskDetails.addTask(
                       _getMinimalistProduct(),
                       widget: this,
+                      stamp: BackgroundTaskDetailsStamp.otherDetails,
                     );
                     if (!mounted) {
                       return;

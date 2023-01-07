@@ -21,6 +21,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     required super.languageCode,
     required super.user,
     required super.country,
+    required super.stamp,
     required this.imageField,
     required this.imagePath,
   });
@@ -35,6 +36,13 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
           country: json['country'] as String,
           imageField: json['imageField'] as String,
           imagePath: json['imagePath'] as String,
+          // dealing with when 'stamp' did not exist
+          stamp: json.containsKey('stamp')
+              ? json['stamp'] as String
+              : getStamp(
+                  json['barcode'] as String,
+                  json['imageField'] as String,
+                ),
         );
 
   /// Task ID.
@@ -55,6 +63,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         'country': country,
         'imageField': imageField,
         'imagePath': imagePath,
+        'stamp': stamp,
       };
 
   /// Returns the deserialized background task if possible, or null.
@@ -111,7 +120,12 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
+        stamp: getStamp(barcode, imageField.offTag),
       );
+
+  // TODO(monsieurtanuki): add language
+  static String getStamp(final String barcode, final String imageField) =>
+      '$barcode;image;$imageField';
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async =>
