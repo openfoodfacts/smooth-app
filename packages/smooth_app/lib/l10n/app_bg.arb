@@ -541,12 +541,12 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Добави липсващите съставки",
-    "score_add_missing_packaging_image": "Add missing packaging image",
+    "score_add_missing_packaging_image": "Добави липсваща снимка на опаковката",
     "score_add_missing_nutrition_facts": "Добави липсващи хранителни стойности",
     "score_add_missing_product_category": "Добави липсваща продуктова категория",
     "score_add_missing_product_countries": "Add missing product countries",
-    "score_add_missing_product_emb": "Add missing product traceability codes",
-    "score_add_missing_product_labels": "Add missing product labels",
+    "score_add_missing_product_emb": "Добави липсващиге кодове за проследяване на продукта",
+    "score_add_missing_product_labels": "Добави липсващите етикети",
     "score_add_missing_product_origins": "Add missing product origins",
     "score_add_missing_product_stores": "Add missing product stores",
     "score_update_nutrition_facts": "Актуализирай хранителните стойности",
@@ -1155,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Добави",
     "edit_product_form_item_add_invalid_item_tooltip": "Моля, първо въведи текст",
     "edit_product_form_item_remove_item_tooltip": "Премахни",
-    "edit_product_form_item_packaging_title": "Recycling instructions photo",
+    "edit_product_form_item_packaging_title": "Снимка с инструкции за рециклиране",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1769,10 +1769,10 @@
     "app_rating_dialog_title": "Страхотно! Кажи на другите какво мислиш за това приложениие!",
     "app_rating_dialog_positive_action": "Оцени приложението",
     "app_rating_dialog_negative_action": "По-късно",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "app_rating_dialog_title_enjoying_app": "Харесваш ли това приложение?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Да!",
+    "not_really": "Не особено",
+    "app_rating_dialog_title_not_enjoying_app": "Съжаляваме да чуем това! Би ли ни казал какво се случи?",
     "edit_packagings_title": "Packaging components",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -1807,7 +1807,7 @@
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "edit_packagings_element_field_recycling": "Инструкция за рециклиране",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
@@ -1823,5 +1823,5 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "feed_back": "Feedback"
+    "feed_back": "Обратна връзка"
 }
