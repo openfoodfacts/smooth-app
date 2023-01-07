@@ -126,7 +126,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
                         .no_email_client_available_dialog_content),
                     positiveAction: SmoothActionButton(
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        Navigator.of(context, rootNavigator: true).pop();
                       },
                       text: appLocalizations.okay,
                     ),
