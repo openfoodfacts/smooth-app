@@ -3,13 +3,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/model/Insight.dart';
 import 'package:openfoodfacts/model/RobotoffQuestion.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/hunger_games/question_card.dart';
 
-Color _yesBackground = Colors.grey.shade300;
-Color _noBackground = Colors.grey.shade300;
-const Color _maybeBackground = QuestionCard.robotoffBackground;
-const Color _yesNoTextColor = Colors.lightGreen;
-const Color _maybeTextColor = Colors.redAccent;
+Color _yesBackground = Colors.green;
+Color _noBackground = Colors.red;
+const Color _maybeBackground = Colors.white;
+const Color _yesNoTextColor = Colors.white;
+Color _maybeTextColor = Colors.grey.shade700;
 
 /// Display of the typical Yes / No / Maybe options for Robotoff
 class QuestionAnswersOptions extends StatelessWidget {
