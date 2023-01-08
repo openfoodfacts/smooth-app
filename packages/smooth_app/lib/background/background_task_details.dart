@@ -13,18 +13,18 @@ import 'package:smooth_app/query/product_query.dart';
 ///
 /// With that stamp, we can de-duplicate similar tasks.
 enum BackgroundTaskDetailsStamp {
-  basicDetails('BD'),
-  otherDetails('OD'),
-  ocrIngredients('OI'),
-  ocrPackaging('OP'),
-  structuredPackaging('SP'),
-  nutrition('NU'),
-  stores('ST'),
-  origins('OR'),
-  embCodes('EM'),
-  labels('LA'),
-  categories('CA'),
-  countries('CO');
+  basicDetails('basic_details'),
+  otherDetails('other_details'),
+  ocrIngredients('ocr_ingredients'),
+  ocrPackaging('ocr_packaging'),
+  structuredPackaging('structured_packaging'),
+  nutrition('nutrition_facts'),
+  stores('stores'),
+  origins('origins'),
+  embCodes('emb_codes'),
+  labels('labels'),
+  categories('categories'),
+  countries('countries');
 
   const BackgroundTaskDetailsStamp(this.tag);
 

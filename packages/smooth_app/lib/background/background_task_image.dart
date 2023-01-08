@@ -42,6 +42,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
               : getStamp(
                   json['barcode'] as String,
                   json['imageField'] as String,
+                  json['languageCode'] as String,
                 ),
         );
 
@@ -120,12 +121,25 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
-        stamp: getStamp(barcode, imageField.offTag),
+        stamp: getStamp(
+          barcode,
+          imageField.offTag,
+          ProductQuery.getLanguage().code,
+        ),
       );
 
-  // TODO(monsieurtanuki): add language
-  static String getStamp(final String barcode, final String imageField) =>
-      '$barcode;image;$imageField';
+  static String getStamp(
+    final String barcode,
+    final String imageField,
+    final String language,
+  ) =>
+      '$barcode;image;$imageField;$language';
+
+  /// Returns true if the stamp is an "image/OTHER" stamp.
+  ///
+  /// That's important because "image/OTHER" task are never duplicates.
+  static bool isOtherStamp(final String stamp) =>
+      stamp.contains(';image;${ImageField.OTHER.offTag};');
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async =>
