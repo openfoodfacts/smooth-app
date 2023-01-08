@@ -15,7 +15,6 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -617,7 +616,6 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildProductQuestionsWidget() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return FutureBuilder<List<RobotoffQuestion>?>(
         future: _loadProductQuestions(),
@@ -627,58 +625,22 @@ class _SummaryCardState extends State<SummaryCard> {
         ) {
           final List<RobotoffQuestion> questions =
               snapshot.data ?? <RobotoffQuestion>[];
+          final ThemeData theme = Theme.of(context);
 
           if (questions.isNotEmpty && !_annotationVoted) {
-            return InkWell(
-              onTap: () {
-                Navigator.push<void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (_) => QuestionPage(
-                      product: _product,
-                      questions: questions.toList(),
-                      updateProductUponAnswers: _updateProductUponAnswers,
-                    ),
-                    fullscreenDialog: true,
-                  ),
-                );
-              },
-              child: SmoothCard.angular(
-                margin: EdgeInsets.zero,
-                color: Theme.of(context).colorScheme.primary,
-                elevation: 0,
-                padding: const EdgeInsets.all(
-                  SMALL_SPACE,
-                ),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Column(
-                    children: <Widget>[
-                      // TODO(jasmeet): Use Material icon or SVG (after consulting UX).
-                      Text(
-                        '🏅 ${appLocalizations.tap_to_answer}',
-                        style: Theme.of(context)
-                            .primaryTextTheme
-                            .bodyLarge!
-                            .copyWith(
-                              color: isDarkMode ? Colors.black : WHITE_COLOR,
-                            ),
-                      ),
-                      Container(
-                        padding:
-                            const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-                        child: Text(
-                          appLocalizations.contribute_to_get_rewards,
-                          style: Theme.of(context)
-                              .primaryTextTheme
-                              .bodyText2!
-                              .copyWith(
-                                color: isDarkMode ? Colors.black : WHITE_COLOR,
-                              ),
-                        ),
-                      ),
-                    ],
-                  ),
+            return Container(
+              margin: const EdgeInsets.only(top: SMALL_SPACE),
+              decoration: BoxDecoration(
+                color: isDarkMode ? theme.cardColor : theme.hoverColor,
+                borderRadius: ROUNDED_BORDER_RADIUS,
+              ),
+              padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+              child: SizedBox(
+                width: double.infinity,
+                child: QuestionPage(
+                  product: _product,
+                  questions: questions.toList(),
+                  updateProductUponAnswers: _updateProductUponAnswers,
                 ),
               ),
             );

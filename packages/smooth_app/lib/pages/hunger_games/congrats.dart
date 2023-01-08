@@ -35,13 +35,16 @@ class CongratsWidget extends StatelessWidget {
           const Icon(
             Icons.grade,
             color: Colors.amber,
-            size: 100,
+            size: 70,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
             child: Text(
               appLocalizations.thanks_for_contributing,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1!
+                  .apply(color: Colors.black),
             ),
           ),
           FutureBuilder<bool>(
@@ -66,7 +69,10 @@ class CongratsWidget extends StatelessWidget {
           else
             EMPTY_WIDGET,
           TextButton(
-            child: Text(appLocalizations.close),
+            child: Text(
+              appLocalizations.close,
+              style: const TextStyle(color: Colors.black),
+            ),
             onPressed: () => Navigator.maybePop<Widget>(context),
           ),
         ],
