@@ -33,6 +33,17 @@ class QuestionAnswersOptions extends StatelessWidget {
             height: yesNoHeight,
             child: _buildAnswerButton(
               context,
+              insightAnnotation: InsightAnnotation.NO,
+              backgroundColor: _noBackground,
+              contentColor: _yesNoTextColor,
+            ),
+          ),
+        ),
+        Expanded(
+          child: SizedBox(
+            height: yesNoHeight,
+            child: _buildAnswerButton(
+              context,
               insightAnnotation: InsightAnnotation.MAYBE,
               backgroundColor: _maybeBackground,
               contentColor: _maybeTextColor,
@@ -46,17 +57,6 @@ class QuestionAnswersOptions extends StatelessWidget {
               context,
               insightAnnotation: InsightAnnotation.YES,
               backgroundColor: _yesBackground,
-              contentColor: _yesNoTextColor,
-            ),
-          ),
-        ),
-        Expanded(
-          child: SizedBox(
-            height: yesNoHeight,
-            child: _buildAnswerButton(
-              context,
-              insightAnnotation: InsightAnnotation.NO,
-              backgroundColor: _noBackground,
               contentColor: _yesNoTextColor,
             ),
           ),
