@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -94,6 +95,9 @@ class _ProductListPageState extends State<ProductListPage>
     }
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
+
+    final ThemeData theme = Theme.of(context);
+
     return SmoothScaffold(
       floatingActionButton: _selectionMode || products.length <= 1
           ? _CompareProductsButton(
@@ -198,10 +202,18 @@ class _ProductListPageState extends State<ProductListPage>
                       height: MediaQuery.of(context).size.height * .4,
                       package: AppHelper.APP_PACKAGE,
                     ),
-                    Text(
-                      appLocalizations.product_list_empty_title,
-                      style: themeData.textTheme.headlineLarge
-                          ?.apply(color: colorScheme.onBackground),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SmoothSimpleButton(
+                      onPressed: () {
+                        InheritedDataManager.of(context)
+                            .resetShowSearchCard(true);
+                      },
+                      child: Text(appLocalizations.product_list_empty_title,
+                          style: theme.textTheme.headlineLarge?.copyWith(
+                            color: theme.colorScheme.onPrimary,
+                          )),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(VERY_LARGE_SPACE),
@@ -216,9 +228,6 @@ class _ProductListPageState extends State<ProductListPage>
                   ],
                 ),
               ),
-              onTap: () {
-                InheritedDataManager.of(context).resetShowSearchCard(true);
-              },
             )
           : WillPopScope(
               onWillPop: _handleUserBacktap,
