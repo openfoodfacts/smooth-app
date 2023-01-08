@@ -95,7 +95,7 @@ class _ProductListPageState extends State<ProductListPage>
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
     return SmoothScaffold(
-      floatingActionButton: _selectionMode
+      floatingActionButton: _selectionMode || products.length <= 1
           ? _CompareProductsButton(
               selectedBarcodes: _selectedBarcodes,
               barcodes: products,
