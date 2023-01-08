@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "Legg til",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "Er du sikker på at du vil slette kontoen?\nHvis det er av en spesifikk grunn, kan du dele nedenfor",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "Grunn",
     "@reason": {},
     "okay": "Ok",
     "@okay": {},
@@ -20,13 +20,13 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Gå tilbake til toppen",
     "save": "Lagre",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "Er du sikker på at du vil lagre?",
     "skip": "Hopp over",
     "cancel": "Avbryt",
     "@cancel": {},
-    "ignore": "Ignore",
+    "ignore": "Ignorer",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
@@ -34,11 +34,11 @@
     "@close": {},
     "no": "Nei",
     "@no": {},
-    "stop": "Stop",
+    "stop": "Stopp",
     "@stop": {},
     "finish": "Ferdig",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "Beregn",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -48,11 +48,11 @@
     },
     "error": "Noe gikk galt",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "En feil oppstod",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "Vi jobber fortsatt med denne funksjonen, følg med",
     "@featureInProgress": {},
-    "label_web": "View on the web",
+    "label_web": "Se på nettet",
     "@label_web": {},
     "learnMore": "Lær mer",
     "@learnMore": {},
@@ -121,32 +121,32 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
+    "offUtility": "Velg mat som er bra for deg og planeten.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Se matdata som er relevant for dine preferanser.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Velg mat som er bra for deg.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Choose foods that are good for the planet.",
+    "ecoCardUtility": "Velg mat som er bra for planeten.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Incorrect username or password.",
+    "sign_in_text": "Logg inn med din Open Food Facts-konto for å lagre dine bidrag",
+    "incorrect_credentials": "Feil brukernavn eller passord.",
     "login": "Username",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "Please enter username or e-mail",
-    "login_page_password_error_empty": "Please enter a password",
-    "create_account": "Create account",
+    "login_page_username_or_email": "Vennligst skriv inn brukernavn eller e-post",
+    "login_page_password_error_empty": "Vennligst angi passord",
+    "create_account": "Opprett konto",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -154,7 +154,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "For that feature we need you to sign in.",
+    "sign_in_mandatory": "Denne funksjonen krever innlogging.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -224,7 +224,7 @@
         }
     },
     "sign_up_page_password_hint": "Passord",
-    "sign_up_page_password_error_empty": "Please enter a password",
+    "sign_up_page_password_error_empty": "Vennligst angi passord",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
     "sign_up_page_confirm_password_hint": "Confirm Password",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
@@ -1113,7 +1113,7 @@
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_emb_codes_title": "Traceability codes",
+    "edit_product_form_item_emb_codes_title": "Sporbarhetskode",
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
