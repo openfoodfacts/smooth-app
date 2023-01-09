@@ -10,7 +10,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   SEDOPTION="-i ''"
 fi
 
-sed $SEDOPTION 's|^  scanner_mlkit|  #scanner_mlkit|g' packages/app/pubspec.yaml
-sed $SEDOPTION 's|^    path: ../scanner/mlkit|    #path: ../scanner/mlkit|g' packages/app/pubspec.yaml
-sed $SEDOPTION 's|^  #scanner_zxing|  scanner_zxing|g' packages/app/pubspec.yaml
-sed $SEDOPTION 's|^    #path: ../scanner/zxing|    path: ../scanner/zxing|g' packages/app/pubspec.yaml
+sed $SEDOPTION 's|^  scanner_mlkit|  #scanner_mlkit|g' packages/smooth_app/pubspec.yaml
+sed $SEDOPTION 's|^    path: ../scanner/mlkit|    #path: ../scanner/mlkit|g' packages/smooth_app/pubspec.yaml
+sed $SEDOPTION 's|^  #scanner_zxing|  scanner_zxing|g' packages/smooth_app/pubspec.yaml
+sed $SEDOPTION 's|^    #path: ../scanner/zxing|    path: ../scanner/zxing|g' packages/smooth_app/pubspec.yaml

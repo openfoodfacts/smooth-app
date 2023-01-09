@@ -20,7 +20,7 @@ updates:
       - "dependencies"
     commit-message:
       prefix: "chore"
-      include: "scope"
+      include: "scope"     
       
   - package-ecosystem: "bundler"
     directory: "packages/smooth_app/ios"
@@ -31,6 +31,7 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+  
   - package-ecosystem: "pub"
     directory: "/packages/smooth_app/"
     schedule:
@@ -38,32 +39,8 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
-  - package-ecosystem: "bundler"
-    directory: "packages/app/android"
-    schedule:
-      interval: "daily"
-    labels:
-      - "dependencies"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
+
       
-  - package-ecosystem: "bundler"
-    directory: "packages/app/ios"
-    schedule:
-      interval: "daily"
-    labels:
-      - "dependencies"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-  - package-ecosystem: "pub"
-    directory: "/packages/app/"
-    schedule:
-      interval: "daily"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
   - package-ecosystem: "pub"
     directory: "/packages/scanner/mlkit/"
     schedule:
@@ -71,6 +48,7 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+
   - package-ecosystem: "pub"
     directory: "/packages/scanner/shared/"
     schedule:
@@ -78,6 +56,7 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+
   - package-ecosystem: "pub"
     directory: "/packages/scanner/zxing/"
     schedule:
