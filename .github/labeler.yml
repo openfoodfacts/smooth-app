@@ -3,15 +3,14 @@ android:
 - packages/smooth_app/android/**/*
 
 macos:
-- packages/app/macos/**/*
+- packages/smooth_app/macos/**/*
 
 assets cache:
 - packages/smooth_app/assets/cache/
 
 documentation:
 - README.md
-- packages/app/README.md
-- packages/app/android/fastlane/README.md
+- packages/smooth_app/android/fastlane/README.md
 - packages/smooth_app/README.md
 - packages/smooth_app/lib/l10n/README.md
 
@@ -33,7 +32,7 @@ web:
 
 tests:
 - packages/smooth_app/test/**/*
-- packages/app/test/widget_test.dart
+- packages/smooth_app/test/widget_test.dart
 - packages/smooth_app/test/basic_test.dart
 - packages/scanner/shared/test/shared_test.dart
 - packages/smooth_app/test/cache/cache_test.dart
@@ -92,13 +91,13 @@ mlkit:
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
 Amazon Appstore:
-- packages/app/lib/entrypoints/android/main_amazon_appstore.dart, 
+- packages/smooth_app/lib/entrypoints/android/main_amazon_appstore.dart,
 
 fdroid:
-- packages/app/lib/entrypoints/android/main_fdroid.dart, 
+- packages/smooth_app/lib/entrypoints/android/main_fdroid.dart,
 
 Huawei AppGallery:
-- packages/app/lib/entrypoints/android/main_huawei_appgallery.dart, 
+- packages/smooth_app/lib/entrypoints/android/main_huawei_appgallery.dart,
 
 zxing:
 - packages/scanner/zxing/**/*
