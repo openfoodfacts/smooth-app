@@ -145,22 +145,23 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    final Product changedProduct = Product(barcode: widget.product.barcode);
-    bool changed = false;
+    final Map<BackgroundTaskDetailsStamp, Product> changedProducts =
+        <BackgroundTaskDetailsStamp, Product>{};
     bool added = false;
     for (int i = 0; i < widget.helpers.length; i++) {
       final AbstractSimpleInputPageHelper helper = widget.helpers[i];
       if (helper.addItemsFromController(_controllers[i])) {
         added = true;
       }
+      final Product changedProduct = Product(barcode: widget.product.barcode);
       if (helper.getChangedProduct(changedProduct)) {
-        changed = true;
+        changedProducts[helper.getStamp()] = changedProduct;
       }
     }
     if (added) {
       setState(() {});
     }
-    if (!changed) {
+    if (changedProducts.isEmpty) {
       return true;
     }
 
@@ -178,10 +179,17 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
     }
 
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
-      widget: this,
-    );
+    bool first = true;
+    for (final MapEntry<BackgroundTaskDetailsStamp, Product> entry
+        in changedProducts.entries) {
+      await BackgroundTaskDetails.addTask(
+        entry.value,
+        widget: this,
+        stamp: entry.key,
+        showSnackBar: first,
+      );
+      first = false;
+    }
     return true;
   }
 

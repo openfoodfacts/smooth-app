@@ -154,6 +154,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     await BackgroundTaskDetails.addTask(
                       _getMinimalistProduct(),
                       widget: this,
+                      stamp: BackgroundTaskDetailsStamp.basicDetails,
                     );
                     if (!mounted) {
                       return;

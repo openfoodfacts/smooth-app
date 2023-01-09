@@ -33,10 +33,6 @@ class LocalDatabase extends ChangeNotifier {
 
   UpToDateProductProvider get upToDate => _upToDateProductProvider;
 
-  /// Notify listeners
-  /// Comments added only in order to avoid a "warning"
-  /// For the record, we need to override the method
-  /// because the parent's is protected
   @override
   void notifyListeners() {
     BackgroundTaskManager(this).run(); // no await

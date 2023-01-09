@@ -102,6 +102,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
       BackgroundTaskDetails.addTask(
         _helper.getMinimalistProduct(Product(barcode: _product.barcode), text),
         widget: this,
+        stamp: _helper.getStamp(),
       );
 
   @override

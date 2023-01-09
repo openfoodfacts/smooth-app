@@ -328,6 +328,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     await BackgroundTaskDetails.addTask(
       changedProduct,
       widget: this,
+      stamp: BackgroundTaskDetailsStamp.structuredPackaging,
     );
     return true;
   }

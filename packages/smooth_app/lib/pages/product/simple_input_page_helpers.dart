@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -16,7 +17,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   late List<String> _terms;
 
   /// "Have the terms been changed?"
-  late bool _changed;
+  bool _changed = false;
 
   /// Starts from scratch with a new (or refreshed) [Product].
   void reInit(final Product product) {
@@ -77,6 +78,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns additional examples about the "add" text field.
   String? getAddExplanations(final AppLocalizations appLocalizations) => null;
+
+  /// Stamp to identify similar updates on the same product.
+  BackgroundTaskDetailsStamp getStamp();
 
   /// Impacts a product in order to take the changes into account.
   @protected
@@ -157,6 +161,9 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.shopping_cart);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.stores;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -191,6 +198,9 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.travel_explore);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.origins;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -223,6 +233,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.factory);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.embCodes;
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
@@ -261,6 +274,9 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.local_offer);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.labels;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -303,6 +319,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.restaurant);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() =>
+      BackgroundTaskDetailsStamp.categories;
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
@@ -341,4 +361,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.public);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.countries;
 }
