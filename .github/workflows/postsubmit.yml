@@ -54,7 +54,7 @@ jobs:
       # Build apk.
       - name: Build APK
         run: flutter build apk --debug -t lib/entrypoints/android/main_google_play.dart
-        working-directory: ./packages/app
+        working-directory: ./packages/smooth_app
 
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
