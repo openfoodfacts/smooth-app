@@ -13,6 +13,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  badges: ^2.0.3 # TODO use the standard flutter Badge instead when available
   barcode_widget: 2.0.3
   carousel_slider: 4.1.1
   cupertino_icons: 1.0.5

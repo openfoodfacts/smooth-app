@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_account.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_connect.dart';
@@ -14,9 +15,11 @@ import 'package:smooth_app/pages/preferences/user_preferences_contribute.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_faq.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -86,6 +89,32 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           children.add(additionalSubtitle);
         }
       }
+
+      children.add(
+        InkWell(
+          onTap: () async => Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const OfflineTaskPage(),
+            ),
+          ),
+          child: UserPreferencesListTile(
+            title: Text(
+              appLocalizations.background_task_title,
+              style: Theme.of(context).textTheme.headline2,
+            ),
+            trailing: UserPreferencesListTile.getTintedIcon(
+              ConstantIcons.instance.getForwardIcon(),
+              context,
+            ),
+            leading: UserPreferencesListTile.getTintedIcon(
+              Icons.query_builder,
+              context,
+            ),
+          ),
+        ),
+      );
+
       headerAsset = 'assets/preferences/main.svg';
       headerColor = const Color(0xFFEBF1FF);
 
