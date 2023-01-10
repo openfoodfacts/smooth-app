@@ -22,7 +22,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Starts from scratch with a new (or refreshed) [Product].
   void reInit(final Product product) {
     this.product = product;
-    _terms = initTerms();
+    _terms = List<String>.from(initTerms());
     _changed = false;
     notifyListeners();
   }
@@ -30,6 +30,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   final String _separator = ',';
 
   /// Returns the terms as they were initially in the product.
+  ///
+  /// WARNING: this list must be copied; if not you may alter the product.
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/3529
   @protected
   List<String> initTerms();
 
