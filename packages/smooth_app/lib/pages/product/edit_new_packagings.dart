@@ -9,6 +9,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
@@ -169,12 +171,34 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     );
     children.add(
       Padding(
-        padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-        child: ElevatedButton.icon(
-          label: Text(appLocalizations.edit_packagings_element_add),
-          icon: const Icon(Icons.add),
+        padding: const EdgeInsets.only(
+          top: VERY_LARGE_SPACE,
+          left: SMALL_SPACE,
+          right: SMALL_SPACE,
+        ),
+        child: addPanelButton(
+          appLocalizations.edit_packagings_element_add.toUpperCase(),
+          iconData: Icons.add,
           onPressed: () =>
               setState(() => _addPackagingToControllers(ProductPackaging())),
+        ),
+      ),
+    );
+    children.add(
+      Padding(
+        padding: const EdgeInsets.only(
+          bottom: VERY_LARGE_SPACE,
+          left: SMALL_SPACE,
+          right: SMALL_SPACE,
+        ),
+        child: addPanelButton(
+          appLocalizations.add_packaging_photo_button_label.toUpperCase(),
+          onPressed: () async => confirmAndUploadNewPicture(
+            this,
+            imageField: ImageField.OTHER,
+            barcode: widget.product.barcode!,
+          ),
+          iconData: Icons.add_a_photo,
         ),
       ),
     );
