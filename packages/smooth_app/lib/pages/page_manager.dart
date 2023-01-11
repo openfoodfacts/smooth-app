@@ -1,9 +1,7 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/background_task_manager.dart';
-import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
@@ -68,6 +66,7 @@ class PageManagerState extends State<PageManager> {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     _tabs = <Widget>[
       _buildOffstageNavigator(BottomNavigationTab.Profile),
       _buildOffstageNavigator(BottomNavigationTab.Scan),
@@ -89,7 +88,41 @@ class PageManagerState extends State<PageManager> {
       },
       child: Scaffold(
         body: Stack(children: _tabs),
-        bottomNavigationBar: _buildOffstageNavigationBar(),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (int index) {
+            final InheritedDataManagerState inheritedDataManager =
+                InheritedDataManager.of(context);
+            if (_currentPage == BottomNavigationTab.Scan &&
+                _pageKeys[index] == BottomNavigationTab.Scan) {
+              if (!inheritedDataManager.showSearchCard) {
+                inheritedDataManager.resetShowSearchCard(true);
+              }
+              _selectTab(_pageKeys[index], index);
+            } else {
+              if (inheritedDataManager.showSearchCard) {
+                inheritedDataManager.resetShowSearchCard(false);
+              }
+              _selectTab(_pageKeys[index], index);
+            }
+          },
+          currentIndex: _currentPage.index,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: const BackgroundTaskBadge(
+                child: Icon(Icons.account_circle),
+              ),
+              label: appLocalizations.profile_navbar_label,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.search),
+              label: appLocalizations.scan_navbar_label,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.history),
+              label: appLocalizations.history_navbar_label,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -106,58 +139,6 @@ class PageManagerState extends State<PageManager> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildOffstageNavigationBar() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final List<String> tasks =
-        BackgroundTaskManager(localDatabase).getAllTaskIds();
-    final Widget? badgeContent = tasks.isEmpty
-        ? null
-        : Text(
-            '${tasks.length}',
-            style: const TextStyle(color: Colors.white),
-          );
-    return BottomNavigationBar(
-      onTap: (int index) {
-        final InheritedDataManagerState inheritedDataManager =
-            InheritedDataManager.of(context);
-        if (_currentPage == BottomNavigationTab.Scan &&
-            _pageKeys[index] == BottomNavigationTab.Scan) {
-          if (!inheritedDataManager.showSearchCard) {
-            inheritedDataManager.resetShowSearchCard(true);
-          }
-          _selectTab(_pageKeys[index], index);
-        } else {
-          if (inheritedDataManager.showSearchCard) {
-            inheritedDataManager.resetShowSearchCard(false);
-          }
-          _selectTab(_pageKeys[index], index);
-        }
-      },
-      currentIndex: _currentPage.index,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Badge(
-            badgeColor: Colors.blue.shade900,
-            showBadge: badgeContent != null,
-            badgeContent: badgeContent,
-            position: BadgePosition.topEnd(end: -24),
-            child: const Icon(Icons.account_circle),
-          ),
-          label: appLocalizations.profile_navbar_label,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.search),
-          label: appLocalizations.scan_navbar_label,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.history),
-          label: appLocalizations.history_navbar_label,
-        ),
-      ],
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -103,13 +104,16 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
               appLocalizations.background_task_title,
               style: Theme.of(context).textTheme.headline2,
             ),
+            subtitle: Text(appLocalizations.background_task_subtitle),
             trailing: UserPreferencesListTile.getTintedIcon(
               ConstantIcons.instance.getForwardIcon(),
               context,
             ),
-            leading: UserPreferencesListTile.getTintedIcon(
-              Icons.query_builder,
-              context,
+            leading: BackgroundTaskBadge(
+              child: UserPreferencesListTile.getTintedIcon(
+                Icons.edit_notifications_outlined,
+                context,
+              ),
             ),
           ),
         ),
