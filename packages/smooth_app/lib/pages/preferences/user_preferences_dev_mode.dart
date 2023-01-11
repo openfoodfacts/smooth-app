@@ -14,7 +14,6 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
-import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
@@ -262,17 +261,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               context,
               MaterialPageRoute<void>(
                 builder: (BuildContext context) => const OfflineDataPage(),
-              ),
-            );
-          },
-        ),
-        ListTile(
-          title: const Text('Pending Tasks'),
-          onTap: () {
-            Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const OfflineTaskPage(),
               ),
             );
           },

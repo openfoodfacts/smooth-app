@@ -17,18 +17,13 @@ class BackgroundTaskManager {
 
   final LocalDatabase localDatabase;
 
-  /// [DaoInstantString] key for "Should we block the background tasks?".
-  ///
-  /// Value is null for "No we shouldn't".
-  /// It's probably just a temporary debug use-case. Will we keep it?
-  static const String _daoInstantStringBlockKey = 'taskManager/block';
-
   /// Returns [DaoInstantString] key for tasks.
   static String _taskIdToDaoInstantStringKey(final String taskId) =>
       'task:$taskId';
 
-  /// [DaoStringList] key for the list of tasks.
-  static const String _daoStringListKey = DaoStringList.keyTasks;
+  /// Returns [DaoInstantString] key for task errors.
+  static String taskIdToErrorDaoInstantStringKey(final String taskId) =>
+      'taskError:$taskId';
 
   /// Adds a task to the pending task list.
   Future<void> add(final AbstractBackgroundTask task) async {
@@ -37,16 +32,19 @@ class BackgroundTaskManager {
       _taskIdToDaoInstantStringKey(taskId),
       jsonEncode(task.toJson()),
     );
-    await DaoStringList(localDatabase).add(_daoStringListKey, taskId);
+    await DaoStringList(localDatabase).add(DaoStringList.keyTasks, taskId);
     await task.preExecute(localDatabase);
     run(); // no await
   }
 
   /// Removes a task from the pending task list
   Future<void> _remove(final String taskId) async {
-    await DaoStringList(localDatabase).remove(_daoStringListKey, taskId);
+    await DaoStringList(localDatabase).remove(DaoStringList.keyTasks, taskId);
     await DaoInstantString(localDatabase)
         .put(_taskIdToDaoInstantStringKey(taskId), null);
+    await DaoInstantString(localDatabase)
+        .put(taskIdToErrorDaoInstantStringKey(taskId), null);
+    localDatabase.notifyListeners();
   }
 
   /// Returns the related task, or null but that is unexpected.
@@ -111,14 +109,6 @@ class BackgroundTaskManager {
     );
   }
 
-  bool get blocked =>
-      DaoInstantString(localDatabase).get(_daoInstantStringBlockKey) != null;
-
-  set blocked(final bool block) => DaoInstantString(localDatabase).put(
-        _daoInstantStringBlockKey,
-        block ? '' : null,
-      );
-
   /// Runs all the pending tasks, and then smoothly ends.
   Future<void> run() async {
     await _run();
@@ -139,10 +129,8 @@ class BackgroundTaskManager {
     final List<AbstractBackgroundTask> tasks = await _getAllTasks();
     final Map<String, String> failedTaskFromStamps = <String, String>{};
     for (final AbstractBackgroundTask task in tasks) {
-      if (blocked) {
-        return;
-      }
       final String stamp = task.stamp;
+      final String taskId = task.uniqueId;
       final String? previousFailedTaskId = failedTaskFromStamps[stamp];
       if (previousFailedTaskId != null) {
         // there was a similar task that failed previously and we can dismiss it
@@ -158,17 +146,36 @@ class BackgroundTaskManager {
       } catch (e) {
         // Most likely, no internet, no reason to go on.
         if (e.toString().startsWith('Failed host lookup: ')) {
+          await DaoInstantString(localDatabase).put(
+            taskIdToErrorDaoInstantStringKey(taskId),
+            taskStatusNoInternet,
+          );
+          localDatabase.notifyListeners();
           return;
         }
         debugPrint('Background task error ($e)');
         Logs.e('Background task error', ex: e);
-        failedTaskFromStamps[stamp] = task.uniqueId;
+        await DaoInstantString(localDatabase)
+            .put(taskIdToErrorDaoInstantStringKey(taskId), '$e');
+        failedTaskFromStamps[stamp] = taskId;
+        localDatabase.notifyListeners();
       }
     }
   }
 
+  /// Forged task status: "Just started!".
+  static const String taskStatusStarted = '*';
+
+  /// Forged task status: "No internet, try later!".
+  static const String taskStatusNoInternet = 'X';
+
   /// Runs a single task. Possible exception.
   Future<void> _runTask(final AbstractBackgroundTask task) async {
+    await DaoInstantString(localDatabase).put(
+      taskIdToErrorDaoInstantStringKey(task.uniqueId),
+      taskStatusStarted,
+    );
+    localDatabase.notifyListeners();
     await task.execute(localDatabase);
     await task.postExecute(localDatabase);
     await _remove(task.uniqueId);
@@ -187,7 +194,7 @@ class BackgroundTaskManager {
   Future<List<AbstractBackgroundTask>> _getAllTasks() async {
     _debugPrint('get all tasks/0');
     final List<AbstractBackgroundTask> result = <AbstractBackgroundTask>[];
-    final List<String> list = getAllTaskIds();
+    final List<String> list = localDatabase.getAllTaskIds();
     final List<String> duplicateTaskIds = <String>[];
     if (list.isEmpty) {
       return result;
@@ -240,8 +247,4 @@ class BackgroundTaskManager {
     _debugPrint('get all tasks/9');
     return result;
   }
-
-  /// Returns all the task ids.
-  List<String> getAllTaskIds() =>
-      DaoStringList(localDatabase).getAll(_daoStringListKey);
 }
