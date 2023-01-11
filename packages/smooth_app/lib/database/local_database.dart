@@ -39,6 +39,12 @@ class LocalDatabase extends ChangeNotifier {
     super.notifyListeners();
   }
 
+  /// Returns all the pending background task ids.
+  ///
+  /// Ugly solution to be able to mock hive data.
+  List<String> getAllTaskIds() =>
+      DaoStringList(this).getAll(DaoStringList.keyTasks);
+
   static Future<LocalDatabase> getLocalDatabase() async {
     // sql from there
     final String databasesRootPath;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
@@ -107,7 +108,9 @@ class PageManagerState extends State<PageManager> {
           currentIndex: _currentPage.index,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: const Icon(Icons.account_circle),
+              icon: const BackgroundTaskBadge(
+                child: Icon(Icons.account_circle),
+              ),
               label: appLocalizations.profile_navbar_label,
             ),
             BottomNavigationBarItem(
