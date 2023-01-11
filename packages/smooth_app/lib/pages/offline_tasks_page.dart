@@ -19,8 +19,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
-    final BackgroundTaskManager manager = BackgroundTaskManager(localDatabase);
-    final List<String> taskIds = manager.getAllTaskIds();
+    final List<String> taskIds = localDatabase.getAllTaskIds();
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocalizations.background_task_title),

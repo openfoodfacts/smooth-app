@@ -25,9 +25,6 @@ class BackgroundTaskManager {
   static String taskIdToErrorDaoInstantStringKey(final String taskId) =>
       'taskError:$taskId';
 
-  /// [DaoStringList] key for the list of tasks.
-  static const String _daoStringListKey = DaoStringList.keyTasks;
-
   /// Adds a task to the pending task list.
   Future<void> add(final AbstractBackgroundTask task) async {
     final String taskId = task.uniqueId;
@@ -35,14 +32,14 @@ class BackgroundTaskManager {
       _taskIdToDaoInstantStringKey(taskId),
       jsonEncode(task.toJson()),
     );
-    await DaoStringList(localDatabase).add(_daoStringListKey, taskId);
+    await DaoStringList(localDatabase).add(DaoStringList.keyTasks, taskId);
     await task.preExecute(localDatabase);
     run(); // no await
   }
 
   /// Removes a task from the pending task list
   Future<void> _remove(final String taskId) async {
-    await DaoStringList(localDatabase).remove(_daoStringListKey, taskId);
+    await DaoStringList(localDatabase).remove(DaoStringList.keyTasks, taskId);
     await DaoInstantString(localDatabase)
         .put(_taskIdToDaoInstantStringKey(taskId), null);
     await DaoInstantString(localDatabase)
@@ -197,7 +194,7 @@ class BackgroundTaskManager {
   Future<List<AbstractBackgroundTask>> _getAllTasks() async {
     _debugPrint('get all tasks/0');
     final List<AbstractBackgroundTask> result = <AbstractBackgroundTask>[];
-    final List<String> list = getAllTaskIds();
+    final List<String> list = localDatabase.getAllTaskIds();
     final List<String> duplicateTaskIds = <String>[];
     if (list.isEmpty) {
       return result;
@@ -250,8 +247,4 @@ class BackgroundTaskManager {
     _debugPrint('get all tasks/9');
     return result;
   }
-
-  /// Returns all the task ids.
-  List<String> getAllTaskIds() =>
-      DaoStringList(localDatabase).getAll(_daoStringListKey);
 }

@@ -54,6 +54,7 @@ void main() {
             productPreferences,
             themeProvider,
             const UserPreferencesPage(),
+            localDatabase: MockLocalDatabase(),
           ),
         );
         await tester.pump();
