@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:app_store_shared/app_store_shared.dart';
-//import 'package:device_preview/device_preview.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -57,11 +57,10 @@ Future<void> launchSmoothApp({
         appRunner: () => runApp(SmoothApp(scanner, appStore)));
   } else {
     runApp(
-      //DevicePreview(
-      //enabled: true,
-      //builder: (_) =>
-      SmoothApp(scanner, appStore),
-      //),
+      DevicePreview(
+        enabled: true,
+        builder: (_) => SmoothApp(scanner, appStore),
+      ),
     );
   }
 }
