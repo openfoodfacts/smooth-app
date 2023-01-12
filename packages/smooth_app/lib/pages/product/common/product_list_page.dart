@@ -202,9 +202,7 @@ class _ProductListPageState extends State<ProductListPage>
                       height: MediaQuery.of(context).size.height * .4,
                       package: AppHelper.APP_PACKAGE,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    const Padding(padding: EdgeInsets.all(VERY_LARGE_SPACE)),
                     SmoothSimpleButton(
                       onPressed: () {
                         InheritedDataManager.of(context)
