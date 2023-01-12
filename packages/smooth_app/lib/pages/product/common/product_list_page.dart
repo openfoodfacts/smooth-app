@@ -192,39 +192,37 @@ class _ProductListPageState extends State<ProductListPage>
             Text(appLocalizations.compare_products_appbar_subtitle),
       ),
       body: products.isEmpty
-          ? GestureDetector(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SvgPicture.asset(
-                      'assets/misc/empty-list.svg',
-                      height: MediaQuery.of(context).size.height * .4,
-                      package: AppHelper.APP_PACKAGE,
-                    ),
-                    const Padding(padding: EdgeInsets.all(VERY_LARGE_SPACE)),
-                    SmoothSimpleButton(
-                      onPressed: () {
-                        InheritedDataManager.of(context)
-                            .resetShowSearchCard(true);
-                      },
-                      child: Text(appLocalizations.product_list_empty_title,
-                          style: theme.textTheme.headlineLarge?.copyWith(
-                            color: theme.colorScheme.onPrimary,
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                      child: Text(
-                        appLocalizations.product_list_empty_message,
-                        textAlign: TextAlign.center,
-                        style: themeData.textTheme.bodyText2?.apply(
-                          color: colorScheme.onBackground,
-                        ),
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    'assets/misc/empty-list.svg',
+                    height: MediaQuery.of(context).size.height * .4,
+                    package: AppHelper.APP_PACKAGE,
+                  ),
+                  const Padding(padding: EdgeInsets.all(VERY_LARGE_SPACE)),
+                  SmoothSimpleButton(
+                    onPressed: () {
+                      InheritedDataManager.of(context)
+                          .resetShowSearchCard(true);
+                    },
+                    child: Text(appLocalizations.product_list_empty_title,
+                        style: theme.textTheme.headlineLarge?.copyWith(
+                          color: theme.colorScheme.onPrimary,
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                    child: Text(
+                      appLocalizations.product_list_empty_message,
+                      textAlign: TextAlign.center,
+                      style: themeData.textTheme.bodyText2?.apply(
+                        color: colorScheme.onBackground,
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  ),
+                ],
               ),
             )
           : WillPopScope(
