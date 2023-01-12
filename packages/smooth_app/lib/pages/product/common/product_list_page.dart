@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -94,6 +95,9 @@ class _ProductListPageState extends State<ProductListPage>
     }
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
+
+    final ThemeData theme = Theme.of(context);
+
     return SmoothScaffold(
       floatingActionButton: _selectionMode || products.length <= 1
           ? _CompareProductsButton(
@@ -188,37 +192,38 @@ class _ProductListPageState extends State<ProductListPage>
             Text(appLocalizations.compare_products_appbar_subtitle),
       ),
       body: products.isEmpty
-          ? GestureDetector(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SvgPicture.asset(
-                      'assets/misc/empty-list.svg',
-                      height: MediaQuery.of(context).size.height * .4,
-                      package: AppHelper.APP_PACKAGE,
-                    ),
-                    Text(
-                      appLocalizations.product_list_empty_title,
-                      style: themeData.textTheme.headlineLarge
-                          ?.apply(color: colorScheme.onBackground),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                      child: Text(
-                        appLocalizations.product_list_empty_message,
-                        textAlign: TextAlign.center,
-                        style: themeData.textTheme.bodyText2?.apply(
-                          color: colorScheme.onBackground,
-                        ),
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    'assets/misc/empty-list.svg',
+                    height: MediaQuery.of(context).size.height * .4,
+                    package: AppHelper.APP_PACKAGE,
+                  ),
+                  const Padding(padding: EdgeInsets.all(VERY_LARGE_SPACE)),
+                  SmoothSimpleButton(
+                    onPressed: () {
+                      InheritedDataManager.of(context)
+                          .resetShowSearchCard(true);
+                    },
+                    child: Text(appLocalizations.product_list_empty_title,
+                        style: theme.textTheme.headlineLarge?.copyWith(
+                          color: theme.colorScheme.onPrimary,
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                    child: Text(
+                      appLocalizations.product_list_empty_message,
+                      textAlign: TextAlign.center,
+                      style: themeData.textTheme.bodyText2?.apply(
+                        color: colorScheme.onBackground,
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  ),
+                ],
               ),
-              onTap: () {
-                InheritedDataManager.of(context).resetShowSearchCard(true);
-              },
             )
           : WillPopScope(
               onWillPop: _handleUserBacktap,
