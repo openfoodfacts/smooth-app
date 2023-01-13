@@ -4,11 +4,11 @@
     "@yes": {},
     "add": "Add",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "តើអ្នកពិតជាចង់លុបគណនីរបស់អ្នកមែនទេ?\nបើអ្នកមានហេតុផលណាមួយ សូមបំពេញនៅខាងក្រោម",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "ហេតុផល",
     "@reason": {},
-    "okay": "Okay",
+    "okay": "យល់ព្រម",
     "@okay": {},
     "create": "Create",
     "@create": {
@@ -20,9 +20,9 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "ទៅលើវិញ",
     "save": "Save",
-    "save_confirmation": "Are you sure you want to save?",
+    "save_confirmation": "តើអ្នកពិតជាចង់រក្សាទុកមែនទេ?",
     "skip": "Skip",
     "cancel": "Cancel",
     "@cancel": {},
@@ -34,11 +34,11 @@
     "@close": {},
     "no": "No",
     "@no": {},
-    "stop": "Stop",
+    "stop": "ឈប់",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "calculate": "Calculate",
+    "calculate": "គណនា",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
@@ -48,7 +48,7 @@
     },
     "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "មានកំហុសកើតឡើង",
     "@error_occurred": {},
     "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
@@ -1823,5 +1823,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "detailed changes",
+    "background_task_operation_image": "photo upload",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "started",
+    "background_task_run_not_started": "not started yet",
     "feed_back": "Feedback"
 }

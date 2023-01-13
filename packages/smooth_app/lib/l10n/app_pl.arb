@@ -465,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Zrób zdjęcia opakowania, aby dodać ten produkt do Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Proszę najpierw zrobić kilka zdjęć. Zawsze możesz dokończyć edytować produkt w późniejszym czasie.",
+    "add_product_take_photos_descriptive": "Proszę najpierw dodać kilka zdjęć. Zawsze można dokończyć produkt później.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Dodaj informacje o produkcie",
     "@add_product_information_button_label": {},
@@ -546,7 +546,7 @@
     "score_add_missing_product_category": "Dodaj brakującą kategorię produktu",
     "score_add_missing_product_countries": "Add missing product countries",
     "score_add_missing_product_emb": "Add missing product traceability codes",
-    "score_add_missing_product_labels": "Add missing product labels",
+    "score_add_missing_product_labels": "Dodaj brakujące etykiety produktu",
     "score_add_missing_product_origins": "Add missing product origins",
     "score_add_missing_product_stores": "Add missing product stores",
     "score_update_nutrition_facts": "Zaktualizuj informacje o produkcie",
@@ -1214,7 +1214,7 @@
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
-    "user_list_button_new": "Utwórz nową listę",
+    "user_list_button_new": "Stwórz nową listę",
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
@@ -1823,5 +1823,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "detailed changes",
+    "background_task_operation_image": "photo upload",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "started",
+    "background_task_run_not_started": "not started yet",
     "feed_back": "Feedback"
 }

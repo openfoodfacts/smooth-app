@@ -698,7 +698,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Ein Produkt vergleichen} other{{count} Producte vergleichen}",
+    "plural_compare_x_products": "{count,plural, =1{Ein Produkt vergleichen} other{{count} Produkte vergleichen}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -1823,5 +1823,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Ausstehende Beiträge",
+    "background_task_subtitle": "Ihre Beiträge werden automatisch auf unserem Server gespeichert, aber nicht immer in Echtzeit.",
+    "background_task_list_empty": "Keine anstehenden Hintergrundaufgaben",
+    "background_task_error_no_internet": "Fehler bei der Internetverbindung. Versuchen Sie es später noch einmal.",
+    "background_task_operation_unknown": "Unbekannte Vorgangsart",
+    "background_task_operation_details": "Ausführliche Änderungen",
+    "background_task_operation_image": "Foto hochladen",
+    "background_task_operation_refresh": "Aktualisierungsverzögerung nach dem Hochladen von Fotos",
+    "background_task_run_started": "Gestartet",
+    "background_task_run_not_started": "Noch nicht gestartet",
     "feed_back": "Feedback"
 }
