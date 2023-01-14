@@ -49,6 +49,9 @@ abstract class OcrHelper {
   /// Stamp to identify similar updates on the same product.
   BackgroundTaskDetailsStamp getStamp();
 
+  /// Returns true if we need to put an "add extra photos" button.
+  bool hasAddExtraPhotoButton();
+
   @protected
   OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage()!;
 

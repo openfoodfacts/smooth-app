@@ -5,11 +5,15 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 
 /// Widget dedicated to OCR, with 3 actions: upload image, extract data, save.
-class OcrWidget extends StatelessWidget {
+///
+/// Potential extra action: add extra photos.
+class OcrWidget extends StatefulWidget {
   const OcrWidget({
     required this.controller,
     required this.onSubmitField,
@@ -28,6 +32,11 @@ class OcrWidget extends StatelessWidget {
   final Product product;
   final OcrHelper helper;
 
+  @override
+  State<OcrWidget> createState() => _OcrWidgetState();
+}
+
+class _OcrWidgetState extends State<OcrWidget> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -49,12 +58,12 @@ class OcrWidget extends StatelessWidget {
                 child: SmoothActionButtonsBar(
                   positiveAction: SmoothActionButton(
                     text: (TransientFile.isImageAvailable(
-                      productImageData,
-                      product.barcode!,
+                      widget.productImageData,
+                      widget.product.barcode!,
                     ))
-                        ? helper.getActionRefreshPhoto(appLocalizations)
+                        ? widget.helper.getActionRefreshPhoto(appLocalizations)
                         : appLocalizations.upload_image,
-                    onPressed: () async => onTapNewImage(),
+                    onPressed: () async => widget.onTapNewImage(),
                   ),
                 ),
               ),
@@ -75,24 +84,25 @@ class OcrWidget extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       if (TransientFile.isServerImage(
-                        productImageData,
-                        product.barcode!,
+                        widget.productImageData,
+                        widget.product.barcode!,
                       ))
                         SmoothActionButtonsBar.single(
                           action: SmoothActionButton(
-                            text: helper.getActionExtractText(appLocalizations),
-                            onPressed: () async => onTapExtractData(),
+                            text: widget.helper
+                                .getActionExtractText(appLocalizations),
+                            onPressed: () async => widget.onTapExtractData(),
                           ),
                         )
                       else if (TransientFile.isImageAvailable(
-                        productImageData,
-                        product.barcode!,
+                        widget.productImageData,
+                        widget.product.barcode!,
                       ))
                         // TODO(monsieurtanuki): what if slow upload? text instead?
                         const CircularProgressIndicator.adaptive(),
                       const SizedBox(height: MEDIUM_SPACE),
                       TextField(
-                        controller: controller,
+                        controller: widget.controller,
                         decoration: InputDecoration(
                           fillColor: Colors.white.withOpacity(0.2),
                           filled: true,
@@ -103,12 +113,26 @@ class OcrWidget extends StatelessWidget {
                         maxLines: null,
                         textInputAction: TextInputAction.done,
                         onSubmitted: (_) =>
-                            onSubmitField(helper.getImageField()),
+                            widget.onSubmitField(widget.helper.getImageField()),
                       ),
                       const SizedBox(height: SMALL_SPACE),
                       ExplanationWidget(
-                        helper.getInstructions(appLocalizations),
+                        widget.helper.getInstructions(appLocalizations),
                       ),
+                      if (widget.helper.hasAddExtraPhotoButton())
+                        Padding(
+                          padding: const EdgeInsets.only(top: SMALL_SPACE),
+                          child: addPanelButton(
+                            appLocalizations.add_packaging_photo_button_label
+                                .toUpperCase(),
+                            onPressed: () async => confirmAndUploadNewPicture(
+                              this,
+                              imageField: ImageField.OTHER,
+                              barcode: widget.product.barcode!,
+                            ),
+                            iconData: Icons.add_a_photo,
+                          ),
+                        ),
                       const SizedBox(height: MEDIUM_SPACE),
                       SmoothActionButtonsBar(
                         axis: Axis.horizontal,
@@ -119,8 +143,11 @@ class OcrWidget extends StatelessWidget {
                         positiveAction: SmoothActionButton(
                           text: appLocalizations.save,
                           onPressed: () async {
-                            await onSubmitField(helper.getImageField());
-                            ////ignore: use_build_context_synchronously
+                            await widget
+                                .onSubmitField(widget.helper.getImageField());
+                            if (!mounted) {
+                              return;
+                            }
                             Navigator.pop(context);
                           },
                         ),
