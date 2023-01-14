@@ -1,7 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Haptic feedback/vibrations in the app
 /// Managed by a preference in the user's preferences
