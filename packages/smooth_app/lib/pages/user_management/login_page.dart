@@ -19,6 +19,8 @@ import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+import '../../helpers/user_feedback_helper.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage();
 
@@ -382,7 +384,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                 text: appLocalizations.okay,
                 onPressed: () async {
                   final String formLink =
-                      SmoothHapticFeedback.getFeedbackFormLink();
+                      UserFeedbackHelper.getFeedbackFormLink();
                   LaunchUrlHelper.launchURL(formLink, false);
                   Navigator.of(context).pop();
                 },

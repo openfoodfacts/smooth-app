@@ -13,6 +13,8 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 
+import '../../helpers/user_feedback_helper.dart';
+
 /// Display of "FAQ" for the preferences page.
 class UserPreferencesFaq extends AbstractUserPreferences {
   UserPreferencesFaq({
@@ -67,7 +69,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         _getListTile(
           title: appLocalizations.feed_back,
           leading: Icons.feedback_sharp,
-          url: SmoothHapticFeedback.getFeedbackFormLink(),
+          url: UserFeedbackHelper.getFeedbackFormLink(),
         ),
         _getListTile(
           title: appLocalizations.about_this_app,
