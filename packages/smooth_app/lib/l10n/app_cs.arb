@@ -850,7 +850,7 @@
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "Když nám bude 10 let,\nznovu to vynalézáme\nod základů!",
+    "onboarding_reinventing_text2": "Jelikož je nám 10 let, vymýšlíme ji od základu znovu!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -1815,7 +1815,7 @@
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_field_weight": "Hmotnost jedné prázdné jednotky (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
@@ -1823,5 +1823,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Nevyřízené příspěvky",
+    "background_task_subtitle": "Vaše příspěvky jsou automaticky uloženy na náš server, ale ne vždy v reálném čase.",
+    "background_task_list_empty": "Žádné nevyřízené úkoly na pozadí",
+    "background_task_error_no_internet": "Chyba připojení k internetu. Zkuste to později.",
+    "background_task_operation_unknown": "neznámý typ operace",
+    "background_task_operation_details": "podrobné změny",
+    "background_task_operation_image": "nahrání fotografie",
+    "background_task_operation_refresh": "aktualizace zpožděna po nahrání fotografie",
+    "background_task_run_started": "začalo",
+    "background_task_run_not_started": "zatím nezačalo",
     "feed_back": "Zpětná vazba"
 }

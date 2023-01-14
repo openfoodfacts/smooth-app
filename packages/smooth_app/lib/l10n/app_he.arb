@@ -1823,5 +1823,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "תרומות ממתינות",
+    "background_task_subtitle": "התרומות שלך נשמרות אוטומטית בשרת שלנו, אך לא תמיד בזמן אמת.",
+    "background_task_list_empty": "אין משימות רקע ממתינות",
+    "background_task_error_no_internet": "שגיאת חיבור לאינטרנט. נא לנסות מאוחר יותר.",
+    "background_task_operation_unknown": "סוג פעולה לא ידוע",
+    "background_task_operation_details": "שינויים מפורטים",
+    "background_task_operation_image": "העלאת תמונה",
+    "background_task_operation_refresh": "הרענון מתעכב לסיום העלאת התמונה",
+    "background_task_run_started": "החל",
+    "background_task_run_not_started": "טרם החל",
     "feed_back": "משוב"
 }
