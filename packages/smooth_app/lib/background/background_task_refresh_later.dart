@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -20,6 +19,7 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
     required super.languageCode,
     required super.user,
     required super.country,
+    required super.stamp,
     required this.timestamp,
   });
 
@@ -31,6 +31,10 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
           languageCode: json['languageCode'] as String,
           user: json['user'] as String,
           country: json['country'] as String,
+          // dealing with when 'stamp' did not exist
+          stamp: json.containsKey('stamp')
+              ? json['stamp'] as String
+              : getStamp(json['barcode'] as String),
           timestamp: json['timestamp'] as int,
         );
 
@@ -55,6 +59,7 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
         'languageCode': languageCode,
         'user': user,
         'country': country,
+        'stamp': stamp,
         'timestamp': timestamp,
       };
 
@@ -107,9 +112,12 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
         barcode: barcode,
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.iso2Code,
+        country: ProductQuery.getCountry()!.offTag,
         timestamp: LocalDatabase.nowInMillis(),
+        stamp: getStamp(barcode),
       );
+
+  static String getStamp(final String barcode) => '$barcode;refresh';
 
   /// Here we change nothing, therefore we do nothing.
   @override

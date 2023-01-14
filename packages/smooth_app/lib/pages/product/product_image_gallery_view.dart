@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
@@ -56,6 +57,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
   @override
   Widget build(BuildContext context) {
+    BackgroundTaskManager(_localDatabase).run(); // no await
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
@@ -79,6 +81,15 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           onPressed: () => Navigator.maybePop(context),
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async => confirmAndUploadNewPicture(
+          this,
+          imageField: ImageField.OTHER,
+          barcode: _barcode,
+        ),
+        label: Text(appLocalizations.add_photo_button_label),
+        icon: const Icon(Icons.add_a_photo),
+      ),
       body: RefreshIndicator(
         onRefresh: () async => ProductRefresher().fetchAndRefresh(
           barcode: _barcode,
@@ -88,9 +99,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           child: CustomScrollView(
             slivers: <Widget>[
               _buildTitle(
+                // TODO(monsieurtanuki): put the title in the app bar instead, as in the other pages
                 appLocalizations.edit_product_form_item_photos_title,
                 theme: theme,
               ),
+              // TODO(monsieurtanuki): that's ridiculous, we only have 4 items to display, use a ListView instead, easier to maintain
+              // TODO(monsieurtanuki): we should even display 4 pics in the whole page instead of just tiny pics
               SmoothImagesSliverList(
                 imagesData: _selectedImages,
                 onTap: (

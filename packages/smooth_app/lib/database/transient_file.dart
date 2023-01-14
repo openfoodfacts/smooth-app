@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/ProductImage.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -24,22 +24,12 @@ class TransientFile {
   }
 
   /// Removes the current transient image for [imageField] and [barcode].
-  ///
-  /// It will also delete the actual local file.
   static void removeImage(
     final ImageField imageField,
     final String barcode,
     final LocalDatabase localDatabase,
-  ) {
-    final String key = _getImageKey(imageField, barcode);
-    final String? path = _transientFiles[key];
-    if (path == null) {
-      return;
-    }
-    _transientFiles.remove(key);
-    File(path).deleteSync();
-    localDatabase.notifyListeners();
-  }
+  ) =>
+      _transientFiles.remove(_getImageKey(imageField, barcode));
 
   /// Returns the transient image for [imageField] and [barcode].
   static File? getImage(

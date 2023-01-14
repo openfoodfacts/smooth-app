@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Fehlende Zutaten hinzufügen",
+    "score_add_missing_packaging_image": "Fehlendes Foto der Verpackung hinzufügen",
     "score_add_missing_nutrition_facts": "Fehlende Nährwertangaben hinzufügen",
     "score_add_missing_product_category": "Fehlende Produktkategorie hinzufügen",
+    "score_add_missing_product_countries": "Fehlende Produktländer hinzufügen",
+    "score_add_missing_product_emb": "Fehlende Produktrückverfolgbarkeitscodes hinzufügen",
+    "score_add_missing_product_labels": "Fehlende Etiketten für Produkte hinzufügen",
+    "score_add_missing_product_origins": "Fehlende Herkunft der Produkte hinzufügen",
+    "score_add_missing_product_stores": "Fehlende Shops für Produkte hinzufügen",
     "score_update_nutrition_facts": "Nährwertangaben aktualisieren",
     "nutrition_page_title": "Nährwertangaben",
     "nutrition_page_unspecified": "Auf dem Produkt sind keine Nährwertangaben angegeben",
@@ -692,7 +698,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Ein Produkt vergleichen} other{{count} Producte vergleichen}",
+    "plural_compare_x_products": "{count,plural, =1{Ein Produkt vergleichen} other{{count} Produkte vergleichen}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Hinzufügen",
     "edit_product_form_item_add_invalid_item_tooltip": "Bitte zuerst einen Text eingeben",
     "edit_product_form_item_remove_item_tooltip": "Entfernen",
-    "edit_product_form_item_packaging_title": "Art der Verpackung",
+    "edit_product_form_item_packaging_title": "Foto der Recycling-Anweisungen",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1760,8 +1766,72 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Gefällt Ihnen unsere App?",
-    "app_rating_dialog_body": "Bitte geben Sie uns 5 Sterne im Store!",
+    "app_rating_dialog_title": "Großartig! Lassen Sie andere wissen, was Sie von dieser App halten!",
     "app_rating_dialog_positive_action": "App bewerten",
-    "app_rating_dialog_negative_action": "Später"
+    "app_rating_dialog_negative_action": "Später",
+    "app_rating_dialog_title_enjoying_app": "Gefällt Ihnen diese App?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
+    "not_really": "Nicht wirklich",
+    "app_rating_dialog_title_not_enjoying_app": "Es tut uns leid, das zu hören! Könnten Sie uns erklären, was passiert ist?",
+    "edit_packagings_title": "Verpackungsbestandteile",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Verpackungsbestandteil hinzufügen",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "Die Verpackung ist abgeschlossen",
+    "edit_packagings_element_title": "Verpackungsbestandteil #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Anzahl der Einheiten",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Form",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Materialien",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Manchmal sind die Materialien wie ♵ unter der Packung in 3D auf dem Kunststoff nicht gut sichtbar.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Recycling-Anweisungen",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Nettomenge des Produkts pro Einheit",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Gewicht einer leeren Einheit (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "Für genaue Verpackungsgewichtsmessungen entfernen Sie bitte alle Lebensmittelrückstände und trocknen Sie anhaftendes Wasser.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "background_task_title": "Ausstehende Beiträge",
+    "background_task_subtitle": "Ihre Beiträge werden automatisch auf unserem Server gespeichert, aber nicht immer in Echtzeit.",
+    "background_task_list_empty": "Keine anstehenden Hintergrundaufgaben",
+    "background_task_error_no_internet": "Fehler bei der Internetverbindung. Versuchen Sie es später noch einmal.",
+    "background_task_operation_unknown": "Unbekannte Vorgangsart",
+    "background_task_operation_details": "Ausführliche Änderungen",
+    "background_task_operation_image": "Foto hochladen",
+    "background_task_operation_refresh": "Aktualisierungsverzögerung nach dem Hochladen von Fotos",
+    "background_task_run_started": "Gestartet",
+    "background_task_run_not_started": "Noch nicht gestartet",
+    "feed_back": "Feedback"
 }

@@ -15,6 +15,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.7.0"
+  app_store_apple_store:
+    dependency: "direct main"
+    description:
+      path: "../app_store/apple_app_store"
+      relative: true
+    source: path
+    version: "0.0.1"
+  app_store_google_play:
+    dependency: "direct main"
+    description:
+      path: "../app_store/google_play"
+      relative: true
+    source: path
+    version: "0.0.1"
   app_store_shared:
     dependency: "direct main"
     description:
@@ -22,6 +36,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  app_store_uri:
+    dependency: "direct main"
+    description:
+      path: "../app_store/uri_store"
+      relative: true
+    source: path
+    version: "0.0.1"
   archive:
     dependency: transitive
     description:
@@ -99,6 +120,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+  badges:
+    dependency: "direct main"
+    description:
+      name: badges
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   barcode:
     dependency: transitive
     description:
@@ -388,6 +416,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.1.0"
+  flutter_isolate:
+    dependency: transitive
+    description:
+      name: flutter_isolate
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -527,6 +562,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  google_mlkit_barcode_scanning:
+    dependency: transitive
+    description:
+      name: google_mlkit_barcode_scanning
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
+  google_mlkit_commons:
+    dependency: transitive
+    description:
+      name: google_mlkit_commons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   hive:
     dependency: "direct main"
     description:
@@ -604,6 +653,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.6.2"
+  in_app_review:
+    dependency: transitive
+    description:
+      name: in_app_review
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
+  in_app_review_platform_interface:
+    dependency: transitive
+    description:
+      name: in_app_review_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   integration_test:
     dependency: "direct dev"
     description: flutter
@@ -748,7 +811,7 @@ packages:
       name: openfoodfacts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.27.1"
+    version: "2.1.2"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1010,6 +1073,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.4"
+  scanner_mlkit:
+    dependency: "direct main"
+    description:
+      path: "../scanner/mlkit"
+      relative: true
+    source: path
+    version: "0.0.1"
   scanner_shared:
     dependency: "direct main"
     description:
@@ -1017,6 +1087,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  scanner_zxing:
+    dependency: "direct main"
+    description:
+      path: "../scanner/zxing"
+      relative: true
+    source: path
+    version: "0.0.1"
   sentry:
     dependency: transitive
     description:

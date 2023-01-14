@@ -1,5 +1,5 @@
 # .github/workflows/auto-author-assign.yml
-name: 'Auto Author Assign'
+name: 'Auto-Assign Author to Pull Requests'
 
 on:
   pull_request_target:
@@ -12,4 +12,5 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.6.1
+      - uses: toshimaru/auto-author-assign@v1.6.2
+  

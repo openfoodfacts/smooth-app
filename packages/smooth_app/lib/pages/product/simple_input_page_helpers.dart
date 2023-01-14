@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/TagType.dart';
+import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -17,12 +17,12 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   late List<String> _terms;
 
   /// "Have the terms been changed?"
-  late bool _changed;
+  bool _changed = false;
 
   /// Starts from scratch with a new (or refreshed) [Product].
   void reInit(final Product product) {
     this.product = product;
-    _terms = initTerms();
+    _terms = List<String>.from(initTerms());
     _changed = false;
     notifyListeners();
   }
@@ -30,6 +30,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   final String _separator = ',';
 
   /// Returns the terms as they were initially in the product.
+  ///
+  /// WARNING: this list must be copied; if not you may alter the product.
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/3529
   @protected
   List<String> initTerms();
 
@@ -70,11 +73,17 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the subtitle on the main "edit product" page.
   String? getSubtitle(final AppLocalizations appLocalizations) => null;
 
+  /// Returns the label of the corresponding "add" button.
+  String getAddButtonLabel(final AppLocalizations appLocalizations);
+
   /// Returns the hint of the "add" text field.
   String getAddHint(final AppLocalizations appLocalizations);
 
   /// Returns additional examples about the "add" text field.
   String? getAddExplanations(final AppLocalizations appLocalizations) => null;
+
+  /// Stamp to identify similar updates on the same product.
+  BackgroundTaskDetailsStamp getStamp();
 
   /// Impacts a product in order to take the changes into account.
   @protected
@@ -143,6 +152,10 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_stores_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_stores;
+
+  @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_hint;
 
@@ -151,6 +164,9 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.shopping_cart);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.stores;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -167,6 +183,10 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_origins_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_origins;
+
+  @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_origins_hint;
 
@@ -181,6 +201,9 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.travel_explore);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.origins;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -197,6 +220,10 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_emb_codes_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_emb;
+
+  @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_hint;
 
@@ -209,6 +236,9 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.factory);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.embCodes;
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
@@ -235,6 +265,10 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_labels_subtitle;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_labels;
+
+  @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_hint;
 
@@ -243,6 +277,9 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.local_offer);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.labels;
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -265,6 +302,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_categories_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_category;
+
+  @override
   String? getAddExplanations(final AppLocalizations appLocalizations) =>
       '${appLocalizations.edit_product_form_item_categories_explainer_1}'
       '\n'
@@ -281,6 +322,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.restaurant);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() =>
+      BackgroundTaskDetailsStamp.categories;
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
@@ -303,6 +348,10 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_countries_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_countries;
+
+  @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_hint;
 
@@ -315,4 +364,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   Widget? getIcon() => const Icon(Icons.public);
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.countries;
 }

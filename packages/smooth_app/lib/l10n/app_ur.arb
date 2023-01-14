@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Add missing ingredients",
+    "score_add_missing_packaging_image": "Add missing packaging image",
     "score_add_missing_nutrition_facts": "Add missing nutrition facts",
     "score_add_missing_product_category": "Add missing product category",
+    "score_add_missing_product_countries": "Add missing product countries",
+    "score_add_missing_product_emb": "Add missing product traceability codes",
+    "score_add_missing_product_labels": "Add missing product labels",
+    "score_add_missing_product_origins": "Add missing product origins",
+    "score_add_missing_product_stores": "Add missing product stores",
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Nutrition Facts",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "اضافہ",
     "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
     "edit_product_form_item_remove_item_tooltip": "Remove",
-    "edit_product_form_item_packaging_title": "Packaging",
+    "edit_product_form_item_packaging_title": "Recycling instructions photo",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1760,8 +1766,72 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Do you like our app?",
-    "app_rating_dialog_body": "Please give us 5 stars on the store!",
+    "app_rating_dialog_title": "Great! Let others know what you think of this app!",
     "app_rating_dialog_positive_action": "Rate the app",
-    "app_rating_dialog_negative_action": "Later"
+    "app_rating_dialog_negative_action": "Later",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
+    "not_really": "Not really",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "edit_packagings_title": "Packaging components",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Add a packaging component",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "The packaging is complete",
+    "edit_packagings_element_title": "Packaging component #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Number of units",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Shape",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Wejddf",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "detailed changes",
+    "background_task_operation_image": "photo upload",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "started",
+    "background_task_run_not_started": "not started yet",
+    "feed_back": "Feedback"
 }

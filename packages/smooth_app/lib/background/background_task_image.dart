@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
@@ -22,6 +21,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     required super.languageCode,
     required super.user,
     required super.country,
+    required super.stamp,
     required this.imageField,
     required this.imagePath,
   });
@@ -36,6 +36,14 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
           country: json['country'] as String,
           imageField: json['imageField'] as String,
           imagePath: json['imagePath'] as String,
+          // dealing with when 'stamp' did not exist
+          stamp: json.containsKey('stamp')
+              ? json['stamp'] as String
+              : getStamp(
+                  json['barcode'] as String,
+                  json['imageField'] as String,
+                  json['languageCode'] as String,
+                ),
         );
 
   /// Task ID.
@@ -56,6 +64,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         'country': country,
         'imageField': imageField,
         'imagePath': imagePath,
+        'stamp': stamp,
       };
 
   /// Returns the deserialized background task if possible, or null.
@@ -107,29 +116,54 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         uniqueId: uniqueId,
         barcode: barcode,
         processName: _PROCESS_NAME,
-        imageField: imageField.value,
+        imageField: imageField.offTag,
         imagePath: imageFile.path,
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.iso2Code,
+        country: ProductQuery.getCountry()!.offTag,
+        stamp: getStamp(
+          barcode,
+          imageField.offTag,
+          ProductQuery.getLanguage().code,
+        ),
       );
+
+  static String getStamp(
+    final String barcode,
+    final String imageField,
+    final String language,
+  ) =>
+      '$barcode;image;$imageField;$language';
+
+  /// Returns true if the stamp is an "image/OTHER" stamp.
+  ///
+  /// That's important because "image/OTHER" task are never duplicates.
+  static bool isOtherStamp(final String stamp) =>
+      stamp.contains(';image;${ImageField.OTHER.offTag};');
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async =>
       TransientFile.putImage(
-        ImageFieldExtension.getType(imageField),
+        ImageField.fromOffTag(imageField)!,
         barcode,
         localDatabase,
         File(imagePath),
       );
 
+  // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
   @override
   Future<void> postExecute(final LocalDatabase localDatabase) async {
+    try {
+      File(imagePath).deleteSync();
+    } catch (e) {
+      // not likely, but let's not spoil the task for that either.
+    }
     TransientFile.removeImage(
-      ImageFieldExtension.getType(imageField),
+      ImageField.fromOffTag(imageField)!,
       barcode,
       localDatabase,
     );
+    localDatabase.notifyListeners();
     await BackgroundTaskRefreshLater.addTask(
       barcode,
       localDatabase: localDatabase,
@@ -142,11 +176,16 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     final SendImage image = SendImage(
       lang: getLanguage(),
       barcode: barcode,
-      imageField: ImageFieldExtension.getType(imageField),
+      imageField: ImageField.fromOffTag(imageField)!,
       imageUri: Uri.parse(imagePath),
     );
 
-    // TODO(AshAman999): check returned Status
-    await OpenFoodAPIClient.addProductImage(getUser(), image);
+    final Status status =
+        await OpenFoodAPIClient.addProductImage(getUser(), image);
+    if (status.status == 'status ok') {
+      return;
+    }
+    throw Exception(
+        'Could not upload picture: ${status.status} / ${status.error}');
   }
 }

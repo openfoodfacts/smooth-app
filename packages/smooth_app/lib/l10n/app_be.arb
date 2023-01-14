@@ -14,7 +14,7 @@
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "Apply",
+    "applyButtonText": "Ужыць",
     "@applyButtonText": {},
     "next_label": "Next",
     "@next_label": {
@@ -117,15 +117,15 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Запрашаем у Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts — гэта глабальная некамерцыйная арганізацыя, якая падтрымліваецца мясцовымі супольнасцямі.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Абірайце ежу, карысную для вас і планеты.",
+    "offUtility": "Выбірайце прадукты, карысныя для вас і планеты.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Паглядзіце даныя аб прадуктах, якія адпавядаюць вашым перавагам.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
@@ -207,7 +207,7 @@
     },
     "sign_up_page_action_ok": "Віншуем! Ваш уліковы запіс толькі што створаны.",
     "sign_up_page_display_name_hint": "Name",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_display_name_error_empty": "Увядзіце імя, якое вы будзеце выкарыстоўваць для адлюстравання",
     "sign_up_page_email_hint": "Эл. пошта",
     "sign_up_page_email_error_empty": "Эл. пошта — абавязкова",
     "sign_up_page_email_error_invalid": "Памылковы адрас эл. пошты",
@@ -215,7 +215,7 @@
     "sign_up_page_username_error_empty": "Увядзіце імя карыстальніка",
     "sign_up_page_username_error_invalid": "Увядзіце сапраўднае імя карыстальніка",
     "sign_up_page_username_description": "Імя карыстальніка не можа змяшчаць прабелы, вялікія літары або спецыяльныя сімвалы",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_username_length_invalid": "Імя карыстальніка не можа змяшчаць больш {value} сімвалаў",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -225,15 +225,15 @@
     },
     "sign_up_page_password_hint": "Password",
     "sign_up_page_password_error_empty": "Увядзіце пароль",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Пацвердзіць пароль",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_password_error_invalid": "Увядзіце пароль, які змяшчае прынамсі 6 сімвалаў",
+    "sign_up_page_confirm_password_hint": "Спраўдзіць пароль",
+    "sign_up_page_confirm_password_error_empty": "Калі ласка, спраўдзіце пароль",
+    "sign_up_page_confirm_password_error_invalid": "Паролі не супадаюць",
+    "sign_up_page_agree_text": "Я згодны з",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "умовамі выкарыстання і ўнёску ў Open Food Facts",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -245,36 +245,36 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
+    "sign_up_page_agree_error_invalid": "Пры стварэнні ўліковага запісу згода з Умовамі выкарыстання ёсць абавязковай, аднак ананімныя ўнёскі можна па-ранейшаму рабіць праз праграму",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_producer_checkbox": "Я вытворца прадуктаў харчавання",
+    "sign_up_page_producer_hint": "Вытворца/брэнд",
+    "sign_up_page_producer_error_empty": "Калі ласка, увядзіце вытворцу або назву брэнда",
+    "sign_up_page_subscribe_checkbox": "Я хачу падпісацца на рассылку Open Food Facts (Вы можаце адмовіцца ад яе ў любы час)",
     "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Dark mode",
+    "darkmode": "Цёмны рэжым",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "Цёмны",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch (dark)"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "Светлы",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Прадвызначаны сістэмай",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Дзякуй за ўнёсак",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -283,13 +283,13 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
-    "support_via_email": "Send us an e-mail",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_join_slack": "Звяртайцеся па дапамогу ў нашым канале Slack",
+    "support_via_email": "Адпраўце нам электронны ліст",
+    "support_via_email_include_logs_dialog_title": "Адправіць журналы праграмы?",
+    "support_via_email_include_logs_dialog_body": "Вы жадаеце ўключыць журналы праграмы ва ўкладанне да электроннага ліста?",
     "termsOfUse": "Умовы выкарыстання",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Аб гэтай праграме",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -298,94 +298,94 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Распрацоўка праграмнага забеспячэння",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Код для кожнага прадукту Open Food Facts даступны на GitHub. Вы можаце паўторна выкарыстоўваць код (ён з адкрытым зыходным кодам) і дапамагчы нам палепшыць яго для ўсіх на планеце.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Вы можаце далучыцца да чата Open Food Facts у Slack, які ёсць пераважным спосабам задаваць пытанні.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
-    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_develop_dev_mode_title": "Рэжым распрацоўшчыка?",
+    "contribute_develop_dev_mode_subtitle": "Актываваць рэжым распрацоўшчыка",
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Products to be completed",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Improving",
+    "contribute_improve_header": "Паляпшэнне",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "База даных — гэта ядро праекта. Дапамагчы з яе напаўненнем лёгка і не займае шмат часу. Вы можаце спампаваць мабільную праграму для свайго тэлефона і пачаць дадаваць або паляпшаць прадукты.\n\nЗ іншага боку, вэб-сайт Open Food Facts прапануе мноства спосабаў рабіць свой унёсак: ",
     "@contribute_improve_text": {},
-    "contribute_translate_header": "Translate",
+    "contribute_translate_header": "Перакласці",
     "@contribute_translate_header": {
         "description": "Button label + pop up window title: Shows information about helping by translating"
     },
-    "contribute_translate_link_text": "Start Translating",
+    "contribute_translate_link_text": "Пачаць пераклад",
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts — гэта глабальны праект, які змяшчае прадукты з больш чым 160 краін. Open Food Facts, змесціва якога пастаянна развіваецца, перакладзены на дзясяткі моў.",
     "@contribute_translate_text": {},
-    "contribute_translate_text_2": "Translations is one of the key tasks of the project",
+    "contribute_translate_text_2": "Пераклады — адна з ключавых задач праекта",
     "@contribute_translate_text_2": {},
     "contribute_share_header": "Share Open Food Facts with your friends",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Я хачу паведаміць вам аб праграме Open Food Facts, якая дазваляе персаналізавана ацэньваць уздзеянне прадуктаў харчавання на здароўе і навакольнае асяроддзе. Яна працуе шляхам сканавання штрых-кодаў на ўпакоўцы. Гэта праграма ёсць бясплатнай, не патрабуе рэгістрацыі і праз яе вы нават можаце дапамагчы павялічыць колькасць дэшыфраваных прадуктаў. Вось спасылка, па якой вы можаце атрымаць праграму на свой тэлефон: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
-    "tap_to_answer": "Tap here to answer questions",
+    "tap_to_answer": "Націсніце тут, каб адказаць на пытанні",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Захаванне вашага адказу",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Дапамагайце палепшыць «празрыстасць» прадуктаў і атрымлівайце ўзнагароды",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-    "tap_to_edit_search": "Tap to edit search",
+    "question_sign_in_text": "Увайдзіце ў ваш уліковы запіс Open Food Facts, каб захаваць свае ўнёскі",
+    "tap_to_edit_search": "Націсніце, каб змяніць пошук",
     "@Personal preferences": {},
-    "myPreferences": "My preferences",
+    "myPreferences": "Мае налады",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "myPreferences_profile_title": "Your Profile",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
-    "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics, ...",
-    "myPreferences_food_title": "Food Preferences",
-    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
-    "confirmResetPreferences": "Reset your food preferences?",
+    "myPreferences_profile_title": "Ваш профіль",
+    "myPreferences_profile_subtitle": "Кіруйце сваім уліковым запісам удзельніка Open Food Facts.",
+    "myPreferences_settings_title": "Налады праграмы",
+    "myPreferences_settings_subtitle": "Цёмны рэжым, аналітыка, ...",
+    "myPreferences_food_title": "Перавагі ў харчаванні",
+    "myPreferences_food_subtitle": "Выберыце, якая інфармацыя пра харчаванне для вас найбольш важная.",
+    "myPreferences_food_comment": "Выберыце, якія звесткі аб прадуктах для вас найбольш важныя, каб ранжыраваць іх у адпаведнасці з вашымі перавагамі, у першую чаргу праглядаць інфармацыю, якая вас цікавіць, і атрымліваць зводку аб сумяшчальнасці. Гэтыя харчовыя перавагі застаюцца на вашай прыладзе і не звязаны з вашым уліковым запісам удзельніка Open Food Facts, калі ён у вас ёсць.",
+    "confirmResetPreferences": "Скінуць налады харчовых пераваг?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "My personalized ranking",
+    "myPersonalizedRanking": "Мой персанальны рэйтынг",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Усе",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_yes": "Найлепшае спалучэнне для вас",
+    "ranking_subtitle_match_no": "Найгоршае спалучэнне",
     "ranking_subtitle_match_maybe": "Unknown match",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Абнавіце спіс з вашымі новымі перавагамі",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
-    "reloaded_with_new_preferences": "Reloaded with your new preferences",
+    "reloaded_with_new_preferences": "Перазагружана з вашымі новымі перавагамі",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Профіль",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -397,7 +397,7 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
-    "category": "Filter by category",
+    "category": "Фільтраваць па катэгорыі",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
@@ -405,8 +405,8 @@
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
-    "category_search": "(category search)",
-    "filter": "Filter",
+    "category_search": "(пошук па катэгорыі)",
+    "filter": "Фільтр",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
@@ -422,197 +422,203 @@
     "@Product": {},
     "product": "Прадукт",
     "@product": {},
-    "unknownBrand": "Unknown brand",
+    "unknownBrand": "Брэнд невядомы",
     "@unknownBrand": {},
-    "unknownProductName": "Unknown product name",
+    "unknownProductName": "Назва прадукту невядома",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Абнавіць",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
-    "front_photo": "Front photo",
+    "image": "Выява",
+    "front_photo": "Фота спераду",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
     "ingredients": "Ingredients",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
-    "ingredients_editing_error": "Failed to save the ingredients.",
-    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
-    "ingredients_editing_title": "Edit Ingredients",
-    "ingredients_photo": "Ingredients photo",
+    "ingredients_editing_instructions": "Захоўвайце першапачатковы парадак. Указвайце працэнт, калі ён пазначаны. Радзяляйце коскай або злучком, выкарыстоўвайце круглыя дужкі для інгрэдыентаў і ўказвайце алергены паміж сімваламі падкрэслівання.",
+    "ingredients_editing_error": "Не ўдалося захаваць інгрэдыенты.",
+    "ingredients_editing_image_error": "Не ўдалося атрымаць выяву новых інгрэдыентаў.",
+    "ingredients_editing_title": "Рэдагаваць інгрэдыенты",
+    "ingredients_photo": "Фота інгрэдыентаў",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
-    "packaging_editing_error": "Failed to save the packaging.",
-    "packaging_editing_image_error": "Failed to get a new packaging image.",
-    "packaging_editing_title": "Edit Packaging",
+    "packaging_editing_instructions": "Пералічыце ўсе часткі ўпакоўкі, падзеленыя коскай або пераводам радка, з указаннем іх колькасці (напрыклад, 1 ці 6), тыпу (напрыклад, бутэлька, скрынка, банка), матэрыялу (напрыклад, пластык, метал, алюміній) і, калі ёсць, іх памеру (напрыклад, 33cl) ды інструкцыі па перапрацоўцы.\nПрыклад: 1 шкляная бутэлька для перапрацоўкі, 1 пластыкавы корак для выкідання",
+    "packaging_editing_error": "Не ўдалося захаваць упакоўку.",
+    "packaging_editing_image_error": "Не ўдалося атрымаць выяву новай упакоўкі.",
+    "packaging_editing_title": "Рэдагаваць упакоўку",
     "nutrition": "Nutrition",
     "@nutrition": {},
-    "nutrition_facts_photo": "Nutrition facts photo",
+    "nutrition_facts_photo": "Фота звестак аб пажыўнасці",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "Packaging information",
+    "packaging_information": "Інфармацыя аб упакоўцы",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "Packaging information photo",
+    "packaging_information_photo": "Фота інфармацыі аб упакоўцы",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Вы знайшлі новы прадукт!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Сфатаграфуйце ўпакоўку, каб дадаць гэты прадукт у Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
+    "add_product_take_photos_descriptive": "Калі ласка, спачатку зрабіце некалькі фота. Вы заўсёды можаце завяршыць дадаванне прадукту пазней.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Новы прадукт",
     "@new_product": {},
-    "front_packaging_photo_button_label": "Product front photo",
+    "front_packaging_photo_button_label": "Фота прадукту спераду",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
+    "confirm_front_packaging_photo_button_label": "Пацвердзіце запампоўку фота прадукту спераду",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "Confirm",
-    "front_packaging_photo_title": "Front Packaging Photo",
-    "ingredients_photo_title": "Ingredients Photo",
-    "nutritional_facts_photo_title": "Nutrition Facts Photo",
-    "recycling_photo_title": "Recycling Photo",
-    "other_interesting_photo_title": "Other interesting photos",
-    "front_photo_uploaded": "Front photo uploaded",
+    "confirm_button_label": "Пацвердзіць",
+    "front_packaging_photo_title": "Фота ўпакоўкі спераду",
+    "ingredients_photo_title": "Фота інгрэдыентаў",
+    "nutritional_facts_photo_title": "Фота звестак аб пажыўнасці",
+    "recycling_photo_title": "Фота звестак аб перапрацоўцы",
+    "other_interesting_photo_title": "Іншыя цікавыя фота",
+    "front_photo_uploaded": "Фота спераду запампавана",
     "@front_photo_uploaded": {},
-    "ingredients_photo_button_label": "Ingredients photo",
+    "ingredients_photo_button_label": "Фота інгрэдыентаў",
     "@ingredients_photo_button_label": {},
-    "ingredients_photo_uploaded": "Ingredients photo uploaded",
+    "ingredients_photo_uploaded": "Фота інгрэдыентаў запампавана",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
-    "nutritional_facts_photo_button_label": "Nutrition facts photo",
+    "nutrition_cache_loading_error": "Не ўдалося загрузіць пажыўныя рэчывы з кэшу",
+    "nutritional_facts_photo_button_label": "Фота звестак аб пажыўнасці",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Input nutrition facts",
-    "nutritional_facts_added": "Nutrition facts added",
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_input_button_label": "Увядзіце звесткі аб пажыўнасці",
+    "nutritional_facts_added": "Звесткі аб пажыўнасці дададзены",
+    "nutritional_facts_photo_uploaded": "Фота звестак аб пажыўнасці запампавана",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Recycling information photo",
+    "recycling_photo_button_label": "Фота з інфармацыяй аб перапрацоўцы",
     "@recycling_photo_button_label": {},
-    "recycling_photo_uploaded": "Recycling photo uploaded",
+    "recycling_photo_uploaded": "Фота звестак аб перапрацоўцы запампавана",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Other interesting photos",
+    "other_interesting_photo_button_label": "Іншыя цікавыя фота",
     "@other_interesting_photo_button_label": {},
-    "other_photo_uploaded": "Miscellaneous photo uploaded",
+    "other_photo_uploaded": "Розныя фота запампаваны",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Retake",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "Selecting photo",
+    "selecting_photo": "Выбар фота",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "Uploading photo to the server",
+    "uploading_image": "Запампоўванне фота на сервер",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Запампоўванне выявы спераду ў Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Запампоўванне выявы інгрэдыентаў у Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Запампоўванне выявы пажыўнасці ў Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Запампоўванне выявы ўпакоўкі ў Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Запампоўванне іншай выявы ў Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Запампоўванне выявы ў Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
-    "score_add_missing_ingredients": "Add missing ingredients",
-    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
-    "score_add_missing_product_category": "Add missing product category",
-    "score_update_nutrition_facts": "Update nutrition facts",
+    "score_add_missing_ingredients": "Дадаць адсутныя інгрэдыенты",
+    "score_add_missing_packaging_image": "Дадаць адсутную выяву ўпакоўкі",
+    "score_add_missing_nutrition_facts": "Дадаць адсутныя звесткі аб пажыўнасці",
+    "score_add_missing_product_category": "Дадаць адсутную катэгорыю прадукту",
+    "score_add_missing_product_countries": "Дадаць адсутныя краіны паходжання прадукту",
+    "score_add_missing_product_emb": "Дадаць адсутныя коды адсочвання прадуктаў",
+    "score_add_missing_product_labels": "Дадаць адсутныя этыкеткі прадукту",
+    "score_add_missing_product_origins": "Дадаць адсутнае паходжанне прадукту",
+    "score_add_missing_product_stores": "Дадаць адсутныя крамы продажу прадукту",
+    "score_update_nutrition_facts": "Абнавіць звесткі аб пажыўнасці",
     "nutrition_page_title": "Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
-    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_unspecified": "Звесткі аб пажыўнасці не пазначаны на прадукце",
+    "nutrition_page_per_100g": "на 100 г",
     "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Serving size",
-    "nutrition_page_invalid_number": "Invalid number",
-    "nutrition_page_update_running": "Updating the product on the server...",
-    "nutrition_page_update_done": "Product updated!",
-    "more_photos": "More interesting photos",
+    "nutrition_page_invalid_number": "Недапушчальны лік",
+    "nutrition_page_update_running": "Абнаўленне прадукту на серверы...",
+    "nutrition_page_update_done": "Прадукт абноўлены!",
+    "more_photos": "Больш цікавых фота",
     "@more_photos": {},
-    "no_product_found": "No product found",
+    "no_product_found": "Прадукт не знойдзены",
     "@no_product_found": {},
-    "not_found": "not found:",
-    "searchPanelHeader": "Search or scan your first product",
+    "not_found": "не знойдзена:",
+    "searchPanelHeader": "Шукайце або скануйце свой першы прадукт",
     "@Product query status": {},
-    "refreshing_product": "Refreshing product",
+    "refreshing_product": "Абнаўленне прадукту",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_refreshed": "Product refreshed",
+    "product_refreshed": "Прадукт абноўлены",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "You are using a deprecated version of the app.",
+    "deprecated_header": "Вы выкарыстоўваеце ўстарэлую версію праграмы.",
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
-    "click_here": "Click here",
+    "click_here": "Націсніце тут",
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
-    "download_new_version": "Download the new version of the app",
+    "download_new_version": "Спампаваць новую версію праграмы",
     "@download_new_version": {
         "description": "Download new version of the app text"
     },
-    "could_not_refresh": "Could not refresh product",
+    "could_not_refresh": "Не ўдалося абнавіць прадукт",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
-    "cached_results_from": "Show results from:",
+    "product_internet_error": "Немагчыма атрымаць інфармацыю аб гэтым прадукце з-за памылкі сеткі.",
+    "cached_results_from": "Паказаць вынікі за:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
-    "added_product_thanks": "Thank you for adding this product!",
+    "added_product_thanks": "Дзякуй, што дадалі гэты прадукт!",
     "@added_product_thanks": {},
-    "product_search_same_category": "Compare to Category",
+    "product_search_same_category": "Параўнаць з аналагамі",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+    "product_improvement_add_category": "Дадаць катэгорыю для разліку Nutri-ацэнкі.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts": "Дадаць звесткі аб пажыўнасці для разліку Nutri-ацэнкі.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Дадаць звесткі аб пажыўнасці і катэгорыю для разліку Nutri-ацэнкі.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+    "product_improvement_categories_but_no_nutriscore": "Nutri-ацэнка для гэтага прадукта не можа быць разлічана, што можа быць звязана, напрыклад, з нестандартнай катэгорыяй. Калі вы гэта лічыце памылкай, звяжыцеся з намі.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
+    "product_improvement_obsolete_nutrition_image": "Выява пажыўнасці ўстарэла: абнавіце яе.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -620,72 +626,72 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Калі ласка, выберыце краіну",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Некаторыя экалагічныя асаблівасці залежаць ад месцазнаходжання",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "Product removed from comparison",
+    "product_removed_comparison": "Прадукт выдалены з параўнання",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "product_removed_history": "Product removed from history",
+    "product_removed_history": "Прадукт выдалены з гісторыі",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
-    "product_could_not_remove": "Could not remove product",
+    "product_could_not_remove": "Не ўдалося выдаліць прадукт",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
     "@Lists": {},
-    "no_prodcut_in_list": "There is no product in this list",
-    "no_product_in_section": "There is no product in this section",
+    "no_prodcut_in_list": "У гэтым спісе няма прадуктаў",
+    "no_product_in_section": "У гэтым раздзеле няма прадуктаў",
     "recently_seen_products": "History",
     "clear": "Clear",
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "Do you really want to delete this list?",
+    "really_clear": "Вы сапраўды хочаце выдаліць гэты спіс?",
     "@Plural": {},
-    "pct_match": "{percent}% match",
+    "pct_match": "працэнт супадзення: {percent}%",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} few {{count} дні таму} many {{count} дзён таму} =1{дзень таму} other{{count} дня таму}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} few {{count} гадзіны таму} many {{count} гадзін таму} =1{гадзіну таму} other{{count} гадзіны таму}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} few {{count} хвіліны таму} many {{count} хвілін таму} =0{менш за хвіліну таму} =1{хвіліну таму} other{{count} хвіліны таму}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} few {{count} месяцы таму} many {{count} месяцаў таму} =1{месяц таму} other{{count} месяца таму}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} few {{count} тыдні таму} many {{count} тыдняў таму} =1{тыдзень таму} other{{count} тыдня таму}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -707,21 +713,21 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Выберыце не менш за два прадукты",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
     "retry_button_label": "Паўтарыць",
-    "connect_with_us": "Connect with us",
+    "connect_with_us": "Звяжыцеся з намі",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
-    "blog": "Blog",
+    "blog": "Блог",
     "faq": "FAQ",
     "discover": "Discover",
-    "how_to_contribute": "How to Contribute",
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "how_to_contribute": "Як зрабіць унёсак",
+    "hint_knowledge_panel_message": "Вы можаце націснуць на любую частку карткі, каб даведацца больш аб тым, што вы бачыце. Паспрабуйце зараз!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -729,27 +735,27 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Дапамажыце валанцёрам Open Food Facts палепшыць праграму. Вы самі вырашаеце, ці варта падаваць ананімную аналітыку.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Калі вы перадумаеце, гэту опцыю можна ўключыць і адключыць у наладах у любы час.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Доступ да камеры",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+    "permissions_page_body1": "Для сканавання штрых-кодаў з дапамогай камеры тэлефона, аўтарызуйце доступ.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
-    "permissions_page_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "permissions_page_body2": "Калі вы перадумаеце, гэту опцыю можна ўключыць і адключыць у наладах у любы час.",
     "@permissions_page_body2": {
         "description": "second paragraph for the camera permission's page (onboarding)"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+    "contact_form_body_android": "АС: Android (SDK Int: {sdkInt} / Выпуск: {release})\nМадэль: {model}\nПрадукт: {product}\nПрылада: {device}\nБрэнд:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -779,7 +785,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}",
+    "contact_form_body_ios": "АС: iOS ({version})\nМадэль: {model}\nЛакалізаваная мадэль: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -797,7 +803,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "contact_form_body": "{osContent}\nВерсія праграмы:{appVersion}\nНумар зборкі праграмы:{appBuildNumber}\nНазва пакета праграмы:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -819,19 +825,19 @@
             }
         }
     },
-    "authorize_button_label": "Authorise",
+    "authorize_button_label": "Аўтарызаваць",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
-    "refuse_button_label": "Refuse",
+    "refuse_button_label": "Адмовіцца",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Later",
+    "ask_me_later_button_label": "Пазней",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "Go further on {source_name}",
+    "knowledge_panel_text_source": "Перайсці далей на {source_name}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
@@ -840,78 +846,78 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "У 2012 годзе\nмы вынайшлі праграму\nдля сумеснага сканавання",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "Паколькі нам «стукнула»10 гадоў,\nмы вынаходзім яе\nз нуля!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "Загружаецца ваш першы прыклад прадукту",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "onboarding_welcome_loading_error": "Здаецца, на вашай мове няма прыкладу прадукту",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
-    "product_list_your_ranking": "Your ranking",
+    "product_list_your_ranking": "Ваш рэйтынг",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "History not available",
+    "product_list_empty_icon_desc": "Гісторыя не даступна",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning!",
+    "product_list_empty_title": "Пачніце сканаванне!",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+    "product_list_empty_message": "Тут будуць з'яўляцца адсканаваныя прадукты, і вы зможаце правяраць дэталізаваную інфармацыю пра іх",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural, one {} =0{product} =1{product} other{products}} in your history",
+    "product_list_reloading_in_progress_multiple": "Абнаўленне {count,plural, one {} few {прадуктаў} many {прадуктаў} =0{прадуктаў} =1{прадукту} other{прадукту}} для вашай гісторыі",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Product} =1{Product} other{Products}} refresh complete",
+    "product_list_reloading_success_multiple": "Абнаўленне {count,plural, one {} few {прадуктаў} many {прадуктаў} =0{прадукту} =1{прадукту} other{прадукты}} завершана",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
             "count": {}
         }
     },
-    "loading_dialog_default_title": "Downloading data",
+    "loading_dialog_default_title": "Спампоўванне даных",
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
-    "loading_dialog_default_error_message": "Could not download data",
+    "loading_dialog_default_error_message": "Не ўдалося спампаваць даныя",
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
-    "account_delete": "Delete account",
+    "account_delete": "Выдаліць уліковы запіс",
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "account_deletion_subject": "Delete my account",
+    "account_deletion_subject": "Выдаліць мой уліковы запіс",
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
-    "user_profile": "Account",
+    "user_profile": "Уліковы запіс",
     "@user_profile": {
         "description": "User account (if connected)"
     },
-    "user_profile_title_guest": "Welcome!",
+    "user_profile_title_guest": "Вітаем!",
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Увайдзіце або зарэгіструйцеся, каб далучыцца да супольнасці Open Food Facts",
+    "user_profile_title_id_email": "Уваход у Open Food Facts: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -920,7 +926,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "Сардэчна запрашаем, {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -929,11 +935,11 @@
             }
         }
     },
-    "email_subject_account_deletion": "Delete account",
+    "email_subject_account_deletion": "Выдаліць уліковы запіс",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Вітаю. Калі ласка, выдаліце мой уліковы запіс Open Food Facts: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -942,27 +948,27 @@
             }
         }
     },
-    "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_app": "Праграма",
+    "settings_app_data": "Прыватнасць і адсочванне",
+    "settings_app_camera": "Камера",
     "settings_app_products": "Products",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Рознае",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_play_sound_title": "Play a sound on scan",
+    "camera_play_sound_title": "Прайграваць гук пры сканаванні",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "Пасля кожнага паспяховага сканавання гучыць сігнал",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Рэжым сканера",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Змяняйце гэтае значэнне, толькі калі ў вас узніклі праблемы са сканерам (немагчыма расшыфраваць штрых-коды). Націсніце для пераключэння паміж двума рэжымамі.\nБягучы рэжым: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -971,13 +977,13 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "camera_mode_file_based": "Бяспечны рэжым (прадвызначана)",
+    "camera_mode_bytes_array_based": "Хуткі рэжым",
+    "app_haptic_feedback_title": "Вібрацыя і тактыльны водгук",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Вібрацыі пасля выканання некаторых дзеянняў (штрых-код расшыфраваны, прадукт выдалены…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -985,7 +991,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Калі гэта ўключана, справаздачы аб збоях аўтаматычна перадаюцца ў сістэму адсочвання памылак Open Food Facts, каб можна было іх выправіць і, такім чынам, палепшыць праграму.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1005,8 +1011,8 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
-    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
+    "permission_photo_denied_title": "Дазволіць выкарыстанне камеры для сканавання штрых-кодаў",
+    "permission_photo_denied_message": "Для пашырэння досведу, дазвольце {appName} доступ да камеры. Вы зможаце непасрэдна сканаваць штрых-коды.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -1015,15 +1021,15 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Дазволіць",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
-    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_title": "У доступе адмоўлена",
+    "permission_photo_denied_dialog_settings_message": "Паколькі раней вы адмовілі ў доступе да камеры, то цяпер павінны дазволіць гэта ўручную ў «Наладах».",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
     "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
-    "permission_photo_denied": "No camera access granted",
+    "permission_photo_denied": "Доступ да камеры не нададзены",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -1035,19 +1041,19 @@
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
-    "edit_product_form_item_details_title": "Basic details",
+    "edit_product_form_item_details_title": "Асноўныя звесткі",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
     },
-    "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
+    "edit_product_form_item_details_subtitle": "Назва прадукту, брэнд, колькасць",
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Subtitle"
     },
-    "edit_product_form_item_other_details_title": "Additional details",
+    "edit_product_form_item_other_details_title": "Дадатковыя звесткі",
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "edit_product_form_item_other_details_subtitle": "Вэб-сайт, ...",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1055,15 +1061,15 @@
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
-    "edit_product_form_item_photos_subtitle": "Add or refresh photos",
+    "edit_product_form_item_photos_subtitle": "Дадаць або абнавіць фота",
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "Labels & Certifications",
+    "edit_product_form_item_labels_title": "Этыкеткі і сертыфікаты",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels, ...",
+    "edit_product_form_item_labels_subtitle": "Экалагічныя маркіроўкі, этыкеткі якасці, ...",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1083,15 +1089,15 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spain",
+    "edit_product_form_item_origins_hint": "Іспанія",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explainer_1": "Дадайце любыя ўказанні на паходжанне, якія можна знайсці на ўпакоўцы. Вам не трэба турбавацца аб паходжанні, указаным непасрэдна ў спісе інгрэдыентаў.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
+    "edit_product_form_item_origins_explainer_2": "Прыклады: ялавічына з Аргенціны, соя не паходзіць з Еўрапейскага звязу",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1099,11 +1105,11 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "Іспанія",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations": "Краіны, у якіх прадукт шырока распаўсюджаны (за выключэннем крам, якія спецыялізуюцца на замежнай прадукцыі).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1115,7 +1121,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "У Еўропе выкарыстоўваецца код авальнай формы з 2 вялікімі літарамі краіны, за якімі ідзе чысло і знак CE. Напрыклад: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
@@ -1127,29 +1133,29 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Укажыце толькі найбольш канкрэтную катэгорыю. Блізкія катэгорыі будуць дададзены аўтаматычна.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Калі катэгорыя не даступна ў аўтазапаўненні, усё роўна дадайце яе. Гэта дапаможа нам палепшыць Open Food Facts у вашай краіне.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Прыклады: сардзіны ў аліўкавым алеі, апельсінавы сок з канцэнтрату",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Save my changes",
-    "edit_product_form_item_exit_confirmation_negative_button": "Ignore my changes",
-    "edit_product_form_item_ingredients_title": "Ingredients & Origins",
+    "edit_product_form_item_exit_confirmation": "Хочаце захаваць змены, перш чым пакінуць гэтую старонку?",
+    "edit_product_form_item_exit_confirmation_positive_button": "Захаваць змены",
+    "edit_product_form_item_exit_confirmation_negative_button": "Адмяніць змены",
+    "edit_product_form_item_ingredients_title": "Інгрэдыенты і паходжанне",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Дадаць",
-    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-    "edit_product_form_item_remove_item_tooltip": "Remove",
-    "edit_product_form_item_packaging_title": "Packaging",
+    "edit_product_form_item_add_invalid_item_tooltip": "Спачатку ўвядзіце тэкст",
+    "edit_product_form_item_remove_item_tooltip": "Выдаліць",
+    "edit_product_form_item_packaging_title": "Фота інструкцый па перапрацоўцы",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1157,7 +1163,7 @@
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
-    "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol content…",
+    "edit_product_form_item_nutrition_facts_subtitle": "Пажыўнасць, утрыманне алкаголю…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
@@ -1165,46 +1171,46 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "product_field_website_title": "Website",
+    "product_field_website_title": "Вэб-сайт",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "completed_basic_details_btn_text": "Complete basic details",
-    "not_implemented_snackbar_text": "Not implemented yet",
+    "completed_basic_details_btn_text": "Запоўніце асноўныя звесткі",
+    "not_implemented_snackbar_text": "Яшчэ не рэалізавана",
     "category_picker_page_appbar_text": "Катэгорыі",
     "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
-    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
+    "edit_ingredients_refresh_photo_btn_text": "Абнавіць фота",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extract packaging",
+    "edit_packaging_extract_btn_text": "Распазнаць упакоўку",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
-    "edit_packaging_refresh_photo_btn_text": "Refresh photo",
+    "edit_packaging_refresh_photo_btn_text": "Абнавіць фота",
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "edit_ocr_extract_failed": "Не ўдалося выявіць тэкст у выяве.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "user_list_dialog_new_title": "New list of products",
+    "user_list_dialog_new_title": "Новы спіс прадуктаў",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
-    "user_list_dialog_rename_title": "Rename list",
+    "user_list_dialog_rename_title": "Перайменаваць спіс",
     "@user_list_dialog_rename_title": {
         "description": "Title of the 'rename user list' dialog"
     },
-    "user_list_subtitle_product": "Lists",
+    "user_list_subtitle_product": "Спісы",
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Дадайце прадукт у вашы спісы",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1212,7 +1218,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "Пакуль няма даступнага спісу,\nпачніце са стварэння новага",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1220,7 +1226,7 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "Дададзена ў спіс",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
@@ -1228,35 +1234,35 @@
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear list' popup"
     },
-    "user_list_popup_rename": "Rename",
+    "user_list_popup_rename": "Перайменаваць",
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "Мой спіс",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Name is mandatory",
+    "user_list_name_error_empty": "Назва ёсць абавязковай",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
-    "user_list_name_error_already": "That name is already used",
+    "user_list_name_error_already": "Гэтая назва ўжо выкарыстоўваецца",
     "@user_list_name_error_already": {
         "description": "Validation error about the name that is already used for another list"
     },
-    "user_list_name_error_same": "That is the same name",
+    "user_list_name_error_same": "Гэта тая ж самая назва",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "try_again": "Try Again",
+    "try_again": "Паўтарыць спробу",
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
-    "there_was_an_error": "There was an error",
+    "there_was_an_error": "Узнікла памылка",
     "@there_was_an_error": {
         "description": "Label that presents a error"
     },
-    "category_picker_no_category_found_message": "No category found for {items}",
+    "category_picker_no_category_found_message": "Катэгорыя для {items} не знойдзена",
     "@category_picker_no_category_found_message": {
         "description": "Label when no category is available",
         "placeholders": {
@@ -1265,11 +1271,11 @@
             }
         }
     },
-    "camera_enable_flash": "Enable flash",
+    "camera_enable_flash": "Уключыць успышку",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "Disable flash",
+    "camera_disable_flash": "Адключыць успышку",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
@@ -1318,7 +1324,7 @@
     "@dev_preferences_ml_kit_subtitle": {
         "description": "User dev preferences - Enable ML Kit - Subtitle"
     },
-    "dev_preferences_product_additional_features_title": "Additional button on product page",
+    "dev_preferences_product_additional_features_title": "Дадатковая кнопка на старонцы прадукту",
     "@dev_preferences_product_additional_features_title": {
         "description": "User dev preferences - Additional buttons on product page - Title"
     },
@@ -1326,23 +1332,23 @@
     "@dev_preferences_edit_ingredients_title": {
         "description": "User dev preferences - Additional buttons on product page - Subtitle"
     },
-    "dev_preferences_export_history_title": "Export History",
+    "dev_preferences_export_history_title": "Экспартаваць гісторыю",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
-    "dev_preferences_export_history_progress_error": "exception",
+    "dev_preferences_export_history_progress_error": "выключэнне",
     "@dev_preferences_export_history_progress_error": {
         "description": "User dev preferences - Export history - Item - Error"
     },
-    "dev_preferences_export_history_progress_found": "product found",
+    "dev_preferences_export_history_progress_found": "прадукт знойдзены",
     "@dev_preferences_export_history_progress_found": {
         "description": "User dev preferences - Export history - Item - Found"
     },
-    "dev_preferences_export_history_progress_not_found": "product NOT found",
+    "dev_preferences_export_history_progress_not_found": "прадукт НЕ знойдзены",
     "@dev_preferences_export_history_progress_not_found": {
         "description": "User dev preferences - Export history - Item - Not found"
     },
-    "dev_preferences_export_history_dialog_title": "Export history",
+    "dev_preferences_export_history_dialog_title": "Экспартаваць гісторыю",
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
@@ -1354,8 +1360,8 @@
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
-    "dev_preferences_migration_title": "Data migration from V1",
-    "dev_preferences_migration_subtitle": "Status: {status}",
+    "dev_preferences_migration_title": "Перанос даных з V1",
+    "dev_preferences_migration_subtitle": "Статус: {status}",
     "@dev_preferences_migration_subtitle": {
         "placeholders": {
             "status": {
@@ -1365,15 +1371,15 @@
     },
     "dev_preferences_migration_status_already_done": "success or fresh install",
     "dev_preferences_migration_status_success": "success",
-    "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
-    "dev_preferences_migration_status_required": "required (click to start)",
-    "dev_preferences_migration_status_not_started": "unknown",
-    "dev_preferences_import_history_title": "Import History",
+    "dev_preferences_migration_status_error": "памылка",
+    "dev_preferences_migration_status_in_progress": "выконваецца",
+    "dev_preferences_migration_status_required": "патрабуецца (націсніце, каб пачаць)",
+    "dev_preferences_migration_status_not_started": "невядома",
+    "dev_preferences_import_history_title": "Імпартаваць гісторыю",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
     },
-    "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
+    "dev_preferences_import_history_subtitle": "Ачысціць гісторыю і змесціць туды 3 прадукты",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
@@ -1381,11 +1387,11 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_scan_mode_title": "Scan Mode",
+    "dev_mode_scan_mode_title": "Рэжым сканавання",
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Бягучы рэжым сканавання: «{mode}»",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1394,35 +1400,35 @@
             }
         }
     },
-    "dev_mode_scan_mode_dialog_title": "Scan Mode",
+    "dev_mode_scan_mode_dialog_title": "Рэжым сканавання",
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
+    "dev_mode_hide_ecoscore_title": "Выключыць Eco-ацэнку",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_scan_camera_only": "Only camera stream, no scanning",
+    "dev_mode_scan_camera_only": "Толькі здымка камерай, без сканавання",
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "Camera stream and full image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_full_image": "Здымка камерай і поўная папярэдняя апрацоўка выявы, без сканавання",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_half_image": "Здымка камерай і папярэдняя апрацоўка часткі выявы, без сканавання",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "Full image scanning",
+    "dev_mode_scan_scan_full_image": "Поўнае сканаванне выявы",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Сканаванне часткі выявы",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
+    "product_search_no_more_results": "Вы спампавалі ўсе прадукты: {totalSize}.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1431,7 +1437,7 @@
             }
         }
     },
-    "product_search_button_download_more": "Download {count} more products\nAlready downloaded {downloaded} out of {totalSize}.",
+    "product_search_button_download_more": "Спампаваць яшчэ прадукты: {count}\nУжо спампавана {downloaded} з {totalSize}.",
     "@product_search_button_download_more": {
         "description": "Product search list - Button to download more results",
         "placeholders": {
@@ -1446,43 +1452,43 @@
             }
         }
     },
-    "user_search_contributor_title": "Products I added",
+    "user_search_contributor_title": "Прадукты, дададзеныя мною",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "Products I edited",
+    "user_search_informer_title": "Прадукты, рэдагаваныя мною",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "Products I photographed",
+    "user_search_photographer_title": "Прадукты, сфатаграфаваныя мною",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "My to-be-completed products",
+    "user_search_to_be_completed_title": "Прадукты, недаапрацаваныя мною",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "all_search_to_be_completed_title": "All to-be-completed products",
+    "all_search_to_be_completed_title": "Усе недаапрацаваныя прадукты",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "edit_product_action_retake_picture": "Retake photo",
+    "edit_product_action_retake_picture": "Перафатаграфаваць",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
     },
-    "edit_product_action_take_picture": "Take photo",
+    "edit_product_action_take_picture": "Сфатаграфаваць",
     "@edit_product_action_take_picture": {
         "description": "Product edition - FAB actions - take a picture"
     },
-    "edit_product_action_confirm": "Confirm",
+    "edit_product_action_confirm": "Пацвердзіць",
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Згаджаюся з умовамі выкарыстання Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "terms of use and contribution",
+    "signup_page_terms_of_use_line2": "умовамі выкарыстання і ўнёску ў Open Food Facts",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
@@ -1490,7 +1496,7 @@
     "@analytics_consent_image_semantic_label": {
         "description": "Consent Analytics icon semantics label"
     },
-    "knowledge_panel_page_loading_error": "Fatal Error: {error}",
+    "knowledge_panel_page_loading_error": "Фатальная памылка: {error}",
     "@knowledge_panel_page_loading_error": {
         "description": "Knowledge panel page template - Error while loading future",
         "placeholders": {
@@ -1499,7 +1505,7 @@
             }
         }
     },
-    "preferences_page_loading_error": "Fatal Error: {error}",
+    "preferences_page_loading_error": "Фатальная памылка: {error}",
     "@preferences_page_loading_error": {
         "description": "Preferences page - Error while loading future",
         "placeholders": {
@@ -1508,7 +1514,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Complete basic details",
+    "summary_card_button_add_basic_details": "Запоўніце асноўныя звесткі",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
@@ -1520,14 +1526,14 @@
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
-    "basic_details": "Basic Details",
-    "product_name": "Product Name",
-    "add_basic_details_product_name_error": "Please enter the product name",
-    "brand_name": "Brand name",
-    "add_basic_details_brand_name_error": "Please enter the brand name",
-    "quantity": "Quantity and weight",
+    "basic_details": "Асноўныя звесткі",
+    "product_name": "Назва прадукту",
+    "add_basic_details_product_name_error": "Калі ласка, увядзіце назву прадукту",
+    "brand_name": "Назва брэнда",
+    "add_basic_details_brand_name_error": "Калі ласка, увядзіце назву брэнда",
+    "quantity": "Колькасць і вага",
     "barcode": "Штрых-код",
-    "barcode_barcode": "Barcode: {barcode}",
+    "barcode_barcode": "Штрых-код: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
         "placeholders": {
@@ -1537,16 +1543,16 @@
         }
     },
     "barcode_invalid_error": "Invalid barcode",
-    "basic_details_add_success": "Basic details added successfully",
-    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
+    "basic_details_add_success": "Асноўныя звесткі дададзены",
+    "basic_details_add_error": "Немагчыма дадаць асноўныя звесткі. Паўтарыце спробу праз некаторы час",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
+    "confirm_clear": "Вы збіраецеся ачысціць усю сваю гісторыю: упэўнены, што хочаце працягнуць?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
+    "confirm_clear_user_list": "Вы збіраецеся ачысціць спіс ({name}): упэўнены, што хочаце працягнуць?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
         "placeholders": {
@@ -1555,7 +1561,7 @@
             }
         }
     },
-    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
+    "confirm_delete_user_list": "Вы збіраецеся выдаліць спіс ({name}): упэўнены, што хочаце працягнуць?",
     "@confirm_delete_user_list": {
         "description": "Asking about whether to delete the list or not",
         "placeholders": {
@@ -1576,22 +1582,22 @@
             }
         }
     },
-    "user_list_all_title": "Lists",
+    "user_list_all_title": "Спісы",
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list",
+    "user_list_all_empty": "Стварыце свой першы спіс",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, one {} few {{count} прадукты} many {{count} прадуктаў}=0{Пусты спіс} =1{Адзін прадукт} other{{count} прадукту}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Дадаць спіс",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1599,19 +1605,19 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Дадаць фота",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "choose_image_source_title": "Choose image source",
+    "choose_image_source_title": "Выбраць крыніцу выявы",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "Please choose a image source",
+    "choose_image_source_body": "Калі ласка, выберыце крыніцу выявы",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },
-    "gallery_source_label": "Gallery",
+    "gallery_source_label": "Галерэя",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
@@ -1619,7 +1625,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Паглядзіце на гэты прадукт на Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1628,45 +1634,45 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "Зрабіць здымак",
     "@capture": {
         "description": "Button label for taking a photo"
     },
-    "choose_from_gallery": "Choose from gallery",
+    "choose_from_gallery": "Выбраць з галерэі",
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "image_upload_queued": "Выява будзе запампавана ў фонавым рэжыме як мага хутчэй.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Разгарнуць табліцу звестак аб пажыўнасці",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
     "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-    "expand_ingredients": "Expand ingredients",
+    "expand_ingredients": "Разгарнуць інгрэдыенты",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
     "expand_ingredients_body": "Keep the ingredients panel expanded",
-    "no_internet_connection": "No internet connection",
+    "no_internet_connection": "Няма злучэння з інтэрнэтам",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Entire world",
+    "world_results_label": "Увесь свет",
     "@world_results_label": {
         "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Extend your search to the world",
+    "world_results_action": "Пашырце свой пошук на ўвесь свет",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Скапіяваць",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "clipboard_barcode_copy": "Copy barcode to clipboard",
+    "clipboard_barcode_copy": "Скапіяваць штрых-код у буфер абмену",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1676,30 +1682,30 @@
             }
         }
     },
-    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
-    "choose_app_language": "Choose App Language",
+    "clipboard_barcode_copied": "Штрых-код {barcode} скапіяваны ў буфер абмену!",
+    "choose_app_language": "Выберыце мову праграмы",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Help with OpenFoodFacts",
+    "help_with_openfoodfacts": "Дапамога з OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "Прадукт будзе абноўлены ў фонавым рэжыме як мага хутчэй.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "no_email_client_available_dialog_title": "Паштовай праграмы няма!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Калі ласка, адпраўце нам эл. ліст уручную на contact@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
-    "selected_images": "Selected Images",
-    "product_card_remove_product_tooltip": "Remove product",
+    "all_images": "Усе выявы",
+    "selected_images": "Абраныя выявы",
+    "product_card_remove_product_tooltip": "Выдаліць прадукт",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
@@ -1707,7 +1713,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Звесткі аб пажыўнасці на {grams} г (або мл)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -1720,11 +1726,11 @@
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Запампуйце выяву для аўтаматычнага распазнання інфармацыі, якую яна змяшчае.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Запампаваць фота",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -1736,32 +1742,96 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Не атрымалася спампаваць выяву",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+    "image_edit_url_error": "Не атрымалася адрэдагаваць выяву, бо яе URL не быў зададзены.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "Запомніць мой выбар",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "Выбіраць кожны раз",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
-    "robotoff_continue": "Continue",
+    "robotoff_continue": "Працягнуць",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "show_password": "Show Password",
+    "show_password": "Паказаць пароль",
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Do you like our app?",
-    "app_rating_dialog_body": "Please give us 5 stars on the store!",
-    "app_rating_dialog_positive_action": "Rate the app",
-    "app_rating_dialog_negative_action": "Later"
+    "app_rating_dialog_title": "Great! Let others know what you think of this app!",
+    "app_rating_dialog_positive_action": "Ацаніць праграму",
+    "app_rating_dialog_negative_action": "Пазней",
+    "app_rating_dialog_title_enjoying_app": "Вам падабаецца гэтая праграма?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Так!",
+    "not_really": "Не вельмі",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "edit_packagings_title": "Кампаненты ўпакоўкі",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Дадаць кампанент упакоўкі",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "The packaging is complete",
+    "edit_packagings_element_title": "Кампанент упакоўкі #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Number of units",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Shape",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Material",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Інструкцыя па перапрацоўцы",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Вага пустой упакоўкі (г)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "Для дакладнага вымярэння вагі ўпакоўкі, ачысціце яе ад рэшткаў прадукту, а затым прасушыце ад вады.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "detailed changes",
+    "background_task_operation_image": "photo upload",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "started",
+    "background_task_run_not_started": "not started yet",
+    "feed_back": "Водгук"
 }

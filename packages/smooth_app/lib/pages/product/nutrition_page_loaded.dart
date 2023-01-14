@@ -3,12 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:openfoodfacts/model/Nutrient.dart';
-import 'package:openfoodfacts/model/OrderedNutrient.dart';
-import 'package:openfoodfacts/model/OrderedNutrients.dart';
-import 'package:openfoodfacts/model/PerSize.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/UnitHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -16,6 +11,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
@@ -507,36 +503,25 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!saving) {
-      final bool? pleaseSave = await showDialog<bool>(
-        context: context,
-        builder: (final BuildContext context) => SmoothAlertDialog(
-          close: true,
-          body: Text(appLocalizations.edit_product_form_item_exit_confirmation),
-          title: appLocalizations.nutrition_page_title,
-          negativeAction: SmoothActionButton(
-            text: appLocalizations.ignore,
-            onPressed: () => Navigator.pop(context, false),
-          ),
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.save,
-            onPressed: () => Navigator.pop(context, true),
-          ),
-        ),
-      );
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         return false;
       }
       if (pleaseSave == false) {
         return true;
       }
-    }
-    if (!mounted) {
-      return false;
+      if (!mounted) {
+        return false;
+      }
     }
 
     final Product? changedProduct =
         _getChangedProduct(Product(barcode: widget.product.barcode));
     if (changedProduct == null) {
+      if (!mounted) {
+        return false;
+      }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           // here I cheat and I reuse the only invalid case.
@@ -548,6 +533,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     await BackgroundTaskDetails.addTask(
       changedProduct,
       widget: this,
+      stamp: BackgroundTaskDetailsStamp.nutrition,
     );
     return true;
   }

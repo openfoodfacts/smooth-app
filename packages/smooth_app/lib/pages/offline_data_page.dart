@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -54,6 +53,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
     parametersList: <Parameter>[
       BarcodeParameter.list(productsWithoutKnowledgePanel),
     ],
+    version: ProductQuery.productQueryVersion,
   );
 
   final SearchResult result = await OpenFoodAPIClient.searchProducts(
@@ -75,6 +75,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
     parametersList: <Parameter>[
       BarcodeParameter.list(completeProducts),
     ],
+    version: ProductQuery.productQueryVersion,
   );
 
   final SearchResult resultForFullProducts =

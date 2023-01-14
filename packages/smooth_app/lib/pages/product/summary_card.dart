@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/model/AttributeGroup.dart';
-import 'package:openfoodfacts/model/KnowledgePanel.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
@@ -24,10 +19,11 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
-import 'package:smooth_app/pages/product/add_category_button.dart';
+import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
+import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -51,6 +47,7 @@ class SummaryCard extends StatefulWidget {
     this.showUnansweredQuestions = false,
     this.isRemovable = true,
     this.isSettingClickable = true,
+    this.isProductEditable = true,
   });
 
   final Product _product;
@@ -72,6 +69,8 @@ class SummaryCard extends StatefulWidget {
   /// If true, the icon setting will be clickable.
   final bool isSettingClickable;
 
+  /// If true, the product will be editable
+  final bool isProductEditable;
   @override
   State<SummaryCard> createState() => _SummaryCardState();
 }
@@ -295,8 +294,14 @@ class _SummaryCardState extends State<SummaryCard> {
 
     if (widget.isFullVersion) {
       // Complete category
-      if (statesTags.contains('en:categories-to-be-completed')) {
-        summaryCardButtons.add(AddCategoryButton(_product));
+      if (statesTags
+          .contains(ProductState.CATEGORIES_COMPLETED.toBeCompletedTag)) {
+        summaryCardButtons.add(
+          AddSimpleInputButton(
+            product: _product,
+            helper: SimpleInputPageCategoryHelper(),
+          ),
+        );
       }
 
       // Compare to category
@@ -316,18 +321,22 @@ class _SummaryCardState extends State<SummaryCard> {
       }
 
       // Complete basic details
-      if (statesTags.contains('en:product-name-to-be-completed') ||
-          statesTags.contains('en:quantity-to-be-completed')) {
+      if (statesTags
+              .contains(ProductState.PRODUCT_NAME_COMPLETED.toBeCompletedTag) ||
+          statesTags
+              .contains(ProductState.QUANTITY_COMPLETED.toBeCompletedTag)) {
         summaryCardButtons.add(
           addPanelButton(
             localizations.completed_basic_details_btn_text,
-            onPressed: () async => Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) =>
-                    AddBasicDetailsPage(_product),
-              ),
-            ),
+            onPressed: () async => widget.isProductEditable
+                ? Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          AddBasicDetailsPage(_product),
+                    ),
+                  )
+                : null,
           ),
         );
       }

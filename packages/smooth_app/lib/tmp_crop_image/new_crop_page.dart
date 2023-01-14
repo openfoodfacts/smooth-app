@@ -15,6 +15,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
@@ -30,11 +31,15 @@ class CropPage extends StatefulWidget {
     required this.inputFile,
     required this.barcode,
     required this.imageField,
+    required this.brandNewPicture,
   });
 
   final File inputFile;
   final ImageField imageField;
   final String barcode;
+
+  /// Is that a new picture we crop, or an existing picture?
+  final bool brandNewPicture;
 
   @override
   State<CropPage> createState() => _CropPageState();
@@ -93,11 +98,30 @@ class _CropPageState extends State<CropPage> {
         backgroundColor: Colors.black,
         body: _processing
             ? const Center(child: CircularProgressIndicator.adaptive())
-            : Stack(
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Positioned(
-                    child: Align(
-                      alignment: Alignment.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      _IconButton(
+                        iconData: Icons.rotate_90_degrees_ccw_outlined,
+                        onPressed: () => setState(
+                          () => _controller.rotateLeft(),
+                        ),
+                      ),
+                      _IconButton(
+                        iconData: Icons.rotate_90_degrees_cw_outlined,
+                        onPressed: () => setState(
+                          () => _controller.rotateRight(),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(MINIMUM_TOUCH_SIZE / 2),
                       child: RotatedCropImage(
                         controller: _controller,
                         image: _image,
@@ -105,70 +129,21 @@ class _CropPageState extends State<CropPage> {
                       ),
                     ),
                   ),
-                  Positioned(
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                          bottom: MEDIUM_SPACE,
-                        ),
-                        child: ElevatedButton(
-                          onPressed: () => setState(
-                            () => _controller.rotateRight(),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            shape: const CircleBorder(),
-                          ),
-                          child:
-                              const Icon(Icons.rotate_90_degrees_cw_outlined),
-                        ),
+                  Wrap(
+                    spacing: MEDIUM_SPACE,
+                    alignment: WrapAlignment.center,
+                    children: <Widget>[
+                      _OutlinedButton(
+                        iconData: Icons.camera_alt,
+                        label: appLocalizations.capture,
+                        onPressed: () async => _capture(),
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                          bottom: MEDIUM_SPACE,
-                        ),
-                        child: ElevatedButton(
-                          onPressed: () => setState(
-                            () => _controller.rotateLeft(),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            shape: const CircleBorder(),
-                          ),
-                          child:
-                              const Icon(Icons.rotate_90_degrees_ccw_outlined),
-                        ),
+                      _OutlinedButton(
+                        iconData: Icons.check,
+                        label: appLocalizations.confirm_button_label,
+                        onPressed: () async => _mayExitPage(saving: true),
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                            bottom: MEDIUM_SPACE),
-                        child: Wrap(
-                          spacing: MEDIUM_SPACE,
-                          alignment: WrapAlignment.center,
-                          children: <Widget>[
-                            _OutlinedButton(
-                              iconData: Icons.camera_alt,
-                              label: appLocalizations.capture,
-                              onPressed: () async => _capture(),
-                            ),
-                            _OutlinedButton(
-                              iconData: Icons.check,
-                              label: appLocalizations.confirm_button_label,
-                              onPressed: () async => _mayExitPage(saving: true),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    ],
                   ),
                 ],
               ),
@@ -176,24 +151,24 @@ class _CropPageState extends State<CropPage> {
     );
   }
 
-  Future<void> _saveFileAndExit() async {
+  Future<bool> _saveFileAndExit() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoInt daoInt = DaoInt(localDatabase);
     final image2.Image? rawImage = await _controller.croppedBitmap();
     if (rawImage == null) {
-      return;
+      return true;
     }
     final Uint8List data = Uint8List.fromList(image2.encodeJpg(rawImage));
     final int sequenceNumber =
         await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
 
-    final Directory tempDirectory = await getTemporaryDirectory();
+    final Directory tempDirectory = await getApplicationSupportDirectory();
     final String path = '${tempDirectory.path}/crop_$sequenceNumber.jpeg';
     final File file = File(path);
     await file.writeAsBytes(data);
 
     if (!mounted) {
-      return;
+      return true;
     }
 
     await BackgroundTaskImage.addTask(
@@ -204,16 +179,17 @@ class _CropPageState extends State<CropPage> {
     );
     localDatabase.notifyListeners();
     if (!mounted) {
-      return;
+      return true;
     }
     final ContinuousScanModel model = context.read<ContinuousScanModel>();
     await model
         .onCreateProduct(widget.barcode); // TODO(monsieurtanuki): a bit fishy
 
     if (!mounted) {
-      return;
+      return true;
     }
     Navigator.of(context).pop<File>(file);
+    return true;
   }
 
   static const String _CROP_PAGE_SEQUENCE_KEY = 'crop_page_sequence';
@@ -225,7 +201,8 @@ class _CropPageState extends State<CropPage> {
   Future<bool> _mayExitPage({required final bool saving}) async {
     if (_controller.value.rotation == Rotation.noon &&
         _controller.value.crop == _initialRect &&
-        _samePicture) {
+        _samePicture &&
+        !widget.brandNewPicture) {
       // nothing has changed, let's leave
       if (saving) {
         Navigator.of(context).pop();
@@ -243,10 +220,23 @@ class _CropPageState extends State<CropPage> {
       if (pleaseSave == false) {
         return true;
       }
+      if (!mounted) {
+        return false;
+      }
     }
 
-    await _saveFileAndExit();
-    return true;
+    try {
+      return _saveFileAndExit();
+    } catch (e) {
+      if (mounted) {
+        // not likely to happen, but you never know...
+        await LoadingDialog.error(
+          context: context,
+          title: 'Could not prepare picture with exception $e',
+        );
+      }
+      return false;
+    }
   }
 
   Future<void> _capture() async {
@@ -265,7 +255,25 @@ class _CropPageState extends State<CropPage> {
   }
 }
 
-/// Standard button for this page.
+/// Standard icon button for this page.
+class _IconButton extends StatelessWidget {
+  const _IconButton({
+    required this.iconData,
+    required this.onPressed,
+  });
+
+  final IconData iconData;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) => ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(shape: const CircleBorder()),
+        child: Icon(iconData),
+      );
+}
+
+/// Standard text button for this page.
 class _OutlinedButton extends StatelessWidget {
   const _OutlinedButton({
     required this.iconData,
@@ -278,20 +286,17 @@ class _OutlinedButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
-    return OutlinedButton.icon(
-      icon: Icon(iconData),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-          themeData.colorScheme.background,
+  Widget build(BuildContext context) => OutlinedButton.icon(
+        icon: Icon(iconData),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(
+            Theme.of(context).colorScheme.background,
+          ),
+          shape: MaterialStateProperty.all(
+            const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+          ),
         ),
-        shape: MaterialStateProperty.all(
-          const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-        ),
-      ),
-      onPressed: onPressed,
-      label: Text(label),
-    );
-  }
+        onPressed: onPressed,
+        label: Text(label),
+      );
 }

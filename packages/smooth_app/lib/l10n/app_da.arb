@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Tilføj manglende ingredienser",
+    "score_add_missing_packaging_image": "Tilføj manglende emballagefoto",
     "score_add_missing_nutrition_facts": "Tilføj manglende ernæringsfakta",
     "score_add_missing_product_category": "Tilføj manglende produktkategori",
+    "score_add_missing_product_countries": "Tilføj manglende produktlande",
+    "score_add_missing_product_emb": "Tilføj manglende produktsporbarhedskoder",
+    "score_add_missing_product_labels": "Tilføj manglende produktketiketter",
+    "score_add_missing_product_origins": "Tilføj manglende produktoprindelser",
+    "score_add_missing_product_stores": "Tilføj manglende produktbutikker",
     "score_update_nutrition_facts": "Opdatér ernæringsfakta",
     "nutrition_page_title": "Ernæringsfakta",
     "nutrition_page_unspecified": "Ernæringsfakta ikke angivet på produktet",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Tilføj",
     "edit_product_form_item_add_invalid_item_tooltip": "Angiv først en tekst",
     "edit_product_form_item_remove_item_tooltip": "Fjern",
-    "edit_product_form_item_packaging_title": "Emballage",
+    "edit_product_form_item_packaging_title": "Genbrugsvejledningsfoto",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1760,8 +1766,72 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Synes du om vores app?",
-    "app_rating_dialog_body": "Giv os venligst 5 stjerner i butikken!",
+    "app_rating_dialog_title": "Storartet! Lad andre vide, hvad du synes om appen!",
     "app_rating_dialog_positive_action": "Bedøm appen",
-    "app_rating_dialog_negative_action": "Senere"
+    "app_rating_dialog_negative_action": "Senere",
+    "app_rating_dialog_title_enjoying_app": "Synes om appen?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Jep!",
+    "not_really": "Ikke rigtigt",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "edit_packagings_title": "Emballagekomponenter",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Tilføj en emballagekomponent",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "Emballagen er komplet",
+    "edit_packagings_element_title": "Emballagekomponent #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Antal enheder",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Form",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Materiale",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Nogle gange er materialerne, såsom ♵, skjult i bunden af pakken 3D-præget i plastikken.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Genbrugsvejledning",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Produktnettomængde pr. enhed",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Vægt af én tom enhed (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For nøjagtige emballagevægtmålinger, så rengør for evt. madrester og aftør derefter evt. vand.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "background_task_title": "Afventende bidrag",
+    "background_task_subtitle": "Bidragene auto-gemmes på vores server (dog ikke altid i realtid).",
+    "background_task_list_empty": "Ingen afventende baggrundsopgaver",
+    "background_task_error_no_internet": "Internetforbindelsesfejl. Forsøg senere.",
+    "background_task_operation_unknown": "ukendt operationstype",
+    "background_task_operation_details": "detaljerede ændringer",
+    "background_task_operation_image": "foto-upload",
+    "background_task_operation_refresh": "opdatering forsinket efter foto-upload",
+    "background_task_run_started": "startet",
+    "background_task_run_not_started": "ikke startet endnu",
+    "feed_back": "Feedback"
 }

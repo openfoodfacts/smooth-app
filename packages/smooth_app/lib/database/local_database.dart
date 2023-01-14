@@ -33,15 +33,17 @@ class LocalDatabase extends ChangeNotifier {
 
   UpToDateProductProvider get upToDate => _upToDateProductProvider;
 
-  /// Notify listeners
-  /// Comments added only in order to avoid a "warning"
-  /// For the record, we need to override the method
-  /// because the parent's is protected
   @override
   void notifyListeners() {
     BackgroundTaskManager(this).run(); // no await
     super.notifyListeners();
   }
+
+  /// Returns all the pending background task ids.
+  ///
+  /// Ugly solution to be able to mock hive data.
+  List<String> getAllTaskIds() =>
+      DaoStringList(this).getAll(DaoStringList.keyTasks);
 
   static Future<LocalDatabase> getLocalDatabase() async {
     // sql from there

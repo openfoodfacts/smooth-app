@@ -1,5 +1,4 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class QuestionsQuery {

@@ -205,7 +205,7 @@
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Toutes nos félicitations ! Votre compte vient d'être créé.",
+    "sign_up_page_action_ok": "Toutes nos félicitations! Votre compte vient d'être créé.",
     "sign_up_page_display_name_hint": "Nom",
     "sign_up_page_display_name_error_empty": "Veuillez saisir le nom d'affichage que vous souhaitez utiliser",
     "sign_up_page_email_hint": "Courriel",
@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Ajouter les ingrédients manquants",
+    "score_add_missing_packaging_image": "Ajouter l'image d'emballage manquante",
     "score_add_missing_nutrition_facts": "Ajouter les informations nutritionnelles manquantes",
     "score_add_missing_product_category": "Ajouter une catégorie de produit manquante",
+    "score_add_missing_product_countries": "Ajouter les pays de vente manquants",
+    "score_add_missing_product_emb": "Ajouter les codes de traçabilité manquants",
+    "score_add_missing_product_labels": "Ajouter les labels manquants",
+    "score_add_missing_product_origins": "Ajouter les origines manquantes",
+    "score_add_missing_product_stores": "Ajouter les magasins de vente manquants",
     "score_update_nutrition_facts": "Mettre à jour les informations nutritionnelles",
     "nutrition_page_title": "Informations nutritionnelles",
     "nutrition_page_unspecified": "Les valeurs nutritionnelles ne sont pas spécifiées sur le produit",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Ajouter",
     "edit_product_form_item_add_invalid_item_tooltip": "Veuillez d'abord saisir un texte",
     "edit_product_form_item_remove_item_tooltip": "Retirer",
-    "edit_product_form_item_packaging_title": "Conditionnement",
+    "edit_product_form_item_packaging_title": "Photo des informations de recyclage",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1285,7 +1291,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
+    "dev_preferences_reset_onboarding_subtitle": "Vous devez ensuite redémarrer l'application pour le voir.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1662,7 +1668,7 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Copier",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
@@ -1760,8 +1766,72 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Aimez-vous notre application ?",
-    "app_rating_dialog_body": "S'il vous plaît donnez nous 5 étoiles sur le playstore!",
+    "app_rating_dialog_title": "Super ! Faites savoir aux autres ce que vous pensez de cette application !",
     "app_rating_dialog_positive_action": "Noter l'application",
-    "app_rating_dialog_negative_action": "Plus tard"
+    "app_rating_dialog_negative_action": "Plus tard",
+    "app_rating_dialog_title_enjoying_app": "Cette application vous plaît ?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ouais!",
+    "not_really": "Pas vraiment",
+    "app_rating_dialog_title_not_enjoying_app": "Oh non ! Pourriez-vous me dire ce qu'il s'est passé ?",
+    "edit_packagings_title": "Composants d'emballage",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Ajouter un composant d'emballage",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "L'emballage est complet",
+    "edit_packagings_element_title": "Composant d'emballage #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Nombre d'unités",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Forme",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Matière",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Parfois, les indications de matières comme ♵ sont cachés sous le pack, en 3D, sur le plastique.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Consigne de tri",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Quantité nette de produit par unité",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Poids d'une unité vide (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "Pour calculer le poids de l'emballage aussi précisément que possible, veuillez récurer tout résidu de nourriture, puis le sécher le cas échéant.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "detailed changes",
+    "background_task_operation_image": "photo upload",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "started",
+    "background_task_run_not_started": "not started yet",
+    "feed_back": "Commentaires"
 }

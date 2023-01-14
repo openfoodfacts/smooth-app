@@ -1,4 +1,4 @@
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Status of a "fetch [Product]" operation
 enum FetchedProductStatus {

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
@@ -21,6 +20,7 @@ abstract class AbstractBackgroundTask {
     required this.languageCode,
     required this.user,
     required this.country,
+    required this.stamp,
   });
 
   /// Typically, similar to the name of the class that extends this one.
@@ -30,6 +30,9 @@ abstract class AbstractBackgroundTask {
 
   /// Unique task identifier, needed e.g. for task overwriting.
   final String uniqueId;
+
+  /// Generic task identifier, like "details:categories for barcode 1234", needed e.g. for task overwriting".
+  final String stamp;
 
   final String barcode;
   final String languageCode;
@@ -81,9 +84,13 @@ abstract class AbstractBackgroundTask {
   Future<void> addToManager(
     final LocalDatabase localDatabase, {
     final State<StatefulWidget>? widget,
+    final bool showSnackBar = true,
   }) async {
     await BackgroundTaskManager(localDatabase).add(this);
     if (widget == null || !widget.mounted) {
+      return;
+    }
+    if (!showSnackBar) {
       return;
     }
     final String? snackBarMessage =

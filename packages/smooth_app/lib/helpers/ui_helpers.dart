@@ -1,7 +1,6 @@
 /// Contains UI related constant that are shared across the entire app.
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/model/KnowledgePanel.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// Main attributes, to be displayed on top

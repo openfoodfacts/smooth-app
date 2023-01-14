@@ -85,7 +85,9 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 ## How to run the project
 
-In order to run the application, make sure you are in the `packages/app` directory and run these commands :
+We have predefined run configurations for Android Studio and Visual Studio Code
+
+In order to run the application, make sure you are in the `packages/smooth_app` directory and run these commands :
 
 - `flutter pub get .`
   

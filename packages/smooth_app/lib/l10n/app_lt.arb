@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Pridėkite trūkstamus ingredientus",
+    "score_add_missing_packaging_image": "Pridėti trūkstamą pakuotės vaizdą",
     "score_add_missing_nutrition_facts": "Pridėkite trūkstamus mitybos faktus",
     "score_add_missing_product_category": "Pridėkite trūkstamą produkto kategoriją",
+    "score_add_missing_product_countries": "Pridėti trūkstamas produktų šalis",
+    "score_add_missing_product_emb": "Pridėti trūkstamus produktų atsekamumo kodus",
+    "score_add_missing_product_labels": "Pridėkite trūkstamas produktų eitketes",
+    "score_add_missing_product_origins": "Pridėti trūkstamas produktų kilmes",
+    "score_add_missing_product_stores": "Pridėti trūkstamas produktų parduotuves",
     "score_update_nutrition_facts": "Atnaujinkite mitybos faktus",
     "nutrition_page_title": "Nutrition Facts",
     "nutrition_page_unspecified": "Mitybos faktai ant gaminio nenurodyti",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Pridėti",
     "edit_product_form_item_add_invalid_item_tooltip": "Pirmiausia įveskite tekstą",
     "edit_product_form_item_remove_item_tooltip": "Pašalinti",
-    "edit_product_form_item_packaging_title": "Pakuotė",
+    "edit_product_form_item_packaging_title": "Perdirbimo instrukcijos nuotrauka",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1760,8 +1766,72 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Do you like our app?",
-    "app_rating_dialog_body": "Please give us 5 stars on the store!",
+    "app_rating_dialog_title": "Puiku! Praneškite kitiems, ką manote apie šią programą!",
     "app_rating_dialog_positive_action": "Rate the app",
-    "app_rating_dialog_negative_action": "Vėliau"
+    "app_rating_dialog_negative_action": "Vėliau",
+    "app_rating_dialog_title_enjoying_app": "Ar Jums patinka ši programėlė?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Aha!",
+    "not_really": "Nelabai",
+    "app_rating_dialog_title_not_enjoying_app": "Man labai gaila dėl to! Gal galėtumėte pasakyti, kas nutiko?",
+    "edit_packagings_title": "Pakuotės komponentai",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Pridėti pakuotės komponentą",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "Pakuota yra užbaigta",
+    "edit_packagings_element_title": "Pakuotės komponentas #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Number of units",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Forma",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Medžiaga",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Kartais tokios medžiagos, kaip ♵, yra paslėptos pakuotės apačioje, 3D, ant plastiko.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Perdirbimo instrukcija",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Grynasis vieno produkto vieneto kiekis",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Vieno tuščio vieneto svoris (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "Kad pakuotės svoris būtų tiksliai išmatuotas, nuvalykite visus maisto likučius ir tada išdžiovinkite vandenį.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "detailed changes",
+    "background_task_operation_image": "photo upload",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "started",
+    "background_task_run_not_started": "not started yet",
+    "feed_back": "Atsiliepimas"
 }

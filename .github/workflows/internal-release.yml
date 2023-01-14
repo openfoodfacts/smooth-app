@@ -3,7 +3,8 @@ on:
    push:
      branches:
        - develop
-    
+env:
+ RUBY_VERSION: 3.2.0
 
 jobs:
   tag-commit:
@@ -17,15 +18,24 @@ jobs:
       VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
 
     steps:
-      - uses: actions/checkout@v3
-
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ env.RUBY_VERSION }}
+          #working-directory: packages/smooth_app/android
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/smooth_app/android/
       # Get the latest version name from file
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=$(cat version.txt)">> $GITHUB_ENV
         #run: echo "VERSION_NAME=1.9.0" >> $GITHUB_ENV
 
       - name: Decrypt Android API JSON file
-        run: cd ./packages/app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
@@ -35,10 +45,10 @@ jobs:
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
-        uses: maierj/fastlane-action@v2.3.0
+        uses: maierj/fastlane-action@v3.0.0
         with:
           lane: getOldVersionCode
-          subdirectory: packages/app/android
+          subdirectory: packages/smooth_app/android
 
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"

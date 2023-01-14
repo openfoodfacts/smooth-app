@@ -3,6 +3,9 @@ on:
    push:
      branches:
        - develop
+
+env:
+  RUBY_VERSION: 3.2.0
     
 
 jobs:
@@ -43,20 +46,29 @@ jobs:
         #run: echo "VERSION_NAME=1.9.0" >> $GITHUB_ENV
 
       - name: Decrypt Android API JSON file
-        run: cd ./packages/app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
+        run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
           API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKEY }}
           DECRYPT_GPG_KEYSTORE: ${{ secrets.DECRYPT_GPG_KEYSTORE }}
           STORE_JKS_DECRYPTKEY: ${{ secrets.NEW_CYPHER }}
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: bundle install
+        run: bundle install
+        working-directory: ./packages/smooth_app/android/
+
       # We are using the android version code for iOS as well to have the version codes in sync 
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
-        uses: maierj/fastlane-action@v2.3.0
+        uses: maierj/fastlane-action@v3.0.0
         with:
           lane: getOldVersionCode
-          subdirectory: packages/app/android
+          subdirectory: packages/smooth_app/android
 
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"

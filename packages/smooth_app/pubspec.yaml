@@ -13,6 +13,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  badges: ^2.0.3 # TODO use the standard flutter Badge instead when available
   barcode_widget: 2.0.3
   carousel_slider: 4.1.1
   cupertino_icons: 1.0.5
@@ -30,7 +31,7 @@ dependencies:
   latlong2: 0.8.1
   matomo_tracker: 1.5.0
   modal_bottom_sheet: 2.1.2
-  openfoodfacts: 1.27.1
+  openfoodfacts: 2.1.2
   #  openfoodfacts:
   #    path: ../../../openfoodfacts-dart
   package_info_plus: 1.4.3+1
@@ -70,7 +71,7 @@ dependencies:
   intl: 0.17.0
   rxdart: 0.27.4
   collection: 1.16.0
-  path: ^1.8.2 # careful with 1.8.1 because of https://github.com/flutter/flutter/issues/95478
+  path: ^1.8.3
   path_provider: 2.0.11
   data_importer_shared:
     path: ../data_importer_shared
@@ -81,6 +82,25 @@ dependencies:
   shimmer: 2.0.0
   lottie: 1.4.2
   webview_flutter: ^3.0.4
+
+  # According to the build variant, only one "scanner" implementation must be added when building a release
+  # Call "flutter pub remove xxxx" to remove unused dependencies
+  scanner_mlkit:
+    path: ../scanner/mlkit
+
+  scanner_zxing:
+    path: ../scanner/zxing
+
+  # According to the build variant, only one "app store" implementation must be added when building a release
+  # Call "flutter pub remove xxxx" to remove unused dependencies
+  app_store_apple_store:
+    path: ../app_store/apple_app_store
+
+  app_store_google_play:
+    path: ../app_store/google_play
+
+  app_store_uri:
+    path: ../app_store/uri_store
 
 dev_dependencies:
   integration_test:
@@ -141,6 +161,7 @@ flutter_native_splash:
 
 flutter:
   generate: true
+  uses-material-design: true
 
   assets:
     - assets/animations/
@@ -152,6 +173,7 @@ flutter:
     - assets/misc/
     - assets/network/cert.pem
     - assets/onboarding/
+    - assets/packagings/
     - assets/preferences/
     - assets/product/
     - assets/icons/visor_icon.svg

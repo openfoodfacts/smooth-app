@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:openfoodfacts/model/LoginStatus.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -26,7 +24,12 @@ class UserManagementProvider with ChangeNotifier {
     }
 
     if (loginStatus.successful) {
-      await putUser(user);
+      await putUser(
+        User(
+          userId: loginStatus.userId!,
+          password: user.password,
+        ),
+      );
       notifyListeners();
     }
 

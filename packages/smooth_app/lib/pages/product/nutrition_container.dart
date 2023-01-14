@@ -1,11 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:openfoodfacts/model/Nutrient.dart';
-import 'package:openfoodfacts/model/Nutriments.dart';
-import 'package:openfoodfacts/model/OrderedNutrient.dart';
-import 'package:openfoodfacts/model/OrderedNutrients.dart';
-import 'package:openfoodfacts/model/PerSize.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/utils/UnitHelper.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Nutrition data, for nutrient order and conversions.
 class NutritionContainer {

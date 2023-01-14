@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "不足している原材料を追加",
+    "score_add_missing_packaging_image": "不足しているパッケージ画像を追加",
     "score_add_missing_nutrition_facts": "不足している栄養成分を追加",
     "score_add_missing_product_category": "不足している製品カテゴリを追加",
+    "score_add_missing_product_countries": "不足している製品の国を追加する",
+    "score_add_missing_product_emb": "不足している製品トレーサビリティ コードを追加する",
+    "score_add_missing_product_labels": "不足している製品ラベルを追加",
+    "score_add_missing_product_origins": "不足している製品の産地を追加",
+    "score_add_missing_product_stores": "不足している商品ストアを追加する",
     "score_update_nutrition_facts": "栄養成分を更新",
     "nutrition_page_title": "栄養成分表",
     "nutrition_page_unspecified": "栄養成分データが製品に表示されていません",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "追加",
     "edit_product_form_item_add_invalid_item_tooltip": "文字を入力してください。",
     "edit_product_form_item_remove_item_tooltip": "削除する",
-    "edit_product_form_item_packaging_title": "パッケージング",
+    "edit_product_form_item_packaging_title": "リサイクル手順の写真",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1760,8 +1766,72 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "アプリを気に入っていただけましたか？",
-    "app_rating_dialog_body": "当店に5つ星をください！",
+    "app_rating_dialog_title": "Great! Let others know what you think of this app!",
     "app_rating_dialog_positive_action": "アプリを評価する",
-    "app_rating_dialog_negative_action": "後で"
+    "app_rating_dialog_negative_action": "後で",
+    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
+    "not_really": "Not really",
+    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "edit_packagings_title": "パッケージコンポーネント",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "パッケージング コンポーネントを追加する",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "梱包が完了しました",
+    "edit_packagings_element_title": "パッケージング コンポーネント #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "ユニット数",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Shape",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Material",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "時々、♵ のような素材がパックの下に、3D で、プラスチックの上に隠されています。",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "リサイクル手順",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "単位あたりの製品の正味数量",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "空の単位の重量 (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "正確な梱包重量測定を行うには、食品残渣を清掃し、水を乾燥させてください。",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "background_task_title": "保留中の貢献",
+    "background_task_subtitle": "あなたの投稿は自動的にサーバーに保存されますが、リアルタイムで保存されるとは限りません。",
+    "background_task_list_empty": "保留中のバックグラウンド タスクはありません",
+    "background_task_error_no_internet": "インターネット接続エラーが発生しました。後でお試しください。",
+    "background_task_operation_unknown": "不明な操作タイプ",
+    "background_task_operation_details": "詳細な変更",
+    "background_task_operation_image": "写真のアップロード",
+    "background_task_operation_refresh": "写真のアップロード後に更新が遅れる",
+    "background_task_run_started": "開始されました",
+    "background_task_run_not_started": "まだ開始していません",
+    "feed_back": "Feedback"
 }

@@ -541,8 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Ontbrekende ingrediënten toevoegen",
+    "score_add_missing_packaging_image": "Add missing packaging image",
     "score_add_missing_nutrition_facts": "Ontbrekende voedingswaarden toevoegen",
     "score_add_missing_product_category": "Ontbrekende productcategorie toevoegen",
+    "score_add_missing_product_countries": "Add missing product countries",
+    "score_add_missing_product_emb": "Add missing product traceability codes",
+    "score_add_missing_product_labels": "Add missing product labels",
+    "score_add_missing_product_origins": "Add missing product origins",
+    "score_add_missing_product_stores": "Add missing product stores",
     "score_update_nutrition_facts": "Voedingswaarden bijwerken",
     "nutrition_page_title": "Voedingswaarden",
     "nutrition_page_unspecified": "De voedingswaarden zijn niet op het product vermeld",
@@ -1149,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Toevoegen",
     "edit_product_form_item_add_invalid_item_tooltip": "Voer eerst een tekst in alsjeblieft",
     "edit_product_form_item_remove_item_tooltip": "Verwijderen",
-    "edit_product_form_item_packaging_title": "Verpakking",
+    "edit_product_form_item_packaging_title": "Recycling instructions photo",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1220,7 +1226,7 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "Toegevoegd aan lijst",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
@@ -1285,7 +1291,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
+    "dev_preferences_reset_onboarding_subtitle": "U moet de app dan opnieuw opstarten.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1662,7 +1668,7 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Kopiëren",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
@@ -1760,8 +1766,72 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "Vindt u onze app leuk?",
-    "app_rating_dialog_body": "Geef ons 5 sterren in de winkel!",
+    "app_rating_dialog_title": "Geweldig! Laat anderen weten wat je vindt van deze app!",
     "app_rating_dialog_positive_action": "Beoordeel de app",
-    "app_rating_dialog_negative_action": "Later"
+    "app_rating_dialog_negative_action": "Later",
+    "app_rating_dialog_title_enjoying_app": "Geniet je van de app?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
+    "not_really": "Niet echt",
+    "app_rating_dialog_title_not_enjoying_app": "Het spijt me dat te horen! Kun je me vertellen wat er is gebeurd?",
+    "edit_packagings_title": "Packaging components",
+    "@edit_packagings_title": {
+        "description": "Title of the structured packagings page"
+    },
+    "edit_packagings_element_add": "Add a packaging component",
+    "@edit_packagings_element_add": {
+        "description": "Button label"
+    },
+    "edit_packagings_completed": "The packaging is complete",
+    "edit_packagings_element_title": "Packaging component #{index}",
+    "@edit_packagings_element_title": {
+        "description": "Element title. Please do not change the index placeholder",
+        "placeholders": {
+            "index": {
+                "type": "int"
+            }
+        }
+    },
+    "edit_packagings_element_field_units": "Number of units",
+    "@edit_packagings_element_field_units": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_shape": "Vorm",
+    "@edit_packagings_element_field_shape": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_material": "Materiaal",
+    "@edit_packagings_element_field_material": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "@edit_packagings_element_hint_material": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "@edit_packagings_element_field_recycling": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "@edit_packagings_element_field_quantity": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "@edit_packagings_element_field_weight": {
+        "description": "Field label"
+    },
+    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "@edit_packagings_element_hint_weight": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Fout met internetverbinding. Probeer het later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "gedetailleerde wijzigingen",
+    "background_task_operation_image": "foto uploaden",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "gestart",
+    "background_task_run_not_started": "nog niet gestart",
+    "feed_back": "Feedback"
 }

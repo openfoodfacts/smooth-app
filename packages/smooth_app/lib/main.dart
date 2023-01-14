@@ -7,13 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -110,7 +109,6 @@ Future<bool> _init1(AppStore appStore) async {
     ),
     daoString: DaoString(_localDatabase),
   );
-  BackgroundTaskManager(_localDatabase).run();
   UserManagementProvider().checkUserLoginValidity();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);

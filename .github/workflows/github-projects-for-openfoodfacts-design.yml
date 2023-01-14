@@ -16,3 +16,9 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: mockups available, needs mockup
           label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/4 # Add issue to the packaging project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: packaging input
+          label-operator: OR

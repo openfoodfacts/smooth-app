@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
-import 'package:openfoodfacts/utils/UserProductSearchQueryConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -24,6 +22,7 @@ import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
@@ -241,48 +240,49 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.CONTRIBUTOR,
+            type: UserSearchType.CONTRIBUTOR,
           ),
           title: appLocalizations.user_search_contributor_title,
           iconData: Icons.add_circle_outline,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.CONTRIBUTOR,
+          type: UserSearchType.CONTRIBUTOR,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.INFORMER,
+            type: UserSearchType.INFORMER,
           ),
           title: appLocalizations.user_search_informer_title,
           iconData: Icons.edit,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.INFORMER,
+          type: UserSearchType.INFORMER,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.PHOTOGRAPHER,
+            type: UserSearchType.PHOTOGRAPHER,
           ),
           title: appLocalizations.user_search_photographer_title,
           iconData: Icons.add_a_photo,
           context: context,
           localDatabase: localDatabase,
-          type: UserProductSearchType.PHOTOGRAPHER,
+          type: UserSearchType.PHOTOGRAPHER,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
-            type: UserProductSearchType.TO_BE_COMPLETED,
+            type: UserSearchType.TO_BE_COMPLETED,
           ),
           title: appLocalizations.user_search_to_be_completed_title,
           iconData: Icons.more_horiz,
           context: context,
           localDatabase: localDatabase,
+          type: UserSearchType.TO_BE_COMPLETED,
         ),
         const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
@@ -368,25 +368,31 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
   }
 
   Future<int?> _getMyCount(
-    final UserProductSearchType type,
+    final UserSearchType type,
   ) async {
-    final UserProductSearchQueryConfiguration configuration =
-        UserProductSearchQueryConfiguration(
-      type: type,
-      userId: OpenFoodAPIConfiguration.globalUser!.userId,
-      pageSize: 1,
-      language: ProductQuery.getLanguage(),
-      fields: <ProductField>[],
+    final User user = OpenFoodAPIConfiguration.globalUser!;
+    final ProductSearchQueryConfiguration configuration = type.getConfiguration(
+      user.userId,
+      1,
+      1,
+      ProductQuery.getLanguage(),
+      // one field is enough as we want only the count
+      // and we need at least one field (no field meaning all fields)
+      <ProductField>[ProductField.BARCODE],
     );
 
     try {
       final SearchResult result = await OpenFoodAPIClient.searchProducts(
-        OpenFoodAPIConfiguration.globalUser,
+        user,
         configuration,
         queryType: OpenFoodAPIConfiguration.globalQueryType,
       );
       return result.count;
     } catch (e) {
+      Logs.e(
+        'Could not count the number of products for $type, ${user.userId}',
+        ex: e,
+      );
       return null;
     }
   }
@@ -397,7 +403,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     required final IconData iconData,
     required final BuildContext context,
     required final LocalDatabase localDatabase,
-    final UserProductSearchType? type,
+    final UserSearchType? type,
   }) =>
       _getListTile(
         title,
@@ -416,7 +422,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
-    final UserProductSearchType? type,
+    final UserSearchType? type,
   }) =>
       UserPreferencesListTile(
         title: Text(title),
@@ -432,9 +438,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                         width: LARGE_SPACE,
                         child: CircularProgressIndicator.adaptive());
                   }
-                  return Text(
-                    snapshot.data == null ? '0' : snapshot.data.toString(),
-                  );
+                  return snapshot.data == null
+                      ? EMPTY_WIDGET
+                      : Text(snapshot.data.toString());
                 },
               )
             : null,
