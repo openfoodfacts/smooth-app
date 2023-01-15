@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Fotos von Verpackungs-/Recyclinginformationen aufnehmen",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Bildquelle wählen",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
