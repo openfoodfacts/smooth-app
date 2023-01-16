@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "パッケージ/リサイクル情報の写真を撮る",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "画像ソースを選択",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"

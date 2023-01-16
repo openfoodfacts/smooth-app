@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Nufotografuokite bet kokią pakuotės / perdirbimo informaciją",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Pasirinkite vaizdo šaltinį",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"

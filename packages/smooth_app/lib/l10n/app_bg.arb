@@ -544,11 +544,11 @@
     "score_add_missing_packaging_image": "Добави липсваща снимка на опаковката",
     "score_add_missing_nutrition_facts": "Добави липсващи хранителни стойности",
     "score_add_missing_product_category": "Добави липсваща продуктова категория",
-    "score_add_missing_product_countries": "Add missing product countries",
+    "score_add_missing_product_countries": "Добавете липсващи продуктови държави",
     "score_add_missing_product_emb": "Добави липсващиге кодове за проследяване на продукта",
     "score_add_missing_product_labels": "Добави липсващите етикети",
-    "score_add_missing_product_origins": "Add missing product origins",
-    "score_add_missing_product_stores": "Add missing product stores",
+    "score_add_missing_product_origins": "Добавете липсващ произход на продукта",
+    "score_add_missing_product_stores": "Добавяне на липсващите магазини за продукта",
     "score_update_nutrition_facts": "Актуализирай хранителните стойности",
     "nutrition_page_title": "Хранителни стойности",
     "nutrition_page_unspecified": "Хранителните стойности не са посочени върху продукта",
@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Избери източник на снимката",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1773,16 +1777,16 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Да!",
     "not_really": "Не особено",
     "app_rating_dialog_title_not_enjoying_app": "Съжаляваме да чуем това! Би ли ни казал какво се случи?",
-    "edit_packagings_title": "Packaging components",
+    "edit_packagings_title": "Части на опаковката",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Добавете част от опаковката",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
-    "edit_packagings_element_title": "Packaging component #{index}",
+    "edit_packagings_completed": "Опаковката е пълна",
+    "edit_packagings_element_title": "Опаковъчна част #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1803,7 +1807,7 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "edit_packagings_element_hint_material": "Понякога материали като ♵ са скрити под опаковката, в 3D, върху пластмасата.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1811,27 +1815,27 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_field_quantity": "Нетно количество продукт на единица",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_field_weight": "Тегло на една празна единица (г)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "edit_packagings_element_hint_weight": "За точно измерване на теглото на опаковката, моля, почистете остатъците от храна и след това изсушете всякаква вода.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "background_task_title": "Pending contributions",
-    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
-    "background_task_list_empty": "No Pending Background Tasks",
-    "background_task_error_no_internet": "Internet connection error. Try later.",
-    "background_task_operation_unknown": "unknown operation type",
-    "background_task_operation_details": "detailed changes",
-    "background_task_operation_image": "photo upload",
-    "background_task_operation_refresh": "refresh delayed after photo upload",
-    "background_task_run_started": "started",
-    "background_task_run_not_started": "not started yet",
+    "background_task_title": "Чакащ принос",
+    "background_task_subtitle": "Вашите приноси се записват автоматично на нашия сървър, но не винаги в реално време.",
+    "background_task_list_empty": "Няма чакащи фонови задачи",
+    "background_task_error_no_internet": "Грешка в интернет връзката. Пробвайте по-късно.",
+    "background_task_operation_unknown": "неизвестен тип операция",
+    "background_task_operation_details": "подробни промени",
+    "background_task_operation_image": "качване на снимка",
+    "background_task_operation_refresh": "опресняването се забави след качването на снимка",
+    "background_task_run_started": "започнат",
+    "background_task_run_not_started": "все още не е започнал",
     "feed_back": "Обратна връзка"
 }
