@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "Добавить",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "Вы серьёзно хотите удалить ваш аккаунт?\nЕсли на это вас побудили определённые причины, пожалуйста, поделитесь ими ниже",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "Причина",
     "@reason": {},
     "okay": "Окей",
     "@okay": {},
@@ -351,7 +351,7 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-    "tap_to_edit_search": "Tap to edit search",
+    "tap_to_edit_search": "Нажмите для редактирования поиска",
     "@Personal preferences": {},
     "myPreferences": "Мои настройки",
     "@myPreferences": {
@@ -465,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Сфотографируйте упаковку, чтобы добавить этот продукт в Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
+    "add_product_take_photos_descriptive": "Пожалуйста, сделайте фотографии в первую очередь. Вы всегда можете дополнить продукт потом.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Добавление информации о продукте",
     "@add_product_information_button_label": {},
@@ -528,27 +528,27 @@
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Загрузка изображения упаковки в Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Загрузка другого изображения в Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Загрузка изображения в Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Добавить недостающие ингридиенты",
-    "score_add_missing_packaging_image": "Add missing packaging image",
+    "score_add_missing_packaging_image": "Добавить отсутствующее изображение упаковки",
     "score_add_missing_nutrition_facts": "Добавить данные о пищевой ценности",
     "score_add_missing_product_category": "Добавить собственную категорию продукта",
-    "score_add_missing_product_countries": "Add missing product countries",
-    "score_add_missing_product_emb": "Add missing product traceability codes",
-    "score_add_missing_product_labels": "Add missing product labels",
-    "score_add_missing_product_origins": "Add missing product origins",
-    "score_add_missing_product_stores": "Add missing product stores",
+    "score_add_missing_product_countries": "Добавить отсутствующие страны продукта",
+    "score_add_missing_product_emb": "Добавьте отсутствующие коды отслеживания продукта",
+    "score_add_missing_product_labels": "Добавить отсутствующие метки продукта",
+    "score_add_missing_product_origins": "Добавить недостающее происхождение продукта",
+    "score_add_missing_product_stores": "Добавить недостающие магазины продукта",
     "score_update_nutrition_facts": "Введите данные о пищевой ценности",
     "nutrition_page_title": "Пищевая ценность",
     "nutrition_page_unspecified": "Пищевая ценность не указана на продукте",
@@ -582,7 +582,7 @@
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
-    "download_new_version": "Download the new version of the app",
+    "download_new_version": "Скачать новую версию приложения",
     "@download_new_version": {
         "description": "Download new version of the app text"
     },
@@ -610,7 +610,7 @@
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+    "product_improvement_add_nutrition_facts_and_category": "Добавить пищевую ценность и категорию для вычисления Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
@@ -698,7 +698,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Сравнить один Продукт} other{Сравнить {count} Продукт(а/ов)}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -713,7 +713,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Пожалуйста, выберите не менее двух продуктов",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -747,7 +747,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+    "permissions_page_body1": "Для сканирования штрих-кодов с помощью камеры вашего телефона, пожалуйста, авторизуйтесь для доступа.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -803,7 +803,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
+    "contact_form_body": "{osContent}\nВерсия приложения:{appVersion}\nНомер сборки приложения:{appBuildNumber}\nИмя пакета приложения:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -825,7 +825,7 @@
             }
         }
     },
-    "authorize_button_label": "Authorise",
+    "authorize_button_label": "Авторизация",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -837,7 +837,7 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "Go further on {source_name}",
+    "knowledge_panel_text_source": "Проследуйте на {source_name}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
@@ -846,19 +846,19 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "В 2012 году\nмы создали приложение\nдля коллективного сканирования",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "Теперь когда нам 10 лет,\nнами было пересоздано\nполностью с нуля!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "Загрузка вашего первого примера продукта",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
+    "onboarding_welcome_loading_error": "Похоже, что на вашем языке нет примера продукта",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
@@ -904,7 +904,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "account_deletion_subject": "Delete my account",
+    "account_deletion_subject": "Удалить мой аккаунт",
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
@@ -916,8 +916,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Войти или зарегистрироваться, чтобы присоединиться к сообществу Open Food Facts",
+    "user_profile_title_id_email": "Open Food Facts логин: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -949,22 +949,22 @@
         }
     },
     "settings_app_app": "Приложение",
-    "settings_app_data": "Privacy & monitoring",
+    "settings_app_data": "Конфиденциальность и мониторинг",
     "settings_app_camera": "Камера",
     "settings_app_products": "Продукты",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Прочее",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_play_sound_title": "Play a sound on scan",
+    "camera_play_sound_title": "Воспроизвести звук при сканировании",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Will beep on each successful scan",
+    "camera_play_sound_subtitle": "Издавать звуковой сигнал при каждом успешном сканировании",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Режим сканирования",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
@@ -977,13 +977,13 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
-    "app_haptic_feedback_title": "Vibration & Haptics",
+    "camera_mode_file_based": "Безопасный режим (по умолчанию)",
+    "camera_mode_bytes_array_based": "Быстрый режим",
+    "app_haptic_feedback_title": "Вибрация и отклик",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
+    "app_haptic_feedback_subtitle": "Вибрация после завершения некоторых действий (штрихкод декодирован, продукт удален…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1049,11 +1049,11 @@
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Subtitle"
     },
-    "edit_product_form_item_other_details_title": "Additional details",
+    "edit_product_form_item_other_details_title": "Дополнительная информация",
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "edit_product_form_item_other_details_subtitle": "Веб-сайт, ...",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1146,16 +1146,16 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Хотите ли Вы сохранить изменения прежде чем покинуть страницу?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Save my changes",
-    "edit_product_form_item_exit_confirmation_negative_button": "Ignore my changes",
+    "edit_product_form_item_exit_confirmation_positive_button": "Сохранить мои изменения",
+    "edit_product_form_item_exit_confirmation_negative_button": "Игнорировать мои изменения",
     "edit_product_form_item_ingredients_title": "Ингредиенты и происхождение",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Добавить",
-    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-    "edit_product_form_item_remove_item_tooltip": "Remove",
-    "edit_product_form_item_packaging_title": "Recycling instructions photo",
+    "edit_product_form_item_add_invalid_item_tooltip": "Пожалуйста, сначала введите текст",
+    "edit_product_form_item_remove_item_tooltip": "Удалить",
+    "edit_product_form_item_packaging_title": "Фото инструкции по переработке",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1171,12 +1171,12 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "product_field_website_title": "Website",
+    "product_field_website_title": "Веб-сайт",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "completed_basic_details_btn_text": "Complete basic details",
-    "not_implemented_snackbar_text": "Not implemented yet",
+    "completed_basic_details_btn_text": "Детальная информация",
+    "not_implemented_snackbar_text": "Пока что не реализовано",
     "category_picker_page_appbar_text": "Категории",
     "edit_ingredients_extrait_ingredients_btn_text": "Распознать ингредиенты",
     "@edit_ingredients_extrait_ingredients_btn_text": {
@@ -1194,7 +1194,7 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "edit_ocr_extract_failed": "Не удалось обнаружить текст на изображении.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
@@ -1226,7 +1226,7 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "Добавлено в список",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
@@ -1287,7 +1287,7 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_reset_onboarding_title": "Restart onboarding",
+    "dev_preferences_reset_onboarding_title": "Перезапустить ознакомление",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
@@ -1369,12 +1369,12 @@
             }
         }
     },
-    "dev_preferences_migration_status_already_done": "success or fresh install",
-    "dev_preferences_migration_status_success": "success",
-    "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
-    "dev_preferences_migration_status_required": "required (click to start)",
-    "dev_preferences_migration_status_not_started": "unknown",
+    "dev_preferences_migration_status_already_done": "успех или свежая установка",
+    "dev_preferences_migration_status_success": "успех",
+    "dev_preferences_migration_status_error": "ошибка",
+    "dev_preferences_migration_status_in_progress": "в процессе выполнения",
+    "dev_preferences_migration_status_required": "обязательно (нажать, чтобы начать)",
+    "dev_preferences_migration_status_not_started": "неизвестно",
     "dev_preferences_import_history_title": "Import History",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
@@ -1387,11 +1387,11 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_scan_mode_title": "Scan Mode",
+    "dev_mode_scan_mode_title": "Режим сканирования",
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Текущий режим сканирования: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1400,31 +1400,31 @@
             }
         }
     },
-    "dev_mode_scan_mode_dialog_title": "Scan Mode",
+    "dev_mode_scan_mode_dialog_title": "Режим сканирования",
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
+    "dev_mode_hide_ecoscore_title": "Исключить Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_scan_camera_only": "Only camera stream, no scanning",
+    "dev_mode_scan_camera_only": "Только съемка камерой, без сканирования",
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "Camera stream and full image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_full_image": "Съемка камерой и предварительная обработка полноразмерных изображений, без сканирования",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
+    "dev_mode_scan_preprocess_half_image": "Съемка камерой и предварительная обработка части изображений, без сканирования",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "Full image scanning",
+    "dev_mode_scan_scan_full_image": "Сканирование полноразмерного изображения",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Сканирование частичного изображения",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
@@ -1514,7 +1514,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Complete basic details",
+    "summary_card_button_add_basic_details": "Детальная информация",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
@@ -1561,7 +1561,7 @@
             }
         }
     },
-    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
+    "confirm_delete_user_list": "Вы собираетесь удалить список ({name}). Вы действительно хотите продолжить?",
     "@confirm_delete_user_list": {
         "description": "Asking about whether to delete the list or not",
         "placeholders": {
@@ -1570,7 +1570,7 @@
             }
         }
     },
-    "importance_label": "{name} importance: {id}",
+    "importance_label": "Важность {name}: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {
@@ -1586,18 +1586,18 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list",
+    "user_list_all_empty": "Создать ваш первый список",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, =0{Пустой список} =1{Один продукт} other{{count} продукт(а/ов)}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Добавить список",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1605,19 +1605,23 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Добавить фото",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "choose_image_source_title": "Choose image source",
+    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
+    "choose_image_source_title": "Выбрать источник изображения",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "Please choose a image source",
+    "choose_image_source_body": "Пожалуйста, выберите источник изображения",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },
-    "gallery_source_label": "Gallery",
+    "gallery_source_label": "Галерея",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
@@ -1625,7 +1629,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Посмотрите как выглядит этот продукт на Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1634,45 +1638,45 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "Новый снимок",
     "@capture": {
         "description": "Button label for taking a photo"
     },
-    "choose_from_gallery": "Choose from gallery",
+    "choose_from_gallery": "Выбрать из галереи",
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "image_upload_queued": "Изображение будет загружено в фоновом режиме как можно скорее.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Развернуть таблицу пищевой ценности",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-    "expand_ingredients": "Expand ingredients",
+    "expand_nutrition_facts_body": "Оставить таблицу пищевой ценности развернутой",
+    "expand_ingredients": "Развернуть ингредиенты",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "Keep the ingredients panel expanded",
-    "no_internet_connection": "No internet connection",
+    "expand_ingredients_body": "Оставить панель ингредиентов развернутой",
+    "no_internet_connection": "Нет подключения к интернету",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Entire world",
+    "world_results_label": "Весь мир",
     "@world_results_label": {
         "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Extend your search to the world",
+    "world_results_action": "Расширить ваш поиск до всего мира",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Копировать",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "clipboard_barcode_copy": "Copy barcode to clipboard",
+    "clipboard_barcode_copy": "Скопировать штрихкод в буфер обмена",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1683,7 +1687,7 @@
         }
     },
     "clipboard_barcode_copied": "Штрих-код {barcode} скопирован в буфер обмена!",
-    "choose_app_language": "Choose App Language",
+    "choose_app_language": "Выбрать язык приложения",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
@@ -1691,21 +1695,21 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "Продукт будет обновлен в фоновом режиме как можно скорее.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "no_email_client_available_dialog_title": "Почтовое приложение не найдено!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Пожалуйста, отправьте нам письмо вручную по адресу contact@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
+    "all_images": "Все изображения",
     "selected_images": "Ważne: potrzebujemy Twojego wsparcia!\n\nOpen Food Facts to wspólny projekt stworzony przez dziesiątki tysięcy wolontariuszy i zarządzany przez organizację non-profit z 4 pracownikami.\nPotrzebujemy Twoich darowizn, aby sfinansować budżet Open Food Facts na rok 2022 i kontynuować prace nad projektem. Dziękuję! ❤️",
-    "product_card_remove_product_tooltip": "Remove product",
+    "product_card_remove_product_tooltip": "Удалить продукт",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
@@ -1713,7 +1717,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Пищевая ценность на {grams} г (или мл)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -1722,15 +1726,15 @@
             }
         }
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Автономные данные",
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Загрузка изображения с извлечением автоматически распознанного текста.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Загрузить Фото",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -1742,47 +1746,47 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Не удалось загрузить изображение",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+    "image_edit_url_error": "Не удалось отредактировать изображение, так как URL изображения не был задан.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "Запомнить мой выбор",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "Выбирать постоянно",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
-    "robotoff_continue": "Continue",
+    "robotoff_continue": "Продолжить",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "show_password": "Show Password",
+    "show_password": "Показать пароль",
     "@show_password": {
         "description": "Show hidden password in password field"
     },
     "app_rating_dialog_title": "Замечательно! Поделитесь с друзьями своим мнением о приложении!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_positive_action": "Оценить приложение",
     "app_rating_dialog_negative_action": "Позже",
     "app_rating_dialog_title_enjoying_app": "Вам нравится это приложение?",
     "app_rating_dialog_title_enjoying_positive_actions": "Да!",
     "not_really": "Не совсем",
     "app_rating_dialog_title_not_enjoying_app": "Мне очень жаль это слышать! Не могли бы вы рассказать мне, что случилось?",
-    "edit_packagings_title": "Packaging components",
+    "edit_packagings_title": "Компоненты упаковки",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Добавить компонент упаковки",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
-    "edit_packagings_element_title": "Packaging component #{index}",
+    "edit_packagings_completed": "Упаковка завершена",
+    "edit_packagings_element_title": "Компонент упаковки #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1807,21 +1811,31 @@
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "edit_packagings_element_field_recycling": "Инструкция по переработке",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_field_quantity": "Количество продуктов в единице товара",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_field_weight": "Масса тары (г)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "edit_packagings_element_hint_weight": "Пожалуйста, для более точного измерения массы упаковки, очистите её от остатков пищи и высушите от остатков жидкости.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "detailed changes",
+    "background_task_operation_image": "photo upload",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "started",
+    "background_task_run_not_started": "not started yet",
     "feed_back": "Обратная связь"
 }

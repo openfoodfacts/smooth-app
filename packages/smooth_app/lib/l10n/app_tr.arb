@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Herhangi bir ambalaj/geri dönüşüm bilgisinin fotoğrafını çekin",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Görüntü kaynağını seçin",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1823,5 +1827,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Bekleyen katkılar",
+    "background_task_subtitle": "Katkılarınız otomatik olarak sunucumuza kaydedilir, ancak her zaman gerçek zamanlı olarak kaydedilmez.",
+    "background_task_list_empty": "Bekleyen Arka Plan Görevi Yok",
+    "background_task_error_no_internet": "İnternet bağlantısı hatası. Daha sonra tekrar deneyin.",
+    "background_task_operation_unknown": "bilinmeyen işlem türü",
+    "background_task_operation_details": "ayrıntılı değişiklikler",
+    "background_task_operation_image": "fotoğraf yükleme",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "başladı",
+    "background_task_run_not_started": "henüz başlamadı",
     "feed_back": "Geri bildirim"
 }

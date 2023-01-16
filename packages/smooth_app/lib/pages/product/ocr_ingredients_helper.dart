@@ -62,4 +62,7 @@ class OcrIngredientsHelper extends OcrHelper {
   @override
   BackgroundTaskDetailsStamp getStamp() =>
       BackgroundTaskDetailsStamp.ocrIngredients;
+
+  @override
+  bool hasAddExtraPhotoButton() => false;
 }

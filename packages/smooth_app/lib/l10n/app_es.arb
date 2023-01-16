@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Elegir fuente de la imagen",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1823,5 +1827,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Contribuciones pendientes",
+    "background_task_subtitle": "Sus contribuciones se guardan automáticamente en nuestro servidor, pero no siempre en tiempo real.",
+    "background_task_list_empty": "Sin tareas pendientes en segundo plano",
+    "background_task_error_no_internet": "Error de conexión a Internet. Inténtalo más tarde.",
+    "background_task_operation_unknown": "acción desconocida",
+    "background_task_operation_details": "cambios detallados",
+    "background_task_operation_image": "subir foto",
+    "background_task_operation_refresh": "actualización retrasada después de cargar la foto",
+    "background_task_run_started": "iniciado",
+    "background_task_run_not_started": "todavía no se ha iniciado",
     "feed_back": "Feedback"
 }

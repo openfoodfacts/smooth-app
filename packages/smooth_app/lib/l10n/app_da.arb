@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Tag fotos af enhver emballage-/genbrugsinformation",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Vælg billedkilde",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1823,5 +1827,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Afventende bidrag",
+    "background_task_subtitle": "Bidragene auto-gemmes på vores server (dog ikke altid i realtid).",
+    "background_task_list_empty": "Ingen afventende baggrundsopgaver",
+    "background_task_error_no_internet": "Internetforbindelsesfejl. Forsøg senere.",
+    "background_task_operation_unknown": "ukendt operationstype",
+    "background_task_operation_details": "detaljerede ændringer",
+    "background_task_operation_image": "foto-upload",
+    "background_task_operation_refresh": "opdatering forsinket efter foto-upload",
+    "background_task_run_started": "startet",
+    "background_task_run_not_started": "ikke startet endnu",
     "feed_back": "Feedback"
 }

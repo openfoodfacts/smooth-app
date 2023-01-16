@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Kies een afbeeldingsbron",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1823,5 +1827,15 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Pending contributions",
+    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_no_internet": "Fout met internetverbinding. Probeer het later.",
+    "background_task_operation_unknown": "unknown operation type",
+    "background_task_operation_details": "gedetailleerde wijzigingen",
+    "background_task_operation_image": "foto uploaden",
+    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_run_started": "gestart",
+    "background_task_run_not_started": "nog niet gestart",
     "feed_back": "Feedback"
 }

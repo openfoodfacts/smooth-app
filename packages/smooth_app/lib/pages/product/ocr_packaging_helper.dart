@@ -65,4 +65,7 @@ class OcrPackagingHelper extends OcrHelper {
   @override
   BackgroundTaskDetailsStamp getStamp() =>
       BackgroundTaskDetailsStamp.ocrPackaging;
+
+  @override
+  bool hasAddExtraPhotoButton() => true;
 }

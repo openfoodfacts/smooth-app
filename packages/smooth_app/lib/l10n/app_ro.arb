@@ -376,7 +376,7 @@
     "ranking_subtitle_match_yes": "O bună potrivire pentru tine",
     "ranking_subtitle_match_no": "Potrivire foarte slabă",
     "ranking_subtitle_match_maybe": "Potrivire necunoscută",
-    "refresh_with_new_preferences": "Refresh the list with your new preferences",
+    "refresh_with_new_preferences": "Reîmprospătați lista cu noile preferințe",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -713,7 +713,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Vă rugăm să selectați cel puțin două produse",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -964,11 +964,11 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
+    "camera_mode_title": "Mod scanare",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
+    "camera_mode_subtitle": "Schimbați această valoare doar dacă aveți unele probleme cu scanerul (nu se pot decoda codurile de bare). Atingeți pentru a comuta între cele două moduri.\nCel actual este: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -977,8 +977,8 @@
             }
         }
     },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_file_based": "Mod sigur (în mod implicit)",
+    "camera_mode_bytes_array_based": "Mod rapid",
     "app_haptic_feedback_title": "Vibrație și haptică",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1210,7 +1210,7 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Adăugați produsul în listele dvs",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1218,7 +1218,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "Nu există încă o listă disponibilă,\nvă rugăm să începeți prin a crea una nouă",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1291,7 +1291,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
+    "dev_preferences_reset_onboarding_subtitle": "Apoi trebuie să reporniți aplicația, reporniți-o.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1548,11 +1548,11 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
+    "confirm_clear": "Sunteți pe cale să vă ștergeți întregul istoric: sunteți sigur că doriți să continuați?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
+    "confirm_clear_user_list": "Sunteți pe cale să ștergeți această listă ({name}): sunteți sigur că doriți să continuați?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
         "placeholders": {
@@ -1561,7 +1561,7 @@
             }
         }
     },
-    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
+    "confirm_delete_user_list": "Sunteți pe cale să ștergeți această listă ({name}): sunteți sigur că doriți să continuați?",
     "@confirm_delete_user_list": {
         "description": "Asking about whether to delete the list or not",
         "placeholders": {
@@ -1608,6 +1608,10 @@
     "add_photo_button_label": "Adăugați o fotografie",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
+    },
+    "add_packaging_photo_button_label": "Faceți fotografii cu orice informații despre ambalare/reciclare",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
     },
     "choose_image_source_title": "Alegeți sursa imaginii",
     "@choose_image_source_title": {
@@ -1668,11 +1672,11 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Copiază",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "clipboard_barcode_copy": "Copy barcode to clipboard",
+    "clipboard_barcode_copy": "Copiați codul de bare în clipboard",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1803,7 +1807,7 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "edit_packagings_element_hint_material": "Uneori, materialele precum ♵ sunt ascunse sub pachet, în 3D, pe plastic.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1819,9 +1823,19 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "edit_packagings_element_hint_weight": "Pentru măsurarea exactă a greutății ambalajului, vă rugăm să curățați orice reziduu alimentar și apoi să uscați orice urmă de apă.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "Contribuții în așteptare",
+    "background_task_subtitle": "Contribuțiile dvs. sunt salvate automat pe serverul nostru, dar nu întotdeauna în timp real.",
+    "background_task_list_empty": "Nu există sarcini de fundal în așteptare",
+    "background_task_error_no_internet": "Eroare de conexiune la internet. Încercați mai târziu.",
+    "background_task_operation_unknown": "tip de operație necunoscut",
+    "background_task_operation_details": "modificări detaliate",
+    "background_task_operation_image": "încărcare fotografie",
+    "background_task_operation_refresh": "reîmprospătarea a fost întârziată după încărcarea fotografiei",
+    "background_task_run_started": "a început",
+    "background_task_run_not_started": "încă nu a început",
     "feed_back": "Părere"
 }

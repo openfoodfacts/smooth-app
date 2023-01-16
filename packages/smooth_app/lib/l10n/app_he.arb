@@ -1609,6 +1609,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "נא לצלם תמונות של פרטי אריזה/מיחזור כלשהם",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "בחירת מקור תמונה",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1803,7 +1807,7 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "edit_packagings_element_hint_material": "לפעמים, החומרים כגון ♵ מוסתרים מתחת לאריזה, בתלת־ממד, על הפלסטיק.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1819,9 +1823,19 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "edit_packagings_element_hint_weight": "למדידות משקל אריזה מדויקות, נא לנקות שאריות מזון כלשהן ולאחר מכן לייבש את המים.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
+    "background_task_title": "תרומות ממתינות",
+    "background_task_subtitle": "התרומות שלך נשמרות אוטומטית בשרת שלנו, אך לא תמיד בזמן אמת.",
+    "background_task_list_empty": "אין משימות רקע ממתינות",
+    "background_task_error_no_internet": "שגיאת חיבור לאינטרנט. נא לנסות מאוחר יותר.",
+    "background_task_operation_unknown": "סוג פעולה לא ידוע",
+    "background_task_operation_details": "שינויים מפורטים",
+    "background_task_operation_image": "העלאת תמונה",
+    "background_task_operation_refresh": "הרענון מתעכב לסיום העלאת התמונה",
+    "background_task_run_started": "החל",
+    "background_task_run_not_started": "טרם החל",
     "feed_back": "משוב"
 }
