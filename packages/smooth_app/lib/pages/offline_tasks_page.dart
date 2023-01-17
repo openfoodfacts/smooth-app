@@ -5,6 +5,7 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 class OfflineTaskPage extends StatefulWidget {
   const OfflineTaskPage();
@@ -38,6 +39,28 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                   ),
                 );
                 return ListTile(
+                  onTap: () async {
+                    final bool? stopTask = await showDialog<bool>(
+                      context: context,
+                      builder: (final BuildContext context) =>
+                          SmoothAlertDialog(
+                        body: Text(
+                            appLocalizations.background_task_question_stop),
+                        negativeAction: SmoothActionButton(
+                          text: appLocalizations.no,
+                          onPressed: () => Navigator.of(context).pop(false),
+                        ),
+                        positiveAction: SmoothActionButton(
+                          text: appLocalizations.yes,
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                      ),
+                    );
+                    if (stopTask == true) {
+                      await BackgroundTaskManager(localDatabase)
+                          .removeTaskAsap(taskId);
+                    }
+                  },
                   title: Text(
                     '${OperationType.getBarcode(taskId)}'
                     ' (${_getOperationLabel(
@@ -46,6 +69,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                     )})',
                   ),
                   subtitle: Text(_getMessage(status, appLocalizations)),
+                  trailing: const Icon(Icons.clear),
                 );
               },
             ),
@@ -79,6 +103,8 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         return appLocalizations.background_task_run_started;
       case BackgroundTaskManager.taskStatusNoInternet:
         return appLocalizations.background_task_error_no_internet;
+      case BackgroundTaskManager.taskStatusStopAsap:
+        return appLocalizations.background_task_run_to_be_deleted;
     }
     return status!;
   }

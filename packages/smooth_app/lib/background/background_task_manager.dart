@@ -110,19 +110,13 @@ class BackgroundTaskManager {
   }
 
   /// Runs all the pending tasks, and then smoothly ends.
-  Future<void> run() async {
-    await _run();
-    await _justFinished();
-  }
-
-  /// Runs all the pending tasks.
   ///
   /// If a task fails, we continue with the other tasks: and we'll retry the
   /// failed tasks later.
   /// If a task fails and another task with the same stamp comes after,
   /// we can remove the failed task from the list: it would have been
   /// overwritten anyway.
-  Future<void> _run() async {
+  Future<void> run() async {
     if (!await _canStartNow()) {
       return;
     }
@@ -142,44 +136,64 @@ class BackgroundTaskManager {
         failedTaskFromStamps.remove(stamp);
       }
       try {
-        await _runTask(task);
+        await _setTaskErrorStatus(taskId, taskStatusStarted);
+        await task.execute(localDatabase);
+        await task.postExecute(localDatabase);
+        await _remove(task.uniqueId);
       } catch (e) {
         // Most likely, no internet, no reason to go on.
         if (e.toString().startsWith('Failed host lookup: ')) {
-          await DaoInstantString(localDatabase).put(
-            taskIdToErrorDaoInstantStringKey(taskId),
-            taskStatusNoInternet,
-          );
-          localDatabase.notifyListeners();
+          await _setTaskErrorStatus(taskId, taskStatusNoInternet);
           return;
         }
         debugPrint('Background task error ($e)');
         Logs.e('Background task error', ex: e);
-        await DaoInstantString(localDatabase)
-            .put(taskIdToErrorDaoInstantStringKey(taskId), '$e');
         failedTaskFromStamps[stamp] = taskId;
-        localDatabase.notifyListeners();
+        await _setTaskErrorStatus(taskId, '$e');
       }
     }
+    await _justFinished();
   }
+
+  Future<void> _setTaskErrorStatus(
+    final String taskId,
+    final String status,
+  ) async {
+    _debugPrint('setStatus - $taskId: $status');
+    final String key = taskIdToErrorDaoInstantStringKey(taskId);
+    if (DaoInstantString(localDatabase).get(key) == taskStatusStopAsap) {
+      // the task is supposed to be stopped asap and it's a good moment for that
+      await _remove(taskId);
+      return;
+    }
+    await DaoInstantString(localDatabase).put(key, status);
+    localDatabase.notifyListeners();
+  }
+
+  /// Removes a task ASAP.
+  ///
+  /// Returns true if managed to remove the task immediately.
+  /// Returns false if the task will be removed next time it's possible.
+  Future<bool> removeTaskAsap(final String taskId) async {
+    final String? status = DaoInstantString(localDatabase)
+        .get(taskIdToErrorDaoInstantStringKey(taskId));
+    if (status == taskStatusStarted) {
+      // that value will be detected later
+      await _setTaskErrorStatus(taskId, taskStatusStopAsap);
+      return false;
+    }
+    await _remove(taskId);
+    return true;
+  }
+
+  /// Forged task status: "Stop that task ASAP!".
+  static const String taskStatusStopAsap = '!';
 
   /// Forged task status: "Just started!".
   static const String taskStatusStarted = '*';
 
   /// Forged task status: "No internet, try later!".
   static const String taskStatusNoInternet = 'X';
-
-  /// Runs a single task. Possible exception.
-  Future<void> _runTask(final AbstractBackgroundTask task) async {
-    await DaoInstantString(localDatabase).put(
-      taskIdToErrorDaoInstantStringKey(task.uniqueId),
-      taskStatusStarted,
-    );
-    localDatabase.notifyListeners();
-    await task.execute(localDatabase);
-    await task.postExecute(localDatabase);
-    await _remove(task.uniqueId);
-  }
 
   // TODO(monsieurtanuki): get rid of this once we're relaxed about the tasks.
   void _debugPrint(final String message) {
