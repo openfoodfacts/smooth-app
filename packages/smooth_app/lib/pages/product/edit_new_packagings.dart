@@ -405,6 +405,8 @@ class _EditSinglePackagings extends StatelessWidget {
             // this icon has 2 colors: we need 2 distinct files
             iconName: dark ? 'counter-dark' : 'counter-light',
             iconColor: null,
+            description: appLocalizations.edit_packagings_element_hint_units,
+            hintText: '1',
           ),
           _EditLine(
             title: appLocalizations.edit_packagings_element_field_shape,
@@ -412,6 +414,8 @@ class _EditSinglePackagings extends StatelessWidget {
             tagType: TagType.PACKAGING_SHAPES,
             iconName: 'shape',
             iconColor: iconColor,
+            description: appLocalizations.edit_packagings_element_hint_shape,
+            hintText: appLocalizations.edit_packagings_element_example_shape,
           ),
           _EditLine(
             title: appLocalizations.edit_packagings_element_field_material,
@@ -419,7 +423,8 @@ class _EditSinglePackagings extends StatelessWidget {
             tagType: TagType.PACKAGING_MATERIALS,
             iconName: 'material',
             iconColor: iconColor,
-            hint: appLocalizations.edit_packagings_element_hint_material,
+            description: appLocalizations.edit_packagings_element_hint_material,
+            hintText: appLocalizations.edit_packagings_element_example_material,
           ),
           _EditLine(
             title: appLocalizations.edit_packagings_element_field_recycling,
@@ -427,12 +432,18 @@ class _EditSinglePackagings extends StatelessWidget {
             tagType: TagType.PACKAGING_RECYCLING,
             iconName: 'recycling',
             iconColor: iconColor,
+            description:
+                appLocalizations.edit_packagings_element_hint_recycling,
+            hintText:
+                appLocalizations.edit_packagings_element_example_recycling,
           ),
           _EditLine(
             title: appLocalizations.edit_packagings_element_field_quantity,
             controller: controllerQuantity,
             iconName: 'quantity',
             iconColor: iconColor,
+            description: appLocalizations.edit_packagings_element_hint_quantity,
+            hintText: '120g',
           ),
           _EditLine(
             // TODO(monsieurtanuki): different display for numbers
@@ -440,7 +451,8 @@ class _EditSinglePackagings extends StatelessWidget {
             controller: controllerWeight,
             iconName: 'weight',
             iconColor: iconColor,
-            hint: appLocalizations.edit_packagings_element_hint_weight,
+            description: appLocalizations.edit_packagings_element_hint_weight,
+            hintText: '1',
           ),
         ],
       ),
@@ -455,7 +467,8 @@ class _EditLine extends StatelessWidget {
     required this.controller,
     required this.iconName,
     required this.iconColor,
-    this.hint,
+    required this.description,
+    required this.hintText,
     this.tagType,
   });
 
@@ -464,7 +477,8 @@ class _EditLine extends StatelessWidget {
   final TagType? tagType;
   final String iconName;
   final Color? iconColor;
-  final String? hint;
+  final String description;
+  final String hintText;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -490,16 +504,15 @@ class _EditLine extends StatelessWidget {
                 autocompleteKey: UniqueKey(),
                 constraints: constraints,
                 tagType: tagType,
-                hintText: '',
+                hintText: hintText,
                 controller: controller,
               ),
             ),
           ),
-          if (hint != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-              child: ExplanationWidget(hint!),
-            ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: LARGE_SPACE),
+            child: ExplanationWidget(description),
+          ),
         ],
       );
 }
