@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "Додати",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "Ви впевнені, що хочете видалити свій обліковий запис?\nЯкщо є певна причина, опишіть її нижче",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "Причина",
     "@reason": {},
     "okay": "Okay",
     "@okay": {},
@@ -60,23 +60,23 @@
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "match_very_good": "Very good match",
+    "match_very_good": "Чудово поєднується",
     "@match_very_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: very good match"
     },
-    "match_good": "Good match",
+    "match_good": "Добре поєднується",
     "@match_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: good match"
     },
-    "match_poor": "Poor match",
+    "match_poor": "Погано поєднується",
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
-    "match_may_not": "May not match",
+    "match_may_not": "Може не поєднуватися",
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
-    "match_does_not": "Does not match",
+    "match_does_not": "Не поєднується",
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
@@ -84,23 +84,23 @@
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
-    "match_short_very_good": "Very good match",
+    "match_short_very_good": "Чудово поєднується",
     "@match_short_very_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
     },
-    "match_short_good": "Good match",
+    "match_short_good": "Добре поєднується",
     "@match_short_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
     },
-    "match_short_poor": "Poor match",
+    "match_short_poor": "Погано поєднується",
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
-    "match_short_may_not": "May not match",
+    "match_short_may_not": "Може не поєднуватися",
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
-    "match_short_does_not": "Does not match",
+    "match_short_does_not": "Не поєднується",
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
@@ -258,7 +258,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Dark mode",
+    "darkmode": "Нічний режим",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -350,7 +350,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_sign_in_text": "Увійдіть до облікового запису Open Food Facts, аби ваші внески було оцінено",
     "tap_to_edit_search": "Натисніть для редагування пошуку",
     "@Personal preferences": {},
     "myPreferences": "Мої вподобання",
@@ -465,7 +465,7 @@
     "@missing_product": {},
     "add_product_take_photos": "Зробіть фото пакування, щоб додати цей продукт до Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
+    "add_product_take_photos_descriptive": "Будь ласка, для початку зробіть кілька світлин. Ви можете завершити опис продукту в будь-який час.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Додайте інформацію про продукт",
     "@add_product_information_button_label": {},
@@ -480,7 +480,7 @@
     "confirm_button_label": "Підтвердити",
     "front_packaging_photo_title": "Фото лицьової сторони пакування",
     "ingredients_photo_title": "Фото інгредієнтів",
-    "nutritional_facts_photo_title": "Nutrition Facts Photo",
+    "nutritional_facts_photo_title": "Світлина харчової цінності продукту",
     "recycling_photo_title": "Recycling Photo",
     "other_interesting_photo_title": "Інші цікаві фотографії",
     "front_photo_uploaded": "Попереднє фото завантажено",
@@ -574,11 +574,11 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "You are using a deprecated version of the app.",
+    "deprecated_header": "Ви використовуєте застарілу версію додатку.",
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
-    "click_here": "Click here",
+    "click_here": "Тисни сюди",
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
@@ -663,42 +663,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} few {{count} дні тому} many {{count} днів тому} =1{день тому} other{{count} днів тому}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} few {{count} години тому} many {{count} годин тому} =1{годину тому} other{{count} годин тому}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, one {} =0{менше хвилини тому} =1{хвилину тому} few {{count} хвилини тому} other{{count}хвилин тому}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, one {} =1{місяць тому} few {{count} місяці тому} other{{count} місяців тому}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, one {} =1{тиждень тому} few {{count} тижні тому} other{{count} тижнів тому}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}",
+    "plural_compare_x_products": "{count,plural, =1{Порівняти продукт} few{Порівняти {count} продукти} other{порівняти {count} продуктів}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -755,7 +755,7 @@
     "@permissions_page_body2": {
         "description": "second paragraph for the camera permission's page (onboarding)"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+    "contact_form_body_android": "ОС: Android (SDK Int: {sdkInt} / Випуск: {release})\nМодель: {model}\nПродукт: {product}\nПрилад: {device}\nМарка: {brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -785,7 +785,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}",
+    "contact_form_body_ios": "ОС: iOS ({version})\nМодель: {model}\nЛокалізована модель: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -837,7 +837,7 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "Go further on {source_name}",
+    "knowledge_panel_text_source": "Перейти на {source_name}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
@@ -904,7 +904,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "account_deletion_subject": "Delete my account",
+    "account_deletion_subject": "Видалити мій обліковий запис",
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
@@ -1049,11 +1049,11 @@
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Subtitle"
     },
-    "edit_product_form_item_other_details_title": "Additional details",
+    "edit_product_form_item_other_details_title": "Додаткова інформація",
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "edit_product_form_item_other_details_subtitle": "Сайт, ...",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1171,7 +1171,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "product_field_website_title": "Website",
+    "product_field_website_title": "Сайт",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
@@ -1194,7 +1194,7 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "edit_ocr_extract_failed": "Не вдалося опізнати текст зі світлини.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
@@ -1226,7 +1226,7 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "Додано до списку",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
@@ -1295,11 +1295,11 @@
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
-    "dev_preferences_environment_switch_title": "Switch between openfoodfacts.org (PROD) and test env",
+    "dev_preferences_environment_switch_title": "Переключитися між openfoodfacts.org (PROD) та test env",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
     },
-    "dev_preferences_test_environment_title": "Test environment parameters",
+    "dev_preferences_test_environment_title": "Перевірити параметри довкілля",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1316,7 +1316,7 @@
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
-    "dev_preferences_ml_kit_title": "Use ML Kit",
+    "dev_preferences_ml_kit_title": "Застосувати ML Kit",
     "@dev_preferences_ml_kit_title": {
         "description": "User dev preferences - Enable ML Kit - Title"
     },
@@ -1371,10 +1371,10 @@
     },
     "dev_preferences_migration_status_already_done": "success or fresh install",
     "dev_preferences_migration_status_success": "success",
-    "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_error": "помилка",
+    "dev_preferences_migration_status_in_progress": "в процесі",
     "dev_preferences_migration_status_required": "required (click to start)",
-    "dev_preferences_migration_status_not_started": "unknown",
+    "dev_preferences_migration_status_not_started": "невідоме",
     "dev_preferences_import_history_title": "Import History",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
@@ -1387,7 +1387,7 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_scan_mode_title": "Scan Mode",
+    "dev_mode_scan_mode_title": "Сканер",
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
@@ -1400,7 +1400,7 @@
             }
         }
     },
-    "dev_mode_scan_mode_dialog_title": "Scan Mode",
+    "dev_mode_scan_mode_dialog_title": "Сканер",
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
@@ -1420,15 +1420,15 @@
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "Full image scanning",
+    "dev_mode_scan_scan_full_image": "Просканувати повне зображення",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Half image scanning",
+    "dev_mode_scan_scan_half_image": "Просканувати половину зображення",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
+    "product_search_no_more_results": "Всі {totalSize} продукти завантажено.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1472,11 +1472,11 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "edit_product_action_retake_picture": "Retake photo",
+    "edit_product_action_retake_picture": "Переробити фото",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
     },
-    "edit_product_action_take_picture": "Take photo",
+    "edit_product_action_take_picture": "Зробити знімок",
     "@edit_product_action_take_picture": {
         "description": "Product edition - FAB actions - take a picture"
     },
@@ -1586,7 +1586,7 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list",
+    "user_list_all_empty": "Створіть перший список",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1672,7 +1672,7 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Копіювати",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
@@ -1754,11 +1754,11 @@
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "Запам'ятати",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "Обирати кожного разу",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
@@ -1766,17 +1766,17 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "show_password": "Show Password",
+    "show_password": "Показати пароль",
     "@show_password": {
         "description": "Show hidden password in password field"
     },
     "app_rating_dialog_title": "Чудово! Дайте іншим знати, що ви думаєте про цей додаток!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_positive_action": "Оцініть додаток",
     "app_rating_dialog_negative_action": "Потім",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "app_rating_dialog_title_enjoying_app": "Вам подобається цей додаток?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Авжеж!",
+    "not_really": "Не дуже",
+    "app_rating_dialog_title_not_enjoying_app": "Прикро це чути! Можете повідати, що сталося?",
     "edit_packagings_title": "Packaging components",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -1811,7 +1811,7 @@
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "edit_packagings_element_field_recycling": "Інструкція по переробці",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
@@ -1819,23 +1819,23 @@
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_field_weight": "Вага пустої одиниці (г)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "edit_packagings_element_hint_weight": "Для точного розрахунку ваги, будь ласка, приберіть залишки їжі та висушіть воду.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "background_task_title": "Pending contributions",
-    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
-    "background_task_list_empty": "No Pending Background Tasks",
-    "background_task_error_no_internet": "Internet connection error. Try later.",
-    "background_task_operation_unknown": "unknown operation type",
-    "background_task_operation_details": "detailed changes",
-    "background_task_operation_image": "photo upload",
+    "background_task_title": "Чекає на внесок",
+    "background_task_subtitle": "Ваші внески зберігаються автоматично (але не завжди в режимі реального часу).",
+    "background_task_list_empty": "Незавершених завдань немає",
+    "background_task_error_no_internet": "Не вдалося підключитися до інтернету. Спробуйте пізніше.",
+    "background_task_operation_unknown": "невідома операція",
+    "background_task_operation_details": "детально про зміни",
+    "background_task_operation_image": "завантажити світлину",
     "background_task_operation_refresh": "refresh delayed after photo upload",
-    "background_task_run_started": "started",
-    "background_task_run_not_started": "not started yet",
-    "feed_back": "Feedback"
+    "background_task_run_started": "розпочато",
+    "background_task_run_not_started": "ще не розпочато",
+    "feed_back": "Відгук"
 }

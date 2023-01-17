@@ -4,7 +4,7 @@
     "@yes": {},
     "add": "Afegeix",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "ets segur que vols eliminar el teu conte",
     "@account_delete_message": {},
     "reason": "Reason",
     "@reason": {},
@@ -20,7 +20,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Go back to top",
+    "go_back_to_top": "Tornar a l'inici",
     "save": "Desa",
     "save_confirmation": "Are you sure you want to save?",
     "skip": "Omet",
