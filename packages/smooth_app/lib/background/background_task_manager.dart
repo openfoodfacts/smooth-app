@@ -37,8 +37,21 @@ class BackgroundTaskManager {
     run(); // no await
   }
 
-  /// Removes a task from the pending task list
-  Future<void> _remove(final String taskId) async {
+  /// Finishes a task cleanly.
+  ///
+  /// That includes:
+  /// * running the task's `postExecute` method.
+  /// * removing a task from the task lists.
+  /// Most of the time this method is used for garbage collecting, that's why
+  /// the [success] parameter is set to `false` by default.
+  Future<void> _finishTask(
+    final String taskId, {
+    final bool success = false,
+  }) async {
+    final AbstractBackgroundTask? task = _get(taskId);
+    if (task != null) {
+      await task.postExecute(localDatabase, success);
+    }
     await DaoStringList(localDatabase).remove(DaoStringList.keyTasks, taskId);
     await DaoInstantString(localDatabase)
         .put(_taskIdToDaoInstantStringKey(taskId), null);
@@ -132,14 +145,13 @@ class BackgroundTaskManager {
         // not only will we spare a to-be-overwritten call, but we avoid the
         // "save latest change" and then "save initial change" dilemma.
         _debugPrint('removing failed task $previousFailedTaskId');
-        await _remove(previousFailedTaskId);
+        await _finishTask(previousFailedTaskId);
         failedTaskFromStamps.remove(stamp);
       }
       try {
         await _setTaskErrorStatus(taskId, taskStatusStarted);
         await task.execute(localDatabase);
-        await task.postExecute(localDatabase);
-        await _remove(task.uniqueId);
+        await _finishTask(taskId, success: true);
       } catch (e) {
         // Most likely, no internet, no reason to go on.
         if (e.toString().startsWith('Failed host lookup: ')) {
@@ -163,7 +175,7 @@ class BackgroundTaskManager {
     final String key = taskIdToErrorDaoInstantStringKey(taskId);
     if (DaoInstantString(localDatabase).get(key) == taskStatusStopAsap) {
       // the task is supposed to be stopped asap and it's a good moment for that
-      await _remove(taskId);
+      await _finishTask(taskId);
       return;
     }
     await DaoInstantString(localDatabase).put(key, status);
@@ -182,7 +194,7 @@ class BackgroundTaskManager {
       await _setTaskErrorStatus(taskId, taskStatusStopAsap);
       return false;
     }
-    await _remove(taskId);
+    await _finishTask(taskId);
     return true;
   }
 
@@ -217,7 +229,7 @@ class BackgroundTaskManager {
       final AbstractBackgroundTask? task = _get(taskId);
       if (task == null) {
         // unexpected, but let's remove that null task anyway.
-        await _remove(taskId);
+        await _finishTask(taskId);
         continue;
       }
       if (!task.mayRunNow()) {
@@ -250,7 +262,7 @@ class BackgroundTaskManager {
       result.add(task);
     }
     for (final String taskId in duplicateTaskIds) {
-      await _remove(taskId);
+      await _finishTask(taskId);
     }
     _debugPrint('get all tasks returned (begin)');
     int i = 0;
