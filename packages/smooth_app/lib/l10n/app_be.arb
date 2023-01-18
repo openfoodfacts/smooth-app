@@ -308,7 +308,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Рэжым распрацоўшчыка?",
     "contribute_develop_dev_mode_subtitle": "Актываваць рэжым распрацоўшчыка",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Ахвяраваць на Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Products to be completed",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -1113,7 +1113,7 @@
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_emb_codes_title": "Traceability codes",
+    "edit_product_form_item_emb_codes_title": "Коды адсочвання",
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
@@ -1129,7 +1129,7 @@
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "category",
+    "edit_product_form_item_categories_hint": "катэгорыя",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
