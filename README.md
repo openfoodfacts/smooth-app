@@ -83,17 +83,32 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 <br>
 
+
 ## How to run the project
+- Make sure you have installed flutter and all the requirements
+	- [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
+- Currently the app uses `3.0.5` flutter version. Running `flutter downgrade 3.0.5` downgrades the version.
+
+  If it does not work
+  -  Open the terminal and change the directory to flutter location and run the following commands
+  - `git checkout 3.0.5` 
+  - `flutter doctor`
 
 We have predefined run configurations for Android Studio and Visual Studio Code
 
 In order to run the application, make sure you are in the `packages/smooth_app` directory and run these commands :
 
 - `flutter pub get .`
-  
+
 - On Android 🤖: `flutter run -t lib/entrypoints/android/main_google_play.dart`
 
 - On iOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
+
+-  Troubleshooting🚀: If you get an error like `App depends on scanner shared from path which depends on camera_platform_interface from git, version solving failed.`  then run 
+	- `flutter pub cache clean` or mannually delete  the  
+	- `C:\Users\~\AppData\Local\Pub\Cache`  file .
+	Then redo the above procedure to run the app.
+
 
 - [Contributing Guidelines](https://github.com/openfoodfacts/smooth-app/blob/develop/CONTRIBUTING.md)
 

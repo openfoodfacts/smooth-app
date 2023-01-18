@@ -8,6 +8,10 @@ macos:
 assets cache:
 - packages/smooth_app/assets/cache/
 
+background tasks:
+- packages/smooth_app/lib/background/background_task_manager.dart
+- packages/smooth_app/lib/pages/offline_tasks_page.dart
+
 documentation:
 - README.md
 - packages/smooth_app/android/fastlane/README.md
@@ -182,3 +186,7 @@ user lists:
 
 product scan carousel:
 - packages/smooth_app/lib/widgets/smooth_product_carousel.dart
+
+packaging input:
+- packages/smooth_app/lib/pages/product/edit_new_packagings.dart
+- packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart
