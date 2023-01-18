@@ -173,16 +173,36 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
   /// Uploads the product image.
   @override
   Future<void> upload() async {
+    final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
+    final OpenFoodFactsLanguage language = getLanguage();
+    final User user = getUser();
     final SendImage image = SendImage(
-      lang: getLanguage(),
+      lang: language,
       barcode: barcode,
-      imageField: ImageField.fromOffTag(imageField)!,
+      imageField: imageField,
       imageUri: Uri.parse(imagePath),
     );
 
-    final Status status =
-        await OpenFoodAPIClient.addProductImage(getUser(), image);
+    final Status status = await OpenFoodAPIClient.addProductImage(user, image);
     if (status.status == 'status ok') {
+      // successfully uploaded a new picture and set it as field+language
+      return;
+    }
+    final int? imageId = status.imageId;
+    if (status.status == 'status not ok' && imageId != null) {
+      // The very same image was already uploaded and therefore was rejected.
+      // We just have to select this image, with no angle.
+      final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
+        barcode: barcode,
+        imageField: imageField,
+        language: language,
+        imgid: '$imageId',
+        angle: ImageAngle.NOON,
+        user: user,
+      );
+      if (imageUrl == null) {
+        throw Exception('Could not select picture');
+      }
       return;
     }
     throw Exception(
