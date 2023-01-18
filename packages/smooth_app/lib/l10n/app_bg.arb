@@ -1837,5 +1837,7 @@
     "background_task_operation_refresh": "опресняването се забави след качването на снимка",
     "background_task_run_started": "започнат",
     "background_task_run_not_started": "все още не е започнал",
+    "background_task_run_to_be_deleted": "to be deleted",
+    "background_task_question_stop": "Do you want to stop that task ASAP?",
     "feed_back": "Обратна връзка"
 }

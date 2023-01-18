@@ -1837,5 +1837,7 @@
     "background_task_operation_refresh": "aktualizace zpožděna po nahrání fotografie",
     "background_task_run_started": "začalo",
     "background_task_run_not_started": "zatím nezačalo",
+    "background_task_run_to_be_deleted": "to be deleted",
+    "background_task_question_stop": "Do you want to stop that task ASAP?",
     "feed_back": "Zpětná vazba"
 }
