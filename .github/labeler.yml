@@ -186,3 +186,6 @@ user lists:
 
 product scan carousel:
 - packages/smooth_app/lib/widgets/smooth_product_carousel.dart
+
+packaging:
+- packages/smooth_app/lib/pages/product/edit_new_packagings.dart
