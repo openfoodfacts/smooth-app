@@ -8,6 +8,10 @@ macos:
 assets cache:
 - packages/smooth_app/assets/cache/
 
+background tasks:
+- packages/smooth_app/lib/background/background_task_manager.dart
+- packages/smooth_app/lib/pages/offline_tasks_page.dart
+
 documentation:
 - README.md
 - packages/smooth_app/android/fastlane/README.md
