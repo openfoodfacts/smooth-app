@@ -83,7 +83,10 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
 
   /// Here we change nothing, therefore we do nothing.
   @override
-  Future<void> postExecute(final LocalDatabase localDatabase) async {}
+  Future<void> postExecute(
+    final LocalDatabase localDatabase,
+    final bool success,
+  ) async {}
 
   /// Adds the background task about refreshing the product later.
   static Future<void> addTask(
