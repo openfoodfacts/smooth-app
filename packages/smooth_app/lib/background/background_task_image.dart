@@ -152,7 +152,10 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
 
   // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
   @override
-  Future<void> postExecute(final LocalDatabase localDatabase) async {
+  Future<void> postExecute(
+    final LocalDatabase localDatabase,
+    final bool success,
+  ) async {
     try {
       File(imagePath).deleteSync();
     } catch (e) {
@@ -164,10 +167,12 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       localDatabase,
     );
     localDatabase.notifyListeners();
-    await BackgroundTaskRefreshLater.addTask(
-      barcode,
-      localDatabase: localDatabase,
-    );
+    if (success) {
+      await BackgroundTaskRefreshLater.addTask(
+        barcode,
+        localDatabase: localDatabase,
+      );
+    }
   }
 
   /// Uploads the product image.

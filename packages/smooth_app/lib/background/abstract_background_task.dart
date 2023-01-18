@@ -60,8 +60,17 @@ abstract class AbstractBackgroundTask {
   /// is not even started.
   Future<void> preExecute(final LocalDatabase localDatabase);
 
-  /// Cleans the temporary data changes performed in [preExecute].
-  Future<void> postExecute(final LocalDatabase localDatabase);
+  /// To be executed _after_ the actual run.
+  ///
+  /// Mostly, cleans the temporary data changes performed in [preExecute].
+  /// [success] indicates (if `true`) that so far the operation was a success.
+  /// With that `bool` we're able to deal with 2 cases:
+  /// 1. everything is fine and we may have to do something more than cleaning
+  /// 2. something bad happened and we just need to clear the task
+  Future<void> postExecute(
+    final LocalDatabase localDatabase,
+    final bool success,
+  );
 
   /// Uploads data changes.
   @protected
