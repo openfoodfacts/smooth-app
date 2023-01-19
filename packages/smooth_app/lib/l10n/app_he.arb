@@ -1799,31 +1799,59 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
+    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "@edit_packagings_element_hint_units": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
     "edit_packagings_element_field_shape": "צורה",
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "@edit_packagings_element_hint_shape": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_shape": "Bottle",
+    "@edit_packagings_element_example_shape": {
+        "description": "Text field hint"
     },
     "edit_packagings_element_field_material": "חומר גלם",
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "לפעמים, החומרים כגון ♵ מוסתרים מתחת לאריזה, בתלת־ממד, על הפלסטיק.",
+    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_material": "Glass",
+    "@edit_packagings_element_example_material": {
+        "description": "Text field hint"
     },
     "edit_packagings_element_field_recycling": "הנחיות מיחזור",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
+    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "@edit_packagings_element_hint_recycling": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_recycling": "Recycle",
+    "@edit_packagings_element_example_recycling": {
+        "description": "Text field hint"
+    },
     "edit_packagings_element_field_quantity": "כמות נטו של המוצר ליחידה",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "@edit_packagings_element_hint_quantity": {
+        "description": "Field verbose hint, more like an info than a text field hint"
     },
     "edit_packagings_element_field_weight": "משקל של יחידה ריקה אחת (גרם)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "למדידות משקל אריזה מדויקות, נא לנקות שאריות מזון כלשהן ולאחר מכן לייבש את המים.",
+    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1837,7 +1865,7 @@
     "background_task_operation_refresh": "הרענון מתעכב לסיום העלאת התמונה",
     "background_task_run_started": "החל",
     "background_task_run_not_started": "טרם החל",
-    "background_task_run_to_be_deleted": "to be deleted",
-    "background_task_question_stop": "Do you want to stop that task ASAP?",
+    "background_task_run_to_be_deleted": "למחיקה",
+    "background_task_question_stop": "לעצור את המשימה הזאת בהקדם האפשרי?",
     "feed_back": "משוב"
 }
