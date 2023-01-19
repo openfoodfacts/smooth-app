@@ -3,17 +3,15 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
-import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/explanation_widget.dart';
+import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
+import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
-import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -34,18 +32,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
 
   late bool? _packagingsComplete;
 
-  final List<TextEditingController> _controllerUnits =
-      <TextEditingController>[];
-  final List<TextEditingController> _controllerShapes =
-      <TextEditingController>[];
-  final List<TextEditingController> _controllerMaterials =
-      <TextEditingController>[];
-  final List<TextEditingController> _controllerRecyclings =
-      <TextEditingController>[];
-  final List<TextEditingController> _controllerQuantities =
-      <TextEditingController>[];
-  final List<TextEditingController> _controllerWeights =
-      <TextEditingController>[];
+  final List<EditNewPackagingsHelper> _helpers = <EditNewPackagingsHelper>[];
 
   void _initPackagings() {
     if (widget.product.packagings != null) {
@@ -54,53 +41,18 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     _packagingsComplete = widget.product.packagingsComplete;
   }
 
-  void _addPackagingToControllers(final ProductPackaging packaging) {
-    _controllerUnits.add(
-      TextEditingController(
-        text: packaging.numberOfUnits == null
-            ? null
-            : '${packaging.numberOfUnits!}',
-      ),
-    );
-    _controllerShapes.add(
-      TextEditingController(
-        text:
-            packaging.shape?.lcName == null ? null : (packaging.shape?.lcName)!,
-      ),
-    );
-    _controllerMaterials.add(
-      TextEditingController(
-        text: packaging.material?.lcName == null
-            ? null
-            : (packaging.material?.lcName)!,
-      ),
-    );
-    _controllerRecyclings.add(
-      TextEditingController(
-        text: packaging.recycling?.lcName == null
-            ? null
-            : (packaging.recycling?.lcName)!,
-      ),
-    );
-    _controllerQuantities.add(
-      TextEditingController(text: packaging.quantityPerUnit),
-    );
-    _controllerWeights.add(
-      TextEditingController(
-        text: packaging.weightMeasured == null
-            ? null
-            : '${packaging.weightMeasured!}',
-      ),
+  void _addPackagingToControllers(
+    final ProductPackaging packaging, {
+    final bool initiallyExpanded = false,
+  }) {
+    _helpers.add(
+      EditNewPackagingsHelper.packaging(packaging, initiallyExpanded),
     );
   }
 
   void _removePackagingAt(final int index) {
-    _controllerUnits.removeAt(index);
-    _controllerShapes.removeAt(index);
-    _controllerMaterials.removeAt(index);
-    _controllerRecyclings.removeAt(index);
-    _controllerQuantities.removeAt(index);
-    _controllerWeights.removeAt(index);
+    final EditNewPackagingsHelper helper = _helpers.removeAt(index);
+    helper.dispose();
   }
 
   @override
@@ -114,13 +66,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   @override
   void dispose() {
     _localDatabase.upToDate.loseInterest(widget.product.barcode!);
-    for (int i = 0; i < _controllerUnits.length; i++) {
-      _controllerUnits[i].dispose();
-      _controllerShapes[i].dispose();
-      _controllerMaterials[i].dispose();
-      _controllerRecyclings[i].dispose();
-      _controllerQuantities[i].dispose();
-      _controllerWeights[i].dispose();
+    for (final EditNewPackagingsHelper helper in _helpers) {
+      helper.dispose();
     }
     super.dispose();
   }
@@ -129,19 +76,18 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> children = <Widget>[];
-    for (int index = 0; index < _controllerUnits.length; index++) {
+    for (int index = 0; index < _helpers.length; index++) {
       // needed for deleteCallback (if not final, will take unreachable value)
       final int deleteIndex = index;
       children.add(
-        _EditSinglePackagings(
-          title: appLocalizations.edit_packagings_element_title(index + 1),
-          deleteCallback: () => setState(() => _removePackagingAt(deleteIndex)),
-          controllerUnits: _controllerUnits[index],
-          controllerShape: _controllerShapes[index],
-          controllerMaterial: _controllerMaterials[index],
-          controllerRecycling: _controllerRecyclings[index],
-          controllerQuantity: _controllerQuantities[index],
-          controllerWeight: _controllerWeights[index],
+        SmoothCard(
+          color: _getSmoothCardColor(context),
+          child: EditNewPackagingsComponent(
+            title: appLocalizations.edit_packagings_element_title(index + 1),
+            deleteCallback: () =>
+                setState(() => _removePackagingAt(deleteIndex)),
+            helper: _helpers[index],
+          ),
         ),
       );
     }
@@ -179,8 +125,12 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
         child: addPanelButton(
           appLocalizations.edit_packagings_element_add.toUpperCase(),
           iconData: Icons.add,
-          onPressed: () =>
-              setState(() => _addPackagingToControllers(ProductPackaging())),
+          onPressed: () => setState(
+            () => _addPackagingToControllers(
+              ProductPackaging(),
+              initiallyExpanded: true,
+            ),
+          ),
         ),
       ),
     );
@@ -250,35 +200,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     }
   }
 
-  LocalizedTag? _getLocalizedTag(final TextEditingController controller) {
-    final String text = controller.text;
-    if (text.isEmpty) {
-      return null;
-    }
-    return LocalizedTag()..lcName = text;
-  }
-
-  String? _getString(final TextEditingController controller) {
-    final String text = controller.text;
-    if (text.isEmpty) {
-      return null;
-    }
-    return text;
-  }
-
   List<ProductPackaging> _getPackagingsFromControllers() {
     final List<ProductPackaging> result = <ProductPackaging>[];
-    for (int i = 0; i < _controllerUnits.length; i++) {
-      final ProductPackaging packaging = ProductPackaging();
-      packaging.shape = _getLocalizedTag(_controllerShapes[i]);
-      packaging.material = _getLocalizedTag(_controllerMaterials[i]);
-      packaging.recycling = _getLocalizedTag(_controllerRecyclings[i]);
-      packaging.quantityPerUnit = _getString(_controllerQuantities[i]);
-      packaging.weightMeasured = double.tryParse(_controllerWeights[i]
-          .text); // TODO(monsieurtanuki): handle the "not a number" case
-      packaging.numberOfUnits = int.tryParse(_controllerUnits[i]
-          .text); // TODO(monsieurtanuki): handle the "not a number" case
-      result.add(packaging);
+    for (final EditNewPackagingsHelper helper in _helpers) {
+      result.add(helper.getPackaging());
     }
     return result;
   }
@@ -356,165 +281,6 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     );
     return true;
   }
-}
-
-/// Edit display of a single [ProductPackaging].
-class _EditSinglePackagings extends StatelessWidget {
-  const _EditSinglePackagings({
-    required this.title,
-    required this.deleteCallback,
-    required this.controllerUnits,
-    required this.controllerShape,
-    required this.controllerMaterial,
-    required this.controllerRecycling,
-    required this.controllerQuantity,
-    required this.controllerWeight,
-  });
-
-  final String title;
-  final VoidCallback deleteCallback;
-  final TextEditingController controllerUnits;
-  final TextEditingController controllerShape;
-  final TextEditingController controllerMaterial;
-  final TextEditingController controllerRecycling;
-  final TextEditingController controllerQuantity;
-  final TextEditingController controllerWeight;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final Color iconColor = dark ? Colors.white : Colors.black;
-    return SmoothCard(
-      color: _getSmoothCardColor(context),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            title: Text(title),
-            trailing: IconButton(
-              icon: const Icon(Icons.delete),
-              onPressed: deleteCallback,
-            ),
-          ),
-          _EditLine(
-            // TODO(monsieurtanuki): different display for numbers
-            title: appLocalizations.edit_packagings_element_field_units,
-            controller: controllerUnits,
-            // this icon has 2 colors: we need 2 distinct files
-            iconName: dark ? 'counter-dark' : 'counter-light',
-            iconColor: null,
-            description: appLocalizations.edit_packagings_element_hint_units,
-            hintText: '1',
-          ),
-          _EditLine(
-            title: appLocalizations.edit_packagings_element_field_shape,
-            controller: controllerShape,
-            tagType: TagType.PACKAGING_SHAPES,
-            iconName: 'shape',
-            iconColor: iconColor,
-            description: appLocalizations.edit_packagings_element_hint_shape,
-            hintText: appLocalizations.edit_packagings_element_example_shape,
-          ),
-          _EditLine(
-            title: appLocalizations.edit_packagings_element_field_material,
-            controller: controllerMaterial,
-            tagType: TagType.PACKAGING_MATERIALS,
-            iconName: 'material',
-            iconColor: iconColor,
-            description: appLocalizations.edit_packagings_element_hint_material,
-            hintText: appLocalizations.edit_packagings_element_example_material,
-          ),
-          _EditLine(
-            title: appLocalizations.edit_packagings_element_field_recycling,
-            controller: controllerRecycling,
-            tagType: TagType.PACKAGING_RECYCLING,
-            iconName: 'recycling',
-            iconColor: iconColor,
-            description:
-                appLocalizations.edit_packagings_element_hint_recycling,
-            hintText:
-                appLocalizations.edit_packagings_element_example_recycling,
-          ),
-          _EditLine(
-            title: appLocalizations.edit_packagings_element_field_quantity,
-            controller: controllerQuantity,
-            iconName: 'quantity',
-            iconColor: iconColor,
-            description: appLocalizations.edit_packagings_element_hint_quantity,
-            hintText: '120g',
-          ),
-          _EditLine(
-            // TODO(monsieurtanuki): different display for numbers
-            title: appLocalizations.edit_packagings_element_field_weight,
-            controller: controllerWeight,
-            iconName: 'weight',
-            iconColor: iconColor,
-            description: appLocalizations.edit_packagings_element_hint_weight,
-            hintText: '1',
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-/// Edit display of a single line inside a [ProductPackaging], e.g. its shape.
-class _EditLine extends StatelessWidget {
-  const _EditLine({
-    required this.title,
-    required this.controller,
-    required this.iconName,
-    required this.iconColor,
-    required this.description,
-    required this.hintText,
-    this.tagType,
-  });
-
-  final String title;
-  final TextEditingController controller;
-  final TagType? tagType;
-  final String iconName;
-  final Color? iconColor;
-  final String description;
-  final String hintText;
-
-  @override
-  Widget build(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            leading: SvgAsyncAsset(
-              AssetCacheHelper(
-                <String>['assets/packagings/$iconName.svg'],
-                'no url for packagings/$iconName',
-                color: iconColor,
-                width: MINIMUM_TOUCH_SIZE,
-              ),
-            ),
-            title: Text(title),
-          ),
-          LayoutBuilder(
-            builder: (_, BoxConstraints constraints) => SizedBox(
-              width: constraints.maxWidth,
-              child: SimpleInputWidgetField(
-                focusNode: FocusNode(),
-                autocompleteKey: UniqueKey(),
-                constraints: constraints,
-                tagType: tagType,
-                hintText: hintText,
-                controller: controller,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-            child: ExplanationWidget(description),
-          ),
-        ],
-      );
 }
 
 Color _getSmoothCardColor(final BuildContext context) =>
