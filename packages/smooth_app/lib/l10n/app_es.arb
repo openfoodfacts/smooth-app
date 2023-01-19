@@ -1837,5 +1837,7 @@
     "background_task_operation_refresh": "actualización retrasada después de cargar la foto",
     "background_task_run_started": "iniciado",
     "background_task_run_not_started": "todavía no se ha iniciado",
+    "background_task_run_to_be_deleted": "to be deleted",
+    "background_task_question_stop": "Do you want to stop that task ASAP?",
     "feed_back": "Feedback"
 }
