@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
+import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -14,6 +15,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
+import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
@@ -264,6 +266,19 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               ),
             );
           },
+        ),
+        ListTile(
+          title: Text(appLocalizations.background_task_title),
+          subtitle: Text(appLocalizations.background_task_subtitle),
+          trailing: const BackgroundTaskBadge(
+            child: Icon(Icons.edit_notifications_outlined),
+          ),
+          onTap: () async => Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const OfflineTaskPage(),
+            ),
+          ),
         ),
         ListTile(
           title: Text(

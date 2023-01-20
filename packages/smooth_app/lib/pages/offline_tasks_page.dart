@@ -88,7 +88,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
       case OperationType.image:
         return appLocalizations.background_task_operation_image;
       case OperationType.refreshLater:
-        return appLocalizations.background_task_operation_refresh;
+        return 'Waiting 10 min before refreshing product to get all automatic edits';
     }
   }
 

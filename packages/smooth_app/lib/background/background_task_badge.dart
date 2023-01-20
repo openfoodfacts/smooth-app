@@ -23,7 +23,7 @@ class BackgroundTaskBadge extends StatelessWidget {
         '${tasks.length}',
         style: const TextStyle(color: Colors.white),
       ),
-      position: BadgePosition.topEnd(end: -24),
+      position: BadgePosition.topStart(start: -16),
       child: child,
     );
   }
