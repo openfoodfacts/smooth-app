@@ -3,7 +3,6 @@
   <source media="(prefers-color-scheme: light)" srcset="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png?refresh_github_cache=1">
   <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg">
 </picture>
-
 <br>
 
 ## Smooth App : The new Open Food Facts mobile app for Android and iPhone
