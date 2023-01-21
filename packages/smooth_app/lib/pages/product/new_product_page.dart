@@ -235,13 +235,15 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Text(
+                Flexible(
+                    child: Text(
                   website,
+                  overflow: TextOverflow.ellipsis,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2
                       ?.copyWith(color: Colors.blue),
-                ),
+                )),
               ],
             ),
           ),
