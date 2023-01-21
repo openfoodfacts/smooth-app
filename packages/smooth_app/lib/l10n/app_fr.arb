@@ -1609,7 +1609,7 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "add_packaging_photo_button_label": "Prenez des photos de toute information sur l'emballage/le recyclage",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
@@ -1799,7 +1799,7 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Entrez le nombre d'unités d'emballage de la même forme et de la même matière contenue dans le produit.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1807,11 +1807,11 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Entrez le nom de la forme indiqué dans les instructions de recyclage si elles sont disponibles, ou sélectionnez une forme.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Bouteille",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -1819,11 +1819,11 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Entrez le matériau spécifique s'il peut être déterminé (un code de matériau à l'intérieur d'un triangle peut souvent être trouvé sur les éléments d'emballage), ou un matériau générique (par exemple du plastique ou du métal) si vous n'êtes pas sûr.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Verre",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
@@ -1831,11 +1831,11 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "Saisissez les instructions de recyclage uniquement si elles figurent sur le produit.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Recycler",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
@@ -1843,7 +1843,7 @@
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "Entrez le poids net ou le volume net et indiquez l'unité (par exemple g ou ml).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1851,21 +1851,21 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Retirez tout reste de nourriture et lavez et séchez la partie d'emballage avant la pesée. Si possible, utilisez une balance avec une précision de 0,1 g ou 0,01 g.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "background_task_title": "Pending contributions",
-    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
-    "background_task_list_empty": "No Pending Background Tasks",
-    "background_task_error_no_internet": "Internet connection error. Try later.",
-    "background_task_operation_unknown": "unknown operation type",
-    "background_task_operation_details": "detailed changes",
-    "background_task_operation_image": "photo upload",
-    "background_task_operation_refresh": "refresh delayed after photo upload",
-    "background_task_run_started": "started",
-    "background_task_run_not_started": "not started yet",
-    "background_task_run_to_be_deleted": "to be deleted",
+    "background_task_title": "Contributions en attente",
+    "background_task_subtitle": "Vos contributions sont automatiquement enregistrées sur notre serveur, mais pas toujours en temps réel.",
+    "background_task_list_empty": "Aucune tâche d'arrière-plan en attente",
+    "background_task_error_no_internet": "Erreur de connexion Internet. Essayez plus tard.",
+    "background_task_operation_unknown": "type d'opération inconnu",
+    "background_task_operation_details": "modifications détaillées",
+    "background_task_operation_image": "Téléversement de photo",
+    "background_task_operation_refresh": "rafraîchissement retardé après le téléversement de la photo",
+    "background_task_run_started": "démarré",
+    "background_task_run_not_started": "pas encore débuté",
+    "background_task_run_to_be_deleted": "à supprimer",
     "background_task_question_stop": "Voulez-vous arrêter cette tâche dès que possible ?",
     "feed_back": "Commentaires"
 }
