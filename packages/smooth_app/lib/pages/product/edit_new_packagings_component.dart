@@ -154,6 +154,7 @@ class _EditLine extends StatelessWidget {
                 tagType: tagType,
                 hintText: '',
                 controller: controller,
+                withClearButton: true,
               ),
             ),
           ),
