@@ -1609,7 +1609,7 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "add_packaging_photo_button_label": "Направете снимки на информацията за опаковката/рециклирането",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
@@ -1699,7 +1699,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "no_email_client_available_dialog_title": "Не е намерено приложение на електронна поща!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1799,7 +1799,7 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Въведете броя на опаковъчните единици с еднаква форма и материал, съдържащи се в продукта.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1807,11 +1807,11 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Въведете името на формата, посочено в инструкциите за рециклиране, ако са налични, или изберете форма.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Бутилка",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -1819,11 +1819,11 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Въведете конкретния материал, ако може да бъде определен (код на материала вътре в триъгълник често може да се намери върху частите на опаковката) или общ материал (например пластмаса или метал), ако не сте сигурни.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Стъкло",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
@@ -1831,11 +1831,11 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "Въведете инструкциите за рециклиране само ако са посочени на продукта.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Рециклирайте",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
@@ -1843,7 +1843,7 @@
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "Въведете нетното тегло или нетния обем и посочете единицата (например г или мл).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1851,7 +1851,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Отстранете всички останала храна и измийте и подсушете опаковката преди претеглянето. Ако е възможно, използвайте везна с точност 0,1 г или 0,01 г.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1865,7 +1865,7 @@
     "background_task_operation_refresh": "опресняването се забави след качването на снимка",
     "background_task_run_started": "започнат",
     "background_task_run_not_started": "все още не е започнал",
-    "background_task_run_to_be_deleted": "to be deleted",
-    "background_task_question_stop": "Do you want to stop that task ASAP?",
+    "background_task_run_to_be_deleted": "да бъде изтрито",
+    "background_task_question_stop": "Искате ли да спрете тази задача възможно най-скоро?",
     "feed_back": "Обратна връзка"
 }
