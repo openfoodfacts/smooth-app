@@ -34,7 +34,9 @@ class CropPage extends StatefulWidget {
     required this.brandNewPicture,
   });
 
+  /// The initial input file we start with.
   final File inputFile;
+
   final ImageField imageField;
   final String barcode;
 
@@ -49,24 +51,31 @@ class _CropPageState extends State<CropPage> {
   late RotatedCropController _controller;
   late ui.Image _image;
 
+  /// The screen size, used as a maximum size for the transient image.
+  ///
+  /// We need this info:
+  /// * we experienced performance issues when cropping the full size
+  /// * it's much faster to create a smaller file
+  /// * the size of the screen is a good approximation of "how big is enough?"
+  late Size _screenSize;
+
   /// Are we currently processing data (for action buttons hiding).
   bool _processing = true;
 
-  /// Is that the same picture as the initial input file?
-  bool _samePicture = true;
+  /// Latest picked picture (from Gallery or Camera).
+  XFile? _pickedPicture;
 
   static const Rect _initialRect = Rect.fromLTRB(0, 0, 1, 1);
 
-  Future<ui.Image> _loadUiImage(final File file) async {
-    final Uint8List list = await file.readAsBytes();
+  Future<ui.Image> _loadUiImage(final Uint8List list) async {
     final Completer<ui.Image> completer = Completer<ui.Image>();
     ui.decodeImageFromList(list, completer.complete);
     return completer.future;
   }
 
-  Future<void> _load(final File file) async {
+  Future<void> _load(final Uint8List list) async {
     setState(() => _processing = true);
-    _image = await _loadUiImage(file);
+    _image = await _loadUiImage(list);
     _controller = RotatedCropController(defaultCrop: _initialRect);
     _processing = false;
     if (!mounted) {
@@ -78,11 +87,14 @@ class _CropPageState extends State<CropPage> {
   @override
   void initState() {
     super.initState();
-    _load(widget.inputFile);
+    _initLoad();
   }
+
+  Future<void> _initLoad() async => _load(await widget.inputFile.readAsBytes());
 
   @override
   Widget build(final BuildContext context) {
+    _screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
@@ -151,30 +163,75 @@ class _CropPageState extends State<CropPage> {
     );
   }
 
-  Future<bool> _saveFileAndExit() async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoInt daoInt = DaoInt(localDatabase);
-    final image2.Image? rawImage = await _controller.croppedBitmap();
+  /// Returns a file with the full image (no cropping here).
+  ///
+  /// To be sent to the server, as well as the crop parameters and the rotation.
+  /// It's faster for us to let the server do the actual cropping full size.
+  Future<File> _getFullImageFile(
+    final Directory directory,
+    final int sequenceNumber,
+  ) async {
+    final File result;
+    final String fullPath = '${directory.path}/full_image_$sequenceNumber.jpeg';
+    if (_pickedPicture == null) {
+      result = widget.inputFile.copySync(fullPath);
+    } else {
+      result = File(fullPath);
+      final Uint8List list = await _pickedPicture!.readAsBytes();
+      await result.writeAsBytes(list);
+    }
+    return result;
+  }
+
+  /// Returns a small file with the cropped image, for the transient image.
+  Future<File?> _getCroppedImageFile(
+    final Directory directory,
+    final int sequenceNumber,
+  ) async {
+    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.jpeg';
+    final File result = File(croppedPath);
+    final image2.Image? rawImage = await _controller.croppedBitmap(
+      maxSize: _screenSize.longestSide,
+    );
     if (rawImage == null) {
-      return true;
+      return null;
     }
     final Uint8List data = Uint8List.fromList(image2.encodeJpg(rawImage));
+    await result.writeAsBytes(data);
+    return result;
+  }
+
+  Future<bool> _saveFileAndExit() async {
+    // TODO(monsieurtanuki): hide the controls while computing?
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoInt daoInt = DaoInt(localDatabase);
     final int sequenceNumber =
         await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
+    final Directory directory = await getApplicationSupportDirectory();
 
-    final Directory tempDirectory = await getApplicationSupportDirectory();
-    final String path = '${tempDirectory.path}/crop_$sequenceNumber.jpeg';
-    final File file = File(path);
-    await file.writeAsBytes(data);
-
-    if (!mounted) {
+    final File? croppedFile = await _getCroppedImageFile(
+      directory,
+      sequenceNumber,
+    );
+    if (croppedFile == null) {
       return true;
     }
+    final File fullFile = await _getFullImageFile(
+      directory,
+      sequenceNumber,
+    );
 
+    final Rect cropRect = _getCropRect();
     await BackgroundTaskImage.addTask(
       widget.barcode,
       imageField: widget.imageField,
-      imageFile: file,
+      fullFile: fullFile,
+      croppedFile: croppedFile,
+      rotation: _controller.degrees,
+      x1: cropRect.left.ceil(),
+      y1: cropRect.top.ceil(),
+      x2: cropRect.right.floor(),
+      y2: cropRect.bottom.floor(),
       widget: this,
     );
     localDatabase.notifyListeners();
@@ -188,8 +245,31 @@ class _CropPageState extends State<CropPage> {
     if (!mounted) {
       return true;
     }
-    Navigator.of(context).pop<File>(file);
+    Navigator.of(context).pop<File>(croppedFile);
     return true;
+  }
+
+  Rect _getCropRect() {
+    final Offset center = _controller.getRotatedOffsetForOff(
+      _controller.crop.center,
+    );
+    final Offset topLeft = _controller.getRotatedOffsetForOff(
+      _controller.crop.topLeft,
+    );
+    double width = 2 * (center.dx - topLeft.dx);
+    if (width < 0) {
+      width = -width;
+    }
+    double height = 2 * (center.dy - topLeft.dy);
+    if (height < 0) {
+      height = -height;
+    }
+    final Rect rect = Rect.fromCenter(
+      center: center,
+      width: width,
+      height: height,
+    );
+    return rect;
   }
 
   static const String _CROP_PAGE_SEQUENCE_KEY = 'crop_page_sequence';
@@ -201,7 +281,7 @@ class _CropPageState extends State<CropPage> {
   Future<bool> _mayExitPage({required final bool saving}) async {
     if (_controller.value.rotation == Rotation.noon &&
         _controller.value.crop == _initialRect &&
-        _samePicture &&
+        _pickedPicture == null &&
         !widget.brandNewPicture) {
       // nothing has changed, let's leave
       if (saving) {
@@ -245,9 +325,9 @@ class _CropPageState extends State<CropPage> {
     if (pickedXFile == null) {
       return;
     }
-    await _load(File(pickedXFile.path));
+    _pickedPicture = pickedXFile;
+    await _load(await pickedXFile.readAsBytes());
     _processing = false;
-    _samePicture = false;
     if (!mounted) {
       return;
     }
