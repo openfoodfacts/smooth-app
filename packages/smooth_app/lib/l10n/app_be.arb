@@ -1007,7 +1007,7 @@
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
-    "permission_photo_error": "Error",
+    "permission_photo_error": "Памылка",
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
