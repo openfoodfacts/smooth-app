@@ -98,11 +98,9 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
         child: ListTile(
           title: Text(appLocalizations.edit_packagings_completed),
           trailing: Icon(
-            _packagingsComplete == null
-                ? Icons.indeterminate_check_box
-                : _packagingsComplete == true
-                    ? Icons.check_box
-                    : Icons.check_box_outline_blank,
+            _packagingsComplete == true
+                ? Icons.check_box
+                : Icons.check_box_outline_blank,
           ),
           onTap: () => setState(
             () {
