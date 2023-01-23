@@ -7,15 +7,18 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -68,37 +71,68 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     return SmoothScaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
-      floatingActionButton: FloatingActionButton.extended(
-        label: Text(
-          imageProvider == null
-              ? appLocalizations.add
-              : appLocalizations.edit_photo_button_label,
-        ),
-        icon: Icon(
-          imageProvider == null ? Icons.add : Icons.edit,
-        ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: () async => _editImage(),
-      ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          ConstrainedBox(
-            constraints: BoxConstraints.tight(
-              Size(double.infinity, MediaQuery.of(context).size.height / 2),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(MINIMUM_TOUCH_SIZE / 2),
+              child: imageProvider == null
+                  ? const SizedBox.expand(child: PictureNotFound())
+                  : PhotoView(
+                      minScale: 0.2,
+                      imageProvider: imageProvider,
+                      heroAttributes: PhotoViewHeroAttributes(
+                        tag: imageProvider,
+                      ),
+                      backgroundDecoration: const BoxDecoration(
+                        color: Colors.black,
+                      ),
+                    ),
             ),
-            child: imageProvider == null
-                ? const PictureNotFound()
-                : PhotoView(
-                    minScale: 0.2,
-                    imageProvider: imageProvider,
-                    heroAttributes: PhotoViewHeroAttributes(
-                      tag: imageProvider,
-                    ),
-                    backgroundDecoration: const BoxDecoration(
-                      color: Colors.black,
-                    ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: (imageProvider == null)
+                      ? Container()
+                      : EditImageButton(
+                          iconData: Icons.do_disturb_on,
+                          label:
+                              appLocalizations.edit_photo_unselect_button_label,
+                          onPressed: () async {
+                            final NavigatorState navigatorState =
+                                Navigator.of(context);
+                            await BackgroundTaskUnselect.addTask(
+                              _barcode,
+                              imageField: widget.imageField,
+                              widget: this,
+                            );
+                            _localDatabase.notifyListeners();
+                            navigatorState.pop();
+                          },
+                        ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: EditImageButton(
+                    iconData: imageProvider == null ? Icons.add : Icons.edit,
+                    label: imageProvider == null
+                        ? appLocalizations.add
+                        : appLocalizations.edit_photo_button_label,
+                    onPressed: () async => _editImage(),
                   ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -134,7 +168,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         return;
       }
 
-      final DaoInt daoInt = DaoInt(context.read<LocalDatabase>());
+      final DaoInt daoInt = DaoInt(_localDatabase);
       imageFile = await LoadingDialog.run<File?>(
         context: context,
         future: _downloadImageFile(daoInt, imageUrl),

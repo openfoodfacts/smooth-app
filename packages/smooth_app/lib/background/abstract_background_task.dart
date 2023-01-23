@@ -7,6 +7,7 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -45,6 +46,7 @@ abstract class AbstractBackgroundTask {
   static AbstractBackgroundTask? fromJson(final Map<String, dynamic> map) =>
       BackgroundTaskDetails.fromJson(map) ??
       BackgroundTaskImage.fromJson(map) ??
+      BackgroundTaskUnselect.fromJson(map) ??
       BackgroundTaskRefreshLater.fromJson(map);
 
   /// Executes the background task: upload, download, update locally.

@@ -19,6 +19,7 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
@@ -145,12 +146,12 @@ class _CropPageState extends State<CropPage> {
                     spacing: MEDIUM_SPACE,
                     alignment: WrapAlignment.center,
                     children: <Widget>[
-                      _OutlinedButton(
+                      EditImageButton(
                         iconData: Icons.camera_alt,
                         label: appLocalizations.capture,
                         onPressed: () async => _capture(),
                       ),
-                      _OutlinedButton(
+                      EditImageButton(
                         iconData: Icons.check,
                         label: appLocalizations.confirm_button_label,
                         onPressed: () async => _mayExitPage(saving: true),
@@ -350,33 +351,5 @@ class _IconButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(shape: const CircleBorder()),
         child: Icon(iconData),
-      );
-}
-
-/// Standard text button for this page.
-class _OutlinedButton extends StatelessWidget {
-  const _OutlinedButton({
-    required this.iconData,
-    required this.label,
-    required this.onPressed,
-  });
-
-  final IconData iconData;
-  final String label;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) => OutlinedButton.icon(
-        icon: Icon(iconData),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-            Theme.of(context).colorScheme.background,
-          ),
-          shape: MaterialStateProperty.all(
-            const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-          ),
-        ),
-        onPressed: onPressed,
-        label: Text(label),
       );
 }
