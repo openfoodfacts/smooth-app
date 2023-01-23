@@ -358,7 +358,7 @@
         "description": "Page title: Page where the ranking preferences can be changed"
     },
     "myPreferences_profile_title": "Tu perfil",
-    "myPreferences_profile_subtitle": "Administra tu cuenta de colaborador de Open Food Facts.",
+    "myPreferences_profile_subtitle": "Administre su cuenta de colaborador de Open Food Facts.",
     "myPreferences_settings_title": "Ajustes de la aplicación",
     "myPreferences_settings_subtitle": "Modo oscuro, analíticas, ...",
     "myPreferences_food_title": "Preferencias alimentarias",
@@ -1522,6 +1522,10 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
+    "edit_photo_unselect_button_label": "Unselect photo",
+    "@edit_photo_unselect_button_label": {
+        "description": "Edit 'unselect photo' button label"
+    },
     "category_picker_screen_title": "Categorías",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1865,7 +1869,7 @@
     "background_task_operation_refresh": "actualización retrasada después de cargar la foto",
     "background_task_run_started": "iniciado",
     "background_task_run_not_started": "todavía no se ha iniciado",
-    "background_task_run_to_be_deleted": "to be deleted",
-    "background_task_question_stop": "Do you want to stop that task ASAP?",
+    "background_task_run_to_be_deleted": "para ser eliminado",
+    "background_task_question_stop": "¿Quieres detener esa tarea lo antes posible?",
     "feed_back": "Feedback"
 }

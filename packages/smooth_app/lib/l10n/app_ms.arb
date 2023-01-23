@@ -1522,6 +1522,10 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
+    "edit_photo_unselect_button_label": "Unselect photo",
+    "@edit_photo_unselect_button_label": {
+        "description": "Edit 'unselect photo' button label"
+    },
     "category_picker_screen_title": "Kategori-kategori",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
