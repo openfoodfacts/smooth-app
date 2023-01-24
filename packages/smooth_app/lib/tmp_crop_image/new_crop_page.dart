@@ -133,13 +133,14 @@ class _CropPageState extends State<CropPage> {
                     ],
                   ),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(MINIMUM_TOUCH_SIZE / 2),
-                      child: RotatedCropImage(
-                        controller: _controller,
-                        image: _image,
-                        minimumImageSize: 1,
-                      ),
+                    child: RotatedCropImage(
+                      controller: _controller,
+                      image: _image,
+                      minimumImageSize:
+                          MINIMUM_TOUCH_SIZE, // decent visual minimum size
+                      gridCornerSize: MINIMUM_TOUCH_SIZE *
+                          .75, // touch size will be this x 2
+                      alwaysMove: true,
                     ),
                   ),
                   Wrap(
