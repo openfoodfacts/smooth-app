@@ -108,19 +108,22 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             },
             child: _buildProductBody(context),
           ),
-          SafeArea(
-            child: AnimatedContainer(
-              duration: SmoothAnimationsDuration.short,
-              width: kToolbarHeight,
-              height: kToolbarHeight,
-              decoration: BoxDecoration(
-                color:
-                    scrollingUp ? themeData.primaryColor : Colors.transparent,
-                shape: BoxShape.circle,
-              ),
-              child: Offstage(
-                offstage: !scrollingUp,
-                child: const SmoothBackButton(iconColor: Colors.white),
+          Padding(
+            padding: const EdgeInsets.only(left: SMALL_SPACE),
+            child: SafeArea(
+              child: AnimatedContainer(
+                duration: SmoothAnimationsDuration.short,
+                width: kToolbarHeight,
+                height: kToolbarHeight,
+                decoration: BoxDecoration(
+                  color:
+                      scrollingUp ? themeData.primaryColor : Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: Offstage(
+                  offstage: !scrollingUp,
+                  child: const SmoothBackButton(iconColor: Colors.white),
+                ),
               ),
             ),
           )
