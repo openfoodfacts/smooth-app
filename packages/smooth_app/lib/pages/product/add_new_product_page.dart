@@ -50,8 +50,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   final ProductList _history = ProductList.history();
 
-  //likely broken: see https://github.com/openfoodfacts/smooth-app/issues/3445
-  bool get _nutritionFactsAdded => _product.nutriments != null;
+  bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
   bool get _basicDetailsAdded =>
       AddBasicDetailsPage.isProductBasicValid(_product);
 
