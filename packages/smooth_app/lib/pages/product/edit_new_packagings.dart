@@ -12,6 +12,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -81,7 +82,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
       final int deleteIndex = index;
       children.add(
         SmoothCard(
-          color: _getSmoothCardColor(context),
+          color: _getSmoothCardColorAlternate(context, index),
           child: EditNewPackagingsComponent(
             title: appLocalizations.edit_packagings_element_title(index + 1),
             deleteCallback: () =>
@@ -97,11 +98,9 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
         child: ListTile(
           title: Text(appLocalizations.edit_packagings_completed),
           trailing: Icon(
-            _packagingsComplete == null
-                ? Icons.indeterminate_check_box
-                : _packagingsComplete == true
-                    ? Icons.check_box
-                    : Icons.check_box_outline_blank,
+            _packagingsComplete == true
+                ? Icons.check_box
+                : Icons.check_box_outline_blank,
           ),
           onTap: () => setState(
             () {
@@ -287,3 +286,23 @@ Color _getSmoothCardColor(final BuildContext context) =>
     Theme.of(context).brightness == Brightness.light
         ? GREY_COLOR
         : PRIMARY_GREY_COLOR;
+
+Color _getSmoothCardColorAlternate(final BuildContext context, int index) {
+  final bool lightTheme = Theme.of(context).brightness == Brightness.light;
+  Color cardColor = Colors.white;
+  if (lightTheme) {
+    if (index.isOdd) {
+      cardColor = GREY_COLOR;
+    } else {
+      cardColor = LIGHT_GREY_COLOR;
+    }
+  } else {
+    if (index.isOdd) {
+      cardColor = PRIMARY_GREY_COLOR;
+    } else {
+      cardColor = darkColorScheme.background;
+    }
+  }
+
+  return cardColor;
+}

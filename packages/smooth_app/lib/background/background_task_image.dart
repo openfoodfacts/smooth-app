@@ -23,7 +23,13 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     required super.country,
     required super.stamp,
     required this.imageField,
-    required this.imagePath,
+    required this.fullPath,
+    required this.croppedPath,
+    required this.rotationDegrees,
+    required this.cropX1,
+    required this.cropY1,
+    required this.cropX2,
+    required this.cropY2,
   });
 
   BackgroundTaskImage._fromJson(Map<String, dynamic> json)
@@ -35,7 +41,15 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
           user: json['user'] as String,
           country: json['country'] as String,
           imageField: json['imageField'] as String,
-          imagePath: json['imagePath'] as String,
+          fullPath: json['imagePath'] as String,
+          // dealing with when 'croppedPath' did not exist
+          croppedPath:
+              json['croppedPath'] as String? ?? json['imagePath'] as String,
+          rotationDegrees: json['rotation'] as int? ?? 0,
+          cropX1: json['x1'] as int? ?? 0,
+          cropY1: json['y1'] as int? ?? 0,
+          cropX2: json['x2'] as int? ?? 0,
+          cropY2: json['y2'] as int? ?? 0,
           // dealing with when 'stamp' did not exist
           stamp: json.containsKey('stamp')
               ? json['stamp'] as String
@@ -52,7 +66,13 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
   static const OperationType _operationType = OperationType.image;
 
   final String imageField;
-  final String imagePath;
+  final String fullPath;
+  final String croppedPath;
+  final int rotationDegrees;
+  final int cropX1;
+  final int cropY1;
+  final int cropX2;
+  final int cropY2;
 
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -63,8 +83,14 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         'user': user,
         'country': country,
         'imageField': imageField,
-        'imagePath': imagePath,
+        'imagePath': fullPath,
+        'croppedPath': croppedPath,
         'stamp': stamp,
+        'rotation': rotationDegrees,
+        'x1': cropX1,
+        'y1': cropY1,
+        'x2': cropX2,
+        'y2': cropY2,
       };
 
   /// Returns the deserialized background task if possible, or null.
@@ -84,7 +110,13 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
   static Future<void> addTask(
     final String barcode, {
     required final ImageField imageField,
-    required final File imageFile,
+    required final File fullFile,
+    required final File croppedFile,
+    required final int rotation,
+    required final int x1,
+    required final int y1,
+    required final int x2,
+    required final int y2,
     required final State<StatefulWidget> widget,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
@@ -95,8 +127,14 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     final AbstractBackgroundTask task = _getNewTask(
       barcode,
       imageField,
-      imageFile,
+      fullFile,
+      croppedFile,
       uniqueId,
+      rotation,
+      x1,
+      y1,
+      x2,
+      y2,
     );
     await task.addToManager(localDatabase, widget: widget);
   }
@@ -109,15 +147,27 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
   static BackgroundTaskImage _getNewTask(
     final String barcode,
     final ImageField imageField,
-    final File imageFile,
+    final File fullFile,
+    final File croppedFile,
     final String uniqueId,
+    final int rotationDegrees,
+    final int cropX1,
+    final int cropY1,
+    final int cropX2,
+    final int cropY2,
   ) =>
       BackgroundTaskImage._(
         uniqueId: uniqueId,
         barcode: barcode,
         processName: _PROCESS_NAME,
         imageField: imageField.offTag,
-        imagePath: imageFile.path,
+        fullPath: fullFile.path,
+        croppedPath: croppedFile.path,
+        rotationDegrees: rotationDegrees,
+        cropX1: cropX1,
+        cropY1: cropY1,
+        cropX2: cropX2,
+        cropY2: cropY2,
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
@@ -147,7 +197,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         ImageField.fromOffTag(imageField)!,
         barcode,
         localDatabase,
-        File(imagePath),
+        File(croppedPath),
       );
 
   // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
@@ -157,7 +207,12 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     final bool success,
   ) async {
     try {
-      File(imagePath).deleteSync();
+      File(fullPath).deleteSync();
+    } catch (e) {
+      // not likely, but let's not spoil the task for that either.
+    }
+    try {
+      File(croppedPath).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
@@ -185,32 +240,29 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       lang: language,
       barcode: barcode,
       imageField: imageField,
-      imageUri: Uri.parse(imagePath),
+      imageUri: Uri.parse(fullPath),
     );
 
     final Status status = await OpenFoodAPIClient.addProductImage(user, image);
-    if (status.status == 'status ok') {
-      // successfully uploaded a new picture and set it as field+language
-      return;
-    }
     final int? imageId = status.imageId;
-    if (status.status == 'status not ok' && imageId != null) {
-      // The very same image was already uploaded and therefore was rejected.
-      // We just have to select this image, with no angle.
-      final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
-        barcode: barcode,
-        imageField: imageField,
-        language: language,
-        imgid: '$imageId',
-        angle: ImageAngle.NOON,
-        user: user,
-      );
-      if (imageUrl == null) {
-        throw Exception('Could not select picture');
-      }
-      return;
+    if (imageId == null) {
+      throw Exception(
+          'Could not upload picture: ${status.status} / ${status.error}');
     }
-    throw Exception(
-        'Could not upload picture: ${status.status} / ${status.error}');
+    final String? imageUrl = await OpenFoodAPIClient.setProductImageCrop(
+      barcode: barcode,
+      imageField: imageField,
+      language: language,
+      imgid: '$imageId',
+      angle: ImageAngleExtension.fromInt(rotationDegrees)!,
+      x1: cropX1,
+      y1: cropY1,
+      x2: cropX2,
+      y2: cropY2,
+      user: user,
+    );
+    if (imageUrl == null) {
+      throw Exception('Could not select picture');
+    }
   }
 }

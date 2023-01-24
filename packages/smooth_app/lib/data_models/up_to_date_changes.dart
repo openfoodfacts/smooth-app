@@ -13,14 +13,13 @@ class UpToDateChanges {
   /// For a barcode, map of the actions (pending and done).
   final DaoTransientOperation _daoTransientProduct;
 
-  OperationType get taskActionable => OperationType.details;
-
   /// Returns all the actions related to a barcode, sorted by id.
   Iterable<TransientOperation> getSortedOperations(final String barcode) {
     final List<TransientOperation> result = <TransientOperation>[];
     for (final TransientOperation transientProduct
         in _daoTransientProduct.getAll(barcode)) {
-      if (taskActionable.matches(transientProduct)) {
+      if (OperationType.details.matches(transientProduct) ||
+          OperationType.unselect.matches(transientProduct)) {
         result.add(transientProduct);
       }
     }
@@ -57,7 +56,6 @@ class UpToDateChanges {
   /// Currently limited to the fields modified by
   /// * [BackgroundTaskDetails]
   /// * [BackgroundTaskImage]
-  // TODO(monsieurtanuki): refactor this "à la copyWith" or something like that
   Product _overwrite(final Product initial, final Product change) {
     if (change.productName != null) {
       initial.productName = change.productName;
@@ -118,29 +116,49 @@ class UpToDateChanges {
     if (change.countriesTagsInLanguages != null) {
       initial.countriesTagsInLanguages = change.countriesTagsInLanguages;
     }
+
+    /// In some cases we want to force null; we do that with an empty String.
+    String? emptyMeansNull(final String value) => value.isEmpty ? null : value;
+
     if (change.imageFrontUrl != null) {
-      initial.imageFrontUrl = change.imageFrontUrl;
+      initial.imageFrontUrl = emptyMeansNull(
+        change.imageFrontUrl!,
+      );
     }
     if (change.imageFrontSmallUrl != null) {
-      initial.imageFrontSmallUrl = change.imageFrontSmallUrl;
+      initial.imageFrontSmallUrl = emptyMeansNull(
+        change.imageFrontSmallUrl!,
+      );
     }
     if (change.imageIngredientsUrl != null) {
-      initial.imageIngredientsUrl = change.imageIngredientsUrl;
+      initial.imageIngredientsUrl = emptyMeansNull(
+        change.imageIngredientsUrl!,
+      );
     }
     if (change.imageIngredientsSmallUrl != null) {
-      initial.imageIngredientsSmallUrl = change.imageIngredientsSmallUrl;
+      initial.imageIngredientsSmallUrl = emptyMeansNull(
+        change.imageIngredientsSmallUrl!,
+      );
     }
     if (change.imageNutritionUrl != null) {
-      initial.imageNutritionUrl = change.imageNutritionUrl;
+      initial.imageNutritionUrl = emptyMeansNull(
+        change.imageNutritionUrl!,
+      );
     }
     if (change.imageNutritionSmallUrl != null) {
-      initial.imageNutritionSmallUrl = change.imageNutritionSmallUrl;
+      initial.imageNutritionSmallUrl = emptyMeansNull(
+        change.imageNutritionSmallUrl!,
+      );
     }
     if (change.imagePackagingUrl != null) {
-      initial.imagePackagingUrl = change.imagePackagingUrl;
+      initial.imagePackagingUrl = emptyMeansNull(
+        change.imagePackagingUrl!,
+      );
     }
     if (change.imagePackagingSmallUrl != null) {
-      initial.imagePackagingSmallUrl = change.imagePackagingSmallUrl;
+      initial.imagePackagingSmallUrl = emptyMeansNull(
+        change.imagePackagingSmallUrl!,
+      );
     }
     if (change.website != null) {
       initial.website = change.website;

@@ -1799,7 +1799,7 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Introduceți numărul de unități de ambalare de aceeași formă și material conținute în produs.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1807,11 +1807,11 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Introduceți numele formei afișat în instrucțiunile de reciclare dacă sunt disponibile sau selectați o formă.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Sticla",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -1819,11 +1819,11 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Introduceți materialul specific dacă poate fi determinat (un cod de material în interiorul unui triunghi poate fi găsit adesea pe piesele de ambalaj) sau un material generic (de exemplu plastic sau metal) dacă nu sunteți sigur.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Sticlă",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
@@ -1831,11 +1831,11 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "Introduceți instrucțiunile de reciclare numai dacă sunt enumerate pe produs.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Reciclează",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
@@ -1843,7 +1843,7 @@
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "Introduceți greutatea netă sau volumul net și indicați unitatea (de exemplu, g sau ml).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1851,7 +1851,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Îndepărtați orice mâncare rămasă și spălați și uscați partea de ambalaj înainte de cântărire. Dacă este posibil, utilizați o cântar cu precizie de 0,1 g sau 0,01 g.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1865,7 +1865,7 @@
     "background_task_operation_refresh": "reîmprospătarea a fost întârziată după încărcarea fotografiei",
     "background_task_run_started": "a început",
     "background_task_run_not_started": "încă nu a început",
-    "background_task_run_to_be_deleted": "to be deleted",
-    "background_task_question_stop": "Do you want to stop that task ASAP?",
+    "background_task_run_to_be_deleted": "urmează să fie șterse",
+    "background_task_question_stop": "Doriți să opriți această sarcină cât mai curând posibil?",
     "feed_back": "Părere"
 }

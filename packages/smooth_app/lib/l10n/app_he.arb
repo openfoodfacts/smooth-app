@@ -1799,7 +1799,7 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "נא למלא את מספר יחידות האריזה מאותה הצורה והחומר שנמצא בתוך המוצר.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1807,11 +1807,11 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "נא למלא את שם הצורה שמופיעה על הנחיות המיחזור אם יש כאלה, או לבחור צורה.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "בקבוק",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -1819,11 +1819,11 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "נא לציין מה החומר המסוים שבו נעשה שימוש אם אפשר לאתר אותו (אפשר למצוא את קוד החומר בתוך משולש שנמצא על חלקי האריזה), או חומר כללי (למשל: פלסטיק או מתכת) במקרה של ספק.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "זכוכית",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
@@ -1831,11 +1831,11 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "נא למלא פרטי מיחזור רק אם הם מופיעים על המוצר.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "מיחזור",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
@@ -1843,7 +1843,7 @@
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "נא למלא את המשקל הנקי או את הנפח הנקי ולציין את היחידה (למשל גרם או מיליליטר).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1851,7 +1851,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "יש להסיר שאריות מזון ולשטוף ולייבש את החלק של האריזה בטרם השקילה. אם אפשר, כדאי להשתמש במשקל עם רמת דיוק של 0.1 גרם או 0.01 גרם.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },

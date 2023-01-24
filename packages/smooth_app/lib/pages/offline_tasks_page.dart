@@ -63,10 +63,9 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                   },
                   title: Text(
                     '${OperationType.getBarcode(taskId)}'
-                    ' (${_getOperationLabel(
-                      OperationType.getOperationType(taskId),
-                      appLocalizations,
-                    )})',
+                    ' (${OperationType.getOperationType(taskId)?.getLabel(
+                          appLocalizations,
+                        ) ?? appLocalizations.background_task_operation_unknown})',
                   ),
                   subtitle: Text(_getMessage(status, appLocalizations)),
                   trailing: const Icon(Icons.clear),
@@ -74,22 +73,6 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
               },
             ),
     );
-  }
-
-  String _getOperationLabel(
-    final OperationType? type,
-    final AppLocalizations appLocalizations,
-  ) {
-    switch (type) {
-      case null:
-        return appLocalizations.background_task_operation_unknown;
-      case OperationType.details:
-        return appLocalizations.background_task_operation_details;
-      case OperationType.image:
-        return appLocalizations.background_task_operation_image;
-      case OperationType.refreshLater:
-        return 'Waiting 10 min before refreshing product to get all automatic edits';
-    }
   }
 
   String _getMessage(

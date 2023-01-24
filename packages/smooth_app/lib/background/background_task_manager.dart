@@ -221,7 +221,7 @@ class BackgroundTaskManager {
     _debugPrint('get all tasks/0');
     final List<AbstractBackgroundTask> result = <AbstractBackgroundTask>[];
     final List<String> list = localDatabase.getAllTaskIds();
-    final List<String> duplicateTaskIds = <String>[];
+    final List<String> removeTaskIds = <String>[];
     if (list.isEmpty) {
       return result;
     }
@@ -229,10 +229,12 @@ class BackgroundTaskManager {
       final AbstractBackgroundTask? task = _get(taskId);
       if (task == null) {
         // unexpected, but let's remove that null task anyway.
-        await _finishTask(taskId);
+        _debugPrint('get all tasks/unexpected/$taskId');
+        removeTaskIds.add(taskId);
         continue;
       }
       if (!task.mayRunNow()) {
+        _debugPrint('get all tasks/maynotrun/$taskId');
         // let's ignore this task: it's not supposed to be run now.
         continue;
       }
@@ -248,7 +250,7 @@ class BackgroundTaskManager {
           if (result[i].stamp == stamp) {
             final String removeTaskId = result[i].uniqueId;
             _debugPrint('duplicate stamp, task $removeTaskId being removed...');
-            duplicateTaskIds.add(removeTaskId);
+            removeTaskIds.add(removeTaskId);
             removeMe = i;
             break;
           }
@@ -261,7 +263,7 @@ class BackgroundTaskManager {
       }
       result.add(task);
     }
-    for (final String taskId in duplicateTaskIds) {
+    for (final String taskId in removeTaskIds) {
       await _finishTask(taskId);
     }
     _debugPrint('get all tasks returned (begin)');
