@@ -670,28 +670,28 @@
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  =1{godzinę temu} =2{2 godziny temu} =3{3 godziny temu} =4{4 godziny temu} other{{count} godzin temu}}",
+    "plural_ago_hours": "{count,plural,  =1{godzinę temu} =2{2 godziny temu} other{{count} godzin temu}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  =0{mniej niż minutę temu} =1{minutę temu} =2{2 minuty temu} =3{3 minuty temu} =4{4 minuty temu} other{{count} minut temu}}",
+    "plural_ago_minutes": "{count,plural,  =0{mniej niż minutę temu} =1{minutę temu} =2{2 minuty temu} other{{count} minut temu}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  =1{miesiąc temu} =2{2 miesiące temu} =3{3 miesiące temu} =4{4 miesiące temu} other{{count} miesięcy temu}}",
+    "plural_ago_months": "{count,plural,  =1{miesiąc temu} =2{2 miesiące temu} other{{count} miesięcy temu}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  =1{tydzień temu} =2{2 tygodnie temu} =3{3 tygodnie temu} =4{4 tygodnie temu} other{{count} tygodni temu}}",
+    "plural_ago_weeks": "{count,plural,  =1{tydzień temu} =2{2 tygodnie temu} other{{count} tygodni temu}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
