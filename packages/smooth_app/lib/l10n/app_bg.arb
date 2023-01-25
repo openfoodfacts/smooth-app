@@ -698,7 +698,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Сравни един продукт} other{Сравни {count} продукта}",
+    "plural_compare_x_products": "{count,plural, =1{Сравни един продукт} other{Сравни {count} продукта}}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -837,11 +837,11 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "Научи повече на {source_name}",
+    "knowledge_panel_text_source": "Научи повече на {sourceName}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
-            "source_name": {
+            "sourceName": {
                 "type": "String"
             }
         }
@@ -878,14 +878,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Обновяване на {count,plural, one {} =0{продукт} =1{продукт} other{продукти}} в твоята история",
+    "product_list_reloading_in_progress_multiple": "Обновяване на {count,plural,  =0{продукт} =1{продукт} other{продукти}} в твоята история",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "Обновяването на {count,plural, one {} =0{продукт} =1{продукт} other{продукта}} завърши",
+    "product_list_reloading_success_multiple": "Обновяването на {count,plural,  =0{продукт} =1{продукт} other{продукта}} завърши",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {

@@ -698,7 +698,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count, plural, = 1{Compare one Product} other {So sánh {count} Sản phẩm}",
+    "plural_compare_x_products": "{count, plural, = 1{Compare one Product} other {So sánh {count} Sản phẩm}}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -837,11 +837,11 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "Nhiều hơn trên {source_name}",
+    "knowledge_panel_text_source": "Nhiều hơn trên {sourceName}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
-            "source_name": {
+            "sourceName": {
                 "type": "String"
             }
         }
