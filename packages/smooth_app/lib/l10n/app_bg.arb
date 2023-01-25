@@ -541,11 +541,11 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Добави липсващите съставки",
-    "score_add_missing_packaging_image": "Добави липсваща снимка на опаковката",
+    "score_add_missing_packaging_image": "Добави липсващата снимка на опаковката",
     "score_add_missing_nutrition_facts": "Добави липсващи хранителни стойности",
     "score_add_missing_product_category": "Добави липсваща продуктова категория",
-    "score_add_missing_product_countries": "Добавете липсващи продуктови държави",
-    "score_add_missing_product_emb": "Добави липсващиге кодове за проследяване на продукта",
+    "score_add_missing_product_countries": "Добави липсващите страни където се продава",
+    "score_add_missing_product_emb": "Добави липсващите кодове за проследяване на продукта",
     "score_add_missing_product_labels": "Добави липсващите етикети",
     "score_add_missing_product_origins": "Добавете липсващ произход на продукта",
     "score_add_missing_product_stores": "Добавяне на липсващите магазини за продукта",
@@ -1522,7 +1522,7 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
-    "edit_photo_unselect_button_label": "Unselect photo",
+    "edit_photo_unselect_button_label": "Отмяна на избор на снимка",
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
     },
@@ -1613,7 +1613,7 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Направете снимки на информацията за опаковката/рециклирането",
+    "add_packaging_photo_button_label": "Направи снимки на информацията за опаковката/рециклирането",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
@@ -1785,7 +1785,7 @@
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Добавете част от опаковката",
+    "edit_packagings_element_add": "Добави компонент от опаковката",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
@@ -1803,7 +1803,7 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Въведете броя на опаковъчните единици с еднаква форма и материал, съдържащи се в продукта.",
+    "edit_packagings_element_hint_units": "Въведи броя на опаковъчните единици с еднаква форма и материал, съдържащи се в продукта.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1811,7 +1811,7 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Въведете името на формата, посочено в инструкциите за рециклиране, ако са налични, или изберете форма.",
+    "edit_packagings_element_hint_shape": "Въведи името на формата, посочено в инструкциите за рециклиране, ако са налични, или избери форма.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1823,7 +1823,7 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Въведете конкретния материал, ако може да бъде определен (код на материала вътре в триъгълник често може да се намери върху частите на опаковката) или общ материал (например пластмаса или метал), ако не сте сигурни.",
+    "edit_packagings_element_hint_material": "Въведи конкретния материал, ако може да бъде определен (код на материала вътре в триъгълник често може да се намери върху частите на опаковката) или общ материал (например пластмаса или метал), ако не си сигурен.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1835,11 +1835,11 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Въведете инструкциите за рециклиране само ако са посочени на продукта.",
+    "edit_packagings_element_hint_recycling": "Въведи инструкциите за рециклиране само ако са посочени на продукта.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Рециклирайте",
+    "edit_packagings_element_example_recycling": "Рециклирай",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
@@ -1847,7 +1847,7 @@
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Въведете нетното тегло или нетния обем и посочете единицата (например г или мл).",
+    "edit_packagings_element_hint_quantity": "Въведи нетното тегло или нетния обем и посочи единицата (например г или мл).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1855,7 +1855,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Отстранете всички останала храна и измийте и подсушете опаковката преди претеглянето. Ако е възможно, използвайте везна с точност 0,1 г или 0,01 г.",
+    "edit_packagings_element_hint_weight": "Отстрани останалата храна, измий и подсуши опаковката преди претеглянето. Ако е възможно, използвай везна с точност 0,1 г или 0,01 г.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1870,6 +1870,6 @@
     "background_task_run_started": "започнат",
     "background_task_run_not_started": "все още не е започнал",
     "background_task_run_to_be_deleted": "да бъде изтрито",
-    "background_task_question_stop": "Искате ли да спрете тази задача възможно най-скоро?",
+    "background_task_question_stop": "Искаш ли да спреш тази задача възможно най-скоро?",
     "feed_back": "Обратна връзка"
 }

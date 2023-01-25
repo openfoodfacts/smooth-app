@@ -541,14 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Aggiungi gli ingredienti mancanti",
-    "score_add_missing_packaging_image": "Add missing packaging image",
+    "score_add_missing_packaging_image": "Aggiungi l'immagine mancante dell'imballaggio",
     "score_add_missing_nutrition_facts": "Aggiungi i valori nutrizionali mancanti",
     "score_add_missing_product_category": "Aggiungi la categoria del prodotto mancante",
-    "score_add_missing_product_countries": "Add missing product countries",
-    "score_add_missing_product_emb": "Add missing product traceability codes",
-    "score_add_missing_product_labels": "Add missing product labels",
-    "score_add_missing_product_origins": "Add missing product origins",
-    "score_add_missing_product_stores": "Add missing product stores",
+    "score_add_missing_product_countries": "Aggiungi i paesi mancanti del prodotto",
+    "score_add_missing_product_emb": "Aggiungi i codici di tracciabilità mancanti del prodotto",
+    "score_add_missing_product_labels": "Aggiungi le etichette mancanti del prodotto",
+    "score_add_missing_product_origins": "Aggiungi le origini mancanti del prodotto",
+    "score_add_missing_product_stores": "Aggiungi i negozi mancanti del prodotto",
     "score_update_nutrition_facts": "Aggiorna i valori nutrizionali",
     "nutrition_page_title": "Informazioni nutrizionali",
     "nutrition_page_unspecified": "I valori nutrizionali non sono specificati sul prodotto",
@@ -1155,7 +1155,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Aggiungi",
     "edit_product_form_item_add_invalid_item_tooltip": "Sei pregato di inserire prima un testo",
     "edit_product_form_item_remove_item_tooltip": "Rimuovi",
-    "edit_product_form_item_packaging_title": "Recycling instructions photo",
+    "edit_product_form_item_packaging_title": "Foto delle istruzioni di riciclaggio",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1522,7 +1522,7 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
-    "edit_photo_unselect_button_label": "Unselect photo",
+    "edit_photo_unselect_button_label": "Deseleziona foto",
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
     },
@@ -1613,7 +1613,7 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "add_packaging_photo_button_label": "Scatta le foto di qualsiasi informazione di imballaggio/riciclaggio",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
@@ -1781,16 +1781,16 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Certo che sì!",
     "not_really": "Non molto",
     "app_rating_dialog_title_not_enjoying_app": "Ci spiace sentirtelo dire! Potresti spiegarci cos'è successo?",
-    "edit_packagings_title": "Packaging components",
+    "edit_packagings_title": "Componenti dell'imballaggio",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Aggiungi un componente di imballaggio",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
-    "edit_packagings_element_title": "Packaging component #{index}",
+    "edit_packagings_completed": "L'imballaggio è completo",
+    "edit_packagings_element_title": "Componente dell'imballaggio #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1803,7 +1803,7 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Inserisci il numero di unità di imballaggio della stessa forma e materiale contenute nel prodotto.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1811,11 +1811,11 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Inserisci il nome della forma elencata nelle istruzioni di riciclaggio se disponibili, oppure selezionane una.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Bottiglia",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -1823,53 +1823,53 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Inserisci il materiale specifico se determinabile (un codice del materiale in un triangolo si può spesso trovare sulle parti dell'imballaggio), o un materiale generico (ad esempio, plastica o metallo) se non ne sei sicuro.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Vetro",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "edit_packagings_element_field_recycling": "Istruzioni di riciclaggio",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "Inserisci le istruzioni di riciclaggio soltanto se sono elencate sul prodotto.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Ricicla",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_field_quantity": "Quantità netta di prodotto per unità",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "Inserisci il peso o il volume netto e indica l'unità (ad esempio, g o ml).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_field_weight": "Peso di un'unità vuota (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Rimuovi qualsiasi residuo alimentare e lava e asciuga l'imballaggio prima di pesarlo. Se possibile, utilizza una bilancia con una precisione di 0,1g o 0,01g.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "background_task_title": "Pending contributions",
-    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
-    "background_task_list_empty": "No Pending Background Tasks",
-    "background_task_error_no_internet": "Internet connection error. Try later.",
-    "background_task_operation_unknown": "unknown operation type",
-    "background_task_operation_details": "detailed changes",
-    "background_task_operation_image": "photo upload",
-    "background_task_operation_refresh": "refresh delayed after photo upload",
-    "background_task_run_started": "started",
-    "background_task_run_not_started": "not started yet",
-    "background_task_run_to_be_deleted": "to be deleted",
-    "background_task_question_stop": "Do you want to stop that task ASAP?",
+    "background_task_title": "Contributi in sospeso",
+    "background_task_subtitle": "I tuoi contributi sono salvati automaticamente sul nostro server, ma non sono sempre in tempo reale.",
+    "background_task_list_empty": "Nessuna Attività in Background in Sospeso",
+    "background_task_error_no_internet": "Errore di connessione a Internet. Riprova più tardi.",
+    "background_task_operation_unknown": "tipo di operazione sconosciuto",
+    "background_task_operation_details": "modifiche dettagliate",
+    "background_task_operation_image": "caricamento foto",
+    "background_task_operation_refresh": "aggiornamento ritardato dopo il caricamento della foto",
+    "background_task_run_started": "avviata",
+    "background_task_run_not_started": "non ancora avviata",
+    "background_task_run_to_be_deleted": "da eliminare",
+    "background_task_question_stop": "Desideri interrompere tale attività il prima possibile?",
     "feed_back": "Feedback"
 }
