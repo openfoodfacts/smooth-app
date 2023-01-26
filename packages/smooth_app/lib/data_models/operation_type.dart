@@ -13,6 +13,7 @@ import 'package:smooth_app/helpers/database_helper.dart';
 /// * possibly, which barcode (not useful yet)
 enum OperationType {
   image('I'),
+  crop('C'),
   unselect('U'),
   refreshLater('R'),
   details('D');
@@ -47,6 +48,8 @@ enum OperationType {
         return appLocalizations.background_task_operation_image;
       case OperationType.unselect:
         return 'Unselect a product image';
+      case OperationType.crop:
+        return 'Crop an existing image';
       case OperationType.refreshLater:
         return 'Waiting 10 min before refreshing product to get all automatic edits';
     }
