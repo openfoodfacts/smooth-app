@@ -10,6 +10,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
+import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/dao_int.dart';
@@ -33,6 +34,7 @@ class CropPage extends StatefulWidget {
     required this.barcode,
     required this.imageField,
     required this.brandNewPicture,
+    this.imageId,
   });
 
   /// The initial input file we start with.
@@ -43,6 +45,9 @@ class CropPage extends StatefulWidget {
 
   /// Is that a new picture we crop, or an existing picture?
   final bool brandNewPicture;
+
+  /// Only makes sense when we deal with an "already existing" image.
+  final int? imageId;
 
   @override
   State<CropPage> createState() => _CropPageState();
@@ -218,24 +223,39 @@ class _CropPageState extends State<CropPage> {
     if (croppedFile == null) {
       return true;
     }
-    final File fullFile = await _getFullImageFile(
-      directory,
-      sequenceNumber,
-    );
 
     final Rect cropRect = _getCropRect();
-    await BackgroundTaskImage.addTask(
-      widget.barcode,
-      imageField: widget.imageField,
-      fullFile: fullFile,
-      croppedFile: croppedFile,
-      rotation: _controller.degrees,
-      x1: cropRect.left.ceil(),
-      y1: cropRect.top.ceil(),
-      x2: cropRect.right.floor(),
-      y2: cropRect.bottom.floor(),
-      widget: this,
-    );
+    if (widget.imageId == null) {
+      final File fullFile = await _getFullImageFile(
+        directory,
+        sequenceNumber,
+      );
+      await BackgroundTaskImage.addTask(
+        widget.barcode,
+        imageField: widget.imageField,
+        fullFile: fullFile,
+        croppedFile: croppedFile,
+        rotation: _controller.degrees,
+        x1: cropRect.left.ceil(),
+        y1: cropRect.top.ceil(),
+        x2: cropRect.right.floor(),
+        y2: cropRect.bottom.floor(),
+        widget: this,
+      );
+    } else {
+      await BackgroundTaskCrop.addTask(
+        widget.barcode,
+        imageField: widget.imageField,
+        imageId: widget.imageId!,
+        croppedFile: croppedFile,
+        rotation: _controller.degrees,
+        x1: cropRect.left.ceil(),
+        y1: cropRect.top.ceil(),
+        x2: cropRect.right.floor(),
+        y2: cropRect.bottom.floor(),
+        widget: this,
+      );
+    }
     localDatabase.notifyListeners();
     if (!mounted) {
       return true;

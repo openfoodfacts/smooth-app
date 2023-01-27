@@ -2,9 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
@@ -13,12 +11,14 @@ import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -97,6 +97,68 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
+              Expanded(child: Container()), // would be "take another picture"
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: EditImageButton(
+                    iconData: Icons.image_search,
+                    label: appLocalizations
+                        .edit_photo_select_existing_button_label,
+                    onPressed: () async {
+                      final List<int>? result =
+                          await LoadingDialog.run<List<int>>(
+                        future: OpenFoodAPIClient.getProductImageIds(
+                          _barcode,
+                          user: ProductQuery.getUser(),
+                        ),
+                        context: context,
+                        title: appLocalizations
+                            .edit_photo_select_existing_download_label,
+                      );
+                      if (result == null) {
+                        return;
+                      }
+                      if (!mounted) {
+                        return;
+                      }
+                      if (result.isEmpty) {
+                        await showDialog<void>(
+                          context: context,
+                          builder: (BuildContext context) => SmoothAlertDialog(
+                            body: Text(appLocalizations
+                                .edit_photo_select_existing_downloaded_none),
+                            actionsAxis: Axis.vertical,
+                            positiveAction: SmoothActionButton(
+                              text: appLocalizations.okay,
+                              onPressed: () => Navigator.of(context).pop(),
+                            ),
+                          ),
+                        );
+                        return;
+                      }
+                      await Navigator.push<void>(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              UploadedImageGallery(
+                            barcode: _barcode,
+                            imageIds: result,
+                            imageField: widget.imageField,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
@@ -158,27 +220,13 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
     // but if not possible, get the best picture from the server.
     if (imageFile == null) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
       final String? imageUrl = _imageData.getImageUrl(ImageSize.ORIGINAL);
-      if (imageUrl == null) {
-        await LoadingDialog.error(
-          context: context,
-          title: appLocalizations.image_edit_url_error,
-        );
-        return;
-      }
-
-      final DaoInt daoInt = DaoInt(_localDatabase);
-      imageFile = await LoadingDialog.run<File?>(
-        context: context,
-        future: _downloadImageFile(daoInt, imageUrl),
+      imageFile = await downloadImageUrl(
+        context,
+        imageUrl,
+        DaoInt(_localDatabase),
       );
-
       if (imageFile == null) {
-        await LoadingDialog.error(
-          context: context,
-          title: appLocalizations.image_download_error,
-        );
         return;
       }
     }
@@ -199,27 +247,5 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         fullscreenDialog: true,
       ),
     );
-  }
-
-  static const String _CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
-
-  /// Downloads an image from the server and stores it locally in temp folder.
-  Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
-    final Uri uri = Uri.parse(url);
-    final http.Response response = await http.get(uri);
-    final int code = response.statusCode;
-    if (code != 200) {
-      throw NetworkImageLoadException(statusCode: code, uri: uri);
-    }
-
-    final Directory tempDirectory = await getTemporaryDirectory();
-
-    final int sequenceNumber =
-        await getNextSequenceNumber(daoInt, _CROP_IMAGE_SEQUENCE_KEY);
-
-    final File file =
-        File('${tempDirectory.path}/editing_image_$sequenceNumber');
-
-    return file.writeAsBytes(response.bodyBytes);
   }
 }

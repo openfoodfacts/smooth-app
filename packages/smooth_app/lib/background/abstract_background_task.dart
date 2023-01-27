@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
@@ -47,6 +48,7 @@ abstract class AbstractBackgroundTask {
       BackgroundTaskDetails.fromJson(map) ??
       BackgroundTaskImage.fromJson(map) ??
       BackgroundTaskUnselect.fromJson(map) ??
+      BackgroundTaskCrop.fromJson(map) ??
       BackgroundTaskRefreshLater.fromJson(map);
 
   /// Executes the background task: upload, download, update locally.

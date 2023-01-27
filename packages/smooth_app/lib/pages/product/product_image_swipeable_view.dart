@@ -29,8 +29,8 @@ class ProductImageSwipeableView extends StatefulWidget {
 class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
   late final LocalDatabase _localDatabase;
   //Making use of [ValueNotifier] such that to avoid performance issues
-  //while swipping between pages by making sure only [Text] widget for product title is rebuilt
-  final ValueNotifier<int> _currentImageDataIndex = ValueNotifier<int>(0);
+  //while swiping between pages by making sure only [Text] widget for product title is rebuilt
+  late final ValueNotifier<int> _currentImageDataIndex;
   late Map<ProductImageData, ImageProvider?> _selectedImages;
   late List<ProductImageData> _imageDataList;
   late PageController _controller;
@@ -51,6 +51,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
     _controller = PageController(
       initialPage: widget.initialImageIndex,
     );
+    _currentImageDataIndex = ValueNotifier<int>(widget.initialImageIndex);
   }
 
   @override
