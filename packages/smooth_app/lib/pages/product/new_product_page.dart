@@ -389,9 +389,22 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final List<Widget> children = <Widget>[];
     for (final String productListName in productListNames) {
       children.add(
-        SmoothActionButtonsBar(
-          positiveAction: SmoothActionButton(
-            text: productListName,
+        Padding(
+          padding: const EdgeInsets.only(
+            top: VERY_SMALL_SPACE,
+            right: VERY_SMALL_SPACE,
+          ),
+          child: ElevatedButton(
+            style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  const EdgeInsets.symmetric(
+                      horizontal: VERY_LARGE_SPACE, vertical: MEDIUM_SPACE),
+                ),
+                shape: MaterialStateProperty.all(
+                  const RoundedRectangleBorder(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                )),
             onPressed: () async {
               final ProductList productList = ProductList.user(productListName);
               await daoProductList.get(productList);
@@ -407,6 +420,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               );
               setState(() {});
             },
+            child: Text(
+              productListName.toUpperCase(),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                // color: buttonData.textColor ?? themeData.colorScheme.primary,
+              ),
+            ),
           ),
         ),
       );
