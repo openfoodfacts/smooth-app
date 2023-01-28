@@ -541,14 +541,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Ontbrekende ingrediënten toevoegen",
-    "score_add_missing_packaging_image": "Add missing packaging image",
+    "score_add_missing_packaging_image": "Ontbrekende verpakkingsafbeelding toevoegen",
     "score_add_missing_nutrition_facts": "Ontbrekende voedingswaarden toevoegen",
     "score_add_missing_product_category": "Ontbrekende productcategorie toevoegen",
     "score_add_missing_product_countries": "Add missing product countries",
-    "score_add_missing_product_emb": "Add missing product traceability codes",
-    "score_add_missing_product_labels": "Add missing product labels",
-    "score_add_missing_product_origins": "Add missing product origins",
-    "score_add_missing_product_stores": "Add missing product stores",
+    "score_add_missing_product_emb": "Voeg ontbrekende producttraceerbaarheidscodes toe",
+    "score_add_missing_product_labels": "Voeg ontbrekende productlabels toe",
+    "score_add_missing_product_origins": "Voeg ontbrekende productherkomsten toe",
+    "score_add_missing_product_stores": "Voeg ontbrekende productwinkels toe",
     "score_update_nutrition_facts": "Voedingswaarden bijwerken",
     "nutrition_page_title": "Voedingswaarden",
     "nutrition_page_unspecified": "De voedingswaarden zijn niet op het product vermeld",
@@ -1522,9 +1522,25 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
-    "edit_photo_unselect_button_label": "Unselect photo",
+    "edit_photo_unselect_button_label": "Foto deselecteren",
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
+    },
+    "edit_photo_select_existing_button_label": "Select an existing image",
+    "@edit_photo_select_existing_button_label": {
+        "description": "Edit 'select existing image' button label"
+    },
+    "edit_photo_select_existing_all_label": "Existing images",
+    "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_download_label": "Retrieving existing images...",
+    "@edit_photo_select_existing_download_label": {
+        "description": "Dialog label"
+    },
+    "edit_photo_select_existing_downloaded_none": "There are no images previously uploaded related to this product.",
+    "@edit_photo_select_existing_downloaded_none": {
+        "description": "Error message"
     },
     "category_picker_screen_title": "Categorieën",
     "@category_picker_screen_title": {
@@ -1613,7 +1629,7 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "add_packaging_photo_button_label": "Maak foto's van alle informatie over verpakking/recycling",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
@@ -1781,15 +1797,15 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
     "not_really": "Niet echt",
     "app_rating_dialog_title_not_enjoying_app": "Het spijt me dat te horen! Kun je me vertellen wat er is gebeurd?",
-    "edit_packagings_title": "Packaging components",
+    "edit_packagings_title": "Verpakkingsonderdelen",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Voeg een verpakkingsonderdeel toe",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
+    "edit_packagings_completed": "De verpakking is compleet",
     "edit_packagings_element_title": "Packaging component #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
@@ -1815,7 +1831,7 @@
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Fles",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -1827,7 +1843,7 @@
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Glas",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
@@ -1839,11 +1855,11 @@
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Hergebruik",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_field_quantity": "Netto hoeveelheid product per eenheid",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
@@ -1861,7 +1877,7 @@
     },
     "background_task_title": "Pending contributions",
     "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
-    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_list_empty": "Geen lopende achtergrondtaken",
     "background_task_error_no_internet": "Fout met internetverbinding. Probeer het later.",
     "background_task_operation_unknown": "unknown operation type",
     "background_task_operation_details": "gedetailleerde wijzigingen",
