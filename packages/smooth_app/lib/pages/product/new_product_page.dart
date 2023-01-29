@@ -343,15 +343,14 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          ElevatedButton(
-            onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: FloatingActionButton(
+              onPressed: onPressed,
               shape: const CircleBorder(),
-              padding: const EdgeInsets.all(
-                  18), // TODO(monsieurtanuki): cf. FloatingActionButton
-              primary: colorScheme.primary,
+              backgroundColor: colorScheme.primary,
+              child: Icon(iconData, color: colorScheme.onPrimary),
             ),
-            child: Icon(iconData, color: colorScheme.onPrimary),
           ),
           const SizedBox(height: VERY_SMALL_SPACE),
           AutoSizeText(label, textAlign: TextAlign.center),
