@@ -335,13 +335,10 @@ class _ProductListPageState extends State<ProductListPage>
                     : appLocalizations.product_could_not_remove,
               ),
               duration: SnackBarDuration.medium,
-              action: SnackBarAction(
+              action: !removed ? null : SnackBarAction(
                 textColor: PRIMARY_BLUE_COLOR,
-                label: removed ? appLocalizations.undo : '',
+                label: appLocalizations.undo,
                 onPressed: () async {
-                  if (!removed) {
-                    return;
-                  }
                   barcodes.insert(index, barcode);
                   productList.set(barcodes);
                   if (removedFromSelectedBarcodes) {
