@@ -494,7 +494,7 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Input nutrition facts",
     "nutritional_facts_added": "Nutrition facts added",
-    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
+    "nutritional_facts_photo_uploaded": "Завантаження фотографій харчових фактів",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Фотографія з інформацією щодо перероблювання",
     "@recycling_photo_button_label": {},
@@ -547,7 +547,7 @@
     "score_add_missing_product_countries": "Add missing product countries",
     "score_add_missing_product_emb": "Add missing product traceability codes",
     "score_add_missing_product_labels": "Add missing product labels",
-    "score_add_missing_product_origins": "Add missing product origins",
+    "score_add_missing_product_origins": "Додати відсутню категорію продукту",
     "score_add_missing_product_stores": "Add missing product stores",
     "score_update_nutrition_facts": "Оновити поживні речовини",
     "nutrition_page_title": "Детальна харчова цінність",
@@ -1375,7 +1375,7 @@
     "dev_preferences_migration_status_in_progress": "в процесі",
     "dev_preferences_migration_status_required": "required (click to start)",
     "dev_preferences_migration_status_not_started": "невідоме",
-    "dev_preferences_import_history_title": "Import History",
+    "dev_preferences_import_history_title": "Імпортувати історію",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
     },
@@ -1525,6 +1525,22 @@
     "edit_photo_unselect_button_label": "Unselect photo",
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
+    },
+    "edit_photo_select_existing_button_label": "Select an existing image",
+    "@edit_photo_select_existing_button_label": {
+        "description": "Edit 'select existing image' button label"
+    },
+    "edit_photo_select_existing_all_label": "Existing images",
+    "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_download_label": "Retrieving existing images...",
+    "@edit_photo_select_existing_download_label": {
+        "description": "Dialog label"
+    },
+    "edit_photo_select_existing_downloaded_none": "There are no images previously uploaded related to this product.",
+    "@edit_photo_select_existing_downloaded_none": {
+        "description": "Error message"
     },
     "category_picker_screen_title": "Категорії",
     "@category_picker_screen_title": {

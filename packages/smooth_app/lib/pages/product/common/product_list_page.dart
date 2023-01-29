@@ -335,19 +335,21 @@ class _ProductListPageState extends State<ProductListPage>
                     : appLocalizations.product_could_not_remove,
               ),
               duration: SnackBarDuration.medium,
-              action: !removed ? null : SnackBarAction(
-                textColor: PRIMARY_BLUE_COLOR,
-                label: appLocalizations.undo,
-                onPressed: () async {
-                  barcodes.insert(index, barcode);
-                  productList.set(barcodes);
-                  if (removedFromSelectedBarcodes) {
-                    _selectedBarcodes.add(barcode);
-                  }
-                  await DaoProductList(localDatabase).put(productList);
-                  setState(() {});
-                },
-              ),
+              action: !removed
+                  ? null
+                  : SnackBarAction(
+                      textColor: PRIMARY_BLUE_COLOR,
+                      label: appLocalizations.undo,
+                      onPressed: () async {
+                        barcodes.insert(index, barcode);
+                        productList.set(barcodes);
+                        if (removedFromSelectedBarcodes) {
+                          _selectedBarcodes.add(barcode);
+                        }
+                        await DaoProductList(localDatabase).put(productList);
+                        setState(() {});
+                      },
+                    ),
             ),
           );
         },
