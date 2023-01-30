@@ -38,6 +38,15 @@ extension RotationExtension on Rotation {
     }
   }
 
+  static Rotation? fromDegrees(final int degrees) {
+    for (final Rotation rotation in Rotation.values) {
+      if (rotation.degrees == degrees) {
+        return rotation;
+      }
+    }
+    return null;
+  }
+
   /// Returns the rotation rotated 90 degrees to the right.
   Rotation get rotateRight {
     switch (this) {
