@@ -171,12 +171,36 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
       );
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async =>
-      TransientFile.putImage(
-        ImageField.fromOffTag(imageField)!,
-        barcode,
-        localDatabase,
-        File(croppedPath),
+  Future<void> preExecute(final LocalDatabase localDatabase) async {
+    await localDatabase.upToDate.addChange(
+      uniqueId,
+      Product(
+        barcode: barcode,
+        images: <ProductImage>[_getProductImage()],
+      ),
+    );
+    TransientFile.putImage(
+      ImageField.fromOffTag(imageField)!,
+      barcode,
+      localDatabase,
+      File(croppedPath),
+    );
+  }
+
+  /// Returns the actual crop parameters.
+  ///
+  /// cf. [UpToDateChanges._overwrite] regarding `images` field.
+  ProductImage _getProductImage() => ProductImage(
+        field: ImageField.fromOffTag(imageField)!,
+        language: getLanguage(),
+        size: ImageSize.ORIGINAL,
+        angle: ImageAngleExtension.fromInt(rotationDegrees),
+        imgid: '$imageId',
+        x1: cropX1,
+        y1: cropY1,
+        x2: cropX2,
+        y2: cropY2,
+        coordinatesImageSize: ImageSize.ORIGINAL.number,
       );
 
   @override
@@ -184,6 +208,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
     final LocalDatabase localDatabase,
     final bool success,
   ) async {
+    localDatabase.upToDate.terminate(uniqueId);
     try {
       File(croppedPath).deleteSync();
     } catch (e) {
@@ -206,20 +231,18 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
   /// Uploads the product image.
   @override
   Future<void> upload() async {
-    final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
-    final OpenFoodFactsLanguage language = getLanguage();
-    final User user = getUser();
+    final ProductImage productImage = _getProductImage();
     final String? imageUrl = await OpenFoodAPIClient.setProductImageCrop(
       barcode: barcode,
-      imageField: imageField,
-      language: language,
-      imgid: '$imageId',
-      angle: ImageAngleExtension.fromInt(rotationDegrees)!,
-      x1: cropX1,
-      y1: cropY1,
-      x2: cropX2,
-      y2: cropY2,
-      user: user,
+      imageField: productImage.field,
+      language: getLanguage(),
+      imgid: productImage.imgid!,
+      angle: productImage.angle!,
+      x1: productImage.x1!,
+      y1: productImage.y1!,
+      x2: productImage.x2!,
+      y2: productImage.y2!,
+      user: getUser(),
     );
     if (imageUrl == null) {
       throw Exception('Could not select picture');

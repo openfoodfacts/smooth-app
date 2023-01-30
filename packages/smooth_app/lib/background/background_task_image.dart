@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -192,12 +193,32 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       stamp.contains(';image;${ImageField.OTHER.offTag};');
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async =>
-      TransientFile.putImage(
-        ImageField.fromOffTag(imageField)!,
-        barcode,
-        localDatabase,
-        File(croppedPath),
+  Future<void> preExecute(final LocalDatabase localDatabase) async {
+    await localDatabase.upToDate.addChange(
+      uniqueId,
+      Product(
+        barcode: barcode,
+        images: <ProductImage>[_getProductImage()],
+      ),
+    );
+    TransientFile.putImage(
+      ImageField.fromOffTag(imageField)!,
+      barcode,
+      localDatabase,
+      File(croppedPath),
+    );
+  }
+
+  /// Returns a fake value that means: "remove the previous value when merging".
+  ///
+  /// If we use this task, it means that we took a brand new picture. Therefore,
+  /// all previous crop parameters are attached to a different imageid, and
+  /// to avoid confusion we need to clear them.
+  /// cf. [UpToDateChanges._overwrite] regarding `images` field.
+  ProductImage _getProductImage() => ProductImage(
+        field: ImageField.fromOffTag(imageField)!,
+        language: getLanguage(),
+        size: ImageSize.ORIGINAL,
       );
 
   // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
@@ -206,6 +227,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     final LocalDatabase localDatabase,
     final bool success,
   ) async {
+    localDatabase.upToDate.terminate(uniqueId);
     try {
       File(fullPath).deleteSync();
     } catch (e) {
