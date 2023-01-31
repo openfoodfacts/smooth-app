@@ -179,7 +179,8 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
                             child: ListTile(
                               title: Text(
                                 labels.elementAt(position),
-                                style: Theme.of(context).textTheme.headlineMedium,
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium,
                               ),
                               subtitle: descriptions != null
                                   ? Text(descriptions!.elementAt(position))

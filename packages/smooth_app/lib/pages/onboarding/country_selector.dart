@@ -169,8 +169,8 @@ class _CountrySelectorState extends State<CountrySelector> {
               leading: const Icon(Icons.public),
               title: Text(
                 _chosenValue.name,
-                style:
-                    widget.textStyle ?? Theme.of(context).textTheme.displaySmall,
+                style: widget.textStyle ??
+                    Theme.of(context).textTheme.displaySmall,
               ),
               trailing: const Icon(Icons.arrow_drop_down),
             ),
