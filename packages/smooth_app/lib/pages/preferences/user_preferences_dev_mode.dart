@@ -72,7 +72,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         color: Colors.red,
         child: Text(
           getTitleString(),
-          style: themeData.textTheme.headline2!.copyWith(color: Colors.white),
+          style:
+              themeData.textTheme.displayMedium!.copyWith(color: Colors.white),
         ),
       );
 
@@ -223,6 +224,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               );
             }
 
+            // ignore: use_build_context_synchronously
             await showDialog<void>(
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(

@@ -36,7 +36,7 @@ class KnowledgePanelWidget extends StatelessWidget {
         ),
         child: Text(
           rootPanel.titleElement!.title,
-          style: Theme.of(context).textTheme.headline3,
+          style: Theme.of(context).textTheme.displaySmall,
         ),
       ),
     );

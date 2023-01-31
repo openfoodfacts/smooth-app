@@ -25,7 +25,7 @@ class SmoothProductCardLoading extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(barcode, style: Theme.of(context).textTheme.subtitle1),
+              Text(barcode, style: Theme.of(context).textTheme.titleMedium),
             ],
           ),
           const SizedBox(

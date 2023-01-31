@@ -192,7 +192,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
           ),
           Text(
             appLocalizations.ocr_image_upload_instruction,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           )
         ],

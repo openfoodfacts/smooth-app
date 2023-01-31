@@ -82,7 +82,7 @@ class _ApplicationSettings extends StatelessWidget {
             children: <Widget>[
               Text(
                 appLocalizations.darkmode,
-                style: themeData.textTheme.headline4,
+                style: themeData.textTheme.headlineMedium,
               ),
             ],
           ),
@@ -125,7 +125,7 @@ class _ApplicationSettings extends StatelessWidget {
         ListTile(
           title: Text(
             appLocalizations.choose_app_language,
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           subtitle: LanguageSelectorSettings(
             userPreferences: userPreferences,
@@ -144,7 +144,7 @@ class _ApplicationSettings extends StatelessWidget {
             children: <Widget>[
               Text(
                 appLocalizations.choose_image_source_title,
-                style: themeData.textTheme.headline4,
+                style: themeData.textTheme.headlineMedium,
               ),
             ],
           ),
@@ -196,11 +196,11 @@ class _CountryPickerSetting extends StatelessWidget {
     return ListTile(
       title: Text(
         appLocalizations.country_chooser_label,
-        style: Theme.of(context).textTheme.headline4,
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
       subtitle: CountrySelector(
         initialCountryCode: userPreferences.userCountryCode,
-        textStyle: Theme.of(context).textTheme.bodyText2,
+        textStyle: Theme.of(context).textTheme.bodyMedium,
       ),
       minVerticalPadding: MEDIUM_SPACE,
     );

@@ -160,7 +160,6 @@ class _ExampleAppState extends State<ExampleApp> {
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
-        backgroundColor: Colors.lightGreenAccent,
         canvasColor: Colors.lightGreenAccent,
         scaffoldBackgroundColor: Colors.lightGreenAccent,
         floatingActionButtonTheme: const FloatingActionButtonThemeData(

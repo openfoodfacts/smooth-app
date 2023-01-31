@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -16,14 +16,14 @@ class BackgroundTaskBadge extends StatelessWidget {
     if (tasks.isEmpty) {
       return child;
     }
-    return Badge(
+    return badges.Badge(
       badgeColor: Colors.blue.shade900,
       showBadge: true,
       badgeContent: Text(
         '${tasks.length}',
         style: const TextStyle(color: Colors.white),
       ),
-      position: BadgePosition.topStart(start: -16),
+      position: badges.BadgePosition.topStart(start: -16),
       child: child,
     );
   }

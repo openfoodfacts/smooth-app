@@ -50,7 +50,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           horizontalTitleGap: 12.0,
           title: Text(
             widget.helper.getTitle(appLocalizations),
-            style: themeData.textTheme.headline3,
+            style: themeData.textTheme.displaySmall,
           ),
         ),
         if (explanations != null) ExplanationWidget(explanations),

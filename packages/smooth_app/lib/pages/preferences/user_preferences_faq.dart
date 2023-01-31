@@ -99,6 +99,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   Future<void> _about() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    // ignore: use_build_context_synchronously
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -124,12 +125,12 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                         FittedBox(
                           child: Text(
                             packageInfo.appName,
-                            style: themeData.textTheme.headline1,
+                            style: themeData.textTheme.displayLarge,
                           ),
                         ),
                         Text(
                           '${packageInfo.version}+${packageInfo.buildNumber}-$flavour',
-                          style: themeData.textTheme.subtitle2,
+                          style: themeData.textTheme.titleSmall,
                         )
                       ],
                     ),

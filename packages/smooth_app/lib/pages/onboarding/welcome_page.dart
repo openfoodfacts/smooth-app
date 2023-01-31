@@ -18,8 +18,8 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextStyle headlineStyle = Theme.of(context).textTheme.headline2!;
-    final TextStyle bodyTextStyle = Theme.of(context).textTheme.bodyText1!;
+    final TextStyle headlineStyle = Theme.of(context).textTheme.displayMedium!;
+    final TextStyle bodyTextStyle = Theme.of(context).textTheme.bodyLarge!;
     final Size screenSize = MediaQuery.of(context).size;
 
     return SmoothScaffold(

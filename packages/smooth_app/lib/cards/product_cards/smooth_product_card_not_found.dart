@@ -27,11 +27,11 @@ class SmoothProductCardNotFound extends StatelessWidget {
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              style: textTheme.headline5,
+              style: textTheme.headlineSmall,
               children: <InlineSpan>[
                 TextSpan(
                   text: appLocalizations.missing_product,
-                  style: textTheme.headline2,
+                  style: textTheme.displayMedium,
                 ),
                 const WidgetSpan(
                   alignment: PlaceholderAlignment.belowBaseline,
@@ -42,11 +42,11 @@ class SmoothProductCardNotFound extends StatelessWidget {
                 ),
                 TextSpan(
                   text: '\n${appLocalizations.add_product_take_photos}\n',
-                  style: textTheme.bodyText2,
+                  style: textTheme.bodyMedium,
                 ),
                 TextSpan(
                   text: '(${appLocalizations.barcode_barcode(barcode)})',
-                  style: textTheme.bodyText2,
+                  style: textTheme.bodyMedium,
                 ),
               ],
             ),

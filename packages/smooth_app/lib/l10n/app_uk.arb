@@ -663,42 +663,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} few {{count} дні тому} many {{count} днів тому} =1{день тому} other{{count} днів тому}}",
+    "plural_ago_days": "{count,plural,  few {{count} дні тому} many {{count} днів тому} =1{день тому} other{{count} днів тому}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} few {{count} години тому} many {{count} годин тому} =1{годину тому} other{{count} годин тому}}",
+    "plural_ago_hours": "{count,plural,  few {{count} години тому} many {{count} годин тому} =1{годину тому} other{{count} годин тому}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{менше хвилини тому} =1{хвилину тому} few {{count} хвилини тому} other{{count}хвилин тому}}",
+    "plural_ago_minutes": "{count,plural,  =0{менше хвилини тому} =1{хвилину тому} few {{count} хвилини тому} other{{count}хвилин тому}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{місяць тому} few {{count} місяці тому} other{{count} місяців тому}}",
+    "plural_ago_months": "{count,plural,  =1{місяць тому} few {{count} місяці тому} other{{count} місяців тому}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{тиждень тому} few {{count} тижні тому} other{{count} тижнів тому}}",
+    "plural_ago_weeks": "{count,plural,  =1{тиждень тому} few {{count} тижні тому} other{{count} тижнів тому}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Порівняти продукт} few{Порівняти {count} продукти} other{порівняти {count} продуктів}",
+    "plural_compare_x_products": "{count,plural, =1{Порівняти продукт} few{Порівняти {count} продукти} other{порівняти {count} продуктів}}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -837,11 +837,11 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "Перейти на {source_name}",
+    "knowledge_panel_text_source": "Перейти на {sourceName}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
-            "source_name": {
+            "sourceName": {
                 "type": "String"
             }
         }
@@ -878,14 +878,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Оновлення {count,plural, one {} few {продукти} many {продукти} =0{продукт} =1{продукт} other{продукти}} у вашій історії",
+    "product_list_reloading_in_progress_multiple": "Оновлення {count,plural,  few {продукти} many {продукти} =0{продукт} =1{продукт} other{продукти}} у вашій історії",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural, one {} few {Продукти} many {Продукти} =0{Продукт} =1{Продукт} other{Продукти}} оновлення завершено",
+    "product_list_reloading_success_multiple": "{count,plural,  few {Продукти} many {Продукти} =0{Продукт} =1{Продукт} other{Продукти}} оновлення завершено",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {

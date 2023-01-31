@@ -112,7 +112,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
           padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
           child: Text(
             getTitleString(),
-            style: themeData.textTheme.headline2,
+            style: themeData.textTheme.displayMedium,
           ),
         ),
         ..._getOnboardingBody(),

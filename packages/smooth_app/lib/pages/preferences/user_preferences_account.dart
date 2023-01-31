@@ -70,7 +70,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
     return Text(
       title,
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.displayMedium,
     );
   }
 
@@ -139,7 +139,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       child: SmoothSimpleButton(
         child: Text(
           appLocalizations.sign_in,
-          style: theme.textTheme.bodyText2?.copyWith(
+          style: theme.textTheme.bodyMedium?.copyWith(
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
             color: theme.colorScheme.onPrimary,
@@ -318,7 +318,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _getListTile(
           appLocalizations.sign_out,
           () async {
+            // ignore: use_build_context_synchronously
             if (await _confirmLogout(context) == true) {
+              // ignore: use_build_context_synchronously
               Navigator.pop(context);
             }
           },
@@ -353,7 +355,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             ),
             child: Text(
               appLocalizations.sign_in,
-              style: theme.textTheme.bodyText2?.copyWith(
+              style: theme.textTheme.bodyMedium?.copyWith(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
                 color: theme.colorScheme.onPrimary,
