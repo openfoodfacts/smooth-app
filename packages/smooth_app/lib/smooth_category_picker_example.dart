@@ -176,7 +176,7 @@ class _ExampleAppState extends State<ExampleApp> {
           }),
         ),
         chipTheme:
-            ChipTheme.of(context).copyWith(backgroundColor: Colors.green), colorScheme: ColorScheme(background: Colors.lightGreenAccent),
+            ChipTheme.of(context).copyWith(backgroundColor: Colors.green),
       ),
       child: SmoothScaffold(
         body: SmoothCategoryPicker<Fruit>(

@@ -49,8 +49,10 @@ class SmoothTheme {
           foregroundColor: myColorScheme.onPrimary),
       textTheme: brightness == Brightness.dark
           ? _TEXT_THEME.copyWith(
-              displayMedium: _TEXT_THEME.displayMedium?.copyWith(color: Colors.white),
-              headlineMedium: _TEXT_THEME.headlineMedium?.copyWith(color: Colors.white),
+              displayMedium:
+                  _TEXT_THEME.displayMedium?.copyWith(color: Colors.white),
+              headlineMedium:
+                  _TEXT_THEME.headlineMedium?.copyWith(color: Colors.white),
               bodyMedium: _TEXT_THEME.bodyMedium?.copyWith(color: Colors.white),
             )
           : _TEXT_THEME,
@@ -74,30 +76,53 @@ class SmoothTheme {
       bannerTheme: MaterialBannerThemeData(
         contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
         backgroundColor: myColorScheme.secondary,
-      ), checkboxTheme: CheckboxThemeData(
- fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
- if (states.contains(MaterialState.disabled)) { return null; }
- if (states.contains(MaterialState.selected)) { return myColorScheme.primary; }
- return null;
- }),
- ), radioTheme: RadioThemeData(
- fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
- if (states.contains(MaterialState.disabled)) { return null; }
- if (states.contains(MaterialState.selected)) { return myColorScheme.primary; }
- return null;
- }),
- ), switchTheme: SwitchThemeData(
- thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
- if (states.contains(MaterialState.disabled)) { return null; }
- if (states.contains(MaterialState.selected)) { return myColorScheme.primary; }
- return null;
- }),
- trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
- if (states.contains(MaterialState.disabled)) { return null; }
- if (states.contains(MaterialState.selected)) { return myColorScheme.primary; }
- return null;
- }),
- ),
+      ),
+      checkboxTheme: CheckboxThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return myColorScheme.primary;
+          }
+          return null;
+        }),
+      ),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return myColorScheme.primary;
+          }
+          return null;
+        }),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return myColorScheme.primary;
+          }
+          return null;
+        }),
+        trackColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return myColorScheme.primary;
+          }
+          return null;
+        }),
+      ),
     );
   }
 

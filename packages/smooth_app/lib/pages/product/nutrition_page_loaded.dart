@@ -45,6 +45,7 @@ class NutritionPageLoaded extends StatefulWidget {
       return;
     }
     if (isLoggedInMandatory) {
+      // ignore: use_build_context_synchronously
       if (!await ProductRefresher().checkIfLoggedIn(widget.context)) {
         return;
       }

@@ -99,6 +99,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   Future<void> _about() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    // ignore: use_build_context_synchronously
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {

@@ -318,7 +318,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         _getListTile(
           appLocalizations.sign_out,
           () async {
+            // ignore: use_build_context_synchronously
             if (await _confirmLogout(context) == true) {
+              // ignore: use_build_context_synchronously
               Navigator.pop(context);
             }
           },

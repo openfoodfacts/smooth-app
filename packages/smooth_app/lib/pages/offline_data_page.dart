@@ -93,7 +93,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
 class _OfflineDataPageState extends State<OfflineDataPage> {
   @override
   Widget build(BuildContext context) {
-    //Todo(ashaman999):replaace the header asset with a custom one for this page
+    // TODO(ashaman999): replaace the header asset with a custom one for this page
     const String headerAsset = 'assets/preferences/main.svg';
     final bool dark = Theme.of(context).brightness == Brightness.dark;
     final double backgroundHeight = MediaQuery.of(context).size.height * .20;
