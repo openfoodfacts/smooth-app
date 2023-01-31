@@ -242,7 +242,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 ),
                 title: Text(
                   appLocalizations.sign_up_page_producer_checkbox,
-                  style: theme.textTheme.bodyText2
+                  style: theme.textTheme.bodyMedium
                       ?.copyWith(color: theme.colorScheme.onBackground),
                 ),
               ),
@@ -280,7 +280,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 ),
                 title: Text(
                   appLocalizations.sign_up_page_subscribe_checkbox,
-                  style: theme.textTheme.bodyText2
+                  style: theme.textTheme.bodyMedium
                       ?.copyWith(color: theme.colorScheme.onBackground),
                 ),
               ),
@@ -299,7 +299,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 ),
                 child: Text(
                   appLocalizations.sign_up_page_action_button,
-                  style: theme.textTheme.bodyText2?.copyWith(
+                  style: theme.textTheme.bodyMedium?.copyWith(
                     fontSize: 18.0,
                     color: theme.colorScheme.onPrimary,
                     fontWeight: FontWeight.bold,
@@ -433,12 +433,12 @@ class _TermsOfUseCheckbox extends StatelessWidget {
                         TextSpan(
                           // additional space needed because of the next text span
                           text: '${appLocalizations.sign_up_page_agree_text} ',
-                          style: theme.textTheme.bodyText2?.copyWith(
+                          style: theme.textTheme.bodyMedium?.copyWith(
                             color: theme.colorScheme.onBackground,
                           ),
                         ),
                         TextSpan(
-                          style: theme.textTheme.bodyText2?.copyWith(
+                          style: theme.textTheme.bodyMedium?.copyWith(
                             color: Colors.blue,
                           ),
                           text: appLocalizations.sign_up_page_terms_text,
@@ -470,7 +470,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
             offstage: !disagree,
             child: Text(
               appLocalizations.sign_up_page_agree_error_invalid,
-              style: TextStyle(color: theme.errorColor),
+              style: TextStyle(color: theme.colorScheme.error),
             ),
           )
         ],

@@ -160,7 +160,6 @@ class _ExampleAppState extends State<ExampleApp> {
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
-        backgroundColor: Colors.lightGreenAccent,
         canvasColor: Colors.lightGreenAccent,
         scaffoldBackgroundColor: Colors.lightGreenAccent,
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -177,7 +176,7 @@ class _ExampleAppState extends State<ExampleApp> {
           }),
         ),
         chipTheme:
-            ChipTheme.of(context).copyWith(backgroundColor: Colors.green),
+            ChipTheme.of(context).copyWith(backgroundColor: Colors.green), colorScheme: ColorScheme(background: Colors.lightGreenAccent),
       ),
       child: SmoothScaffold(
         body: SmoothCategoryPicker<Fruit>(

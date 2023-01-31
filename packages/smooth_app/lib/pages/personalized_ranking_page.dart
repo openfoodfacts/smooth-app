@@ -205,7 +205,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: Text(
           helper.getHeaderText(appLocalizations),
-          style: Theme.of(context).textTheme.subtitle1,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
     );

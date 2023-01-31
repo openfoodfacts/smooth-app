@@ -81,7 +81,7 @@ class UserPreferencesSwitchItem extends StatelessWidget {
           top: SMALL_SPACE,
           bottom: SMALL_SPACE,
         ),
-        child: Text(title, style: Theme.of(context).textTheme.headline4),
+        child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
       ),
       subtitle: Padding(
         padding: const EdgeInsetsDirectional.only(
@@ -141,7 +141,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
           top: SMALL_SPACE,
           bottom: SMALL_SPACE,
         ),
-        child: Text(title, style: Theme.of(context).textTheme.headline4),
+        child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
       ),
       subtitle: Padding(
         padding: const EdgeInsetsDirectional.only(
@@ -179,7 +179,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
                             child: ListTile(
                               title: Text(
                                 labels.elementAt(position),
-                                style: Theme.of(context).textTheme.headline4,
+                                style: Theme.of(context).textTheme.headlineMedium,
                               ),
                               subtitle: descriptions != null
                                   ? Text(descriptions!.elementAt(position))
@@ -234,7 +234,7 @@ class UserPreferencesTitle extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: Theme.of(context).textTheme.headline3?.copyWith(
+          style: Theme.of(context).textTheme.displaySmall?.copyWith(
                 height: 2.5,
               ),
         ),

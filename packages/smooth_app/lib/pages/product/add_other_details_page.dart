@@ -68,7 +68,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
                 children: <Widget>[
                   Text(
                     appLocalizations.barcode_barcode(_product.barcode!),
-                    style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),

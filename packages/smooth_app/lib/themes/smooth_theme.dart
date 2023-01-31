@@ -49,9 +49,9 @@ class SmoothTheme {
           foregroundColor: myColorScheme.onPrimary),
       textTheme: brightness == Brightness.dark
           ? _TEXT_THEME.copyWith(
-              headline2: _TEXT_THEME.headline2?.copyWith(color: Colors.white),
-              headline4: _TEXT_THEME.headline4?.copyWith(color: Colors.white),
-              bodyText2: _TEXT_THEME.bodyText2?.copyWith(color: Colors.white),
+              displayMedium: _TEXT_THEME.displayMedium?.copyWith(color: Colors.white),
+              headlineMedium: _TEXT_THEME.headlineMedium?.copyWith(color: Colors.white),
+              bodyMedium: _TEXT_THEME.bodyMedium?.copyWith(color: Colors.white),
             )
           : _TEXT_THEME,
       appBarTheme: AppBarTheme(
@@ -59,7 +59,6 @@ class SmoothTheme {
         foregroundColor: myColorScheme.onBackground,
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
-      toggleableActiveColor: myColorScheme.primary,
       dividerColor: const Color(0xFFdfdfdf),
       inputDecorationTheme: InputDecorationTheme(
         fillColor: myColorScheme.secondary,
@@ -69,43 +68,66 @@ class SmoothTheme {
       ),
       snackBarTheme: SnackBarThemeData(
         contentTextStyle:
-            _TEXT_THEME.bodyText2?.copyWith(color: myColorScheme.onBackground),
+            _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onBackground),
         actionTextColor: myColorScheme.onBackground,
       ),
       bannerTheme: MaterialBannerThemeData(
         contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
         backgroundColor: myColorScheme.secondary,
-      ),
+      ), checkboxTheme: CheckboxThemeData(
+ fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return myColorScheme.primary; }
+ return null;
+ }),
+ ), radioTheme: RadioThemeData(
+ fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return myColorScheme.primary; }
+ return null;
+ }),
+ ), switchTheme: SwitchThemeData(
+ thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return myColorScheme.primary; }
+ return null;
+ }),
+ trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return myColorScheme.primary; }
+ return null;
+ }),
+ ),
     );
   }
 
   static const TextTheme _TEXT_THEME = TextTheme(
-      headline1: TextStyle(
+      displayLarge: TextStyle(
         fontSize: 28.0,
         fontWeight: FontWeight.bold,
       ),
-      headline2: TextStyle(
+      displayMedium: TextStyle(
         fontSize: 24.0,
         fontWeight: FontWeight.bold,
         color: Colors.black,
       ),
-      headline3: TextStyle(
+      displaySmall: TextStyle(
         fontSize: 18.0,
         fontWeight: FontWeight.bold,
       ),
-      headline4: TextStyle(
+      headlineMedium: TextStyle(
         fontSize: LARGE_SPACE,
         fontWeight: FontWeight.bold,
         color: Colors.black,
       ),
-      bodyText2: TextStyle(
+      bodyMedium: TextStyle(
         fontSize: 14,
         letterSpacing: 0.5,
       ),
-      subtitle1: TextStyle(
+      titleMedium: TextStyle(
         fontSize: 14.0,
       ),
-      subtitle2: TextStyle(
+      titleSmall: TextStyle(
         fontSize: 12.0,
       ));
 

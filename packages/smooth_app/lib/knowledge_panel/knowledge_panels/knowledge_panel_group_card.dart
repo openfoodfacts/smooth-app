@@ -27,7 +27,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
               child: Text(
                 groupElement.title!,
-                style: themeData.textTheme.subtitle2!.apply(color: Colors.grey),
+                style: themeData.textTheme.titleSmall!.apply(color: Colors.grey),
               ),
             ),
           for (String panelId in groupElement.panelIds)

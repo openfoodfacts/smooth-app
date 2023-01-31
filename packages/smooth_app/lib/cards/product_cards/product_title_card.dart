@@ -72,7 +72,7 @@ class _ProductTitleCardName extends StatelessWidget {
 
     return Text(
       getProductName(product, appLocalizations),
-      style: Theme.of(context).textTheme.headline4,
+      style: Theme.of(context).textTheme.headlineMedium,
       textAlign: TextAlign.start,
     ).selectable(isSelectable: selectable);
   }
@@ -105,7 +105,7 @@ class _ProductTitleCardBrand extends StatelessWidget {
 
     return Text(
       subtitleText,
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.start,
     ).selectable(isSelectable: selectable);
   }
@@ -149,7 +149,7 @@ class _ProductTitleCardTrailing extends StatelessWidget {
     } else {
       return Text(
         product.quantity ?? '',
-        style: Theme.of(context).textTheme.headline3,
+        style: Theme.of(context).textTheme.displaySmall,
         textAlign: TextAlign.end,
       ).selectable(isSelectable: selectable);
     }

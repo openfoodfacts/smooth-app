@@ -107,12 +107,12 @@ class SmoothProductCardFound extends StatelessWidget {
                           Text(
                             getProductName(product, appLocalizations),
                             overflow: TextOverflow.ellipsis,
-                            style: themeData.textTheme.headline4,
+                            style: themeData.textTheme.headlineMedium,
                           ),
                           Text(
                             getProductBrands(product, appLocalizations),
                             overflow: TextOverflow.ellipsis,
-                            style: themeData.textTheme.subtitle1,
+                            style: themeData.textTheme.titleMedium,
                           ),
                           Row(
                             children: <Widget>[
@@ -131,7 +131,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   alignment: AlignmentDirectional.centerStart,
                                   child: Text(
                                     helper.getSubtitle(appLocalizations),
-                                    style: themeData.textTheme.bodyText2!.apply(
+                                    style: themeData.textTheme.bodyMedium!.apply(
                                       color: helper
                                           .getButtonForegroundColor(isDarkMode),
                                     ),

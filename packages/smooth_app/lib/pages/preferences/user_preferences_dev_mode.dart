@@ -72,7 +72,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         color: Colors.red,
         child: Text(
           getTitleString(),
-          style: themeData.textTheme.headline2!.copyWith(color: Colors.white),
+          style: themeData.textTheme.displayMedium!.copyWith(color: Colors.white),
         ),
       );
 
