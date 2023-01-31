@@ -901,7 +901,7 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "9ebde3a918a15b26a821a985ca835da924b9210168955562ac768b9e553731eb"
+      sha256: "5cf8d925c49e1bc60f94fa0263af489c0df4683acca5f9eb4342d3a52392fb95"
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
