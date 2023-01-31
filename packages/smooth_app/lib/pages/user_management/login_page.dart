@@ -369,6 +369,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         },
       );
       if (enjoyingApp != null && !enjoyingApp) {
+        // ignore: use_build_context_synchronously
         await showDialog<bool>(
           context: context,
           builder: (BuildContext context) {
@@ -397,6 +398,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       }
       bool? userRatedApp;
       if (enjoyingApp != null && enjoyingApp) {
+        // ignore: use_build_context_synchronously
         userRatedApp = await showDialog<bool>(
           context: context,
           builder: (BuildContext context) {

@@ -340,6 +340,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     if (status.error != null) {
+      // ignore: use_build_context_synchronously
       await LoadingDialog.error(context: context, title: status.error);
 
       // Highlight the field with the error
@@ -368,6 +369,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     await context.read<UserManagementProvider>().putUser(user);
+    // ignore: use_build_context_synchronously
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
