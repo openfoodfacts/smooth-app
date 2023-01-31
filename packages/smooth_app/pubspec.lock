@@ -904,7 +904,7 @@ packages:
       sha256: "9ebde3a918a15b26a821a985ca835da924b9210168955562ac768b9e553731eb"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.2.1"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:

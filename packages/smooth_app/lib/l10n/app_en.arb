@@ -478,6 +478,7 @@
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Confirm",
+    "send_image_button_label": "Send image",
     "front_packaging_photo_title": "Front Packaging Photo",
     "ingredients_photo_title": "Ingredients Photo",
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
@@ -1526,6 +1527,22 @@
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
     },
+    "edit_photo_select_existing_button_label": "Select an existing image",
+    "@edit_photo_select_existing_button_label": {
+        "description": "Edit 'select existing image' button label"
+    },
+    "edit_photo_select_existing_all_label": "Existing images",
+    "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_download_label": "Retrieving existing images...",
+    "@edit_photo_select_existing_download_label": {
+        "description": "Dialog label"
+    },
+    "edit_photo_select_existing_downloaded_none": "There are no images previously uploaded related to this product.",
+    "@edit_photo_select_existing_downloaded_none": {
+        "description": "Error message"
+    },
     "category_picker_screen_title": "Categories",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1871,5 +1888,6 @@
     "background_task_run_not_started": "not started yet",
     "background_task_run_to_be_deleted": "to be deleted",
     "background_task_question_stop": "Do you want to stop that task ASAP?",
-    "feed_back": "Feedback"
+    "feed_back": "Feedback",
+    "undo": "Undo" 
 }

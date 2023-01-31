@@ -4,9 +4,9 @@
     "@yes": {},
     "add": "Añadir",
     "@add": {},
-    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
+    "account_delete_message": "¿Estás seguro de querer eliminar tu cuenta?\nSi hay una razón específica, por favor detállalo abajo",
     "@account_delete_message": {},
-    "reason": "Reason",
+    "reason": "Razón",
     "@reason": {},
     "okay": "Vale",
     "@okay": {},
@@ -904,7 +904,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "account_deletion_subject": "Delete my account",
+    "account_deletion_subject": "Eliminar mi cuenta",
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
@@ -1049,11 +1049,11 @@
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Subtitle"
     },
-    "edit_product_form_item_other_details_title": "Additional details",
+    "edit_product_form_item_other_details_title": "Detalles adicionales",
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "edit_product_form_item_other_details_subtitle": "Sitio web, ...",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1171,7 +1171,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "product_field_website_title": "Website",
+    "product_field_website_title": "Sitio web",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
@@ -1226,7 +1226,7 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "Añadido a la lista",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
@@ -1291,7 +1291,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
+    "dev_preferences_reset_onboarding_subtitle": "Luego, debes reiniciar la aplicación.\nReiniciar.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1522,9 +1522,25 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
-    "edit_photo_unselect_button_label": "Unselect photo",
+    "edit_photo_unselect_button_label": "Dejar de seleccionar la imagen",
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
+    },
+    "edit_photo_select_existing_button_label": "Select an existing image",
+    "@edit_photo_select_existing_button_label": {
+        "description": "Edit 'select existing image' button label"
+    },
+    "edit_photo_select_existing_all_label": "Existing images",
+    "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_download_label": "Retrieving existing images...",
+    "@edit_photo_select_existing_download_label": {
+        "description": "Dialog label"
+    },
+    "edit_photo_select_existing_downloaded_none": "There are no images previously uploaded related to this product.",
+    "@edit_photo_select_existing_downloaded_none": {
+        "description": "Error message"
     },
     "category_picker_screen_title": "Categorías",
     "@category_picker_screen_title": {
@@ -1613,7 +1629,7 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "add_packaging_photo_button_label": "Tome fotos de cualquier información del empaque/reciclaje",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
@@ -1799,7 +1815,7 @@
             }
         }
     },
-    "edit_packagings_element_field_units": "Number of units",
+    "edit_packagings_element_field_units": "Número de unidades",
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },

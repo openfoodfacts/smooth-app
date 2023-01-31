@@ -134,6 +134,7 @@ abstract class ProductQuery {
         ProductField.IMAGE_INGREDIENTS_URL,
         ProductField.IMAGE_NUTRITION_URL,
         ProductField.IMAGE_PACKAGING_URL,
+        ProductField.IMAGES,
         ProductField.SELECTED_IMAGE,
         ProductField.QUANTITY,
         ProductField.SERVING_SIZE,

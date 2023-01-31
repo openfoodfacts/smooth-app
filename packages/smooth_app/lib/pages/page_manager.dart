@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
@@ -72,6 +74,43 @@ class PageManagerState extends State<PageManager> {
       _buildOffstageNavigator(BottomNavigationTab.History),
     ];
 
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final bool isProd = userPreferences
+            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+        true;
+    final BottomNavigationBar bar = BottomNavigationBar(
+      onTap: (int index) {
+        final InheritedDataManagerState inheritedDataManager =
+            InheritedDataManager.of(context);
+        if (_currentPage == BottomNavigationTab.Scan &&
+            _pageKeys[index] == BottomNavigationTab.Scan) {
+          if (!inheritedDataManager.showSearchCard) {
+            inheritedDataManager.resetShowSearchCard(true);
+          }
+          _selectTab(_pageKeys[index], index);
+        } else {
+          if (inheritedDataManager.showSearchCard) {
+            inheritedDataManager.resetShowSearchCard(false);
+          }
+          _selectTab(_pageKeys[index], index);
+        }
+      },
+      currentIndex: _currentPage.index,
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.account_circle),
+          label: appLocalizations.profile_navbar_label,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.search),
+          label: appLocalizations.scan_navbar_label,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.history),
+          label: appLocalizations.history_navbar_label,
+        ),
+      ],
+    );
     return WillPopScope(
       onWillPop: () async {
         final bool isFirstRouteInCurrentTab =
@@ -87,39 +126,14 @@ class PageManagerState extends State<PageManager> {
       },
       child: Scaffold(
         body: Stack(children: _tabs),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (int index) {
-            final InheritedDataManagerState inheritedDataManager =
-                InheritedDataManager.of(context);
-            if (_currentPage == BottomNavigationTab.Scan &&
-                _pageKeys[index] == BottomNavigationTab.Scan) {
-              if (!inheritedDataManager.showSearchCard) {
-                inheritedDataManager.resetShowSearchCard(true);
-              }
-              _selectTab(_pageKeys[index], index);
-            } else {
-              if (inheritedDataManager.showSearchCard) {
-                inheritedDataManager.resetShowSearchCard(false);
-              }
-              _selectTab(_pageKeys[index], index);
-            }
-          },
-          currentIndex: _currentPage.index,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.account_circle),
-              label: appLocalizations.profile_navbar_label,
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.search),
-              label: appLocalizations.scan_navbar_label,
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.history),
-              label: appLocalizations.history_navbar_label,
-            ),
-          ],
-        ),
+        bottomNavigationBar: isProd
+            ? bar
+            : Banner(
+                message: 'TEST ENV',
+                location: BannerLocation.bottomEnd,
+                color: Colors.blue,
+                child: bar,
+              ),
       ),
     );
   }
