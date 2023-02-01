@@ -123,7 +123,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(AccountDeletionWebview), findsOneWidget);
-    expect(find.byType(WebView), findsOneWidget);
+    expect(find.byType(WebViewWidget), findsOneWidget);
 
     // Restore prior overrides
     HttpOverrides.global = priorOverrides;
