@@ -225,7 +225,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               children: <Widget>[
                 Text(
                   AppLocalizations.of(context).product_field_website_title,
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
               ],
             ),
@@ -244,7 +244,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText2
+                      .bodyMedium
                       ?.copyWith(color: Colors.blue),
                 )),
               ],
@@ -349,7 +349,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(
                   18), // TODO(monsieurtanuki): cf. FloatingActionButton
-              primary: colorScheme.primary,
+              backgroundColor: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
           ),
@@ -420,7 +420,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
           children: <Widget>[
             Text(
               appLocalizations.user_list_subtitle_product,
-              style: Theme.of(context).textTheme.headline3,
+              style: Theme.of(context).textTheme.displaySmall,
             ),
             Wrap(
               alignment: WrapAlignment.start,

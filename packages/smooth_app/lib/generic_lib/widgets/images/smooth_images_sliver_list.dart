@@ -38,7 +38,7 @@ class SmoothImagesSliverList extends SmoothImagesView {
               appLocalizations,
               imageList[index].key.imageField,
             ),
-            style: themeData.textTheme.headline4,
+            style: themeData.textTheme.headlineMedium,
           ),
           onTap: onTap == null
               ? null

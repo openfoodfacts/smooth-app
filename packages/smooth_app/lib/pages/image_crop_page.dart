@@ -132,6 +132,7 @@ Future<File?> downloadImageUrl(
   );
 
   if (imageFile == null) {
+    // ignore: use_build_context_synchronously
     await LoadingDialog.error(
       context: context,
       title: appLocalizations.image_download_error,

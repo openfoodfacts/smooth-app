@@ -30,6 +30,7 @@ class OrderedNutrientsCache {
           future: cache._download(),
         );
     if (cache._orderedNutrients == null) {
+      // ignore: use_build_context_synchronously
       await LoadingDialog.error(context: context);
       return null;
     }

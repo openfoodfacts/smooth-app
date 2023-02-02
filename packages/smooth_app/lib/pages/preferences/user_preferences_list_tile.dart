@@ -32,7 +32,7 @@ class UserPreferencesListTile extends StatelessWidget {
   Widget build(BuildContext context) => ListTile(
         leading: leading,
         title: DefaultTextStyle.merge(
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
           child: title,
         ),
         trailing: trailing,

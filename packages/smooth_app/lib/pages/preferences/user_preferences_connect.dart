@@ -121,6 +121,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
             } on PlatformException catch (e) {
               if (e.code == 'not_available') {
                 // No email client installed on the device
+                // ignore: use_build_context_synchronously
                 showDialog<void>(
                   context: context,
                   builder: (BuildContext context) => ScaffoldMessenger(

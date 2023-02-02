@@ -9,7 +9,6 @@ import 'package:image/image.dart' as image2;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
@@ -19,7 +18,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
@@ -35,6 +33,8 @@ class CropPage extends StatefulWidget {
     required this.imageField,
     required this.brandNewPicture,
     this.imageId,
+    this.initialCropRect,
+    this.initialRotation,
   });
 
   /// The initial input file we start with.
@@ -48,6 +48,10 @@ class CropPage extends StatefulWidget {
 
   /// Only makes sense when we deal with an "already existing" image.
   final int? imageId;
+
+  final Rect? initialCropRect;
+
+  final Rotation? initialRotation;
 
   @override
   State<CropPage> createState() => _CropPageState();
@@ -68,10 +72,8 @@ class _CropPageState extends State<CropPage> {
   /// Are we currently processing data (for action buttons hiding).
   bool _processing = true;
 
-  /// Latest picked picture (from Gallery or Camera).
-  XFile? _pickedPicture;
-
-  static const Rect _initialRect = Rect.fromLTRB(0, 0, 1, 1);
+  late Rect _initialCrop;
+  late Rotation _initialRotation;
 
   Future<ui.Image> _loadUiImage(final Uint8List list) async {
     final Completer<ui.Image> completer = Completer<ui.Image>();
@@ -82,12 +84,59 @@ class _CropPageState extends State<CropPage> {
   Future<void> _load(final Uint8List list) async {
     setState(() => _processing = true);
     _image = await _loadUiImage(list);
-    _controller = RotatedCropController(defaultCrop: _initialRect);
+    _initialCrop = _getInitialRect();
+    _initialRotation = widget.initialRotation ?? Rotation.noon;
+    _controller = RotatedCropController(
+      defaultCrop: _initialCrop,
+      rotation: _initialRotation,
+    );
     _processing = false;
     if (!mounted) {
       return;
     }
     setState(() {});
+  }
+
+  Rect _getInitialRect() {
+    if (widget.initialCropRect == null) {
+      return const Rect.fromLTRB(0, 0, 1, 1);
+    }
+    // sometimes the server returns those crop values, meaning full photo.
+    if (widget.initialCropRect!.left == -1 ||
+        widget.initialCropRect!.top == -1 ||
+        widget.initialCropRect!.right == -1 ||
+        widget.initialCropRect!.bottom == -1) {
+      return const Rect.fromLTRB(0, 0, 1, 1);
+    }
+    final Rect result;
+    final Rotation rotation = widget.initialRotation ?? Rotation.noon;
+    switch (rotation) {
+      case Rotation.noon:
+      case Rotation.sixOClock:
+        result = Rect.fromLTRB(
+          widget.initialCropRect!.left / _image.width,
+          widget.initialCropRect!.top / _image.height,
+          widget.initialCropRect!.right / _image.width,
+          widget.initialCropRect!.bottom / _image.height,
+        );
+        break;
+      case Rotation.threeOClock:
+      case Rotation.nineOClock:
+        result = Rect.fromLTRB(
+          widget.initialCropRect!.left / _image.height,
+          widget.initialCropRect!.top / _image.width,
+          widget.initialCropRect!.right / _image.height,
+          widget.initialCropRect!.bottom / _image.width,
+        );
+        break;
+    }
+    // we clamp in order to avoid controller crash.
+    return Rect.fromLTRB(
+      result.left.clamp(0, 1),
+      result.top.clamp(0, 1),
+      result.right.clamp(0, 1),
+      result.bottom.clamp(0, 1),
+    );
   }
 
   @override
@@ -148,21 +197,12 @@ class _CropPageState extends State<CropPage> {
                       alwaysMove: true,
                     ),
                   ),
-                  Wrap(
-                    spacing: MEDIUM_SPACE,
-                    alignment: WrapAlignment.center,
-                    children: <Widget>[
-                      EditImageButton(
-                        iconData: Icons.camera_alt,
-                        label: appLocalizations.capture,
-                        onPressed: () async => _capture(),
-                      ),
-                      EditImageButton(
-                        iconData: Icons.check,
-                        label: appLocalizations.confirm_button_label,
-                        onPressed: () async => _mayExitPage(saving: true),
-                      ),
-                    ],
+                  Center(
+                    child: EditImageButton(
+                      iconData: Icons.send,
+                      label: appLocalizations.send_image_button_label,
+                      onPressed: () async => _mayExitPage(saving: true),
+                    ),
                   ),
                 ],
               ),
@@ -180,13 +220,7 @@ class _CropPageState extends State<CropPage> {
   ) async {
     final File result;
     final String fullPath = '${directory.path}/full_image_$sequenceNumber.jpeg';
-    if (_pickedPicture == null) {
-      result = widget.inputFile.copySync(fullPath);
-    } else {
-      result = File(fullPath);
-      final Uint8List list = await _pickedPicture!.readAsBytes();
-      await result.writeAsBytes(list);
-    }
+    result = widget.inputFile.copySync(fullPath);
     return result;
   }
 
@@ -301,9 +335,8 @@ class _CropPageState extends State<CropPage> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    if (_controller.value.rotation == Rotation.noon &&
-        _controller.value.crop == _initialRect &&
-        _pickedPicture == null &&
+    if (_controller.value.rotation == _initialRotation &&
+        _controller.value.crop == _initialCrop &&
         !widget.brandNewPicture) {
       // nothing has changed, let's leave
       if (saving) {
@@ -339,21 +372,6 @@ class _CropPageState extends State<CropPage> {
       }
       return false;
     }
-  }
-
-  Future<void> _capture() async {
-    setState(() => _processing = true);
-    final XFile? pickedXFile = await pickImageFile(this);
-    if (pickedXFile == null) {
-      return;
-    }
-    _pickedPicture = pickedXFile;
-    await _load(await pickedXFile.readAsBytes());
-    _processing = false;
-    if (!mounted) {
-      return;
-    }
-    setState(() {});
   }
 }
 

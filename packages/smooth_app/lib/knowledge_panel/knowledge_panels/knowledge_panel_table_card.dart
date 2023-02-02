@@ -291,7 +291,7 @@ class _TableCellWidgetState extends State<TableCellWidget> {
     if (widget.cell.isHeader) {
       padding = const EdgeInsets.symmetric(vertical: SMALL_SPACE);
     }
-    TextStyle style = Theme.of(context).textTheme.bodyText2!;
+    TextStyle style = Theme.of(context).textTheme.bodyMedium!;
     if (widget.cell.color != null) {
       style = style.apply(color: widget.cell.color);
     }

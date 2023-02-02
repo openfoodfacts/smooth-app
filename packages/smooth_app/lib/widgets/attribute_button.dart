@@ -32,7 +32,7 @@ class AttributeButton extends StatelessWidget {
     final double widgetWidth =
         MediaQuery.of(context).size.width - 2 * horizontalPadding;
     final double importanceWidth = widgetWidth / 4;
-    final TextStyle style = themeData.textTheme.headline4!;
+    final TextStyle style = themeData.textTheme.headlineMedium!;
     final String? info = attribute.settingNote;
     final List<Widget> children = <Widget>[];
     for (final String importanceId in _importanceIds) {

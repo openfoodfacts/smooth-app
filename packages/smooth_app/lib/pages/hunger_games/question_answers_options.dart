@@ -114,7 +114,7 @@ class QuestionAnswersOptions extends StatelessWidget {
         ),
         label: Text(
           buttonText,
-          style: theme.textTheme.headline2!.apply(color: contentColor),
+          style: theme.textTheme.displayMedium!.apply(color: contentColor),
         ),
       ),
     );

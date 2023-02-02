@@ -217,7 +217,7 @@ class _SearchFieldState extends State<SearchField> {
 
     final InputDecoration inputDecoration = InputDecoration(
       fillColor: widget.backgroundColor,
-      labelStyle: Theme.of(context).textTheme.bodyText2?.copyWith(
+      labelStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
             color: widget.foregroundColor,
           ),
       filled: true,
@@ -255,7 +255,7 @@ class _SearchFieldState extends State<SearchField> {
               inputDecoration.hintText!,
               style: Theme.of(context)
                   .textTheme
-                  .subtitle1!
+                  .titleMedium!
                   .copyWith(color: Theme.of(context).hintColor)
                   .merge(textStyle),
             ),

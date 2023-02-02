@@ -163,7 +163,7 @@ class _SummaryCardState extends State<SummaryCard> {
                   child: Text(
                     AppLocalizations.of(context).tab_for_more,
                     style:
-                        Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
+                        Theme.of(context).primaryTextTheme.bodyLarge?.copyWith(
                               color: PRIMARY_BLUE_COLOR,
                             ),
                   ),
@@ -441,7 +441,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 ),
                 child: Text(
                   helper.getHeaderText(appLocalizations),
-                  style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: helper.getHeaderForegroundColor(isDarkMode),
                       ),
                 ),
@@ -522,7 +522,7 @@ class _SummaryCardState extends State<SummaryCard> {
         child: Text(
           groupName,
           style:
-              Theme.of(context).textTheme.bodyText2!.apply(color: Colors.grey),
+              Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.grey),
         ),
       );
     }

@@ -11,6 +11,8 @@ extension Selectable on Text {
             textScaleFactor: textScaleFactor,
             textAlign: textAlign,
             maxLines: maxLines,
+            // TODO(m123): Fix or remove alltogether
+            // ignore: deprecated_member_use
             toolbarOptions: const ToolbarOptions(
               copy: true,
               selectAll: true,

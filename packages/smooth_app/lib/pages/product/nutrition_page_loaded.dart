@@ -45,6 +45,7 @@ class NutritionPageLoaded extends StatefulWidget {
       return;
     }
     if (isLoggedInMandatory) {
+      // ignore: use_build_context_synchronously
       if (!await ProductRefresher().checkIfLoggedIn(widget.context)) {
         return;
       }
@@ -442,7 +443,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               width: getColumnSizeFromContext(context, 0.6),
               child: AutoSizeText(
                 localizations.nutrition_page_unspecified,
-                style: Theme.of(context).primaryTextTheme.bodyText2?.copyWith(
+                style: Theme.of(context).primaryTextTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),
                 maxLines: 2,

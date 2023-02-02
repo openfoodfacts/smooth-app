@@ -86,7 +86,7 @@ class OnboardingBottomButton extends StatelessWidget {
           ),
           child: Text(
             label,
-            style: Theme.of(context).textTheme.headline3?.copyWith(
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(
                   color: foregroundColor,
                 ),
           ),
@@ -115,8 +115,8 @@ class OnboardingBottomIcon extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(MEDIUM_SPACE),
-          primary: backgroundColor,
-          onPrimary: foregroundColor,
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
         ),
         onPressed: onPressed,
         child: Padding(

@@ -59,7 +59,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                               '© OpenStreetMap contributors',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText2!
+                                  .bodyMedium!
                                   .copyWith(
                                     color: Colors.blue,
                                   ),

@@ -11,32 +11,28 @@
 [![Create internal releases](https://github.com/openfoodfacts/smooth-app/actions/workflows/internal-release.yml/badge.svg)](https://github.com/openfoodfacts/smooth-app/actions/workflows/internal-release.yml)
 
 ## Weekly meetings
+
 - We e-meet Thursdays at 17:30 Paris Time (16:30 London Time, 22:00 IST, 08:30 AM PT)
-- ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: https://meet.google.com/gnp-frks-esc
-- Join by phone: https://tel.meet/gnp-frks-esc?pin=1110549945262
+- ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: <https://meet.google.com/gnp-frks-esc>
+- Join by phone: <https://tel.meet/gnp-frks-esc?pin=1110549945262>
 - Add the Event to your Calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events)
-- [Weekly Agenda](https://docs.google.com/document/d/1MGQqMV7M4JTjFcRsiRvMZ8bnmd9vJWdSyRR3wJHUBMk/edit): please add the Agenda items as early as you can. Make sure to check the Agenda items in advance of the meeting, so that we have the most informed discussions possible, leading to argumented decisions. 
+- [Weekly Agenda](https://docs.google.com/document/d/1MGQqMV7M4JTjFcRsiRvMZ8bnmd9vJWdSyRR3wJHUBMk/edit): please add the Agenda items as early as you can. Make sure to check the Agenda items in advance of the meeting, so that we have the most informed discussions possible, leading to argumented decisions.
 - The meeting will handle Agenda items first, and if time permits, collaborative bug triage.
 - We strive to timebox the core of the meeting (decision making) to 30 minutes, with an optional free discussion/live debugging afterwards.
 - We take comprehensive notes in the Weekly Agenda of agenda item discussions and of decisions taken.
 
 ## User interface
--  [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/file/nFMjewFAOa8c4ahtob7CAB/Mobile-App-Design-(Quentin)?node-id=0%3A1&t=SrBuT7gBdhapUerx-0)
 
+- [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/file/nFMjewFAOa8c4ahtob7CAB/Mobile-App-Design-(Quentin)?node-id=0%3A1&t=SrBuT7gBdhapUerx-0)
 
-## Feature Sprint 
+## Feature Sprint
+
 - We use feature-based sprints, [tracked here](https://github.com/orgs/openfoodfacts/projects/83)
 
 ## Code documentation
+
 [Code documentation on GitHub pages](https://openfoodfacts.github.io/smooth-app/).
 
-## Alert!
-
-We are currently using Flutter 3.0.5 as the new 3.3.0 [has some bugs](https://github.com/openfoodfacts/smooth-app/issues/2919).
-
-Running `flutter downgrade 3.0.5` downgrades the version.
-
-------
 ## Current Release
 
 Latest commit deployed to Apple App Store: Released on Nov 29th as Build 835
@@ -44,7 +40,7 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 ## Presentation
 
-- This new mobile application aims to showcase Open Food Facts's power to a broad range of users through a smooth user experience and sleek user interface. It is a <b> Flutter application </b> by [Open Food Facts](https://github.com/openfoodfacts). 
+- This new mobile application aims to showcase Open Food Facts's power to a broad range of users through a smooth user experience and sleek user interface. It is a <b> Flutter application </b> by [Open Food Facts](https://github.com/openfoodfacts).
 - We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up.
 - Install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd) )if you'd like to use the results of your PRs quicker.
 
@@ -58,14 +54,18 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 <details><summary><h2> Features of the app </h2></summary>
 
 ## Features
+
 - a scan that truly matches who you are (Green: the product matches your criteria, Red: there is a problem, Gray: Help us answer you by photographing the products)
 - a product page that's knowledgeable, building on the vast amount of food facts we collect collaboratively, and other sources of knowledge, to help you make better food decisions
-## You can : 
+
+## You can
+
 - scan and compare in 15 seconds the 3 brands of tomato sauces left on the shelf, on your terms.
 - get a tailored comparison of any food category
 - set your preferences without ruining your privacy
 
-## Criteria you can pick : 
+## Criteria you can pick
+
 - Environment: Eco-Score
 - Health: Additives & Ultra processed foods, Salt, Allergens, Nutri-Score
 
@@ -82,15 +82,15 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 <br>
 
-
 ## How to run the project
+
 - Make sure you have installed flutter and all the requirements
-	- [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently the app uses `3.0.5` flutter version. Running `flutter downgrade 3.0.5` downgrades the version.
+  - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
+- Currently the app uses `3.7.0` flutter version. If you are using a later version you can use `flutter downgrade 3.7.0` to downgrades the version.
 
   If it does not work
-  -  Open the terminal and change the directory to flutter location and run the following commands
-  - `git checkout 3.0.5` 
+  - Open the terminal and change the directory to flutter location and run the following commands
+  - `git checkout 3.7.0`
   - `flutter doctor`
 
 We have predefined run configurations for Android Studio and Visual Studio Code
@@ -103,17 +103,14 @@ In order to run the application, make sure you are in the `packages/smooth_app` 
 
 - On iOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
 
--  Troubleshooting🚀: If you get an error like `App depends on scanner shared from path which depends on camera_platform_interface from git, version solving failed.`  then run 
-	- `flutter pub cache clean` or mannually delete  the  
-	- `C:\Users\~\AppData\Local\Pub\Cache`  file .
-	Then redo the above procedure to run the app.
-
+- Troubleshooting🚀: If you get an error like `App depends on scanner shared from path which depends on camera_platform_interface from git, version solving failed.`  then run
+  - `flutter pub cache clean` or manually delete  the  
+  - `C:\Users\~\AppData\Local\Pub\Cache`  file .
+ Then redo the above procedure to run the app.
 
 - [Contributing Guidelines](https://github.com/openfoodfacts/smooth-app/blob/develop/CONTRIBUTING.md)
 
 <br>
-
-
 
 <details><summary><h3>Thanks</h3></summary>
 The app was initially created by Primael. The new Open Food Facts app (smooth_app) was then made possible thanks to an initial grant by the Mozilla Foundation in February 2020, after Pierre pitched them the idea at FOSDEM. A HUGE THANKS 🧡

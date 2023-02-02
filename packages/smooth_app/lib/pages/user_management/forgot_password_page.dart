@@ -90,7 +90,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                   Text(
                     appLocalizations.reset_password,
                     textAlign: TextAlign.center,
-                    style: theme.textTheme.headline1?.copyWith(
+                    style: theme.textTheme.displayLarge?.copyWith(
                       fontSize: 25.0,
                       fontWeight: FontWeight.w700,
                     ),
@@ -100,7 +100,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                     Text(
                       appLocalizations.reset_password_explanation_text,
                       textAlign: TextAlign.center,
-                      style: theme.textTheme.bodyText2,
+                      style: theme.textTheme.bodyMedium,
                     ),
                   const Spacer(flex: 2),
                   if (_message != '') ...<Widget>[
@@ -160,7 +160,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                         _send
                             ? appLocalizations.close
                             : appLocalizations.send_reset_password_mail,
-                        style: theme.textTheme.bodyText2?.copyWith(
+                        style: theme.textTheme.bodyMedium?.copyWith(
                           fontSize: 18.0,
                           color: theme.colorScheme.onPrimary,
                         ),

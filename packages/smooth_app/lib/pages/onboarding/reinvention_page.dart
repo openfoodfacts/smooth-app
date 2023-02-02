@@ -22,7 +22,7 @@ class ReinventionPage extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextStyle headlineStyle = Theme.of(context)
         .textTheme
-        .headline2!
+        .displayMedium!
         .copyWith(fontSize: muchTooBigFontSize);
     final Size screenSize = MediaQuery.of(context).size;
 

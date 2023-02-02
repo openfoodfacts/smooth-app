@@ -77,7 +77,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
                         appLocalizations.contribute_to_get_rewards,
                         style: Theme.of(context)
                             .primaryTextTheme
-                            .bodyText2!
+                            .bodyMedium!
                             .copyWith(
                               color: isDarkMode ? Colors.black : WHITE_COLOR,
                             ),

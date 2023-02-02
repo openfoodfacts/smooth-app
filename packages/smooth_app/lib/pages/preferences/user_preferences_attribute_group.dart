@@ -39,7 +39,7 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
   @override
   Widget getTitle() => Text(
         getTitleString(),
-        style: themeData.textTheme.headline6,
+        style: themeData.textTheme.titleLarge,
       );
 
   @override

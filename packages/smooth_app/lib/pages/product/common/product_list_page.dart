@@ -217,7 +217,7 @@ class _ProductListPageState extends State<ProductListPage>
                     child: Text(
                       appLocalizations.product_list_empty_message,
                       textAlign: TextAlign.center,
-                      style: themeData.textTheme.bodyText2?.apply(
+                      style: themeData.textTheme.bodyMedium?.apply(
                         color: colorScheme.onBackground,
                       ),
                     ),
@@ -317,12 +317,16 @@ class _ProductListPageState extends State<ProductListPage>
         key: Key(barcode),
         onDismissed: (final DismissDirection direction) async {
           final bool removed = productList.remove(barcode);
+          bool removedFromSelectedBarcodes = false;
           if (removed) {
             await DaoProductList(localDatabase).put(productList);
-            _selectedBarcodes.remove(barcode);
+            removedFromSelectedBarcodes = _selectedBarcodes.remove(barcode);
             setState(() => barcodes.removeAt(index));
           }
-          //ignore: use_build_context_synchronously
+          if (!mounted) {
+            return;
+          }
+          ScaffoldMessenger.of(context).hideCurrentSnackBar();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
@@ -331,9 +335,23 @@ class _ProductListPageState extends State<ProductListPage>
                     : appLocalizations.product_could_not_remove,
               ),
               duration: SnackBarDuration.medium,
+              action: !removed
+                  ? null
+                  : SnackBarAction(
+                      textColor: PRIMARY_BLUE_COLOR,
+                      label: appLocalizations.undo,
+                      onPressed: () async {
+                        barcodes.insert(index, barcode);
+                        productList.set(barcodes);
+                        if (removedFromSelectedBarcodes) {
+                          _selectedBarcodes.add(barcode);
+                        }
+                        await DaoProductList(localDatabase).put(productList);
+                        setState(() {});
+                      },
+                    ),
             ),
           );
-          // TODO(monsieurtanuki): add a snackbar ("put back the food")
         },
         child: child,
       );
@@ -377,6 +395,7 @@ class _ProductListPageState extends State<ProductListPage>
         setState(() {});
         return;
       case false:
+        // ignore: use_build_context_synchronously
         LoadingDialog.error(context: context);
         return;
     }
