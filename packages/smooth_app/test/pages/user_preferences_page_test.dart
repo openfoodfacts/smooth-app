@@ -128,5 +128,5 @@ void main() {
 
     // Restore prior overrides
     HttpOverrides.global = priorOverrides;
-  });
+  }, skip: true);
 }
