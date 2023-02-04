@@ -1,3 +1,4 @@
+import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,7 +14,6 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -442,11 +442,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               appLocalizations.user_list_subtitle_product,
               style: Theme.of(context).textTheme.headline3,
             ),
-            Wrap(
-              alignment: WrapAlignment.start,
-              direction: Axis.horizontal,
+            WrapSuper(
+              wrapType: WrapType.fit,
+              wrapFit: WrapFit.proportional,
               spacing: VERY_SMALL_SPACE,
-              runSpacing: VERY_SMALL_SPACE,
               children: children,
             ),
           ],
