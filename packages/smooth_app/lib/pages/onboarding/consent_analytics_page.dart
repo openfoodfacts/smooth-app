@@ -48,7 +48,7 @@ class ConsentAnalyticsPage extends StatelessWidget {
                       maxLines: 2,
                       style: Theme.of(context)
                           .textTheme
-                          .headline1!
+                          .displayLarge!
                           .apply(color: const Color.fromARGB(255, 51, 51, 51)),
                       textAlign: TextAlign.center,
                     ),

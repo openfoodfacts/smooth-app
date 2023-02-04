@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
@@ -71,11 +73,11 @@ class _EditProductPageState extends State<EditProductPage> {
           children: <Widget>[
             AutoSizeText(
               getProductName(_product, appLocalizations),
-              minFontSize: (theme.primaryTextTheme.headline6?.fontSize
+              minFontSize: (theme.primaryTextTheme.titleLarge?.fontSize
                       ?.clamp(13.0, 17.0)) ??
                   13.0,
               maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
-              style: theme.primaryTextTheme.headline6
+              style: theme.primaryTextTheme.titleLarge
                   ?.copyWith(fontWeight: FontWeight.w500),
             ),
             if (_barcode.isNotEmpty)
@@ -84,7 +86,7 @@ class _EditProductPageState extends State<EditProductPage> {
                 height: _barcodeVisibleInAppbar ? 13.0 : 0.0,
                 child: Text(
                   _barcode,
-                  style: theme.textTheme.subtitle1?.copyWith(
+                  style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.normal,
                   ),
                 ),

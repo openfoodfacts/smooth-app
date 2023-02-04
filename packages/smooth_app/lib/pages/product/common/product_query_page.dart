@@ -305,7 +305,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             child: Text(
               message,
               textAlign: TextAlign.center,
-              style: themeData.textTheme.subtitle1!.copyWith(fontSize: 18.0),
+              style: themeData.textTheme.titleMedium!.copyWith(fontSize: 18.0),
             ),
           ),
           if (worldQuery != null)
@@ -376,7 +376,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     }
     final String locale = Localizations.localeOf(context).languageCode;
     final List<Country> localizedCountries =
-        await IsoCountries.iso_countries_for_locale(locale);
+        await IsoCountries.isoCountriesForLocale(locale);
     for (final Country country in localizedCountries) {
       if (country.countryCode.toLowerCase() == _country!.offTag.toLowerCase()) {
         return country.name;

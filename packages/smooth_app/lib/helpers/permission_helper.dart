@@ -94,7 +94,7 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
     super.value = newValue;
 
     Logs.d(
-      'New permission value: ${newValue.toString()}',
+      'New permission value: $newValue',
       tag: 'PermissionListener',
     );
   }

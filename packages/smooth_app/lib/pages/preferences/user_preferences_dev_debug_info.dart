@@ -86,7 +86,7 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
                   title: Text(
-                    '${infos.keys.elementAt(index)}: ${infos.values.elementAt(index).toString()}',
+                    '${infos.keys.elementAt(index)}: ${infos.values.elementAt(index)}',
                   ),
                 );
               },

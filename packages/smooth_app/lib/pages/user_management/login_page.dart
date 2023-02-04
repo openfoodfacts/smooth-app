@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       Text(
                         appLocalizations.sign_in_text,
                         textAlign: TextAlign.center,
-                        style: theme.textTheme.headline1?.copyWith(
+                        style: theme.textTheme.displayLarge?.copyWith(
                           fontSize: VERY_LARGE_SPACE,
                           fontWeight: FontWeight.w700,
                         ),
@@ -233,7 +233,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           ),
                           child: Text(
                             appLocalizations.sign_in,
-                            style: theme.textTheme.bodyText2?.copyWith(
+                            style: theme.textTheme.bodyMedium?.copyWith(
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold,
                               color: theme.colorScheme.onPrimary,
@@ -272,7 +272,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         },
                         child: Text(
                           appLocalizations.forgot_password,
-                          style: theme.textTheme.bodyText2?.copyWith(
+                          style: theme.textTheme.bodyMedium?.copyWith(
                             fontSize: 18.0,
                             color: theme.colorScheme.primary,
                           ),
@@ -324,7 +324,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                 const EdgeInsetsDirectional.only(bottom: 2.0),
                             child: Text(
                               appLocalizations.create_account,
-                              style: theme.textTheme.bodyText2?.copyWith(
+                              style: theme.textTheme.bodyMedium?.copyWith(
                                 fontSize: VERY_LARGE_SPACE,
                                 fontWeight: FontWeight.w500,
                                 color: theme.colorScheme.primary,
@@ -369,6 +369,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         },
       );
       if (enjoyingApp != null && !enjoyingApp) {
+        // ignore: use_build_context_synchronously
         await showDialog<bool>(
           context: context,
           builder: (BuildContext context) {
@@ -397,6 +398,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       }
       bool? userRatedApp;
       if (enjoyingApp != null && enjoyingApp) {
+        // ignore: use_build_context_synchronously
         userRatedApp = await showDialog<bool>(
           context: context,
           builder: (BuildContext context) {

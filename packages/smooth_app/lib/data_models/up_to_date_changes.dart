@@ -16,13 +16,7 @@ class UpToDateChanges {
   /// Returns all the actions related to a barcode, sorted by id.
   Iterable<TransientOperation> getSortedOperations(final String barcode) {
     final List<TransientOperation> result = <TransientOperation>[];
-    for (final TransientOperation transientProduct
-        in _daoTransientProduct.getAll(barcode)) {
-      if (OperationType.details.matches(transientProduct) ||
-          OperationType.unselect.matches(transientProduct)) {
-        result.add(transientProduct);
-      }
-    }
+    result.addAll(_daoTransientProduct.getAll(barcode));
     result.sort(OperationType.sort);
     return result;
   }
@@ -159,6 +153,31 @@ class UpToDateChanges {
       initial.imagePackagingSmallUrl = emptyMeansNull(
         change.imagePackagingSmallUrl!,
       );
+    }
+    if (change.images != null && change.images!.isNotEmpty) {
+      initial.images ??= <ProductImage>[];
+      // let's remove similar entries first
+      final Set<int> removeIndices = <int>{};
+      for (final ProductImage changeProductImage in change.images!) {
+        int i = 0;
+        for (final ProductImage initialProductImage in initial.images!) {
+          if (changeProductImage.field == initialProductImage.field &&
+              changeProductImage.size == initialProductImage.size &&
+              changeProductImage.language == initialProductImage.language) {
+            removeIndices.add(i);
+          }
+          i++;
+        }
+      }
+      final List<int> sorted = List<int>.from(removeIndices);
+      sorted.reversed.forEach(initial.images!.removeAt);
+      // then add the correct new entries
+      for (final ProductImage changeProductImage in change.images!) {
+        // null imgid means just deletion, no adding
+        if (changeProductImage.imgid != null) {
+          initial.images!.add(changeProductImage);
+        }
+      }
     }
     if (change.website != null) {
       initial.website = change.website;

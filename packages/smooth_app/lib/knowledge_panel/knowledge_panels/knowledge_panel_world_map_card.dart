@@ -30,14 +30,6 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             ),
             zoom: 6.0,
           ),
-          layers: <LayerOptions>[
-            TileLayerOptions(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            ),
-            MarkerLayerOptions(
-              markers: getMarkers(mapElement.pointers),
-            ),
-          ],
           nonRotatedChildren: <Widget>[
             AttributionWidget(
               attributionBuilder: (BuildContext context) {
@@ -59,7 +51,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                               '© OpenStreetMap contributors',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText2!
+                                  .bodyMedium!
                                   .copyWith(
                                     color: Colors.blue,
                                   ),
@@ -72,6 +64,14 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                 );
               },
             )
+          ],
+          children: <Widget>[
+            TileLayer(
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            ),
+            MarkerLayer(
+              markers: getMarkers(mapElement.pointers),
+            ),
           ],
         ),
       ),

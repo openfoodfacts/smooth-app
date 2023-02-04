@@ -2,12 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 
 /// Picks an image file from gallery or camera.
@@ -104,4 +109,55 @@ Future<File?> confirmAndUploadNewPicture(
       fullscreenDialog: true,
     ),
   );
+}
+
+/// Downloads an image URL into a file, with a dialog.
+Future<File?> downloadImageUrl(
+  final BuildContext context,
+  final String? imageUrl,
+  final DaoInt daoInt,
+) async {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  if (imageUrl == null) {
+    await LoadingDialog.error(
+      context: context,
+      title: appLocalizations.image_edit_url_error,
+    );
+    return null;
+  }
+
+  final File? imageFile = await LoadingDialog.run<File?>(
+    context: context,
+    future: _downloadImageFile(daoInt, imageUrl),
+  );
+
+  if (imageFile == null) {
+    // ignore: use_build_context_synchronously
+    await LoadingDialog.error(
+      context: context,
+      title: appLocalizations.image_download_error,
+    );
+  }
+  return imageFile;
+}
+
+/// Downloads an image from the server and stores it locally in temp folder.
+Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
+  final Uri uri = Uri.parse(url);
+  final http.Response response = await http.get(uri);
+  final int code = response.statusCode;
+  if (code != 200) {
+    throw NetworkImageLoadException(statusCode: code, uri: uri);
+  }
+
+  final Directory tempDirectory = await getTemporaryDirectory();
+
+  const String CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
+
+  final int sequenceNumber =
+      await getNextSequenceNumber(daoInt, CROP_IMAGE_SEQUENCE_KEY);
+
+  final File file = File('${tempDirectory.path}/editing_image_$sequenceNumber');
+
+  return file.writeAsBytes(response.bodyBytes);
 }

@@ -69,7 +69,8 @@ class ScoreCard extends StatelessWidget {
               child: Center(
                 child: Text(
                   description,
-                  style: themeData.textTheme.headline4!.apply(color: textColor),
+                  style: themeData.textTheme.headlineMedium!
+                      .apply(color: textColor),
                 ),
               ),
             ),

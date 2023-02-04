@@ -132,7 +132,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         sliver: SliverToBoxAdapter(
           child: Text(
             title,
-            style: theme.textTheme.headline2,
+            style: theme.textTheme.displayMedium,
           ),
         ),
       );
