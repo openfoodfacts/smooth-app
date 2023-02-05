@@ -76,7 +76,7 @@ class UploadedImageGallery extends StatelessWidget {
                     imageField: imageField,
                     inputFile: imageFile,
                     imageId: imageId,
-                    brandNewPicture: false,
+                    initiallyDifferent: true,
                   ),
                   fullscreenDialog: true,
                 ),

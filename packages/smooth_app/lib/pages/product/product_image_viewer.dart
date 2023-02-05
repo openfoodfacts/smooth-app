@@ -284,7 +284,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             imageField: _imageData.imageField,
             inputFile: imageFile,
             imageId: imageId,
-            brandNewPicture: false,
+            initiallyDifferent: false,
             initialCropRect: initialCropRect,
             initialRotation: initialRotation,
           ),

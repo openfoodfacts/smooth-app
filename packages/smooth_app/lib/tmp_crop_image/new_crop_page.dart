@@ -31,7 +31,7 @@ class CropPage extends StatefulWidget {
     required this.inputFile,
     required this.barcode,
     required this.imageField,
-    required this.brandNewPicture,
+    required this.initiallyDifferent,
     this.imageId,
     this.initialCropRect,
     this.initialRotation,
@@ -43,8 +43,8 @@ class CropPage extends StatefulWidget {
   final ImageField imageField;
   final String barcode;
 
-  /// Is that a new picture we crop, or an existing picture?
-  final bool brandNewPicture;
+  /// Is the full picture initially different from the current selection?
+  final bool initiallyDifferent;
 
   /// Only makes sense when we deal with an "already existing" image.
   final int? imageId;
@@ -346,7 +346,7 @@ class _CropPageState extends State<CropPage> {
   Future<bool> _mayExitPage({required final bool saving}) async {
     if (_controller.value.rotation == _initialRotation &&
         _controller.value.crop == _initialCrop &&
-        !widget.brandNewPicture) {
+        !widget.initiallyDifferent) {
       // nothing has changed, let's leave
       if (saving) {
         Navigator.of(context).pop();
