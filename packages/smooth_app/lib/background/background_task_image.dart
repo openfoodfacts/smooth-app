@@ -1,8 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:image/image.dart' as image2;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
@@ -12,6 +17,8 @@ import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
+import 'package:smooth_app/tmp_crop_image/rotation.dart';
 
 /// Background task about product image upload.
 class BackgroundTaskImage extends AbstractBackgroundTask {
@@ -238,6 +245,11 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
+    try {
+      File(_getCroppedPath()).deleteSync();
+    } catch (e) {
+      // possible, but let's not spoil the task for that either.
+    }
     TransientFile.removeImage(
       ImageField.fromOffTag(imageField)!,
       barcode,
@@ -252,9 +264,78 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     }
   }
 
+  /// Returns an image loaded from data.
+  static Future<ui.Image> loadUiImage(final Uint8List list) async {
+    final Completer<ui.Image> completer = Completer<ui.Image>();
+    ui.decodeImageFromList(list, completer.complete);
+    return completer.future;
+  }
+
+  /// Returns [source] with all corners multiplied by a [factor].
+  static Rect getResizedRect(
+    final Rect source,
+    final num factor,
+  ) =>
+      Rect.fromLTRB(
+        source.left * factor,
+        source.top * factor,
+        source.right * factor,
+        source.bottom * factor,
+      );
+
+  /// Conversion factor to `int` from / to UI / background task.
+  static const int cropConversionFactor = 1000000;
+
+  /// Returns true if a cropped operation is needed - after having performed it.
+  Future<bool> _crop(final File file) async {
+    if (cropX1 == 0 &&
+        cropY1 == 0 &&
+        cropX2 == cropConversionFactor &&
+        cropY2 == cropConversionFactor &&
+        rotationDegrees == 0) {
+      // in that case, no need to crop
+      return false;
+    }
+    final ui.Image image = await loadUiImage(
+      await File(fullPath).readAsBytes(),
+    );
+    final image2.Image? rawImage = await RotatedCropController.getCroppedBitmap(
+      crop: getResizedRect(
+        Rect.fromLTRB(
+          cropX1.toDouble(),
+          cropY1.toDouble(),
+          cropX2.toDouble(),
+          cropY2.toDouble(),
+        ),
+        1 / cropConversionFactor,
+      ),
+      rotation: RotationExtension.fromDegrees(rotationDegrees)!,
+      image: image,
+      maxSize: null,
+      quality: FilterQuality.high,
+    );
+    if (rawImage == null) {
+      throw Exception('Cannot crop file');
+    }
+    final Uint8List data = Uint8List.fromList(image2.encodeJpg(rawImage));
+    await file.writeAsBytes(data);
+    return true;
+  }
+
+  /// Returns the path of the locally computed cropped path (if relevant).
+  String _getCroppedPath() => '$fullPath.cropped.jpg';
+
   /// Uploads the product image.
   @override
   Future<void> upload() async {
+    final String path;
+    final String croppedPath = _getCroppedPath();
+    if (await _crop(File(croppedPath))) {
+      path = croppedPath;
+    } else {
+      path = fullPath;
+    }
+
     final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
     final OpenFoodFactsLanguage language = getLanguage();
     final User user = getUser();
@@ -262,29 +343,32 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       lang: language,
       barcode: barcode,
       imageField: imageField,
-      imageUri: Uri.parse(fullPath),
+      imageUri: Uri.parse(path),
     );
 
     final Status status = await OpenFoodAPIClient.addProductImage(user, image);
+    if (status.status == 'status ok') {
+      // successfully uploaded a new picture and set it as field+language
+      return;
+    }
     final int? imageId = status.imageId;
-    if (imageId == null) {
-      throw Exception(
-          'Could not upload picture: ${status.status} / ${status.error}');
+    if (status.status == 'status not ok' && imageId != null) {
+      // The very same image was already uploaded and therefore was rejected.
+      // We just have to select this image, with no angle.
+      final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
+        barcode: barcode,
+        imageField: imageField,
+        language: language,
+        imgid: '$imageId',
+        angle: ImageAngle.NOON,
+        user: user,
+      );
+      if (imageUrl == null) {
+        throw Exception('Could not select picture');
+      }
+      return;
     }
-    final String? imageUrl = await OpenFoodAPIClient.setProductImageCrop(
-      barcode: barcode,
-      imageField: imageField,
-      language: language,
-      imgid: '$imageId',
-      angle: ImageAngleExtension.fromInt(rotationDegrees)!,
-      x1: cropX1,
-      y1: cropY1,
-      x2: cropX2,
-      y2: cropY2,
-      user: user,
-    );
-    if (imageUrl == null) {
-      throw Exception('Could not select picture');
-    }
+    throw Exception(
+        'Could not upload picture: ${status.status} / ${status.error}');
   }
 }

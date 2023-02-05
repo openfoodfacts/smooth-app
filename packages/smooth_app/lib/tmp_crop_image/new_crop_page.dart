@@ -31,7 +31,7 @@ class CropPage extends StatefulWidget {
     required this.inputFile,
     required this.barcode,
     required this.imageField,
-    required this.brandNewPicture,
+    required this.initiallyDifferent,
     this.imageId,
     this.initialCropRect,
     this.initialRotation,
@@ -43,8 +43,8 @@ class CropPage extends StatefulWidget {
   final ImageField imageField;
   final String barcode;
 
-  /// Is that a new picture we crop, or an existing picture?
-  final bool brandNewPicture;
+  /// Is the full picture initially different from the current selection?
+  final bool initiallyDifferent;
 
   /// Only makes sense when we deal with an "already existing" image.
   final int? imageId;
@@ -75,15 +75,9 @@ class _CropPageState extends State<CropPage> {
   late Rect _initialCrop;
   late Rotation _initialRotation;
 
-  Future<ui.Image> _loadUiImage(final Uint8List list) async {
-    final Completer<ui.Image> completer = Completer<ui.Image>();
-    ui.decodeImageFromList(list, completer.complete);
-    return completer.future;
-  }
-
   Future<void> _load(final Uint8List list) async {
     setState(() => _processing = true);
-    _image = await _loadUiImage(list);
+    _image = await BackgroundTaskImage.loadUiImage(list);
     _initialCrop = _getInitialRect();
     _initialRotation = widget.initialRotation ?? Rotation.noon;
     _controller = RotatedCropController(
@@ -258,12 +252,17 @@ class _CropPageState extends State<CropPage> {
       return true;
     }
 
-    final Rect cropRect = _getCropRect();
     if (widget.imageId == null) {
+      // in this case, it's a brand new picture, with crop parameters.
+      // for performance reasons, we do not crop the image full-size here,
+      // but in the background task.
+      // for privacy reasons, we won't send the full image to the server and
+      // let it crop it: we'll send the cropped image directly.
       final File fullFile = await _getFullImageFile(
         directory,
         sequenceNumber,
       );
+      final Rect cropRect = _getLocalCropRect();
       await BackgroundTaskImage.addTask(
         widget.barcode,
         imageField: widget.imageField,
@@ -277,6 +276,11 @@ class _CropPageState extends State<CropPage> {
         widget: this,
       );
     } else {
+      // in this case, it's an existing picture, with crop parameters.
+      // we let the server do everything: better performance, and no privacy
+      // issue here (we're cropping from an allegedly already privacy compliant
+      // picture).
+      final Rect cropRect = _getServerCropRect();
       await BackgroundTaskCrop.addTask(
         widget.barcode,
         imageField: widget.imageField,
@@ -305,7 +309,12 @@ class _CropPageState extends State<CropPage> {
     return true;
   }
 
-  Rect _getCropRect() {
+  /// Returns the crop rect according to local cropping method * factor.
+  Rect _getLocalCropRect() => BackgroundTaskImage.getResizedRect(
+      _controller.crop, BackgroundTaskImage.cropConversionFactor);
+
+  /// Returns the crop rect according to server cropping method.
+  Rect _getServerCropRect() {
     final Offset center = _controller.getRotatedOffsetForOff(
       _controller.crop.center,
     );
@@ -337,7 +346,7 @@ class _CropPageState extends State<CropPage> {
   Future<bool> _mayExitPage({required final bool saving}) async {
     if (_controller.value.rotation == _initialRotation &&
         _controller.value.crop == _initialCrop &&
-        !widget.brandNewPicture) {
+        !widget.initiallyDifferent) {
       // nothing has changed, let's leave
       if (saving) {
         Navigator.of(context).pop();
