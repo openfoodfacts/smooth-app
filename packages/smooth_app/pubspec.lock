@@ -5,18 +5,18 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: "4897882604d919befd350648c7f91926a9d5de99e67b455bf0917cc2362f4bb8"
+      sha256: "0c80aeab9bc807ab10022cd3b2f4cf2ecdf231949dc1ddd9442406a003f19201"
       url: "https://pub.dev"
     source: hosted
-    version: "47.0.0"
+    version: "52.0.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
-      sha256: "690e335554a8385bc9d787117d9eb52c0c03ee207a607e593de3c9d71b1cfe80"
+      sha256: cd8ee83568a77f3ae6b913a36093a1c9b1264e7cb7f834d9ddd2311dade9c1f4
       url: "https://pub.dev"
     source: hosted
-    version: "4.7.0"
+    version: "5.4.0"
   app_store_apple_store:
     dependency: "direct main"
     description:
@@ -61,6 +61,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  assorted_layout_widgets:
+    dependency: "direct main"
+    description:
+      name: assorted_layout_widgets
+      sha256: ca9f5c77689cfb3437cdabb2afc9ce477e275b319e68a7d21f774e9a5478a827
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0"
   async:
     dependency: transitive
     description:
@@ -276,10 +284,10 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: f71079978789bc2fe78d79227f1f8cfe195b31bbd8db2399b0d15a4b96fb843b
+      sha256: "0b0036e8cccbfbe0555fd83c1d31a6f30b77a96b598b35a5d36dd41f718695e9"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.3+2"
+    version: "0.3.3+4"
   crypto:
     dependency: transitive
     description:
@@ -394,10 +402,10 @@ packages:
     dependency: transitive
     description:
       name: fixnum
-      sha256: "04be3e934c52e082558cc9ee21f42f5c1cd7a1262f4c63cd0357c08d5bba81ec"
+      sha256: "25517a4deb0c03aa0f32fd12db525856438902d9c16536311e76cdc57b31d7d1"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.1.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -416,6 +424,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0"
+  flutter_image_compress:
+    dependency: "direct main"
+    description:
+      name: flutter_image_compress
+      sha256: "37f1b26399098e5f97b74c1483f534855e7dff68ead6ddaccf747029fb03f29f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.3"
   flutter_isolate:
     dependency: transitive
     description:
@@ -765,10 +781,10 @@ packages:
     dependency: transitive
     description:
       name: logging
-      sha256: c0bbfe94d46aedf9b8b3e695cf3bd48c8e14b35e3b2c639e0aa7755d589ba946
+      sha256: "04094f2eb032cbb06c6f6e8d3607edcfcb0455e2bb6cbc010cb01171dcb64e6d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   lottie:
     dependency: "direct main"
     description:
@@ -801,6 +817,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  matrix4_transform:
+    dependency: transitive
+    description:
+      name: matrix4_transform
+      sha256: "6ddeaa2c0e1f5c3f3a197f552377570b3e54fa0b8bf48507728a216fc0fd78a6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   meta:
     dependency: transitive
     description:
@@ -1240,10 +1264,10 @@ packages:
     dependency: transitive
     description:
       name: source_gen
-      sha256: "2d79738b6bbf38a43920e2b8d189e9a3ce6cc201f4b8fc76be5e4fe377b1c38d"
+      sha256: c2bea18c95cfa0276a366270afaa2850b09b4a76db95d546f3d003dcc7011298
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.6"
+    version: "1.2.7"
   source_span:
     dependency: transitive
     description:
@@ -1424,10 +1448,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_windows
-      sha256: "387e227c4b979034cc52afb11d66b04ed9b288ca1f45beeef39b2ea69e714fa5"
+      sha256: b6217370f8eb1fd85c8890c539f5a639a01ab209a36db82c921ebeacefc7a615
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2"
+    version: "3.0.3"
   uuid:
     dependency: "direct main"
     description:
@@ -1549,5 +1573,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.0 <4.0.0"
+  dart: ">=2.19.0 <3.0.0"
   flutter: ">=3.3.0"
