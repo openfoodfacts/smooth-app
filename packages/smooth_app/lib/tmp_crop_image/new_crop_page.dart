@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image/image.dart' as image2;
@@ -20,6 +20,7 @@ import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/tmp_crop_image/image_compute_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
 import 'package:smooth_app/tmp_crop_image/rotation.dart';
@@ -31,7 +32,7 @@ class CropPage extends StatefulWidget {
     required this.inputFile,
     required this.barcode,
     required this.imageField,
-    required this.brandNewPicture,
+    required this.initiallyDifferent,
     this.imageId,
     this.initialCropRect,
     this.initialRotation,
@@ -43,8 +44,8 @@ class CropPage extends StatefulWidget {
   final ImageField imageField;
   final String barcode;
 
-  /// Is that a new picture we crop, or an existing picture?
-  final bool brandNewPicture;
+  /// Is the full picture initially different from the current selection?
+  final bool initiallyDifferent;
 
   /// Only makes sense when we deal with an "already existing" image.
   final int? imageId;
@@ -75,15 +76,9 @@ class _CropPageState extends State<CropPage> {
   late Rect _initialCrop;
   late Rotation _initialRotation;
 
-  Future<ui.Image> _loadUiImage(final Uint8List list) async {
-    final Completer<ui.Image> completer = Completer<ui.Image>();
-    ui.decodeImageFromList(list, completer.complete);
-    return completer.future;
-  }
-
   Future<void> _load(final Uint8List list) async {
     setState(() => _processing = true);
-    _image = await _loadUiImage(list);
+    _image = await BackgroundTaskImage.loadUiImage(list);
     _initialCrop = _getInitialRect();
     _initialRotation = widget.initialRotation ?? Rotation.noon;
     _controller = RotatedCropController(
@@ -143,6 +138,12 @@ class _CropPageState extends State<CropPage> {
   void initState() {
     super.initState();
     _initLoad();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   Future<void> _initLoad() async => _load(await widget.inputFile.readAsBytes());
@@ -225,11 +226,13 @@ class _CropPageState extends State<CropPage> {
   }
 
   /// Returns a small file with the cropped image, for the transient image.
+  ///
+  /// Here we use BMP format as it's faster to encode.
   Future<File?> _getCroppedImageFile(
     final Directory directory,
     final int sequenceNumber,
   ) async {
-    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.jpeg';
+    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.bmp';
     final File result = File(croppedPath);
     final image2.Image? rawImage = await _controller.croppedBitmap(
       maxSize: _screenSize.longestSide,
@@ -237,13 +240,11 @@ class _CropPageState extends State<CropPage> {
     if (rawImage == null) {
       return null;
     }
-    final Uint8List data = Uint8List.fromList(image2.encodeJpg(rawImage));
-    await result.writeAsBytes(data);
+    await saveBmp(ImageComputeContainer(file: result, rawImage: rawImage));
     return result;
   }
 
-  Future<bool> _saveFileAndExit() async {
-    // TODO(monsieurtanuki): hide the controls while computing?
+  Future<File?> _saveFileAndExitTry() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoInt daoInt = DaoInt(localDatabase);
     final int sequenceNumber =
@@ -255,15 +256,20 @@ class _CropPageState extends State<CropPage> {
       sequenceNumber,
     );
     if (croppedFile == null) {
-      return true;
+      return null;
     }
 
-    final Rect cropRect = _getCropRect();
     if (widget.imageId == null) {
+      // in this case, it's a brand new picture, with crop parameters.
+      // for performance reasons, we do not crop the image full-size here,
+      // but in the background task.
+      // for privacy reasons, we won't send the full image to the server and
+      // let it crop it: we'll send the cropped image directly.
       final File fullFile = await _getFullImageFile(
         directory,
         sequenceNumber,
       );
+      final Rect cropRect = _getLocalCropRect();
       await BackgroundTaskImage.addTask(
         widget.barcode,
         imageField: widget.imageField,
@@ -277,6 +283,11 @@ class _CropPageState extends State<CropPage> {
         widget: this,
       );
     } else {
+      // in this case, it's an existing picture, with crop parameters.
+      // we let the server do everything: better performance, and no privacy
+      // issue here (we're cropping from an allegedly already privacy compliant
+      // picture).
+      final Rect cropRect = _getServerCropRect();
       await BackgroundTaskCrop.addTask(
         widget.barcode,
         imageField: widget.imageField,
@@ -292,20 +303,39 @@ class _CropPageState extends State<CropPage> {
     }
     localDatabase.notifyListeners();
     if (!mounted) {
-      return true;
+      return croppedFile;
     }
     final ContinuousScanModel model = context.read<ContinuousScanModel>();
     await model
         .onCreateProduct(widget.barcode); // TODO(monsieurtanuki): a bit fishy
 
-    if (!mounted) {
-      return true;
-    }
-    Navigator.of(context).pop<File>(croppedFile);
-    return true;
+    return croppedFile;
   }
 
-  Rect _getCropRect() {
+  Future<void> _saveFileAndExit() async {
+    setState(() => _processing = true);
+    try {
+      final File? file = await _saveFileAndExitTry();
+      _processing = false;
+      if (!mounted) {
+        return;
+      }
+      if (file == null) {
+        setState(() {});
+      } else {
+        Navigator.of(context).pop<File>(file);
+      }
+    } finally {
+      _processing = false;
+    }
+  }
+
+  /// Returns the crop rect according to local cropping method * factor.
+  Rect _getLocalCropRect() => BackgroundTaskImage.getResizedRect(
+      _controller.crop, BackgroundTaskImage.cropConversionFactor);
+
+  /// Returns the crop rect according to server cropping method.
+  Rect _getServerCropRect() {
     final Offset center = _controller.getRotatedOffsetForOff(
       _controller.crop.center,
     );
@@ -337,7 +367,7 @@ class _CropPageState extends State<CropPage> {
   Future<bool> _mayExitPage({required final bool saving}) async {
     if (_controller.value.rotation == _initialRotation &&
         _controller.value.crop == _initialCrop &&
-        !widget.brandNewPicture) {
+        !widget.initiallyDifferent) {
       // nothing has changed, let's leave
       if (saving) {
         Navigator.of(context).pop();
@@ -361,7 +391,8 @@ class _CropPageState extends State<CropPage> {
     }
 
     try {
-      return _saveFileAndExit();
+      await _saveFileAndExit();
+      return true;
     } catch (e) {
       if (mounted) {
         // not likely to happen, but you never know...
