@@ -159,8 +159,6 @@ class _RotatedCropImageState extends State<RotatedCropImage> {
   @override
   void dispose() {
     controller.removeListener(onChange);
-    controller.dispose();
-
     super.dispose();
   }
 
