@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Helper about packaging component edition. Useful with controllers.
@@ -10,18 +11,22 @@ class EditNewPackagingsHelper {
     required this.controllerRecycling,
     required this.controllerQuantity,
     required this.controllerWeight,
+    required this.decimalNumberFormat,
+    required this.unitNumberFormat,
     required this.expanded,
   });
 
   /// Creates all controllers from a packaging.
   EditNewPackagingsHelper.packaging(
     final ProductPackaging packaging,
-    final bool initiallyExpanded,
-  ) : this._(
+    final bool initiallyExpanded, {
+    required final NumberFormat decimalNumberFormat,
+    required final NumberFormat unitNumberFormat,
+  }) : this._(
           controllerUnits: TextEditingController(
             text: packaging.numberOfUnits == null
                 ? null
-                : '${packaging.numberOfUnits!}',
+                : unitNumberFormat.format(packaging.numberOfUnits),
           ),
           controllerShape: TextEditingController(
             text: packaging.shape?.lcName,
@@ -37,9 +42,11 @@ class EditNewPackagingsHelper {
           controllerWeight: TextEditingController(
             text: packaging.weightMeasured == null
                 ? null
-                : '${packaging.weightMeasured!}',
+                : decimalNumberFormat.format(packaging.weightMeasured),
           ),
           expanded: initiallyExpanded,
+          decimalNumberFormat: decimalNumberFormat,
+          unitNumberFormat: unitNumberFormat,
         );
 
   final TextEditingController controllerUnits;
@@ -48,6 +55,8 @@ class EditNewPackagingsHelper {
   final TextEditingController controllerRecycling;
   final TextEditingController controllerQuantity;
   final TextEditingController controllerWeight;
+  final NumberFormat decimalNumberFormat;
+  final NumberFormat unitNumberFormat;
   bool expanded;
 
   /// Disposes all controllers.
@@ -90,11 +99,33 @@ class EditNewPackagingsHelper {
     packaging.material = _getLocalizedTag(controllerMaterial);
     packaging.recycling = _getLocalizedTag(controllerRecycling);
     packaging.quantityPerUnit = _getString(controllerQuantity);
-    packaging.weightMeasured = double.tryParse(controllerWeight
-        .text); // TODO(monsieurtanuki): handle the "not a number" case
-    packaging.numberOfUnits = int.tryParse(controllerUnits
-        .text); // TODO(monsieurtanuki): handle the "not a number" case
+    packaging.weightMeasured = _getParsedDecimalController(controllerWeight);
+    packaging.numberOfUnits = _getParsedUnitController(controllerUnits);
     return packaging;
+  }
+
+  double? _getParsedDecimalController(final TextEditingController controller) {
+    final String text = controller.text.trim();
+    if (text.isEmpty) {
+      return null;
+    }
+    try {
+      return decimalNumberFormat.parse(text).toDouble();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  int? _getParsedUnitController(final TextEditingController controller) {
+    final String text = controller.text.trim();
+    if (text.isEmpty) {
+      return null;
+    }
+    try {
+      return unitNumberFormat.parse(text).ceil();
+    } catch (e) {
+      return null;
+    }
   }
 
   LocalizedTag? _getLocalizedTag(final TextEditingController controller) {
