@@ -34,14 +34,14 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 void main() {
-  print('--------');
-  print('The app must not be started using the main.dart file');
-  print('Please start the app using:');
-  print(' - flutter run -t lib/entrypoints/android/main_google_play.dart');
-  print(' - flutter run -t lib/entrypoints/ios/main_ios.dart');
-  print(
+  debugPrint('--------');
+  debugPrint('The app must not be started using the main.dart file');
+  debugPrint('Please start the app using:');
+  debugPrint(' - flutter run -t lib/entrypoints/android/main_google_play.dart');
+  debugPrint(' - flutter run -t lib/entrypoints/ios/main_ios.dart');
+  debugPrint(
       'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project');
-  print('--------');
+  debugPrint('--------');
 
   if (Platform.isAndroid) {
     SystemNavigator.pop();
