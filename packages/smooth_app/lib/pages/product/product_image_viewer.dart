@@ -17,12 +17,12 @@ import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 import 'package:smooth_app/tmp_crop_image/rotation.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Displays a full-screen image with an "edit" floating button.
 class ProductImageViewer extends StatefulWidget {
@@ -176,6 +176,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   // TODO(monsieurtanuki): we should also suggest the existing image gallery
   Future<File?> _actionNewImage() async {
+    // ignore: use_build_context_synchronously
     if (!await ProductRefresher().checkIfLoggedIn(context)) {
       return null;
     }
@@ -188,9 +189,11 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<void> _actionGallery() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    // ignore: use_build_context_synchronously
     if (!await ProductRefresher().checkIfLoggedIn(context)) {
       return;
     }
+    // ignore: use_build_context_synchronously
     final List<int>? result = await LoadingDialog.run<List<int>>(
       future: OpenFoodAPIClient.getProductImageIds(
         _barcode,
@@ -234,6 +237,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<File?> _actionEditImage() async {
     final NavigatorState navigatorState = Navigator.of(context);
+    // ignore: use_build_context_synchronously
     if (!await ProductRefresher().checkIfLoggedIn(context)) {
       return null;
     }
@@ -258,6 +262,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
     // but if not possible, get the best picture from the server.
     final String? imageUrl = _imageData.getImageUrl(ImageSize.ORIGINAL);
+    // ignore: use_build_context_synchronously
     imageFile = await downloadImageUrl(
       context,
       imageUrl,
@@ -272,6 +277,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<void> _actionUnselect() async {
     final NavigatorState navigatorState = Navigator.of(context);
+    // ignore: use_build_context_synchronously
     if (!await ProductRefresher().checkIfLoggedIn(context)) {
       return;
     }
