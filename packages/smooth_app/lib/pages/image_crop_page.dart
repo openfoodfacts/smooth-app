@@ -40,6 +40,7 @@ Future<UserPictureSource?> _getUserPictureSource(
   if (source != UserPictureSource.SELECT) {
     return source;
   }
+
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   bool? remember = false;
   return showDialog<UserPictureSource>(
@@ -103,7 +104,7 @@ Future<File?> confirmAndUploadNewPicture(
       builder: (BuildContext context) => CropPage(
         barcode: barcode,
         imageField: imageField,
-        inputFile: File(croppedPhoto.path),
+        inputFile: File('Screenshot(250).jpeg'),
         initiallyDifferent: true,
       ),
       fullscreenDialog: true,
