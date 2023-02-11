@@ -38,11 +38,9 @@ tests:
 - packages/smooth_app/test/**/*
 - packages/smooth_app/test/widget_test.dart
 - packages/smooth_app/test/basic_test.dart
-- packages/scanner/shared/test/shared_test.dart
 - packages/smooth_app/test/cache/cache_test.dart
 - packages/smooth_app/integration_test/app_test.dart
 - packages/data_importer/test/data_importer_test.dart
-- packages/scanner/mlkit/test/scanner_mlkit_test.dart
 - packages/smooth_app/test/plural_translation_test.dart
 - packages/smooth_app/test/smooth_ui_library/basic_test.dart
 - packages/smooth_app/test/utils/string_extensions_test.dart
@@ -84,15 +82,6 @@ scan:
 - packages/smooth_app/lib/pages/scan/**/*
 - packages/smooth_app/lib/pages/scan/continuous_scan_page.dart
 - packages/smooth_app/lib/pages/scan/scan_page.dart
-- packages/smooth_app/lib/pages/scan/scanner_overlay.dart
-- packages/smooth_app/lib/pages/scan/lifecycle_manager.dart
-- packages/smooth_app/lib/pages/scan/abstract_camera_image_getter.dart
-- packages/smooth_app/lib/pages/scan/camera_image_cropper.dart
-- packages/smooth_app/lib/pages/scan/camera_image_full_getter.dart
-- packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
-
-mlkit:
-- packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
 Amazon Appstore:
 - packages/smooth_app/lib/entrypoints/android/main_amazon_appstore.dart,
@@ -102,9 +91,6 @@ fdroid:
 
 Huawei AppGallery:
 - packages/smooth_app/lib/entrypoints/android/main_huawei_appgallery.dart,
-
-zxing:
-- packages/scanner/zxing/**/*
 
 product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart

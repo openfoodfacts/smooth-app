@@ -61,6 +61,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  assorted_layout_widgets:
+    dependency: "direct main"
+    description:
+      name: assorted_layout_widgets
+      sha256: ca9f5c77689cfb3437cdabb2afc9ce477e275b319e68a7d21f774e9a5478a827
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0"
   async:
     dependency: transitive
     description:
@@ -184,30 +192,43 @@ packages:
   camera:
     dependency: "direct main"
     description:
-      path: "packages/camera/camera"
-      ref: smooth_camera
-      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
-      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
-    source: git
-    version: "0.9.6"
-  camera_platform_interface:
-    dependency: "direct main"
+      name: camera
+      sha256: e7ac55af24a890d20276821eb3c95857074d03b7de6f9892b99a205ee30bd179
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.10.3"
+  camera_android:
+    dependency: transitive
     description:
-      path: "packages/camera/camera_platform_interface"
-      ref: smooth_camera
-      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
-      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
-    source: git
-    version: "2.1.6"
+      name: camera_android
+      sha256: e491c836147f60dd8a54cf3895fd2960e13b21b78a9d15b563a1b6c70894f142
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.10.4"
+  camera_avfoundation:
+    dependency: transitive
+    description:
+      name: camera_avfoundation
+      sha256: "6a68c20593d4cd58974d555f74a48b244f9db28cc9156de57781122d11b8754b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.11"
+  camera_platform_interface:
+    dependency: transitive
+    description:
+      name: camera_platform_interface
+      sha256: b632be28e61d00a233f67d98ea90fd7041956f27a1c65500188ee459be60e15f
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
   camera_web:
     dependency: transitive
     description:
-      path: "packages/camera/camera_web"
-      ref: smooth_camera
-      resolved-ref: "2fe0f6e0c7043a9cb855b299315566187827b2a2"
-      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
-    source: git
-    version: "0.2.1+6"
+      name: camera_web
+      sha256: "496de93c5d462738ce991dbfe91fb19026f115ed36406700a20a380fb0018299"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.1+1"
   carousel_slider:
     dependency: "direct main"
     description:
@@ -416,14 +437,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0"
-  flutter_isolate:
-    dependency: transitive
-    description:
-      name: flutter_isolate
-      sha256: b5a3a7eb3d2ca7a16d6297fff6460e93ea80602850cdcb123a1728ae38413aba
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.3"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -580,22 +593,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  google_mlkit_barcode_scanning:
-    dependency: transitive
-    description:
-      name: google_mlkit_barcode_scanning
-      sha256: "15c5ae8d5c7746b436b19487b7820997bc43094e2c5ad9f23b6ff803543d92ae"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.0"
-  google_mlkit_commons:
-    dependency: transitive
-    description:
-      name: google_mlkit_commons
-      sha256: af63771903947d5523d9e991a939a4b8bf994f11661c9b9c8a71d7d3997115f8
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.0"
   hive:
     dependency: "direct main"
     description:
@@ -801,6 +798,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  matrix4_transform:
+    dependency: transitive
+    description:
+      name: matrix4_transform
+      sha256: "6ddeaa2c0e1f5c3f3a197f552377570b3e54fa0b8bf48507728a216fc0fd78a6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   meta:
     dependency: transitive
     description:
@@ -1098,6 +1103,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  qr_code_scanner:
+    dependency: "direct main"
+    description:
+      name: qr_code_scanner
+      sha256: f23b68d893505a424f0bd2e324ebea71ed88465d572d26bb8d2e78a4749591fd
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   quiver:
     dependency: transitive
     description:
@@ -1106,35 +1119,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
-  rxdart:
-    dependency: "direct main"
-    description:
-      name: rxdart
-      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.27.7"
-  scanner_mlkit:
-    dependency: "direct main"
-    description:
-      path: "../scanner/mlkit"
-      relative: true
-    source: path
-    version: "0.0.1"
-  scanner_shared:
-    dependency: "direct main"
-    description:
-      path: "../scanner/shared"
-      relative: true
-    source: path
-    version: "1.0.0"
-  scanner_zxing:
-    dependency: "direct main"
-    description:
-      path: "../scanner/zxing"
-      relative: true
-    source: path
-    version: "0.0.1"
   sentry:
     dependency: transitive
     description:
@@ -1549,5 +1533,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.0 <4.0.0"
+  dart: ">=2.19.0 <3.0.0"
   flutter: ">=3.3.0"

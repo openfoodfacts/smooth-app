@@ -11,7 +11,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -35,7 +34,6 @@ late bool _screenshots;
 late String flavour;
 
 Future<void> launchSmoothApp({
-  required CameraScanner scanner,
   required AppStore appStore,
   required String appFlavour,
   final bool screenshots = false,
@@ -43,7 +41,7 @@ Future<void> launchSmoothApp({
   _screenshots = screenshots;
   if (_screenshots) {
     await _init1(appStore);
-    runApp(SmoothApp(scanner, appStore));
+    runApp(SmoothApp(appStore));
     return;
   }
   final WidgetsBinding widgetsBinding =
@@ -54,21 +52,20 @@ Future<void> launchSmoothApp({
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-        appRunner: () => runApp(SmoothApp(scanner, appStore)));
+        appRunner: () => runApp(SmoothApp(appStore)));
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (_) => SmoothApp(scanner, appStore),
+        builder: (_) => SmoothApp(appStore),
       ),
     );
   }
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp(this.scanner, this.appStore);
+  const SmoothApp(this.appStore);
 
-  final CameraScanner scanner;
   final AppStore appStore;
 
   // This widget is the root of your application
@@ -189,12 +186,6 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
-            provide<CameraControllerNotifier>(
-              CameraHelper.cameraControllerNotifier,
-            ),
-            Provider<CameraScanner>.value(
-              value: widget.scanner,
-            ),
           ],
           builder: _buildApp,
         );
