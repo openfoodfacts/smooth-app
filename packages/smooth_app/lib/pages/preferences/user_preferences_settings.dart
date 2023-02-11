@@ -69,8 +69,21 @@ class _ApplicationSettings extends StatelessWidget {
 
     return Column(
       children: <Widget>[
-        UserPreferencesTitle(
-          label: appLocalizations.settings_app_app,
+        Padding(
+          padding: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE,
+            bottom: MEDIUM_SPACE,
+            start: LARGE_SPACE,
+            end: LARGE_SPACE,
+          ),
+          child: Container(
+            alignment: Alignment.topLeft,
+            width: double.infinity,
+            child: Text(
+              appLocalizations.settings_app_app,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(
@@ -217,8 +230,20 @@ class _PrivacySettings extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        UserPreferencesTitle(
-          label: appLocalizations.settings_app_data,
+        Padding(
+          padding: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE,
+            bottom: MEDIUM_SPACE,
+            start: LARGE_SPACE,
+            end: LARGE_SPACE,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(
+              appLocalizations.settings_app_data,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
@@ -287,8 +312,20 @@ class _CameraSettings extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        UserPreferencesTitle(
-          label: appLocalizations.settings_app_camera,
+        Padding(
+          padding: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE,
+            bottom: MEDIUM_SPACE,
+            start: LARGE_SPACE,
+            end: LARGE_SPACE,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(
+              appLocalizations.settings_app_camera,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
         if (CameraModes.supportBothModes) ...<Widget>[
           const _CameraModesSelectorSetting(),
@@ -369,8 +406,20 @@ class _ProductsSettings extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        UserPreferencesTitle(
-          label: appLocalizations.settings_app_products,
+        Padding(
+          padding: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE,
+            bottom: MEDIUM_SPACE,
+            start: LARGE_SPACE,
+            end: LARGE_SPACE,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(
+              appLocalizations.settings_app_products,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
         _ExpandPanelHelper(
           title: appLocalizations.expand_nutrition_facts,
@@ -402,8 +451,20 @@ class _MiscellaneousSettings extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        UserPreferencesTitle(
-          label: appLocalizations.settings_app_miscellaneous,
+        Padding(
+          padding: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE,
+            bottom: MEDIUM_SPACE,
+            start: LARGE_SPACE,
+            end: LARGE_SPACE,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(
+              appLocalizations.settings_app_miscellaneous,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
         const _HapticFeedbackSetting(),
       ],
