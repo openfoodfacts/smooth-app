@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:app_store_shared/app_store_shared.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -29,6 +31,23 @@ import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+
+void main() {
+  debugPrint('--------');
+  debugPrint('The app must not be started using the main.dart file');
+  debugPrint('Please start the app using:');
+  debugPrint(' - flutter run -t lib/entrypoints/android/main_google_play.dart');
+  debugPrint(' - flutter run -t lib/entrypoints/ios/main_ios.dart');
+  debugPrint(
+      'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project');
+  debugPrint('--------');
+
+  if (Platform.isAndroid) {
+    SystemNavigator.pop();
+  } else {
+    exit(2);
+  }
+}
 
 late bool _screenshots;
 late String flavour;
