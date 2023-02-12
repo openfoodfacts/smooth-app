@@ -32,12 +32,12 @@ const ColorScheme darkColorScheme = ColorScheme(
 
 const ColorScheme trueDarkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: Color(0xFF000000),
+  primary: Colors.teal,
   onPrimary: Color(0xFFE1E1E1),
-  secondary: Color(0xFF4527A0),
+  secondary: Colors.teal,
   onSecondary: Color(0xFFE1E1E1),
-  error: Color(0xFF000000),
-  onError: Color(0xFFEA2B2B),
+  error: Color(0xFFEA2B2B),
+  onError: Color(0xFFFFFFFF),
   background: Color(0xFF000000),
   onBackground: Color(0xFFE1E1E1),
   surface: Color(0xFF000000),

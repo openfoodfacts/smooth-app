@@ -23,8 +23,19 @@ class SmoothTheme {
       if (themeProvider.currentTheme == THEME_AMOLED) {
         return FlexThemeData.dark(
           darkIsTrueBlack: true,
+          primary: myColorScheme.primary,
+          onPrimary: myColorScheme.onPrimary,
           background: myColorScheme.background,
-          textTheme: SmoothTheme._DARK_TEXT_THEME,
+          textTheme: brightness == Brightness.dark
+              ? _TEXT_THEME.copyWith(
+                  displayMedium:
+                      _TEXT_THEME.displayMedium?.copyWith(color: Colors.white),
+                  headlineMedium:
+                      _TEXT_THEME.headlineMedium?.copyWith(color: Colors.white),
+                  bodyMedium:
+                      _TEXT_THEME.bodyMedium?.copyWith(color: Colors.white),
+                )
+              : _TEXT_THEME,
           secondary: myColorScheme.secondary,
           onSecondary: myColorScheme.onSecondary,
           error: myColorScheme.error,
@@ -140,7 +151,7 @@ class SmoothTheme {
     );
   }
 
-  static const TextTheme _DARK_TEXT_THEME = TextTheme(
+  static const TextTheme _TEXT_THEME = TextTheme(
     displayLarge: TextStyle(
       fontSize: 28.0,
       fontWeight: FontWeight.bold,
@@ -148,7 +159,7 @@ class SmoothTheme {
     displayMedium: TextStyle(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: Colors.black,
     ),
     displaySmall: TextStyle(
       fontSize: 18.0,
@@ -157,7 +168,7 @@ class SmoothTheme {
     headlineMedium: TextStyle(
       fontSize: LARGE_SPACE,
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: Colors.black,
     ),
     bodyMedium: TextStyle(
       fontSize: 14,
@@ -170,36 +181,6 @@ class SmoothTheme {
       fontSize: 12.0,
     ),
   );
-
-  static const TextTheme _TEXT_THEME = TextTheme(
-      displayLarge: TextStyle(
-        fontSize: 28.0,
-        fontWeight: FontWeight.bold,
-      ),
-      displayMedium: TextStyle(
-        fontSize: 24.0,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-      displaySmall: TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.bold,
-      ),
-      headlineMedium: TextStyle(
-        fontSize: LARGE_SPACE,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 14,
-        letterSpacing: 0.5,
-      ),
-      titleMedium: TextStyle(
-        fontSize: 14.0,
-      ),
-      titleSmall: TextStyle(
-        fontSize: 12.0,
-      ));
 
   static MaterialColor getMaterialColorFromColor(Color color) {
     final Map<int, Color> colorShades = <int, Color>{
