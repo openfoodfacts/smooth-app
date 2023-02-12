@@ -104,7 +104,7 @@ Future<File?> confirmAndUploadNewPicture(
         barcode: barcode,
         imageField: imageField,
         inputFile: File(croppedPhoto.path),
-        brandNewPicture: true,
+        initiallyDifferent: true,
       ),
       fullscreenDialog: true,
     ),

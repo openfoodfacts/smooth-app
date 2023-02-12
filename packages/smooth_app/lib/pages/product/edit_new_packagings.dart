@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
@@ -12,6 +13,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -30,6 +32,8 @@ class EditNewPackagings extends StatefulWidget {
 
 class _EditNewPackagingsState extends State<EditNewPackagings> {
   late final LocalDatabase _localDatabase;
+  late final NumberFormat _decimalNumberFormat;
+  late final NumberFormat _unitNumberFormat;
 
   late bool? _packagingsComplete;
 
@@ -47,7 +51,12 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     final bool initiallyExpanded = false,
   }) {
     _helpers.add(
-      EditNewPackagingsHelper.packaging(packaging, initiallyExpanded),
+      EditNewPackagingsHelper.packaging(
+        packaging,
+        initiallyExpanded,
+        decimalNumberFormat: _decimalNumberFormat,
+        unitNumberFormat: _unitNumberFormat,
+      ),
     );
   }
 
@@ -59,6 +68,12 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   @override
   void initState() {
     super.initState();
+    _decimalNumberFormat = SimpleInputNumberField.getNumberFormat(
+      decimal: true,
+    );
+    _unitNumberFormat = SimpleInputNumberField.getNumberFormat(
+      decimal: false,
+    );
     _initPackagings();
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(widget.product.barcode!);
