@@ -113,6 +113,10 @@ class _ApplicationSettings extends StatelessWidget {
                   DropdownMenuItem<String>(
                     value: THEME_DARK,
                     child: Text(appLocalizations.darkmode_dark),
+                  ),
+                  const DropdownMenuItem<String>(
+                    value: THEME_AMOLED,
+                    child: Text(THEME_AMOLED),
                   )
                 ],
               ),

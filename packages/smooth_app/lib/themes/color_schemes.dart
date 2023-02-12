@@ -29,3 +29,17 @@ const ColorScheme darkColorScheme = ColorScheme(
   surface: Color(0xFFEDE0DB),
   onSurface: Color(0xFF000000),
 );
+
+const ColorScheme trueDarkColorScheme = ColorScheme(
+  brightness: Brightness.dark,
+  primary: Color(0xFF000000),
+  onPrimary: Color(0xFFE1E1E1),
+  secondary: Color(0xFF4527A0),
+  onSecondary: Color(0xFFE1E1E1),
+  error: Color(0xFF000000),
+  onError: Color(0xFFEA2B2B),
+  background: Color(0xFF000000),
+  onBackground: Color(0xFFE1E1E1),
+  surface: Color(0xFF000000),
+  onSurface: Color(0xFFE1E1E1),
+);

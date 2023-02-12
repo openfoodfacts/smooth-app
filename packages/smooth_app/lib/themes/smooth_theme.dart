@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -13,12 +14,25 @@ class SmoothTheme {
     final Brightness brightness,
     final ThemeProvider themeProvider,
   ) {
-    final ColorScheme myColorScheme;
+    ColorScheme myColorScheme;
 
     if (brightness == Brightness.light) {
       myColorScheme = lightColorScheme;
     } else {
-      myColorScheme = darkColorScheme;
+      myColorScheme = trueDarkColorScheme;
+      if (themeProvider.currentTheme == THEME_AMOLED) {
+        return FlexThemeData.dark(
+          darkIsTrueBlack: true,
+          background: myColorScheme.background,
+          textTheme: SmoothTheme._DARK_TEXT_THEME,
+          secondary: myColorScheme.secondary,
+          onSecondary: myColorScheme.onSecondary,
+          error: myColorScheme.error,
+          onError: myColorScheme.secondary,
+        );
+      } else {
+        myColorScheme = darkColorScheme;
+      }
     }
 
     return ThemeData(
@@ -125,6 +139,37 @@ class SmoothTheme {
       ),
     );
   }
+
+  static const TextTheme _DARK_TEXT_THEME = TextTheme(
+    displayLarge: TextStyle(
+      fontSize: 28.0,
+      fontWeight: FontWeight.bold,
+    ),
+    displayMedium: TextStyle(
+      fontSize: 24.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 18.0,
+      fontWeight: FontWeight.bold,
+    ),
+    headlineMedium: TextStyle(
+      fontSize: LARGE_SPACE,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 14,
+      letterSpacing: 0.5,
+    ),
+    titleMedium: TextStyle(
+      fontSize: 14.0,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 12.0,
+    ),
+  );
 
   static const TextTheme _TEXT_THEME = TextTheme(
       displayLarge: TextStyle(
