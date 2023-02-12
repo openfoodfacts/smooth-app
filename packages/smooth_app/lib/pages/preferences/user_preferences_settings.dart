@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
@@ -14,6 +19,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/camera_modes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:store_redirect/store_redirect.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
 class UserPreferencesSettings extends AbstractUserPreferences {
@@ -54,7 +60,112 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         _ProductsSettings(),
         _MiscellaneousSettings(),
         _PrivacySettings(),
+        _RateUs(),
+        MyWidget(),
       ];
+}
+
+class _RateUs extends StatelessWidget {
+  const _RateUs({super.key});
+  Future<void> _redirect(BuildContext context) async {
+    try {
+      await StoreRedirect.redirect(
+        androidAppId: 'org.openfoodfacts.scanner',
+        iOSAppId: 'org.openfoodfacts.scanner',
+      );
+    } on PlatformException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            Platform.isIOS
+                ? "Could'nt find app store"
+                : "Could'nt find play store",
+            textAlign: TextAlign.center,
+          ),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          leading: SizedBox(
+            width: 40,
+            height: 40,
+            child: Image.asset(Platform.isIOS
+                ? 'assets/app/app-store.png'
+                : 'assets/app/playstore.png'),
+          ),
+          title: const Text(
+            'Rate us',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          onTap: () => _redirect(context),
+        ),
+        const SizedBox(
+          height: SMALL_SPACE,
+        ),
+        const UserPreferencesListItemDivider(),
+      ],
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  Future<void> _shareApp(BuildContext context) async {
+    const String packageName = 'org.openfoodfacts.scanner';
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    // We need to provide a sharePositionOrigin to make the plugin work on ipad
+    final RenderBox? box = context.findRenderObject() as RenderBox?;
+    final String url = Platform.isIOS
+        ? 'market://details?id=$packageName'
+        : 'https://play.google.com/store/apps/details?id=$packageName';
+    try {
+      Share.share(
+        url,
+        subject: 'Discover the Oen Food Facts app',
+        sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+      );
+    } on PlatformException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Something went wrong',
+            textAlign: TextAlign.center,
+          ),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.share),
+          ),
+          title: const Text(
+            'Share Open Food Facts',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          onTap: () => _shareApp(context),
+        ),
+        const SizedBox(
+          height: SMALL_SPACE,
+        ),
+      ],
+    );
+  }
 }
 
 class _ApplicationSettings extends StatelessWidget {
@@ -223,6 +334,7 @@ class _PrivacySettings extends StatelessWidget {
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
+        const UserPreferencesListItemDivider(),
       ],
     );
   }
