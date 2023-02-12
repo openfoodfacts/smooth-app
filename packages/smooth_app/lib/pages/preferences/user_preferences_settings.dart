@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
@@ -66,14 +65,14 @@ class UserPreferencesSettings extends AbstractUserPreferences {
 }
 
 class _RateUs extends StatelessWidget {
-  const _RateUs({super.key});
+  const _RateUs();
   Future<void> _redirect(BuildContext context) async {
     try {
       await StoreRedirect.redirect(
         androidAppId: 'org.openfoodfacts.scanner',
         iOSAppId: 'org.openfoodfacts.scanner',
       );
-    } on PlatformException catch (e) {
+    } on PlatformException {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -132,7 +131,7 @@ class MyWidget extends StatelessWidget {
         subject: 'Discover the Oen Food Facts app',
         sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
       );
-    } on PlatformException catch (e) {
+    } on PlatformException {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -148,7 +147,7 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         ListTile(
           leading: IconButton(
             onPressed: () {},
