@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -418,35 +417,33 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final IconData leading, {
     final UserSearchType? type,
   }) =>
-      SmoothRevealAnimation(
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          elevation: 5,
-          color: Theme.of(context).cardColor,
-          child: UserPreferencesListTile(
-            title: Text(title),
-            onTap: onTap,
-            leading: UserPreferencesListTile.getTintedIcon(leading, context),
-            trailing: (type != null)
-                ? FutureBuilder<int?>(
-                    future: _getMyCount(type),
-                    builder:
-                        (BuildContext context, AsyncSnapshot<int?> snapshot) {
-                      if (snapshot.connectionState != ConnectionState.done) {
-                        return const SizedBox(
-                            height: LARGE_SPACE,
-                            width: LARGE_SPACE,
-                            child: CircularProgressIndicator.adaptive());
-                      }
-                      return snapshot.data == null
-                          ? EMPTY_WIDGET
-                          : Text(snapshot.data.toString());
-                    },
-                  )
-                : null,
-          ),
+      Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 5,
+        color: Theme.of(context).cardColor,
+        child: UserPreferencesListTile(
+          title: Text(title),
+          onTap: onTap,
+          leading: UserPreferencesListTile.getTintedIcon(leading, context),
+          trailing: (type != null)
+              ? FutureBuilder<int?>(
+                  future: _getMyCount(type),
+                  builder:
+                      (BuildContext context, AsyncSnapshot<int?> snapshot) {
+                    if (snapshot.connectionState != ConnectionState.done) {
+                      return const SizedBox(
+                          height: LARGE_SPACE,
+                          width: LARGE_SPACE,
+                          child: CircularProgressIndicator.adaptive());
+                    }
+                    return snapshot.data == null
+                        ? EMPTY_WIDGET
+                        : Text(snapshot.data.toString());
+                  },
+                )
+              : null,
         ),
       );
 }
