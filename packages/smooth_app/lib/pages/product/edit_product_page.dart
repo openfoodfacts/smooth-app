@@ -146,9 +146,6 @@ class _EditProductPageState extends State<EditProductPage> {
                 subtitle:
                     appLocalizations.edit_product_form_item_photos_subtitle,
                 onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                    return;
-                  }
                   await Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
