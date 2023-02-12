@@ -255,7 +255,7 @@
     "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
     "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
-    "sign_up_page_provide_valid_email": "Please provide a valid email adress.",
+    "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
