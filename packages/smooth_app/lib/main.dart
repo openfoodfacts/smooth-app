@@ -29,6 +29,7 @@ import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -100,6 +101,7 @@ late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
+late ColorProvider _colorProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 final PermissionListener _permissionListener =
     PermissionListener(permission: Permission.camera);
@@ -133,6 +135,7 @@ Future<bool> _init1(AppStore appStore) async {
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);
   _themeProvider = ThemeProvider(_userPreferences);
+  _colorProvider = ColorProvider(_userPreferences);
   ProductQuery.setQueryType(_userPreferences);
 
   await CameraHelper.init();
@@ -204,6 +207,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ProductPreferences>(_productPreferences),
             provide<LocalDatabase>(_localDatabase),
             provide<ThemeProvider>(_themeProvider),
+            provide<ColorProvider>(_colorProvider),
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
@@ -223,6 +227,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final ColorProvider colorProvider = context.watch<ColorProvider>();
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
@@ -246,13 +251,9 @@ class _SmoothAppState extends State<SmoothApp> {
         SentryNavigatorObserver(),
       ],
       theme: SmoothTheme.getThemeData(
-        Brightness.light,
-        themeProvider,
-      ),
+          Brightness.light, themeProvider, colorProvider),
       darkTheme: SmoothTheme.getThemeData(
-        Brightness.dark,
-        themeProvider,
-      ),
+          Brightness.dark, themeProvider, colorProvider),
       themeMode: themeProvider.currentThemeMode,
       home: SmoothAppGetLanguage(appWidget, _userPreferences),
     );

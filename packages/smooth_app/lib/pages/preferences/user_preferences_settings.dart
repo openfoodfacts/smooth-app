@@ -13,6 +13,8 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/camera_modes.dart';
+import 'package:smooth_app/themes/color_provider.dart';
+import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
@@ -123,6 +125,17 @@ class _ApplicationSettings extends StatelessWidget {
             ],
           ),
         ),
+        if (themeProvider.currentTheme == THEME_AMOLED)
+          ListTile(
+            title: Text(
+              appLocalizations.select_accent_color,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            subtitle: ChooseAccentColor(),
+            minLeadingWidth: MEDIUM_SPACE,
+          )
+        else
+          const SizedBox.shrink(),
         const UserPreferencesListItemDivider(),
         const _CountryPickerSetting(),
         const UserPreferencesListItemDivider(),
@@ -185,6 +198,37 @@ class _ApplicationSettings extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class ChooseAccentColor extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final ColorProvider colorProvider = context.watch<ColorProvider>();
+
+    return Padding(
+      padding: const EdgeInsets.only(
+        right: LARGE_SPACE,
+        bottom: MEDIUM_SPACE,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          DropdownButton<String>(
+            value: colorProvider.currentColor,
+            onChanged: (String? value) {
+              colorProvider.setColor(value!);
+            },
+            items: colorNamesValue.entries
+                .map(
+                  (MapEntry<String, Color> entry) => DropdownMenuItem<String>(
+                      value: entry.key, child: Text(entry.key)),
+                )
+                .toList(),
+          ),
+        ],
+      ),
     );
   }
 }

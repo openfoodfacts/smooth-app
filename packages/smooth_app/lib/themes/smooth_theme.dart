@@ -2,6 +2,8 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -13,6 +15,7 @@ class SmoothTheme {
   static ThemeData getThemeData(
     final Brightness brightness,
     final ThemeProvider themeProvider,
+    final ColorProvider colorProvider,
   ) {
     ColorScheme myColorScheme;
 
@@ -23,7 +26,9 @@ class SmoothTheme {
       if (themeProvider.currentTheme == THEME_AMOLED) {
         return FlexThemeData.dark(
           darkIsTrueBlack: true,
-          primary: myColorScheme.primary,
+          primary: colorNamesValue
+                  .getValueByKeyStartWith(colorProvider.currentColor) ??
+              myColorScheme.primary,
           onPrimary: myColorScheme.onPrimary,
           background: myColorScheme.background,
           textTheme: brightness == Brightness.dark
@@ -36,7 +41,9 @@ class SmoothTheme {
                       _TEXT_THEME.bodyMedium?.copyWith(color: Colors.white),
                 )
               : _TEXT_THEME,
-          secondary: myColorScheme.secondary,
+          secondary: colorNamesValue
+                  .getValueByKeyStartWith(colorProvider.currentColor) ??
+              myColorScheme.secondary,
           onSecondary: myColorScheme.onSecondary,
           error: myColorScheme.error,
           onError: myColorScheme.secondary,

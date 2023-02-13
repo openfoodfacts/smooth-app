@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/themes/color_schemes.dart';
 
 /// User choice regarding the picture source.
 enum UserPictureSource {
@@ -48,6 +49,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_INIT = 'init';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
+  static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
@@ -113,6 +115,11 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> setColorScheme(final String color) async {
+    await _sharedPreferences.setString(_TAG_CURRENT_COLOR_SCHEME, color);
+    notifyListeners();
+  }
+
   Future<void> setCrashReports(final bool state) async {
     await _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
     notifyListeners();
@@ -123,6 +130,10 @@ class UserPreferences extends ChangeNotifier {
 
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
+
+  String get currentColor =>
+      _sharedPreferences.getString(_TAG_CURRENT_COLOR_SCHEME) ??
+      COLOR_DEFAULT_NAME;
 
   Future<void> setUserCountry(final String countryCode) async {
     await _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
