@@ -975,7 +975,6 @@
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-        
     "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
