@@ -220,10 +220,12 @@ class ChooseAccentColor extends StatelessWidget {
             onChanged: (String? value) {
               colorProvider.setColor(value!);
             },
-            items: colorNamesValue.entries
+            items: colorNamesValue.keys
                 .map(
-                  (MapEntry<String, Color> entry) => DropdownMenuItem<String>(
-                      value: entry.key, child: Text(entry.key)),
+                  (String colorName) => DropdownMenuItem<String>(
+                    value: colorName,
+                    child: Text(colorName),
+                  ),
                 )
                 .toList(),
           ),
