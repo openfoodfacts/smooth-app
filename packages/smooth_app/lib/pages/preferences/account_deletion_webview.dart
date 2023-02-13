@@ -7,7 +7,7 @@ import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class AccountDeletionWebview extends StatefulWidget {
+class AccountDeletionWebview extends StatelessWidget {
   @override
   State<AccountDeletionWebview> createState() => _AccountDeletionWebviewState();
 }
@@ -46,8 +46,6 @@ class _AccountDeletionWebviewState extends State<AccountDeletionWebview> {
     return uri.toString();
   }
 
-  @override
-  Widget build(BuildContext context) {
     return SmoothScaffold(
       appBar: AppBar(),
       body: WebView(
