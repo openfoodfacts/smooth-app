@@ -15,8 +15,7 @@ void main() {
   group(
     'Dialogs on Contribute Page looks as expected',
     () {
-      for (final bool themeDark in <bool>[true, false]) {
-        final String theme = themeDark ? 'Dark' : 'Light';
+      for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
         const List<String> dialogTypes = <String>[
           'Improving',
           'Software development',

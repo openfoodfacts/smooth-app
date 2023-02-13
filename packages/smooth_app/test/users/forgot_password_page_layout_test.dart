@@ -13,9 +13,7 @@ import '../tests_utils/mocks.dart';
 
 void main() {
   group('Password Reset Page looks as expected', () {
-    for (final bool themeDark in <bool>[true, false]) {
-      final String theme = themeDark ? 'Dark' : 'Light';
-
+    for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
       testWidgets(theme, (WidgetTester tester) async {
         late UserPreferences userPreferences;
         late ProductPreferences productPreferences;
