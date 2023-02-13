@@ -60,7 +60,7 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         _MiscellaneousSettings(),
         _PrivacySettings(),
         _RateUs(),
-        MyWidget(),
+        _ShareWithFriends(),
       ];
 }
 
@@ -73,12 +73,11 @@ class _RateUs extends StatelessWidget {
         iOSAppId: 'org.openfoodfacts.scanner',
       );
     } on PlatformException {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            Platform.isIOS
-                ? "Could'nt find app store"
-                : "Could'nt find play store",
+            '${appLocalizations.could_not_find} ${Platform.isIOS ? "app store" : "play store"}',
             textAlign: TextAlign.center,
           ),
           behavior: SnackBarBehavior.floating,
@@ -89,19 +88,23 @@ class _RateUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Column(
-      children: [
+      children: <Widget>[
         ListTile(
-          leading: SizedBox(
-            width: 40,
-            height: 40,
-            child: Image.asset(Platform.isIOS
-                ? 'assets/app/app-store.png'
-                : 'assets/app/playstore.png'),
+          leading: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: SizedBox(
+              height: DEFAULT_ICON_SIZE,
+              width: DEFAULT_ICON_SIZE,
+              child: Image.asset(Platform.isIOS
+                  ? 'assets/app/app-store.png'
+                  : 'assets/app/playstore.png'),
+            ),
           ),
-          title: const Text(
-            'Rate us',
-            style: TextStyle(fontWeight: FontWeight.bold),
+          title: Text(
+            appLocalizations.app_rating_dialog_positive_action,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           onTap: () => _redirect(context),
         ),
@@ -114,8 +117,8 @@ class _RateUs extends StatelessWidget {
   }
 }
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class _ShareWithFriends extends StatelessWidget {
+  const _ShareWithFriends();
 
   Future<void> _shareApp(BuildContext context) async {
     const String packageName = 'org.openfoodfacts.scanner';
@@ -127,15 +130,16 @@ class MyWidget extends StatelessWidget {
         : 'https://play.google.com/store/apps/details?id=$packageName';
     try {
       Share.share(
-        url,
-        subject: 'Discover the Oen Food Facts app',
+        "${appLocalizations.discover_best_food_scanner}: 'Oen Food Facts - Food scanner' $url",
+        subject:
+            "${appLocalizations.discover_best_food_scanner}: 'Oen Food Facts - Food scanner'",
         sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
       );
     } on PlatformException {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-            'Something went wrong',
+            appLocalizations.error,
             textAlign: TextAlign.center,
           ),
           behavior: SnackBarBehavior.floating,
@@ -149,10 +153,7 @@ class MyWidget extends StatelessWidget {
     return Column(
       children: <Widget>[
         ListTile(
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.share),
-          ),
+          leading: const Icon(Icons.share),
           title: const Text(
             'Share Open Food Facts',
             style: TextStyle(fontWeight: FontWeight.bold),
