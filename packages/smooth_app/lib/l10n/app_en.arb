@@ -258,7 +258,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Dark mode",
+    "darkmode": "Theme mode",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
