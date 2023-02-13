@@ -837,7 +837,6 @@
     "ask_me_later_button_label": "Later",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
-
     },
     "are_you_sure": "Are you sure?",
     "@are_you_sure": {
