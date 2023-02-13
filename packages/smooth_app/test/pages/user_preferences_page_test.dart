@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -28,6 +29,7 @@ void main() {
         late UserPreferences userPreferences;
         late ProductPreferences productPreferences;
         late ThemeProvider themeProvider;
+        late ColorProvider colorProvider;
 
         SharedPreferences.setMockInitialValues(
           mockSharedPreferences(),
@@ -44,6 +46,7 @@ void main() {
         await productPreferences.init(PlatformAssetBundle());
         await userPreferences.init(productPreferences);
         themeProvider = ThemeProvider(userPreferences);
+        colorProvider = ColorProvider(userPreferences);
 
         await tester.pumpWidget(
           MockSmoothApp(
@@ -51,6 +54,7 @@ void main() {
             UserManagementProvider(),
             productPreferences,
             themeProvider,
+            colorProvider,
             const UserPreferencesPage(),
             localDatabase: MockLocalDatabase(),
           ),
@@ -83,6 +87,7 @@ void main() {
     late UserPreferences userPreferences;
     late ProductPreferences productPreferences;
     late ThemeProvider themeProvider;
+    late ColorProvider colorProvider;
 
     SharedPreferences.setMockInitialValues(
       mockSharedPreferences(),
@@ -98,6 +103,7 @@ void main() {
     await productPreferences.init(PlatformAssetBundle());
     await userPreferences.init(productPreferences);
     themeProvider = ThemeProvider(userPreferences);
+    colorProvider = ColorProvider(userPreferences);
 
     UserManagementProvider.mountCredentials(
       userId: 'userId',
@@ -110,6 +116,7 @@ void main() {
         UserManagementProvider(),
         productPreferences,
         themeProvider,
+        colorProvider,
         const UserPreferencesPage(type: PreferencePageType.ACCOUNT),
         localDatabase: MockLocalDatabase(),
       ),
