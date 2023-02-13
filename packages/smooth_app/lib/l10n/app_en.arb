@@ -837,6 +837,12 @@
     "ask_me_later_button_label": "Later",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
+
+    },
+    "are_you_sure": "Are you sure?",
+    "@are_you_sure": {
+        "description": "Are you sure?"
+
     },
     "knowledge_panel_text_source": "Go further on {sourceName}",
     "@knowledge_panel_text_source": {
@@ -969,6 +975,7 @@
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
+        
     "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",

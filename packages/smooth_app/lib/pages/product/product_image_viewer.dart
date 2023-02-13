@@ -126,7 +126,41 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                   child: Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                    child: _getUnselectImageButton(appLocalizations),
+                    child: (imageProvider == null)
+                        ? Container()
+                        : EditImageButton(
+                            iconData: Icons.do_disturb_on,
+                            label: appLocalizations
+                                .edit_photo_unselect_button_label,
+                            onPressed: () async {
+                              final bool? confirmed = await showDialog<bool>(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return SmoothAlertDialog(
+                                      title:
+                                          appLocalizations.confirm_button_label,
+                                      body: Text(
+                                        appLocalizations.are_you_sure,
+                                      ),
+                                      close: true,
+                                      positiveAction: SmoothActionButton(
+                                          text: appLocalizations.yes,
+                                          onPressed: () =>
+                                              Navigator.of(context).pop(true)),
+                                      negativeAction: SmoothActionButton(
+                                          text: appLocalizations.no,
+                                          onPressed: () => Navigator.of(context)
+                                              .pop(false)));
+                                },
+                              );
+                              if (confirmed == true) {
+                                await BackgroundTaskUnselect.addTask(
+                                  _barcode,
+                                  imageField: widget.imageField,
+                                  widget: this,
+                                );
+                              }
+                            }),
                   ),
                 ),
                 Expanded(
