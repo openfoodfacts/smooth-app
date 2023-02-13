@@ -1890,7 +1890,8 @@
     "background_task_question_stop": "Do you want to stop that task ASAP?",
     "feed_back": "Feedback",
     "undo": "Undo",
-    "copy_email_to_clip_board": "Copy emailto clipboard",
+    "copy_email_to_clip_board": "Copy email to clipboard",
     "please_send_us_an_email_to": "Please send us manually an email to",
-    "email_copied_to_clip_board": "Email copied to clipboard!"
+    "email_copied_to_clip_board": "Email copied to clipboard!",
+    "select_accent_color": "Select Accent Color"
 }
