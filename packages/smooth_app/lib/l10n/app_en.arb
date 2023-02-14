@@ -841,7 +841,6 @@
     "are_you_sure": "Are you sure?",
     "@are_you_sure": {
         "description": "Are you sure?"
-
     },
     "knowledge_panel_text_source": "Go further on {sourceName}",
     "@knowledge_panel_text_source": {
