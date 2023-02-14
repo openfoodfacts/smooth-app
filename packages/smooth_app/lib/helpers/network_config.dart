@@ -63,7 +63,7 @@ Future<void> _importSSLCertificate() async {
   if (Platform.isAndroid) {
     await dip.loadLibrary();
     final int sdkInt =
-        (await dip.DeviceInfoPlugin().androidInfo).version.sdkInt;
+        (await dip.DeviceInfoPlugin().androidInfo).version.sdkInt ?? 1;
 
     // API Level 25 is Android 7.1
     if (sdkInt < 25) {

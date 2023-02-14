@@ -534,7 +534,7 @@ class CameraScannerPageState extends LifecycleAwareState<CameraScannerPage>
     await _musicPlayer!.setSourceAsset('audio/beep.ogg');
     await _musicPlayer!.setPlayerMode(PlayerMode.lowLatency);
     await _musicPlayer!.setAudioContext(
-      const AudioContext(
+      AudioContext(
         android: AudioContextAndroid(
           isSpeakerphoneOn: false,
           stayAwake: false,
@@ -543,6 +543,7 @@ class CameraScannerPageState extends LifecycleAwareState<CameraScannerPage>
           audioFocus: AndroidAudioFocus.gainTransientExclusive,
         ),
         iOS: AudioContextIOS(
+          defaultToSpeaker: false,
           category: AVAudioSessionCategory.soloAmbient,
           options: <AVAudioSessionOptions>[
             AVAudioSessionOptions.mixWithOthers,
