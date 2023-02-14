@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -164,7 +166,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       EditImageButton(
         iconData: Icons.do_disturb_on,
         label: appLocalizations.edit_photo_unselect_button_label,
-        onPressed: _actionUnselect,
+        onPressed: () => _actionUnselect(appLocalizations),
       );
 
   Widget _getGalleryButton(final AppLocalizations appLocalizations) =>
@@ -176,7 +178,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   // TODO(monsieurtanuki): we should also suggest the existing image gallery
   Future<File?> _actionNewImage() async {
-    // ignore: use_build_context_synchronously
     if (!await ProductRefresher().checkIfLoggedIn(context)) {
       return null;
     }
@@ -189,11 +190,9 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<void> _actionGallery() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    // ignore: use_build_context_synchronously
     if (!await ProductRefresher().checkIfLoggedIn(context)) {
       return;
     }
-    // ignore: use_build_context_synchronously
     final List<int>? result = await LoadingDialog.run<List<int>>(
       future: OpenFoodAPIClient.getProductImageIds(
         _barcode,
@@ -237,7 +236,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<File?> _actionEditImage() async {
     final NavigatorState navigatorState = Navigator.of(context);
-    // ignore: use_build_context_synchronously
     if (!await ProductRefresher().checkIfLoggedIn(context)) {
       return null;
     }
@@ -262,7 +260,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
     // but if not possible, get the best picture from the server.
     final String? imageUrl = _imageData.getImageUrl(ImageSize.ORIGINAL);
-    // ignore: use_build_context_synchronously
     imageFile = await downloadImageUrl(
       context,
       imageUrl,
@@ -275,19 +272,42 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     return null;
   }
 
-  Future<void> _actionUnselect() async {
+  Future<void> _actionUnselect(final AppLocalizations appLocalizations) async {
     final NavigatorState navigatorState = Navigator.of(context);
-    // ignore: use_build_context_synchronously
+
     if (!await ProductRefresher().checkIfLoggedIn(context)) {
       return;
     }
-    await BackgroundTaskUnselect.addTask(
-      _barcode,
-      imageField: widget.imageField,
-      widget: this,
+
+    final bool? confirmed = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          title: appLocalizations.confirm_button_label,
+          body: Text(
+            appLocalizations.are_you_sure,
+          ),
+          close: true,
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.yes,
+            onPressed: () => Navigator.of(context).pop(true),
+          ),
+          negativeAction: SmoothActionButton(
+            text: appLocalizations.no,
+            onPressed: () => Navigator.of(context).pop(false),
+          ),
+        );
+      },
     );
-    _localDatabase.notifyListeners();
-    navigatorState.pop();
+    if (confirmed == true) {
+      await BackgroundTaskUnselect.addTask(
+        _barcode,
+        imageField: widget.imageField,
+        widget: this,
+      );
+      _localDatabase.notifyListeners();
+      navigatorState.pop();
+    }
   }
 
   Future<File?> _openCropPage(
