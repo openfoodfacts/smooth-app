@@ -36,11 +36,12 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
   final TextEditingController passwordController = TextEditingController();
 
   Future<void> _login(BuildContext context) async {
-    final UserManagementProvider userManagementProvider =
-        context.read<UserManagementProvider>();
     if (!_formKey.currentState!.validate()) {
       return;
     }
+
+    final UserManagementProvider userManagementProvider =
+        context.read<UserManagementProvider>();
 
     setState(() {
       _runningQuery = true;

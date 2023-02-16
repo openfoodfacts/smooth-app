@@ -214,7 +214,7 @@
     "sign_up_page_username_hint": "Username: Publicly visible",
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
     "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -253,6 +253,9 @@
     "sign_up_page_producer_hint": "Producer/brand",
     "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
     "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
+    "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
+    "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
@@ -389,9 +392,9 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Search",
+    "scan_navbar_label": "Scan",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the searching of products"
+        "description": "BottomNavigationBarLabel: For the scanning of products"
     },
     "history_navbar_label": "History",
     "@history_navbar_label": {
@@ -837,6 +840,10 @@
     "ask_me_later_button_label": "Later",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
+    },
+    "are_you_sure": "Are you sure?",
+    "@are_you_sure": {
+        "description": "Are you sure?"
     },
     "knowledge_panel_text_source": "Go further on {sourceName}",
     "@knowledge_panel_text_source": {
