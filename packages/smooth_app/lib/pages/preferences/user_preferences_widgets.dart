@@ -235,7 +235,12 @@ class UserPreferencesTitle extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.displaySmall?.copyWith(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).brightness == Brightness.light
+                  ? const Color(0xFF000000)
+                  : const Color(0xFFFFFFFF)),
         ),
       ),
     );
