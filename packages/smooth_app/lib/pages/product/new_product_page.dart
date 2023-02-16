@@ -348,8 +348,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(
-                  18), // TODO(monsieurtanuki): cf. FloatingActionButton
-              backgroundColor: colorScheme.primary,
+                18,
+              ), // TODO(monsieurtanuki): cf. FloatingActionButton
+              primary: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
           ),
