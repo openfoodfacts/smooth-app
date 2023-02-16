@@ -86,11 +86,11 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently the app uses `3.7.0` flutter version. If you are using a later version you can use `flutter downgrade 3.7.0` to downgrades the version.
+- Currently the app uses `3.0.5` flutter version. If you are using a later version you can use `flutter downgrade 3.0.5` to downgrades the version. (Won't work if you are using >=3.7.0, see below)
 
   If it does not work
   - Open the terminal and change the directory to flutter location and run the following commands
-  - `git checkout 3.7.0`
+  - `git checkout 3.0.5`
   - `flutter doctor`
 
 We have predefined run configurations for Android Studio and Visual Studio Code

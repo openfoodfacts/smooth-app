@@ -93,8 +93,8 @@ jobs:
         with:
           channel: stable
           cache: true
-          flutter-version: '3.7.0'
-          cache-key: flutter-3.7.0-${{ hashFiles('**/pubspec.lock') }}
+          flutter-version: '3.0.5'
+          cache-key: revert-3.0.5
 
       - name: Flutter version    
         run: flutter --version
