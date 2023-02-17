@@ -20,6 +20,7 @@ import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/tmp_crop_image/image_compute_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
 import 'package:smooth_app/tmp_crop_image/rotation.dart';
@@ -139,6 +140,12 @@ class _CropPageState extends State<CropPage> {
     _initLoad();
   }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   Future<void> _initLoad() async => _load(await widget.inputFile.readAsBytes());
 
   @override
@@ -219,11 +226,13 @@ class _CropPageState extends State<CropPage> {
   }
 
   /// Returns a small file with the cropped image, for the transient image.
+  ///
+  /// Here we use BMP format as it's faster to encode.
   Future<File?> _getCroppedImageFile(
     final Directory directory,
     final int sequenceNumber,
   ) async {
-    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.jpeg';
+    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.bmp';
     final File result = File(croppedPath);
     final image2.Image? rawImage = await _controller.croppedBitmap(
       maxSize: _screenSize.longestSide,
@@ -231,13 +240,11 @@ class _CropPageState extends State<CropPage> {
     if (rawImage == null) {
       return null;
     }
-    final Uint8List data = Uint8List.fromList(image2.encodeJpg(rawImage));
-    await result.writeAsBytes(data);
+    await saveBmp(ImageComputeContainer(file: result, rawImage: rawImage));
     return result;
   }
 
-  Future<bool> _saveFileAndExit() async {
-    // TODO(monsieurtanuki): hide the controls while computing?
+  Future<File?> _saveFileAndExitTry() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoInt daoInt = DaoInt(localDatabase);
     final int sequenceNumber =
@@ -249,7 +256,7 @@ class _CropPageState extends State<CropPage> {
       sequenceNumber,
     );
     if (croppedFile == null) {
-      return true;
+      return null;
     }
 
     if (widget.imageId == null) {
@@ -296,17 +303,31 @@ class _CropPageState extends State<CropPage> {
     }
     localDatabase.notifyListeners();
     if (!mounted) {
-      return true;
+      return croppedFile;
     }
     final ContinuousScanModel model = context.read<ContinuousScanModel>();
     await model
         .onCreateProduct(widget.barcode); // TODO(monsieurtanuki): a bit fishy
 
-    if (!mounted) {
-      return true;
+    return croppedFile;
+  }
+
+  Future<void> _saveFileAndExit() async {
+    setState(() => _processing = true);
+    try {
+      final File? file = await _saveFileAndExitTry();
+      _processing = false;
+      if (!mounted) {
+        return;
+      }
+      if (file == null) {
+        setState(() {});
+      } else {
+        Navigator.of(context).pop<File>(file);
+      }
+    } finally {
+      _processing = false;
     }
-    Navigator.of(context).pop<File>(croppedFile);
-    return true;
   }
 
   /// Returns the crop rect according to local cropping method * factor.
@@ -370,7 +391,8 @@ class _CropPageState extends State<CropPage> {
     }
 
     try {
-      return _saveFileAndExit();
+      await _saveFileAndExit();
+      return true;
     } catch (e) {
       if (mounted) {
         // not likely to happen, but you never know...

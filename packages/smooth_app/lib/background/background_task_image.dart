@@ -4,7 +4,6 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image/image.dart' as image2;
@@ -17,6 +16,7 @@ import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/tmp_crop_image/image_compute_helper.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotation.dart';
 
@@ -317,8 +317,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     if (rawImage == null) {
       throw Exception('Cannot crop file');
     }
-    final Uint8List data = Uint8List.fromList(image2.encodeJpg(rawImage));
-    await file.writeAsBytes(data);
+    await saveJpeg(ImageComputeContainer(file: file, rawImage: rawImage));
     return true;
   }
 
