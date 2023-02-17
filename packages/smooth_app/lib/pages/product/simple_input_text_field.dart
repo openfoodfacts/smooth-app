@@ -33,9 +33,7 @@ class SimpleInputTextField extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             SizedBox(
-              width: constraints.maxWidth -
-                  LARGE_SPACE -
-                  (withClearButton ? MINIMUM_TOUCH_SIZE : 0),
+              width: constraints.maxWidth - LARGE_SPACE - MINIMUM_TOUCH_SIZE,
               child: RawAutocomplete<String>(
                 key: autocompleteKey,
                 focusNode: focusNode,
