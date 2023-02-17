@@ -12,13 +12,14 @@ import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/camera_modes.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:store_redirect/store_redirect.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
 class UserPreferencesSettings extends AbstractUserPreferences {
@@ -68,22 +69,35 @@ class _RateUs extends StatelessWidget {
   const _RateUs();
   Future<void> _redirect(BuildContext context) async {
     try {
-      await StoreRedirect.redirect(
-        androidAppId: 'org.openfoodfacts.scanner',
-        iOSAppId: 'org.openfoodfacts.scanner',
-      );
+      await ApplicationStore.openAppDetails();
     } on PlatformException {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            '${appLocalizations.could_not_find} ${Platform.isIOS ? "app store" : "play store"}',
+            appLocalizations.error_occurred,
             textAlign: TextAlign.center,
           ),
           behavior: SnackBarBehavior.floating,
         ),
       );
     }
+  }
+
+  String getImagePath() {
+    final String appFlavour = flavour;
+    String imagePath = '';
+    switch (appFlavour) {
+      case 'zxing-uri':
+        imagePath = 'assets/app/f-droid.png';
+        break;
+      case 'ml-ios':
+        imagePath = 'assets/app/app-store.png';
+        break;
+      default:
+        imagePath = 'assets/app/playstore.png';
+    }
+    return imagePath;
   }
 
   @override
@@ -97,9 +111,7 @@ class _RateUs extends StatelessWidget {
             child: SizedBox(
               height: DEFAULT_ICON_SIZE,
               width: DEFAULT_ICON_SIZE,
-              child: Image.asset(Platform.isIOS
-                  ? 'assets/app/app-store.png'
-                  : 'assets/app/playstore.png'),
+              child: Image.asset(getImagePath()),
             ),
           ),
           title: Text(
@@ -121,20 +133,9 @@ class _ShareWithFriends extends StatelessWidget {
   const _ShareWithFriends();
 
   Future<void> _shareApp(BuildContext context) async {
-    const String packageName = 'org.openfoodfacts.scanner';
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    // We need to provide a sharePositionOrigin to make the plugin work on ipad
-    final RenderBox? box = context.findRenderObject() as RenderBox?;
-    final String url = Platform.isIOS
-        ? 'market://details?id=$packageName'
-        : 'https://play.google.com/store/apps/details?id=$packageName';
     try {
-      Share.share(
-        "${appLocalizations.discover_best_food_scanner}: 'Oen Food Facts - Food scanner' $url",
-        subject:
-            "${appLocalizations.discover_best_food_scanner}: 'Oen Food Facts - Food scanner'",
-        sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
-      );
+      await Share.share(appLocalizations.contribute_share_content);
     } on PlatformException {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -153,10 +154,10 @@ class _ShareWithFriends extends StatelessWidget {
     return Column(
       children: <Widget>[
         ListTile(
-          leading: const Icon(Icons.share),
-          title: const Text(
-            'Share Open Food Facts',
-            style: TextStyle(fontWeight: FontWeight.bold),
+          leading: Icon(Icons.adaptive.share),
+          title: Text(
+            AppLocalizations.of(context).contribute_share_header,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           onTap: () => _shareApp(context),
         ),
