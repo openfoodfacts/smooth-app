@@ -416,6 +416,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
           textStyle: themeData.textTheme.bodyMedium!.copyWith(
             color: themeData.colorScheme.onPrimary,
           ),
+          backgroundColor: Theme.of(context).focusColor,
           padding: const EdgeInsets.symmetric(
             horizontal: SMALL_SPACE,
           ),
