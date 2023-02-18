@@ -360,6 +360,14 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world !",
+    "@account_create_message": {
+        "description": "The Message to be displayed if the user does not have an account and wants to contribute"
+    },
+    "join_us": "Join us",
+    "@join_us": {
+        "description": "Join which is actually Signup"
+    },
     "myPreferences_profile_title": "Your Profile",
     "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "App Settings",
