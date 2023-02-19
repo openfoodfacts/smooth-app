@@ -315,6 +315,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   }
 
   Future<void> _signUp() async {
+    final AppLocalizations appLocalisations = AppLocalizations.of(context);
     _disagreed = !_agree;
     setState(() {});
     if (!_formKey.currentState!.validate() || _disagreed) {
@@ -333,34 +334,47 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         newsletter: _subscribe,
         orgName: _foodProducer ? _brandController.trimmedText : null,
       ),
-      title: AppLocalizations.of(context).sign_up_page_action_doing_it,
+      title: appLocalisations.sign_up_page_action_doing_it,
     );
     if (status == null) {
       // probably the end user stopped the dialog
       return;
     }
     if (status.error != null) {
-      // ignore: use_build_context_synchronously
-      await LoadingDialog.error(context: context, title: status.error);
+      String? errorMessage;
 
       // Highlight the field with the error
       if (status.statusErrors?.isNotEmpty == true) {
         if (status.statusErrors!
             .contains(SignUpStatusError.EMAIL_ALREADY_USED)) {
           _emailFocusNode.requestFocus();
+          errorMessage =
+              '${_emailController.trimmedText} ${appLocalisations.sign_up_page_email_already_exists}';
         } else if (status.statusErrors!
-            .contains(SignUpStatusError.INCORRECT_EMAIL)) {
+                .contains(SignUpStatusError.INCORRECT_EMAIL) ||
+            status.error!.contains('Invalid e-mail address')) {
           _emailFocusNode.requestFocus();
+          errorMessage = appLocalisations.sign_up_page_provide_valid_email;
         } else if (status.statusErrors!
             .contains(SignUpStatusError.INVALID_PASSWORD)) {
           _password1FocusNode.requestFocus();
+          errorMessage = appLocalisations.sign_up_page_password_error_invalid;
         } else if (status.statusErrors!
-                .contains(SignUpStatusError.INVALID_USERNAME) ||
-            status.statusErrors!
-                .contains(SignUpStatusError.USERNAME_ALREADY_USED)) {
+            .contains(SignUpStatusError.INVALID_USERNAME)) {
           _userFocusNode.requestFocus();
+          errorMessage =
+              '${appLocalisations.sign_up_page_username_description}  ${appLocalisations.sign_up_page_username_length_invalid}';
+        } else if (status.statusErrors!
+            .contains(SignUpStatusError.USERNAME_ALREADY_USED)) {
+          _userFocusNode.requestFocus();
+          errorMessage = appLocalisations.sign_up_page_user_name_already_used;
+        } else {
+          errorMessage = status.error;
         }
       }
+
+      // ignore: use_build_context_synchronously
+      await LoadingDialog.error(context: context, title: errorMessage);
 
       return;
     }
@@ -373,7 +387,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(AppLocalizations.of(context).sign_up_page_action_ok),
+        body: Text(appLocalisations.sign_up_page_action_ok),
         positiveAction: SmoothActionButton(
           text: AppLocalizations.of(context).okay,
           onPressed: () => Navigator.of(context).pop(),
