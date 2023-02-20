@@ -1,8 +1,6 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -22,31 +20,10 @@ class SmoothTheme {
     if (brightness == Brightness.light) {
       myColorScheme = lightColorScheme;
     } else {
-      myColorScheme = trueDarkColorScheme;
       if (themeProvider.currentTheme == THEME_AMOLED) {
-        return FlexThemeData.dark(
-          darkIsTrueBlack: true,
-          primary: colorNamesValue
-                  .getValueByKeyStartWith(colorProvider.currentColor) ??
-              myColorScheme.primary,
-          onPrimary: myColorScheme.onPrimary,
-          background: myColorScheme.background,
-          textTheme: brightness == Brightness.dark
-              ? _TEXT_THEME.copyWith(
-                  displayMedium:
-                      _TEXT_THEME.displayMedium?.copyWith(color: Colors.white),
-                  headlineMedium:
-                      _TEXT_THEME.headlineMedium?.copyWith(color: Colors.white),
-                  bodyMedium:
-                      _TEXT_THEME.bodyMedium?.copyWith(color: Colors.white),
-                )
-              : _TEXT_THEME,
-          secondary: colorNamesValue
-                  .getValueByKeyStartWith(colorProvider.currentColor) ??
-              myColorScheme.secondary,
-          onSecondary: myColorScheme.onSecondary,
-          error: myColorScheme.error,
-          onError: myColorScheme.secondary,
+        myColorScheme = trueDarkColorScheme.copyWith(
+          primary: getColorValue(colorProvider),
+          secondary: getColorValue(colorProvider),
         );
       } else {
         myColorScheme = darkColorScheme;
@@ -56,11 +33,14 @@ class SmoothTheme {
     return ThemeData(
       primaryColor: const Color(0xFF341100),
       colorScheme: myColorScheme,
+      canvasColor: themeProvider.currentTheme == THEME_AMOLED
+          ? myColorScheme.background
+          : null,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedIconTheme: const IconThemeData(size: 24.0),
         showSelectedLabels: true,
         selectedItemColor: brightness == Brightness.dark
-            ? Colors.white
+            ? myColorScheme.primary
             : const Color(0xFF341100),
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         showUnselectedLabels: true,
@@ -95,7 +75,9 @@ class SmoothTheme {
       ),
       dividerColor: const Color(0xFFdfdfdf),
       inputDecorationTheme: InputDecorationTheme(
-        fillColor: myColorScheme.secondary,
+        fillColor: themeProvider.currentTheme == THEME_AMOLED
+            ? colorDarken(myColorScheme.secondary)
+            : myColorScheme.secondary,
       ),
       iconTheme: IconThemeData(
         color: myColorScheme.onBackground,

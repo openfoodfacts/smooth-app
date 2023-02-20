@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/themes/color_provider.dart';
 
 const Color seed = Color(0xFF99460D);
 
@@ -64,3 +66,23 @@ const Map<String, Color> colorNamesValue = <String, Color>{
   'Rust': COLOR_RUST,
   'Teal': COLOR_DEFAULT,
 };
+
+/// Get Color from Color Name using colorNamesValue
+Color getColorValue(ColorProvider colorProvider) {
+  if (colorNamesValue.containsKey(colorProvider.currentColor)) {
+    return colorNamesValue.getValueByKeyStartWith(colorProvider.currentColor)!;
+  }
+  return COLOR_DEFAULT;
+}
+
+/// Get darker variant of given Color
+/// For Secondary, to make input text icon visible.
+Color colorDarken(Color color, [double amount = .4]) {
+  assert(amount >= 0 && amount <= 1);
+
+  final HSLColor hsl = HSLColor.fromColor(color);
+  final HSLColor hslDark =
+      hsl.withLightness((hsl.lightness - amount).clamp(0.0, 1.0));
+
+  return hslDark.toColor();
+}
