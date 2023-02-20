@@ -74,15 +74,3 @@ Color getColorValue(ColorProvider colorProvider) {
   }
   return COLOR_DEFAULT;
 }
-
-/// Get darker variant of given Color
-/// For Secondary, to make input text icon visible.
-Color colorDarken(Color color, [double amount = .4]) {
-  assert(amount >= 0 && amount <= 1);
-
-  final HSLColor hsl = HSLColor.fromColor(color);
-  final HSLColor hslDark =
-      hsl.withLightness((hsl.lightness - amount).clamp(0.0, 1.0));
-
-  return hslDark.toColor();
-}

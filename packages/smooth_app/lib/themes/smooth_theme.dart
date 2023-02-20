@@ -23,7 +23,8 @@ class SmoothTheme {
       if (themeProvider.currentTheme == THEME_AMOLED) {
         myColorScheme = trueDarkColorScheme.copyWith(
           primary: getColorValue(colorProvider),
-          secondary: getColorValue(colorProvider),
+          secondary:
+              getShade(getColorValue(colorProvider), darker: true, value: 0.4),
         );
       } else {
         myColorScheme = darkColorScheme;
@@ -75,9 +76,7 @@ class SmoothTheme {
       ),
       dividerColor: const Color(0xFFdfdfdf),
       inputDecorationTheme: InputDecorationTheme(
-        fillColor: themeProvider.currentTheme == THEME_AMOLED
-            ? colorDarken(myColorScheme.secondary)
-            : myColorScheme.secondary,
+        fillColor: myColorScheme.secondary,
       ),
       iconTheme: IconThemeData(
         color: myColorScheme.onBackground,
