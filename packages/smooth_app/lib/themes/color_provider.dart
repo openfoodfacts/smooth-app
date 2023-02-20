@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 
+/// Keep track of Color Change in AppSetting
 class ColorProvider with ChangeNotifier {
   ColorProvider(this._userPreferences);
 
   final UserPreferences _userPreferences;
 
+  /// Get current Color
   String get currentColor => _userPreferences.currentColor;
 
+  /// Set Color
   Future<void> setColor(String value) async {
     await _userPreferences.setColorScheme(value);
     notifyListeners();
