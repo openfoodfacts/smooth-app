@@ -227,8 +227,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(
-            width: getColumnSizeFromContext(context, 0.55),
+          Expanded(
             child: _getNutrientCell(
               appLocalizations,
               orderedNutrient,
@@ -236,7 +235,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             ),
           ),
           SizedBox(
-            width: getColumnSizeFromContext(context, 0.25),
+            width: getColumnSizeFromContext(context, 0.3),
             child: _getUnitCell(orderedNutrient),
           ),
         ],
