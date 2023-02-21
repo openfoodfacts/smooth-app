@@ -12,6 +12,11 @@ PODS:
   - Flutter (1.0.0)
   - flutter_email_sender (0.0.1):
     - Flutter
+  - flutter_image_compress (1.0.0):
+    - Flutter
+    - Mantle
+    - SDWebImage
+    - SDWebImageWebPCoder
   - flutter_isolate (0.0.1):
     - Flutter
   - flutter_native_splash (0.0.1):
@@ -67,6 +72,18 @@ PODS:
   - iso_countries (0.0.1):
     - Flutter
   - KeychainAccess (4.2.2)
+  - libwebp (1.2.4):
+    - libwebp/demux (= 1.2.4)
+    - libwebp/mux (= 1.2.4)
+    - libwebp/webp (= 1.2.4)
+  - libwebp/demux (1.2.4):
+    - libwebp/webp
+  - libwebp/mux (1.2.4):
+    - libwebp/demux
+  - libwebp/webp (1.2.4)
+  - Mantle (2.2.0):
+    - Mantle/extobjc (= 2.2.0)
+  - Mantle/extobjc (2.2.0)
   - MLImage (1.0.0-beta2)
   - MLKitBarcodeScanning (1.7.0):
     - MLKitCommon (~> 5.0)
@@ -105,6 +122,12 @@ PODS:
   - Realm/Headers (10.31.0)
   - RealmSwift (10.31.0):
     - Realm (= 10.31.0)
+  - SDWebImage (5.15.0):
+    - SDWebImage/Core (= 5.15.0)
+  - SDWebImage/Core (5.15.0)
+  - SDWebImageWebPCoder (0.10.0):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.15)
   - Sentry (7.25.1):
     - Sentry/Core (= 7.25.1)
   - Sentry/Core (7.25.1)
@@ -131,6 +154,7 @@ DEPENDENCIES:
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - flutter_email_sender (from `.symlinks/plugins/flutter_email_sender/ios`)
+  - flutter_image_compress (from `.symlinks/plugins/flutter_image_compress/ios`)
   - flutter_isolate (from `.symlinks/plugins/flutter_isolate/ios`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
@@ -160,6 +184,8 @@ SPEC REPOS:
     - GoogleUtilitiesComponents
     - GTMSessionFetcher
     - KeychainAccess
+    - libwebp
+    - Mantle
     - MLImage
     - MLKitBarcodeScanning
     - MLKitCommon
@@ -169,6 +195,8 @@ SPEC REPOS:
     - Protobuf
     - Realm
     - RealmSwift
+    - SDWebImage
+    - SDWebImageWebPCoder
     - Sentry
 
 EXTERNAL SOURCES:
@@ -184,6 +212,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_email_sender:
     :path: ".symlinks/plugins/flutter_email_sender/ios"
+  flutter_image_compress:
+    :path: ".symlinks/plugins/flutter_image_compress/ios"
   flutter_isolate:
     :path: ".symlinks/plugins/flutter_isolate/ios"
   flutter_native_splash:
@@ -228,6 +258,7 @@ SPEC CHECKSUMS:
   device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_email_sender: 02d7443217d8c41483223627972bfdc09f74276b
+  flutter_image_compress: 5a5e9aee05b6553048b8df1c3bc456d0afaac433
   flutter_isolate: 0edf5081826d071adf21759d1eb10ff5c24503b5
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
   flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
@@ -245,6 +276,8 @@ SPEC CHECKSUMS:
   integration_test: a1e7d09bd98eca2fc37aefd79d4f41ad37bdbbe5
   iso_countries: eb09d40f388e4c65e291e0bb36a701dfe7de6c74
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
+  Mantle: c5aa8794a29a022dfbbfc9799af95f477a69b62d
   MLImage: a454f9f8ecfd537783a12f9488f5be1a68820829
   MLKitBarcodeScanning: b8257854f6afc1c8443d61ec6b98c28b35625df6
   MLKitCommon: 3bc17c6f7d25ce3660f030350b46ae7ec9ebca6e
@@ -257,12 +290,14 @@ SPEC CHECKSUMS:
   Protobuf: f4128517d7a42302e106cc3afe614ee3a7513e94
   Realm: 10df7d86e1ca09d9948fdce2faa3fc623fb092c6
   RealmSwift: aecc52389574be4d451bf6cb1b08824eaa17dad0
+  SDWebImage: 9bec4c5cdd9579e1f57104735ee0c37df274d593
+  SDWebImageWebPCoder: 07b5d53b3adcc3d491312a58ea103e36af1692c1
   Sentry: dd29c18c32b0af9269949f079cf631d581ca76ca
   sentry_flutter: 544b23de27343d0cd12d8d16b0fac71dc884f0e6
   share_plus: 056a1e8ac890df3e33cb503afffaf1e9b4fbae68
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
-  url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
+  url_launcher_ios: ae1517e5e344f5544fb090b079e11f399dfbe4d2
   webview_flutter_wkwebview: b7e70ef1ddded7e69c796c7390ee74180182971f
 
 PODFILE CHECKSUM: aa97d8b016d7264ad0a1ef5c44765133ae787bc4

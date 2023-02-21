@@ -115,7 +115,7 @@ class _EditNewPackagingsComponentState
 }
 
 /// Edit display of a single line inside a [ProductPackaging], e.g. its shape.
-class _EditTextLine extends StatelessWidget {
+class _EditTextLine extends StatefulWidget {
   const _EditTextLine({
     required this.title,
     required this.controller,
@@ -133,6 +133,26 @@ class _EditTextLine extends StatelessWidget {
   final String? hint;
 
   @override
+  State<_EditTextLine> createState() => _EditTextLineState();
+}
+
+class _EditTextLineState extends State<_EditTextLine> {
+  late final FocusNode _focusNode;
+  final Key _autocompleteKey = UniqueKey();
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,39 +160,39 @@ class _EditTextLine extends StatelessWidget {
           ListTile(
             leading: SvgAsyncAsset(
               AssetCacheHelper(
-                <String>['assets/packagings/$iconName.svg'],
-                'no url for packagings/$iconName',
-                color: iconColor,
+                <String>['assets/packagings/${widget.iconName}.svg'],
+                'no url for packagings/${widget.iconName}',
+                color: widget.iconColor,
                 width: MINIMUM_TOUCH_SIZE,
               ),
             ),
-            title: Text(title),
+            title: Text(widget.title),
           ),
           LayoutBuilder(
             builder: (_, BoxConstraints constraints) => SizedBox(
               width: constraints.maxWidth,
               child: SimpleInputTextField(
-                focusNode: FocusNode(),
-                autocompleteKey: UniqueKey(),
+                focusNode: _focusNode,
+                autocompleteKey: _autocompleteKey,
                 constraints: constraints,
-                tagType: tagType,
+                tagType: widget.tagType,
                 hintText: '',
-                controller: controller,
+                controller: widget.controller,
                 withClearButton: true,
               ),
             ),
           ),
-          if (hint != null)
+          if (widget.hint != null)
             Padding(
               padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-              child: ExplanationWidget(hint!),
+              child: ExplanationWidget(widget.hint!),
             ),
         ],
       );
 }
 
 /// Edit display of a _number_ inside a [ProductPackaging], e.g. its weight.
-class _EditNumberLine extends StatelessWidget {
+class _EditNumberLine extends StatefulWidget {
   const _EditNumberLine({
     required this.title,
     required this.controller,
@@ -192,6 +212,25 @@ class _EditNumberLine extends StatelessWidget {
   final NumberFormat numberFormat;
 
   @override
+  State<_EditNumberLine> createState() => _EditNumberLineState();
+}
+
+class _EditNumberLineState extends State<_EditNumberLine> {
+  late final FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -199,35 +238,35 @@ class _EditNumberLine extends StatelessWidget {
           ListTile(
             leading: SvgAsyncAsset(
               AssetCacheHelper(
-                <String>['assets/packagings/$iconName.svg'],
-                'no url for packagings/$iconName',
-                color: iconColor,
+                <String>['assets/packagings/${widget.iconName}.svg'],
+                'no url for packagings/${widget.iconName}',
+                color: widget.iconColor,
                 width: MINIMUM_TOUCH_SIZE,
               ),
             ),
-            title: Text(title),
+            title: Text(widget.title),
           ),
           LayoutBuilder(
             builder: (_, BoxConstraints constraints) => SizedBox(
               width: constraints.maxWidth,
               child: SimpleInputNumberField(
-                focusNode: FocusNode(),
+                focusNode: _focusNode,
                 constraints: constraints,
                 hintText: '',
-                controller: controller,
-                decimal: decimal,
+                controller: widget.controller,
+                decimal: widget.decimal,
                 withClearButton: true,
-                numberFormat: numberFormat,
+                numberFormat: widget.numberFormat,
                 numberRegExp: SimpleInputNumberField.getNumberRegExp(
-                  decimal: decimal,
+                  decimal: widget.decimal,
                 ),
               ),
             ),
           ),
-          if (hint != null)
+          if (widget.hint != null)
             Padding(
               padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-              child: ExplanationWidget(hint!),
+              child: ExplanationWidget(widget.hint!),
             ),
         ],
       );
