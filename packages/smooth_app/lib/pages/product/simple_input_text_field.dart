@@ -81,7 +81,8 @@ class SimpleInputTextField extends StatelessWidget {
                     ),
                     hintText: hintText,
                   ),
-                  autofocus: true,
+                  // a lot of confusion if set to `true`
+                  autofocus: false,
                   focusNode: focusNode,
                 ),
                 optionsViewBuilder: (
