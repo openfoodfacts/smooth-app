@@ -409,16 +409,20 @@ class _SmoothActionFlatButton extends StatelessWidget {
       ),
       child: TextButton(
         onPressed: buttonData.onPressed,
-        style: TextButton.styleFrom(
-          shape: const RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS)),
+          textStyle: MaterialStateProperty.all<TextStyle>(
+            themeData.textTheme.bodyMedium!.copyWith(
+              color: themeData.colorScheme.onPrimary,
+            ),
           ),
-          textStyle: themeData.textTheme.bodyMedium!.copyWith(
-            color: themeData.colorScheme.onPrimary,
-          ),
-          backgroundColor: themeData.buttonTheme.colorScheme?.secondary,
-          padding: const EdgeInsets.symmetric(
-            horizontal: SMALL_SPACE,
+          backgroundColor:
+              MaterialStateProperty.all<Color>(themeData.colorScheme.secondary),
+          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+            const EdgeInsets.symmetric(
+              horizontal: SMALL_SPACE,
+            ),
           ),
         ),
         child: SizedBox(
