@@ -1,3 +1,5 @@
+import 'package:app_settings/app_settings.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -334,7 +336,57 @@ class _PrivacySettings extends StatelessWidget {
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
         const UserPreferencesListItemDivider(),
+        const _AdvancedSettings(),
+        const UserPreferencesListItemDivider(),
       ],
+    );
+  }
+}
+
+class _AdvancedSettings extends StatelessWidget {
+  const _AdvancedSettings({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return GestureDetector(
+      onTap: () async {
+        await AppSettings.openAppSettings();
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Expanded(
+            child: ListTile(
+              title: Text(
+                appLocalizations.native_app_settings,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: SMALL_SPACE),
+                child: Text(
+                  appLocalizations.native_app_description,
+                  style: const TextStyle(
+                    color: Color.fromRGBO(193, 193, 193, 1.0),
+                    letterSpacing: 0.5,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+              minVerticalPadding: MEDIUM_SPACE,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(right: VERY_LARGE_SPACE + LARGE_SPACE),
+            child: Icon(
+              CupertinoIcons.settings_solid,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
