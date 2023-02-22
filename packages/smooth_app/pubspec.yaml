@@ -141,13 +141,13 @@ flutter_native_splash:
   color: "#FFFFFF"
   color_dark: "#333333"
   #It must be a png file and should be sized for 4x pixel density.
-  image: "assets/app/release_icon_transparent_1152x1152.png"
+  image: "assets/app/release_icon_transparent_1152x1152.svg"
 
   # The branding property allows you to specify an image used as branding in the splash screen.
   # It must be a png file. Currently, it is only supported for Android < v12 and iOS.
   # 200dp width and 80dp height.
-  branding: assets/app/splashscreen_branding.png
-  branding_dark: assets/app/splashscreen_branding_dark.png
+  branding: assets/app/splashscreen_branding.svg
+  branding_dark: assets/app/splashscreen_branding_dark.svg
 
   # https://developer.android.com/guide/topics/ui/splash-screen
   android_12:
@@ -156,7 +156,7 @@ flutter_native_splash:
     # 640 pixels in diameter.
     # App icon without an icon background: This should be 1152×1152 pixels, and fit within a circle
     # 768 pixels in diameter.
-    image: "assets/app/release_icon_transparent_70pct_1152x1152.png"
+    image: "assets/app/release_icon_transparent_70pct_1152x1152.svg"
     icon_background_color: "#FFFFFF"
     icon_background_color_dark: "#333333"
 
