@@ -352,41 +352,41 @@ class _AdvancedSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return GestureDetector(
-      onTap: () async {
-        await AppSettings.openAppSettings();
-      },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Expanded(
-            child: ListTile(
-              title: Text(
-                appLocalizations.native_app_settings,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: SMALL_SPACE),
-                child: Text(
-                  appLocalizations.native_app_description,
-                  style: const TextStyle(
-                    color: Color.fromRGBO(193, 193, 193, 1.0),
-                    letterSpacing: 0.5,
-                    fontSize: 14,
-                  ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Expanded(
+          child: ListTile(
+            onTap: () async {
+              await AppSettings.openAppSettings();
+            },
+            title: Text(
+              appLocalizations.native_app_settings,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: SMALL_SPACE),
+              child: Text(
+                appLocalizations.native_app_description,
+                style: const TextStyle(
+                  color: Color.fromRGBO(193, 193, 193, 1.0),
+                  letterSpacing: 0.5,
+                  fontSize: 14,
                 ),
               ),
-              minVerticalPadding: MEDIUM_SPACE,
             ),
+            trailing: const Padding(
+              padding: EdgeInsets.only(
+                right: LARGE_SPACE,
+              ),
+              child: Icon(
+                CupertinoIcons.settings_solid,
+              ),
+            ),
+            minVerticalPadding: MEDIUM_SPACE,
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: VERY_LARGE_SPACE + LARGE_SPACE),
-            child: Icon(
-              CupertinoIcons.settings_solid,
-            ),
-          )
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
