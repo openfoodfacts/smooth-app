@@ -214,7 +214,7 @@
     "sign_up_page_username_hint": "Username: Publicly visible",
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters",
+    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
     "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -253,6 +253,9 @@
     "sign_up_page_producer_hint": "Producer/brand",
     "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
     "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
+    "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
+    "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "@Settings": {},
     "settingsTitle": "Mga setting",
     "@settingsTitle": {
@@ -357,6 +360,14 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world !",
+    "@account_create_message": {
+        "description": "The Message to be displayed if the user does not have an account and wants to contribute"
+    },
+    "join_us": "Join us",
+    "@join_us": {
+        "description": "Join which is actually Signup"
+    },
     "myPreferences_profile_title": "Your Profile",
     "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "App Settings",
@@ -389,9 +400,9 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Hanapin",
+    "scan_navbar_label": "Scan",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the searching of products"
+        "description": "BottomNavigationBarLabel: For the scanning of products"
     },
     "history_navbar_label": "Kasaysayan",
     "@history_navbar_label": {
@@ -478,6 +489,7 @@
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Confirm",
+    "send_image_button_label": "Send image",
     "front_packaging_photo_title": "Front Packaging Photo",
     "ingredients_photo_title": "Ingredients Photo",
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
@@ -836,6 +848,10 @@
     "ask_me_later_button_label": "Later",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
+    },
+    "are_you_sure": "Are you sure?",
+    "@are_you_sure": {
+        "description": "Are you sure?"
     },
     "knowledge_panel_text_source": "Go further on {sourceName}",
     "@knowledge_panel_text_source": {
@@ -1887,5 +1903,9 @@
     "background_task_run_not_started": "not started yet",
     "background_task_run_to_be_deleted": "to be deleted",
     "background_task_question_stop": "Do you want to stop that task ASAP?",
-    "feed_back": "Feedback"
+    "feed_back": "Feedback",
+    "undo": "Undo",
+    "copy_email_to_clip_board": "Copy emailto clipboard",
+    "please_send_us_an_email_to": "Please send us manually an email to",
+    "email_copied_to_clip_board": "Email copied to clipboard!"
 }

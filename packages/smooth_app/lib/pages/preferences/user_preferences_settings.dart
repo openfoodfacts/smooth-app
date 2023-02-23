@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/camera_modes.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
@@ -54,7 +58,113 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         _ProductsSettings(),
         _MiscellaneousSettings(),
         _PrivacySettings(),
+        _RateUs(),
+        _ShareWithFriends(),
       ];
+}
+
+class _RateUs extends StatelessWidget {
+  const _RateUs();
+  Future<void> _redirect(BuildContext context) async {
+    try {
+      await ApplicationStore.openAppDetails();
+    } on PlatformException {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            appLocalizations.error_occurred,
+            textAlign: TextAlign.center,
+          ),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  String getImagePath() {
+    final String appFlavour = flavour;
+    String imagePath = '';
+    switch (appFlavour) {
+      case 'zxing-uri':
+        imagePath = 'assets/app/f-droid.png';
+        break;
+      case 'ml-ios':
+        imagePath = 'assets/app/app-store.png';
+        break;
+      default:
+        imagePath = 'assets/app/playstore.png';
+    }
+    return imagePath;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return Column(
+      children: <Widget>[
+        ListTile(
+          leading: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: SizedBox(
+              height: DEFAULT_ICON_SIZE,
+              width: DEFAULT_ICON_SIZE,
+              child: Image.asset(getImagePath()),
+            ),
+          ),
+          title: Text(
+            appLocalizations.app_rating_dialog_positive_action,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          onTap: () => _redirect(context),
+        ),
+        const SizedBox(
+          height: SMALL_SPACE,
+        ),
+        const UserPreferencesListItemDivider(),
+      ],
+    );
+  }
+}
+
+class _ShareWithFriends extends StatelessWidget {
+  const _ShareWithFriends();
+
+  Future<void> _shareApp(BuildContext context) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    try {
+      await Share.share(appLocalizations.contribute_share_content);
+    } on PlatformException {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            appLocalizations.error,
+            textAlign: TextAlign.center,
+          ),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          leading: Icon(Icons.adaptive.share),
+          title: Text(
+            AppLocalizations.of(context).contribute_share_header,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          onTap: () => _shareApp(context),
+        ),
+        const SizedBox(
+          height: SMALL_SPACE,
+        ),
+      ],
+    );
+  }
 }
 
 class _ApplicationSettings extends StatelessWidget {
@@ -223,6 +333,7 @@ class _PrivacySettings extends StatelessWidget {
         const _CrashReportingSetting(),
         const UserPreferencesListItemDivider(),
         const _SendAnonymousDataSetting(),
+        const UserPreferencesListItemDivider(),
       ],
     );
   }
