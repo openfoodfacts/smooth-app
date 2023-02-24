@@ -24,27 +24,12 @@ class DecimalSeparatorRewriter extends TextInputFormatter {
     // * contain one decimal separator (either ',' or '.')
     // * have a length of 10 (9 digits and one separator)
     const double number = 1234567.89;
+    const String formattedDot = '1234567.89';
+    const String formattedComma = '1234567,89';
     final String formatted = format.format(number);
-    if (formatted.length != 10) {
+    if (formatted != formattedDot && formatted != formattedComma) {
       throw Exception(
-          'Length should be 10 for number $number (found $formatted)');
-    }
-    for (int i = 1; i <= 9; i++) {
-      if (!formatted.contains('$i')) {
-        throw Exception(
-            'Digit $i should be found for number $number (found $formatted)');
-      }
-    }
-    int count = 0;
-    if (formatted.contains('.')) {
-      count++;
-    }
-    if (formatted.contains(',')) {
-      count++;
-    }
-    if (count != 1) {
-      throw Exception(
-          'We should find once either "." or "," for number $number (found $formatted)');
+          'Wrong format: $formatted found, either $formattedDot or $formattedComma expected');
     }
   }
 
