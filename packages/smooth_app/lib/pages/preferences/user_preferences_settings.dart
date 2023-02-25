@@ -253,11 +253,10 @@ class _ApplicationSettings extends StatelessWidget {
               ),
               ListTile(
                 title: Text(
-                  appLocalizations.color_contrast_mode,
+                  appLocalizations.text_contrast_mode,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                subtitle:
-                    ChooseColorContrast(appLocalizations: appLocalizations),
+                subtitle: TextColorContrast(appLocalizations: appLocalizations),
                 minLeadingWidth: MEDIUM_SPACE,
               ),
             ],
@@ -389,8 +388,8 @@ class ChooseAccentColor extends StatelessWidget {
   }
 }
 
-class ChooseColorContrast extends StatelessWidget {
-  const ChooseColorContrast({super.key, required this.appLocalizations});
+class TextColorContrast extends StatelessWidget {
+  const TextColorContrast({super.key, required this.appLocalizations});
 
   final AppLocalizations appLocalizations;
 

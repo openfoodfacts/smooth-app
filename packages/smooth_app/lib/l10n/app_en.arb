@@ -1956,9 +1956,9 @@
     "@color_teal": {
         "description": "Color Teal"
     },
-    "color_contrast_mode": "Color Contrast",
-    "@color_contrast_mode": {
-        "description": "Contrast Text Color Mode"
+    "text_contrast_mode": "Text Contrast",
+    "@text_contrast_mode": {
+        "description": "Text Contrast Color Mode"
     },
     "contrast_high": "High",
     "@contrast_high": {
