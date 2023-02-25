@@ -32,39 +32,28 @@ class SimpleInputTextField extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            SizedBox(
-              width: constraints.maxWidth -
-                  LARGE_SPACE -
-                  (withClearButton ? MINIMUM_TOUCH_SIZE : 0),
+            Expanded(
               child: RawAutocomplete<String>(
                 key: autocompleteKey,
                 focusNode: focusNode,
                 textEditingController: controller,
                 optionsBuilder: (final TextEditingValue value) async {
-                  final List<String> result = <String>[];
                   final String input = value.text.trim();
 
                   if (input.isEmpty) {
-                    return result;
+                    return <String>[];
                   }
 
                   if (tagType == null) {
-                    return result;
+                    return <String>[];
                   }
 
-                  // TODO(monsieurtanuki): ask off-dart to return Strings instead of dynamic?
-                  final List<dynamic> data =
-                      await OpenFoodAPIClient.getAutocompletedSuggestions(
+                  return OpenFoodAPIClient.getSuggestions(
                     tagType!,
                     language: ProductQuery.getLanguage()!,
                     limit: 1000000, // lower max count on the server anyway
                     input: value.text.trim(),
                   );
-                  for (final dynamic item in data) {
-                    result.add(item.toString());
-                  }
-                  result.sort();
-                  return result;
                 },
                 fieldViewBuilder: (BuildContext context,
                         TextEditingController textEditingController,
@@ -84,7 +73,8 @@ class SimpleInputTextField extends StatelessWidget {
                     ),
                     hintText: hintText,
                   ),
-                  autofocus: true,
+                  // a lot of confusion if set to `true`
+                  autofocus: false,
                   focusNode: focusNode,
                 ),
                 optionsViewBuilder: (
