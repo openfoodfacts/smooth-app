@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothTheme {
@@ -14,6 +15,7 @@ class SmoothTheme {
     final Brightness brightness,
     final ThemeProvider themeProvider,
     final ColorProvider colorProvider,
+    final TextContrastProvider textContrastProvider,
   ) {
     ColorScheme myColorScheme;
 
@@ -22,9 +24,9 @@ class SmoothTheme {
     } else {
       if (themeProvider.currentTheme == THEME_AMOLED) {
         myColorScheme = trueDarkColorScheme.copyWith(
-          primary: getColorValue(colorProvider),
-          secondary:
-              getShade(getColorValue(colorProvider), darker: true, value: 0.4),
+          primary: getColorValue(colorProvider.currentColor),
+          secondary: getShade(getColorValue(colorProvider.currentColor),
+              darker: true, value: 0.4),
         );
       } else {
         myColorScheme = darkColorScheme;
@@ -61,13 +63,7 @@ class SmoothTheme {
           backgroundColor: myColorScheme.primary,
           foregroundColor: myColorScheme.onPrimary),
       textTheme: brightness == Brightness.dark
-          ? _TEXT_THEME.copyWith(
-              displayMedium:
-                  _TEXT_THEME.displayMedium?.copyWith(color: Colors.white),
-              headlineMedium:
-                  _TEXT_THEME.headlineMedium?.copyWith(color: Colors.white),
-              bodyMedium: _TEXT_THEME.bodyMedium?.copyWith(color: Colors.white),
-            )
+          ? getTextTheme(themeProvider, textContrastProvider)
           : _TEXT_THEME,
       appBarTheme: AppBarTheme(
         color: myColorScheme.background,
@@ -136,6 +132,37 @@ class SmoothTheme {
           return null;
         }),
       ),
+    );
+  }
+
+  static TextTheme getTextTheme(
+      ThemeProvider themeProvider, TextContrastProvider textContrastProvider) {
+    Color contrastLevel = Colors.white;
+
+    if (themeProvider.currentTheme == THEME_AMOLED) {
+      switch (textContrastProvider.currentContrastLevel) {
+        case CONTRAST_LOW:
+          contrastLevel = Colors.white54;
+          break;
+
+        case CONTRAST_MEDIUM:
+          contrastLevel = Colors.white70;
+          break;
+
+        case CONTRAST_HIGH:
+          contrastLevel = Colors.white;
+          break;
+      }
+    }
+    return _TEXT_THEME.copyWith(
+      displayMedium: _TEXT_THEME.displayMedium?.copyWith(color: contrastLevel),
+      headlineMedium:
+          _TEXT_THEME.headlineMedium?.copyWith(color: contrastLevel),
+      bodyMedium: _TEXT_THEME.bodyMedium?.copyWith(color: contrastLevel),
+      displaySmall: _TEXT_THEME.bodySmall?.copyWith(color: contrastLevel),
+      titleLarge: _TEXT_THEME.titleLarge?.copyWith(color: contrastLevel),
+      titleMedium: _TEXT_THEME.titleMedium?.copyWith(color: contrastLevel),
+      titleSmall: _TEXT_THEME.titleSmall?.copyWith(color: contrastLevel),
     );
   }
 

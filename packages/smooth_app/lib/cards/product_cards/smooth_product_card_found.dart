@@ -131,11 +131,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   alignment: AlignmentDirectional.centerStart,
                                   child: Text(
                                     helper.getSubtitle(appLocalizations),
-                                    style:
-                                        themeData.textTheme.bodyMedium!.apply(
-                                      color: helper
-                                          .getButtonForegroundColor(isDarkMode),
-                                    ),
+                                    style: themeData.textTheme.bodyMedium,
                                   ),
                                 ),
                               ),

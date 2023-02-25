@@ -50,6 +50,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_INIT = 'init';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
+  static const String _TAG_CURRENT_CONTRAST_MODE = 'contrastMode';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
@@ -120,6 +121,12 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> setContrastScheme(final String contrastLevel) async {
+    await _sharedPreferences.setString(
+        _TAG_CURRENT_CONTRAST_MODE, contrastLevel);
+    notifyListeners();
+  }
+
   Future<void> setCrashReports(final bool state) async {
     await _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
     notifyListeners();
@@ -134,6 +141,10 @@ class UserPreferences extends ChangeNotifier {
   String get currentColor =>
       _sharedPreferences.getString(_TAG_CURRENT_COLOR_SCHEME) ??
       COLOR_DEFAULT_NAME;
+
+  String get currentContrastLevel =>
+      _sharedPreferences.getString(_TAG_CURRENT_CONTRAST_MODE) ??
+      CONTRAST_MEDIUM;
 
   Future<void> setUserCountry(final String countryCode) async {
     await _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);

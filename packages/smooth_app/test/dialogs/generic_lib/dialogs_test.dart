@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/color_provider.dart';
+import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import '../../tests_utils/goldens.dart';
 import '../../tests_utils/mocks.dart';
@@ -33,6 +34,7 @@ void main() {
               late ProductPreferences productPreferences;
               late ThemeProvider themeProvider;
               late ColorProvider colorProvider;
+              late TextContrastProvider textContrastProvider;
 
               SharedPreferences.setMockInitialValues(
                 mockSharedPreferences(),
@@ -52,6 +54,7 @@ void main() {
               await userPreferences.init(productPreferences);
               themeProvider = ThemeProvider(userPreferences);
               colorProvider = ColorProvider(userPreferences);
+              textContrastProvider = TextContrastProvider(userPreferences);
 
               await tester.pumpWidget(
                 MockSmoothApp(
@@ -59,6 +62,7 @@ void main() {
                   UserManagementProvider(),
                   productPreferences,
                   themeProvider,
+                  textContrastProvider,
                   colorProvider,
                   const UserPreferencesPage(
                     type: PreferencePageType.CONTRIBUTE,

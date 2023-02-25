@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 
 /// Keep track of Color Change in AppSetting
+/// Only available for AMOLED as of Now.
 class ColorProvider with ChangeNotifier {
   ColorProvider(this._userPreferences);
 

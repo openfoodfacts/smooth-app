@@ -12,6 +12,7 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/themes/color_provider.dart';
+import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -22,6 +23,7 @@ class MockSmoothApp extends StatelessWidget {
     this.userManagementProvider,
     this.productPreferences,
     this.themeProvider,
+    this.textContrastProvider,
     this.colorProvider,
     this.child, {
     this.localDatabase,
@@ -32,6 +34,7 @@ class MockSmoothApp extends StatelessWidget {
   final ProductPreferences productPreferences;
   final ThemeProvider themeProvider;
   final ColorProvider colorProvider;
+  final TextContrastProvider textContrastProvider;
   final LocalDatabase? localDatabase;
   final Widget child;
 
@@ -55,11 +58,13 @@ class MockSmoothApp extends StatelessWidget {
             Brightness.light,
             themeProvider,
             colorProvider,
+            textContrastProvider,
           ),
           darkTheme: SmoothTheme.getThemeData(
             Brightness.dark,
             themeProvider,
             colorProvider,
+            textContrastProvider,
           ),
           themeMode: themeProvider.currentThemeMode,
           home: child,
