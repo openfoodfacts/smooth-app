@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
-import 'package:smooth_app/themes/color_provider.dart';
 
 const Color seed = Color(0xFF99460D);
 
@@ -34,43 +33,51 @@ const ColorScheme darkColorScheme = ColorScheme(
 
 const ColorScheme trueDarkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: Colors.teal,
+  primary: COLOR_DEFAULT,
   onPrimary: Color(0xFFE1E1E1),
-  secondary: Colors.teal,
+  secondary: COLOR_DEFAULT,
   onSecondary: Color(0xFFE1E1E1),
   error: Color(0xFFEA2B2B),
-  onError: Color(0xFFFFFFFF),
+  onError: Color(0xFFE1E1E1),
   background: Color(0xFF000000),
   onBackground: Color(0xFFE1E1E1),
   surface: Color(0xFF000000),
   onSurface: Color(0xFFE1E1E1),
 );
 
-const String COLOR_DEFAULT_NAME = 'Teal';
-const Color COLOR_DEFAULT = Colors.teal;
+const String CONTRAST_LOW = 'Low';
+const String CONTRAST_MEDIUM = 'Medium';
+const String CONTRAST_HIGH = 'High';
+
+const String COLOR_DEFAULT_NAME = 'Default';
+const Color COLOR_DEFAULT = Color(0xff85746c);
 const Color COLOR_BLUE = Colors.blue;
-const Color COLOR_ROSE_BRIGHT = Color(0xffff007f);
+const Color COLOR_CYAN = Color(0xff0097a7);
+const Color COLOR_GREEN = Color(0xff009b52);
+const Color COLOR_MAGENTA = Color(0xffff00ff);
+const Color COLOR_ORANGE = Colors.deepOrange;
+const Color COLOR_PINK = Colors.pink;
+const Color COLOR_RED = Color(0xffff0000);
 const Color COLOR_RUST = Color(0xffb7410e);
-const Color COLOR_ORANGE_BRIGHT = Color(0xffffa500);
-const Color COLOR_RED = Colors.red;
-const Color COLOR_GREEN = Colors.green;
-const Color COLOR_PLUM_LIGHT = Color(0xfff400af);
+const Color COLOR_TEAL = Colors.teal;
 
 const Map<String, Color> colorNamesValue = <String, Color>{
+  'Default': COLOR_DEFAULT,
   'Blue': COLOR_BLUE,
+  'Cyan': COLOR_CYAN,
   'Green': COLOR_GREEN,
-  'Orange Bright': COLOR_ORANGE_BRIGHT,
-  'Plum Light': COLOR_PLUM_LIGHT,
+  'Magenta': COLOR_MAGENTA,
+  'Orange': COLOR_ORANGE,
+  'Pink': COLOR_PINK,
   'Red': COLOR_RED,
-  'Rose Bright': COLOR_ROSE_BRIGHT,
   'Rust': COLOR_RUST,
-  'Teal': COLOR_DEFAULT,
+  'Teal': COLOR_TEAL,
 };
 
 /// Get Color from Color Name using colorNamesValue
-Color getColorValue(ColorProvider colorProvider) {
-  if (colorNamesValue.containsKey(colorProvider.currentColor)) {
-    return colorNamesValue.getValueByKeyStartWith(colorProvider.currentColor)!;
+Color getColorValue(String colorName) {
+  if (colorNamesValue.containsKey(colorName)) {
+    return colorNamesValue.getValueByKeyStartWith(colorName)!;
   }
   return COLOR_DEFAULT;
 }
