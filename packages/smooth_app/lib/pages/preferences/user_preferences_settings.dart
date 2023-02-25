@@ -368,11 +368,7 @@ class _AdvancedSettings extends StatelessWidget {
               padding: const EdgeInsets.only(top: SMALL_SPACE),
               child: Text(
                 appLocalizations.native_app_description,
-                style: const TextStyle(
-                  color: Color.fromRGBO(193, 193, 193, 1.0),
-                  letterSpacing: 0.5,
-                  fontSize: 14,
-                ),
+                style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
             trailing: const Padding(
