@@ -99,7 +99,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
         SmoothCard(
           color: _getSmoothCardColorAlternate(context, index),
           child: EditNewPackagingsComponent(
-            title: appLocalizations.edit_packagings_element_title(index + 1),
+            title: _helpers[index].getSubTitle(),
             deleteCallback: () =>
                 setState(() => _removePackagingAt(deleteIndex)),
             helper: _helpers[index],
