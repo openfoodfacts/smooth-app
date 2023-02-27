@@ -40,19 +40,16 @@ class SimpleInputTextField extends StatelessWidget {
                 optionsBuilder: (final TextEditingValue value) async {
                   final String input = value.text.trim();
 
-                  if (input.isEmpty) {
-                    return <String>[];
-                  }
 
                   if (tagType == null) {
                     return <String>[];
                   }
-
+                  
                   return OpenFoodAPIClient.getSuggestions(
                     tagType!,
                     language: ProductQuery.getLanguage()!,
-                    limit: 1000000, // lower max count on the server anyway
-                    input: value.text.trim(),
+                    limit: 15,
+                    input: input,
                   );
                 },
                 fieldViewBuilder: (BuildContext context,
@@ -100,17 +97,7 @@ class SimpleInputTextField extends StatelessWidget {
                     options: options,
                     // Width = Row width - horizontal padding
                     maxOptionsWidth: constraints.maxWidth - (LARGE_SPACE * 2),
-                    maxOptionsHeight: screenHeight -
-                        (keyboardHeight == 0
-                            ? kBottomNavigationBarHeight
-                            : keyboardHeight) -
-                        widgetPosition -
-                        // Vertical padding
-                        (LARGE_SPACE * 2) -
-                        // Height of the TextField
-                        (DefaultTextStyle.of(context).style.fontSize ?? 0) -
-                        // Elevation
-                        4.0,
+                    maxOptionsHeight: screenHeight/3,
                   );
                 },
               ),
