@@ -27,10 +27,10 @@ class DecimalSeparatorRewriter extends TextInputFormatter {
     const String formattedDot = '1234567.89';
     const String formattedComma = '1234567,89';
     final String formatted = format.format(number);
-    if (formatted != formattedDot && formatted != formattedComma) {
-      throw Exception(
-          'Wrong format: $formatted found, either $formattedDot or $formattedComma expected');
-    }
+    assert(
+      formatted == formattedDot || formatted == formattedComma,
+      'Wrong format: $formatted found, either $formattedDot or $formattedComma expected',
+    );
   }
 
   final String _decimalSeparator;
