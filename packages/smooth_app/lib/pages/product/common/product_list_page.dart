@@ -196,10 +196,11 @@ class _ProductListPageState extends State<ProductListPage>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/misc/empty-list.svg',
-                    height: MediaQuery.of(context).size.height * .4,
-                    package: AppHelper.APP_PACKAGE,
+                  Expanded(
+                    child: SvgPicture.asset(
+                      'assets/misc/empty-list.svg',
+                      package: AppHelper.APP_PACKAGE,
+                    ),
                   ),
                   const Padding(padding: EdgeInsets.all(VERY_LARGE_SPACE)),
                   SmoothSimpleButton(
