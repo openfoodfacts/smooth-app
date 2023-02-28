@@ -40,6 +40,9 @@ class SimpleInputTextField extends StatelessWidget {
                 optionsBuilder: (final TextEditingValue value) async {
                   final String input = value.text.trim();
 
+                  if (input.isEmpty) {
+                    return <String>[];
+                  }
 
                   if (tagType == null) {
                     return <String>[];
