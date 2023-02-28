@@ -94,14 +94,6 @@ class SimpleInputTextField extends StatelessWidget {
                 ) {
                   final double screenHeight =
                       MediaQuery.of(context).size.height;
-                  final double keyboardHeight =
-                      MediaQuery.of(lContext).viewInsets.bottom;
-
-                  final double widgetPosition =
-                      (context.findRenderObject() as RenderBox?)
-                              ?.localToGlobal(Offset.zero)
-                              .dy ??
-                          0.0;
 
                   return AutocompleteOptions<String>(
                     displayStringForOption:
