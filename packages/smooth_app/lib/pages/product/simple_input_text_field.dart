@@ -14,6 +14,9 @@ class SimpleInputTextField extends StatelessWidget {
     required this.hintText,
     required this.controller,
     this.withClearButton = false,
+    this.minLengthForSuggestions = 1,
+    this.categories,
+    this.shapeProvider,
   });
 
   final FocusNode focusNode;
@@ -23,6 +26,9 @@ class SimpleInputTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final bool withClearButton;
+  final int minLengthForSuggestions;
+  final String? categories;
+  final String? Function()? shapeProvider;
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -38,19 +44,22 @@ class SimpleInputTextField extends StatelessWidget {
                 focusNode: focusNode,
                 textEditingController: controller,
                 optionsBuilder: (final TextEditingValue value) async {
-                  final String input = value.text.trim();
-
-                  if (input.isEmpty) {
+                  if (tagType == null) {
                     return <String>[];
                   }
 
-                  if (tagType == null) {
+                  final String input = value.text.trim();
+                  if (input.length < minLengthForSuggestions) {
                     return <String>[];
                   }
                   
                   return OpenFoodAPIClient.getSuggestions(
                     tagType!,
                     language: ProductQuery.getLanguage()!,
+                    country: ProductQuery.getCountry(),
+                    categories: categories,
+                    shape: shapeProvider?.call(),
+                    user: ProductQuery.getUser(),
                     limit: 15,
                     input: input,
                   );

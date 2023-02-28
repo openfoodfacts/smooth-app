@@ -103,6 +103,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
             deleteCallback: () =>
                 setState(() => _removePackagingAt(deleteIndex)),
             helper: _helpers[index],
+            categories: widget.product.categories,
           ),
         ),
       );
