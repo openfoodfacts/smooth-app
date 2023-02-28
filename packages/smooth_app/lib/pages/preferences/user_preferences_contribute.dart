@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 
 /// Display of "Contribute" for the preferences page.
@@ -308,12 +309,17 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         },
       );
 
-  Future<void> _hungerGames() async => Navigator.push(
-        context,
-        MaterialPageRoute<QuestionPage>(
-          builder: (_) => const QuestionPage(),
-        ),
-      );
+  Future<void> _hungerGames() async {
+    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+      return;
+    }
+    Navigator.push(
+      context,
+      MaterialPageRoute<QuestionPage>(
+        builder: (_) => const QuestionPage(),
+      ),
+    );
+  }
 
   Widget _getListTile(
     final String title,
