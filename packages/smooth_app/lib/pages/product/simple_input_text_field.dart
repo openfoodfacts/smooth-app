@@ -60,7 +60,7 @@ class SimpleInputTextField extends StatelessWidget {
                     categories: categories,
                     shape: shapeProvider?.call(),
                     user: ProductQuery.getUser(),
-                    limit: 15,
+                    limit: 15, // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
                     input: input,
                   );
                 },
