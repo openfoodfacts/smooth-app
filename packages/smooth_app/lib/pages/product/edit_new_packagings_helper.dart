@@ -79,21 +79,25 @@ class EditNewPackagingsHelper {
       }
     }
 
-
     if (controllerUnits.text.isNotEmpty) {
       result.add('${controllerUnits.text} x ');
     }
-    
+
     addIfNotEmpty(controllerShape.text);
     addIfNotEmpty(controllerQuantity.text);
 
     if (controllerMaterial.text.isNotEmpty & controllerWeight.text.isNotEmpty) {
-      result.add('(${controllerMaterial.text} : ${controllerWeight.text}g)');
+      result.add('(${controllerMaterial.text}: ${controllerWeight.text}g)');
     }
 
-    else if (controllerMaterial.text.isNotEmpty ) { // Therefore controllerWeight.text is empty
-          result.add('(${controllerMaterial.text})');
+    if (controllerMaterial.text.isNotEmpty & controllerWeight.text.isEmpty) {
+      result.add('(${controllerMaterial.text})');
     }
+
+    if (controllerMaterial.text.isEmpty & controllerWeight.text.isNotEmpty) {
+      result.add('(${controllerWeight.text}g)');
+    }
+    // And nothing is added if they are both empty.
 
     if (result.isEmpty) {
       return null;
@@ -102,9 +106,10 @@ class EditNewPackagingsHelper {
   }
 
   /// Returns the packaging subtitle from the controllers
-String getSubTitle() {
+  String getSubTitle() {
     return controllerRecycling.text;
-}
+  }
+
   /// Returns the packaging from the controllers.
   ProductPackaging getPackaging() {
     final ProductPackaging packaging = ProductPackaging();

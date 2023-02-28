@@ -52,7 +52,7 @@ class SimpleInputTextField extends StatelessWidget {
                   if (input.length < minLengthForSuggestions) {
                     return <String>[];
                   }
-                  
+
                   return OpenFoodAPIClient.getSuggestions(
                     tagType!,
                     language: ProductQuery.getLanguage()!,
@@ -60,7 +60,8 @@ class SimpleInputTextField extends StatelessWidget {
                     categories: categories,
                     shape: shapeProvider?.call(),
                     user: ProductQuery.getUser(),
-                    limit: 15, // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
+                    limit:
+                        15, // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
                     input: input,
                   );
                 },
@@ -109,7 +110,7 @@ class SimpleInputTextField extends StatelessWidget {
                     options: options,
                     // Width = Row width - horizontal padding
                     maxOptionsWidth: constraints.maxWidth - (LARGE_SPACE * 2),
-                    maxOptionsHeight: screenHeight/3,
+                    maxOptionsHeight: screenHeight / 3,
                   );
                 },
               ),
