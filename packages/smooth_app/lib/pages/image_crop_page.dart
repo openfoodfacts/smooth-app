@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_int.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
@@ -54,6 +55,7 @@ Future<UserPictureSource?> _getUserPictureSource(
         title: appLocalizations.choose_image_source_title,
         actionsAxis: Axis.vertical,
         body: CheckboxListTile(
+          activeColor: FAIR_GREY_COLOR,
           value: remember,
           onChanged: (final bool? value) => setState(
             () => remember = value,

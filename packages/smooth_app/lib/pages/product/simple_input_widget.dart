@@ -23,13 +23,20 @@ class SimpleInputWidget extends StatefulWidget {
 }
 
 class _SimpleInputWidgetState extends State<SimpleInputWidget> {
-  final FocusNode _focusNode = FocusNode();
+  late final FocusNode _focusNode;
   final Key _autocompleteKey = UniqueKey();
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     widget.helper.reInit(widget.product);
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
