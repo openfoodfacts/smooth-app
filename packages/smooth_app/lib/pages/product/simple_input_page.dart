@@ -88,50 +88,51 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: UnfocusWhenTapOutside(
-          child: SmoothScaffold(
-        appBar: SmoothAppBar(
-          title: AutoSizeText(
-            getProductName(widget.product, appLocalizations),
-            maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
+        child: SmoothScaffold(
+          appBar: SmoothAppBar(
+            title: AutoSizeText(
+              getProductName(widget.product, appLocalizations),
+              maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
+            ),
+            subTitle: widget.product.barcode != null
+                ? Text(widget.product.barcode!)
+                : null,
           ),
-          subTitle: widget.product.barcode != null
-              ? Text(widget.product.barcode!)
-              : null,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Flexible(
-                flex: 1,
-                child: Scrollbar(
-                  child: ListView(children: simpleInputs),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: SmoothActionButtonsBar(
-                  axis: Axis.horizontal,
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations.save,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: true),
-                    ),
-                  ),
-                  negativeAction: SmoothActionButton(
-                    text: appLocalizations.cancel,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: false),
-                    ),
+          body: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Flexible(
+                  flex: 1,
+                  child: Scrollbar(
+                    child: ListView(children: simpleInputs),
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: SmoothActionButtonsBar(
+                    axis: Axis.horizontal,
+                    positiveAction: SmoothActionButton(
+                      text: appLocalizations.save,
+                      onPressed: () async => _exitPage(
+                        await _mayExitPage(saving: true),
+                      ),
+                    ),
+                    negativeAction: SmoothActionButton(
+                      text: appLocalizations.cancel,
+                      onPressed: () async => _exitPage(
+                        await _mayExitPage(saving: false),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      )),
+      ),
     );
   }
 

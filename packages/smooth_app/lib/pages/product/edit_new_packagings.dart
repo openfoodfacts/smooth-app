@@ -191,22 +191,23 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: UnfocusWhenTapOutside(
-          child: SmoothScaffold(
-        appBar: SmoothAppBar(
-          title: Text(appLocalizations.edit_packagings_title),
-          subTitle: widget.product.productName != null
-              ? Text(
-                  widget.product.productName!,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                )
-              : null,
+        child: SmoothScaffold(
+          appBar: SmoothAppBar(
+            title: Text(appLocalizations.edit_packagings_title),
+            subTitle: widget.product.productName != null
+                ? Text(
+                    widget.product.productName!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                : null,
+          ),
+          body: ListView(
+            padding: const EdgeInsets.only(top: LARGE_SPACE),
+            children: children,
+          ),
         ),
-        body: ListView(
-          padding: const EdgeInsets.only(top: LARGE_SPACE),
-          children: children,
-        ),
-      )),
+      ),
     );
   }
 
