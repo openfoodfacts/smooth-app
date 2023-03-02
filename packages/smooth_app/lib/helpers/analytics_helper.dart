@@ -154,7 +154,8 @@ class AnalyticsHelper {
         eventValue: eventValue ?? _formatBarcode(barcode),
       );
 
-  static void trackProductEdit(AnalyticsEditEvents editEventName, String barcode,
+  static void trackProductEdit(
+          AnalyticsEditEvents editEventName, String barcode,
           [bool saved = false]) =>
       MatomoTracker.instance.trackEvent(
         eventName: saved ? '${editEventName.name}-saved' : editEventName.name,
