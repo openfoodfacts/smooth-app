@@ -315,12 +315,19 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             _buildActionBarItem(
               Icons.edit,
               appLocalizations.edit_product_label,
-              () async => Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => EditProductPage(_product),
-                ),
-              ),
+              () async {
+                AnalyticsHelper.trackEvent(
+                  AnalyticsEvent.openProductEditPage,
+                  barcode: _barcode,
+                );
+                Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        EditProductPage(_product),
+                  ),
+                );
+              },
             ),
             _buildActionBarItem(
               ConstantIcons.instance.getShareIcon(),

@@ -12,7 +12,8 @@ enum AnalyticsCategory {
   userManagement(tag: 'user management'),
   scanning(tag: 'scanning'),
   share(tag: 'share'),
-  couldNotFindProduct(tag: 'could not find product');
+  couldNotFindProduct(tag: 'could not find product'),
+  productEdit(tag: 'product edit');
 
   const AnalyticsCategory({required this.tag});
   final String tag;
@@ -32,11 +33,37 @@ enum AnalyticsEvent {
   couldNotFindProduct(
     tag: 'could not find product',
     category: AnalyticsCategory.couldNotFindProduct,
-  );
+  ),
+  openProductEditPage(
+    tag: 'opened product edit page',
+    category: AnalyticsCategory.productEdit,
+  ),
+  ;
 
   const AnalyticsEvent({required this.tag, required this.category});
   final String tag;
   final AnalyticsCategory category;
+}
+
+enum AnalyticsEditEvents {
+  basicDetials(name: 'BasicDetials'),
+  photos(name: 'Photos'),
+  powerEditScreen(name: 'Power Edit Screen'),
+  ingredients_and_Origins(name: 'Ingredient And Origins'),
+  categories(name: 'Categories'),
+  nutrition_Facts(name: 'Nutrition Facts'),
+  labelsAndCertifications(name: 'Labels And Certifications'),
+  packagingComponents(name: 'Packaging Components'),
+  recyclingInstructionsPhots(name: 'Recycling Instructions Phots'),
+  stores(name: 'Stores'),
+  origins(name: 'Origins'),
+  traceabilityCodes(name: 'Traceability Codes'),
+  country(name: 'Country'),
+  otherDetails(name: 'Other Details');
+
+  const AnalyticsEditEvents({required this.name});
+
+  final String name;
 }
 
 /// Helper for logging usage of core features and exceptions
@@ -125,6 +152,15 @@ class AnalyticsHelper {
         eventCategory: msg.category.tag,
         action: msg.name,
         eventValue: eventValue ?? _formatBarcode(barcode),
+      );
+
+  static void trackProductEdit(AnalyticsEditEvents editEventName, String barcode,
+          [bool saved = false]) =>
+      MatomoTracker.instance.trackEvent(
+        eventName: saved ? '${editEventName.name}-saved' : editEventName.name,
+        eventCategory: AnalyticsCategory.productEdit.tag,
+        action: editEventName.name,
+        eventValue: _formatBarcode(barcode),
       );
 
   static void trackSearch({

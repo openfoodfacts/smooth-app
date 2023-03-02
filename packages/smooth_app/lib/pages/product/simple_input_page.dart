@@ -7,6 +7,7 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -114,9 +115,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                   axis: Axis.horizontal,
                   positiveAction: SmoothActionButton(
                     text: appLocalizations.save,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: true),
-                    ),
+                    onPressed: () async {
+                      _exitPage(
+                        await _mayExitPage(saving: true),
+                      );
+                    },
                   ),
                   negativeAction: SmoothActionButton(
                     text: appLocalizations.cancel,
@@ -179,6 +182,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
     }
 
+    AnalyticsHelper.trackProductEdit(
+        widget.helpers[0].getAnalyticsEvent()!, widget.product.barcode!);
     bool first = true;
     for (final MapEntry<BackgroundTaskDetailsStamp, Product> entry
         in changedProducts.entries) {

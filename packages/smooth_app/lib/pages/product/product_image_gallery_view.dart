@@ -9,6 +9,7 @@ import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_images_sliver_list.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -82,11 +83,15 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async => confirmAndUploadNewPicture(
-          this,
-          imageField: ImageField.OTHER,
-          barcode: _barcode,
-        ),
+        onPressed: () {
+          AnalyticsHelper.trackProductEdit(
+              AnalyticsEditEvents.photos, _barcode);
+          confirmAndUploadNewPicture(
+            this,
+            imageField: ImageField.OTHER,
+            barcode: _barcode,
+          );
+        },
         label: Text(appLocalizations.add_photo_button_label),
         icon: const Icon(Icons.add_a_photo),
       ),

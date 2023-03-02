@@ -10,6 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
@@ -98,12 +99,19 @@ class _EditOcrPageState extends State<EditOcrPage> {
   Future<void> _updateText(
     final String text,
     final ImageField imageField,
-  ) async =>
-      BackgroundTaskDetails.addTask(
-        _helper.getMinimalistProduct(Product(barcode: _product.barcode), text),
-        widget: this,
-        stamp: _helper.getStamp(),
-      );
+  ) async {
+    AnalyticsHelper.trackProductEdit(
+      AnalyticsEditEvents.ingredients_and_Origins,
+      _product.barcode!,
+      true,
+    );
+    BackgroundTaskDetails.addTask(
+      _helper.getMinimalistProduct(Product(barcode: _product.barcode), text),
+      widget: this,
+      stamp: _helper.getStamp(),
+    );
+    return;
+  }
 
   @override
   Widget build(BuildContext context) {
