@@ -10,14 +10,28 @@ import 'package:smooth_app/helpers/strings_helper.dart';
 /// on the user's language.
 ///
 /// It works if there are no group separator in the format, as it would be
-/// problematic with the `123,456.9` and both comma and dot.
+/// problematic with the `1,234,567.89` and both comma and dot.
 ///
 /// Also, if a separator is already displayed, it will be moved to the new
 /// position
 class DecimalSeparatorRewriter extends TextInputFormatter {
   DecimalSeparatorRewriter(NumberFormat format)
       : _decimalSeparator = format.symbols.DECIMAL_SEP,
-        _separatorToReplace = _findSeparatorToReplace(format);
+        _separatorToReplace = _findSeparatorToReplace(format) {
+    // Here we check that there are no group separators.
+    // The formatted string should
+    // * contain the nine digits 1..9
+    // * contain one decimal separator (either ',' or '.')
+    // * have a length of 10 (9 digits and one separator)
+    const double number = 1234567.89;
+    const String formattedDot = '1234567.89';
+    const String formattedComma = '1234567,89';
+    final String formatted = format.format(number);
+    assert(
+      formatted == formattedDot || formatted == formattedComma,
+      'Wrong format: $formatted found, either $formattedDot or $formattedComma expected',
+    );
+  }
 
   final String _decimalSeparator;
   final String _separatorToReplace;
@@ -100,8 +114,7 @@ class DecimalSeparatorRewriter extends TextInputFormatter {
     );
   }
 
-  /// Replaces a "." by a "," or a "," by a "." only if
-  /// the group separator is an empty character
+  /// Replaces a "." by a "," or a "," by a ".".
   String replaceSeparator(String newTextValue) {
     if (newTextValue.contains(_separatorToReplace)) {
       return newTextValue.replaceAll(

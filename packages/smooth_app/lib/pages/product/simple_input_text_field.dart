@@ -14,6 +14,9 @@ class SimpleInputTextField extends StatelessWidget {
     required this.hintText,
     required this.controller,
     this.withClearButton = false,
+    this.minLengthForSuggestions = 1,
+    this.categories,
+    this.shapeProvider,
   });
 
   final FocusNode focusNode;
@@ -23,6 +26,9 @@ class SimpleInputTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final bool withClearButton;
+  final int minLengthForSuggestions;
+  final String? categories;
+  final String? Function()? shapeProvider;
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -38,19 +44,22 @@ class SimpleInputTextField extends StatelessWidget {
                 focusNode: focusNode,
                 textEditingController: controller,
                 optionsBuilder: (final TextEditingValue value) async {
-                  final String input = value.text.trim();
-
-                  if (input.isEmpty) {
+                  if (tagType == null) {
                     return <String>[];
                   }
 
-                  if (tagType == null) {
+                  final String input = value.text.trim();
+                  if (input.length < minLengthForSuggestions) {
                     return <String>[];
                   }
 
                   return OpenFoodAPIClient.getSuggestions(
                     tagType!,
                     language: ProductQuery.getLanguage()!,
+                    country: ProductQuery.getCountry(),
+                    categories: categories,
+                    shape: shapeProvider?.call(),
+                    user: ProductQuery.getUser(),
                     limit: 1000000, // lower max count on the server anyway
                     input: value.text.trim(),
                   );
@@ -123,4 +132,27 @@ class SimpleInputTextField extends StatelessWidget {
           ],
         ),
       );
+}
+
+/// Allows to unfocus TextField (and dismiss the keyboard) when user tap outside the TextField and inside this widget.
+/// Therefore, this widget should be put before the Scaffold to make the TextField unfocus when tapping anywhere.
+class UnfocusWhenTapOutside extends StatelessWidget {
+  const UnfocusWhenTapOutside({Key? key, required this.child})
+      : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        final FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: child,
+    );
+  }
 }
