@@ -14,6 +14,9 @@ class SimpleInputTextField extends StatelessWidget {
     required this.hintText,
     required this.controller,
     this.withClearButton = false,
+    this.minLengthForSuggestions = 1,
+    this.categories,
+    this.shapeProvider,
   });
 
   final FocusNode focusNode;
@@ -23,6 +26,9 @@ class SimpleInputTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final bool withClearButton;
+  final int minLengthForSuggestions;
+  final String? categories;
+  final String? Function()? shapeProvider;
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -32,39 +38,31 @@ class SimpleInputTextField extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            SizedBox(
-              width: constraints.maxWidth -
-                  LARGE_SPACE -
-                  (withClearButton ? MINIMUM_TOUCH_SIZE : 0),
+            Expanded(
               child: RawAutocomplete<String>(
                 key: autocompleteKey,
                 focusNode: focusNode,
                 textEditingController: controller,
                 optionsBuilder: (final TextEditingValue value) async {
-                  final List<String> result = <String>[];
-                  final String input = value.text.trim();
-
-                  if (input.isEmpty) {
-                    return result;
-                  }
-
                   if (tagType == null) {
-                    return result;
+                    return <String>[];
                   }
 
-                  // TODO(monsieurtanuki): ask off-dart to return Strings instead of dynamic?
-                  final List<dynamic> data =
-                      await OpenFoodAPIClient.getAutocompletedSuggestions(
+                  final String input = value.text.trim();
+                  if (input.length < minLengthForSuggestions) {
+                    return <String>[];
+                  }
+
+                  return OpenFoodAPIClient.getSuggestions(
                     tagType!,
                     language: ProductQuery.getLanguage()!,
+                    country: ProductQuery.getCountry(),
+                    categories: categories,
+                    shape: shapeProvider?.call(),
+                    user: ProductQuery.getUser(),
                     limit: 1000000, // lower max count on the server anyway
                     input: value.text.trim(),
                   );
-                  for (final dynamic item in data) {
-                    result.add(item.toString());
-                  }
-                  result.sort();
-                  return result;
                 },
                 fieldViewBuilder: (BuildContext context,
                         TextEditingController textEditingController,
@@ -84,7 +82,8 @@ class SimpleInputTextField extends StatelessWidget {
                     ),
                     hintText: hintText,
                   ),
-                  autofocus: true,
+                  // a lot of confusion if set to `true`
+                  autofocus: false,
                   focusNode: focusNode,
                 ),
                 optionsViewBuilder: (
@@ -133,4 +132,27 @@ class SimpleInputTextField extends StatelessWidget {
           ],
         ),
       );
+}
+
+/// Allows to unfocus TextField (and dismiss the keyboard) when user tap outside the TextField and inside this widget.
+/// Therefore, this widget should be put before the Scaffold to make the TextField unfocus when tapping anywhere.
+class UnfocusWhenTapOutside extends StatelessWidget {
+  const UnfocusWhenTapOutside({Key? key, required this.child})
+      : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        final FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: child,
+    );
+  }
 }

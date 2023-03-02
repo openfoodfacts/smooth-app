@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -17,6 +19,7 @@ import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
@@ -163,7 +166,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       EditImageButton(
         iconData: Icons.do_disturb_on,
         label: appLocalizations.edit_photo_unselect_button_label,
-        onPressed: _actionUnselect,
+        onPressed: () => _actionUnselect(appLocalizations),
       );
 
   Widget _getGalleryButton(final AppLocalizations appLocalizations) =>
@@ -174,14 +177,22 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       );
 
   // TODO(monsieurtanuki): we should also suggest the existing image gallery
-  Future<File?> _actionNewImage() async => confirmAndUploadNewPicture(
-        this,
-        imageField: _imageData.imageField,
-        barcode: _barcode,
-      );
+  Future<File?> _actionNewImage() async {
+    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+      return null;
+    }
+    return confirmAndUploadNewPicture(
+      this,
+      imageField: _imageData.imageField,
+      barcode: _barcode,
+    );
+  }
 
   Future<void> _actionGallery() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+      return;
+    }
     final List<int>? result = await LoadingDialog.run<List<int>>(
       future: OpenFoodAPIClient.getProductImageIds(
         _barcode,
@@ -225,7 +236,9 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<File?> _actionEditImage() async {
     final NavigatorState navigatorState = Navigator.of(context);
-
+    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+      return null;
+    }
     // best possibility: with the crop parameters
     // TODO(monsieurtanuki): maybe we should keep the big image locally, in order to avoid the server call?
     final ProductImage? productImage = _getBestProductImage();
@@ -259,15 +272,42 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     return null;
   }
 
-  Future<void> _actionUnselect() async {
+  Future<void> _actionUnselect(final AppLocalizations appLocalizations) async {
     final NavigatorState navigatorState = Navigator.of(context);
-    await BackgroundTaskUnselect.addTask(
-      _barcode,
-      imageField: widget.imageField,
-      widget: this,
+
+    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+      return;
+    }
+
+    final bool? confirmed = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothAlertDialog(
+          title: appLocalizations.confirm_button_label,
+          body: Text(
+            appLocalizations.are_you_sure,
+          ),
+          close: true,
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.yes,
+            onPressed: () => Navigator.of(context).pop(true),
+          ),
+          negativeAction: SmoothActionButton(
+            text: appLocalizations.no,
+            onPressed: () => Navigator.of(context).pop(false),
+          ),
+        );
+      },
     );
-    _localDatabase.notifyListeners();
-    navigatorState.pop();
+    if (confirmed == true) {
+      await BackgroundTaskUnselect.addTask(
+        _barcode,
+        imageField: widget.imageField,
+        widget: this,
+      );
+      _localDatabase.notifyListeners();
+      navigatorState.pop();
+    }
   }
 
   Future<File?> _openCropPage(

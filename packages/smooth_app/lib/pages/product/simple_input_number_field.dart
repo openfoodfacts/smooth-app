@@ -67,11 +67,12 @@ class SimpleInputNumberField extends StatelessWidget {
                   ),
                   hintText: hintText,
                 ),
-                autofocus: true,
+                // a lot of confusion if set to `true`
+                autofocus: false,
                 focusNode: focusNode,
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(numberRegExp),
-                  DecimalSeparatorRewriter(numberFormat),
+                  if (decimal) DecimalSeparatorRewriter(numberFormat),
                 ],
               ),
             ),

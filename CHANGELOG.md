@@ -1,5 +1,58 @@
 # Changelog
 
+## [4.5.0](https://github.com/openfoodfacts/smooth-app/compare/v4.4.0...v4.5.0) (2023-02-23)
+
+
+### 👷 Refactoring
+
+* Flutter v3.7.0 ([#3642](https://github.com/openfoodfacts/smooth-app/issues/3642)) ([ad7ac77](https://github.com/openfoodfacts/smooth-app/commit/ad7ac7732aa1a3498ddb366ad7aabbb7e2245792))
+
+
+### 🚀 Features
+
+* 2484 - now when editing we go to the full image with the cropped area on top ([#3658](https://github.com/openfoodfacts/smooth-app/issues/3658)) ([8b38a72](https://github.com/openfoodfacts/smooth-app/commit/8b38a72be74505118f75e56b21929c530fb486aa))
+* 3585 - upgrade to flutter 3.7 ([#3666](https://github.com/openfoodfacts/smooth-app/issues/3666)) ([ad46236](https://github.com/openfoodfacts/smooth-app/commit/ad46236bdf77afea18b12cc69b3ee64a6752ee73))
+* 3656 - optimized JPEG compression ([#3682](https://github.com/openfoodfacts/smooth-app/issues/3682)) ([0fd2b6b](https://github.com/openfoodfacts/smooth-app/commit/0fd2b6bb8a56c0126cc6e1115e553d331743b379))
+* 3656 - privacy compliance for cropped new images ([#3673](https://github.com/openfoodfacts/smooth-app/issues/3673)) ([c9935da](https://github.com/openfoodfacts/smooth-app/commit/c9935da9b6a7b75ffca64f85ce5bf7dc9e81964e))
+* 3657 - blue banner on bottom end when in "TEST ENV" ([#3660](https://github.com/openfoodfacts/smooth-app/issues/3660)) ([e9236a4](https://github.com/openfoodfacts/smooth-app/commit/e9236a43a8ee99b47aa1cb3226414f8944979247))
+* add copy to clipboard button for email ([#3651](https://github.com/openfoodfacts/smooth-app/issues/3651)) ([3a0e71a](https://github.com/openfoodfacts/smooth-app/commit/3a0e71af094be7a1f83113afc355e48c6e92657f))
+* add rate the app link and share the app link in the settings page! ([#3704](https://github.com/openfoodfacts/smooth-app/issues/3704)) ([05fe427](https://github.com/openfoodfacts/smooth-app/commit/05fe4277b72d1029dbdb2539c4ae45fee61ec12a))
+* Add undo option when product in list deleted! ([#3648](https://github.com/openfoodfacts/smooth-app/issues/3648)) ([b013a9a](https://github.com/openfoodfacts/smooth-app/commit/b013a9a58374974dae008f81ce15910c2ca53c18))
+* added dialog if users click on unselect image button [#2427](https://github.com/openfoodfacts/smooth-app/issues/2427) ([#3707](https://github.com/openfoodfacts/smooth-app/issues/3707)) ([0dd30c4](https://github.com/openfoodfacts/smooth-app/commit/0dd30c4bae256aa17cc9df25b1927a866a91d6c9))
+* format sign_up_errors to normal texts instead of HTML format ([#3692](https://github.com/openfoodfacts/smooth-app/issues/3692)) ([86f2200](https://github.com/openfoodfacts/smooth-app/commit/86f22001b8c6b2ce2d8fe6f2d2be4d9ddfc0514a))
+* Improve user profile UI ([#3693](https://github.com/openfoodfacts/smooth-app/issues/3693)) ([a2f40d2](https://github.com/openfoodfacts/smooth-app/commit/a2f40d2d14a3b7d01d61d0f2e533b2ae62fbfc70))
+* Wrap list names on product page ([#3647](https://github.com/openfoodfacts/smooth-app/issues/3647)) ([bf1fe91](https://github.com/openfoodfacts/smooth-app/commit/bf1fe91bc1a9fad798dce6450338d59acea26d7f))
+
+
+### 🛠 Miscellaneous
+
+* **deps:** bump actions/setup-java from 3.9.0 to 3.10.0 ([#3681](https://github.com/openfoodfacts/smooth-app/issues/3681)) ([27a18ec](https://github.com/openfoodfacts/smooth-app/commit/27a18ecf37e536bdfd7f8b6a8d52e070e2ccfa0f))
+* **deps:** bump crowdin/github-action from 1.6.0 to 1.7.0 ([#3710](https://github.com/openfoodfacts/smooth-app/issues/3710)) ([70bdceb](https://github.com/openfoodfacts/smooth-app/commit/70bdceb84a90d2e4abc7e0e5be576143b76d8439))
+* **deps:** bump fastlane in /packages/smooth_app/android ([#3722](https://github.com/openfoodfacts/smooth-app/issues/3722)) ([d0177ea](https://github.com/openfoodfacts/smooth-app/commit/d0177eaf503bea89dabd506ca6a2f0b94a3d2e2d))
+* **deps:** bump fastlane in /packages/smooth_app/ios ([#3721](https://github.com/openfoodfacts/smooth-app/issues/3721)) ([36d7824](https://github.com/openfoodfacts/smooth-app/commit/36d7824f9e23bede8c7e54ecb5b2e78c1b609f6f))
+* **deps:** bump fastlane-plugin-flutter_version ([#3684](https://github.com/openfoodfacts/smooth-app/issues/3684)) ([f2ede98](https://github.com/openfoodfacts/smooth-app/commit/f2ede98491c66c7eae89b010df080d0fad8e652a))
+* **deps:** bump fastlane-plugin-flutter_version ([#3685](https://github.com/openfoodfacts/smooth-app/issues/3685)) ([b5b2854](https://github.com/openfoodfacts/smooth-app/commit/b5b2854cba245efadf410a148c6ef174e06e3525))
+* New Crowdin translations ([#3655](https://github.com/openfoodfacts/smooth-app/issues/3655)) ([7a2cb1a](https://github.com/openfoodfacts/smooth-app/commit/7a2cb1af423e65773071d16f63ea4ed62b44effa))
+* New Crowdin translations to review and merge ([#3733](https://github.com/openfoodfacts/smooth-app/issues/3733)) ([7b9793b](https://github.com/openfoodfacts/smooth-app/commit/7b9793b62ca3c8bc415dcf9b6b43a2dc1c04f0d6))
+* off-dart 2.3.1 and its new sorted suggestions ([#3717](https://github.com/openfoodfacts/smooth-app/issues/3717)) ([e5bf964](https://github.com/openfoodfacts/smooth-app/commit/e5bf964baaa8720a653422e3e9ddd9d6d890cfe9))
+* Revert "feat: 3585 - upgrade to flutter 3.7 ([#3666](https://github.com/openfoodfacts/smooth-app/issues/3666))" ([#3702](https://github.com/openfoodfacts/smooth-app/issues/3702)) ([dd0d548](https://github.com/openfoodfacts/smooth-app/commit/dd0d548413e4adee60680c3b49406eeaa129da0d))
+* Warning when running out of  main.dart ([#3687](https://github.com/openfoodfacts/smooth-app/issues/3687)) ([ad94f80](https://github.com/openfoodfacts/smooth-app/commit/ad94f80f9318c66dd44e470d5a4a8a6d15d71c52))
+
+
+### 🐛 Bug Fixes
+
+* 3622 - no autofocus and clean FocusNode management ([#3716](https://github.com/openfoodfacts/smooth-app/issues/3716)) ([87ac56d](https://github.com/openfoodfacts/smooth-app/commit/87ac56d29462cd4a67da2f19a8a37c778b80f18b))
+* 3663 - packaging number of units and weight as nums ([#3676](https://github.com/openfoodfacts/smooth-app/issues/3676)) ([b46362e](https://github.com/openfoodfacts/smooth-app/commit/b46362ecd91b1eea1aaac5e306d632ea83a2f7ef))
+* 3700 - Fixed widget overflow issues in product editing page ([#3714](https://github.com/openfoodfacts/smooth-app/issues/3714)) ([7159773](https://github.com/openfoodfacts/smooth-app/commit/71597735eac008793dac56c70495861daf6479b3))
+* 3723 - now always replaces decimal separator for number format ([#3734](https://github.com/openfoodfacts/smooth-app/issues/3734)) ([fd868c7](https://github.com/openfoodfacts/smooth-app/commit/fd868c7783287c6dd531bf49a0228eaaea018de3))
+* checkBox ([#3725](https://github.com/openfoodfacts/smooth-app/issues/3725)) ([1ae50c6](https://github.com/openfoodfacts/smooth-app/commit/1ae50c625fac129a4ae36580529ec1b78e6194b0))
+* image edit and not logged-in user ([#3689](https://github.com/openfoodfacts/smooth-app/issues/3689)) ([1c1acd8](https://github.com/openfoodfacts/smooth-app/commit/1c1acd871a88ebb2efc9fe893025d6912ba8c6b5))
+* move usermanagementProvider after if check! ([#3698](https://github.com/openfoodfacts/smooth-app/issues/3698)) ([7143c3f](https://github.com/openfoodfacts/smooth-app/commit/7143c3ff349108774b48f036ed6d658caeeb1917))
+* revamp the signup prompt ([#3709](https://github.com/openfoodfacts/smooth-app/issues/3709)) ([070b258](https://github.com/openfoodfacts/smooth-app/commit/070b25830cce69d4fbbf5396a1d5f4bde8b9dc12))
+* search should be scan ([#3695](https://github.com/openfoodfacts/smooth-app/issues/3695)) ([eb8da25](https://github.com/openfoodfacts/smooth-app/commit/eb8da25acb6de2fc192cd83b3890a914f665c157))
+* using OpenFoodAPIConfiguration uuid ([#3675](https://github.com/openfoodfacts/smooth-app/issues/3675)) ([675911f](https://github.com/openfoodfacts/smooth-app/commit/675911f2130fd51bb5a8b5f757bbb6c84c98ea4b))
+* Webview ([#3688](https://github.com/openfoodfacts/smooth-app/issues/3688)) ([6588b0b](https://github.com/openfoodfacts/smooth-app/commit/6588b0b2236c57412af90af4ce7eaee69d180d29))
+
 ## [4.4.0](https://github.com/openfoodfacts/smooth-app/compare/v4.3.0...v4.4.0) (2023-01-29)
 
 

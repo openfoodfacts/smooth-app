@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -22,10 +24,24 @@ class ProductRefresher {
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(appLocalizations.sign_in_mandatory),
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              SvgPicture.asset(
+                'assets/onboarding/globe.svg',
+                height: MediaQuery.of(context).size.height * .5,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Text(
+                  appLocalizations.account_create_message,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ]),
         actionsAxis: Axis.vertical,
         positiveAction: SmoothActionButton(
-          text: appLocalizations.sign_in,
+          text: appLocalizations.join_us,
           onPressed: () async {
             Navigator.of(context).pop(); // remove dialog
             await Navigator.of(
