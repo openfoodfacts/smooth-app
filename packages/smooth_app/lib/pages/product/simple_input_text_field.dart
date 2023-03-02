@@ -60,8 +60,9 @@ class SimpleInputTextField extends StatelessWidget {
                     categories: categories,
                     shape: shapeProvider?.call(),
                     user: ProductQuery.getUser(),
-                    limit: 1000000, // lower max count on the server anyway
-                    input: value.text.trim(),
+                    limit:
+                        15, // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
+                    input: input,
                   );
                 },
                 fieldViewBuilder: (BuildContext context,
@@ -93,14 +94,6 @@ class SimpleInputTextField extends StatelessWidget {
                 ) {
                   final double screenHeight =
                       MediaQuery.of(context).size.height;
-                  final double keyboardHeight =
-                      MediaQuery.of(lContext).viewInsets.bottom;
-
-                  final double widgetPosition =
-                      (context.findRenderObject() as RenderBox?)
-                              ?.localToGlobal(Offset.zero)
-                              .dy ??
-                          0.0;
 
                   return AutocompleteOptions<String>(
                     displayStringForOption:
@@ -109,17 +102,7 @@ class SimpleInputTextField extends StatelessWidget {
                     options: options,
                     // Width = Row width - horizontal padding
                     maxOptionsWidth: constraints.maxWidth - (LARGE_SPACE * 2),
-                    maxOptionsHeight: screenHeight -
-                        (keyboardHeight == 0
-                            ? kBottomNavigationBarHeight
-                            : keyboardHeight) -
-                        widgetPosition -
-                        // Vertical padding
-                        (LARGE_SPACE * 2) -
-                        // Height of the TextField
-                        (DefaultTextStyle.of(context).style.fontSize ?? 0) -
-                        // Elevation
-                        4.0,
+                    maxOptionsHeight: screenHeight / 3,
                   );
                 },
               ),
