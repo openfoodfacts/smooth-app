@@ -116,3 +116,26 @@ class SimpleInputTextField extends StatelessWidget {
         ),
       );
 }
+
+/// Allows to unfocus TextField (and dismiss the keyboard) when user tap outside the TextField and inside this widget.
+/// Therefore, this widget should be put before the Scaffold to make the TextField unfocus when tapping anywhere.
+class UnfocusWhenTapOutside extends StatelessWidget {
+  const UnfocusWhenTapOutside({Key? key, required this.child})
+      : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        final FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: child,
+    );
+  }
+}
