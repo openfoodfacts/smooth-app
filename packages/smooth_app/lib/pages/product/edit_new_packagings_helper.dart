@@ -86,18 +86,15 @@ class EditNewPackagingsHelper {
     addIfNotEmpty(controllerShape.text);
     addIfNotEmpty(controllerQuantity.text);
 
-    if (controllerMaterial.text.isNotEmpty & controllerWeight.text.isNotEmpty) {
-      result.add('(${controllerMaterial.text}: ${controllerWeight.text}g)');
-    }
-
-    if (controllerMaterial.text.isNotEmpty & controllerWeight.text.isEmpty) {
-      result.add('(${controllerMaterial.text})');
-    }
-
-    if (controllerMaterial.text.isEmpty & controllerWeight.text.isNotEmpty) {
+    if (controllerMaterial.text.isNotEmpty) {
+      if (controllerWeight.text.isNotEmpty) {
+        result.add('(${controllerMaterial.text}: ${controllerWeight.text}g)');
+      } else {
+        result.add('(${controllerMaterial.text})');
+      }
+    } else if (controllerWeight.text.isNotEmpty) {
       result.add('(${controllerWeight.text}g)');
     }
-    // And nothing is added if they are both empty.
 
     if (result.isEmpty) {
       return null;
