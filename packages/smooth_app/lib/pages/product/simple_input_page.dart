@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -86,7 +87,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
 
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
-      child: SmoothScaffold(
+      child: UnfocusWhenTapOutside(
+          child: SmoothScaffold(
         appBar: SmoothAppBar(
           title: AutoSizeText(
             getProductName(widget.product, appLocalizations),
@@ -129,7 +131,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 

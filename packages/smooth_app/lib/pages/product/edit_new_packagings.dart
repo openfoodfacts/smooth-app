@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
+import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -189,7 +190,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     );
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
-      child: SmoothScaffold(
+      child: UnfocusWhenTapOutside(
+          child: SmoothScaffold(
         appBar: SmoothAppBar(
           title: Text(appLocalizations.edit_packagings_title),
           subTitle: widget.product.productName != null
@@ -204,7 +206,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
           padding: const EdgeInsets.only(top: LARGE_SPACE),
           children: children,
         ),
-      ),
+      )),
     );
   }
 
