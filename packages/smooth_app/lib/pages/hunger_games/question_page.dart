@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/hunger_games/question_answers_options.dart';
 import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/query/questions_query.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({
@@ -77,7 +78,11 @@ class _QuestionPageState extends State<QuestionPage>
           }
           return true;
         },
-        child: _buildAnimationSwitcher(),
+        child: SmoothScaffold(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          appBar: AppBar(),
+          body: _buildAnimationSwitcher(),
+        ),
       );
 
   AnimatedSwitcher _buildAnimationSwitcher() => AnimatedSwitcher(
@@ -168,7 +173,6 @@ class _QuestionPageState extends State<QuestionPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         QuestionCard(question),
         QuestionAnswersOptions(

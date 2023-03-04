@@ -28,6 +28,9 @@ class CongratsWidget extends StatelessWidget {
     final UserManagementProvider userManagementProvider =
         context.watch<UserManagementProvider>();
 
+    final Brightness brightness = Theme.of(context).brightness;
+    final bool isDarkMode = brightness == Brightness.dark;
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -41,10 +44,9 @@ class CongratsWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
             child: Text(
               appLocalizations.thanks_for_contributing,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .apply(color: Colors.black),
+              style: Theme.of(context).textTheme.bodyText1!.apply(
+                    color: isDarkMode ? Colors.white : Colors.black,
+                  ),
             ),
           ),
           FutureBuilder<bool>(
@@ -71,7 +73,9 @@ class CongratsWidget extends StatelessWidget {
           TextButton(
             child: Text(
               appLocalizations.close,
-              style: const TextStyle(color: Colors.black),
+              style: TextStyle(
+                color: isDarkMode ? Colors.white : Colors.black,
+              ),
             ),
             onPressed: () => Navigator.maybePop<Widget>(context),
           ),
