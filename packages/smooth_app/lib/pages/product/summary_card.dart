@@ -24,12 +24,12 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_category_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/product_question_page.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
@@ -637,7 +637,7 @@ class _SummaryCardState extends State<SummaryCard> {
               padding: const EdgeInsets.all(VERY_SMALL_SPACE),
               child: SizedBox(
                 width: double.infinity,
-                child: QuestionPage(
+                child: ProductQuestionPage(
                   product: _product,
                   questions: questions.toList(),
                   updateProductUponAnswers: _updateProductUponAnswers,
