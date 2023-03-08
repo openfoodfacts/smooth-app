@@ -4,7 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 Uri shareProductList(List<String> barcodes) {
   final StringBuffer buffer = StringBuffer();
 
-  for (String i in barcodes) {
+  for (final String i in barcodes) {
     buffer.write('$i,');
   }
 
