@@ -49,6 +49,13 @@ const String CONTRAST_LOW = 'Low';
 const String CONTRAST_MEDIUM = 'Medium';
 const String CONTRAST_HIGH = 'High';
 
+// All of the contrast Level passes WCAG 2.1 Results for text Readability.
+const Color LOW_CONTRAST_TEXT_COLOR = Color(0xff969696);
+const Color MEDIUM_CONTRAST_TEXT_COLOR = Color(0xffcacaca);
+const Color HIGH_CONTRAST_TEXT_COLOR = Color(0xffffffff);
+
+const Color Test = Colors.white10;
+
 const String COLOR_DEFAULT_NAME = 'Default';
 const Color COLOR_DEFAULT = Color(0xff85746c);
 const Color COLOR_BLUE = Colors.blue;
@@ -80,4 +87,20 @@ Color getColorValue(String colorName) {
     return colorNamesValue.getValueByKeyStartWith(colorName)!;
   }
   return COLOR_DEFAULT;
+}
+
+Color getTextContrastLevel(String contrastLevel) {
+  switch (contrastLevel) {
+    case CONTRAST_LOW:
+      return LOW_CONTRAST_TEXT_COLOR;
+
+    case CONTRAST_MEDIUM:
+      return MEDIUM_CONTRAST_TEXT_COLOR;
+
+    case CONTRAST_HIGH:
+      return HIGH_CONTRAST_TEXT_COLOR;
+
+    default:
+      return HIGH_CONTRAST_TEXT_COLOR;
+  }
 }
