@@ -8,10 +8,8 @@ Uri shareProductList(List<String> barcodes) {
     buffer.write('$i,');
   }
 
-  return Uri(
-    scheme: OpenFoodAPIConfiguration.uriScheme,
-    host:
-        '${OpenFoodAPIConfiguration.globalLanguages?.first.code ?? 'world'}.openfoodfacts.org',
+  return UriHelper.getUri(
     path: 'products/$buffer',
+    addUserAgentParameters: false,
   );
 }
