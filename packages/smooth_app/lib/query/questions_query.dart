@@ -3,7 +3,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 class QuestionsQuery {
   Future<List<RobotoffQuestion>> getQuestions() async {
-    final User user = OpenFoodAPIConfiguration.globalUser!;
+    final User? user = OpenFoodAPIConfiguration.globalUser;
     final String lc = ProductQuery.getLanguage().code;
 
     final RobotoffQuestionResult result =
