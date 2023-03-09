@@ -11,7 +11,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
@@ -77,13 +76,16 @@ class _RateUs extends StatelessWidget {
       await ApplicationStore.openAppDetails();
     } on PlatformException {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      final ThemeData themeData = Theme.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
             appLocalizations.error_occurred,
             textAlign: TextAlign.center,
+            style: TextStyle(color: themeData.colorScheme.background),
           ),
           behavior: SnackBarBehavior.floating,
+          backgroundColor: themeData.colorScheme.onBackground,
         ),
       );
     }
@@ -139,6 +141,7 @@ class _ShareWithFriends extends StatelessWidget {
 
   Future<void> _shareApp(BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData themeData = Theme.of(context);
     try {
       await Share.share(appLocalizations.contribute_share_content);
     } on PlatformException {
@@ -147,8 +150,12 @@ class _ShareWithFriends extends StatelessWidget {
           content: Text(
             appLocalizations.error,
             textAlign: TextAlign.center,
+            style: TextStyle(
+              color: themeData.colorScheme.background,
+            ),
           ),
           behavior: SnackBarBehavior.floating,
+          backgroundColor: themeData.colorScheme.onBackground,
         ),
       );
     }
@@ -379,7 +386,16 @@ class ChooseAccentColor extends StatelessWidget {
                 .map(
                   (String colorName) => DropdownMenuItem<String>(
                     value: colorName,
-                    child: Text(getLocalizedColorName(colorName)),
+                    child: Row(
+                      children: <Widget>[
+                        CircleAvatar(
+                          backgroundColor: getColorValue(colorName),
+                          radius: SMALL_SPACE,
+                        ),
+                        const SizedBox(width: SMALL_SPACE),
+                        Text(getLocalizedColorName(colorName))
+                      ],
+                    ),
                   ),
                 )
                 .toList(),
@@ -400,15 +416,6 @@ class TextColorContrast extends StatelessWidget {
     final TextContrastProvider textContrastProvider =
         context.watch<TextContrastProvider>();
 
-    final Map<String, String> contrast = <String, String>{
-      CONTRAST_HIGH: appLocalizations.contrast_high,
-      CONTRAST_MEDIUM: appLocalizations.contrast_medium,
-      CONTRAST_LOW: appLocalizations.contrast_low,
-    };
-
-    String getContrastLevel(String level) =>
-        contrast.getValueByKeyStartWith(level) ?? CONTRAST_MEDIUM;
-
     return Padding(
       padding: const EdgeInsets.only(
         right: LARGE_SPACE,
@@ -418,20 +425,33 @@ class TextColorContrast extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           DropdownButton<String>(
-            value: getContrastLevel(textContrastProvider.currentContrastLevel),
+            value: textContrastProvider.currentContrastLevel,
             style: Theme.of(context).textTheme.bodyMedium,
             onChanged: (String? contrast) =>
                 textContrastProvider.setContrast(contrast!),
-            items: contrast.keys
-                .map(
-                  (String contrastLevel) => DropdownMenuItem<String>(
-                    value: contrastLevel,
-                    child: Text(
-                      getContrastLevel(contrastLevel),
-                    ),
-                  ),
-                )
-                .toList(),
+            items: <DropdownMenuItem<String>>[
+              DropdownMenuItem<String>(
+                value: CONTRAST_HIGH,
+                child: Text(
+                  appLocalizations.contrast_high,
+                  style: const TextStyle(color: HIGH_CONTRAST_TEXT_COLOR),
+                ),
+              ),
+              DropdownMenuItem<String>(
+                value: CONTRAST_MEDIUM,
+                child: Text(
+                  appLocalizations.contrast_medium,
+                  style: const TextStyle(color: MEDIUM_CONTRAST_TEXT_COLOR),
+                ),
+              ),
+              DropdownMenuItem<String>(
+                value: CONTRAST_LOW,
+                child: Text(
+                  appLocalizations.contrast_low,
+                  style: const TextStyle(color: LOW_CONTRAST_TEXT_COLOR),
+                ),
+              )
+            ],
           )
         ],
       ),
