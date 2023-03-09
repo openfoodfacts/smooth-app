@@ -12,6 +12,7 @@ enum AnalyticsCategory {
   userManagement(tag: 'user management'),
   scanning(tag: 'scanning'),
   share(tag: 'share'),
+  list(tag: 'list'),
   couldNotFindProduct(tag: 'could not find product');
 
   const AnalyticsCategory({required this.tag});
@@ -32,7 +33,9 @@ enum AnalyticsEvent {
   couldNotFindProduct(
     tag: 'could not find product',
     category: AnalyticsCategory.couldNotFindProduct,
-  );
+  ),
+  shareList(tag: 'shared a list', category: AnalyticsCategory.list),
+  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list);
 
   const AnalyticsEvent({required this.tag, required this.category});
   final String tag;

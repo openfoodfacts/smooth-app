@@ -14,6 +14,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
@@ -172,6 +173,7 @@ class _ProductListPageState extends State<ProductListPage>
 
                         final RenderBox? box =
                             context.findRenderObject() as RenderBox?;
+                        AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
                         Share.share(
                           appLocalizations.share_product_list_text(url),
                           sharePositionOrigin:
@@ -180,6 +182,7 @@ class _ProductListPageState extends State<ProductListPage>
 
                         break;
                       case _popupActionOpenInWeb:
+                        AnalyticsHelper.trackEvent(AnalyticsEvent.openListWeb);
                         launchUrl(shareProductList(products));
                         break;
                     }
