@@ -83,9 +83,9 @@ class SmoothTheme {
       ),
       snackBarTheme: SnackBarThemeData(
         contentTextStyle:
-            _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onBackground),
-        actionTextColor: myColorScheme.onBackground,
-        backgroundColor: myColorScheme.background,
+            _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onPrimary),
+        actionTextColor: myColorScheme.onPrimary,
+        backgroundColor: myColorScheme.onBackground,
       ),
       bannerTheme: MaterialBannerThemeData(
         contentTextStyle: TextStyle(color: myColorScheme.onSecondary),

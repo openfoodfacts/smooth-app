@@ -34,7 +34,7 @@ const ColorScheme darkColorScheme = ColorScheme(
 const ColorScheme trueDarkColorScheme = ColorScheme(
   brightness: Brightness.dark,
   primary: COLOR_DEFAULT,
-  onPrimary: Color(0xFFE1E1E1),
+  onPrimary: Color(0xFF000000),
   secondary: COLOR_DEFAULT,
   onSecondary: Color(0xFFE1E1E1),
   error: Color(0xFFEA2B2B),
