@@ -10,6 +10,7 @@ class SmoothTheme {
   const SmoothTheme._();
 
   static const double ADDITIONAL_OPACITY_FOR_DARK = .3;
+  static const double SECONDARY_COLOR_SHADE_VALUE = 0.4;
 
   static ThemeData getThemeData(
     final Brightness brightness,
@@ -25,8 +26,11 @@ class SmoothTheme {
       if (themeProvider.currentTheme == THEME_AMOLED) {
         myColorScheme = trueDarkColorScheme.copyWith(
           primary: getColorValue(colorProvider.currentColor),
-          secondary: getShade(getColorValue(colorProvider.currentColor),
-              darker: true, value: 0.4),
+          secondary: getShade(
+            getColorValue(colorProvider.currentColor),
+            darker: true,
+            value: SECONDARY_COLOR_SHADE_VALUE,
+          ),
         );
       } else {
         myColorScheme = darkColorScheme;
@@ -81,6 +85,7 @@ class SmoothTheme {
         contentTextStyle:
             _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onBackground),
         actionTextColor: myColorScheme.onBackground,
+        backgroundColor: myColorScheme.background,
       ),
       bannerTheme: MaterialBannerThemeData(
         contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
@@ -137,23 +142,10 @@ class SmoothTheme {
 
   static TextTheme getTextTheme(
       ThemeProvider themeProvider, TextContrastProvider textContrastProvider) {
-    Color contrastLevel = Colors.white;
+    final Color contrastLevel = themeProvider.currentTheme == THEME_AMOLED
+        ? getTextContrastLevel(textContrastProvider.currentContrastLevel)
+        : Colors.white;
 
-    if (themeProvider.currentTheme == THEME_AMOLED) {
-      switch (textContrastProvider.currentContrastLevel) {
-        case CONTRAST_LOW:
-          contrastLevel = Colors.white54;
-          break;
-
-        case CONTRAST_MEDIUM:
-          contrastLevel = Colors.white70;
-          break;
-
-        case CONTRAST_HIGH:
-          contrastLevel = Colors.white;
-          break;
-      }
-    }
     return _TEXT_THEME.copyWith(
       displayMedium: _TEXT_THEME.displayMedium?.copyWith(color: contrastLevel),
       headlineMedium:
