@@ -1,6 +1,6 @@
 {
     "@Utils": {},
-    "sep": " ",
+    "sep": "",
     "@sep": {
         "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
     },
@@ -215,7 +215,7 @@
     "sign_up_page_email_hint": "Courriel",
     "sign_up_page_email_error_empty": "Une adresse est requise",
     "sign_up_page_email_error_invalid": "E-mail invalide",
-    "sign_up_page_username_hint": "Nom d'utilisateur : visible publiquement",
+    "sign_up_page_username_hint": "Nom d'utilisateur : visible publiquement",
     "sign_up_page_username_error_empty": "Veuillez saisir un nom d'utilisateur",
     "sign_up_page_username_error_invalid": "Veuillez saisir un nom d'utilisateur valide",
     "sign_up_page_username_description": "Le nom d'utilisateur ne peut pas contenir d'espaces, de majuscules ou de caractères spéciaux.",
@@ -265,7 +265,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Mode sombre",
+    "darkmode": "Theme",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -364,11 +364,11 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world !",
+    "account_create_message": "Créez votre compte et rejoignez la communauté Open Food Facts pour aider à développer des connaissances alimentaires partout dans le monde !",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
-    "join_us": "Join us",
+    "join_us": "Rejoignez-nous",
     "@join_us": {
         "description": "Join which is actually Signup"
     },
@@ -460,7 +460,7 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "Listez toutes les pièces d'emballage séparées par une virgule ou un saut de ligne, avec leur quantité (par exemple 1 ou 6) type (par exemple bouteille, boîte, canette), matériau (par exemple plastique, métal, aluminium) et si disponible leur taille (par exemple 33cl) et consignes de recyclage.\nExemple : 1 bouteille en verre à recycler, 1 bouchon en plastique à jeter",
+    "packaging_editing_instructions": "Listez toutes les pièces d'emballage séparées par une virgule ou un saut de ligne, avec leur quantité (par exemple 1 ou 6) type (par exemple bouteille, boîte, canette), matériau (par exemple plastique, métal, aluminium) et si disponible leur taille (par exemple 33cl) et consignes de recyclage.\nExemple : 1 bouteille en verre à recycler, 1 bouchon en plastique à jeter",
     "packaging_editing_error": "Échec de l'enregistrement de l'emballage.",
     "packaging_editing_image_error": "Impossible d'obtenir une nouvelle image d'emballage.",
     "packaging_editing_title": "Modifier l'emballage",
@@ -579,7 +579,7 @@
     "@more_photos": {},
     "no_product_found": "Aucun produit trouvé",
     "@no_product_found": {},
-    "not_found": "non trouvé :",
+    "not_found": "non trouvé :",
     "searchPanelHeader": "Recherchez ou scannez votre premier produit",
     "@Product query status": {},
     "refreshing_product": "Actualisation du produit",
@@ -607,7 +607,7 @@
         "description": "The product data couldn't be refreshed"
     },
     "product_internet_error": "Impossible de récupérer les informations sur ce produit en raison d'une erreur réseau.",
-    "cached_results_from": "Résultats mis en cache depuis :",
+    "cached_results_from": "Résultats mis en cache depuis :",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
@@ -634,7 +634,7 @@
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "L'image des informations nutritionnelles est obsolète : veuillez la mettre à jour.",
+    "product_improvement_obsolete_nutrition_image": "L'image des informations nutritionnelles est obsolète : veuillez la mettre à jour.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -653,6 +653,14 @@
     "product_removed_comparison": "Produit retiré du comparatif",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
+    },
+    "native_app_settings": "Native App Settings",
+    "@native_app_settings": {
+        "description": "Native App Settings in app settings"
+    },
+    "native_app_description": "Open systems settings for Open Food Facts",
+    "@native_app_description": {
+        "description": "Native App description in app settings"
     },
     "product_removed_history": "Produit retiré de l'historique",
     "@product_removed_history": {
@@ -714,7 +722,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
+    "plural_compare_x_products": "{count,plural, =1{Comparer un produit} other{Comparer {count} produits}}",
     "@plural_compare_x_products": {
         "description": "Button label",
         "placeholders": {
@@ -771,7 +779,7 @@
     "@permissions_page_body2": {
         "description": "second paragraph for the camera permission's page (onboarding)"
     },
-    "contact_form_body_android": "Système d'exploitation : Android (SDK Int : {sdkInt} / Version : {release})\nModèle : {model}\nProduit : {product}\nAppareil : {device}\nMarque : {brand}",
+    "contact_form_body_android": "Système d'exploitation : Android (SDK Int : {sdkInt} / Version : {release})\nModèle : {model}\nProduit : {product}\nAppareil : {device}\nMarque : {brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -801,7 +809,7 @@
             }
         }
     },
-    "contact_form_body_ios": "OS : iOS ({version})\nModèle : {model}\nModèle localisé : {localizedModel}",
+    "contact_form_body_ios": "OS : iOS ({version})\nModèle : {model}\nModèle localisé : {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -937,7 +945,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Connectez-vous ou inscrivez-vous pour rejoindre la communauté Open Food Facts",
-    "user_profile_title_id_email": "Identifiant Open Food Facts : {email}",
+    "user_profile_title_id_email": "Identifiant Open Food Facts : {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -988,7 +996,7 @@
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Ne modifiez cette valeur que si vous rencontrez des problèmes avec le scanner (impossible de décoder les codes-barres). Appuyez pour basculer entre les deux modes.\nLe mode actuel est : {mode}",
+    "camera_mode_subtitle": "Ne modifiez cette valeur que si vous rencontrez des problèmes avec le scanner (impossible de décoder les codes-barres). Appuyez pour basculer entre les deux modes.\nLe mode actuel est : {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -1141,7 +1149,7 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "En Europe, le code est une ellipse contenant les deux initiales du pays suivies par un nombre et CE.\nExemples : EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "En Europe, le code est une ellipse contenant les deux initiales du pays suivies par un nombre et CE.\nExemples : EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
@@ -1323,7 +1331,7 @@
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "URL de base actuelle pour l'environnement de test : {url}",
+    "dev_preferences_test_environment_subtitle": "URL de base actuelle pour l'environnement de test : {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1381,7 +1389,7 @@
         "description": "User dev preferences - Negative button label"
     },
     "dev_preferences_migration_title": "Migration des données depuis la V1",
-    "dev_preferences_migration_subtitle": "Statut : {status}",
+    "dev_preferences_migration_subtitle": "Statut : {status}",
     "@dev_preferences_migration_subtitle": {
         "placeholders": {
             "status": {
@@ -1411,7 +1419,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Le mode de scan actuel est : « {mode} »",
+    "dev_mode_scan_mode_subtitle": "Le mode de scan actuel est : « {mode} »",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1592,7 +1600,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "confirm_clear_user_list": "Vous êtes sur le point d'effacer cette liste ({name}) : êtes-vous sûr de vouloir continuer ?",
+    "confirm_clear_user_list": "Vous êtes sur le point d'effacer cette liste ({name}) : êtes-vous sûr de vouloir continuer ?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
         "placeholders": {
@@ -1601,7 +1609,7 @@
             }
         }
     },
-    "confirm_delete_user_list": "Vous êtes sur le point de supprimer cette liste ({name}) : êtes-vous sûr de vouloir continuer ?",
+    "confirm_delete_user_list": "Vous êtes sur le point de supprimer cette liste ({name}) : êtes-vous sûr de vouloir continuer ?",
     "@confirm_delete_user_list": {
         "description": "Asking about whether to delete the list or not",
         "placeholders": {
@@ -1610,7 +1618,7 @@
             }
         }
     },
-    "importance_label": "{name} importance : {id}",
+    "importance_label": "{name} importance : {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {
@@ -1672,6 +1680,15 @@
     "share_product_text": "Jetez un œil à ce produit sur Open Food Facts : {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "@share_product_list_text": {
+        "description": "The content which is send, when sharing a product list",
         "placeholders": {
             "url": {
                 "type": "String"
@@ -1909,7 +1926,71 @@
     "background_task_question_stop": "Voulez-vous arrêter cette tâche dès que possible ?",
     "feed_back": "Commentaires",
     "undo": "Annuler",
-    "copy_email_to_clip_board": "Copier l'e-mail dans le presse-papiers",
+    "copy_email_to_clip_board": "Copy email to clipboard",
     "please_send_us_an_email_to": "Veuillez nous envoyer manuellement un e-mail à",
-    "email_copied_to_clip_board": "E-mail copié dans le presse-papiers !"
+    "email_copied_to_clip_board": "E-mail copié dans le presse-papiers !",
+    "select_accent_color": "Select Accent Color",
+    "@select_accent_color": {
+        "description": "Accent Color for the application in AMOLED mode."
+    },
+    "theme_amoled": "AMOLED",
+    "@theme_amoled": {
+        "description": "AMOLED theme mode."
+    },
+    "color_blue": "Blue",
+    "@color_blue": {
+        "description": "Color Blue"
+    },
+    "color_cyan": "Cyan",
+    "@color_cyan": {
+        "description": "Color Cyan"
+    },
+    "color_green": "Green",
+    "@color_green": {
+        "description": "Color Green"
+    },
+    "color_light_brown": "Default",
+    "@color_light_brown": {
+        "description": "Color Light Brown, Default Open Food Facts Color"
+    },
+    "color_magenta": "Magenta",
+    "@color_magenta": {
+        "description": "Color Magenta"
+    },
+    "color_orange": "Orange",
+    "@color_orange": {
+        "description": "Color Orange"
+    },
+    "color_pink": "Pink",
+    "@color_pink": {
+        "description": "Color Pink"
+    },
+    "color_red": "Red",
+    "@color_red": {
+        "description": "Color Red"
+    },
+    "color_rust": "Rust",
+    "@color_rust": {
+        "description": "Color Rust"
+    },
+    "color_teal": "Teal",
+    "@color_teal": {
+        "description": "Color Teal"
+    },
+    "text_contrast_mode": "Text Contrast",
+    "@text_contrast_mode": {
+        "description": "Text Contrast Color Mode"
+    },
+    "contrast_high": "High",
+    "@contrast_high": {
+        "description": "High Contrast Text Color"
+    },
+    "contrast_medium": "Medium",
+    "@contrast_medium": {
+        "description": "Medium Contrast Text Color"
+    },
+    "contrast_low": "Low",
+    "@contrast_low": {
+        "description": "Low Contrast Text Color"
+    }
 }

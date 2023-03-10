@@ -1,5 +1,9 @@
 {
     "@Utils": {},
+    "sep": "",
+    "@sep": {
+        "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
+    },
     "yes": "Da",
     "@yes": {},
     "add": "Adaugă",
@@ -214,7 +218,7 @@
     "sign_up_page_username_hint": "Nume de utilizator: vizibil public",
     "sign_up_page_username_error_empty": "Vă rugăm să introduceți un nume de utilizator",
     "sign_up_page_username_error_invalid": "Vă rugăm să introduceți un nume de utilizator valid",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
+    "sign_up_page_username_description": "Numele de utilizator nu poate conține spații, majuscule sau caractere speciale.",
     "sign_up_page_username_length_invalid": "Numele de utilizator nu poate depăși {value} caractere",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -253,15 +257,15 @@
     "sign_up_page_producer_hint": "Producător/marcă",
     "sign_up_page_producer_error_empty": "Vă rugăm să introduceţi un producător sau un nume de marcă",
     "sign_up_page_subscribe_checkbox": "Aș dori să mă abonez la buletinul informativ Open Food Facts (vă puteți dezabona de la acesta în orice moment)",
-    "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
-    "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
-    "sign_up_page_provide_valid_email": "Please provide a valid email address.",
+    "sign_up_page_user_name_already_used": "Numele de utilizator există deja, vă rugăm să alegeți un alt nume de utilizator.",
+    "sign_up_page_email_already_exists": "există deja, conectați-vă la cont sau încercați cu un alt e-mail.",
+    "sign_up_page_provide_valid_email": "Vă rugăm să furnizați o adresă de e-mail validă.",
     "@Settings": {},
     "settingsTitle": "Configurări",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Modul întunecat",
+    "darkmode": "Theme",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -360,11 +364,11 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world !",
+    "account_create_message": "Creați-vă contul și alăturați-vă comunității Open Food Facts pentru a ajuta la construirea cunoștințelor despre alimente în întreaga lume!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
-    "join_us": "Join us",
+    "join_us": "Alătură-te nouă",
     "@join_us": {
         "description": "Join which is actually Signup"
     },
@@ -650,6 +654,14 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
+    "native_app_settings": "Setări aplicație nativă",
+    "@native_app_settings": {
+        "description": "Native App Settings in app settings"
+    },
+    "native_app_description": "Deschideți setările de sistem pentru Open Food Facts",
+    "@native_app_description": {
+        "description": "Native App description in app settings"
+    },
     "product_removed_history": "Produs eliminat din istoric",
     "@product_removed_history": {
         "description": "Product got removed from history"
@@ -803,7 +815,7 @@
         "placeholders": {
             "version": {
                 "type": "String?",
-                "description": "Version of IOS (eg : 15)"
+                "description": "Version of IOS (eg: 15)"
             },
             "model": {
                 "type": "String?",
@@ -849,7 +861,7 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "are_you_sure": "Are you sure?",
+    "are_you_sure": "Sunteți sigur?",
     "@are_you_sure": {
         "description": "Are you sure?"
     },
@@ -1674,6 +1686,15 @@
             }
         }
     },
+    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "@share_product_list_text": {
+        "description": "The content which is send, when sharing a product list",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
     "capture": "Captură nouă",
     "@capture": {
         "description": "Button label for taking a photo"
@@ -1905,7 +1926,71 @@
     "background_task_question_stop": "Doriți să opriți această sarcină cât mai curând posibil?",
     "feed_back": "Părere",
     "undo": "Anulează",
-    "copy_email_to_clip_board": "Copy emailto clipboard",
-    "please_send_us_an_email_to": "Please send us manually an email to",
-    "email_copied_to_clip_board": "Email copied to clipboard!"
+    "copy_email_to_clip_board": "Copy email to clipboard",
+    "please_send_us_an_email_to": "Vă rugăm să ne trimiteți manual un e-mail la",
+    "email_copied_to_clip_board": "E-mailul a fost copiat în clipboard!",
+    "select_accent_color": "Select Accent Color",
+    "@select_accent_color": {
+        "description": "Accent Color for the application in AMOLED mode."
+    },
+    "theme_amoled": "AMOLED",
+    "@theme_amoled": {
+        "description": "AMOLED theme mode."
+    },
+    "color_blue": "Blue",
+    "@color_blue": {
+        "description": "Color Blue"
+    },
+    "color_cyan": "Cyan",
+    "@color_cyan": {
+        "description": "Color Cyan"
+    },
+    "color_green": "Green",
+    "@color_green": {
+        "description": "Color Green"
+    },
+    "color_light_brown": "Default",
+    "@color_light_brown": {
+        "description": "Color Light Brown, Default Open Food Facts Color"
+    },
+    "color_magenta": "Magenta",
+    "@color_magenta": {
+        "description": "Color Magenta"
+    },
+    "color_orange": "Orange",
+    "@color_orange": {
+        "description": "Color Orange"
+    },
+    "color_pink": "Pink",
+    "@color_pink": {
+        "description": "Color Pink"
+    },
+    "color_red": "Red",
+    "@color_red": {
+        "description": "Color Red"
+    },
+    "color_rust": "Rust",
+    "@color_rust": {
+        "description": "Color Rust"
+    },
+    "color_teal": "Teal",
+    "@color_teal": {
+        "description": "Color Teal"
+    },
+    "text_contrast_mode": "Text Contrast",
+    "@text_contrast_mode": {
+        "description": "Text Contrast Color Mode"
+    },
+    "contrast_high": "High",
+    "@contrast_high": {
+        "description": "High Contrast Text Color"
+    },
+    "contrast_medium": "Medium",
+    "@contrast_medium": {
+        "description": "Medium Contrast Text Color"
+    },
+    "contrast_low": "Low",
+    "@contrast_low": {
+        "description": "Low Contrast Text Color"
+    }
 }
