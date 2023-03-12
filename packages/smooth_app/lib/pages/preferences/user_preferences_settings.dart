@@ -19,6 +19,9 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/camera_modes.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/color_provider.dart';
+import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Collapsed/expanded display of settings for the preferences page.
@@ -67,18 +70,22 @@ class UserPreferencesSettings extends AbstractUserPreferences {
 
 class _RateUs extends StatelessWidget {
   const _RateUs();
+
   Future<void> _redirect(BuildContext context) async {
     try {
       await ApplicationStore.openAppDetails();
     } on PlatformException {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      final ThemeData themeData = Theme.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
             appLocalizations.error_occurred,
             textAlign: TextAlign.center,
+            style: TextStyle(color: themeData.colorScheme.background),
           ),
           behavior: SnackBarBehavior.floating,
+          backgroundColor: themeData.colorScheme.onBackground,
         ),
       );
     }
@@ -134,6 +141,7 @@ class _ShareWithFriends extends StatelessWidget {
 
   Future<void> _shareApp(BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData themeData = Theme.of(context);
     try {
       await Share.share(appLocalizations.contribute_share_content);
     } on PlatformException {
@@ -142,8 +150,12 @@ class _ShareWithFriends extends StatelessWidget {
           content: Text(
             appLocalizations.error,
             textAlign: TextAlign.center,
+            style: TextStyle(
+              color: themeData.colorScheme.background,
+            ),
           ),
           behavior: SnackBarBehavior.floating,
+          backgroundColor: themeData.colorScheme.onBackground,
         ),
       );
     }
@@ -225,12 +237,41 @@ class _ApplicationSettings extends StatelessWidget {
                   DropdownMenuItem<String>(
                     value: THEME_DARK,
                     child: Text(appLocalizations.darkmode_dark),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: THEME_AMOLED,
+                    child: Text(appLocalizations.theme_amoled),
                   )
                 ],
               ),
             ],
           ),
         ),
+        if (themeProvider.currentTheme == THEME_AMOLED)
+          Column(
+            children: <Widget>[
+              ListTile(
+                title: Text(
+                  appLocalizations.select_accent_color,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                subtitle: ChooseAccentColor(
+                  appLocalizations: appLocalizations,
+                ),
+                minLeadingWidth: MEDIUM_SPACE,
+              ),
+              ListTile(
+                title: Text(
+                  appLocalizations.text_contrast_mode,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                subtitle: TextColorContrast(appLocalizations: appLocalizations),
+                minLeadingWidth: MEDIUM_SPACE,
+              ),
+            ],
+          )
+        else
+          const SizedBox.shrink(),
         const UserPreferencesListItemDivider(),
         const _CountryPickerSetting(),
         const UserPreferencesListItemDivider(),
@@ -271,6 +312,7 @@ class _ApplicationSettings extends StatelessWidget {
             children: <Widget>[
               DropdownButton<UserPictureSource>(
                 value: userPreferences.userPictureSource,
+                style: Theme.of(context).textTheme.bodyMedium,
                 elevation: 16,
                 onChanged: (final UserPictureSource? newValue) async =>
                     userPreferences.setUserPictureSource(newValue!),
@@ -293,6 +335,126 @@ class _ApplicationSettings extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class ChooseAccentColor extends StatelessWidget {
+  const ChooseAccentColor({required this.appLocalizations});
+
+  final AppLocalizations appLocalizations;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorProvider colorProvider = context.watch<ColorProvider>();
+
+    final Map<String, String> localizedNames = <String, String>{
+      'Blue': appLocalizations.color_blue,
+      'Cyan': appLocalizations.color_cyan,
+      'Green': appLocalizations.color_green,
+      'Default': appLocalizations.color_light_brown,
+      'Magenta': appLocalizations.color_magenta,
+      'Orange': appLocalizations.color_orange,
+      'Pink': appLocalizations.color_pink,
+      'Red': appLocalizations.color_red,
+      'Rust': appLocalizations.color_rust,
+      'Teal': appLocalizations.color_teal,
+    };
+
+    String getLocalizedColorName(String colorName) {
+      if (localizedNames.containsKey(colorName)) {
+        return localizedNames[colorName]!;
+      }
+      return localizedNames[COLOR_DEFAULT_NAME]!;
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(
+        right: LARGE_SPACE,
+        bottom: MEDIUM_SPACE,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          DropdownButton<String>(
+            value: getLocalizedColorName(colorProvider.currentColor),
+            style: Theme.of(context).textTheme.bodyMedium,
+            onChanged: (String? value) {
+              colorProvider.setColor(value!);
+            },
+            items: colorNamesValue.keys
+                .map(
+                  (String colorName) => DropdownMenuItem<String>(
+                    value: colorName,
+                    child: Row(
+                      children: <Widget>[
+                        CircleAvatar(
+                          backgroundColor: getColorValue(colorName),
+                          radius: SMALL_SPACE,
+                        ),
+                        const SizedBox(width: SMALL_SPACE),
+                        Text(getLocalizedColorName(colorName))
+                      ],
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TextColorContrast extends StatelessWidget {
+  const TextColorContrast({super.key, required this.appLocalizations});
+
+  final AppLocalizations appLocalizations;
+
+  @override
+  Widget build(BuildContext context) {
+    final TextContrastProvider textContrastProvider =
+        context.watch<TextContrastProvider>();
+
+    return Padding(
+      padding: const EdgeInsets.only(
+        right: LARGE_SPACE,
+        bottom: MEDIUM_SPACE,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          DropdownButton<String>(
+            value: textContrastProvider.currentContrastLevel,
+            style: Theme.of(context).textTheme.bodyMedium,
+            onChanged: (String? contrast) =>
+                textContrastProvider.setContrast(contrast!),
+            items: <DropdownMenuItem<String>>[
+              DropdownMenuItem<String>(
+                value: CONTRAST_HIGH,
+                child: Text(
+                  appLocalizations.contrast_high,
+                  style: const TextStyle(color: HIGH_CONTRAST_TEXT_COLOR),
+                ),
+              ),
+              DropdownMenuItem<String>(
+                value: CONTRAST_MEDIUM,
+                child: Text(
+                  appLocalizations.contrast_medium,
+                  style: const TextStyle(color: MEDIUM_CONTRAST_TEXT_COLOR),
+                ),
+              ),
+              DropdownMenuItem<String>(
+                value: CONTRAST_LOW,
+                child: Text(
+                  appLocalizations.contrast_low,
+                  style: const TextStyle(color: LOW_CONTRAST_TEXT_COLOR),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }
