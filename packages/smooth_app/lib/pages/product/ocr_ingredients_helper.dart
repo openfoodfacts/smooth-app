@@ -68,6 +68,6 @@ class OcrIngredientsHelper extends OcrHelper {
   bool hasAddExtraPhotoButton() => false;
 
   @override
-    AnalyticsEditEvents getEditEventAnalyticsTag() =>
-        AnalyticsEditEvents.ingredients_and_Origins;
+  AnalyticsEditEvents getEditEventAnalyticsTag() =>
+      AnalyticsEditEvents.ingredients_and_Origins;
 }

@@ -71,6 +71,6 @@ class OcrPackagingHelper extends OcrHelper {
   bool hasAddExtraPhotoButton() => true;
 
   @override
-     AnalyticsEditEvents getEditEventAnalyticsTag() =>
-        AnalyticsEditEvents.recyclingInstructionsPhotos;
+  AnalyticsEditEvents getEditEventAnalyticsTag() =>
+      AnalyticsEditEvents.recyclingInstructionsPhotos;
 }

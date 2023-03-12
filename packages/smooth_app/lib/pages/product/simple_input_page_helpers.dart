@@ -248,7 +248,8 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.embCodes;
 
-  AnalyticsEditEvents? analyticsEditEvent = AnalyticsEditEvents.traceabilityCodes;
+  AnalyticsEditEvents? analyticsEditEvent =
+      AnalyticsEditEvents.traceabilityCodes;
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
