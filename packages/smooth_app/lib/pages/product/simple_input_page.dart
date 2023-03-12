@@ -182,7 +182,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         return false;
       }
     }
-    // TDOD(ashaman999): find better way to get the current product edit category
+    // TODO(ashaman999): find better way to get the current product edit category
     AnalyticsHelper.trackProductEdit(
       widget.helpers[0].getAnalyticsEditEvent()!,
       widget.product.barcode!,
