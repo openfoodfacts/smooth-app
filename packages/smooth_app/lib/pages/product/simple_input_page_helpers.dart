@@ -139,7 +139,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   }
 
   /// Returns the enum to be used for matomo analytics.
-  AnalyticsEditEvents? getAnalyticsEditEvent() => null;
+  AnalyticsEditEvents getAnalyticsEditEvent();
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -172,7 +172,8 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.stores;
 
-  AnalyticsEditEvents? analyticsEditEvent = AnalyticsEditEvents.stores;
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.stores;
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -211,7 +212,8 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.origins;
 
-  AnalyticsEditEvents? analyticsEditEvent = AnalyticsEditEvents.origins;
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.origins;
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -248,7 +250,8 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.embCodes;
 
-  AnalyticsEditEvents? analyticsEditEvent =
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() =>
       AnalyticsEditEvents.traceabilityCodes;
 }
 
@@ -292,7 +295,8 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.labels;
 
-  AnalyticsEditEvents? analyticsEditEvent =
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() =>
       AnalyticsEditEvents.labelsAndCertifications;
 }
 
@@ -341,7 +345,8 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   BackgroundTaskDetailsStamp getStamp() =>
       BackgroundTaskDetailsStamp.categories;
 
-  AnalyticsEditEvents? analyticsEditEvent = AnalyticsEditEvents.categories;
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.categories;
 }
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
@@ -384,5 +389,6 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.countries;
 
-  AnalyticsEditEvents? analyticsEditEvent = AnalyticsEditEvents.country;
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.country;
 }

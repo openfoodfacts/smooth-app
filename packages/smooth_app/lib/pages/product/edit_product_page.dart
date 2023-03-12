@@ -151,9 +151,6 @@ class _EditProductPageState extends State<EditProductPage> {
                 subtitle:
                     appLocalizations.edit_product_form_item_photos_subtitle,
                 onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                    return;
-                  }
                   AnalyticsHelper.trackProductEdit(
                       AnalyticsEditEvents.photos, _barcode);
 
@@ -308,7 +305,7 @@ class _EditProductPageState extends State<EditProductPage> {
           return;
         }
         AnalyticsHelper.trackProductEdit(
-          helper.getAnalyticsEditEvent()!,
+          helper.getAnalyticsEditEvent(),
           _barcode,
         );
         await Navigator.push<void>(

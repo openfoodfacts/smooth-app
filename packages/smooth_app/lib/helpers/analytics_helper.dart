@@ -57,7 +57,7 @@ enum AnalyticsEditEvents {
   nutrition_Facts(name: 'Nutrition Facts'),
   labelsAndCertifications(name: 'Labels And Certifications'),
   packagingComponents(name: 'Packaging Components'),
-  recyclingInstructionsPhotos(name: 'Recycling Instructions Phots'),
+  recyclingInstructionsPhotos(name: 'Recycling Instructions Photos'),
   stores(name: 'Stores'),
   origins(name: 'Origins'),
   traceabilityCodes(name: 'Traceability Codes'),

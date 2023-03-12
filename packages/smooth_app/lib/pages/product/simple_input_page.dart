@@ -182,12 +182,24 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         return false;
       }
     }
-    // TODO(ashaman999): find better way to get the current product edit category
-    AnalyticsHelper.trackProductEdit(
-      widget.helpers[0].getAnalyticsEditEvent()!,
-      widget.product.barcode!,
-      true,
-    );
+
+// If there is more than one helper, we are in the power edit mode.
+// else we take the only helper ie 0th element of the [helpers] list
+// and get the analytics event from it.
+
+    if (widget.helpers.length > 1) {
+      AnalyticsHelper.trackProductEdit(
+        AnalyticsEditEvents.powerEditScreen,
+        widget.product.barcode!,
+        true,
+      );
+    } else {
+      AnalyticsHelper.trackProductEdit(
+        widget.helpers[0].getAnalyticsEditEvent(),
+        widget.product.barcode!,
+        true,
+      );
+    }
 
     bool first = true;
     for (final MapEntry<BackgroundTaskDetailsStamp, Product> entry
