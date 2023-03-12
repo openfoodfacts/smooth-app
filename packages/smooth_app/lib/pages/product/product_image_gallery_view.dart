@@ -83,10 +83,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
+        onPressed: () async {
           AnalyticsHelper.trackProductEdit(
-              AnalyticsEditEvents.photos, _barcode);
-          confirmAndUploadNewPicture(
+              AnalyticsEditEvents.photos, _barcode, true);
+          await confirmAndUploadNewPicture(
             this,
             imageField: ImageField.OTHER,
             barcode: _barcode,

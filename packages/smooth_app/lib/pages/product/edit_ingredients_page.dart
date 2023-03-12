@@ -101,11 +101,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final ImageField imageField,
   ) async {
     AnalyticsHelper.trackProductEdit(
-      AnalyticsEditEvents.ingredients_and_Origins,
+      _helper.getEditEventAnalyticsTag(),
       _product.barcode!,
       true,
     );
-    BackgroundTaskDetails.addTask(
+    await BackgroundTaskDetails.addTask(
       _helper.getMinimalistProduct(Product(barcode: _product.barcode), text),
       widget: this,
       stamp: _helper.getStamp(),

@@ -8,6 +8,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
@@ -291,6 +292,12 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
         return false;
       }
     }
+
+    AnalyticsHelper.trackProductEdit(
+      AnalyticsEditEvents.packagingComponents,
+      changedProduct.barcode!,
+      true,
+    );
 
     await BackgroundTaskDetails.addTask(
       changedProduct,

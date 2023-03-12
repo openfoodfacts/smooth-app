@@ -153,9 +153,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       return;
                     }
                     AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.basicDetials,
-                        _product.barcode!,
-                        true);
+                      AnalyticsEditEvents.basicDetials,
+                      _product.barcode!,
+                      true,
+                    );
                     await BackgroundTaskDetails.addTask(
                       _getMinimalistProduct(),
                       widget: this,

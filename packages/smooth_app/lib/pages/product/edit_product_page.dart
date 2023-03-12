@@ -249,7 +249,9 @@ class _EditProductPageState extends State<EditProductPage> {
                     return;
                   }
                   AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.recyclingInstructionsPhots, _barcode);
+                    AnalyticsEditEvents.recyclingInstructionsPhotos,
+                    _barcode,
+                  );
 
                   await Navigator.push<void>(
                     context,
@@ -305,7 +307,10 @@ class _EditProductPageState extends State<EditProductPage> {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
         }
-        AnalyticsHelper.trackProductEdit(helper.getAnalyticsEvent()!, _barcode);
+        AnalyticsHelper.trackProductEdit(
+          helper.getAnalyticsEditEvent()!,
+          _barcode,
+        );
         await Navigator.push<void>(
           context,
           MaterialPageRoute<void>(

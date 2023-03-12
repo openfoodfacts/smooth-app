@@ -182,9 +182,13 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         return false;
       }
     }
-
+    // TDOD(ashaman999): find better way to get the current product edit category
     AnalyticsHelper.trackProductEdit(
-        widget.helpers[0].getAnalyticsEvent()!, widget.product.barcode!);
+      widget.helpers[0].getAnalyticsEditEvent()!,
+      widget.product.barcode!,
+      true,
+    );
+
     bool first = true;
     for (final MapEntry<BackgroundTaskDetailsStamp, Product> entry
         in changedProducts.entries) {
