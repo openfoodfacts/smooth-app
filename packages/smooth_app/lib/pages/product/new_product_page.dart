@@ -320,7 +320,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                   AnalyticsEvent.openProductEditPage,
                   barcode: _barcode,
                 );
-                Navigator.push<void>(
+                await Navigator.push<void>(
                   context,
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) =>
