@@ -210,7 +210,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   onTap: () async {
                     AnalyticsHelper.trackProductEdit(
                         AnalyticsEditEvents.nutrition_Facts, _barcode);
-                    NutritionPageLoaded.showNutritionPage(
+                    await NutritionPageLoaded.showNutritionPage(
                       product: _product,
                       isLoggedInMandatory: true,
                       widget: this,
