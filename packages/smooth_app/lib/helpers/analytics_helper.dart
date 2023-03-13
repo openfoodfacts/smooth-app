@@ -49,7 +49,7 @@ enum AnalyticsEvent {
 }
 
 enum AnalyticsEditEvents {
-  basicDetials(name: 'BasicDetials'),
+  basicDetials(name: 'BasicDetails'),
   photos(name: 'Photos'),
   powerEditScreen(name: 'Power Edit Screen'),
   ingredients_and_Origins(name: 'Ingredient And Origins'),
