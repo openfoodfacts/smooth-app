@@ -13,7 +13,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -27,6 +26,7 @@ import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
@@ -56,7 +56,7 @@ late bool _screenshots;
 late String flavour;
 
 Future<void> launchSmoothApp({
-  required CameraScanner scanner,
+  required SmoothBarcodeScannerType scanner,
   required AppStore appStore,
   required String appFlavour,
   final bool screenshots = false,
@@ -89,7 +89,7 @@ Future<void> launchSmoothApp({
 class SmoothApp extends StatefulWidget {
   const SmoothApp(this.scanner, this.appStore);
 
-  final CameraScanner scanner;
+  final SmoothBarcodeScannerType scanner;
   final AppStore appStore;
 
   // This widget is the root of your application
@@ -216,10 +216,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
-            provide<CameraControllerNotifier>(
-              CameraHelper.cameraControllerNotifier,
-            ),
-            Provider<CameraScanner>.value(
+            Provider<SmoothBarcodeScannerType>.value(
               value: widget.scanner,
             ),
           ],

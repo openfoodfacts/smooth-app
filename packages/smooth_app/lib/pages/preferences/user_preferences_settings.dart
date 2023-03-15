@@ -17,7 +17,6 @@ import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/pages/scan/camera_modes.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
@@ -530,7 +529,7 @@ class _AdvancedSettings extends StatelessWidget {
               padding: const EdgeInsets.only(top: SMALL_SPACE),
               child: Text(
                 appLocalizations.native_app_description,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             trailing: const Padding(
@@ -611,10 +610,6 @@ class _CameraSettings extends StatelessWidget {
         UserPreferencesTitle(
           label: appLocalizations.settings_app_camera,
         ),
-        if (CameraModes.supportBothModes) ...<Widget>[
-          const _CameraModesSelectorSetting(),
-          const UserPreferencesListItemDivider(),
-        ],
         const _CameraPlayScanSoundSetting(),
       ],
     );
@@ -635,42 +630,6 @@ class _CameraPlayScanSoundSetting extends StatelessWidget {
       value: userPreferences.playCameraSound,
       onChanged: (final bool value) async {
         await userPreferences.setPlayCameraSound(value);
-      },
-    );
-  }
-}
-
-/// This setting will act as a toggle between the two camera modes.
-class _CameraModesSelectorSetting extends StatelessWidget {
-  const _CameraModesSelectorSetting({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    CameraMode mode;
-
-    if (userPreferences.useFileBasedCameraMode == true) {
-      mode = CameraMode.FILE_BASED;
-    } else if (userPreferences.useFileBasedCameraMode == false) {
-      mode = CameraMode.BYTES_ARRAY;
-    } else {
-      mode = CameraModes.defaultCameraMode;
-    }
-
-    // File-based mode is called "Safe mode" for users
-    // Bytes array mode is called "Quick mode"
-    return UserPreferencesSwitchItem(
-      title: appLocalizations.camera_mode_title,
-      subtitle: appLocalizations.camera_mode_subtitle(
-        mode == CameraMode.FILE_BASED
-            ? appLocalizations.camera_mode_file_based
-            : appLocalizations.camera_mode_bytes_array_based,
-      ),
-      value: mode == CameraMode.FILE_BASED,
-      onChanged: (final bool value) {
-        userPreferences.setUseFileBasedCameraMode(value);
       },
     );
   }
