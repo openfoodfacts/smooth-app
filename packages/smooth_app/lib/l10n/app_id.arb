@@ -364,7 +364,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world !",
+    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -724,7 +724,7 @@
     },
     "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
     "@plural_compare_x_products": {
-        "description": "Button label",
+        "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
             "count": {}
         }
@@ -867,7 +867,7 @@
     },
     "knowledge_panel_text_source": "Go further on {sourceName}",
     "@knowledge_panel_text_source": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
             "sourceName": {
                 "type": "String"
@@ -1174,8 +1174,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Apa Anda ingin menyimpan perubahan sebelum meninggalkan halaman ini?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Save my changes",
-    "edit_product_form_item_exit_confirmation_negative_button": "Ignore my changes",
+    "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
+    "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
     "edit_product_form_item_ingredients_title": "Bahan & Asal",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1246,7 +1246,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "No list available yet,\nplease start by creating one",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1319,7 +1319,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1756,7 +1756,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "no_email_client_available_dialog_title": "No email apps!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1833,7 +1833,7 @@
     "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
     "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
     "edit_packagings_title": "Packaging components",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -1908,7 +1908,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1927,6 +1927,9 @@
     "feed_back": "Feedback",
     "undo": "Undo",
     "copy_email_to_clip_board": "Copy email to clipboard",
+    "@copy_email_to_clip_board": {
+        "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
+    },
     "please_send_us_an_email_to": "Mohon kirimkan kami email secara manual ke",
     "email_copied_to_clip_board": "Email disalin ke papan klip!",
     "select_accent_color": "Select Accent Color",

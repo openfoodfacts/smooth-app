@@ -265,7 +265,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Theme",
+    "darkmode": "Tema",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -364,11 +364,11 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world !",
+    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
-    "join_us": "Join us",
+    "join_us": "Prisijunkite prie mūsų",
     "@join_us": {
         "description": "Join which is actually Signup"
     },
@@ -724,7 +724,7 @@
     },
     "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
     "@plural_compare_x_products": {
-        "description": "Button label",
+        "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
             "count": {}
         }
@@ -867,7 +867,7 @@
     },
     "knowledge_panel_text_source": "Go further on {sourceName}",
     "@knowledge_panel_text_source": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
             "sourceName": {
                 "type": "String"
@@ -1174,8 +1174,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Ar norite išsaugoti pakeitimus prieš išeidami iš šio puslapio?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Išsaugoti mano pakeitimus",
-    "edit_product_form_item_exit_confirmation_negative_button": "Ignoruoti mano pakeitimus",
+    "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
+    "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
     "edit_product_form_item_ingredients_title": "Ingredientai ir kilmė",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1246,7 +1246,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "No list available yet,\nplease start by creating one",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1319,7 +1319,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Tada programą turite paleisti iš naujo.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1686,7 +1686,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Peržiūrėkite mano produktų sąrašą „Open Food Facts“: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -1756,7 +1756,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "Nerasta elektroninio pašto programėlė!",
+    "no_email_client_available_dialog_title": "No email apps!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1833,7 +1833,7 @@
     "app_rating_dialog_title_enjoying_app": "Ar Jums patinka ši programėlė?",
     "app_rating_dialog_title_enjoying_positive_actions": "Aha!",
     "not_really": "Nelabai",
-    "app_rating_dialog_title_not_enjoying_app": "Man labai gaila dėl to! Gal galėtumėte pasakyti, kas nutiko?",
+    "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
     "edit_packagings_title": "Pakuotės komponentai",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -1908,7 +1908,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Pašalinkite likusį maistą, išplaukite ir išdžiovinkite pakuotės dalį prieš sverdami. Jei įmanoma, naudokite 0,1 g arba 0,01 g tikslumo svarstykles.",
+    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1926,10 +1926,13 @@
     "background_task_question_stop": "Ar nori sustabdyti šią užduotį kuo greičiau?",
     "feed_back": "Atsiliepimas",
     "undo": "Anuliuoti",
-    "copy_email_to_clip_board": "Copy email to clipboard",
+    "copy_email_to_clip_board": "Kopijuoti el. laišką į iškarpinę",
+    "@copy_email_to_clip_board": {
+        "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
+    },
     "please_send_us_an_email_to": "Išsiųskite mums el. laišką rankiniu būdu į",
     "email_copied_to_clip_board": "El. laiškas nukopijuotas į iškarpinę!",
-    "select_accent_color": "Select Accent Color",
+    "select_accent_color": "Pasirinkti akcento spalvą",
     "@select_accent_color": {
         "description": "Accent Color for the application in AMOLED mode."
     },
@@ -1937,59 +1940,59 @@
     "@theme_amoled": {
         "description": "AMOLED theme mode."
     },
-    "color_blue": "Blue",
+    "color_blue": "Mėlyna",
     "@color_blue": {
         "description": "Color Blue"
     },
-    "color_cyan": "Cyan",
+    "color_cyan": "Žydra",
     "@color_cyan": {
         "description": "Color Cyan"
     },
-    "color_green": "Green",
+    "color_green": "Žalia",
     "@color_green": {
         "description": "Color Green"
     },
-    "color_light_brown": "Default",
+    "color_light_brown": "Numatytoji",
     "@color_light_brown": {
         "description": "Color Light Brown, Default Open Food Facts Color"
     },
-    "color_magenta": "Magenta",
+    "color_magenta": "Violetinė",
     "@color_magenta": {
         "description": "Color Magenta"
     },
-    "color_orange": "Orange",
+    "color_orange": "Oranžinė",
     "@color_orange": {
         "description": "Color Orange"
     },
-    "color_pink": "Pink",
+    "color_pink": "Rausva",
     "@color_pink": {
         "description": "Color Pink"
     },
-    "color_red": "Red",
+    "color_red": "Raudona",
     "@color_red": {
         "description": "Color Red"
     },
-    "color_rust": "Rust",
+    "color_rust": "Rūdis",
     "@color_rust": {
         "description": "Color Rust"
     },
-    "color_teal": "Teal",
+    "color_teal": "Smaragdinė",
     "@color_teal": {
         "description": "Color Teal"
     },
-    "text_contrast_mode": "Text Contrast",
+    "text_contrast_mode": "Teksto kontrastas",
     "@text_contrast_mode": {
         "description": "Text Contrast Color Mode"
     },
-    "contrast_high": "High",
+    "contrast_high": "Aukštas",
     "@contrast_high": {
         "description": "High Contrast Text Color"
     },
-    "contrast_medium": "Medium",
+    "contrast_medium": "Vidutinis",
     "@contrast_medium": {
         "description": "Medium Contrast Text Color"
     },
-    "contrast_low": "Low",
+    "contrast_low": "Mažas",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     }
