@@ -865,7 +865,7 @@
     "@are_you_sure": {
         "description": "Are you sure?"
     },
-    "knowledge_panel_text_source": "تعرف أكثر من خلال {source_name}",
+    "knowledge_panel_text_source": "تعرف أكثر من خلال {sourceName}",
     "@knowledge_panel_text_source": {
         "description": "Source field within a text knowledge panel.",
         "placeholders": {
