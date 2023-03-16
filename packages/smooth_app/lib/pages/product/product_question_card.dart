@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Display of a Robotoff question text.
 class ProductQuestionCard extends StatelessWidget {
@@ -16,13 +19,15 @@ class ProductQuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Future<Product> productFuture = OpenFoodAPIClient.getProduct(
-      ProductQueryConfiguration(question.barcode!),
-    ).then((ProductResult result) => result.product!);
+    final Future<Product?> productFuture =
+        ProductRefresher().silentFetchAndRefresh(
+      barcode: question.barcode!,
+      localDatabase: context.read<LocalDatabase>(),
+    );
 
-    return FutureBuilder<Product>(
+    return FutureBuilder<Product?>(
         future: productFuture,
-        builder: (BuildContext context, AsyncSnapshot<Product> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<Product?> snapshot) {
           if (!snapshot.hasData) {
             return _buildQuestionShimmer();
           }
