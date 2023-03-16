@@ -265,7 +265,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Theme",
+    "darkmode": "Thème",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -654,11 +654,11 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "native_app_settings": "Native App Settings",
+    "native_app_settings": "Paramètres natifs de l'application",
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Ouvrir les paramètres systèmes pour Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -724,7 +724,7 @@
     },
     "plural_compare_x_products": "{count,plural, =1{Comparer un produit} other{Comparer {count} produits}}",
     "@plural_compare_x_products": {
-        "description": "Button label",
+        "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
             "count": {}
         }
@@ -867,7 +867,7 @@
     },
     "knowledge_panel_text_source": "Go further on {sourceName}",
     "@knowledge_panel_text_source": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
             "sourceName": {
                 "type": "String"
@@ -1174,8 +1174,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Souhaitez-vous enregistrer vos modifications avant de quitter cette page ?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Enregistrer mes modifications",
-    "edit_product_form_item_exit_confirmation_negative_button": "Ignorer mes modifications",
+    "edit_product_form_item_exit_confirmation_positive_button": "Enregistrer les modifications",
+    "edit_product_form_item_exit_confirmation_negative_button": "Annuler les modifications",
     "edit_product_form_item_ingredients_title": "Ingrédients & Origines",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1246,7 +1246,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Aucune liste disponible pour le moment,\nveuillez commencer par en créer une nouvelle",
+    "user_list_empty_label": "Aucune liste disponible pour le moment,\nveuillez commencer par en créer une",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1319,7 +1319,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Vous devez ensuite redémarrer l'application pour le voir.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1686,7 +1686,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Jetez un œil à ma liste de produits sur Open Food Facts : {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -1756,7 +1756,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "Aucune application de messagerie n'a été trouvée!",
+    "no_email_client_available_dialog_title": "Aucune application de messagerie !",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1833,7 +1833,7 @@
     "app_rating_dialog_title_enjoying_app": "Cette application vous plaît ?",
     "app_rating_dialog_title_enjoying_positive_actions": "Ouais!",
     "not_really": "Pas vraiment",
-    "app_rating_dialog_title_not_enjoying_app": "Oh non ! Pourriez-vous me dire ce qu'il s'est passé ?",
+    "app_rating_dialog_title_not_enjoying_app": "Nous sommes désolés d'entendre cela ! Pourriez-vous nous dire ce qu'il s'est passé ?",
     "edit_packagings_title": "Composants d'emballage",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -1908,7 +1908,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Retirez tout reste de nourriture et lavez et séchez la partie d'emballage avant la pesée. Si possible, utilisez une balance avec une précision de 0,1 g ou 0,01 g.",
+    "edit_packagings_element_hint_weight": "Retirez tous les restes de nourriture et lavez et séchez l'emballage avant de peser. Si possible, utilisez une balance avec une précision de 0,1 g ou 0,01 g.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1926,10 +1926,13 @@
     "background_task_question_stop": "Voulez-vous arrêter cette tâche dès que possible ?",
     "feed_back": "Commentaires",
     "undo": "Annuler",
-    "copy_email_to_clip_board": "Copy email to clipboard",
+    "copy_email_to_clip_board": "Copier l'adresse e-mail dans le presse-papiers",
+    "@copy_email_to_clip_board": {
+        "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
+    },
     "please_send_us_an_email_to": "Veuillez nous envoyer manuellement un e-mail à",
     "email_copied_to_clip_board": "E-mail copié dans le presse-papiers !",
-    "select_accent_color": "Select Accent Color",
+    "select_accent_color": "Sélectionnez la couleur d'accentuation",
     "@select_accent_color": {
         "description": "Accent Color for the application in AMOLED mode."
     },
@@ -1937,7 +1940,7 @@
     "@theme_amoled": {
         "description": "AMOLED theme mode."
     },
-    "color_blue": "Blue",
+    "color_blue": "Bleu",
     "@color_blue": {
         "description": "Color Blue"
     },
@@ -1945,11 +1948,11 @@
     "@color_cyan": {
         "description": "Color Cyan"
     },
-    "color_green": "Green",
+    "color_green": "Vert",
     "@color_green": {
         "description": "Color Green"
     },
-    "color_light_brown": "Default",
+    "color_light_brown": "Par défaut",
     "@color_light_brown": {
         "description": "Color Light Brown, Default Open Food Facts Color"
     },
@@ -1961,35 +1964,35 @@
     "@color_orange": {
         "description": "Color Orange"
     },
-    "color_pink": "Pink",
+    "color_pink": "Rose",
     "@color_pink": {
         "description": "Color Pink"
     },
-    "color_red": "Red",
+    "color_red": "Rouge",
     "@color_red": {
         "description": "Color Red"
     },
-    "color_rust": "Rust",
+    "color_rust": "Rouille",
     "@color_rust": {
         "description": "Color Rust"
     },
-    "color_teal": "Teal",
+    "color_teal": "Bleu canard",
     "@color_teal": {
         "description": "Color Teal"
     },
-    "text_contrast_mode": "Text Contrast",
+    "text_contrast_mode": "Contraste du texte",
     "@text_contrast_mode": {
         "description": "Text Contrast Color Mode"
     },
-    "contrast_high": "High",
+    "contrast_high": "Élevée",
     "@contrast_high": {
         "description": "High Contrast Text Color"
     },
-    "contrast_medium": "Medium",
+    "contrast_medium": "Moyen",
     "@contrast_medium": {
         "description": "Medium Contrast Text Color"
     },
-    "contrast_low": "Low",
+    "contrast_low": "Faible",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     }
