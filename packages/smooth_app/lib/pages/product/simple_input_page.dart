@@ -7,6 +7,7 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -180,6 +181,24 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       if (!mounted) {
         return false;
       }
+    }
+
+// If there is more than one helper, we are in the power edit mode.
+// else we take the only helper ie 0th element of the [helpers] list
+// and get the analytics event from it.
+
+    if (widget.helpers.length > 1) {
+      AnalyticsHelper.trackProductEdit(
+        AnalyticsEditEvents.powerEditScreen,
+        widget.product.barcode!,
+        true,
+      );
+    } else {
+      AnalyticsHelper.trackProductEdit(
+        widget.helpers[0].getAnalyticsEditEvent(),
+        widget.product.barcode!,
+        true,
+      );
     }
 
     bool first = true;
