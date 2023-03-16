@@ -1,8 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Android (Huawei Appgallery)" type="FlutterRunConfigurationType" factoryName="Flutter" folderName="Android">
-    <option name="filePath" value="$PROJECT_DIR$/packages/app/lib/entrypoints/android/main_huawei_appgallery.dart" />
-    <method v="2">
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Enable scanner_zxing dependency" run_configuration_type="ShConfigurationType" />
-    </method>
+    <option name="filePath" value="$PROJECT_DIR$/packages/smooth_app/lib/entrypoints/android/main_huawei_appgallery.dart" />
+    <method v="2" />
   </configuration>
 </component>

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -110,30 +110,21 @@ class UpToDateProductProvider {
         jsonDecode(jsonEncode(source.toJson())) as Map<String, dynamic>,
       );
 
-  /// Returns the key of a new minimalist local change added to pending ones.
-  ///
-  /// To make it clearer:
-  /// * the method creates a new minimalist change
-  /// * that change has a (new) key
-  /// * after creating the change, the method returns the key
-  Future<String> addChange(final Product minimalistProduct) async {
+  /// Adds a minimalist local change to pending ones.
+  Future<void> addChange(
+    final String key,
+    final Product minimalistProduct,
+  ) async {
     final String barcode = minimalistProduct.barcode!;
-    final String key = await _changes.add(minimalistProduct);
+    await _changes.add(key, minimalistProduct);
     _timestamps[barcode] = LocalDatabase.nowInMillis();
     localDatabase.notifyListeners();
-    return key;
   }
 
   /// Returns the local pending change ids related to a [barcode].
   Iterable<TransientOperation>? getSortedChangeOperations(
           final String barcode) =>
       _changes.getSortedOperations(barcode);
-
-  Product prepareChangesForServer(
-    final String barcode,
-    final Iterable<TransientOperation> sortedOperations,
-  ) =>
-      _changes.prepareChangesForServer(barcode, sortedOperations);
 
   /// Closes a single operation, successful or failed.
   void terminate(final String operationKey) {

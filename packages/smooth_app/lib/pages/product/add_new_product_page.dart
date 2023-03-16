@@ -2,18 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/model/ProductImage.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
-import 'package:smooth_app/pages/product/confirm_and_upload_picture.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
-import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const EdgeInsetsGeometry _ROW_PADDING_TOP = EdgeInsetsDirectional.only(
@@ -40,16 +38,23 @@ class AddNewProductPage extends StatefulWidget {
 }
 
 class _AddNewProductPageState extends State<AddNewProductPage> {
-  final Map<ImageField, List<File>> _uploadedImages =
-      <ImageField, List<File>>{};
+  // Just one file per main image field
+  final Map<ImageField, File> _uploadedImages = <ImageField, File>{};
+  // Many possible files for "other" image field
+  final List<File> _otherUploadedImages = <File>[];
 
   late Product _product;
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
+  late DaoProductList _daoProductList;
 
-  bool get _nutritionFactsAdded => _product.nutriments != null;
+  final ProductList _history = ProductList.history();
+
+  bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
   bool get _basicDetailsAdded =>
       AddBasicDetailsPage.isProductBasicValid(_product);
+
+  bool _alreadyPushedtToHistory = false;
 
   @override
   void initState() {
@@ -57,6 +62,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     _initialProduct = Product(barcode: widget.barcode);
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(widget.barcode);
+    _daoProductList = DaoProductList(_localDatabase);
   }
 
   @override
@@ -68,36 +74,21 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     context.watch<LocalDatabase>();
     final ThemeData themeData = Theme.of(context);
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    final bool empty = _uploadedImages.isEmpty && _otherUploadedImages.isEmpty;
+
+    _addToHistory();
+
     return SmoothScaffold(
       appBar: AppBar(
-          title: Text(appLocalizations.new_product),
-          automaticallyImplyLeading: _uploadedImages.isEmpty),
+        title: Text(appLocalizations.new_product),
+        automaticallyImplyLeading: empty,
+      ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async {
-          if (_basicDetailsAdded ||
-              _nutritionFactsAdded ||
-              _uploadedImages.isNotEmpty) {
-            // Tricky situation: we've launched background tasks,
-            // but is at least one of them completed?
-            final DaoProduct daoProduct = DaoProduct(_localDatabase);
-            final Product? localProduct = await daoProduct.get(widget.barcode);
-            // No background task was completed yet: we create a dummy product,
-            // so that the pending changes can go on top of something.
-            if (localProduct == null) {
-              await daoProduct.put(_initialProduct);
-              _localDatabase.upToDate
-                  .setLatestDownloadedProduct(_initialProduct);
-              _localDatabase.notifyListeners();
-            }
-          }
-          if (!mounted) {
-            return;
-          }
-          await Navigator.maybePop(context);
-        },
+        onPressed: () async => Navigator.maybePop(context),
         label: Text(appLocalizations.finish),
         icon: const Icon(Icons.done),
       ),
@@ -113,12 +104,12 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             children: <Widget>[
               Text(
                 appLocalizations.add_product_take_photos_descriptive,
-                style: themeData.textTheme.bodyText1!
+                style: themeData.textTheme.bodyLarge!
                     .apply(color: themeData.colorScheme.onBackground),
               ),
               ..._buildImageCaptureRows(context),
               _buildNutritionInputButton(),
-              _buildaddInputDetailsButton()
+              _buildAddInputDetailsButton()
             ],
           ),
         ),
@@ -126,33 +117,46 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     );
   }
 
+  /// Adds the product to history if at least one of the fields is set.
+  Future<void> _addToHistory() async {
+    if (_alreadyPushedtToHistory) {
+      return;
+    }
+    // TODO(open): Add _nutritionFactsAdded , see (https://github.com/openfoodfacts/smooth-app/issues/3445)
+    if (_basicDetailsAdded ||
+        _uploadedImages.isNotEmpty ||
+        _otherUploadedImages.isNotEmpty) {
+      await _daoProductList.push(_history, _product.barcode!);
+      _alreadyPushedtToHistory = true;
+    }
+  }
+
   List<Widget> _buildImageCaptureRows(BuildContext context) {
     final List<Widget> rows = <Widget>[];
     // First build rows for buttons to ask user to upload images.
-    for (final ImageField imageType in _SORTED_IMAGE_FIELD_LIST) {
+    for (final ImageField imageField in _SORTED_IMAGE_FIELD_LIST) {
       // Always add a button to "Add other photos" because there can be multiple
       // "other photos" uploaded by the user.
-      if (imageType == ImageField.OTHER) {
-        rows.add(_buildAddImageButton(context, imageType));
-        if (_uploadedImages[imageType] != null) {
-          for (final File image in _uploadedImages[imageType]!) {
-            rows.add(_buildImageUploadedRow(context, imageType, image));
-          }
+      if (imageField == ImageField.OTHER) {
+        rows.add(_buildAddImageButton(context, imageField));
+        for (final File image in _otherUploadedImages) {
+          rows.add(_buildImageUploadedRow(context, imageField, image));
         }
         continue;
       }
 
       // Everything else can only be uploaded once
-      if (_isImageUploadedForType(imageType)) {
+      final File? imageFile = _uploadedImages[imageField];
+      if (imageFile != null) {
         rows.add(
           _buildImageUploadedRow(
             context,
-            imageType,
-            _uploadedImages[imageType]![0],
+            imageField,
+            imageFile,
           ),
         );
       } else {
-        rows.add(_buildAddImageButton(context, imageType));
+        rows.add(_buildAddImageButton(context, imageField));
       }
     }
     return rows;
@@ -165,28 +169,19 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         text: _getAddPhotoButtonText(context, imageField),
         icon: Icons.camera_alt,
         onPressed: () async {
-          final File? initialPhoto = await startImageCropping(this);
-          if (initialPhoto == null) {
-            return;
-          }
-          // Photo can change in the ConfirmAndUploadPicture widget, the user
-          // may choose to retake the image.
-          // TODO(monsieurtanuki): careful, waiting for pop'ed value
-          //ignore: use_build_context_synchronously
-          final File? finalPhoto = await Navigator.push<File>(
-            context,
-            MaterialPageRoute<File>(
-              builder: (BuildContext context) => ConfirmAndUploadPicture(
-                barcode: widget.barcode,
-                imageField: imageField,
-                initialPhoto: initialPhoto,
-              ),
-            ),
+          final File? finalPhoto = await confirmAndUploadNewPicture(
+            this,
+            barcode: widget.barcode,
+            imageField: imageField,
           );
           if (finalPhoto != null) {
-            _uploadedImages[imageField] =
-                _uploadedImages[imageField] ?? <File>[];
-            _uploadedImages[imageField]!.add(initialPhoto);
+            setState(() {
+              if (imageField == ImageField.OTHER) {
+                _otherUploadedImages.add(finalPhoto);
+              } else {
+                _uploadedImages[imageField] = finalPhoto;
+              }
+            });
           }
         },
       ),
@@ -217,10 +212,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     }
   }
 
-  bool _isImageUploadedForType(ImageField imageType) {
-    return (_uploadedImages[imageType] ?? <File>[]).isNotEmpty;
-  }
-
   Widget _buildNutritionInputButton() {
     // if the nutrition image is null, ie no image , we return nothing
     if (_product.imageNutritionUrl == null) {
@@ -236,38 +227,16 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       child: SmoothLargeButtonWithIcon(
         text: AppLocalizations.of(context).nutritional_facts_input_button_label,
         icon: Icons.edit,
-        onPressed: () async {
-          final OrderedNutrientsCache? cache =
-              await OrderedNutrientsCache.getCache(context);
-          if (!mounted) {
-            return;
-          }
-          if (cache == null) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                    AppLocalizations.of(context).nutrition_cache_loading_error),
-              ),
-            );
-            return;
-          }
-          await Navigator.push<void>(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => NutritionPageLoaded(
-                Product(barcode: widget.barcode),
-                cache.orderedNutrients,
-                isLoggedInMandatory: false,
-              ),
-              fullscreenDialog: true,
-            ),
-          );
-        },
+        onPressed: () async => NutritionPageLoaded.showNutritionPage(
+          product: Product(barcode: widget.barcode),
+          isLoggedInMandatory: false,
+          widget: this,
+        ),
       ),
     );
   }
 
-  Widget _buildaddInputDetailsButton() {
+  Widget _buildAddInputDetailsButton() {
     if (_basicDetailsAdded) {
       return _InfoAddedRow(
           text: AppLocalizations.of(context).basic_details_add_success);
@@ -318,7 +287,7 @@ class _InfoAddedRow extends StatelessWidget {
           ),
           Expanded(
             child: Center(
-              child: Text(text, style: themeData.textTheme.bodyText1),
+              child: Text(text, style: themeData.textTheme.bodyLarge),
             ),
           ),
           Icon(

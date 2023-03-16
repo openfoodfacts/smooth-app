@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/cli_commands.dart';
-import 'package:openfoodfacts/utils/LanguageHelper.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 
 class Languages {
   static const LocalizationsDelegate<MaterialLocalizations> _delegate =

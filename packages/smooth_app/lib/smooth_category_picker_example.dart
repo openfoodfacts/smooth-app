@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/LanguageHelper.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -161,7 +160,6 @@ class _ExampleAppState extends State<ExampleApp> {
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
-        backgroundColor: Colors.lightGreenAccent,
         canvasColor: Colors.lightGreenAccent,
         scaffoldBackgroundColor: Colors.lightGreenAccent,
         floatingActionButtonTheme: const FloatingActionButtonThemeData(

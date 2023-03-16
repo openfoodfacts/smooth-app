@@ -1,4 +1,4 @@
-import 'package:openfoodfacts/model/SearchResult.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/database/dao_product.dart';

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 
 /// Main product image on a product card.
 class SmoothMainProductImage extends StatelessWidget {
@@ -16,16 +20,16 @@ class SmoothMainProductImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final NetworkImage? child = _buildFromUrl(product.imageFrontSmallUrl) ??
-        _buildFromUrl(product.imageFrontUrl);
+    context.watch<LocalDatabase>();
+    final ImageProvider? imageProvider = TransientFile.getImageProvider(
+      getProductImageData(product, ImageField.FRONT),
+      product.barcode!,
+    );
 
     return SmoothImage(
       width: width,
       height: height,
-      imageProvider: child,
+      imageProvider: imageProvider,
     );
   }
-
-  NetworkImage? _buildFromUrl(final String? url) =>
-      url == null || url.isEmpty ? null : NetworkImage(url);
 }

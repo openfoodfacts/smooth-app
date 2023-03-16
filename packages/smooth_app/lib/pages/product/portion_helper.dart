@@ -1,9 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:openfoodfacts/model/Nutrient.dart';
-import 'package:openfoodfacts/model/Nutriments.dart';
-import 'package:openfoodfacts/model/OrderedNutrient.dart';
-import 'package:openfoodfacts/model/PerSize.dart';
-import 'package:openfoodfacts/utils/UnitHelper.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/query/product_query.dart';
 

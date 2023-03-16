@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
@@ -44,9 +43,7 @@ class CongratsWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
             child: Text(
               appLocalizations.thanks_for_contributing,
-              style: Theme.of(context).textTheme.bodyText1!.apply(
-                    color: isDarkMode ? Colors.white : Colors.black,
-                  ),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
           FutureBuilder<bool>(
@@ -101,6 +98,7 @@ class CongratsWidget extends StatelessWidget {
                 ),
               );
               if (OpenFoodAPIConfiguration.globalUser != null) {
+                // ignore: use_build_context_synchronously
                 LoadingDialog.run<void>(
                   context: context,
                   title: appLocalizations.saving_answer,
@@ -116,7 +114,7 @@ class CongratsWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
           child: Text(
             appLocalizations.question_sign_in_text,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
         ),

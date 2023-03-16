@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/model/parameter/BarcodeParameter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
@@ -23,6 +26,7 @@ import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -41,6 +45,8 @@ class _ProductListPageState extends State<ProductListPage>
 
   static const String _popupActionClear = 'clear';
   static const String _popupActionRename = 'rename';
+  static const String _popupActionOpenInWeb = 'openInWeb';
+  static const String _popupActionShare = 'share';
 
   @override
   String get traceName => 'Opened list_page';
@@ -95,9 +101,18 @@ class _ProductListPageState extends State<ProductListPage>
     }
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
+
+    final ThemeData theme = Theme.of(context);
+
     return SmoothScaffold(
       floatingActionButton: _selectionMode || products.length <= 1
-          ? null
+          ? _CompareProductsButton(
+              selectedBarcodes: _selectedBarcodes,
+              barcodes: products,
+              onComparisonEnded: () {
+                setState(() => _selectionMode = false);
+              },
+            )
           : FloatingActionButton.extended(
               onPressed: () => setState(() => _selectionMode = true),
               label: Text(appLocalizations.compare_products_mode),
@@ -142,7 +157,6 @@ class _ProductListPageState extends State<ProductListPage>
                             );
                           },
                         );
-
                         break;
                       case _popupActionRename:
                         final ProductList? renamedProductList =
@@ -152,6 +166,24 @@ class _ProductListPageState extends State<ProductListPage>
                           return;
                         }
                         setState(() => productList = renamedProductList);
+                        break;
+                      case _popupActionShare:
+                        final String url =
+                            shareProductList(products).toString();
+
+                        final RenderBox? box =
+                            context.findRenderObject() as RenderBox?;
+                        AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
+                        Share.share(
+                          appLocalizations.share_product_list_text(url),
+                          sharePositionOrigin:
+                              box!.localToGlobal(Offset.zero) & box.size,
+                        );
+
+                        break;
+                      case _popupActionOpenInWeb:
+                        AnalyticsHelper.trackEvent(AnalyticsEvent.openListWeb);
+                        launchUrl(shareProductList(products));
                         break;
                     }
                   },
@@ -167,6 +199,14 @@ class _ProductListPageState extends State<ProductListPage>
                         value: _popupActionRename,
                         child: Text(appLocalizations.user_list_popup_rename),
                       ),
+                    PopupMenuItem<String>(
+                      value: _popupActionOpenInWeb,
+                      child: Text(appLocalizations.label_web),
+                    ),
+                    PopupMenuItem<String>(
+                      value: _popupActionShare,
+                      child: Text(appLocalizations.share),
+                    ),
                   ],
                 )
               ],
@@ -181,48 +221,41 @@ class _ProductListPageState extends State<ProductListPage>
         actionModeTitle: Text(appLocalizations.compare_products_appbar_title),
         actionModeSubTitle:
             Text(appLocalizations.compare_products_appbar_subtitle),
-        actionModeActions: <Widget>[
-          _CompareProductsButton(
-            selectedBarcodes: _selectedBarcodes,
-            barcodes: products,
-            onComparisonEnded: () {
-              setState(() => _selectionMode = false);
-            },
-          )
-        ],
       ),
       body: products.isEmpty
-          ? GestureDetector(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SvgPicture.asset(
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: SvgPicture.asset(
                       'assets/misc/empty-list.svg',
-                      height: MediaQuery.of(context).size.height * .4,
                       package: AppHelper.APP_PACKAGE,
                     ),
-                    Text(
-                      appLocalizations.product_list_empty_title,
-                      style: themeData.textTheme.headlineLarge
-                          ?.apply(color: colorScheme.onBackground),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                      child: Text(
-                        appLocalizations.product_list_empty_message,
-                        textAlign: TextAlign.center,
-                        style: themeData.textTheme.bodyText2?.apply(
-                          color: colorScheme.onBackground,
-                        ),
+                  ),
+                  const Padding(padding: EdgeInsets.all(VERY_LARGE_SPACE)),
+                  SmoothSimpleButton(
+                    onPressed: () {
+                      InheritedDataManager.of(context)
+                          .resetShowSearchCard(true);
+                    },
+                    child: Text(appLocalizations.product_list_empty_title,
+                        style: theme.textTheme.headlineLarge?.copyWith(
+                          color: theme.colorScheme.onPrimary,
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
+                    child: Text(
+                      appLocalizations.product_list_empty_message,
+                      textAlign: TextAlign.center,
+                      style: themeData.textTheme.bodyMedium?.apply(
+                        color: colorScheme.onBackground,
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  ),
+                ],
               ),
-              onTap: () {
-                InheritedDataManager.of(context).resetShowSearchCard(true);
-              },
             )
           : WillPopScope(
               onWillPop: _handleUserBacktap,
@@ -316,12 +349,16 @@ class _ProductListPageState extends State<ProductListPage>
         key: Key(barcode),
         onDismissed: (final DismissDirection direction) async {
           final bool removed = productList.remove(barcode);
+          bool removedFromSelectedBarcodes = false;
           if (removed) {
             await DaoProductList(localDatabase).put(productList);
-            _selectedBarcodes.remove(barcode);
+            removedFromSelectedBarcodes = _selectedBarcodes.remove(barcode);
             setState(() => barcodes.removeAt(index));
           }
-          //ignore: use_build_context_synchronously
+          if (!mounted) {
+            return;
+          }
+          ScaffoldMessenger.of(context).hideCurrentSnackBar();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
@@ -330,9 +367,23 @@ class _ProductListPageState extends State<ProductListPage>
                     : appLocalizations.product_could_not_remove,
               ),
               duration: SnackBarDuration.medium,
+              action: !removed
+                  ? null
+                  : SnackBarAction(
+                      textColor: PRIMARY_BLUE_COLOR,
+                      label: appLocalizations.undo,
+                      onPressed: () async {
+                        barcodes.insert(index, barcode);
+                        productList.set(barcodes);
+                        if (removedFromSelectedBarcodes) {
+                          _selectedBarcodes.add(barcode);
+                        }
+                        await DaoProductList(localDatabase).put(productList);
+                        setState(() {});
+                      },
+                    ),
             ),
           );
-          // TODO(monsieurtanuki): add a snackbar ("put back the food")
         },
         child: child,
       );
@@ -376,6 +427,7 @@ class _ProductListPageState extends State<ProductListPage>
         setState(() {});
         return;
       case false:
+        // ignore: use_build_context_synchronously
         LoadingDialog.error(context: context);
         return;
     }
@@ -396,6 +448,7 @@ class _ProductListPageState extends State<ProductListPage>
           parametersList: <Parameter>[
             BarcodeParameter.list(barcodes),
           ],
+          version: ProductQuery.productQueryVersion,
         ),
       );
       final List<Product>? freshProducts = searchResult.products;
@@ -435,7 +488,8 @@ class _CompareProductsButton extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return IconButton(
+    return FloatingActionButton.extended(
+      label: Text(appLocalizations.compare_products_mode),
       icon: const Icon(Icons.compare_arrows),
       tooltip: appLocalizations.plural_compare_x_products(
         selectedBarcodes.length,

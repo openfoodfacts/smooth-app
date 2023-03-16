@@ -5,13 +5,18 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class LoginPage extends StatefulWidget {
@@ -31,11 +36,12 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
   final TextEditingController passwordController = TextEditingController();
 
   Future<void> _login(BuildContext context) async {
-    final UserManagementProvider userManagementProvider =
-        context.read<UserManagementProvider>();
     if (!_formKey.currentState!.validate()) {
       return;
     }
+
+    final UserManagementProvider userManagementProvider =
+        context.read<UserManagementProvider>();
 
     setState(() {
       _runningQuery = true;
@@ -51,6 +57,12 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
     if (login) {
       AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
+      if (!mounted) {
+        return;
+      }
+
+      await showInAppReviewIfNecessary(context);
+
       if (!mounted) {
         return;
       }
@@ -124,7 +136,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       Text(
                         appLocalizations.sign_in_text,
                         textAlign: TextAlign.center,
-                        style: theme.textTheme.headline1?.copyWith(
+                        style: theme.textTheme.displayLarge?.copyWith(
                           fontSize: VERY_LARGE_SPACE,
                           fontWeight: FontWeight.w700,
                         ),
@@ -222,7 +234,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           ),
                           child: Text(
                             appLocalizations.sign_in,
-                            style: theme.textTheme.bodyText2?.copyWith(
+                            style: theme.textTheme.bodyMedium?.copyWith(
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold,
                               color: theme.colorScheme.onPrimary,
@@ -261,7 +273,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         },
                         child: Text(
                           appLocalizations.forgot_password,
-                          style: theme.textTheme.bodyText2?.copyWith(
+                          style: theme.textTheme.bodyMedium?.copyWith(
                             fontSize: 18.0,
                             color: theme.colorScheme.primary,
                           ),
@@ -313,7 +325,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                 const EdgeInsetsDirectional.only(bottom: 2.0),
                             child: Text(
                               appLocalizations.create_account,
-                              style: theme.textTheme.bodyText2?.copyWith(
+                              style: theme.textTheme.bodyMedium?.copyWith(
                                 fontSize: VERY_LARGE_SPACE,
                                 fontWeight: FontWeight.w500,
                                 color: theme.colorScheme.primary,
@@ -331,5 +343,88 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         ),
       ),
     );
+  }
+
+  Future<void> showInAppReviewIfNecessary(BuildContext context) async {
+    final UserPreferences preferences = context.read<UserPreferences>();
+    if (!preferences.inAppReviewAlreadyAsked) {
+      assert(mounted);
+      final bool? enjoyingApp = await showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+
+          return SmoothAlertDialog(
+            body: Text(appLocalizations.app_rating_dialog_title_enjoying_app),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations
+                  .app_rating_dialog_title_enjoying_positive_actions,
+              onPressed: () => Navigator.of(context).pop(true),
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.not_really,
+              onPressed: () => Navigator.of(context).pop(false),
+            ),
+          );
+        },
+      );
+      if (enjoyingApp != null && !enjoyingApp) {
+        // ignore: use_build_context_synchronously
+        await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context);
+
+            return SmoothAlertDialog(
+              body: Text(
+                  appLocalizations.app_rating_dialog_title_not_enjoying_app),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.okay,
+                onPressed: () async {
+                  final String formLink =
+                      UserFeedbackHelper.getFeedbackFormLink();
+                  LaunchUrlHelper.launchURL(formLink, false);
+                  Navigator.of(context).pop();
+                },
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.not_really,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            );
+          },
+        );
+      }
+      bool? userRatedApp;
+      if (enjoyingApp != null && enjoyingApp) {
+        // ignore: use_build_context_synchronously
+        userRatedApp = await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            final AppLocalizations appLocalizations =
+                AppLocalizations.of(context);
+
+            return SmoothAlertDialog(
+              body: Text(appLocalizations.app_rating_dialog_title),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.app_rating_dialog_positive_action,
+                onPressed: () async => Navigator.of(context).pop(
+                  await ApplicationStore.openAppReview(),
+                ),
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.ask_me_later_button_label,
+                onPressed: () => Navigator.of(context).pop(false),
+              ),
+            );
+          },
+        );
+      }
+      if (userRatedApp != null && userRatedApp) {
+        await preferences.markInAppReviewAsShown();
+      }
+    }
   }
 }

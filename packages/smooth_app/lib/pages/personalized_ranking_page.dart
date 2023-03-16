@@ -2,17 +2,18 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/personalized_ranking_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
-import 'package:smooth_app/pages/tmp_matched_product_v2.dart';
+import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
@@ -52,15 +53,63 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     );
   }
 
+  Future<void> _addToLists(BuildContext context) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final DaoProductList daoProductList = DaoProductList(localDatabase);
+    final bool? added = await ProductListUserDialogHelper(daoProductList)
+        .showUserAddProductsDialog(
+      context,
+      widget.barcodes.toSet(),
+    );
+    if (!mounted) {
+      return;
+    }
+    if (added != null && added) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            appLocalizations.added_to_list_msg,
+          ),
+          duration: SnackBarDuration.medium,
+        ),
+      );
+    }
+  }
+
+  Future<void> _handlePopUpClick(String value) async {
+    switch (value) {
+      case 'add_to_list':
+        await _addToLists(context);
+        break;
+      default:
+        throw Exception('Unknown case $value');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     context.watch<LocalDatabase>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return SmoothScaffold(
       appBar: AppBar(
         title: Text(widget.title, overflow: TextOverflow.fade),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            onSelected: _handlePopUpClick,
+            itemBuilder: (BuildContext context) {
+              return <PopupMenuEntry<String>>[
+                PopupMenuItem<String>(
+                  value: 'add_to_list',
+                  child: Text(appLocalizations.user_list_button_add_product),
+                ),
+              ];
+            },
+          ),
+        ],
       ),
       body: ChangeNotifierProvider<PersonalizedRankingModel>(
         create: (final BuildContext context) => _model,
@@ -155,7 +204,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: Text(
           helper.getHeaderText(appLocalizations),
-          style: Theme.of(context).textTheme.subtitle1,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
@@ -28,7 +27,8 @@ class KnowledgePanelGroupCard extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
               child: Text(
                 groupElement.title!,
-                style: themeData.textTheme.subtitle2!.apply(color: Colors.grey),
+                style:
+                    themeData.textTheme.titleSmall!.apply(color: Colors.grey),
               ),
             ),
           for (String panelId in groupElement.panelIds)

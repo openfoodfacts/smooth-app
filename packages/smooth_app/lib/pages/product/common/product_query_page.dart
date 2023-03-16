@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
@@ -31,10 +31,12 @@ class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
     required this.productListSupplier,
     required this.name,
+    required this.editableAppBarTitle,
   });
 
   final ProductListSupplier productListSupplier;
   final String name;
+  final bool editableAppBarTitle;
 
   @override
   State<ProductQueryPage> createState() => _ProductQueryPageState();
@@ -199,7 +201,10 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           elevation: 2,
           automaticallyImplyLeading: false,
           leading: const SmoothBackButton(),
-          title: _AppBarTitle(name: widget.name),
+          title: _AppBarTitle(
+            name: widget.name,
+            editableAppBarTitle: widget.editableAppBarTitle,
+          ),
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
@@ -300,7 +305,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             child: Text(
               message,
               textAlign: TextAlign.center,
-              style: themeData.textTheme.subtitle1!.copyWith(fontSize: 18.0),
+              style: themeData.textTheme.titleMedium!.copyWith(fontSize: 18.0),
             ),
           ),
           if (worldQuery != null)
@@ -373,8 +378,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final List<Country> localizedCountries =
         await IsoCountries.iso_countries_for_locale(locale);
     for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() ==
-          _country!.iso2Code.toLowerCase()) {
+      if (country.countryCode.toLowerCase() == _country!.offTag.toLowerCase()) {
         return country.name;
       }
     }
@@ -438,7 +442,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     } else {
       _scrollController.animateTo(
         0,
-        duration: SnackBarDuration.medium,
+        duration: const Duration(milliseconds: 6),
         curve: Curves.linear,
       );
     }
@@ -485,7 +489,10 @@ class _EmptyScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: const SmoothBackButton(),
-        title: _AppBarTitle(name: name),
+        title: _AppBarTitle(
+          name: name,
+          editableAppBarTitle: false,
+        ),
         actions: actions,
       ),
       body: Center(child: emptiness),
@@ -496,27 +503,35 @@ class _EmptyScreen extends StatelessWidget {
 class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
     required this.name,
+    required this.editableAppBarTitle,
     Key? key,
   }) : super(key: key);
 
   final String name;
+  final bool editableAppBarTitle;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
-      },
-      child: Tooltip(
-        message: appLocalizations.tap_to_edit_search,
-        child: AutoSizeText(
-          name,
-          maxLines: 2,
-        ),
-      ),
+    final Widget child = AutoSizeText(
+      name,
+      maxLines: 2,
     );
+
+    if (editableAppBarTitle) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+      return GestureDetector(
+        onTap: () {
+          Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
+        },
+        child: Tooltip(
+          message: appLocalizations.tap_to_edit_search,
+          child: child,
+        ),
+      );
+    } else {
+      return child;
+    }
   }
 }
 

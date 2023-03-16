@@ -1,8 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="iOS app" type="FlutterRunConfigurationType" factoryName="Flutter" folderName="iOS">
-    <option name="filePath" value="$PROJECT_DIR$/packages/app/lib/entrypoints/ios/main_ios.dart" />
-    <method v="2">
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Enable scanner_mlkit dependency" run_configuration_type="ShConfigurationType" />
-    </method>
+    <option name="filePath" value="$PROJECT_DIR$/packages/smooth_app/lib/entrypoints/ios/main_ios.dart" />
+    <method v="2" />
   </configuration>
 </component>

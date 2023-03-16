@@ -6,6 +6,13 @@ extension Selectable on Text {
         ? SelectableText(
             data!,
             style: style,
+            strutStyle: strutStyle,
+            textDirection: textDirection,
+            textScaleFactor: textScaleFactor,
+            textAlign: textAlign,
+            maxLines: maxLines,
+            // TODO(m123): Fix or remove alltogether
+            // ignore: deprecated_member_use
             toolbarOptions: const ToolbarOptions(
               copy: true,
               selectAll: true,
@@ -14,6 +21,11 @@ extension Selectable on Text {
         : Text(
             data!,
             style: style,
+            strutStyle: strutStyle,
+            textDirection: textDirection,
+            textScaleFactor: textScaleFactor,
+            textAlign: textAlign,
+            maxLines: maxLines,
           );
   }
 }

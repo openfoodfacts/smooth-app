@@ -1,8 +1,6 @@
-import 'package:openfoodfacts/model/UserAgent.dart';
+import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
-import 'package:openfoodfacts/utils/OpenFoodAPIConfiguration.dart';
-import 'package:openfoodfacts/utils/QueryType.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -11,6 +9,8 @@ import 'package:uuid/uuid.dart';
 
 // ignore: avoid_classes_with_only_static_members
 abstract class ProductQuery {
+  static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v3;
+
   static OpenFoodFactsCountry? _country;
 
   /// Returns the global language for API queries.
@@ -24,7 +24,21 @@ abstract class ProductQuery {
   }
 
   /// Sets the global language for API queries.
-  static void setLanguage(final String languageCode) {
+  static void setLanguage(
+    final BuildContext context,
+    final UserPreferences userPreferences, {
+    String? languageCode,
+  }) {
+    final Locale locale = Localizations.localeOf(context);
+
+    if (languageCode != null) {
+      userPreferences.setAppLanguageCode(languageCode);
+    } else if (userPreferences.appLanguageCode != null) {
+      languageCode = userPreferences.appLanguageCode;
+    } else {
+      languageCode = locale.languageCode;
+    }
+
     final OpenFoodFactsLanguage language =
         LanguageHelper.fromJson(languageCode);
     OpenFoodAPIConfiguration.globalLanguages = <OpenFoodFactsLanguage>[
@@ -45,7 +59,7 @@ abstract class ProductQuery {
   /// Returns the global locale string (e.g. 'pt_BR')
   static String getLocaleString() => '${getLanguage()!.code}'
       '_'
-      '${getCountry()!.iso2Code.toUpperCase()}';
+      '${getCountry()!.offTag.toUpperCase()}';
 
   /// Sets a comment for the user agent.
   ///
@@ -79,6 +93,10 @@ abstract class ProductQuery {
       uuidString.put(_UUID_NAME, uuid);
     }
     OpenFoodAPIConfiguration.uuid = uuid;
+    await Sentry.configureScope((Scope scope) {
+      scope.setExtra('uuid', OpenFoodAPIConfiguration.uuid);
+      scope.setUser(SentryUser(username: OpenFoodAPIConfiguration.uuid));
+    });
   }
 
   static User getUser() =>
@@ -105,7 +123,7 @@ abstract class ProductQuery {
     }
   }
 
-  static List<ProductField> get fields => <ProductField>[
+  static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
         ProductField.BRANDS,
         ProductField.BARCODE,
@@ -116,12 +134,16 @@ abstract class ProductQuery {
         ProductField.IMAGE_INGREDIENTS_URL,
         ProductField.IMAGE_NUTRITION_URL,
         ProductField.IMAGE_PACKAGING_URL,
+        ProductField.IMAGES,
         ProductField.SELECTED_IMAGE,
         ProductField.QUANTITY,
         ProductField.SERVING_SIZE,
         ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
+        // ignore: deprecated_member_use
         ProductField.PACKAGING,
+        ProductField.PACKAGINGS,
+        ProductField.PACKAGINGS_COMPLETE,
         ProductField.PACKAGING_TAGS,
         ProductField.PACKAGING_TEXT_IN_LANGUAGES,
         ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
@@ -151,5 +173,6 @@ abstract class ProductQuery {
         ProductField.COUNTRIES_TAGS_IN_LANGUAGES,
         ProductField.EMB_CODES,
         ProductField.ORIGINS,
+        ProductField.WEBSITE,
       ];
 }

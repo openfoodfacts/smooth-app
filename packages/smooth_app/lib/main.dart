@@ -1,12 +1,15 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:app_store_shared/app_store_shared.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:openfoodfacts/personalized_search/product_preferences_selection.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -19,7 +22,6 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/background_task_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/network_config.dart';
@@ -27,44 +29,68 @@ import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/color_provider.dart';
+import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+void main() {
+  debugPrint('--------');
+  debugPrint('The app must not be started using the main.dart file');
+  debugPrint('Please start the app using:');
+  debugPrint(' - flutter run -t lib/entrypoints/android/main_google_play.dart');
+  debugPrint(' - flutter run -t lib/entrypoints/ios/main_ios.dart');
+  debugPrint(
+      'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project');
+  debugPrint('--------');
+
+  if (Platform.isAndroid) {
+    SystemNavigator.pop();
+  } else {
+    exit(2);
+  }
+}
+
 late bool _screenshots;
+late String flavour;
 
 Future<void> launchSmoothApp({
   required CameraScanner scanner,
+  required AppStore appStore,
+  required String appFlavour,
   final bool screenshots = false,
 }) async {
   _screenshots = screenshots;
   if (_screenshots) {
-    await _init1();
-    runApp(SmoothApp(scanner));
+    await _init1(appStore);
+    runApp(SmoothApp(scanner, appStore));
     return;
   }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+  flavour = appFlavour;
+
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () => runApp(SmoothApp(scanner)),
-    );
+        appRunner: () => runApp(SmoothApp(scanner, appStore)));
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (_) => SmoothApp(scanner),
+        builder: (_) => SmoothApp(scanner, appStore),
       ),
     );
   }
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp(this.scanner);
+  const SmoothApp(this.scanner, this.appStore);
 
   final CameraScanner scanner;
+  final AppStore appStore;
 
   // This widget is the root of your application
   @override
@@ -76,6 +102,8 @@ late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
+late ColorProvider _colorProvider;
+late TextContrastProvider _textContrastProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 final PermissionListener _permissionListener =
     PermissionListener(permission: Permission.camera);
@@ -84,12 +112,12 @@ bool _init1done = false;
 // Had to split init in 2 methods, for test/screenshots reasons.
 // Don't know why, but some init codes seem to freeze the test.
 // Now we run them before running the app, during the tests.
-Future<bool> _init1() async {
+Future<bool> _init1(AppStore appStore) async {
   if (_init1done) {
     return false;
   }
 
-  await SmoothServices().init();
+  await SmoothServices().init(appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
@@ -104,12 +132,13 @@ Future<bool> _init1() async {
     ),
     daoString: DaoString(_localDatabase),
   );
-  await callbackDispatcher(_localDatabase);
   UserManagementProvider().checkUserLoginValidity();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
   ProductQuery.setCountry(_userPreferences.userCountryCode);
   _themeProvider = ThemeProvider(_userPreferences);
+  _colorProvider = ColorProvider(_userPreferences);
+  _textContrastProvider = TextContrastProvider(_userPreferences);
   ProductQuery.setQueryType(_userPreferences);
 
   await CameraHelper.init();
@@ -138,7 +167,7 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   Future<bool> _init2() async {
-    await _init1();
+    await _init1(widget.appStore);
     systemDarkmodeOn = brightness == Brightness.dark;
     if (!mounted) {
       return false;
@@ -181,6 +210,8 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ProductPreferences>(_productPreferences),
             provide<LocalDatabase>(_localDatabase),
             provide<ThemeProvider>(_themeProvider),
+            provide<ColorProvider>(_colorProvider),
+            provide<TextContrastProvider>(_textContrastProvider),
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
@@ -200,6 +231,9 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final ColorProvider colorProvider = context.watch<ColorProvider>();
+    final TextContrastProvider textContrastProvider =
+        context.watch<TextContrastProvider>();
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
     final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
@@ -207,6 +241,10 @@ class _SmoothAppState extends State<SmoothApp> {
     final bool isOnboardingComplete =
         OnboardingFlowNavigator.isOnboardingComplete(lastVisitedOnboardingPage);
     themeProvider.setOnboardingComplete(isOnboardingComplete);
+
+    // Still need the value from the UserPreferences here, not the ProductQuery
+    // as the value is not available at this time
+    // will refresh each time the language changes
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
 
@@ -219,15 +257,11 @@ class _SmoothAppState extends State<SmoothApp> {
         SentryNavigatorObserver(),
       ],
       theme: SmoothTheme.getThemeData(
-        Brightness.light,
-        themeProvider,
-      ),
+          Brightness.light, themeProvider, colorProvider, textContrastProvider),
       darkTheme: SmoothTheme.getThemeData(
-        Brightness.dark,
-        themeProvider,
-      ),
+          Brightness.dark, themeProvider, colorProvider, textContrastProvider),
       themeMode: themeProvider.currentThemeMode,
-      home: SmoothAppGetLanguage(appWidget),
+      home: SmoothAppGetLanguage(appWidget, _userPreferences),
     );
   }
 
@@ -247,23 +281,18 @@ class _SmoothAppState extends State<SmoothApp> {
 /// Layer needed because we need to know the language. Language isn't available
 /// in the [context] in top level widget ([SmoothApp])
 class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage(this.appWidget);
+  const SmoothAppGetLanguage(this.appWidget, this.userPreferences);
 
   final Widget appWidget;
+  final UserPreferences userPreferences;
 
   @override
   Widget build(BuildContext context) {
     // TODO(monsieurtanuki): refactor removing the `SmoothAppGetLanguage` layer?
-    // will refresh each time the language changes
-    context.select(
-      (final UserPreferences userPreferences) =>
-          userPreferences.appLanguageCode,
-    );
-    final String languageCode = Localizations.localeOf(context).languageCode;
-    ProductQuery.setLanguage(languageCode);
-    context.read<ProductPreferences>().refresh(languageCode);
+    ProductQuery.setLanguage(context, userPreferences);
+    context.read<ProductPreferences>().refresh();
 
-    // The migration requires the language to be set in the app
+    // The migration requires the language to be set in the app!
     _appDataImporter.startMigrationAsync();
 
     return appWidget;

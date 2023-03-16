@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
@@ -10,36 +9,36 @@ class ProductImageCarousel extends StatelessWidget {
   const ProductImageCarousel(
     this.product, {
     required this.height,
+    this.controller,
     this.onUpload,
     this.alternateImageUrl,
   });
 
   final Product product;
   final double height;
+  final ScrollController? controller;
   final Function(BuildContext)? onUpload;
   final String? alternateImageUrl;
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<ProductImageData> productImagesData;
     if (alternateImageUrl != null) {
       productImagesData = <ProductImageData>[
         ProductImageData(
           imageUrl: alternateImageUrl,
           imageField: ImageField.OTHER,
-          title: '',
-          buttonText: '',
         ),
       ];
     } else {
-      productImagesData = getProductMainImagesData(product, appLocalizations);
+      productImagesData = getProductMainImagesData(product);
     }
     return SizedBox(
       height: height,
       child: ListView.builder(
         // This next line does the trick.
         scrollDirection: Axis.horizontal,
+        controller: controller,
         itemCount: productImagesData.length,
         itemBuilder: (_, int index) {
           final ProductImageData data = productImagesData[index];
@@ -49,7 +48,6 @@ class ProductImageCarousel extends StatelessWidget {
             child: ImageUploadCard(
               product: product,
               productImageData: data,
-              onUpload: onUpload ?? (_) {},
             ),
           );
         },

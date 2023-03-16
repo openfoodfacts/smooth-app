@@ -1,17 +1,19 @@
 import 'dart:async';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/OcrPackagingResult.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 
 /// OCR Helper for packaging.
 class OcrPackagingHelper extends OcrHelper {
   @override
+  // ignore: deprecated_member_use
   String getText(final Product product) => product.packaging ?? '';
 
   @override
   Product getMinimalistProduct(Product product, final String text) {
+    // ignore: deprecated_member_use
     product.packaging = text;
     return product;
   }
@@ -44,6 +46,10 @@ class OcrPackagingHelper extends OcrHelper {
       appLocalizations.packaging_editing_title;
 
   @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_packaging_image;
+
+  @override
   ImageField getImageField() => ImageField.PACKAGING;
 
   @override
@@ -55,4 +61,11 @@ class OcrPackagingHelper extends OcrHelper {
     );
     return result.textFromImage;
   }
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() =>
+      BackgroundTaskDetailsStamp.ocrPackaging;
+
+  @override
+  bool hasAddExtraPhotoButton() => true;
 }

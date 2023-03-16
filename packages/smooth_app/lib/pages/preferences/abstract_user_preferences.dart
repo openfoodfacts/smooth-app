@@ -33,7 +33,7 @@ abstract class AbstractUserPreferences {
   @protected
   Widget getTitle() => Text(
         getTitleString(),
-        style: themeData.textTheme.headline2,
+        style: themeData.textTheme.displayMedium,
       );
 
   /// Subtitle of the header, always visible.

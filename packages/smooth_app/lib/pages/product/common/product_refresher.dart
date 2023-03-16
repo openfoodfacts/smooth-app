@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -9,6 +11,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
@@ -21,10 +24,24 @@ class ProductRefresher {
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(appLocalizations.sign_in_mandatory),
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              SvgPicture.asset(
+                'assets/onboarding/globe.svg',
+                height: MediaQuery.of(context).size.height * .5,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Text(
+                  appLocalizations.account_create_message,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ]),
         actionsAxis: Axis.vertical,
         positiveAction: SmoothActionButton(
-          text: appLocalizations.sign_in,
+          text: appLocalizations.join_us,
           onPressed: () async {
             Navigator.of(context).pop(); // remove dialog
             await Navigator.of(
@@ -46,10 +63,37 @@ class ProductRefresher {
     return false;
   }
 
+  /// Returns the standard configuration for barcode product query.
+  ProductQueryConfiguration getBarcodeQueryConfiguration(
+    final String barcode,
+  ) =>
+      ProductQueryConfiguration(
+        barcode,
+        fields: ProductQuery.fields,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
+        version: ProductQuery.productQueryVersion,
+      );
+
   /// Fetches the product from the server and refreshes the local database.
+  ///
+  /// Silent version.
+  Future<Product?> silentFetchAndRefresh({
+    required final String barcode,
+    required final LocalDatabase localDatabase,
+  }) async {
+    final _MetaProductRefresher meta =
+        await _fetchAndRefresh(localDatabase, barcode);
+    return meta.product;
+  }
+
+  /// Fetches the product from the server and refreshes the local database.
+  ///
+  /// With a waiting dialog.
   Future<void> fetchAndRefresh({
     required final String barcode,
     required final State<StatefulWidget> widget,
+    VoidCallback? onSuccessCallback,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final AppLocalizations appLocalizations =
@@ -76,6 +120,8 @@ class ProductRefresher {
         duration: SnackBarDuration.short,
       ),
     );
+
+    onSuccessCallback?.call();
   }
 
   Future<_MetaProductRefresher> _fetchAndRefresh(
@@ -83,14 +129,9 @@ class ProductRefresher {
     final String barcode,
   ) async {
     try {
-      final ProductQueryConfiguration configuration = ProductQueryConfiguration(
-        barcode,
-        fields: ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-      );
-      final ProductResult result = await OpenFoodAPIClient.getProduct(
-        configuration,
+      // ignore: deprecated_member_use
+      final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
+        getBarcodeQueryConfiguration(barcode),
       );
       if (result.product != null) {
         await DaoProduct(localDatabase).put(result.product!);
@@ -100,7 +141,7 @@ class ProductRefresher {
       }
       return const _MetaProductRefresher.error(null);
     } catch (e) {
-      // TODO(monsieurtanuki): add call to Logs
+      Logs.e('Refresh from server error', ex: e);
       return _MetaProductRefresher.error(e.toString());
     }
   }

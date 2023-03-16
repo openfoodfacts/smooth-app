@@ -2,15 +2,22 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_int.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/pages/crop_helper.dart';
+import 'package:smooth_app/helpers/database_helper.dart';
+import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 
 /// Picks an image file from gallery or camera.
-Future<XFile?> _pickImageFile(final State<StatefulWidget> widget) async {
+Future<XFile?> pickImageFile(final State<StatefulWidget> widget) async {
   final UserPictureSource? source = await _getUserPictureSource(widget.context);
   if (source == null) {
     return null;
@@ -47,6 +54,7 @@ Future<UserPictureSource?> _getUserPictureSource(
         title: appLocalizations.choose_image_source_title,
         actionsAxis: Axis.vertical,
         body: CheckboxListTile(
+          activeColor: FAIR_GREY_COLOR,
           value: remember,
           onChanged: (final bool? value) => setState(
             () => remember = value,
@@ -78,89 +86,80 @@ Future<UserPictureSource?> _getUserPictureSource(
   );
 }
 
-/// Crops an image, either existing or picked from the gallery or camera.
-Future<File?> startImageCropping(
+/// Lets the user pick a picture, crop it, and save it.
+Future<File?> confirmAndUploadNewPicture(
   final State<StatefulWidget> widget, {
-  final File? existingImage,
+  required final ImageField imageField,
+  required final String barcode,
 }) async {
-  // Show a loading page on the Flutter side
-  final NavigatorState navigator = Navigator.of(widget.context);
-  final CropHelper cropHelper = CropHelper.getCurrent(widget.context);
-  await _showScreenBetween(navigator);
-
+  final XFile? croppedPhoto = await pickImageFile(widget);
+  if (croppedPhoto == null) {
+    return null;
+  }
   if (!widget.mounted) {
     return null;
   }
-  final String sourceImagePath;
-  if (existingImage != null) {
-    sourceImagePath = existingImage.path;
-  } else {
-    final XFile? pickedXFile = await _pickImageFile(widget);
-    if (pickedXFile == null) {
-      await _hideScreenBetween(navigator);
-      return null;
-    }
-    sourceImagePath = pickedXFile.path;
-  }
-
-  if (!widget.mounted) {
-    return null;
-  }
-  final String? croppedPath = await cropHelper.getCroppedPath(
+  return Navigator.push<File>(
     widget.context,
-    sourceImagePath,
+    MaterialPageRoute<File>(
+      builder: (BuildContext context) => CropPage(
+        barcode: barcode,
+        imageField: imageField,
+        inputFile: File(croppedPhoto.path),
+        initiallyDifferent: true,
+      ),
+      fullscreenDialog: true,
+    ),
+  );
+}
+
+/// Downloads an image URL into a file, with a dialog.
+Future<File?> downloadImageUrl(
+  final BuildContext context,
+  final String? imageUrl,
+  final DaoInt daoInt,
+) async {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  if (imageUrl == null) {
+    await LoadingDialog.error(
+      context: context,
+      title: appLocalizations.image_edit_url_error,
+    );
+    return null;
+  }
+
+  final File? imageFile = await LoadingDialog.run<File?>(
+    context: context,
+    future: _downloadImageFile(daoInt, imageUrl),
   );
 
-  await _hideScreenBetween(navigator);
-
-  if (croppedPath == null) {
-    return null;
-  }
-
-  return File(croppedPath);
-}
-
-Future<void> _showScreenBetween(NavigatorState navigator) {
-  return ((NavigatorState navigator) async {
-    navigator.push<dynamic>(
-      MaterialPageRoute<dynamic>(
-        settings: _LoadingPage._settings,
-        builder: (_) => const _LoadingPage(),
-      ),
-    );
-  }).call(navigator);
-}
-
-Future<void> _hideScreenBetween(NavigatorState navigator) async {
-  return ((NavigatorState navigator) async {
-    return navigator.pop((Route<dynamic> route) {
-      // Remove the screen, only if it's the loading screen
-      if (route.settings == _LoadingPage._settings) {
-        return true;
-      }
-      return false;
-    });
-  }).call(navigator);
-}
-
-/// A screen being displayed once an image is taken, but the cropper is not yet
-/// visible
-class _LoadingPage extends StatelessWidget {
-  const _LoadingPage({
-    Key? key,
-  }) : super(key: key);
-
-  static const RouteSettings _settings = RouteSettings(name: 'loading_page');
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox.expand(
-      child: ColoredBox(
-        color: Colors.black,
-        child: Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
-      ),
+  if (imageFile == null) {
+    // ignore: use_build_context_synchronously
+    await LoadingDialog.error(
+      context: context,
+      title: appLocalizations.image_download_error,
     );
   }
+  return imageFile;
+}
+
+/// Downloads an image from the server and stores it locally in temp folder.
+Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
+  final Uri uri = Uri.parse(url);
+  final http.Response response = await http.get(uri);
+  final int code = response.statusCode;
+  if (code != 200) {
+    throw NetworkImageLoadException(statusCode: code, uri: uri);
+  }
+
+  final Directory tempDirectory = await getTemporaryDirectory();
+
+  const String CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
+
+  final int sequenceNumber =
+      await getNextSequenceNumber(daoInt, CROP_IMAGE_SEQUENCE_KEY);
+
+  final File file = File('${tempDirectory.path}/editing_image_$sequenceNumber');
+
+  return file.writeAsBytes(response.bodyBytes);
 }

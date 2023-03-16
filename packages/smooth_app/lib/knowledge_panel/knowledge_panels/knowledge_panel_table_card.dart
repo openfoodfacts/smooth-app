@@ -1,9 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/model/KnowledgePanel.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -293,7 +291,7 @@ class _TableCellWidgetState extends State<TableCellWidget> {
     if (widget.cell.isHeader) {
       padding = const EdgeInsets.symmetric(vertical: SMALL_SPACE);
     }
-    TextStyle style = Theme.of(context).textTheme.bodyText2!;
+    TextStyle style = Theme.of(context).textTheme.bodyMedium!;
     if (widget.cell.color != null) {
       style = style.apply(color: widget.cell.color);
     }

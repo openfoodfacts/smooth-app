@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -169,8 +169,8 @@ class _CountrySelectorState extends State<CountrySelector> {
               leading: const Icon(Icons.public),
               title: Text(
                 _chosenValue.name,
-                style:
-                    widget.textStyle ?? Theme.of(context).textTheme.headline3,
+                style: widget.textStyle ??
+                    Theme.of(context).textTheme.displaySmall,
               ),
               trailing: const Icon(Icons.arrow_drop_down),
             ),
@@ -189,7 +189,7 @@ class _CountrySelectorState extends State<CountrySelector> {
         <String, OpenFoodFactsCountry>{};
     final Map<String, Country> localizedIsoCodeToCountry = <String, Country>{};
     for (final OpenFoodFactsCountry c in OpenFoodFactsCountry.values) {
-      oFFIsoCodeToCountry[c.iso2Code.toLowerCase()] = c;
+      oFFIsoCodeToCountry[c.offTag.toLowerCase()] = c;
     }
     for (final Country c in localizedCountries) {
       localizedIsoCodeToCountry.putIfAbsent(

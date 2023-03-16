@@ -1,4 +1,4 @@
-import 'package:openfoodfacts/model/Product.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -13,33 +13,10 @@ class UpToDateChanges {
   /// For a barcode, map of the actions (pending and done).
   final DaoTransientOperation _daoTransientProduct;
 
-  OperationType get taskActionable => OperationType.details;
-
-  /// Returns a minimalist [Product] with successive changes on top.
-  Product prepareChangesForServer(
-    final String barcode,
-    final Iterable<TransientOperation> sortedOperations,
-  ) {
-    final Product initial = Product(barcode: barcode);
-    for (final TransientOperation transientOperation in sortedOperations) {
-      if (initial.barcode != transientOperation.product.barcode) {
-        // very unlikely
-        continue;
-      }
-      _overwrite(initial, transientOperation.product);
-    }
-    return initial;
-  }
-
   /// Returns all the actions related to a barcode, sorted by id.
   Iterable<TransientOperation> getSortedOperations(final String barcode) {
     final List<TransientOperation> result = <TransientOperation>[];
-    for (final TransientOperation transientProduct
-        in _daoTransientProduct.getAll(barcode)) {
-      if (taskActionable.matches(transientProduct)) {
-        result.add(transientProduct);
-      }
-    }
+    result.addAll(_daoTransientProduct.getAll(barcode));
     result.sort(OperationType.sort);
     return result;
   }
@@ -55,14 +32,8 @@ class UpToDateChanges {
     return product;
   }
 
-  Future<String> add(final Product product) async {
-    final String key = await taskActionable.getNewKey(
-      localDatabase,
-      product.barcode!,
-    );
-    _daoTransientProduct.put(key, product);
-    return key;
-  }
+  Future<void> add(final String key, final Product product) async =>
+      _daoTransientProduct.put(key, product);
 
   /// Returns true if some actions have not been terminated.
   bool hasNotTerminatedOperations(final String barcode) {
@@ -79,7 +50,6 @@ class UpToDateChanges {
   /// Currently limited to the fields modified by
   /// * [BackgroundTaskDetails]
   /// * [BackgroundTaskImage]
-  // TODO(monsieurtanuki): refactor this "à la copyWith" or something like that
   Product _overwrite(final Product initial, final Product change) {
     if (change.productName != null) {
       initial.productName = change.productName;
@@ -93,8 +63,16 @@ class UpToDateChanges {
     if (change.ingredientsText != null) {
       initial.ingredientsText = change.ingredientsText;
     }
+    // ignore: deprecated_member_use
     if (change.packaging != null) {
+      // ignore: deprecated_member_use
       initial.packaging = change.packaging;
+    }
+    if (change.packagings != null) {
+      initial.packagings = change.packagings;
+    }
+    if (change.packagingsComplete != null) {
+      initial.packagingsComplete = change.packagingsComplete;
     }
     if (change.noNutritionData != null) {
       initial.noNutritionData = change.noNutritionData;
@@ -132,29 +110,77 @@ class UpToDateChanges {
     if (change.countriesTagsInLanguages != null) {
       initial.countriesTagsInLanguages = change.countriesTagsInLanguages;
     }
+
+    /// In some cases we want to force null; we do that with an empty String.
+    String? emptyMeansNull(final String value) => value.isEmpty ? null : value;
+
     if (change.imageFrontUrl != null) {
-      initial.imageFrontUrl = change.imageFrontUrl;
+      initial.imageFrontUrl = emptyMeansNull(
+        change.imageFrontUrl!,
+      );
     }
     if (change.imageFrontSmallUrl != null) {
-      initial.imageFrontSmallUrl = change.imageFrontSmallUrl;
+      initial.imageFrontSmallUrl = emptyMeansNull(
+        change.imageFrontSmallUrl!,
+      );
     }
     if (change.imageIngredientsUrl != null) {
-      initial.imageIngredientsUrl = change.imageIngredientsUrl;
+      initial.imageIngredientsUrl = emptyMeansNull(
+        change.imageIngredientsUrl!,
+      );
     }
     if (change.imageIngredientsSmallUrl != null) {
-      initial.imageIngredientsSmallUrl = change.imageIngredientsSmallUrl;
+      initial.imageIngredientsSmallUrl = emptyMeansNull(
+        change.imageIngredientsSmallUrl!,
+      );
     }
     if (change.imageNutritionUrl != null) {
-      initial.imageNutritionUrl = change.imageNutritionUrl;
+      initial.imageNutritionUrl = emptyMeansNull(
+        change.imageNutritionUrl!,
+      );
     }
     if (change.imageNutritionSmallUrl != null) {
-      initial.imageNutritionSmallUrl = change.imageNutritionSmallUrl;
+      initial.imageNutritionSmallUrl = emptyMeansNull(
+        change.imageNutritionSmallUrl!,
+      );
     }
     if (change.imagePackagingUrl != null) {
-      initial.imagePackagingUrl = change.imagePackagingUrl;
+      initial.imagePackagingUrl = emptyMeansNull(
+        change.imagePackagingUrl!,
+      );
     }
     if (change.imagePackagingSmallUrl != null) {
-      initial.imagePackagingSmallUrl = change.imagePackagingSmallUrl;
+      initial.imagePackagingSmallUrl = emptyMeansNull(
+        change.imagePackagingSmallUrl!,
+      );
+    }
+    if (change.images != null && change.images!.isNotEmpty) {
+      initial.images ??= <ProductImage>[];
+      // let's remove similar entries first
+      final Set<int> removeIndices = <int>{};
+      for (final ProductImage changeProductImage in change.images!) {
+        int i = 0;
+        for (final ProductImage initialProductImage in initial.images!) {
+          if (changeProductImage.field == initialProductImage.field &&
+              changeProductImage.size == initialProductImage.size &&
+              changeProductImage.language == initialProductImage.language) {
+            removeIndices.add(i);
+          }
+          i++;
+        }
+      }
+      final List<int> sorted = List<int>.from(removeIndices);
+      sorted.reversed.forEach(initial.images!.removeAt);
+      // then add the correct new entries
+      for (final ProductImage changeProductImage in change.images!) {
+        // null imgid means just deletion, no adding
+        if (changeProductImage.imgid != null) {
+          initial.images!.add(changeProductImage);
+        }
+      }
+    }
+    if (change.website != null) {
+      initial.website = change.website;
     }
     return initial;
   }

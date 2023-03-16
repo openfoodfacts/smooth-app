@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Insight.dart';
-import 'package:openfoodfacts/model/RobotoffQuestion.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/hunger_games/question_card.dart';
 
@@ -115,7 +114,7 @@ class QuestionAnswersOptions extends StatelessWidget {
         ),
         label: Text(
           buttonText,
-          style: theme.textTheme.headline2!.apply(color: contentColor),
+          style: theme.textTheme.displayMedium!.apply(color: contentColor),
         ),
       ),
     );

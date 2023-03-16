@@ -1,29 +1,28 @@
+import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
-import 'package:openfoodfacts/model/KnowledgePanelElement.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:openfoodfacts/utils/CountryHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
@@ -43,10 +42,13 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
+  final ScrollController _carouselController = ScrollController();
+
   late Product _product;
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
+
   bool scrollingUp = true;
 
   @override
@@ -76,6 +78,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    BackgroundTaskManager(_localDatabase).run(); // no await
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
     inheritedDataManager.setCurrentBarcode(_barcode);
@@ -105,19 +108,22 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             },
             child: _buildProductBody(context),
           ),
-          SafeArea(
-            child: AnimatedContainer(
-              duration: SmoothAnimationsDuration.short,
-              width: kToolbarHeight,
-              height: kToolbarHeight,
-              decoration: BoxDecoration(
-                color:
-                    scrollingUp ? themeData.primaryColor : Colors.transparent,
-                shape: BoxShape.circle,
-              ),
-              child: Offstage(
-                offstage: !scrollingUp,
-                child: const SmoothBackButton(iconColor: Colors.white),
+          Padding(
+            padding: const EdgeInsets.only(left: SMALL_SPACE),
+            child: SafeArea(
+              child: AnimatedContainer(
+                duration: SmoothAnimationsDuration.short,
+                width: kToolbarHeight,
+                height: kToolbarHeight,
+                decoration: BoxDecoration(
+                  color:
+                      scrollingUp ? themeData.primaryColor : Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: Offstage(
+                  offstage: !scrollingUp,
+                  child: const SmoothBackButton(iconColor: Colors.white),
+                ),
               ),
             ),
           )
@@ -128,9 +134,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   Future<void> _refreshProduct(BuildContext context) async =>
       ProductRefresher().fetchAndRefresh(
-        barcode: _barcode,
-        widget: this,
-      );
+          barcode: _product.barcode!,
+          widget: this,
+          onSuccessCallback: () {
+            // Reset the carousel to the beginning
+            _carouselController.jumpTo(0.0);
+          });
 
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
@@ -148,7 +157,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
-      onRefresh: () => _refreshProduct(context),
+      onRefresh: () => ProductRefresher().fetchAndRefresh(
+        barcode: _barcode,
+        widget: this,
+      ),
       child: ListView(
         // /!\ Smart Dart
         // `physics: const AlwaysScrollableScrollPhysics()`
@@ -164,6 +176,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             child: ProductImageCarousel(
               _product,
               height: 200,
+              controller: _carouselController,
               onUpload: _refreshProduct,
             ),
           ),
@@ -187,17 +200,58 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             daoProductList,
           ),
           _buildKnowledgePanelCards(),
-          if (context.read<UserPreferences>().getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagAdditionalButton) ??
-              false)
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Additional Button'),
-            ),
+          if (_product.website != null && _product.website!.trim().isNotEmpty)
+            _buildWebsiteWidget(_product.website!.trim()),
         ],
       ),
     );
   }
+
+  Widget _buildWebsiteWidget(String website) => InkWell(
+        onTap: () async {
+          if (!website.startsWith('http')) {
+            website = 'http://$website';
+          }
+          LaunchUrlHelper.launchURL(website, false);
+        }, // _product.website!
+        child: buildProductSmoothCard(
+          header: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: SMALL_SPACE,
+              horizontal: LARGE_SPACE,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  AppLocalizations.of(context).product_field_website_title,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
+              ],
+            ),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.only(
+              bottom: LARGE_SPACE,
+              left: LARGE_SPACE,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Flexible(
+                    child: Text(
+                  website,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.blue),
+                )),
+              ],
+            ),
+          ),
+        ),
+      );
 
   Widget _buildKnowledgePanelCards() {
     final List<Widget> knowledgePanelWidgets = <Widget>[];
@@ -220,9 +274,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   Future<void> _editList() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final bool refreshed = await ProductListUserDialogHelper(daoProductList)
-        .showUserListsWithBarcodeDialog(context, widget.product);
-    if (refreshed) {
+    final bool? refreshed = await ProductListUserDialogHelper(daoProductList)
+        .showUserAddProductsDialog(
+      context,
+      <String>{widget.product.barcode!},
+    );
+    if (refreshed != null && refreshed) {
       setState(() {});
     }
   }
@@ -236,7 +293,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
     final String url = 'https://'
-        '${ProductQuery.getCountry()!.iso2Code}.openfoodfacts.org'
+        '${ProductQuery.getCountry()!.offTag}.openfoodfacts.org'
         '/product/$_barcode';
     Share.share(
       appLocalizations.share_product_text(url),
@@ -291,7 +348,8 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(
-                  18), // TODO(monsieurtanuki): cf. FloatingActionButton
+                18,
+              ), // TODO(monsieurtanuki): cf. FloatingActionButton
               primary: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
@@ -308,7 +366,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList,
   ) =>
       FutureBuilder<List<String>>(
-        future: daoProductList.getUserLists(withBarcode: _barcode),
+        future: daoProductList.getUserLists(withBarcodes: <String>[_barcode]),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<String>> snapshot,
@@ -332,9 +390,22 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final List<Widget> children = <Widget>[];
     for (final String productListName in productListNames) {
       children.add(
-        SmoothActionButtonsBar(
-          positiveAction: SmoothActionButton(
-            text: productListName,
+        Padding(
+          padding: const EdgeInsets.only(
+            top: VERY_SMALL_SPACE,
+            right: VERY_SMALL_SPACE,
+          ),
+          child: ElevatedButton(
+            style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  const EdgeInsets.symmetric(
+                      horizontal: VERY_LARGE_SPACE, vertical: MEDIUM_SPACE),
+                ),
+                shape: MaterialStateProperty.all(
+                  const RoundedRectangleBorder(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                )),
             onPressed: () async {
               final ProductList productList = ProductList.user(productListName);
               await daoProductList.get(productList);
@@ -350,6 +421,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               );
               setState(() {});
             },
+            child: Text(
+              productListName.toUpperCase(),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                // color: buttonData.textColor ?? themeData.colorScheme.primary,
+              ),
+            ),
           ),
         ),
       );
@@ -363,13 +441,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
           children: <Widget>[
             Text(
               appLocalizations.user_list_subtitle_product,
-              style: Theme.of(context).textTheme.headline3,
+              style: Theme.of(context).textTheme.displaySmall,
             ),
-            Wrap(
-              alignment: WrapAlignment.start,
-              direction: Axis.horizontal,
+            WrapSuper(
+              wrapType: WrapType.fit,
+              wrapFit: WrapFit.proportional,
               spacing: VERY_SMALL_SPACE,
-              runSpacing: VERY_SMALL_SPACE,
               children: children,
             ),
           ],

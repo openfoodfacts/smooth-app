@@ -1,0 +1,8 @@
+source "https://rubygems.org"
+
+gem "fastlane"
+gem "fastlane-plugin-flutter_version", git: "https://github.com/tianhaoz95/fastlane-plugin-flutter_version"
+
+eval_gemfile("./fastlane/Pluginfile")
+
+

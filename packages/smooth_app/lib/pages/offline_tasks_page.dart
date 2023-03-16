@@ -1,202 +1,94 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:task_manager/task_manager.dart';
-
-// TODO(ashaman999): add the translations later
-const int POPUP_MENU_FIRST_ITEM = 0;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
+import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/database/dao_instant_string.dart';
+import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 class OfflineTaskPage extends StatefulWidget {
-  const OfflineTaskPage({
-    super.key,
-  });
+  const OfflineTaskPage();
 
   @override
   State<OfflineTaskPage> createState() => _OfflineTaskState();
 }
 
 class _OfflineTaskState extends State<OfflineTaskPage> {
-  Future<List<Task>> _fetchListItems() async {
-    return TaskManager().listPendingTasks().then(
-          (Iterable<Task> value) => value.toList(
-            growable: false,
-          ),
-        );
-  }
-
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
+    final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
+    final List<String> taskIds = localDatabase.getAllTaskIds();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pending Background Tasks'),
-        actions: <Widget>[
-          PopupMenuButton<int>(
-            onSelected: (_) async {
-              await _cancelAllTask();
-            },
-            itemBuilder: (BuildContext context) => <PopupMenuItem<int>>[
-              const PopupMenuItem<int>(
-                  value: POPUP_MENU_FIRST_ITEM, child: Text('Cancel all')),
-            ],
-          ),
-        ],
-        leading: BackButton(
-          onPressed: () => Navigator.pop(context),
-        ),
+        title: Text(appLocalizations.background_task_title),
       ),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          setState(() {});
-        },
-        child: Center(
-          child: FutureBuilder<List<Task>>(
-            future: _fetchListItems(),
-            builder:
-                (BuildContext context, AsyncSnapshot<List<Task>> snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator.adaptive(),
+      body: taskIds.isEmpty
+          ? Center(
+              child: Text(appLocalizations.background_task_list_empty),
+            )
+          : ListView.builder(
+              itemCount: taskIds.length,
+              itemBuilder: (final BuildContext context, final int index) {
+                final String taskId = taskIds[index];
+                final String? status = daoInstantString.get(
+                  BackgroundTaskManager.taskIdToErrorDaoInstantStringKey(
+                    taskId,
+                  ),
                 );
-              }
-              if (snapshot.data!.isEmpty) {
-                return const EmptyScreen();
-              } else {
-                return ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Center(
-                        child: Text(
-                          'No data',
-                          style: TextStyle(color: Colors.white, fontSize: 30),
+                return ListTile(
+                  onTap: () async {
+                    final bool? stopTask = await showDialog<bool>(
+                      context: context,
+                      builder: (final BuildContext context) =>
+                          SmoothAlertDialog(
+                        body: Text(
+                            appLocalizations.background_task_question_stop),
+                        negativeAction: SmoothActionButton(
+                          text: appLocalizations.no,
+                          onPressed: () => Navigator.of(context).pop(false),
                         ),
-                      );
-                    }
-                    return TaskListTile(
-                      index,
-                      snapshot.data![index].uniqueId,
-                      snapshot.data![index].data!['processName'].toString(),
-                      snapshot.data![index].data!['barcode'].toString(),
+                        positiveAction: SmoothActionButton(
+                          text: appLocalizations.yes,
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                      ),
                     );
+                    if (stopTask == true) {
+                      await BackgroundTaskManager(localDatabase)
+                          .removeTaskAsap(taskId);
+                    }
                   },
+                  title: Text(
+                    '${OperationType.getBarcode(taskId)}'
+                    ' (${OperationType.getOperationType(taskId)?.getLabel(
+                          appLocalizations,
+                        ) ?? appLocalizations.background_task_operation_unknown})',
+                  ),
+                  subtitle: Text(_getMessage(status, appLocalizations)),
+                  trailing: const Icon(Icons.clear),
                 );
-              }
-            },
-          ),
-        ),
-      ),
-    );
-  }
-
-  Future<void> _cancelAllTask() async {
-    String status = 'All tasks Cancelled';
-    try {
-      await TaskManager().cancelTasks();
-    } catch (e) {
-      status = 'Something went wrong';
-    }
-    setState(() {});
-    final SnackBar snackBar = SnackBar(
-      content: Text(
-        status,
-      ),
-      duration: SnackBarDuration.medium,
-    );
-    setState(() {});
-    if (!mounted) {
-      return;
-    }
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
-}
-
-class TaskListTile extends StatefulWidget {
-  const TaskListTile(
-    this.index,
-    this.uniqueId,
-    this.processName,
-    this.barcode,
-  )   : assert(index >= 0),
-        assert(uniqueId.length > 0),
-        assert(barcode.length > 0),
-        assert(processName.length > 0);
-
-  final int index;
-  final String uniqueId;
-  final String processName;
-  final String barcode;
-
-  @override
-  State<TaskListTile> createState() => _TaskListTileState();
-}
-
-class _TaskListTileState extends State<TaskListTile> {
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Text((widget.index + 1).toString()),
-      title: Text(widget.barcode),
-      subtitle: Text(widget.processName),
-      trailing: Wrap(
-        children: <Widget>[
-          IconButton(
-              onPressed: () {
-                String status = 'Retrying';
-                try {
-                  TaskManager().runTask(widget.uniqueId);
-                } catch (e) {
-                  status = 'Error: $e';
-                }
-                final SnackBar snackBar = SnackBar(
-                  content: Text(status),
-                  duration: SnackBarDuration.medium,
-                );
-                if (!mounted) {
-                  return;
-                }
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                setState(() {});
               },
-              icon: const Icon(Icons.refresh)),
-          IconButton(
-              onPressed: () async {
-                await _cancelTask(widget.uniqueId);
-
-                setState(() {});
-              },
-              icon: const Icon(Icons.cancel))
-        ],
-      ),
+            ),
     );
   }
 
-  Future<void> _cancelTask(String uniqueId) async {
-    try {
-      await TaskManager().cancelTask(uniqueId);
-      const SnackBar snackBar = SnackBar(
-        content: Text('Cancelled'),
-        duration: SnackBarDuration.medium,
-      );
-      if (!mounted) {
-        return;
-      }
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } catch (e) {
-      final SnackBar snackBar = SnackBar(
-        content: Text('Error: $e'),
-        duration: SnackBarDuration.medium,
-      );
-      if (!mounted) {
-        return;
-      }
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  String _getMessage(
+    final String? status,
+    final AppLocalizations appLocalizations,
+  ) {
+    switch (status) {
+      case null:
+        return appLocalizations.background_task_run_not_started;
+      case BackgroundTaskManager.taskStatusStarted:
+        return appLocalizations.background_task_run_started;
+      case BackgroundTaskManager.taskStatusNoInternet:
+        return appLocalizations.background_task_error_no_internet;
+      case BackgroundTaskManager.taskStatusStopAsap:
+        return appLocalizations.background_task_run_to_be_deleted;
     }
-  }
-}
-
-class EmptyScreen extends StatelessWidget {
-  const EmptyScreen({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('No Pending Tasks'));
+    return status!;
   }
 }

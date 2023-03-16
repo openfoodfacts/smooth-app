@@ -87,7 +87,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
               child: ProductImageCarousel(
                 _product,
                 height: size.height * 0.20,
-                onUpload: (_) {},
               ),
             ),
             SizedBox(height: _heightSpace),
@@ -97,7 +96,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                 children: <Widget>[
                   Text(
                     appLocalizations.barcode_barcode(_product.barcode!),
-                    style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -155,6 +154,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     await BackgroundTaskDetails.addTask(
                       _getMinimalistProduct(),
                       widget: this,
+                      stamp: BackgroundTaskDetailsStamp.basicDetails,
                     );
                     if (!mounted) {
                       return;

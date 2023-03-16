@@ -138,7 +138,7 @@ class _SmoothDialogTitle extends StatelessWidget {
                 child: FittedBox(
                   child: Text(
                     label,
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                 ),
               ),
@@ -333,7 +333,7 @@ List<Widget>? _buildActions(
   }
 
   if (Directionality.of(context) == TextDirection.rtl) {
-    return actions.reversed.toList(growable: false);
+    return actions.reversed.toList();
   } else {
     return actions;
   }
@@ -378,7 +378,7 @@ class _SmoothActionElevatedButton extends StatelessWidget {
           textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
           maxLines: buttonData.lines ?? 2,
-          style: themeData.textTheme.bodyText2!.copyWith(
+          style: themeData.textTheme.bodyMedium!.copyWith(
             fontWeight: FontWeight.bold,
             color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
           ),
@@ -413,7 +413,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: ROUNDED_BORDER_RADIUS,
           ),
-          textStyle: themeData.textTheme.bodyText2!.copyWith(
+          textStyle: themeData.textTheme.bodyMedium!.copyWith(
             color: themeData.colorScheme.onPrimary,
           ),
           padding: const EdgeInsets.symmetric(

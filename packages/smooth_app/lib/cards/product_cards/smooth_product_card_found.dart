@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/personalized_search/matched_product_v2.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -79,7 +77,7 @@ class SmoothProductCardFound extends StatelessWidget {
         },
         child: Hero(
           tag: heroTag,
-          child: Ink(
+          child: Container(
             decoration: BoxDecoration(
               borderRadius: ROUNDED_BORDER_RADIUS,
               color:
@@ -109,12 +107,12 @@ class SmoothProductCardFound extends StatelessWidget {
                           Text(
                             getProductName(product, appLocalizations),
                             overflow: TextOverflow.ellipsis,
-                            style: themeData.textTheme.headline4,
+                            style: themeData.textTheme.headlineMedium,
                           ),
                           Text(
                             getProductBrands(product, appLocalizations),
                             overflow: TextOverflow.ellipsis,
-                            style: themeData.textTheme.subtitle1,
+                            style: themeData.textTheme.titleMedium,
                           ),
                           Row(
                             children: <Widget>[
@@ -133,10 +131,7 @@ class SmoothProductCardFound extends StatelessWidget {
                                   alignment: AlignmentDirectional.centerStart,
                                   child: Text(
                                     helper.getSubtitle(appLocalizations),
-                                    style: themeData.textTheme.bodyText2!.apply(
-                                      color: helper
-                                          .getButtonForegroundColor(isDarkMode),
-                                    ),
+                                    style: themeData.textTheme.bodyMedium,
                                   ),
                                 ),
                               ),

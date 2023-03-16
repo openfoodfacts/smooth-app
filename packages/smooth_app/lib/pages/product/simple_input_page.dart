@@ -9,7 +9,9 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -75,6 +77,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
               child: SimpleInputWidget(
                 helper: widget.helpers[i],
                 product: widget.product,
+                controller: _controllers[i],
               ),
             ),
           ),
@@ -84,47 +87,49 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
 
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
-      child: SmoothScaffold(
-        appBar: SmoothAppBar(
-          title: AutoSizeText(
-            getProductName(widget.product, appLocalizations),
-            maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
+      child: UnfocusWhenTapOutside(
+        child: SmoothScaffold(
+          appBar: SmoothAppBar(
+            title: AutoSizeText(
+              getProductName(widget.product, appLocalizations),
+              maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
+            ),
+            subTitle: widget.product.barcode != null
+                ? Text(widget.product.barcode!)
+                : null,
           ),
-          subTitle: widget.product.barcode != null
-              ? Text(widget.product.barcode!)
-              : null,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Flexible(
-                flex: 1,
-                child: Scrollbar(
-                  child: ListView(children: simpleInputs),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: SmoothActionButtonsBar(
-                  axis: Axis.horizontal,
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations.save,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: true),
-                    ),
+          body: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Flexible(
+                  flex: 1,
+                  child: Scrollbar(
+                    child: ListView(children: simpleInputs),
                   ),
-                  negativeAction: SmoothActionButton(
-                    text: appLocalizations.cancel,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: false),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: SmoothActionButtonsBar(
+                    axis: Axis.horizontal,
+                    positiveAction: SmoothActionButton(
+                      text: appLocalizations.save,
+                      onPressed: () async => _exitPage(
+                        await _mayExitPage(saving: true),
+                      ),
+                    ),
+                    negativeAction: SmoothActionButton(
+                      text: appLocalizations.cancel,
+                      onPressed: () async => _exitPage(
+                        await _mayExitPage(saving: false),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -143,64 +148,59 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    final Product changedProduct = Product(barcode: widget.product.barcode);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    bool changed = false;
+    final Map<BackgroundTaskDetailsStamp, Product> changedProducts =
+        <BackgroundTaskDetailsStamp, Product>{};
     bool added = false;
     for (int i = 0; i < widget.helpers.length; i++) {
       final AbstractSimpleInputPageHelper helper = widget.helpers[i];
       if (helper.addItemsFromController(_controllers[i])) {
         added = true;
       }
+      final Product changedProduct = Product(barcode: widget.product.barcode);
       if (helper.getChangedProduct(changedProduct)) {
-        changed = true;
+        changedProducts[helper.getStamp()] = changedProduct;
       }
     }
     if (added) {
       setState(() {});
     }
-    if (!changed) {
+    if (changedProducts.isEmpty) {
       return true;
     }
 
     if (!saving) {
-      final bool? pleaseSave = await showDialog<bool>(
-        context: context,
-        builder: (final BuildContext context) => SmoothAlertDialog(
-          close: true,
-          actionsAxis: Axis.vertical,
-          body: Text(appLocalizations.edit_product_form_item_exit_confirmation),
-          title: appLocalizations.edit_product_label,
-          negativeAction: SmoothActionButton(
-            text: appLocalizations
-                .edit_product_form_item_exit_confirmation_negative_button,
-            onPressed: () => Navigator.pop(context, false),
-          ),
-          positiveAction: SmoothActionButton(
-            text: appLocalizations
-                .edit_product_form_item_exit_confirmation_positive_button,
-            onPressed: () => Navigator.pop(context, true),
-          ),
-          actionsOrder: SmoothButtonsBarOrder.numerical,
-        ),
-      );
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         return false;
       }
       if (pleaseSave == false) {
         return true;
       }
+      if (!mounted) {
+        return false;
+      }
     }
-    await BackgroundTaskDetails.addTask(
-      changedProduct,
-      widget: this,
-    );
+
+    bool first = true;
+    for (final MapEntry<BackgroundTaskDetailsStamp, Product> entry
+        in changedProducts.entries) {
+      await BackgroundTaskDetails.addTask(
+        entry.value,
+        widget: this,
+        stamp: entry.key,
+        showSnackBar: first,
+      );
+      first = false;
+    }
     return true;
   }
 
   @override
   void dispose() {
-    // Disposed is managed by the provider
+    for (final TextEditingController controller in _controllers) {
+      controller.dispose();
+    }
     _controllers.clear();
     super.dispose();
   }

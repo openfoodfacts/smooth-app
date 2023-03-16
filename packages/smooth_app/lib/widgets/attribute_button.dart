@@ -1,8 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/model/Attribute.dart';
-import 'package:openfoodfacts/personalized_search/preference_importance.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -33,7 +32,7 @@ class AttributeButton extends StatelessWidget {
     final double widgetWidth =
         MediaQuery.of(context).size.width - 2 * horizontalPadding;
     final double importanceWidth = widgetWidth / 4;
-    final TextStyle style = themeData.textTheme.headline4!;
+    final TextStyle style = themeData.textTheme.headlineMedium!;
     final String? info = attribute.settingNote;
     final List<Widget> children = <Widget>[];
     for (final String importanceId in _importanceIds) {

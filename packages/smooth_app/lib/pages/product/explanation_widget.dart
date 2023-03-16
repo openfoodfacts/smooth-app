@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// Widget that displays explanations as a list, with expand/collapse mode.
 class ExplanationWidget extends StatefulWidget {
   const ExplanationWidget(this.explanations);
 
-  final String? explanations;
+  final String explanations;
 
   @override
   State<ExplanationWidget> createState() => _ExplanationWidgetState();
@@ -16,14 +15,11 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.explanations == null) {
-      return EMPTY_WIDGET;
-    }
     if (!_expanded) {
       return _wrapListTitle(
         ListTile(
           title: Text(
-            widget.explanations!,
+            widget.explanations,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
@@ -33,7 +29,7 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
       );
     }
     final List<Widget> result = <Widget>[];
-    final List<String> split = widget.explanations!.split('\n');
+    final List<String> split = widget.explanations.split('\n');
     bool first = true;
     for (final String item in split) {
       if (first) {

@@ -2,6 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+/// Crop Grid with invisible border, for better touch detection.
+///
+/// For the record, the border and the corner "triangle" both have the same
+/// "horizontal/vertical" size: [cornerSize]. And it's probably a good practice
+/// to make the touch area the double of that size.
 class CropGrid extends StatelessWidget {
   const CropGrid({
     Key? key,
@@ -13,7 +18,6 @@ class CropGrid extends StatelessWidget {
     required this.scrimColor,
     required this.alwaysShowThirdLines,
     required this.isMoving,
-    required this.onSize,
   }) : super(key: key);
 
   final Rect crop;
@@ -24,7 +28,6 @@ class CropGrid extends StatelessWidget {
   final Color scrimColor;
   final bool alwaysShowThirdLines;
   final bool isMoving;
-  final ValueChanged<Size> onSize;
 
   @override
   Widget build(BuildContext context) => RepaintBoundary(
@@ -39,14 +42,17 @@ class _CropGridPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Rect full = Offset.zero & size;
+    final Rect full = Offset(grid.cornerSize, grid.cornerSize) &
+        Size(
+          size.width - 2 * grid.cornerSize,
+          size.height - 2 * grid.cornerSize,
+        );
     final Rect bounds = Rect.fromLTRB(
       grid.crop.left * full.width,
       grid.crop.top * full.height,
       grid.crop.right * full.width,
       grid.crop.bottom * full.height,
-    );
-    grid.onSize(size);
+    ).translate(grid.cornerSize, grid.cornerSize);
 
     canvas.save();
     canvas.clipRect(bounds, clipOp: ClipOp.difference);

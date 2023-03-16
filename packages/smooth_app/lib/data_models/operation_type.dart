@@ -1,3 +1,4 @@
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -12,6 +13,9 @@ import 'package:smooth_app/helpers/database_helper.dart';
 /// * possibly, which barcode (not useful yet)
 enum OperationType {
   image('I'),
+  crop('C'),
+  unselect('U'),
+  refreshLater('R'),
   details('D');
 
   const OperationType(this.header);
@@ -36,10 +40,41 @@ enum OperationType {
   bool matches(final TransientOperation action) =>
       action.key.startsWith('$header$_transientHeaderSeparator');
 
+  String getLabel(final AppLocalizations appLocalizations) {
+    switch (this) {
+      case OperationType.details:
+        return appLocalizations.background_task_operation_details;
+      case OperationType.image:
+        return appLocalizations.background_task_operation_image;
+      case OperationType.unselect:
+        return 'Unselect a product image';
+      case OperationType.crop:
+        return 'Crop an existing image';
+      case OperationType.refreshLater:
+        return 'Waiting 10 min before refreshing product to get all automatic edits';
+    }
+  }
+
   static int getSequentialId(final TransientOperation operation) {
     final List<String> keyItems =
         operation.key.split(_transientHeaderSeparator);
     return int.parse(keyItems[1]);
+  }
+
+  static String getBarcode(final String key) {
+    final List<String> keyItems = key.split(_transientHeaderSeparator);
+    return keyItems[2];
+  }
+
+  static OperationType? getOperationType(final String key) {
+    final List<String> keyItems = key.split(_transientHeaderSeparator);
+    final String find = keyItems[0];
+    for (final OperationType operationType in OperationType.values) {
+      if (operationType.header == find) {
+        return operationType;
+      }
+    }
+    return null;
   }
 
   static int sort(

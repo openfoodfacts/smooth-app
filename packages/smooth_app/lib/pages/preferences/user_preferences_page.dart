@@ -86,6 +86,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           children.add(additionalSubtitle);
         }
       }
+
       headerAsset = 'assets/preferences/main.svg';
       headerColor = const Color(0xFFEBF1FF);
 
