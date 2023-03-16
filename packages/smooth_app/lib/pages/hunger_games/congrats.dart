@@ -70,9 +70,9 @@ class CongratsWidget extends StatelessWidget {
           TextButton(
             child: Text(
               appLocalizations.close,
-              style: TextStyle(
-                color: isDarkMode ? Colors.white : Colors.black,
-              ),
+              style: Theme.of(context).textTheme.bodyText1!.apply(
+                    color: isDarkMode ? Colors.white : Colors.black,
+                  ),
             ),
             onPressed: () => Navigator.maybePop<Widget>(context),
           ),

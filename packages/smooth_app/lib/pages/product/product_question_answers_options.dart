@@ -3,12 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
-Color _yesBackground = Colors.green;
-Color _noBackground = Colors.red;
-const Color _maybeBackground = Colors.white;
-const Color _yesNoTextColor = Colors.white;
-Color _maybeTextColor = Colors.grey.shade700;
-
 /// Display of the typical Yes / No / Maybe options for Robotoff
 class ProductQuestionAnswersOptions extends StatelessWidget {
   const ProductQuestionAnswersOptions(
@@ -22,6 +16,12 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const Color yesBackground = Colors.green;
+    const Color noBackground = Colors.red;
+    const Color maybeBackground = Colors.white;
+    const Color yesNoTextColor = Colors.white;
+    final Color maybeTextColor = Colors.grey.shade700;
+
     final double yesNoHeight = MediaQuery.of(context).size.width / (6);
 
     return Row(
@@ -33,8 +33,8 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
             child: _buildAnswerButton(
               context,
               insightAnnotation: InsightAnnotation.NO,
-              backgroundColor: _noBackground,
-              contentColor: _yesNoTextColor,
+              backgroundColor: noBackground,
+              contentColor: yesNoTextColor,
             ),
           ),
         ),
@@ -44,8 +44,8 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
             child: _buildAnswerButton(
               context,
               insightAnnotation: InsightAnnotation.MAYBE,
-              backgroundColor: _maybeBackground,
-              contentColor: _maybeTextColor,
+              backgroundColor: maybeBackground,
+              contentColor: maybeTextColor,
             ),
           ),
         ),
@@ -55,8 +55,8 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
             child: _buildAnswerButton(
               context,
               insightAnnotation: InsightAnnotation.YES,
-              backgroundColor: _yesBackground,
-              contentColor: _yesNoTextColor,
+              backgroundColor: yesBackground,
+              contentColor: yesNoTextColor,
             ),
           ),
         ),
