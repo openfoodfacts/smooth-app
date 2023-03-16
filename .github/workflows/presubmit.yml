@@ -25,7 +25,7 @@ jobs:
           channel: stable
           cache: true
           flutter-version: '3.0.5'
-          cache-key: revert-3.0.5
+          cache-key: revert-3.0.5-debug
 
       - run: flutter --version
 
