@@ -6,7 +6,6 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
@@ -60,7 +59,7 @@ class CameraScannerPageState extends State<CameraScannerPage>
   @override
   Widget build(BuildContext context) {
     if (!CameraHelper.hasACamera) {
-      return EMPTY_WIDGET;
+      return const Center(child: Text('No camera found'));
     }
     switch (widget.scannerType) {
       case SmoothBarcodeScannerType.mlkit:
