@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart' hide Listener;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
@@ -59,7 +60,9 @@ class CameraScannerPageState extends State<CameraScannerPage>
   @override
   Widget build(BuildContext context) {
     if (!CameraHelper.hasACamera) {
-      return const Center(child: Text('No camera found'));
+      return Center(
+        child: Text(AppLocalizations.of(context).permission_photo_none_found),
+      );
     }
     switch (widget.scannerType) {
       case SmoothBarcodeScannerType.mlkit:
