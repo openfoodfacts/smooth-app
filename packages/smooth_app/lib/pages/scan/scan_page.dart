@@ -73,13 +73,14 @@ class _ScanPageState extends State<ScanPage> {
                 },
               ),
             ),
-            const Expanded(
-              flex: _carouselHeightPct,
-              child: Padding(
-                padding: EdgeInsetsDirectional.only(bottom: 10),
-                child: SmoothProductCarousel(containSearchCard: true),
+            if (scannerType != SmoothBarcodeScannerType.awesome)
+              const Expanded(
+                flex: _carouselHeightPct,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.only(bottom: 10),
+                  child: SmoothProductCarousel(containSearchCard: true),
+                ),
               ),
-            ),
           ],
         ),
       ),
