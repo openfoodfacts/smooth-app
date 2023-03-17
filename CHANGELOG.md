@@ -1,5 +1,40 @@
 # Changelog
 
+## [4.6.0](https://github.com/openfoodfacts/smooth-app/compare/v4.5.0...v4.6.0) (2023-03-17)
+
+
+### 🐛 Bug Fixes
+
+* 3459 - Added a shortcut in app settings to In-app settings ([#3726](https://github.com/openfoodfacts/smooth-app/issues/3726)) ([9113c4a](https://github.com/openfoodfacts/smooth-app/commit/9113c4a09f1278f1d68c93865e0c09a0f097552d))
+* 3600 - user may be null for robotoff random questions ([#3758](https://github.com/openfoodfacts/smooth-app/issues/3758)) ([c5871a7](https://github.com/openfoodfacts/smooth-app/commit/c5871a75836babdb4db047d4935b48f732409dd0))
+* 3723 - additional tests ([#3737](https://github.com/openfoodfacts/smooth-app/issues/3737)) ([c281395](https://github.com/openfoodfacts/smooth-app/commit/c281395bdc3b0154557015653243799ed43ced13))
+* 3724 - Fixed bottom overflowed on the history page in small devices ([#3727](https://github.com/openfoodfacts/smooth-app/issues/3727)) ([f23d60b](https://github.com/openfoodfacts/smooth-app/commit/f23d60be3e984cef709c5cc5a1cc47ccebac6792))
+* Clicking outside the suggestion popup should close it ([#3754](https://github.com/openfoodfacts/smooth-app/issues/3754)) ([2b0fe2b](https://github.com/openfoodfacts/smooth-app/commit/2b0fe2b5a8476cd9efa1ed199b8215694d666f4a))
+
+
+### 🚀 Features
+
+* 3749 - improvements for packaging suggestions ([#3750](https://github.com/openfoodfacts/smooth-app/issues/3750)) ([90a9bc5](https://github.com/openfoodfacts/smooth-app/commit/90a9bc546d5489acf358413bc56a59f7a123527b))
+* Allow to share and view lists on web ([#3757](https://github.com/openfoodfacts/smooth-app/issues/3757)) ([777f54c](https://github.com/openfoodfacts/smooth-app/commit/777f54cdf337a8e6470f1c2683e3a23a2bd72dff))
+* AMOLED Dark Mode ([#3703](https://github.com/openfoodfacts/smooth-app/issues/3703)) ([0363aff](https://github.com/openfoodfacts/smooth-app/commit/0363affc81ffe03e4ad7e62a7b5b16d7a9d94d14))
+* Clearer 'Packaging components' preview and modified the maximum size of the autocomplete tab. ([#3744](https://github.com/openfoodfacts/smooth-app/issues/3744)) ([79e205d](https://github.com/openfoodfacts/smooth-app/commit/79e205d781599f510c5ed8d91cacd838982a0320))
+* new localized label 'sep' as separator before colon (especially in French) ([#3753](https://github.com/openfoodfacts/smooth-app/issues/3753)) ([edc2b69](https://github.com/openfoodfacts/smooth-app/commit/edc2b69c42d4b51167b3a050047a20ab66140193))
+
+
+### 🛠 Miscellaneous
+
+* **deps:** bump crowdin/github-action from 1.7.0 to 1.7.1 ([#3766](https://github.com/openfoodfacts/smooth-app/issues/3766)) ([965113e](https://github.com/openfoodfacts/smooth-app/commit/965113e82317e127cd0b3e04a178c070b45abeb5))
+* **deps:** bump fastlane in /packages/smooth_app/android ([#3739](https://github.com/openfoodfacts/smooth-app/issues/3739)) ([77b421c](https://github.com/openfoodfacts/smooth-app/commit/77b421c08831c629bbf686055ca7a4e929c78893))
+* **deps:** bump fastlane in /packages/smooth_app/ios ([#3738](https://github.com/openfoodfacts/smooth-app/issues/3738)) ([2ebfe4c](https://github.com/openfoodfacts/smooth-app/commit/2ebfe4cd4ab0ea00222588cf3e3bdbd4d6dcac18))
+* **deps:** bump fastlane-plugin-flutter_version ([#3752](https://github.com/openfoodfacts/smooth-app/issues/3752)) ([7b71f58](https://github.com/openfoodfacts/smooth-app/commit/7b71f5827b50f2af737585c3ee6964b299dc973f))
+* **deps:** bump fastlane-plugin-flutter_version ([#3759](https://github.com/openfoodfacts/smooth-app/issues/3759)) ([d0aa318](https://github.com/openfoodfacts/smooth-app/commit/d0aa318f5888a8b9a66f60c5fe3b8832fab741cf))
+* **deps:** bump fastlane-plugin-flutter_version ([#3760](https://github.com/openfoodfacts/smooth-app/issues/3760)) ([c93f3e4](https://github.com/openfoodfacts/smooth-app/commit/c93f3e4697bb6218ccf472d8d7b46a30bf90d197))
+* New Crowdin translations ([#3736](https://github.com/openfoodfacts/smooth-app/issues/3736)) ([9f035b8](https://github.com/openfoodfacts/smooth-app/commit/9f035b8c1dd5b4150b281da9f6b6c2d17c894b9c))
+* New Crowdin translations ([#3776](https://github.com/openfoodfacts/smooth-app/issues/3776)) ([1fe5d1b](https://github.com/openfoodfacts/smooth-app/commit/1fe5d1ba4f88c8c68349850312f07c9b28e01d15))
+* New Crowdin translations to review and merge ([#3761](https://github.com/openfoodfacts/smooth-app/issues/3761)) ([31df491](https://github.com/openfoodfacts/smooth-app/commit/31df491c72f159b05c77d917ab1d0809ffcc6eb8))
+* Track edit events ([#3755](https://github.com/openfoodfacts/smooth-app/issues/3755)) ([cd04400](https://github.com/openfoodfacts/smooth-app/commit/cd04400194d98e8c31d5a579f3e7d753fde8e4ef))
+* Trnaslation updated fix of ar and suggestions from translators ([#3763](https://github.com/openfoodfacts/smooth-app/issues/3763)) ([ee831e5](https://github.com/openfoodfacts/smooth-app/commit/ee831e566396cde8707436e0b3aee922774099fa))
+
 ## [4.5.0](https://github.com/openfoodfacts/smooth-app/compare/v4.4.0...v4.5.0) (2023-02-23)
 
 
