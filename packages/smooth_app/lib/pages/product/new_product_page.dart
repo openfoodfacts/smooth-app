@@ -357,7 +357,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               padding: const EdgeInsets.all(
                 18,
               ), // TODO(monsieurtanuki): cf. FloatingActionButton
-              primary: colorScheme.primary,
+              backgroundColor: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
           ),
