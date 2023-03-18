@@ -134,6 +134,13 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
                     }
                   },
                 ),
+                const Align(
+                  alignment: Alignment.topCenter,
+                  child: Text(
+                    'ML Kit',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
                 Container(
                   decoration: ShapeDecoration(
                     shape: zxing.QrScannerOverlayShape(

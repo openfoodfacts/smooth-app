@@ -216,9 +216,10 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
-            Provider<SmoothBarcodeScannerType>.value(
+            // TODO(m123): Re-add engine split
+            /*Provider<SmoothBarcodeScannerType>.value(
               value: widget.scanner,
-            ),
+            ),*/
           ],
           builder: _buildApp,
         );
