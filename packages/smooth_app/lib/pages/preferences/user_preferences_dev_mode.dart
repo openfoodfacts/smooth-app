@@ -19,7 +19,6 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mlkit.dart';
 import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 import 'package:smooth_app/query/product_query.dart';
 
