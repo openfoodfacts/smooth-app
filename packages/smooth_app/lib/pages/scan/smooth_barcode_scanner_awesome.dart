@@ -162,6 +162,10 @@ class BarcodeScannerViewWidget extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 child: ScanHeader(),
               ),
+              const Align(
+                alignment: Alignment.topCenter,
+                child: Text('Awesome', style: TextStyle(color: Colors.red)),
+              ),
               Align(
                 // 0: x axis center, -1 top 1 bottom of the screen
                 alignment: const AlignmentDirectional(0, -0.6),
