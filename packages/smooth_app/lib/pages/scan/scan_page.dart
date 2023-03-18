@@ -68,7 +68,8 @@ class _ScanPageState extends State<ScanPage> {
                       return EMPTY_WIDGET;
                     case DevicePermissionStatus.granted:
                       // TODO(m123): change
-                      return CameraScannerPage(SmoothBarcodeScannerType.mockup);
+                      return const CameraScannerPage(
+                          SmoothBarcodeScannerType.mockup);
                     default:
                       return const _PermissionDeniedCard();
                   }
