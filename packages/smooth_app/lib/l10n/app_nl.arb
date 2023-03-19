@@ -1057,7 +1057,7 @@
     "permission_photo_denied_dialog_settings_message": "Omdat je eerder de cameratoestemming hebt geweigerd, moet je deze handmatig toestaan via de Instellingen.",
     "permission_photo_denied_dialog_settings_button_open": "Instellingen openen",
     "permission_photo_denied_dialog_settings_button_cancel": "Annuleer",
-    "permission_photo_none_found": "No camera detected",
+    "permission_photo_none_found": "Geen camera gedetecteerd",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
     },
