@@ -1,14 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart' as zxing;
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
+import 'package:smooth_app/pages/scan/smooth_barcode_scanner_visor.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -103,137 +101,106 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
           _visible = false;
           await _stop();
         },
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            final Rect scanWindow = Rect.fromCenter(
-              center: Offset(
-                constraints.maxWidth / 2,
-                constraints.maxHeight / 2,
-              ),
-              width: constraints.maxWidth - 2 * MINIMUM_TOUCH_SIZE,
-              height: constraints.maxHeight,
-            );
-            return Stack(
-              children: <Widget>[
-                MobileScanner(
-                  controller: _controller,
-                  fit: BoxFit.cover,
-                  scanWindow: scanWindow,
-                  errorBuilder: (
-                    BuildContext context,
-                    MobileScannerException error,
-                    Widget? child,
-                  ) =>
-                      EMPTY_WIDGET,
-                  onDetect: (final BarcodeCapture capture) async {
-                    for (final Barcode barcode in capture.barcodes) {
-                      final String? string = barcode.displayValue;
-                      if (string != null) {
-                        await widget.onScan(string);
-                      }
-                    }
-                  },
-                ),
-                Container(
-                  decoration: ShapeDecoration(
-                    shape: zxing.QrScannerOverlayShape(
-                      borderColor: Colors.white,
-                      borderRadius: 10,
-                      borderLength: 30,
-                      borderWidth: 10,
-                      cutOutWidth:
-                          constraints.maxWidth - 2 * MINIMUM_TOUCH_SIZE,
-                      cutOutHeight: constraints.maxHeight,
-                    ),
-                  ),
-                ),
-                const Align(
-                  alignment: Alignment.topCenter,
-                  child: ScanHeader(),
-                ),
-                Center(
-                  child: SvgPicture.asset(
-                    'assets/icons/visor_icon.svg',
-                    package: AppHelper.APP_PACKAGE,
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Row(
-                    mainAxisAlignment: _showFlipCameraButton
-                        ? MainAxisAlignment.spaceBetween
-                        : MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      if (_showFlipCameraButton)
-                        IconButton(
-                          color: Colors.white,
-                          icon: ValueListenableBuilder<CameraFacing>(
-                            valueListenable: _controller.cameraFacingState,
-                            builder: (
-                              BuildContext context,
-                              CameraFacing state,
-                              Widget? child,
-                            ) {
-                              switch (state) {
-                                case CameraFacing.front:
-                                  return const Icon(Icons.camera_front);
-                                case CameraFacing.back:
-                                  return const Icon(Icons.camera_rear);
-                              }
-                            },
-                          ),
-                          onPressed: () async {
-                            SmoothHapticFeedback.click();
-                            await _controller.switchCamera();
-                          },
-                        ),
-                      ValueListenableBuilder<bool?>(
-                        valueListenable: _controller.hasTorchState,
+        child: Stack(
+          children: <Widget>[
+            MobileScanner(
+              controller: _controller,
+              fit: BoxFit.cover,
+              errorBuilder: (
+                BuildContext context,
+                MobileScannerException error,
+                Widget? child,
+              ) =>
+                  EMPTY_WIDGET,
+              onDetect: (final BarcodeCapture capture) async {
+                for (final Barcode barcode in capture.barcodes) {
+                  final String? string = barcode.displayValue;
+                  if (string != null) {
+                    await widget.onScan(string);
+                  }
+                }
+              },
+            ),
+            Center(child: SmoothBarcodeScannerVisor()),
+            const Align(
+              alignment: Alignment.topCenter,
+              child: ScanHeader(),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: _showFlipCameraButton
+                    ? MainAxisAlignment.spaceBetween
+                    : MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  if (_showFlipCameraButton)
+                    IconButton(
+                      color: Colors.white,
+                      icon: ValueListenableBuilder<CameraFacing>(
+                        valueListenable: _controller.cameraFacingState,
                         builder: (
                           BuildContext context,
-                          bool? state,
+                          CameraFacing state,
                           Widget? child,
                         ) {
-                          if (state != true) {
-                            return EMPTY_WIDGET;
+                          switch (state) {
+                            case CameraFacing.front:
+                              return const Icon(Icons.camera_front);
+                            case CameraFacing.back:
+                              return const Icon(Icons.camera_rear);
                           }
-                          return IconButton(
-                            color: Colors.white,
-                            icon: ValueListenableBuilder<TorchState>(
-                              valueListenable: _controller.torchState,
-                              builder: (
-                                BuildContext context,
-                                TorchState state,
-                                Widget? child,
-                              ) {
-                                switch (state) {
-                                  case TorchState.off:
-                                    return const Icon(
-                                      Icons.flash_off,
-                                      color: Colors.white,
-                                    );
-                                  case TorchState.on:
-                                    return const Icon(
-                                      Icons.flash_on,
-                                      color: Colors.white,
-                                    );
-                                }
-                              },
-                            ),
-                            onPressed: () async {
-                              SmoothHapticFeedback.click();
-                              await _controller.toggleTorch();
-                            },
-                          );
                         },
                       ),
-                    ],
+                      onPressed: () async {
+                        SmoothHapticFeedback.click();
+                        await _controller.switchCamera();
+                      },
+                    ),
+                  ValueListenableBuilder<bool?>(
+                    valueListenable: _controller.hasTorchState,
+                    builder: (
+                      BuildContext context,
+                      bool? state,
+                      Widget? child,
+                    ) {
+                      if (state != true) {
+                        return EMPTY_WIDGET;
+                      }
+                      return IconButton(
+                        color: Colors.white,
+                        icon: ValueListenableBuilder<TorchState>(
+                          valueListenable: _controller.torchState,
+                          builder: (
+                            BuildContext context,
+                            TorchState state,
+                            Widget? child,
+                          ) {
+                            switch (state) {
+                              case TorchState.off:
+                                return const Icon(
+                                  Icons.flash_off,
+                                  color: Colors.white,
+                                );
+                              case TorchState.on:
+                                return const Icon(
+                                  Icons.flash_on,
+                                  color: Colors.white,
+                                );
+                            }
+                          },
+                        ),
+                        onPressed: () async {
+                          SmoothHapticFeedback.click();
+                          await _controller.toggleTorch();
+                        },
+                      );
+                    },
                   ),
-                ),
-              ],
-            );
-          },
+                ],
+              ),
+            ),
+          ],
         ),
       );
 }
