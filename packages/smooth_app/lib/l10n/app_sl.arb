@@ -1057,6 +1057,10 @@
     "permission_photo_denied_dialog_settings_message": "Ker ste predhodno zavrnili dovoljenje za dostop do kamere, je potrebno dovoljenje ročno omogočiti v nastavitvah.",
     "permission_photo_denied_dialog_settings_button_open": "Odpri nastavitve",
     "permission_photo_denied_dialog_settings_button_cancel": "Prekliči",
+    "permission_photo_none_found": "No camera detected",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "Dostop do kamere je omogočen",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
