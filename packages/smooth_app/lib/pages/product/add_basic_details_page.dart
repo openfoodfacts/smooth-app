@@ -153,7 +153,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                       return;
                     }
                     AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.basicDetials,
+                      AnalyticsEditEvents.basicDetails,
                       _product.barcode!,
                       true,
                     );

@@ -23,6 +23,10 @@ enum AnalyticsCategory {
 /// Event types for Matomo analytics
 enum AnalyticsEvent {
   scanAction(tag: 'scanned product', category: AnalyticsCategory.scanning),
+  scanStrangeRestart(
+      tag: 'strange restart', category: AnalyticsCategory.scanning),
+  scanStrangeRestop(
+      tag: 'strange restop', category: AnalyticsCategory.scanning),
   shareProduct(tag: 'shared product', category: AnalyticsCategory.share),
   loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
   registerAction(tag: 'register', category: AnalyticsCategory.userManagement),
@@ -49,7 +53,7 @@ enum AnalyticsEvent {
 }
 
 enum AnalyticsEditEvents {
-  basicDetials(name: 'BasicDetails'),
+  basicDetails(name: 'BasicDetails'),
   photos(name: 'Photos'),
   powerEditScreen(name: 'Power Edit Screen'),
   ingredients_and_Origins(name: 'Ingredient And Origins'),
