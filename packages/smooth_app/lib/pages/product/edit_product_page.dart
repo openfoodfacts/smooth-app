@@ -134,7 +134,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   }
 
                   AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.basicDetials, _barcode);
+                      AnalyticsEditEvents.basicDetails, _barcode);
 
                   await Navigator.push<void>(
                     context,
