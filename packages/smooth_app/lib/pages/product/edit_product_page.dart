@@ -13,6 +13,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
@@ -131,6 +132,10 @@ class _EditProductPageState extends State<EditProductPage> {
                   if (!await ProductRefresher().checkIfLoggedIn(context)) {
                     return;
                   }
+
+                  AnalyticsHelper.trackProductEdit(
+                      AnalyticsEditEvents.basicDetails, _barcode);
+
                   await Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
@@ -146,6 +151,9 @@ class _EditProductPageState extends State<EditProductPage> {
                 subtitle:
                     appLocalizations.edit_product_form_item_photos_subtitle,
                 onTap: () async {
+                  AnalyticsHelper.trackProductEdit(
+                      AnalyticsEditEvents.photos, _barcode);
+
                   await Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
@@ -176,6 +184,9 @@ class _EditProductPageState extends State<EditProductPage> {
                   if (!await ProductRefresher().checkIfLoggedIn(context)) {
                     return;
                   }
+                  AnalyticsHelper.trackProductEdit(
+                      AnalyticsEditEvents.ingredients_and_Origins, _barcode);
+
                   await Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
@@ -190,18 +201,21 @@ class _EditProductPageState extends State<EditProductPage> {
               ),
               _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
               _ListTitleItem(
-                leading:
-                    const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
-                title: appLocalizations
-                    .edit_product_form_item_nutrition_facts_title,
-                subtitle: appLocalizations
-                    .edit_product_form_item_nutrition_facts_subtitle,
-                onTap: () async => NutritionPageLoaded.showNutritionPage(
-                  product: _product,
-                  isLoggedInMandatory: true,
-                  widget: this,
-                ),
-              ),
+                  leading:
+                      const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
+                  title: appLocalizations
+                      .edit_product_form_item_nutrition_facts_title,
+                  subtitle: appLocalizations
+                      .edit_product_form_item_nutrition_facts_subtitle,
+                  onTap: () async {
+                    AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.nutrition_Facts, _barcode);
+                    await NutritionPageLoaded.showNutritionPage(
+                      product: _product,
+                      isLoggedInMandatory: true,
+                      widget: this,
+                    );
+                  }),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
                 leading: const _SvgIcon('assets/cacheTintable/packaging.svg'),
@@ -210,6 +224,9 @@ class _EditProductPageState extends State<EditProductPage> {
                   if (!await ProductRefresher().checkIfLoggedIn(context)) {
                     return;
                   }
+                  AnalyticsHelper.trackProductEdit(
+                      AnalyticsEditEvents.packagingComponents, _barcode);
+
                   await Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
@@ -228,6 +245,11 @@ class _EditProductPageState extends State<EditProductPage> {
                   if (!await ProductRefresher().checkIfLoggedIn(context)) {
                     return;
                   }
+                  AnalyticsHelper.trackProductEdit(
+                    AnalyticsEditEvents.recyclingInstructionsPhotos,
+                    _barcode,
+                  );
+
                   await Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
@@ -253,6 +275,8 @@ class _EditProductPageState extends State<EditProductPage> {
                   if (!await ProductRefresher().checkIfLoggedIn(context)) {
                     return;
                   }
+                  AnalyticsHelper.trackProductEdit(
+                      AnalyticsEditEvents.otherDetails, _barcode);
                   await Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
@@ -280,6 +304,10 @@ class _EditProductPageState extends State<EditProductPage> {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
         }
+        AnalyticsHelper.trackProductEdit(
+          helper.getAnalyticsEditEvent(),
+          _barcode,
+        );
         await Navigator.push<void>(
           context,
           MaterialPageRoute<void>(
@@ -309,6 +337,8 @@ class _EditProductPageState extends State<EditProductPage> {
         if (!await ProductRefresher().checkIfLoggedIn(context)) {
           return;
         }
+        AnalyticsHelper.trackProductEdit(
+            AnalyticsEditEvents.powerEditScreen, _barcode);
         await Navigator.push<void>(
           context,
           MaterialPageRoute<void>(
