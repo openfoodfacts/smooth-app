@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart' as zxing;
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
@@ -36,7 +37,6 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
     BarcodeFormat.upcE,
   ];
 
-  bool _visible = false;
   bool _isStarted = true;
 
   bool get _showFlipCameraButton => CameraHelper.hasMoreThanOneCamera;
@@ -55,15 +55,15 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
     if (_isStarted) {
       return;
     }
+    if (_controller.isStarting) {
+      return;
+    }
     try {
       await _controller.start();
       _isStarted = true;
-    } on Exception catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Something went wrong (start)! $e'),
-          backgroundColor: Colors.red,
-        ),
+    } on Exception {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.scanStrangeRestart,
       );
     }
   }
@@ -75,12 +75,9 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
     try {
       await _controller.stop();
       _isStarted = false;
-    } on Exception catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Something went wrong (stop)! $e'),
-          backgroundColor: Colors.red,
-        ),
+    } on Exception {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.scanStrangeRestop,
       );
     }
   }
@@ -90,18 +87,10 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
         key: const ValueKey<String>('VisibilityDetector'),
         onVisibilityChanged: (final VisibilityInfo info) async {
           if (info.visible) {
-            if (_visible) {
-              return;
-            }
-            _visible = true;
             await _start();
-            return;
+          } else {
+            await _stop();
           }
-          if (!_visible) {
-            return;
-          }
-          _visible = false;
-          await _stop();
         },
         child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
@@ -133,6 +122,13 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
                       }
                     }
                   },
+                ),
+                const Align(
+                  alignment: Alignment.topCenter,
+                  child: Text(
+                    'ML Kit',
+                    style: TextStyle(color: Colors.red),
+                  ),
                 ),
                 Container(
                   decoration: ShapeDecoration(

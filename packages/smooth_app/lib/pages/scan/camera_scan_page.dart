@@ -60,12 +60,18 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
   @override
   Widget build(BuildContext context) {
+    final SmoothBarcodeScannerType prefsScanner =
+        _userPreferences.scanningEngine();
+
     if (!CameraHelper.hasACamera) {
       return Center(
         child: Text(AppLocalizations.of(context).permission_photo_none_found),
       );
     }
-    switch (widget.scannerType) {
+
+    // TODO(m123): Re-add scanning engine
+    //switch (widget.scannerType) {
+    switch (prefsScanner) {
       case SmoothBarcodeScannerType.mlkit:
         return SmoothBarcodeScannerMLKit(_onNewBarcodeDetected);
       case SmoothBarcodeScannerType.zxing:

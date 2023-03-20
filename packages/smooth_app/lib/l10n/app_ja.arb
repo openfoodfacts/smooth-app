@@ -1057,6 +1057,10 @@
     "permission_photo_denied_dialog_settings_message": "以前にカメラの許可を拒否したため、[設定] から許可する必要があります。",
     "permission_photo_denied_dialog_settings_button_open": "設定を開く",
     "permission_photo_denied_dialog_settings_button_cancel": "取消",
+    "permission_photo_none_found": "カメラが検出できませんでした",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "No camera access granted",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"

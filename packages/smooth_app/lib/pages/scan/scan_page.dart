@@ -47,8 +47,9 @@ class _ScanPageState extends State<ScanPage> {
       return const Center(child: CircularProgressIndicator.adaptive());
     }
 
-    final SmoothBarcodeScannerType scannerType =
-        context.read<SmoothBarcodeScannerType>();
+    // TODO(m123): Scanning engine
+    /*final SmoothBarcodeScannerType scannerType =
+        context.read<SmoothBarcodeScannerType>();*/
     return SmoothScaffold(
       brightness: Brightness.light,
       body: SafeArea(
@@ -66,7 +67,9 @@ class _ScanPageState extends State<ScanPage> {
                     case DevicePermissionStatus.checking:
                       return EMPTY_WIDGET;
                     case DevicePermissionStatus.granted:
-                      return CameraScannerPage(scannerType);
+                      // TODO(m123): change
+                      return const CameraScannerPage(
+                          SmoothBarcodeScannerType.mockup);
                     default:
                       return const _PermissionDeniedCard();
                   }

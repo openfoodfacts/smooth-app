@@ -1057,6 +1057,10 @@
     "permission_photo_denied_dialog_settings_message": "כיוון שדחית את הרשאת המצלמה, יהיה עליך לאפשר אותה ידנית דרך ההגדרות.",
     "permission_photo_denied_dialog_settings_button_open": "פתיחת הגדרות",
     "permission_photo_denied_dialog_settings_button_cancel": "ביטול",
+    "permission_photo_none_found": "לא זוהתה מצלמה",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "הגישה למצלמה לא אושרה",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"

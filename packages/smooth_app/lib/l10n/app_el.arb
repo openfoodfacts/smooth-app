@@ -1057,6 +1057,10 @@
     "permission_photo_denied_dialog_settings_message": "Καθώς έχετε αρνηθεί στο παρελθόν την άδεια της κάμερας, πρέπει να την επιτρέψετε μη αυτόματα από τις Ρυθμίσεις.",
     "permission_photo_denied_dialog_settings_button_open": "Ανοίξτε τις ρυθμίσεις",
     "permission_photo_denied_dialog_settings_button_cancel": "Ακύρωση",
+    "permission_photo_none_found": "No camera detected",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "Δεν έχει χορηγηθεί πρόσβαση στην κάμερα",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
