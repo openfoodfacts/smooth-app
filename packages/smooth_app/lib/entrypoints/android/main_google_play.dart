@@ -7,7 +7,7 @@ import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 /// - Google Play app review SDK
 void main() {
   launchSmoothApp(
-    scanner: SmoothBarcodeScannerType.awesome,
+    scanner: SmoothBarcodeScannerType.mlkit,
     appStore: GooglePlayStore(),
     appFlavour: 'ml-play',
   );
