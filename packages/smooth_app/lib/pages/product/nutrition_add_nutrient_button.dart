@@ -56,10 +56,11 @@ class NutritionAddNutrientButton extends StatelessWidget {
                       controller: nutritionTextController,
                       onChanged: (String? query) => setState(
                         () => filteredList = leftovers
-                            .where((OrderedNutrient item) => item.name!
-                                .toLowerCase()
-                                .contains(
-                                    removeDiacritics(query!).toLowerCase()))
+                            .where((OrderedNutrient item) =>
+                                removeDiacritics(item.name!)
+                                    .toLowerCase()
+                                    .contains(
+                                        removeDiacritics(query!).toLowerCase()))
                             .toList(),
                       ),
                     ),
