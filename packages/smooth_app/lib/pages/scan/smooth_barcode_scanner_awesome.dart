@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
-import 'package:smooth_app/pages/scan/scan_visor.dart';
+import 'package:smooth_app/pages/scan/smooth_barcode_scanner_visor.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 
 class SmoothBarcodeScannerAwesome extends StatelessWidget {
