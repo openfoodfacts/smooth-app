@@ -7,7 +7,6 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
-import 'package:diacritic/diacritic.dart';
 
 /// Button that opens an "add nutrient" dialog.
 ///
