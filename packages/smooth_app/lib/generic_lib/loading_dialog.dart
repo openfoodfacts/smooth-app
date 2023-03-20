@@ -50,10 +50,13 @@ class LoadingDialog<T> {
                   width: MINIMUM_TOUCH_SIZE * 2,
                   package: AppHelper.APP_PACKAGE,
                 ),
-                Text(
-                  title ??
-                      appLocalizations.loading_dialog_default_error_message,
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+                  child: Text(
+                    title ??
+                        appLocalizations.loading_dialog_default_error_message,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),

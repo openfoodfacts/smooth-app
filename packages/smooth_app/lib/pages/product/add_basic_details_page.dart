@@ -6,6 +6,7 @@ import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -96,7 +97,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                 children: <Widget>[
                   Text(
                     appLocalizations.barcode_barcode(_product.barcode!),
-                    style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -151,9 +152,15 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
+                    AnalyticsHelper.trackProductEdit(
+                      AnalyticsEditEvents.basicDetails,
+                      _product.barcode!,
+                      true,
+                    );
                     await BackgroundTaskDetails.addTask(
                       _getMinimalistProduct(),
                       widget: this,
+                      stamp: BackgroundTaskDetailsStamp.basicDetails,
                     );
                     if (!mounted) {
                       return;

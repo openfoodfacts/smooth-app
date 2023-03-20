@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -7,6 +8,28 @@ import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
+
+/// Stamps we can put on [BackgroundTaskDetails].
+///
+/// With that stamp, we can de-duplicate similar tasks.
+enum BackgroundTaskDetailsStamp {
+  basicDetails('basic_details'),
+  otherDetails('other_details'),
+  ocrIngredients('ocr_ingredients'),
+  ocrPackaging('ocr_packaging'),
+  structuredPackaging('structured_packaging'),
+  nutrition('nutrition_facts'),
+  stores('stores'),
+  origins('origins'),
+  embCodes('emb_codes'),
+  labels('labels'),
+  categories('categories'),
+  countries('countries');
+
+  const BackgroundTaskDetailsStamp(this.tag);
+
+  final String tag;
+}
 
 /// Background task that changes product details (data, but no image upload).
 class BackgroundTaskDetails extends AbstractBackgroundTask {
@@ -17,6 +40,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     required super.languageCode,
     required super.user,
     required super.country,
+    required super.stamp,
     required this.inputMap,
   });
 
@@ -29,6 +53,13 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
           user: json['user'] as String,
           country: json['country'] as String,
           inputMap: json['inputMap'] as String,
+          // dealing with when 'stamp' did not exist
+          stamp: json.containsKey('stamp')
+              ? json['stamp'] as String
+              : getStamp(
+                  json['barcode'] as String,
+                  '${Random().nextInt(1000000000)}',
+                ),
         );
 
   /// Task ID.
@@ -48,6 +79,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
         'user': user,
         'country': country,
         'inputMap': inputMap,
+        'stamp': stamp,
       };
 
   /// Returns the deserialized background task if possible, or null.
@@ -68,13 +100,18 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       localDatabase.upToDate.addChange(uniqueId, _product);
 
   @override
-  Future<void> postExecute(final LocalDatabase localDatabase) async =>
+  Future<void> postExecute(
+    final LocalDatabase localDatabase,
+    final bool success,
+  ) async =>
       localDatabase.upToDate.terminate(uniqueId);
 
   /// Adds the background task about changing a product.
   static Future<void> addTask(
     final Product minimalistProduct, {
     required final State<StatefulWidget> widget,
+    required final BackgroundTaskDetailsStamp stamp,
+    final bool showSnackBar = true,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
@@ -84,8 +121,13 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     final AbstractBackgroundTask task = _getNewTask(
       minimalistProduct,
       uniqueId,
+      stamp,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    await task.addToManager(
+      localDatabase,
+      widget: widget,
+      showSnackBar: showSnackBar,
+    );
   }
 
   @override
@@ -96,6 +138,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   static BackgroundTaskDetails _getNewTask(
     final Product minimalistProduct,
     final String uniqueId,
+    final BackgroundTaskDetailsStamp stamp,
   ) =>
       BackgroundTaskDetails._(
         uniqueId: uniqueId,
@@ -105,7 +148,11 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
         inputMap: jsonEncode(minimalistProduct.toJson()),
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
+        stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
       );
+
+  static String getStamp(final String barcode, final String stamp) =>
+      '$barcode;detail;$stamp';
 
   Product get _product =>
       Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);

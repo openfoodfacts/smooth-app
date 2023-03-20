@@ -50,8 +50,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   final ProductList _history = ProductList.history();
 
-  //likely broken: see https://github.com/openfoodfacts/smooth-app/issues/3445
-  bool get _nutritionFactsAdded => _product.nutriments != null;
+  bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
   bool get _basicDetailsAdded =>
       AddBasicDetailsPage.isProductBasicValid(_product);
 
@@ -105,7 +104,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             children: <Widget>[
               Text(
                 appLocalizations.add_product_take_photos_descriptive,
-                style: themeData.textTheme.bodyText1!
+                style: themeData.textTheme.bodyLarge!
                     .apply(color: themeData.colorScheme.onBackground),
               ),
               ..._buildImageCaptureRows(context),
@@ -288,7 +287,7 @@ class _InfoAddedRow extends StatelessWidget {
           ),
           Expanded(
             child: Center(
-              child: Text(text, style: themeData.textTheme.bodyText1),
+              child: Text(text, style: themeData.textTheme.bodyLarge),
             ),
           ),
           Icon(

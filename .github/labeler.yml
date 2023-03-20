@@ -3,15 +3,18 @@ android:
 - packages/smooth_app/android/**/*
 
 macos:
-- packages/app/macos/**/*
+- packages/smooth_app/macos/**/*
 
 assets cache:
 - packages/smooth_app/assets/cache/
 
+background tasks:
+- packages/smooth_app/lib/background/background_task_manager.dart
+- packages/smooth_app/lib/pages/offline_tasks_page.dart
+
 documentation:
 - README.md
-- packages/app/README.md
-- packages/app/android/fastlane/README.md
+- packages/smooth_app/android/fastlane/README.md
 - packages/smooth_app/README.md
 - packages/smooth_app/lib/l10n/README.md
 
@@ -33,7 +36,7 @@ web:
 
 tests:
 - packages/smooth_app/test/**/*
-- packages/app/test/widget_test.dart
+- packages/smooth_app/test/widget_test.dart
 - packages/smooth_app/test/basic_test.dart
 - packages/scanner/shared/test/shared_test.dart
 - packages/smooth_app/test/cache/cache_test.dart
@@ -81,24 +84,20 @@ scan:
 - packages/smooth_app/lib/pages/scan/**/*
 - packages/smooth_app/lib/pages/scan/continuous_scan_page.dart
 - packages/smooth_app/lib/pages/scan/scan_page.dart
-- packages/smooth_app/lib/pages/scan/scanner_overlay.dart
-- packages/smooth_app/lib/pages/scan/lifecycle_manager.dart
 - packages/smooth_app/lib/pages/scan/abstract_camera_image_getter.dart
-- packages/smooth_app/lib/pages/scan/camera_image_cropper.dart
-- packages/smooth_app/lib/pages/scan/camera_image_full_getter.dart
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
 mlkit:
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
 Amazon Appstore:
-- packages/app/lib/entrypoints/android/main_amazon_appstore.dart, 
+- packages/smooth_app/lib/entrypoints/android/main_amazon_appstore.dart,
 
 fdroid:
-- packages/app/lib/entrypoints/android/main_fdroid.dart, 
+- packages/smooth_app/lib/entrypoints/android/main_fdroid.dart,
 
 Huawei AppGallery:
-- packages/app/lib/entrypoints/android/main_huawei_appgallery.dart, 
+- packages/smooth_app/lib/entrypoints/android/main_huawei_appgallery.dart,
 
 zxing:
 - packages/scanner/zxing/**/*
@@ -183,3 +182,7 @@ user lists:
 
 product scan carousel:
 - packages/smooth_app/lib/widgets/smooth_product_carousel.dart
+
+packaging input:
+- packages/smooth_app/lib/pages/product/edit_new_packagings.dart
+- packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart

@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:scanner_shared/scanner_shared.dart';
+import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -18,9 +18,7 @@ import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dialog_editor.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/scan/camera_scan_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Full page display of "dev mode" for the preferences page.
@@ -47,8 +45,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
-  static const String userPreferencesCameraPostFrameDuration =
-      '__cameraPostFrameDuration';
   static const String userPreferencesFlagAccessibilityNoColor =
       '__accessibilityNoColor';
   static const String userPreferencesFlagAccessibilityEmoji =
@@ -71,7 +67,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         color: Colors.red,
         child: Text(
           getTitleString(),
-          style: themeData.textTheme.headline2!.copyWith(color: Colors.white),
+          style:
+              themeData.textTheme.displayMedium!.copyWith(color: Colors.white),
         ),
       );
 
@@ -146,10 +143,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
           onTap: () async => _changeTestEnvHost(),
         ),
-        ListTile(
-          title: const Text('Change camera post frame callback duration'),
-          onTap: () async => _changeCameraPostFrameCallbackDuration(),
-        ),
         SwitchListTile(
           title: Text(
             appLocalizations.dev_preferences_edit_ingredients_title,
@@ -222,6 +215,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               );
             }
 
+            // ignore: use_build_context_synchronously
             await showDialog<void>(
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(
@@ -267,15 +261,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text('Pending Tasks'),
-          onTap: () {
-            Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const OfflineTaskPage(),
-              ),
-            );
-          },
+          title: Text(appLocalizations.background_task_title),
+          subtitle: Text(appLocalizations.background_task_subtitle),
+          trailing: const BackgroundTaskBadge(
+            child: Icon(Icons.edit_notifications_outlined),
+          ),
+          onTap: () async => Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const OfflineTaskPage(),
+            ),
+          ),
         ),
         ListTile(
           title: Text(
@@ -316,53 +312,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ];
             for (int i = 0; i < barcodes.length; i++) {
               await model.onScan(barcodes[i]);
-            }
-          },
-        ),
-        ListTile(
-          title: Text(
-            appLocalizations.dev_mode_scan_mode_title,
-          ),
-          subtitle: Text(
-            appLocalizations
-                .dev_mode_scan_mode_subtitle(DevModeScanMode.fromIndex(
-              userPreferences.getDevModeIndex(
-                userPreferencesEnumScanMode,
-              ),
-            ).localizedLabel(appLocalizations)),
-          ),
-          onTap: () async {
-            final DevModeScanMode? scanMode = await showDialog<DevModeScanMode>(
-              context: context,
-              builder: (BuildContext context) => SmoothAlertDialog(
-                title: appLocalizations.dev_mode_scan_mode_dialog_title,
-                body: SizedBox(
-                  height: 400,
-                  width: 300,
-                  child: ListView.builder(
-                    itemCount: DevModeScanMode.values.length,
-                    itemBuilder: (final BuildContext context, final int index) {
-                      final DevModeScanMode scanMode =
-                          DevModeScanMode.values[index];
-                      return ListTile(
-                        title: Text(scanMode.localizedLabel(appLocalizations)),
-                        onTap: () => Navigator.pop(context, scanMode),
-                      );
-                    },
-                  ),
-                ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.dev_preferences_button_negative,
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ),
-            );
-            if (scanMode != null) {
-              await userPreferences.setDevModeIndex(
-                userPreferencesEnumScanMode,
-                scanMode.idx,
-              );
-              setState(() {});
             }
           },
         ),
@@ -469,53 +418,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           userPreferencesTestEnvHost, _textFieldController.text);
       ProductQuery.setQueryType(userPreferences);
       setState(() {});
-    }
-  }
-
-  Future<void> _changeCameraPostFrameCallbackDuration() async {
-    const int minValue = CameraScannerPageState.postFrameCallbackStandardDelay;
-    final int initialValue = userPreferences.getDevModeIndex(
-          userPreferencesCameraPostFrameDuration,
-        ) ??
-        minValue;
-
-    final int? result = await showDialog<int>(
-        context: context,
-        builder: (BuildContext context) {
-          return UserPreferencesEditValueDialog<int>(
-            label: 'Camera post frame callback duration',
-            initialValue: initialValue,
-            converter: (String value) => int.tryParse(value) ?? 0,
-            validator: (int? newValue) =>
-                newValue != null && newValue >= minValue,
-            textAlignment: TextAlign.center,
-            keyboardType: TextInputType.number,
-          );
-        });
-
-    if (result is int && result > minValue) {
-      userPreferences.setDevModeIndex(
-        userPreferencesCameraPostFrameDuration,
-        result,
-      );
-      setState(() {});
-    }
-  }
-}
-
-extension DevModeScanModeExt on DevModeScanMode {
-  String localizedLabel(AppLocalizations appLocalizations) {
-    switch (this) {
-      case DevModeScanMode.CAMERA_ONLY:
-        return appLocalizations.dev_mode_scan_camera_only;
-      case DevModeScanMode.PREPROCESS_FULL_IMAGE:
-        return appLocalizations.dev_mode_scan_preprocess_full_image;
-      case DevModeScanMode.PREPROCESS_HALF_IMAGE:
-        return appLocalizations.dev_mode_scan_preprocess_half_image;
-      case DevModeScanMode.SCAN_FULL_IMAGE:
-        return appLocalizations.dev_mode_scan_scan_full_image;
-      case DevModeScanMode.SCAN_HALF_IMAGE:
-        return appLocalizations.dev_mode_scan_scan_half_image;
     }
   }
 }

@@ -41,6 +41,7 @@ class LanguageSelectorSettings extends StatelessWidget {
         '$nameInLanguage ($nameInEnglish)',
         softWrap: false,
         overflow: TextOverflow.fade,
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
       trailing: const Icon(Icons.arrow_drop_down),
       onTap: () async {

@@ -36,7 +36,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
             child: AutoSizeText(
               text,
               maxLines: 2,
-              style: themeData.textTheme.bodyText2!.copyWith(
+              style: themeData.textTheme.bodyMedium!.copyWith(
                 color: themeData.colorScheme.onSecondary,
               ),
             ),

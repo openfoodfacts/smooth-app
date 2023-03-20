@@ -24,10 +24,6 @@ extension StringExtensions on String {
     return positions;
   }
 
-  bool get isASpaceCharacter => this == ' ' || isANarrowBreakSpaceCharacter;
-
-  bool get isANarrowBreakSpaceCharacter => this == ' ';
-
   /// Removes a character by giving its position
   String removeCharacterAt(int position) {
     assert(position >= 0 && position < length);

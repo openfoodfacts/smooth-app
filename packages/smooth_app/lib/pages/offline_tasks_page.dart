@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 
 class OfflineTaskPage extends StatefulWidget {
   const OfflineTaskPage();
@@ -15,55 +17,78 @@ class OfflineTaskPage extends StatefulWidget {
 class _OfflineTaskState extends State<OfflineTaskPage> {
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final BackgroundTaskManager manager = BackgroundTaskManager(localDatabase);
-    final bool blocked = manager.blocked;
-    final List<String> taskIds = manager.getAllTaskIds();
+    final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
+    final List<String> taskIds = localDatabase.getAllTaskIds();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pending Background Tasks'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(blocked ? Icons.toggle_on : Icons.toggle_off),
-            onPressed: () async {
-              manager.blocked = !blocked;
-              setState(() {});
-              manager.run();
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'Background Tasks are now ${manager.blocked ? 'blocked' : 'NOT blocked'}',
-                  ),
-                  duration: SnackBarDuration.medium,
-                ),
-              );
-            },
-          )
-        ],
+        title: Text(appLocalizations.background_task_title),
       ),
       body: taskIds.isEmpty
-          ? const Center(child: EmptyScreen())
+          ? Center(
+              child: Text(appLocalizations.background_task_list_empty),
+            )
           : ListView.builder(
               itemCount: taskIds.length,
               itemBuilder: (final BuildContext context, final int index) {
                 final String taskId = taskIds[index];
-                return ListTile(
-                  title: Text(OperationType.getBarcode(taskId)),
-                  subtitle: Text(
-                    OperationType.getOperationType(taskId)?.toString() ??
-                        'unknown operation type',
+                final String? status = daoInstantString.get(
+                  BackgroundTaskManager.taskIdToErrorDaoInstantStringKey(
+                    taskId,
                   ),
+                );
+                return ListTile(
+                  onTap: () async {
+                    final bool? stopTask = await showDialog<bool>(
+                      context: context,
+                      builder: (final BuildContext context) =>
+                          SmoothAlertDialog(
+                        body: Text(
+                            appLocalizations.background_task_question_stop),
+                        negativeAction: SmoothActionButton(
+                          text: appLocalizations.no,
+                          onPressed: () => Navigator.of(context).pop(false),
+                        ),
+                        positiveAction: SmoothActionButton(
+                          text: appLocalizations.yes,
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                      ),
+                    );
+                    if (stopTask == true) {
+                      await BackgroundTaskManager(localDatabase)
+                          .removeTaskAsap(taskId);
+                    }
+                  },
+                  title: Text(
+                    '${OperationType.getBarcode(taskId)}'
+                    ' (${OperationType.getOperationType(taskId)?.getLabel(
+                          appLocalizations,
+                        ) ?? appLocalizations.background_task_operation_unknown})',
+                  ),
+                  subtitle: Text(_getMessage(status, appLocalizations)),
+                  trailing: const Icon(Icons.clear),
                 );
               },
             ),
     );
   }
-}
 
-class EmptyScreen extends StatelessWidget {
-  const EmptyScreen({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('No Pending Tasks'));
+  String _getMessage(
+    final String? status,
+    final AppLocalizations appLocalizations,
+  ) {
+    switch (status) {
+      case null:
+        return appLocalizations.background_task_run_not_started;
+      case BackgroundTaskManager.taskStatusStarted:
+        return appLocalizations.background_task_run_started;
+      case BackgroundTaskManager.taskStatusNoInternet:
+        return appLocalizations.background_task_error_no_internet;
+      case BackgroundTaskManager.taskStatusStopAsap:
+        return appLocalizations.background_task_run_to_be_deleted;
+    }
+    return status!;
   }
 }

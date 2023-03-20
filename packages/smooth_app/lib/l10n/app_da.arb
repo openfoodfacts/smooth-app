@@ -1,5 +1,9 @@
 {
     "@Utils": {},
+    "sep": "",
+    "@sep": {
+        "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
+    },
     "yes": "Ja",
     "@yes": {},
     "add": "Tilføj",
@@ -214,7 +218,7 @@
     "sign_up_page_username_hint": "Brugernavn: Offentligt synligt",
     "sign_up_page_username_error_empty": "Indtast et brugernavn",
     "sign_up_page_username_error_invalid": "Angiv et gyldigt brugernavn",
-    "sign_up_page_username_description": "Brugernavn må ikke indeholde mellemrum, versaler eller specialtegn",
+    "sign_up_page_username_description": "Brugernavn må ikke indeholde mellemrum, majuskler eller specialtegn.",
     "sign_up_page_username_length_invalid": "Brugernavn må ikke overstige {value} tegn",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -253,12 +257,15 @@
     "sign_up_page_producer_hint": "Producent/mærke",
     "sign_up_page_producer_error_empty": "Angiv en producent eller et mærkenavn",
     "sign_up_page_subscribe_checkbox": "Jeg ønsker at abonnere på Open Food Facts-nyhedsbrevet (kan altid afmeldes)",
+    "sign_up_page_user_name_already_used": "Brugernavn findes allerede, vælg et andet.",
+    "sign_up_page_email_already_exists": "findes allerede. Log ind på kontoen eller prøv med en anden e-mail.",
+    "sign_up_page_provide_valid_email": "Angiv en gyldig e-mailadresse.",
     "@Settings": {},
     "settingsTitle": "Indstillinger",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Mørk tilstand",
+    "darkmode": "Tema",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -357,6 +364,14 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "account_create_message": "Opret en konto og tilmeld dig Open Food Facts-fællesskabet for at hjælpe med at opbygge fødevareviden verden over!",
+    "@account_create_message": {
+        "description": "The Message to be displayed if the user does not have an account and wants to contribute"
+    },
+    "join_us": "Tilmeld",
+    "@join_us": {
+        "description": "Join which is actually Signup"
+    },
     "myPreferences_profile_title": "Din profil",
     "myPreferences_profile_subtitle": "Håndtér din OFF-bidragsyderkonto.",
     "myPreferences_settings_title": "App-indstillinger",
@@ -389,9 +404,9 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Søg",
+    "scan_navbar_label": "Skan",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the searching of products"
+        "description": "BottomNavigationBarLabel: For the scanning of products"
     },
     "history_navbar_label": "Historik",
     "@history_navbar_label": {
@@ -478,6 +493,7 @@
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Bekræft",
+    "send_image_button_label": "Indsend foto",
     "front_packaging_photo_title": "Emballageforsidefoto",
     "ingredients_photo_title": "Ingrediensfoto",
     "nutritional_facts_photo_title": "Næringsfaktafoto",
@@ -638,6 +654,14 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
+    "native_app_settings": "Indstillinger for indbyggede apper",
+    "@native_app_settings": {
+        "description": "Native App Settings in app settings"
+    },
+    "native_app_description": "Åbn Open Food Facts-systemindstillingerne",
+    "@native_app_description": {
+        "description": "Native App description in app settings"
+    },
     "product_removed_history": "Produkt fjernet fra historik",
     "@product_removed_history": {
         "description": "Product got removed from history"
@@ -663,44 +687,44 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {} =1{én dag siden} other{{count} dage siden}}",
+    "plural_ago_days": "{count,plural,  one {}=1{én dag siden} other{{count} dage siden}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {} =1{én time siden} other{{count} timer siden}}",
+    "plural_ago_hours": "{count,plural,  one {}=1{én time siden} other{{count} timer siden}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {} =0{under ét minut siden} =1{ ét minut siden} other{{count}  minutter siden}}",
+    "plural_ago_minutes": "{count,plural,  one {}=0{under ét minut siden} =1{ét minut siden} other{{count} minutter siden}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {} =1{én måned siden} other{{count} måneder siden}}",
+    "plural_ago_months": "{count,plural,  one {}=1{én måned siden} other{{count} måneder siden}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {} =1{én uge siden} other{{count} uger siden}}",
+    "plural_ago_weeks": "{count,plural,  one {}=1{én uge siden} other{{count} uger siden}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Sammenlign {count} produkter}",
+    "plural_compare_x_products": "{count,plural, one {}=1{Sammenlign ét produkt} other{Sammenlign {count} produkter}}",
     "@plural_compare_x_products": {
-        "description": "Button label",
+        "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
             "count": {}
         }
@@ -791,7 +815,7 @@
         "placeholders": {
             "version": {
                 "type": "String?",
-                "description": "Version of IOS (eg : 15)"
+                "description": "Version of IOS (eg: 15)"
             },
             "model": {
                 "type": "String?",
@@ -837,11 +861,15 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "Gå videre på {source_name}",
+    "are_you_sure": "Sikker?",
+    "@are_you_sure": {
+        "description": "Are you sure?"
+    },
+    "knowledge_panel_text_source": "Fortsæt på {sourceName}",
     "@knowledge_panel_text_source": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
-            "source_name": {
+            "sourceName": {
                 "type": "String"
             }
         }
@@ -885,7 +913,7 @@
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Produkt} =1{produktopfriskning} other{produktopfriskninger}} udført",
+    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Produkt} =1{Produktopfriskning} other{Produktopfriskninger}} udført",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -1029,6 +1057,10 @@
     "permission_photo_denied_dialog_settings_message": "Da kameraadgang tidligere blev nægtet, skal tilladelsen gives manuelt via Indstillinger.",
     "permission_photo_denied_dialog_settings_button_open": "Åbn indstillinger",
     "permission_photo_denied_dialog_settings_button_cancel": "Annullér",
+    "permission_photo_none_found": "Intet kamera fundet",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "Ingen kameraadgang tildelt",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
@@ -1146,8 +1178,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Gem ændringerne, inden siden forlades?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Gem ændringerne",
-    "edit_product_form_item_exit_confirmation_negative_button": "Kassér ændringerne",
+    "edit_product_form_item_exit_confirmation_positive_button": "Gem ændringer",
+    "edit_product_form_item_exit_confirmation_negative_button": "Kassér ændringer",
     "edit_product_form_item_ingredients_title": "Ingredienser og Oprindelser",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1218,7 +1250,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Ingen liste tilgængelig endnu,\nstart med at oprette én",
+    "user_list_empty_label": "Ingen list tilgængelig endnu,\nstart med at oprette én",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1291,7 +1323,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App restart it.",
+    "dev_preferences_reset_onboarding_subtitle": "Appen skal genstartes for at se det igen.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1522,6 +1554,26 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
+    "edit_photo_unselect_button_label": "Fravælg foto",
+    "@edit_photo_unselect_button_label": {
+        "description": "Edit 'unselect photo' button label"
+    },
+    "edit_photo_select_existing_button_label": "Vælg et eksisterende foto",
+    "@edit_photo_select_existing_button_label": {
+        "description": "Edit 'select existing image' button label"
+    },
+    "edit_photo_select_existing_all_label": "Eksisterende fotos",
+    "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_download_label": "Henter eksisterende fotos...",
+    "@edit_photo_select_existing_download_label": {
+        "description": "Dialog label"
+    },
+    "edit_photo_select_existing_downloaded_none": "Der er ingen tidligere uploadet fotos relateret til dette produkt.",
+    "@edit_photo_select_existing_downloaded_none": {
+        "description": "Error message"
+    },
     "category_picker_screen_title": "Kategorier",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1609,6 +1661,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Tag fotos af enhver emballage-/genbrugsinformation",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Vælg billedkilde",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1628,6 +1684,15 @@
     "share_product_text": "Tag et kig på dette produkt på Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_list_text": "Tag et kig på min produktliste på Open Food Facts: {url}",
+    "@share_product_list_text": {
+        "description": "The content which is send, when sharing a product list",
         "placeholders": {
             "url": {
                 "type": "String"
@@ -1695,7 +1760,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "Ingen e-mail app!",
+    "no_email_client_available_dialog_title": "Ingen e-mail apps!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1772,7 +1837,7 @@
     "app_rating_dialog_title_enjoying_app": "Synes om appen?",
     "app_rating_dialog_title_enjoying_positive_actions": "Jep!",
     "not_really": "Ikke rigtigt",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
+    "app_rating_dialog_title_not_enjoying_app": "Det er vi kede af at høre! Kan du fortælle os, hvad der skete?",
     "edit_packagings_title": "Emballagekomponenter",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -1795,33 +1860,144 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
+    "edit_packagings_element_hint_units": "Angiv antallet af emballageenheder af samme form og materiale indeholdt i produktet.",
+    "@edit_packagings_element_hint_units": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
     "edit_packagings_element_field_shape": "Form",
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_shape": "Angiv formnavnet oplyst i genbrugsvejledningen (hvis tilgængelig), eller vælg en form.",
+    "@edit_packagings_element_hint_shape": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_shape": "Flaske",
+    "@edit_packagings_element_example_shape": {
+        "description": "Text field hint"
     },
     "edit_packagings_element_field_material": "Materiale",
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Nogle gange er materialerne, såsom ♵, skjult i bunden af pakken 3D-præget i plastikken.",
+    "edit_packagings_element_hint_material": "Angiv det specifikke materiale, hvis det kan bestemmes (en materialekode i en trekant findes ofte på emballagedele), eller et generisk materiale (f.eks. plastik eller metal), hvis der er tvivl.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_material": "Glas",
+    "@edit_packagings_element_example_material": {
+        "description": "Text field hint"
     },
     "edit_packagings_element_field_recycling": "Genbrugsvejledning",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
+    "edit_packagings_element_hint_recycling": "Angiv kun genbrugsvejledningen anført på selve produktet.",
+    "@edit_packagings_element_hint_recycling": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_recycling": "Genbrug",
+    "@edit_packagings_element_example_recycling": {
+        "description": "Text field hint"
+    },
     "edit_packagings_element_field_quantity": "Produktnettomængde pr. enhed",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_quantity": "Angiv nettovægten eller nettovolumen samt enheden (f.eks. g eller ml).",
+    "@edit_packagings_element_hint_quantity": {
+        "description": "Field verbose hint, more like an info than a text field hint"
     },
     "edit_packagings_element_field_weight": "Vægt af én tom enhed (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "For nøjagtige emballagevægtmålinger, så rengør for evt. madrester og aftør derefter evt. vand.",
+    "edit_packagings_element_hint_weight": "Fjern evt. madrester, og afvask og aftør emballagedelen før vejning. Benyt om muligt en vægt med 0,1 g eller 0,01 g skalainddeling.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "feed_back": "Feedback"
+    "background_task_title": "Afventende bidrag",
+    "background_task_subtitle": "Bidragene auto-gemmes på vores server (dog ikke altid i realtid).",
+    "background_task_list_empty": "Ingen afventende baggrundsopgaver",
+    "background_task_error_no_internet": "Internetforbindelsesfejl. Forsøg senere.",
+    "background_task_operation_unknown": "ukendt operationstype",
+    "background_task_operation_details": "detaljerede ændringer",
+    "background_task_operation_image": "foto-upload",
+    "background_task_operation_refresh": "opdatering forsinket efter foto-upload",
+    "background_task_run_started": "startet",
+    "background_task_run_not_started": "ikke startet endnu",
+    "background_task_run_to_be_deleted": "skal slettes",
+    "background_task_question_stop": "Stop opgaven straks?",
+    "feed_back": "Feedback",
+    "undo": "Fortryd",
+    "copy_email_to_clip_board": "Kopiér e-mail til upklipsholder",
+    "@copy_email_to_clip_board": {
+        "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
+    },
+    "please_send_us_an_email_to": "Send os manuelt en e-mail til",
+    "email_copied_to_clip_board": "E-mail kopieret til udklipsholder!",
+    "select_accent_color": "Vælg fremhævningsfarve",
+    "@select_accent_color": {
+        "description": "Accent Color for the application in AMOLED mode."
+    },
+    "theme_amoled": "AMOLED",
+    "@theme_amoled": {
+        "description": "AMOLED theme mode."
+    },
+    "color_blue": "Blå",
+    "@color_blue": {
+        "description": "Color Blue"
+    },
+    "color_cyan": "Cyan",
+    "@color_cyan": {
+        "description": "Color Cyan"
+    },
+    "color_green": "Grøn",
+    "@color_green": {
+        "description": "Color Green"
+    },
+    "color_light_brown": "Standard",
+    "@color_light_brown": {
+        "description": "Color Light Brown, Default Open Food Facts Color"
+    },
+    "color_magenta": "Rødlilla",
+    "@color_magenta": {
+        "description": "Color Magenta"
+    },
+    "color_orange": "Orange",
+    "@color_orange": {
+        "description": "Color Orange"
+    },
+    "color_pink": "Lyserød",
+    "@color_pink": {
+        "description": "Color Pink"
+    },
+    "color_red": "Rød",
+    "@color_red": {
+        "description": "Color Red"
+    },
+    "color_rust": "Rustfarvet",
+    "@color_rust": {
+        "description": "Color Rust"
+    },
+    "color_teal": "Blågrøn",
+    "@color_teal": {
+        "description": "Color Teal"
+    },
+    "text_contrast_mode": "Tekstkontrast",
+    "@text_contrast_mode": {
+        "description": "Text Contrast Color Mode"
+    },
+    "contrast_high": "Høj",
+    "@contrast_high": {
+        "description": "High Contrast Text Color"
+    },
+    "contrast_medium": "Mellem",
+    "@contrast_medium": {
+        "description": "Medium Contrast Text Color"
+    },
+    "contrast_low": "Lav",
+    "@contrast_low": {
+        "description": "Low Contrast Text Color"
+    }
 }

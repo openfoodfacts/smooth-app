@@ -5,11 +5,22 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:uuid/uuid.dart';
 
 /// Initializes both the user agent && the SSL certificate
 Future<void> setupAppNetworkConfig() async {
   await _initUserAgent();
   return _importSSLCertificate();
+}
+
+String _getUuidId() {
+  if (OpenFoodAPIConfiguration.uuid != null) {
+    return OpenFoodAPIConfiguration.uuid!;
+  }
+
+  const Uuid uuid = Uuid();
+  OpenFoodAPIConfiguration.uuid = uuid.v4();
+  return OpenFoodAPIConfiguration.uuid!;
 }
 
 Future<void> _initUserAgent() async {
@@ -19,10 +30,12 @@ Future<void> _initUserAgent() async {
   final String version = '${packageInfo.version}+${packageInfo.buildNumber}';
   final String system =
       '${Platform.operatingSystem}+${Platform.operatingSystemVersion}';
+  final String id = _getUuidId();
   final String comment = _getAppInfoComment(
     name: name,
     version: version,
     system: system,
+    id: id,
   );
   OpenFoodAPIConfiguration.userAgent = UserAgent(
       name: name,
@@ -39,6 +52,8 @@ String _getAppInfoComment({
   String version = '',
   bool withSystem = true,
   String system = '',
+  bool withId = true,
+  String id = '',
 }) {
   String appInfo = '';
   const String infoDelimiter = ' - ';
@@ -54,6 +69,10 @@ String _getAppInfoComment({
     appInfo += infoDelimiter;
     appInfo += system;
   }
+  if (withId) {
+    appInfo += infoDelimiter;
+    appInfo += id;
+  }
   return appInfo;
 }
 
@@ -63,7 +82,7 @@ Future<void> _importSSLCertificate() async {
   if (Platform.isAndroid) {
     await dip.loadLibrary();
     final int sdkInt =
-        (await dip.DeviceInfoPlugin().androidInfo).version.sdkInt ?? 1;
+        (await dip.DeviceInfoPlugin().androidInfo).version.sdkInt;
 
     // API Level 25 is Android 7.1
     if (sdkInt < 25) {

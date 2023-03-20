@@ -1,5 +1,9 @@
 {
     "@Utils": {},
+    "sep": "",
+    "@sep": {
+        "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
+    },
     "yes": "Да",
     "@yes": {},
     "add": "Добави",
@@ -214,7 +218,7 @@
     "sign_up_page_username_hint": "Потребителско име: публично видимо",
     "sign_up_page_username_error_empty": "Моля, въведи потребителско име",
     "sign_up_page_username_error_invalid": "Въведи валидно потребителско име",
-    "sign_up_page_username_description": "Потребителското име не може да съдържа интервали, главни или специални знаци",
+    "sign_up_page_username_description": "Потребителското име не може да съдържа интервали, главни или специални знаци.",
     "sign_up_page_username_length_invalid": "Потребителското име не може да надвишава {value} знака",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -253,12 +257,15 @@
     "sign_up_page_producer_hint": "Производител/марка",
     "sign_up_page_producer_error_empty": "Моля, въведи производител или марка",
     "sign_up_page_subscribe_checkbox": "Бих искал да се абонирам за бюлетина на Open Food Facts (Можеш да се отпишеш от него по всяко време)",
+    "sign_up_page_user_name_already_used": "Потребителското име вече съществува, моля избери друго потребителско име.",
+    "sign_up_page_email_already_exists": "вече съществува, влез в акаунта или опитай с друг имейл.",
+    "sign_up_page_provide_valid_email": "Моля, посочи валиден имейл адрес.",
     "@Settings": {},
     "settingsTitle": "Настройки",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Тъмен режим",
+    "darkmode": "Theme",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -357,6 +364,14 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "@account_create_message": {
+        "description": "The Message to be displayed if the user does not have an account and wants to contribute"
+    },
+    "join_us": "Присъедини се",
+    "@join_us": {
+        "description": "Join which is actually Signup"
+    },
     "myPreferences_profile_title": "Профил",
     "myPreferences_profile_subtitle": "Управлявай своя акаунт на сътрудник в Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
@@ -389,9 +404,9 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Търсене",
+    "scan_navbar_label": "Сканирай",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the searching of products"
+        "description": "BottomNavigationBarLabel: For the scanning of products"
     },
     "history_navbar_label": "История",
     "@history_navbar_label": {
@@ -478,6 +493,7 @@
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Потвърди",
+    "send_image_button_label": "Изпрати снимката",
     "front_packaging_photo_title": "Снимка на предната част на опаковката",
     "ingredients_photo_title": "Снимка на съставките",
     "nutritional_facts_photo_title": "Снимка на хранителните стойности",
@@ -541,14 +557,14 @@
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Добави липсващите съставки",
-    "score_add_missing_packaging_image": "Add missing packaging image",
+    "score_add_missing_packaging_image": "Добави липсващата снимка на опаковката",
     "score_add_missing_nutrition_facts": "Добави липсващи хранителни стойности",
     "score_add_missing_product_category": "Добави липсваща продуктова категория",
-    "score_add_missing_product_countries": "Add missing product countries",
-    "score_add_missing_product_emb": "Add missing product traceability codes",
-    "score_add_missing_product_labels": "Add missing product labels",
-    "score_add_missing_product_origins": "Add missing product origins",
-    "score_add_missing_product_stores": "Add missing product stores",
+    "score_add_missing_product_countries": "Добави липсващите страни където се продава",
+    "score_add_missing_product_emb": "Добави липсващите кодове за проследяване на продукта",
+    "score_add_missing_product_labels": "Добави липсващите етикети",
+    "score_add_missing_product_origins": "Добавете липсващ произход на продукта",
+    "score_add_missing_product_stores": "Добавяне на липсващите магазини за продукта",
     "score_update_nutrition_facts": "Актуализирай хранителните стойности",
     "nutrition_page_title": "Хранителни стойности",
     "nutrition_page_unspecified": "Хранителните стойности не са посочени върху продукта",
@@ -638,6 +654,14 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
+    "native_app_settings": "Native App Settings",
+    "@native_app_settings": {
+        "description": "Native App Settings in app settings"
+    },
+    "native_app_description": "Open systems settings for Open Food Facts",
+    "@native_app_description": {
+        "description": "Native App description in app settings"
+    },
     "product_removed_history": "Продуктът е премахнат от историята",
     "@product_removed_history": {
         "description": "Product got removed from history"
@@ -663,44 +687,44 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{преди 1 ден} other{преди {count} дена}}",
+    "plural_ago_days": "{count,plural, =1{преди един ден} other{преди {count} дни}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{преди 1 час} other{преди {count} часа}}",
+    "plural_ago_hours": "{count,plural, =1{преди един час} other{преди {count} часа}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,=0{преди по-малко от 1 минута} =1{преди 1 минута} other{преди {count} минути}}",
+    "plural_ago_minutes": "{count,plural, =0{преди по-малко от една минута} =1{преди една минута} other{преди {count} минути}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{преди 1 месец} other{преди {count} месеца}}",
+    "plural_ago_months": "{count,plural, =1{преди един месец} other{преди {count} месеца}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{преди 1 седмица} other{преди {count} седмици}}",
+    "plural_ago_weeks": "{count,plural, =1{преди една седмица} other{преди {count} седмици}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Сравни един продукт} other{Сравни {count} продукта}",
+    "plural_compare_x_products": "{count,plural, =1{Сравни един продукт} other{Сравни {count} продукта}}",
     "@plural_compare_x_products": {
-        "description": "Button label",
+        "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
             "count": {}
         }
@@ -791,7 +815,7 @@
         "placeholders": {
             "version": {
                 "type": "String?",
-                "description": "Version of IOS (eg : 15)"
+                "description": "Version of IOS (eg: 15)"
             },
             "model": {
                 "type": "String?",
@@ -837,11 +861,15 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "Научи повече на {source_name}",
+    "are_you_sure": "Сигурен ли си?",
+    "@are_you_sure": {
+        "description": "Are you sure?"
+    },
+    "knowledge_panel_text_source": "Научи повече на {sourceName}",
     "@knowledge_panel_text_source": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
-            "source_name": {
+            "sourceName": {
                 "type": "String"
             }
         }
@@ -878,14 +906,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Обновяване на {count,plural, one {} =0{продукт} =1{продукт} other{продукти}} в твоята история",
+    "product_list_reloading_in_progress_multiple": "Обновяване на {count,plural, =0{продукт} =1{продукт} other{продукти}} в твоята история",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "Обновяването на {count,plural, one {} =0{продукт} =1{продукт} other{продукта}} завърши",
+    "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -968,7 +996,7 @@
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "Променете тази стойност само ако имате проблеми със скенера (не може да декодира баркодове). Докоснете, за да превключите между двата режима.\nТекущият е: {mode}",
+    "camera_mode_subtitle": "Промени тази стойност само ако имаш проблеми със скенера (не може да декодира баркодове). Докосни, за да превключиш между двата режима.\nТекущият е: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -1029,6 +1057,10 @@
     "permission_photo_denied_dialog_settings_message": "Тъй като по-рано си отказал разрешението на камерата, трябва да го разрешиш ръчно от настройките.",
     "permission_photo_denied_dialog_settings_button_open": "Отвори настройките",
     "permission_photo_denied_dialog_settings_button_cancel": "Отмени",
+    "permission_photo_none_found": "No camera detected",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "Не е предоставен достъп до камерата",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
@@ -1146,8 +1178,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Искаш ли да запазиш промените, преди да напуснеш тази страница?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Запази промените ми",
-    "edit_product_form_item_exit_confirmation_negative_button": "Игнорирай промените ми",
+    "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
+    "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
     "edit_product_form_item_ingredients_title": "Съставки и произход",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1155,7 +1187,7 @@
     "edit_product_form_item_add_valid_item_tooltip": "Добави",
     "edit_product_form_item_add_invalid_item_tooltip": "Моля, първо въведи текст",
     "edit_product_form_item_remove_item_tooltip": "Премахни",
-    "edit_product_form_item_packaging_title": "Recycling instructions photo",
+    "edit_product_form_item_packaging_title": "Снимка с инструкции за рециклиране",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1218,7 +1250,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Все още няма наличен списък,\nмоля, започни със създаване на нов",
+    "user_list_empty_label": "No list available yet,\nplease start by creating one",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1291,7 +1323,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "След това трябва да рестартираш приложението.",
+    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1522,6 +1554,26 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
+    "edit_photo_unselect_button_label": "Отмяна на избор на снимка",
+    "@edit_photo_unselect_button_label": {
+        "description": "Edit 'unselect photo' button label"
+    },
+    "edit_photo_select_existing_button_label": "Избери съществуваща снимка",
+    "@edit_photo_select_existing_button_label": {
+        "description": "Edit 'select existing image' button label"
+    },
+    "edit_photo_select_existing_all_label": "Съществуващи снимки",
+    "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_download_label": "Извличане на съществуващите снимки...",
+    "@edit_photo_select_existing_download_label": {
+        "description": "Dialog label"
+    },
+    "edit_photo_select_existing_downloaded_none": "Няма качени снимки, свързани с този продукт.",
+    "@edit_photo_select_existing_downloaded_none": {
+        "description": "Error message"
+    },
     "category_picker_screen_title": "Категории",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1609,6 +1661,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "Направи снимки на информацията за опаковката/рециклирането",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "Избери източник на снимката",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1628,6 +1684,15 @@
     "share_product_text": "Разгледай този продукт в Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "@share_product_list_text": {
+        "description": "The content which is send, when sharing a product list",
         "placeholders": {
             "url": {
                 "type": "String"
@@ -1683,7 +1748,7 @@
         }
     },
     "clipboard_barcode_copied": "Баркода {barcode} е копиран в системния буфер!",
-    "choose_app_language": "Изберете език на приложението",
+    "choose_app_language": "Избери език на приложението",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
@@ -1695,7 +1760,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email application!",
+    "no_email_client_available_dialog_title": "No email apps!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1769,20 +1834,20 @@
     "app_rating_dialog_title": "Страхотно! Кажи на другите какво мислиш за това приложениие!",
     "app_rating_dialog_positive_action": "Оцени приложението",
     "app_rating_dialog_negative_action": "По-късно",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "I'm so sorry to hear that! Could you tell me what happened?",
-    "edit_packagings_title": "Packaging components",
+    "app_rating_dialog_title_enjoying_app": "Харесваш ли това приложение?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Да!",
+    "not_really": "Не особено",
+    "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
+    "edit_packagings_title": "Части на опаковката",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Добави компонент от опаковката",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
-    "edit_packagings_element_title": "Packaging component #{index}",
+    "edit_packagings_completed": "Опаковката е пълна",
+    "edit_packagings_element_title": "Опаковъчна част #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1795,33 +1860,144 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
+    "edit_packagings_element_hint_units": "Въведи броя на опаковъчните единици с еднаква форма и материал, съдържащи се в продукта.",
+    "@edit_packagings_element_hint_units": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
     "edit_packagings_element_field_shape": "Форма",
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_shape": "Въведи името на формата, посочено в инструкциите за рециклиране, ако са налични, или избери форма.",
+    "@edit_packagings_element_hint_shape": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_shape": "Бутилка",
+    "@edit_packagings_element_example_shape": {
+        "description": "Text field hint"
     },
     "edit_packagings_element_field_material": "Материал",
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "edit_packagings_element_hint_material": "Въведи конкретния материал, ако може да бъде определен (код на материала вътре в триъгълник често може да се намери върху частите на опаковката) или общ материал (например пластмаса или метал), ако не си сигурен.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "edit_packagings_element_example_material": "Стъкло",
+    "@edit_packagings_element_example_material": {
+        "description": "Text field hint"
+    },
+    "edit_packagings_element_field_recycling": "Инструкция за рециклиране",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_hint_recycling": "Въведи инструкциите за рециклиране само ако са посочени на продукта.",
+    "@edit_packagings_element_hint_recycling": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_recycling": "Рециклирай",
+    "@edit_packagings_element_example_recycling": {
+        "description": "Text field hint"
+    },
+    "edit_packagings_element_field_quantity": "Нетно количество продукт на единица",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_hint_quantity": "Въведи нетното тегло или нетния обем и посочи единицата (например г или мл).",
+    "@edit_packagings_element_hint_quantity": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_field_weight": "Тегло на една празна единица (г)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "feed_back": "Feedback"
+    "background_task_title": "Чакащ принос",
+    "background_task_subtitle": "Вашите приноси се записват автоматично на нашия сървър, но не винаги в реално време.",
+    "background_task_list_empty": "Няма чакащи фонови задачи",
+    "background_task_error_no_internet": "Грешка в интернет връзката. Пробвайте по-късно.",
+    "background_task_operation_unknown": "неизвестен тип операция",
+    "background_task_operation_details": "подробни промени",
+    "background_task_operation_image": "качване на снимка",
+    "background_task_operation_refresh": "опресняването се забави след качването на снимка",
+    "background_task_run_started": "започнат",
+    "background_task_run_not_started": "все още не е започнал",
+    "background_task_run_to_be_deleted": "да бъде изтрито",
+    "background_task_question_stop": "Искаш ли да спреш тази задача възможно най-скоро?",
+    "feed_back": "Обратна връзка",
+    "undo": "Отмяна",
+    "copy_email_to_clip_board": "Copy email to clipboard",
+    "@copy_email_to_clip_board": {
+        "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
+    },
+    "please_send_us_an_email_to": "Моля, изпрати ни ръчно имейл до",
+    "email_copied_to_clip_board": "Имейлът е копиран в клипборда!",
+    "select_accent_color": "Select Accent Color",
+    "@select_accent_color": {
+        "description": "Accent Color for the application in AMOLED mode."
+    },
+    "theme_amoled": "AMOLED",
+    "@theme_amoled": {
+        "description": "AMOLED theme mode."
+    },
+    "color_blue": "Blue",
+    "@color_blue": {
+        "description": "Color Blue"
+    },
+    "color_cyan": "Cyan",
+    "@color_cyan": {
+        "description": "Color Cyan"
+    },
+    "color_green": "Green",
+    "@color_green": {
+        "description": "Color Green"
+    },
+    "color_light_brown": "Default",
+    "@color_light_brown": {
+        "description": "Color Light Brown, Default Open Food Facts Color"
+    },
+    "color_magenta": "Magenta",
+    "@color_magenta": {
+        "description": "Color Magenta"
+    },
+    "color_orange": "Orange",
+    "@color_orange": {
+        "description": "Color Orange"
+    },
+    "color_pink": "Pink",
+    "@color_pink": {
+        "description": "Color Pink"
+    },
+    "color_red": "Red",
+    "@color_red": {
+        "description": "Color Red"
+    },
+    "color_rust": "Rust",
+    "@color_rust": {
+        "description": "Color Rust"
+    },
+    "color_teal": "Teal",
+    "@color_teal": {
+        "description": "Color Teal"
+    },
+    "text_contrast_mode": "Text Contrast",
+    "@text_contrast_mode": {
+        "description": "Text Contrast Color Mode"
+    },
+    "contrast_high": "High",
+    "@contrast_high": {
+        "description": "High Contrast Text Color"
+    },
+    "contrast_medium": "Medium",
+    "@contrast_medium": {
+        "description": "Medium Contrast Text Color"
+    },
+    "contrast_low": "Low",
+    "@contrast_low": {
+        "description": "Low Contrast Text Color"
+    }
 }

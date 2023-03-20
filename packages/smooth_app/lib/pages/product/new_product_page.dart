@@ -1,3 +1,4 @@
+import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,7 +14,6 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -108,19 +108,22 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             },
             child: _buildProductBody(context),
           ),
-          SafeArea(
-            child: AnimatedContainer(
-              duration: SmoothAnimationsDuration.short,
-              width: kToolbarHeight,
-              height: kToolbarHeight,
-              decoration: BoxDecoration(
-                color:
-                    scrollingUp ? themeData.primaryColor : Colors.transparent,
-                shape: BoxShape.circle,
-              ),
-              child: Offstage(
-                offstage: !scrollingUp,
-                child: const SmoothBackButton(iconColor: Colors.white),
+          Padding(
+            padding: const EdgeInsets.only(left: SMALL_SPACE),
+            child: SafeArea(
+              child: AnimatedContainer(
+                duration: SmoothAnimationsDuration.short,
+                width: kToolbarHeight,
+                height: kToolbarHeight,
+                decoration: BoxDecoration(
+                  color:
+                      scrollingUp ? themeData.primaryColor : Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: Offstage(
+                  offstage: !scrollingUp,
+                  child: const SmoothBackButton(iconColor: Colors.white),
+                ),
               ),
             ),
           )
@@ -222,7 +225,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               children: <Widget>[
                 Text(
                   AppLocalizations.of(context).product_field_website_title,
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
               ],
             ),
@@ -235,13 +238,15 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Text(
+                Flexible(
+                    child: Text(
                   website,
+                  overflow: TextOverflow.ellipsis,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText2
+                      .bodyMedium
                       ?.copyWith(color: Colors.blue),
-                ),
+                )),
               ],
             ),
           ),
@@ -310,12 +315,19 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             _buildActionBarItem(
               Icons.edit,
               appLocalizations.edit_product_label,
-              () async => Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => EditProductPage(_product),
-                ),
-              ),
+              () async {
+                AnalyticsHelper.trackEvent(
+                  AnalyticsEvent.openProductEditPage,
+                  barcode: _barcode,
+                );
+                await Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        EditProductPage(_product),
+                  ),
+                );
+              },
             ),
             _buildActionBarItem(
               ConstantIcons.instance.getShareIcon(),
@@ -343,8 +355,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(
-                  18), // TODO(monsieurtanuki): cf. FloatingActionButton
-              primary: colorScheme.primary,
+                18,
+              ), // TODO(monsieurtanuki): cf. FloatingActionButton
+              backgroundColor: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
           ),
@@ -384,9 +397,22 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final List<Widget> children = <Widget>[];
     for (final String productListName in productListNames) {
       children.add(
-        SmoothActionButtonsBar(
-          positiveAction: SmoothActionButton(
-            text: productListName,
+        Padding(
+          padding: const EdgeInsets.only(
+            top: VERY_SMALL_SPACE,
+            right: VERY_SMALL_SPACE,
+          ),
+          child: ElevatedButton(
+            style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  const EdgeInsets.symmetric(
+                      horizontal: VERY_LARGE_SPACE, vertical: MEDIUM_SPACE),
+                ),
+                shape: MaterialStateProperty.all(
+                  const RoundedRectangleBorder(
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                )),
             onPressed: () async {
               final ProductList productList = ProductList.user(productListName);
               await daoProductList.get(productList);
@@ -402,6 +428,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               );
               setState(() {});
             },
+            child: Text(
+              productListName.toUpperCase(),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                // color: buttonData.textColor ?? themeData.colorScheme.primary,
+              ),
+            ),
           ),
         ),
       );
@@ -415,13 +448,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
           children: <Widget>[
             Text(
               appLocalizations.user_list_subtitle_product,
-              style: Theme.of(context).textTheme.headline3,
+              style: Theme.of(context).textTheme.displaySmall,
             ),
-            Wrap(
-              alignment: WrapAlignment.start,
-              direction: Axis.horizontal,
+            WrapSuper(
+              wrapType: WrapType.fit,
+              wrapFit: WrapFit.proportional,
               spacing: VERY_SMALL_SPACE,
-              runSpacing: VERY_SMALL_SPACE,
               children: children,
             ),
           ],

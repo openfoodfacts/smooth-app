@@ -90,6 +90,8 @@ class RotatedCropController extends ValueNotifier<RotatedCropControllerValue> {
     notifyListeners();
   }
 
+  int get degrees => value.rotation.degrees;
+
   late ui.Image _bitmap;
   late Size _bitmapSize;
 
@@ -133,62 +135,97 @@ class RotatedCropController extends ValueNotifier<RotatedCropControllerValue> {
 
   /// Returns the bitmap cropped with the current crop rectangle.
   ///
+  /// [maxSize] is the maximum width or height you want.
   /// You can provide the [quality] used in the resizing operation.
-  /// Returns an [image2.Image] asynchronously.
   Future<image2.Image?> croppedBitmap({
+    final double? maxSize,
     final ui.FilterQuality quality = FilterQuality.high,
+  }) async =>
+      getCroppedBitmap(
+        maxSize: maxSize,
+        quality: quality,
+        crop: crop,
+        rotation: value.rotation,
+        image: _bitmap,
+      );
+
+  /// Returns the bitmap cropped with parameters.
+  ///
+  /// [maxSize] is the maximum width or height you want.
+  /// The [crop] `Rect` is normalized to (0, 0) x (1, 1).
+  /// You can provide the [quality] used in the resizing operation.
+  static Future<image2.Image?> getCroppedBitmap({
+    final double? maxSize,
+    final ui.FilterQuality quality = FilterQuality.high,
+    required final Rect crop,
+    required final Rotation rotation,
+    required final ui.Image image,
   }) async {
     final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
     final Canvas canvas = Canvas(pictureRecorder);
 
-    final bool tilted = value.rotation.isTilted;
+    final bool tilted = rotation.isTilted;
     final double cropWidth;
     final double cropHeight;
     if (tilted) {
-      cropWidth = crop.width * _bitmapSize.height;
-      cropHeight = crop.height * _bitmapSize.width;
+      cropWidth = crop.width * image.height;
+      cropHeight = crop.height * image.width;
     } else {
-      cropWidth = crop.width * _bitmapSize.width;
-      cropHeight = crop.height * _bitmapSize.height;
+      cropWidth = crop.width * image.width;
+      cropHeight = crop.height * image.height;
     }
+    // factor between the full size and the maxSize constraint.
+    double factor = 1;
+    if (maxSize != null) {
+      if (cropWidth > maxSize || cropHeight > maxSize) {
+        if (cropWidth >= cropHeight) {
+          factor = maxSize / cropWidth;
+        } else {
+          factor = maxSize / cropHeight;
+        }
+      }
+    }
+
+    // just checking
     canvas.drawRect(
-      Rect.fromLTWH(0, 0, cropWidth, cropHeight),
+      Rect.fromLTWH(0, 0, cropWidth * factor, cropHeight * factor),
       Paint()
         ..color = Colors.red
         ..style = PaintingStyle.fill,
     );
-    final Offset cropCenter = value.rotation.getRotatedOffset(
-      value.crop.center,
-      _bitmapSize.width,
-      _bitmapSize.height,
+
+    final Offset cropCenter = rotation.getRotatedOffset(
+      crop.center,
+      image.width.toDouble(),
+      image.height.toDouble(),
     );
 
     final double alternateWidth = tilted ? cropHeight : cropWidth;
     final double alternateHeight = tilted ? cropWidth : cropHeight;
-    if (value.rotation != Rotation.noon) {
+    if (rotation != Rotation.noon) {
       canvas.save();
-      final double x = alternateWidth / 2;
-      final double y = alternateHeight / 2;
+      final double x = alternateWidth / 2 * factor;
+      final double y = alternateHeight / 2 * factor;
       canvas.translate(x, y);
-      canvas.rotate(value.rotation.radians);
-      if (value.rotation == Rotation.threeOClock) {
+      canvas.rotate(rotation.radians);
+      if (rotation == Rotation.threeOClock) {
         // TODO(monsieurtanuki): put in class Rotation?
         canvas.translate(
           -y,
-          -cropWidth + x,
+          -cropWidth * factor + x,
         );
-      } else if (value.rotation == Rotation.nineOClock) {
+      } else if (rotation == Rotation.nineOClock) {
         canvas.translate(
-          y - cropHeight,
+          y - cropHeight * factor,
           -x,
         );
-      } else if (value.rotation == Rotation.sixOClock) {
+      } else if (rotation == Rotation.sixOClock) {
         canvas.translate(-x, -y);
       }
     }
 
     canvas.drawImageRect(
-      _bitmap,
+      image,
       Rect.fromCenter(
         center: cropCenter,
         width: alternateWidth,
@@ -197,19 +234,19 @@ class RotatedCropController extends ValueNotifier<RotatedCropControllerValue> {
       Rect.fromLTWH(
         0,
         0,
-        alternateWidth,
-        alternateHeight,
+        alternateWidth * factor,
+        alternateHeight * factor,
       ),
-      Paint(),
+      Paint()..filterQuality = quality,
     );
 
-    if (value.rotation != Rotation.noon) {
+    if (rotation != Rotation.noon) {
       canvas.restore();
     }
 
     final ui.Image img = await pictureRecorder.endRecording().toImage(
-          cropWidth.round(),
-          cropHeight.round(),
+          (cropWidth * factor).round(),
+          (cropHeight * factor).round(),
         );
 
     // Probably not too slow as it's the fastest format.
@@ -220,11 +257,19 @@ class RotatedCropController extends ValueNotifier<RotatedCropControllerValue> {
     }
     // TODO(monsieurtanuki): perhaps a bit slow, which would call for a isolate/compute
     return image2.Image.fromBytes(
-      cropWidth.round(),
-      cropHeight.round(),
+      (cropWidth * factor).round(),
+      (cropHeight * factor).round(),
       rawData.buffer.asUint8List(),
     );
   }
+
+  /// Returns the offset as rotated, for the OFF-dart rotation/crop tool.
+  Offset getRotatedOffsetForOff(final Offset offset) =>
+      value.rotation.getRotatedOffsetForOff(
+        offset,
+        _bitmapSize.width,
+        _bitmapSize.height,
+      );
 }
 
 @immutable

@@ -242,7 +242,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 ),
                 title: Text(
                   appLocalizations.sign_up_page_producer_checkbox,
-                  style: theme.textTheme.bodyText2
+                  style: theme.textTheme.bodyMedium
                       ?.copyWith(color: theme.colorScheme.onBackground),
                 ),
               ),
@@ -280,7 +280,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 ),
                 title: Text(
                   appLocalizations.sign_up_page_subscribe_checkbox,
-                  style: theme.textTheme.bodyText2
+                  style: theme.textTheme.bodyMedium
                       ?.copyWith(color: theme.colorScheme.onBackground),
                 ),
               ),
@@ -299,7 +299,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 ),
                 child: Text(
                   appLocalizations.sign_up_page_action_button,
-                  style: theme.textTheme.bodyText2?.copyWith(
+                  style: theme.textTheme.bodyMedium?.copyWith(
                     fontSize: 18.0,
                     color: theme.colorScheme.onPrimary,
                     fontWeight: FontWeight.bold,
@@ -315,6 +315,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   }
 
   Future<void> _signUp() async {
+    final AppLocalizations appLocalisations = AppLocalizations.of(context);
     _disagreed = !_agree;
     setState(() {});
     if (!_formKey.currentState!.validate() || _disagreed) {
@@ -333,33 +334,47 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         newsletter: _subscribe,
         orgName: _foodProducer ? _brandController.trimmedText : null,
       ),
-      title: AppLocalizations.of(context).sign_up_page_action_doing_it,
+      title: appLocalisations.sign_up_page_action_doing_it,
     );
     if (status == null) {
       // probably the end user stopped the dialog
       return;
     }
     if (status.error != null) {
-      await LoadingDialog.error(context: context, title: status.error);
+      String? errorMessage;
 
       // Highlight the field with the error
       if (status.statusErrors?.isNotEmpty == true) {
         if (status.statusErrors!
             .contains(SignUpStatusError.EMAIL_ALREADY_USED)) {
           _emailFocusNode.requestFocus();
+          errorMessage =
+              '${_emailController.trimmedText} ${appLocalisations.sign_up_page_email_already_exists}';
         } else if (status.statusErrors!
-            .contains(SignUpStatusError.INCORRECT_EMAIL)) {
+                .contains(SignUpStatusError.INCORRECT_EMAIL) ||
+            status.error!.contains('Invalid e-mail address')) {
           _emailFocusNode.requestFocus();
+          errorMessage = appLocalisations.sign_up_page_provide_valid_email;
         } else if (status.statusErrors!
             .contains(SignUpStatusError.INVALID_PASSWORD)) {
           _password1FocusNode.requestFocus();
+          errorMessage = appLocalisations.sign_up_page_password_error_invalid;
         } else if (status.statusErrors!
-                .contains(SignUpStatusError.INVALID_USERNAME) ||
-            status.statusErrors!
-                .contains(SignUpStatusError.USERNAME_ALREADY_USED)) {
+            .contains(SignUpStatusError.INVALID_USERNAME)) {
           _userFocusNode.requestFocus();
+          errorMessage =
+              '${appLocalisations.sign_up_page_username_description}  ${appLocalisations.sign_up_page_username_length_invalid}';
+        } else if (status.statusErrors!
+            .contains(SignUpStatusError.USERNAME_ALREADY_USED)) {
+          _userFocusNode.requestFocus();
+          errorMessage = appLocalisations.sign_up_page_user_name_already_used;
+        } else {
+          errorMessage = status.error;
         }
       }
+
+      // ignore: use_build_context_synchronously
+      await LoadingDialog.error(context: context, title: errorMessage);
 
       return;
     }
@@ -368,10 +383,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     await context.read<UserManagementProvider>().putUser(user);
+    // ignore: use_build_context_synchronously
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(AppLocalizations.of(context).sign_up_page_action_ok),
+        body: Text(appLocalisations.sign_up_page_action_ok),
         positiveAction: SmoothActionButton(
           text: AppLocalizations.of(context).okay,
           onPressed: () => Navigator.of(context).pop(),
@@ -433,12 +449,12 @@ class _TermsOfUseCheckbox extends StatelessWidget {
                         TextSpan(
                           // additional space needed because of the next text span
                           text: '${appLocalizations.sign_up_page_agree_text} ',
-                          style: theme.textTheme.bodyText2?.copyWith(
+                          style: theme.textTheme.bodyMedium?.copyWith(
                             color: theme.colorScheme.onBackground,
                           ),
                         ),
                         TextSpan(
-                          style: theme.textTheme.bodyText2?.copyWith(
+                          style: theme.textTheme.bodyMedium?.copyWith(
                             color: Colors.blue,
                           ),
                           text: appLocalizations.sign_up_page_terms_text,
@@ -470,7 +486,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
             offstage: !disagree,
             child: Text(
               appLocalizations.sign_up_page_agree_error_invalid,
-              style: TextStyle(color: theme.errorColor),
+              style: TextStyle(color: theme.colorScheme.error),
             ),
           )
         ],

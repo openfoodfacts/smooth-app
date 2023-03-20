@@ -73,7 +73,7 @@ class _AllUserProductListLoadedState extends State<_AllUserProductListLoaded> {
                       padding: const EdgeInsets.all(SMALL_SPACE),
                       child: AutoSizeText(
                         appLocalizations.user_list_all_empty,
-                        style: themeData.textTheme.headline1,
+                        style: themeData.textTheme.displayLarge,
                         textAlign: TextAlign.center,
                         maxLines: 1,
                       ),

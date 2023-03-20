@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 
 /// OCR Helper for packaging.
@@ -60,4 +62,15 @@ class OcrPackagingHelper extends OcrHelper {
     );
     return result.textFromImage;
   }
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() =>
+      BackgroundTaskDetailsStamp.ocrPackaging;
+
+  @override
+  bool hasAddExtraPhotoButton() => true;
+
+  @override
+  AnalyticsEditEvents getEditEventAnalyticsTag() =>
+      AnalyticsEditEvents.recyclingInstructionsPhotos;
 }

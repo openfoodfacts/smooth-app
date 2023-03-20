@@ -93,7 +93,7 @@ class QuestionCard extends StatelessWidget {
               question.question!,
               style: Theme.of(context)
                   .textTheme
-                  .headline4!
+                  .headlineMedium!
                   .apply(color: Colors.black),
             ),
           ),
@@ -107,7 +107,7 @@ class QuestionCard extends StatelessWidget {
               question.value!,
               style: Theme.of(context)
                   .textTheme
-                  .headline4!
+                  .headlineMedium!
                   .apply(color: Colors.white),
             ),
           ),

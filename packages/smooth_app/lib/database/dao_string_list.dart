@@ -9,6 +9,8 @@ class DaoStringList extends AbstractDao {
   static const String _hiveBoxName = 'stringList';
 
   static const String keySearchHistory = 'searchHistory';
+
+  /// Key for the list of task ids.
   static const String keyTasks = 'tasks';
 
   /// Max lengths of each key (null means no limit).

@@ -9,14 +9,15 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -45,6 +46,7 @@ class NutritionPageLoaded extends StatefulWidget {
       return;
     }
     if (isLoggedInMandatory) {
+      // ignore: use_build_context_synchronously
       if (!await ProductRefresher().checkIfLoggedIn(widget.context)) {
         return;
       }
@@ -82,11 +84,7 @@ class NutritionPageLoaded extends StatefulWidget {
 }
 
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
-  // we admit both decimal points
-  // anyway, the keyboard will only show one
-  static final RegExp _decimalRegExp = RegExp(r'[\d,.]');
-
-  late final NumberFormat _numberFormat;
+  late final NumberFormat _decimalNumberFormat;
   late final NutritionContainer _nutritionContainer;
 
   double getColumnSizeFromContext(
@@ -111,7 +109,8 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       orderedNutrients: widget.orderedNutrients,
       product: _product,
     );
-    _numberFormat = NumberFormat('####0.#####', ProductQuery.getLocaleString());
+    _decimalNumberFormat =
+        SimpleInputNumberField.getNumberFormat(decimal: true);
   }
 
   @override
@@ -229,8 +228,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(
-            width: getColumnSizeFromContext(context, 0.6),
+          Expanded(
             child: _getNutrientCell(
               appLocalizations,
               orderedNutrient,
@@ -254,7 +252,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     if (_controllers[nutrient] == null) {
       final double? value = _nutritionContainer.getValue(nutrient);
       _controllers[nutrient] = TextEditingControllerWithInitialValue(
-        text: value == null ? '' : _numberFormat.format(value),
+        text: value == null ? '' : _decimalNumberFormat.format(value),
       );
     }
     final TextEditingControllerWithInitialValue controller =
@@ -293,15 +291,17 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             }
           },
           inputFormatters: <TextInputFormatter>[
-            FilteringTextInputFormatter.allow(_decimalRegExp),
-            DecimalSeparatorRewriter(_numberFormat),
+            FilteringTextInputFormatter.allow(
+              SimpleInputNumberField.getNumberRegExp(decimal: true),
+            ),
+            DecimalSeparatorRewriter(_decimalNumberFormat),
           ],
           validator: (String? value) {
             if (value == null || value.trim().isEmpty) {
               return null;
             }
             try {
-              _numberFormat.parse(value);
+              _decimalNumberFormat.parse(value);
               return null;
             } catch (e) {
               return appLocalizations.nutrition_page_invalid_number;
@@ -442,7 +442,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               width: getColumnSizeFromContext(context, 0.6),
               child: AutoSizeText(
                 localizations.nutrition_page_unspecified,
-                style: Theme.of(context).primaryTextTheme.bodyText2?.copyWith(
+                style: Theme.of(context).primaryTextTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),
                 maxLines: 2,
@@ -477,7 +477,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       _nutritionContainer.setNutrientValueText(
         nutrient,
         controller.text,
-        _numberFormat,
+        _decimalNumberFormat,
       );
     }
     if (_servingController != null) {
@@ -530,9 +530,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       );
       return false;
     }
+
+    AnalyticsHelper.trackProductEdit(
+      AnalyticsEditEvents.nutrition_Facts,
+      changedProduct.barcode!,
+      true,
+    );
     await BackgroundTaskDetails.addTask(
       changedProduct,
       widget: this,
+      stamp: BackgroundTaskDetailsStamp.nutrition,
     );
     return true;
   }

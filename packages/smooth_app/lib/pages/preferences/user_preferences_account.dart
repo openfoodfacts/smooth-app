@@ -15,7 +15,6 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -70,7 +69,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
     return Text(
       title,
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.displayMedium,
     );
   }
 
@@ -139,7 +138,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       child: SmoothSimpleButton(
         child: Text(
           appLocalizations.sign_in,
-          style: theme.textTheme.bodyText2?.copyWith(
+          style: theme.textTheme.bodyMedium?.copyWith(
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
             color: theme.colorScheme.onPrimary,
@@ -248,7 +247,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
           type: UserSearchType.CONTRIBUTOR,
         ),
-        const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
@@ -260,7 +258,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
           type: UserSearchType.INFORMER,
         ),
-        const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
@@ -272,7 +269,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
           type: UserSearchType.PHOTOGRAPHER,
         ),
-        const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
             userId: userId,
@@ -284,7 +280,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           localDatabase: localDatabase,
           type: UserSearchType.TO_BE_COMPLETED,
         ),
-        const UserPreferencesListItemDivider(),
         _buildProductQueryTile(
           productQuery: PagedToBeCompletedProductQuery(),
           title: appLocalizations.all_search_to_be_completed_title,
@@ -292,7 +287,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           context: context,
           localDatabase: localDatabase,
         ),
-        const UserPreferencesListItemDivider(),
         _getListTile(
           appLocalizations.view_profile,
           () async => LaunchUrlHelper.launchURL(
@@ -301,7 +295,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           ),
           Icons.open_in_new,
         ),
-        const UserPreferencesListItemDivider(),
         _getListTile(
           appLocalizations.account_delete,
           () {
@@ -314,17 +307,17 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           },
           Icons.delete,
         ),
-        const UserPreferencesListItemDivider(),
         _getListTile(
           appLocalizations.sign_out,
           () async {
+            // ignore: use_build_context_synchronously
             if (await _confirmLogout(context) == true) {
+              // ignore: use_build_context_synchronously
               Navigator.pop(context);
             }
           },
           Icons.clear,
         ),
-        const UserPreferencesListItemDivider(),
       ];
     } else {
       // No credentials
@@ -353,7 +346,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             ),
             child: Text(
               appLocalizations.sign_in,
-              style: theme.textTheme.bodyText2?.copyWith(
+              style: theme.textTheme.bodyMedium?.copyWith(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
                 color: theme.colorScheme.onPrimary,
@@ -424,25 +417,33 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     final IconData leading, {
     final UserSearchType? type,
   }) =>
-      UserPreferencesListTile(
-        title: Text(title),
-        onTap: onTap,
-        leading: UserPreferencesListTile.getTintedIcon(leading, context),
-        trailing: (type != null)
-            ? FutureBuilder<int?>(
-                future: _getMyCount(type),
-                builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
-                  if (snapshot.connectionState != ConnectionState.done) {
-                    return const SizedBox(
-                        height: LARGE_SPACE,
-                        width: LARGE_SPACE,
-                        child: CircularProgressIndicator.adaptive());
-                  }
-                  return snapshot.data == null
-                      ? EMPTY_WIDGET
-                      : Text(snapshot.data.toString());
-                },
-              )
-            : null,
+      Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 5,
+        color: Theme.of(context).cardColor,
+        child: UserPreferencesListTile(
+          title: Text(title),
+          onTap: onTap,
+          leading: UserPreferencesListTile.getTintedIcon(leading, context),
+          trailing: (type != null)
+              ? FutureBuilder<int?>(
+                  future: _getMyCount(type),
+                  builder:
+                      (BuildContext context, AsyncSnapshot<int?> snapshot) {
+                    if (snapshot.connectionState != ConnectionState.done) {
+                      return const SizedBox(
+                          height: LARGE_SPACE,
+                          width: LARGE_SPACE,
+                          child: CircularProgressIndicator.adaptive());
+                    }
+                    return snapshot.data == null
+                        ? EMPTY_WIDGET
+                        : Text(snapshot.data.toString());
+                  },
+                )
+              : null,
+        ),
       );
 }

@@ -14,7 +14,6 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
-import 'package:smooth_app/pages/tmp_matched_product_v2.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
@@ -205,7 +204,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: Text(
           helper.getHeaderText(appLocalizations),
-          style: Theme.of(context).textTheme.subtitle1,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
     );

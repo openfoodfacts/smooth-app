@@ -1,5 +1,9 @@
 {
     "@Utils": {},
+    "sep": "",
+    "@sep": {
+        "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
+    },
     "yes": "כן",
     "@yes": {},
     "add": "הוספה",
@@ -214,7 +218,7 @@
     "sign_up_page_username_hint": "שם משתמש: גלוי לציבור",
     "sign_up_page_username_error_empty": "נא למלא שם משתמש",
     "sign_up_page_username_error_invalid": "נא למלא שם משתמש תקף",
-    "sign_up_page_username_description": "שם המשתמש לא יכול להכיל רווחים, רישיות או תווים מיוחדים",
+    "sign_up_page_username_description": "שם המשתמש לא יכול להכיל רווחים, רישיות או תווים מיוחדים.",
     "sign_up_page_username_length_invalid": "אורך שם המשתמש לא יכול לעלות על {value} תווים",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -253,12 +257,15 @@
     "sign_up_page_producer_hint": "יצרן/מותג",
     "sign_up_page_producer_error_empty": "נא למלא יצרן או שם מותג",
     "sign_up_page_subscribe_checkbox": "אשמח להירשם לקבוצת הדיוור של Open Food Facts (ניתן לצאת ממנה בכל רגע נתון)",
+    "sign_up_page_user_name_already_used": "שם המשתמש כבר קיים, נא לבחור בשם משתמש אחר.",
+    "sign_up_page_email_already_exists": "כבר קיים, יש להיכנס לחשבון או לנסות עם כתובת דוא״ל אחרת.",
+    "sign_up_page_provide_valid_email": "נא לספק כתובת דוא״ל תקפה.",
     "@Settings": {},
     "settingsTitle": "הגדרות",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "מצב כהה",
+    "darkmode": "ערכת עיצוב",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -357,6 +364,14 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
+    "account_create_message": "מזמינים אותך ליצור חשבון ולהצטרף לקהילת Open Food Facts כדי לסייע בבניית מידע על מזון בכל רחבי העולם!",
+    "@account_create_message": {
+        "description": "The Message to be displayed if the user does not have an account and wants to contribute"
+    },
+    "join_us": "הצטרפות אלינו",
+    "@join_us": {
+        "description": "Join which is actually Signup"
+    },
     "myPreferences_profile_title": "הפרופיל שלך",
     "myPreferences_profile_subtitle": "ניהול חשבון התרומה שלך ב־Open Food Facts.",
     "myPreferences_settings_title": "הגדרות היישומון",
@@ -389,9 +404,9 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "חיפוש",
+    "scan_navbar_label": "סריקה",
     "@scan_navbar_label": {
-        "description": "BottomNavigationBarLabel: For the searching of products"
+        "description": "BottomNavigationBarLabel: For the scanning of products"
     },
     "history_navbar_label": "היסטוריה",
     "@history_navbar_label": {
@@ -478,6 +493,7 @@
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "אישור",
+    "send_image_button_label": "שליחת תמונה",
     "front_packaging_photo_title": "תמונת חזית האריזה",
     "ingredients_photo_title": "תמונת רכיבים",
     "nutritional_facts_photo_title": "תמונת פירוט תזונתי",
@@ -638,6 +654,14 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
+    "native_app_settings": "הגדרות יישומון טבעי",
+    "@native_app_settings": {
+        "description": "Native App Settings in app settings"
+    },
+    "native_app_description": "פתיחת הגדרות המערכת עבור Open Food Facts",
+    "@native_app_description": {
+        "description": "Native App description in app settings"
+    },
     "product_removed_history": "המוצר הוסר מההיסטוריה",
     "@product_removed_history": {
         "description": "Product got removed from history"
@@ -663,44 +687,44 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, one {אתמול} two {שלשום} many {לפני {count} ימים} =1{אתמול} other{לפני {count} ימים}}",
+    "plural_ago_days": "{count,plural,  one {}  two {לפני יומיים}  many {לפני {count} ימים}=1{אתמול} other{לפני {count} ימים}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, one {לפני שעה} two {לפני שעתיים} many {לפני {count} שעות} =1{לפני שעה} other{לפני {count} שעות}}",
+    "plural_ago_hours": "{count,plural, two {לפני שעתיים} many {לפני {count} שעות} =1{לפני שעה} other{לפני {count} שעות}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, one {לפני דקה} two {לפני שתי דקות} many {לפני {count} דקות} =0{לפני פחות מדקה} =1{לפני דקה} other{לפני {count} דקות}}",
+    "plural_ago_minutes": "{count,plural, two {לפני {count} דקות} many {לפני {count} דקות} =0{לפני פחות מדקה} =1{לפני דקה} other{לפני {count} דקות}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, one {לפני חודש} two {לפני חודשיים} many {לפני {count} חודשים} =1{לפני חודש} other{לפני {count} חודשים}}",
+    "plural_ago_months": "{count,plural, two {לפני חודשיים} many {לפני {count} חודשים} =1{לפני חודש} other{לפני {count} חודשים}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, one {לפני שבוע} two {לפני שבועיים} many {לפני {count} שבועות} =1{לפני שבוע} other{לפני {count} שבועות}}",
+    "plural_ago_weeks": "{count,plural, two {לפני שבועיים} many {לפני {count} שבועות} =1{לפני שבוע} other{לפני {count} שבועות}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{השוואת מוצר אחד} other{השוואה בין {count} מוצרים}",
+    "plural_compare_x_products": "{count,plural, =1{השוואת מוצר אחד} other{השוואה בין {count} מוצרים}}",
     "@plural_compare_x_products": {
-        "description": "Button label",
+        "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
             "count": {}
         }
@@ -791,7 +815,7 @@
         "placeholders": {
             "version": {
                 "type": "String?",
-                "description": "Version of IOS (eg : 15)"
+                "description": "Version of IOS (eg: 15)"
             },
             "model": {
                 "type": "String?",
@@ -837,11 +861,15 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "knowledge_panel_text_source": "להמשיך ב־{source_name}",
+    "are_you_sure": "להמשיך?",
+    "@are_you_sure": {
+        "description": "Are you sure?"
+    },
+    "knowledge_panel_text_source": "להמשיך ב־{sourceName}",
     "@knowledge_panel_text_source": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
-            "source_name": {
+            "sourceName": {
                 "type": "String"
             }
         }
@@ -878,14 +906,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "{count,plural, one {} two {מוצרים מתרעננים} many {מוצרים מתרעננים} =0{מוצר מתרענן} =1{מוצר מתרענן} other{מוצרים מתרעננים}} בהיסטוריה שלך",
+    "product_list_reloading_in_progress_multiple": "{count,plural,  one {}  two {מוצרים מההיסטוריה שלך מתרעננים}  many {מוצרים מההיסטוריה שלך מתרעננים}=0{מוצר מההיסטוריה שלך מתרענן} =1{מוצר מההיסטוריה שלך מתרענן} other{מוצרים מההיסטוריה שלך מתרעננים}}",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "רענון של {count,plural, one {} two {מוצרים} many {מוצרים} =0{מוצר} =1{מוצר} other{מוצרים}} הושלם",
+    "product_list_reloading_success_multiple": "רענון ה{count,plural,  one {}  two {מוצרים}  many {מוצרים}=0{מוצר} =1{מוצר} other{מוצרים}} הושלם",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -1029,6 +1057,10 @@
     "permission_photo_denied_dialog_settings_message": "כיוון שדחית את הרשאת המצלמה, יהיה עליך לאפשר אותה ידנית דרך ההגדרות.",
     "permission_photo_denied_dialog_settings_button_open": "פתיחת הגדרות",
     "permission_photo_denied_dialog_settings_button_cancel": "ביטול",
+    "permission_photo_none_found": "לא זוהתה מצלמה",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "הגישה למצלמה לא אושרה",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
@@ -1146,8 +1178,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "לשמור את השינויים שלך בטרם יציאה מהעמוד הזה?",
-    "edit_product_form_item_exit_confirmation_positive_button": "שמירת השינויים שלי",
-    "edit_product_form_item_exit_confirmation_negative_button": "התעלמות מהשינויים שלי",
+    "edit_product_form_item_exit_confirmation_positive_button": "שמירת שינויים",
+    "edit_product_form_item_exit_confirmation_negative_button": "התעלמות מהשינויים",
     "edit_product_form_item_ingredients_title": "רכיבים ומקורות",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1291,7 +1323,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "לאחר מכן צריך להפעיל את היישומון מחדש.",
+    "dev_preferences_reset_onboarding_subtitle": "לאחר מכן יהיה עליך להפעיל את היישומון מחדש כדי לראות זאת שוב.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1522,6 +1554,26 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
+    "edit_photo_unselect_button_label": "ביטול בחירת תמונה",
+    "@edit_photo_unselect_button_label": {
+        "description": "Edit 'unselect photo' button label"
+    },
+    "edit_photo_select_existing_button_label": "בחירת תמונה קיימת",
+    "@edit_photo_select_existing_button_label": {
+        "description": "Edit 'select existing image' button label"
+    },
+    "edit_photo_select_existing_all_label": "תמונות קיימות",
+    "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_download_label": "התמונות הקיימות נמשכות…",
+    "@edit_photo_select_existing_download_label": {
+        "description": "Dialog label"
+    },
+    "edit_photo_select_existing_downloaded_none": "אין תמונות שהועלו בעבר וקשורות למוצר הזה.",
+    "@edit_photo_select_existing_downloaded_none": {
+        "description": "Error message"
+    },
     "category_picker_screen_title": "קטגוריות",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1609,6 +1661,10 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
+    "add_packaging_photo_button_label": "נא לצלם תמונות של פרטי אריזה/מיחזור כלשהם",
+    "@add_packaging_photo_button_label": {
+        "description": "Label for the add PACKAGING photo button"
+    },
     "choose_image_source_title": "בחירת מקור תמונה",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1628,6 +1684,15 @@
     "share_product_text": "  מזמינים אותך להסתכל על המוצר הזה ב־Open Food Facts‏: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_list_text": "הנה רשימת המוצרים שלי ב־Open Food Facts‏: {url}",
+    "@share_product_list_text": {
+        "description": "The content which is send, when sharing a product list",
         "placeholders": {
             "url": {
                 "type": "String"
@@ -1695,7 +1760,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "אין יישומון דוא״ל!",
+    "no_email_client_available_dialog_title": "אין יישומוני דוא״ל!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1772,7 +1837,7 @@
     "app_rating_dialog_title_enjoying_app": "היישומון הזה נושא חן בעיניך?",
     "app_rating_dialog_title_enjoying_positive_actions": "ברור!",
     "not_really": "ככה ככה",
-    "app_rating_dialog_title_not_enjoying_app": "צר לי לשמוע על כך! אוכל להבין ממך מה קרה?",
+    "app_rating_dialog_title_not_enjoying_app": "צר לנו לשמוע על כך! נוכל להבין ממך מה קרה?",
     "edit_packagings_title": "רכיבי אריזה",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -1795,33 +1860,144 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
+    "edit_packagings_element_hint_units": "נא למלא את מספר יחידות האריזה מאותה הצורה והחומר שנמצא בתוך המוצר.",
+    "@edit_packagings_element_hint_units": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
     "edit_packagings_element_field_shape": "צורה",
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_shape": "נא למלא את שם הצורה שמופיעה על הנחיות המיחזור אם יש כאלה, או לבחור צורה.",
+    "@edit_packagings_element_hint_shape": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_shape": "בקבוק",
+    "@edit_packagings_element_example_shape": {
+        "description": "Text field hint"
     },
     "edit_packagings_element_field_material": "חומר גלם",
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Sometimes, the materials like ♵ are hidden below the pack, in 3D, on the plastic.",
+    "edit_packagings_element_hint_material": "נא לציין מה החומר המסוים שבו נעשה שימוש אם אפשר לאתר אותו (אפשר למצוא את קוד החומר בתוך משולש שנמצא על חלקי האריזה), או חומר כללי (למשל: פלסטיק או מתכת) במקרה של ספק.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_material": "זכוכית",
+    "@edit_packagings_element_example_material": {
+        "description": "Text field hint"
     },
     "edit_packagings_element_field_recycling": "הנחיות מיחזור",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
+    "edit_packagings_element_hint_recycling": "נא למלא פרטי מיחזור רק אם הם מופיעים על המוצר.",
+    "@edit_packagings_element_hint_recycling": {
+        "description": "Field verbose hint, more like an info than a text field hint"
+    },
+    "edit_packagings_element_example_recycling": "מיחזור",
+    "@edit_packagings_element_example_recycling": {
+        "description": "Text field hint"
+    },
     "edit_packagings_element_field_quantity": "כמות נטו של המוצר ליחידה",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
+    },
+    "edit_packagings_element_hint_quantity": "נא למלא את המשקל הנקי או את הנפח הנקי ולציין את היחידה (למשל גרם או מיליליטר).",
+    "@edit_packagings_element_hint_quantity": {
+        "description": "Field verbose hint, more like an info than a text field hint"
     },
     "edit_packagings_element_field_weight": "משקל של יחידה ריקה אחת (גרם)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "For accurate packaging weight measurements, please clean any food residue and then dry any water.",
+    "edit_packagings_element_hint_weight": "יש להסיר שאריות מזון ולשטוף ולייבש את החלק של האריזה בטרם השקילה. אם אפשר, כדאי להשתמש במשקל עם רמת דיוק של 0.1 גרם או 0.01 גרם.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "feed_back": "משוב"
+    "background_task_title": "תרומות ממתינות",
+    "background_task_subtitle": "התרומות שלך נשמרות אוטומטית בשרת שלנו, אך לא תמיד בזמן אמת.",
+    "background_task_list_empty": "אין משימות רקע ממתינות",
+    "background_task_error_no_internet": "שגיאת חיבור לאינטרנט. נא לנסות מאוחר יותר.",
+    "background_task_operation_unknown": "סוג פעולה לא ידוע",
+    "background_task_operation_details": "שינויים מפורטים",
+    "background_task_operation_image": "העלאת תמונה",
+    "background_task_operation_refresh": "הרענון מתעכב לסיום העלאת התמונה",
+    "background_task_run_started": "החל",
+    "background_task_run_not_started": "טרם החל",
+    "background_task_run_to_be_deleted": "למחיקה",
+    "background_task_question_stop": "לעצור את המשימה הזאת בהקדם האפשרי?",
+    "feed_back": "משוב",
+    "undo": "ביטול",
+    "copy_email_to_clip_board": "העתקת כתובת דוא״ל ללוח",
+    "@copy_email_to_clip_board": {
+        "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
+    },
+    "please_send_us_an_email_to": "נא לשלוח לנו הודעה ידנית בדוא״ל אל",
+    "email_copied_to_clip_board": "כתובת הדוא״ל הועתקה ללוח הגזירים!",
+    "select_accent_color": "בחירת צבע נושא",
+    "@select_accent_color": {
+        "description": "Accent Color for the application in AMOLED mode."
+    },
+    "theme_amoled": "AMOLED",
+    "@theme_amoled": {
+        "description": "AMOLED theme mode."
+    },
+    "color_blue": "כחול",
+    "@color_blue": {
+        "description": "Color Blue"
+    },
+    "color_cyan": "כחול־ירקרק",
+    "@color_cyan": {
+        "description": "Color Cyan"
+    },
+    "color_green": "ירוק",
+    "@color_green": {
+        "description": "Color Green"
+    },
+    "color_light_brown": "ברירת מחדל",
+    "@color_light_brown": {
+        "description": "Color Light Brown, Default Open Food Facts Color"
+    },
+    "color_magenta": "ארגמן",
+    "@color_magenta": {
+        "description": "Color Magenta"
+    },
+    "color_orange": "כתום",
+    "@color_orange": {
+        "description": "Color Orange"
+    },
+    "color_pink": "ורוד",
+    "@color_pink": {
+        "description": "Color Pink"
+    },
+    "color_red": "אדום",
+    "@color_red": {
+        "description": "Color Red"
+    },
+    "color_rust": "חלודה",
+    "@color_rust": {
+        "description": "Color Rust"
+    },
+    "color_teal": "תכלת",
+    "@color_teal": {
+        "description": "Color Teal"
+    },
+    "text_contrast_mode": "ניגודיות טקסט",
+    "@text_contrast_mode": {
+        "description": "Text Contrast Color Mode"
+    },
+    "contrast_high": "גבוהה",
+    "@contrast_high": {
+        "description": "High Contrast Text Color"
+    },
+    "contrast_medium": "בינונית",
+    "@contrast_medium": {
+        "description": "Medium Contrast Text Color"
+    },
+    "contrast_low": "נמוכה",
+    "@contrast_low": {
+        "description": "Low Contrast Text Color"
+    }
 }

@@ -24,6 +24,29 @@ extension RotationExtension on Rotation {
     }
   }
 
+  /// Returns the rotation in degrees cw.
+  int get degrees {
+    switch (this) {
+      case Rotation.noon:
+        return 0;
+      case Rotation.threeOClock:
+        return 90;
+      case Rotation.sixOClock:
+        return 180;
+      case Rotation.nineOClock:
+        return 270;
+    }
+  }
+
+  static Rotation? fromDegrees(final int degrees) {
+    for (final Rotation rotation in Rotation.values) {
+      if (rotation.degrees == degrees) {
+        return rotation;
+      }
+    }
+    return null;
+  }
+
   /// Returns the rotation rotated 90 degrees to the right.
   Rotation get rotateRight {
     switch (this) {
@@ -90,6 +113,28 @@ extension RotationExtension on Rotation {
         return Offset(
           noonWidth * (1 - offset01.dy),
           noonHeight * offset01.dx,
+        );
+    }
+  }
+
+  /// Returns the offset as rotated, for the OFF-dart rotation/crop tool.
+  Offset getRotatedOffsetForOff(
+    final Offset offset01,
+    final double noonWidth,
+    final double noonHeight,
+  ) {
+    switch (this) {
+      case Rotation.noon:
+      case Rotation.sixOClock:
+        return Offset(
+          noonWidth * offset01.dx,
+          noonHeight * offset01.dy,
+        );
+      case Rotation.threeOClock:
+      case Rotation.nineOClock:
+        return Offset(
+          noonHeight * offset01.dx,
+          noonWidth * offset01.dy,
         );
     }
   }

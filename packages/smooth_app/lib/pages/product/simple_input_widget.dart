@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/product/autocomplete.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
-import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 
 /// Simple input widget: we have a list of terms, we add, we remove.
 class SimpleInputWidget extends StatefulWidget {
@@ -24,13 +23,20 @@ class SimpleInputWidget extends StatefulWidget {
 }
 
 class _SimpleInputWidgetState extends State<SimpleInputWidget> {
-  final FocusNode _focusNode = FocusNode();
+  late final FocusNode _focusNode;
   final Key _autocompleteKey = UniqueKey();
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     widget.helper.reInit(widget.product);
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -50,7 +56,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           horizontalTitleGap: 12.0,
           title: Text(
             widget.helper.getTitle(appLocalizations),
-            style: themeData.textTheme.headline3,
+            style: themeData.textTheme.displaySmall,
           ),
         ),
         if (explanations != null) ExplanationWidget(explanations),
@@ -62,7 +68,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
               children: <Widget>[
                 Flexible(
                   flex: 1,
-                  child: SimpleInputWidgetField(
+                  child: SimpleInputTextField(
                     autocompleteKey: _autocompleteKey,
                     focusNode: _focusNode,
                     constraints: constraints,
@@ -122,118 +128,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           physics: const NeverScrollableScrollPhysics(),
         ),
       ],
-    );
-  }
-}
-
-// TODO(monsieurtanuki): put it in its own file as it's not private anymore.
-class SimpleInputWidgetField extends StatelessWidget {
-  const SimpleInputWidgetField({
-    required this.focusNode,
-    required this.autocompleteKey,
-    required this.constraints,
-    required this.tagType,
-    required this.hintText,
-    required this.controller,
-  });
-
-  final FocusNode focusNode;
-  final Key autocompleteKey;
-  final BoxConstraints constraints;
-  final TagType? tagType;
-  final String hintText;
-  final TextEditingController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: LARGE_SPACE),
-      child: RawAutocomplete<String>(
-        key: autocompleteKey,
-        focusNode: focusNode,
-        textEditingController: controller,
-        optionsBuilder: (final TextEditingValue value) async {
-          final List<String> result = <String>[];
-          final String input = value.text.trim();
-
-          if (input.isEmpty) {
-            return result;
-          }
-
-          if (tagType == null) {
-            return result;
-          }
-
-          // TODO(monsieurtanuki): ask off-dart to return Strings instead of dynamic?
-          final List<dynamic> data =
-              await OpenFoodAPIClient.getAutocompletedSuggestions(
-            tagType!,
-            language: ProductQuery.getLanguage()!,
-            limit: 1000000, // lower max count on the server anyway
-            input: value.text.trim(),
-          );
-          for (final dynamic item in data) {
-            result.add(item.toString());
-          }
-          result.sort();
-          return result;
-        },
-        fieldViewBuilder: (BuildContext context,
-                TextEditingController textEditingController,
-                FocusNode focusNode,
-                VoidCallback onFieldSubmitted) =>
-            TextField(
-          controller: textEditingController,
-          decoration: InputDecoration(
-            filled: true,
-            border: const OutlineInputBorder(
-              borderRadius: ANGULAR_BORDER_RADIUS,
-              borderSide: BorderSide.none,
-            ),
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: SMALL_SPACE,
-              vertical: SMALL_SPACE,
-            ),
-            hintText: hintText,
-          ),
-          autofocus: true,
-          focusNode: focusNode,
-        ),
-        optionsViewBuilder: (
-          BuildContext lContext,
-          AutocompleteOnSelected<String> onSelected,
-          Iterable<String> options,
-        ) {
-          final double screenHeight = MediaQuery.of(context).size.height;
-          final double keyboardHeight =
-              MediaQuery.of(lContext).viewInsets.bottom;
-
-          final double widgetPosition =
-              (context.findRenderObject() as RenderBox?)
-                      ?.localToGlobal(Offset.zero)
-                      .dy ??
-                  0.0;
-
-          return AutocompleteOptions<String>(
-            displayStringForOption: RawAutocomplete.defaultStringForOption,
-            onSelected: onSelected,
-            options: options,
-            // Width = Row width - horizontal padding
-            maxOptionsWidth: constraints.maxWidth - (LARGE_SPACE * 2),
-            maxOptionsHeight: screenHeight -
-                (keyboardHeight == 0
-                    ? kBottomNavigationBarHeight
-                    : keyboardHeight) -
-                widgetPosition -
-                // Vertical padding
-                (LARGE_SPACE * 2) -
-                // Height of the TextField
-                (DefaultTextStyle.of(context).style.fontSize ?? 0) -
-                // Elevation
-                4.0,
-          );
-        },
-      ),
     );
   }
 }

@@ -20,9 +20,11 @@ class AddOCRButton extends StatelessWidget {
   Widget build(BuildContext context) => addPanelButton(
         helper.getAddButtonLabel(AppLocalizations.of(context)),
         onPressed: () async {
+          // ignore: use_build_context_synchronously
           if (!await ProductRefresher().checkIfLoggedIn(context)) {
             return;
           }
+          // ignore: use_build_context_synchronously
           await Navigator.push<void>(
             context,
             MaterialPageRoute<void>(

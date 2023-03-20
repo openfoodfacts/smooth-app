@@ -3,10 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -20,6 +22,7 @@ abstract class AbstractBackgroundTask {
     required this.languageCode,
     required this.user,
     required this.country,
+    required this.stamp,
   });
 
   /// Typically, similar to the name of the class that extends this one.
@@ -29,6 +32,9 @@ abstract class AbstractBackgroundTask {
 
   /// Unique task identifier, needed e.g. for task overwriting.
   final String uniqueId;
+
+  /// Generic task identifier, like "details:categories for barcode 1234", needed e.g. for task overwriting".
+  final String stamp;
 
   final String barcode;
   final String languageCode;
@@ -41,6 +47,8 @@ abstract class AbstractBackgroundTask {
   static AbstractBackgroundTask? fromJson(final Map<String, dynamic> map) =>
       BackgroundTaskDetails.fromJson(map) ??
       BackgroundTaskImage.fromJson(map) ??
+      BackgroundTaskUnselect.fromJson(map) ??
+      BackgroundTaskCrop.fromJson(map) ??
       BackgroundTaskRefreshLater.fromJson(map);
 
   /// Executes the background task: upload, download, update locally.
@@ -56,8 +64,17 @@ abstract class AbstractBackgroundTask {
   /// is not even started.
   Future<void> preExecute(final LocalDatabase localDatabase);
 
-  /// Cleans the temporary data changes performed in [preExecute].
-  Future<void> postExecute(final LocalDatabase localDatabase);
+  /// To be executed _after_ the actual run.
+  ///
+  /// Mostly, cleans the temporary data changes performed in [preExecute].
+  /// [success] indicates (if `true`) that so far the operation was a success.
+  /// With that `bool` we're able to deal with 2 cases:
+  /// 1. everything is fine and we may have to do something more than cleaning
+  /// 2. something bad happened and we just need to clear the task
+  Future<void> postExecute(
+    final LocalDatabase localDatabase,
+    final bool success,
+  );
 
   /// Uploads data changes.
   @protected
@@ -80,9 +97,13 @@ abstract class AbstractBackgroundTask {
   Future<void> addToManager(
     final LocalDatabase localDatabase, {
     final State<StatefulWidget>? widget,
+    final bool showSnackBar = true,
   }) async {
     await BackgroundTaskManager(localDatabase).add(this);
     if (widget == null || !widget.mounted) {
+      return;
+    }
+    if (!showSnackBar) {
       return;
     }
     final String? snackBarMessage =

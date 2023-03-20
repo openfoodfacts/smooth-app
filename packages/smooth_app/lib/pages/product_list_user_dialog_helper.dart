@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -35,6 +37,7 @@ class ProductListUserDialogHelper {
               autofocus: true,
               textInputAction: TextInputAction.done,
               validator: (String? value) {
+                value = value?.trim();
                 if (value == null || value.isEmpty) {
                   return appLocalizations.user_list_name_error_empty;
                 }
@@ -47,7 +50,7 @@ class ProductListUserDialogHelper {
                 if (!formKey.currentState!.validate()) {
                   return;
                 }
-                Navigator.pop(context, textEditingController.text);
+                Navigator.pop(context, textEditingController.text.trim());
               },
             ),
           ),
@@ -61,7 +64,7 @@ class ProductListUserDialogHelper {
               if (!formKey.currentState!.validate()) {
                 return;
               }
-              Navigator.pop(context, textEditingController.text);
+              Navigator.pop(context, textEditingController.text.trim());
             },
             text: appLocalizations.create,
           ),
@@ -190,7 +193,6 @@ class ProductListUserDialogHelper {
         builder: (BuildContext context) => _UserEmptyLists(daoProductList),
       );
       if (newListCreated != null && newListCreated) {
-        //ignore: use_build_context_synchronously
         showUserAddProductsDialog(context, barcodes);
       }
       return false;
