@@ -53,10 +53,10 @@ class CameraScannerPageState extends State<CameraScannerPage>
   }
 
   @override
-  String get traceTitle => 'widget.scannerTyp_page';
+  String get traceTitle => '${widget.scannerType}_page';
 
   @override
-  String get traceName => 'Opened widget.scannerTyp_page';
+  String get traceName => 'Opened ${widget.scannerType}_page';
 
   @override
   Widget build(BuildContext context) {

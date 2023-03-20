@@ -2,7 +2,7 @@ import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/pages/scan/awesome_widgets.dart/awesome_flash.dart';
+import 'package:smooth_app/pages/scan/awesome_widgets/awesome_flash.dart';
 
 /// This Widget is a [StatefulWidget], as it uses a [GlobalKey] to allow an
 /// external access

@@ -16,7 +16,22 @@ class SmoothBarcodeScannerAwesome extends StatelessWidget {
   final Future<bool> Function(String) onScan;
 
   final BarcodeScanner _barcodeScanner = BarcodeScanner(
-    formats: <BarcodeFormat>[BarcodeFormat.all],
+    formats: <BarcodeFormat>[
+      BarcodeFormat.code128,
+      BarcodeFormat.code39,
+      BarcodeFormat.code93,
+      BarcodeFormat.codabar,
+      BarcodeFormat.dataMatrix,
+      BarcodeFormat.ean13,
+      BarcodeFormat.ean8,
+      BarcodeFormat.itf,
+      // probably not
+      //qrCode,
+      BarcodeFormat.upca,
+      BarcodeFormat.upce,
+      BarcodeFormat.pdf417,
+      BarcodeFormat.aztec,
+    ],
   );
 
   @override
@@ -43,20 +58,20 @@ class SmoothBarcodeScannerAwesome extends StatelessWidget {
         return cameraState.when(
           onPreparingCamera: (PreparingCameraState state) =>
               const Center(child: CircularProgressIndicator()),
-          onPhotoMode: (PhotoCameraState state) => BarcodeScannerViewWidget(
+          onPhotoMode: (PhotoCameraState state) => _BarcodeScannerViewWidget(
             onScan: onScan,
             cameraState: cameraState,
             previewSize: previewSize,
             previewRect: previewRect,
           ),
           onVideoRecordingMode: (VideoRecordingCameraState state) =>
-              BarcodeScannerViewWidget(
+              _BarcodeScannerViewWidget(
             onScan: onScan,
             cameraState: cameraState,
             previewSize: previewSize,
             previewRect: previewRect,
           ),
-          onVideoMode: (VideoCameraState state) => BarcodeScannerViewWidget(
+          onVideoMode: (VideoCameraState state) => _BarcodeScannerViewWidget(
             onScan: onScan,
             cameraState: cameraState,
             previewSize: previewSize,
@@ -140,8 +155,8 @@ class SmoothBarcodeScannerAwesome extends StatelessWidget {
 
 // TODO(m123): Re-add camera switch
 /// Barcode scanner based on MLKit.
-class BarcodeScannerViewWidget extends StatelessWidget {
-  const BarcodeScannerViewWidget({
+class _BarcodeScannerViewWidget extends StatelessWidget {
+  const _BarcodeScannerViewWidget({
     required this.onScan,
     required this.cameraState,
     required this.previewSize,
