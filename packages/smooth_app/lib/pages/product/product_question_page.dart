@@ -9,15 +9,14 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/hunger_games/congrats.dart';
-import 'package:smooth_app/pages/hunger_games/question_answers_options.dart';
-import 'package:smooth_app/pages/hunger_games/question_card.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
+
+import 'package:smooth_app/pages/product/product_question_answers_options.dart';
+import 'package:smooth_app/pages/product/product_question_card.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/query/questions_query.dart';
-import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-class QuestionPage extends StatefulWidget {
-  const QuestionPage({
+class ProductQuestionPage extends StatefulWidget {
+  const ProductQuestionPage({
     this.product,
     this.questions,
     this.updateProductUponAnswers,
@@ -31,10 +30,10 @@ class QuestionPage extends StatefulWidget {
   bool get shouldDisplayContinueButton => product == null;
 
   @override
-  State<QuestionPage> createState() => _QuestionPageState();
+  State<ProductQuestionPage> createState() => _ProductQuestionPageState();
 }
 
-class _QuestionPageState extends State<QuestionPage>
+class _ProductQuestionPageState extends State<ProductQuestionPage>
     with SingleTickerProviderStateMixin, TraceableClientMixin {
   final Map<String, InsightAnnotation> _anonymousAnnotationList =
       <String, InsightAnnotation>{};
@@ -42,13 +41,11 @@ class _QuestionPageState extends State<QuestionPage>
 
   late Future<List<RobotoffQuestion>> questions;
   int _currentQuestionIndex = 0;
-  late LocalDatabase _localDatabase;
 
   @override
   void initState() {
     super.initState();
 
-    _localDatabase = context.read<LocalDatabase>();
     final List<RobotoffQuestion>? widgetQuestions = widget.questions;
 
     if (widgetQuestions != null) {
@@ -80,11 +77,7 @@ class _QuestionPageState extends State<QuestionPage>
           }
           return true;
         },
-        child: SmoothScaffold(
-          backgroundColor: Theme.of(context).colorScheme.background,
-          appBar: AppBar(),
-          body: _buildAnimationSwitcher(),
-        ),
+        child: _buildAnimationSwitcher(),
       );
 
   AnimatedSwitcher _buildAnimationSwitcher() => AnimatedSwitcher(
@@ -175,14 +168,12 @@ class _QuestionPageState extends State<QuestionPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        QuestionCard(
+        ProductQuestionCard(question),
+        ProductQuestionAnswersOptions(
           question,
-          initialProduct: widget.product,
-        ),
-        QuestionAnswersOptions(
-          question,
-          onAnswer: (InsightAnnotation answer) => _trySave(
+          onAnswer: (InsightAnnotation answer) => trySave(
             question,
             answer,
             appLocalizations,
@@ -192,7 +183,7 @@ class _QuestionPageState extends State<QuestionPage>
     );
   }
 
-  Future<void> _trySave(
+  Future<void> trySave(
     RobotoffQuestion question,
     InsightAnnotation insightAnnotation,
     AppLocalizations appLocalizations,
@@ -233,18 +224,21 @@ class _QuestionPageState extends State<QuestionPage>
     await LoadingDialog.run<Status>(
       context: context,
       title: appLocalizations.saving_answer,
-      future: _saveAnswerQuery(
-        insightId: insightId,
-        insightAnnotation: insightAnnotation,
-        barcode: barcode,
+      // TODO(monsieurtanuki): remove that line when fixed in [off-dart #451](https://github.com/openfoodfacts/openfoodfacts-dart/pull/451)
+      future: OpenFoodAPIClient.postInsightAnnotation(
+        insightId,
+        insightAnnotation,
+        deviceId: OpenFoodAPIConfiguration.uuid,
+        user: OpenFoodAPIConfiguration.globalUser,
       ),
     );
     if (barcode != null && insightId != null) {
       if (!mounted) {
         return;
       }
+      final LocalDatabase localDatabase = context.read<LocalDatabase>();
       final RobotoffInsightHelper robotoffInsightHelper =
-          RobotoffInsightHelper(_localDatabase);
+          RobotoffInsightHelper(localDatabase);
       await robotoffInsightHelper.cacheInsightAnnotationVoted(
         barcode,
         insightId,
@@ -256,27 +250,4 @@ class _QuestionPageState extends State<QuestionPage>
       product != null
           ? ProductQuestionsQuery(product.barcode!).getQuestions()
           : QuestionsQuery().getQuestions();
-
-  /// Saves the Robotoff answer and refreshes the product locally if relevant.
-  Future<Status> _saveAnswerQuery({
-    required String? barcode,
-    required String? insightId,
-    required InsightAnnotation insightAnnotation,
-  }) async {
-    final Status status = await OpenFoodAPIClient.postInsightAnnotation(
-      insightId,
-      insightAnnotation,
-      deviceId: OpenFoodAPIConfiguration.uuid,
-      user: OpenFoodAPIConfiguration.globalUser,
-    );
-    // TODO(monsieurtanuki): optim - do not ask QuestionCard to constantly refresh the product if we deal with several times the same product
-    if (widget.product != null) {
-      // here we have a special interest in that product being up-to-date
-      await ProductRefresher().silentFetchAndRefresh(
-        barcode: widget.product!.barcode!,
-        localDatabase: _localDatabase,
-      );
-    }
-    return status;
-  }
 }
