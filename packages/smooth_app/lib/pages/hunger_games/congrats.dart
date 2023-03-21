@@ -70,7 +70,7 @@ class CongratsWidget extends StatelessWidget {
           TextButton(
             child: Text(
               appLocalizations.close,
-              style: Theme.of(context).textTheme.bodyText1!.apply(
+              style: Theme.of(context).textTheme.bodyLarge!.apply(
                     color: isDarkMode ? Colors.white : Colors.black,
                   ),
             ),

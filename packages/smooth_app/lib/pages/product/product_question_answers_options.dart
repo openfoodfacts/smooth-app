@@ -95,7 +95,7 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
         ),
         child: Text(
           buttonText,
-          style: theme.textTheme.headline3!.apply(color: contentColor),
+          style: theme.textTheme.displaySmall!.apply(color: contentColor),
         ),
       ),
     );
