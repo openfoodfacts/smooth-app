@@ -47,7 +47,7 @@ class ProductQuestionCard extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(bottom: VERY_SMALL_SPACE),
             child: Text(
               question.question!,
-              style: theme.textTheme.headline4!.apply(
+              style: theme.textTheme.headlineMedium!.apply(
                 color: isDarkMode ? Colors.white : theme.cardTheme.color,
               ),
             ),
@@ -56,7 +56,7 @@ class ProductQuestionCard extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(bottom: VERY_SMALL_SPACE),
             child: Text(
               question.value!,
-              style: theme.textTheme.headline4?.apply(
+              style: theme.textTheme.headlineMedium?.apply(
                   color: isDarkMode ? Colors.white : theme.cardTheme.color),
             ),
           ),
