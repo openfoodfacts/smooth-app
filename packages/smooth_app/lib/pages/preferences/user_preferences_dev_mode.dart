@@ -101,6 +101,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 value: SmoothBarcodeScannerType.zxing,
                 child: Text('Zxing'),
               ),
+              DropdownMenuItem<SmoothBarcodeScannerType>(
+                value: SmoothBarcodeScannerType.awesome,
+                child: Text('Awesome'),
+              ),
+              DropdownMenuItem<SmoothBarcodeScannerType>(
+                value: SmoothBarcodeScannerType.mockup,
+                child: Text('Mockup'),
+              ),
             ],
           ),
         ),
