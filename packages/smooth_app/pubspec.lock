@@ -237,6 +237,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.1+2"
+  camerawesome:
+    dependency: "direct main"
+    description:
+      name: camerawesome
+      sha256: "54150334341ac282cc7e2add86908e1be25585083df49a87ab425d8f4bccf614"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.1"
   carousel_slider:
     dependency: "direct main"
     description:
@@ -293,6 +301,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
+  colorfilter_generator:
+    dependency: transitive
+    description:
+      name: colorfilter_generator
+      sha256: ccc2995e440b1d828d55d99150e7cad64624f3cb4a1e235000de3f93cf10d35c
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.8"
   convert:
     dependency: transitive
     description:
@@ -609,6 +625,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  google_mlkit_barcode_scanning:
+    dependency: "direct main"
+    description:
+      name: google_mlkit_barcode_scanning
+      sha256: bbd48976d8c6bbb1aad325f8f098fc4e6da59c8139bc4aa6f57a0cf1bfd7db47
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.0"
+  google_mlkit_commons:
+    dependency: transitive
+    description:
+      name: google_mlkit_commons
+      sha256: af63771903947d5523d9e991a939a4b8bf994f11661c9b9c8a71d7d3997115f8
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   hive:
     dependency: "direct main"
     description:
@@ -822,6 +854,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  matrix2d:
+    dependency: transitive
+    description:
+      name: matrix2d
+      sha256: "188718dd3bc2a31e372cfd0791b0f77f4f13ea76164147342cc378d9132949e7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   matrix4_transform:
     dependency: transitive
     description:
@@ -1063,6 +1103,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.14.0"
+  photofilters:
+    dependency: transitive
+    description:
+      name: photofilters
+      sha256: "757197a7b54b4db36eed3fbdf0afcc8cc3b9058b1242c8f6675426aca1b56d39"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
   platform:
     dependency: transitive
     description:
@@ -1151,6 +1199,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.27.7"
   sentry:
     dependency: transitive
     description:

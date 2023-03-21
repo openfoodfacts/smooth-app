@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -47,8 +48,11 @@ class _ScanPageState extends State<ScanPage> {
       return const Center(child: CircularProgressIndicator.adaptive());
     }
 
-    final SmoothBarcodeScannerType scannerType =
-        context.read<SmoothBarcodeScannerType>();
+    final UserPreferences prefs = context.watch<UserPreferences>();
+
+    // TODO(m123): Scanning engine
+    /*final SmoothBarcodeScannerType scannerType =
+        context.read<SmoothBarcodeScannerType>();*/
     return SmoothScaffold(
       brightness: Brightness.light,
       body: SafeArea(
@@ -66,20 +70,23 @@ class _ScanPageState extends State<ScanPage> {
                     case DevicePermissionStatus.checking:
                       return EMPTY_WIDGET;
                     case DevicePermissionStatus.granted:
-                      return CameraScannerPage(scannerType);
+                      // TODO(m123): change
+                      return const CameraScannerPage(
+                          SmoothBarcodeScannerType.mockup);
                     default:
                       return const _PermissionDeniedCard();
                   }
                 },
               ),
             ),
-            const Expanded(
-              flex: _carouselHeightPct,
-              child: Padding(
-                padding: EdgeInsetsDirectional.only(bottom: 10),
-                child: SmoothProductCarousel(containSearchCard: true),
+            if (prefs.scanningEngine() != SmoothBarcodeScannerType.awesome)
+              const Expanded(
+                flex: _carouselHeightPct,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.only(bottom: 10),
+                  child: SmoothProductCarousel(containSearchCard: true),
+                ),
               ),
-            ),
           ],
         ),
       ),
