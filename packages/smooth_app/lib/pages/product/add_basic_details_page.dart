@@ -21,15 +21,6 @@ class AddBasicDetailsPage extends StatefulWidget {
   final Product product;
   final bool isLoggedInMandatory;
 
-  /// Returns true if the [field] is valid (= not empty).
-  static bool _isProductFieldValid(final String? field) =>
-      field != null && field.trim().isNotEmpty;
-
-  /// Returns true if the [product] basic details are valid (= not empty).
-  static bool isProductBasicValid(final Product product) =>
-      _isProductFieldValid(product.productName) &&
-      _isProductFieldValid(product.brands);
-
   @override
   State<AddBasicDetailsPage> createState() => _AddBasicDetailsPageState();
 }
@@ -106,26 +97,12 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     controller: _productNameController,
                     type: TextFieldTypes.PLAIN_TEXT,
                     hintText: appLocalizations.product_name,
-                    validator: (String? value) {
-                      if (!AddBasicDetailsPage._isProductFieldValid(value)) {
-                        return appLocalizations
-                            .add_basic_details_product_name_error;
-                      }
-                      return null;
-                    },
                   ),
                   SizedBox(height: _heightSpace),
                   SmoothTextFormField(
                     controller: _brandNameController,
                     type: TextFieldTypes.PLAIN_TEXT,
                     hintText: appLocalizations.brand_name,
-                    validator: (String? value) {
-                      if (!AddBasicDetailsPage._isProductFieldValid(value)) {
-                        return appLocalizations
-                            .add_basic_details_brand_name_error;
-                      }
-                      return null;
-                    },
                   ),
                   SizedBox(height: _heightSpace),
                   SmoothTextFormField(
@@ -149,9 +126,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                 positiveAction: SmoothActionButton(
                   text: appLocalizations.save,
                   onPressed: () async {
-                    if (!_formKey.currentState!.validate()) {
-                      return;
-                    }
                     AnalyticsHelper.trackProductEdit(
                       AnalyticsEditEvents.basicDetails,
                       _product.barcode!,
