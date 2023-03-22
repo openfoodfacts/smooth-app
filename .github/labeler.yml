@@ -186,3 +186,6 @@ product scan carousel:
 packaging input:
 - packages/smooth_app/lib/pages/product/edit_new_packagings.dart
 - packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart
+
+basic info input:
+- packages/smooth_app/lib/pages/product/add_basic_details_page.dart
