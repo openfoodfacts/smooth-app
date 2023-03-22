@@ -50,9 +50,17 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   final ProductList _history = ProductList.history();
 
+  /// Returns true if the [field] is valid (= not empty).
+  static bool _isProductFieldValid(final String? field) =>
+      field != null && field.trim().isNotEmpty;
+
+  /// Returns true if the [product] basic details are valid (= not empty).
+  static bool isProductBasicValid(final Product product) =>
+      _isProductFieldValid(product.productName) &&
+      _isProductFieldValid(product.brands);
+
   bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
-  bool get _basicDetailsAdded =>
-      AddBasicDetailsPage.isProductBasicValid(_product);
+  bool get _basicDetailsAdded => isProductBasicValid(_product);
 
   bool _alreadyPushedtToHistory = false;
 
