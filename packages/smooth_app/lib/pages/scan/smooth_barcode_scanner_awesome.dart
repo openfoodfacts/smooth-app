@@ -6,6 +6,7 @@ import 'package:camerawesome/pigeon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
 import 'package:smooth_app/pages/scan/smooth_barcode_scanner_visor.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
@@ -181,10 +182,20 @@ class _BarcodeScannerViewWidget extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 child: Text('Awesome', style: TextStyle(color: Colors.red)),
               ),
+              const Align(
+                // 0: x axis center, -1 top 1 bottom of the screen
+                alignment: AlignmentDirectional(0, -0.6),
+                child: SmoothBarcodeScannerVisor(),
+              ),
               Align(
                 // 0: x axis center, -1 top 1 bottom of the screen
                 alignment: const AlignmentDirectional(0, -0.6),
-                child: ScannerVisorWidget(state: cameraState),
+                child: Positioned.directional(
+                  textDirection: Directionality.of(context),
+                  end: 0.0,
+                  bottom: 0.0,
+                  child: _SmoothAwesomeFlashButton(state: cameraState),
+                ),
               ),
               Align(
                 alignment: Alignment.bottomCenter,
@@ -200,4 +211,61 @@ class _BarcodeScannerViewWidget extends StatelessWidget {
           );
         },
       );
+}
+
+class _SmoothAwesomeFlashButton extends StatelessWidget {
+  const _SmoothAwesomeFlashButton({required this.state});
+
+  final CameraState state;
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<FlashMode>(
+      stream: state.sensorConfig.flashMode$,
+      builder: (BuildContext context, AsyncSnapshot<FlashMode> snapshot) {
+        if (!snapshot.hasData) {
+          return const CircularProgressIndicator();
+        }
+
+        IconData icon;
+
+        switch (snapshot.requireData) {
+          case FlashMode.on:
+            icon = Icons.flash_on;
+            break;
+          case FlashMode.none:
+            icon = Icons.flash_off;
+            break;
+          case FlashMode.always:
+            icon = Icons.flash_on;
+            break;
+          case FlashMode.auto:
+            icon = Icons.flash_auto;
+            break;
+          default:
+            icon = Icons.abc;
+            break;
+        }
+
+        if (!snapshot.hasData) {
+          return Container();
+        }
+        return IconButton(
+          color: Colors.white,
+          icon: Icon(
+            icon,
+            color: Colors.white,
+          ),
+          onPressed: () async {
+            SmoothHapticFeedback.click();
+            if (snapshot.requireData != FlashMode.always) {
+              state.sensorConfig.setFlashMode(FlashMode.always);
+            } else {
+              state.sensorConfig.setFlashMode(FlashMode.none);
+            }
+          },
+        );
+      },
+    );
+  }
 }
