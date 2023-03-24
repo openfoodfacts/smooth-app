@@ -4,7 +4,7 @@
     "@sep": {
         "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
     },
-    "yes": "نعم",
+    "yes": "Expiry date",
     "@yes": {},
     "add": "إضافة",
     "@add": {},

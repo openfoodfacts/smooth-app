@@ -12,7 +12,7 @@
     "@account_delete_message": {},
     "reason": "原因",
     "@reason": {},
-    "okay": "はい",
+    "okay": "OK",
     "@okay": {},
     "create": "Create",
     "@create": {
@@ -46,7 +46,7 @@
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "食品の個人設定をリセット",
+    "reset_food_prefs": "食品の好みをリセット",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -119,25 +119,25 @@
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "OpenFoodFactsへようこそ",
+    "welcomeToOpenFoodFacts": "Open Food Factsへようこそ",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Factsは、地域コミュニティによって運営されているグローバルな非営利団体です。",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "あなたと地球のために良い食品を選んでください。",
+    "offUtility": "あなたと地球にとって良い食品を選んでください。",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "あなたの個人設定に関連する食品データを参照してください。",
+    "productDataUtility": "あなたの好みに関連する食品データを確認する。",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "あなたにぴったりの食品を選んでください。",
+    "healthCardUtility": "あなたにとって良い食品を選んでください。",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "地球に良い食品を選んでください。",
+    "ecoCardUtility": "地球にとって良い食品を選んでください。",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
@@ -265,15 +265,15 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Theme",
+    "darkmode": "テーマ",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "暗め",
+    "darkmode_dark": "ダーク",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch (dark)"
     },
-    "darkmode_light": "明るめ",
+    "darkmode_light": "ライト",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
@@ -375,11 +375,11 @@
     "myPreferences_profile_title": "あなたのプロフィール",
     "myPreferences_profile_subtitle": "OpenFoodFactsコントリビューターアカウントを管理します。",
     "myPreferences_settings_title": "アプリ設定",
-    "myPreferences_settings_subtitle": "ダークモード、アナリティクス、..。",
-    "myPreferences_food_title": "食品設定",
+    "myPreferences_settings_subtitle": "ダークモード、分析、...",
+    "myPreferences_food_title": "食品の好み",
     "myPreferences_food_subtitle": "あなたにとって最も重要な食品に関する情報を選択してください。",
-    "myPreferences_food_comment": "あなたの好みに応じて食品をランク付けするために、食品に関するどの情報が最も重要かを選択し、一番気になる情報を確認して、互換性のサマリーを取得してください。これらの食品の好みはデバイスに保存され、OpenFoodFactsの寄稿者アカウントには関連付けられません。",
-    "confirmResetPreferences": "食品の設定をリセットしますか？",
+    "myPreferences_food_comment": "あなたの好みに応じた食品のランク付けや、あなたが気になる情報の確認、好みとの適合性の概要の取得をするために、食品に関する情報のうち、あなたにとって何が最も重要かを選択してください。これらの食品の好みの情報はデバイスに保存されます。Open Food Factsの寄稿者アカウントには関連付けられません。",
+    "confirmResetPreferences": "食品の好みをリセットしますか？",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -646,7 +646,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "環境特有の特徴の中には場所に固有のものがあります",
+    "country_selection_explanation": "一部の環境特性は場所固有です",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
@@ -849,11 +849,11 @@
             }
         }
     },
-    "authorize_button_label": "承認する",
+    "authorize_button_label": "許可する",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
-    "refuse_button_label": "却下する",
+    "refuse_button_label": "拒否する",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
@@ -874,15 +874,15 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "2012年にスキャンアプリを開発しました。",
+    "onboarding_reinventing_text1": "2012年に\n協同スキャンアプリを\n開発しました",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
+    "onboarding_reinventing_text2": "10周年に合わせて\n一からアプリを\n再開発しています！",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
-    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
+    "onboarding_welcome_loading_dialog_title": "最初の見本となる製品を読み込んでいます",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
@@ -898,7 +898,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "スキャン開始",
+    "product_list_empty_title": "スキャン開始！",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -906,7 +906,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "更新中 {count,plural,  =0{商品} =1{商品} other{商品}}",
+    "product_list_reloading_in_progress_multiple": "履歴の{count,plural,  =0{製品} =1{製品} other{製品}}を更新中",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
@@ -944,7 +944,7 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "ログインする。または登録して Open Food Facts コミュニティに参加する",
+    "user_profile_subtitle_guest": "サインインまたはサインアップしてOpen Food Factsコミュニティに参加する",
     "user_profile_title_id_email": "Open Food Factsログイン： {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
@@ -976,7 +976,7 @@
             }
         }
     },
-    "settings_app_app": "申し込み方法",
+    "settings_app_app": "アプリケーション",
     "settings_app_data": "プライバシーと監視",
     "settings_app_camera": "カメラ",
     "settings_app_products": "製品",
@@ -996,7 +996,7 @@
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "スキャナーに問題がある (バーコードをデコードできない) 場合にのみ、この値を変更してください。タップして 2 つのモードを切り替えます。\n現在のものは: {mode}",
+    "camera_mode_subtitle": "スキャナーだと問題がある（バーコードを読み取れない）場合にのみ、この値を変更してください。タップして2つのモードを切り替えます。\n現在のモード： {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -1230,19 +1230,19 @@
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "user_list_dialog_new_title": "New list of products",
+    "user_list_dialog_new_title": "新規製品リスト",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
-    "user_list_dialog_rename_title": "Rename list",
+    "user_list_dialog_rename_title": "リスト名を変更",
     "@user_list_dialog_rename_title": {
         "description": "Title of the 'rename user list' dialog"
     },
-    "user_list_subtitle_product": "Lists",
+    "user_list_subtitle_product": "リスト",
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "製品をリストに追加",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1250,7 +1250,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating one",
+    "user_list_empty_label": "まだリストがありません\nリストの新規作成から始めてください",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1266,11 +1266,11 @@
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear list' popup"
     },
-    "user_list_popup_rename": "Rename",
+    "user_list_popup_rename": "名前を変更",
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "マイリスト",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1278,11 +1278,11 @@
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
-    "user_list_name_error_already": "That name is already used",
+    "user_list_name_error_already": "この名前は既に使用されています",
     "@user_list_name_error_already": {
         "description": "Validation error about the name that is already used for another list"
     },
-    "user_list_name_error_same": "That is the same name",
+    "user_list_name_error_same": "同じ名前です",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
@@ -1604,7 +1604,7 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "confirm_clear_user_list": "すべての履歴を削除しようとしています。続けていいですか。",
+    "confirm_clear_user_list": "リスト({name}) をクリアしようとしています。続けますか？",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
         "placeholders": {
@@ -1613,7 +1613,7 @@
             }
         }
     },
-    "confirm_delete_user_list": "{name} のすべての履歴を削除しようとしています。続けていいですか。",
+    "confirm_delete_user_list": "リスト({name}) を削除しようとしています。よろしいですか？",
     "@confirm_delete_user_list": {
         "description": "Asking about whether to delete the list or not",
         "placeholders": {
@@ -1634,15 +1634,15 @@
             }
         }
     },
-    "user_list_all_title": "Lists",
+    "user_list_all_title": "リスト",
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list",
+    "user_list_all_empty": "最初のリストを作成",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, =0{空のリスト} =1{1 製品} other{{count} 製品}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
@@ -1690,7 +1690,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Open Food Factsで私の製品リストを見てください：{url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -1748,7 +1748,7 @@
         }
     },
     "clipboard_barcode_copied": "バーコード {barcode} がクリップボードにコピーされました!",
-    "choose_app_language": "言語の選択",
+    "choose_app_language": "アプリの言語の選択",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
@@ -1819,7 +1819,7 @@
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "毎回選択",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
