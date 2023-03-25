@@ -119,6 +119,7 @@ class _EditProductPageState extends State<EditProductPage> {
           widget: this,
         ),
         child: Scrollbar(
+          controller: _controller,
           child: ListView(
             controller: _controller,
             children: <Widget>[
