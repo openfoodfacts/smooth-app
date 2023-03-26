@@ -35,103 +35,108 @@ class LanguageSelectorSettings extends StatelessWidget {
     );
     final TextEditingController languageSelectorController =
         TextEditingController();
-    return ListTile(
-      leading: const Icon(Icons.language),
-      title: Text(
-        '$nameInLanguage ($nameInEnglish)',
-        softWrap: false,
-        overflow: TextOverflow.fade,
-        style: Theme.of(context).textTheme.bodyMedium,
+    return Container(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
-      trailing: const Icon(Icons.arrow_drop_down),
-      onTap: () async {
-        final List<OpenFoodFactsLanguage> leftovers =
-            _languages.getSupportedLanguagesNameInEnglish();
-        leftovers.sort((OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) =>
-            _languages
-                .getLanguageNameInEnglishFromOpenFoodFactsLanguage(a)
-                .compareTo(_languages
-                    .getLanguageNameInEnglishFromOpenFoodFactsLanguage(b)));
-        List<OpenFoodFactsLanguage> filteredList = leftovers;
-        await showDialog<void>(
-          context: context,
-          builder: (BuildContext context) {
-            return StatefulBuilder(
-              builder: (BuildContext context,
-                  void Function(VoidCallback fn) setState) {
-                return SmoothAlertDialog(
-                  body: SizedBox(
-                    height: MediaQuery.of(context).size.height / 2,
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      children: <Widget>[
-                        SmoothTextFormField(
-                          type: TextFieldTypes.PLAIN_TEXT,
-                          hintText: appLocalizations.search,
-                          prefixIcon: const Icon(Icons.search),
-                          controller: languageSelectorController,
-                          onChanged: (String? query) {
-                            setState(
-                              () {
-                                filteredList = leftovers
-                                    .where((OpenFoodFactsLanguage item) =>
-                                        _languages
-                                            .getLanguageNameInEnglishFromOpenFoodFactsLanguage(
-                                                item)
-                                            .toLowerCase()
-                                            .contains(query!.toLowerCase()) ||
-                                        _languages
-                                            .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
-                                                item)
-                                            .toLowerCase()
-                                            .contains(query.toLowerCase()) ||
-                                        item.code.contains(query))
-                                    .toList();
-                              },
-                            );
-                          },
-                        ),
-                        Expanded(
-                          child: ListView.builder(
-                            itemBuilder: (BuildContext context, int index) {
-                              final OpenFoodFactsLanguage
-                                  openFoodFactsLanguage = filteredList[index];
-                              final String nameInLanguage = _languages
-                                  .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
-                                      openFoodFactsLanguage);
-                              return ListTile(
-                                title: Text(
-                                  '$nameInLanguage (${_languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(openFoodFactsLanguage)})',
-                                  softWrap: false,
-                                  overflow: TextOverflow.fade,
-                                ),
-                                onTap: () {
-                                  ProductQuery.setLanguage(
-                                    context,
-                                    userPreferences,
-                                    languageCode: openFoodFactsLanguage.code,
-                                  );
-                                  Navigator.of(context).pop();
+      child: ListTile(
+        leading: const Icon(Icons.language),
+        title: Text(
+          '$nameInLanguage ($nameInEnglish)',
+          softWrap: false,
+          overflow: TextOverflow.fade,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        trailing: const Icon(Icons.arrow_drop_down),
+        onTap: () async {
+          final List<OpenFoodFactsLanguage> leftovers =
+              _languages.getSupportedLanguagesNameInEnglish();
+          leftovers.sort((OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) =>
+              _languages
+                  .getLanguageNameInEnglishFromOpenFoodFactsLanguage(a)
+                  .compareTo(_languages
+                      .getLanguageNameInEnglishFromOpenFoodFactsLanguage(b)));
+          List<OpenFoodFactsLanguage> filteredList = leftovers;
+          await showDialog<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return StatefulBuilder(
+                builder: (BuildContext context,
+                    void Function(VoidCallback fn) setState) {
+                  return SmoothAlertDialog(
+                    body: SizedBox(
+                      height: MediaQuery.of(context).size.height / 2,
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        children: <Widget>[
+                          SmoothTextFormField(
+                            type: TextFieldTypes.PLAIN_TEXT,
+                            hintText: appLocalizations.search,
+                            prefixIcon: const Icon(Icons.search),
+                            controller: languageSelectorController,
+                            onChanged: (String? query) {
+                              setState(
+                                () {
+                                  filteredList = leftovers
+                                      .where((OpenFoodFactsLanguage item) =>
+                                          _languages
+                                              .getLanguageNameInEnglishFromOpenFoodFactsLanguage(
+                                                  item)
+                                              .toLowerCase()
+                                              .contains(query!.toLowerCase()) ||
+                                          _languages
+                                              .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
+                                                  item)
+                                              .toLowerCase()
+                                              .contains(query.toLowerCase()) ||
+                                          item.code.contains(query))
+                                      .toList();
                                 },
                               );
                             },
-                            itemCount: filteredList.length,
-                            shrinkWrap: true,
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: ListView.builder(
+                              itemBuilder: (BuildContext context, int index) {
+                                final OpenFoodFactsLanguage
+                                    openFoodFactsLanguage = filteredList[index];
+                                final String nameInLanguage = _languages
+                                    .getLanguageNameInLanguageFromOpenFoodFactsLanguage(
+                                        openFoodFactsLanguage);
+                                return ListTile(
+                                  title: Text(
+                                    '$nameInLanguage (${_languages.getLanguageNameInEnglishFromOpenFoodFactsLanguage(openFoodFactsLanguage)})',
+                                    softWrap: false,
+                                    overflow: TextOverflow.fade,
+                                  ),
+                                  onTap: () {
+                                    ProductQuery.setLanguage(
+                                      context,
+                                      userPreferences,
+                                      languageCode: openFoodFactsLanguage.code,
+                                    );
+                                    Navigator.of(context).pop();
+                                  },
+                                );
+                              },
+                              itemCount: filteredList.length,
+                              shrinkWrap: true,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  positiveAction: SmoothActionButton(
-                    onPressed: () => Navigator.pop(context),
-                    text: appLocalizations.cancel,
-                  ),
-                );
-              },
-            );
-          },
-        );
-      },
+                    positiveAction: SmoothActionButton(
+                      onPressed: () => Navigator.pop(context),
+                      text: appLocalizations.cancel,
+                    ),
+                  );
+                },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
