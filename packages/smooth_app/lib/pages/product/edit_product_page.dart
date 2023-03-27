@@ -27,6 +27,7 @@ import 'package:smooth_app/pages/product/ocr_packaging_helper.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -66,7 +67,7 @@ class _EditProductPageState extends State<EditProductPage> {
     final ThemeData theme = Theme.of(context);
 
     return SmoothScaffold(
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
         title: Column(
@@ -74,11 +75,11 @@ class _EditProductPageState extends State<EditProductPage> {
           children: <Widget>[
             AutoSizeText(
               getProductName(_product, appLocalizations),
-              minFontSize: (theme.primaryTextTheme.titleLarge?.fontSize
-                      ?.clamp(13.0, 17.0)) ??
-                  13.0,
+              minFontSize:
+                  (theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0)) ??
+                      13.0,
               maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
-              style: theme.primaryTextTheme.titleLarge
+              style: theme.textTheme.titleLarge
                   ?.copyWith(fontWeight: FontWeight.w500),
             ),
             if (_barcode.isNotEmpty)
