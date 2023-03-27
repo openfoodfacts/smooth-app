@@ -56,7 +56,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   /// Returns true if the [product] basic details are valid (= not empty).
   static bool isProductBasicValid(final Product product) =>
-      _isProductFieldValid(product.productName) &&
+      _isProductFieldValid(product.productName) ||
       _isProductFieldValid(product.brands);
 
   bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
