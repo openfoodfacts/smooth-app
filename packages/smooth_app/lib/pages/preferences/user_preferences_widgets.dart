@@ -245,12 +245,13 @@ class UserPreferencesTitle extends StatelessWidget {
 }
 
 class UserPreferenceListTile extends StatelessWidget {
-  const UserPreferenceListTile(
-      {required this.title,
-      required this.leading,
-      required this.onTap,
-      required this.showDivider,
-      super.key});
+  const UserPreferenceListTile({
+    required this.title,
+    required this.leading,
+    required this.onTap,
+    required this.showDivider,
+    super.key,
+  });
 
   final String title;
   final Widget leading;

@@ -128,7 +128,9 @@ class LanguageSelectorSettings extends StatelessWidget {
       borderRadius: ANGULAR_BORDER_RADIUS,
       child: Container(
         decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
         ),
         child: ListTile(
           leading: const Icon(Icons.language),
