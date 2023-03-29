@@ -10,7 +10,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_awesome.dart';
+//import 'package:smooth_app/pages/scan/smooth_barcode_scanner_awesome.dart';
 import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mlkit.dart';
 import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mockup.dart';
 import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
@@ -79,7 +79,8 @@ class CameraScannerPageState extends State<CameraScannerPage>
       case SmoothBarcodeScannerType.mockup:
         return const SmoothBarcodeScannerMocked();
       case SmoothBarcodeScannerType.awesome:
-        return SmoothBarcodeScannerAwesome(_onNewBarcodeDetected);
+        return const SmoothBarcodeScannerMocked();
+//        return SmoothBarcodeScannerAwesome(_onNewBarcodeDetected);
     }
   }
 

@@ -1,3 +1,4 @@
+/*
 import 'dart:async';
 import 'dart:io';
 
@@ -201,3 +202,4 @@ class _BarcodeScannerViewWidget extends StatelessWidget {
         },
       );
 }
+*/

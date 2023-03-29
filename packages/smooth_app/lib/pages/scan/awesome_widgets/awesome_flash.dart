@@ -1,3 +1,4 @@
+/*
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
@@ -60,3 +61,4 @@ class SmoothAwesomeFlashButton extends StatelessWidget {
     );
   }
 }
+*/
