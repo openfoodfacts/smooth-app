@@ -1,3 +1,4 @@
+/*
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -148,3 +149,4 @@ class ScanVisorPainter extends CustomPainter {
     return path;
   }
 }
+*/
