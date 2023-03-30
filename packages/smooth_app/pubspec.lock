@@ -866,11 +866,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: master
-      resolved-ref: "05d6805ae3faf2b5ea72680b4f64af712635c9c4"
+      ref: "ios-mlkit-3.2.0"
+      resolved-ref: adf50594c80edaac712944372222ec8711f22067
       url: "https://github.com/juliansteenbakker/mobile_scanner.git"
     source: git
-    version: "3.1.1"
+    version: "3.2.0"
   mockito:
     dependency: "direct dev"
     description:

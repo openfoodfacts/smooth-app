@@ -51,7 +51,7 @@ dependencies:
   mobile_scanner:
     git:
       url: https://github.com/juliansteenbakker/mobile_scanner.git
-      ref: master
+      ref: ios-mlkit-3.2.0
 
   qr_code_scanner: 1.0.1
   #qr_code_scanner:
