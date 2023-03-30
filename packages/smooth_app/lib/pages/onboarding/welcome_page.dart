@@ -21,7 +21,8 @@ class WelcomePage extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextStyle headlineStyle =
         Theme.of(context).textTheme.displayMedium!.wellSpaced;
-    final TextStyle bodyTextStyle = Theme.of(context).textTheme.bodyLarge!.wellSpaced;
+    final TextStyle bodyTextStyle =
+        Theme.of(context).textTheme.bodyLarge!.wellSpaced;
     final Size screenSize = MediaQuery.of(context).size;
 
     return SmoothScaffold(
