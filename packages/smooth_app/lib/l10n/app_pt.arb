@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Registrando...",
+    "sign_up_page_action_doing_it": "Signing up…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Seu perfil",
     "myPreferences_profile_subtitle": "Gerencie sua conta de colaborador da Open Food Facts.",
     "myPreferences_settings_title": "Configurações do aplicativo",
-    "myPreferences_settings_subtitle": "Modo escuro, analíticas, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Preferências alimentares",
     "myPreferences_food_subtitle": "Escolha quais informações sobre alimentos são mais importantes para você.",
     "myPreferences_food_comment": "Escolha quais informações sobre os alimentos são mais importantes para você, a fim de classificar os alimentos de acordo com suas preferências, ver as informações que lhe interessam primeiro e obter um resumo de compatibilidade. Essas preferências alimentares permanecem no seu dispositivo e não são associadas à sua conta de colaborador do Open Food Facts, se você tiver uma.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Clique para ver mais informações...",
+    "tab_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Produto",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Adicionar um nutriente",
     "nutrition_page_serving_size": "Tamanho da porção",
     "nutrition_page_invalid_number": "Número inválido",
-    "nutrition_page_update_running": "Atualizando o produto no servidor...",
+    "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Produto atualizado!",
     "more_photos": "Mais fotos interessantes",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "edit_product_form_item_other_details_subtitle": "Website…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Ambiente, rótulos de qualidade...",
+    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Recuperando imagens existentes...",
+    "edit_photo_select_existing_download_label": "Retrieving existing images…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },

@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Iscrizione in corso...",
+    "sign_up_page_action_doing_it": "Signing up…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Il Tuo Profilo",
     "myPreferences_profile_subtitle": "Gestisci il tuo account collaboratore di Open Food Facts.",
     "myPreferences_settings_title": "Impostazioni dell'App",
-    "myPreferences_settings_subtitle": "Modalità oscura, Analitica, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Preferenze Alimentari",
     "myPreferences_food_subtitle": "Scegli quali informazioni alimentari sono più importanti per te.",
     "myPreferences_food_comment": "Scegli quali informazioni sul cibo conta di più per te, al fine di classificare il cibo in base alle tue preferenze, vedere le informazioni che ti interessano in primo luogo e ottenere un riepilogo di compatibilità. Quelle preferenze alimentari rimangono sul tuo dispositivo e non sono associate al tuo account contributore di Open Food Facts, se ne hai uno.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tocca per visualizzare altre info...",
+    "tab_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Prodotto",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Aggiungi un nutriente",
     "nutrition_page_serving_size": "Porzione",
     "nutrition_page_invalid_number": "Numero non valido",
-    "nutrition_page_update_running": "Aggiornamento del prodotto sul server in corso",
+    "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Prodotto aggiornato!",
     "more_photos": "Altre foto che potrebbero interessarti",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Sito Web, ...",
+    "edit_product_form_item_other_details_subtitle": "Website…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Etichette ambientali, di qualità, ...",
+    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Recuperando le immagini esistenti...",
+    "edit_photo_select_existing_download_label": "Retrieving existing images…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
