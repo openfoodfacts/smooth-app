@@ -118,11 +118,11 @@ PODS:
   - qr_code_scanner (0.2.0):
     - Flutter
     - MTBBarcodeScanner
-  - Realm (10.37.0):
-    - Realm/Headers (= 10.37.0)
-  - Realm/Headers (10.37.0)
-  - RealmSwift (10.37.0):
-    - Realm (= 10.37.0)
+  - Realm (10.37.2):
+    - Realm/Headers (= 10.37.2)
+  - Realm/Headers (10.37.2)
+  - RealmSwift (10.37.2):
+    - Realm (= 10.37.2)
   - SDWebImage (5.15.5):
     - SDWebImage/Core (= 5.15.5)
   - SDWebImage/Core (5.15.5)
@@ -290,8 +290,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   Protobuf: d7f7c8329edf5eb8af65547a8ba3e9c1cee927d5
   qr_code_scanner: bb67d64904c3b9658ada8c402e8b4d406d5d796e
-  Realm: 9c5fc6f8f5cb70b299f2e3064d2b9f6cb0f1523d
-  RealmSwift: 7be7bb45911c16400dd1bfce3a01764ecb4cae7a
+  Realm: 09e17879e909fafc5336864bff22272de9bd11bf
+  RealmSwift: adaf8f6fd925b41447089fcfab71b9b7cdc3982d
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
   SDWebImageWebPCoder: 295a6573c512f54ad2dd58098e64e17dcf008499
   Sentry: 4c9babff9034785067c896fd580b1f7de44da020
