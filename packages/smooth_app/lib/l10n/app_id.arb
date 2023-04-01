@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Mendaftarkan...",
+    "sign_up_page_action_doing_it": "Signing up…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Profil Anda",
     "myPreferences_profile_subtitle": "Kelola akun kontributor Open Food Facts Anda.",
     "myPreferences_settings_title": "Pengaturan Aplikasi",
-    "myPreferences_settings_subtitle": "Mode gelap, Analitis, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Preferensi Makanan",
     "myPreferences_food_subtitle": "Pilih informasi tentang makanan yang paling penting bagi anda.",
     "myPreferences_food_comment": "Pilih informasi tentang makanan yang paling penting bagi anda, untuk memberi peringkat makanan sesuai preferensi anda, melihat informasi yang paling anda minati lebih dahulu dan dapatkan ringkasan kompatibilitas. Preferensi makanan tersebut tetap ada di perangkat anda, dan tidak terkait dengan akun kontributor Open Food Facts anda jika anda memilikinya.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Ketuk untuk melihat informasi selengkapnya...",
+    "tab_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Produk",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Tambahkan nutrisi",
     "nutrition_page_serving_size": "Takaran saji",
     "nutrition_page_invalid_number": "Nomor tidak valid",
-    "nutrition_page_update_running": "Memperbarui produk di peladen...",
+    "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Produk diperbarui!",
     "more_photos": "Lebih banyak foto menarik",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "edit_product_form_item_other_details_subtitle": "Website…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Lingkungan, kualitas label...",
+    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Retrieving existing images...",
+    "edit_photo_select_existing_download_label": "Retrieving existing images…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },

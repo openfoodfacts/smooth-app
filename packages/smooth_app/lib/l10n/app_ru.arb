@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Идёт регистрация...",
+    "sign_up_page_action_doing_it": "Signing up…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Ваш профиль",
     "myPreferences_profile_subtitle": "Управление учетной записью участника Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
-    "myPreferences_settings_subtitle": "Темный режим, Аналитика, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Предпочтения в еде",
     "myPreferences_food_subtitle": "Выберите, какая информация о еде представляет для вас наибольший интерес.",
     "myPreferences_food_comment": "Выберите, какую информацию о питании больше всего для вас, чтобы ранжировать еду в соответствии с вашими предпочтениями, ознакомьтесь с интересующей Вас информацией и получите сводку по совместимости. Эти настройки питания остаются на вашем устройстве, и не связаны с вашим аккаунтом участника Open Food Facts если он у вас есть.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Нажмите для просмотра...",
+    "tab_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Продукт",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Добавить питательное вещество",
     "nutrition_page_serving_size": "Размер порции",
     "nutrition_page_invalid_number": "Неверный номер",
-    "nutrition_page_update_running": "Обновление продукта на сервере...",
+    "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Обновления продукта!",
     "more_photos": "Больше интересных фото",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Веб-сайт, ...",
+    "edit_product_form_item_other_details_subtitle": "Website…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Экологические маркировки, знаки качества, ...",
+    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Retrieving existing images...",
+    "edit_photo_select_existing_download_label": "Retrieving existing images…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },

@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Рэгіструецца...",
+    "sign_up_page_action_doing_it": "Signing up…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Ваш профіль",
     "myPreferences_profile_subtitle": "Кіруйце сваім уліковым запісам удзельніка Open Food Facts.",
     "myPreferences_settings_title": "Налады праграмы",
-    "myPreferences_settings_subtitle": "Цёмны рэжым, аналітыка, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Перавагі ў харчаванні",
     "myPreferences_food_subtitle": "Выберыце, якая інфармацыя пра харчаванне для вас найбольш важная.",
     "myPreferences_food_comment": "Выберыце, якія звесткі аб прадуктах для вас найбольш важныя, каб ранжыраваць іх у адпаведнасці з вашымі перавагамі, у першую чаргу праглядаць інфармацыю, якая вас цікавіць, і атрымліваць зводку аб сумяшчальнасці. Гэтыя харчовыя перавагі застаюцца на вашай прыладзе і не звязаны з вашым уліковым запісам удзельніка Open Food Facts, калі ён у вас ёсць.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info...",
+    "tab_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Прадукт",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Serving size",
     "nutrition_page_invalid_number": "Недапушчальны лік",
-    "nutrition_page_update_running": "Абнаўленне прадукту на серверы...",
+    "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Прадукт абноўлены!",
     "more_photos": "Больш цікавых фота",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Вэб-сайт, ...",
+    "edit_product_form_item_other_details_subtitle": "Website…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Экалагічныя маркіроўкі, этыкеткі якасці, ...",
+    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Retrieving existing images...",
+    "edit_photo_select_existing_download_label": "Retrieving existing images…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },

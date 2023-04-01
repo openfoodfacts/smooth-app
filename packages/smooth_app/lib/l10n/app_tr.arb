@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Kaydolunuyor...",
+    "sign_up_page_action_doing_it": "Kaydolunuyor…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Profiliniz",
     "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
     "myPreferences_settings_title": "Uygulama Ayarları",
-    "myPreferences_settings_subtitle": "Karanlık mod, Analytics, ...",
+    "myPreferences_settings_subtitle": "Karanlık mod, Analytics…",
     "myPreferences_food_title": "Yiyecek tercihleri",
     "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
     "myPreferences_food_comment": "Yiyecekleri tercihlerinize göre sıralamak, önemsediğiniz bilgileri ilk önce görmek ve uyumluluk özeti almak için yiyeceklerle ilgili sizin için en önemli olan bilgileri seçin. Bu yemek tercihleri cihazınızda kalır ve varsa Open Food Facts katılımcı hesabınızla ilişkilendirilmez.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Daha fazla bilgi görmek için dokunun...",
+    "tab_for_more": "Daha fazla bilgi görmek için dokunun…",
     "@Product": {},
     "product": "Ürün",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Besin ögesi ekle",
     "nutrition_page_serving_size": "Porsiyon ölçüsü",
     "nutrition_page_invalid_number": "Geçersiz numara",
-    "nutrition_page_update_running": "Ürün bilgileri güncelleniyor...",
+    "nutrition_page_update_running": "Ürün sunucuda güncelleniyor…",
     "nutrition_page_update_done": "Ürün güncellendi!",
     "more_photos": "Daha ilginç fotoğraflar",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "İnternet sitesi, ...",
+    "edit_product_form_item_other_details_subtitle": "Web sitesi…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Çevre, kalite etiketleri, ...",
+    "edit_product_form_item_labels_subtitle": "Çevre, Kalite etiketleri…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Mevcut görüntüler alınıyor...",
+    "edit_photo_select_existing_download_label": "Mevcut görüntüler alınıyor…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },

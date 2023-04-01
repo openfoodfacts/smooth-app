@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "הפרופיל שלך",
     "myPreferences_profile_subtitle": "ניהול חשבון התרומה שלך ב־Open Food Facts.",
     "myPreferences_settings_title": "הגדרות היישומון",
-    "myPreferences_settings_subtitle": "מצב לילה, ניתוח נתונים…",
+    "myPreferences_settings_subtitle": "מצב כהה, ניתוח נתונים…",
     "myPreferences_food_title": "העדפות מזון",
     "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
     "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "נגיעה לפרטים נוספים…",
+    "tab_for_more": "נגיעה לצפייה פרטים נוספים…",
     "@Product": {},
     "product": "מוצר",
     "@product": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "אתר, …",
+    "edit_product_form_item_other_details_subtitle": "אתר…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "איכות הסביבה, איכות תזונתית…",
+    "edit_product_form_item_labels_subtitle": "תוויות איכות סביבה, איכות מוצר…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "התמונות הקיימות נמשכות…",
+    "edit_photo_select_existing_download_label": "התמונות הקיימות מתקבלות…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },

@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Registrace...",
+    "sign_up_page_action_doing_it": "Registrace…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Váš profil",
     "myPreferences_profile_subtitle": "Spravujte svůj účet přispěvatele Open Food Facts.",
     "myPreferences_settings_title": "Nastavení aplikace",
-    "myPreferences_settings_subtitle": "Tmavý režim, analytika,...",
+    "myPreferences_settings_subtitle": "Tmavý režim, Analytika…",
     "myPreferences_food_title": "Předvolby jídla",
     "myPreferences_food_subtitle": "Vyberte si, které informace o jídle jsou pro vás nejdůležitější.",
     "myPreferences_food_comment": "Vyberte si, na kterých informacích o potravinách vám nejvíce záleží, abyste mohli seřadit potraviny podle svých preferencí, prohlédněte si informace, které vás zajímají, jako první a získejte přehled kompatibility. Tyto preference jídla zůstanou ve vašem zařízení a nejsou spojeny s vaším účtem přispěvatele Open Food Facts, pokud jej máte.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Klepnutím zobrazíte další informace...",
+    "tab_for_more": "Klepnutím zobrazíte více informací…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Přidejte živinu",
     "nutrition_page_serving_size": "Velikost porce",
     "nutrition_page_invalid_number": "Neplatné číslo",
-    "nutrition_page_update_running": "Aktualizace produktu na serveru...",
+    "nutrition_page_update_running": "Aktualizace produktu na serveru…",
     "nutrition_page_update_done": "Produkt aktualizován!",
     "more_photos": "Další zajímavé fotky",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Webová stránka, ...",
+    "edit_product_form_item_other_details_subtitle": "Webová stránka…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Ekologické, kvalitativní značky,...",
+    "edit_product_form_item_labels_subtitle": "Environmentální, kvalitativní štítky…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Načítání existujících obrázků...",
+    "edit_photo_select_existing_download_label": "Načítání existujících obrázků…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },

@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Tilmelder...",
+    "sign_up_page_action_doing_it": "Signing up…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Din profil",
     "myPreferences_profile_subtitle": "Håndtér din OFF-bidragsyderkonto.",
     "myPreferences_settings_title": "App-indstillinger",
-    "myPreferences_settings_subtitle": "Mørk tilstand, Analytics, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Fødevarepræferencer",
     "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
     "myPreferences_food_comment": "Vælg de fødevareoplysninger med størst betydning for dig, for at kunne rangere dem efter dine præferencer, se de oplysninger, du finder interessante, først samt få en kompatibilitetsoversigt. Disse fødevarepræferencer forbliver lokale og tilknyttes ikke OFF-bidragsyderkontoen, såfremt du har én.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tryk for at se flere oplysninger...",
+    "tab_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Tilføj et næringsstof",
     "nutrition_page_serving_size": "Portionsstørrelse",
     "nutrition_page_invalid_number": "Ugyldigt nummer",
-    "nutrition_page_update_running": "Opdaterer produktet på serveren...",
+    "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Produkt opdateret!",
     "more_photos": "Flere interessante fotos",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Websted, ...",
+    "edit_product_form_item_other_details_subtitle": "Website…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Miljø-, kvalitetsetiketter,...",
+    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Henter eksisterende fotos...",
+    "edit_photo_select_existing_download_label": "Retrieving existing images…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
