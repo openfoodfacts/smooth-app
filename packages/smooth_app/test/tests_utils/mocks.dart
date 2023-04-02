@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -117,6 +118,15 @@ Map<String, Object> mockSharedPreferences({
       'IMPORTANCE_AS_STRINGvegetarian': 'not_important',
     };
 
+void mockPackageInfo() => PackageInfo.setMockInitialValues(
+      appName: 'appName',
+      packageName: 'packageName',
+      version: '1.0.0',
+      buildNumber: '2.2.2',
+      buildSignature: 'buildSignature',
+      installerStore: 'installerStore',
+    );
+
 class MockHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? _) => _MockHttpClient();
@@ -166,7 +176,8 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
     );
   }
 
-  static const String svgStr = '''
+  static const String svgStr =
+      '''
   <svg width="400" height="400">
     <rect width="400" height="400" style="fill:rgb(128,128,128);stroke-width:3;stroke:rgb(0,0,0)" />
   </svg>
