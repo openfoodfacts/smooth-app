@@ -25,7 +25,7 @@ void main() {
       await AnalyticsHelper.initMatomo(isScreenshotMode);
       // assert
       final String? matomoUserId = matomoTrackerInstance.visitor.userId;
-      expect(matomoUserId, '0000000000000000');
+      expect(matomoUserId, '0' * 16);
     },
   );
 }
