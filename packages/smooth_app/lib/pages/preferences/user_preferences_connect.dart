@@ -76,9 +76,14 @@ class UserPreferencesConnect extends AbstractUserPreferences {
               UserPreferencesListTile.getTintedIcon(Icons.newspaper, context),
         ),
         _getListTile(
+          title: appLocalizations.support_via_forum,
+          url: 'https://forum.openfoodfacts.org/',
+          leading: UserPreferencesListTile.getTintedIcon(Icons.forum, context),
+        ),
+        _getListTile(
           title: appLocalizations.support_join_slack,
           url: 'https://slack.openfoodfacts.org/',
-          leading: UserPreferencesListTile.getTintedIcon(Icons.forum, context),
+          leading: UserPreferencesListTile.getTintedIcon(Icons.chat, context),
         ),
         _getListTile(
           title: appLocalizations.support_via_email,
