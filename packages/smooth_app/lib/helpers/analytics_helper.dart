@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -90,6 +89,8 @@ class AnalyticsHelper {
 
   static String latestSearch = '';
 
+  static bool allow = false;
+
   static Future<void> initSentry({
     required Function()? appRunner,
   }) async {
@@ -114,7 +115,7 @@ class AnalyticsHelper {
       _crashReports = crashReports;
 
   static Future<void> setAnalyticsReports(final bool allow) async {
-    await MatomoTracker.instance.setOptOut(optout: !allow);
+    AnalyticsHelper.allow = allow;
   }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
@@ -133,7 +134,6 @@ class AnalyticsHelper {
       setAnalyticsReports(false);
       return;
     }
-
     try {
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
@@ -146,8 +146,16 @@ class AnalyticsHelper {
   }
 
   /// A UUID must be at least one 16 characters
-  static String? get uuid =>
-      kDebugMode ? 'smoothie-debug--' : OpenFoodAPIConfiguration.uuid;
+  static String? get uuid {
+    // if user opts out then track anonymously with userId containg zeros
+    if (!allow) {
+      return '0000000000000000';
+    } else if (!allow) {
+      return 'smoothie_debug--';
+    } else {
+      return OpenFoodAPIConfiguration.uuid;
+    }
+  }
 
   static void trackEvent(
     AnalyticsEvent msg, {
