@@ -118,6 +118,7 @@ class AnalyticsHelper {
 
   static Future<void> setAnalyticsReports(final bool allow) async {
     _allow = allow;
+    await MatomoTracker.instance.setOptOut(optout: false);
   }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
