@@ -90,6 +90,7 @@ class AnalyticsHelper {
 
   static String latestSearch = '';
 
+  /// Did the user allow the analytic reports?
   static bool _allow = false;
 
   static Future<void> initSentry({
