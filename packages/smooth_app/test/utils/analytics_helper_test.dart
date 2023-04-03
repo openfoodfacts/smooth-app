@@ -19,7 +19,6 @@ void main() {
       );
       mockPackageInfo();
       WidgetsFlutterBinding.ensureInitialized();
-      mockPackageInfo();
       // act
       await AnalyticsHelper.setAnalyticsReports(allowAnalytics);
       await AnalyticsHelper.initMatomo(isScreenshotMode);

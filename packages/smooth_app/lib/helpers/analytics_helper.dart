@@ -153,11 +153,12 @@ class AnalyticsHelper {
     // if user opts out then track anonymously with userId containg zeros
     if (!_allow) {
       return '0' * 16;
-    } else if (kDebugMode) {
-      return 'smoothie_debug--';
-    } else {
-      return OpenFoodAPIConfiguration.uuid;
     }
+    if (kDebugMode) {
+      return 'smoothie_debug--';
+    }
+
+    return OpenFoodAPIConfiguration.uuid;
   }
 
   static void trackEvent(
