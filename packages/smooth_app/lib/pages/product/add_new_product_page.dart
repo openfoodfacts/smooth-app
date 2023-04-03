@@ -134,6 +134,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     if (_basicDetailsAdded ||
         _uploadedImages.isNotEmpty ||
         _otherUploadedImages.isNotEmpty) {
+      _product.productName = _product.productName?.trim();
+      _product.brands = _product.brands?.trim();
       await _daoProductList.push(_history, _product.barcode!);
       _alreadyPushedtToHistory = true;
     }
