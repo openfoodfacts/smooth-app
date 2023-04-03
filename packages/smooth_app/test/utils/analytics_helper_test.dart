@@ -10,7 +10,7 @@ void main() {
   test(
     'When user opts out then init Matomo with userId of 0000000000000000',
     () async {
-      // arrange
+      // init
       const bool allowAnalytics = false;
       const bool isScreenshotMode = false;
       final MatomoTracker matomoTrackerInstance = MatomoTracker.instance;
