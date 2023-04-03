@@ -523,10 +523,8 @@ class _AdvancedSettings extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
-            trailing: const Padding(
-              padding: EdgeInsets.only(
-                right: LARGE_SPACE,
-              ),
+            leading: const Padding(
+              padding: EdgeInsets.all(VERY_SMALL_SPACE),
               child: Icon(
                 CupertinoIcons.settings_solid,
               ),

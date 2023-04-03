@@ -126,22 +126,15 @@ class LanguageSelectorSettings extends StatelessWidget {
         );
       },
       borderRadius: ANGULAR_BORDER_RADIUS,
-      child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
+      child: ListTile(
+        leading: const Icon(Icons.language),
+        title: Text(
+          '$nameInLanguage ($nameInEnglish)',
+          softWrap: false,
+          overflow: TextOverflow.fade,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
-        child: ListTile(
-          leading: const Icon(Icons.language),
-          title: Text(
-            '$nameInLanguage ($nameInEnglish)',
-            softWrap: false,
-            overflow: TextOverflow.fade,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          trailing: const Icon(Icons.arrow_drop_down),
-        ),
+        trailing: const Icon(Icons.arrow_drop_down),
       ),
     );
   }
