@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
@@ -166,7 +166,8 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
     );
   }
 
-  static const String svgStr = '''
+  static const String svgStr =
+      '''
   <svg width="400" height="400">
     <rect width="400" height="400" style="fill:rgb(128,128,128);stroke-width:3;stroke:rgb(0,0,0)" />
   </svg>
