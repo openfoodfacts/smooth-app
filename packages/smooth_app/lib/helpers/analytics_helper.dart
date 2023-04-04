@@ -90,6 +90,9 @@ class AnalyticsHelper {
 
   static String latestSearch = '';
 
+  /// Did the user allow the analytic reports?
+  static bool _allow = false;
+
   static Future<void> initSentry({
     required Function()? appRunner,
   }) async {
@@ -114,7 +117,8 @@ class AnalyticsHelper {
       _crashReports = crashReports;
 
   static Future<void> setAnalyticsReports(final bool allow) async {
-    await MatomoTracker.instance.setOptOut(optout: !allow);
+    _allow = allow;
+    await MatomoTracker.instance.setOptOut(optout: false);
   }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
@@ -133,7 +137,6 @@ class AnalyticsHelper {
       setAnalyticsReports(false);
       return;
     }
-
     try {
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
@@ -146,8 +149,16 @@ class AnalyticsHelper {
   }
 
   /// A UUID must be at least one 16 characters
-  static String? get uuid =>
-      kDebugMode ? 'smoothie-debug--' : OpenFoodAPIConfiguration.uuid;
+  static String? get uuid {
+    // if user opts out then track anonymously with userId containg zeros
+    if (kDebugMode) {
+      return 'smoothie_debug--';
+    }
+    if (!_allow) {
+      return '0' * 16;
+    }
+    return OpenFoodAPIConfiguration.uuid;
+  }
 
   static void trackEvent(
     AnalyticsEvent msg, {
