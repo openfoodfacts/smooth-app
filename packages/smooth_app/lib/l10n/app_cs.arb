@@ -687,28 +687,28 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}  few {před {count} dny}  many {před {count} dny}=1{včera} other{ před {count} dny}}",
+    "plural_ago_days": "{count,plural,  =1{včera} other{ před {count} dny}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  one {}  few {před {count} hodinami}  many {před {count} hodinami}=1{před hodinou} other{před {count} hodinami}}",
+    "plural_ago_hours": "{count,plural,  =1{před hodinou} other{před {count} hodinami}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "před {count,plural, one {} few {{count} minutami} many {{count} minutami} =0{méně než minutou} =1{minutou} other{{count} minutami}}",
+    "plural_ago_minutes": "před {count,plural, =0{méně než minutou} =1{minutou} other{{count} minutami}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  one {}  few {před {count} měsíci}  many {před {count} měsíci}=1{před měsícem} other{před {count} měsíci}}",
+    "plural_ago_months": "{count,plural,  =1{před měsícem} other{před {count} měsíci}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
@@ -906,7 +906,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Obnovuji {count,plural, one {} few {produkty} many {produktů} =0{produkt} =1{produkt} other{produkty}} v historii",
+    "product_list_reloading_in_progress_multiple": "Obnovuji {count,plural,  =0{produkt} =1{produkt} other{produkty}} v historii",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
@@ -1642,7 +1642,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, one {} few {{count} produkty} many {{count} produkty}=0{Prázdný seznam} =1{Jeden produkt} other{{count} produktů}}",
+    "user_list_length": "{count,plural, =0{Prázdný seznam} =1{Jeden produkt} other{{count} produktů}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {

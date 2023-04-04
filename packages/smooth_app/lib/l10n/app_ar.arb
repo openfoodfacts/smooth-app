@@ -722,7 +722,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, zero {} one {يقارن {count} منتجات} two {يقارن {count} منتجات} few {يقارن {count} منتجات} many {يقارن {count} منتجات}=1{قارن منتج واحد} other{يقارن {count} منتجات}}",
+    "plural_compare_x_products": "{count,plural, zero {يقارن {count} منتجات} two {يقارن {count} منتجات} few {يقارن {count} منتجات} many {يقارن {count} منتجات}=1{قارن منتج واحد} other{يقارن {count} منتجات}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
@@ -906,14 +906,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "تحديث {count,plural,  zero {}  one {منتجات}  two {منتجات}  few {منتجات}  many {منتجات}=0{منتج} =1{منتج} other{منتجات}} في السجل الخاص بك",
+    "product_list_reloading_in_progress_multiple": "تحديث {count,plural, two {منتجات}  few {منتجات}  many {منتجات}=0{منتج} =1{منتج} other{منتجات}} في السجل الخاص بك",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural,  zero {}  one {منتجات}  two {منتجات}  few {منتجات}  many {منتجات}=0{منتج} =1{منتج} other{منتجات}} اكتمال التحديث",
+    "product_list_reloading_success_multiple": "{count,plural,  two {منتجات}  few {منتجات}  many {منتجات}=0{منتج} =1{منتج} other{منتجات}} اكتمال التحديث",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
