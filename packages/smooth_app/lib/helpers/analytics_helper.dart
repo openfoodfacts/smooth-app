@@ -151,13 +151,12 @@ class AnalyticsHelper {
   /// A UUID must be at least one 16 characters
   static String? get uuid {
     // if user opts out then track anonymously with userId containg zeros
-    if (!_allow) {
-      return '0' * 16;
-    }
     if (kDebugMode) {
       return 'smoothie_debug--';
     }
-
+    if (!_allow) {
+      return '0' * 16;
+    }
     return OpenFoodAPIConfiguration.uuid;
   }
 
