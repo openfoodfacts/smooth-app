@@ -166,8 +166,7 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
     );
   }
 
-  static const String svgStr =
-      '''
+  static const String svgStr = '''
   <svg width="400" height="400">
     <rect width="400" height="400" style="fill:rgb(128,128,128);stroke-width:3;stroke:rgb(0,0,0)" />
   </svg>
