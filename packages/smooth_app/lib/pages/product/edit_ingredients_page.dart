@@ -10,6 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
@@ -194,9 +195,9 @@ class _EditOcrPageState extends State<EditOcrPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Icon(
-            Icons.image_not_supported,
-            size: size.height / 4,
+          SizedBox(
+            height: size.height / 4,
+            child: const PictureNotFound(),
           ),
           Text(
             appLocalizations.ocr_image_upload_instruction,
