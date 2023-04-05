@@ -26,7 +26,7 @@ jobs:
     - name: Create Pull Request
       if: steps.check-changes.outputs.outcome == failure()
       id: cpr
-      uses: peter-evans/create-pull-request@v4
+      uses: peter-evans/create-pull-request@v5
       with:
         base: develop
         commit-message: Update assets
