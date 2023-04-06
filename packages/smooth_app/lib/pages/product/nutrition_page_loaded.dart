@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -16,6 +17,7 @@ import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/pages/product/product_image_unswipeable_view.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -134,6 +136,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     children.add(_switchNoNutrition(appLocalizations));
 
     if (!_nutritionContainer.noNutritionData) {
+      children.add(_goToPicture(appLocalizations));
       children.add(_getServingField(appLocalizations));
       children.add(_getServingSwitch(appLocalizations));
 
@@ -450,6 +453,23 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
               ),
             ),
           ],
+        ),
+      );
+
+  Widget _goToPicture(final AppLocalizations appLocalizations) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+        child: SmoothLargeButtonWithIcon(
+          onPressed: () async => Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (_) => ProductImageUnswipeableView(
+                imageField: ImageField.NUTRITION,
+                product: _product,
+              ),
+            ),
+          ),
+          icon: Icons.camera_alt,
+          text: appLocalizations.nutrition_facts_photo,
         ),
       );
 
