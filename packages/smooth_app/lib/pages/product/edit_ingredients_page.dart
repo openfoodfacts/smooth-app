@@ -13,7 +13,6 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/pages/product/ocr_widget.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -61,13 +60,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
   Future<void> _onSubmitField(ImageField imageField) async =>
       _updateText(_controller.text, imageField);
-
-  /// Opens a page to upload a new image.
-  Future<void> _newImage() async => confirmAndUploadNewPicture(
-        this,
-        barcode: _product.barcode!,
-        imageField: _helper.getImageField(),
-      );
 
   /// Extracts data with OCR from the image stored on the server.
   ///
@@ -148,7 +140,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
           _getImageWidget(productImageData),
           OcrWidget(
             controller: _controller,
-            onTapNewImage: _newImage,
             onTapExtractData: _extractData,
             onSubmitField: _onSubmitField,
             productImageData: productImageData,

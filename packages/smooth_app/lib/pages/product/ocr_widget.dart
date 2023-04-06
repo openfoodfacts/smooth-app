@@ -9,6 +9,8 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/pages/product/product_image_local_button.dart';
+import 'package:smooth_app/pages/product/product_image_server_button.dart';
 
 /// Widget dedicated to OCR, with 3 actions: upload image, extract data, save.
 ///
@@ -17,7 +19,6 @@ class OcrWidget extends StatefulWidget {
   const OcrWidget({
     required this.controller,
     required this.onSubmitField,
-    required this.onTapNewImage,
     required this.onTapExtractData,
     required this.productImageData,
     required this.product,
@@ -25,7 +26,6 @@ class OcrWidget extends StatefulWidget {
   });
 
   final TextEditingController controller;
-  final Future<void> Function() onTapNewImage;
   final Future<void> Function() onTapExtractData;
   final Future<void> Function(ImageField) onSubmitField;
   final ProductImageData productImageData;
@@ -55,16 +55,36 @@ class _OcrWidgetState extends State<OcrWidget> {
                   start: LARGE_SPACE,
                   end: LARGE_SPACE,
                 ),
-                child: SmoothActionButtonsBar(
-                  positiveAction: SmoothActionButton(
-                    text: (TransientFile.isImageAvailable(
-                      widget.productImageData,
-                      widget.product.barcode!,
-                    ))
-                        ? widget.helper.getActionRefreshPhoto(appLocalizations)
-                        : appLocalizations.upload_image,
-                    onPressed: () async => widget.onTapNewImage(),
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                        child: ProductImageServerButton(
+                          barcode: widget.product.barcode!,
+                          imageField: widget.helper.getImageField(),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                        child: ProductImageLocalButton(
+                          firstPhoto: !TransientFile.isImageAvailable(
+                            widget.productImageData,
+                            widget.product.barcode!,
+                          ),
+                          barcode: widget.product.barcode!,
+                          imageField: widget.helper.getImageField(),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
