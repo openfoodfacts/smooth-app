@@ -10,7 +10,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 /// Display of the photo of a product image field.
 ///
 /// See also [ProductImageSwipeableView].
-class ProductImageUnswipeableView extends StatefulWidget {
+class ProductImageUnswipeableView extends StatelessWidget {
   const ProductImageUnswipeableView({
     super.key,
     required this.product,
@@ -21,33 +21,23 @@ class ProductImageUnswipeableView extends StatefulWidget {
   final ImageField imageField;
 
   @override
-  State<ProductImageUnswipeableView> createState() =>
-      _ProductImageUnswipeableViewState();
-}
-
-class _ProductImageUnswipeableViewState
-    extends State<ProductImageUnswipeableView> {
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return SmoothScaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        foregroundColor: WHITE_COLOR,
-        elevation: 0,
-        title: Text(
-          getImagePageTitle(appLocalizations, widget.imageField),
-          maxLines: 2,
+  Widget build(BuildContext context) => SmoothScaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          foregroundColor: WHITE_COLOR,
+          elevation: 0,
+          title: Text(
+            getImagePageTitle(AppLocalizations.of(context), imageField),
+            maxLines: 2,
+          ),
+          leading: SmoothBackButton(
+            iconColor: Colors.white,
+            onPressed: () => Navigator.maybePop(context),
+          ),
         ),
-        leading: SmoothBackButton(
-          iconColor: Colors.white,
-          onPressed: () => Navigator.maybePop(context),
+        body: ProductImageViewer(
+          product: product,
+          imageField: imageField,
         ),
-      ),
-      body: ProductImageViewer(
-        product: widget.product,
-        imageField: widget.imageField,
-      ),
-    );
-  }
+      );
 }
