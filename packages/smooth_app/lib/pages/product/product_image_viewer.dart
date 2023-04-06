@@ -14,13 +14,13 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
+import 'package:smooth_app/pages/product/product_image_local_button.dart';
+import 'package:smooth_app/pages/product/product_image_server_button.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 import 'package:smooth_app/tmp_crop_image/rotation.dart';
@@ -104,15 +104,19 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: _getGalleryButton(appLocalizations),
+                  child: ProductImageServerButton(
+                    barcode: _barcode,
+                    imageField: widget.imageField,
+                  ),
                 ),
               ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: _getCameraImageButton(
-                    appLocalizations,
-                    imageProvider == null,
+                  child: ProductImageLocalButton(
+                    firstPhoto: imageProvider == null,
+                    barcode: _barcode,
+                    imageField: widget.imageField,
                   ),
                 ),
               ),
@@ -145,6 +149,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     );
   }
 
+  // TODO(monsieurtanuki): refactor as ProductImageCropButton
   Widget _getEditImageButton(final AppLocalizations appLocalizations) =>
       EditImageButton(
         iconData: Icons.edit,
@@ -152,87 +157,13 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         onPressed: _actionEditImage,
       );
 
-  Widget _getCameraImageButton(
-    final AppLocalizations appLocalizations,
-    final bool firstPhoto,
-  ) =>
-      EditImageButton(
-        iconData: firstPhoto ? Icons.add : Icons.add_a_photo,
-        label: firstPhoto ? appLocalizations.add : appLocalizations.capture,
-        onPressed: _actionNewImage,
-      );
-
+  // TODO(monsieurtanuki): refactor as ProductImageUnselectButton
   Widget _getUnselectImageButton(final AppLocalizations appLocalizations) =>
       EditImageButton(
         iconData: Icons.do_disturb_on,
         label: appLocalizations.edit_photo_unselect_button_label,
         onPressed: () => _actionUnselect(appLocalizations),
       );
-
-  Widget _getGalleryButton(final AppLocalizations appLocalizations) =>
-      EditImageButton(
-        iconData: Icons.image_search,
-        label: appLocalizations.edit_photo_select_existing_button_label,
-        onPressed: _actionGallery,
-      );
-
-  // TODO(monsieurtanuki): we should also suggest the existing image gallery
-  Future<File?> _actionNewImage() async {
-    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-      return null;
-    }
-    return confirmAndUploadNewPicture(
-      this,
-      imageField: _imageData.imageField,
-      barcode: _barcode,
-    );
-  }
-
-  Future<void> _actionGallery() async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-      return;
-    }
-    final List<int>? result = await LoadingDialog.run<List<int>>(
-      future: OpenFoodAPIClient.getProductImageIds(
-        _barcode,
-        user: ProductQuery.getUser(),
-      ),
-      context: context,
-      title: appLocalizations.edit_photo_select_existing_download_label,
-    );
-    if (result == null) {
-      return;
-    }
-    if (!mounted) {
-      return;
-    }
-    if (result.isEmpty) {
-      await showDialog<void>(
-        context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          body:
-              Text(appLocalizations.edit_photo_select_existing_downloaded_none),
-          actionsAxis: Axis.vertical,
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.okay,
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ),
-      );
-      return;
-    }
-    await Navigator.push<void>(
-      context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => UploadedImageGallery(
-          barcode: _barcode,
-          imageIds: result,
-          imageField: widget.imageField,
-        ),
-      ),
-    );
-  }
 
   Future<File?> _actionEditImage() async {
     final NavigatorState navigatorState = Navigator.of(context);
