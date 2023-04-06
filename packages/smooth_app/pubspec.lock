@@ -865,11 +865,10 @@ packages:
   mobile_scanner:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "ios-mlkit-3.2.0"
-      resolved-ref: adf50594c80edaac712944372222ec8711f22067
-      url: "https://github.com/juliansteenbakker/mobile_scanner.git"
-    source: git
+      name: mobile_scanner
+      sha256: da55204e5439bc8dc058df56231a7a1d513c6ec9cbad84492f56d493382d296f
+      url: "https://pub.dev"
+    source: hosted
     version: "3.2.0"
   mockito:
     dependency: "direct dev"
