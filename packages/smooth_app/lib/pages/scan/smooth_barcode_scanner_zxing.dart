@@ -2,13 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
+import 'package:smooth_app/pages/scan/smooth_barcode_scanner_visor.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -35,6 +34,8 @@ class _SmoothBarcodeScannerZXingState extends State<SmoothBarcodeScannerZXing> {
     BarcodeFormat.upcA,
     BarcodeFormat.upcE,
   ];
+
+  static const double _cornerPadding = 26;
 
   bool _visible = false;
   final GlobalKey _qrKey = GlobalKey(debugLabel: 'QR');
@@ -71,41 +72,34 @@ class _SmoothBarcodeScannerZXingState extends State<SmoothBarcodeScannerZXing> {
           _visible = false;
           _controller?.pauseCamera();
         },
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) => Stack(
-            children: <Widget>[
-              QRView(
-                key: _qrKey,
-                onQRViewCreated: _onQRViewCreated,
-                overlay: QrScannerOverlayShape(
-                  borderColor: Colors.white,
-                  borderRadius: 10,
-                  borderLength: 30,
-                  borderWidth: 10,
-                  cutOutWidth: constraints.maxWidth - 2 * MINIMUM_TOUCH_SIZE,
-                  cutOutHeight: constraints.maxHeight,
-                ),
-                formatsAllowed: _barcodeFormats,
+        child: Stack(
+          children: <Widget>[
+            QRView(
+              key: _qrKey,
+              onQRViewCreated: _onQRViewCreated,
+              formatsAllowed: _barcodeFormats,
+            ),
+            const Center(
+              child: Padding(
+                padding: EdgeInsets.all(_cornerPadding),
+                child: SmoothBarcodeScannerVisor(),
               ),
-              const Align(
-                alignment: Alignment.topCenter,
-                child: Text(
-                  'ZXing',
-                  style: TextStyle(color: Colors.red),
-                ),
+            ),
+            const Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'ZXing',
+                style: TextStyle(color: Colors.red),
               ),
-              const Align(
-                alignment: Alignment.topCenter,
-                child: ScanHeader(),
-              ),
-              Center(
-                child: SvgPicture.asset(
-                  'assets/icons/visor_icon.svg',
-                  package: AppHelper.APP_PACKAGE,
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
+            ),
+            const Align(
+              alignment: Alignment.topCenter,
+              child: ScanHeader(),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(_cornerPadding),
                 child: Row(
                   mainAxisAlignment: _showFlipCameraButton
                       ? MainAxisAlignment.spaceBetween
@@ -144,8 +138,8 @@ class _SmoothBarcodeScannerZXingState extends State<SmoothBarcodeScannerZXing> {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
 

@@ -1,61 +1,28 @@
-/*
-import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/pages/scan/awesome_widgets/awesome_flash.dart';
 
-/// This Widget is a [StatefulWidget], as it uses a [GlobalKey] to allow an
-/// external access
-class ScannerVisorWidget extends StatefulWidget {
-  const ScannerVisorWidget({
-    super.key,
-    required this.state,
-  });
-  final CameraState state;
+class SmoothBarcodeScannerVisor extends StatelessWidget {
+  const SmoothBarcodeScannerVisor({super.key});
 
   @override
-  State<ScannerVisorWidget> createState() => ScannerVisorWidgetState();
-
-  /// Returns the Size of the visor
-  static Size getSize(BuildContext context) => Size(
-        MediaQuery.of(context).size.width * 0.8,
-        150.0,
-      );
-}
-
-class ScannerVisorWidgetState extends State<ScannerVisorWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        SizedBox.fromSize(
-          size: ScannerVisorWidget.getSize(context),
-          child: CustomPaint(
-            painter: ScanVisorPainter(),
-            child: Center(
-              child: SvgPicture.asset(
-                'assets/icons/visor_icon.svg',
-                width: 35.0,
-                height: 32.0,
-                package: AppHelper.APP_PACKAGE,
-              ),
+  Widget build(BuildContext context) => SizedBox.expand(
+        child: CustomPaint(
+          painter: _ScanVisorPainter(),
+          child: Center(
+            child: SvgPicture.asset(
+              'assets/icons/visor_icon.svg',
+              width: 35.0,
+              height: 32.0,
+              package: AppHelper.APP_PACKAGE,
             ),
           ),
         ),
-        Positioned.directional(
-          textDirection: Directionality.of(context),
-          end: 0.0,
-          bottom: 0.0,
-          child: SmoothAwesomeFlashButton(state: widget.state),
-        )
-      ],
-    );
-  }
+      );
 }
 
-class ScanVisorPainter extends CustomPainter {
-  ScanVisorPainter();
+class _ScanVisorPainter extends CustomPainter {
+  _ScanVisorPainter();
 
   static const double strokeWidth = 3.0;
   static const double _fullCornerSize = 31.0;
@@ -149,4 +116,3 @@ class ScanVisorPainter extends CustomPainter {
     return path;
   }
 }
-*/
