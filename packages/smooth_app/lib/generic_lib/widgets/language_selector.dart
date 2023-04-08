@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
@@ -35,15 +36,7 @@ class LanguageSelectorSettings extends StatelessWidget {
     );
     final TextEditingController languageSelectorController =
         TextEditingController();
-    return ListTile(
-      leading: const Icon(Icons.language),
-      title: Text(
-        '$nameInLanguage ($nameInEnglish)',
-        softWrap: false,
-        overflow: TextOverflow.fade,
-        style: Theme.of(context).textTheme.bodyMedium,
-      ),
-      trailing: const Icon(Icons.arrow_drop_down),
+    return InkWell(
       onTap: () async {
         final List<OpenFoodFactsLanguage> leftovers =
             _languages.getSupportedLanguagesNameInEnglish();
@@ -132,6 +125,17 @@ class LanguageSelectorSettings extends StatelessWidget {
           },
         );
       },
+      borderRadius: ANGULAR_BORDER_RADIUS,
+      child: ListTile(
+        leading: const Icon(Icons.language),
+        title: Text(
+          '$nameInLanguage ($nameInEnglish)',
+          softWrap: false,
+          overflow: TextOverflow.fade,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        trailing: const Icon(Icons.arrow_drop_down),
+      ),
     );
   }
 }
