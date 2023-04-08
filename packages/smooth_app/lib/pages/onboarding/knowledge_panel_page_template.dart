@@ -75,7 +75,8 @@ class _KnowledgePanelPageTemplateState
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
-          final Widget knowledgePanelWidget = KnowledgePanelWidget(
+          final List<Widget> children = KnowledgePanelWidget.getChildren(
+            context,
             panelElement: KnowledgePanelWidget.getPanelElement(
               _product,
               widget.panelId,
@@ -113,8 +114,16 @@ class _KnowledgePanelPageTemplateState
                                     Theme.of(context).textTheme.displayMedium,
                               ),
                             ),
-                            KnowledgePanelProductCards(
-                                <Widget>[knowledgePanelWidget]),
+                            if (children.isNotEmpty)
+                              KnowledgePanelProductCards(
+                                <Widget>[
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: children,
+                                  ),
+                                ],
+                              ),
                           ],
                         ),
                       ),
