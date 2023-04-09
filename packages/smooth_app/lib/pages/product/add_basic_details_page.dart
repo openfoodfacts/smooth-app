@@ -8,7 +8,6 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -50,17 +49,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   }
 
   /// Returns a [Product] with the values from the text fields.
-  Product _getMinimalistProduct() {
-    final String productName = _productNameController.text;
-    return Product()
-      ..barcode = _product.barcode
-      ..productName = productName // for the app, locally
-      ..productNameInLanguages = <OpenFoodFactsLanguage, String>{
-        ProductQuery.getLanguage()!: productName,
-      } // for the server update
-      ..quantity = _weightController.text
-      ..brands = _formatProductBrands(_brandNameController.text);
-  }
+  Product _getMinimalistProduct() => Product()
+    ..barcode = _product.barcode
+    ..productName = _productNameController.text
+    ..quantity = _weightController.text
+    ..brands = _formatProductBrands(_brandNameController.text);
 
   String _formatProductBrands(String? text) =>
       text == null ? '' : formatProductBrands(text, appLocalizations);
