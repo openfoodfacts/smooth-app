@@ -3,6 +3,7 @@ on:
    push:
      branches:
        - develop
+       - deploy_from_pr/*
 env:
  RUBY_VERSION: 3.2.0
 
