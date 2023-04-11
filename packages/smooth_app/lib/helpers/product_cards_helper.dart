@@ -15,15 +15,14 @@ String getProductBrands(Product product, AppLocalizations appLocalizations) {
   if (brands == null) {
     return appLocalizations.unknownBrand;
   } else {
-    return formatProductBrands(brands, appLocalizations);
+    return formatProductBrands(brands);
   }
 }
 
-/// Correctly format word separators between words (e.g. comma in English)
-String formatProductBrands(String brands, AppLocalizations appLocalizations) {
-  final String separator = appLocalizations.word_separator;
-  final String separatorChar =
-      RegExp.escape(appLocalizations.word_separator_char);
+/// Correctly format word separators between words.
+String formatProductBrands(String brands) {
+  const String separator = ', ';
+  final String separatorChar = RegExp.escape(',');
   final RegExp regex = RegExp('\\s*$separatorChar\\s*');
   return brands.replaceAll(regex, separator);
 }
