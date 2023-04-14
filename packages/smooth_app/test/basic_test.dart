@@ -6,10 +6,7 @@ import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 void main() {
   testWidgets('App Starts', (WidgetTester tester) async {
     await tester.pumpWidget(
-      const SmoothApp(
-        SmoothBarcodeScannerType.mockup,
-        MockedAppStore(),
-      ),
+      const SmoothApp(),
     );
     expect(find.byType(SmoothApp), findsOneWidget);
   });

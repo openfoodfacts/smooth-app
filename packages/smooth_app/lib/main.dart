@@ -52,45 +52,47 @@ void main() {
   }
 }
 
-late bool _screenshots;
-late String flavour;
+late final bool _screenshots;
+
+late final String appFlavour;
+late final SmoothBarcodeScannerType scannerType;
+late final AppStore appStore;
 
 Future<void> launchSmoothApp({
   required SmoothBarcodeScannerType scanner,
-  required AppStore appStore,
-  required String appFlavour,
+  required AppStore store,
+  required String flavour,
   final bool screenshots = false,
 }) async {
   _screenshots = screenshots;
+  scannerType = scanner;
+  appStore = store;
+  appFlavour = flavour;
+
   if (_screenshots) {
-    await _init1(appStore);
-    runApp(SmoothApp(scanner, appStore));
+    await _init1();
+    runApp(const SmoothApp());
     return;
   }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  flavour = appFlavour;
-
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-        appRunner: () => runApp(SmoothApp(scanner, appStore)));
+        appRunner: () => runApp(const SmoothApp()));
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (_) => SmoothApp(scanner, appStore),
+        builder: (_) => const SmoothApp(),
       ),
     );
   }
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp(this.scanner, this.appStore);
-
-  final SmoothBarcodeScannerType scanner;
-  final AppStore appStore;
+  const SmoothApp();
 
   // This widget is the root of your application
   @override
@@ -112,7 +114,7 @@ bool _init1done = false;
 // Had to split init in 2 methods, for test/screenshots reasons.
 // Don't know why, but some init codes seem to freeze the test.
 // Now we run them before running the app, during the tests.
-Future<bool> _init1(AppStore appStore) async {
+Future<bool> _init1() async {
   if (_init1done) {
     return false;
   }
@@ -167,7 +169,7 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   Future<bool> _init2() async {
-    await _init1(widget.appStore);
+    await _init1();
     systemDarkmodeOn = brightness == Brightness.dark;
     if (!mounted) {
       return false;
@@ -216,10 +218,6 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
-            // TODO(m123): Re-add engine split
-            /*Provider<SmoothBarcodeScannerType>.value(
-              value: widget.scanner,
-            ),*/
           ],
           builder: _buildApp,
         );

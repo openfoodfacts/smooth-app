@@ -8,7 +8,7 @@ import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 void main() {
   launchSmoothApp(
     scanner: SmoothBarcodeScannerType.mlkit,
-    appStore: AppleAppStore('588797948'),
-    appFlavour: 'ml-ios',
+    store: AppleAppStore('588797948'),
+    flavour: 'ml-ios',
   );
 }

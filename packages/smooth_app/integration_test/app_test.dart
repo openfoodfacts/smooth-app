@@ -57,8 +57,8 @@ void main() {
 
         await app.launchSmoothApp(
           scanner: SmoothBarcodeScannerType.mockup,
-          appStore: const MockedAppStore(),
-          appFlavour: 'test-runner',
+          store: const MockedAppStore(),
+          flavour: 'test-runner',
           screenshots: true,
         );
         await tester.pumpAndSettle();

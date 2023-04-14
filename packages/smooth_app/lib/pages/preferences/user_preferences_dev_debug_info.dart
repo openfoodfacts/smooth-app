@@ -47,7 +47,7 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
 
     infos.putIfAbsent('Version', () => packageInfo.version);
     infos.putIfAbsent('BuildNumber', () => packageInfo.buildNumber);
-    infos.putIfAbsent('Flavour', () => flavour);
+    infos.putIfAbsent('Flavour', () => appFlavour);
     infos.putIfAbsent('PackageName', () => packageInfo.packageName);
   }
 
