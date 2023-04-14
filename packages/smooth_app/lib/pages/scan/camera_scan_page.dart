@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/main.dart';
 //import 'package:smooth_app/pages/scan/smooth_barcode_scanner_awesome.dart';
 import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mlkit.dart';
 import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mockup.dart';
@@ -18,9 +19,7 @@ import 'package:smooth_app/pages/scan/smooth_barcode_scanner_zxing.dart';
 
 /// A page showing the camera feed and decoding barcodes.
 class CameraScannerPage extends StatefulWidget {
-  const CameraScannerPage(this.scannerType);
-
-  final SmoothBarcodeScannerType scannerType;
+  const CameraScannerPage();
 
   @override
   CameraScannerPageState createState() => CameraScannerPageState();
@@ -53,25 +52,20 @@ class CameraScannerPageState extends State<CameraScannerPage>
   }
 
   @override
-  String get traceTitle => '${widget.scannerType}_page';
+  String get traceTitle => '${scannerType}_page';
 
   @override
-  String get traceName => 'Opened ${widget.scannerType}_page';
+  String get traceName => 'Opened ${scannerType}_page';
 
   @override
   Widget build(BuildContext context) {
-    final SmoothBarcodeScannerType prefsScanner =
-        _userPreferences.scanningEngine();
-
     if (!CameraHelper.hasACamera) {
       return Center(
         child: Text(AppLocalizations.of(context).permission_photo_none_found),
       );
     }
 
-    // TODO(m123): Re-add scanning engine
-    //switch (widget.scannerType) {
-    switch (prefsScanner) {
+    switch (scannerType) {
       case SmoothBarcodeScannerType.mlkit:
         return SmoothBarcodeScannerMLKit(_onNewBarcodeDetected);
       case SmoothBarcodeScannerType.zxing:

@@ -29,9 +29,6 @@ dependencies:
   latlong2: 0.8.1
   matomo_tracker: 2.0.0
   modal_bottom_sheet: 2.1.2
-  openfoodfacts: 2.4.0
-  # openfoodfacts:
-  #   path: ../../../openfoodfacts-dart
   package_info_plus: 3.0.3
   device_info_plus: 8.1.0
   permission_handler: 10.2.0
@@ -45,13 +42,6 @@ dependencies:
   assorted_layout_widgets: 7.0.0
   app_settings: 4.2.0
   diacritic: 0.1.3
-
-  camera: 0.10.3+2
-  mobile_scanner: 3.2.0
-
-  qr_code_scanner: 1.0.1
-  #qr_code_scanner:
-  #  path: ../../../qr_code_scanner
   app_store_shared:
     path: ../app_store/shared
   audioplayers: 3.0.1
@@ -86,8 +76,19 @@ dependencies:
 
   app_store_uri:
     path: ../app_store/uri_store
-  #camerawesome: 1.2.1
-  #google_mlkit_barcode_scanning: 0.5.0
+
+  # We use two different scanning engines, 
+  # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
+  # but qr_code_scanner which uses the open source ZXing for F-Droid
+  camera: 0.10.3+2
+  mobile_scanner: 3.2.0
+  qr_code_scanner: 1.0.1
+
+
+
+  openfoodfacts: 2.4.0
+  # openfoodfacts:
+  #   path: ../../../openfoodfacts-dart
 
 dev_dependencies:
   integration_test:

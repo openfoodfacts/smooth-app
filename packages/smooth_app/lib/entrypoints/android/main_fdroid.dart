@@ -8,11 +8,11 @@ import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 void main() {
   launchSmoothApp(
     scanner: SmoothBarcodeScannerType.zxing,
-    appStore: URIAppStore(
+    store: URIAppStore(
       Uri.parse(
         'https://f-droid.org/fr/packages/openfoodfacts.github.scrachx.openfood/',
       ),
     ),
-    appFlavour: 'zxing-uri',
+    flavour: 'zxing-uri',
   );
 }

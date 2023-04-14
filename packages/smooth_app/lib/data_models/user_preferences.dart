@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 
 /// User choice regarding the picture source.
@@ -87,8 +86,6 @@ class UserPreferences extends ChangeNotifier {
   /// If the in-app review was asked at least one time (false by default)
   static const String _TAG_IN_APP_REVIEW_ALREADY_DISPLAYED =
       'inAppReviewAlreadyAsked';
-
-  static const String _DEV_MODE_SCANNING_ENGINE = 'devModeScanningEngine';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
@@ -297,18 +294,6 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setUserPictureSource(final UserPictureSource source) async {
     await _sharedPreferences.setString(_TAG_USER_PICTURE_SOURCE, source.tag);
-    notifyListeners();
-  }
-
-  SmoothBarcodeScannerType scanningEngine() {
-    final String name =
-        _sharedPreferences.getString(_DEV_MODE_SCANNING_ENGINE) ?? 'mlkit';
-    return SmoothBarcodeScannerType.values.singleWhere(
-        (SmoothBarcodeScannerType element) => element.name == name);
-  }
-
-  Future<void> setScanningEngine(final SmoothBarcodeScannerType source) async {
-    await _sharedPreferences.setString(_DEV_MODE_SCANNING_ENGINE, source.name);
     notifyListeners();
   }
 }

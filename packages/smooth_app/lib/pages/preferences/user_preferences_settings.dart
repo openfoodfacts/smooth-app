@@ -91,7 +91,6 @@ class _RateUs extends StatelessWidget {
   }
 
   String getImagePath() {
-    final String appFlavour = flavour;
     String imagePath = '';
     switch (appFlavour) {
       case 'zxing-uri':

@@ -87,13 +87,6 @@ class _SmoothBarcodeScannerZXingState extends State<SmoothBarcodeScannerZXing> {
             ),
             const Align(
               alignment: Alignment.topCenter,
-              child: Text(
-                'ZXing',
-                style: TextStyle(color: Colors.red),
-              ),
-            ),
-            const Align(
-              alignment: Alignment.topCenter,
               child: ScanHeader(),
             ),
             Align(

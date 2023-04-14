@@ -19,7 +19,6 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Full page display of "dev mode" for the preferences page.
@@ -81,37 +80,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
 
   @override
   List<Widget> getBody() => <Widget>[
-        ListTile(
-          title: const Text('Barcode scanning engine'),
-          trailing: DropdownButton<SmoothBarcodeScannerType>(
-            value: userPreferences.scanningEngine(),
-            elevation: 16,
-            onChanged: (SmoothBarcodeScannerType? newValue) async {
-              if (newValue != null) {
-                await userPreferences.setScanningEngine(newValue);
-              }
-              setState(() {});
-            },
-            items: const <DropdownMenuItem<SmoothBarcodeScannerType>>[
-              DropdownMenuItem<SmoothBarcodeScannerType>(
-                value: SmoothBarcodeScannerType.mlkit,
-                child: Text('ML Kit'),
-              ),
-              DropdownMenuItem<SmoothBarcodeScannerType>(
-                value: SmoothBarcodeScannerType.zxing,
-                child: Text('Zxing'),
-              ),
-              DropdownMenuItem<SmoothBarcodeScannerType>(
-                value: SmoothBarcodeScannerType.awesome,
-                child: Text('Awesome'),
-              ),
-              DropdownMenuItem<SmoothBarcodeScannerType>(
-                value: SmoothBarcodeScannerType.mockup,
-                child: Text('Mockup'),
-              ),
-            ],
-          ),
-        ),
         SwitchListTile(
           title: Text(
             appLocalizations.contribute_develop_dev_mode_title,

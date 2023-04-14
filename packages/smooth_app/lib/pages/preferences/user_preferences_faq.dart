@@ -129,7 +129,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                           ),
                         ),
                         Text(
-                          '${packageInfo.version}+${packageInfo.buildNumber}-$flavour',
+                          '${packageInfo.version}+${packageInfo.buildNumber}-$appFlavour',
                           style: themeData.textTheme.titleSmall,
                         )
                       ],

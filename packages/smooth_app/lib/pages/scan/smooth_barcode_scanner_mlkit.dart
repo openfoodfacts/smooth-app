@@ -112,13 +112,6 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
                 }
               },
             ),
-            const Align(
-              alignment: Alignment.topCenter,
-              child: Text(
-                'ML Kit',
-                style: TextStyle(color: Colors.red),
-              ),
-            ),
             const Center(
               child: Padding(
                 padding: EdgeInsets.all(_cornerPadding),

@@ -107,7 +107,7 @@ class AnalyticsHelper {
         // To set a uniform sample rate
         options.tracesSampleRate = 1.0;
         options.beforeSend = _beforeSend;
-        options.environment = flavour;
+        options.environment = appFlavour;
       },
       appRunner: appRunner,
     );
