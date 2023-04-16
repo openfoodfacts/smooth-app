@@ -898,10 +898,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "30f43c0f2da44d27d2e53cff5adc9fb7933231da2ec2e6778fcf9072c84bc315"
+      sha256: "04b2e2691042ac1ff55ba90871858e789daae249c5c5a477f3e14930a70e6d12"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.5.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -939,10 +939,10 @@ packages:
     dependency: "direct main"
     description:
       name: path
-      sha256: "2ad4cddff7f5cc0e2d13069f2a3f7a73ca18f66abd6f5ecf215219cdb3638edb"
+      sha256: db9d4f58c908a4ba5953fcee2ae317c94889433e5024c27ce74a37f94267945b
       url: "https://pub.dev"
     source: hosted
-    version: "1.8.0"
+    version: "1.8.2"
   path_drawing:
     dependency: transitive
     description:

@@ -53,7 +53,7 @@ dependencies:
   shared_preferences: 2.0.18
   intl: 0.17.0
   collection: 1.17.0
-  path: 1.8.3
+  path: 1.8.2
   path_provider: 2.0.13
   data_importer_shared:
     path: ../data_importer_shared
@@ -86,7 +86,7 @@ dependencies:
 
 
 
-  openfoodfacts: 2.4.0
+  openfoodfacts: 2.5.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
@@ -104,9 +104,6 @@ dev_dependencies:
   flutter_lints: 2.0.1
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
-
-dependency_overrides:
-  path: 1.8.0
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
