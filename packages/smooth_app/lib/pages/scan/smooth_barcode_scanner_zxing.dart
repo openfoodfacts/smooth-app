@@ -14,9 +14,13 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 /// Barcode scanner based on ZXing.
 class SmoothBarcodeScannerZXing extends StatefulWidget {
-  const SmoothBarcodeScannerZXing(this.onScan);
+  const SmoothBarcodeScannerZXing(
+    this.onScan, {
+    this.onCameraFlashError,
+  });
 
   final Future<bool> Function(String) onScan;
+  final Function(BuildContext)? onCameraFlashError;
 
   @override
   State<StatefulWidget> createState() => _SmoothBarcodeScannerZXingState();
@@ -122,8 +126,13 @@ class _SmoothBarcodeScannerZXingState extends State<SmoothBarcodeScannerZXing> {
                           color: Colors.white,
                           onPressed: () async {
                             SmoothHapticFeedback.click();
-                            await _controller?.toggleFlash();
-                            setState(() {});
+
+                            try {
+                              await _controller?.toggleFlash();
+                              setState(() {});
+                            } catch (err) {
+                              widget.onCameraFlashError?.call(context);
+                            }
                           },
                         );
                       },

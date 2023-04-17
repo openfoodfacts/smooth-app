@@ -13,9 +13,13 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 /// Barcode scanner based on MLKit.
 class SmoothBarcodeScannerMLKit extends StatefulWidget {
-  const SmoothBarcodeScannerMLKit(this.onScan);
+  const SmoothBarcodeScannerMLKit(
+    this.onScan, {
+    this.onCameraFlashError,
+  });
 
   final Future<bool> Function(String) onScan;
+  final Function(BuildContext)? onCameraFlashError;
 
   @override
   State<StatefulWidget> createState() => _SmoothBarcodeScannerMLKitState();
@@ -46,7 +50,8 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
     formats: _barcodeFormats,
     facing: CameraFacing.back,
     detectionSpeed: DetectionSpeed.normal,
-    detectionTimeoutMs: 250, // to be raised in order to avoid crashes
+    detectionTimeoutMs: 250,
+    // to be raised in order to avoid crashes
     returnImage: false,
     autoStart: true,
   );
@@ -190,7 +195,12 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
                           ),
                           onPressed: () async {
                             SmoothHapticFeedback.click();
-                            await _controller.toggleTorch();
+
+                            try {
+                              await _controller.toggleTorch();
+                            } catch (err) {
+                              widget.onCameraFlashError?.call(context);
+                            }
                           },
                         );
                       },
