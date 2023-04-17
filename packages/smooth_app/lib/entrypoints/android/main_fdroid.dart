@@ -1,5 +1,4 @@
 import 'package:app_store_uri/app_store_uri.dart';
-import 'package:scanner_shared/scanner_shared.dart';
 import 'package:scanner_zxing/scanner_zxing.dart';
 import 'package:smooth_app/main.dart';
 

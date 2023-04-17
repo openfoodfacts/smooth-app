@@ -1,6 +1,5 @@
 import 'package:app_store_apple_store/app_store_apple.dart';
 import 'package:scanner_ml_kit/scanner_ml_kit.dart';
-import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/main.dart';
 
 /// App Store/TestFlight version with:

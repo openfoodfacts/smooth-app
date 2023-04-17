@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 
+// TODO(m123): Remove this file and place it into packages/scanner/shared/src
+
 class SmoothBarcodeScannerVisor extends StatelessWidget {
   const SmoothBarcodeScannerVisor({super.key});
 
