@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image/image.dart' as image2;
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -25,6 +25,7 @@ import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
 import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
 import 'package:smooth_app/tmp_crop_image/rotation.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page dedicated to image cropping. Pops the resulting file path if relevant.
 class CropPage extends StatefulWidget {
@@ -154,7 +155,7 @@ class _CropPageState extends State<CropPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
-      child: Scaffold(
+      child: SmoothScaffold(
         appBar: SmoothAppBar(
           centerTitle: false,
           titleSpacing: 0.0,
