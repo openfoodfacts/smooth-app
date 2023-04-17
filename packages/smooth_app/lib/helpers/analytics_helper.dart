@@ -23,10 +23,6 @@ enum AnalyticsCategory {
 /// Event types for Matomo analytics
 enum AnalyticsEvent {
   scanAction(tag: 'scanned product', category: AnalyticsCategory.scanning),
-  scanStrangeRestart(
-      tag: 'strange restart', category: AnalyticsCategory.scanning),
-  scanStrangeRestop(
-      tag: 'strange restop', category: AnalyticsCategory.scanning),
   shareProduct(tag: 'shared product', category: AnalyticsCategory.share),
   loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
   registerAction(tag: 'register', category: AnalyticsCategory.userManagement),
@@ -169,6 +165,21 @@ class AnalyticsHelper {
         eventName: msg.name,
         eventCategory: msg.category.tag,
         action: msg.name,
+        eventValue: eventValue ?? _formatBarcode(barcode),
+      );
+
+  // Used by code which is outside of the core:smooth_app code
+  // e.g. the scanner implementation
+  static void trackCustomEvent(
+    String msg,
+    String category, {
+    int? eventValue,
+    String? barcode,
+  }) =>
+      MatomoTracker.instance.trackEvent(
+        eventName: msg,
+        eventCategory: category,
+        action: msg,
         eventValue: eventValue ?? _formatBarcode(barcode),
       );
 

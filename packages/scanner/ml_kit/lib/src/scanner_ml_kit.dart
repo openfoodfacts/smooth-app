@@ -2,38 +2,33 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:scanner_shared/app_store_shared.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 /// Empty implementation for an [AppStore]
 class ScannerMLKit extends Scanner {
-  const ScannerMLKit({
-    required this.onScan,
-    required this.hapticFeedback,
-    required this.trackScanStrangeRestart,
-    required this.trackScanStrangeRestop,
-    required this.hasMoreThanOneCamera,
-    required this.smoothBarcodeScannerVisor,
-    required this.scanHeader,
-  });
-
-  final Future<bool> Function(String) onScan;
-  final Future<void> Function() hapticFeedback;
-  final Future<void> Function() trackScanStrangeRestart;
-  final Future<void> Function() trackScanStrangeRestop;
-  final bool hasMoreThanOneCamera;
-  final Widget smoothBarcodeScannerVisor;
-  final Widget scanHeader;
+  const ScannerMLKit();
 
   @override
-  Widget getScanner(Future<bool> Function(String) onScan) {
+  String getType() => 'ML Kit';
+
+  @override
+  Widget getScanner({
+    required Future<bool> Function(String) onScan,
+    required Future<void> Function() hapticFeedback,
+    required Function(BuildContext)? onCameraFlashError,
+    required Function(String msg, String category,
+            {int? eventValue, String? barcode})
+        trackCustomEvent,
+    required bool hasMoreThanOneCamera,
+    required Widget scanHeader,
+  }) {
     return _SmoothBarcodeScannerMLKit(
       onScan: onScan,
       hapticFeedback: hapticFeedback,
-      trackScanStrangeRestart: trackScanStrangeRestart,
-      trackScanStrangeRestop: trackScanStrangeRestop,
+      trackCustomEvent: trackCustomEvent,
+      onCameraFlashError: onCameraFlashError,
       hasMoreThanOneCamera: hasMoreThanOneCamera,
-      smoothBarcodeScannerVisor: smoothBarcodeScannerVisor,
       scanHeader: scanHeader,
     );
   }
@@ -44,19 +39,19 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
   const _SmoothBarcodeScannerMLKit({
     required this.onScan,
     required this.hapticFeedback,
-    required this.trackScanStrangeRestart,
-    required this.trackScanStrangeRestop,
+    required this.trackCustomEvent,
+    required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
-    required this.smoothBarcodeScannerVisor,
     required this.scanHeader,
   });
 
   final Future<bool> Function(String) onScan;
   final Future<void> Function() hapticFeedback;
-  final Future<void> Function() trackScanStrangeRestart;
-  final Future<void> Function() trackScanStrangeRestop;
+
+  final Function(String msg, String category,
+      {int? eventValue, String? barcode}) trackCustomEvent;
+  final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
-  final Widget smoothBarcodeScannerVisor;
   final Widget scanHeader;
 
   @override
@@ -88,7 +83,8 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     formats: _barcodeFormats,
     facing: CameraFacing.back,
     detectionSpeed: DetectionSpeed.normal,
-    detectionTimeoutMs: 250, // to be raised in order to avoid crashes
+    detectionTimeoutMs: 250,
+    // to be raised in order to avoid crashes
     returnImage: false,
     autoStart: true,
   );
@@ -104,7 +100,8 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
       await _controller.start();
       _isStarted = true;
     } on Exception {
-      widget.trackScanStrangeRestart.call();
+      widget.trackCustomEvent(
+          Scanner.ANALYTICS_STRANGE_RESTART, Scanner.ANALYTICS_CATEGORY);
     }
   }
 
@@ -116,7 +113,8 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
       await _controller.stop();
       _isStarted = false;
     } on Exception {
-      widget.trackScanStrangeRestop.call();
+      widget.trackCustomEvent(
+          Scanner.ANALYTICS_STRANGE_RESTOP, Scanner.ANALYTICS_CATEGORY);
     }
   }
 
@@ -150,10 +148,10 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                 }
               },
             ),
-            Center(
+            const Center(
               child: Padding(
-                padding: const EdgeInsets.all(_cornerPadding),
-                child: widget.smoothBarcodeScannerVisor,
+                padding: EdgeInsets.all(_cornerPadding),
+                child: SmoothBarcodeScannerVisor(),
               ),
             ),
             Align(
@@ -228,7 +226,12 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                           ),
                           onPressed: () async {
                             widget.hapticFeedback.call();
-                            await _controller.toggleTorch();
+
+                            try {
+                              await _controller.toggleTorch();
+                            } catch (err) {
+                              widget.onCameraFlashError?.call(context);
+                            }
                           },
                         );
                       },

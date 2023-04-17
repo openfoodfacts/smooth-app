@@ -863,7 +863,7 @@ packages:
     source: hosted
     version: "1.0.3"
   mobile_scanner:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: mobile_scanner
       sha256: da55204e5439bc8dc058df56231a7a1d513c6ec9cbad84492f56d493382d296f
@@ -1144,7 +1144,7 @@ packages:
     source: hosted
     version: "3.0.1"
   qr_code_scanner:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: qr_code_scanner
       sha256: f23b68d893505a424f0bd2e324ebea71ed88465d572d26bb8d2e78a4749591fd
@@ -1159,6 +1159,27 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
+  scanner_ml_kit:
+    dependency: "direct main"
+    description:
+      path: "../scanner/ml_kit"
+      relative: true
+    source: path
+    version: "1.0.0"
+  scanner_shared:
+    dependency: "direct main"
+    description:
+      path: "../scanner/shared"
+      relative: true
+    source: path
+    version: "1.0.0"
+  scanner_zxing:
+    dependency: "direct main"
+    description:
+      path: "../scanner/zxing"
+      relative: true
+    source: path
+    version: "1.0.0"
   sentry:
     dependency: transitive
     description:

@@ -5,30 +5,32 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import 'package:scanner_shared/app_store_shared.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 /// Empty implementation for an [AppStore]
 class ScannerZXing extends Scanner {
-  const ScannerZXing({
-    required this.hapticFeedback,
-    required this.hasMoreThanOneCamera,
-    required this.smoothBarcodeScannerVisor,
-    required this.scanHeader,
-  });
-
-  final Future<void> Function() hapticFeedback;
-  final bool hasMoreThanOneCamera;
-  final Widget smoothBarcodeScannerVisor;
-  final Widget scanHeader;
+  const ScannerZXing();
 
   @override
-  Widget getScanner(Future<bool> Function(String) onScan) {
+  String getType() => 'ZXing';
+
+  @override
+  Widget getScanner({
+    required Future<bool> Function(String) onScan,
+    required Future<void> Function() hapticFeedback,
+    required Function(BuildContext)? onCameraFlashError,
+    required Function(String msg, String category,
+            {int? eventValue, String? barcode})
+        trackCustomEvent,
+    required bool hasMoreThanOneCamera,
+    required Widget scanHeader,
+  }) {
     return _SmoothBarcodeScannerZXing(
       onScan: onScan,
       hapticFeedback: hapticFeedback,
+      onCameraFlashError: onCameraFlashError,
       hasMoreThanOneCamera: hasMoreThanOneCamera,
-      smoothBarcodeScannerVisor: smoothBarcodeScannerVisor,
       scanHeader: scanHeader,
     );
   }
@@ -39,15 +41,15 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
   const _SmoothBarcodeScannerZXing({
     required this.onScan,
     required this.hapticFeedback,
+    required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
-    required this.smoothBarcodeScannerVisor,
     required this.scanHeader,
   });
 
   final Future<bool> Function(String) onScan;
   final Future<void> Function() hapticFeedback;
+  final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
-  final Widget smoothBarcodeScannerVisor;
   final Widget scanHeader;
 
   @override
@@ -119,10 +121,10 @@ class _SmoothBarcodeScannerZXingState
               onQRViewCreated: _onQRViewCreated,
               formatsAllowed: _barcodeFormats,
             ),
-            Center(
+            const Center(
               child: Padding(
-                padding: const EdgeInsets.all(_cornerPadding),
-                child: widget.smoothBarcodeScannerVisor,
+                padding: EdgeInsets.all(_cornerPadding),
+                child: SmoothBarcodeScannerVisor(),
               ),
             ),
             Align(
@@ -162,8 +164,13 @@ class _SmoothBarcodeScannerZXingState
                           color: Colors.white,
                           onPressed: () async {
                             widget.hapticFeedback.call();
-                            await _controller?.toggleFlash();
-                            setState(() {});
+
+                            try {
+                              await _controller?.toggleFlash();
+                              setState(() {});
+                            } catch (err) {
+                              widget.onCameraFlashError?.call(context);
+                            }
                           },
                         );
                       },
