@@ -8,6 +8,7 @@ import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Welcome page for first time users.
 class WelcomePage extends StatelessWidget {
@@ -18,8 +19,10 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextStyle headlineStyle = Theme.of(context).textTheme.displayMedium!;
-    final TextStyle bodyTextStyle = Theme.of(context).textTheme.bodyLarge!;
+    final TextStyle headlineStyle =
+        Theme.of(context).textTheme.displayMedium!.wellSpaced;
+    final TextStyle bodyTextStyle =
+        Theme.of(context).textTheme.bodyLarge!.wellSpaced;
     final Size screenSize = MediaQuery.of(context).size;
 
     return SmoothScaffold(
