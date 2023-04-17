@@ -35,8 +35,6 @@ class _SmoothBarcodeScannerZXingState extends State<SmoothBarcodeScannerZXing> {
     BarcodeFormat.upcE,
   ];
 
-  static const double _cornerPadding = 26;
-
   bool _visible = false;
   final GlobalKey _qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? _controller;
@@ -79,12 +77,7 @@ class _SmoothBarcodeScannerZXingState extends State<SmoothBarcodeScannerZXing> {
               onQRViewCreated: _onQRViewCreated,
               formatsAllowed: _barcodeFormats,
             ),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.all(_cornerPadding),
-                child: SmoothBarcodeScannerVisor(),
-              ),
-            ),
+            const Center(child: SmoothBarcodeScannerVisor()),
             const Align(
               alignment: Alignment.topCenter,
               child: ScanHeader(),
@@ -92,7 +85,10 @@ class _SmoothBarcodeScannerZXingState extends State<SmoothBarcodeScannerZXing> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.all(_cornerPadding),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: SmoothBarcodeScannerVisor.cornerHorizontalPadding,
+                  vertical: SmoothBarcodeScannerVisor.cornerVerticalPadding,
+                ),
                 child: Row(
                   mainAxisAlignment: _showFlipCameraButton
                       ? MainAxisAlignment.spaceBetween

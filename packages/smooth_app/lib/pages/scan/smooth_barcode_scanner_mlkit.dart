@@ -35,8 +35,6 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
     BarcodeFormat.upcE,
   ];
 
-  static const double _cornerPadding = 26;
-
   bool _isStarted = true;
 
   bool get _showFlipCameraButton => CameraHelper.hasMoreThanOneCamera;
@@ -112,12 +110,7 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
                 }
               },
             ),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.all(_cornerPadding),
-                child: SmoothBarcodeScannerVisor(),
-              ),
-            ),
+            const Center(child: SmoothBarcodeScannerVisor()),
             const Align(
               alignment: Alignment.topCenter,
               child: ScanHeader(),
@@ -125,7 +118,10 @@ class _SmoothBarcodeScannerMLKitState extends State<SmoothBarcodeScannerMLKit>
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.all(_cornerPadding),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: SmoothBarcodeScannerVisor.cornerHorizontalPadding,
+                  vertical: SmoothBarcodeScannerVisor.cornerVerticalPadding,
+                ),
                 child: Row(
                   mainAxisAlignment: _showFlipCameraButton
                       ? MainAxisAlignment.spaceBetween
