@@ -13,7 +13,8 @@ dependencies:
   scanner_shared:
     path: ../shared
 
-  url_launcher: 6.1.3
+  qr_code_scanner: 1.0.1
+  visibility_detector: ^0.4.0+2
 
 dev_dependencies:
   flutter_test:

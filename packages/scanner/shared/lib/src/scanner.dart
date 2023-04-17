@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 /// Base class for the Scanner interface…
 abstract class Scanner {
   const Scanner();

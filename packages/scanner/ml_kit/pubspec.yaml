@@ -10,10 +10,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  mobile_scanner: 3.2.0
   scanner_shared:
     path: ../shared
 
-  url_launcher: 6.1.3
+  visibility_detector: 0.4.0+2
 
 dev_dependencies:
   flutter_test:

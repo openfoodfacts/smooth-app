@@ -1,11 +1,12 @@
-import 'package:app_store_shared/src/app_store.dart';
+import 'package:flutter/material.dart';
+
+import 'package:scanner_shared/app_store_shared.dart';
 
 /// Empty implementation for an [AppStore]
 class MockedScanner extends Scanner {
   const MockedScanner();
 
-
-  // TODO(M123):
+  // TODO(m123): Add mocked scanner
   @override
-  Widget getScanner(Future<bool> Function(String) onScan);
+  Widget getScanner(Future<bool> Function(String) onScan) => Container();
 }

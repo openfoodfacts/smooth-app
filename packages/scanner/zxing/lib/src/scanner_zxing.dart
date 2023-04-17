@@ -1,60 +1,61 @@
 import 'dart:async';
-
-import 'package:app_store_shared/app_store_shared.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import 'package:flutter/material.dart';
-import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/pages/scan/scan_header.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_visor.dart';
-import 'package:smooth_app/widgets/screen_visibility.dart';
-import 'package:visibility_detector/visibility_detector.dart';
-
-import 'package:app_store_shared/src/app_store.dart';
-
-
-import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/pages/scan/scan_header.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_visor.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
-import 'package:smooth_app/widgets/screen_visibility.dart';
+
+import 'package:scanner_shared/app_store_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
-
 
 /// Empty implementation for an [AppStore]
 class ScannerZXing extends Scanner {
-  const ScannerZXing();
+  const ScannerZXing({
+    required this.hapticFeedback,
+    required this.hasMoreThanOneCamera,
+    required this.smoothBarcodeScannerVisor,
+    required this.scanHeader,
+  });
 
+  final Future<void> Function() hapticFeedback;
+  final bool hasMoreThanOneCamera;
+  final Widget smoothBarcodeScannerVisor;
+  final Widget scanHeader;
 
   @override
-  Widget getScanner(Future<bool> Function(String) onScan){
-    return _SmoothBarcodeScannerZXing(onScan);
+  Widget getScanner(Future<bool> Function(String) onScan) {
+    return _SmoothBarcodeScannerZXing(
+      onScan: onScan,
+      hapticFeedback: hapticFeedback,
+      hasMoreThanOneCamera: hasMoreThanOneCamera,
+      smoothBarcodeScannerVisor: smoothBarcodeScannerVisor,
+      scanHeader: scanHeader,
+    );
   }
 }
 
 /// Barcode scanner based on ZXing.
 class _SmoothBarcodeScannerZXing extends StatefulWidget {
-  const _SmoothBarcodeScannerZXing(this.onScan);
+  const _SmoothBarcodeScannerZXing({
+    required this.onScan,
+    required this.hapticFeedback,
+    required this.hasMoreThanOneCamera,
+    required this.smoothBarcodeScannerVisor,
+    required this.scanHeader,
+  });
 
   final Future<bool> Function(String) onScan;
+  final Future<void> Function() hapticFeedback;
+  final bool hasMoreThanOneCamera;
+  final Widget smoothBarcodeScannerVisor;
+  final Widget scanHeader;
 
   @override
   State<StatefulWidget> createState() => _SmoothBarcodeScannerZXingState();
 }
 
-class _SmoothBarcodeScannerZXingState extends State<_SmoothBarcodeScannerZXing> {
+class _SmoothBarcodeScannerZXingState
+    extends State<_SmoothBarcodeScannerZXing> {
   // just 1D formats and ios supported
   static const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
     BarcodeFormat.code39,
@@ -84,13 +85,20 @@ class _SmoothBarcodeScannerZXingState extends State<_SmoothBarcodeScannerZXing> 
     _controller?.resumeCamera();
   }
 
-  bool get _showFlipCameraButton => CameraHelper.hasMoreThanOneCamera;
+  bool get _showFlipCameraButton => widget.hasMoreThanOneCamera;
+
+  static bool _isApple() =>
+      defaultTargetPlatform == TargetPlatform.iOS ||
+      defaultTargetPlatform == TargetPlatform.macOS;
+
+  IconData getCameraFlip() =>
+      _isApple() ? Icons.flip_camera_ios : Icons.flip_camera_android;
 
   @override
   Widget build(BuildContext context) => VisibilityDetector(
         key: const ValueKey<String>('VisibilityDetector'),
         onVisibilityChanged: (final VisibilityInfo info) {
-          if (info.visible) {
+          if (info.visibleBounds.height > 0.0) {
             if (_visible) {
               return;
             }
@@ -111,15 +119,15 @@ class _SmoothBarcodeScannerZXingState extends State<_SmoothBarcodeScannerZXing> 
               onQRViewCreated: _onQRViewCreated,
               formatsAllowed: _barcodeFormats,
             ),
-            const Center(
+            Center(
               child: Padding(
-                padding: EdgeInsets.all(_cornerPadding),
-                child: SmoothBarcodeScannerVisor(),
+                padding: const EdgeInsets.all(_cornerPadding),
+                child: widget.smoothBarcodeScannerVisor,
               ),
             ),
-            const Align(
+            Align(
               alignment: Alignment.topCenter,
-              child: ScanHeader(),
+              child: widget.scanHeader,
             ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -133,10 +141,10 @@ class _SmoothBarcodeScannerZXingState extends State<_SmoothBarcodeScannerZXing> 
                   children: <Widget>[
                     if (_showFlipCameraButton)
                       IconButton(
-                        icon: Icon(ConstantIcons.instance.getCameraFlip()),
+                        icon: Icon(getCameraFlip()),
                         color: Colors.white,
                         onPressed: () async {
-                          SmoothHapticFeedback.click();
+                          widget.hapticFeedback.call();
                           await _controller?.flipCamera();
                           setState(() {});
                         },
@@ -146,14 +154,14 @@ class _SmoothBarcodeScannerZXingState extends State<_SmoothBarcodeScannerZXing> 
                       builder: (_, final AsyncSnapshot<bool?> snapshot) {
                         final bool? flashOn = snapshot.data;
                         if (flashOn == null) {
-                          return EMPTY_WIDGET;
+                          return const SizedBox.shrink();
                         }
                         return IconButton(
                           icon:
                               Icon(flashOn ? Icons.flash_on : Icons.flash_off),
                           color: Colors.white,
                           onPressed: () async {
-                            SmoothHapticFeedback.click();
+                            widget.hapticFeedback.call();
                             await _controller?.toggleFlash();
                             setState(() {});
                           },
