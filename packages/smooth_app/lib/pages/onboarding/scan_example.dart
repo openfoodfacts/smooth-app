@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Example explanation on how to scan a product.
 class ScanExample extends StatelessWidget {
@@ -45,6 +46,7 @@ class ScanExample extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .displayLarge!
+                          .wellSpaced
                           .apply(color: const Color.fromARGB(255, 51, 51, 51)),
                     ),
                   ),

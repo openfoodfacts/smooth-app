@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -80,6 +81,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         foregroundColor: WHITE_COLOR,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         elevation: 0,
         title: ValueListenableBuilder<int>(
           valueListenable: _currentImageDataIndex,
