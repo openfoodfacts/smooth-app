@@ -7,6 +7,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
@@ -67,9 +68,15 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
     switch (scannerType) {
       case SmoothBarcodeScannerType.mlkit:
-        return SmoothBarcodeScannerMLKit(_onNewBarcodeDetected);
+        return SmoothBarcodeScannerMLKit(
+          _onNewBarcodeDetected,
+          onCameraFlashError: _onCameraFlashError,
+        );
       case SmoothBarcodeScannerType.zxing:
-        return SmoothBarcodeScannerZXing(_onNewBarcodeDetected);
+        return SmoothBarcodeScannerZXing(
+          _onNewBarcodeDetected,
+          onCameraFlashError: _onCameraFlashError,
+        );
       case SmoothBarcodeScannerType.mockup:
         return const SmoothBarcodeScannerMocked();
       case SmoothBarcodeScannerType.awesome:
@@ -94,6 +101,18 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
     _userPreferences.setFirstScanAchieved();
     return true;
+  }
+
+  void _onCameraFlashError(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    showDialog<void>(
+      context: context,
+      builder: (_) => SmoothAlertDialog(
+        title: appLocalizations.camera_flash_error_dialog_title,
+        body: Text(appLocalizations.camera_flash_error_dialog_message),
+      ),
+    );
   }
 
   /// Only initialize the "beep" player when needed
