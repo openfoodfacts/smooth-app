@@ -8,7 +8,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-/// Empty implementation for an [AppStore]
+/// Scanner implementation using ZXing
 class ScannerZXing extends Scanner {
   const ScannerZXing();
 
@@ -24,14 +24,12 @@ class ScannerZXing extends Scanner {
             {int? eventValue, String? barcode})
         trackCustomEvent,
     required bool hasMoreThanOneCamera,
-    required Widget scanHeader,
   }) {
     return _SmoothBarcodeScannerZXing(
       onScan: onScan,
       hapticFeedback: hapticFeedback,
       onCameraFlashError: onCameraFlashError,
       hasMoreThanOneCamera: hasMoreThanOneCamera,
-      scanHeader: scanHeader,
     );
   }
 }
@@ -43,14 +41,12 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
     required this.hapticFeedback,
     required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
-    required this.scanHeader,
   });
 
   final Future<bool> Function(String) onScan;
   final Future<void> Function() hapticFeedback;
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
-  final Widget scanHeader;
 
   @override
   State<StatefulWidget> createState() => _SmoothBarcodeScannerZXingState();
@@ -128,10 +124,6 @@ class _SmoothBarcodeScannerZXingState
               ),
             ),
             Align(
-              alignment: Alignment.topCenter,
-              child: widget.scanHeader,
-            ),
-            Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.all(_cornerPadding),
@@ -156,7 +148,7 @@ class _SmoothBarcodeScannerZXingState
                       builder: (_, final AsyncSnapshot<bool?> snapshot) {
                         final bool? flashOn = snapshot.data;
                         if (flashOn == null) {
-                          return const SizedBox.shrink();
+                          return EMPTY_WIDGET;
                         }
                         return IconButton(
                           icon:

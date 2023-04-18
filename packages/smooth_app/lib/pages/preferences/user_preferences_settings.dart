@@ -587,7 +587,7 @@ class _CameraSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!CameraHelper.hasACamera) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -629,7 +629,7 @@ class _ProductsSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!CameraHelper.hasACamera) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -662,7 +662,7 @@ class _MiscellaneousSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!CameraHelper.hasACamera) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);

@@ -5,7 +5,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-/// Empty implementation for an [AppStore]
+/// Scanner implementation using ML Kit
 class ScannerMLKit extends Scanner {
   const ScannerMLKit();
 
@@ -138,7 +138,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                 MobileScannerException error,
                 Widget? child,
               ) =>
-                  const SizedBox.shrink(),
+                  EMPTY_WIDGET,
               onDetect: (final BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;

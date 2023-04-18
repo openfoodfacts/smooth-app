@@ -63,13 +63,20 @@ class CameraScannerPageState extends State<CameraScannerPage>
       );
     }
 
-    return barcodeScanner.getScanner(
-      onScan: _onNewBarcodeDetected,
-      hapticFeedback: () => SmoothHapticFeedback.click(),
-      onCameraFlashError: _onCameraFlashError,
-      trackCustomEvent: AnalyticsHelper.trackCustomEvent,
-      hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
-      scanHeader: const ScanHeader(),
+    return Stack(
+      children: <Widget>[
+        barcodeScanner.getScanner(
+          onScan: _onNewBarcodeDetected,
+          hapticFeedback: () => SmoothHapticFeedback.click(),
+          onCameraFlashError: _onCameraFlashError,
+          trackCustomEvent: AnalyticsHelper.trackCustomEvent,
+          hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
+        ),
+        const Align(
+          alignment: Alignment.topCenter,
+          child: ScanHeader(),
+        ),
+      ],
     );
   }
 

@@ -18,7 +18,6 @@ class MockedScanner extends Scanner {
             {int? eventValue, String? barcode})
         trackCustomEvent,
     required bool hasMoreThanOneCamera,
-    required Widget scanHeader,
   }) =>
       Container();
 }

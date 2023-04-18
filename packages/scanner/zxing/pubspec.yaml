@@ -10,11 +10,10 @@ dependencies:
   flutter:
     sdk: flutter
 
+  visibility_detector: 0.4.0+2
   scanner_shared:
     path: ../shared
-
   qr_code_scanner: 1.0.1
-  visibility_detector: ^0.4.0+2
 
 dev_dependencies:
   flutter_test:
