@@ -485,7 +485,7 @@ class _CompareProductsButton extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     if (selectedBarcodes.length < 2) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     return FloatingActionButton.extended(

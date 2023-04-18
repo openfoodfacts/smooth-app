@@ -1,14 +1,15 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/ubuntu
 {
-    "image": "docker.io/cirrusci/flutter:beta",
+    "image": "docker.io/cirrusci/flutter:stable",
 	"forwardPorts": [
 		3000
 	],
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"Dart-Code.flutter"
+				"Dart-Code.flutter",
+				"dart-code.dart-code"
 			]
 		}
 	}

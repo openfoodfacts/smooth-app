@@ -8,15 +8,12 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/main.dart';
-//import 'package:smooth_app/pages/scan/smooth_barcode_scanner_awesome.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mlkit.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mockup.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_zxing.dart';
+import 'package:smooth_app/pages/scan/scan_header.dart';
 
 /// A page showing the camera feed and decoding barcodes.
 class CameraScannerPage extends StatefulWidget {
@@ -53,10 +50,10 @@ class CameraScannerPageState extends State<CameraScannerPage>
   }
 
   @override
-  String get traceTitle => '${scannerType}_page';
+  String get traceTitle => '${barcodeScanner.getType()}_page';
 
   @override
-  String get traceName => 'Opened ${scannerType}_page';
+  String get traceName => 'Opened ${barcodeScanner.getType()}_page';
 
   @override
   Widget build(BuildContext context) {
@@ -66,23 +63,21 @@ class CameraScannerPageState extends State<CameraScannerPage>
       );
     }
 
-    switch (scannerType) {
-      case SmoothBarcodeScannerType.mlkit:
-        return SmoothBarcodeScannerMLKit(
-          _onNewBarcodeDetected,
+    return Stack(
+      children: <Widget>[
+        barcodeScanner.getScanner(
+          onScan: _onNewBarcodeDetected,
+          hapticFeedback: () => SmoothHapticFeedback.click(),
           onCameraFlashError: _onCameraFlashError,
-        );
-      case SmoothBarcodeScannerType.zxing:
-        return SmoothBarcodeScannerZXing(
-          _onNewBarcodeDetected,
-          onCameraFlashError: _onCameraFlashError,
-        );
-      case SmoothBarcodeScannerType.mockup:
-        return const SmoothBarcodeScannerMocked();
-      case SmoothBarcodeScannerType.awesome:
-        return const SmoothBarcodeScannerMocked();
-//        return SmoothBarcodeScannerAwesome(_onNewBarcodeDetected);
-    }
+          trackCustomEvent: AnalyticsHelper.trackCustomEvent,
+          hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
+        ),
+        const Align(
+          alignment: Alignment.topCenter,
+          child: ScanHeader(),
+        ),
+      ],
+    );
   }
 
   Future<bool> _onNewBarcodeDetected(final String barcode) async {
