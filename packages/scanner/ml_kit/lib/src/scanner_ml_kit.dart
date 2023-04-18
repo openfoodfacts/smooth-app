@@ -21,7 +21,6 @@ class ScannerMLKit extends Scanner {
             {int? eventValue, String? barcode})
         trackCustomEvent,
     required bool hasMoreThanOneCamera,
-    required Widget scanHeader,
   }) {
     return _SmoothBarcodeScannerMLKit(
       onScan: onScan,
@@ -29,7 +28,6 @@ class ScannerMLKit extends Scanner {
       trackCustomEvent: trackCustomEvent,
       onCameraFlashError: onCameraFlashError,
       hasMoreThanOneCamera: hasMoreThanOneCamera,
-      scanHeader: scanHeader,
     );
   }
 }
@@ -42,7 +40,6 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
     required this.trackCustomEvent,
     required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
-    required this.scanHeader,
   });
 
   final Future<bool> Function(String) onScan;
@@ -52,7 +49,6 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
       {int? eventValue, String? barcode}) trackCustomEvent;
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
-  final Widget scanHeader;
 
   @override
   State<StatefulWidget> createState() => _SmoothBarcodeScannerMLKitState();
@@ -153,10 +149,6 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                 padding: EdgeInsets.all(_cornerPadding),
                 child: SmoothBarcodeScannerVisor(),
               ),
-            ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: widget.scanHeader,
             ),
             Align(
               alignment: Alignment.bottomCenter,
