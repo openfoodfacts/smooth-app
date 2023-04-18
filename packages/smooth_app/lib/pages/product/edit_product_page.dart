@@ -85,7 +85,7 @@ class _EditProductPageState extends State<EditProductPage> {
             if (_barcode.isNotEmpty)
               AnimatedContainer(
                 duration: const Duration(milliseconds: 250),
-                height: _barcodeVisibleInAppbar ? 13.0 : 0.0,
+                height: _barcodeVisibleInAppbar ? 14.0 : 0.0,
                 child: Text(
                   _barcode,
                   style: theme.textTheme.titleMedium?.copyWith(
