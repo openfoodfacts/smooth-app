@@ -51,6 +51,13 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__accessibilityEmoji';
   static const String userPreferencesFlagHungerGames = '__hungerGames';
 
+  /// Scanner: Percentage of the screen that hosts the carousel (bottom).
+  static const String userPreferencesCarouselPctHeight = '__carouselPctHeight';
+
+  /// Scanner: Percentage of screen that hosts the viewfinder (center).
+  static const String userPreferencesViewfinderPctHeight =
+      '__viewfinderPctHeight';
+
   final TextEditingController _textFieldController = TextEditingController();
 
   static const LocalizationsDelegate<MaterialLocalizations> delegate =
@@ -128,6 +135,94 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               DropdownMenuItem<bool>(
                 value: false,
                 child: Text('TEST'),
+              ),
+            ],
+          ),
+        ),
+        ListTile(
+          title: const Text(
+            'Carousel Height Percentage',
+          ),
+          trailing: DropdownButton<int>(
+            value: userPreferences.carouselPctHeight,
+            elevation: 16,
+            onChanged: (int? newValue) async {
+              if (newValue == null) {
+                return;
+              }
+              await userPreferences.setCarouselPctHeight(newValue);
+              setState(() {});
+            },
+            items: const <DropdownMenuItem<int>>[
+              DropdownMenuItem<int>(
+                value: 55,
+                child: Text('55 (default)'),
+              ),
+              DropdownMenuItem<int>(
+                value: 50,
+                child: Text('50'),
+              ),
+              DropdownMenuItem<int>(
+                value: 45,
+                child: Text('45'),
+              ),
+              DropdownMenuItem<int>(
+                value: 40,
+                child: Text('40'),
+              ),
+              DropdownMenuItem<int>(
+                value: 35,
+                child: Text('35'),
+              ),
+              DropdownMenuItem<int>(
+                value: 30,
+                child: Text('30'),
+              ),
+              DropdownMenuItem<int>(
+                value: 25,
+                child: Text('25'),
+              ),
+            ],
+          ),
+        ),
+        ListTile(
+          title: const Text(
+            'Viewfinder Height Percentage',
+          ),
+          trailing: DropdownButton<int>(
+            value: userPreferences.viewfinderPctHeight,
+            elevation: 16,
+            onChanged: (int? newValue) async {
+              if (newValue == null) {
+                return;
+              }
+              await userPreferences.setViewfinderPctHeight(newValue);
+              setState(() {});
+            },
+            items: const <DropdownMenuItem<int>>[
+              DropdownMenuItem<int>(
+                value: 95,
+                child: Text('95'),
+              ),
+              DropdownMenuItem<int>(
+                value: 80,
+                child: Text('80'),
+              ),
+              DropdownMenuItem<int>(
+                value: 65,
+                child: Text('65'),
+              ),
+              DropdownMenuItem<int>(
+                value: 50,
+                child: Text('50'),
+              ),
+              DropdownMenuItem<int>(
+                value: 35,
+                child: Text('35'),
+              ),
+              DropdownMenuItem<int>(
+                value: 20,
+                child: Text('20'),
               ),
             ],
           ),

@@ -117,12 +117,6 @@ class _SmoothBarcodeScannerZXingState
               onQRViewCreated: _onQRViewCreated,
               formatsAllowed: _barcodeFormats,
             ),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.all(_cornerPadding),
-                child: SmoothBarcodeScannerVisor(),
-              ),
-            ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(

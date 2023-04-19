@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -21,9 +22,6 @@ class ScanPage extends StatefulWidget {
 
 class _ScanPageState extends State<ScanPage> {
   ContinuousScanModel? _model;
-
-  /// Percentage of the bottom part of the screen that hosts the carousel.
-  static const int _carouselHeightPct = 55;
 
   @override
   void didChangeDependencies() {
@@ -45,14 +43,14 @@ class _ScanPageState extends State<ScanPage> {
     if (_model == null) {
       return const Center(child: CircularProgressIndicator.adaptive());
     }
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     return SmoothScaffold(
       brightness: Brightness.light,
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: <Widget>[
             Expanded(
-              flex: 100 - _carouselHeightPct,
               child: Consumer<PermissionListener>(
                 builder: (
                   BuildContext context,
@@ -71,11 +69,22 @@ class _ScanPageState extends State<ScanPage> {
                 },
               ),
             ),
-            const Expanded(
-              flex: _carouselHeightPct,
-              child: Padding(
-                padding: EdgeInsetsDirectional.only(bottom: 10),
-                child: SmoothProductCarousel(containSearchCard: true),
+            LayoutBuilder(
+              builder: (
+                final BuildContext context,
+                final BoxConstraints constraints,
+              ) =>
+                  Align(
+                alignment: AlignmentDirectional.bottomCenter,
+                child: SizedBox(
+                  height: constraints.maxHeight *
+                      userPreferences.carouselPctHeight /
+                      100,
+                  child: const Padding(
+                    padding: EdgeInsetsDirectional.only(bottom: 10),
+                    child: SmoothProductCarousel(containSearchCard: true),
+                  ),
+                ),
               ),
             ),
           ],

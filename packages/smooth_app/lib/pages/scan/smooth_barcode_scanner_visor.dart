@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
-
-// TODO(m123): Remove this file and place it into packages/scanner/shared/src
 
 class SmoothBarcodeScannerVisor extends StatelessWidget {
-  const SmoothBarcodeScannerVisor({super.key});
+  const SmoothBarcodeScannerVisor(this.height);
+
+  final double height;
+
+  static const double cornerPadding = 26;
 
   @override
-  Widget build(BuildContext context) => SizedBox.expand(
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (final BuildContext context, final BoxConstraints constraints) =>
+          SizedBox.expand(
         child: CustomPaint(
-          painter: _ScanVisorPainter(),
+          painter: _ScanVisorPainter(height),
           child: Center(
             child: SvgPicture.asset(
               'assets/icons/visor_icon.svg',
               width: 35.0,
               height: 32.0,
-              package: AppHelper.APP_PACKAGE,
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }
 
 class _ScanVisorPainter extends CustomPainter {
-  _ScanVisorPainter();
+  _ScanVisorPainter(this.height);
+
+  final double height;
 
   static const double strokeWidth = 3.0;
   static const double _fullCornerSize = 31.0;
@@ -38,7 +45,11 @@ class _ScanVisorPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
+    final Rect rect = Rect.fromCenter(
+      center: Offset(size.width / 2, size.height / 2),
+      width: size.width,
+      height: height,
+    );
     canvas.drawPath(getPath(rect, false), _paint);
   }
 
@@ -56,9 +67,10 @@ class _ScanVisorPainter extends CustomPainter {
       bottomPosition = rect.bottom;
     }
 
-    final Path path = Path()
-      // Top left
-      ..moveTo(rect.left, rect.top + _fullCornerSize)
+    final Path path = Path()..moveTo(rect.left, rect.top + _fullCornerSize);
+
+    // Top left
+    path
       ..lineTo(rect.left, rect.top + _halfCornerSize)
       ..arcToPoint(
         Offset(rect.left + _halfCornerSize, rect.top),
@@ -66,27 +78,27 @@ class _ScanVisorPainter extends CustomPainter {
       )
       ..lineTo(rect.left + _fullCornerSize, rect.top);
 
-    // Top right
-    if (includeLineBetweenCorners) {
-      path.lineTo(rect.right - _fullCornerSize, rect.top);
-    } else {
-      path.moveTo(rect.right - _fullCornerSize, rect.top);
+    void moveToOrLineTo(final double x, final double y) {
+      if (includeLineBetweenCorners) {
+        path.lineTo(x, y);
+      } else {
+        path.moveTo(x, y);
+      }
     }
+
+    // Top right
+    moveToOrLineTo(rect.right - _fullCornerSize, rect.top);
 
     path
       ..lineTo(rect.right - _halfCornerSize, rect.top)
       ..arcToPoint(
-        Offset(rect.right, _halfCornerSize),
+        Offset(rect.right, rect.top + _halfCornerSize),
         radius: _borderRadius,
       )
       ..lineTo(rect.right, rect.top + _fullCornerSize);
 
     // Bottom right
-    if (includeLineBetweenCorners) {
-      path.lineTo(rect.right, bottomPosition - _fullCornerSize);
-    } else {
-      path.moveTo(rect.right, bottomPosition - _fullCornerSize);
-    }
+    moveToOrLineTo(rect.right, bottomPosition - _fullCornerSize);
 
     path
       ..lineTo(rect.right, bottomPosition - _halfCornerSize)
@@ -97,11 +109,7 @@ class _ScanVisorPainter extends CustomPainter {
       ..lineTo(rect.right - _fullCornerSize, bottomPosition);
 
     // Bottom left
-    if (includeLineBetweenCorners) {
-      path.lineTo(rect.left + _fullCornerSize, bottomPosition);
-    } else {
-      path.moveTo(rect.left + _fullCornerSize, bottomPosition);
-    }
+    moveToOrLineTo(rect.left + _fullCornerSize, bottomPosition);
 
     path
       ..lineTo(rect.left + _halfCornerSize, bottomPosition)
@@ -111,9 +119,7 @@ class _ScanVisorPainter extends CustomPainter {
       )
       ..lineTo(rect.left, bottomPosition - _fullCornerSize);
 
-    if (includeLineBetweenCorners) {
-      path.lineTo(rect.left, rect.top + _halfCornerSize);
-    }
+    moveToOrLineTo(rect.left, rect.top + _halfCornerSize);
 
     return path;
   }

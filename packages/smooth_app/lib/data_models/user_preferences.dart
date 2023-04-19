@@ -265,6 +265,28 @@ class UserPreferences extends ChangeNotifier {
   bool get hapticFeedbackEnabled =>
       _sharedPreferences.getBool(_TAG_HAPTIC_FEEDBACK_IN_APP) ?? true;
 
+  Future<void> setViewfinderPctHeight(final int value) async {
+    await _sharedPreferences.setInt(
+        UserPreferencesDevMode.userPreferencesViewfinderPctHeight, value);
+    notifyListeners();
+  }
+
+  int get viewfinderPctHeight =>
+      _sharedPreferences
+          .getInt(UserPreferencesDevMode.userPreferencesViewfinderPctHeight) ??
+      95;
+
+  Future<void> setCarouselPctHeight(final int value) async {
+    await _sharedPreferences.setInt(
+        UserPreferencesDevMode.userPreferencesCarouselPctHeight, value);
+    notifyListeners();
+  }
+
+  int get carouselPctHeight =>
+      _sharedPreferences
+          .getInt(UserPreferencesDevMode.userPreferencesCarouselPctHeight) ??
+      55;
+
   Future<void> setDevMode(final int value) async {
     await _sharedPreferences.setInt(_TAG_DEV_MODE, value);
     notifyListeners();

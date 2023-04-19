@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
+import 'package:smooth_app/pages/scan/smooth_barcode_scanner_visor.dart';
 
 /// A page showing the camera feed and decoding barcodes.
 class CameraScannerPage extends StatefulWidget {
@@ -71,6 +72,23 @@ class CameraScannerPageState extends State<CameraScannerPage>
           onCameraFlashError: _onCameraFlashError,
           trackCustomEvent: AnalyticsHelper.trackCustomEvent,
           hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
+        ),
+        LayoutBuilder(
+          builder: (
+            final BuildContext context,
+            final BoxConstraints constraints,
+          ) =>
+              Center(
+            child: Padding(
+              padding:
+                  const EdgeInsets.all(SmoothBarcodeScannerVisor.cornerPadding),
+              child: SmoothBarcodeScannerVisor(
+                _userPreferences.viewfinderPctHeight *
+                    constraints.maxHeight /
+                    100,
+              ),
+            ),
+          ),
         ),
         const Align(
           alignment: Alignment.topCenter,
