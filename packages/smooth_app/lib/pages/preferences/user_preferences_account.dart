@@ -426,6 +426,9 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         child: UserPreferencesListTile(
           title: Text(title),
           onTap: onTap,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           leading: UserPreferencesListTile.getTintedIcon(leading, context),
           trailing: (type != null)
               ? FutureBuilder<int?>(
