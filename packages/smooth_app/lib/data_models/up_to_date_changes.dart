@@ -54,6 +54,9 @@ class UpToDateChanges {
     if (change.productName != null) {
       initial.productName = change.productName;
     }
+    if (change.productNameInLanguages != null) {
+      initial.productNameInLanguages = change.productNameInLanguages;
+    }
     if (change.quantity != null) {
       initial.quantity = change.quantity;
     }
