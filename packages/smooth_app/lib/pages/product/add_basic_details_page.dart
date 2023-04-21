@@ -149,7 +149,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     else
                       Card(
                         child: Column(
-                          children: [
+                          children: <Widget>[
                             LanguageSelector(
                               setLanguage: (
                                 final OpenFoodFactsLanguage? newLanguage,
