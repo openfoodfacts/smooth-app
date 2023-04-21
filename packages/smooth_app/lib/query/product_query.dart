@@ -13,6 +13,7 @@ abstract class ProductQuery {
 
   static OpenFoodFactsCountry? _country;
 
+  // TODO(monsieurtanuki): make it non-nullable
   /// Returns the global language for API queries.
   static OpenFoodFactsLanguage? getLanguage() {
     final List<OpenFoodFactsLanguage> languages =

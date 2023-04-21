@@ -272,12 +272,15 @@ class _ApplicationSettings extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           subtitle: LanguageSelector(
-            setLanguage: (final OpenFoodFactsLanguage language) =>
+            setLanguage: (final OpenFoodFactsLanguage? language) async {
+              if (language != null) {
                 ProductQuery.setLanguage(
-              context,
-              userPreferences,
-              languageCode: language.code,
-            ),
+                  context,
+                  userPreferences,
+                  languageCode: language.code,
+                );
+              }
+            },
           ),
           minVerticalPadding: MEDIUM_SPACE,
         ),

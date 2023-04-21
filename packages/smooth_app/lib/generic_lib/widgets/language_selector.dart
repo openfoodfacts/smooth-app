@@ -10,9 +10,14 @@ import 'package:smooth_app/query/product_query.dart';
 class LanguageSelector extends StatelessWidget {
   const LanguageSelector({
     required this.setLanguage,
+    this.selectedLanguages,
   });
 
-  final Function(OpenFoodFactsLanguage) setLanguage;
+  /// What to do when the language is selected.
+  final Future<void> Function(OpenFoodFactsLanguage?) setLanguage;
+
+  /// Languages that are already selected (and will be displayed differently).
+  final List<OpenFoodFactsLanguage>? selectedLanguages;
 
   static const Languages _languages = Languages();
 
@@ -30,13 +35,11 @@ class LanguageSelector extends StatelessWidget {
     );
     return InkWell(
       onTap: () async {
-        final OpenFoodFactsLanguage? language =
-            await openLanguageSelector(context);
-        if (context.mounted) {
-          if (language != null) {
-            setLanguage(language);
-          }
-        }
+        final OpenFoodFactsLanguage? language = await openLanguageSelector(
+          context,
+          selectedLanguages: selectedLanguages,
+        );
+        await setLanguage(language);
       },
       borderRadius: ANGULAR_BORDER_RADIUS,
       child: ListTile(
@@ -52,19 +55,40 @@ class LanguageSelector extends StatelessWidget {
     );
   }
 
-  /// Returns the selected language.
+  /// Returns the language selected by the user.
+  ///
+  /// [selectedLanguages] have a specific "more important" display.
   static Future<OpenFoodFactsLanguage?> openLanguageSelector(
-    final BuildContext context,
-  ) async {
+    final BuildContext context, {
+    final List<OpenFoodFactsLanguage>? selectedLanguages,
+  }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController languageSelectorController =
         TextEditingController();
     final List<OpenFoodFactsLanguage> leftovers =
         _languages.getSupportedLanguagesNameInEnglish();
-    leftovers.sort((OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) =>
-        _languages
+    leftovers.sort(
+      (OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
+        // Selected languages first.
+        final bool selectedA =
+            selectedLanguages != null && selectedLanguages.contains(a);
+        final bool selectedB =
+            selectedLanguages != null && selectedLanguages.contains(b);
+        if (selectedA) {
+          if (!selectedB) {
+            return -1;
+          }
+        } else {
+          if (selectedB) {
+            return 1;
+          }
+        }
+        // Sorted in English
+        return _languages
             .getNameInEnglish(a)
-            .compareTo(_languages.getNameInEnglish(b)));
+            .compareTo(_languages.getNameInEnglish(b));
+      },
+    );
     List<OpenFoodFactsLanguage> filteredList = leftovers;
     return showDialog<OpenFoodFactsLanguage>(
       context: context,
@@ -112,11 +136,18 @@ class LanguageSelector extends StatelessWidget {
                           _languages.getNameInLanguage(language);
                       final String nameInEnglish =
                           _languages.getNameInEnglish(language);
+                      final bool selected = selectedLanguages != null &&
+                          selectedLanguages.contains(language);
                       return ListTile(
+                        dense: true,
+                        trailing: selected ? const Icon(Icons.check) : null,
                         title: Text(
                           '$nameInLanguage ($nameInEnglish)',
                           softWrap: false,
                           overflow: TextOverflow.fade,
+                          style: selected
+                              ? const TextStyle(fontWeight: FontWeight.bold)
+                              : null,
                         ),
                         onTap: () => Navigator.of(context).pop(language),
                       );
