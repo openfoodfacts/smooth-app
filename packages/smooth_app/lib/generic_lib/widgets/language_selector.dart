@@ -11,28 +11,31 @@ class LanguageSelector extends StatelessWidget {
   const LanguageSelector({
     required this.setLanguage,
     this.selectedLanguages,
+    this.displayedLanguage,
   });
 
   /// What to do when the language is selected.
   final Future<void> Function(OpenFoodFactsLanguage?) setLanguage;
 
   /// Languages that are already selected (and will be displayed differently).
-  final List<OpenFoodFactsLanguage>? selectedLanguages;
+  final Iterable<OpenFoodFactsLanguage>? selectedLanguages;
+
+  /// Initial language displayed, before even calling the dialog.
+  final OpenFoodFactsLanguage? displayedLanguage;
 
   static const Languages _languages = Languages();
 
   @override
   Widget build(BuildContext context) {
-    // The languages that are supported by flutter widget
-    final String currentLanguageCode = ProductQuery.getLanguage().code;
-    final OpenFoodFactsLanguage language =
-        LanguageHelper.fromJson(currentLanguageCode);
-    final String nameInEnglish = _languages.getNameInEnglish(
-      language,
-    );
-    final String nameInLanguage = _languages.getNameInLanguage(
-      language,
-    );
+    final OpenFoodFactsLanguage language;
+    if (displayedLanguage != null) {
+      language = displayedLanguage!;
+    } else {
+      final String currentLanguageCode = ProductQuery.getLanguage().code;
+      language = LanguageHelper.fromJson(currentLanguageCode);
+    }
+    final String nameInEnglish = _languages.getNameInEnglish(language);
+    final String nameInLanguage = _languages.getNameInLanguage(language);
     return InkWell(
       onTap: () async {
         final OpenFoodFactsLanguage? language = await openLanguageSelector(
@@ -60,7 +63,7 @@ class LanguageSelector extends StatelessWidget {
   /// [selectedLanguages] have a specific "more important" display.
   static Future<OpenFoodFactsLanguage?> openLanguageSelector(
     final BuildContext context, {
-    final List<OpenFoodFactsLanguage>? selectedLanguages,
+    final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController languageSelectorController =

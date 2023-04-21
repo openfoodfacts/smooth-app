@@ -126,6 +126,7 @@ abstract class ProductQuery {
 
   static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
+        ProductField.NAME_ALL_LANGUAGES,
         ProductField.BRANDS,
         ProductField.BARCODE,
         ProductField.NUTRISCORE,

@@ -5,16 +5,24 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Input of a product's basic details, like name, quantity and brands.
+///
+/// There are 2 versions of the product name input:
+/// 1. the old one - only one name per product
+/// 2. the multilingual one
+/// Typically, the old version will be used with "old" data, that have not
+/// downloaded yet the "recent" [ProductField.NAME_ALL_LANGUAGES] field.
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(
     this.product, {
@@ -29,7 +37,7 @@ class AddBasicDetailsPage extends StatefulWidget {
 }
 
 class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
-  late final TextEditingControllerWithInitialValue _productNameController;
+  final TextEditingController _productNameController = TextEditingController();
   late final TextEditingControllerWithInitialValue _brandNameController;
   late final TextEditingControllerWithInitialValue _weightController;
 
@@ -37,16 +45,49 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final Product _product;
 
+  /// Current language; only relevant/valid if _names is not empty.
+  late OpenFoodFactsLanguage _currentLanguage;
+
+  /// Current product name translations.
+  final Map<OpenFoodFactsLanguage, String> _names =
+      <OpenFoodFactsLanguage, String>{};
+
   @override
   void initState() {
     super.initState();
     _product = widget.product;
-    _productNameController =
-        TextEditingControllerWithInitialValue(text: _product.productName ?? '');
-    _weightController =
-        TextEditingControllerWithInitialValue(text: _product.quantity ?? '');
+    _weightController = TextEditingControllerWithInitialValue(
+      text: _getCleanName(_product.quantity ?? ''),
+    );
     _brandNameController = TextEditingControllerWithInitialValue(
-        text: _formatProductBrands(_product.brands));
+      text: _formatProductBrands(_product.brands),
+    );
+    // checking if we use the multilingual version...
+    if (_product.productNameInLanguages != null) {
+      for (final OpenFoodFactsLanguage language
+          in _product.productNameInLanguages!.keys) {
+        final String name =
+            _getCleanName(_product.productNameInLanguages![language]);
+        if (name.isNotEmpty) {
+          _names[language] = name;
+        }
+      }
+      if (_names.isNotEmpty) {
+        final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
+        if (_names.containsKey(language)) {
+          // best choice
+          _currentLanguage = language;
+        } else {
+          // fallback
+          _currentLanguage = _names.keys.first;
+        }
+        _productNameController.text = _names[_currentLanguage] ?? '';
+      }
+    }
+    // Fallback: we may have old data where there are no translations.
+    if (_names.isEmpty) {
+      _productNameController.text = _product.productName ?? '';
+    }
   }
 
   @override
@@ -57,15 +98,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     super.dispose();
   }
 
-  /// Returns a [Product] with the values from the text fields.
-  Product _getMinimalistProduct() => Product()
-    ..barcode = _product.barcode
-    ..productName = _productNameController.text
-    ..quantity = _weightController.text
-    ..brands = _formatProductBrands(_brandNameController.text);
-
   String _formatProductBrands(String? text) =>
-      text == null ? '' : formatProductBrands(text);
+      _getCleanName(text == null ? '' : formatProductBrands(text));
+
+  String _getCleanName(final String? name) => (name ?? '').trim();
 
   @override
   Widget build(BuildContext context) {
@@ -104,11 +140,48 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                           ),
                     ),
                     SizedBox(height: _heightSpace),
-                    SmoothTextFormField(
-                      controller: _productNameController,
-                      type: TextFieldTypes.PLAIN_TEXT,
-                      hintText: appLocalizations.product_name,
-                    ),
+                    if (_names.isEmpty)
+                      SmoothTextFormField(
+                        controller: _productNameController,
+                        type: TextFieldTypes.PLAIN_TEXT,
+                        hintText: appLocalizations.product_name,
+                      )
+                    else
+                      Card(
+                        child: Column(
+                          children: [
+                            LanguageSelector(
+                              setLanguage: (
+                                final OpenFoodFactsLanguage? newLanguage,
+                              ) async {
+                                if (newLanguage == null) {
+                                  return;
+                                }
+                                if (_currentLanguage == newLanguage) {
+                                  return;
+                                }
+                                _saveCurrentName();
+                                setState(() {
+                                  _currentLanguage = newLanguage;
+                                  _names[_currentLanguage] ??= '';
+                                  _productNameController.text =
+                                      _names[_currentLanguage]!;
+                                });
+                              },
+                              selectedLanguages: _names.keys,
+                              displayedLanguage: _currentLanguage,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SmoothTextFormField(
+                                controller: _productNameController,
+                                type: TextFieldTypes.PLAIN_TEXT,
+                                hintText: appLocalizations.product_name,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     SizedBox(height: _heightSpace),
                     SmoothTextFormField(
                       controller: _brandNameController,
@@ -151,12 +224,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     );
   }
 
-  /// Returns `true` if any value differs with initial state.
-  bool _isEdited() =>
-      _productNameController.valueHasChanged ||
-      _brandNameController.valueHasChanged ||
-      _weightController.valueHasChanged;
-
   /// Exits the page if the [flag] is `true`.
   void _exitPage(final bool flag) {
     if (flag) {
@@ -164,12 +231,17 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     }
   }
 
+  /// Saves the current input for the current language.
+  void _saveCurrentName() =>
+      _names[_currentLanguage] = _productNameController.text;
+
   /// Returns `true` if we should really exit the page.
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    if (!_isEdited()) {
+    final Product? minimalistProduct = _getMinimalistProduct();
+    if (minimalistProduct == null) {
       return true;
     }
 
@@ -203,11 +275,72 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       true,
     );
     await BackgroundTaskDetails.addTask(
-      _getMinimalistProduct(),
+      minimalistProduct,
       widget: this,
       stamp: BackgroundTaskDetailsStamp.basicDetails,
     );
 
     return true;
+  }
+
+  /// Returns a [Product] with the values from the text fields.
+  Product? _getMinimalistProduct() {
+    Product? result;
+
+    Product getBasicProduct() => Product(barcode: _product.barcode);
+
+    if (_weightController.valueHasChanged) {
+      result ??= getBasicProduct();
+      result.quantity = _weightController.text;
+    }
+    if (_brandNameController.valueHasChanged) {
+      result ??= getBasicProduct();
+      result.brands = _formatProductBrands(_brandNameController.text);
+    }
+    if (_names.isEmpty) {
+      if (_getCleanName(_productNameController.text) !=
+          _getCleanName(_product.productName)) {
+        result ??= getBasicProduct();
+        result.productName = _productNameController.text;
+      }
+    } else {
+      _saveCurrentName();
+      final Map<OpenFoodFactsLanguage, String>? newNames =
+          _getNewNamesIfChanged();
+      if (newNames != null) {
+        result ??= getBasicProduct();
+        result.productNameInLanguages = newNames;
+      }
+    }
+    return result;
+  }
+
+  /// Returns all the new names, if any change happened.
+  Map<OpenFoodFactsLanguage, String>? _getNewNamesIfChanged() {
+    bool changed = false;
+    final Map<OpenFoodFactsLanguage, String> result =
+        <OpenFoodFactsLanguage, String>{};
+    final Map<OpenFoodFactsLanguage, String> oldNames =
+        _product.productNameInLanguages!;
+
+    void setNewName(final OpenFoodFactsLanguage language) {
+      final String newName = _getCleanName(_names[language]);
+      final String oldName = _getCleanName(oldNames[language]);
+      if (newName != oldName) {
+        changed = true;
+      }
+      // For the record: if name is empty, will remove the translation (sometimes).
+      result[language] = newName;
+    }
+
+    // setting new names, comparing them to old names for change flag.
+    _names.keys.forEach(setNewName);
+    // double-checking old names: have some old names been removed?
+    oldNames.keys.forEach(setNewName);
+
+    if (!changed) {
+      return null;
+    }
+    return result;
   }
 }
