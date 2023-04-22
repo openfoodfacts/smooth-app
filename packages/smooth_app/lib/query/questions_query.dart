@@ -5,7 +5,7 @@ class QuestionsQuery {
   Future<List<RobotoffQuestion>> getQuestions() async {
     final RobotoffQuestionResult result =
         await RobotoffAPIClient.getRandomQuestions(
-      ProductQuery.getLanguage()!,
+      ProductQuery.getLanguage(),
       OpenFoodAPIConfiguration.globalUser,
       count: 3,
     );

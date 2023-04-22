@@ -119,7 +119,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns the current language.
   @protected
-  OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage()!;
+  OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage();
 
   /// Adds all the non-already existing items from the controller.
   ///
