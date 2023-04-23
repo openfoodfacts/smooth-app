@@ -16,10 +16,15 @@ class TransientFile {
   static void putImage(
     final ImageField imageField,
     final String barcode,
+    final OpenFoodFactsLanguage language,
     final LocalDatabase localDatabase,
     final File file,
   ) {
-    _transientFiles[_getImageKey(imageField, barcode)] = file.path;
+    _transientFiles[_getImageKey(
+      imageField,
+      barcode,
+      language,
+    )] = file.path;
     localDatabase.notifyListeners();
   }
 
@@ -27,16 +32,26 @@ class TransientFile {
   static void removeImage(
     final ImageField imageField,
     final String barcode,
+    final OpenFoodFactsLanguage language,
     final LocalDatabase localDatabase,
   ) =>
-      _transientFiles.remove(_getImageKey(imageField, barcode));
+      _transientFiles.remove(_getImageKey(
+        imageField,
+        barcode,
+        language,
+      ));
 
   /// Returns the transient image for [imageField] and [barcode].
   static File? getImage(
     final ImageField imageField,
     final String barcode,
+    final OpenFoodFactsLanguage language,
   ) {
-    final String? path = _transientFiles[_getImageKey(imageField, barcode)];
+    final String? path = _transientFiles[_getImageKey(
+      imageField,
+      barcode,
+      language,
+    )];
     if (path == null) {
       return null;
     }
@@ -47,15 +62,17 @@ class TransientFile {
   static String _getImageKey(
     final ImageField imageField,
     final String barcode,
+    final OpenFoodFactsLanguage language,
   ) =>
-      '$barcode;$imageField';
+      '$barcode;$imageField;${language.code}';
 
   /// Returns a way to display the image, either locally or from the server.
   static ImageProvider? getImageProvider(
     final ProductImageData imageData,
     final String barcode,
+    final OpenFoodFactsLanguage language,
   ) {
-    final File? file = getImage(imageData.imageField, barcode);
+    final File? file = getImage(imageData.imageField, barcode, language);
     if (file != null) {
       return FileImage(file);
     }
@@ -72,8 +89,9 @@ class TransientFile {
   static bool isImageAvailable(
     final ProductImageData imageData,
     final String barcode,
+    final OpenFoodFactsLanguage language,
   ) =>
-      getImage(imageData.imageField, barcode) != null ||
+      getImage(imageData.imageField, barcode, language) != null ||
       imageData.imageUrl != null;
 
   /// Returns true if the displayed image comes from the server.
@@ -87,7 +105,8 @@ class TransientFile {
   static bool isServerImage(
     final ProductImageData imageData,
     final String barcode,
+    final OpenFoodFactsLanguage language,
   ) =>
-      getImage(imageData.imageField, barcode) == null &&
+      getImage(imageData.imageField, barcode, language) == null &&
       imageData.imageUrl != null;
 }

@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -37,9 +38,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
   late Map<ProductImageData, ImageProvider?> _selectedImages;
 
-  ImageProvider? _provideImage(ProductImageData imageData) =>
-      TransientFile.getImageProvider(imageData, _barcode);
-
   String get _barcode => _initialProduct.barcode!;
 
   @override
@@ -60,15 +58,11 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   Widget build(BuildContext context) {
     BackgroundTaskManager(_localDatabase).run(); // no await
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    final List<ProductImageData> allProductImagesData =
-        getProductMainImagesData(_product, includeOther: false);
-    _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
-      allProductImagesData,
-      allProductImagesData.map(_provideImage),
-    );
+    _selectedImages = getSelectedImages(_product, language);
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: _product.productName != null
@@ -117,7 +111,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                   _,
                   int? initialImageIndex,
                 ) =>
-                    TransientFile.isImageAvailable(data, _barcode)
+                    TransientFile.isImageAvailable(data, _barcode, language)
                         ? _openImage(
                             imageData: data,
                             initialImageIndex: initialImageIndex ?? 0,

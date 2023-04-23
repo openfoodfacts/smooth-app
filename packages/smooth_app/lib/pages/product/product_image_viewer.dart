@@ -65,12 +65,18 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    _imageData = getProductImageData(_product, widget.imageField);
+    _imageData = getProductImageData(
+      _product,
+      widget.imageField,
+      language,
+    );
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       _imageData,
       _barcode,
+      language,
     );
     return SmoothScaffold(
       extendBodyBehindAppBar: true,
@@ -184,6 +190,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     File? imageFile = TransientFile.getImage(
       _imageData.imageField,
       _barcode,
+      ProductQuery.getLanguage()!,
     );
     if (imageFile != null) {
       return _openCropPage(navigatorState, imageFile);
