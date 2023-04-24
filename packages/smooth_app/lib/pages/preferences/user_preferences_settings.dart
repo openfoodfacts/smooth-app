@@ -12,8 +12,9 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/gloabal_vars.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
-import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -94,11 +95,11 @@ class _RateUs extends StatelessWidget {
 
   String getImagePath() {
     String imagePath = '';
-    switch (appFlavour) {
-      case 'zxing-uri':
+    switch (GlobalVars.storeLabel) {
+      case StoreLabel.FDroid:
         imagePath = 'assets/app/f-droid.png';
         break;
-      case 'ml-ios':
+      case StoreLabel.AppleAppStore:
         imagePath = 'assets/app/app-store.png';
         break;
       default:
