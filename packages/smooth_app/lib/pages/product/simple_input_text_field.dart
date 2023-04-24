@@ -34,7 +34,7 @@ class SimpleInputTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final SuggestionManager manager = SuggestionManager(
       tagType!,
-      language: ProductQuery.getLanguage()!,
+      language: ProductQuery.getLanguage(),
       country: ProductQuery.getCountry(),
       categories: categories,
       shape: shapeProvider?.call(),

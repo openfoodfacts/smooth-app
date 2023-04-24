@@ -10,7 +10,7 @@ class ProductQuestionsQuery {
     final RobotoffQuestionResult result =
         await RobotoffAPIClient.getProductQuestions(
       _barcode,
-      ProductQuery.getLanguage()!,
+      ProductQuery.getLanguage(),
       count: 3,
     );
     return result.questions ?? <RobotoffQuestion>[];

@@ -13,13 +13,13 @@ abstract class ProductQuery {
 
   static OpenFoodFactsCountry? _country;
 
-  // TODO(monsieurtanuki): make it non-nullable
   /// Returns the global language for API queries.
-  static OpenFoodFactsLanguage? getLanguage() {
+  static OpenFoodFactsLanguage getLanguage() {
     final List<OpenFoodFactsLanguage> languages =
         OpenFoodAPIConfiguration.globalLanguages ?? <OpenFoodFactsLanguage>[];
     if (languages.isEmpty) {
-      return null;
+      // very very unlikely
+      return OpenFoodFactsLanguage.UNDEFINED;
     }
     return languages[0];
   }
@@ -58,7 +58,7 @@ abstract class ProductQuery {
   }
 
   /// Returns the global locale string (e.g. 'pt_BR')
-  static String getLocaleString() => '${getLanguage()!.code}'
+  static String getLocaleString() => '${getLanguage().code}'
       '_'
       '${getCountry()!.offTag.toUpperCase()}';
 
