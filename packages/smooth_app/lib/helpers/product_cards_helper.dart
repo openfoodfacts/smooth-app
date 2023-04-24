@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -173,30 +174,60 @@ Widget addPanelButton(
     );
 
 List<ProductImageData> getProductMainImagesData(
-  Product product, {
+  final Product product,
+  final OpenFoodFactsLanguage language, {
   final bool includeOther = true,
 }) =>
     <ProductImageData>[
-      getProductImageData(product, ImageField.FRONT),
-      getProductImageData(product, ImageField.INGREDIENTS),
-      getProductImageData(product, ImageField.NUTRITION),
-      getProductImageData(product, ImageField.PACKAGING),
-      if (includeOther) getProductImageData(product, ImageField.OTHER),
+      getProductImageData(product, ImageField.FRONT, language),
+      getProductImageData(product, ImageField.INGREDIENTS, language),
+      getProductImageData(product, ImageField.NUTRITION, language),
+      getProductImageData(product, ImageField.PACKAGING, language),
+      if (includeOther)
+        getProductImageData(product, ImageField.OTHER, language),
     ];
 
 ProductImageData getProductImageData(
   final Product product,
   final ImageField imageField,
+  final OpenFoodFactsLanguage language,
 ) =>
     ProductImageData(
       imageField: imageField,
-      imageUrl: getProductImageUrl(product, imageField),
+      imageUrl: getProductImageUrl(product, imageField, language),
     );
+
+Map<ProductImageData, ImageProvider?> getSelectedImages(
+  final Product product,
+  final OpenFoodFactsLanguage language,
+) {
+  final Map<ProductImageData, ImageProvider?> result =
+      <ProductImageData, ImageProvider?>{};
+  final List<ProductImageData> allProductImagesData =
+      getProductMainImagesData(product, language, includeOther: false);
+  for (final ProductImageData imageData in allProductImagesData) {
+    result[imageData] = TransientFile.getImageProvider(
+      imageData,
+      product.barcode!,
+      language,
+    );
+  }
+  return result;
+}
 
 String? getProductImageUrl(
   final Product product,
   final ImageField imageField,
+  final OpenFoodFactsLanguage language,
 ) {
+  final String? localizedUrl = getLocalizedProductImageUrl(
+    product,
+    imageField,
+    language,
+  );
+  if (localizedUrl != null) {
+    return localizedUrl;
+  }
   switch (imageField) {
     case ImageField.FRONT:
       return product.imageFrontUrl;
@@ -209,6 +240,45 @@ String? getProductImageUrl(
     case ImageField.OTHER:
       return null;
   }
+}
+
+String? getLocalizedProductImageUrl(
+  final Product product,
+  final ImageField imageField,
+  final OpenFoodFactsLanguage language,
+) {
+  if (product.images == null) {
+    return null;
+  }
+  for (final ProductImage productImage in product.images!) {
+    if (productImage.field != imageField || productImage.language != language) {
+      continue;
+    }
+    if (productImage.rev == null) {
+      return null;
+    }
+    // TODO(monsieurtanuki): make it work in TEST env too (= .net)
+    final String result = 'https://images.openfoodfacts.org/images/products/'
+        '${_getBarcodeSubPath(product.barcode!)}/'
+        '${ImageHelper.getProductImageFilename(productImage, imageSize: ImageSize.DISPLAY)}';
+    return result;
+  }
+  return null;
+}
+
+// TODO(monsieurtanuki): move to off-dart in ImageHelper
+String _getBarcodeSubPath(final String barcode) {
+  if (barcode.length < 9) {
+    return barcode;
+  }
+  final String p1 = barcode.substring(0, 3);
+  final String p2 = barcode.substring(3, 6);
+  final String p3 = barcode.substring(6, 9);
+  if (barcode.length == 9) {
+    return '$p1/$p2/$p3';
+  }
+  final String p4 = barcode.substring(9);
+  return '$p1/$p2/$p3/$p4';
 }
 
 /// Returns a compact description of the image field.

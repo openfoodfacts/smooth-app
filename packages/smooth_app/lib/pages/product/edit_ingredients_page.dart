@@ -15,6 +15,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/pages/product/ocr_widget.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -111,8 +112,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    final ProductImageData productImageData =
-        getProductImageData(_product, _helper.getImageField());
+    final ProductImageData productImageData = getProductImageData(
+      _product,
+      _helper.getImageField(),
+      ProductQuery.getLanguage(),
+    );
 
     return SmoothScaffold(
       extendBodyBehindAppBar: true,
@@ -157,6 +161,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       productImageData,
       _initialProduct.barcode!,
+      ProductQuery.getLanguage(),
     );
 
     if (imageProvider != null) {

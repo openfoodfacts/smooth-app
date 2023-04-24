@@ -153,19 +153,15 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
     switch (ImageField.fromOffTag(imageField)!) {
       case ImageField.FRONT:
         result.imageFrontUrl = '';
-        result.imageFrontSmallUrl = '';
         break;
       case ImageField.INGREDIENTS:
         result.imageIngredientsUrl = '';
-        result.imageIngredientsSmallUrl = '';
         break;
       case ImageField.NUTRITION:
         result.imageNutritionUrl = '';
-        result.imageNutritionSmallUrl = '';
         break;
       case ImageField.PACKAGING:
         result.imagePackagingUrl = '';
-        result.imagePackagingSmallUrl = '';
         break;
       case ImageField.OTHER:
       // We do nothing. Actually we're not supposed to unselect other images.

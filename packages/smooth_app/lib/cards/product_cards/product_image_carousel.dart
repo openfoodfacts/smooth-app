@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/data_cards/image_upload_card.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class ProductImageCarousel extends StatelessWidget {
   /// Carousel of product images, or of just an [alternateImageUrl].
@@ -31,7 +32,10 @@ class ProductImageCarousel extends StatelessWidget {
         ),
       ];
     } else {
-      productImagesData = getProductMainImagesData(product);
+      productImagesData = getProductMainImagesData(
+        product,
+        ProductQuery.getLanguage(),
+      );
     }
     return SizedBox(
       height: height,

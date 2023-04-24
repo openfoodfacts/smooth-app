@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/pages/product/product_image_local_button.dart';
 import 'package:smooth_app/pages/product/product_image_server_button.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Widget dedicated to OCR, with 3 actions: upload image, extract data, save.
 ///
@@ -40,6 +41,7 @@ class _OcrWidgetState extends State<OcrWidget> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     return Align(
       alignment: AlignmentDirectional.bottomStart,
       child: Column(
@@ -78,6 +80,7 @@ class _OcrWidgetState extends State<OcrWidget> {
                           firstPhoto: !TransientFile.isImageAvailable(
                             widget.productImageData,
                             widget.product.barcode!,
+                            language,
                           ),
                           barcode: widget.product.barcode!,
                           imageField: widget.helper.getImageField(),
@@ -106,6 +109,7 @@ class _OcrWidgetState extends State<OcrWidget> {
                       if (TransientFile.isServerImage(
                         widget.productImageData,
                         widget.product.barcode!,
+                        language,
                       ))
                         SmoothActionButtonsBar.single(
                           action: SmoothActionButton(
@@ -117,6 +121,7 @@ class _OcrWidgetState extends State<OcrWidget> {
                       else if (TransientFile.isImageAvailable(
                         widget.productImageData,
                         widget.product.barcode!,
+                        language,
                       ))
                         // TODO(monsieurtanuki): what if slow upload? text instead?
                         const CircularProgressIndicator.adaptive(),
