@@ -34,7 +34,7 @@ class ProductImageCarousel extends StatelessWidget {
     } else {
       productImagesData = getProductMainImagesData(
         product,
-        ProductQuery.getLanguage()!,
+        ProductQuery.getLanguage(),
       );
     }
     return SizedBox(

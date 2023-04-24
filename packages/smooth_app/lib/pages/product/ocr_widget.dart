@@ -41,7 +41,7 @@ class _OcrWidgetState extends State<OcrWidget> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     return Align(
       alignment: AlignmentDirectional.bottomStart,
       child: Column(

@@ -65,7 +65,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     _imageData = getProductImageData(
@@ -190,7 +190,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     File? imageFile = TransientFile.getImage(
       _imageData.imageField,
       _barcode,
-      ProductQuery.getLanguage()!,
+      ProductQuery.getLanguage(),
     );
     if (imageFile != null) {
       return _openCropPage(navigatorState, imageFile);

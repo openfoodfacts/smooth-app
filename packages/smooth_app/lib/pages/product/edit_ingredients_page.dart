@@ -115,7 +115,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final ProductImageData productImageData = getProductImageData(
       _product,
       _helper.getImageField(),
-      ProductQuery.getLanguage()!,
+      ProductQuery.getLanguage(),
     );
 
     return SmoothScaffold(
@@ -161,7 +161,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       productImageData,
       _initialProduct.barcode!,
-      ProductQuery.getLanguage()!,
+      ProductQuery.getLanguage(),
     );
 
     if (imageProvider != null) {

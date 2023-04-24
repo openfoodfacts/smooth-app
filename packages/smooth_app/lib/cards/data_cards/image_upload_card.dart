@@ -37,7 +37,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       widget.productImageData,
       widget.product.barcode!,
-      ProductQuery.getLanguage()!,
+      ProductQuery.getLanguage(),
     );
 
     if (imageProvider == null) {

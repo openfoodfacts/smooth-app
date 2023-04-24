@@ -67,7 +67,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    _selectedImages = getSelectedImages(_product, ProductQuery.getLanguage()!);
+    _selectedImages = getSelectedImages(_product, ProductQuery.getLanguage());
     _imageDataList = List<ProductImageData>.from(_selectedImages.keys);
     return SmoothScaffold(
       appBar: AppBar(

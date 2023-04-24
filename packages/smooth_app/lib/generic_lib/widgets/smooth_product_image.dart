@@ -22,7 +22,7 @@ class SmoothMainProductImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       getProductImageData(
         product,

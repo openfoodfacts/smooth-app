@@ -58,7 +58,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   Widget build(BuildContext context) {
     BackgroundTaskManager(_localDatabase).run(); // no await
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
