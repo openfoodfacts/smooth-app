@@ -64,4 +64,53 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/data_importer/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/app_store/shared/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/app_store/uri_store/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/data_importer_shared/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/app_store/google_play/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/app_store/apple_app_store/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
 #end
