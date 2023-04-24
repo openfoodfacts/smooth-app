@@ -20,6 +20,7 @@ documentation:
 
 dependencies:
 - packages/smooth_app/pubspec.yaml
+- packages/scanner/shared/pubspec.yaml
 
 ios:
 - packages/smooth_app/ios/**/*
