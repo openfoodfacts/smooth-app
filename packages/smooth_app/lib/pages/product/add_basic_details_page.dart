@@ -73,7 +73,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         }
       }
       if (_names.isNotEmpty) {
-        final OpenFoodFactsLanguage language = ProductQuery.getLanguage()!;
+        final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
         if (_names.containsKey(language)) {
           // best choice
           _currentLanguage = language;

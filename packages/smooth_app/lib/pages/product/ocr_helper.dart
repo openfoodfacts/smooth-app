@@ -54,7 +54,7 @@ abstract class OcrHelper {
   bool hasAddExtraPhotoButton();
 
   @protected
-  OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage()!;
+  OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage();
 
   @protected
   User getUser() => ProductQuery.getUser();

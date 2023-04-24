@@ -262,7 +262,7 @@ class _SummaryCardState extends State<SummaryCard> {
     String? categoryTag;
     String? categoryLabel;
     final List<String>? labels =
-        _product.categoriesTagsInLanguages?[ProductQuery.getLanguage()!];
+        _product.categoriesTagsInLanguages?[ProductQuery.getLanguage()];
     final List<String>? tags = _product.categoriesTags;
     if (tags != null &&
         labels != null &&
