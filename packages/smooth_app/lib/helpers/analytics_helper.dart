@@ -5,7 +5,8 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:smooth_app/main.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 
 /// Category for Matomo Events
 enum AnalyticsCategory {
@@ -103,7 +104,8 @@ class AnalyticsHelper {
         // To set a uniform sample rate
         options.tracesSampleRate = 1.0;
         options.beforeSend = _beforeSend;
-        options.environment = appFlavour;
+        options.environment =
+            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
       },
       appRunner: appRunner,
     );
@@ -114,7 +116,13 @@ class AnalyticsHelper {
 
   static Future<void> setAnalyticsReports(final bool allow) async {
     _allow = allow;
-    await MatomoTracker.instance.setOptOut(optout: false);
+
+    // F-Droid special case
+    if (GlobalVars.storeLabel == StoreLabel.FDroid && !allow) {
+      await MatomoTracker.instance.setOptOut(optout: true);
+    } else {
+      await MatomoTracker.instance.setOptOut(optout: false);
+    }
   }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
