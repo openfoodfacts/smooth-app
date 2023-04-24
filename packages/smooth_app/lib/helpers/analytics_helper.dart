@@ -114,7 +114,14 @@ class AnalyticsHelper {
 
   static Future<void> setAnalyticsReports(final bool allow) async {
     _allow = allow;
-    await MatomoTracker.instance.setOptOut(optout: false);
+
+    // F-Droid special case
+    if(appFlavour == 'zxing-uri' && !allow){
+      await MatomoTracker.instance.setOptOut(optout: true);
+    } else {
+      await MatomoTracker.instance.setOptOut(optout: false);
+    }
+    
   }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
