@@ -6,9 +6,9 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
-import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -129,7 +129,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                           ),
                         ),
                         Text(
-                          '${packageInfo.version}+${packageInfo.buildNumber}-$appFlavour',
+                          '${packageInfo.version}+${packageInfo.buildNumber}-${GlobalVars.scannerLabel.name}-${GlobalVars.storeLabel.name}',
                           style: themeData.textTheme.titleSmall,
                         )
                       ],
