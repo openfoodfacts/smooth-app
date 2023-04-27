@@ -32,16 +32,18 @@ class SimpleInputTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SuggestionManager manager = SuggestionManager(
-      tagType!,
-      language: ProductQuery.getLanguage(),
-      country: ProductQuery.getCountry(),
-      categories: categories,
-      shape: shapeProvider?.call(),
-      user: ProductQuery.getUser(),
-      // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
-      limit: 15,
-    );
+    final SuggestionManager? manager = tagType == null
+        ? null
+        : SuggestionManager(
+            tagType!,
+            language: ProductQuery.getLanguage(),
+            country: ProductQuery.getCountry(),
+            categories: categories,
+            shape: shapeProvider?.call(),
+            user: ProductQuery.getUser(),
+            // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
+            limit: 15,
+          );
 
     return Padding(
       padding: const EdgeInsets.only(left: LARGE_SPACE),
@@ -65,7 +67,7 @@ class SimpleInputTextField extends StatelessWidget {
                   return <String>[];
                 }
 
-                return manager.getSuggestions(input);
+                return manager!.getSuggestions(input);
               },
               fieldViewBuilder: (BuildContext context,
                       TextEditingController textEditingController,
