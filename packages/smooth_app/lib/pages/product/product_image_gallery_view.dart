@@ -5,11 +5,11 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/transient_file.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_images_sliver_list.dart';
+import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -36,7 +36,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   late final Product _initialProduct;
   late Product _product;
 
-  late Map<ProductImageData, ImageProvider?> _selectedImages;
+  late List<MapEntry<ProductImageData, ImageProvider?>> _selectedImages;
+  late OpenFoodFactsLanguage _currentLanguage;
 
   String get _barcode => _initialProduct.barcode!;
 
@@ -46,6 +47,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     _initialProduct = widget.product;
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(_barcode);
+    _currentLanguage = ProductQuery.getLanguage();
   }
 
   @override
@@ -58,20 +60,20 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   Widget build(BuildContext context) {
     BackgroundTaskManager(_localDatabase).run(); // no await
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    _selectedImages = getSelectedImages(_product, language);
+    _selectedImages = getSelectedImages(_product, _currentLanguage);
     return SmoothScaffold(
       appBar: SmoothAppBar(
-        title: _product.productName != null
-            ? Text(
+        title: Text(appLocalizations.edit_product_form_item_photos_title),
+        subTitle: _product.productName == null
+            ? null
+            : Text(
                 _product.productName!,
-                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-              )
-            : null,
+                maxLines: 1,
+              ),
         leading: SmoothBackButton(
           onPressed: () => Navigator.maybePop(context),
         ),
@@ -94,47 +96,44 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           barcode: _barcode,
           widget: this,
         ),
-        child: Scrollbar(
-          child: CustomScrollView(
-            slivers: <Widget>[
-              _buildTitle(
-                // TODO(monsieurtanuki): put the title in the app bar instead, as in the other pages
-                appLocalizations.edit_product_form_item_photos_title,
-                theme: theme,
+        child: ListView.builder(
+          // the language header and then the images
+          itemCount: 1 + _selectedImages.length,
+          itemBuilder: (final BuildContext context, int index) {
+            if (index == 0) {
+              return LanguageSelector(
+                setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
+                  if (newLanguage == null || newLanguage == _currentLanguage) {
+                    return;
+                  }
+                  setState(() => _currentLanguage = newLanguage);
+                },
+                displayedLanguage: _currentLanguage,
+                selectedLanguages: getProductImageLanguages(
+                  _product,
+                  ImageFieldSmoothieExtension.orderedMain,
+                ),
+              );
+            }
+            index--;
+            final MapEntry<ProductImageData, ImageProvider?> item =
+                _selectedImages[index];
+            return SmoothListTileCard.image(
+              imageProvider: item.value,
+              title: Text(
+                item.key.imageField.getProductImageTitle(appLocalizations),
+                style: theme.textTheme.headlineMedium,
               ),
-              // TODO(monsieurtanuki): that's ridiculous, we only have 4 items to display, use a ListView instead, easier to maintain
-              // TODO(monsieurtanuki): we should even display 4 pics in the whole page instead of just tiny pics
-              SmoothImagesSliverList(
-                imagesData: _selectedImages,
-                onTap: (
-                  ProductImageData data,
-                  _,
-                  int? initialImageIndex,
-                ) =>
-                    TransientFile.isImageAvailable(data, _barcode, language)
-                        ? _openImage(
-                            imageData: data,
-                            initialImageIndex: initialImageIndex ?? 0,
-                          )
-                        : _newImage(data),
+              onTap: () => _openImage(
+                imageData: item.key,
+                initialImageIndex: index,
               ),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );
   }
-
-  SliverPadding _buildTitle(String title, {required ThemeData theme}) =>
-      SliverPadding(
-        padding: const EdgeInsets.all(LARGE_SPACE),
-        sliver: SliverToBoxAdapter(
-          child: Text(
-            title,
-            style: theme.textTheme.displayMedium,
-          ),
-        ),
-      );
 
   Future<void> _openImage({
     required ProductImageData imageData,
@@ -146,14 +145,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           builder: (_) => ProductImageSwipeableView(
             initialImageIndex: initialImageIndex,
             product: _product,
+            language: _currentLanguage,
           ),
         ),
-      );
-
-  Future<void> _newImage(ProductImageData data) async =>
-      confirmAndUploadNewPicture(
-        this,
-        barcode: _barcode,
-        imageField: data.imageField,
       );
 }

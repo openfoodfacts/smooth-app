@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 
 String getProductName(Product product, AppLocalizations appLocalizations) =>
@@ -177,27 +178,68 @@ List<ProductImageData> getProductMainImagesData(
   final Product product,
   final OpenFoodFactsLanguage language, {
   final bool includeOther = true,
-}) =>
-    <ProductImageData>[
-      getProductImageData(product, ImageField.FRONT, language),
-      getProductImageData(product, ImageField.INGREDIENTS, language),
-      getProductImageData(product, ImageField.NUTRITION, language),
-      getProductImageData(product, ImageField.PACKAGING, language),
-      if (includeOther)
-        getProductImageData(product, ImageField.OTHER, language),
-    ];
+}) {
+  final List<ImageField> imageFields = List<ImageField>.of(
+    ImageFieldSmoothieExtension.orderedMain,
+    growable: true,
+  );
+  if (includeOther) {
+    imageFields.add(ImageField.OTHER);
+  }
+  final List<ProductImageData> result = <ProductImageData>[];
+  for (final ImageField element in imageFields) {
+    result.add(getProductImageData(product, element, language));
+  }
+  return result;
+}
 
 ProductImageData getProductImageData(
   final Product product,
   final ImageField imageField,
   final OpenFoodFactsLanguage language,
-) =>
-    ProductImageData(
-      imageField: imageField,
-      imageUrl: getProductImageUrl(product, imageField, language),
-    );
+) {
+  final ProductImage? productImage = getLocalizedProductImage(
+    product,
+    imageField,
+    language,
+  );
+  final String? imageUrl;
+  final OpenFoodFactsLanguage? imageLanguage;
+  if (productImage != null) {
+    imageLanguage = language;
+    imageUrl = getLocalizedProductImageUrl(product, productImage);
+  } else {
+    imageLanguage = null;
+    imageUrl = imageField.getImageFieldUrl(product);
+  }
 
-Map<ProductImageData, ImageProvider?> getSelectedImages(
+  return ProductImageData(
+    imageField: imageField,
+    imageUrl: imageUrl,
+    language: imageLanguage,
+  );
+}
+
+ProductImage? getLocalizedProductImage(
+  final Product product,
+  final ImageField imageField,
+  final OpenFoodFactsLanguage language,
+) {
+  if (product.images == null) {
+    return null;
+  }
+  for (final ProductImage productImage in product.images!) {
+    if (productImage.field == imageField && productImage.language == language) {
+      if (productImage.rev == null) {
+        return null;
+      }
+      return productImage;
+    }
+  }
+  return null;
+}
+
+List<MapEntry<ProductImageData, ImageProvider?>> getSelectedImages(
   final Product product,
   final OpenFoodFactsLanguage language,
 ) {
@@ -212,56 +254,28 @@ Map<ProductImageData, ImageProvider?> getSelectedImages(
       language,
     );
   }
-  return result;
+  return result.entries.toList();
 }
 
-String? getProductImageUrl(
+OpenFoodFactsLanguage? getProductImageUrlLanguage(
   final Product product,
   final ImageField imageField,
-  final OpenFoodFactsLanguage language,
-) {
-  final String? localizedUrl = getLocalizedProductImageUrl(
-    product,
-    imageField,
-    language,
-  );
-  if (localizedUrl != null) {
-    return localizedUrl;
-  }
-  switch (imageField) {
-    case ImageField.FRONT:
-      return product.imageFrontUrl;
-    case ImageField.INGREDIENTS:
-      return product.imageIngredientsUrl;
-    case ImageField.NUTRITION:
-      return product.imageNutritionUrl;
-    case ImageField.PACKAGING:
-      return product.imagePackagingUrl;
-    case ImageField.OTHER:
-      return null;
-  }
-}
-
-String? getLocalizedProductImageUrl(
-  final Product product,
-  final ImageField imageField,
-  final OpenFoodFactsLanguage language,
+  final String url,
 ) {
   if (product.images == null) {
     return null;
   }
   for (final ProductImage productImage in product.images!) {
-    if (productImage.field != imageField || productImage.language != language) {
+    if (productImage.field != imageField ||
+        productImage.language == null ||
+        productImage.rev == null) {
       continue;
     }
-    if (productImage.rev == null) {
-      return null;
+    final String localizedUrl =
+        getLocalizedProductImageUrl(product, productImage);
+    if (url == localizedUrl) {
+      return productImage.language;
     }
-    // TODO(monsieurtanuki): make it work in TEST env too (= .net)
-    final String result = 'https://images.openfoodfacts.org/images/products/'
-        '${_getBarcodeSubPath(product.barcode!)}/'
-        '${ImageHelper.getProductImageFilename(productImage, imageSize: ImageSize.DISPLAY)}';
-    return result;
   }
   return null;
 }
@@ -281,58 +295,30 @@ String _getBarcodeSubPath(final String barcode) {
   return '$p1/$p2/$p3/$p4';
 }
 
-/// Returns a compact description of the image field.
-String getProductImageTitle(
-  final AppLocalizations appLocalizations,
-  final ImageField imageField,
-) {
-  switch (imageField) {
-    case ImageField.FRONT:
-      return appLocalizations.product;
-    case ImageField.INGREDIENTS:
-      return appLocalizations.ingredients;
-    case ImageField.NUTRITION:
-      return appLocalizations.nutrition;
-    case ImageField.PACKAGING:
-      return appLocalizations.packaging_information;
-    case ImageField.OTHER:
-      return appLocalizations.more_photos;
-  }
-}
+String getLocalizedProductImageUrl(
+  final Product product,
+  final ProductImage productImage,
+) =>
+// TODO(monsieurtanuki): make it work in TEST env too (= .net)
+    'https://images.openfoodfacts.org/images/products/'
+    '${_getBarcodeSubPath(product.barcode!)}/'
+    '${ImageHelper.getProductImageFilename(productImage, imageSize: ImageSize.DISPLAY)}';
 
-/// Returns a verbose description of the image field.
-String getImagePageTitle(
-  final AppLocalizations appLocalizations,
-  final ImageField imageField,
+/// Returns the languages for which image fields have images.
+Iterable<OpenFoodFactsLanguage> getProductImageLanguages(
+  final Product product,
+  final Iterable<ImageField> imageFields,
 ) {
-  switch (imageField) {
-    case ImageField.FRONT:
-      return appLocalizations.front_packaging_photo_title;
-    case ImageField.INGREDIENTS:
-      return appLocalizations.ingredients_photo_title;
-    case ImageField.NUTRITION:
-      return appLocalizations.nutritional_facts_photo_title;
-    case ImageField.PACKAGING:
-      return appLocalizations.recycling_photo_title;
-    case ImageField.OTHER:
-      return appLocalizations.other_interesting_photo_title;
+  final Set<OpenFoodFactsLanguage> result = <OpenFoodFactsLanguage>{};
+  if (product.images == null) {
+    return result;
   }
-}
-
-String getProductImageButtonText(
-  final AppLocalizations appLocalizations,
-  final ImageField imageField,
-) {
-  switch (imageField) {
-    case ImageField.FRONT:
-      return appLocalizations.front_photo;
-    case ImageField.INGREDIENTS:
-      return appLocalizations.ingredients_photo;
-    case ImageField.NUTRITION:
-      return appLocalizations.nutrition_facts_photo;
-    case ImageField.PACKAGING:
-      return appLocalizations.packaging_information_photo;
-    case ImageField.OTHER:
-      return appLocalizations.more_photos;
+  for (final ProductImage productImage in product.images!) {
+    if (imageFields.contains(productImage.field) &&
+        productImage.rev != null &&
+        productImage.language != null) {
+      result.add(productImage.language!);
+    }
   }
+  return result;
 }

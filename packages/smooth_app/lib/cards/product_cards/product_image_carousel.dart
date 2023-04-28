@@ -29,6 +29,7 @@ class ProductImageCarousel extends StatelessWidget {
         ProductImageData(
           imageUrl: alternateImageUrl,
           imageField: ImageField.OTHER,
+          language: null,
         ),
       ];
     } else {

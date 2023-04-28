@@ -12,6 +12,7 @@ class LanguageSelector extends StatelessWidget {
     required this.setLanguage,
     this.selectedLanguages,
     this.displayedLanguage,
+    this.foregroundColor,
   });
 
   /// What to do when the language is selected.
@@ -22,6 +23,8 @@ class LanguageSelector extends StatelessWidget {
 
   /// Initial language displayed, before even calling the dialog.
   final OpenFoodFactsLanguage? displayedLanguage;
+
+  final Color? foregroundColor;
 
   static const Languages _languages = Languages();
 
@@ -46,14 +49,24 @@ class LanguageSelector extends StatelessWidget {
       },
       borderRadius: ANGULAR_BORDER_RADIUS,
       child: ListTile(
-        leading: const Icon(Icons.language),
+        leading: Icon(
+          Icons.language,
+          color: foregroundColor,
+        ),
         title: Text(
           '$nameInLanguage ($nameInEnglish)',
           softWrap: false,
           overflow: TextOverflow.fade,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(color: foregroundColor) ??
+              TextStyle(color: foregroundColor),
         ),
-        trailing: const Icon(Icons.arrow_drop_down),
+        trailing: Icon(
+          Icons.arrow_drop_down,
+          color: foregroundColor,
+        ),
       ),
     );
   }
