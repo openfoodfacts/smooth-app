@@ -17,9 +17,10 @@ import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
-import 'package:smooth_app/pages/product/product_image_unswipeable_view.dart';
+import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -350,9 +351,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
           onPressed: () async => Navigator.push(
             context,
             MaterialPageRoute<void>(
-              builder: (_) => ProductImageUnswipeableView(
+              builder: (_) => ProductImageSwipeableView.imageField(
                 imageField: ImageField.NUTRITION,
                 product: _product,
+                language: ProductQuery.getLanguage(),
               ),
             ),
           ),
