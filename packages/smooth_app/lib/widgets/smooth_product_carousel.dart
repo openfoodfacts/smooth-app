@@ -324,10 +324,20 @@ class _SearchCardTagLineState extends State<_SearchCardTagLine> {
     };
   }
 
-  Future<bool> _isApplicationDeprecated() {
-    return PackageInfo.fromPlatform().then(
-      (PackageInfo value) => value.packageName != 'org.openfoodfacts.scanner',
-    );
+  Future<bool> _isApplicationDeprecated() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+
+    // The normal packageName
+    if (info.packageName == 'org.openfoodfacts.scanner') {
+      return false;
+    }
+
+    // packageName used on F-Droid
+    if (info.packageName == 'openfoodfacts.github.scrachx.openfood') {
+      return false;
+    }
+
+    return true;
   }
 }
 
