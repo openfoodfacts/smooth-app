@@ -73,7 +73,7 @@ class ProductList {
     final String keywords, {
     required int pageSize,
     required int pageNumber,
-    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsLanguage language,
     required OpenFoodFactsCountry? country,
   }) : this._(
           listType: ProductListType.HTTP_SEARCH_KEYWORDS,
@@ -88,7 +88,7 @@ class ProductList {
     final String category, {
     required int pageSize,
     required int pageNumber,
-    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsLanguage language,
     required OpenFoodFactsCountry? country,
   }) : this._(
           listType: ProductListType.HTTP_SEARCH_CATEGORY,
@@ -103,7 +103,7 @@ class ProductList {
     final String userId, {
     required int pageSize,
     required int pageNumber,
-    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsLanguage language,
   }) : this._(
           listType: ProductListType.HTTP_USER_CONTRIBUTOR,
           parameters: userId,
@@ -116,7 +116,7 @@ class ProductList {
     final String userId, {
     required int pageSize,
     required int pageNumber,
-    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsLanguage language,
   }) : this._(
           listType: ProductListType.HTTP_USER_INFORMER,
           parameters: userId,
@@ -129,7 +129,7 @@ class ProductList {
     final String userId, {
     required int pageSize,
     required int pageNumber,
-    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsLanguage language,
   }) : this._(
           listType: ProductListType.HTTP_USER_PHOTOGRAPHER,
           parameters: userId,
@@ -142,7 +142,7 @@ class ProductList {
     final String userId, {
     required int pageSize,
     required int pageNumber,
-    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsLanguage language,
   }) : this._(
           listType: ProductListType.HTTP_USER_TO_BE_COMPLETED,
           parameters: userId,
@@ -154,7 +154,7 @@ class ProductList {
   ProductList.allToBeCompleted({
     required int pageSize,
     required int pageNumber,
-    required OpenFoodFactsLanguage? language,
+    required OpenFoodFactsLanguage language,
     required OpenFoodFactsCountry? country,
   }) : this._(
           listType: ProductListType.HTTP_ALL_TO_BE_COMPLETED,

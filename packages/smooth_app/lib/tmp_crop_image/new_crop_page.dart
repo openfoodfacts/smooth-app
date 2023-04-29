@@ -17,7 +17,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/tmp_crop_image/image_compute_helper.dart';
@@ -160,7 +160,7 @@ class _CropPageState extends State<CropPage> {
           centerTitle: false,
           titleSpacing: 0.0,
           title: Text(
-            getImagePageTitle(appLocalizations, widget.imageField),
+            widget.imageField.getImagePageTitle(appLocalizations),
             maxLines: 2,
           ),
         ),
