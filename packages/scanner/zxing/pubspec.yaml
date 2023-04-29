@@ -1,18 +1,19 @@
 name: scanner_zxing
-description: A new Flutter project.
-version: 0.0.1
+description: Scanner implementation using Zxing
+version: 1.0.0
 publish_to: "none"
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: "<3.3.0"
+  sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
+  visibility_detector: 0.4.0+2
   scanner_shared:
     path: ../shared
+  qr_code_scanner: 1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -20,10 +21,3 @@ dev_dependencies:
   flutter_lints: 2.0.1
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
-
-flutter:
-  plugin:
-    platforms:
-      android:
-        package: org.openfoodfacts.scanner_zxing
-        pluginClass: ScannerZxingPlugin

@@ -5,9 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 // TODO(monsieurtanuki): rename that class, like `ProductImageCarouselItem`
 /// Displays a product image in the carousel: access to gallery, or new image.
@@ -36,6 +37,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       widget.productImageData,
       widget.product.barcode!,
+      ProductQuery.getLanguage(),
     );
 
     if (imageProvider == null) {
@@ -47,9 +49,8 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
         ),
         icon: const Icon(Icons.add_a_photo),
         label: Text(
-          getProductImageButtonText(
+          widget.productImageData.imageField.getProductImageButtonText(
             appLocalizations,
-            widget.productImageData.imageField,
           ),
         ),
       );

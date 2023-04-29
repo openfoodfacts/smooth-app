@@ -14,6 +14,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/onboarding/common/tooltip_shape_border.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class KnowledgePanelPageTemplate extends StatefulWidget {
   const KnowledgePanelPageTemplate({
@@ -75,7 +76,8 @@ class _KnowledgePanelPageTemplateState
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
-          final Widget knowledgePanelWidget = KnowledgePanelWidget(
+          final List<Widget> children = KnowledgePanelWidget.getChildren(
+            context,
             panelElement: KnowledgePanelWidget.getPanelElement(
               _product,
               widget.panelId,
@@ -109,12 +111,22 @@ class _KnowledgePanelPageTemplateState
                               ),
                               child: Text(
                                 widget.headerTitle,
-                                style:
-                                    Theme.of(context).textTheme.displayMedium,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displayMedium
+                                    ?.wellSpaced,
                               ),
                             ),
-                            KnowledgePanelProductCards(
-                                <Widget>[knowledgePanelWidget]),
+                            if (children.isNotEmpty)
+                              KnowledgePanelProductCards(
+                                <Widget>[
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: children,
+                                  ),
+                                ],
+                              ),
                           ],
                         ),
                       ),

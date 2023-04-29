@@ -8,9 +8,9 @@ class ProductQuestionsQuery {
 
   Future<List<RobotoffQuestion>> getQuestions() async {
     final RobotoffQuestionResult result =
-        await OpenFoodAPIClient.getRobotoffQuestionsForProduct(
+        await RobotoffAPIClient.getProductQuestions(
       _barcode,
-      ProductQuery.getLanguage().code,
+      ProductQuery.getLanguage(),
       count: 3,
     );
     return result.questions ?? <RobotoffQuestion>[];

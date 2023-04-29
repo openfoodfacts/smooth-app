@@ -2,17 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// OCR Helper, to be implemented for ingredients and packaging for instance.
 abstract class OcrHelper {
-  /// Returns the initial text value of the field for this [product].
-  String getText(final Product product);
+  String? getMonolingualText(
+    final Product product,
+  );
 
-  /// Returns a [Product] with the same barcode and the [text] as field value.
-  ///
-  /// Nothing more, and that's perfect for server update.
-  Product getMinimalistProduct(final Product product, final String text);
+  void setMonolingualText(
+    final Product product,
+    final String text,
+  );
+
+  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
+    final Product product,
+  );
+
+  void setMultilingualTexts(
+    final Product product,
+    final Map<OpenFoodFactsLanguage, String> texts,
+  );
 
   /// Returns the image url of this field for this [product].
   String? getImageUrl(final Product product);
@@ -44,7 +55,10 @@ abstract class OcrHelper {
   ImageField getImageField();
 
   /// Returns the text that the server OCR managed to extract from the image.
-  Future<String?> getExtractedText(final Product product);
+  Future<String?> getExtractedText(
+    final Product product,
+    final OpenFoodFactsLanguage language,
+  );
 
   /// Stamp to identify similar updates on the same product.
   BackgroundTaskDetailsStamp getStamp();
@@ -53,8 +67,11 @@ abstract class OcrHelper {
   bool hasAddExtraPhotoButton();
 
   @protected
-  OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage()!;
+  OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage();
 
   @protected
   User getUser() => ProductQuery.getUser();
+
+  /// Returns the enum to be used for matomo analytics.
+  AnalyticsEditEvents getEditEventAnalyticsTag();
 }

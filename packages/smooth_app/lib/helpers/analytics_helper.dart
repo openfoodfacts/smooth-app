@@ -5,14 +5,17 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:smooth_app/main.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 
 /// Category for Matomo Events
 enum AnalyticsCategory {
   userManagement(tag: 'user management'),
   scanning(tag: 'scanning'),
   share(tag: 'share'),
-  couldNotFindProduct(tag: 'could not find product');
+  couldNotFindProduct(tag: 'could not find product'),
+  productEdit(tag: 'product edit'),
+  list(tag: 'list');
 
   const AnalyticsCategory({required this.tag});
   final String tag;
@@ -32,11 +35,39 @@ enum AnalyticsEvent {
   couldNotFindProduct(
     tag: 'could not find product',
     category: AnalyticsCategory.couldNotFindProduct,
-  );
+  ),
+  openProductEditPage(
+    tag: 'opened product edit page',
+    category: AnalyticsCategory.productEdit,
+  ),
+
+  shareList(tag: 'shared a list', category: AnalyticsCategory.list),
+  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list);
 
   const AnalyticsEvent({required this.tag, required this.category});
   final String tag;
   final AnalyticsCategory category;
+}
+
+enum AnalyticsEditEvents {
+  basicDetails(name: 'BasicDetails'),
+  photos(name: 'Photos'),
+  powerEditScreen(name: 'Power Edit Screen'),
+  ingredients_and_Origins(name: 'Ingredient And Origins'),
+  categories(name: 'Categories'),
+  nutrition_Facts(name: 'Nutrition Facts'),
+  labelsAndCertifications(name: 'Labels And Certifications'),
+  packagingComponents(name: 'Packaging Components'),
+  recyclingInstructionsPhotos(name: 'Recycling Instructions Photos'),
+  stores(name: 'Stores'),
+  origins(name: 'Origins'),
+  traceabilityCodes(name: 'Traceability Codes'),
+  country(name: 'Country'),
+  otherDetails(name: 'Other Details');
+
+  const AnalyticsEditEvents({required this.name});
+
+  final String name;
 }
 
 /// Helper for logging usage of core features and exceptions
@@ -56,6 +87,9 @@ class AnalyticsHelper {
 
   static String latestSearch = '';
 
+  /// Did the user allow the analytic reports?
+  static bool _allow = false;
+
   static Future<void> initSentry({
     required Function()? appRunner,
   }) async {
@@ -70,7 +104,8 @@ class AnalyticsHelper {
         // To set a uniform sample rate
         options.tracesSampleRate = 1.0;
         options.beforeSend = _beforeSend;
-        options.environment = flavour;
+        options.environment =
+            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
       },
       appRunner: appRunner,
     );
@@ -80,7 +115,14 @@ class AnalyticsHelper {
       _crashReports = crashReports;
 
   static Future<void> setAnalyticsReports(final bool allow) async {
-    await MatomoTracker.instance.setOptOut(optout: !allow);
+    _allow = allow;
+
+    // F-Droid special case
+    if (GlobalVars.storeLabel == StoreLabel.FDroid && !allow) {
+      await MatomoTracker.instance.setOptOut(optout: true);
+    } else {
+      await MatomoTracker.instance.setOptOut(optout: false);
+    }
   }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
@@ -99,7 +141,6 @@ class AnalyticsHelper {
       setAnalyticsReports(false);
       return;
     }
-
     try {
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
@@ -112,8 +153,16 @@ class AnalyticsHelper {
   }
 
   /// A UUID must be at least one 16 characters
-  static String? get uuid =>
-      kDebugMode ? 'smoothie-debug--' : OpenFoodAPIConfiguration.uuid;
+  static String? get uuid {
+    // if user opts out then track anonymously with userId containg zeros
+    if (kDebugMode) {
+      return 'smoothie_debug--';
+    }
+    if (!_allow) {
+      return '0' * 16;
+    }
+    return OpenFoodAPIConfiguration.uuid;
+  }
 
   static void trackEvent(
     AnalyticsEvent msg, {
@@ -125,6 +174,31 @@ class AnalyticsHelper {
         eventCategory: msg.category.tag,
         action: msg.name,
         eventValue: eventValue ?? _formatBarcode(barcode),
+      );
+
+  // Used by code which is outside of the core:smooth_app code
+  // e.g. the scanner implementation
+  static void trackCustomEvent(
+    String msg,
+    String category, {
+    int? eventValue,
+    String? barcode,
+  }) =>
+      MatomoTracker.instance.trackEvent(
+        eventName: msg,
+        eventCategory: category,
+        action: msg,
+        eventValue: eventValue ?? _formatBarcode(barcode),
+      );
+
+  static void trackProductEdit(
+          AnalyticsEditEvents editEventName, String barcode,
+          [bool saved = false]) =>
+      MatomoTracker.instance.trackEvent(
+        eventName: saved ? '${editEventName.name}-saved' : editEventName.name,
+        eventCategory: AnalyticsCategory.productEdit.tag,
+        action: editEventName.name,
+        eventValue: _formatBarcode(barcode),
       );
 
   static void trackSearch({

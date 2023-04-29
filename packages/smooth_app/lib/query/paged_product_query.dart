@@ -13,7 +13,7 @@ abstract class PagedProductQuery {
 
   int get pageNumber => _pageNumber;
 
-  final OpenFoodFactsLanguage? language = ProductQuery.getLanguage();
+  final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
   OpenFoodFactsCountry? get country => world ? null : ProductQuery.getCountry();
 
   /// Is that the world mode (true), or the standard country mode (false).

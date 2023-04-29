@@ -20,6 +20,15 @@ documentation:
 
 dependencies:
 - packages/smooth_app/pubspec.yaml
+- packages/data_importer/pubspec.yaml
+- packages/scanner/zxing/pubspec.yaml
+- packages/scanner/ml_kit/pubspec.yaml
+- packages/scanner/shared/pubspec.yaml
+- packages/app_store/shared/pubspec.yaml
+- packages/app_store/uri_store/pubspec.yaml
+- packages/data_importer_shared/pubspec.yaml
+- packages/app_store/google_play/pubspec.yaml
+- packages/app_store/apple_app_store/pubspec.yaml
 
 ios:
 - packages/smooth_app/ios/**/*
@@ -84,11 +93,7 @@ scan:
 - packages/smooth_app/lib/pages/scan/**/*
 - packages/smooth_app/lib/pages/scan/continuous_scan_page.dart
 - packages/smooth_app/lib/pages/scan/scan_page.dart
-- packages/smooth_app/lib/pages/scan/scanner_overlay.dart
-- packages/smooth_app/lib/pages/scan/lifecycle_manager.dart
 - packages/smooth_app/lib/pages/scan/abstract_camera_image_getter.dart
-- packages/smooth_app/lib/pages/scan/camera_image_cropper.dart
-- packages/smooth_app/lib/pages/scan/camera_image_full_getter.dart
 - packages/smooth_app/lib/pages/scan/ml_kit_scan_page.dart
 
 mlkit:
@@ -190,3 +195,6 @@ product scan carousel:
 packaging input:
 - packages/smooth_app/lib/pages/product/edit_new_packagings.dart
 - packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart
+
+basic info input:
+- packages/smooth_app/lib/pages/product/add_basic_details_page.dart

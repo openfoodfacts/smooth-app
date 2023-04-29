@@ -3,13 +3,10 @@ import 'package:smooth_app/query/product_query.dart';
 
 class QuestionsQuery {
   Future<List<RobotoffQuestion>> getQuestions() async {
-    final User user = OpenFoodAPIConfiguration.globalUser!;
-    final String lc = ProductQuery.getLanguage().code;
-
     final RobotoffQuestionResult result =
-        await OpenFoodAPIClient.getRandomRobotoffQuestion(
-      lc,
-      user,
+        await RobotoffAPIClient.getRandomQuestions(
+      ProductQuery.getLanguage(),
+      OpenFoodAPIConfiguration.globalUser,
       count: 3,
     );
 

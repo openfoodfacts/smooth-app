@@ -1,3 +1,3 @@
-library scanner_zxing;
+library app_store_uri;
 
-export 'src/scanner_zxing_method_channel.dart';
+export 'src/scanner_zxing.dart';

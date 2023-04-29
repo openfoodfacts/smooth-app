@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -13,8 +14,10 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
@@ -23,6 +26,7 @@ import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -41,6 +45,8 @@ class _ProductListPageState extends State<ProductListPage>
 
   static const String _popupActionClear = 'clear';
   static const String _popupActionRename = 'rename';
+  static const String _popupActionOpenInWeb = 'openInWeb';
+  static const String _popupActionShare = 'share';
 
   @override
   String get traceName => 'Opened list_page';
@@ -151,7 +157,6 @@ class _ProductListPageState extends State<ProductListPage>
                             );
                           },
                         );
-
                         break;
                       case _popupActionRename:
                         final ProductList? renamedProductList =
@@ -161,6 +166,24 @@ class _ProductListPageState extends State<ProductListPage>
                           return;
                         }
                         setState(() => productList = renamedProductList);
+                        break;
+                      case _popupActionShare:
+                        final String url =
+                            shareProductList(products).toString();
+
+                        final RenderBox? box =
+                            context.findRenderObject() as RenderBox?;
+                        AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
+                        Share.share(
+                          appLocalizations.share_product_list_text(url),
+                          sharePositionOrigin:
+                              box!.localToGlobal(Offset.zero) & box.size,
+                        );
+
+                        break;
+                      case _popupActionOpenInWeb:
+                        AnalyticsHelper.trackEvent(AnalyticsEvent.openListWeb);
+                        launchUrl(shareProductList(products));
                         break;
                     }
                   },
@@ -176,6 +199,14 @@ class _ProductListPageState extends State<ProductListPage>
                         value: _popupActionRename,
                         child: Text(appLocalizations.user_list_popup_rename),
                       ),
+                    PopupMenuItem<String>(
+                      value: _popupActionOpenInWeb,
+                      child: Text(appLocalizations.label_web),
+                    ),
+                    PopupMenuItem<String>(
+                      value: _popupActionShare,
+                      child: Text(appLocalizations.share),
+                    ),
                   ],
                 )
               ],
@@ -454,7 +485,7 @@ class _CompareProductsButton extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     if (selectedBarcodes.length < 2) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     return FloatingActionButton.extended(

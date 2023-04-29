@@ -182,6 +182,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
     TransientFile.putImage(
       ImageField.fromOffTag(imageField)!,
       barcode,
+      getLanguage(),
       localDatabase,
       File(croppedPath),
     );
@@ -217,6 +218,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
     TransientFile.removeImage(
       ImageField.fromOffTag(imageField)!,
       barcode,
+      getLanguage(),
       localDatabase,
     );
     localDatabase.notifyListeners();

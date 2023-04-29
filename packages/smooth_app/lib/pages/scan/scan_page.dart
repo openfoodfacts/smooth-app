@@ -7,11 +7,8 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
-import 'package:smooth_app/pages/scan/scan_visor.dart';
-import 'package:smooth_app/pages/scan/scanner_overlay.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -24,6 +21,9 @@ class ScanPage extends StatefulWidget {
 
 class _ScanPageState extends State<ScanPage> {
   ContinuousScanModel? _model;
+
+  /// Percentage of the bottom part of the screen that hosts the carousel.
+  static const int _carouselHeightPct = 55;
 
   @override
   void didChangeDependencies() {
@@ -48,127 +48,39 @@ class _ScanPageState extends State<ScanPage> {
 
     return SmoothScaffold(
       brightness: Brightness.light,
-      body: ScannerOverlay(
-        backgroundChild: const _ScanPageBackgroundWidget(),
-        foregroundChild: const _ScanPageForegroundWidget(),
-        topChild: const _ScanPageTopWidget(),
-      ),
-    );
-  }
-}
-
-class _ScanPageBackgroundWidget extends StatelessWidget {
-  const _ScanPageBackgroundWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<PermissionListener>(
-      builder: (BuildContext context, PermissionListener listener, _) {
-        if (listener.value.isGranted) {
-          return const CameraScannerPage();
-        } else {
-          return const SizedBox();
-        }
-      },
-    );
-  }
-}
-
-/// A semi-transparent Widget where the visor is fully visible
-class _ScanPageForegroundWidget extends StatelessWidget {
-  const _ScanPageForegroundWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        return Consumer<PermissionListener>(
-            builder: (BuildContext context, PermissionListener listener, _) {
-          // If permission is granted && the device has a camera
-          if (listener.value.isGranted && CameraHelper.hasACamera) {
-            return CustomPaint(
-              painter: _ScanPageForegroundPainter(
-                visorSize: ScannerVisorWidget.getSize(context),
-                carouselHeight:
-                    constraints.maxHeight * ScannerOverlay.carouselHeightPct,
-                contentHeight: constraints.maxHeight,
-                topOffset: MediaQuery.of(context).viewPadding.top,
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 100 - _carouselHeightPct,
+              child: Consumer<PermissionListener>(
+                builder: (
+                  BuildContext context,
+                  PermissionListener listener,
+                  _,
+                ) {
+                  switch (listener.value.status) {
+                    case DevicePermissionStatus.checking:
+                      return EMPTY_WIDGET;
+                    case DevicePermissionStatus.granted:
+                      // TODO(m123): change
+                      return const CameraScannerPage();
+                    default:
+                      return const _PermissionDeniedCard();
+                  }
+                },
               ),
-            );
-          } else {
-            return const SizedBox.shrink();
-          }
-        });
-      },
-    );
-  }
-}
-
-class _ScanPageForegroundPainter extends CustomPainter {
-  _ScanPageForegroundPainter({
-    required this.visorSize,
-    required this.topOffset,
-    required double carouselHeight,
-    required double contentHeight,
-  })  : availableHeightBeforeCarousel =
-            contentHeight - carouselHeight - topOffset,
-        _paint = Paint()..color = Colors.black.withOpacity(0.3);
-
-  final Size visorSize;
-  final double topOffset;
-  final double availableHeightBeforeCarousel;
-
-  final Paint _paint;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Path path = Path.combine(
-      PathOperation.difference,
-      Path()
-        ..lineTo(size.width, 0)
-        ..lineTo(size.width, size.height)
-        ..lineTo(0, size.height)
-        ..close(),
-      ScanVisorPainter.getPath(
-        Rect.fromLTWH(
-          (size.width - visorSize.width) / 2,
-          0,
-          visorSize.width,
-          visorSize.height,
-        ),
-        true,
-      ).shift(
-        Offset(
-          0,
-          topOffset +
-              ((availableHeightBeforeCarousel -
-                      visorSize.height +
-                      ScanVisorPainter.strokeWidth) /
-                  2),
+            ),
+            const Expanded(
+              flex: _carouselHeightPct,
+              child: Padding(
+                padding: EdgeInsetsDirectional.only(bottom: 10),
+                child: SmoothProductCarousel(containSearchCard: true),
+              ),
+            ),
+          ],
         ),
       ),
-    );
-
-    canvas.drawPath(path, _paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
-
-class _ScanPageTopWidget extends StatelessWidget {
-  const _ScanPageTopWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<PermissionListener>(
-      builder: (BuildContext context, PermissionListener listener, _) {
-        if (listener.value.isGranted) {
-          return const ScannerVisorWidget();
-        } else {
-          return const _PermissionDeniedCard();
-        }
-      },
     );
   }
 }

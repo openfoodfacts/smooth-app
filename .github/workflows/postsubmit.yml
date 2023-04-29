@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.10.0
+        uses: actions/setup-java@v3.11.0
         with:
           distribution: 'zulu'
           java-version: 11
@@ -29,8 +29,8 @@ jobs:
         with:
           channel: stable
           cache: true
-          flutter-version: '3.0.5'
-          cache-key: revert-3.0.5
+          #flutter-version: '3.0.5'
+          cache-key: current-stable
         
       - run: flutter --version
       

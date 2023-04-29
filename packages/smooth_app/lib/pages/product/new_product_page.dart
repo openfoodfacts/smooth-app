@@ -259,13 +259,20 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
       final List<KnowledgePanelElement> elements =
           KnowledgePanelWidget.getPanelElements(_product);
       for (final KnowledgePanelElement panelElement in elements) {
-        knowledgePanelWidgets.add(
-          KnowledgePanelWidget(
-            panelElement: panelElement,
-            product: _product,
-            onboardingMode: false,
-          ),
+        final List<Widget> children = KnowledgePanelWidget.getChildren(
+          context,
+          panelElement: panelElement,
+          product: _product,
+          onboardingMode: false,
         );
+        if (children.isNotEmpty) {
+          knowledgePanelWidgets.add(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: children,
+            ),
+          );
+        }
       }
     }
     return KnowledgePanelProductCards(knowledgePanelWidgets);
@@ -315,12 +322,19 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             _buildActionBarItem(
               Icons.edit,
               appLocalizations.edit_product_label,
-              () async => Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => EditProductPage(_product),
-                ),
-              ),
+              () async {
+                AnalyticsHelper.trackEvent(
+                  AnalyticsEvent.openProductEditPage,
+                  barcode: _barcode,
+                );
+                await Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        EditProductPage(_product),
+                  ),
+                );
+              },
             ),
             _buildActionBarItem(
               ConstantIcons.instance.getShareIcon(),
@@ -350,7 +364,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               padding: const EdgeInsets.all(
                 18,
               ), // TODO(monsieurtanuki): cf. FloatingActionButton
-              primary: colorScheme.primary,
+              backgroundColor: colorScheme.primary,
             ),
             child: Icon(iconData, color: colorScheme.onPrimary),
           ),

@@ -8,12 +8,14 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
+import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -99,7 +101,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
         SmoothCard(
           color: _getSmoothCardColorAlternate(context, index),
           child: EditNewPackagingsComponent(
-            title: appLocalizations.edit_packagings_element_title(index + 1),
+            title: _helpers[index].getSubTitle(),
             deleteCallback: () =>
                 setState(() => _removePackagingAt(deleteIndex)),
             helper: _helpers[index],
@@ -189,20 +191,22 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     );
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
-      child: SmoothScaffold(
-        appBar: SmoothAppBar(
-          title: Text(appLocalizations.edit_packagings_title),
-          subTitle: widget.product.productName != null
-              ? Text(
-                  widget.product.productName!,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                )
-              : null,
-        ),
-        body: ListView(
-          padding: const EdgeInsets.only(top: LARGE_SPACE),
-          children: children,
+      child: UnfocusWhenTapOutside(
+        child: SmoothScaffold(
+          appBar: SmoothAppBar(
+            title: Text(appLocalizations.edit_packagings_title),
+            subTitle: widget.product.productName != null
+                ? Text(
+                    widget.product.productName!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                : null,
+          ),
+          body: ListView(
+            padding: const EdgeInsets.only(top: LARGE_SPACE),
+            children: children,
+          ),
         ),
       ),
     );
@@ -288,6 +292,12 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
         return false;
       }
     }
+
+    AnalyticsHelper.trackProductEdit(
+      AnalyticsEditEvents.packagingComponents,
+      changedProduct.barcode!,
+      true,
+    );
 
     await BackgroundTaskDetails.addTask(
       changedProduct,
