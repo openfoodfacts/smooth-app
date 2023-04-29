@@ -186,14 +186,6 @@ class RotatedCropController extends ValueNotifier<RotatedCropControllerValue> {
       }
     }
 
-    // just checking
-    canvas.drawRect(
-      Rect.fromLTWH(0, 0, cropWidth * factor, cropHeight * factor),
-      Paint()
-        ..color = Colors.red
-        ..style = PaintingStyle.fill,
-    );
-
     final Offset cropCenter = rotation.getRotatedOffset(
       crop.center,
       image.width.toDouble(),
