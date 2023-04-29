@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Se înregistrează...",
+    "sign_up_page_action_doing_it": "Signing up…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Profilul tău",
     "myPreferences_profile_subtitle": "Gestionați-vă contul de colaborator Open Food Facts.",
     "myPreferences_settings_title": "Setările aplicației",
-    "myPreferences_settings_subtitle": "Modul întunecat, Analytics,...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Preferințe alimentare",
     "myPreferences_food_subtitle": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs.",
     "myPreferences_food_comment": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs., pentru a clasifica alimentele în funcție de preferințele dvs., vedeți mai întâi informațiile care vă interesează și obțineți un rezumat de compatibilitate. Aceste preferințe alimentare rămân pe dispozitivul dvs. și nu sunt asociate cu contul dvs. de colaborator Open Food Facts, dacă aveți unul.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Atinge pentru a vedea mai multe informații...",
+    "tab_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Produs",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Adăugați un nutrient",
     "nutrition_page_serving_size": "Cantitatea unei porții",
     "nutrition_page_invalid_number": "Număr nevalid",
-    "nutrition_page_update_running": "Se actualizează produsul pe server...",
+    "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Produs actualizat!",
     "more_photos": "Mai multe fotografii interesante",
     "@more_photos": {},
@@ -687,42 +687,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}  few {{count} zile în urmă}=1{acum o zi} other{{count} zile în urmă}}",
+    "plural_ago_days": "{count,plural,  =1{acum o zi} other{{count} zile în urmă}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  one {}  few {{count} ore în urmă}=1{acum o ora} other{{count} ore în urmă}}",
+    "plural_ago_hours": "{count,plural,  =1{acum o ora} other{{count} ore în urmă}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  one {}  few {{count} minute în urmă}=0{in urma cu mai puțin de un minut} =1{acum un minut} other{{count} minute în urmă}}",
+    "plural_ago_minutes": "{count,plural,  =0{in urma cu mai puțin de un minut} =1{acum un minut} other{{count} minute în urmă}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  one {}  few {{count} cu luni în urmă}=1{acum o luna} other{{count} cu luni în urmă}}",
+    "plural_ago_months": "{count,plural,  =1{acum o luna} other{{count} cu luni în urmă}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  one {}  few {{count} săptămâni în urma}=1{acum o saptamana} other{{count} săptămâni în urma}}",
+    "plural_ago_weeks": "{count,plural,  =1{acum o saptamana} other{{count} săptămâni în urma}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, one {} few {Compara {count} Produse}=1{Compara un produs} other{Compara {count} Produse}}",
+    "plural_compare_x_products": "{count,plural, =1{Compara un produs} other{Compara {count} Produse}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
@@ -906,14 +906,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Reîmprospătare {count,plural,  one {}  few {produse}=0{produs} =1{produs} other{produse}} în istoric",
+    "product_list_reloading_in_progress_multiple": "Reîmprospătare {count,plural,  =0{produs} =1{produs} other{produse}} în istoric",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural,  one {}  few {Produse}=0{Produs} =1{Produs} other{Produse}} Reîmprospătare completă",
+    "product_list_reloading_success_multiple": "{count,plural,  =0{Produs} =1{Produs} other{Produse}} Reîmprospătare completă",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Site web...",
+    "edit_product_form_item_other_details_subtitle": "Website…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Mediu, etichete de calitate,...",
+    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Se preiau imaginile existente...",
+    "edit_photo_select_existing_download_label": "Retrieving existing images…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
@@ -1642,7 +1642,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, one {} few {{count} produse} =0{Lista goală} =1{Un singur produs} other{{count} produse}}",
+    "user_list_length": "{count,plural, =0{Lista goală} =1{Un singur produs} other{{count} produse}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {

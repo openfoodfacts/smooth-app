@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -11,12 +12,14 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
-import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
@@ -91,13 +94,12 @@ class _RateUs extends StatelessWidget {
   }
 
   String getImagePath() {
-    final String appFlavour = flavour;
     String imagePath = '';
-    switch (appFlavour) {
-      case 'zxing-uri':
+    switch (GlobalVars.storeLabel) {
+      case StoreLabel.FDroid:
         imagePath = 'assets/app/f-droid.png';
         break;
-      case 'ml-ios':
+      case StoreLabel.AppleAppStore:
         imagePath = 'assets/app/app-store.png';
         break;
       default:
@@ -109,28 +111,21 @@ class _RateUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Column(
-      children: <Widget>[
-        ListTile(
-          leading: Padding(
-            padding: const EdgeInsets.all(SMALL_SPACE),
-            child: SizedBox(
-              height: DEFAULT_ICON_SIZE,
-              width: DEFAULT_ICON_SIZE,
-              child: Image.asset(getImagePath()),
-            ),
-          ),
-          title: Text(
-            appLocalizations.app_rating_dialog_positive_action,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          onTap: () => _redirect(context),
-        ),
-        const SizedBox(
-          height: SMALL_SPACE,
-        ),
-        const UserPreferencesListItemDivider(),
-      ],
+
+    final Widget leading = SizedBox(
+      key: const Key('settings.rate_us'),
+      height: DEFAULT_ICON_SIZE,
+      width: DEFAULT_ICON_SIZE,
+      child: Image.asset(getImagePath()),
+    );
+
+    final String title = appLocalizations.app_rating_dialog_positive_action;
+
+    return UserPreferenceListTile(
+      title: title,
+      leading: leading,
+      onTap: _redirect,
+      showDivider: true,
     );
   }
 }
@@ -162,20 +157,18 @@ class _ShareWithFriends extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ListTile(
-          leading: Icon(Icons.adaptive.share),
-          title: Text(
-            AppLocalizations.of(context).contribute_share_header,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          onTap: () => _shareApp(context),
-        ),
-        const SizedBox(
-          height: SMALL_SPACE,
-        ),
-      ],
+    final Widget leading = Icon(
+      key: const Key('settings.share_app'),
+      Icons.adaptive.share,
+    );
+
+    final String title = AppLocalizations.of(context).contribute_share_header;
+
+    return UserPreferenceListTile(
+      title: title,
+      leading: leading,
+      onTap: _shareApp,
+      showDivider: false,
     );
   }
 }
@@ -279,9 +272,16 @@ class _ApplicationSettings extends StatelessWidget {
             appLocalizations.choose_app_language,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
-          subtitle: LanguageSelectorSettings(
-            userPreferences: userPreferences,
-            appLocalizations: appLocalizations,
+          subtitle: LanguageSelector(
+            setLanguage: (final OpenFoodFactsLanguage? language) async {
+              if (language != null) {
+                ProductQuery.setLanguage(
+                  context,
+                  userPreferences,
+                  languageCode: language.code,
+                );
+              }
+            },
           ),
           minVerticalPadding: MEDIUM_SPACE,
         ),
@@ -532,10 +532,8 @@ class _AdvancedSettings extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
-            trailing: const Padding(
-              padding: EdgeInsets.only(
-                right: LARGE_SPACE,
-              ),
+            leading: const Padding(
+              padding: EdgeInsets.all(VERY_SMALL_SPACE),
               child: Icon(
                 CupertinoIcons.settings_solid,
               ),
@@ -599,7 +597,7 @@ class _CameraSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!CameraHelper.hasACamera) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -641,7 +639,7 @@ class _ProductsSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!CameraHelper.hasACamera) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -674,7 +672,7 @@ class _MiscellaneousSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!CameraHelper.hasACamera) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);

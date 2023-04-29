@@ -7,19 +7,17 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mlkit.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_mockup.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_zxing.dart';
+import 'package:smooth_app/pages/scan/scan_header.dart';
 
 /// A page showing the camera feed and decoding barcodes.
 class CameraScannerPage extends StatefulWidget {
-  const CameraScannerPage(this.scannerType);
-
-  final SmoothBarcodeScannerType scannerType;
+  const CameraScannerPage();
 
   @override
   CameraScannerPageState createState() => CameraScannerPageState();
@@ -52,10 +50,10 @@ class CameraScannerPageState extends State<CameraScannerPage>
   }
 
   @override
-  String get traceTitle => 'ml_kit_scan_page';
+  String get traceTitle => '${GlobalVars.barcodeScanner.getType()}_page';
 
   @override
-  String get traceName => 'Opened ml_kit_scan_page';
+  String get traceName => 'Opened ${GlobalVars.barcodeScanner.getType()}_page';
 
   @override
   Widget build(BuildContext context) {
@@ -64,14 +62,22 @@ class CameraScannerPageState extends State<CameraScannerPage>
         child: Text(AppLocalizations.of(context).permission_photo_none_found),
       );
     }
-    switch (widget.scannerType) {
-      case SmoothBarcodeScannerType.mlkit:
-        return SmoothBarcodeScannerMLKit(_onNewBarcodeDetected);
-      case SmoothBarcodeScannerType.zxing:
-        return SmoothBarcodeScannerZXing(_onNewBarcodeDetected);
-      case SmoothBarcodeScannerType.mockup:
-        return const SmoothBarcodeScannerMocked();
-    }
+
+    return Stack(
+      children: <Widget>[
+        GlobalVars.barcodeScanner.getScanner(
+          onScan: _onNewBarcodeDetected,
+          hapticFeedback: () => SmoothHapticFeedback.click(),
+          onCameraFlashError: _onCameraFlashError,
+          trackCustomEvent: AnalyticsHelper.trackCustomEvent,
+          hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
+        ),
+        const Align(
+          alignment: Alignment.topCenter,
+          child: ScanHeader(),
+        ),
+      ],
+    );
   }
 
   Future<bool> _onNewBarcodeDetected(final String barcode) async {
@@ -90,6 +96,18 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
     _userPreferences.setFirstScanAchieved();
     return true;
+  }
+
+  void _onCameraFlashError(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    showDialog<void>(
+      context: context,
+      builder: (_) => SmoothAlertDialog(
+        title: appLocalizations.camera_flash_error_dialog_title,
+        body: Text(appLocalizations.camera_flash_error_dialog_message),
+      ),
+    );
   }
 
   /// Only initialize the "beep" player when needed

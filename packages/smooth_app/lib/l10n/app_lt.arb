@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Prisijungiama...",
+    "sign_up_page_action_doing_it": "Registruojama…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Jūsų profilis",
     "myPreferences_profile_subtitle": "Tvarkykite savo „Open Food Facts“ bendraautorio paskyrą.",
     "myPreferences_settings_title": "Programos nustatymai",
-    "myPreferences_settings_subtitle": "Tamsusis režimas, analitika,...",
+    "myPreferences_settings_subtitle": "Tamsusis režimas; Analizė…",
     "myPreferences_food_title": "Maisto pasirinkimai",
     "myPreferences_food_subtitle": "Pasirinkite, kokia informacija apie maistą jums yra svarbiausia.",
     "myPreferences_food_comment": "Pasirinkite, kokia informacija apie maistą jums yra svarbiausia, kad įvertintumėte maistą pagal savo pageidavimus, pirmiausia pamatytumėte jums rūpimą informaciją ir gautumėte suderinamumo suvestinę. Šios maisto nuostatos lieka jūsų įrenginyje ir nėra susietos su jūsų „Open Food Facts“ bendraautorio paskyra, jei tokią turite.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Palieskite, norėdami pamatyti daugiau informacijos...",
+    "tab_for_more": "Bakstelėkite, kad pamatytumėte daugiau informacijos…",
     "@Product": {},
     "product": "Produktas",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Pridėti maistinę medžiagą",
     "nutrition_page_serving_size": "Porcijos dydis",
     "nutrition_page_invalid_number": "Neteisingas numeris",
-    "nutrition_page_update_running": "Atnaujinamas produktas serveryje...",
+    "nutrition_page_update_running": "Atnaujinamas produktas serveryje…",
     "nutrition_page_update_done": "Produktas atnaujintas!",
     "more_photos": "Daugiau įdomių nuotraukų",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Interneto svetainė, ...",
+    "edit_product_form_item_other_details_subtitle": "Svetainė…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Aplinkosauga, kokybės ženklai,...",
+    "edit_product_form_item_labels_subtitle": "Aplinkos; Kokybės žymos…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Gaunami egzistuojantys vaizdai...",
+    "edit_photo_select_existing_download_label": "Gaunami esami vaizdai…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },

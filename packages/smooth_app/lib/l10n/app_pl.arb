@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Trwa rejestracja...",
+    "sign_up_page_action_doing_it": "Signing up…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -375,7 +375,7 @@
     "myPreferences_profile_title": "Profil",
     "myPreferences_profile_subtitle": "Zarządzaj swoim kontem współtwórcy Open Food Facts.",
     "myPreferences_settings_title": "Ustawienia",
-    "myPreferences_settings_subtitle": "Tryb ciemny, Analityka, ...",
+    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Preferencje żywieniowe",
     "myPreferences_food_subtitle": "Wybierz, które preferencje żywieniowe są dla Ciebie najważniejsze.",
     "myPreferences_food_comment": "Wybierz, które informacje o jedzeniu są dla Ciebie najważniejsze, aby uszeregować żywność zgodnie z własnymi preferencjami, najpierw zobacz informacje, na których Ci zależy, i uzyskaj podsumowanie zgodności. Te preferencje żywieniowe pozostają na Twoim urządzeniu i nie są powiązane z Twoim kontem współtwórcy Open Food Facts, jeśli je posiadasz.",
@@ -433,7 +433,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Dotknij, aby zobaczyć więcej informacji...",
+    "tab_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -573,7 +573,7 @@
     "nutrition_page_add_nutrient": "Dodaj składnik odżywczy",
     "nutrition_page_serving_size": "Wielkość porcji",
     "nutrition_page_invalid_number": "Nieprawidłowa liczba",
-    "nutrition_page_update_running": "Aktualizowanie produktu na serwerze...",
+    "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Produkt zaktualizowany!",
     "more_photos": "Więcej interesujących zdjęć",
     "@more_photos": {},
@@ -1085,7 +1085,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website, ...",
+    "edit_product_form_item_other_details_subtitle": "Website…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1101,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Środowiskowe, jakościowe, ...",
+    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1566,7 +1566,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Retrieving existing images...",
+    "edit_photo_select_existing_download_label": "Retrieving existing images…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
@@ -1642,7 +1642,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, one {} few {{count} produkty} many {{count} produktów} =0{Lista pusta} =1{Jeden produkt} other{{count} produktów}}",
+    "user_list_length": "{count,plural, =0{Lista pusta} =1{Jeden produkt} other{{count} produktów}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {

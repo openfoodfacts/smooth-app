@@ -5,7 +5,8 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:smooth_app/main.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 
 /// Category for Matomo Events
 enum AnalyticsCategory {
@@ -23,10 +24,6 @@ enum AnalyticsCategory {
 /// Event types for Matomo analytics
 enum AnalyticsEvent {
   scanAction(tag: 'scanned product', category: AnalyticsCategory.scanning),
-  scanStrangeRestart(
-      tag: 'strange restart', category: AnalyticsCategory.scanning),
-  scanStrangeRestop(
-      tag: 'strange restop', category: AnalyticsCategory.scanning),
   shareProduct(tag: 'shared product', category: AnalyticsCategory.share),
   loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
   registerAction(tag: 'register', category: AnalyticsCategory.userManagement),
@@ -90,6 +87,9 @@ class AnalyticsHelper {
 
   static String latestSearch = '';
 
+  /// Did the user allow the analytic reports?
+  static bool _allow = false;
+
   static Future<void> initSentry({
     required Function()? appRunner,
   }) async {
@@ -104,7 +104,8 @@ class AnalyticsHelper {
         // To set a uniform sample rate
         options.tracesSampleRate = 1.0;
         options.beforeSend = _beforeSend;
-        options.environment = flavour;
+        options.environment =
+            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
       },
       appRunner: appRunner,
     );
@@ -114,7 +115,14 @@ class AnalyticsHelper {
       _crashReports = crashReports;
 
   static Future<void> setAnalyticsReports(final bool allow) async {
-    await MatomoTracker.instance.setOptOut(optout: !allow);
+    _allow = allow;
+
+    // F-Droid special case
+    if (GlobalVars.storeLabel == StoreLabel.FDroid && !allow) {
+      await MatomoTracker.instance.setOptOut(optout: true);
+    } else {
+      await MatomoTracker.instance.setOptOut(optout: false);
+    }
   }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
@@ -133,7 +141,6 @@ class AnalyticsHelper {
       setAnalyticsReports(false);
       return;
     }
-
     try {
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
@@ -146,8 +153,16 @@ class AnalyticsHelper {
   }
 
   /// A UUID must be at least one 16 characters
-  static String? get uuid =>
-      kDebugMode ? 'smoothie-debug--' : OpenFoodAPIConfiguration.uuid;
+  static String? get uuid {
+    // if user opts out then track anonymously with userId containg zeros
+    if (kDebugMode) {
+      return 'smoothie_debug--';
+    }
+    if (!_allow) {
+      return '0' * 16;
+    }
+    return OpenFoodAPIConfiguration.uuid;
+  }
 
   static void trackEvent(
     AnalyticsEvent msg, {
@@ -158,6 +173,21 @@ class AnalyticsHelper {
         eventName: msg.name,
         eventCategory: msg.category.tag,
         action: msg.name,
+        eventValue: eventValue ?? _formatBarcode(barcode),
+      );
+
+  // Used by code which is outside of the core:smooth_app code
+  // e.g. the scanner implementation
+  static void trackCustomEvent(
+    String msg,
+    String category, {
+    int? eventValue,
+    String? barcode,
+  }) =>
+      MatomoTracker.instance.trackEvent(
+        eventName: msg,
+        eventCategory: category,
+        action: msg,
         eventValue: eventValue ?? _formatBarcode(barcode),
       );
 

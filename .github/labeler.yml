@@ -20,6 +20,15 @@ documentation:
 
 dependencies:
 - packages/smooth_app/pubspec.yaml
+- packages/data_importer/pubspec.yaml
+- packages/scanner/zxing/pubspec.yaml
+- packages/scanner/ml_kit/pubspec.yaml
+- packages/scanner/shared/pubspec.yaml
+- packages/app_store/shared/pubspec.yaml
+- packages/app_store/uri_store/pubspec.yaml
+- packages/data_importer_shared/pubspec.yaml
+- packages/app_store/google_play/pubspec.yaml
+- packages/app_store/apple_app_store/pubspec.yaml
 
 ios:
 - packages/smooth_app/ios/**/*
@@ -186,3 +195,6 @@ product scan carousel:
 packaging input:
 - packages/smooth_app/lib/pages/product/edit_new_packagings.dart
 - packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart
+
+basic info input:
+- packages/smooth_app/lib/pages/product/add_basic_details_page.dart

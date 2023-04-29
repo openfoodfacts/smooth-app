@@ -97,7 +97,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async =>
-      localDatabase.upToDate.addChange(uniqueId, _product);
+      localDatabase.upToDate.addChange(uniqueId, _getProduct());
 
   @override
   Future<void> postExecute(
@@ -154,21 +154,27 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   static String getStamp(final String barcode, final String stamp) =>
       '$barcode;detail;$stamp';
 
-  Product get _product =>
-      Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
+  Product _getProduct() {
+    final Product result =
+        Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
+    // for good multilingual management
+    result.lang = getLanguage();
+    return result;
+  }
 
   /// Uploads the product changes.
   @override
   Future<void> upload() async {
-    if (_product.packagings != null || _product.packagingsComplete != null) {
+    final Product product = _getProduct();
+    if (product.packagings != null || product.packagingsComplete != null) {
       // For the moment, some fields can only be saved in V3,
       // and V3 can only save those fields.
       final ProductResultV3 result =
           await OpenFoodAPIClient.temporarySaveProductV3(
         getUser(),
-        _product.barcode!,
-        packagings: _product.packagings,
-        packagingsComplete: _product.packagingsComplete,
+        product.barcode!,
+        packagings: product.packagings,
+        packagingsComplete: product.packagingsComplete,
         language: getLanguage(),
         country: getCountry(),
       );
@@ -180,7 +186,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     }
     final Status status = await OpenFoodAPIClient.saveProduct(
       getUser(),
-      _product,
+      product,
       language: getLanguage(),
       country: getCountry(),
     );

@@ -13,6 +13,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -23,10 +24,11 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
@@ -52,45 +54,46 @@ void main() {
   }
 }
 
-late bool _screenshots;
-late String flavour;
+late final bool _screenshots;
 
 Future<void> launchSmoothApp({
-  required SmoothBarcodeScannerType scanner,
+  required Scanner barcodeScanner,
   required AppStore appStore,
-  required String appFlavour,
+  required StoreLabel storeLabel,
+  required ScannerLabel scannerLabel,
   final bool screenshots = false,
 }) async {
   _screenshots = screenshots;
+
+  GlobalVars.barcodeScanner = barcodeScanner;
+  GlobalVars.appStore = appStore;
+  GlobalVars.storeLabel = storeLabel;
+  GlobalVars.scannerLabel = scannerLabel;
+
   if (_screenshots) {
-    await _init1(appStore);
-    runApp(SmoothApp(scanner, appStore));
+    await _init1();
+    runApp(const SmoothApp());
     return;
   }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  flavour = appFlavour;
-
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-        appRunner: () => runApp(SmoothApp(scanner, appStore)));
+        appRunner: () => runApp(const SmoothApp()));
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (_) => SmoothApp(scanner, appStore),
+        builder: (_) => const SmoothApp(),
       ),
     );
   }
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp(this.scanner, this.appStore);
-
-  final SmoothBarcodeScannerType scanner;
-  final AppStore appStore;
+  const SmoothApp();
 
   // This widget is the root of your application
   @override
@@ -112,12 +115,12 @@ bool _init1done = false;
 // Had to split init in 2 methods, for test/screenshots reasons.
 // Don't know why, but some init codes seem to freeze the test.
 // Now we run them before running the app, during the tests.
-Future<bool> _init1(AppStore appStore) async {
+Future<bool> _init1() async {
   if (_init1done) {
     return false;
   }
 
-  await SmoothServices().init(appStore);
+  await SmoothServices().init(GlobalVars.appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
@@ -167,7 +170,7 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   Future<bool> _init2() async {
-    await _init1(widget.appStore);
+    await _init1();
     systemDarkmodeOn = brightness == Brightness.dark;
     if (!mounted) {
       return false;
@@ -216,9 +219,6 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
-            Provider<SmoothBarcodeScannerType>.value(
-              value: widget.scanner,
-            ),
           ],
           builder: _buildApp,
         );

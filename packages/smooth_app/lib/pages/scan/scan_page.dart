@@ -9,7 +9,6 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 import 'package:smooth_app/widgets/smooth_product_carousel.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -47,8 +46,6 @@ class _ScanPageState extends State<ScanPage> {
       return const Center(child: CircularProgressIndicator.adaptive());
     }
 
-    final SmoothBarcodeScannerType scannerType =
-        context.read<SmoothBarcodeScannerType>();
     return SmoothScaffold(
       brightness: Brightness.light,
       body: SafeArea(
@@ -66,7 +63,8 @@ class _ScanPageState extends State<ScanPage> {
                     case DevicePermissionStatus.checking:
                       return EMPTY_WIDGET;
                     case DevicePermissionStatus.granted:
-                      return CameraScannerPage(scannerType);
+                      // TODO(m123): change
+                      return const CameraScannerPage();
                     default:
                       return const _PermissionDeniedCard();
                   }

@@ -211,6 +211,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     TransientFile.putImage(
       ImageField.fromOffTag(imageField)!,
       barcode,
+      getLanguage(),
       localDatabase,
       File(croppedPath),
     );
@@ -253,6 +254,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     TransientFile.removeImage(
       ImageField.fromOffTag(imageField)!,
       barcode,
+      getLanguage(),
       localDatabase,
     );
     localDatabase.notifyListeners();

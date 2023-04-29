@@ -29,9 +29,6 @@ dependencies:
   latlong2: 0.8.1
   matomo_tracker: 2.0.0
   modal_bottom_sheet: 2.1.2
-  openfoodfacts: 2.4.0
-  # openfoodfacts:
-  #   path: ../../../openfoodfacts-dart
   package_info_plus: 3.0.3
   device_info_plus: 8.1.0
   permission_handler: 10.2.0
@@ -44,12 +41,7 @@ dependencies:
   visibility_detector: 0.4.0+2
   assorted_layout_widgets: 7.0.0
   app_settings: 4.2.0
-
-  camera: 0.10.3+2
-  mobile_scanner: 3.1.0
-  qr_code_scanner: 1.0.1
-  #qr_code_scanner:
-  #  path: ../../../qr_code_scanner
+  diacritic: 0.1.3
   app_store_shared:
     path: ../app_store/shared
   audioplayers: 3.0.1
@@ -61,7 +53,7 @@ dependencies:
   shared_preferences: 2.0.18
   intl: 0.17.0
   collection: 1.17.0
-  path: 1.8.3
+  path: 1.8.2
   path_provider: 2.0.13
   data_importer_shared:
     path: ../data_importer_shared
@@ -85,6 +77,27 @@ dependencies:
   app_store_uri:
     path: ../app_store/uri_store
 
+  # We use two different scanning engines, 
+  # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
+  # but qr_code_scanner which uses the open source ZXing for F-Droid
+  camera: 0.10.3+2
+  
+  scanner_shared:
+    path: ../scanner/shared
+
+  scanner_ml_kit:
+    path: ../scanner/ml_kit
+
+  scanner_zxing:
+    path: ../scanner/zxing
+
+
+
+
+  openfoodfacts: 2.5.0
+  # openfoodfacts:
+  #   path: ../../../openfoodfacts-dart
+
 dev_dependencies:
   integration_test:
     sdk: flutter
@@ -99,9 +112,6 @@ dev_dependencies:
   flutter_lints: 2.0.1
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
-
-dependency_overrides:
-  path: 1.8.0
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:

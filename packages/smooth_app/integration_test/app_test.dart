@@ -4,9 +4,10 @@ import 'package:app_store_shared/app_store_shared.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/main.dart' as app;
-import 'package:smooth_app/pages/scan/smooth_barcode_scanner_type.dart';
 
 Future<void> _initScreenshot(
   final IntegrationTestWidgetsFlutterBinding binding,
@@ -56,9 +57,10 @@ void main() {
         await _initScreenshot(binding);
 
         await app.launchSmoothApp(
-          scanner: SmoothBarcodeScannerType.mockup,
+          barcodeScanner: const MockedScanner(),
           appStore: const MockedAppStore(),
-          appFlavour: 'test-runner',
+          storeLabel: StoreLabel.Test,
+          scannerLabel: ScannerLabel.Test,
           screenshots: true,
         );
         await tester.pumpAndSettle();
