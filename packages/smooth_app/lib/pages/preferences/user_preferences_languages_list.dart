@@ -4,10 +4,12 @@ import 'package:flutter_native_splash/cli_commands.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
 class Languages {
+  const Languages();
+
   static const LocalizationsDelegate<MaterialLocalizations> _delegate =
       GlobalMaterialLocalizations.delegate;
 
-  static const Map<OpenFoodFactsLanguage, String> _openFoodFactsLanguagesList =
+  static const Map<OpenFoodFactsLanguage, String> _namesInLanguage =
       <OpenFoodFactsLanguage, String>{
     OpenFoodFactsLanguage.AFAR: 'Afar',
     OpenFoodFactsLanguage.AFRIKAANS: 'Afrikaans',
@@ -197,30 +199,25 @@ class Languages {
   List<OpenFoodFactsLanguage> getSupportedLanguagesNameInEnglish() {
     final List<OpenFoodFactsLanguage> languages = <OpenFoodFactsLanguage>[];
 
-    _openFoodFactsLanguagesList
-        .forEach((OpenFoodFactsLanguage lc, String _) => <void>{
-              if (_delegate.isSupported(Locale(lc.code)))
-                <void>{languages.add(lc)}
-            });
+    _namesInLanguage.forEach(
+      (OpenFoodFactsLanguage lc, String _) => <void>{
+        if (_delegate.isSupported(Locale(lc.code))) <void>{languages.add(lc)}
+      },
+    );
 
     return languages;
   }
 
-  String getLanguageNameInEnglishFromOpenFoodFactsLanguage(
-      OpenFoodFactsLanguage openFoodFactsLanguage) {
-    return openFoodFactsLanguage
-        .toString()
-        .split('.')
-        .last
-        .split('_')
-        .join(' ')
-        .toLowerCase()
-        .capitalize();
-  }
+  String getNameInEnglish(final OpenFoodFactsLanguage language) => language
+      .toString()
+      .split('.')
+      .last
+      .split('_')
+      .join(' ')
+      .toLowerCase()
+      .capitalize();
 
-  String getLanguageNameInLanguageFromOpenFoodFactsLanguage(
-      OpenFoodFactsLanguage lc) {
-    return _openFoodFactsLanguagesList[lc] ??
-        _openFoodFactsLanguagesList[OpenFoodFactsLanguage.ENGLISH]!;
-  }
+  String getNameInLanguage(final OpenFoodFactsLanguage language) =>
+      _namesInLanguage[language] ??
+      _namesInLanguage[OpenFoodFactsLanguage.ENGLISH]!;
 }

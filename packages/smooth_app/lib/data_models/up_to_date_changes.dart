@@ -54,6 +54,9 @@ class UpToDateChanges {
     if (change.productName != null) {
       initial.productName = change.productName;
     }
+    if (change.productNameInLanguages != null) {
+      initial.productNameInLanguages = change.productNameInLanguages;
+    }
     if (change.quantity != null) {
       initial.quantity = change.quantity;
     }
@@ -119,19 +122,9 @@ class UpToDateChanges {
         change.imageFrontUrl!,
       );
     }
-    if (change.imageFrontSmallUrl != null) {
-      initial.imageFrontSmallUrl = emptyMeansNull(
-        change.imageFrontSmallUrl!,
-      );
-    }
     if (change.imageIngredientsUrl != null) {
       initial.imageIngredientsUrl = emptyMeansNull(
         change.imageIngredientsUrl!,
-      );
-    }
-    if (change.imageIngredientsSmallUrl != null) {
-      initial.imageIngredientsSmallUrl = emptyMeansNull(
-        change.imageIngredientsSmallUrl!,
       );
     }
     if (change.imageNutritionUrl != null) {
@@ -139,19 +132,9 @@ class UpToDateChanges {
         change.imageNutritionUrl!,
       );
     }
-    if (change.imageNutritionSmallUrl != null) {
-      initial.imageNutritionSmallUrl = emptyMeansNull(
-        change.imageNutritionSmallUrl!,
-      );
-    }
     if (change.imagePackagingUrl != null) {
       initial.imagePackagingUrl = emptyMeansNull(
         change.imagePackagingUrl!,
-      );
-    }
-    if (change.imagePackagingSmallUrl != null) {
-      initial.imagePackagingSmallUrl = emptyMeansNull(
-        change.imagePackagingSmallUrl!,
       );
     }
     if (change.images != null && change.images!.isNotEmpty) {

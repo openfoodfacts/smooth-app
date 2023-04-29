@@ -14,11 +14,12 @@ abstract class ProductQuery {
   static OpenFoodFactsCountry? _country;
 
   /// Returns the global language for API queries.
-  static OpenFoodFactsLanguage? getLanguage() {
+  static OpenFoodFactsLanguage getLanguage() {
     final List<OpenFoodFactsLanguage> languages =
         OpenFoodAPIConfiguration.globalLanguages ?? <OpenFoodFactsLanguage>[];
     if (languages.isEmpty) {
-      return null;
+      // very very unlikely
+      return OpenFoodFactsLanguage.UNDEFINED;
     }
     return languages[0];
   }
@@ -57,7 +58,7 @@ abstract class ProductQuery {
   }
 
   /// Returns the global locale string (e.g. 'pt_BR')
-  static String getLocaleString() => '${getLanguage()!.code}'
+  static String getLocaleString() => '${getLanguage().code}'
       '_'
       '${getCountry()!.offTag.toUpperCase()}';
 
@@ -125,11 +126,11 @@ abstract class ProductQuery {
 
   static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
+        ProductField.NAME_ALL_LANGUAGES,
         ProductField.BRANDS,
         ProductField.BARCODE,
         ProductField.NUTRISCORE,
         ProductField.FRONT_IMAGE,
-        ProductField.IMAGE_FRONT_SMALL_URL,
         ProductField.IMAGE_FRONT_URL,
         ProductField.IMAGE_INGREDIENTS_URL,
         ProductField.IMAGE_NUTRITION_URL,
@@ -145,7 +146,6 @@ abstract class ProductQuery {
         ProductField.PACKAGINGS,
         ProductField.PACKAGINGS_COMPLETE,
         ProductField.PACKAGING_TAGS,
-        ProductField.PACKAGING_TEXT_IN_LANGUAGES,
         ProductField.PACKAGING_TEXT_ALL_LANGUAGES,
         ProductField.NO_NUTRITION_DATA,
         ProductField.NUTRIMENT_DATA_PER,
@@ -156,6 +156,7 @@ abstract class ProductQuery {
         ProductField.ADDITIVES,
         ProductField.INGREDIENTS_ANALYSIS_TAGS,
         ProductField.INGREDIENTS_TEXT,
+        ProductField.INGREDIENTS_TEXT_ALL_LANGUAGES,
         ProductField.LABELS_TAGS,
         ProductField.LABELS_TAGS_IN_LANGUAGES,
         ProductField.COMPARED_TO_CATEGORY,

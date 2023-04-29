@@ -9,6 +9,7 @@ class UserPreferencesListTile extends StatelessWidget {
     this.leading,
     this.onTap,
     this.onLongPress,
+    this.shape,
   });
 
   final Widget title;
@@ -17,6 +18,7 @@ class UserPreferencesListTile extends StatelessWidget {
   final Widget? leading;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
+  final ShapeBorder? shape;
 
   /// Icon (leading or trailing) with the standard color.
   static Icon getTintedIcon(
@@ -39,5 +41,6 @@ class UserPreferencesListTile extends StatelessWidget {
         onTap: onTap,
         onLongPress: onLongPress,
         subtitle: subtitle,
+        shape: shape,
       );
 }

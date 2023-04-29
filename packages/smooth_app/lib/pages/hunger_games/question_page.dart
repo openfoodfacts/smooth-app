@@ -263,11 +263,10 @@ class _QuestionPageState extends State<QuestionPage>
     required String? insightId,
     required InsightAnnotation insightAnnotation,
   }) async {
-    final Status status = await OpenFoodAPIClient.postInsightAnnotation(
+    final Status status = await RobotoffAPIClient.postInsightAnnotation(
       insightId,
       insightAnnotation,
       deviceId: OpenFoodAPIConfiguration.uuid,
-      user: OpenFoodAPIConfiguration.globalUser,
     );
     // TODO(monsieurtanuki): optim - do not ask QuestionCard to constantly refresh the product if we deal with several times the same product
     if (widget.product != null) {
