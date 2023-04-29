@@ -5,7 +5,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     labels:
       - "dependencies"
     commit-message:
@@ -15,7 +15,7 @@ updates:
   - package-ecosystem: "bundler"
     directory: "packages/smooth_app/android"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     labels:
       - "dependencies"
     commit-message:
@@ -35,7 +35,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/smooth_app/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -44,7 +44,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/scanner/mlkit/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -52,7 +52,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/scanner/shared/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -60,7 +60,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/scanner/zxing/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -68,7 +68,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/data_importer/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -76,7 +76,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/app_store/shared/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -84,7 +84,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/app_store/uri_store/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -92,7 +92,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/data_importer_shared/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -100,7 +100,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/app_store/google_play/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -108,7 +108,7 @@ updates:
   - package-ecosystem: "pub"
     directory: "/packages/app_store/apple_app_store/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     commit-message:
       prefix: "chore"
       include: "scope"
