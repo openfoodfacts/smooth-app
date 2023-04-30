@@ -9,6 +9,7 @@ import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about unselecting a product image.
@@ -154,22 +155,7 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
   /// Here we put an empty string instead, to be understood as "force to null!".
   Product _getUnselectedProduct() {
     final Product result = Product(barcode: barcode);
-    switch (ImageField.fromOffTag(imageField)!) {
-      case ImageField.FRONT:
-        result.imageFrontUrl = '';
-        break;
-      case ImageField.INGREDIENTS:
-        result.imageIngredientsUrl = '';
-        break;
-      case ImageField.NUTRITION:
-        result.imageNutritionUrl = '';
-        break;
-      case ImageField.PACKAGING:
-        result.imagePackagingUrl = '';
-        break;
-      case ImageField.OTHER:
-      // We do nothing. Actually we're not supposed to unselect other images.
-    }
+    ImageField.fromOffTag(imageField)!.setUrl(result, '');
     return result;
   }
 }

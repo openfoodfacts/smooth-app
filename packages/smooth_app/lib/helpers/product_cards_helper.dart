@@ -215,7 +215,7 @@ ProductImageData getProductImageData(
     imageUrl = getLocalizedProductImageUrl(product, productImage);
   } else {
     imageLanguage = null;
-    imageUrl = forceLanguage ? null : imageField.getImageFieldUrl(product);
+    imageUrl = forceLanguage ? null : imageField.getUrl(product);
   }
 
   return ProductImageData(
