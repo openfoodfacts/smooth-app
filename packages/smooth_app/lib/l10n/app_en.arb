@@ -1583,6 +1583,14 @@
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
+    "edit_photo_language_not_this_one": "No image in that language yet",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "No image yet",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
+    },
     "category_picker_screen_title": "Categories",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"

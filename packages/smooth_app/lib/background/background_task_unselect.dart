@@ -74,6 +74,7 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
     final String barcode, {
     required final ImageField imageField,
     required final State<StatefulWidget> widget,
+    required final OpenFoodFactsLanguage language,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
@@ -84,6 +85,7 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
       barcode,
       imageField,
       uniqueId,
+      language,
     );
     await task.addToManager(localDatabase, widget: widget);
   }
@@ -97,20 +99,21 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
     final String barcode,
     final ImageField imageField,
     final String uniqueId,
+    final OpenFoodFactsLanguage language,
   ) =>
       BackgroundTaskUnselect._(
         uniqueId: uniqueId,
         barcode: barcode,
         processName: _PROCESS_NAME,
         imageField: imageField.offTag,
-        languageCode: ProductQuery.getLanguage().code,
+        languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
         // same stamp as image upload
         stamp: BackgroundTaskImage.getStamp(
           barcode,
           imageField.offTag,
-          ProductQuery.getLanguage().code,
+          language.code,
         ),
       );
 
@@ -123,6 +126,7 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
     final LocalDatabase localDatabase,
     final bool success,
   ) async {
+    // TODO(monsieurtanuki): we should also remove the hypothetical transient file, shouldn't we?
     localDatabase.upToDate.terminate(uniqueId);
     localDatabase.notifyListeners();
     if (success) {

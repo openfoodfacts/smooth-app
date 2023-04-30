@@ -91,6 +91,7 @@ Future<File?> confirmAndUploadNewPicture(
   final State<StatefulWidget> widget, {
   required final ImageField imageField,
   required final String barcode,
+  required final OpenFoodFactsLanguage language,
 }) async {
   final XFile? croppedPhoto = await pickImageFile(widget);
   if (croppedPhoto == null) {
@@ -107,6 +108,7 @@ Future<File?> confirmAndUploadNewPicture(
         imageField: imageField,
         inputFile: File(croppedPhoto.path),
         initiallyDifferent: true,
+        language: language,
       ),
       fullscreenDialog: true,
     ),

@@ -101,6 +101,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
     final String barcode, {
+    required final OpenFoodFactsLanguage language,
     required final int imageId,
     required final ImageField imageField,
     required final File croppedFile,
@@ -117,6 +118,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
       barcode,
     );
     final AbstractBackgroundTask task = _getNewTask(
+      language,
       barcode,
       imageId,
       imageField,
@@ -137,6 +139,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
 
   /// Returns a new background task about cropping an existing image.
   static BackgroundTaskCrop _getNewTask(
+    final OpenFoodFactsLanguage language,
     final String barcode,
     final int imageId,
     final ImageField imageField,
@@ -160,13 +163,13 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
-        languageCode: ProductQuery.getLanguage().code,
+        languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
         stamp: BackgroundTaskImage.getStamp(
           barcode,
           imageField.offTag,
-          ProductQuery.getLanguage().code,
+          language.code,
         ),
       );
 

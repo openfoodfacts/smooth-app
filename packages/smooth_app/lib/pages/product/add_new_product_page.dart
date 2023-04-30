@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const EdgeInsetsGeometry _ROW_PADDING_TOP = EdgeInsetsDirectional.only(
@@ -183,6 +184,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             this,
             barcode: widget.barcode,
             imageField: imageField,
+            language: ProductQuery.getLanguage(),
           );
           if (finalPhoto != null) {
             setState(() {

@@ -13,10 +13,12 @@ class ProductImageServerButton extends StatelessWidget {
   const ProductImageServerButton({
     required this.barcode,
     required this.imageField,
+    required this.language,
   });
 
   final String barcode;
   final ImageField imageField;
+  final OpenFoodFactsLanguage language;
 
   @override
   Widget build(BuildContext context) => EditImageButton(
@@ -76,6 +78,7 @@ class ProductImageServerButton extends StatelessWidget {
           barcode: barcode,
           imageIds: result,
           imageField: imageField,
+          language: language,
         ),
       ),
     );

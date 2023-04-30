@@ -48,7 +48,6 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late ProductImageData _imageData;
-  late OpenFoodFactsLanguage _actualImageLanguage;
 
   String get _barcode => _initialProduct.barcode!;
 
@@ -74,26 +73,18 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     _imageData = getProductImageData(
       _product,
       widget.imageField,
-      // we want the image for this language, if possible
       widget.language,
+      forceLanguage: true,
     );
-    // fallback language
-    _actualImageLanguage = widget.language;
-    if (_imageData.language == null && _imageData.imageUrl != null) {
-      // let's find the language the imageUrl is related to.
-      final OpenFoodFactsLanguage? language = getProductImageUrlLanguage(
-        _product,
-        _imageData.imageField,
-        _imageData.imageUrl!,
-      );
-      if (language != null) {
-        _actualImageLanguage = language;
-      }
-    }
     final ImageProvider? imageProvider = TransientFile.getImageProvider(
       _imageData,
       _barcode,
       widget.language,
+    );
+    final Iterable<OpenFoodFactsLanguage> selectedLanguages =
+        getProductImageLanguages(
+      _product,
+      widget.imageField,
     );
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,7 +94,25 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
           child: Padding(
             padding: const EdgeInsets.all(MINIMUM_TOUCH_SIZE / 2),
             child: imageProvider == null
-                ? const SizedBox.expand(child: PictureNotFound())
+                ? Stack(
+                    children: <Widget>[
+                      const SizedBox.expand(child: PictureNotFound()),
+                      Center(
+                        child: Text(
+                          selectedLanguages.isEmpty
+                              ? appLocalizations.edit_photo_language_none
+                              : appLocalizations
+                                  .edit_photo_language_not_this_one,
+                          style: Theme.of(context)
+                                  .textTheme
+                                  .headlineMedium
+                                  ?.copyWith(color: Colors.black) ??
+                              const TextStyle(color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  )
                 : PhotoView(
                     minScale: 0.2,
                     imageProvider: imageProvider,
@@ -126,11 +135,8 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                 padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                 child: LanguageSelector(
                   setLanguage: widget.setLanguage,
-                  displayedLanguage: _actualImageLanguage,
-                  selectedLanguages: getProductImageLanguages(
-                    _product,
-                    <ImageField>[widget.imageField],
-                  ),
+                  displayedLanguage: widget.language,
+                  selectedLanguages: selectedLanguages,
                   foregroundColor: Colors.white,
                 ),
               ),
@@ -148,6 +154,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                 child: ProductImageServerButton(
                   barcode: _barcode,
                   imageField: widget.imageField,
+                  language: widget.language,
                 ),
               ),
             ),
@@ -158,6 +165,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                   firstPhoto: imageProvider == null,
                   barcode: _barcode,
                   imageField: widget.imageField,
+                  language: widget.language,
                 ),
               ),
             ),
@@ -274,6 +282,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         _barcode,
         imageField: widget.imageField,
         widget: this,
+        language: widget.language,
       );
       _localDatabase.notifyListeners();
       navigatorState.pop();
@@ -290,6 +299,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       navigatorState.push<File>(
         MaterialPageRoute<File>(
           builder: (BuildContext context) => CropPage(
+            language: widget.language,
             barcode: _product.barcode!,
             imageField: _imageData.imageField,
             inputFile: imageFile,

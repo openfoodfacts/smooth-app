@@ -46,6 +46,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           this,
           barcode: widget.product.barcode!,
           imageField: widget.productImageData.imageField,
+          language: ProductQuery.getLanguage(),
         ),
         icon: const Icon(Icons.add_a_photo),
         label: Text(
