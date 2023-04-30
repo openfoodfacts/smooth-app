@@ -277,12 +277,16 @@ String _getBarcodeSubPath(final String barcode) {
   return '$p1/$p2/$p3/$p4';
 }
 
+String _getImageRoot() =>
+    OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD
+        ? 'https://images.openfoodfacts.org/images/products'
+        : 'https://images.openfoodfacts.net/images/products';
+
 String getLocalizedProductImageUrl(
   final Product product,
   final ProductImage productImage,
 ) =>
-// TODO(monsieurtanuki): make it work in TEST env too (= .net)
-    'https://images.openfoodfacts.org/images/products/'
+    '${_getImageRoot()}/'
     '${_getBarcodeSubPath(product.barcode!)}/'
     '${ImageHelper.getProductImageFilename(productImage, imageSize: ImageSize.DISPLAY)}';
 
