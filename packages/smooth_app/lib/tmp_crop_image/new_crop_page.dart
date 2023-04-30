@@ -33,6 +33,7 @@ class CropPage extends StatefulWidget {
     required this.inputFile,
     required this.barcode,
     required this.imageField,
+    required this.language,
     required this.initiallyDifferent,
     this.imageId,
     this.initialCropRect,
@@ -44,6 +45,7 @@ class CropPage extends StatefulWidget {
 
   final ImageField imageField;
   final String barcode;
+  final OpenFoodFactsLanguage language;
 
   /// Is the full picture initially different from the current selection?
   final bool initiallyDifferent;
@@ -273,6 +275,7 @@ class _CropPageState extends State<CropPage> {
       final Rect cropRect = _getLocalCropRect();
       await BackgroundTaskImage.addTask(
         widget.barcode,
+        language: widget.language,
         imageField: widget.imageField,
         fullFile: fullFile,
         croppedFile: croppedFile,
@@ -291,6 +294,7 @@ class _CropPageState extends State<CropPage> {
       final Rect cropRect = _getServerCropRect();
       await BackgroundTaskCrop.addTask(
         widget.barcode,
+        language: widget.language,
         imageField: widget.imageField,
         imageId: widget.imageId!,
         croppedFile: croppedFile,

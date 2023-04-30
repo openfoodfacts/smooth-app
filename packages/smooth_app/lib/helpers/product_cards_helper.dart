@@ -193,11 +193,15 @@ List<ProductImageData> getProductMainImagesData(
   return result;
 }
 
+/// Returns data about the "best" image: for the language, or the default.
+///
+/// With [forceLanguage] you say you don't want the default as a fallback.
 ProductImageData getProductImageData(
   final Product product,
   final ImageField imageField,
-  final OpenFoodFactsLanguage language,
-) {
+  final OpenFoodFactsLanguage language, {
+  final bool forceLanguage = false,
+}) {
   final ProductImage? productImage = getLocalizedProductImage(
     product,
     imageField,
@@ -206,11 +210,12 @@ ProductImageData getProductImageData(
   final String? imageUrl;
   final OpenFoodFactsLanguage? imageLanguage;
   if (productImage != null) {
+    // we found a localized version for this image
     imageLanguage = language;
     imageUrl = getLocalizedProductImageUrl(product, productImage);
   } else {
     imageLanguage = null;
-    imageUrl = imageField.getImageFieldUrl(product);
+    imageUrl = forceLanguage ? null : imageField.getUrl(product);
   }
 
   return ProductImageData(
@@ -257,29 +262,6 @@ List<MapEntry<ProductImageData, ImageProvider?>> getSelectedImages(
   return result.entries.toList();
 }
 
-OpenFoodFactsLanguage? getProductImageUrlLanguage(
-  final Product product,
-  final ImageField imageField,
-  final String url,
-) {
-  if (product.images == null) {
-    return null;
-  }
-  for (final ProductImage productImage in product.images!) {
-    if (productImage.field != imageField ||
-        productImage.language == null ||
-        productImage.rev == null) {
-      continue;
-    }
-    final String localizedUrl =
-        getLocalizedProductImageUrl(product, productImage);
-    if (url == localizedUrl) {
-      return productImage.language;
-    }
-  }
-  return null;
-}
-
 // TODO(monsieurtanuki): move to off-dart in ImageHelper
 String _getBarcodeSubPath(final String barcode) {
   if (barcode.length < 9) {
@@ -295,26 +277,31 @@ String _getBarcodeSubPath(final String barcode) {
   return '$p1/$p2/$p3/$p4';
 }
 
+String _getImageRoot() =>
+    OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD
+        ? 'https://images.openfoodfacts.org/images/products'
+        : 'https://images.openfoodfacts.net/images/products';
+
 String getLocalizedProductImageUrl(
   final Product product,
   final ProductImage productImage,
 ) =>
-// TODO(monsieurtanuki): make it work in TEST env too (= .net)
-    'https://images.openfoodfacts.org/images/products/'
+    '${_getImageRoot()}/'
     '${_getBarcodeSubPath(product.barcode!)}/'
     '${ImageHelper.getProductImageFilename(productImage, imageSize: ImageSize.DISPLAY)}';
 
-/// Returns the languages for which image fields have images.
+/// Returns the languages for which [imageField] has images for that [product].
 Iterable<OpenFoodFactsLanguage> getProductImageLanguages(
   final Product product,
-  final Iterable<ImageField> imageFields,
+  final ImageField imageField,
 ) {
   final Set<OpenFoodFactsLanguage> result = <OpenFoodFactsLanguage>{};
+  result.addAll(TransientFile.getImageLanguages(imageField, product.barcode!));
   if (product.images == null) {
     return result;
   }
   for (final ProductImage productImage in product.images!) {
-    if (imageFields.contains(productImage.field) &&
+    if (imageField == productImage.field &&
         productImage.rev != null &&
         productImage.language != null) {
       result.add(productImage.language!);

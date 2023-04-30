@@ -58,13 +58,20 @@ class TransientFile {
     return File(path);
   }
 
-  /// Returns the key of the transient image for [imageField] and [barcode].
+  /// Returns the key of the transient image.
   static String _getImageKey(
     final ImageField imageField,
     final String barcode,
     final OpenFoodFactsLanguage language,
   ) =>
-      '$barcode;$imageField;${language.code}';
+      '${_getImageKeyPrefix(imageField, barcode)}${language.code}';
+
+  /// Returns the key prefix of the transient image (without language).
+  static String _getImageKeyPrefix(
+    final ImageField imageField,
+    final String barcode,
+  ) =>
+      '$barcode;$imageField;';
 
   /// Returns a way to display the image, either locally or from the server.
   static ImageProvider? getImageProvider(
@@ -109,4 +116,28 @@ class TransientFile {
   ) =>
       getImage(imageData.imageField, barcode, language) == null &&
       imageData.imageUrl != null;
+
+  /// Returns the languages that have currently transient images.
+  static Iterable<OpenFoodFactsLanguage> getImageLanguages(
+    final ImageField imageField,
+    final String barcode,
+  ) {
+    final Set<OpenFoodFactsLanguage> result = <OpenFoodFactsLanguage>{};
+    final String prefix = _getImageKeyPrefix(imageField, barcode);
+    final int prefixLength = prefix.length;
+    for (final String key in _transientFiles.keys) {
+      if (key.length <= prefixLength) {
+        continue;
+      }
+      if (!key.startsWith(prefix)) {
+        continue;
+      }
+      final String lc = key.substring(prefixLength);
+      final OpenFoodFactsLanguage language = LanguageHelper.fromJson(lc);
+      if (language != OpenFoodFactsLanguage.UNDEFINED) {
+        result.add(language);
+      }
+    }
+    return result;
+  }
 }

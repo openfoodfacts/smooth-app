@@ -18,11 +18,15 @@ class UploadedImageGallery extends StatelessWidget {
     required this.barcode,
     required this.imageIds,
     required this.imageField,
+    required this.language,
   });
 
   final String barcode;
   final List<int> imageIds;
   final ImageField imageField;
+
+  /// Language for which we'll save the cropped image.
+  final OpenFoodFactsLanguage language;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +81,7 @@ class UploadedImageGallery extends StatelessWidget {
                     inputFile: imageFile,
                     imageId: imageId,
                     initiallyDifferent: true,
+                    language: language,
                   ),
                   fullscreenDialog: true,
                 ),

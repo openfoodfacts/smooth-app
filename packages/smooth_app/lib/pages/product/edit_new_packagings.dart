@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -164,6 +165,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
             this,
             imageField: ImageField.OTHER,
             barcode: widget.product.barcode!,
+            language: ProductQuery.getLanguage(),
           ),
           iconData: Icons.add_a_photo,
         ),

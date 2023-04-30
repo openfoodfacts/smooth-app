@@ -20,7 +20,6 @@ import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/pages/product/product_image_local_button.dart';
 import 'package:smooth_app/pages/product/product_image_server_button.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -213,7 +212,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
   Widget _getOcrWidget(final ProductImageData productImageData) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+    final OpenFoodFactsLanguage language =
+        _multilingualHelper.getCurrentLanguage();
     return Align(
       alignment: AlignmentDirectional.bottomStart,
       child: Column(
@@ -241,6 +241,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                         child: ProductImageServerButton(
                           barcode: widget.product.barcode!,
                           imageField: _helper.getImageField(),
+                          language: language,
                         ),
                       ),
                     ),
@@ -256,6 +257,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                           ),
                           barcode: widget.product.barcode!,
                           imageField: _helper.getImageField(),
+                          language: language,
                         ),
                       ),
                     ),
@@ -327,6 +329,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                               this,
                               imageField: ImageField.OTHER,
                               barcode: widget.product.barcode!,
+                              language: language,
                             ),
                             iconData: Icons.add_a_photo,
                           ),
