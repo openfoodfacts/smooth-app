@@ -302,7 +302,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     final ui.Image full = await loadUiImage(
       await File(fullPath).readAsBytes(),
     );
-    final ui.Image cropped = await getCroppedBitmap(
+    final ui.Image cropped = await CropController.getCroppedBitmap(
       crop: getResizedRect(
         Rect.fromLTRB(
           cropX1.toDouble(),

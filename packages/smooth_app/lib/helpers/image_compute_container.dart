@@ -3,9 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:crop_image/crop_image.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart' as image;
 
@@ -64,97 +62,4 @@ class ImageComputeContainer {
     );
     await file.writeAsBytes(jpegData, flush: true);
   }
-}
-
-/// Returns the bitmap cropped with parameters.
-///
-/// [maxSize] is the maximum width or height you want.
-/// The [crop] `Rect` is normalized to (0, 0) x (1, 1).
-/// You can provide the [quality] used in the resizing operation.
-Future<ui.Image> getCroppedBitmap({
-// TODO(monsieurtanuki): make it public in crop_image
-  final double? maxSize,
-  final ui.FilterQuality quality = FilterQuality.high,
-  required final Rect crop,
-  required final CropRotation rotation,
-  required final ui.Image image,
-}) async {
-  final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
-  final Canvas canvas = Canvas(pictureRecorder);
-
-  final bool tilted = rotation.isSideways;
-  final double cropWidth;
-  final double cropHeight;
-  if (tilted) {
-    cropWidth = crop.width * image.height;
-    cropHeight = crop.height * image.width;
-  } else {
-    cropWidth = crop.width * image.width;
-    cropHeight = crop.height * image.height;
-  }
-// factor between the full size and the maxSize constraint.
-  double factor = 1;
-  if (maxSize != null) {
-    if (cropWidth > maxSize || cropHeight > maxSize) {
-      if (cropWidth >= cropHeight) {
-        factor = maxSize / cropWidth;
-      } else {
-        factor = maxSize / cropHeight;
-      }
-    }
-  }
-
-  final Offset cropCenter = rotation.getRotatedOffset(
-    crop.center,
-    image.width.toDouble(),
-    image.height.toDouble(),
-  );
-
-  final double alternateWidth = tilted ? cropHeight : cropWidth;
-  final double alternateHeight = tilted ? cropWidth : cropHeight;
-  if (rotation != CropRotation.up) {
-    canvas.save();
-    final double x = alternateWidth / 2 * factor;
-    final double y = alternateHeight / 2 * factor;
-    canvas.translate(x, y);
-    canvas.rotate(rotation.radians);
-    if (rotation == CropRotation.right) {
-      canvas.translate(
-        -y,
-        -cropWidth * factor + x,
-      );
-    } else if (rotation == CropRotation.left) {
-      canvas.translate(
-        y - cropHeight * factor,
-        -x,
-      );
-    } else if (rotation == CropRotation.down) {
-      canvas.translate(-x, -y);
-    }
-  }
-
-  canvas.drawImageRect(
-    image,
-    Rect.fromCenter(
-      center: cropCenter,
-      width: alternateWidth,
-      height: alternateHeight,
-    ),
-    Rect.fromLTWH(
-      0,
-      0,
-      alternateWidth * factor,
-      alternateHeight * factor,
-    ),
-    Paint()..filterQuality = quality,
-  );
-
-  if (rotation != CropRotation.up) {
-    canvas.restore();
-  }
-
-//FIXME Picture.toImage() crashes on Flutter Web with the HTML renderer. Use CanvasKit or avoid this operation for now. https://github.com/flutter/engine/pull/20750
-  return pictureRecorder
-      .endRecording()
-      .toImage((cropWidth * factor).round(), (cropHeight * factor).round());
 }
