@@ -4,9 +4,9 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image/image.dart' as image2;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
@@ -15,10 +15,8 @@ import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/tmp_crop_image/image_compute_helper.dart';
-import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
-import 'package:smooth_app/tmp_crop_image/rotation.dart';
 
 /// Background task about product image upload.
 class BackgroundTaskImage extends AbstractBackgroundTask {
@@ -301,10 +299,10 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       // in that case, no need to crop
       return false;
     }
-    final ui.Image image = await loadUiImage(
+    final ui.Image full = await loadUiImage(
       await File(fullPath).readAsBytes(),
     );
-    final image2.Image? rawImage = await RotatedCropController.getCroppedBitmap(
+    final ui.Image cropped = await getCroppedBitmap(
       crop: getResizedRect(
         Rect.fromLTRB(
           cropX1.toDouble(),
@@ -314,15 +312,12 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         ),
         1 / cropConversionFactor,
       ),
-      rotation: RotationExtension.fromDegrees(rotationDegrees)!,
-      image: image,
+      rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+      image: full,
       maxSize: null,
       quality: FilterQuality.high,
     );
-    if (rawImage == null) {
-      throw Exception('Cannot crop file');
-    }
-    await saveJpeg(ImageComputeContainer(file: file, rawImage: rawImage));
+    await ImageComputeContainer(file: file, source: cropped).saveJpeg();
     return true;
   }
 

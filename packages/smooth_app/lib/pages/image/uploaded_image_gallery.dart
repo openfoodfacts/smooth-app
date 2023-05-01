@@ -8,8 +8,8 @@ import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Gallery of all images already uploaded, about a given product.

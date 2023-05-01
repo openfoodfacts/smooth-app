@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -17,13 +18,12 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/product_image_local_button.dart';
 import 'package:smooth_app/pages/product/product_image_server_button.dart';
-import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
-import 'package:smooth_app/tmp_crop_image/rotation.dart';
 
 /// Displays a full-screen image with an "edit" floating button.
 class ProductImageViewer extends StatefulWidget {
@@ -294,7 +294,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     final File imageFile, {
     final int? imageId,
     final Rect? initialCropRect,
-    final Rotation? initialRotation,
+    final CropRotation? initialRotation,
   }) async =>
       navigatorState.push<File>(
         MaterialPageRoute<File>(
@@ -335,7 +335,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       imageFile,
       imageId: imageId,
       initialCropRect: _getCropRect(productImage),
-      initialRotation: RotationExtension.fromDegrees(
+      initialRotation: CropRotationExtension.fromDegrees(
         productImage.angle?.degree ?? 0,
       ),
     );
