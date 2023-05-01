@@ -1799,7 +1799,7 @@
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Téléchargez une image pour extraire automatiquement les informations fournies.",
+    "ocr_image_upload_instruction": "Envoyez une image pour extraire automatiquement les informations fournies.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
