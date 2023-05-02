@@ -291,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_forum": "Laguntza eskatu gure foroan",
     "support_via_email": "Send us an e-mail",
     "support_via_email_include_logs_dialog_title": "Send app logs?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
@@ -687,42 +688,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  =1{duela egun bat} other{duela {count} egun}}",
+    "plural_ago_days": "{count,plural,  one {}=1{duela egun bat} other{duela {count} egun}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  =1{duela ordu bat} other{duela {count} ordu}}",
+    "plural_ago_hours": "{count,plural,  one {}=1{duela ordu bat} other{duela {count} ordu}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  =0{duela minutu bat baino gutxiago} =1{duela minutu bat} other{duela {count} minutu}}",
+    "plural_ago_minutes": "{count,plural,  one {}=0{duela minutu bat baino gutxiago} =1{duela minutu bat} other{duela {count} minutu}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  =1{duela hilabete bat} other{duela {count} hilabete}}",
+    "plural_ago_months": "{count,plural,  one {}=1{duela hilabete bat} other{duela {count} hilabete}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  =1{duela aste bat} other{duela {count} aste}}",
+    "plural_ago_weeks": "{count,plural,  one {}=1{duela aste bat} other{duela {count} aste}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Produktu bat alderatu} other{{count} produktu alderatu}}",
+    "plural_compare_x_products": "{count,plural, one {}=1{Produktu bat alderatu} other{{count} produktu alderatu}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
@@ -1311,6 +1312,14 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
+    "camera_flash_error_dialog_title": "Errore bat gertatu da!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "Errore bat gertatu da zure flasharen egoera aldatzean. Mesedez, ziurtatu zure mugikorrak ez duela linterna pizturik.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
     "category_picker_no_category_found_button": "Atzera",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
@@ -1573,6 +1582,14 @@
     "edit_photo_select_existing_downloaded_none": "Produktu honekin erlazionatutako irudirik ez da oraindik igo.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
+    },
+    "edit_photo_language_not_this_one": "Irudirik oraindik ez hizkuntza horretan",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "Irudirik oraindik ez",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
     "category_picker_screen_title": "Kategoriak",
     "@category_picker_screen_title": {

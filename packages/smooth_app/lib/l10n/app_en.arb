@@ -1007,7 +1007,7 @@
         }
     },
     "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
+    "camera_mode_bytes_array_based": "糖",
     "app_haptic_feedback_title": "Vibration & Haptics",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
