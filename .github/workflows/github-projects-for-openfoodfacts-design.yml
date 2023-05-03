@@ -22,3 +22,9 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: packaging input
           label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/35 # Add issue to the a11y project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: accessibility
+          label-operator: OR
