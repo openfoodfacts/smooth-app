@@ -709,7 +709,7 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  one {}  few {před {count} měsíci}  many {před {count} měsíci}=1{před měsícem} other{před {count} měsíci}}",
+    "plural_ago_months": "{count,plural, few{před {count} měsíci}  many{před {count} měsíci} =1{před měsícem} other{před {count} měsíci}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
