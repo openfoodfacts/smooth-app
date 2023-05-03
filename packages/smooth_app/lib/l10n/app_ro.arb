@@ -396,7 +396,7 @@
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
-    "reloaded_with_new_preferences": "Ce faci",
+    "reloaded_with_new_preferences": "Reîncărcat cu noile preferințe",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
