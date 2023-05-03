@@ -291,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_forum": "உதவிக்கு எங்கள் மன்றத்தை நாடவும்",
     "support_via_email": "Send us an e-mail",
     "support_via_email_include_logs_dialog_title": "Send app logs?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
@@ -1311,6 +1312,14 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
+    "camera_flash_error_dialog_title": "ஒரு பிழை ஏற்பட்டது!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "உங்கள் ஃபிளாஷின் நிலையை மாற்றும்போது பிழை ஏற்பட்டது. உங்கள் ஸ்மார்ட்போனில் டார்ச் ஏற்கனவே இயக்கப்படவில்லை என்பதை உறுதிப்படுத்தவும்.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
     "category_picker_no_category_found_button": "பின்செல்",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
@@ -1574,6 +1583,14 @@
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
+    "edit_photo_language_not_this_one": "அந்த மொழியில் இன்னும் உருவம் இல்லை",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "இன்னும் எந்த உருவமும் இல்லை",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
+    },
     "category_picker_screen_title": "Categories",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1815,11 +1832,11 @@
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "எனது தேர்வை நினைவில்கொள்",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "ஒவ்வொரு முறையும் தேர்ந்தெடுக்கவும்",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
