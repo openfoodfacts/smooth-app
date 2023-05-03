@@ -907,7 +907,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Verversen van {count,plural, one {} =0{product} =1{product} other{products}} in jouw geschiedens",
+    "product_list_reloading_in_progress_multiple": "Verversen van {count,plural, =0{product} =1{product} other{products}} in jouw geschiedens",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
