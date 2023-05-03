@@ -695,7 +695,7 @@
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  one {}=1{duela ordu bat} other{duela {count} ordu}}",
+    "plural_ago_hours": "{count,plural, =1{duela ordu bat} other{duela {count} ordu}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
