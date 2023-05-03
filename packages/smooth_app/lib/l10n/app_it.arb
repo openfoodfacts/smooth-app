@@ -709,7 +709,7 @@
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  one {}=1{un mese fa} other{{count} mesi fa}}",
+    "plural_ago_months": "{count,plural,  =1{un mese fa} other{{count} mesi fa}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
