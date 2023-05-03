@@ -688,14 +688,14 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}  few {před {count} dny}  many {před {count} dny}=1{včera} other{ před {count} dny}}",
+    "plural_ago_days": "{count,plural,  few{před {count} dny}  many{před {count} dny} =1{včera} other{ před {count} dny}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  one {}  few {před {count} hodinami}  many {před {count} hodinami}=1{před hodinou} other{před {count} hodinami}}",
+    "plural_ago_hours": "{count,plural,  one {}  few{před {count} hodinami}  many{před {count} hodinami} =1{před hodinou} other{před {count} hodinami}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
