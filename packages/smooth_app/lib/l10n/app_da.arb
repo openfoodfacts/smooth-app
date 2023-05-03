@@ -702,7 +702,7 @@
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  one {}=0{under ét minut siden} =1{ét minut siden} other{{count} minutter siden}}",
+    "plural_ago_minutes": "{count,plural, =0{under ét minut siden} =1{ét minut siden} other{{count} minutter siden}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
