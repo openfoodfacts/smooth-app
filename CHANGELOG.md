@@ -2,7 +2,7 @@
 
 ## [4.7.0](https://github.com/openfoodfacts/smooth-app/compare/v4.6.0...v4.7.0) (2023-05-06)
 
-
+ 
 ### 🐛 Bug Fixes
 
 * [#3712](https://github.com/openfoodfacts/smooth-app/issues/3712) - upgraded mlkit (bug fix) ([#3779](https://github.com/openfoodfacts/smooth-app/issues/3779)) ([805ca0d](https://github.com/openfoodfacts/smooth-app/commit/805ca0d3f7363636a0a9e859e80bb77dddcf46c4))
