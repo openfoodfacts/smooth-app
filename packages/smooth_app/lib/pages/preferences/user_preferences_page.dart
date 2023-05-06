@@ -131,7 +131,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     if (headerAsset == null) {
       return SmoothScaffold(
         appBar: AppBar(
-          title: Text(appBarTitle),
+          title: Text(
+            appBarTitle,
+            maxLines: 2,
+          ),
           leading: const SmoothBackButton(),
         ),
         body: Scrollbar(child: list),
@@ -157,7 +160,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
       appBar: AppBar(
-        title: Text(appBarTitle),
+        title: Text(
+          appBarTitle,
+          maxLines: 2,
+        ),
         leading: const SmoothBackButton(),
       ),
       body: ListView(children: children),

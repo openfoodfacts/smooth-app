@@ -138,7 +138,7 @@ Future<bool> _init1() async {
   UserManagementProvider().checkUserLoginValidity();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
-  ProductQuery.setCountry(_userPreferences.userCountryCode);
+  await ProductQuery.setCountry(_userPreferences);
   _themeProvider = ThemeProvider(_userPreferences);
   _colorProvider = ColorProvider(_userPreferences);
   _textContrastProvider = TextContrastProvider(_userPreferences);
@@ -233,10 +233,10 @@ class _SmoothAppState extends State<SmoothApp> {
         context.watch<TextContrastProvider>();
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
-    final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
-        .getPageWidget(context, lastVisitedOnboardingPage);
+    OnboardingFlowNavigator(_userPreferences);
+    final Widget appWidget = lastVisitedOnboardingPage.getPageWidget(context);
     final bool isOnboardingComplete =
-        OnboardingFlowNavigator.isOnboardingComplete(lastVisitedOnboardingPage);
+        lastVisitedOnboardingPage.isOnboardingComplete();
     themeProvider.setOnboardingComplete(isOnboardingComplete);
 
     // Still need the value from the UserPreferences here, not the ProductQuery
