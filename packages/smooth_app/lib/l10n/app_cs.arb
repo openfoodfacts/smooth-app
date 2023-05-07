@@ -723,7 +723,7 @@
             "count": {}
         }
     },
-    "plural_compare_x_products": "Porovnat {count,plural, one {} few {{count} produkty} many {{count} produktů}=1{1 produkt} other{{count} produktů}}",
+    "plural_compare_x_products": "Porovnat {count,plural, few {{count} produkty} many {{count} produktů}=1{1 produkt} other{{count} produktů}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {

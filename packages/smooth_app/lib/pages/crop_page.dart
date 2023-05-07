@@ -140,12 +140,6 @@ class _CropPageState extends State<CropPage> {
     _initLoad();
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   Future<void> _initLoad() async => _load(await widget.inputFile.readAsBytes());
 
   @override
