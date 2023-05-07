@@ -30,31 +30,37 @@ abstract class ProductQuery {
     final UserPreferences userPreferences, {
     String? languageCode,
   }) {
-    final Locale locale = Localizations.localeOf(context);
-
-    if (languageCode != null) {
-      userPreferences.setAppLanguageCode(languageCode);
-    } else if (userPreferences.appLanguageCode != null) {
-      languageCode = userPreferences.appLanguageCode;
-    } else {
-      languageCode = locale.languageCode;
-    }
+    languageCode ??= userPreferences.appLanguageCode ??
+        Localizations.localeOf(context).languageCode;
 
     final OpenFoodFactsLanguage language =
         LanguageHelper.fromJson(languageCode);
     OpenFoodAPIConfiguration.globalLanguages = <OpenFoodFactsLanguage>[
       language,
     ];
+    if (languageCode != userPreferences.appLanguageCode) {
+      userPreferences.setAppLanguageCode(languageCode);
+    }
   }
 
-  /// Returns the global country for API queries?
+  /// Returns the global country for API queries.
   static OpenFoodFactsCountry? getCountry() => _country;
 
   /// Sets the global country for API queries.
-  static void setCountry(final String? isoCode) {
+  static Future<void> setCountry(
+    final UserPreferences userPreferences, {
+    String? isoCode,
+  }) async {
+    isoCode ??= userPreferences.userCountryCode ??
+        WidgetsBinding.instance.window.locale.countryCode?.toLowerCase();
     _country = CountryHelper.fromJson(isoCode);
     // we need this to run "world" queries
     OpenFoodAPIConfiguration.globalCountry = null;
+
+    isoCode = _country?.offTag;
+    if (isoCode != null && isoCode != userPreferences.userCountryCode) {
+      await userPreferences.setUserCountryCode(isoCode);
+    }
   }
 
   /// Returns the global locale string (e.g. 'pt_BR')
