@@ -76,11 +76,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       widget.language,
       forceLanguage: true,
     );
-    final ImageProvider? imageProvider = TransientFile.getImageProvider(
-      _imageData,
-      _barcode,
-      widget.language,
-    );
+    final ImageProvider? imageProvider = _getTransientFile().getImageProvider();
     final Iterable<OpenFoodFactsLanguage> selectedLanguages =
         getProductImageLanguages(
       _product,
@@ -227,11 +223,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     }
 
     // alternate option: use the transient file.
-    File? imageFile = TransientFile.getImage(
-      _imageData.imageField,
-      _barcode,
-      widget.language,
-    );
+    File? imageFile = _getTransientFile().getImage();
     if (imageFile != null) {
       return _openCropPage(navigatorState, imageFile);
     }
@@ -249,6 +241,12 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
     return null;
   }
+
+  TransientFile _getTransientFile() => TransientFile.fromProductImageData(
+        _imageData,
+        _barcode,
+        widget.language,
+      );
 
   Future<void> _actionUnselect(final AppLocalizations appLocalizations) async {
     final NavigatorState navigatorState = Navigator.of(context);

@@ -5,10 +5,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
-import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -111,7 +112,7 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
         // same stamp as image upload
-        stamp: BackgroundTaskImage.getStamp(
+        stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
           language.code,
@@ -119,8 +120,16 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
       );
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async =>
-      localDatabase.upToDate.addChange(uniqueId, _getUnselectedProduct());
+  Future<void> preExecute(final LocalDatabase localDatabase) async {
+    localDatabase.upToDate.addChange(uniqueId, _getUnselectedProduct());
+    _getTransientFile().removeImage(localDatabase);
+  }
+
+  TransientFile _getTransientFile() => TransientFile(
+        ImageField.fromOffTag(imageField)!,
+        barcode,
+        getLanguage(),
+      );
 
   @override
   Future<void> postExecute(

@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -123,7 +122,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    final ProductImageData productImageData = getProductImageData(
+    final TransientFile transientFile = TransientFile.fromProduct(
       _product,
       _helper.getImageField(),
       _multilingualHelper.getCurrentLanguage(),
@@ -153,21 +152,17 @@ class _EditOcrPageState extends State<EditOcrPage> {
       ),
       body: Stack(
         children: <Widget>[
-          _getImageWidget(productImageData),
-          _getOcrWidget(productImageData),
+          _getImageWidget(transientFile),
+          _getOcrWidget(transientFile),
         ],
       ),
     );
   }
 
-  Widget _getImageWidget(final ProductImageData productImageData) {
+  Widget _getImageWidget(final TransientFile transientFile) {
     final Size size = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ImageProvider? imageProvider = TransientFile.getImageProvider(
-      productImageData,
-      _initialProduct.barcode!,
-      _multilingualHelper.getCurrentLanguage(),
-    );
+    final ImageProvider? imageProvider = transientFile.getImageProvider();
 
     if (imageProvider != null) {
       return ConstrainedBox(
@@ -210,7 +205,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     );
   }
 
-  Widget _getOcrWidget(final ProductImageData productImageData) {
+  Widget _getOcrWidget(final TransientFile transientFile) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OpenFoodFactsLanguage language =
         _multilingualHelper.getCurrentLanguage();
@@ -250,11 +245,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                         padding:
                             const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                         child: ProductImageLocalButton(
-                          firstPhoto: !TransientFile.isImageAvailable(
-                            productImageData,
-                            widget.product.barcode!,
-                            language,
-                          ),
+                          firstPhoto: !transientFile.isImageAvailable(),
                           barcode: widget.product.barcode!,
                           imageField: _helper.getImageField(),
                           language: language,
@@ -282,11 +273,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                     children: <Widget>[
                       if (!_multilingualHelper.isMonolingual())
                         _multilingualHelper.getLanguageSelector(setState),
-                      if (TransientFile.isServerImage(
-                        productImageData,
-                        widget.product.barcode!,
-                        language,
-                      ))
+                      if (transientFile.isServerImage())
                         SmoothActionButtonsBar.single(
                           action: SmoothActionButton(
                             text:
@@ -294,11 +281,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                             onPressed: () async => _extractData(),
                           ),
                         )
-                      else if (TransientFile.isImageAvailable(
-                        productImageData,
-                        widget.product.barcode!,
-                        language,
-                      ))
+                      else if (transientFile.isImageAvailable())
                         // TODO(monsieurtanuki): what if slow upload? text instead?
                         const CircularProgressIndicator.adaptive(),
                       const SizedBox(height: MEDIUM_SPACE),

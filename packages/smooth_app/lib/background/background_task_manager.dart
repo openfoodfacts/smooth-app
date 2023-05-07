@@ -134,6 +134,9 @@ class BackgroundTaskManager {
       return;
     }
     final List<AbstractBackgroundTask> tasks = await _getAllTasks();
+    for (final AbstractBackgroundTask task in tasks) {
+      await task.recover(localDatabase);
+    }
     final Map<String, String> failedTaskFromStamps = <String, String>{};
     for (final AbstractBackgroundTask task in tasks) {
       final String stamp = task.stamp;
@@ -156,6 +159,7 @@ class BackgroundTaskManager {
         // Most likely, no internet, no reason to go on.
         if (e.toString().startsWith('Failed host lookup: ')) {
           await _setTaskErrorStatus(taskId, taskStatusNoInternet);
+          await _justFinished();
           return;
         }
         debugPrint('Background task error ($e)');

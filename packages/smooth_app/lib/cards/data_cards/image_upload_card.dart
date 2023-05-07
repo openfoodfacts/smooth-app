@@ -34,11 +34,11 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
     final Size screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    final ImageProvider? imageProvider = TransientFile.getImageProvider(
+    final ImageProvider? imageProvider = TransientFile.fromProductImageData(
       widget.productImageData,
       widget.product.barcode!,
       ProductQuery.getLanguage(),
-    );
+    ).getImageProvider();
 
     if (imageProvider == null) {
       return ElevatedButton.icon(
