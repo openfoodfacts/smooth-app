@@ -146,7 +146,8 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getString(_TAG_CURRENT_CONTRAST_MODE) ??
       CONTRAST_MEDIUM;
 
-  Future<void> setUserCountry(final String countryCode) async {
+  /// Please use [ProductQuery.setCountry] as interface
+  Future<void> setUserCountryCode(final String countryCode) async {
     await _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
     notifyListeners();
   }
@@ -157,6 +158,13 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async {
     await _sharedPreferences.setInt(
         _TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);
+    notifyListeners();
+  }
+
+  Future<void> resetOnboarding() async {
+    await setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
+    // for tests with a fresh null country
+    await _sharedPreferences.remove(_TAG_USER_COUNTRY_CODE);
     notifyListeners();
   }
 

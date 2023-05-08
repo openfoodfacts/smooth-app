@@ -6,21 +6,21 @@
     },
     "yes": "Da",
     "@yes": {},
-    "add": "Додај",
+    "add": "Dodajte",
     "@add": {},
     "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
     "@account_delete_message": {},
     "reason": "Reason",
     "@reason": {},
-    "okay": "Okay",
+    "okay": "U redu",
     "@okay": {},
     "create": "Create",
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "Apply",
+    "applyButtonText": "Primeni",
     "@applyButtonText": {},
-    "next_label": "Next",
+    "next_label": "Sledeće",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
@@ -38,7 +38,7 @@
     "@close": {},
     "no": "Ne",
     "@no": {},
-    "stop": "Stop",
+    "stop": "Stani",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
@@ -46,21 +46,21 @@
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "Reset food preferences",
+    "reset_food_prefs": "Resetujte preferencije hrane",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "Došlo je do greške",
     "@error_occurred": {},
-    "featureInProgress": "We're still working on this feature, stay tuned",
+    "featureInProgress": "I dalje radimo na ovoj funkciji, budite u toku",
     "@featureInProgress": {},
     "label_web": "View on the web",
     "@label_web": {},
-    "learnMore": "Learn more",
+    "learnMore": "Saznajte Više",
     "@learnMore": {},
-    "unknown": "Unknown",
+    "unknown": "Nepoznato",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
@@ -114,14 +114,14 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Tražimo",
     "@looking_for": {
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts je globalna neprofitna organizacija koju pokreću lokalne zajednice.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -129,11 +129,11 @@
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "See the food data relevant to your preferences.",
+    "productDataUtility": "Pogledajte podatke o hrani koji su relevantni za vaše preferencije.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Choose foods that are good for you.",
+    "healthCardUtility": "Birajte hranu koja je dobra za vas.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
@@ -154,7 +154,7 @@
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
-    "sign_in": "Sign in",
+    "sign_in": "Prijavite se",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
@@ -179,7 +179,7 @@
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
-    "reset_password": "Reset password",
+    "reset_password": "Resetuj lozinku",
     "@reset_password": {
         "description": "Forgot password page title"
     },
@@ -285,16 +285,17 @@
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Contributors",
+    "contributors": "Saradnici",
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Ask for help in our Slack channel",
+    "support_via_forum": "Ask for help on our forum",
     "support_via_email": "Send us an e-mail",
     "support_via_email_include_logs_dialog_title": "Send app logs?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
-    "termsOfUse": "Terms of use",
+    "termsOfUse": "Uslovi korišćenja",
     "@termsOfUse": {},
     "about_this_app": "About this app",
     "@about_this_app": {
@@ -315,7 +316,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV Mode?",
     "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Donirajte Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Products to be completed",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -360,7 +361,7 @@
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "tap_to_edit_search": "Tap to edit search",
     "@Personal preferences": {},
-    "myPreferences": "My preferences",
+    "myPreferences": "Moje preference",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
@@ -383,7 +384,7 @@
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "My personalized ranking",
+    "myPersonalizedRanking": "Moje personalizovano rangiranje",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
@@ -404,7 +405,7 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Scan",
+    "scan_navbar_label": "Skeniraj",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the scanning of products"
     },
@@ -425,7 +426,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan",
+    "scan": "Skeniraj",
     "@scan": {
         "description": "Page title: List type: Scanned products"
     },
@@ -435,7 +436,7 @@
     },
     "tab_for_more": "Tap to see more info…",
     "@Product": {},
-    "product": "Производ",
+    "product": "Proizvod",
     "@product": {},
     "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
@@ -569,7 +570,7 @@
     "nutrition_page_title": "Nutrition Facts",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
     "nutrition_page_per_100g": "per 100g",
-    "nutrition_page_per_serving": "per serving",
+    "nutrition_page_per_serving": "po porciji",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Porcija",
     "nutrition_page_invalid_number": "Invalid number",
@@ -580,7 +581,7 @@
     "no_product_found": "No product found",
     "@no_product_found": {},
     "not_found": "not found:",
-    "searchPanelHeader": "Search or scan your first product",
+    "searchPanelHeader": "Pretraži ili skeniraj svoj prvi artikal",
     "@Product query status": {},
     "refreshing_product": "Refreshing product",
     "@refreshing_product": {
@@ -741,7 +742,7 @@
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
-    "retry_button_label": "Retry",
+    "retry_button_label": "Pokušaj ponovo",
     "connect_with_us": "Connect with us",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
@@ -749,7 +750,7 @@
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
-    "discover": "Discover",
+    "discover": "Otkrij",
     "how_to_contribute": "How to Contribute",
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
@@ -979,7 +980,7 @@
     "settings_app_app": "Application",
     "settings_app_data": "Privacy & monitoring",
     "settings_app_camera": "Camera",
-    "settings_app_products": "Products",
+    "settings_app_products": "Proizvodi",
     "settings_app_miscellaneous": "Miscellaneous",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
@@ -1035,7 +1036,7 @@
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
-    "permission_photo_error": "Error",
+    "permission_photo_error": "Greška",
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
@@ -1105,7 +1106,7 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "label",
+    "edit_product_form_item_labels_hint": "oznaka",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
@@ -1113,7 +1114,7 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "store",
+    "edit_product_form_item_stores_hint": "prodavnica",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
@@ -1161,7 +1162,7 @@
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "категорија",
+    "edit_product_form_item_categories_hint": "kategorija",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
@@ -1184,7 +1185,7 @@
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
-    "edit_product_form_item_add_valid_item_tooltip": "Додај",
+    "edit_product_form_item_add_valid_item_tooltip": "Dodajte",
     "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
     "edit_product_form_item_remove_item_tooltip": "Remove",
     "edit_product_form_item_packaging_title": "Recycling instructions photo",
@@ -1310,6 +1311,14 @@
     "camera_disable_flash": "Disable flash",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
+    },
+    "camera_flash_error_dialog_title": "An error occurred!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
     "category_picker_no_category_found_button": "Nazad",
     "@category_picker_no_category_found_button": {
@@ -1573,6 +1582,14 @@
     "edit_photo_select_existing_downloaded_none": "There are no images previously uploaded related to this product.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
+    },
+    "edit_photo_language_not_this_one": "No image in that language yet",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "No image yet",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
     "category_picker_screen_title": "Категорије",
     "@category_picker_screen_title": {
