@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:ui' as ui;
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
@@ -406,7 +408,10 @@ class _SvgIcon extends StatelessWidget {
         assetName,
         height: DEFAULT_ICON_SIZE,
         width: DEFAULT_ICON_SIZE,
-        color: _iconColor(Theme.of(context)),
+        colorFilter: ui.ColorFilter.mode(
+          _iconColor(Theme.of(context)),
+          ui.BlendMode.srcIn,
+        ),
         package: AppHelper.APP_PACKAGE,
       );
 

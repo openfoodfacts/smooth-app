@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
@@ -54,7 +56,9 @@ class SvgCache extends AbstractCache {
     }
     return SvgPicture.network(
       iconUrl!,
-      color: forcedColor,
+      colorFilter: forcedColor == null
+          ? null
+          : ui.ColorFilter.mode(forcedColor, ui.BlendMode.srcIn),
       width: width,
       height: height,
       fit: BoxFit.contain,

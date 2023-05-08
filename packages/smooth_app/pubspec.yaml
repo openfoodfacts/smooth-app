@@ -16,7 +16,7 @@ dependencies:
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
-  flutter_svg: 1.1.6
+  flutter_svg: 2.0.5
   flutter_map: 2.2.0
   flutter_widget_from_html_core: 0.8.3+1
   fwfh_selectable_text: 0.8.3+1
@@ -27,7 +27,7 @@ dependencies:
   image_picker: 0.8.7
   iso_countries: 2.1.0
   latlong2: 0.8.1
-  matomo_tracker: 2.0.0
+  matomo_tracker: 3.1.0
   modal_bottom_sheet: 2.1.2
   package_info_plus: 3.0.3
   device_info_plus: 8.1.0
@@ -81,7 +81,7 @@ dependencies:
   # We use two different scanning engines, 
   # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
   # but qr_code_scanner which uses the open source ZXing for F-Droid
-  camera: 0.10.3+2
+  camera: 0.10.5
   
   scanner_shared:
     path: ../scanner/shared
