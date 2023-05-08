@@ -6,18 +6,18 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
-import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -86,6 +86,7 @@ class NutritionPageLoaded extends StatefulWidget {
 }
 
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
+  late final LocalDatabase _localDatabase;
   late final NumberFormat _decimalNumberFormat;
   late final NutritionContainer _nutritionContainer;
 
@@ -94,21 +95,27 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   TextEditingControllerWithInitialValue? _servingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late Product _product;
+  late final Product _initialProduct;
+
+  String get _barcode => _initialProduct.barcode!;
 
   @override
   void initState() {
     super.initState();
-    _product = widget.product;
+    _initialProduct = widget.product;
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
-      product: _product,
+      product: _initialProduct,
     );
     _decimalNumberFormat =
         SimpleInputNumberField.getNumberFormat(decimal: true);
+    _localDatabase = context.read<LocalDatabase>();
+    _localDatabase.upToDate.showInterest(_barcode);
   }
 
   @override
   void dispose() {
+    _localDatabase.upToDate.loseInterest(_barcode);
     for (final TextEditingControllerWithInitialValue controller
         in _controllers.values) {
       controller.dispose();
@@ -120,6 +127,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    context.watch<LocalDatabase>();
+    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+
     final List<Widget> children = <Widget>[];
 
     // List of focus nodes for all text fields except the serving one.
@@ -128,7 +138,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     children.add(_switchNoNutrition(appLocalizations));
 
     if (!_nutritionContainer.noNutritionData) {
-      children.add(_goToPicture(appLocalizations));
+      children.add(
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+          child: ImageField.NUTRITION.getPhotoButton(context, _product),
+        ),
+      );
       children.add(_getServingField(appLocalizations));
       children.add(_getServingSwitch(appLocalizations));
 
@@ -179,11 +194,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         appBar: SmoothAppBar(
           title: AutoSizeText(
             appLocalizations.nutrition_page_title,
-            maxLines: widget.product.productName?.isNotEmpty == true ? 1 : 2,
+            maxLines: _product.productName?.isNotEmpty == true ? 1 : 2,
           ),
-          subTitle: widget.product.productName != null
+          subTitle: _product.productName != null
               ? Text(
-                  widget.product.productName!,
+                  _product.productName!,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 )
@@ -344,23 +359,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         ),
       );
 
-  Widget _goToPicture(final AppLocalizations appLocalizations) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-        child: SmoothLargeButtonWithIcon(
-          onPressed: () async => Navigator.push(
-            context,
-            MaterialPageRoute<void>(
-              builder: (_) => ProductImageSwipeableView.imageField(
-                imageField: ImageField.NUTRITION,
-                product: _product,
-              ),
-            ),
-          ),
-          icon: Icons.camera_alt,
-          text: appLocalizations.nutrition_facts_photo,
-        ),
-      );
-
   /// Returns `true` if any value differs with initial state.
   bool _isEdited() {
     if (_servingController != null && _servingController!.valueHasChanged) {
@@ -425,7 +423,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     }
 
     final Product? changedProduct =
-        _getChangedProduct(Product(barcode: widget.product.barcode));
+        _getChangedProduct(Product(barcode: _barcode));
     if (changedProduct == null) {
       if (!mounted) {
         return false;
@@ -441,7 +439,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.nutrition_Facts,
-      changedProduct.barcode!,
+      _barcode,
       true,
     );
     await BackgroundTaskDetails.addTask(

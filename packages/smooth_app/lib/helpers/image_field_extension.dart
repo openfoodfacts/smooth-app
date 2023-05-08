@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 
 extension ImageFieldSmoothieExtension on ImageField {
   static const List<ImageField> orderedMain = <ImageField>[
@@ -112,4 +115,22 @@ extension ImageFieldSmoothieExtension on ImageField {
         return appLocalizations.other_interesting_photo_button_label;
     }
   }
+
+  Widget getPhotoButton(
+    final BuildContext context,
+    final Product product,
+  ) =>
+      SmoothLargeButtonWithIcon(
+        onPressed: () async => Navigator.push(
+          context,
+          MaterialPageRoute<void>(
+            builder: (_) => ProductImageSwipeableView.imageField(
+              imageField: this,
+              product: product,
+            ),
+          ),
+        ),
+        icon: Icons.camera_alt,
+        text: getProductImageButtonText(AppLocalizations.of(context)),
+      );
 }
