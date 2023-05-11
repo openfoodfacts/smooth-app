@@ -59,7 +59,7 @@ dependencies:
     path: ../data_importer_shared
   data_importer:
     path: ../data_importer
-  share_plus: 6.3.1
+  share_plus: 6.3.4
   fimber: 0.6.6
   shimmer: 2.0.0
   lottie: 2.2.0
