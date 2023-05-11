@@ -76,7 +76,7 @@ class _EditProductPageState extends State<EditProductPage> {
             AutoSizeText(
               getProductName(_product, appLocalizations),
               minFontSize:
-                  (theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0)) ??
+                  theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
                       13.0,
               maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
               style: theme.textTheme.titleLarge
