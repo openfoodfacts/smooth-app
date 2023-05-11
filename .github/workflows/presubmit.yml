@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-  FLUTTER_VERSION: '3.3.x'
+  FLUTTER_VERSION: '3.10.x'
 
 jobs:
   build:
@@ -24,7 +24,6 @@ jobs:
         with:
           channel: stable
           cache: true
-          #flutter-version: '3.0.5'
           cache-key: current-stable
 
       - run: flutter --version
@@ -34,8 +33,8 @@ jobs:
         run: ci/pub_upgrade.sh
 
       # Check for formatting issues
-      - name: Check for formatting issues (run "flutter format . ")
-        run: flutter format --set-exit-if-changed .
+      - name: Check for formatting issues (run "dart format . ")
+        run: dart format --set-exit-if-changed .
 
       # analyze Dart for errors
       - name: Analyze code
