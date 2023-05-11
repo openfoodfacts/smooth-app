@@ -34,8 +34,8 @@ jobs:
         run: ci/pub_upgrade.sh
 
       # Check for formatting issues
-      - name: Check for formatting issues (run "flutter format . ")
-        run: flutter format --set-exit-if-changed .
+      - name: Check for formatting issues (run "dart format . ")
+        run: dart format --set-exit-if-changed .
 
       # analyze Dart for errors
       - name: Analyze code
