@@ -552,7 +552,7 @@ class _SendAnonymousDataSettingState extends State<_SendAnonymousDataSetting> {
     return UserPreferencesSwitchItem(
       title: appLocalizations.send_anonymous_data_toggle_title,
       subtitle: appLocalizations.send_anonymous_data_toggle_subtitle,
-      value: !MatomoTracker.instance.optOut,
+      value: !MatomoTracker.instance.getOptOut(),
       onChanged: (final bool allow) async {
         await AnalyticsHelper.setAnalyticsReports(allow);
         setState(() {});

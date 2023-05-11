@@ -119,9 +119,9 @@ class AnalyticsHelper {
 
     // F-Droid special case
     if (GlobalVars.storeLabel == StoreLabel.FDroid && !allow) {
-      await MatomoTracker.instance.setOptOut(optOut: true);
+      await MatomoTracker.instance.setOptOut(optout: true);
     } else {
-      await MatomoTracker.instance.setOptOut(optOut: false);
+      await MatomoTracker.instance.setOptOut(optout: false);
     }
   }
 
