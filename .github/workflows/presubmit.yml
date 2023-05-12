@@ -22,9 +22,9 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          #channel: stable
           cache: true
-          #flutter-version: '3.0.5'
+          flutter-version: '3.7.12'
           cache-key: current-stable
 
       - run: flutter --version
@@ -34,8 +34,8 @@ jobs:
         run: ci/pub_upgrade.sh
 
       # Check for formatting issues
-      - name: Check for formatting issues (run "flutter format . ")
-        run: flutter format --set-exit-if-changed .
+      - name: Check for formatting issues (run "dart format . ")
+        run: dart format --set-exit-if-changed .
 
       # analyze Dart for errors
       - name: Analyze code
