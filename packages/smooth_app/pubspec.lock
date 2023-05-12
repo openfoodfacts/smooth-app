@@ -826,10 +826,10 @@ packages:
     dependency: "direct main"
     description:
       name: matomo_tracker
-      sha256: "4500ed4ee9385f95e9195b448742e75c9115ffa59b4960e6ad3b79bdcd903c47"
+      sha256: a96ef1e0c03cd8b73db31a50352bbde31a7718333af85afbe36e8ae176cc23a4
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "3.1.0"
   matrix4_transform:
     dependency: transitive
     description:
