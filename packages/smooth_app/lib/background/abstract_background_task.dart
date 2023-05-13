@@ -133,4 +133,12 @@ abstract class AbstractBackgroundTask {
         barcode: barcode,
         localDatabase: localDatabase,
       );
+
+  /// Checks that everything is fine and fix things if needed + if possible.
+  ///
+  /// To be run systematically for each task.
+  /// Especially useful for transient files: if a user closed the app before
+  /// successfully completing the upload task, the transient file - that is just
+  /// a static variable - won't be there at app restart. Unless you recover.
+  Future<void> recover(final LocalDatabase localDatabase) async {}
 }

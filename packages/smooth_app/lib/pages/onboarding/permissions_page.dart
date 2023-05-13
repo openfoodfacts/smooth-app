@@ -106,9 +106,11 @@ class _PermissionsPageState extends State<PermissionsPage> {
     );
   }
 
+  static const OnboardingPage _onboardingPage = OnboardingPage.PERMISSIONS_PAGE;
+
   Future<void> _moveToNextScreen(BuildContext context) async {
     await OnboardingLoader(context.read<LocalDatabase>()).runAtNextTime(
-      OnboardingPage.PERMISSIONS_PAGE,
+      _onboardingPage,
       context,
     );
 
@@ -116,7 +118,7 @@ class _PermissionsPageState extends State<PermissionsPage> {
     return OnboardingFlowNavigator(context.read<UserPreferences>())
         .navigateToPage(
       context,
-      OnboardingFlowNavigator.getNextPage(OnboardingPage.PERMISSIONS_PAGE),
+      _onboardingPage.getNextPage(),
     );
   }
 }

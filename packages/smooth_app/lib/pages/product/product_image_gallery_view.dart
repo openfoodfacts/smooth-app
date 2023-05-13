@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -37,7 +36,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   late Product _product;
 
   late List<MapEntry<ProductImageData, ImageProvider?>> _selectedImages;
-  late OpenFoodFactsLanguage _currentLanguage;
 
   String get _barcode => _initialProduct.barcode!;
 
@@ -47,7 +45,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     _initialProduct = widget.product;
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(_barcode);
-    _currentLanguage = ProductQuery.getLanguage();
   }
 
   @override
@@ -63,7 +60,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    _selectedImages = getSelectedImages(_product, _currentLanguage);
+    _selectedImages = getSelectedImages(_product, ProductQuery.getLanguage());
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: Text(appLocalizations.edit_product_form_item_photos_title),
@@ -86,6 +83,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             this,
             imageField: ImageField.OTHER,
             barcode: _barcode,
+            language: ProductQuery.getLanguage(),
           );
         },
         label: Text(appLocalizations.add_photo_button_label),
@@ -97,25 +95,8 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           widget: this,
         ),
         child: ListView.builder(
-          // the language header and then the images
-          itemCount: 1 + _selectedImages.length,
+          itemCount: _selectedImages.length,
           itemBuilder: (final BuildContext context, int index) {
-            if (index == 0) {
-              return LanguageSelector(
-                setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
-                  if (newLanguage == null || newLanguage == _currentLanguage) {
-                    return;
-                  }
-                  setState(() => _currentLanguage = newLanguage);
-                },
-                displayedLanguage: _currentLanguage,
-                selectedLanguages: getProductImageLanguages(
-                  _product,
-                  ImageFieldSmoothieExtension.orderedMain,
-                ),
-              );
-            }
-            index--;
             final MapEntry<ProductImageData, ImageProvider?> item =
                 _selectedImages[index];
             return SmoothListTileCard.image(
@@ -145,7 +126,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           builder: (_) => ProductImageSwipeableView(
             initialImageIndex: initialImageIndex,
             product: _product,
-            language: _currentLanguage,
           ),
         ),
       );

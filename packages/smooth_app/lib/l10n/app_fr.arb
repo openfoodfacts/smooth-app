@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up…",
+    "sign_up_page_action_doing_it": "Inscription en cours…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -291,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Demandez de l'aide sur notre canal Slack",
+    "support_via_forum": "Demandez de l'aide sur notre forum",
     "support_via_email": "Envoyez-nous un e-mail",
     "support_via_email_include_logs_dialog_title": "Envoyer les journaux de débogage ?",
     "support_via_email_include_logs_dialog_body": "Souhaitez-vous inclure les journaux d'application en pièce jointe à votre e-mail ?",
@@ -375,7 +376,7 @@
     "myPreferences_profile_title": "Votre profil",
     "myPreferences_profile_subtitle": "Gérez votre compte contributeur Open Food Facts.",
     "myPreferences_settings_title": "Paramètres de l'application",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
+    "myPreferences_settings_subtitle": "Mode sombre, statistiques, ...",
     "myPreferences_food_title": "Préférences alimentaires",
     "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
     "myPreferences_food_comment": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité. Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
@@ -433,7 +434,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info…",
+    "tab_for_more": "Appuyez pour plus d'informations...",
     "@Product": {},
     "product": "Produit",
     "@product": {},
@@ -573,7 +574,7 @@
     "nutrition_page_add_nutrient": "Ajouter un nutriment",
     "nutrition_page_serving_size": "Taille d'une portion",
     "nutrition_page_invalid_number": "Nombre invalide",
-    "nutrition_page_update_running": "Updating the product on the server…",
+    "nutrition_page_update_running": "Mise à jour du produit sur le serveur...",
     "nutrition_page_update_done": "Produit mis à jour !",
     "more_photos": "Plus de photos intéressantes",
     "@more_photos": {},
@@ -687,35 +688,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, =1{il y a un jour} other{il y a {count} jours}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, =1{il y a une heure} other{il y a {count} heures}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural,  =0{moins d'une minute} =1{une minute} other{{count} minutes}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, =1{il y a un mois} other{il y a {count} mois}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "{count,plural, =1{il y a une semaine} other{il y a {count} semaines}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -865,7 +866,7 @@
     "@are_you_sure": {
         "description": "Are you sure?"
     },
-    "knowledge_panel_text_source": "Go further on {sourceName}",
+    "knowledge_panel_text_source": "En savoir plus sur {sourceName}",
     "@knowledge_panel_text_source": {
         "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
@@ -906,14 +907,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural,  =0{product} =1{product} other{products}} in your history",
+    "product_list_reloading_in_progress_multiple": "Actualisation de {count,plural, =0{produits} =1{produit} other{produits}} dans votre historique",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
+    "product_list_reloading_success_multiple": "Rafraîchissement de {count,plural, =0{produit} =1{produit} other{produits}} terminé",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -1057,7 +1058,7 @@
     "permission_photo_denied_dialog_settings_message": "Puisque vous avez refusé l'utilisation de l'appareil photo, vous devez l'autoriser manuellement dans les paramètres.",
     "permission_photo_denied_dialog_settings_button_open": "Ouvrir les paramètres",
     "permission_photo_denied_dialog_settings_button_cancel": "Annuler",
-    "permission_photo_none_found": "No camera detected",
+    "permission_photo_none_found": "Aucune caméra détectée.",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
     },
@@ -1085,7 +1086,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website…",
+    "edit_product_form_item_other_details_subtitle": "Site Web…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1101,7 +1102,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Environmental, Quality labels…",
+    "edit_product_form_item_labels_subtitle": "Environnement, Labels de qualité…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1203,7 +1204,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "product_field_website_title": "Site Internet",
+    "product_field_website_title": "Site Web",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
@@ -1311,6 +1312,14 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
+    "camera_flash_error_dialog_title": "Une erreur est survenue !",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "Une erreur s'est produite lors de la modification de l'état de votre flash. Veuillez vous assurer que votre smartphone n'a pas déjà activé la torche.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
     "category_picker_no_category_found_button": "Retour",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
@@ -1323,7 +1332,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
+    "dev_preferences_reset_onboarding_subtitle": "Vous devez ensuite redémarrer l'application pour la revoir.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1566,13 +1575,21 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Retrieving existing images…",
+    "edit_photo_select_existing_download_label": "Récupération des images existantes…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
     "edit_photo_select_existing_downloaded_none": "Il n'y a pas de photos précédemment téléchargées liées à ce produit.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
+    },
+    "edit_photo_language_not_this_one": "No image in that language yet",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "No image yet",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
     "category_picker_screen_title": "Catégories",
     "@category_picker_screen_title": {

@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:ui' as ui;
 
+import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image/image.dart' as image2;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -17,13 +17,10 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
+import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
-import 'package:smooth_app/tmp_crop_image/image_compute_helper.dart';
-import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
-import 'package:smooth_app/tmp_crop_image/rotated_crop_image.dart';
-import 'package:smooth_app/tmp_crop_image/rotation.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -33,6 +30,7 @@ class CropPage extends StatefulWidget {
     required this.inputFile,
     required this.barcode,
     required this.imageField,
+    required this.language,
     required this.initiallyDifferent,
     this.imageId,
     this.initialCropRect,
@@ -44,6 +42,7 @@ class CropPage extends StatefulWidget {
 
   final ImageField imageField;
   final String barcode;
+  final OpenFoodFactsLanguage language;
 
   /// Is the full picture initially different from the current selection?
   final bool initiallyDifferent;
@@ -53,14 +52,14 @@ class CropPage extends StatefulWidget {
 
   final Rect? initialCropRect;
 
-  final Rotation? initialRotation;
+  final CropRotation? initialRotation;
 
   @override
   State<CropPage> createState() => _CropPageState();
 }
 
 class _CropPageState extends State<CropPage> {
-  late RotatedCropController _controller;
+  late CropController _controller;
   late ui.Image _image;
 
   /// The screen size, used as a maximum size for the transient image.
@@ -75,14 +74,14 @@ class _CropPageState extends State<CropPage> {
   bool _processing = true;
 
   late Rect _initialCrop;
-  late Rotation _initialRotation;
+  late CropRotation _initialRotation;
 
   Future<void> _load(final Uint8List list) async {
     setState(() => _processing = true);
     _image = await BackgroundTaskImage.loadUiImage(list);
     _initialCrop = _getInitialRect();
-    _initialRotation = widget.initialRotation ?? Rotation.noon;
-    _controller = RotatedCropController(
+    _initialRotation = widget.initialRotation ?? CropRotation.up;
+    _controller = CropController(
       defaultCrop: _initialCrop,
       rotation: _initialRotation,
     );
@@ -105,10 +104,10 @@ class _CropPageState extends State<CropPage> {
       return const Rect.fromLTRB(0, 0, 1, 1);
     }
     final Rect result;
-    final Rotation rotation = widget.initialRotation ?? Rotation.noon;
+    final CropRotation rotation = widget.initialRotation ?? CropRotation.up;
     switch (rotation) {
-      case Rotation.noon:
-      case Rotation.sixOClock:
+      case CropRotation.up:
+      case CropRotation.down:
         result = Rect.fromLTRB(
           widget.initialCropRect!.left / _image.width,
           widget.initialCropRect!.top / _image.height,
@@ -116,8 +115,8 @@ class _CropPageState extends State<CropPage> {
           widget.initialCropRect!.bottom / _image.height,
         );
         break;
-      case Rotation.threeOClock:
-      case Rotation.nineOClock:
+      case CropRotation.right:
+      case CropRotation.left:
         result = Rect.fromLTRB(
           widget.initialCropRect!.left / _image.height,
           widget.initialCropRect!.top / _image.width,
@@ -139,12 +138,6 @@ class _CropPageState extends State<CropPage> {
   void initState() {
     super.initState();
     _initLoad();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 
   Future<void> _initLoad() async => _load(await widget.inputFile.readAsBytes());
@@ -189,13 +182,13 @@ class _CropPageState extends State<CropPage> {
                     ],
                   ),
                   Expanded(
-                    child: RotatedCropImage(
+                    child: CropImage(
                       controller: _controller,
-                      image: _image,
-                      minimumImageSize:
-                          MINIMUM_TOUCH_SIZE, // decent visual minimum size
-                      gridCornerSize: MINIMUM_TOUCH_SIZE *
-                          .75, // touch size will be this x 2
+                      image: Image.file(widget.inputFile),
+                      minimumImageSize: MINIMUM_TOUCH_SIZE,
+                      gridCornerSize: MINIMUM_TOUCH_SIZE * .75,
+                      touchSize: MINIMUM_TOUCH_SIZE,
+                      paddingSize: MINIMUM_TOUCH_SIZE * .5,
                       alwaysMove: true,
                     ),
                   ),
@@ -229,19 +222,16 @@ class _CropPageState extends State<CropPage> {
   /// Returns a small file with the cropped image, for the transient image.
   ///
   /// Here we use BMP format as it's faster to encode.
-  Future<File?> _getCroppedImageFile(
+  Future<File> _getCroppedImageFile(
     final Directory directory,
     final int sequenceNumber,
   ) async {
     final String croppedPath = '${directory.path}/cropped_$sequenceNumber.bmp';
     final File result = File(croppedPath);
-    final image2.Image? rawImage = await _controller.croppedBitmap(
+    final ui.Image cropped = await _controller.croppedBitmap(
       maxSize: _screenSize.longestSide,
     );
-    if (rawImage == null) {
-      return null;
-    }
-    await saveBmp(ImageComputeContainer(file: result, rawImage: rawImage));
+    await ImageComputeContainer(file: result, source: cropped).saveBmp();
     return result;
   }
 
@@ -252,13 +242,10 @@ class _CropPageState extends State<CropPage> {
         await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
     final Directory directory = await getApplicationSupportDirectory();
 
-    final File? croppedFile = await _getCroppedImageFile(
+    final File croppedFile = await _getCroppedImageFile(
       directory,
       sequenceNumber,
     );
-    if (croppedFile == null) {
-      return null;
-    }
 
     if (widget.imageId == null) {
       // in this case, it's a brand new picture, with crop parameters.
@@ -273,10 +260,11 @@ class _CropPageState extends State<CropPage> {
       final Rect cropRect = _getLocalCropRect();
       await BackgroundTaskImage.addTask(
         widget.barcode,
+        language: widget.language,
         imageField: widget.imageField,
         fullFile: fullFile,
         croppedFile: croppedFile,
-        rotation: _controller.degrees,
+        rotation: _controller.rotation.degrees,
         x1: cropRect.left.ceil(),
         y1: cropRect.top.ceil(),
         x2: cropRect.right.floor(),
@@ -291,10 +279,11 @@ class _CropPageState extends State<CropPage> {
       final Rect cropRect = _getServerCropRect();
       await BackgroundTaskCrop.addTask(
         widget.barcode,
+        language: widget.language,
         imageField: widget.imageField,
         imageId: widget.imageId!,
         croppedFile: croppedFile,
-        rotation: _controller.degrees,
+        rotation: _controller.rotation.degrees,
         x1: cropRect.left.ceil(),
         y1: cropRect.top.ceil(),
         x2: cropRect.right.floor(),
@@ -335,14 +324,41 @@ class _CropPageState extends State<CropPage> {
   Rect _getLocalCropRect() => BackgroundTaskImage.getResizedRect(
       _controller.crop, BackgroundTaskImage.cropConversionFactor);
 
+  Offset _getRotatedOffsetForOff(final Offset offset) =>
+      _getRotatedOffsetForOffHelper(
+        _controller.rotation,
+        offset,
+        _image.width.toDouble(),
+        _image.height.toDouble(),
+      );
+
+  /// Returns the offset as rotated, for the OFF-dart rotation/crop tool.
+  Offset _getRotatedOffsetForOffHelper(
+    final CropRotation rotation,
+    final Offset offset01,
+    final double noonWidth,
+    final double noonHeight,
+  ) {
+    switch (rotation) {
+      case CropRotation.up:
+      case CropRotation.down:
+        return Offset(
+          noonWidth * offset01.dx,
+          noonHeight * offset01.dy,
+        );
+      case CropRotation.right:
+      case CropRotation.left:
+        return Offset(
+          noonHeight * offset01.dx,
+          noonWidth * offset01.dy,
+        );
+    }
+  }
+
   /// Returns the crop rect according to server cropping method.
   Rect _getServerCropRect() {
-    final Offset center = _controller.getRotatedOffsetForOff(
-      _controller.crop.center,
-    );
-    final Offset topLeft = _controller.getRotatedOffsetForOff(
-      _controller.crop.topLeft,
-    );
+    final Offset center = _getRotatedOffsetForOff(_controller.crop.center);
+    final Offset topLeft = _getRotatedOffsetForOff(_controller.crop.topLeft);
     double width = 2 * (center.dx - topLeft.dx);
     if (width < 0) {
       width = -width;
