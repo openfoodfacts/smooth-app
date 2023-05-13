@@ -247,11 +247,11 @@ List<MapEntry<ProductImageData, ImageProvider?>> getSelectedImages(
   final List<ProductImageData> allProductImagesData =
       getProductMainImagesData(product, language, includeOther: false);
   for (final ProductImageData imageData in allProductImagesData) {
-    result[imageData] = TransientFile.getImageProvider(
+    result[imageData] = TransientFile.fromProductImageData(
       imageData,
       product.barcode!,
       language,
-    );
+    ).getImageProvider();
   }
   return result.entries.toList();
 }

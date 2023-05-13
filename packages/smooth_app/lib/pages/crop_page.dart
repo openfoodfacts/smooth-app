@@ -222,7 +222,7 @@ class _CropPageState extends State<CropPage> {
   /// Returns a small file with the cropped image, for the transient image.
   ///
   /// Here we use BMP format as it's faster to encode.
-  Future<File?> _getCroppedImageFile(
+  Future<File> _getCroppedImageFile(
     final Directory directory,
     final int sequenceNumber,
   ) async {
@@ -242,13 +242,10 @@ class _CropPageState extends State<CropPage> {
         await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
     final Directory directory = await getApplicationSupportDirectory();
 
-    final File? croppedFile = await _getCroppedImageFile(
+    final File croppedFile = await _getCroppedImageFile(
       directory,
       sequenceNumber,
     );
-    if (croppedFile == null) {
-      return null;
-    }
 
     if (widget.imageId == null) {
       // in this case, it's a brand new picture, with crop parameters.
