@@ -150,10 +150,13 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         SmoothCard(
                           padding: const EdgeInsets.all(10.0),
                           color: const Color(0xFFFF4446),
-                          child: Text(appLocalizations.incorrect_credentials,style: theme.textTheme.bodyMedium?.copyWith(
-                            fontSize: 18.0,
-                            color: const Color(0xFF000000),
-                          ),),
+                          child: Text(
+                            appLocalizations.incorrect_credentials,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              fontSize: 18.0,
+                              color: const Color(0xFF000000),
+                            ),
+                          ),
                         ),
                         const SizedBox(
                           height: LARGE_SPACE * 2,
