@@ -1160,7 +1160,7 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Recycling",
+                           "text" : "Recycling instruction",
                            "type" : "text"
                         },
                         {
@@ -1272,7 +1272,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "a",
-               "subtitle" : "Product: A good product for you - Open Food Facts - 200 g",
+               "subtitle" : "Product: Un bon produit pour vous - Open Food Facts - 100 g",
                "title" : "Impact for this product: A (Score: 115/100)",
                "type" : "grade"
             },
@@ -1850,7 +1850,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-51%"
+                                 "text" : "-50%"
                               }
                            ]
                         },
@@ -1866,7 +1866,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-66%"
+                                 "text" : "-68%"
                               }
                            ]
                         },
@@ -1882,7 +1882,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-28%"
+                                 "text" : "-40%"
                               }
                            ]
                         },
@@ -1898,7 +1898,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-33%"
+                                 "text" : "-39%"
                               }
                            ]
                         },
@@ -1929,7 +1929,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "+121%"
+                                 "text" : "+113%"
                               }
                            ]
                         },
@@ -1945,7 +1945,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-83%"
+                                 "text" : "-82%"
                               }
                            ]
                         },
@@ -1961,7 +1961,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "-46%"
+                                 "text" : "-48%"
                               }
                            ]
                         },
@@ -2103,13 +2103,15 @@
          "en:organic",
          "en:eu-organic",
          "en:fair-trade",
-         "en:green-dot"
+         "en:green-dot",
+         "en:nutriscore"
       ],
       "labels_tags_fr" : [
          "Bio",
          "Bio européen",
          "Commerce équitable",
-         "Point Vert"
+         "Point Vert",
+         "Nutriscore"
       ],
       "lang" : "en",
       "nutrient_levels" : {
@@ -2124,7 +2126,7 @@
          "carbohydrates_unit" : "g",
          "carbohydrates_value" : 4,
          "carbon-footprint-from-known-ingredients_100g" : 18,
-         "carbon-footprint-from-known-ingredients_product" : 36,
+         "carbon-footprint-from-known-ingredients_product" : 18,
          "energy" : 120,
          "energy-kj" : 120,
          "energy-kj_100g" : 120,
@@ -2171,9 +2173,9 @@
          "sugars_value" : 0.5
       },
       "nutrition_grade_fr" : "a",
-      "product_name" : "A good product for you",
-      "product_quantity" : "200",
-      "quantity" : "200 g",
+      "product_name" : "Un bon produit pour vous",
+      "product_quantity" : "100",
+      "quantity" : "100 g",
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -2187,12 +2189,7 @@
          "en:packaging-to-be-completed",
          "en:quantity-completed",
          "en:product-name-completed",
-         "en:photos-to-be-validated",
-         "en:packaging-photo-to-be-selected",
-         "en:nutrition-photo-to-be-selected",
-         "en:ingredients-photo-to-be-selected",
-         "en:front-photo-to-be-selected",
-         "en:photos-uploaded"
+         "en:photos-to-be-uploaded"
       ]
    },
    "status" : 1,
