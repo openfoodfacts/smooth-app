@@ -18,7 +18,7 @@ dependencies:
   device_preview: 1.1.0
   flutter_svg: 2.0.5
   flutter_map: 2.2.0
-  flutter_widget_from_html_core: 0.8.3+1
+  flutter_widget_from_html_core: ^0.8.5+3
   fwfh_selectable_text: 0.8.3+1
   flutter_secure_storage: 5.1.2
   hive: 2.2.3

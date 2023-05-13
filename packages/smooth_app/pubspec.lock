@@ -584,10 +584,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_widget_from_html_core
-      sha256: "23c72f8ce7ba1fd6f8fbdc107f07e04fe152ffd587be1b012938904bfda31950"
+      sha256: e8f4f8b461a140ffb7c71f938bc76efc758893e7468843d9dbf70cb0b9e900cb
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.3+1"
+    version: "0.8.5+3"
   freezed_annotation:
     dependency: transitive
     description:
