@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
@@ -158,18 +159,11 @@ Widget addPanelButton(
   final IconData? iconData,
   required final Function() onPressed,
 }) =>
-    SizedBox(
-      width: double.infinity,
-      child: ElevatedButton.icon(
-        icon: Icon(iconData ?? Icons.add),
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-            ),
-          ),
-        ),
-        label: Text(label),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      child: SmoothLargeButtonWithIcon(
+        text: label,
+        icon: iconData ?? Icons.add,
         onPressed: onPressed,
       ),
     );
@@ -253,11 +247,11 @@ List<MapEntry<ProductImageData, ImageProvider?>> getSelectedImages(
   final List<ProductImageData> allProductImagesData =
       getProductMainImagesData(product, language, includeOther: false);
   for (final ProductImageData imageData in allProductImagesData) {
-    result[imageData] = TransientFile.getImageProvider(
+    result[imageData] = TransientFile.fromProductImageData(
       imageData,
       product.barcode!,
       language,
-    );
+    ).getImageProvider();
   }
   return result.entries.toList();
 }

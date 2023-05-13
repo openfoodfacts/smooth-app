@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
 // TODO(Stephane): Evaluation should come directly from the BE.
@@ -10,7 +11,25 @@ enum AttributeEvaluation {
   BAD,
   NEUTRAL,
   GOOD,
-  VERY_GOOD,
+  VERY_GOOD;
+
+// TODO(monsieurtanuki): not sure to see the added value of keeping both CardEvaluation and AttributeEvaluation
+  CardEvaluation getCardEvaluation() {
+    switch (this) {
+      case AttributeEvaluation.UNKNOWN:
+        return CardEvaluation.UNKNOWN;
+      case AttributeEvaluation.VERY_BAD:
+        return CardEvaluation.VERY_BAD;
+      case AttributeEvaluation.BAD:
+        return CardEvaluation.BAD;
+      case AttributeEvaluation.NEUTRAL:
+        return CardEvaluation.NEUTRAL;
+      case AttributeEvaluation.GOOD:
+        return CardEvaluation.GOOD;
+      case AttributeEvaluation.VERY_GOOD:
+        return CardEvaluation.VERY_GOOD;
+    }
+  }
 }
 
 Widget getAttributeDisplayIcon(final Attribute attribute) => Padding(

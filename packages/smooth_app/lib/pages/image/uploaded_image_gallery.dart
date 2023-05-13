@@ -73,7 +73,7 @@ class UploadedImageGallery extends StatelessWidget {
               if (imageFile == null) {
                 return;
               }
-              await navigatorState.push<File>(
+              final File? croppedFile = await navigatorState.push<File>(
                 MaterialPageRoute<File>(
                   builder: (BuildContext context) => CropPage(
                     barcode: barcode,
@@ -86,6 +86,9 @@ class UploadedImageGallery extends StatelessWidget {
                   fullscreenDialog: true,
                 ),
               );
+              if (croppedFile != null) {
+                navigatorState.pop();
+              }
             },
             child: ClipRRect(
               borderRadius: ROUNDED_BORDER_RADIUS,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
@@ -12,17 +13,60 @@ enum CardEvaluation {
   BAD,
   NEUTRAL,
   GOOD,
-  VERY_GOOD,
+  VERY_GOOD;
+
+  Color getBackgroundColor() {
+    switch (this) {
+      case CardEvaluation.UNKNOWN:
+        return GREY_COLOR;
+      case CardEvaluation.VERY_BAD:
+        return RED_BACKGROUND_COLOR;
+      case CardEvaluation.BAD:
+        return ORANGE_BACKGROUND_COLOR;
+      case CardEvaluation.NEUTRAL:
+        return YELLOW_BACKGROUND_COLOR;
+      case CardEvaluation.GOOD:
+        return LIGHT_GREEN_BACKGROUND_COLOR;
+      case CardEvaluation.VERY_GOOD:
+        return DARK_GREEN_BACKGROUND_COLOR;
+    }
+  }
+
+  Color getTextColor() {
+    switch (this) {
+      case CardEvaluation.UNKNOWN:
+        return PRIMARY_GREY_COLOR;
+      case CardEvaluation.VERY_BAD:
+        return RED_COLOR;
+      case CardEvaluation.BAD:
+        return LIGHT_ORANGE_COLOR;
+      case CardEvaluation.NEUTRAL:
+        return DARK_YELLOW_COLOR;
+      case CardEvaluation.GOOD:
+        return LIGHT_GREEN_COLOR;
+      case CardEvaluation.VERY_GOOD:
+        return DARK_GREEN_COLOR;
+    }
+  }
 }
 
 class ScoreCard extends StatelessWidget {
-  const ScoreCard({
-    required this.description,
-    required this.cardEvaluation,
+  ScoreCard.attribute({
+    required Attribute attribute,
     required this.isClickable,
-    this.iconUrl,
     this.margin,
-  });
+  })  : iconUrl = attribute.iconUrl,
+        description = attribute.descriptionShort ?? attribute.description ?? '',
+        cardEvaluation = getCardEvaluationFromAttribute(attribute);
+
+  ScoreCard.titleElement({
+    required TitleElement titleElement,
+    required this.isClickable,
+    this.margin,
+  })  : iconUrl = titleElement.iconUrl,
+        description = titleElement.title,
+        cardEvaluation =
+            getCardEvaluationFromKnowledgePanelTitleElement(titleElement);
 
   final String? iconUrl;
   final String description;
@@ -38,10 +82,10 @@ class ScoreCard extends StatelessWidget {
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     final Color backgroundColor =
-        getBackgroundColor(cardEvaluation).withOpacity(opacity);
+        cardEvaluation.getBackgroundColor().withOpacity(opacity);
     final Color textColor = themeData.brightness == Brightness.dark
         ? Colors.white
-        : getTextColor(cardEvaluation).withOpacity(opacity);
+        : cardEvaluation.getTextColor().withOpacity(opacity);
     final SvgIconChip? iconChip =
         iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
 
