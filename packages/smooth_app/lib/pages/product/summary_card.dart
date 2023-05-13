@@ -13,7 +13,6 @@ import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
-import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
@@ -380,11 +379,8 @@ class _SummaryCardState extends State<SummaryCard> {
               onTap: () async => _openFullKnowledgePanel(
                 attribute: attribute,
               ),
-              child: ScoreCard(
-                iconUrl: attribute.iconUrl,
-                description:
-                    attribute.descriptionShort ?? attribute.description ?? '',
-                cardEvaluation: getCardEvaluationFromAttribute(attribute),
+              child: ScoreCard.attribute(
+                attribute: attribute,
                 isClickable: true,
                 margin: EdgeInsets.zero,
               ),
@@ -393,11 +389,8 @@ class _SummaryCardState extends State<SummaryCard> {
         );
       } else {
         attributes.add(
-          ScoreCard(
-            iconUrl: attribute.iconUrl,
-            description:
-                attribute.descriptionShort ?? attribute.description ?? '',
-            cardEvaluation: getCardEvaluationFromAttribute(attribute),
+          ScoreCard.attribute(
+            attribute: attribute,
             isClickable: false,
           ),
         );
