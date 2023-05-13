@@ -4,54 +4,65 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 
-/// Helper class about transient files (= not fully uploaded yet).
+/// Transient Files, for an immediate local access before actual upload.
 class TransientFile {
-  TransientFile._();
+  TransientFile(
+    this.imageField,
+    this.barcode,
+    this.language,
+  ) : url = null;
+
+  TransientFile.fromProductImageData(
+    final ProductImageData productImageData,
+    this.barcode,
+    this.language,
+  )   : imageField = productImageData.imageField,
+        url = productImageData.imageUrl;
+
+  TransientFile.fromProduct(
+    final Product product,
+    final ImageField imageField,
+    final OpenFoodFactsLanguage language,
+  ) : this.fromProductImageData(
+          getProductImageData(
+            product,
+            imageField,
+            language,
+          ),
+          product.barcode!,
+          language,
+        );
+
+  final ImageField imageField;
+  final String barcode;
+  final OpenFoodFactsLanguage language;
+  final String? url;
 
   /// {File "key": file path} map.
   static final Map<String, String> _transientFiles = <String, String>{};
 
   /// Stores locally [file] as a transient image for [imageField] and [barcode].
-  static void putImage(
-    final ImageField imageField,
-    final String barcode,
-    final OpenFoodFactsLanguage language,
+  void putImage(
     final LocalDatabase localDatabase,
     final File file,
   ) {
-    _transientFiles[_getImageKey(
-      imageField,
-      barcode,
-      language,
-    )] = file.path;
+    _transientFiles[_getImageKey()] = file.path;
     localDatabase.notifyListeners();
   }
 
   /// Removes the current transient image for [imageField] and [barcode].
-  static void removeImage(
-    final ImageField imageField,
-    final String barcode,
-    final OpenFoodFactsLanguage language,
+  void removeImage(
     final LocalDatabase localDatabase,
-  ) =>
-      _transientFiles.remove(_getImageKey(
-        imageField,
-        barcode,
-        language,
-      ));
-
-  /// Returns the transient image for [imageField] and [barcode].
-  static File? getImage(
-    final ImageField imageField,
-    final String barcode,
-    final OpenFoodFactsLanguage language,
   ) {
-    final String? path = _transientFiles[_getImageKey(
-      imageField,
-      barcode,
-      language,
-    )];
+    _transientFiles.remove(_getImageKey());
+    localDatabase.notifyListeners();
+  }
+
+  /// Returns the [File] stored locally.
+  File? getImage() {
+    final String? path = _transientFiles[_getImageKey()];
     if (path == null) {
       return null;
     }
@@ -59,11 +70,7 @@ class TransientFile {
   }
 
   /// Returns the key of the transient image.
-  static String _getImageKey(
-    final ImageField imageField,
-    final String barcode,
-    final OpenFoodFactsLanguage language,
-  ) =>
+  String _getImageKey() =>
       '${_getImageKeyPrefix(imageField, barcode)}${language.code}';
 
   /// Returns the key prefix of the transient image (without language).
@@ -74,17 +81,13 @@ class TransientFile {
       '$barcode;$imageField;';
 
   /// Returns a way to display the image, either locally or from the server.
-  static ImageProvider? getImageProvider(
-    final ProductImageData imageData,
-    final String barcode,
-    final OpenFoodFactsLanguage language,
-  ) {
-    final File? file = getImage(imageData.imageField, barcode, language);
+  ImageProvider? getImageProvider() {
+    final File? file = getImage();
     if (file != null) {
       return FileImage(file);
     }
-    if (imageData.imageUrl != null) {
-      return NetworkImage(imageData.imageUrl!);
+    if (url != null) {
+      return NetworkImage(url!);
     }
     return null;
   }
@@ -93,13 +96,7 @@ class TransientFile {
   ///
   /// That's the same as [getImageProvider] `!= null`, without its possible
   /// side-effects.
-  static bool isImageAvailable(
-    final ProductImageData imageData,
-    final String barcode,
-    final OpenFoodFactsLanguage language,
-  ) =>
-      getImage(imageData.imageField, barcode, language) != null ||
-      imageData.imageUrl != null;
+  bool isImageAvailable() => getImage() != null || url != null;
 
   /// Returns true if the displayed image comes from the server.
   ///
@@ -109,13 +106,7 @@ class TransientFile {
   /// That means that it's important to know what we are displaying on the app:
   /// if it's a local image, when we run the OCR we run it on another image -
   /// the one stored on the server. Which makes no sense.
-  static bool isServerImage(
-    final ProductImageData imageData,
-    final String barcode,
-    final OpenFoodFactsLanguage language,
-  ) =>
-      getImage(imageData.imageField, barcode, language) == null &&
-      imageData.imageUrl != null;
+  bool isServerImage() => getImage() == null && url != null;
 
   /// Returns the languages that have currently transient images.
   static Iterable<OpenFoodFactsLanguage> getImageLanguages(

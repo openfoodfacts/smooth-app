@@ -11,15 +11,15 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about product image upload.
-class BackgroundTaskImage extends AbstractBackgroundTask {
+class BackgroundTaskImage extends BackgroundTaskUpload {
   const BackgroundTaskImage._({
     required super.processName,
     required super.uniqueId,
@@ -28,14 +28,14 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     required super.user,
     required super.country,
     required super.stamp,
-    required this.imageField,
+    required super.imageField,
+    required super.croppedPath,
+    required super.rotationDegrees,
+    required super.cropX1,
+    required super.cropY1,
+    required super.cropX2,
+    required super.cropY2,
     required this.fullPath,
-    required this.croppedPath,
-    required this.rotationDegrees,
-    required this.cropX1,
-    required this.cropY1,
-    required this.cropX2,
-    required this.cropY2,
   });
 
   BackgroundTaskImage._fromJson(Map<String, dynamic> json)
@@ -59,7 +59,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
           // dealing with when 'stamp' did not exist
           stamp: json.containsKey('stamp')
               ? json['stamp'] as String
-              : getStamp(
+              : BackgroundTaskUpload.getStamp(
                   json['barcode'] as String,
                   json['imageField'] as String,
                   json['languageCode'] as String,
@@ -71,14 +71,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
 
   static const OperationType _operationType = OperationType.image;
 
-  final String imageField;
   final String fullPath;
-  final String croppedPath;
-  final int rotationDegrees;
-  final int cropX1;
-  final int cropY1;
-  final int cropX2;
-  final int cropY2;
 
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -180,19 +173,12 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
-        stamp: getStamp(
+        stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
           language.code,
         ),
       );
-
-  static String getStamp(
-    final String barcode,
-    final String imageField,
-    final String language,
-  ) =>
-      '$barcode;image;$imageField;$language';
 
   /// Returns true if the stamp is an "image/OTHER" stamp.
   ///
@@ -209,13 +195,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         images: <ProductImage>[_getProductImage()],
       ),
     );
-    TransientFile.putImage(
-      ImageField.fromOffTag(imageField)!,
-      barcode,
-      getLanguage(),
-      localDatabase,
-      File(croppedPath),
-    );
+    putTransientImage(localDatabase);
   }
 
   /// Returns a fake value that means: "remove the previous value when merging".
@@ -252,13 +232,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
-    TransientFile.removeImage(
-      ImageField.fromOffTag(imageField)!,
-      barcode,
-      getLanguage(),
-      localDatabase,
-    );
-    localDatabase.notifyListeners();
+    removeTransientImage(localDatabase);
     if (success) {
       await BackgroundTaskRefreshLater.addTask(
         barcode,

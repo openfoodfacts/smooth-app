@@ -1659,7 +1659,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, one {} few {{count} produse} =0{Lista goală} =1{Un singur produs} other{{count} produse}}",
+    "user_list_length": "{count,plural, =0{Lista goală} =1{Un singur produs} other{{count} produse}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
