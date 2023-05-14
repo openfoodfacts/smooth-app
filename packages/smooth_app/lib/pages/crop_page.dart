@@ -70,14 +70,13 @@ class _CropPageState extends State<CropPage> {
   /// * the size of the screen is a good approximation of "how big is enough?"
   late Size _screenSize;
 
-  /// Are we currently processing data (for action buttons hiding).
-  bool _processing = true;
+  /// Progress text, if we are processing data. `null` means we're done.
+  String? _progress = '';
 
   late Rect _initialCrop;
   late CropRotation _initialRotation;
 
   Future<void> _load(final Uint8List list) async {
-    setState(() => _processing = true);
     _image = await BackgroundTaskImage.loadUiImage(list);
     _initialCrop = _getInitialRect();
     _initialRotation = widget.initialRotation ?? CropRotation.up;
@@ -85,7 +84,7 @@ class _CropPageState extends State<CropPage> {
       defaultCrop: _initialCrop,
       rotation: _initialRotation,
     );
-    _processing = false;
+    _progress = null;
     if (!mounted) {
       return;
     }
@@ -158,8 +157,13 @@ class _CropPageState extends State<CropPage> {
           ),
         ),
         backgroundColor: Colors.black,
-        body: _processing
-            ? const Center(child: CircularProgressIndicator.adaptive())
+        body: _progress != null
+            ? Center(
+                child: Text(
+                  _progress!,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              )
             : Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -226,12 +230,15 @@ class _CropPageState extends State<CropPage> {
     final Directory directory,
     final int sequenceNumber,
   ) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String croppedPath = '${directory.path}/cropped_$sequenceNumber.bmp';
     final File result = File(croppedPath);
+    setState(() => _progress = appLocalizations.crop_page_action_cropping);
     final ui.Image cropped = await _controller.croppedBitmap(
       maxSize: _screenSize.longestSide,
     );
-    await ImageComputeContainer(file: result, source: cropped).saveBmp();
+    setState(() => _progress = appLocalizations.crop_page_action_local);
+    await saveBmp(file: result, source: cropped);
     return result;
   }
 
@@ -247,6 +254,9 @@ class _CropPageState extends State<CropPage> {
       sequenceNumber,
     );
 
+    setState(
+      () => _progress = AppLocalizations.of(context).crop_page_action_server,
+    );
     if (widget.imageId == null) {
       // in this case, it's a brand new picture, with crop parameters.
       // for performance reasons, we do not crop the image full-size here,
@@ -303,10 +313,12 @@ class _CropPageState extends State<CropPage> {
   }
 
   Future<void> _saveFileAndExit() async {
-    setState(() => _processing = true);
+    setState(
+      () => _progress = AppLocalizations.of(context).crop_page_action_saving,
+    );
     try {
       final File? file = await _saveFileAndExitTry();
-      _processing = false;
+      _progress = null;
       if (!mounted) {
         return;
       }
@@ -316,7 +328,7 @@ class _CropPageState extends State<CropPage> {
         Navigator.of(context).pop<File>(file);
       }
     } finally {
-      _processing = false;
+      _progress = null;
     }
   }
 
