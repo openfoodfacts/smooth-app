@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/tianhaoz95/fastlane-plugin-flutter_version
-  revision: e90401d33940d8ee509b4d13ee9816dee62614f4
+  revision: 45019b3a4b7284bee68da4d6d5a88eff9a650805
   specs:
     fastlane-plugin-flutter_version (1.1.15)
 

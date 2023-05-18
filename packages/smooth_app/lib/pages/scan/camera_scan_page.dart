@@ -11,8 +11,8 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/scan/scan_header.dart';
 import 'package:smooth_app/pages/scan/smooth_barcode_scanner_visor.dart';
 
@@ -51,10 +51,10 @@ class CameraScannerPageState extends State<CameraScannerPage>
   }
 
   @override
-  String get traceTitle => '${barcodeScanner.getType()}_page';
+  String get traceTitle => '${GlobalVars.barcodeScanner.getType()}_page';
 
   @override
-  String get traceName => 'Opened ${barcodeScanner.getType()}_page';
+  String get traceName => 'Opened ${GlobalVars.barcodeScanner.getType()}_page';
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
     return Stack(
       children: <Widget>[
-        barcodeScanner.getScanner(
+        GlobalVars.barcodeScanner.getScanner(
           onScan: _onNewBarcodeDetected,
           hapticFeedback: () => SmoothHapticFeedback.click(),
           onCameraFlashError: _onCameraFlashError,

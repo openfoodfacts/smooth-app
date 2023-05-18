@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
@@ -11,12 +12,14 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
-import 'package:smooth_app/main.dart';
 import 'package:smooth_app/pages/onboarding/country_selector.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
@@ -92,11 +95,11 @@ class _RateUs extends StatelessWidget {
 
   String getImagePath() {
     String imagePath = '';
-    switch (appFlavour) {
-      case 'zxing-uri':
+    switch (GlobalVars.storeLabel) {
+      case StoreLabel.FDroid:
         imagePath = 'assets/app/f-droid.png';
         break;
-      case 'ml-ios':
+      case StoreLabel.AppleAppStore:
         imagePath = 'assets/app/app-store.png';
         break;
       default:
@@ -242,7 +245,7 @@ class _ApplicationSettings extends StatelessWidget {
               ListTile(
                 title: Text(
                   appLocalizations.select_accent_color,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: themeData.textTheme.headlineMedium,
                 ),
                 subtitle: ChooseAccentColor(
                   appLocalizations: appLocalizations,
@@ -252,7 +255,7 @@ class _ApplicationSettings extends StatelessWidget {
               ListTile(
                 title: Text(
                   appLocalizations.text_contrast_mode,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: themeData.textTheme.headlineMedium,
                 ),
                 subtitle: TextColorContrast(appLocalizations: appLocalizations),
                 minLeadingWidth: MEDIUM_SPACE,
@@ -262,16 +265,35 @@ class _ApplicationSettings extends StatelessWidget {
         else
           const SizedBox.shrink(),
         const UserPreferencesListItemDivider(),
-        const _CountryPickerSetting(),
+        ListTile(
+          title: Text(
+            appLocalizations.country_chooser_label,
+            style: themeData.textTheme.headlineMedium,
+          ),
+          subtitle: CountrySelector(
+            textStyle: themeData.textTheme.bodyMedium,
+          ),
+          minVerticalPadding: MEDIUM_SPACE,
+        ),
         const UserPreferencesListItemDivider(),
         ListTile(
           title: Text(
             appLocalizations.choose_app_language,
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: themeData.textTheme.headlineMedium,
           ),
-          subtitle: LanguageSelectorSettings(
-            userPreferences: userPreferences,
-            appLocalizations: appLocalizations,
+          subtitle: LanguageSelector(
+            setLanguage: (final OpenFoodFactsLanguage? language) async {
+              if (language != null) {
+                ProductQuery.setLanguage(
+                  context,
+                  userPreferences,
+                  languageCode: language.code,
+                );
+              }
+            },
+            selectedLanguages: <OpenFoodFactsLanguage>[
+              ProductQuery.getLanguage(),
+            ],
           ),
           minVerticalPadding: MEDIUM_SPACE,
         ),
@@ -301,7 +323,7 @@ class _ApplicationSettings extends StatelessWidget {
             children: <Widget>[
               DropdownButton<UserPictureSource>(
                 value: userPreferences.userPictureSource,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: themeData.textTheme.bodyMedium,
                 elevation: 16,
                 onChanged: (final UserPictureSource? newValue) async =>
                     userPreferences.setUserPictureSource(newValue!),
@@ -444,28 +466,6 @@ class TextColorContrast extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class _CountryPickerSetting extends StatelessWidget {
-  const _CountryPickerSetting({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    return ListTile(
-      title: Text(
-        appLocalizations.country_chooser_label,
-        style: Theme.of(context).textTheme.headlineMedium,
-      ),
-      subtitle: CountrySelector(
-        initialCountryCode: userPreferences.userCountryCode,
-        textStyle: Theme.of(context).textTheme.bodyMedium,
-      ),
-      minVerticalPadding: MEDIUM_SPACE,
     );
   }
 }

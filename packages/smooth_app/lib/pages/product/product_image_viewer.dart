@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -14,27 +15,29 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/product_image_local_button.dart';
 import 'package:smooth_app/pages/product/product_image_server_button.dart';
-import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
-import 'package:smooth_app/tmp_crop_image/rotation.dart';
-import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Displays a full-screen image with an "edit" floating button.
 class ProductImageViewer extends StatefulWidget {
   const ProductImageViewer({
     required this.product,
     required this.imageField,
+    required this.language,
+    required this.setLanguage,
   });
 
   final Product product;
   final ImageField imageField;
+  final OpenFoodFactsLanguage language;
+  final Future<void> Function(OpenFoodFactsLanguage? newLanguage) setLanguage;
 
   @override
   State<ProductImageViewer> createState() => _ProductImageViewerState();
@@ -67,35 +70,104 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    _imageData = getProductImageData(_product, widget.imageField);
-    final ImageProvider? imageProvider = TransientFile.getImageProvider(
-      _imageData,
-      _barcode,
+    _imageData = getProductImageData(
+      _product,
+      widget.imageField,
+      widget.language,
+      forceLanguage: true,
     );
-    return SmoothScaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(MINIMUM_TOUCH_SIZE / 2),
-              child: imageProvider == null
-                  ? const SizedBox.expand(child: PictureNotFound())
-                  : PhotoView(
-                      minScale: 0.2,
-                      imageProvider: imageProvider,
-                      heroAttributes: PhotoViewHeroAttributes(
-                        tag: imageProvider,
+    final ImageProvider? imageProvider = _getTransientFile().getImageProvider();
+    final Iterable<OpenFoodFactsLanguage> selectedLanguages =
+        getProductImageLanguages(
+      _product,
+      widget.imageField,
+    );
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(MINIMUM_TOUCH_SIZE / 2),
+            child: imageProvider == null
+                ? Stack(
+                    children: <Widget>[
+                      const SizedBox.expand(child: PictureNotFound()),
+                      Center(
+                        child: Text(
+                          selectedLanguages.isEmpty
+                              ? appLocalizations.edit_photo_language_none
+                              : appLocalizations
+                                  .edit_photo_language_not_this_one,
+                          style: Theme.of(context)
+                                  .textTheme
+                                  .headlineMedium
+                                  ?.copyWith(color: Colors.black) ??
+                              const TextStyle(color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                      backgroundDecoration: const BoxDecoration(
-                        color: Colors.black,
-                      ),
+                    ],
+                  )
+                : PhotoView(
+                    minScale: 0.2,
+                    imageProvider: imageProvider,
+                    heroAttributes: PhotoViewHeroAttributes(
+                      tag: imageProvider,
                     ),
-            ),
+                    backgroundDecoration: const BoxDecoration(
+                      color: Colors.black,
+                    ),
+                  ),
           ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                child: LanguageSelector(
+                  setLanguage: widget.setLanguage,
+                  displayedLanguage: widget.language,
+                  selectedLanguages: selectedLanguages,
+                  foregroundColor: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                child: ProductImageServerButton(
+                  barcode: _barcode,
+                  imageField: widget.imageField,
+                  language: widget.language,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                child: ProductImageLocalButton(
+                  firstPhoto: imageProvider == null,
+                  barcode: _barcode,
+                  imageField: widget.imageField,
+                  language: widget.language,
+                ),
+              ),
+            ),
+          ],
+        ),
+        if (imageProvider != null)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,48 +176,18 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: ProductImageServerButton(
-                    barcode: _barcode,
-                    imageField: widget.imageField,
-                  ),
+                  child: _getUnselectImageButton(appLocalizations),
                 ),
               ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: ProductImageLocalButton(
-                    firstPhoto: imageProvider == null,
-                    barcode: _barcode,
-                    imageField: widget.imageField,
-                  ),
+                  child: _getEditImageButton(appLocalizations),
                 ),
               ),
             ],
           ),
-          if (imageProvider != null)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                    child: _getUnselectImageButton(appLocalizations),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                    child: _getEditImageButton(appLocalizations),
-                  ),
-                ),
-              ],
-            ),
-        ],
-      ),
+      ],
     );
   }
 
@@ -181,10 +223,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     }
 
     // alternate option: use the transient file.
-    File? imageFile = TransientFile.getImage(
-      _imageData.imageField,
-      _barcode,
-    );
+    File? imageFile = _getTransientFile().getImage();
     if (imageFile != null) {
       return _openCropPage(navigatorState, imageFile);
     }
@@ -202,6 +241,12 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
     return null;
   }
+
+  TransientFile _getTransientFile() => TransientFile.fromProductImageData(
+        _imageData,
+        _barcode,
+        widget.language,
+      );
 
   Future<void> _actionUnselect(final AppLocalizations appLocalizations) async {
     final NavigatorState navigatorState = Navigator.of(context);
@@ -235,6 +280,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         _barcode,
         imageField: widget.imageField,
         widget: this,
+        language: widget.language,
       );
       _localDatabase.notifyListeners();
       navigatorState.pop();
@@ -246,11 +292,12 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     final File imageFile, {
     final int? imageId,
     final Rect? initialCropRect,
-    final Rotation? initialRotation,
+    final CropRotation? initialRotation,
   }) async =>
       navigatorState.push<File>(
         MaterialPageRoute<File>(
           builder: (BuildContext context) => CropPage(
+            language: widget.language,
             barcode: _product.barcode!,
             imageField: _imageData.imageField,
             inputFile: imageFile,
@@ -286,7 +333,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       imageFile,
       imageId: imageId,
       initialCropRect: _getCropRect(productImage),
-      initialRotation: RotationExtension.fromDegrees(
+      initialRotation: CropRotationExtension.fromDegrees(
         productImage.angle?.degree ?? 0,
       ),
     );
@@ -300,7 +347,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       if (productImage.field != _imageData.imageField) {
         continue;
       }
-      if (productImage.language != ProductQuery.getLanguage()) {
+      if (productImage.language != widget.language) {
         continue;
       }
       if (productImage.size == ImageSize.ORIGINAL) {

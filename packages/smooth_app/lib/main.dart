@@ -24,6 +24,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -54,20 +56,19 @@ void main() {
 
 late final bool _screenshots;
 
-late final String appFlavour;
-late final Scanner barcodeScanner;
-late final AppStore appStore;
-
 Future<void> launchSmoothApp({
-  required Scanner scanner,
-  required AppStore store,
-  required String flavour,
+  required Scanner barcodeScanner,
+  required AppStore appStore,
+  required StoreLabel storeLabel,
+  required ScannerLabel scannerLabel,
   final bool screenshots = false,
 }) async {
   _screenshots = screenshots;
-  barcodeScanner = scanner;
-  appStore = store;
-  appFlavour = flavour;
+
+  GlobalVars.barcodeScanner = barcodeScanner;
+  GlobalVars.appStore = appStore;
+  GlobalVars.storeLabel = storeLabel;
+  GlobalVars.scannerLabel = scannerLabel;
 
   if (_screenshots) {
     await _init1();
@@ -119,7 +120,7 @@ Future<bool> _init1() async {
     return false;
   }
 
-  await SmoothServices().init(appStore);
+  await SmoothServices().init(GlobalVars.appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
@@ -137,7 +138,7 @@ Future<bool> _init1() async {
   UserManagementProvider().checkUserLoginValidity();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
-  ProductQuery.setCountry(_userPreferences.userCountryCode);
+  await ProductQuery.setCountry(_userPreferences);
   _themeProvider = ThemeProvider(_userPreferences);
   _colorProvider = ColorProvider(_userPreferences);
   _textContrastProvider = TextContrastProvider(_userPreferences);
@@ -232,10 +233,10 @@ class _SmoothAppState extends State<SmoothApp> {
         context.watch<TextContrastProvider>();
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
-    final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
-        .getPageWidget(context, lastVisitedOnboardingPage);
+    OnboardingFlowNavigator(_userPreferences);
+    final Widget appWidget = lastVisitedOnboardingPage.getPageWidget(context);
     final bool isOnboardingComplete =
-        OnboardingFlowNavigator.isOnboardingComplete(lastVisitedOnboardingPage);
+        lastVisitedOnboardingPage.isOnboardingComplete();
     themeProvider.setOnboardingComplete(isOnboardingComplete);
 
     // Still need the value from the UserPreferences here, not the ProductQuery

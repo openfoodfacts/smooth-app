@@ -225,11 +225,10 @@ class _ProductQuestionPageState extends State<ProductQuestionPage>
       context: context,
       title: appLocalizations.saving_answer,
       // TODO(monsieurtanuki): remove that line when fixed in [off-dart #451](https://github.com/openfoodfacts/openfoodfacts-dart/pull/451)
-      future: OpenFoodAPIClient.postInsightAnnotation(
+      future: RobotoffAPIClient.postInsightAnnotation(
         insightId,
         insightAnnotation,
         deviceId: OpenFoodAPIConfiguration.uuid,
-        user: OpenFoodAPIConfiguration.globalUser,
       ),
     );
     if (barcode != null && insightId != null) {

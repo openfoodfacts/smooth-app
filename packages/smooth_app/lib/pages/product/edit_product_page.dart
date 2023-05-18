@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:ui' as ui;
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +78,7 @@ class _EditProductPageState extends State<EditProductPage> {
             AutoSizeText(
               getProductName(_product, appLocalizations),
               minFontSize:
-                  (theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0)) ??
+                  theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
                       13.0,
               maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
               style: theme.textTheme.titleLarge
@@ -119,175 +121,179 @@ class _EditProductPageState extends State<EditProductPage> {
           barcode: _barcode,
           widget: this,
         ),
-        child: Scrollbar(
-          child: ListView(
-            controller: _controller,
-            children: <Widget>[
-              if (_ProductBarcode.isAValidBarcode(_product.barcode))
-                _ProductBarcode(product: _product),
-              _ListTitleItem(
-                title: appLocalizations.edit_product_form_item_details_title,
-                subtitle:
-                    appLocalizations.edit_product_form_item_details_subtitle,
-                onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                    return;
-                  }
+        child: PrimaryScrollController(
+          controller: _controller,
+          child: Scrollbar(
+            child: ListView(
+              children: <Widget>[
+                if (_ProductBarcode.isAValidBarcode(_product.barcode))
+                  _ProductBarcode(product: _product),
+                _ListTitleItem(
+                  title: appLocalizations.edit_product_form_item_details_title,
+                  subtitle:
+                      appLocalizations.edit_product_form_item_details_subtitle,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
 
-                  AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.basicDetails, _barcode);
+                    AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.basicDetails, _barcode);
 
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (_) => AddBasicDetailsPage(_product),
-                      fullscreenDialog: true,
-                    ),
-                  );
-                },
-              ),
-              _ListTitleItem(
-                leading: const Icon(Icons.add_a_photo_rounded),
-                title: appLocalizations.edit_product_form_item_photos_title,
-                subtitle:
-                    appLocalizations.edit_product_form_item_photos_subtitle,
-                onTap: () async {
-                  AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.photos, _barcode);
-
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) =>
-                          ProductImageGalleryView(
-                        product: _product,
+                    await Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (_) => AddBasicDetailsPage(_product),
+                        fullscreenDialog: true,
                       ),
-                      fullscreenDialog: true,
-                    ),
-                  );
-                },
-              ),
-              _getMultipleListTileItem(
-                <AbstractSimpleInputPageHelper>[
-                  SimpleInputPageLabelHelper(),
-                  SimpleInputPageStoreHelper(),
-                  SimpleInputPageOriginHelper(),
-                  SimpleInputPageEmbCodeHelper(),
-                  SimpleInputPageCountryHelper(),
-                  SimpleInputPageCategoryHelper(),
-                ],
-              ),
-              _ListTitleItem(
-                leading: const _SvgIcon('assets/cacheTintable/ingredients.svg'),
-                title:
-                    appLocalizations.edit_product_form_item_ingredients_title,
-                onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                    return;
-                  }
-                  AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.ingredients_and_Origins, _barcode);
-
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => EditOcrPage(
-                        product: _product,
-                        helper: OcrIngredientsHelper(),
-                      ),
-                      fullscreenDialog: true,
-                    ),
-                  );
-                },
-              ),
-              _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
-              _ListTitleItem(
-                  leading:
-                      const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
-                  title: appLocalizations
-                      .edit_product_form_item_nutrition_facts_title,
-                  subtitle: appLocalizations
-                      .edit_product_form_item_nutrition_facts_subtitle,
+                    );
+                  },
+                ),
+                _ListTitleItem(
+                  leading: const Icon(Icons.add_a_photo_rounded),
+                  title: appLocalizations.edit_product_form_item_photos_title,
+                  subtitle:
+                      appLocalizations.edit_product_form_item_photos_subtitle,
                   onTap: () async {
                     AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.nutrition_Facts, _barcode);
-                    await NutritionPageLoaded.showNutritionPage(
-                      product: _product,
-                      isLoggedInMandatory: true,
-                      widget: this,
+                        AnalyticsEditEvents.photos, _barcode);
+
+                    await Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            ProductImageGalleryView(
+                          product: _product,
+                        ),
+                        fullscreenDialog: true,
+                      ),
                     );
-                  }),
-              _getSimpleListTileItem(SimpleInputPageLabelHelper()),
-              _ListTitleItem(
-                leading: const _SvgIcon('assets/cacheTintable/packaging.svg'),
-                title: appLocalizations.edit_packagings_title,
-                onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                    return;
-                  }
-                  AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.packagingComponents, _barcode);
+                  },
+                ),
+                _getMultipleListTileItem(
+                  <AbstractSimpleInputPageHelper>[
+                    SimpleInputPageLabelHelper(),
+                    SimpleInputPageStoreHelper(),
+                    SimpleInputPageOriginHelper(),
+                    SimpleInputPageEmbCodeHelper(),
+                    SimpleInputPageCountryHelper(),
+                    SimpleInputPageCategoryHelper(),
+                  ],
+                ),
+                _ListTitleItem(
+                  leading:
+                      const _SvgIcon('assets/cacheTintable/ingredients.svg'),
+                  title:
+                      appLocalizations.edit_product_form_item_ingredients_title,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.ingredients_and_Origins, _barcode);
 
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => EditNewPackagings(
-                        product: _product,
+                    await Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => EditOcrPage(
+                          product: _product,
+                          helper: OcrIngredientsHelper(),
+                        ),
+                        fullscreenDialog: true,
                       ),
-                      fullscreenDialog: true,
-                    ),
-                  );
-                },
-              ),
-              _ListTitleItem(
-                leading: const Icon(Icons.recycling),
-                title: appLocalizations.edit_product_form_item_packaging_title,
-                onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                    return;
-                  }
-                  AnalyticsHelper.trackProductEdit(
-                    AnalyticsEditEvents.recyclingInstructionsPhotos,
-                    _barcode,
-                  );
+                    );
+                  },
+                ),
+                _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
+                _ListTitleItem(
+                    leading: const _SvgIcon(
+                        'assets/cacheTintable/scale-balance.svg'),
+                    title: appLocalizations
+                        .edit_product_form_item_nutrition_facts_title,
+                    subtitle: appLocalizations
+                        .edit_product_form_item_nutrition_facts_subtitle,
+                    onTap: () async {
+                      AnalyticsHelper.trackProductEdit(
+                          AnalyticsEditEvents.nutrition_Facts, _barcode);
+                      await NutritionPageLoaded.showNutritionPage(
+                        product: _product,
+                        isLoggedInMandatory: true,
+                        widget: this,
+                      );
+                    }),
+                _getSimpleListTileItem(SimpleInputPageLabelHelper()),
+                _ListTitleItem(
+                  leading: const _SvgIcon('assets/cacheTintable/packaging.svg'),
+                  title: appLocalizations.edit_packagings_title,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.packagingComponents, _barcode);
 
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => EditOcrPage(
-                        product: _product,
-                        helper: OcrPackagingHelper(),
+                    await Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => EditNewPackagings(
+                          product: _product,
+                        ),
+                        fullscreenDialog: true,
                       ),
-                      fullscreenDialog: true,
-                    ),
-                  );
-                },
-              ),
-              _getSimpleListTileItem(SimpleInputPageStoreHelper()),
-              _getSimpleListTileItem(SimpleInputPageOriginHelper()),
-              _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
-              _getSimpleListTileItem(SimpleInputPageCountryHelper()),
-              _ListTitleItem(
-                title:
-                    appLocalizations.edit_product_form_item_other_details_title,
-                subtitle: appLocalizations
-                    .edit_product_form_item_other_details_subtitle,
-                onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                    return;
-                  }
-                  AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.otherDetails, _barcode);
-                  await Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (_) => AddOtherDetailsPage(_product),
-                      fullscreenDialog: true,
-                    ),
-                  );
-                },
-              ),
-            ],
+                    );
+                  },
+                ),
+                _ListTitleItem(
+                  leading: const Icon(Icons.recycling),
+                  title:
+                      appLocalizations.edit_product_form_item_packaging_title,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    AnalyticsHelper.trackProductEdit(
+                      AnalyticsEditEvents.recyclingInstructionsPhotos,
+                      _barcode,
+                    );
+
+                    await Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => EditOcrPage(
+                          product: _product,
+                          helper: OcrPackagingHelper(),
+                        ),
+                        fullscreenDialog: true,
+                      ),
+                    );
+                  },
+                ),
+                _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+                _getSimpleListTileItem(SimpleInputPageOriginHelper()),
+                _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
+                _getSimpleListTileItem(SimpleInputPageCountryHelper()),
+                _ListTitleItem(
+                  title: appLocalizations
+                      .edit_product_form_item_other_details_title,
+                  subtitle: appLocalizations
+                      .edit_product_form_item_other_details_subtitle,
+                  onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                      return;
+                    }
+                    AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.otherDetails, _barcode);
+                    await Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (_) => AddOtherDetailsPage(_product),
+                        fullscreenDialog: true,
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -406,7 +412,10 @@ class _SvgIcon extends StatelessWidget {
         assetName,
         height: DEFAULT_ICON_SIZE,
         width: DEFAULT_ICON_SIZE,
-        color: _iconColor(Theme.of(context)),
+        colorFilter: ui.ColorFilter.mode(
+          _iconColor(Theme.of(context)),
+          ui.BlendMode.srcIn,
+        ),
         package: AppHelper.APP_PACKAGE,
       );
 

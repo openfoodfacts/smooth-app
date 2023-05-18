@@ -10,11 +10,15 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Input of a product's basic details, like name, quantity and brands.
+///
+/// The product name input is either monolingual or multilingual, depending on
+/// the product data version.
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(
     this.product, {
@@ -29,7 +33,7 @@ class AddBasicDetailsPage extends StatefulWidget {
 }
 
 class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
-  late final TextEditingControllerWithInitialValue _productNameController;
+  final TextEditingController _productNameController = TextEditingController();
   late final TextEditingControllerWithInitialValue _brandNameController;
   late final TextEditingControllerWithInitialValue _weightController;
 
@@ -37,16 +41,25 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final Product _product;
 
+  late final MultilingualHelper _multilingualHelper;
+
   @override
   void initState() {
     super.initState();
     _product = widget.product;
-    _productNameController =
-        TextEditingControllerWithInitialValue(text: _product.productName ?? '');
-    _weightController =
-        TextEditingControllerWithInitialValue(text: _product.quantity ?? '');
+    _weightController = TextEditingControllerWithInitialValue(
+      text: MultilingualHelper.getCleanText(_product.quantity ?? ''),
+    );
     _brandNameController = TextEditingControllerWithInitialValue(
-        text: _formatProductBrands(_product.brands));
+      text: _formatProductBrands(_product.brands),
+    );
+    _multilingualHelper = MultilingualHelper(
+      controller: _productNameController,
+    );
+    _multilingualHelper.init(
+      multilingualTexts: _product.productNameInLanguages,
+      monolingualText: _product.productName,
+    );
   }
 
   @override
@@ -57,15 +70,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     super.dispose();
   }
 
-  /// Returns a [Product] with the values from the text fields.
-  Product _getMinimalistProduct() => Product()
-    ..barcode = _product.barcode
-    ..productName = _productNameController.text
-    ..quantity = _weightController.text
-    ..brands = _formatProductBrands(_brandNameController.text);
-
-  String _formatProductBrands(String? text) =>
-      text == null ? '' : formatProductBrands(text);
+  String _formatProductBrands(String? text) => MultilingualHelper.getCleanText(
+        text == null ? '' : formatProductBrands(text),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -104,11 +111,28 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                           ),
                     ),
                     SizedBox(height: _heightSpace),
-                    SmoothTextFormField(
-                      controller: _productNameController,
-                      type: TextFieldTypes.PLAIN_TEXT,
-                      hintText: appLocalizations.product_name,
-                    ),
+                    if (_multilingualHelper.isMonolingual())
+                      SmoothTextFormField(
+                        controller: _productNameController,
+                        type: TextFieldTypes.PLAIN_TEXT,
+                        hintText: appLocalizations.product_name,
+                      )
+                    else
+                      Card(
+                        child: Column(
+                          children: <Widget>[
+                            _multilingualHelper.getLanguageSelector(setState),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SmoothTextFormField(
+                                controller: _productNameController,
+                                type: TextFieldTypes.PLAIN_TEXT,
+                                hintText: appLocalizations.product_name,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     SizedBox(height: _heightSpace),
                     SmoothTextFormField(
                       controller: _brandNameController,
@@ -151,12 +175,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     );
   }
 
-  /// Returns `true` if any value differs with initial state.
-  bool _isEdited() =>
-      _productNameController.valueHasChanged ||
-      _brandNameController.valueHasChanged ||
-      _weightController.valueHasChanged;
-
   /// Exits the page if the [flag] is `true`.
   void _exitPage(final bool flag) {
     if (flag) {
@@ -169,7 +187,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    if (!_isEdited()) {
+    final Product? minimalistProduct = _getMinimalistProduct();
+    if (minimalistProduct == null) {
       return true;
     }
 
@@ -203,11 +222,42 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       true,
     );
     await BackgroundTaskDetails.addTask(
-      _getMinimalistProduct(),
+      minimalistProduct,
       widget: this,
       stamp: BackgroundTaskDetailsStamp.basicDetails,
     );
 
     return true;
+  }
+
+  /// Returns a [Product] with the values from the text fields.
+  Product? _getMinimalistProduct() {
+    Product? result;
+
+    Product getBasicProduct() => Product(barcode: _product.barcode);
+
+    if (_weightController.valueHasChanged) {
+      result ??= getBasicProduct();
+      result.quantity = _weightController.text;
+    }
+    if (_brandNameController.valueHasChanged) {
+      result ??= getBasicProduct();
+      result.brands = _formatProductBrands(_brandNameController.text);
+    }
+    if (_multilingualHelper.isMonolingual()) {
+      final String? changed = _multilingualHelper.getChangedMonolingualText();
+      if (changed != null) {
+        result ??= getBasicProduct();
+        result.productName = changed;
+      }
+    } else {
+      final Map<OpenFoodFactsLanguage, String>? changed =
+          _multilingualHelper.getChangedMultilingualText();
+      if (changed != null) {
+        result ??= getBasicProduct();
+        result.productNameInLanguages = changed;
+      }
+    }
+    return result;
   }
 }

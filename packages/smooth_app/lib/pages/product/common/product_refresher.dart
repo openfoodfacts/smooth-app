@@ -129,7 +129,6 @@ class ProductRefresher {
     final String barcode,
   ) async {
     try {
-      // ignore: deprecated_member_use
       final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
         getBarcodeQueryConfiguration(barcode),
       );

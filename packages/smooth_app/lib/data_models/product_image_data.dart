@@ -3,18 +3,13 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 class ProductImageData {
   const ProductImageData({
     required this.imageField,
-    this.imageUrl,
+    required this.imageUrl,
+    required this.language,
   });
-
-  factory ProductImageData.from(ProductImage image, String barcode) {
-    return ProductImageData(
-      imageField: image.field,
-      imageUrl: ImageHelper.buildUrl(barcode, image),
-    );
-  }
 
   final ImageField imageField;
   final String? imageUrl;
+  final OpenFoodFactsLanguage? language;
 
   /// Try to convert [imageUrl] to specified [size].
   /// Note that url for specified [size] might not exist on API.

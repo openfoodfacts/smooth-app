@@ -94,6 +94,8 @@ class ConsentAnalyticsPage extends StatelessWidget {
     );
   }
 
+  static const OnboardingPage _onboardingPage = OnboardingPage.CONSENT_PAGE;
+
   Future<void> _analyticsLogic(
     bool accept,
     UserPreferences userPreferences,
@@ -106,13 +108,13 @@ class ConsentAnalyticsPage extends StatelessWidget {
     themeProvider.finishOnboarding();
     //ignore: use_build_context_synchronously
     await OnboardingLoader(localDatabase).runAtNextTime(
-      OnboardingPage.CONSENT_PAGE,
+      _onboardingPage,
       context,
     );
     //ignore: use_build_context_synchronously
-    OnboardingFlowNavigator(userPreferences).navigateToPage(
+    await OnboardingFlowNavigator(userPreferences).navigateToPage(
       context,
-      OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE),
+      _onboardingPage.getNextPage(),
     );
   }
 

@@ -29,7 +29,7 @@ enum UserSearchType {
     final String userId,
     final int pageSize,
     final int pageNumber,
-    final OpenFoodFactsLanguage? language,
+    final OpenFoodFactsLanguage language,
     final List<ProductField> fields,
   ) =>
       ProductSearchQueryConfiguration(

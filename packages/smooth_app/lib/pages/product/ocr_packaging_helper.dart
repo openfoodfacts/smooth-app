@@ -10,14 +10,27 @@ import 'package:smooth_app/pages/product/ocr_helper.dart';
 class OcrPackagingHelper extends OcrHelper {
   @override
   // ignore: deprecated_member_use
-  String getText(final Product product) => product.packaging ?? '';
+  String? getMonolingualText(final Product product) => product.packaging;
 
   @override
-  Product getMinimalistProduct(Product product, final String text) {
-    // ignore: deprecated_member_use
-    product.packaging = text;
-    return product;
-  }
+  void setMonolingualText(
+    final Product product,
+    final String text,
+  ) =>
+      // ignore: deprecated_member_use
+      product.packaging = text;
+
+  @override
+  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
+          final Product product) =>
+      product.packagingTextInLanguages;
+
+  @override
+  void setMultilingualTexts(
+    final Product product,
+    final Map<OpenFoodFactsLanguage, String> texts,
+  ) =>
+      product.packagingTextInLanguages = texts;
 
   @override
   String? getImageUrl(final Product product) => product.imagePackagingUrl;
@@ -54,11 +67,14 @@ class OcrPackagingHelper extends OcrHelper {
   ImageField getImageField() => ImageField.PACKAGING;
 
   @override
-  Future<String?> getExtractedText(final Product product) async {
+  Future<String?> getExtractedText(
+    final Product product,
+    final OpenFoodFactsLanguage language,
+  ) async {
     final OcrPackagingResult result = await OpenFoodAPIClient.extractPackaging(
       getUser(),
       product.barcode!,
-      getLanguage(),
+      language,
     );
     return result.textFromImage;
   }

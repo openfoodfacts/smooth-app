@@ -129,11 +129,10 @@ class CongratsWidget extends StatelessWidget {
 
     for (final MapEntry<String, InsightAnnotation> annotation
         in annotationList.entries) {
-      final Status status = await OpenFoodAPIClient.postInsightAnnotation(
+      final Status status = await RobotoffAPIClient.postInsightAnnotation(
         annotation.key,
         annotation.value,
         deviceId: OpenFoodAPIConfiguration.uuid,
-        user: OpenFoodAPIConfiguration.globalUser,
       );
 
       results.add(status.status == 1);

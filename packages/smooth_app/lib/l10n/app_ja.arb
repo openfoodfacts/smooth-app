@@ -291,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Slackチャンネルで質問する",
+    "support_via_forum": "フォーラムで助けを求める",
     "support_via_email": "私たちにメールを送信",
     "support_via_email_include_logs_dialog_title": "アプリのログを送信しますか？",
     "support_via_email_include_logs_dialog_body": "メールの添付ファイルにアプリのログを含めますか？",
@@ -1145,7 +1146,7 @@
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_emb_codes_title": "追跡可能性コード",
+    "edit_product_form_item_emb_codes_title": "トレーサビリティコード",
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
@@ -1310,6 +1311,14 @@
     "camera_disable_flash": "フラッシュを無効にする",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
+    },
+    "camera_flash_error_dialog_title": "An error occurred!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
     "category_picker_no_category_found_button": "戻る",
     "@category_picker_no_category_found_button": {
@@ -1573,6 +1582,14 @@
     "edit_photo_select_existing_downloaded_none": "この製品に関連する、過去にアップロードされた画像はありません。",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
+    },
+    "edit_photo_language_not_this_one": "その言語にはまだ画像がありません",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "画像はまだありません",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
     "category_picker_screen_title": "カテゴリー",
     "@category_picker_screen_title": {
