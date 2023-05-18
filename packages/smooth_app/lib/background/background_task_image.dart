@@ -291,7 +291,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       maxSize: null,
       quality: FilterQuality.high,
     );
-    await ImageComputeContainer(file: file, source: cropped).saveJpeg();
+    await saveJpeg(file: file, source: cropped);
     return true;
   }
 
