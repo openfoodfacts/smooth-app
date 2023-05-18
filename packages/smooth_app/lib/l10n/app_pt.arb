@@ -10,7 +10,7 @@
     "@add": {},
     "account_delete_message": "Tem certeza de que deseja excluir sua conta?\nSe houver um motivo específico, compartilhe abaixo",
     "@account_delete_message": {},
-    "reason": "Razão",
+    "reason": "Motivo",
     "@reason": {},
     "okay": "Ok",
     "@okay": {},
@@ -158,7 +158,7 @@
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "Para usar esse recurso, precisamos que você entre na sua conta.",
+    "sign_in_mandatory": "Para usar esse recurso, entre na sua conta.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -183,7 +183,7 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "Em caso de esquecimento de senha, digite seu nome de usuário ou e-mail para receber instruções para redefinir a senha. Não se esqueça de verificar também a pasta \"Spam\" de seu e-mail.",
+    "reset_password_explanation_text": "Caso de esqueça sua senha, digite seu nome de usuário ou e-mail e receberá instruções para redefinir a senha. Verifique também a pasta \"Spam\" de seu e-mail.",
     "username_or_email": "Nome de usuário ou e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Obrigada pela sua contribuição",
+    "thanks_for_contributing": "Obrigado pela sua contribuição",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -310,7 +310,7 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "O código para cada produto do Open Food Facts está disponível no GitHub. Você é bem-vindo para reutilizar o código (é de código aberto) e nos ajudar a melhorá-lo, para todos, em todo o planeta.",
+    "contribute_develop_text": "O código para cada produto do Open Food Facts está disponível no GitHub. Você pode reutilizar o código (é de código aberto) e nos ajudar a melhorá-lo, para todos, em todo o planeta.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Você pode participar da sala de bate-papo Open Food Facts que é a melhor forma de fazer perguntas.",
     "@contribute_develop_text_2": {},
@@ -322,11 +322,11 @@
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Melhorando",
+    "contribute_improve_header": "Aprimorando",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "O banco de dados é o núcleo do projeto. Ajudar é fácil e rápido. Você pode baixar o aplicativo para o seu telefone e começar a adicionar ou melhorar os produtos.\n\nPor outro lado, o site Open Food Facts oferece muitas maneiras de contribuir: ",
+    "contribute_improve_text": "O banco de dados é o núcleo do projeto. Ajudar é fácil e rápido. Você pode baixar o aplicativo no seu telefone e começar a adicionar produtos ou fazer correções.\n\nAlém disso, o site Open Food Facts oferece muitas maneiras de contribuir: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Traduzir",
     "@contribute_translate_header": {
@@ -340,9 +340,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "A tradução é uma das principais tarefas do projeto",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Compartilhar o Open Food Facts com seus amigos",
+    "contribute_share_header": "Compartilhe o Open Food Facts com seus amigos",
     "@contribute_share_header": {},
-    "contribute_share_content": "Eu queria que você soubesse sobre o aplicativo que tenho usado, Open Food Facts, que permite que você descubra os impactos de sua alimentação na saúde e no meio ambiente, de forma personalizada. Funciona digitalizando os códigos de barras na embalagem. Por fim, é gratuito, não requer registro e você pode até ajudar a aumentar o número de produtos decifrados. Aqui está o link para obtê-lo para o seu telefone: https://openfoodfacts.app",
+    "contribute_share_content": "Eu queria que você soubesse sobre o aplicativo que tenho usado, Open Food Facts, que permite que você descubra os impactos de sua alimentação na saúde e no meio ambiente de forma personalizada. Funciona digitalizando os códigos de barras na embalagem. Por fim, é gratuito, não requer registro e você pode até ajudar a aumentar o número de produtos decodificados. Aqui está o link para baixá-lo no seu telefone: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -358,14 +358,14 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Entre na sua conta Open Food Facts para obter crédito pelas suas contribuições",
-    "tap_to_edit_search": "Toque para pesquisar",
+    "question_sign_in_text": "Entre na sua conta Open Food Facts para ganhar crédito pelas suas contribuições",
+    "tap_to_edit_search": "Toque para editar pesquisa",
     "@Personal preferences": {},
     "myPreferences": "Minhas preferências",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Crie sua conta e junte-se à comunidade Open Food Facts para ajudar a construir conhecimento de comida em todo o mundo!",
+    "account_create_message": "Crie sua conta e junte-se à comunidade Open Food Facts para ajudar a construir conhecimento sobre alimentos em todo o mundo!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -390,7 +390,7 @@
     },
     "ranking_tab_all": "Todos",
     "ranking_subtitle_match_yes": "Uma ótima combinação para você",
-    "ranking_subtitle_match_no": "Uma combinação muito pobre",
+    "ranking_subtitle_match_no": "Combinação muito fraca",
     "ranking_subtitle_match_maybe": "Combinação desconhecida",
     "refresh_with_new_preferences": "Atualize a lista com suas novas preferências",
     "@refresh_with_new_preferences": {
@@ -495,6 +495,22 @@
     },
     "confirm_button_label": "Confirmar",
     "send_image_button_label": "Enviar imagem",
+    "crop_page_action_saving": "Saving the image…",
+    "@crop_page_action_saving": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_cropping": "Cropping the image…",
+    "@crop_page_action_cropping": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local": "Saving a local version…",
+    "@crop_page_action_local": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_server": "Preparing a call to the server…",
+    "@crop_page_action_server": {
+        "description": "Action being performed on the crop page"
+    },
     "front_packaging_photo_title": "Foto frontal da embalagem",
     "ingredients_photo_title": "Foto dos ingredientes",
     "nutritional_facts_photo_title": "Foto das Informações Nutricionais",
@@ -1583,11 +1599,11 @@
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
-    "edit_photo_language_not_this_one": "No image in that language yet",
+    "edit_photo_language_not_this_one": "Ainda não há imagem para este idioma",
     "@edit_photo_language_not_this_one": {
         "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
     },
-    "edit_photo_language_none": "No image yet",
+    "edit_photo_language_none": "Ainda não há imagem",
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
@@ -1659,7 +1675,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Lista vazia} =1{Um produto} other{{count} produtos}}",
+    "user_list_length": "{count,plural, one {}=0{Lista vazia} =1{Um produto} other{{count} produtos}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {

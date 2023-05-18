@@ -495,6 +495,22 @@
     },
     "confirm_button_label": "Patvirtinti",
     "send_image_button_label": "Siųsti vaizdą",
+    "crop_page_action_saving": "Saving the image…",
+    "@crop_page_action_saving": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_cropping": "Cropping the image…",
+    "@crop_page_action_cropping": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local": "Saving a local version…",
+    "@crop_page_action_local": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_server": "Preparing a call to the server…",
+    "@crop_page_action_server": {
+        "description": "Action being performed on the crop page"
+    },
     "front_packaging_photo_title": "Priekinės pakuotės nuotrauka",
     "ingredients_photo_title": "Sudėties Nuotrauka",
     "nutritional_facts_photo_title": "Maistingumo duomenų nuotrauka",
@@ -1832,24 +1848,24 @@
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "Prisiminti mano pasirinkimą",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "Pasirinkti kaskart",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
-    "robotoff_continue": "Continue",
+    "robotoff_continue": "Tęsti",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "show_password": "Show Password",
+    "show_password": "Rodyti Slaptažodį",
     "@show_password": {
         "description": "Show hidden password in password field"
     },
     "app_rating_dialog_title": "Puiku! Praneškite kitiems, ką manote apie šią programą!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_positive_action": "Įvertinti programėlę",
     "app_rating_dialog_negative_action": "Vėliau",
     "app_rating_dialog_title_enjoying_app": "Ar Jums patinka ši programėlė?",
     "app_rating_dialog_title_enjoying_positive_actions": "Aha!",
