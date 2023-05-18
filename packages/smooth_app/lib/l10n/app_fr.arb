@@ -487,7 +487,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Nouveau produit",
     "@new_product": {},
-    "new_product_dialog_title": "Vous venez de trouver un nouveau produit !",
+    "new_product_dialog_title": "Vous avez trouvé un nouveau produit !",
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
