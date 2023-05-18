@@ -487,6 +487,14 @@
     "@add_product_information_button_label": {},
     "new_product": "Nouveau produit",
     "@new_product": {},
+    "new_product_dialog_title": "Vous venez de trouver un nouveau produit !",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "Merci de prendre des photos pour ajouter ce produit à notre base de données commune.",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "Photo frontale du produit",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Confirmer le téleversement de la photo frontale du produit",

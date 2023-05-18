@@ -57,6 +57,8 @@ class ProductDialogHelper {
               final BuildContext context,
               final BoxConstraints constraints,
             ) {
+              final AppLocalizations appLocalizations =
+                  AppLocalizations.of(context);
               const double svgPadding = SMALL_SPACE;
               final double svgWidth = (constraints.maxWidth - svgPadding) / 2;
               return Column(
@@ -69,17 +71,20 @@ class ProductDialogHelper {
                     package: AppHelper.APP_PACKAGE,
                     height: MINIMUM_TOUCH_SIZE * 2,
                   ),
-                  Text(
-                    "You've just found a new product!",
-                    style: Theme.of(context).textTheme.displayMedium,
-                    textAlign: TextAlign.center,
+                  Padding(
+                    padding: const EdgeInsets.only(top: SMALL_SPACE),
+                    child: Text(
+                      appLocalizations.new_product_dialog_title,
+                      style: Theme.of(context).textTheme.displayMedium,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Text(
-                    barcode,
+                    appLocalizations.barcode_barcode(barcode),
                     textAlign: TextAlign.center,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+                    padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
                     child: Row(
                       children: <Widget>[
                         SvgCache(
@@ -94,9 +99,12 @@ class ProductDialogHelper {
                       ],
                     ),
                   ),
-                  Text(
-                    'Take photos of the packaging to add this product to our database',
-                    textAlign: TextAlign.center,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: SMALL_SPACE),
+                    child: Text(
+                      appLocalizations.new_product_dialog_description,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               );
