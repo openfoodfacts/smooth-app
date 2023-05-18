@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -57,56 +58,73 @@ class ProductDialogHelper {
               final BuildContext context,
               final BoxConstraints constraints,
             ) {
+              final MediaQueryData mediaQueryData = MediaQuery.of(context);
               final AppLocalizations appLocalizations =
                   AppLocalizations.of(context);
               const double svgPadding = SMALL_SPACE;
               final double svgWidth = (constraints.maxWidth - svgPadding) / 2;
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/onboarding/birthday-cake.svg',
-                    package: AppHelper.APP_PACKAGE,
-                    height: MINIMUM_TOUCH_SIZE * 2,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: SMALL_SPACE),
-                    child: Text(
-                      appLocalizations.new_product_dialog_title,
-                      style: Theme.of(context).textTheme.displayMedium,
-                      textAlign: TextAlign.center,
+              return SizedBox(
+                height: mediaQueryData.size.height * .5,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 25,
+                      child: SvgPicture.asset(
+                        'assets/onboarding/birthday-cake.svg',
+                        package: AppHelper.APP_PACKAGE,
+                      ),
                     ),
-                  ),
-                  Text(
-                    appLocalizations.barcode_barcode(barcode),
-                    textAlign: TextAlign.center,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                    child: Row(
-                      children: <Widget>[
-                        SvgCache(
-                          unknownSvgNutriscore,
-                          width: svgWidth,
-                        ),
-                        const SizedBox(width: svgPadding),
-                        SvgCache(
-                          unknownSvgEcoscore,
-                          width: svgWidth,
-                        ),
-                      ],
+                    const SizedBox(height: SMALL_SPACE),
+                    Expanded(
+                      flex: 25,
+                      child: AutoSizeText(
+                        appLocalizations.new_product_dialog_title,
+                        style: Theme.of(context).textTheme.displayMedium,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: SMALL_SPACE),
-                    child: Text(
-                      appLocalizations.new_product_dialog_description,
-                      textAlign: TextAlign.center,
+                    const SizedBox(height: SMALL_SPACE),
+                    Expanded(
+                      flex: 10,
+                      child: Text(
+                        appLocalizations.barcode_barcode(barcode),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: SMALL_SPACE),
+                    Expanded(
+                      flex: 15,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          SvgCache(
+                            unknownSvgNutriscore,
+                            width: svgWidth,
+                          ),
+                          const SizedBox(width: svgPadding),
+                          SvgCache(
+                            unknownSvgEcoscore,
+                            width: svgWidth,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: SMALL_SPACE),
+                    Expanded(
+                      flex: 25,
+                      child: AutoSizeText(
+                        appLocalizations.new_product_dialog_description,
+                        textAlign: TextAlign.center,
+                        maxLines: 3,
+                      ),
+                    ),
+                  ],
+                ),
               );
             },
           ),
