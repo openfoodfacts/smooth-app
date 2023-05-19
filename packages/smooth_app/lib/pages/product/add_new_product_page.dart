@@ -22,7 +22,9 @@ const EdgeInsetsGeometry _ROW_PADDING_TOP = EdgeInsetsDirectional.only(
 
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
-  const AddNewProductPage(this.barcode);
+  const AddNewProductPage({
+    required this.barcode,
+  }) : assert(barcode != '');
 
   final String barcode;
 
@@ -33,6 +35,7 @@ class AddNewProductPage extends StatefulWidget {
 class _AddNewProductPageState extends State<AddNewProductPage> {
   // Just one file per main image field
   final Map<ImageField, File> _uploadedImages = <ImageField, File>{};
+
   // Many possible files for "other" image field
   final List<File> _otherUploadedImages = <File>[];
 
@@ -53,6 +56,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       _isProductFieldValid(product.brands);
 
   bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
+
   bool get _basicDetailsAdded => isProductBasicValid(_product);
 
   bool _alreadyPushedtToHistory = false;

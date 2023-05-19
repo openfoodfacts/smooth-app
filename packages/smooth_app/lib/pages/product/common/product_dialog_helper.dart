@@ -11,7 +11,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/pages/product/add_new_product_page.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
 
 /// Dialog helper for product barcode search
@@ -130,11 +130,8 @@ class ProductDialogHelper {
           ),
           positiveAction: SmoothActionButton(
             text: AppLocalizations.of(context).contribute,
-            onPressed: () => Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => AddNewProductPage(barcode),
-              ),
+            onPressed: () => AppNavigator.of(context).push(
+              AppRoutes.PRODUCT_CREATOR(barcode),
             ),
           ),
           negativeAction: SmoothActionButton(
