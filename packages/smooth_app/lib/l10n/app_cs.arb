@@ -291,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Požádejte o pomoc na našem kanálu Slack",
+    "support_via_forum": "Požádejte o pomoc na našem fóru",
     "support_via_email": "Pošlete nám e-mail",
     "support_via_email_include_logs_dialog_title": "Odeslat protokoly aplikace?",
     "support_via_email_include_logs_dialog_body": "Přejete si zahrnout protokoly aplikace do přílohy vašeho e-mailu?",
@@ -494,6 +495,22 @@
     },
     "confirm_button_label": "Potvrdit",
     "send_image_button_label": "Odeslat obrázek",
+    "crop_page_action_saving": "Saving the image…",
+    "@crop_page_action_saving": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_cropping": "Cropping the image…",
+    "@crop_page_action_cropping": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local": "Saving a local version…",
+    "@crop_page_action_local": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_server": "Preparing a call to the server…",
+    "@crop_page_action_server": {
+        "description": "Action being performed on the crop page"
+    },
     "front_packaging_photo_title": "Fotografie předního obalu",
     "ingredients_photo_title": "Fotografie ingrediencí",
     "nutritional_facts_photo_title": "Fotografie nutričních údajů",
@@ -687,42 +704,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  =1{včera} other{ před {count} dny}}",
+    "plural_ago_days": "{count,plural,  few {před {count} dny}  many {před {count} dny}=1{včera} other{ před {count} dny}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  =1{před hodinou} other{před {count} hodinami}}",
+    "plural_ago_hours": "{count,plural,  few {před {count} hodinami}  many {před {count} hodinami}=1{před hodinou} other{před {count} hodinami}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "před {count,plural, =0{méně než minutou} =1{minutou} other{{count} minutami}}",
+    "plural_ago_minutes": "před {count,plural, few {{count} minutami} many {{count} minutami} =0{méně než minutou} =1{minutou} other{{count} minutami}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  =1{před měsícem} other{před {count} měsíci}}",
+    "plural_ago_months": "{count,plural,  few {před {count} měsíci}  many {před {count} měsíci}=1{před měsícem} other{před {count} měsíci}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "před {count,plural,  few {{count} týdny}  many {{count} týdny}=1{1 týdnem} other{{count} týdny}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
+    "plural_compare_x_products": "Porovnat {count,plural, few {{count} produkty} many {{count} produktů}=1{1 produkt} other{{count} produktů}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
@@ -906,14 +923,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Obnovuji {count,plural,  =0{produkt} =1{produkt} other{produkty}} v historii",
+    "product_list_reloading_in_progress_multiple": "Obnovuji {count,plural, few {produkty} many {produktů} =0{produkt} =1{produkt} other{produkty}} v historii",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
+    "product_list_reloading_success_multiple": "Aktualizace {count,plural,  few {produktů}  many {produktů}=0{produktů} =1{produktu} other{Products}} dokončena",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -1311,6 +1328,14 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
+    "camera_flash_error_dialog_title": "Vyskytla se chyba!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "Při změně stavu blesku došlo k chybě. Ujistěte se, že váš smartphone již nemá zapnutou svítilnu.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
     "category_picker_no_category_found_button": "Zpět",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
@@ -1574,6 +1599,14 @@
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
+    "edit_photo_language_not_this_one": "V tomto jazyce zatím není žádný obrázek",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "Zatím žádný obrázek",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
+    },
     "category_picker_screen_title": "Kategorie",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1642,7 +1675,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Prázdný seznam} =1{Jeden produkt} other{{count} produktů}}",
+    "user_list_length": "{count,plural, few {{count} produkty} many {{count} produktů}=0{Prázdný seznam} =1{1 produkt} other{{count} produktů}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {

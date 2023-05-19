@@ -53,7 +53,6 @@ Future<void> _onSubmittedBarcode(
     barcode: value,
     context: context,
     localDatabase: localDatabase,
-    refresh: false,
   );
   final FetchedProduct fetchedProduct =
       await productDialogHelper.openBestChoice();

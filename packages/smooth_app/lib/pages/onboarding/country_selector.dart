@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -12,11 +13,9 @@ import 'package:smooth_app/query/product_query.dart';
 /// A selector for selecting user's country.
 class CountrySelector extends StatefulWidget {
   const CountrySelector({
-    required this.initialCountryCode,
     this.textStyle,
   });
 
-  final String? initialCountryCode;
   final TextStyle? textStyle;
 
   @override
@@ -24,23 +23,22 @@ class CountrySelector extends StatefulWidget {
 }
 
 class _CountrySelectorState extends State<CountrySelector> {
-  late UserPreferences _userPreferences;
-  late List<Country> _countryList = <Country>[];
-  late Country _chosenValue;
+  late List<Country> _countryList;
   late Future<void> _initFuture;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _initFuture = _init();
+  void initState() {
+    super.initState();
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    _initFuture = _init(userPreferences.appLanguageCode!);
   }
 
-  Future<void> _init() async {
-    final String locale = Localizations.localeOf(context).languageCode;
+  Future<void> _init(final String languageCode) async {
     List<Country> localizedCountries;
 
     try {
-      localizedCountries = await IsoCountries.iso_countries_for_locale(locale);
+      localizedCountries =
+          await IsoCountries.iso_countries_for_locale(languageCode);
     } on MissingPluginException catch (_) {
       // Locales are not implemented on desktop and web
       // TODO(g123k): Add a complete list
@@ -51,16 +49,7 @@ class _CountrySelectorState extends State<CountrySelector> {
         const Country(name: 'India', countryCode: 'IN'),
       ];
     }
-
-    _userPreferences = await UserPreferences.getUserPreferences();
     _countryList = _sanitizeCountriesList(localizedCountries);
-    _chosenValue = _countryList[0];
-    _setUserCountry(_chosenValue.countryCode);
-  }
-
-  Future<void> _setUserCountry(final String countryCode) async {
-    await _userPreferences.setUserCountry(_chosenValue.countryCode);
-    ProductQuery.setCountry(_userPreferences.userCountryCode);
   }
 
   @override
@@ -75,10 +64,15 @@ class _CountrySelectorState extends State<CountrySelector> {
         } else if (snapshot.connectionState != ConnectionState.done) {
           return const CircularProgressIndicator.adaptive();
         }
-
+        final UserPreferences userPreferences =
+            context.watch<UserPreferences>();
+        final Country selectedCountry = _getSelectedCountry(
+          userPreferences.userCountryCode,
+        );
         return InkWell(
           borderRadius: ANGULAR_BORDER_RADIUS,
           onTap: () async {
+            _reorderCountries(selectedCountry);
             List<Country> filteredList = List<Country>.from(_countryList);
             final Country? country = await showDialog<Country>(
               context: context,
@@ -104,7 +98,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                                           (Country item) =>
                                               item.name.toLowerCase().contains(
                                                     query!.toLowerCase(),
-                                                  ) |
+                                                  ) ||
                                               item.countryCode
                                                   .toLowerCase()
                                                   .contains(
@@ -121,22 +115,25 @@ class _CountrySelectorState extends State<CountrySelector> {
                               child: ListView.builder(
                                 itemBuilder: (BuildContext context, int index) {
                                   final Country country = filteredList[index];
-                                  final bool isSelected =
-                                      country == _chosenValue;
+                                  final bool selected =
+                                      country == selectedCountry;
                                   return ListTile(
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius: ANGULAR_BORDER_RADIUS,
-                                    ),
+                                    dense: true,
+                                    trailing: selected
+                                        ? const Icon(Icons.check)
+                                        : null,
                                     title: Text(
                                       country.name,
-                                      style: TextStyle(
-                                        fontWeight:
-                                            isSelected ? FontWeight.bold : null,
-                                      ),
+                                      softWrap: false,
+                                      overflow: TextOverflow.fade,
+                                      style: selected
+                                          ? const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            )
+                                          : null,
                                     ),
-                                    onTap: () {
-                                      Navigator.of(context).pop(country);
-                                    },
+                                    onTap: () =>
+                                        Navigator.of(context).pop(country),
                                   );
                                 },
                                 itemCount: filteredList.length,
@@ -156,10 +153,11 @@ class _CountrySelectorState extends State<CountrySelector> {
               },
             );
             if (country != null) {
-              _chosenValue = country;
-              await _setUserCountry(_chosenValue.countryCode);
+              await ProductQuery.setCountry(
+                userPreferences,
+                isoCode: country.countryCode,
+              );
             }
-            setState(() {});
           },
           child: Container(
             decoration: const BoxDecoration(
@@ -168,7 +166,7 @@ class _CountrySelectorState extends State<CountrySelector> {
             child: ListTile(
               leading: const Icon(Icons.public),
               title: Text(
-                _chosenValue.name,
+                selectedCountry.name,
                 style: widget.textStyle ??
                     Theme.of(context).textTheme.displaySmall,
               ),
@@ -180,9 +178,11 @@ class _CountrySelectorState extends State<CountrySelector> {
     );
   }
 
-  /// Sanitize the country list by removing countries that are not in [OpenFoodFactsCountry]
-  /// and providing a fallback English name for countries that are in [OpenFoodFactsCountry]
-  /// but not in [localizedCountries].
+  /// Sanitizes the country list, but without reordering it.
+  ///
+  /// * by removing countries that are not in [OpenFoodFactsCountry]
+  /// * and providing a fallback English name for countries that are in
+  /// [OpenFoodFactsCountry] but not in [localizedCountries].
   List<Country> _sanitizeCountriesList(List<Country> localizedCountries) {
     final List<Country> finalCountriesList = <Country>[];
     final Map<String, OpenFoodFactsCountry> oFFIsoCodeToCountry =
@@ -206,9 +206,11 @@ class _CountrySelectorState extends State<CountrySelector> {
             .replaceAll('_', ' ');
         countryName =
             '${countryName[0].toUpperCase()}${countryName.substring(1).toLowerCase()}';
-        finalCountriesList.add(Country(
-            name: _fixCountryName(countryName),
-            countryCode: _fixCountryCode(countryCode)));
+        finalCountriesList.add(
+          Country(
+              name: _fixCountryName(countryName),
+              countryCode: _fixCountryCode(countryCode)),
+        );
         continue;
       }
       final String fixedCountryCode = _fixCountryCode(countryCode);
@@ -217,7 +219,7 @@ class _CountrySelectorState extends State<CountrySelector> {
           : Country(name: localizedCountry.name, countryCode: countryCode);
       finalCountriesList.add(country);
     }
-    return _reorderCountries(finalCountriesList);
+    return finalCountriesList;
   }
 
   /// Fix the countryCode if needed so Backend can process it.
@@ -229,6 +231,17 @@ class _CountrySelectorState extends State<CountrySelector> {
     return countryCode;
   }
 
+  Country _getSelectedCountry(final String? cc) {
+    if (cc != null) {
+      for (final Country country in _countryList) {
+        if (country.countryCode.toLowerCase() == cc.toLowerCase()) {
+          return country;
+        }
+      }
+    }
+    return _countryList[0];
+  }
+
   /// Fix the issues where United Kingdom appears with lowercase 'k'.
   String _fixCountryName(String countryName) {
     if (countryName == 'United kingdom') {
@@ -238,22 +251,17 @@ class _CountrySelectorState extends State<CountrySelector> {
   }
 
   /// Reorder countries alphabetically, bring user's locale country to top.
-  List<Country> _reorderCountries(List<Country> countries) {
-    countries
-        .sort((final Country a, final Country b) => a.name.compareTo(b.name));
-    final String? mostLikelyUserCountryCode = widget.initialCountryCode;
-    if (mostLikelyUserCountryCode == null) {
-      return countries;
-    }
-    // Bring the most likely user country to top.
-    for (final Country country in countries) {
-      if (country.countryCode.toLowerCase() ==
-          mostLikelyUserCountryCode.toLowerCase()) {
-        countries.remove(country);
-        countries.insert(0, country);
-        return countries;
-      }
-    }
-    return countries;
+  void _reorderCountries(final Country selectedCountry) {
+    _countryList.sort(
+      (final Country a, final Country b) {
+        if (a == selectedCountry) {
+          return -1;
+        }
+        if (b == selectedCountry) {
+          return 1;
+        }
+        return a.name.compareTo(b.name);
+      },
+    );
   }
 }

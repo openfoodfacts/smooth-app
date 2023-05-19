@@ -6,15 +6,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
-import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about product image crop from existing file.
-class BackgroundTaskCrop extends AbstractBackgroundTask {
+class BackgroundTaskCrop extends BackgroundTaskUpload {
   const BackgroundTaskCrop._({
     required super.processName,
     required super.uniqueId,
@@ -23,14 +22,14 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
     required super.user,
     required super.country,
     required super.stamp,
+    required super.imageField,
+    required super.croppedPath,
+    required super.rotationDegrees,
+    required super.cropX1,
+    required super.cropY1,
+    required super.cropX2,
+    required super.cropY2,
     required this.imageId,
-    required this.imageField,
-    required this.croppedPath,
-    required this.rotationDegrees,
-    required this.cropX1,
-    required this.cropY1,
-    required this.cropX2,
-    required this.cropY2,
   });
 
   BackgroundTaskCrop._fromJson(Map<String, dynamic> json)
@@ -58,13 +57,6 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
   static const OperationType _operationType = OperationType.crop;
 
   final int imageId;
-  final String imageField;
-  final String croppedPath;
-  final int rotationDegrees;
-  final int cropX1;
-  final int cropY1;
-  final int cropX2;
-  final int cropY2;
 
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -101,6 +93,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
     final String barcode, {
+    required final OpenFoodFactsLanguage language,
     required final int imageId,
     required final ImageField imageField,
     required final File croppedFile,
@@ -117,6 +110,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
       barcode,
     );
     final AbstractBackgroundTask task = _getNewTask(
+      language,
       barcode,
       imageId,
       imageField,
@@ -137,6 +131,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
 
   /// Returns a new background task about cropping an existing image.
   static BackgroundTaskCrop _getNewTask(
+    final OpenFoodFactsLanguage language,
     final String barcode,
     final int imageId,
     final ImageField imageField,
@@ -160,13 +155,13 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
-        languageCode: ProductQuery.getLanguage().code,
+        languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
-        stamp: BackgroundTaskImage.getStamp(
+        stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
-          ProductQuery.getLanguage().code,
+          language.code,
         ),
       );
 
@@ -179,13 +174,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
         images: <ProductImage>[_getProductImage()],
       ),
     );
-    TransientFile.putImage(
-      ImageField.fromOffTag(imageField)!,
-      barcode,
-      getLanguage(),
-      localDatabase,
-      File(croppedPath),
-    );
+    putTransientImage(localDatabase);
   }
 
   /// Returns the actual crop parameters.
@@ -215,13 +204,7 @@ class BackgroundTaskCrop extends AbstractBackgroundTask {
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
-    TransientFile.removeImage(
-      ImageField.fromOffTag(imageField)!,
-      barcode,
-      getLanguage(),
-      localDatabase,
-    );
-    localDatabase.notifyListeners();
+    removeTransientImage(localDatabase);
     if (success) {
       await BackgroundTaskRefreshLater.addTask(
         barcode,

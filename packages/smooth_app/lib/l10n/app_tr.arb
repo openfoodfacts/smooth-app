@@ -291,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Slack kanalımızda yardım isteyin",
+    "support_via_forum": "Forumumuzda yardım isteyin",
     "support_via_email": "Bize bir e-posta gönder",
     "support_via_email_include_logs_dialog_title": "Uygulama günlükleri gönderilsin mi?",
     "support_via_email_include_logs_dialog_body": "E-postanıza ek olarak uygulama günlüklerini eklemek ister misiniz?",
@@ -494,6 +495,22 @@
     },
     "confirm_button_label": "Onayla",
     "send_image_button_label": "Resim gönder",
+    "crop_page_action_saving": "Saving the image…",
+    "@crop_page_action_saving": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_cropping": "Cropping the image…",
+    "@crop_page_action_cropping": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local": "Saving a local version…",
+    "@crop_page_action_local": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_server": "Preparing a call to the server…",
+    "@crop_page_action_server": {
+        "description": "Action being performed on the crop page"
+    },
     "front_packaging_photo_title": "Ön ambalaj fotoğrafı",
     "ingredients_photo_title": "İçindekiler fotoğarafı",
     "nutritional_facts_photo_title": "Besin Değerleri Fotoğrafı",
@@ -1311,6 +1328,14 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
+    "camera_flash_error_dialog_title": "Bir hata oluştu!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "Flaşınızın durumu değiştirilirken bir hata oluştu. Lütfen akıllı telefonunuzda el fenerinin etkinleştirilmiş olmadığından emin olun.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
     "category_picker_no_category_found_button": "Geri",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
@@ -1573,6 +1598,14 @@
     "edit_photo_select_existing_downloaded_none": "Bu ürünle ilgili daha önce yüklenmiş görsel bulunmamaktadır.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
+    },
+    "edit_photo_language_not_this_one": "Henüz o dilde resim yok",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "Henüz resim yok",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
     "category_picker_screen_title": "Kategoriler",
     "@category_picker_screen_title": {

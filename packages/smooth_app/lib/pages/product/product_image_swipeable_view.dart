@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Widget to display swipeable product images of particular category.
@@ -19,20 +20,17 @@ class ProductImageSwipeableView extends StatefulWidget {
     super.key,
     required this.product,
     required this.initialImageIndex,
-    required this.language,
   }) : imageField = null;
 
   /// Version with only one main [ImageField].
   const ProductImageSwipeableView.imageField({
     super.key,
     required this.product,
-    required this.language,
     required this.imageField,
   }) : initialImageIndex = 0;
 
   final Product product;
   final int initialImageIndex;
-  final OpenFoodFactsLanguage language;
   final ImageField? imageField;
 
   @override
@@ -63,7 +61,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
       initialPage: widget.initialImageIndex,
     );
     _currentImageDataIndex = ValueNotifier<int>(widget.initialImageIndex);
-    _currentLanguage = widget.language;
+    _currentLanguage = ProductQuery.getLanguage();
   }
 
   @override
