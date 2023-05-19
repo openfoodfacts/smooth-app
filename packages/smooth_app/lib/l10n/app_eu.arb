@@ -704,42 +704,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}=1{duela egun bat} other{duela {count} egun}}",
+    "plural_ago_days": "{count,plural,  =1{duela egun bat} other{duela {count} egun}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  one {}=1{duela ordu bat} other{duela {count} ordu}}",
+    "plural_ago_hours": "{count,plural,  =1{duela ordu bat} other{duela {count} ordu}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  one {}=0{duela minutu bat baino gutxiago} =1{duela minutu bat} other{duela {count} minutu}}",
+    "plural_ago_minutes": "{count,plural,  =0{duela minutu bat baino gutxiago} =1{duela minutu bat} other{duela {count} minutu}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  one {}=1{duela hilabete bat} other{duela {count} hilabete}}",
+    "plural_ago_months": "{count,plural,  =1{duela hilabete bat} other{duela {count} hilabete}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  one {}=1{duela aste bat} other{duela {count} aste}}",
+    "plural_ago_weeks": "{count,plural,  =1{duela aste bat} other{duela {count} aste}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, one {}=1{Produktu bat alderatu} other{{count} produktu alderatu}}",
+    "plural_compare_x_products": "{count,plural, =1{Produktu bat alderatu} other{{count} produktu alderatu}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {

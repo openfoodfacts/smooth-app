@@ -704,7 +704,7 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}=1{gestern} other{{count} Tage her}}",
+    "plural_ago_days": "{count,plural,  =1{gestern} other{{count} Tage her}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
