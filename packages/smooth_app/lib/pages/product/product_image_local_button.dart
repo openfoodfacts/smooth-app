@@ -11,11 +11,13 @@ class ProductImageLocalButton extends StatefulWidget {
     required this.firstPhoto,
     required this.barcode,
     required this.imageField,
+    required this.language,
   });
 
   final bool firstPhoto;
   final String barcode;
   final ImageField imageField;
+  final OpenFoodFactsLanguage language;
 
   @override
   State<ProductImageLocalButton> createState() =>
@@ -47,6 +49,7 @@ class _ProductImageLocalButtonState extends State<ProductImageLocalButton> {
       this,
       imageField: widget.imageField,
       barcode: widget.barcode,
+      language: widget.language,
     );
   }
 }

@@ -15,7 +15,6 @@ import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
-import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -103,8 +102,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             appLocalizations.dev_preferences_reset_onboarding_subtitle,
           ),
           onTap: () async {
-            userPreferences
-                .setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
+            await userPreferences.resetOnboarding();
             _showSuccessMessage();
           },
         ),

@@ -5,10 +5,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
-import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about unselecting a product image.
@@ -74,6 +76,7 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
     final String barcode, {
     required final ImageField imageField,
     required final State<StatefulWidget> widget,
+    required final OpenFoodFactsLanguage language,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
@@ -84,6 +87,7 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
       barcode,
       imageField,
       uniqueId,
+      language,
     );
     await task.addToManager(localDatabase, widget: widget);
   }
@@ -97,32 +101,42 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
     final String barcode,
     final ImageField imageField,
     final String uniqueId,
+    final OpenFoodFactsLanguage language,
   ) =>
       BackgroundTaskUnselect._(
         uniqueId: uniqueId,
         barcode: barcode,
         processName: _PROCESS_NAME,
         imageField: imageField.offTag,
-        languageCode: ProductQuery.getLanguage().code,
+        languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
         // same stamp as image upload
-        stamp: BackgroundTaskImage.getStamp(
+        stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
-          ProductQuery.getLanguage().code,
+          language.code,
         ),
       );
 
   @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async =>
-      localDatabase.upToDate.addChange(uniqueId, _getUnselectedProduct());
+  Future<void> preExecute(final LocalDatabase localDatabase) async {
+    localDatabase.upToDate.addChange(uniqueId, _getUnselectedProduct());
+    _getTransientFile().removeImage(localDatabase);
+  }
+
+  TransientFile _getTransientFile() => TransientFile(
+        ImageField.fromOffTag(imageField)!,
+        barcode,
+        getLanguage(),
+      );
 
   @override
   Future<void> postExecute(
     final LocalDatabase localDatabase,
     final bool success,
   ) async {
+    // TODO(monsieurtanuki): we should also remove the hypothetical transient file, shouldn't we?
     localDatabase.upToDate.terminate(uniqueId);
     localDatabase.notifyListeners();
     if (success) {
@@ -150,22 +164,7 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
   /// Here we put an empty string instead, to be understood as "force to null!".
   Product _getUnselectedProduct() {
     final Product result = Product(barcode: barcode);
-    switch (ImageField.fromOffTag(imageField)!) {
-      case ImageField.FRONT:
-        result.imageFrontUrl = '';
-        break;
-      case ImageField.INGREDIENTS:
-        result.imageIngredientsUrl = '';
-        break;
-      case ImageField.NUTRITION:
-        result.imageNutritionUrl = '';
-        break;
-      case ImageField.PACKAGING:
-        result.imagePackagingUrl = '';
-        break;
-      case ImageField.OTHER:
-      // We do nothing. Actually we're not supposed to unselect other images.
-    }
+    ImageField.fromOffTag(imageField)!.setUrl(result, '');
     return result;
   }
 }

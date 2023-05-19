@@ -235,9 +235,7 @@ class UserPreferencesTitle extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                height: 2.5,
-              ),
+          style: Theme.of(context).textTheme.displayLarge,
         ),
       ),
     );

@@ -245,7 +245,7 @@ class _ApplicationSettings extends StatelessWidget {
               ListTile(
                 title: Text(
                   appLocalizations.select_accent_color,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: themeData.textTheme.headlineMedium,
                 ),
                 subtitle: ChooseAccentColor(
                   appLocalizations: appLocalizations,
@@ -255,7 +255,7 @@ class _ApplicationSettings extends StatelessWidget {
               ListTile(
                 title: Text(
                   appLocalizations.text_contrast_mode,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: themeData.textTheme.headlineMedium,
                 ),
                 subtitle: TextColorContrast(appLocalizations: appLocalizations),
                 minLeadingWidth: MEDIUM_SPACE,
@@ -265,12 +265,21 @@ class _ApplicationSettings extends StatelessWidget {
         else
           const SizedBox.shrink(),
         const UserPreferencesListItemDivider(),
-        const _CountryPickerSetting(),
+        ListTile(
+          title: Text(
+            appLocalizations.country_chooser_label,
+            style: themeData.textTheme.headlineMedium,
+          ),
+          subtitle: CountrySelector(
+            textStyle: themeData.textTheme.bodyMedium,
+          ),
+          minVerticalPadding: MEDIUM_SPACE,
+        ),
         const UserPreferencesListItemDivider(),
         ListTile(
           title: Text(
             appLocalizations.choose_app_language,
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: themeData.textTheme.headlineMedium,
           ),
           subtitle: LanguageSelector(
             setLanguage: (final OpenFoodFactsLanguage? language) async {
@@ -282,6 +291,9 @@ class _ApplicationSettings extends StatelessWidget {
                 );
               }
             },
+            selectedLanguages: <OpenFoodFactsLanguage>[
+              ProductQuery.getLanguage(),
+            ],
           ),
           minVerticalPadding: MEDIUM_SPACE,
         ),
@@ -311,7 +323,7 @@ class _ApplicationSettings extends StatelessWidget {
             children: <Widget>[
               DropdownButton<UserPictureSource>(
                 value: userPreferences.userPictureSource,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: themeData.textTheme.bodyMedium,
                 elevation: 16,
                 onChanged: (final UserPictureSource? newValue) async =>
                     userPreferences.setUserPictureSource(newValue!),
@@ -454,28 +466,6 @@ class TextColorContrast extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class _CountryPickerSetting extends StatelessWidget {
-  const _CountryPickerSetting({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    return ListTile(
-      title: Text(
-        appLocalizations.country_chooser_label,
-        style: Theme.of(context).textTheme.headlineMedium,
-      ),
-      subtitle: CountrySelector(
-        initialCountryCode: userPreferences.userCountryCode,
-        textStyle: Theme.of(context).textTheme.bodyMedium,
-      ),
-      minVerticalPadding: MEDIUM_SPACE,
     );
   }
 }

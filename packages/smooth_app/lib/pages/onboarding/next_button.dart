@@ -34,13 +34,12 @@ class NextButton extends StatelessWidget {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final OnboardingFlowNavigator navigator =
         OnboardingFlowNavigator(userPreferences);
-    final OnboardingPage previousPage =
-        OnboardingFlowNavigator.getPrevPage(currentPage);
+    final OnboardingPage previousPage = currentPage.getPrevPage();
     return OnboardingBottomBar(
-      leftButton: previousPage == OnboardingPage.NOT_STARTED
+      leftButton: previousPage.isOnboardingNotStarted()
           ? null
           : OnboardingBottomIcon(
-              onPressed: () => navigator.navigateToPage(
+              onPressed: () async => navigator.navigateToPage(
                 context,
                 previousPage,
               ),
@@ -56,9 +55,9 @@ class NextButton extends StatelessWidget {
           await OnboardingLoader(localDatabase)
               .runAtNextTime(currentPage, context);
           //ignore: use_build_context_synchronously
-          navigator.navigateToPage(
+          await navigator.navigateToPage(
             context,
-            OnboardingFlowNavigator.getNextPage(currentPage),
+            currentPage.getNextPage(),
           );
         },
         backgroundColor: Colors.black,

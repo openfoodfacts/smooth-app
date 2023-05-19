@@ -291,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Звяртайцеся па дапамогу ў нашым канале Slack",
+    "support_via_forum": "Ask for help on our forum",
     "support_via_email": "Адпраўце нам электронны ліст",
     "support_via_email_include_logs_dialog_title": "Адправіць журналы праграмы?",
     "support_via_email_include_logs_dialog_body": "Вы жадаеце ўключыць журналы праграмы ва ўкладанне да электроннага ліста?",
@@ -494,6 +495,22 @@
     },
     "confirm_button_label": "Пацвердзіць",
     "send_image_button_label": "Send image",
+    "crop_page_action_saving": "Saving the image…",
+    "@crop_page_action_saving": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_cropping": "Cropping the image…",
+    "@crop_page_action_cropping": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local": "Saving a local version…",
+    "@crop_page_action_local": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_server": "Preparing a call to the server…",
+    "@crop_page_action_server": {
+        "description": "Action being performed on the crop page"
+    },
     "front_packaging_photo_title": "Фота ўпакоўкі спераду",
     "ingredients_photo_title": "Фота інгрэдыентаў",
     "nutritional_facts_photo_title": "Фота звестак аб пажыўнасці",
@@ -1311,6 +1328,14 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
+    "camera_flash_error_dialog_title": "An error occurred!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
     "category_picker_no_category_found_button": "Назад",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
@@ -1574,6 +1599,14 @@
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
+    "edit_photo_language_not_this_one": "No image in that language yet",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "No image yet",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
+    },
     "category_picker_screen_title": "Катэгорыі",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
@@ -1642,7 +1675,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Пусты спіс} =1{Адзін прадукт} other{{count} прадукту}}",
+    "user_list_length": "{count,plural, few {{count} прадукты} many {{count} прадуктаў}=0{Пусты спіс} =1{Адзін прадукт} other{{count} прадукту}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {

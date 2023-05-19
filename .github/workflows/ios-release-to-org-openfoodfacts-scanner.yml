@@ -43,7 +43,7 @@ env:
 jobs:
   testflight-release:
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
-    runs-on: macos-12
+    runs-on: macos-12 #macos-12-xl
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -68,9 +68,9 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          #channel: stable
           cache: true
-          #flutter-version: '3.0.5'
+          flutter-version: '3.7.12'
           cache-key: current-stable
 
       - name: Flutter version    
