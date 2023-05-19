@@ -16,7 +16,7 @@ dependencies:
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
-  flutter_svg: 2.0.5
+  flutter_svg: 1.1.6 # careful with upgrading, cf. https://github.com/openfoodfacts/smooth-app/issues/3990
   flutter_map: 2.2.0
   flutter_widget_from_html_core: 0.8.3+1
   fwfh_selectable_text: 0.8.3+1

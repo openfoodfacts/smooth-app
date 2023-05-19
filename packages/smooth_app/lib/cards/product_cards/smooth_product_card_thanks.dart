@@ -1,5 +1,3 @@
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -36,10 +34,7 @@ class SmoothProductCardThanks extends StatelessWidget {
                 'assets/misc/checkmark.svg',
                 width: 36.0,
                 height: 36.0,
-                colorFilter: const ui.ColorFilter.mode(
-                  Colors.greenAccent,
-                  ui.BlendMode.srcIn,
-                ),
+                color: Colors.greenAccent,
                 package: AppHelper.APP_PACKAGE,
               ),
             ],

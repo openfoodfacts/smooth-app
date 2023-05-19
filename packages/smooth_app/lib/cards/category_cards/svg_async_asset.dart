@@ -1,5 +1,3 @@
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -53,12 +51,7 @@ class _SvgAsyncAssetState extends State<SvgAsyncAsset> {
                 snapshot.data!,
                 width: widget.assetCacheHelper.width,
                 height: widget.assetCacheHelper.height,
-                colorFilter: widget.assetCacheHelper.color == null
-                    ? null
-                    : ui.ColorFilter.mode(
-                        widget.assetCacheHelper.color!,
-                        ui.BlendMode.srcIn,
-                      ),
+                color: widget.assetCacheHelper.color,
                 fit: BoxFit.contain,
                 placeholderBuilder: (BuildContext context) =>
                     widget.assetCacheHelper.getEmptySpace(),

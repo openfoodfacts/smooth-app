@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: 2.0.5
+  flutter_svg: 1.1.6 # careful with upgrading, cf. https://github.com/openfoodfacts/smooth-app/issues/3990
   visibility_detector: 0.4.0+2
 
 dev_dependencies:
