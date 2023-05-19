@@ -7,9 +7,9 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/scan/search_history_view.dart';
 import 'package:smooth_app/query/keywords_product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -63,11 +63,9 @@ Future<void> _onSubmittedBarcode(
       searchCount: 1,
     );
     //ignore: use_build_context_synchronously
-    Navigator.push<Widget>(
-      context,
-      MaterialPageRoute<Widget>(
-        builder: (BuildContext context) => ProductPage(fetchedProduct.product!),
-      ),
+    AppNavigator.of(context).push(
+      AppRoutes.PRODUCT(fetchedProduct.product!.barcode!),
+      extra: fetchedProduct.product,
     );
   } else {
     AnalyticsHelper.trackSearch(

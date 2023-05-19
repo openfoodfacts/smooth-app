@@ -22,14 +22,18 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 enum PreferencePageType {
-  ACCOUNT,
-  LISTS,
-  FOOD,
-  DEV_MODE,
-  SETTINGS,
-  CONTRIBUTE,
-  FAQ,
-  CONNECT,
+  ACCOUNT('account'),
+  LISTS('lists'),
+  FOOD('food'),
+  DEV_MODE('dev_mode'),
+  SETTINGS('settings'),
+  CONTRIBUTE('contribute'),
+  FAQ('faq'),
+  CONNECT('connect');
+
+  const PreferencePageType(this.name);
+
+  final String name;
 }
 
 /// Preferences page: main or detailed.

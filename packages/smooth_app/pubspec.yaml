@@ -12,6 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  go_router: 7.0.1
   barcode_widget: 2.0.3
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.5

@@ -29,3 +29,18 @@ extension Selectable on Text {
           );
   }
 }
+
+extension StringExtensions on String {
+  int count(String character) {
+    assert(character.length == 1);
+
+    int count = 0;
+    for (int i = 0; i != length; i++) {
+      if (this[i] == character) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+}

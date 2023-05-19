@@ -625,6 +625,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  go_router:
+    dependency: "direct main"
+    description:
+      name: go_router
+      sha256: "80e37516b8d452d982fc32bd7bb22adbd20e422612ef2b3e1df8b8350cbf199b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.1"
   hive:
     dependency: "direct main"
     description:
