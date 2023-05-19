@@ -1675,7 +1675,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, one {} =0{Κενή λίστα} =1{Ένα προϊόν} other{{count} προϊόντα}}",
+    "user_list_length": "{count,plural, =0{Κενή λίστα} =1{Ένα προϊόν} other{{count} προϊόντα}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {

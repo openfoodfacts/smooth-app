@@ -704,42 +704,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}=1{un giorno fa} other{{count} giorni fa}}",
+    "plural_ago_days": "{count,plural,  =1{un giorno fa} other{{count} giorni fa}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  one {}=1{un'ora fa} other{{count} ore fa}}",
+    "plural_ago_hours": "{count,plural,  =1{un'ora fa} other{{count} ore fa}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  one {}=0{meno di un minuto fa} =1{un minuto fa} other{{count} minuti fa}}",
+    "plural_ago_minutes": "{count,plural,  =0{meno di un minuto fa} =1{un minuto fa} other{{count} minuti fa}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  one {}=1{un mese fa} other{{count} mesi fa}}",
+    "plural_ago_months": "{count,plural,  =1{un mese fa} other{{count} mesi fa}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  one {}=1{una settimana fa} other{{count} settimane fa}}",
+    "plural_ago_weeks": "{count,plural,  =1{una settimana fa} other{{count} settimane fa}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, one {}=1{Confronta con un Prodotto} other{Confronta {count} Prodotti}}",
+    "plural_compare_x_products": "{count,plural, =1{Confronta con un Prodotto} other{Confronta {count} Prodotti}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
@@ -923,14 +923,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Aggiornando {count,plural,  one {}=0{prodotto} =1{prodotto} other{prodotti}} nella tua cronologia",
+    "product_list_reloading_in_progress_multiple": "Aggiornando {count,plural,  =0{prodotto} =1{prodotto} other{prodotti}} nella tua cronologia",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "Aggiornamento di {count,plural,  one {}=0{Prodotto} =1{Prodotto} other{Prodotti}} completato",
+    "product_list_reloading_success_multiple": "Aggiornamento di {count,plural,  =0{Prodotto} =1{Prodotto} other{Prodotti}} completato",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
