@@ -314,7 +314,7 @@
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "Podeu unir-vos a la sala de xat Open Food Facts Slack, que és la forma preferida de fer preguntes.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "DEV Mode?",
+    "contribute_develop_dev_mode_title": "Mode Desenvolupador?",
     "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
     "contribute_donate_header": "Feu un donatiu a Open Food Facts",
     "@contribute_donate_header": {},
@@ -401,7 +401,7 @@
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "Profile",
+    "profile_navbar_label": "Perfil",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
@@ -495,6 +495,22 @@
     },
     "confirm_button_label": "Confirm",
     "send_image_button_label": "Send image",
+    "crop_page_action_saving": "Saving the image…",
+    "@crop_page_action_saving": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_cropping": "Cropping the image…",
+    "@crop_page_action_cropping": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local": "Saving a local version…",
+    "@crop_page_action_local": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_server": "Preparing a call to the server…",
+    "@crop_page_action_server": {
+        "description": "Action being performed on the crop page"
+    },
     "front_packaging_photo_title": "Front Packaging Photo",
     "ingredients_photo_title": "Ingredients Photo",
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
@@ -643,11 +659,11 @@
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Please choose a country",
+    "country_chooser_label": "Si us plau, trieu un país",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "Some environmental features are location-specific",
+    "country_selection_explanation": "Algunes característiques ambientals són específiques del lloc",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
@@ -752,7 +768,7 @@
     "faq": "FAQ",
     "discover": "Descobrir",
     "how_to_contribute": "How to Contribute",
-    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
+    "hint_knowledge_panel_message": "Podeu fer clic a qualsevol part de la targeta per obtenir més detalls del que veieu. Proveu-ho ara!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -760,11 +776,11 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Ajudeu als voluntaris d'Open Food Facts a millorar l'aplicació. Decidiu si envieu analítiques anònimes.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "consent_analytics_body2": "Si canvieu d'opinió, aquesta opció es pot activar o desactivar en qualsevol moment des de la configuració.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
@@ -776,7 +792,7 @@
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
-    "permissions_page_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
+    "permissions_page_body2": "Si canvieu d'opinió, aquesta opció es pot activar o desactivar en qualsevol moment des de la configuració.",
     "@permissions_page_body2": {
         "description": "second paragraph for the camera permission's page (onboarding)"
     },
@@ -850,7 +866,7 @@
             }
         }
     },
-    "authorize_button_label": "Authorise",
+    "authorize_button_label": "Autoritza",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
@@ -875,7 +891,7 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
+    "onboarding_reinventing_text1": "Vam inventar\nl'aplicació col·laborativa\nd'escaneig l'any 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
@@ -937,7 +953,7 @@
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
-    "user_profile": "Account",
+    "user_profile": "Compte",
     "@user_profile": {
         "description": "User account (if connected)"
     },
@@ -1040,7 +1056,7 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Allow camera use to scan barcodes",
+    "permission_photo_denied_title": "Permeteu l'ús de la càmera per escanejar codis de barres",
     "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",

@@ -495,6 +495,22 @@
     },
     "confirm_button_label": "Bekræft",
     "send_image_button_label": "Indsend foto",
+    "crop_page_action_saving": "Saving the image…",
+    "@crop_page_action_saving": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_cropping": "Cropping the image…",
+    "@crop_page_action_cropping": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local": "Saving a local version…",
+    "@crop_page_action_local": {
+        "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_server": "Preparing a call to the server…",
+    "@crop_page_action_server": {
+        "description": "Action being performed on the crop page"
+    },
     "front_packaging_photo_title": "Emballageforsidefoto",
     "ingredients_photo_title": "Ingrediensfoto",
     "nutritional_facts_photo_title": "Næringsfaktafoto",
@@ -688,42 +704,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  =1{én dag siden} other{{count} dage siden}}",
+    "plural_ago_days": "{count,plural,  one {}=1{én dag siden} other{{count} dage siden}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{én time siden} other{{count} timer siden}}",
+    "plural_ago_hours": "{count,plural,  one {}=1{én time siden} other{{count} timer siden}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{under ét minut siden} =1{ét minut siden} other{{count} minutter siden}}",
+    "plural_ago_minutes": "{count,plural,  one {}=0{under ét minut siden} =1{ét minut siden} other{{count} minutter siden}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  =1{én måned siden} other{{count} måneder siden}}",
+    "plural_ago_months": "{count,plural,  one {}=1{én måned siden} other{{count} måneder siden}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{én uge siden} other{{count} uger siden}}",
+    "plural_ago_weeks": "{count,plural,  one {}=1{én uge siden} other{{count} uger siden}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Sammenlign ét produkt} other{Sammenlign {count} produkter}}",
+    "plural_compare_x_products": "{count,plural, one {}=1{Sammenlign ét produkt} other{Sammenlign {count} produkter}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
@@ -907,14 +923,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Opfrisker {count,plural, =0{produkt} =1{produkt} other{produkter}} i historikken",
+    "product_list_reloading_in_progress_multiple": "Opfrisker {count,plural, one {} =0{produkt} =1{produkt} other{produkter}} i historikken",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural, =0{Produkt} =1{Produktopfriskning} other{Produktopfriskninger}} udført",
+    "product_list_reloading_success_multiple": "{count,plural, one {} =0{Produkt} =1{Produktopfriskning} other{Produktopfriskninger}} udført",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -1659,7 +1675,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Tom liste} =1{Et produkt} other{{count} produkter}}",
+    "user_list_length": "{count,plural, one {} =0{Tom liste} =1{Et produkt} other{{count} produkter}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
