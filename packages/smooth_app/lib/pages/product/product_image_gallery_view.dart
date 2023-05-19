@@ -5,14 +5,15 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/transient_file.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_images_sliver_list.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -34,10 +35,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
   late final Product _initialProduct;
   late Product _product;
 
-  late Map<ProductImageData, ImageProvider?> _selectedImages;
-
-  ImageProvider? _provideImage(ProductImageData imageData) =>
-      TransientFile.getImageProvider(imageData, _barcode);
+  late List<MapEntry<ProductImageData, ImageProvider?>> _selectedImages;
 
   String get _barcode => _initialProduct.barcode!;
 
@@ -62,31 +60,32 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    final List<ProductImageData> allProductImagesData =
-        getProductMainImagesData(_product, includeOther: false);
-    _selectedImages = Map<ProductImageData, ImageProvider?>.fromIterables(
-      allProductImagesData,
-      allProductImagesData.map(_provideImage),
-    );
+    _selectedImages = getSelectedImages(_product, ProductQuery.getLanguage());
     return SmoothScaffold(
       appBar: SmoothAppBar(
-        title: _product.productName != null
-            ? Text(
+        title: Text(appLocalizations.edit_product_form_item_photos_title),
+        subTitle: _product.productName == null
+            ? null
+            : Text(
                 _product.productName!,
-                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-              )
-            : null,
+                maxLines: 1,
+              ),
         leading: SmoothBackButton(
           onPressed: () => Navigator.maybePop(context),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async => confirmAndUploadNewPicture(
-          this,
-          imageField: ImageField.OTHER,
-          barcode: _barcode,
-        ),
+        onPressed: () async {
+          AnalyticsHelper.trackProductEdit(
+              AnalyticsEditEvents.photos, _barcode, true);
+          await confirmAndUploadNewPicture(
+            this,
+            imageField: ImageField.OTHER,
+            barcode: _barcode,
+            language: ProductQuery.getLanguage(),
+          );
+        },
         label: Text(appLocalizations.add_photo_button_label),
         icon: const Icon(Icons.add_a_photo),
       ),
@@ -95,47 +94,27 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           barcode: _barcode,
           widget: this,
         ),
-        child: Scrollbar(
-          child: CustomScrollView(
-            slivers: <Widget>[
-              _buildTitle(
-                // TODO(monsieurtanuki): put the title in the app bar instead, as in the other pages
-                appLocalizations.edit_product_form_item_photos_title,
-                theme: theme,
+        child: ListView.builder(
+          itemCount: _selectedImages.length,
+          itemBuilder: (final BuildContext context, int index) {
+            final MapEntry<ProductImageData, ImageProvider?> item =
+                _selectedImages[index];
+            return SmoothListTileCard.image(
+              imageProvider: item.value,
+              title: Text(
+                item.key.imageField.getProductImageTitle(appLocalizations),
+                style: theme.textTheme.headlineMedium,
               ),
-              // TODO(monsieurtanuki): that's ridiculous, we only have 4 items to display, use a ListView instead, easier to maintain
-              // TODO(monsieurtanuki): we should even display 4 pics in the whole page instead of just tiny pics
-              SmoothImagesSliverList(
-                imagesData: _selectedImages,
-                onTap: (
-                  ProductImageData data,
-                  _,
-                  int? initialImageIndex,
-                ) =>
-                    TransientFile.isImageAvailable(data, _barcode)
-                        ? _openImage(
-                            imageData: data,
-                            initialImageIndex: initialImageIndex ?? 0,
-                          )
-                        : _newImage(data),
+              onTap: () => _openImage(
+                imageData: item.key,
+                initialImageIndex: index,
               ),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );
   }
-
-  SliverPadding _buildTitle(String title, {required ThemeData theme}) =>
-      SliverPadding(
-        padding: const EdgeInsets.all(LARGE_SPACE),
-        sliver: SliverToBoxAdapter(
-          child: Text(
-            title,
-            style: theme.textTheme.displayMedium,
-          ),
-        ),
-      );
 
   Future<void> _openImage({
     required ProductImageData imageData,
@@ -149,12 +128,5 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
             product: _product,
           ),
         ),
-      );
-
-  Future<void> _newImage(ProductImageData data) async =>
-      confirmAndUploadNewPicture(
-        this,
-        barcode: _barcode,
-        imageField: data.imageField,
       );
 }

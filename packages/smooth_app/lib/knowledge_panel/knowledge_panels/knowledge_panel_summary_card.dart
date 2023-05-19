@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
 
 class KnowledgePanelSummaryCard extends StatelessWidget {
@@ -23,12 +22,8 @@ class KnowledgePanelSummaryCard extends StatelessWidget {
     }
     switch (knowledgePanel.titleElement!.type) {
       case TitleElementType.GRADE:
-        return ScoreCard(
-          iconUrl: knowledgePanel.titleElement!.iconUrl,
-          description: knowledgePanel.titleElement!.title,
-          cardEvaluation: getCardEvaluationFromKnowledgePanelTitleElement(
-            knowledgePanel.titleElement!,
-          ),
+        return ScoreCard.titleElement(
+          titleElement: knowledgePanel.titleElement!,
           isClickable: isClickable,
           margin: margin,
         );

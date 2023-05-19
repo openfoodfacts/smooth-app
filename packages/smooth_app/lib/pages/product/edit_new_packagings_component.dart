@@ -16,11 +16,13 @@ class EditNewPackagingsComponent extends StatefulWidget {
     required this.title,
     required this.deleteCallback,
     required this.helper,
+    required this.categories,
   });
 
   final String title;
   final VoidCallback deleteCallback;
   final EditNewPackagingsHelper helper;
+  final String? categories;
 
   @override
   State<EditNewPackagingsComponent> createState() =>
@@ -54,6 +56,8 @@ class _EditNewPackagingsComponentState
               tagType: TagType.PACKAGING_SHAPES,
               iconName: 'shape',
               iconColor: iconColor,
+              minLengthForSuggestions: 0,
+              categories: widget.categories,
             ),
             _EditTextLine(
               title: appLocalizations.edit_packagings_element_field_material,
@@ -62,6 +66,9 @@ class _EditNewPackagingsComponentState
               iconName: 'material',
               iconColor: iconColor,
               hint: appLocalizations.edit_packagings_element_hint_material,
+              minLengthForSuggestions: 0,
+              categories: widget.categories,
+              shapeProvider: () => widget.helper.controllerShape.text,
             ),
             _EditTextLine(
               title: appLocalizations.edit_packagings_element_field_recycling,
@@ -123,6 +130,9 @@ class _EditTextLine extends StatefulWidget {
     required this.iconColor,
     this.hint,
     this.tagType,
+    this.minLengthForSuggestions = 1,
+    this.categories,
+    this.shapeProvider,
   });
 
   final String title;
@@ -131,6 +141,9 @@ class _EditTextLine extends StatefulWidget {
   final String iconName;
   final Color? iconColor;
   final String? hint;
+  final int minLengthForSuggestions;
+  final String? categories;
+  final String? Function()? shapeProvider;
 
   @override
   State<_EditTextLine> createState() => _EditTextLineState();
@@ -179,6 +192,9 @@ class _EditTextLineState extends State<_EditTextLine> {
                 hintText: '',
                 controller: widget.controller,
                 withClearButton: true,
+                minLengthForSuggestions: widget.minLengthForSuggestions,
+                categories: widget.categories,
+                shapeProvider: widget.shapeProvider,
               ),
             ),
           ),

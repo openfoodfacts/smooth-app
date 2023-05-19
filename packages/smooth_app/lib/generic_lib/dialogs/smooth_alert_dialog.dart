@@ -158,7 +158,7 @@ class _SmoothDialogTitle extends StatelessWidget {
         visible: !isPlaceHolder,
       );
     } else {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
   }
 }
@@ -191,7 +191,7 @@ class _SmoothDialogCrossButton extends StatelessWidget {
         ),
       );
     } else {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
   }
 }

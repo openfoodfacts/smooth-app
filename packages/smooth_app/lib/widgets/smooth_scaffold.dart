@@ -128,8 +128,9 @@ class SmoothScaffoldState extends ScaffoldState {
       value: _overlayStyle,
       child: Theme(
         data: Theme.of(context).copyWith(
-          appBarTheme: AppBarTheme.of(context)
-              .copyWith(systemOverlayStyle: _overlayStyle),
+          appBarTheme: AppBarTheme.of(context).copyWith(
+            systemOverlayStyle: _overlayStyle,
+          ),
         ),
         child: child,
       ),
@@ -150,7 +151,7 @@ class SmoothScaffoldState extends ScaffoldState {
     final Brightness? brightness;
 
     // Invert brightness on iOS devices
-    if (Platform.isIOS) {
+    if (Platform.isIOS && _brightness == null) {
       switch (Theme.of(context).brightness) {
         case Brightness.dark:
           brightness = Brightness.light;

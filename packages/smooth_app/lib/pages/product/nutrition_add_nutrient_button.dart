@@ -1,3 +1,4 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -55,9 +56,11 @@ class NutritionAddNutrientButton extends StatelessWidget {
                       controller: nutritionTextController,
                       onChanged: (String? query) => setState(
                         () => filteredList = leftovers
-                            .where((OrderedNutrient item) => item.name!
-                                .toLowerCase()
-                                .contains(query!.toLowerCase()))
+                            .where((OrderedNutrient item) =>
+                                removeDiacritics(item.name!)
+                                    .toLowerCase()
+                                    .contains(
+                                        removeDiacritics(query!).toLowerCase()))
                             .toList(),
                       ),
                     ),

@@ -27,6 +27,9 @@ class CongratsWidget extends StatelessWidget {
     final UserManagementProvider userManagementProvider =
         context.watch<UserManagementProvider>();
 
+    final Brightness brightness = Theme.of(context).brightness;
+    final bool isDarkMode = brightness == Brightness.dark;
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +37,7 @@ class CongratsWidget extends StatelessWidget {
           const Icon(
             Icons.grade,
             color: Colors.amber,
-            size: 100,
+            size: 70,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
@@ -65,7 +68,12 @@ class CongratsWidget extends StatelessWidget {
           else
             EMPTY_WIDGET,
           TextButton(
-            child: Text(appLocalizations.close),
+            child: Text(
+              appLocalizations.close,
+              style: Theme.of(context).textTheme.bodyLarge!.apply(
+                    color: isDarkMode ? Colors.white : Colors.black,
+                  ),
+            ),
             onPressed: () => Navigator.maybePop<Widget>(context),
           ),
         ],
@@ -121,11 +129,10 @@ class CongratsWidget extends StatelessWidget {
 
     for (final MapEntry<String, InsightAnnotation> annotation
         in annotationList.entries) {
-      final Status status = await OpenFoodAPIClient.postInsightAnnotation(
+      final Status status = await RobotoffAPIClient.postInsightAnnotation(
         annotation.key,
         annotation.value,
         deviceId: OpenFoodAPIConfiguration.uuid,
-        user: OpenFoodAPIConfiguration.globalUser,
       );
 
       results.add(status.status == 1);

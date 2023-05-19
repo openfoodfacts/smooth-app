@@ -24,158 +24,31 @@ enum OnboardingPage {
   PREFERENCES_PAGE,
   PERMISSIONS_PAGE,
   CONSENT_PAGE,
-  ONBOARDING_COMPLETE,
-}
+  ONBOARDING_COMPLETE;
 
-/// Decide which page to take the user to.
-class OnboardingFlowNavigator {
-  OnboardingFlowNavigator(this._userPreferences) {
-    if (_historyOnboardingNav.isEmpty) {
-      _historyOnboardingNav.add(_userPreferences.lastVisitedOnboardingPage);
+  OnboardingPage getPrevPage() {
+    int indexOf = OnboardingPage.values.indexOf(this);
+    if (indexOf > 0) {
+      indexOf--;
     }
+    return OnboardingPage.values[indexOf];
   }
 
-  final UserPreferences _userPreferences;
-
-  //used for recording history of onboarding pages navigated
-  static final List<OnboardingPage> _historyOnboardingNav = <OnboardingPage>[];
-
-  static OnboardingPage getNextPage(OnboardingPage currentPage) {
-    switch (currentPage) {
-      case OnboardingPage.NOT_STARTED:
-        return OnboardingPage.REINVENTION;
-      case OnboardingPage.REINVENTION:
-        return OnboardingPage.WELCOME;
-      case OnboardingPage.WELCOME:
-        return OnboardingPage.SCAN_EXAMPLE;
-      case OnboardingPage.SCAN_EXAMPLE:
-        return OnboardingPage.HEALTH_CARD_EXAMPLE;
-      case OnboardingPage.HEALTH_CARD_EXAMPLE:
-        return OnboardingPage.ECO_CARD_EXAMPLE;
-      case OnboardingPage.ECO_CARD_EXAMPLE:
-        return OnboardingPage.PREFERENCES_PAGE;
-      case OnboardingPage.PREFERENCES_PAGE:
-        return OnboardingPage.PERMISSIONS_PAGE;
-      case OnboardingPage.PERMISSIONS_PAGE:
-        return OnboardingPage.CONSENT_PAGE;
-      case OnboardingPage.CONSENT_PAGE:
-        return OnboardingPage.ONBOARDING_COMPLETE;
-      case OnboardingPage.ONBOARDING_COMPLETE:
-        return OnboardingPage.ONBOARDING_COMPLETE;
+  OnboardingPage getNextPage() {
+    int indexOf = OnboardingPage.values.indexOf(this);
+    if (indexOf < OnboardingPage.values.length - 1) {
+      indexOf++;
     }
+    return OnboardingPage.values[indexOf];
   }
 
-  static OnboardingPage getPrevPage(OnboardingPage currentPage) {
-    switch (currentPage) {
-      case OnboardingPage.NOT_STARTED:
-      case OnboardingPage.REINVENTION:
-        return OnboardingPage.NOT_STARTED;
-      case OnboardingPage.WELCOME:
-        return OnboardingPage.REINVENTION;
-      case OnboardingPage.SCAN_EXAMPLE:
-        return OnboardingPage.WELCOME;
-      case OnboardingPage.HEALTH_CARD_EXAMPLE:
-        return OnboardingPage.SCAN_EXAMPLE;
-      case OnboardingPage.ECO_CARD_EXAMPLE:
-        return OnboardingPage.HEALTH_CARD_EXAMPLE;
-      case OnboardingPage.PREFERENCES_PAGE:
-        return OnboardingPage.ECO_CARD_EXAMPLE;
-      case OnboardingPage.PERMISSIONS_PAGE:
-        return OnboardingPage.PREFERENCES_PAGE;
-      case OnboardingPage.CONSENT_PAGE:
-        return OnboardingPage.PERMISSIONS_PAGE;
-      case OnboardingPage.ONBOARDING_COMPLETE:
-        return OnboardingPage.CONSENT_PAGE;
-    }
-  }
+  bool isOnboardingComplete() =>
+      OnboardingPage.values.indexOf(this) == OnboardingPage.values.length - 1;
 
-  static bool isOnboardingComplete(final OnboardingPage currentPage) {
-    switch (currentPage) {
-      case OnboardingPage.NOT_STARTED:
-      case OnboardingPage.REINVENTION:
-      case OnboardingPage.WELCOME:
-      case OnboardingPage.SCAN_EXAMPLE:
-      case OnboardingPage.HEALTH_CARD_EXAMPLE:
-      case OnboardingPage.ECO_CARD_EXAMPLE:
-      case OnboardingPage.PREFERENCES_PAGE:
-      case OnboardingPage.PERMISSIONS_PAGE:
-      case OnboardingPage.CONSENT_PAGE:
-        return false;
-      case OnboardingPage.ONBOARDING_COMPLETE:
-        return true;
-    }
-  }
+  bool isOnboardingNotStarted() => OnboardingPage.values.indexOf(this) == 0;
 
-  void navigateToPage(BuildContext context, OnboardingPage page) {
-    _userPreferences.setLastVisitedOnboardingPage(page);
-    _historyOnboardingNav.add(page);
-
-    final MaterialPageRoute<Widget> route = MaterialPageRoute<Widget>(
-      builder: (BuildContext context) => getPageWidget(context, page),
-    );
-
-    if (page == OnboardingPage.ONBOARDING_COMPLETE) {
-      Navigator.pushAndRemoveUntil(
-        context,
-        route,
-        (Route<dynamic> route) => false,
-      );
-    } else {
-      Navigator.push<Widget>(context, route);
-    }
-  }
-
-  Widget getPageWidget(BuildContext context, OnboardingPage page) {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    switch (page) {
-      case OnboardingPage.NOT_STARTED:
-      case OnboardingPage.REINVENTION:
-        return ReinventionPage(getBackgroundColor(page));
-      case OnboardingPage.WELCOME:
-        return WelcomePage(getBackgroundColor(page));
-      case OnboardingPage.SCAN_EXAMPLE:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
-          ScanExample(getBackgroundColor(page)),
-        );
-      case OnboardingPage.HEALTH_CARD_EXAMPLE:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
-          SampleHealthCardPage(localDatabase, getBackgroundColor(page)),
-        );
-      case OnboardingPage.ECO_CARD_EXAMPLE:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
-          SampleEcoCardPage(localDatabase, getBackgroundColor(page)),
-        );
-      case OnboardingPage.PREFERENCES_PAGE:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
-          PreferencesPage(localDatabase, getBackgroundColor(page)),
-        );
-      case OnboardingPage.PERMISSIONS_PAGE:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
-          PermissionsPage(getBackgroundColor(page)),
-        );
-      case OnboardingPage.CONSENT_PAGE:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          page,
-          ConsentAnalyticsPage(getBackgroundColor(page)),
-        );
-      case OnboardingPage.ONBOARDING_COMPLETE:
-        return InheritedDataManager(child: PageManager());
-    }
-  }
-
-  Color getBackgroundColor(final OnboardingPage page) {
-    switch (page) {
+  Color getBackgroundColor() {
+    switch (this) {
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.REINVENTION:
         return const Color(0xFFDFF4FF);
@@ -199,18 +72,95 @@ class OnboardingFlowNavigator {
     }
   }
 
+  Widget getPageWidget(BuildContext context) {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final Color backgroundColor = getBackgroundColor();
+    switch (this) {
+      case OnboardingPage.NOT_STARTED:
+      case OnboardingPage.REINVENTION:
+        return ReinventionPage(backgroundColor);
+      case OnboardingPage.WELCOME:
+        return WelcomePage(backgroundColor);
+      case OnboardingPage.SCAN_EXAMPLE:
+        return _wrapWidgetInCustomBackNavigator(
+          context,
+          ScanExample(backgroundColor),
+        );
+      case OnboardingPage.HEALTH_CARD_EXAMPLE:
+        return _wrapWidgetInCustomBackNavigator(
+          context,
+          SampleHealthCardPage(localDatabase, backgroundColor),
+        );
+      case OnboardingPage.ECO_CARD_EXAMPLE:
+        return _wrapWidgetInCustomBackNavigator(
+          context,
+          SampleEcoCardPage(localDatabase, backgroundColor),
+        );
+      case OnboardingPage.PREFERENCES_PAGE:
+        return _wrapWidgetInCustomBackNavigator(
+          context,
+          PreferencesPage(localDatabase, backgroundColor),
+        );
+      case OnboardingPage.PERMISSIONS_PAGE:
+        return _wrapWidgetInCustomBackNavigator(
+          context,
+          PermissionsPage(backgroundColor),
+        );
+      case OnboardingPage.CONSENT_PAGE:
+        return _wrapWidgetInCustomBackNavigator(
+          context,
+          ConsentAnalyticsPage(backgroundColor),
+        );
+      case OnboardingPage.ONBOARDING_COMPLETE:
+        return InheritedDataManager(child: PageManager());
+    }
+  }
+
   Widget _wrapWidgetInCustomBackNavigator(
-      BuildContext context, OnboardingPage currentPage, Widget widget) {
-    return WillPopScope(
-      onWillPop: () async => false,
-      // wrap the widget in [Builder] to allow navigation on the [context].
-      child: Builder(
-        builder: (BuildContext context) => SmoothScaffold(
-          body: widget,
-          brightness: Brightness.dark,
+    BuildContext context,
+    Widget widget,
+  ) =>
+      WillPopScope(
+        onWillPop: () async => false,
+        // wrap the widget in [Builder] to allow navigation on the [context].
+        child: Builder(
+          builder: (BuildContext context) => SmoothScaffold(
+            body: widget,
+            brightness: Brightness.dark,
+          ),
         ),
-      ),
+      );
+}
+
+/// Decide which page to take the user to.
+class OnboardingFlowNavigator {
+  OnboardingFlowNavigator(this._userPreferences) {
+    if (_historyOnboardingNav.isEmpty) {
+      _historyOnboardingNav.add(_userPreferences.lastVisitedOnboardingPage);
+    }
+  }
+
+  final UserPreferences _userPreferences;
+
+  //used for recording history of onboarding pages navigated
+  static final List<OnboardingPage> _historyOnboardingNav = <OnboardingPage>[];
+
+  Future<void> navigateToPage(BuildContext context, OnboardingPage page) async {
+    _userPreferences.setLastVisitedOnboardingPage(page);
+    _historyOnboardingNav.add(page);
+
+    final MaterialPageRoute<void> route = MaterialPageRoute<void>(
+      builder: (BuildContext context) => page.getPageWidget(context),
     );
+
+    if (page.isOnboardingComplete()) {
+      await Navigator.of(context).pushAndRemoveUntil(
+        route,
+        (Route<dynamic> route) => false,
+      );
+    } else {
+      await Navigator.of(context).push<void>(route);
+    }
   }
 
   static bool isOnboardingPagedInHistory(OnboardingPage page) {

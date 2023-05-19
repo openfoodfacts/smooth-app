@@ -242,3 +242,38 @@ class UserPreferencesTitle extends StatelessWidget {
     );
   }
 }
+
+class UserPreferenceListTile extends StatelessWidget {
+  const UserPreferenceListTile({
+    required this.title,
+    required this.leading,
+    required this.onTap,
+    required this.showDivider,
+    super.key,
+  });
+
+  final String title;
+  final Widget leading;
+  final Future<void> Function(BuildContext) onTap;
+  final bool showDivider;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          leading: Padding(
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+            child: leading,
+          ),
+          title: Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          onTap: () => onTap(context),
+        ),
+        if (showDivider) const UserPreferencesListItemDivider(),
+      ],
+    );
+  }
+}

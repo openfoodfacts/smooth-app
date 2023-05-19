@@ -1,27 +1,16 @@
 name: scanner_shared
-description: Shared interfaces between implementations
+description: Shared interface for the scanner implementations
 version: 1.0.0
 publish_to: "none"
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: "<3.3.0"
+  sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
-  # Camera (custom implementation for Android)
-  camera:
-    git:
-      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
-      ref: "smooth_camera"
-      path: "packages/camera/camera"
-  camera_platform_interface:
-    git:
-      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
-      ref: "smooth_camera"
-      path: "packages/camera/camera_platform_interface"
+  flutter_svg: 2.0.5
+  visibility_detector: 0.4.0+2
 
 dev_dependencies:
   flutter_test:

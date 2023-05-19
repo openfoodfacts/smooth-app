@@ -72,6 +72,15 @@ jobs:
 
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
+        
+      # We need to add the VERSION_CODE to the release in order for F-Droid to have the same VERSION_CODE as the other Stores
+      - name: Update release tag description 
+        uses: rickstaa/action-create-tag@v1
+        continue-on-error: true
+        with:
+          tag: "v${{ env.VERSION_NAME }}"
+          message: "Public release: ${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
+          force_push_tag: true
 
       - name: Set output
         id: set_output

@@ -115,8 +115,8 @@ class OnboardingBottomIcon extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(MEDIUM_SPACE),
-          primary: backgroundColor,
-          onPrimary: foregroundColor,
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
         ),
         onPressed: onPressed,
         child: Padding(

@@ -1,5 +1,9 @@
 {
     "@Utils": {},
+    "sep": "",
+    "@sep": {
+        "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
+    },
     "yes": "Taip",
     "@yes": {},
     "add": "Pridėti",
@@ -201,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Prisijungiama...",
+    "sign_up_page_action_doing_it": "Registruojama…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -261,7 +265,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Tamsusis režimas",
+    "darkmode": "Tema",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -287,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Paprašykite pagalbos mūsų „Slack“ kanale",
+    "support_via_forum": "Paprašykite pagalbos mūsų forume",
     "support_via_email": "Atsiųskite mums el. laišką",
     "support_via_email_include_logs_dialog_title": "Siųsti programėlės išrašus?",
     "support_via_email_include_logs_dialog_body": "Ar norite įtraukti programos išrašą į savo el. pašto priedą?",
@@ -360,18 +365,18 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world !",
+    "account_create_message": "Susikurkite paskyrą ir prisijunkite prie „Open Food Facts“ bendruomenės, kad padėtumėte kaupti žinias apie maistą visame pasaulyje!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
-    "join_us": "Join us",
+    "join_us": "Prisijunkite prie mūsų",
     "@join_us": {
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Jūsų profilis",
     "myPreferences_profile_subtitle": "Tvarkykite savo „Open Food Facts“ bendraautorio paskyrą.",
     "myPreferences_settings_title": "Programos nustatymai",
-    "myPreferences_settings_subtitle": "Tamsusis režimas, analitika,...",
+    "myPreferences_settings_subtitle": "Tamsusis režimas; Analizė…",
     "myPreferences_food_title": "Maisto pasirinkimai",
     "myPreferences_food_subtitle": "Pasirinkite, kokia informacija apie maistą jums yra svarbiausia.",
     "myPreferences_food_comment": "Pasirinkite, kokia informacija apie maistą jums yra svarbiausia, kad įvertintumėte maistą pagal savo pageidavimus, pirmiausia pamatytumėte jums rūpimą informaciją ir gautumėte suderinamumo suvestinę. Šios maisto nuostatos lieka jūsų įrenginyje ir nėra susietos su jūsų „Open Food Facts“ bendraautorio paskyra, jei tokią turite.",
@@ -429,7 +434,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Palieskite, norėdami pamatyti daugiau informacijos...",
+    "tab_for_more": "Bakstelėkite, kad pamatytumėte daugiau informacijos…",
     "@Product": {},
     "product": "Produktas",
     "@product": {},
@@ -569,7 +574,7 @@
     "nutrition_page_add_nutrient": "Pridėti maistinę medžiagą",
     "nutrition_page_serving_size": "Porcijos dydis",
     "nutrition_page_invalid_number": "Neteisingas numeris",
-    "nutrition_page_update_running": "Atnaujinamas produktas serveryje...",
+    "nutrition_page_update_running": "Atnaujinamas produktas serveryje…",
     "nutrition_page_update_done": "Produktas atnaujintas!",
     "more_photos": "Daugiau įdomių nuotraukų",
     "@more_photos": {},
@@ -650,6 +655,14 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
+    "native_app_settings": "Native App Settings",
+    "@native_app_settings": {
+        "description": "Native App Settings in app settings"
+    },
+    "native_app_description": "Open systems settings for Open Food Facts",
+    "@native_app_description": {
+        "description": "Native App description in app settings"
+    },
     "product_removed_history": "Produktas pašalintas iš istorijos",
     "@product_removed_history": {
         "description": "Product got removed from history"
@@ -712,7 +725,7 @@
     },
     "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
     "@plural_compare_x_products": {
-        "description": "Button label",
+        "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
             "count": {}
         }
@@ -803,7 +816,7 @@
         "placeholders": {
             "version": {
                 "type": "String?",
-                "description": "Version of IOS (eg : 15)"
+                "description": "Version of IOS (eg: 15)"
             },
             "model": {
                 "type": "String?",
@@ -855,7 +868,7 @@
     },
     "knowledge_panel_text_source": "Go further on {sourceName}",
     "@knowledge_panel_text_source": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
             "sourceName": {
                 "type": "String"
@@ -1045,6 +1058,10 @@
     "permission_photo_denied_dialog_settings_message": "Kadangi anksčiau atmetėte fotoaparato leidimą, turite jį leisti rankiniu būdu nustatymuose.",
     "permission_photo_denied_dialog_settings_button_open": "Atidaryti nustatymus",
     "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_none_found": "No camera detected",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "Prieiga prie fotoaparato nesuteikta",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
@@ -1069,7 +1086,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Interneto svetainė, ...",
+    "edit_product_form_item_other_details_subtitle": "Svetainė…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1085,7 +1102,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Aplinkosauga, kokybės ženklai,...",
+    "edit_product_form_item_labels_subtitle": "Aplinkos; Kokybės žymos…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1162,8 +1179,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Ar norite išsaugoti pakeitimus prieš išeidami iš šio puslapio?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Išsaugoti mano pakeitimus",
-    "edit_product_form_item_exit_confirmation_negative_button": "Ignoruoti mano pakeitimus",
+    "edit_product_form_item_exit_confirmation_positive_button": "Įrašyti pakeitimus",
+    "edit_product_form_item_exit_confirmation_negative_button": "Išmesti pakeitimus",
     "edit_product_form_item_ingredients_title": "Ingredientai ir kilmė",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1234,7 +1251,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating a new one",
+    "user_list_empty_label": "Jokio sąrašo dar nėra,\npradėkite ir sukurkite jį",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1295,6 +1312,14 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
+    "camera_flash_error_dialog_title": "Įvyko klaida!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "Keičiant jūsų blykstės būseną įvyko klaida. Patikrinkite, ar jūsų išmaniajame telefone dar nėra įjungtas žibintuvėlis.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
     "category_picker_no_category_found_button": "Grįžti",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
@@ -1307,7 +1332,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Tada programą turite paleisti iš naujo.",
+    "dev_preferences_reset_onboarding_subtitle": "Tada turite iš naujo paleisti programėlę, kad vėl ją matytumėte.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1550,13 +1575,21 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Gaunami egzistuojantys vaizdai...",
+    "edit_photo_select_existing_download_label": "Gaunami esami vaizdai…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
     "edit_photo_select_existing_downloaded_none": "Nėraanksčiau įkeltų vaizdų, susijusių su šiuo produktu.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
+    },
+    "edit_photo_language_not_this_one": "Dar nėra vaizdo ta kalba",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "Vaizdo dar nėra",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
     "category_picker_screen_title": "Kategorijos",
     "@category_picker_screen_title": {
@@ -1674,6 +1707,15 @@
             }
         }
     },
+    "share_product_list_text": "Peržiūrėkite mano produktų sąrašą „Open Food Facts“: {url}",
+    "@share_product_list_text": {
+        "description": "The content which is send, when sharing a product list",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
     "capture": "Užfiksuoti naują",
     "@capture": {
         "description": "Button label for taking a photo"
@@ -1735,7 +1777,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "Nerasta elektroninio pašto programėlė!",
+    "no_email_client_available_dialog_title": "El. laiškų programėlių nėra!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1812,7 +1854,7 @@
     "app_rating_dialog_title_enjoying_app": "Ar Jums patinka ši programėlė?",
     "app_rating_dialog_title_enjoying_positive_actions": "Aha!",
     "not_really": "Nelabai",
-    "app_rating_dialog_title_not_enjoying_app": "Man labai gaila dėl to! Gal galėtumėte pasakyti, kas nutiko?",
+    "app_rating_dialog_title_not_enjoying_app": "Mes labai apgailestaujame dėl to! Ar galėtumėte mums papasakoti, kas nutiko?",
     "edit_packagings_title": "Pakuotės komponentai",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -1887,7 +1929,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Pašalinkite likusį maistą, išplaukite ir išdžiovinkite pakuotės dalį prieš sverdami. Jei įmanoma, naudokite 0,1 g arba 0,01 g tikslumo svarstykles.",
+    "edit_packagings_element_hint_weight": "Prieš sverdami pašalinkite likusį maistą, išplaukite ir išdžiovinkite pakuotės dalį. Jei įmanoma, naudokite 0,1 g arba 0,01 g tikslumo svarstykles.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1906,6 +1948,73 @@
     "feed_back": "Atsiliepimas",
     "undo": "Anuliuoti",
     "copy_email_to_clip_board": "Kopijuoti el. laišką į iškarpinę",
+    "@copy_email_to_clip_board": {
+        "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
+    },
     "please_send_us_an_email_to": "Išsiųskite mums el. laišką rankiniu būdu į",
-    "email_copied_to_clip_board": "El. laiškas nukopijuotas į iškarpinę!"
+    "email_copied_to_clip_board": "El. laiškas nukopijuotas į iškarpinę!",
+    "select_accent_color": "Pasirinkti akcento spalvą",
+    "@select_accent_color": {
+        "description": "Accent Color for the application in AMOLED mode."
+    },
+    "theme_amoled": "AMOLED",
+    "@theme_amoled": {
+        "description": "AMOLED theme mode."
+    },
+    "color_blue": "Mėlyna",
+    "@color_blue": {
+        "description": "Color Blue"
+    },
+    "color_cyan": "Žydra",
+    "@color_cyan": {
+        "description": "Color Cyan"
+    },
+    "color_green": "Žalia",
+    "@color_green": {
+        "description": "Color Green"
+    },
+    "color_light_brown": "Numatytoji",
+    "@color_light_brown": {
+        "description": "Color Light Brown, Default Open Food Facts Color"
+    },
+    "color_magenta": "Violetinė",
+    "@color_magenta": {
+        "description": "Color Magenta"
+    },
+    "color_orange": "Oranžinė",
+    "@color_orange": {
+        "description": "Color Orange"
+    },
+    "color_pink": "Rausva",
+    "@color_pink": {
+        "description": "Color Pink"
+    },
+    "color_red": "Raudona",
+    "@color_red": {
+        "description": "Color Red"
+    },
+    "color_rust": "Rūdis",
+    "@color_rust": {
+        "description": "Color Rust"
+    },
+    "color_teal": "Smaragdinė",
+    "@color_teal": {
+        "description": "Color Teal"
+    },
+    "text_contrast_mode": "Teksto kontrastas",
+    "@text_contrast_mode": {
+        "description": "Text Contrast Color Mode"
+    },
+    "contrast_high": "Aukštas",
+    "@contrast_high": {
+        "description": "High Contrast Text Color"
+    },
+    "contrast_medium": "Vidutinis",
+    "@contrast_medium": {
+        "description": "Medium Contrast Text Color"
+    },
+    "contrast_low": "Mažas",
+    "@contrast_low": {
+        "description": "Low Contrast Text Color"
+    }
 }

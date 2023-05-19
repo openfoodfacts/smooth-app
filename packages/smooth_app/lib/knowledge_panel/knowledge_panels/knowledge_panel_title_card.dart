@@ -8,6 +8,7 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
   const KnowledgePanelTitleCard({
@@ -93,8 +94,11 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                     if (knowledgePanelTitleElement.subtitle != null)
                       SizedBox(
                         width: constraints.maxWidth,
-                        child: Text(knowledgePanelTitleElement.subtitle!)
-                            .selectable(),
+                        child: Text(
+                          knowledgePanelTitleElement.subtitle!,
+                          style:
+                              WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+                        ).selectable(),
                       ),
                   ],
                 );

@@ -1,34 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothTheme {
   const SmoothTheme._();
 
   static const double ADDITIONAL_OPACITY_FOR_DARK = .3;
+  static const double SECONDARY_COLOR_SHADE_VALUE = 0.4;
 
   static ThemeData getThemeData(
     final Brightness brightness,
     final ThemeProvider themeProvider,
+    final ColorProvider colorProvider,
+    final TextContrastProvider textContrastProvider,
   ) {
-    final ColorScheme myColorScheme;
+    ColorScheme myColorScheme;
 
     if (brightness == Brightness.light) {
       myColorScheme = lightColorScheme;
     } else {
-      myColorScheme = darkColorScheme;
+      if (themeProvider.currentTheme == THEME_AMOLED) {
+        myColorScheme = trueDarkColorScheme.copyWith(
+          primary: getColorValue(colorProvider.currentColor),
+          secondary: getShade(
+            getColorValue(colorProvider.currentColor),
+            darker: true,
+            value: SECONDARY_COLOR_SHADE_VALUE,
+          ),
+        );
+      } else {
+        myColorScheme = darkColorScheme;
+      }
     }
 
     return ThemeData(
       primaryColor: const Color(0xFF341100),
       colorScheme: myColorScheme,
+      canvasColor: themeProvider.currentTheme == THEME_AMOLED
+          ? myColorScheme.background
+          : null,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedIconTheme: const IconThemeData(size: 24.0),
         showSelectedLabels: true,
         selectedItemColor: brightness == Brightness.dark
-            ? Colors.white
+            ? myColorScheme.primary
             : const Color(0xFF341100),
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         showUnselectedLabels: true,
@@ -48,13 +67,7 @@ class SmoothTheme {
           backgroundColor: myColorScheme.primary,
           foregroundColor: myColorScheme.onPrimary),
       textTheme: brightness == Brightness.dark
-          ? _TEXT_THEME.copyWith(
-              displayMedium:
-                  _TEXT_THEME.displayMedium?.copyWith(color: Colors.white),
-              headlineMedium:
-                  _TEXT_THEME.headlineMedium?.copyWith(color: Colors.white),
-              bodyMedium: _TEXT_THEME.bodyMedium?.copyWith(color: Colors.white),
-            )
+          ? getTextTheme(themeProvider, textContrastProvider)
           : _TEXT_THEME,
       appBarTheme: AppBarTheme(
         color: myColorScheme.background,
@@ -70,8 +83,9 @@ class SmoothTheme {
       ),
       snackBarTheme: SnackBarThemeData(
         contentTextStyle:
-            _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onBackground),
-        actionTextColor: myColorScheme.onBackground,
+            _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onPrimary),
+        actionTextColor: myColorScheme.onPrimary,
+        backgroundColor: myColorScheme.onBackground,
       ),
       bannerTheme: MaterialBannerThemeData(
         contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
@@ -126,35 +140,54 @@ class SmoothTheme {
     );
   }
 
+  static TextTheme getTextTheme(
+      ThemeProvider themeProvider, TextContrastProvider textContrastProvider) {
+    final Color contrastLevel = themeProvider.currentTheme == THEME_AMOLED
+        ? getTextContrastLevel(textContrastProvider.currentContrastLevel)
+        : Colors.white;
+
+    return _TEXT_THEME.copyWith(
+      displayMedium: _TEXT_THEME.displayMedium?.copyWith(color: contrastLevel),
+      headlineMedium:
+          _TEXT_THEME.headlineMedium?.copyWith(color: contrastLevel),
+      bodyMedium: _TEXT_THEME.bodyMedium?.copyWith(color: contrastLevel),
+      displaySmall: _TEXT_THEME.bodySmall?.copyWith(color: contrastLevel),
+      titleLarge: _TEXT_THEME.titleLarge?.copyWith(color: contrastLevel),
+      titleMedium: _TEXT_THEME.titleMedium?.copyWith(color: contrastLevel),
+      titleSmall: _TEXT_THEME.titleSmall?.copyWith(color: contrastLevel),
+    );
+  }
+
   static const TextTheme _TEXT_THEME = TextTheme(
-      displayLarge: TextStyle(
-        fontSize: 28.0,
-        fontWeight: FontWeight.bold,
-      ),
-      displayMedium: TextStyle(
-        fontSize: 24.0,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-      displaySmall: TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.bold,
-      ),
-      headlineMedium: TextStyle(
-        fontSize: LARGE_SPACE,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 14,
-        letterSpacing: 0.5,
-      ),
-      titleMedium: TextStyle(
-        fontSize: 14.0,
-      ),
-      titleSmall: TextStyle(
-        fontSize: 12.0,
-      ));
+    displayLarge: TextStyle(
+      fontSize: 28.0,
+      fontWeight: FontWeight.bold,
+    ),
+    displayMedium: TextStyle(
+      fontSize: 24.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 18.0,
+      fontWeight: FontWeight.bold,
+    ),
+    headlineMedium: TextStyle(
+      fontSize: LARGE_SPACE,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 14,
+      letterSpacing: 0.5,
+    ),
+    titleMedium: TextStyle(
+      fontSize: 14.0,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 12.0,
+    ),
+  );
 
   static MaterialColor getMaterialColorFromColor(Color color) {
     final Map<int, Color> colorShades = <int, Color>{

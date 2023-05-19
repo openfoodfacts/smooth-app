@@ -24,4 +24,7 @@ class ConstantIcons {
 
   IconData getForwardIcon() =>
       _isApple() ? CupertinoIcons.forward : Icons.arrow_forward;
+
+  IconData getCameraFlip() =>
+      _isApple() ? Icons.flip_camera_ios : Icons.flip_camera_android;
 }

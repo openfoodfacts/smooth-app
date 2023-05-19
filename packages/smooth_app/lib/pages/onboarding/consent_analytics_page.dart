@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ConsentAnalyticsPage extends StatelessWidget {
   const ConsentAnalyticsPage(this.backgroundColor);
@@ -57,12 +58,14 @@ class ConsentAnalyticsPage extends StatelessWidget {
                       appLocalizations.consent_analytics_body1,
                       maxLines: 3,
                       textAlign: TextAlign.center,
+                      style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
                     ),
                     const SizedBox(height: SMALL_SPACE),
                     AutoSizeText(
                       appLocalizations.consent_analytics_body2,
                       maxLines: 3,
                       textAlign: TextAlign.center,
+                      style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
                     ),
                   ],
                 ),
@@ -91,6 +94,8 @@ class ConsentAnalyticsPage extends StatelessWidget {
     );
   }
 
+  static const OnboardingPage _onboardingPage = OnboardingPage.CONSENT_PAGE;
+
   Future<void> _analyticsLogic(
     bool accept,
     UserPreferences userPreferences,
@@ -103,13 +108,13 @@ class ConsentAnalyticsPage extends StatelessWidget {
     themeProvider.finishOnboarding();
     //ignore: use_build_context_synchronously
     await OnboardingLoader(localDatabase).runAtNextTime(
-      OnboardingPage.CONSENT_PAGE,
+      _onboardingPage,
       context,
     );
     //ignore: use_build_context_synchronously
-    OnboardingFlowNavigator(userPreferences).navigateToPage(
+    await OnboardingFlowNavigator(userPreferences).navigateToPage(
       context,
-      OnboardingFlowNavigator.getNextPage(OnboardingPage.CONSENT_PAGE),
+      _onboardingPage.getNextPage(),
     );
   }
 

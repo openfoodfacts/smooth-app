@@ -1,18 +1,33 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 
 /// OCR Helper for ingredients.
 class OcrIngredientsHelper extends OcrHelper {
   @override
-  String getText(final Product product) => product.ingredientsText ?? '';
+  String? getMonolingualText(final Product product) => product.ingredientsText;
 
   @override
-  Product getMinimalistProduct(final Product product, final String text) {
-    product.ingredientsText = text;
-    return product;
-  }
+  void setMonolingualText(
+    final Product product,
+    final String text,
+  ) =>
+      product.ingredientsText = text;
+
+  @override
+  Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
+    final Product product,
+  ) =>
+      product.ingredientsTextInLanguages;
+
+  @override
+  void setMultilingualTexts(
+    final Product product,
+    final Map<OpenFoodFactsLanguage, String> texts,
+  ) =>
+      product.ingredientsTextInLanguages = texts;
 
   @override
   String? getImageUrl(final Product product) => product.imageIngredientsUrl;
@@ -49,12 +64,15 @@ class OcrIngredientsHelper extends OcrHelper {
   ImageField getImageField() => ImageField.INGREDIENTS;
 
   @override
-  Future<String?> getExtractedText(final Product product) async {
+  Future<String?> getExtractedText(
+    final Product product,
+    final OpenFoodFactsLanguage language,
+  ) async {
     final OcrIngredientsResult result =
         await OpenFoodAPIClient.extractIngredients(
       getUser(),
       product.barcode!,
-      getLanguage(),
+      language,
     );
     return result.ingredientsTextFromImage;
   }
@@ -65,4 +83,8 @@ class OcrIngredientsHelper extends OcrHelper {
 
   @override
   bool hasAddExtraPhotoButton() => false;
+
+  @override
+  AnalyticsEditEvents getEditEventAnalyticsTag() =>
+      AnalyticsEditEvents.ingredients_and_Origins;
 }

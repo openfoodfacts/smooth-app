@@ -8,47 +8,48 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
 import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
+// TODO(monsieurtanuki): rename without "Widget", like the file: KnowledgePanelsBuilder?
 /// "Knowledge Panel" widget.
-class KnowledgePanelWidget extends StatelessWidget {
-  const KnowledgePanelWidget({
-    required this.panelElement,
-    required this.product,
-    required this.onboardingMode,
-  });
+class KnowledgePanelWidget {
+  const KnowledgePanelWidget._();
 
-  final KnowledgePanelElement panelElement;
-  final Product product;
-  final bool onboardingMode;
-
-  @override
-  Widget build(BuildContext context) {
-    final String panelId = panelElement.panelElement!.panelId;
-    final KnowledgePanel rootPanel =
-        KnowledgePanelWidget.getKnowledgePanel(product, panelId)!;
+  static List<Widget> getChildren(
+    BuildContext context, {
+    required KnowledgePanelElement panelElement,
+    required Product product,
+    required bool onboardingMode,
+  }) {
+    final String? panelId = panelElement.panelElement?.panelId;
+    final KnowledgePanel? rootPanel = panelId == null
+        ? null
+        : KnowledgePanelWidget.getKnowledgePanel(product, panelId);
     // [knowledgePanelElementWidgets] are a set of widgets inside the root panel.
     final List<Widget> children = <Widget>[];
-    children.add(
-      Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: VERY_SMALL_SPACE,
-          horizontal: SMALL_SPACE,
-        ),
-        child: Text(
-          rootPanel.titleElement!.title,
-          style: Theme.of(context).textTheme.displaySmall,
-        ),
-      ),
-    );
-    for (final KnowledgePanelElement knowledgePanelElement
-        in rootPanel.elements ?? <KnowledgePanelElement>[]) {
+    if (rootPanel != null) {
       children.add(
-        KnowledgePanelElementCard(
-          knowledgePanelElement: knowledgePanelElement,
-          product: product,
-          isInitiallyExpanded: false,
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: VERY_SMALL_SPACE,
+            horizontal: SMALL_SPACE,
+          ),
+          child: Text(
+            rootPanel.titleElement!.title,
+            style: Theme.of(context).textTheme.displaySmall,
+          ),
         ),
       );
+      for (final KnowledgePanelElement knowledgePanelElement
+          in rootPanel.elements ?? <KnowledgePanelElement>[]) {
+        children.add(
+          KnowledgePanelElementCard(
+            knowledgePanelElement: knowledgePanelElement,
+            product: product,
+            isInitiallyExpanded: false,
+          ),
+        );
+      }
     }
     if (!onboardingMode) {
       if (panelId == 'health_card') {
@@ -78,10 +79,11 @@ class KnowledgePanelWidget extends StatelessWidget {
         }
       }
     }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: children,
-    );
+    if (children.isEmpty) {
+      Logs.e(
+          'Unexpected empty panel data for product "${product.barcode}" and panelId "$panelId"');
+    }
+    return children;
   }
 
   /// Returns all the panel elements, in option only the one matching [panelId].

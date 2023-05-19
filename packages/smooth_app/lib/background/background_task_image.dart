@@ -4,24 +4,22 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image/image.dart' as image2;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/abstract_background_task.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/tmp_crop_image/image_compute_helper.dart';
-import 'package:smooth_app/tmp_crop_image/rotated_crop_controller.dart';
-import 'package:smooth_app/tmp_crop_image/rotation.dart';
 
 /// Background task about product image upload.
-class BackgroundTaskImage extends AbstractBackgroundTask {
+class BackgroundTaskImage extends BackgroundTaskUpload {
   const BackgroundTaskImage._({
     required super.processName,
     required super.uniqueId,
@@ -30,14 +28,14 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     required super.user,
     required super.country,
     required super.stamp,
-    required this.imageField,
+    required super.imageField,
+    required super.croppedPath,
+    required super.rotationDegrees,
+    required super.cropX1,
+    required super.cropY1,
+    required super.cropX2,
+    required super.cropY2,
     required this.fullPath,
-    required this.croppedPath,
-    required this.rotationDegrees,
-    required this.cropX1,
-    required this.cropY1,
-    required this.cropX2,
-    required this.cropY2,
   });
 
   BackgroundTaskImage._fromJson(Map<String, dynamic> json)
@@ -61,7 +59,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
           // dealing with when 'stamp' did not exist
           stamp: json.containsKey('stamp')
               ? json['stamp'] as String
-              : getStamp(
+              : BackgroundTaskUpload.getStamp(
                   json['barcode'] as String,
                   json['imageField'] as String,
                   json['languageCode'] as String,
@@ -73,14 +71,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
 
   static const OperationType _operationType = OperationType.image;
 
-  final String imageField;
   final String fullPath;
-  final String croppedPath;
-  final int rotationDegrees;
-  final int cropX1;
-  final int cropY1;
-  final int cropX2;
-  final int cropY2;
 
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -117,6 +108,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
     final String barcode, {
+    required final OpenFoodFactsLanguage language,
     required final ImageField imageField,
     required final File fullFile,
     required final File croppedFile,
@@ -133,6 +125,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       barcode,
     );
     final AbstractBackgroundTask task = _getNewTask(
+      language,
       barcode,
       imageField,
       fullFile,
@@ -153,6 +146,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskImage _getNewTask(
+    final OpenFoodFactsLanguage language,
     final String barcode,
     final ImageField imageField,
     final File fullFile,
@@ -176,22 +170,15 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
-        languageCode: ProductQuery.getLanguage().code,
+        languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
-        stamp: getStamp(
+        stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
-          ProductQuery.getLanguage().code,
+          language.code,
         ),
       );
-
-  static String getStamp(
-    final String barcode,
-    final String imageField,
-    final String language,
-  ) =>
-      '$barcode;image;$imageField;$language';
 
   /// Returns true if the stamp is an "image/OTHER" stamp.
   ///
@@ -208,12 +195,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         images: <ProductImage>[_getProductImage()],
       ),
     );
-    TransientFile.putImage(
-      ImageField.fromOffTag(imageField)!,
-      barcode,
-      localDatabase,
-      File(croppedPath),
-    );
+    putTransientImage(localDatabase);
   }
 
   /// Returns a fake value that means: "remove the previous value when merging".
@@ -250,12 +232,7 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
-    TransientFile.removeImage(
-      ImageField.fromOffTag(imageField)!,
-      barcode,
-      localDatabase,
-    );
-    localDatabase.notifyListeners();
+    removeTransientImage(localDatabase);
     if (success) {
       await BackgroundTaskRefreshLater.addTask(
         barcode,
@@ -296,10 +273,10 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
       // in that case, no need to crop
       return false;
     }
-    final ui.Image image = await loadUiImage(
+    final ui.Image full = await loadUiImage(
       await File(fullPath).readAsBytes(),
     );
-    final image2.Image? rawImage = await RotatedCropController.getCroppedBitmap(
+    final ui.Image cropped = await CropController.getCroppedBitmap(
       crop: getResizedRect(
         Rect.fromLTRB(
           cropX1.toDouble(),
@@ -309,15 +286,12 @@ class BackgroundTaskImage extends AbstractBackgroundTask {
         ),
         1 / cropConversionFactor,
       ),
-      rotation: RotationExtension.fromDegrees(rotationDegrees)!,
-      image: image,
+      rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+      image: full,
       maxSize: null,
       quality: FilterQuality.high,
     );
-    if (rawImage == null) {
-      throw Exception('Cannot crop file');
-    }
-    await saveJpeg(ImageComputeContainer(file: file, rawImage: rawImage));
+    await saveJpeg(file: file, source: cropped);
     return true;
   }
 

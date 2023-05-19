@@ -3,6 +3,7 @@ on:
    push:
      branches:
        - develop
+       - deploy_from_pr/*
 env:
  RUBY_VERSION: 3.2.0
 
@@ -62,7 +63,7 @@ jobs:
         continue-on-error: true
         with:
           tag: "${{ env.NORMALIZED_TAG }}"
-          message: "Internal release: ${{ env.VERSION_NAME }}-${{ env.VERSION_CODE }}"
+          message: "Internal release: ${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
           force_push_tag: true
 
       - name: Set output

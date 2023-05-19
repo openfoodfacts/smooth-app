@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
 class UserPreferencesFood extends AbstractUserPreferences {
@@ -123,7 +124,10 @@ class UserPreferencesFood extends AbstractUserPreferences {
         _reorderGroups(productPreferences.attributeGroups!);
     final List<Widget> result = <Widget>[
       ListTile(
-        title: Text(appLocalizations.myPreferences_food_comment),
+        title: Text(
+          appLocalizations.myPreferences_food_comment,
+          style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+        ),
       ),
     ];
     for (final AttributeGroup group in groups) {

@@ -12,6 +12,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_tabl
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class KnowledgePanelElementCard extends StatelessWidget {
   const KnowledgePanelElementCard({
@@ -121,6 +122,7 @@ class _KnowledgePanelTextElementCard extends StatelessWidget {
 
     Widget text = SmoothHtmlWidget(
       textElement.html,
+      textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
     );
 
     if (hasSource) {

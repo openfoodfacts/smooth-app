@@ -75,21 +75,36 @@ class EditNewPackagingsHelper {
 
     void addIfNotEmpty(final String text) {
       if (text.isNotEmpty) {
-        result.add(text);
+        result.add('$text ');
       }
     }
 
-    addIfNotEmpty(controllerUnits.text);
+    if (controllerUnits.text.isNotEmpty) {
+      result.add('${controllerUnits.text} x ');
+    }
+
     addIfNotEmpty(controllerShape.text);
-    addIfNotEmpty(controllerMaterial.text);
-    addIfNotEmpty(controllerRecycling.text);
-    addIfNotEmpty(controllerWeight.text);
     addIfNotEmpty(controllerQuantity.text);
+
+    if (controllerMaterial.text.isNotEmpty) {
+      if (controllerWeight.text.isNotEmpty) {
+        result.add('(${controllerMaterial.text}: ${controllerWeight.text}g)');
+      } else {
+        result.add('(${controllerMaterial.text})');
+      }
+    } else if (controllerWeight.text.isNotEmpty) {
+      result.add('(${controllerWeight.text}g)');
+    }
 
     if (result.isEmpty) {
       return null;
     }
-    return result.join(' ');
+    return result.join('');
+  }
+
+  /// Returns the packaging subtitle from the controllers
+  String getSubTitle() {
+    return controllerRecycling.text;
   }
 
   /// Returns the packaging from the controllers.

@@ -7,10 +7,12 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -86,47 +88,49 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
 
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
-      child: SmoothScaffold(
-        appBar: SmoothAppBar(
-          title: AutoSizeText(
-            getProductName(widget.product, appLocalizations),
-            maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
+      child: UnfocusWhenTapOutside(
+        child: SmoothScaffold(
+          appBar: SmoothAppBar(
+            title: AutoSizeText(
+              getProductName(widget.product, appLocalizations),
+              maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
+            ),
+            subTitle: widget.product.barcode != null
+                ? Text(widget.product.barcode!)
+                : null,
           ),
-          subTitle: widget.product.barcode != null
-              ? Text(widget.product.barcode!)
-              : null,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Flexible(
-                flex: 1,
-                child: Scrollbar(
-                  child: ListView(children: simpleInputs),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: SmoothActionButtonsBar(
-                  axis: Axis.horizontal,
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations.save,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: true),
-                    ),
+          body: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Flexible(
+                  flex: 1,
+                  child: Scrollbar(
+                    child: ListView(children: simpleInputs),
                   ),
-                  negativeAction: SmoothActionButton(
-                    text: appLocalizations.cancel,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: false),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: SmoothActionButtonsBar(
+                    axis: Axis.horizontal,
+                    positiveAction: SmoothActionButton(
+                      text: appLocalizations.save,
+                      onPressed: () async => _exitPage(
+                        await _mayExitPage(saving: true),
+                      ),
+                    ),
+                    negativeAction: SmoothActionButton(
+                      text: appLocalizations.cancel,
+                      onPressed: () async => _exitPage(
+                        await _mayExitPage(saving: false),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -177,6 +181,24 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       if (!mounted) {
         return false;
       }
+    }
+
+// If there is more than one helper, we are in the power edit mode.
+// else we take the only helper ie 0th element of the [helpers] list
+// and get the analytics event from it.
+
+    if (widget.helpers.length > 1) {
+      AnalyticsHelper.trackProductEdit(
+        AnalyticsEditEvents.powerEditScreen,
+        widget.product.barcode!,
+        true,
+      );
+    } else {
+      AnalyticsHelper.trackProductEdit(
+        widget.helpers[0].getAnalyticsEditEvent(),
+        widget.product.barcode!,
+        true,
+      );
     }
 
     bool first = true;

@@ -21,6 +21,10 @@
 - We strive to timebox the core of the meeting (decision making) to 30 minutes, with an optional free discussion/live debugging afterwards.
 - We take comprehensive notes in the Weekly Agenda of agenda item discussions and of decisions taken.
 
+## 🆕 The future of the app
+
+Starting this April, we invite all users and contributors to build a vision for the app. All information are detailed on this [blog post](https://blog.openfoodfacts.org/en/news/towards-1-million-users-and-beyond-for-open-food-facts-mobile-app).
+
 ## User interface
 
 - [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/file/nFMjewFAOa8c4ahtob7CAB/Mobile-App-Design-(Quentin)?node-id=0%3A1&t=SrBuT7gBdhapUerx-0)
@@ -46,7 +50,7 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 <img alt="app showcase" height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
 
-- Smooth-app is developed in parallel to the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which provides a high level interface with the Open Food Facts API.
+- Smooth-app is developed in parallel to the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which provides a high level interface with the Open Food Facts API and [openfoodfacts_flutter_lints](https://github.com/openfoodfacts/openfoodfacts_flutter_lints) which provides specific linting
 - Every new interaction with the API should be implemented in the plugin in order to provide these new features to other developers.
 
 <br>
@@ -86,12 +90,8 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently the app uses `3.0.5` flutter version. If you are using a later version you can use `flutter downgrade 3.0.5` to downgrades the version. (Won't work if you are using >=3.7.0, see below)
+- Currently the app uses the latest flutter stable version. (`flutter channel stable`)
 
-  If it does not work
-  - Open the terminal and change the directory to flutter location and run the following commands
-  - `git checkout 3.0.5`
-  - `flutter doctor`
 
 We have predefined run configurations for Android Studio and Visual Studio Code
 

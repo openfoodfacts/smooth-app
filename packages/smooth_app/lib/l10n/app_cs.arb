@@ -1,5 +1,9 @@
 {
     "@Utils": {},
+    "sep": "",
+    "@sep": {
+        "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
+    },
     "yes": "Ano",
     "@yes": {},
     "add": "Přidat",
@@ -201,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Registrace...",
+    "sign_up_page_action_doing_it": "Registrace…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -261,7 +265,7 @@
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Tmavý režim",
+    "darkmode": "Motiv",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -287,6 +291,7 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Požádejte o pomoc na našem kanálu Slack",
+    "support_via_forum": "Požádejte o pomoc na našem fóru",
     "support_via_email": "Pošlete nám e-mail",
     "support_via_email_include_logs_dialog_title": "Odeslat protokoly aplikace?",
     "support_via_email_include_logs_dialog_body": "Přejete si zahrnout protokoly aplikace do přílohy vašeho e-mailu?",
@@ -360,7 +365,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Vytvořte si svůj účet a připojte se ke komunitě Open Food Facts a pomozte tak budovat znalosti o potravinách po celém světě!",
+    "account_create_message": "Vytvořte si účet a připojte se ke komunitě Open Food Facts a pomozte tak budovat znalosti o potravinách po celém světě!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -371,7 +376,7 @@
     "myPreferences_profile_title": "Váš profil",
     "myPreferences_profile_subtitle": "Spravujte svůj účet přispěvatele Open Food Facts.",
     "myPreferences_settings_title": "Nastavení aplikace",
-    "myPreferences_settings_subtitle": "Tmavý režim, analytika,...",
+    "myPreferences_settings_subtitle": "Tmavý režim, Analytika…",
     "myPreferences_food_title": "Předvolby jídla",
     "myPreferences_food_subtitle": "Vyberte si, které informace o jídle jsou pro vás nejdůležitější.",
     "myPreferences_food_comment": "Vyberte si, na kterých informacích o potravinách vám nejvíce záleží, abyste mohli seřadit potraviny podle svých preferencí, prohlédněte si informace, které vás zajímají, jako první a získejte přehled kompatibility. Tyto preference jídla zůstanou ve vašem zařízení a nejsou spojeny s vaším účtem přispěvatele Open Food Facts, pokud jej máte.",
@@ -429,7 +434,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Klepnutím zobrazíte další informace...",
+    "tab_for_more": "Klepnutím zobrazíte více informací…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -569,7 +574,7 @@
     "nutrition_page_add_nutrient": "Přidejte živinu",
     "nutrition_page_serving_size": "Velikost porce",
     "nutrition_page_invalid_number": "Neplatné číslo",
-    "nutrition_page_update_running": "Aktualizace produktu na serveru...",
+    "nutrition_page_update_running": "Aktualizace produktu na serveru…",
     "nutrition_page_update_done": "Produkt aktualizován!",
     "more_photos": "Další zajímavé fotky",
     "@more_photos": {},
@@ -650,6 +655,14 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
+    "native_app_settings": "Nastavení aplikace",
+    "@native_app_settings": {
+        "description": "Native App Settings in app settings"
+    },
+    "native_app_description": "Otevřít systémová nastavení pro Open Food Facts",
+    "@native_app_description": {
+        "description": "Native App description in app settings"
+    },
     "product_removed_history": "Produkt byl odstraněn z historie",
     "@product_removed_history": {
         "description": "Product got removed from history"
@@ -675,44 +688,44 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural,  few{před {count} dny}  many{před {count} dny} =1{včera} other{ před {count} dny}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural,  few{před {count} hodinami}  many{před {count} hodinami} =1{před hodinou} other{před {count} hodinami}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "před {count,plural, few{{count} minutami} many{{count} minutami} =0{méně než minutou} =1{minutou} other{{count} minutami}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural, few{před {count} měsíci}  many{před {count} měsíci} =1{před měsícem} other{před {count} měsíci}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "před {count,plural, few{{count} týdny}  many{{count} týdny} =1{1 týdnem} other{{count} týdny}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
+    "plural_compare_x_products": "Porovnat {count,plural, few {{count} produkty} many {{count} produktů}=1{1 produkt} other{{count} produktů}}",
     "@plural_compare_x_products": {
-        "description": "Button label",
+        "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
             "count": {}
         }
@@ -803,7 +816,7 @@
         "placeholders": {
             "version": {
                 "type": "String?",
-                "description": "Version of IOS (eg : 15)"
+                "description": "Version of IOS (eg: 15)"
             },
             "model": {
                 "type": "String?",
@@ -855,7 +868,7 @@
     },
     "knowledge_panel_text_source": "Přejít dále na {sourceName}",
     "@knowledge_panel_text_source": {
-        "description": "Source field within a text knowledge panel.",
+        "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
             "sourceName": {
                 "type": "String"
@@ -894,7 +907,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Refreshing {count,plural,  =0{product} =1{product} other{products}} in your history",
+    "product_list_reloading_in_progress_multiple": "Obnovuji {count,plural, few{produkty} many{produktů} =0{produkt} =1{produkt} other{produkty}} v historii",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
@@ -1045,6 +1058,10 @@
     "permission_photo_denied_dialog_settings_message": "Protože jste dříve odepřeli povolení fotoaparátu, musíte jej povolit ručně v Nastavení.",
     "permission_photo_denied_dialog_settings_button_open": "Otevřít nastavení",
     "permission_photo_denied_dialog_settings_button_cancel": "Zrušit",
+    "permission_photo_none_found": "Nenalezen žádný fotoaparát",
+    "@permission_photo_none_found": {
+        "description": "Message for the user when no camera was detected, replacing the barcode scanner"
+    },
     "permission_photo_denied": "Není povolen přístup ke kameře",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
@@ -1069,7 +1086,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Webová stránka, ...",
+    "edit_product_form_item_other_details_subtitle": "Webová stránka…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1085,7 +1102,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Ekologické, kvalitativní značky,...",
+    "edit_product_form_item_labels_subtitle": "Environmentální, kvalitativní štítky…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1162,8 +1179,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Chcete uložit změny před opuštěním této stránky?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Uložit mé změny",
-    "edit_product_form_item_exit_confirmation_negative_button": "Ignorovat mé změny",
+    "edit_product_form_item_exit_confirmation_positive_button": "Uložit změny",
+    "edit_product_form_item_exit_confirmation_negative_button": "Zrušit změny",
     "edit_product_form_item_ingredients_title": "Složení a původ",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1295,6 +1312,14 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
+    "camera_flash_error_dialog_title": "Vyskytla se chyba!",
+    "@camera_flash_error_dialog_title": {
+        "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
+    "camera_flash_error_dialog_message": "Při změně stavu blesku došlo k chybě. Ujistěte se, že váš smartphone již nemá zapnutou svítilnu.",
+    "@camera_flash_error_dialog_message": {
+        "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
+    },
     "category_picker_no_category_found_button": "Zpět",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
@@ -1307,7 +1332,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "Poté je nutné aplikaci restartovat.",
+    "dev_preferences_reset_onboarding_subtitle": "Potom musíte aplikaci restartovat, abyste ji mohli znovu vidět.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1550,13 +1575,21 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Načítání existujících obrázků...",
+    "edit_photo_select_existing_download_label": "Načítání existujících obrázků…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
     "edit_photo_select_existing_downloaded_none": "Neexistují žádné dříve nahrané obrázky související s tímto produktem.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
+    },
+    "edit_photo_language_not_this_one": "V tomto jazyce zatím není žádný obrázek",
+    "@edit_photo_language_not_this_one": {
+        "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
+    },
+    "edit_photo_language_none": "Zatím žádný obrázek",
+    "@edit_photo_language_none": {
+        "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
     "category_picker_screen_title": "Kategorie",
     "@category_picker_screen_title": {
@@ -1626,7 +1659,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, one {} few {{count} produkty} many {{count} produkty}=0{Prázdný seznam} =1{Jeden produkt} other{{count} produktů}}",
+    "user_list_length": "{count,plural, few{{count} produkty} many{{count} produktů} =0{Prázdný seznam} =1{1 produkt} other{{count} produktů}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
@@ -1668,6 +1701,15 @@
     "share_product_text": "Podívejte se na tento produkt na Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_list_text": "Podívejte se na můj seznam produktů na Open Food Facts: {url}",
+    "@share_product_list_text": {
+        "description": "The content which is send, when sharing a product list",
         "placeholders": {
             "url": {
                 "type": "String"
@@ -1735,7 +1777,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "Žádná e-mailová žádost!",
+    "no_email_client_available_dialog_title": "Žádné e-mailové aplikace!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1906,6 +1948,73 @@
     "feed_back": "Zpětná vazba",
     "undo": "Zpět",
     "copy_email_to_clip_board": "Kopírovat e-mail do schránky",
+    "@copy_email_to_clip_board": {
+        "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
+    },
     "please_send_us_an_email_to": "Pošlete nám prosím ručně e-mail na",
-    "email_copied_to_clip_board": "E-mail zkopírován do schránky!"
+    "email_copied_to_clip_board": "E-mail zkopírován do schránky!",
+    "select_accent_color": "Vyberte barvu zvýraznění",
+    "@select_accent_color": {
+        "description": "Accent Color for the application in AMOLED mode."
+    },
+    "theme_amoled": "AMOLED",
+    "@theme_amoled": {
+        "description": "AMOLED theme mode."
+    },
+    "color_blue": "Modrá",
+    "@color_blue": {
+        "description": "Color Blue"
+    },
+    "color_cyan": "Azurová",
+    "@color_cyan": {
+        "description": "Color Cyan"
+    },
+    "color_green": "Zelená",
+    "@color_green": {
+        "description": "Color Green"
+    },
+    "color_light_brown": "Výchozí",
+    "@color_light_brown": {
+        "description": "Color Light Brown, Default Open Food Facts Color"
+    },
+    "color_magenta": "Purpurová",
+    "@color_magenta": {
+        "description": "Color Magenta"
+    },
+    "color_orange": "Oranžová",
+    "@color_orange": {
+        "description": "Color Orange"
+    },
+    "color_pink": "Růžová",
+    "@color_pink": {
+        "description": "Color Pink"
+    },
+    "color_red": "Červená",
+    "@color_red": {
+        "description": "Color Red"
+    },
+    "color_rust": "Rezavá",
+    "@color_rust": {
+        "description": "Color Rust"
+    },
+    "color_teal": "Tmavě modrozelená",
+    "@color_teal": {
+        "description": "Color Teal"
+    },
+    "text_contrast_mode": "Kontrast textu",
+    "@text_contrast_mode": {
+        "description": "Text Contrast Color Mode"
+    },
+    "contrast_high": "Vysoký",
+    "@contrast_high": {
+        "description": "High Contrast Text Color"
+    },
+    "contrast_medium": "Střední",
+    "@contrast_medium": {
+        "description": "Medium Contrast Text Color"
+    },
+    "contrast_low": "Nízký",
+    "@contrast_low": {
+        "description": "Low Contrast Text Color"
+    }
 }

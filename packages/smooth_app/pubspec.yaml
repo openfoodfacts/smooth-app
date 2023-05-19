@@ -4,8 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: "<3.3.0"
+  sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -13,86 +12,59 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  badges: 2.0.3 # TODO use the standard flutter Badge instead when available
   barcode_widget: 2.0.3
-  carousel_slider: 4.1.1
+  carousel_slider: 4.2.1
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
-  flutter_svg: 1.1.5
+  flutter_svg: 2.0.5
   flutter_map: 2.2.0
-  flutter_widget_from_html_core: any
+  flutter_widget_from_html_core: 0.8.3+1
   fwfh_selectable_text: 0.8.3+1
-  flutter_secure_storage: 5.0.2
+  flutter_secure_storage: 5.1.2
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 0.13.5
-  image_picker: 0.8.6
+  image_picker: 0.8.7
   iso_countries: 2.1.0
   latlong2: 0.8.1
-  matomo_tracker: 1.5.0
-  modal_bottom_sheet: 2.1.2
-  openfoodfacts: 2.3.1
-  # openfoodfacts:
-  #   path: ../../../openfoodfacts-dart
-  package_info_plus: 1.4.3+1
-  device_info_plus: 4.1.2
-  permission_handler: 9.2.0
+  matomo_tracker: 2.0.0
+  package_info_plus: 3.0.3
+  device_info_plus: 8.1.0
+  permission_handler: 10.2.0
   photo_view: 0.14.0
-  uuid: 3.0.6
-  provider: 6.0.3
-  sentry_flutter: 6.11.0 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
-  sqflite: 2.0.2+1
+  uuid: 3.0.7
+  provider: 6.0.5
+  sentry_flutter: 6.22.0 # careful with upgrading cf: https://github.com/openfoodfacts/smooth-app/issues/1300
+  sqflite: 2.2.5
   url_launcher: 6.1.3
-  visibility_detector: 0.3.3
-  assorted_layout_widgets: 6.1.1
+  visibility_detector: 0.4.0+2
+  assorted_layout_widgets: 7.0.0
   app_settings: 4.2.0
-
-  # Camera (custom implementation for Android)
-  camera:
-    git:
-      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
-      ref: "smooth_camera"
-      path: "packages/camera/camera"
-  camera_platform_interface:
-    git:
-      url: "https://github.com/openfoodfacts/smooth_app_plugins_fork.git"
-      ref: "smooth_camera"
-      path: "packages/camera/camera_platform_interface"
-  scanner_shared:
-    path: ../scanner/shared
+  diacritic: 0.1.3
   app_store_shared:
     path: ../app_store/shared
-  audioplayers: 1.0.0
-  percent_indicator: 4.2.2
-  flutter_email_sender: 5.1.0
-  flutter_native_splash: 2.2.3+1
-  image: 3.2.0
+  audioplayers: 3.0.1
+  percent_indicator: 4.2.3
+  flutter_email_sender: 5.2.0
+  flutter_native_splash: 2.2.19
+  image: 4.0.16
   auto_size_text: 3.0.0
-  shared_preferences: 2.0.15
-  typed_data: 1.3.0 # careful with 1.3.1 because of flutter_driver dependence
+  crop_image: 1.0.6
+  shared_preferences: 2.0.18
   intl: 0.17.0
-  rxdart: 0.27.4
-  collection: 1.16.0
-  path: ^1.8.3
-  path_provider: 2.0.11
+  collection: 1.17.0
+  path: 1.8.2
+  path_provider: 2.0.13
   data_importer_shared:
     path: ../data_importer_shared
   data_importer:
     path: ../data_importer
-  share_plus: 4.0.10
+  share_plus: 6.3.4
   fimber: 0.6.6
   shimmer: 2.0.0
-  lottie: 1.4.2
-  webview_flutter: ^3.0.4
+  lottie: 2.2.0
+  webview_flutter: 3.0.4
   flutter_image_compress: 1.1.3
-
-  # According to the build variant, only one "scanner" implementation must be added when building a release
-  # Call "flutter pub remove xxxx" to remove unused dependencies
-  scanner_mlkit:
-    path: ../scanner/mlkit
-
-  scanner_zxing:
-    path: ../scanner/zxing
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -105,25 +77,41 @@ dependencies:
   app_store_uri:
     path: ../app_store/uri_store
 
+  # We use two different scanning engines, 
+  # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
+  # but qr_code_scanner which uses the open source ZXing for F-Droid
+  camera: 0.10.5
+  
+  scanner_shared:
+    path: ../scanner/shared
+
+  scanner_ml_kit:
+    path: ../scanner/ml_kit
+
+  scanner_zxing:
+    path: ../scanner/zxing
+
+
+
+
+  openfoodfacts: 2.5.0
+  # openfoodfacts:
+  #   path: ../../../openfoodfacts-dart
+
 dev_dependencies:
   integration_test:
     sdk: flutter
   flutter_driver:
     sdk: flutter
-  flutter_launcher_icons: 0.10.0
+  flutter_launcher_icons: 0.13.1
   flutter_test:
     sdk: flutter
-  mockito: 5.2.0
-  path_provider_platform_interface: 2.0.4
-  plugin_platform_interface: 2.1.2
+  mockito: 5.3.2
+  path_provider_platform_interface: 2.0.6
+  plugin_platform_interface: 2.1.4
   flutter_lints: 2.0.1
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
-
-dependency_overrides:
-  path: 1.8.0
-  meta: 1.7.0
-  typed_data: 1.3.0
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:

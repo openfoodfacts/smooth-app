@@ -8,8 +8,8 @@ import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/tmp_crop_image/new_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Gallery of all images already uploaded, about a given product.
@@ -18,11 +18,15 @@ class UploadedImageGallery extends StatelessWidget {
     required this.barcode,
     required this.imageIds,
     required this.imageField,
+    required this.language,
   });
 
   final String barcode;
   final List<int> imageIds;
   final ImageField imageField;
+
+  /// Language for which we'll save the cropped image.
+  final OpenFoodFactsLanguage language;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +73,7 @@ class UploadedImageGallery extends StatelessWidget {
               if (imageFile == null) {
                 return;
               }
-              await navigatorState.push<File>(
+              final File? croppedFile = await navigatorState.push<File>(
                 MaterialPageRoute<File>(
                   builder: (BuildContext context) => CropPage(
                     barcode: barcode,
@@ -77,10 +81,14 @@ class UploadedImageGallery extends StatelessWidget {
                     inputFile: imageFile,
                     imageId: imageId,
                     initiallyDifferent: true,
+                    language: language,
                   ),
                   fullscreenDialog: true,
                 ),
               );
+              if (croppedFile != null) {
+                navigatorState.pop();
+              }
             },
             child: ClipRRect(
               borderRadius: ROUNDED_BORDER_RADIUS,

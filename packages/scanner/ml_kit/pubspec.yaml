@@ -1,0 +1,23 @@
+name: scanner_ml_kit
+description: Scanner implementation using ML Kit
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  visibility_detector: 0.4.0+2
+  mobile_scanner: 3.2.0
+  scanner_shared:
+    path: ../shared
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 2.0.1
+  openfoodfacts_flutter_lints:
+    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git

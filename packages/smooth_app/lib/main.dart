@@ -24,11 +24,15 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
+import 'package:smooth_app/helpers/entry_points_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/color_provider.dart';
+import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -50,45 +54,46 @@ void main() {
   }
 }
 
-late bool _screenshots;
-late String flavour;
+late final bool _screenshots;
 
 Future<void> launchSmoothApp({
-  required CameraScanner scanner,
+  required Scanner barcodeScanner,
   required AppStore appStore,
-  required String appFlavour,
+  required StoreLabel storeLabel,
+  required ScannerLabel scannerLabel,
   final bool screenshots = false,
 }) async {
   _screenshots = screenshots;
+
+  GlobalVars.barcodeScanner = barcodeScanner;
+  GlobalVars.appStore = appStore;
+  GlobalVars.storeLabel = storeLabel;
+  GlobalVars.scannerLabel = scannerLabel;
+
   if (_screenshots) {
-    await _init1(appStore);
-    runApp(SmoothApp(scanner, appStore));
+    await _init1();
+    runApp(const SmoothApp());
     return;
   }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  flavour = appFlavour;
-
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-        appRunner: () => runApp(SmoothApp(scanner, appStore)));
+        appRunner: () => runApp(const SmoothApp()));
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (_) => SmoothApp(scanner, appStore),
+        builder: (_) => const SmoothApp(),
       ),
     );
   }
 }
 
 class SmoothApp extends StatefulWidget {
-  const SmoothApp(this.scanner, this.appStore);
-
-  final CameraScanner scanner;
-  final AppStore appStore;
+  const SmoothApp();
 
   // This widget is the root of your application
   @override
@@ -100,6 +105,8 @@ late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
+late ColorProvider _colorProvider;
+late TextContrastProvider _textContrastProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 final PermissionListener _permissionListener =
     PermissionListener(permission: Permission.camera);
@@ -108,12 +115,12 @@ bool _init1done = false;
 // Had to split init in 2 methods, for test/screenshots reasons.
 // Don't know why, but some init codes seem to freeze the test.
 // Now we run them before running the app, during the tests.
-Future<bool> _init1(AppStore appStore) async {
+Future<bool> _init1() async {
   if (_init1done) {
     return false;
   }
 
-  await SmoothServices().init(appStore);
+  await SmoothServices().init(GlobalVars.appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
@@ -131,8 +138,10 @@ Future<bool> _init1(AppStore appStore) async {
   UserManagementProvider().checkUserLoginValidity();
 
   AnalyticsHelper.setCrashReports(_userPreferences.crashReports);
-  ProductQuery.setCountry(_userPreferences.userCountryCode);
+  await ProductQuery.setCountry(_userPreferences);
   _themeProvider = ThemeProvider(_userPreferences);
+  _colorProvider = ColorProvider(_userPreferences);
+  _textContrastProvider = TextContrastProvider(_userPreferences);
   ProductQuery.setQueryType(_userPreferences);
 
   await CameraHelper.init();
@@ -161,7 +170,7 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   Future<bool> _init2() async {
-    await _init1(widget.appStore);
+    await _init1();
     systemDarkmodeOn = brightness == Brightness.dark;
     if (!mounted) {
       return false;
@@ -204,16 +213,12 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ProductPreferences>(_productPreferences),
             provide<LocalDatabase>(_localDatabase),
             provide<ThemeProvider>(_themeProvider),
+            provide<ColorProvider>(_colorProvider),
+            provide<TextContrastProvider>(_textContrastProvider),
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
-            provide<CameraControllerNotifier>(
-              CameraHelper.cameraControllerNotifier,
-            ),
-            Provider<CameraScanner>.value(
-              value: widget.scanner,
-            ),
           ],
           builder: _buildApp,
         );
@@ -223,12 +228,15 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildApp(BuildContext context, Widget? child) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final ColorProvider colorProvider = context.watch<ColorProvider>();
+    final TextContrastProvider textContrastProvider =
+        context.watch<TextContrastProvider>();
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
-    final Widget appWidget = OnboardingFlowNavigator(_userPreferences)
-        .getPageWidget(context, lastVisitedOnboardingPage);
+    OnboardingFlowNavigator(_userPreferences);
+    final Widget appWidget = lastVisitedOnboardingPage.getPageWidget(context);
     final bool isOnboardingComplete =
-        OnboardingFlowNavigator.isOnboardingComplete(lastVisitedOnboardingPage);
+        lastVisitedOnboardingPage.isOnboardingComplete();
     themeProvider.setOnboardingComplete(isOnboardingComplete);
 
     // Still need the value from the UserPreferences here, not the ProductQuery
@@ -246,13 +254,9 @@ class _SmoothAppState extends State<SmoothApp> {
         SentryNavigatorObserver(),
       ],
       theme: SmoothTheme.getThemeData(
-        Brightness.light,
-        themeProvider,
-      ),
+          Brightness.light, themeProvider, colorProvider, textContrastProvider),
       darkTheme: SmoothTheme.getThemeData(
-        Brightness.dark,
-        themeProvider,
-      ),
+          Brightness.dark, themeProvider, colorProvider, textContrastProvider),
       themeMode: themeProvider.currentThemeMode,
       home: SmoothAppGetLanguage(appWidget, _userPreferences),
     );
