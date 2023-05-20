@@ -17,6 +17,16 @@ import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
+/// A replacement for the [Navigator], where we use internally [GoRouter]
+/// By itself [GoRouter] is not accessible, to allow us to easily change the
+/// solution if required
+///
+/// There are three methods available:
+/// - Push: to open a new screen
+/// - PushReplacement : to replace the current screen by a new one
+/// - Pop : to close the current screen
+///
+/// /!\ [GoRouter] doesn't support [maybePop] or returning a result from a push
 class AppNavigator extends InheritedWidget {
   AppNavigator({
     Key? key,
@@ -42,6 +52,7 @@ class AppNavigator extends InheritedWidget {
     return oldWidget._router != _router;
   }
 
+  // Router to use with a [WidgetsApp]
   RouterConfig<Object> get router => _router.router;
 
   void push(String routeName, {dynamic extra}) {
@@ -152,7 +163,7 @@ class _SmoothGoRouter {
           // Ignore deep links if the onboarding is not completed
           if (state.location != HOME_PAGE && !_isOnboardingComplete(context)) {
             return HOME_PAGE;
-          } else if (_isAnInternalPath(path)) {
+          } else if (_isAnInternalRoute(path)) {
             return null;
           }
 
@@ -171,7 +182,7 @@ class _SmoothGoRouter {
                 }
               }
             } else if (path != HOME_PAGE) {
-              // Unsupported link
+              // Unsupported link -> open the browser
               return AppRoutes.EXTERNAL(
                 path[0] == '/' ? path.substring(1) : path,
               );
@@ -216,6 +227,8 @@ class _SmoothGoRouter {
     return null;
   }
 
+  //region Onboarding
+
   bool _isOnboardingComplete(BuildContext context) {
     return _getCurrentOnboardingPage(context).isOnboardingComplete();
   }
@@ -232,55 +245,57 @@ class _SmoothGoRouter {
     return lastVisitedOnboardingPage;
   }
 
-  bool _isAnInternalPath(String path) {
+  //endregion Onboarding
+
+  bool _isAnInternalRoute(String path) {
     if (path == HOME_PAGE) {
       return true;
+    } else {
+      return path.startsWith('/_');
     }
-
-    for (final String reservedKeyword in RESERVED_KEYWORDS) {
-      if (path.startsWith('/$reservedKeyword')) {
-        return true;
-      }
-    }
-
-    return false;
   }
 
-  static const List<String> RESERVED_KEYWORDS = <String>[
-    PRODUCT_LOADER_PAGE,
-    PRODUCT_CREATOR_PAGE,
-  ];
-
+  /// Internal routes
+  /// To differentiate external routes (eg: /product/12345678), we prefix all
+  /// internal routes by an underscore
   static const String HOME_PAGE = '/';
-  static const String PRODUCT_DETAILS_PAGE = 'product';
-  static const String PRODUCT_LOADER_PAGE = 'product_loader';
-  static const String PRODUCT_CREATOR_PAGE = 'product_creator';
-  static const String PREFERENCES_PAGE = 'preferences';
-  static const String SEARCH_PAGE = 'search';
-  static const String EXTERNAL_PAGE = 'external';
+  static const String PRODUCT_DETAILS_PAGE = '_product';
+  static const String PRODUCT_LOADER_PAGE = '_product_loader';
+  static const String PRODUCT_CREATOR_PAGE = '_product_creator';
+  static const String PREFERENCES_PAGE = '_preferences';
+  static const String SEARCH_PAGE = '_search';
+  static const String EXTERNAL_PAGE = '_external';
 }
 
-// TODO(g123k): Improve this with sealed classes (Dart 3 required)
+/// A list of internal routes to use with [AppNavigator]
+// TODO(g123k): Improve this with sealed classes (Dart 3 is required)
 // ignore_for_file: non_constant_identifier_names
 class AppRoutes {
   AppRoutes._();
 
+  // Home page (or walkthrough during the onboarding)
   static const String HOME = _SmoothGoRouter.HOME_PAGE;
 
+  // Product details (a [Product] is mandatory in the extra)
   static String PRODUCT(String barcode) =>
       '/${_SmoothGoRouter.PRODUCT_DETAILS_PAGE}/$barcode';
 
+  // Product loader (= when a product is not in the database)
   static String PRODUCT_LOADER(String barcode) =>
       '/${_SmoothGoRouter.PRODUCT_LOADER_PAGE}/$barcode';
 
+  // Product creator or "add product" feature
   static String PRODUCT_CREATOR(String barcode) =>
       '/${_SmoothGoRouter.PRODUCT_CREATOR_PAGE}/$barcode';
 
+  // App preferences
   static String PREFERENCES(PreferencePageType type) =>
       '/${_SmoothGoRouter.PREFERENCES_PAGE}/${type.name}';
 
+  // Search view
   static const String SEARCH = '/${_SmoothGoRouter.SEARCH_PAGE}';
 
+  // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
       '/${_SmoothGoRouter.EXTERNAL_PAGE}/$path';
 }

@@ -3,6 +3,8 @@ import 'package:path/path.dart' as path;
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
+/// A screen opening a [path] relative to the OFF website.
+/// Eg: if path is "contact", it will open 'https://world.openfoodfacts.org/contact'
 class ExternalPage extends StatefulWidget {
   const ExternalPage({required this.path, Key? key})
       : assert(path != ''),
