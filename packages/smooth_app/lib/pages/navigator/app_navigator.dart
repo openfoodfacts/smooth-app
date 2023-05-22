@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -88,122 +89,125 @@ class _SmoothGoRouter {
     List<NavigatorObserver>? observers,
   }) {
     router = GoRouter(
-        observers: observers,
-        routes: <GoRoute>[
-          GoRoute(
-            path: HOME_PAGE,
-            builder: (BuildContext context, GoRouterState state) {
-              if (!isInitialized) {
-                _initAppLanguage(context);
-                isInitialized = true;
-              }
-
-              return _findLastOnboardingPage(context);
-            },
-            // We use sub-routes to allow the back button to work correctly
-            // for deep links to go back to the homepage
-            routes: <GoRoute>[
-              GoRoute(
-                path: '$PRODUCT_DETAILS_PAGE/:productId',
-                builder: (BuildContext context, GoRouterState state) {
-                  Product product;
-
-                  if (state.extra is Product) {
-                    product = state.extra! as Product;
-                  } else {
-                    throw Exception('No product provided!');
-                  }
-
-                  final Widget widget = ProductPage(product);
-
-                  if (InheritedDataManager.find(context) == null) {
-                    return InheritedDataManager(child: widget);
-                  } else {
-                    return widget;
-                  }
-                },
-              ),
-              GoRoute(
-                path: '$PRODUCT_LOADER_PAGE/:productId',
-                builder: (BuildContext context, GoRouterState state) {
-                  final String barcode = state.pathParameters['productId']!;
-                  return ProductLoaderPage(barcode: barcode);
-                },
-              ),
-              GoRoute(
-                path: '$PRODUCT_CREATOR_PAGE/:productId',
-                builder: (BuildContext context, GoRouterState state) {
-                  final String barcode = state.pathParameters['productId']!;
-                  return AddNewProductPage(barcode: barcode);
-                },
-              ),
-              GoRoute(
-                path: SEARCH_PAGE,
-                builder: (_, __) {
-                  return SearchPage();
-                },
-              ),
-              GoRoute(
-                path: '$PREFERENCES_PAGE/:preferenceType',
-                builder: (BuildContext context, GoRouterState state) {
-                  final String? type = state.pathParameters['preferenceType'];
-
-                  final PreferencePageType? pageType = PreferencePageType.values
-                      .firstWhereOrNull(
-                          (PreferencePageType e) => e.name == type);
-
-                  if (pageType == null) {
-                    throw Exception('Unsupported preference page type: $type');
-                  }
-
-                  return UserPreferencesPage(
-                    type: pageType,
-                  );
-                },
-              ),
-              GoRoute(
-                path: '$EXTERNAL_PAGE/:path',
-                builder: (BuildContext context, GoRouterState state) {
-                  return ExternalPage(path: state.pathParameters['path']!);
-                },
-              ),
-            ],
-          ),
-        ],
-        redirect: (BuildContext context, GoRouterState state) {
-          final String path = state.matchedLocation;
-
-          // Ignore deep links if the onboarding is not yet completed
-          if (state.location != HOME_PAGE && !_isOnboardingComplete(context)) {
-            return HOME_PAGE;
-          } else if (_isAnInternalRoute(path)) {
-            return null;
-          }
-
-          // If a barcode is in the URL, ensure to manually fetch the product
-          if (path.isNotEmpty) {
-            final int subPaths = path.count('/');
-
-            if (subPaths > 1) {
-              final String? barcode = _extractProductBarcode(path);
-
-              if (barcode != null) {
-                if (state.extra is Product) {
-                  return AppRoutes.PRODUCT(barcode);
-                } else {
-                  return AppRoutes.PRODUCT_LOADER(barcode);
-                }
-              }
-            } else if (path != HOME_PAGE) {
-              // Unsupported link -> open the browser
-              return AppRoutes.EXTERNAL(
-                path[0] == '/' ? path.substring(1) : path,
-              );
+      observers: observers,
+      routes: <GoRoute>[
+        GoRoute(
+          path: HOME_PAGE,
+          builder: (BuildContext context, GoRouterState state) {
+            if (!isInitialized) {
+              _initAppLanguage(context);
+              isInitialized = true;
             }
-          }
 
-          return state.location;
-        });
+            return _findLastOnboardingPage(context);
+          },
+          // We use sub-routes to allow the back button to work correctly
+          // for deep links to go back to the homepage
+          routes: <GoRoute>[
+            GoRoute(
+              path: '$PRODUCT_DETAILS_PAGE/:productId',
+              builder: (BuildContext context, GoRouterState state) {
+                Product product;
+
+                if (state.extra is Product) {
+                  product = state.extra! as Product;
+                } else {
+                  throw Exception('No product provided!');
+                }
+
+                final Widget widget = ProductPage(product);
+
+                if (InheritedDataManager.find(context) == null) {
+                  return InheritedDataManager(child: widget);
+                } else {
+                  return widget;
+                }
+              },
+            ),
+            GoRoute(
+              path: '$PRODUCT_LOADER_PAGE/:productId',
+              builder: (BuildContext context, GoRouterState state) {
+                final String barcode = state.pathParameters['productId']!;
+                return ProductLoaderPage(barcode: barcode);
+              },
+            ),
+            GoRoute(
+              path: '$PRODUCT_CREATOR_PAGE/:productId',
+              builder: (BuildContext context, GoRouterState state) {
+                final String barcode = state.pathParameters['productId']!;
+                return AddNewProductPage(barcode: barcode);
+              },
+            ),
+            GoRoute(
+              path: SEARCH_PAGE,
+              builder: (_, __) {
+                return SearchPage();
+              },
+            ),
+            GoRoute(
+              path: '$PREFERENCES_PAGE/:preferenceType',
+              builder: (BuildContext context, GoRouterState state) {
+                final String? type = state.pathParameters['preferenceType'];
+
+                final PreferencePageType? pageType = PreferencePageType.values
+                    .firstWhereOrNull((PreferencePageType e) => e.name == type);
+
+                if (pageType == null) {
+                  throw Exception('Unsupported preference page type: $type');
+                }
+
+                return UserPreferencesPage(
+                  type: pageType,
+                );
+              },
+            ),
+            GoRoute(
+              path: '$EXTERNAL_PAGE/:path',
+              builder: (BuildContext context, GoRouterState state) {
+                return ExternalPage(path: state.pathParameters['path']!);
+              },
+            ),
+          ],
+        ),
+      ],
+      redirect: (BuildContext context, GoRouterState state) {
+        final String path = state.matchedLocation;
+
+        // Ignore deep links if the onboarding is not yet completed
+        if (state.location != HOME_PAGE && !_isOnboardingComplete(context)) {
+          return HOME_PAGE;
+        } else if (_isAnInternalRoute(path)) {
+          return null;
+        }
+
+        // If a barcode is in the URL, ensure to manually fetch the product
+        if (path.isNotEmpty) {
+          final int subPaths = path.count('/');
+
+          if (subPaths > 1) {
+            final String? barcode = _extractProductBarcode(path);
+
+            if (barcode != null) {
+              if (state.extra is Product) {
+                return AppRoutes.PRODUCT(barcode);
+              } else {
+                return AppRoutes.PRODUCT_LOADER(barcode);
+              }
+            }
+          } else if (path != HOME_PAGE) {
+            // Unsupported link -> open the browser
+            return AppRoutes.EXTERNAL(
+              path[0] == '/' ? path.substring(1) : path,
+            );
+          }
+        }
+
+        return state.location;
+      },
+      errorBuilder: (_, GoRouterState state) => ErrorPage(
+        url: state.location,
+      ),
+    );
   }
 
   late GoRouter router;

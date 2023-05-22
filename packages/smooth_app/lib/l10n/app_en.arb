@@ -2061,5 +2061,13 @@
     "product_loader_network_error_message": "Please check that your smartphone is on a WiFi network or has mobile data enabled",
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "Page not found!",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "Go back to the homepage",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
     }
 }
