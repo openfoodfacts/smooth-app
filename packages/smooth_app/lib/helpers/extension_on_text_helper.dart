@@ -35,7 +35,7 @@ extension StringExtensions on String {
     assert(character.length == 1);
 
     int count = 0;
-    for (int i = 0; i != length; i++) {
+    for (int i = 0; i < length; i++) {
       if (this[i] == character) {
         count++;
       }
