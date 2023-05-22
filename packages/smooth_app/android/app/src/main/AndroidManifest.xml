@@ -46,6 +46,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="http" android:host="*.openfoodfacts.org" />
+                <data android:scheme="http" android:host="*.openfoodfacts.net" />
+                <data android:scheme="http" android:host="*.openbeautyfacts.org" />
+                <data android:scheme="http" android:host="*.openproductsfacts.org" />
+                <data android:scheme="http" android:host="*.openpetfoodfacts.org" />
                 <data android:scheme="https" />
             </intent-filter>
         </activity>

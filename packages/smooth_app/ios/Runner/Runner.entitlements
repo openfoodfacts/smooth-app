@@ -5,6 +5,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:*.openfoodfacts.org</string>
+		<string>applinks:*.openfoodfacts.net</string>
 	</array>
 </dict>
 </plist>
