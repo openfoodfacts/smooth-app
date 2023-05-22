@@ -93,7 +93,7 @@ class _SmoothGoRouter {
       observers: observers,
       routes: <GoRoute>[
         GoRoute(
-          path: HOME_PAGE,
+          path: _InternalAppRoutes.HOME_PAGE.path,
           builder: (BuildContext context, GoRouterState state) {
             if (!isInitialized) {
               _initAppLanguage(context);
@@ -106,7 +106,8 @@ class _SmoothGoRouter {
           // for deep links to go back to the homepage
           routes: <GoRoute>[
             GoRoute(
-              path: '$PRODUCT_DETAILS_PAGE/:productId',
+              path:
+                  '${_InternalAppRoutes.PRODUCT_DETAILS_PAGE.path}/:productId',
               builder: (BuildContext context, GoRouterState state) {
                 Product product;
 
@@ -126,27 +127,28 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: '$PRODUCT_LOADER_PAGE/:productId',
+              path: '${_InternalAppRoutes.PRODUCT_LOADER_PAGE.path}/:productId',
               builder: (BuildContext context, GoRouterState state) {
                 final String barcode = state.pathParameters['productId']!;
                 return ProductLoaderPage(barcode: barcode);
               },
             ),
             GoRoute(
-              path: '$PRODUCT_CREATOR_PAGE/:productId',
+              path:
+                  '${_InternalAppRoutes.PRODUCT_CREATOR_PAGE.path}/:productId',
               builder: (BuildContext context, GoRouterState state) {
                 final String barcode = state.pathParameters['productId']!;
                 return AddNewProductPage(barcode: barcode);
               },
             ),
             GoRoute(
-              path: SEARCH_PAGE,
+              path: _InternalAppRoutes.SEARCH_PAGE.path,
               builder: (_, __) {
                 return SearchPage();
               },
             ),
             GoRoute(
-              path: '$PREFERENCES_PAGE/:preferenceType',
+              path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
               builder: (BuildContext context, GoRouterState state) {
                 final String? type = state.pathParameters['preferenceType'];
 
@@ -163,7 +165,7 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: '$EXTERNAL_PAGE/:path',
+              path: '${_InternalAppRoutes.EXTERNAL_PAGE}/:path',
               builder: (BuildContext context, GoRouterState state) {
                 return ExternalPage(path: state.pathParameters['path']!);
               },
@@ -175,8 +177,9 @@ class _SmoothGoRouter {
         final String path = state.matchedLocation;
 
         // Ignore deep links if the onboarding is not yet completed
-        if (state.location != HOME_PAGE && !_isOnboardingComplete(context)) {
-          return HOME_PAGE;
+        if (state.location != _InternalAppRoutes.HOME_PAGE.path &&
+            !_isOnboardingComplete(context)) {
+          return _InternalAppRoutes.HOME_PAGE.path;
         } else if (_isAnInternalRoute(path)) {
           return null;
         }
@@ -200,7 +203,7 @@ class _SmoothGoRouter {
                 return AppRoutes.PRODUCT_LOADER(barcode);
               }
             }
-          } else if (path != HOME_PAGE) {
+          } else if (path != _InternalAppRoutes.HOME_PAGE.path) {
             AnalyticsHelper.trackEvent(
               AnalyticsEvent.genericDeepLink,
             );
@@ -259,7 +262,7 @@ class _SmoothGoRouter {
   }
 
   bool _isAnInternalRoute(String path) {
-    if (path == HOME_PAGE) {
+    if (path == _InternalAppRoutes.HOME_PAGE.path) {
       return true;
     } else {
       return path.startsWith('/_');
@@ -284,18 +287,29 @@ class _SmoothGoRouter {
     return lastVisitedOnboardingPage;
   }
 
-  //endregion Onboarding
+//endregion Onboarding
+}
 
-  /// Internal routes
-  /// To differentiate external routes (eg: /product/12345678), we prefix all
-  /// internal routes with an underscore
-  static const String HOME_PAGE = '/';
-  static const String PRODUCT_DETAILS_PAGE = '_product';
-  static const String PRODUCT_LOADER_PAGE = '_product_loader';
-  static const String PRODUCT_CREATOR_PAGE = '_product_creator';
-  static const String PREFERENCES_PAGE = '_preferences';
-  static const String SEARCH_PAGE = '_search';
-  static const String EXTERNAL_PAGE = '_external';
+/// Internal routes
+/// To differentiate external routes (eg: /product/12345678), we prefix all
+/// internal routes with an underscore
+enum _InternalAppRoutes {
+  HOME_PAGE('/'),
+  PRODUCT_DETAILS_PAGE('_product'),
+  PRODUCT_LOADER_PAGE('_product_loader'),
+  PRODUCT_CREATOR_PAGE('_product_creator'),
+  PREFERENCES_PAGE('_preferences'),
+  SEARCH_PAGE('_search'),
+  EXTERNAL_PAGE('_external');
+
+  const _InternalAppRoutes(this.path);
+
+  final String path;
+
+  @override
+  String toString() {
+    return path;
+  }
 }
 
 /// A list of internal routes to use with [AppNavigator]
@@ -305,28 +319,28 @@ class AppRoutes {
   AppRoutes._();
 
   // Home page (or walkthrough during the onboarding)
-  static const String HOME = _SmoothGoRouter.HOME_PAGE;
+  static String get HOME => _InternalAppRoutes.HOME_PAGE.path;
 
   // Product details (a [Product] is mandatory in the extra)
   static String PRODUCT(String barcode) =>
-      '/${_SmoothGoRouter.PRODUCT_DETAILS_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode';
 
   // Product loader (= when a product is not in the database)
   static String PRODUCT_LOADER(String barcode) =>
-      '/${_SmoothGoRouter.PRODUCT_LOADER_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode';
 
   // Product creator or "add product" feature
   static String PRODUCT_CREATOR(String barcode) =>
-      '/${_SmoothGoRouter.PRODUCT_CREATOR_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/$barcode';
 
   // App preferences
   static String PREFERENCES(PreferencePageType type) =>
-      '/${_SmoothGoRouter.PREFERENCES_PAGE}/${type.name}';
+      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
 
   // Search view
-  static const String SEARCH = '/${_SmoothGoRouter.SEARCH_PAGE}';
+  static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE.path}';
 
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
-      '/${_SmoothGoRouter.EXTERNAL_PAGE}/$path';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}/$path';
 }
