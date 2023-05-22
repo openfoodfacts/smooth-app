@@ -5,6 +5,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
@@ -188,6 +189,11 @@ class _SmoothGoRouter {
             final String? barcode = _extractProductBarcode(path);
 
             if (barcode != null) {
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.productDeepLink,
+                barcode: barcode,
+              );
+
               if (state.extra is Product) {
                 return AppRoutes.PRODUCT(barcode);
               } else {
@@ -195,6 +201,10 @@ class _SmoothGoRouter {
               }
             }
           } else if (path != HOME_PAGE) {
+            AnalyticsHelper.trackEvent(
+              AnalyticsEvent.genericDeepLink,
+            );
+
             // Unsupported link -> open the browser
             return AppRoutes.EXTERNAL(
               path[0] == '/' ? path.substring(1) : path,
