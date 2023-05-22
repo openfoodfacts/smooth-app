@@ -194,7 +194,7 @@ class _SmoothAppState extends State<SmoothApp> {
         }
         if (snapshot.connectionState != ConnectionState.done) {
           //We don't need a loading indicator since the splash screen is still visible
-          return const SizedBox.shrink();
+          return EMPTY_WIDGET;
         }
 
         // The `create` constructor of [ChangeNotifierProvider] takes care of
