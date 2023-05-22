@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// A page to show when a [Product] is not in the database
+/// This page shouldn't be opened directly, it's only for deep links
 class ProductLoaderPage extends StatefulWidget {
   const ProductLoaderPage({
     required this.barcode,
