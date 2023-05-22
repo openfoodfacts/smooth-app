@@ -31,9 +31,11 @@ enum PreferencePageType {
   FAQ('faq'),
   CONNECT('connect');
 
-  const PreferencePageType(this.name);
+  const PreferencePageType(this.tag);
 
-  final String name;
+  /// A tag used when opening a new screen
+  /// eg: preferences/account
+  final String tag;
 }
 
 /// Preferences page: main or detailed.
