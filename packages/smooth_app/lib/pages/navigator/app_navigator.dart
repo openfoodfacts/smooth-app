@@ -17,16 +17,18 @@ import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-/// A replacement for the [Navigator], where we use internally [GoRouter]
-/// By itself [GoRouter] is not accessible, to allow us to easily change the
-/// solution if required
+/// A replacement for the [Navigator], where we internally use [GoRouter].
+/// By itself the [GoRouter] attribute is not accessible, to allow us to easily
+/// swap the solution if required
 ///
-/// There are three methods available:
+/// Three methods are available:
 /// - Push: to open a new screen
-/// - PushReplacement : to replace the current screen by a new one
-/// - Pop : to close the current screen
+/// - PushReplacement: to replace the current screen by a new one
+/// - Pop: to close the current screen
 ///
-/// /!\ [GoRouter] doesn't support [maybePop] or returning a result from a push
+/// Each screen is available in [AppRoutes].
+///
+/// /!\ [GoRouter] doesn't support [maybePop] or returning a result from a push.
 class AppNavigator extends InheritedWidget {
   AppNavigator({
     Key? key,
@@ -70,6 +72,17 @@ class AppNavigator extends InheritedWidget {
   }
 }
 
+/// Our router have the following routes:
+/// - /                       Homepage
+/// -   _product              Product details
+/// -   _product_loader       Product loader (if not in the db)
+/// -   _product_creator      Create a new product
+/// -   _preferences          User preferences
+/// -   _search               Search for a product
+/// -   _external             Open an external link on the OFF website
+///
+/// All our routes are prefixed with an underscore, as the [redirect] method
+/// is also called with non prefixed paths for deep links.
 class _SmoothGoRouter {
   _SmoothGoRouter({
     List<NavigatorObserver>? observers,
@@ -87,8 +100,8 @@ class _SmoothGoRouter {
 
               return _findLastOnboardingPage(context);
             },
-            // We use sub-routes to allow the back button from deep links to
-            // go back to the homepage
+            // We use sub-routes to allow the back button to work correctly
+            // for deep links to go back to the homepage
             routes: <GoRoute>[
               GoRoute(
                 path: '$PRODUCT_DETAILS_PAGE/:productId',
@@ -160,7 +173,7 @@ class _SmoothGoRouter {
         redirect: (BuildContext context, GoRouterState state) {
           final String path = state.matchedLocation;
 
-          // Ignore deep links if the onboarding is not completed
+          // Ignore deep links if the onboarding is not yet completed
           if (state.location != HOME_PAGE && !_isOnboardingComplete(context)) {
             return HOME_PAGE;
           } else if (_isAnInternalRoute(path)) {
@@ -207,8 +220,11 @@ class _SmoothGoRouter {
     context.read<SmoothAppDataImporter>().startMigrationAsync();
   }
 
-  /// All paths containing at least 8 digits in the second part are considered
-  /// as a valid barcode
+  /// Extract the barcode from a path only if the route have at least 8 digits
+  /// in the second part (we don't care about extra elements)
+  /// Some examples:
+  /// - produit/156164894948
+  /// - product/3017620422003/nutella-ferrero
   String? _extractProductBarcode(String path) {
     if (path.isEmpty) {
       return null;
@@ -219,12 +235,21 @@ class _SmoothGoRouter {
     if (pathParams.length > 1) {
       final String barcode = pathParams[1];
 
+      // Ensure we only have digits and at least 8 characters
       if (int.tryParse(barcode) != null && barcode.length >= 8) {
         return barcode;
       }
     }
 
     return null;
+  }
+
+  bool _isAnInternalRoute(String path) {
+    if (path == HOME_PAGE) {
+      return true;
+    } else {
+      return path.startsWith('/_');
+    }
   }
 
   //region Onboarding
@@ -247,17 +272,9 @@ class _SmoothGoRouter {
 
   //endregion Onboarding
 
-  bool _isAnInternalRoute(String path) {
-    if (path == HOME_PAGE) {
-      return true;
-    } else {
-      return path.startsWith('/_');
-    }
-  }
-
   /// Internal routes
   /// To differentiate external routes (eg: /product/12345678), we prefix all
-  /// internal routes by an underscore
+  /// internal routes with an underscore
   static const String HOME_PAGE = '/';
   static const String PRODUCT_DETAILS_PAGE = '_product';
   static const String PRODUCT_LOADER_PAGE = '_product_loader';
