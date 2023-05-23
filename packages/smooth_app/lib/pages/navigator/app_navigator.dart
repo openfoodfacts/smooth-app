@@ -325,7 +325,7 @@ class AppRoutes {
   static String PRODUCT(String barcode) =>
       '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode';
 
-  // Product loader (= when a product is not in the database)
+  // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode) =>
       '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode';
 
