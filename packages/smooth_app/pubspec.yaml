@@ -94,7 +94,7 @@ dependencies:
 
 
 
-  openfoodfacts: 2.5.0
+  openfoodfacts: 2.5.1
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
