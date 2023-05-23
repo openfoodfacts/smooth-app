@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:openfoodfacts/src/utils/country_helper.dart';
-import 'package:openfoodfacts/src/utils/language_helper.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path/path.dart' as path;
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
