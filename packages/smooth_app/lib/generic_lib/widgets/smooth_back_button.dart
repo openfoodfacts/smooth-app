@@ -16,19 +16,23 @@ class SmoothBackButton extends StatelessWidget {
   final Color? iconColor;
 
   @override
-  Widget build(BuildContext context) => InkWell(
-        onTap: onPressed ?? () => Navigator.maybePop(context),
-        customBorder: const CircleBorder(),
-        child: Tooltip(
-          message: MaterialLocalizations.of(context).backButtonTooltip,
-          child: Padding(
-            padding: _iconPadding,
-            child: Icon(
-              ConstantIcons.instance.getBackIcon(),
-              color: iconColor ??
-                  (Theme.of(context).colorScheme.brightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white),
+  Widget build(BuildContext context) => Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onPressed ?? () => Navigator.maybePop(context),
+          customBorder: const CircleBorder(),
+          child: Tooltip(
+            message: MaterialLocalizations.of(context).backButtonTooltip,
+            child: Padding(
+              padding: _iconPadding,
+              child: Icon(
+                ConstantIcons.instance.getBackIcon(),
+                color: iconColor ??
+                    (Theme.of(context).colorScheme.brightness ==
+                            Brightness.light
+                        ? Colors.black
+                        : Colors.white),
+              ),
             ),
           ),
         ),
