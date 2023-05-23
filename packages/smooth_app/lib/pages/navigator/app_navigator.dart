@@ -85,6 +85,9 @@ class AppNavigator extends InheritedWidget {
 ///
 /// All our routes are prefixed with an underscore, as the [redirect] method
 /// is also called with non prefixed paths for deep links.
+///
+/// One drawback of the implementation is that we never know the base URL of the
+/// deep link (eg: es.openfoodfacts.org)
 class _SmoothGoRouter {
   _SmoothGoRouter({
     List<NavigatorObserver>? observers,
@@ -165,9 +168,9 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: '${_InternalAppRoutes.EXTERNAL_PAGE}/:path',
+              path: _InternalAppRoutes.EXTERNAL_PAGE.path,
               builder: (BuildContext context, GoRouterState state) {
-                return ExternalPage(path: state.pathParameters['path']!);
+                return ExternalPage(path: state.queryParameters['path']!);
               },
             ),
           ],
@@ -202,16 +205,11 @@ class _SmoothGoRouter {
               } else {
                 return AppRoutes.PRODUCT_LOADER(barcode);
               }
+            } else {
+              return _openExternalLink(path);
             }
           } else if (path != _InternalAppRoutes.HOME_PAGE.path) {
-            AnalyticsHelper.trackEvent(
-              AnalyticsEvent.genericDeepLink,
-            );
-
-            // Unsupported link -> open the browser
-            return AppRoutes.EXTERNAL(
-              path[0] == '/' ? path.substring(1) : path,
-            );
+            return _openExternalLink(path);
           }
         }
 
@@ -220,6 +218,17 @@ class _SmoothGoRouter {
       errorBuilder: (_, GoRouterState state) => ErrorPage(
         url: state.location,
       ),
+    );
+  }
+
+  String _openExternalLink(String path) {
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.genericDeepLink,
+    );
+
+    // Unsupported link -> open the browser
+    return AppRoutes.EXTERNAL(
+      path[0] == '/' ? path.substring(1) : path,
     );
   }
 
@@ -342,5 +351,5 @@ class AppRoutes {
 
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
-      '/${_InternalAppRoutes.EXTERNAL_PAGE}/$path';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';
 }
