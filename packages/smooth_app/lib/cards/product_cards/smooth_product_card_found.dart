@@ -11,7 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
@@ -64,12 +64,10 @@ class SmoothProductCardFound extends StatelessWidget {
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: onTap ??
-            () async {
-              await Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => ProductPage(product),
-                ),
+            () {
+              AppNavigator.of(context).push(
+                AppRoutes.PRODUCT(product.barcode!),
+                extra: product,
               );
             },
         onLongPress: () {

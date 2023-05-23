@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -84,6 +83,23 @@ class ProductRefresher {
   }) async {
     final _MetaProductRefresher meta =
         await _fetchAndRefresh(localDatabase, barcode);
+    return meta.product;
+  }
+
+  /// Fetches the product from the server and refreshes the local database.
+  /// In the case of an error, it will be send throw an [Exception]
+  /// Silent version.
+  Future<Product?> silentFetchAndRefreshWithException({
+    required final String barcode,
+    required final LocalDatabase localDatabase,
+  }) async {
+    final _MetaProductRefresher meta =
+        await _fetchAndRefresh(localDatabase, barcode);
+
+    if (meta.error != null) {
+      throw Exception(meta.error);
+    }
+
     return meta.product;
   }
 

@@ -15,9 +15,11 @@ enum AnalyticsCategory {
   share(tag: 'share'),
   couldNotFindProduct(tag: 'could not find product'),
   productEdit(tag: 'product edit'),
-  list(tag: 'list');
+  list(tag: 'list'),
+  deepLink(tag: 'deep link');
 
   const AnalyticsCategory({required this.tag});
+
   final String tag;
 }
 
@@ -40,11 +42,15 @@ enum AnalyticsEvent {
     tag: 'opened product edit page',
     category: AnalyticsCategory.productEdit,
   ),
-
   shareList(tag: 'shared a list', category: AnalyticsCategory.list),
-  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list);
+  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list),
+  productDeepLink(
+      tag: 'open a product from an URL', category: AnalyticsCategory.deepLink),
+  genericDeepLink(
+      tag: 'generic deep link', category: AnalyticsCategory.deepLink);
 
   const AnalyticsEvent({required this.tag, required this.category});
+
   final String tag;
   final AnalyticsCategory category;
 }

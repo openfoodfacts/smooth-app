@@ -14,7 +14,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:scanner_shared/scanner_shared.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -28,6 +27,7 @@ import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -194,7 +194,7 @@ class _SmoothAppState extends State<SmoothApp> {
         }
         if (snapshot.connectionState != ConnectionState.done) {
           //We don't need a loading indicator since the splash screen is still visible
-          return Container();
+          return EMPTY_WIDGET;
         }
 
         // The `create` constructor of [ChangeNotifierProvider] takes care of
@@ -220,13 +220,13 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
           ],
-          builder: _buildApp,
+          child: AppNavigator(child: Builder(builder: _buildApp)),
         );
       },
     );
   }
 
-  Widget _buildApp(BuildContext context, Widget? child) {
+  Widget _buildApp(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ColorProvider colorProvider = context.watch<ColorProvider>();
     final TextContrastProvider textContrastProvider =
@@ -234,7 +234,6 @@ class _SmoothAppState extends State<SmoothApp> {
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
     OnboardingFlowNavigator(_userPreferences);
-    final Widget appWidget = lastVisitedOnboardingPage.getPageWidget(context);
     final bool isOnboardingComplete =
         lastVisitedOnboardingPage.isOnboardingComplete();
     themeProvider.setOnboardingComplete(isOnboardingComplete);
@@ -245,20 +244,17 @@ class _SmoothAppState extends State<SmoothApp> {
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
 
-    return MaterialApp(
+    return MaterialApp.router(
       locale: languageCode != null ? Locale(languageCode) : null,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
-      navigatorObservers: <NavigatorObserver>[
-        SentryNavigatorObserver(),
-      ],
       theme: SmoothTheme.getThemeData(
           Brightness.light, themeProvider, colorProvider, textContrastProvider),
       darkTheme: SmoothTheme.getThemeData(
           Brightness.dark, themeProvider, colorProvider, textContrastProvider),
       themeMode: themeProvider.currentThemeMode,
-      home: SmoothAppGetLanguage(appWidget, _userPreferences),
+      routerConfig: AppNavigator.of(context).router,
     );
   }
 
@@ -272,26 +268,5 @@ class _SmoothAppState extends State<SmoothApp> {
         ),
       ),
     );
-  }
-}
-
-/// Layer needed because we need to know the language. Language isn't available
-/// in the [context] in top level widget ([SmoothApp])
-class SmoothAppGetLanguage extends StatelessWidget {
-  const SmoothAppGetLanguage(this.appWidget, this.userPreferences);
-
-  final Widget appWidget;
-  final UserPreferences userPreferences;
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO(monsieurtanuki): refactor removing the `SmoothAppGetLanguage` layer?
-    ProductQuery.setLanguage(context, userPreferences);
-    context.read<ProductPreferences>().refresh();
-
-    // The migration requires the language to be set in the app!
-    _appDataImporter.startMigrationAsync();
-
-    return appWidget;
   }
 }

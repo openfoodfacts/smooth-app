@@ -16,6 +16,7 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_simple_input_button.dart';
@@ -70,6 +71,7 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, the product will be editable
   final bool isProductEditable;
+
   @override
   State<SummaryCard> createState() => _SummaryCardState();
 }
@@ -444,14 +446,8 @@ class _SummaryCardState extends State<SummaryCard> {
           InkWell(
             borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
             onTap: widget.isSettingClickable
-                ? () async => Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const UserPreferencesPage(
-                          type: PreferencePageType.FOOD,
-                        ),
-                      ),
+                ? () => AppNavigator.of(context).push(
+                      AppRoutes.PREFERENCES(PreferencePageType.FOOD),
                     )
                 : null,
             child: Tooltip(
