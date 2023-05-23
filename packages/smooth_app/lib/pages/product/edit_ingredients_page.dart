@@ -295,8 +295,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                           ),
                         ),
                         maxLines: null,
-                        textInputAction: TextInputAction.done,
-                        onSubmitted: (_) async => _updateText(),
+                        textInputAction: TextInputAction.newline,
                       ),
                       const SizedBox(height: SMALL_SPACE),
                       ExplanationWidget(
