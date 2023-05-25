@@ -448,6 +448,30 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_custom_tabs:
+    dependency: "direct main"
+    description:
+      name: flutter_custom_tabs
+      sha256: bebb9552438eb3aea8f8511d48e41abdd0d05ff3e9a74622a4d1acd2bffd242c
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
+  flutter_custom_tabs_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_custom_tabs_platform_interface
+      sha256: bbd2d9a2ff22d27e079a35302ddd3da9f2328110c370d56c81655a7ba306fee2
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
+  flutter_custom_tabs_web:
+    dependency: transitive
+    description:
+      name: flutter_custom_tabs_web
+      sha256: d735abff9a1b215018dfe2584f131fe0a3bb0e3b685fbd6ae8a55cf5c4d7dcd8
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   flutter_driver:
     dependency: "direct dev"
     description: flutter
@@ -629,10 +653,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "80e37516b8d452d982fc32bd7bb22adbd20e422612ef2b3e1df8b8350cbf199b"
+      sha256: b185cf91b5a6861f4c2a92ddaa65f8919909416ee033e00751f7c67ebee1588d
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.1"
+    version: "7.0.2"
   hive:
     dependency: "direct main"
     description:
