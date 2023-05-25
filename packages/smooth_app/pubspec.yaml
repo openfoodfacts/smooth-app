@@ -65,6 +65,7 @@ dependencies:
   shimmer: 2.0.0
   lottie: 2.2.0
   webview_flutter: 3.0.4
+  flutter_custom_tabs: ^1.0.4
   flutter_image_compress: 1.1.3
 
   # According to the build variant, only one "app store" implementation must be added when building a release

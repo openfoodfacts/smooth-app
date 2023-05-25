@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_tabs/flutter_custom_tabs.dart' as tabs;
 import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path/path.dart' as path;
@@ -57,7 +60,16 @@ class _ExternalPageState extends State<ExternalPage> {
         url = '$url?lc=${language.offTag}';
       }
 
-      await LaunchUrlHelper.launchURL(url, false);
+      if (Platform.isAndroid) {
+        await tabs.launch(
+          url,
+          customTabsOption: const tabs.CustomTabsOption(
+            showPageTitle: true,
+          ),
+        );
+      } else {
+        await LaunchUrlHelper.launchURL(url, false);
+      }
 
       if (mounted) {
         AppNavigator.of(context).pop();
