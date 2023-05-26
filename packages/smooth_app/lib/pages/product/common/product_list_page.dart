@@ -86,6 +86,7 @@ class _ProductListPageState extends State<ProductListPage>
     final bool dismissible;
     switch (productList.listType) {
       case ProductListType.SCAN_SESSION:
+      case ProductListType.SCAN_HISTORY:
       case ProductListType.HISTORY:
       case ProductListType.USER:
         dismissible = productList.barcodes.isNotEmpty;
