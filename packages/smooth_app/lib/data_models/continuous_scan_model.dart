@@ -105,6 +105,8 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
 
+    code = _fixBarcodeIfNecessary(code);
+
     if (_latestScannedBarcode == code || _barcodes.contains(code)) {
       lastConsultedBarcode = code;
       return false;
@@ -279,5 +281,15 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> refresh() async {
     await _refresh();
     notifyListeners();
+  }
+
+  /// Sometimes the scanner may fail, this is a simple fix for now
+  /// But could be improved in the future
+  String _fixBarcodeIfNecessary(String code) {
+    if (code.length == 12) {
+      return '0$code';
+    } else {
+      return code;
+    }
   }
 }
