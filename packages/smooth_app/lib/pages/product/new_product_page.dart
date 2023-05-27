@@ -207,46 +207,49 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     );
   }
 
-  Widget _buildWebsiteWidget(String website) => InkWell(
-        onTap: () async {
-          if (!website.startsWith('http')) {
-            website = 'http://$website';
-          }
-          LaunchUrlHelper.launchURL(website, false);
-        }, // _product.website!
-        child: buildProductSmoothCard(
-          header: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: SMALL_SPACE,
-              horizontal: LARGE_SPACE,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  AppLocalizations.of(context).product_field_website_title,
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-              ],
-            ),
-          ),
-          body: Padding(
+  Widget _buildWebsiteWidget(String website) => buildProductSmoothCard(
+        body: InkWell(
+          onTap: () async {
+            if (!website.startsWith('http')) {
+              website = 'http://$website';
+            }
+            LaunchUrlHelper.launchURL(website, false);
+          },
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          child: Container(
+            width: double.infinity,
             padding: const EdgeInsets.only(
-              bottom: LARGE_SPACE,
               left: LARGE_SPACE,
+              top: LARGE_SPACE,
+              bottom: LARGE_SPACE,
+              // To be perfectly aligned with arrows
+              right: 21.0,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Flexible(
-                    child: Text(
-                  website,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Colors.blue),
-                )),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        AppLocalizations.of(context)
+                            .product_field_website_title,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      Text(
+                        website,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.blue),
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.open_in_new),
               ],
             ),
           ),

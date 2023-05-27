@@ -71,13 +71,25 @@ class SmoothProductCardTemplate extends StatelessWidget {
                 child: SizedBox(
                   height: screenSize.width * 0.2,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      if (barcode == null) textWidget else Text(barcode!),
+                      if (barcode == null)
+                        textWidget
+                      else
+                        Text(
+                          barcode!,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       if (message == null) textWidget,
-                      if (message == null) textWidget,
-                      if (message != null) AutoSizeText(message!, maxLines: 3),
+                      if (message != null)
+                        Padding(
+                          padding: const EdgeInsets.only(top: SMALL_SPACE),
+                          child: AutoSizeText(
+                            message!,
+                            maxLines: 3,
+                            minFontSize: 5,
+                          ),
+                        ),
                     ],
                   ),
                 ),
