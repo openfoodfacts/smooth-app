@@ -426,9 +426,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan",
+    "scan": "Scan session",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "Scan history",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "Search",
     "@search": {
