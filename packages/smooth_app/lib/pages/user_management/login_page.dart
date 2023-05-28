@@ -95,7 +95,6 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     final Size size = MediaQuery.of(context).size;
 
     return SmoothScaffold(
-      extendBodyBehindAppBar: true,
       statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
       contentBehindStatusBar: true,
       fixKeyboard: true,
@@ -113,9 +112,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
             child: Container(
               alignment: Alignment.topCenter,
               width: double.infinity,
-              padding: EdgeInsets.symmetric(
-                horizontal: size.width * 0.15,
-                vertical: size.width * 0.05,
+              padding: EdgeInsets.only(
+                left: size.width * 0.15,
+                right: size.width * 0.15,
+                bottom: size.width * 0.05,
               ),
               child: AutofillGroup(
                 child: Center(
@@ -124,10 +124,6 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const SizedBox(
-                        height: LARGE_SPACE * 2,
-                      ),
-
                       SvgPicture.asset(
                         'assets/preferences/login.svg',
                         height: MediaQuery.of(context).size.height * .15,

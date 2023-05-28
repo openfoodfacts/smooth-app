@@ -98,6 +98,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
           overflow: TextOverflow.ellipsis,
         ),
         hintText: widget.hintText,
+        hintMaxLines: 2,
         border: const OutlineInputBorder(
           borderRadius: CIRCULAR_BORDER_RADIUS,
         ),
