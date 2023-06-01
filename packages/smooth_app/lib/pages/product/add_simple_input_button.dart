@@ -11,19 +11,28 @@ class AddSimpleInputButton extends StatelessWidget {
   const AddSimpleInputButton({
     required this.product,
     required this.helper,
+    this.isLoggedInMandatory = true,
+    this.forcedTitle,
+    this.forcedIconData,
   });
 
   final Product product;
   final AbstractSimpleInputPageHelper helper;
+  final bool isLoggedInMandatory;
+  final String? forcedTitle;
+  final IconData? forcedIconData;
 
   @override
   Widget build(BuildContext context) => addPanelButton(
-        helper.getAddButtonLabel(AppLocalizations.of(context)),
+        forcedTitle ?? helper.getAddButtonLabel(AppLocalizations.of(context)),
         onPressed: () async {
-          // ignore: use_build_context_synchronously
-          if (!await ProductRefresher().checkIfLoggedIn(context)) {
-            return;
+          if (isLoggedInMandatory) {
+            // ignore: use_build_context_synchronously
+            if (!await ProductRefresher().checkIfLoggedIn(context)) {
+              return;
+            }
           }
+
           // ignore: use_build_context_synchronously
           await Navigator.push<void>(
             context,
@@ -36,5 +45,6 @@ class AddSimpleInputButton extends StatelessWidget {
             ),
           );
         },
+        iconData: forcedIconData,
       );
 }

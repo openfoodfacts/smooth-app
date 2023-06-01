@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 class SmoothLargeButtonWithIcon extends StatelessWidget {
   const SmoothLargeButtonWithIcon({
@@ -8,12 +11,14 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     required this.icon,
     required this.onPressed,
     this.padding,
+    this.imageFile,
   });
 
   final String text;
   final IconData icon;
   final VoidCallback onPressed;
   final EdgeInsets? padding;
+  final File? imageFile;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +47,16 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
             ),
           ),
           const Spacer(),
+          if (imageFile != null)
+            SizedBox(
+              height: 50,
+              width: 50,
+              child: ClipRRect(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                child: Image.file(imageFile!, fit: BoxFit.cover),
+              ),
+            ),
+          if (imageFile != null) const Spacer(),
         ],
       ),
     );
