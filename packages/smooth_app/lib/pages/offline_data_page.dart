@@ -123,15 +123,14 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               daoProduct: daoProduct,
             ),
             _OfflinePageListTile(
-              title: 'Download Data',
-              subtitle:
-                  'Download the top 1000 products in your country for instant scanning',
+              title: appLocalizations.download_data,
+              subtitle: appLocalizations.download_top_products,
               onTap: () async {
                 final LocalDatabase localDatabase =
                     context.read<LocalDatabase>();
                 final DaoProduct daoProduct = DaoProduct(localDatabase);
                 final int newlyAddedProducts = await LoadingDialog.run<int>(
-                      title: 'Downloading data\nThis may take a while',
+                      title: appLocalizations.download_in_progress,
                       context: context,
                       future:
                           PreloadDataHelper(daoProduct).downloadTopProducts(),
@@ -140,7 +139,9 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                 // ignore: use_build_context_synchronously
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('$newlyAddedProducts products added'),
+                    content: Text(
+                      appLocalizations.downloaded_products(newlyAddedProducts),
+                    ),
                   ),
                 );
                 localDatabase.notifyListeners();
@@ -148,13 +149,12 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               trailing: const Icon(Icons.download),
             ),
             _OfflinePageListTile(
-              title: 'Update Offline Product Data',
-              subtitle:
-                  'Update the local product database with the latest data from server',
+              title: appLocalizations.update_offline_data,
+              subtitle: appLocalizations.update_local_database_sub,
               trailing: const Icon(Icons.refresh),
               onTap: () async {
                 final int newlyAddedProducts = await LoadingDialog.run<int>(
-                      title: 'Downloading data\nThis may take a while',
+                      title: appLocalizations.download_in_progress,
                       context: context,
                       future: updateLocalDatabaseFromServer(context),
                     ) ??
@@ -164,7 +164,8 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                        '$newlyAddedProducts products updated',
+                        appLocalizations
+                            .downloaded_products(newlyAddedProducts),
                       ),
                       duration: SnackBarDuration.brief,
                     ),
@@ -173,16 +174,17 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               },
             ),
             _OfflinePageListTile(
-              title: 'Clear Offline Product Data',
-              subtitle:
-                  'Clear all local product data from your app to free up space',
+              title: appLocalizations.clear_local_database,
+              subtitle: appLocalizations.clear_local_database_sub,
               trailing: const Icon(Icons.delete),
               onTap: () async {
                 final int totalProductsDeleted = await daoProduct.deleteAll();
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('$totalProductsDeleted products deleted'),
+                      content: Text(
+                        appLocalizations.deleted_products(totalProductsDeleted),
+                      ),
                       duration: SnackBarDuration.brief,
                     ),
                   );
@@ -191,8 +193,8 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               },
             ),
             _OfflinePageListTile(
-              title: 'Know More',
-              subtitle: 'Click to know more about offline data',
+              title: appLocalizations.know_more,
+              subtitle: appLocalizations.offline_data_desc,
               trailing: const Icon(Icons.info),
               // ignore: avoid_returning_null_for_void
               onTap: () => null,
@@ -215,18 +217,20 @@ class _StatsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations applocalizations = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: ListTile(
-        title: const Text('Offline Product Data'),
+        title: Text(applocalizations.offline_product_data_title),
         subtitle: FutureBuilder<int>(
           future: daoProduct.getTotalNoOfProducts(),
           builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
             if (snapshot.hasData) {
               return Text(
-                  '${snapshot.data} products available for immediate scaning');
+                applocalizations.available_for_download(snapshot.data!),
+              );
             } else {
-              return const Text('Loading...');
+              return Text(applocalizations.loading);
             }
           },
         ),

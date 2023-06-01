@@ -2078,5 +2078,76 @@
     "page_not_found_button": "Go back to the homepage",
     "@page_not_found_button": {
         "description": "Button to go back to the homepage"
+    },
+    "download_data": "Download data",
+    "@download_data": {
+      "description": "App bar title for the download data page"
+    },
+    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "@download_top_products": {
+      "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "Downloading data\nThis may take a while",
+    "@download_in_progress": {
+      "description": "Download in progress"
+    },
+    "downloaded_products": "{num} products added",
+    "@downloaded_products": {
+      "description": "text to show when products added",
+      "placeholders": {
+        "num": {
+          "type": "int"
+        }
+      }
+    },
+    "update_offline_data": "Update offline product data",
+    "@update_offline_data": {
+      "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "@update_local_database_sub": {
+      "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "Clear offline product data",
+    "@clear_local_database": {
+      "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "@clear_local_database_sub": {
+      "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "{num} products deleted",
+    "@deleted_products": {
+      "description": "text to show when products are deleted from local databse",
+      "placeholders": {
+        "num": {
+          "type": "int"
+        }
+      }
+    },
+    "loading": "Loading…",
+    "@loading": {
+      "description": "Loading…"
+    },
+    "know_more": "Know More",
+    "@know_more": {
+      "description": "Know More"
+    },
+    "offline_data_desc": "Click to know more about offline data",
+    "@offline_data_desc": {
+      "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "Offline product data",
+    "@offline_product_data_title": {
+      "description": "Offline Product Data"
+    },
+    "available_for_download": "{num} products available for immediate scaning",
+    "@available_for_download": {
+      "description": "text to show details of products available for download",
+      "placeholders": {
+        "num": {
+          "type": "int"
+        }
+      }
     }
 }
