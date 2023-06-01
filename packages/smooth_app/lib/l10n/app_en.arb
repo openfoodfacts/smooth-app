@@ -2074,7 +2074,7 @@
     "@page_not_found_button": {
         "description": "Button to go back to the homepage"
     },
-    "download_data": "Download Data",
+    "download_data": "Download data",
     "@download_data": {
       "description": "App bar title for the download data page"
     },
@@ -2095,15 +2095,15 @@
         }
       }
     },
-    "update_offline_data": "Update Offline Product Data",
+    "update_offline_data": "Update offline product data",
     "@update_offline_data": {
       "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from server",
+    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
     "@update_local_database_sub": {
       "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear Offline Product Data",
+    "clear_local_database": "Clear offline product data",
     "@clear_local_database": {
       "description": "List tile title for the clear local database page"
     },
@@ -2120,9 +2120,9 @@
         }
       }
     },
-    "loading": "Loading...",
+    "loading": "Loading…",
     "@loading": {
-      "description": "Loading..."
+      "description": "Loading…"
     },
     "know_more": "Know More",
     "@know_more": {
@@ -2132,7 +2132,7 @@
     "@offline_data_desc": {
       "description": "Click to know more about offline data"
     },
-    "offline_product_data_title": "Offline Product Data",
+    "offline_product_data_title": "Offline product data",
     "@offline_product_data_title": {
       "description": "Offline Product Data"
     },
