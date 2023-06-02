@@ -307,25 +307,10 @@ class _EditProductPageState extends State<EditProductPage> {
       leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
       subtitle: helper.getSubtitle(appLocalizations),
-      onTap: () async {
-        if (!await ProductRefresher().checkIfLoggedIn(context)) {
-          return;
-        }
-        AnalyticsHelper.trackProductEdit(
-          helper.getAnalyticsEditEvent(),
-          _barcode,
-        );
-        await Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => SimpleInputPage(
-              helper: helper,
-              product: _product,
-            ),
-            fullscreenDialog: true,
-          ),
-        );
-      },
+      onTap: () async => helper.showEditPage(
+        context: context,
+        product: _product,
+      ),
     );
   }
 
