@@ -48,7 +48,7 @@ dependencies:
   percent_indicator: 4.2.3
   flutter_email_sender: 5.2.0
   flutter_native_splash: 2.2.19
-  image: 4.0.16
+  image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.6
   shared_preferences: 2.1.1
