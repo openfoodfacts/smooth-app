@@ -62,7 +62,7 @@ dependencies:
     path: ../data_importer
   share_plus: 6.3.4
   fimber: 0.6.6
-  shimmer: 2.0.0
+  shimmer: ^3.0.0
   lottie: 2.2.0
   webview_flutter: 3.0.4
   flutter_custom_tabs: ^1.0.4
