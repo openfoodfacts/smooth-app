@@ -14,7 +14,10 @@ class PreloadDataHelper {
   /// Also We don't update the products in local database for which we already have knowledge panels.
   Future<int> downloadTopProducts() async {
     try {
-      final List<ProductField> fields = ProductQuery.fields;
+      final List<ProductField> fields = List<ProductField>.from(
+        ProductQuery.fields,
+        growable: true,
+      );
       fields.remove(ProductField.KNOWLEDGE_PANELS);
       final ProductSearchQueryConfiguration queryConfig =
           ProductSearchQueryConfiguration(
