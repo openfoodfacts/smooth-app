@@ -40,7 +40,10 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
   }
   final List<ProductField> fieldsForCompleteProducts = ProductQuery.fields;
   final List<ProductField> fieldsForProductsWithoutKnowledgePanel =
-      ProductQuery.fields;
+      List<ProductField>.from(
+    ProductQuery.fields,
+    growable: true,
+  );
   fieldsForProductsWithoutKnowledgePanel.remove(ProductField.KNOWLEDGE_PANELS);
   int totalUpdatedProducts = 0;
 
