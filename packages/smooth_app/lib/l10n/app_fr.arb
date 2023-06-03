@@ -540,6 +540,7 @@
     "new_product_subtitle_nutriscore": "Merci de renseigner la catégorie de l'aliment et les données nutritionnelles",
     "new_product_title_ecoscore": "Calculez l'Eco-Score",
     "new_product_subtitle_ecoscore": "Merci de renseigner au moins la catégorie de l'aliment",
+    "new_product_additional_ecoscore": "Améliorez le calcul de l'Eco-Score grâce aux origines, au packaging & autres",
     "new_product_title_pictures": "Prenez quelques photos",
     "new_product_title_misc": "Quelques données générales…",
     "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",

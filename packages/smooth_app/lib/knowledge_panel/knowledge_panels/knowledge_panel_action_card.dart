@@ -6,7 +6,7 @@ import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
 import 'package:smooth_app/pages/product/add_packaging_button.dart';
 import 'package:smooth_app/pages/product/add_simple_input_button.dart';
-import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
@@ -63,9 +63,9 @@ class KnowledgePanelActionCard extends StatelessWidget {
       );
     }
     if (_isIngredient(action)) {
-      return AddOCRButton(
+      return AddOcrButton(
         product: product,
-        helper: OcrIngredientsHelper(),
+        editor: ProductFieldOcrIngredientEditor(),
       );
     }
     if (action == KnowledgePanelActionElement.ACTION_ADD_NUTRITION_FACTS) {

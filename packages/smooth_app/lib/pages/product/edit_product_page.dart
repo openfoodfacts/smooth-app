@@ -18,14 +18,10 @@ import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
-import 'package:smooth_app/pages/product/edit_new_packagings.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
-import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
-import 'package:smooth_app/pages/product/ocr_packaging_helper.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
@@ -132,22 +128,10 @@ class _EditProductPageState extends State<EditProductPage> {
                   title: appLocalizations.edit_product_form_item_details_title,
                   subtitle:
                       appLocalizations.edit_product_form_item_details_subtitle,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-
-                    AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.basicDetails, _barcode);
-
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (_) => AddBasicDetailsPage(_product),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
+                  onTap: () async => ProductFieldDetailsEditor().edit(
+                    context: context,
+                    product: _product,
+                  ),
                 ),
                 _ListTitleItem(
                   leading: const Icon(Icons.add_a_photo_rounded),
@@ -185,24 +169,10 @@ class _EditProductPageState extends State<EditProductPage> {
                       const _SvgIcon('assets/cacheTintable/ingredients.svg'),
                   title:
                       appLocalizations.edit_product_form_item_ingredients_title,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.ingredients_and_Origins, _barcode);
-
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => EditOcrPage(
-                          product: _product,
-                          helper: OcrIngredientsHelper(),
-                        ),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
+                  onTap: () async => ProductFieldOcrIngredientEditor().edit(
+                    context: context,
+                    product: _product,
+                  ),
                 ),
                 _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
                 _ListTitleItem(
@@ -225,48 +195,19 @@ class _EditProductPageState extends State<EditProductPage> {
                 _ListTitleItem(
                   leading: const _SvgIcon('assets/cacheTintable/packaging.svg'),
                   title: appLocalizations.edit_packagings_title,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.packagingComponents, _barcode);
-
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => EditNewPackagings(
-                          product: _product,
-                        ),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
+                  onTap: () async => ProductFieldPackagingEditor().edit(
+                    context: context,
+                    product: _product,
+                  ),
                 ),
                 _ListTitleItem(
                   leading: const Icon(Icons.recycling),
                   title:
                       appLocalizations.edit_product_form_item_packaging_title,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.recyclingInstructionsPhotos,
-                      _barcode,
-                    );
-
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => EditOcrPage(
-                          product: _product,
-                          helper: OcrPackagingHelper(),
-                        ),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
+                  onTap: () async => ProductFieldOcrPackagingEditor().edit(
+                    context: context,
+                    product: _product,
+                  ),
                 ),
                 _getSimpleListTileItem(SimpleInputPageStoreHelper()),
                 _getSimpleListTileItem(SimpleInputPageOriginHelper()),

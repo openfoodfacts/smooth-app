@@ -18,10 +18,10 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/category_product_query.dart';
@@ -326,16 +326,14 @@ class _SummaryCardState extends State<SummaryCard> {
               .contains(ProductState.PRODUCT_NAME_COMPLETED.toBeCompletedTag) ||
           statesTags
               .contains(ProductState.QUANTITY_COMPLETED.toBeCompletedTag)) {
+        final ProductFieldEditor editor = ProductFieldDetailsEditor();
         summaryCardButtons.add(
           addPanelButton(
-            localizations.completed_basic_details_btn_text,
+            editor.getLabel(localizations),
             onPressed: () async => widget.isProductEditable
-                ? Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) =>
-                          AddBasicDetailsPage(_product),
-                    ),
+                ? editor.edit(
+                    context: context,
+                    product: _product,
                   )
                 : null,
           ),
