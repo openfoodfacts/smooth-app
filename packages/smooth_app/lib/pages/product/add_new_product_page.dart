@@ -111,9 +111,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              _buildCard(_getImageRows(context)),
               _buildCard(_getNutriscoreRows(context)),
               _buildCard(_getEcoscoreRows(context)),
-              _buildCard(_getImageRows(context)),
               _buildCard(_getMiscRows(context)),
               const SizedBox(height: MINIMUM_TOUCH_SIZE),
             ],
@@ -154,14 +154,15 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       _product.getAttributes(<String>[tag])[tag];
 
   List<Widget> _getNutriscoreRows(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NUTRISCORE);
     return <Widget>[
       Text(
-        'Compute the Nutri-Score',
+        appLocalizations.new_product_title_nutriscore,
         style: _getTitleStyle(context),
       ),
       Text(
-        'Help us by filling at least a category and nutritional values',
+        appLocalizations.new_product_subtitle_nutriscore,
         style: _getSubtitleStyle(context),
       ),
       _buildCategoriesButton(context),
@@ -176,14 +177,15 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   }
 
   List<Widget> _getEcoscoreRows(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
     return <Widget>[
       Text(
-        'Compute the Eco-Score',
+        appLocalizations.new_product_title_ecoscore,
         style: _getTitleStyle(context),
       ),
       Text(
-        'Help us by filling at least a category',
+        appLocalizations.new_product_subtitle_ecoscore,
         style: _getSubtitleStyle(context),
       ),
       _buildCategoriesButton(context),
@@ -327,6 +329,9 @@ class _MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
+    final bool dark = themeData.brightness == Brightness.dark;
+    final Color? darkGrey = Colors.grey[700];
+    final Color? lightGrey = Colors.grey[300];
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: SmoothLargeButtonWithIcon(
@@ -335,12 +340,12 @@ class _MyButton extends StatelessWidget {
         onPressed: onPressed,
         trailing: Icons.edit,
         backgroundColor: onPressed == null
-            ? Colors.grey[300] // TODO dark
+            ? (dark ? darkGrey : lightGrey)
             : done
-                ? Colors.green[700] // TODO dark
+                ? Colors.green[700]
                 : themeData.colorScheme.secondary,
         foregroundColor: onPressed == null
-            ? Colors.grey[700]
+            ? (dark ? lightGrey : darkGrey)
             : done
                 ? Colors.white
                 : themeData.colorScheme.onSecondary,
