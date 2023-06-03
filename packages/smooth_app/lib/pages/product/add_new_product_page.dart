@@ -12,10 +12,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
-import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
@@ -24,6 +22,13 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const IconData _doneIcon = Icons.check;
 const IconData _todoIcon = Icons.add;
+
+TextStyle? _getTitleStyle(final BuildContext context) =>
+    Theme.of(context).textTheme.displaySmall;
+TextStyle? _getSubtitleStyle(final BuildContext context) => null;
+
+double _getScoreIconHeight(final BuildContext context) =>
+    MediaQuery.of(context).size.height * .2;
 
 /// Returns true if the [field] is valid (= not empty).
 bool _isProductFieldValid(final String? field) =>
@@ -106,9 +111,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              _buildCard(_getImageRows(context)),
               _buildCard(_getNutriscoreRows(context)),
               _buildCard(_getEcoscoreRows(context)),
-              _buildCard(_getImageRows(context)),
               _buildCard(_getMiscRows(context)),
               const SizedBox(height: MINIMUM_TOUCH_SIZE),
             ],
@@ -139,7 +144,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     final List<Widget> children,
   ) =>
       SmoothCard(
-        color: Colors.blue[100],
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: children,
@@ -150,36 +154,57 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       _product.getAttributes(<String>[tag])[tag];
 
   List<Widget> _getNutriscoreRows(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NUTRISCORE);
     return <Widget>[
-      _CardTitle(
-        attribute?.descriptionShort ??
-            attribute?.description ??
-            AppLocalizations.of(context).new_product_title_nutriscore,
-        svgUrl: attribute?.iconUrl ?? ProductDialogHelper.unknownSvgNutriscore,
+      Text(
+        appLocalizations.new_product_title_nutriscore,
+        style: _getTitleStyle(context),
+      ),
+      Text(
+        appLocalizations.new_product_subtitle_nutriscore,
+        style: _getSubtitleStyle(context),
       ),
       _buildCategoriesButton(context),
       _buildNutritionInputButton(context),
+      Center(
+        child: SvgIconChip(
+          attribute?.iconUrl ?? ProductDialogHelper.unknownSvgNutriscore,
+          height: _getScoreIconHeight(context),
+        ),
+      ),
     ];
   }
 
   List<Widget> _getEcoscoreRows(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
     return <Widget>[
-      _CardTitle(
-        attribute?.descriptionShort ??
-            attribute?.description ??
-            AppLocalizations.of(context).new_product_title_ecoscore,
-        svgUrl: attribute?.iconUrl ?? ProductDialogHelper.unknownSvgEcoscore,
+      Text(
+        appLocalizations.new_product_title_ecoscore,
+        style: _getTitleStyle(context),
+      ),
+      Text(
+        appLocalizations.new_product_subtitle_ecoscore,
+        style: _getSubtitleStyle(context),
       ),
       _buildCategoriesButton(context),
+      Center(
+        child: SvgIconChip(
+          attribute?.iconUrl ?? ProductDialogHelper.unknownSvgEcoscore,
+          height: _getScoreIconHeight(context),
+        ),
+      ),
     ];
   }
 
   List<Widget> _getImageRows(final BuildContext context) {
     final List<Widget> rows = <Widget>[];
     rows.add(
-      _CardTitle(AppLocalizations.of(context).new_product_title_pictures),
+      Text(
+        AppLocalizations.of(context).new_product_title_pictures,
+        style: _getTitleStyle(context),
+      ),
     );
     // First build rows for buttons to ask user to upload images.
     for (final ImageField imageField
@@ -226,44 +251,51 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             });
           }
         },
-        imageFile: imageFile,
+        done: imageFile != null,
       );
 
   // we let the user change the values
   Widget _buildNutritionInputButton(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return _MyButton(
-      _nutritionFactsAdded
-          ? appLocalizations.nutritional_facts_added
-          : appLocalizations.nutritional_facts_input_button_label,
-      _nutritionFactsAdded ? _doneIcon : _todoIcon,
-      () async => NutritionPageLoaded.showNutritionPage(
-        product: _product,
-        isLoggedInMandatory: false,
-        widget: this,
-      ),
+      appLocalizations.nutritional_facts_input_button_label,
+      Icons.filter_2,
+      // deactivated when the categories were not set beforehand
+      !_categoriesAdded
+          ? null
+          : () async => NutritionPageLoaded.showNutritionPage(
+                product: _product,
+                isLoggedInMandatory: false,
+                widget: this,
+              ),
+      done: _nutritionFactsAdded,
     );
   }
 
-  Widget _buildCategoriesButton(final BuildContext context) =>
-      AddSimpleInputButton(
+  Widget _buildCategoriesButton(final BuildContext context) {
+    final SimpleInputPageCategoryHelper helper =
+        SimpleInputPageCategoryHelper();
+    return _MyButton(
+      helper.getAddButtonLabel(AppLocalizations.of(context)),
+      Icons.filter_1,
+      () async => helper.showEditPage(
+        context: context,
         product: _product,
-        helper: SimpleInputPageCategoryHelper(),
         isLoggedInMandatory: false,
-        forcedTitle: _categoriesAdded
-            ? AppLocalizations.of(context).categories_added
-            : null,
-        forcedIconData: _categoriesAdded ? _doneIcon : _todoIcon,
-      );
+      ),
+      done: _categoriesAdded,
+    );
+  }
 
   List<Widget> _getMiscRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return <Widget>[
-      _CardTitle(appLocalizations.new_product_title_misc),
+      Text(
+        appLocalizations.new_product_title_misc,
+        style: _getTitleStyle(context),
+      ),
       _MyButton(
-        _basicDetailsAdded
-            ? appLocalizations.basic_details_add_success
-            : appLocalizations.completed_basic_details_btn_text,
+        appLocalizations.completed_basic_details_btn_text,
         _basicDetailsAdded ? _doneIcon : _todoIcon,
         () async => Navigator.push<void>(
           context,
@@ -274,6 +306,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             ),
           ),
         ),
+        done: _basicDetailsAdded,
       ),
     ];
   }
@@ -285,48 +318,37 @@ class _MyButton extends StatelessWidget {
     this.label,
     this.iconData,
     this.onPressed, {
-    this.imageFile,
+    required this.done,
   });
 
   final String label;
   final IconData iconData;
-  final VoidCallback onPressed;
-  final File? imageFile;
-
-  @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-        child: SmoothLargeButtonWithIcon(
-          text: label,
-          icon: iconData,
-          onPressed: onPressed,
-          imageFile: imageFile,
-        ),
-      );
-}
-
-/// Standard card title.
-class _CardTitle extends StatelessWidget {
-  const _CardTitle(
-    this.label, {
-    this.svgUrl,
-  });
-
-  final String label;
-  final String? svgUrl;
+  final VoidCallback? onPressed;
+  final bool done;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: svgUrl == null
-          ? null
-          : SvgIconChip(
-              svgUrl!,
-              height: IconWidgetSizer.getIconSizeFromContext(context),
-            ),
-      title: Text(
-        label,
-        style: Theme.of(context).textTheme.displaySmall,
+    final ThemeData themeData = Theme.of(context);
+    final bool dark = themeData.brightness == Brightness.dark;
+    final Color? darkGrey = Colors.grey[700];
+    final Color? lightGrey = Colors.grey[300];
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      child: SmoothLargeButtonWithIcon(
+        text: label,
+        icon: iconData,
+        onPressed: onPressed,
+        trailing: Icons.edit,
+        backgroundColor: onPressed == null
+            ? (dark ? darkGrey : lightGrey)
+            : done
+                ? Colors.green[700]
+                : themeData.colorScheme.secondary,
+        foregroundColor: onPressed == null
+            ? (dark ? lightGrey : darkGrey)
+            : done
+                ? Colors.white
+                : themeData.colorScheme.onSecondary,
       ),
     );
   }
