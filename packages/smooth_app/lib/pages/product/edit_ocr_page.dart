@@ -22,7 +22,6 @@ import 'package:smooth_app/pages/product/product_image_server_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-// TODO(monsieurtanuki): rename file as `edit_ocr_page.dart`
 /// Editing with OCR a product field and the corresponding image.
 ///
 /// Typical use-cases: ingredients and packaging.

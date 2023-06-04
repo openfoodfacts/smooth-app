@@ -13,9 +13,9 @@ import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -29,10 +29,6 @@ TextStyle? _getSubtitleStyle(final BuildContext context) => null;
 
 double _getScoreIconHeight(final BuildContext context) =>
     MediaQuery.of(context).size.height * .2;
-
-/// Returns true if the [field] is valid (= not empty).
-bool _isProductFieldValid(final String? field) =>
-    field != null && field.trim().isNotEmpty;
 
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
@@ -60,20 +56,35 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   final ProductList _history = ProductList.history();
 
+  final ProductFieldEditor _packagingEditor = ProductFieldPackagingEditor();
+  final ProductFieldEditor _ingredientsEditor =
+      ProductFieldOcrIngredientEditor();
+  final ProductFieldEditor _originEditor =
+      ProductFieldSimpleEditor(SimpleInputPageOriginHelper());
+  final ProductFieldEditor _categoryEditor =
+      ProductFieldSimpleEditor(SimpleInputPageCategoryHelper());
+  final ProductFieldEditor _labelEditor =
+      ProductFieldSimpleEditor(SimpleInputPageLabelHelper());
+  final ProductFieldEditor _detailsEditor = ProductFieldDetailsEditor();
+  late final List<ProductFieldEditor> _editors;
+
   bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
 
-  bool get _categoriesAdded =>
-      _product.categoriesTagsInLanguages?.isEmpty == false;
-
-  bool get _basicDetailsAdded =>
-      _isProductFieldValid(_product.productName) ||
-      _isProductFieldValid(_product.brands);
-
   bool _alreadyPushedToHistory = false;
+
+  bool _ecoscoreExpanded = false;
 
   @override
   void initState() {
     super.initState();
+    _editors = <ProductFieldEditor>[
+      _packagingEditor,
+      _ingredientsEditor,
+      _originEditor,
+      _categoryEditor,
+      _labelEditor,
+      _detailsEditor,
+    ];
     _initialProduct = Product(barcode: barcode);
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(barcode);
@@ -128,16 +139,24 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     if (_alreadyPushedToHistory) {
       return;
     }
-    if (_basicDetailsAdded ||
-        _nutritionFactsAdded ||
-        _categoriesAdded ||
-        _uploadedImages.isNotEmpty ||
-        _otherUploadedImages.isNotEmpty) {
+    if (_isPopulated) {
       _product.productName = _product.productName?.trim();
       _product.brands = _product.brands?.trim();
       await _daoProductList.push(_history, barcode);
       _alreadyPushedToHistory = true;
     }
+  }
+
+  /// Returns true if at least one field is populated.
+  bool get _isPopulated {
+    for (final ProductFieldEditor editor in _editors) {
+      if (editor.isPopulated(_product)) {
+        return true;
+      }
+    }
+    return _nutritionFactsAdded ||
+        _uploadedImages.isNotEmpty ||
+        _otherUploadedImages.isNotEmpty;
   }
 
   Widget _buildCard(
@@ -195,6 +214,17 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           height: _getScoreIconHeight(context),
         ),
       ),
+      ListTile(
+        title: Text(appLocalizations.new_product_additional_ecoscore),
+        trailing: Icon(
+          _ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
+        ),
+        onTap: () => setState(() => _ecoscoreExpanded = !_ecoscoreExpanded),
+      ),
+      if (_ecoscoreExpanded) _buildEditorButton(context, _originEditor),
+      if (_ecoscoreExpanded) _buildEditorButton(context, _labelEditor),
+      if (_ecoscoreExpanded) _buildEditorButton(context, _packagingEditor),
+      if (_ecoscoreExpanded) _buildEditorButton(context, _ingredientsEditor),
     ];
   }
 
@@ -254,38 +284,44 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         done: imageFile != null,
       );
 
-  // we let the user change the values
-  Widget _buildNutritionInputButton(final BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return _MyButton(
-      appLocalizations.nutritional_facts_input_button_label,
-      Icons.filter_2,
-      // deactivated when the categories were not set beforehand
-      !_categoriesAdded
-          ? null
-          : () async => NutritionPageLoaded.showNutritionPage(
-                product: _product,
-                isLoggedInMandatory: false,
-                widget: this,
-              ),
-      done: _nutritionFactsAdded,
-    );
-  }
+  Widget _buildNutritionInputButton(final BuildContext context) => _MyButton(
+        AppLocalizations.of(context).nutritional_facts_input_button_label,
+        Icons.filter_2,
+        // deactivated when the categories were not set beforehand
+        !_categoryEditor.isPopulated(_product)
+            ? null
+            : () async => NutritionPageLoaded.showNutritionPage(
+                  product: _product,
+                  isLoggedInMandatory: false,
+                  widget: this,
+                ),
+        done: _nutritionFactsAdded,
+      );
 
-  Widget _buildCategoriesButton(final BuildContext context) {
-    final SimpleInputPageCategoryHelper helper =
-        SimpleInputPageCategoryHelper();
+  Widget _buildEditorButton(
+    final BuildContext context,
+    final ProductFieldEditor editor, {
+    final IconData? forceIconData,
+  }) {
+    final bool done = editor.isPopulated(_product);
     return _MyButton(
-      helper.getAddButtonLabel(AppLocalizations.of(context)),
-      Icons.filter_1,
-      () async => helper.showEditPage(
+      editor.getLabel(AppLocalizations.of(context)),
+      forceIconData ?? (done ? _doneIcon : _todoIcon),
+      () async => editor.edit(
         context: context,
         product: _product,
         isLoggedInMandatory: false,
       ),
-      done: _categoriesAdded,
+      done: done,
     );
   }
+
+  Widget _buildCategoriesButton(final BuildContext context) =>
+      _buildEditorButton(
+        context,
+        _categoryEditor,
+        forceIconData: Icons.filter_1,
+      );
 
   List<Widget> _getMiscRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -294,20 +330,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         appLocalizations.new_product_title_misc,
         style: _getTitleStyle(context),
       ),
-      _MyButton(
-        appLocalizations.completed_basic_details_btn_text,
-        _basicDetailsAdded ? _doneIcon : _todoIcon,
-        () async => Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => AddBasicDetailsPage(
-              _product,
-              isLoggedInMandatory: false,
-            ),
-          ),
-        ),
-        done: _basicDetailsAdded,
-      ),
+      _buildEditorButton(context, _detailsEditor),
     ];
   }
 }

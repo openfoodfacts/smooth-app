@@ -7,7 +7,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_elem
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
-import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 // TODO(monsieurtanuki): rename without "Widget", like the file: KnowledgePanelsBuilder?
@@ -71,9 +71,9 @@ class KnowledgePanelWidget {
           // When the flag is removed, this should be the following:
           // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
           children.add(
-            AddOCRButton(
+            AddOcrButton(
               product: product,
-              helper: OcrIngredientsHelper(),
+              editor: ProductFieldOcrIngredientEditor(),
             ),
           );
         }

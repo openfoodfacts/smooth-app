@@ -3,8 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -25,7 +23,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Starts from scratch with a new (or refreshed) [Product].
   void reInit(final Product product) {
     this.product = product;
-    _terms = List<String>.from(initTerms());
+    _terms = List<String>.from(initTerms(this.product));
     _changed = false;
     notifyListeners();
   }
@@ -37,10 +35,13 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// WARNING: this list must be copied; if not you may alter the product.
   /// cf. https://github.com/openfoodfacts/smooth-app/issues/3529
   @protected
-  List<String> initTerms();
+  List<String> initTerms(final Product product);
 
   /// Returns the current terms to be displayed.
   List<String> get terms => _terms;
+
+  /// Returns true if the field is populated.
+  bool isPopulated(final Product product) => initTerms(product).isNotEmpty;
 
   /// Returns true if the term was not in the list and then was added.
   bool addTerm(String term) {
@@ -68,37 +69,6 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       return true;
     }
     return false;
-  }
-
-  /// Shows the related "edit" page.
-  Future<void> showEditPage({
-    required final BuildContext context,
-    required final Product product,
-    final bool isLoggedInMandatory = true,
-  }) async {
-    if (isLoggedInMandatory) {
-      // ignore: use_build_context_synchronously
-      if (!await ProductRefresher().checkIfLoggedIn(context)) {
-        return;
-      }
-    }
-
-    AnalyticsHelper.trackProductEdit(
-      getAnalyticsEditEvent(),
-      product.barcode!,
-    );
-
-    // ignore: use_build_context_synchronously
-    await Navigator.push<void>(
-      context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => SimpleInputPage(
-          helper: this,
-          product: product,
-        ),
-        fullscreenDialog: true,
-      ),
-    );
   }
 
   /// Returns the title on the main "edit product" page.
@@ -178,7 +148,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() => splitString(product.stores);
+  List<String> initTerms(final Product product) => splitString(product.stores);
 
   @override
   void changeProduct(final Product changedProduct) =>
@@ -212,7 +182,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() => splitString(product.origins);
+  List<String> initTerms(final Product product) => splitString(product.origins);
 
   @override
   void changeProduct(final Product changedProduct) =>
@@ -252,7 +222,8 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() => splitString(product.embCodes);
+  List<String> initTerms(final Product product) =>
+      splitString(product.embCodes);
 
   @override
   void changeProduct(final Product changedProduct) =>
@@ -291,7 +262,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() =>
+  List<String> initTerms(final Product product) =>
       product.labelsTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
@@ -336,7 +307,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() =>
+  List<String> initTerms(final Product product) =>
       product.categoriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
@@ -385,7 +356,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() =>
+  List<String> initTerms(final Product product) =>
       product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
