@@ -9,8 +9,10 @@ import 'package:smooth_app/pages/product/edit_ocr_page.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
 import 'package:smooth_app/pages/product/ocr_packaging_helper.dart';
+import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
+// TODO(monsieurtanuki): refactor - move all product field edit files to a new "field" folder
 /// Helper class about product fields.
 ///
 /// The typical use-case is the centralized "open edit page" method.
@@ -59,12 +61,31 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
     required final BuildContext context,
     required final Product product,
     final bool isLoggedInMandatory = true,
-  }) async =>
-      helper.showEditPage(
-        context: context,
-        product: product,
-        isLoggedInMandatory: isLoggedInMandatory,
-      );
+  }) async {
+    if (isLoggedInMandatory) {
+      // ignore: use_build_context_synchronously
+      if (!await ProductRefresher().checkIfLoggedIn(context)) {
+        return;
+      }
+    }
+
+    AnalyticsHelper.trackProductEdit(
+      helper.getAnalyticsEditEvent(),
+      product.barcode!,
+    );
+
+    // ignore: use_build_context_synchronously
+    await Navigator.push<void>(
+      context,
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) => SimpleInputPage(
+          helper: helper,
+          product: product,
+        ),
+        fullscreenDialog: true,
+      ),
+    );
+  }
 }
 
 class ProductFieldDetailsEditor extends ProductFieldEditor {

@@ -248,7 +248,7 @@ class _EditProductPageState extends State<EditProductPage> {
       leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
       subtitle: helper.getSubtitle(appLocalizations),
-      onTap: () async => helper.showEditPage(
+      onTap: () async => ProductFieldSimpleEditor(helper).edit(
         context: context,
         product: _product,
       ),

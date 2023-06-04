@@ -3,8 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -71,37 +69,6 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       return true;
     }
     return false;
-  }
-
-  /// Shows the related "edit" page.
-  Future<void> showEditPage({
-    required final BuildContext context,
-    required final Product product,
-    final bool isLoggedInMandatory = true,
-  }) async {
-    if (isLoggedInMandatory) {
-      // ignore: use_build_context_synchronously
-      if (!await ProductRefresher().checkIfLoggedIn(context)) {
-        return;
-      }
-    }
-
-    AnalyticsHelper.trackProductEdit(
-      getAnalyticsEditEvent(),
-      product.barcode!,
-    );
-
-    // ignore: use_build_context_synchronously
-    await Navigator.push<void>(
-      context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => SimpleInputPage(
-          helper: this,
-          product: product,
-        ),
-        fullscreenDialog: true,
-      ),
-    );
   }
 
   /// Returns the title on the main "edit product" page.
