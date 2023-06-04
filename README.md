@@ -90,7 +90,7 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently the app uses the latest flutter stable version. (`flutter channel stable`)
+- Currently the app uses the version 3.7 of Flutter.
 
 
 We have predefined run configurations for Android Studio and Visual Studio Code
