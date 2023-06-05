@@ -23,7 +23,17 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     final List<String> taskIds = localDatabase.getAllTaskIds();
     return Scaffold(
       appBar: AppBar(
-        title: Text(appLocalizations.background_task_title),
+        title: Text(
+          appLocalizations.background_task_title,
+          maxLines: 2,
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => // no await
+                BackgroundTaskManager(localDatabase).run(),
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
       ),
       body: taskIds.isEmpty
           ? Center(
