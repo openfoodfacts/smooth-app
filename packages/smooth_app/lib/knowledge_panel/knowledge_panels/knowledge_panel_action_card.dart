@@ -17,15 +17,6 @@ class KnowledgePanelActionCard extends StatelessWidget {
   final KnowledgePanelActionElement element;
   final Product product;
 
-  // TODO(monsieurtanuki): move to off-dart's knowledge_panel_element.dart
-  static const String _ACTION_ADD_ORIGINS = 'add_origins';
-  static const String _ACTION_ADD_STORES = 'add_stores';
-  static const String _ACTION_ADD_LABELS = 'add_labels';
-  static const String _ACTION_ADD_COUNTRIES = 'add_countries';
-  static const String _ACTION_ADD_PACKAGING_IMAGE = 'add_packaging_image';
-  static const String _ACTION_ADD_PACKAGING_TEXT = 'add_packaging_text';
-  static const String _ACTION_ADD_INGREDIENTS_IMAGE = 'add_ingredients_image';
-
   @override
   Widget build(BuildContext context) {
     final List<Widget> actionWidgets = <Widget>[];
@@ -33,8 +24,6 @@ class KnowledgePanelActionCard extends StatelessWidget {
       final Widget? button = _getButton(action);
       if (button != null) {
         actionWidgets.add(button);
-      } else {
-        Logs.e('unknown knowledge panel action: $action');
       }
     }
     return Column(
@@ -49,68 +38,71 @@ class KnowledgePanelActionCard extends StatelessWidget {
   }
 
   Widget? _getButton(final String action) {
+    final KnowledgePanelAction? kpAction =
+        KnowledgePanelAction.fromOffTag(action);
+    if (kpAction == null) {
+      Logs.e('unknown knowledge panel action: $action');
+      return null;
+    }
     final AbstractSimpleInputPageHelper? simpleInputPageHelper =
-        _getSimpleInputPageHelper(action);
+        _getSimpleInputPageHelper(kpAction);
     if (simpleInputPageHelper != null) {
       return AddSimpleInputButton(
         product: product,
         helper: simpleInputPageHelper,
       );
     }
-    if (_isPackaging(action)) {
+    if (_isPackaging(kpAction)) {
       return AddPackagingButton(
         product: product,
       );
     }
-    if (_isIngredient(action)) {
+    if (_isIngredient(kpAction)) {
       return AddOcrButton(
         product: product,
         editor: ProductFieldOcrIngredientEditor(),
       );
     }
-    if (action == KnowledgePanelActionElement.ACTION_ADD_NUTRITION_FACTS) {
+    if (kpAction == KnowledgePanelAction.addNutritionFacts) {
       return AddNutritionButton(product);
     }
-    Logs.e('unknown knowledge panel action: $action');
+    Logs.e('unhandled knowledge panel action: $action');
     return null;
   }
 
   AbstractSimpleInputPageHelper? _getSimpleInputPageHelper(
-    final String action,
+    final KnowledgePanelAction action,
   ) {
     switch (action) {
-      case KnowledgePanelActionElement.ACTION_ADD_CATEGORIES:
+      case KnowledgePanelAction.addCategories:
         return SimpleInputPageCategoryHelper();
-      case _ACTION_ADD_ORIGINS:
+      case KnowledgePanelAction.addOrigins:
         return SimpleInputPageOriginHelper();
-      case _ACTION_ADD_STORES:
+      case KnowledgePanelAction.addStores:
         return SimpleInputPageStoreHelper();
-      case _ACTION_ADD_LABELS:
+      case KnowledgePanelAction.addLabels:
         return SimpleInputPageLabelHelper();
-      case _ACTION_ADD_COUNTRIES:
+      case KnowledgePanelAction.addCountries:
         return SimpleInputPageCountryHelper();
+      default:
+        return null;
     }
-    return null;
   }
 
-  bool _isIngredient(
-    final String action,
-  ) {
+  bool _isIngredient(final KnowledgePanelAction action) {
     switch (action) {
-      case KnowledgePanelActionElement.ACTION_ADD_INGREDIENTS_TEXT:
-      case _ACTION_ADD_INGREDIENTS_IMAGE:
+      case KnowledgePanelAction.addIngredientsText:
+      case KnowledgePanelAction.addIngredientsImage:
         return true;
       default:
         return false;
     }
   }
 
-  bool _isPackaging(
-    final String action,
-  ) {
+  bool _isPackaging(final KnowledgePanelAction action) {
     switch (action) {
-      case _ACTION_ADD_PACKAGING_IMAGE:
-      case _ACTION_ADD_PACKAGING_TEXT:
+      case KnowledgePanelAction.addPackagingText:
+      case KnowledgePanelAction.addPackagingImage:
         return true;
       default:
         return false;
