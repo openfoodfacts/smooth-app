@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart' as image;
 
@@ -13,12 +14,21 @@ class _ImageComputeContainer {
     required this.rawData,
     required this.width,
     required this.height,
-  });
+  }) : rootIsolateToken = ui.RootIsolateToken.instance;
 
   final File file;
   final ByteData rawData;
   final int width;
   final int height;
+  final ui.RootIsolateToken? rootIsolateToken;
+
+  bool get isIsolatePossible => rootIsolateToken != null;
+
+  void ensureIsolate() {
+    if (rootIsolateToken != null) {
+      BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken!);
+    }
+  }
 }
 
 /// Saves an image to a BMP file. As BMP for better performances.
@@ -32,15 +42,17 @@ Future<void> saveBmp({
   if (rawData == null) {
     throw Exception('Cannot convert file');
   }
-  await compute(
-    _saveBmp,
-    _ImageComputeContainer(
-      file: file,
-      rawData: rawData,
-      width: source.width,
-      height: source.height,
-    ),
+  final _ImageComputeContainer container = _ImageComputeContainer(
+    file: file,
+    rawData: rawData,
+    width: source.width,
+    height: source.height,
   );
+  if (container.isIsolatePossible) {
+    await _saveBmp(container);
+  } else {
+    await compute(_saveBmp, container);
+  }
 }
 
 /// Saves an image to a JPEG file.
@@ -57,15 +69,17 @@ Future<void> saveJpeg({
   if (rawData == null) {
     throw Exception('Cannot convert file');
   }
-  await compute(
-    _saveJpeg,
-    _ImageComputeContainer(
-      file: file,
-      rawData: rawData,
-      width: source.width,
-      height: source.height,
-    ),
+  final _ImageComputeContainer container = _ImageComputeContainer(
+    file: file,
+    rawData: rawData,
+    width: source.width,
+    height: source.height,
   );
+  if (container.isIsolatePossible) {
+    await _saveJpeg(container);
+  } else {
+    await compute(_saveJpeg, container);
+  }
 }
 
 Future<image.Image> _convertImageFromUI(
@@ -83,6 +97,7 @@ Future<image.Image> _convertImageFromUI(
 
 /// Saves an image to a BMP file. As BMP for better performances.
 Future<void> _saveBmp(final _ImageComputeContainer container) async {
+  container.ensureIsolate();
   final image.Image rawImage = await _convertImageFromUI(
     container.rawData,
     container.width,
@@ -99,6 +114,7 @@ Future<void> _saveBmp(final _ImageComputeContainer container) async {
 /// It's faster to encode as BMP and then compress to JPEG, instead of directly
 /// compressing the image to JPEG (standard flutter being slow).
 Future<void> _saveJpeg(final _ImageComputeContainer container) async {
+  container.ensureIsolate();
   image.Image? rawImage = await _convertImageFromUI(
     container.rawData,
     container.width,
