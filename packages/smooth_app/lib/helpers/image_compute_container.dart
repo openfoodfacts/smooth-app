@@ -49,9 +49,9 @@ Future<void> saveBmp({
     height: source.height,
   );
   if (container.isIsolatePossible) {
-    await _saveBmp(container);
-  } else {
     await compute(_saveBmp, container);
+  } else {
+    await _saveBmp(container);
   }
 }
 
@@ -76,9 +76,9 @@ Future<void> saveJpeg({
     height: source.height,
   );
   if (container.isIsolatePossible) {
-    await _saveJpeg(container);
-  } else {
     await compute(_saveJpeg, container);
+  } else {
+    await _saveJpeg(container);
   }
 }
 
