@@ -154,7 +154,7 @@ class OnboardingFlowNavigator {
     );
 
     if (page.isOnboardingComplete()) {
-      await Navigator.of(context).pushAndRemoveUntil(
+      await Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
         route,
         (Route<dynamic> route) => false,
       );
