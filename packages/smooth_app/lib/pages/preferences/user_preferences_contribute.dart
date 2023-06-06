@@ -13,7 +13,6 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
@@ -56,16 +55,11 @@ class UserPreferencesContribute extends AbstractUserPreferences {
 
   @override
   List<Widget> getBody() {
-    final bool hungerGamesEnabled = userPreferences
-            .getFlag(UserPreferencesDevMode.userPreferencesFlagHungerGames) ??
-        false;
-
     return <Widget>[
       _getListTile(
         'Hunger Games',
         () => _hungerGames(),
         Icons.games,
-        showed: hungerGamesEnabled,
       ),
       _getListTile(
         appLocalizations.contribute_improve_header,
@@ -320,16 +314,13 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     final VoidCallback onTap,
     final IconData leading, {
     final Icon? icon,
-    final bool showed = true,
   }) =>
-      showed
-          ? UserPreferencesListTile(
-              title: Text(title),
-              onTap: onTap,
-              trailing: icon ?? getForwardIcon(),
-              leading: UserPreferencesListTile.getTintedIcon(leading, context),
-            )
-          : EMPTY_WIDGET;
+      UserPreferencesListTile(
+        title: Text(title),
+        onTap: onTap,
+        trailing: icon ?? getForwardIcon(),
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
+      );
 }
 
 class _DevModeSetting extends StatelessWidget {
