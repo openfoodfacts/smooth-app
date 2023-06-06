@@ -426,9 +426,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "スキャン",
+    "scan": "スキャンセッション",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "スキャン履歴",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "検索",
     "@search": {
@@ -487,6 +491,14 @@
     "@add_product_information_button_label": {},
     "new_product": "新しい製品",
     "@new_product": {},
+    "new_product_dialog_title": "新しい製品を見つけました！",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "この製品を共通データベースに追加するには、パッケージの写真を撮ってください。",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "製品の正面画像",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "製品の正面画像のアップロードを確認する",
@@ -495,19 +507,19 @@
     },
     "confirm_button_label": "確定",
     "send_image_button_label": "画像を送信",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "画像を保存中…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "画像を加工中...",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "ローカルバージョンを保存しています…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_server": "Preparing a call to the server…",
+    "crop_page_action_server": "サーバーへの呼び出しを準備しています…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
@@ -527,6 +539,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "栄養成分表を入力する",
     "nutritional_facts_added": "栄養成分表が追加されました",
+    "categories_added": "カテゴリーが追加されました。",
+    "new_product_title_nutriscore": "ニュートリスコアを計算する",
+    "new_product_subtitle_nutriscore": "食品カテゴリと栄養価を満たして入手する",
+    "new_product_title_ecoscore": "エコスコアを計算する",
+    "new_product_subtitle_ecoscore": "少なくともカテゴリを入力して入手してください",
+    "new_product_additional_ecoscore": "原産地、パッケージングなどを使用してエコスコアの計算をより正確に",
+    "new_product_title_pictures": "写真を撮りましょう！",
+    "new_product_title_misc": "そしていくつかの基本データ…",
     "nutritional_facts_photo_uploaded": "栄養成分表の画像がアップロードされました",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "リサイクル情報の画像",
@@ -915,7 +935,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "スキャン開始！",
+    "product_list_empty_title": "スキャン開始",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -2032,5 +2052,105 @@
     "contrast_low": "低",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_loader_not_found_title": "商品が見つかりませんでした",
+    "@product_loader_not_found_title": {
+        "description": "When fetching a product opened via a link and it doesn't exist"
+    },
+    "product_loader_not_found_message": "次のバーコードを持つ商品はデータベースに存在しません: {barcode}",
+    "@product_loader_not_found_message": {
+        "description": "When fetching a product opened via a link, it doesn't exist",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "product_loader_network_error_title": "インターネットに接続されていません",
+    "@product_loader_network_error_title": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "product_loader_network_error_message": "スマートフォンが WiFi ネットワークに接続されているか、モバイル データが有効になっていることを確認してください",
+    "@product_loader_network_error_message": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "ページが見つかりません。",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "ホームページへ戻る",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
+    },
+    "download_data": "データをダウンロード",
+    "@download_data": {
+        "description": "App bar title for the download data page"
+    },
+    "download_top_products": "あなたの国の上位 1,000 製品をダウンロードして即時スキャンできます",
+    "@download_top_products": {
+        "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "データをダウンロード中\nしばらく時間がかかる場合があります",
+    "@download_in_progress": {
+        "description": "Download in progress"
+    },
+    "downloaded_products": "{num} 商品が追加されました",
+    "@downloaded_products": {
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "update_offline_data": "オフラインデータを更新",
+    "@update_offline_data": {
+        "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "Open Food Facts の最新データを使用してローカル製品データベースを更新します。",
+    "@update_local_database_sub": {
+        "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "オフライン商品データを消去",
+    "@clear_local_database": {
+        "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "アプリからすべてのローカル製品データを消去して空き容量を増やします",
+    "@clear_local_database_sub": {
+        "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "{num} 商品が削除されました",
+    "@deleted_products": {
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "loading": "読み込んでいます…",
+    "@loading": {
+        "description": "Loading…"
+    },
+    "know_more": "詳しくはこちら",
+    "@know_more": {
+        "description": "Know More"
+    },
+    "offline_data_desc": "オフラインデータの詳細についてはクリックしてください",
+    "@offline_data_desc": {
+        "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "オフラインの製品データ",
+    "@offline_product_data_title": {
+        "description": "Offline Product Data"
+    },
+    "available_for_download": "即時スキャン可能な製品は{num} 件あります",
+    "@available_for_download": {
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
     }
 }

@@ -214,11 +214,11 @@
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_email_error_invalid": "E-mail inválido",
+    "sign_up_page_username_hint": "Nome de usuário: Publicidade visível",
     "sign_up_page_username_error_empty": "Please enter a username",
     "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
+    "sign_up_page_username_description": "Nome de usuário não pode conter espaços, maiúsculas ou caracteres especiais.",
     "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -233,7 +233,7 @@
     "sign_up_page_confirm_password_hint": "Confirm Password",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
     "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Concordo com o Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -256,16 +256,16 @@
     "sign_up_page_producer_checkbox": "I am a food producer",
     "sign_up_page_producer_hint": "Producer/brand",
     "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
-    "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
-    "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
-    "sign_up_page_provide_valid_email": "Please provide a valid email address.",
+    "sign_up_page_subscribe_checkbox": "Gostaria de subescrever ao Open Food Facts newsletter (Poderá desubesvrever a qualquer \nhora)",
+    "sign_up_page_user_name_already_used": "O usuário já existe, porfavor escolha outro usuário.",
+    "sign_up_page_email_already_exists": "já existe, login a conta ou tente outro email.",
+    "sign_up_page_provide_valid_email": "Porfavor coloque um email válido.",
     "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Theme",
+    "darkmode": "Tema",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -277,7 +277,7 @@
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Falha do sistema",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
@@ -540,11 +540,11 @@
     "nutritional_facts_input_button_label": "Input nutrition facts",
     "nutritional_facts_added": "Nutrition facts added",
     "categories_added": "Categories added",
-    "new_product_title_nutriscore": "Compute the Nutri-Score",
-    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
-    "new_product_title_ecoscore": "Compute the Eco-Score",
-    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
-    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_title_nutriscore": "Compute a pontuação -Nutri",
+    "new_product_subtitle_nutriscore": "Ganhe-o preenchendo a categoria alimentar e valores nutricionais",
+    "new_product_title_ecoscore": "Compute a pontuação-Eco",
+    "new_product_subtitle_ecoscore": "Ganhe-o preenchendo pelo menos uma categoria",
+    "new_product_additional_ecoscore": "Удосконалити Eco-Score з урахуванням походження, упаковки і більше.\n\n\n\n\n",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
     "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
@@ -2084,73 +2084,73 @@
     },
     "download_data": "Download data",
     "@download_data": {
-      "description": "App bar title for the download data page"
+        "description": "App bar title for the download data page"
     },
     "download_top_products": "Download the top 1000 products in your country for instant scanning",
     "@download_top_products": {
-      "description": "Download the top 1000 products in your country for instant scanning"
+        "description": "Download the top 1000 products in your country for instant scanning"
     },
     "download_in_progress": "Downloading data\nThis may take a while",
     "@download_in_progress": {
-      "description": "Download in progress"
+        "description": "Download in progress"
     },
     "downloaded_products": "{num} products added",
     "@downloaded_products": {
-      "description": "text to show when products added",
-      "placeholders": {
-        "num": {
-          "type": "int"
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
         }
-      }
     },
     "update_offline_data": "Update offline product data",
     "@update_offline_data": {
-      "description": "List tile title for the update offline data page"
+        "description": "List tile title for the update offline data page"
     },
     "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
     "@update_local_database_sub": {
-      "description": "Update the local product database with the latest data from server"
+        "description": "Update the local product database with the latest data from server"
     },
     "clear_local_database": "Clear offline product data",
     "@clear_local_database": {
-      "description": "List tile title for the clear local database page"
+        "description": "List tile title for the clear local database page"
     },
     "clear_local_database_sub": "Clear all local product data from your app to free up space",
     "@clear_local_database_sub": {
-      "description": "Clear all local product data from your app to free up space"
+        "description": "Clear all local product data from your app to free up space"
     },
     "deleted_products": "{num} products deleted",
     "@deleted_products": {
-      "description": "text to show when products are deleted from local databse",
-      "placeholders": {
-        "num": {
-          "type": "int"
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
         }
-      }
     },
     "loading": "Loading…",
     "@loading": {
-      "description": "Loading…"
+        "description": "Loading…"
     },
     "know_more": "Know More",
     "@know_more": {
-      "description": "Know More"
+        "description": "Know More"
     },
     "offline_data_desc": "Click to know more about offline data",
     "@offline_data_desc": {
-      "description": "Click to know more about offline data"
+        "description": "Click to know more about offline data"
     },
     "offline_product_data_title": "Offline product data",
     "@offline_product_data_title": {
-      "description": "Offline Product Data"
+        "description": "Offline Product Data"
     },
     "available_for_download": "{num} products available for immediate scaning",
     "@available_for_download": {
-      "description": "text to show details of products available for download",
-      "placeholders": {
-        "num": {
-          "type": "int"
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
         }
-      }
     }
 }
