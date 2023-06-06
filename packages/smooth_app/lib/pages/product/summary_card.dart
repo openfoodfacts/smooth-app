@@ -48,6 +48,7 @@ class SummaryCard extends StatefulWidget {
     this.isRemovable = true,
     this.isSettingClickable = true,
     this.isProductEditable = true,
+    this.attributeGroupsClickable = true,
   });
 
   final Product _product;
@@ -71,6 +72,9 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, the product will be editable
   final bool isProductEditable;
+
+  /// If true, all chips / groups are clickable
+  final bool attributeGroupsClickable;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -471,17 +475,20 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<Widget> attributeChips,
   ) {
     _totalPrintableRows -= (attributeChips.length / 2).ceil();
-    return Column(
-      children: <Widget>[
-        header,
-        Container(
-          alignment: Alignment.topLeft,
-          child: Wrap(
-            runSpacing: 16,
-            children: attributeChips,
+    return AbsorbPointer(
+      absorbing: !widget.attributeGroupsClickable,
+      child: Column(
+        children: <Widget>[
+          header,
+          Container(
+            alignment: Alignment.topLeft,
+            child: Wrap(
+              runSpacing: 16,
+              children: attributeChips,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
