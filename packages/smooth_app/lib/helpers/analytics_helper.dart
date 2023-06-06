@@ -147,12 +147,16 @@ class AnalyticsHelper {
       setAnalyticsReports(false);
       return;
     }
+
     try {
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: 2,
         visitorId: uuid,
       );
+
+      // Ensure to always initialize this value
+      _allow = !MatomoTracker.instance.getOptOut();
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized
     }
