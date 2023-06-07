@@ -2057,7 +2057,7 @@
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
     },
-    "product_loader_not_found_message": "Товар з таким штрих-кодом не існує в нашій базі даних: {штрих-код}",
+    "product_loader_not_found_message": "Товар з таким штрих-кодом не існує в нашій базі даних: {barcode}",
     "@product_loader_not_found_message": {
         "description": "When fetching a product opened via a link, it doesn't exist",
         "placeholders": {
