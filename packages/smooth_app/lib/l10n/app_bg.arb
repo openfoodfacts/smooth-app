@@ -426,9 +426,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Сканирай",
+    "scan": "Scan session",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "Scan history",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "Търсене",
     "@search": {
@@ -487,6 +491,14 @@
     "@add_product_information_button_label": {},
     "new_product": "Нов продукт",
     "@new_product": {},
+    "new_product_dialog_title": "Току-що намери нов продукт!",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "Моля, направи снимки на опаковката, за да добавиш този продукт към нашата обща база данни",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "Снимка на продукта отпред",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Потвърди качването на снимката на предната страна на продукта",
@@ -495,11 +507,11 @@
     },
     "confirm_button_label": "Потвърди",
     "send_image_button_label": "Изпрати снимката",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "Запазване на снимката…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "Изрязване на снимката…",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
@@ -527,6 +539,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Въведи хранителните стойности",
     "nutritional_facts_added": "Хранителните стойности са добавени",
+    "categories_added": "Categories added",
+    "new_product_title_nutriscore": "Compute the Nutri-Score",
+    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
+    "new_product_title_ecoscore": "Compute the Eco-Score",
+    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
+    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_title_pictures": "Let's take some pictures!",
+    "new_product_title_misc": "And some basic data…",
     "nutritional_facts_photo_uploaded": "Снимката с хранителните стойности е качена",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Снимка с информацията за рециклиране",
@@ -915,7 +935,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Започни да сканираш!",
+    "product_list_empty_title": "Start scanning",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -2032,5 +2052,105 @@
     "contrast_low": "Low",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_loader_not_found_title": "Продъктът не е открит!",
+    "@product_loader_not_found_title": {
+        "description": "When fetching a product opened via a link and it doesn't exist"
+    },
+    "product_loader_not_found_message": "Продукт със следния баркод не съществува в нашата база данни: {barcode}",
+    "@product_loader_not_found_message": {
+        "description": "When fetching a product opened via a link, it doesn't exist",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "product_loader_network_error_title": "Няма връзка с интернет!",
+    "@product_loader_network_error_title": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "product_loader_network_error_message": "Моля, провери дали твоят смартфон има активирано WiFi или мобилни данни",
+    "@product_loader_network_error_message": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "Страницата не е намерена!",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "Go back to the homepage",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
+    },
+    "download_data": "Download data",
+    "@download_data": {
+        "description": "App bar title for the download data page"
+    },
+    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "@download_top_products": {
+        "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "Downloading data\nThis may take a while",
+    "@download_in_progress": {
+        "description": "Download in progress"
+    },
+    "downloaded_products": "{num} products added",
+    "@downloaded_products": {
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "update_offline_data": "Update offline product data",
+    "@update_offline_data": {
+        "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "@update_local_database_sub": {
+        "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "Clear offline product data",
+    "@clear_local_database": {
+        "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "@clear_local_database_sub": {
+        "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "{num} products deleted",
+    "@deleted_products": {
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "loading": "Зареждане…",
+    "@loading": {
+        "description": "Loading…"
+    },
+    "know_more": "Know More",
+    "@know_more": {
+        "description": "Know More"
+    },
+    "offline_data_desc": "Click to know more about offline data",
+    "@offline_data_desc": {
+        "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "Offline product data",
+    "@offline_product_data_title": {
+        "description": "Offline Product Data"
+    },
+    "available_for_download": "{num} products available for immediate scaning",
+    "@available_for_download": {
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
     }
 }
