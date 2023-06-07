@@ -242,4 +242,6 @@ class AnalyticsHelper {
       return fallback;
     }
   }
+
+  static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
 }
