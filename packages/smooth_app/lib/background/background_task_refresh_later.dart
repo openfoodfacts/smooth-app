@@ -34,7 +34,7 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
           // dealing with when 'stamp' did not exist
           stamp: json.containsKey('stamp')
               ? json['stamp'] as String
-              : getStamp(json['barcode'] as String),
+              : _getStamp(json['barcode'] as String),
           timestamp: json['timestamp'] as int,
         );
 
@@ -81,13 +81,6 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
 
-  /// Here we change nothing, therefore we do nothing.
-  @override
-  Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
-  ) async {}
-
   /// Adds the background task about refreshing the product later.
   static Future<void> addTask(
     final String barcode, {
@@ -117,10 +110,10 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
         timestamp: LocalDatabase.nowInMillis(),
-        stamp: getStamp(barcode),
+        stamp: _getStamp(barcode),
       );
 
-  static String getStamp(final String barcode) => '$barcode;refresh';
+  static String _getStamp(final String barcode) => '$barcode;refresh';
 
   /// Here we change nothing, therefore we do nothing.
   @override

@@ -22,6 +22,7 @@ import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -433,15 +434,7 @@ class _ProductListPageState extends State<ProductListPage>
     try {
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
-        ProductSearchQueryConfiguration(
-          fields: ProductQuery.fields,
-          language: ProductQuery.getLanguage(),
-          country: ProductQuery.getCountry(),
-          parametersList: <Parameter>[
-            BarcodeParameter.list(barcodes),
-          ],
-          version: ProductQuery.productQueryVersion,
-        ),
+        ProductRefresher().getBarcodeListQueryConfiguration(barcodes),
       );
       final List<Product>? freshProducts = searchResult.products;
       if (freshProducts == null) {

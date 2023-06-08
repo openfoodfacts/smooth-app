@@ -137,20 +137,8 @@ class BackgroundTaskManager {
     for (final AbstractBackgroundTask task in tasks) {
       await task.recover(localDatabase);
     }
-    final Map<String, String> failedTaskFromStamps = <String, String>{};
     for (final AbstractBackgroundTask task in tasks) {
-      final String stamp = task.stamp;
       final String taskId = task.uniqueId;
-      final String? previousFailedTaskId = failedTaskFromStamps[stamp];
-      if (previousFailedTaskId != null) {
-        // there was a similar task that failed previously and we can dismiss it
-        // as the current one would overwrite it.
-        // not only will we spare a to-be-overwritten call, but we avoid the
-        // "save latest change" and then "save initial change" dilemma.
-        _debugPrint('removing failed task $previousFailedTaskId');
-        await _finishTask(previousFailedTaskId);
-        failedTaskFromStamps.remove(stamp);
-      }
       try {
         await _setTaskErrorStatus(taskId, taskStatusStarted);
         await task.execute(localDatabase);
@@ -164,7 +152,6 @@ class BackgroundTaskManager {
         }
         debugPrint('Background task error ($e)');
         Logs.e('Background task error', ex: e);
-        failedTaskFromStamps[stamp] = taskId;
         await _setTaskErrorStatus(taskId, '$e');
       }
     }

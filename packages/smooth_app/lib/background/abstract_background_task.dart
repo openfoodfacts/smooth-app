@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/background/background_task_hunger_games.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
@@ -48,6 +49,7 @@ abstract class AbstractBackgroundTask {
       BackgroundTaskDetails.fromJson(map) ??
       BackgroundTaskImage.fromJson(map) ??
       BackgroundTaskUnselect.fromJson(map) ??
+      BackgroundTaskHungerGames.fromJson(map) ??
       BackgroundTaskCrop.fromJson(map) ??
       BackgroundTaskRefreshLater.fromJson(map);
 
@@ -71,10 +73,12 @@ abstract class AbstractBackgroundTask {
   /// With that `bool` we're able to deal with 2 cases:
   /// 1. everything is fine and we may have to do something more than cleaning
   /// 2. something bad happened and we just need to clear the task
+  @mustCallSuper
   Future<void> postExecute(
     final LocalDatabase localDatabase,
     final bool success,
-  );
+  ) async =>
+      localDatabase.upToDate.terminate(uniqueId);
 
   /// Uploads data changes.
   @protected

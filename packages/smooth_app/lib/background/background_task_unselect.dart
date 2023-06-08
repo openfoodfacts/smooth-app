@@ -136,9 +136,8 @@ class BackgroundTaskUnselect extends AbstractBackgroundTask {
     final LocalDatabase localDatabase,
     final bool success,
   ) async {
+    await super.postExecute(localDatabase, success);
     // TODO(monsieurtanuki): we should also remove the hypothetical transient file, shouldn't we?
-    localDatabase.upToDate.terminate(uniqueId);
-    localDatabase.notifyListeners();
     if (success) {
       await BackgroundTaskRefreshLater.addTask(
         barcode,

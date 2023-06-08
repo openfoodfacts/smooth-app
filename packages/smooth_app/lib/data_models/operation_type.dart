@@ -15,6 +15,7 @@ enum OperationType {
   image('I'),
   crop('C'),
   unselect('U'),
+  hungerGames('H'),
   refreshLater('R'),
   details('D');
 
@@ -48,6 +49,8 @@ enum OperationType {
         return appLocalizations.background_task_operation_image;
       case OperationType.unselect:
         return 'Unselect a product image';
+      case OperationType.hungerGames:
+        return 'Answering to a Hunger Games question';
       case OperationType.crop:
         return 'Crop an existing image';
       case OperationType.refreshLater:

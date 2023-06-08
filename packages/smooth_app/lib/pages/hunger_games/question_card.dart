@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -23,10 +24,9 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Future<Product?> productFuture =
-        ProductRefresher().silentFetchAndRefresh(
-      barcode: question.barcode!,
-      localDatabase: context.read<LocalDatabase>(),
+    final Future<Product?> productFuture = _getProduct(
+      question.barcode!,
+      context.read<LocalDatabase>(),
     );
 
     final Size screenSize = MediaQuery.of(context).size;
@@ -113,6 +113,20 @@ class QuestionCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Future<Product?> _getProduct(
+    final String barcode,
+    final LocalDatabase localDatabase,
+  ) async {
+    final Product? result = await DaoProduct(localDatabase).get(barcode);
+    if (result != null) {
+      return result;
+    }
+    return ProductRefresher().silentFetchAndRefresh(
+      barcode: question.barcode!,
+      localDatabase: localDatabase,
     );
   }
 

@@ -216,7 +216,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final LocalDatabase localDatabase,
     final bool success,
   ) async {
-    localDatabase.upToDate.terminate(uniqueId);
+    await super.postExecute(localDatabase, success);
     try {
       File(fullPath).deleteSync();
     } catch (e) {

@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 import 'package:smooth_app/query/products_preload_helper.dart';
@@ -38,7 +39,6 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
       completeProducts.add(barcodes[i]);
     }
   }
-  final List<ProductField> fieldsForCompleteProducts = ProductQuery.fields;
   final List<ProductField> fieldsForProductsWithoutKnowledgePanel =
       List<ProductField>.from(
     ProductQuery.fields,
@@ -49,14 +49,9 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
 
   /// Config for the products that don't have a knowledge panel
   final ProductSearchQueryConfiguration productSearchQueryConfiguration =
-      ProductSearchQueryConfiguration(
-    language: ProductQuery.getLanguage(),
-    country: ProductQuery.getCountry(),
+      ProductRefresher().getBarcodeListQueryConfiguration(
+    productsWithoutKnowledgePanel,
     fields: fieldsForProductsWithoutKnowledgePanel,
-    parametersList: <Parameter>[
-      BarcodeParameter.list(productsWithoutKnowledgePanel),
-    ],
-    version: ProductQuery.productQueryVersion,
   );
 
   final SearchResult result = await OpenFoodAPIClient.searchProducts(
@@ -71,15 +66,7 @@ Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
   /// Config for the complete products ie. products that have a knowledge panel
   final ProductSearchQueryConfiguration
       productSearchQueryConfigurationForFullProducts =
-      ProductSearchQueryConfiguration(
-    language: ProductQuery.getLanguage(),
-    country: ProductQuery.getCountry(),
-    fields: fieldsForCompleteProducts,
-    parametersList: <Parameter>[
-      BarcodeParameter.list(completeProducts),
-    ],
-    version: ProductQuery.productQueryVersion,
-  );
+      ProductRefresher().getBarcodeListQueryConfiguration(completeProducts);
 
   final SearchResult resultForFullProducts =
       await OpenFoodAPIClient.searchProducts(
