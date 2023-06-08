@@ -935,7 +935,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning",
+    "product_list_empty_title": "Lancez le scan",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -2107,15 +2107,15 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Mettre à jour la base locale de produits avec les dernières données d'Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear offline product data",
+    "clear_local_database": "Effacer les données produit hors ligne",
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "clear_local_database_sub": "Effacez toutes les données produit locales de votre application pour libérer de l'espace",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
@@ -2136,7 +2136,7 @@
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Click to know more about offline data",
+    "offline_data_desc": "Cliquez pour en savoir plus sur les données hors connexion",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
@@ -2144,7 +2144,7 @@
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} products available for immediate scaning",
+    "available_for_download": "{num} produits disponibles pour un scan immédiat",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
