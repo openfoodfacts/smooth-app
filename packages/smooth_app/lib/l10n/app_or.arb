@@ -52,7 +52,7 @@
     },
     "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "An error occurred",
+    "error_occurred": "ଏକ ତ୍ରୁଟି ଘଟିଛି",
     "@error_occurred": {},
     "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
@@ -149,7 +149,7 @@
         "description": "Text field hint: unified name for either username or e-mail address"
     },
     "login_page_username_or_email": "Please enter username or e-mail",
-    "login_page_password_error_empty": "Please enter a password",
+    "login_page_password_error_empty": "ଦୟାକରି ଗୋଟିଏ ପାସ୍‍ୱର୍ଡ଼ ପ୍ରଵେଶ କରନ୍ତୁ",
     "create_account": "Create account",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
@@ -228,7 +228,7 @@
         }
     },
     "sign_up_page_password_hint": "Password",
-    "sign_up_page_password_error_empty": "Please enter a password",
+    "sign_up_page_password_error_empty": "ଦୟାକରି ଗୋଟିଏ ପାସ୍‍ୱର୍ଡ଼ ପ୍ରଵେଶ କରନ୍ତୁ",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
     "sign_up_page_confirm_password_hint": "Confirm Password",
     "sign_up_page_confirm_password_error_empty": "Please confirm the password",
@@ -1429,7 +1429,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "Ok",
+    "dev_preferences_button_positive": "OK",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
