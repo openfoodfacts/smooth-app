@@ -426,9 +426,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Eskaneatu",
+    "scan": "Eskaneatze-saioa",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "Eskaneatze-historia",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "Bilatu",
     "@search": {
@@ -487,6 +491,14 @@
     "@add_product_information_button_label": {},
     "new_product": "Produktu berria",
     "@new_product": {},
+    "new_product_dialog_title": "Produktu berri bat aurkitu duzu!",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "Mesedez, bilgarriari argazkiak atera produktu hau gure datu-base arruntera gehitzeko",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "Produktuaren aurreko aldeko argazkia",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
@@ -495,19 +507,19 @@
     },
     "confirm_button_label": "Confirm",
     "send_image_button_label": "Bidali irudia",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "Irudia gordetzen…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "Irudia mozten…",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "Bertako bertsio bat gordezen…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_server": "Preparing a call to the server…",
+    "crop_page_action_server": "Zerbitzarirako dei bat prestatzen…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
@@ -527,6 +539,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Input nutrition facts",
     "nutritional_facts_added": "Nutrition facts added",
+    "categories_added": "Categories added",
+    "new_product_title_nutriscore": "Kalkulatu Nutri-Scorea",
+    "new_product_subtitle_nutriscore": "Eskura ezazu jakien kategoria eta balio nutrizionalak beteaz",
+    "new_product_title_ecoscore": "Kalkulatu Eco-Scorea",
+    "new_product_subtitle_ecoscore": "Eskura ezazu gutxienez kategoria bat beteaz",
+    "new_product_additional_ecoscore": "Egin Eco-Scoren kalkulua zehatzago jatorriekin, bilgarriekin eta gehiagorekin",
+    "new_product_title_pictures": "Let's take some pictures!",
+    "new_product_title_misc": "And some basic data…",
     "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Recycling information photo",
@@ -704,42 +724,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  =1{duela egun bat} other{duela {count} egun}}",
+    "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  =1{duela ordu bat} other{duela {count} ordu}}",
+    "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  =0{duela minutu bat baino gutxiago} =1{duela minutu bat} other{duela {count} minutu}}",
+    "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  =1{duela hilabete bat} other{duela {count} hilabete}}",
+    "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  =1{duela aste bat} other{duela {count} aste}}",
+    "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Produktu bat alderatu} other{{count} produktu alderatu}}",
+    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
@@ -915,7 +935,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Hasi eskaneatzen!",
+    "product_list_empty_title": "Start scanning",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -2032,5 +2052,105 @@
     "contrast_low": "Low",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_loader_not_found_title": "Ez da produktua aurkitu!",
+    "@product_loader_not_found_title": {
+        "description": "When fetching a product opened via a link and it doesn't exist"
+    },
+    "product_loader_not_found_message": "Hurrengo barra-kodea duen produkturik ez dago gure datu-basean: {barcode}",
+    "@product_loader_not_found_message": {
+        "description": "When fetching a product opened via a link, it doesn't exist",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "product_loader_network_error_title": "Interneterako konexiorik ez!",
+    "@product_loader_network_error_title": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "product_loader_network_error_message": "Mesedez, egiaztatu zure mugikorra WiFi sare batean dagoen edo datu-mugikorrak gaituak dituen",
+    "@product_loader_network_error_message": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "Ez da orria aurkitu!",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "Itzuli hasierako orrira",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
+    },
+    "download_data": "Download data",
+    "@download_data": {
+        "description": "App bar title for the download data page"
+    },
+    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "@download_top_products": {
+        "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "Downloading data\nThis may take a while",
+    "@download_in_progress": {
+        "description": "Download in progress"
+    },
+    "downloaded_products": "{num} products added",
+    "@downloaded_products": {
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "update_offline_data": "Update offline product data",
+    "@update_offline_data": {
+        "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "@update_local_database_sub": {
+        "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "Clear offline product data",
+    "@clear_local_database": {
+        "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "@clear_local_database_sub": {
+        "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "{num} products deleted",
+    "@deleted_products": {
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "loading": "Kargatzen…",
+    "@loading": {
+        "description": "Loading…"
+    },
+    "know_more": "Know More",
+    "@know_more": {
+        "description": "Know More"
+    },
+    "offline_data_desc": "Click to know more about offline data",
+    "@offline_data_desc": {
+        "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "Offline product data",
+    "@offline_product_data_title": {
+        "description": "Offline Product Data"
+    },
+    "available_for_download": "{num} products available for immediate scaning",
+    "@available_for_download": {
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
     }
 }

@@ -426,9 +426,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Сканувати",
+    "scan": "Сканування сеансу",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "Сканування історії пошуку",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "Пошук",
     "@search": {
@@ -487,6 +491,14 @@
     "@add_product_information_button_label": {},
     "new_product": "Новий Продукт",
     "@new_product": {},
+    "new_product_dialog_title": "Ви щойно знайшли новий продукт!",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "Зробіть фото пакування, щоб додати цей продукт до Вашої бази даних",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "Фото передньої частини продукту",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Підтвердьте завантаження передньої фотографії продукту",
@@ -495,19 +507,19 @@
     },
     "confirm_button_label": "Підтвердити",
     "send_image_button_label": "Надіслати зображення",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "Збереження зображення…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "Обрізання зображення…",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "Збереження локальної версії…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_server": "Preparing a call to the server…",
+    "crop_page_action_server": "Підготовка виклику до сервера…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
@@ -527,6 +539,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Введіть дані про харчову цінність",
     "nutritional_facts_added": "Харчова цінність додана",
+    "categories_added": "Categories added",
+    "new_product_title_nutriscore": "Compute the Nutri-Score",
+    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
+    "new_product_title_ecoscore": "Compute the Eco-Score",
+    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
+    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_title_pictures": "Let's take some pictures!",
+    "new_product_title_misc": "And some basic data…",
     "nutritional_facts_photo_uploaded": "Завантаження фотографій харчових фактів",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Фотографія з інформацією щодо перероблювання",
@@ -915,7 +935,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Почніть сканування!",
+    "product_list_empty_title": "Start scanning",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1328,11 +1348,11 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
-    "camera_flash_error_dialog_title": "An error occurred!",
+    "camera_flash_error_dialog_title": "Виникла помилка!",
     "@camera_flash_error_dialog_title": {
         "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
-    "camera_flash_error_dialog_message": "An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.",
+    "camera_flash_error_dialog_message": "Сталася помилка під час зміни стану вашого спалаху. Переконайтеся, що на вашому смартфоні ще не ввімкнено ліхтарик.",
     "@camera_flash_error_dialog_message": {
         "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
@@ -1409,7 +1429,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "Гаразд",
+    "dev_preferences_button_positive": "Добре",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
@@ -1525,7 +1545,7 @@
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "all_search_to_be_completed_title": "All to-be-completed products",
+    "all_search_to_be_completed_title": "Мої завершені товари",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
@@ -1579,31 +1599,31 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
-    "edit_photo_unselect_button_label": "Unselect photo",
+    "edit_photo_unselect_button_label": "Скасувати вибір фото",
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
     },
-    "edit_photo_select_existing_button_label": "Select an existing image",
+    "edit_photo_select_existing_button_label": "Вибрати наявне зображення",
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Existing images",
+    "edit_photo_select_existing_all_label": "Наявні зображення",
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Retrieving existing images…",
+    "edit_photo_select_existing_download_label": "Отримання наявних зображень…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
-    "edit_photo_select_existing_downloaded_none": "There are no images previously uploaded related to this product.",
+    "edit_photo_select_existing_downloaded_none": "Немає раніше завантажених зображень, пов’язаних із цим продуктом.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
-    "edit_photo_language_not_this_one": "No image in that language yet",
+    "edit_photo_language_not_this_one": "Ще немає зображення цією мовою",
     "@edit_photo_language_not_this_one": {
         "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
     },
-    "edit_photo_language_none": "No image yet",
+    "edit_photo_language_none": "Ще немає зображення",
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
@@ -1628,7 +1648,7 @@
         }
     },
     "barcode_invalid_error": "Штрих-код не є дійсним",
-    "basic_details_add_success": "Basic details added successfully",
+    "basic_details_add_success": "Основні деталі успішно додано",
     "basic_details_add_error": "Неможливо додати основні деталі. Спробуйте ще раз через деякий час",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1675,7 +1695,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+    "user_list_length": "{count,plural, few {{count} продукти} many {{count} продукти}=0{Порожній список} =1{Один продукт} other{{count} продукти}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
@@ -1694,7 +1714,7 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "add_packaging_photo_button_label": "Сфотографуйте будь-яку інформацію про упаковку/переробку",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
@@ -1723,7 +1743,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Перегляньте цей продукт на Open Food Facts: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -1793,7 +1813,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email apps!",
+    "no_email_client_available_dialog_title": "Немає поштового застосунку!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -1824,7 +1844,7 @@
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Завантажте зображення, щоб автоматично отримати надану інформацію.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
@@ -1844,7 +1864,7 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+    "image_edit_url_error": "Не вдалося редагувати зображення, оскільки URL-адресу зображення не вказано.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
@@ -1870,17 +1890,17 @@
     "app_rating_dialog_title_enjoying_app": "Вам подобається цей додаток?",
     "app_rating_dialog_title_enjoying_positive_actions": "Авжеж!",
     "not_really": "Не дуже",
-    "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
-    "edit_packagings_title": "Packaging components",
+    "app_rating_dialog_title_not_enjoying_app": "Прикро це чути! Можете розповісти, що сталося?",
+    "edit_packagings_title": "Пакетні компоненти",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Додайте елемент упакування",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
-    "edit_packagings_element_title": "Packaging component #{index}",
+    "edit_packagings_completed": "Пакування завершено",
+    "edit_packagings_element_title": "Пакування компоненту #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -1893,7 +1913,7 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Введіть кількість пакувальних одиниць однакової форми та матеріалу, які містяться в продукті.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1901,11 +1921,11 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Введіть назву форми, вказану в інструкціях з перероблювання, якщо вони доступні, або виберіть форму.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Пляшка",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -1913,11 +1933,11 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Введіть конкретний матеріал, якщо він може бути визначений (матеріальний код всередині трикутника часто можна знайти на упаковуванні) або загальний матеріал (наприклад пластик чи метал) якщо ви не впевнені.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Скло",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
@@ -1925,7 +1945,7 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "Вказуйте інструкції з утилізації, тільки якщо вони зазначені на виробі.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1933,11 +1953,11 @@
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_field_quantity": "Чиста кількість продукту на одиницю",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "Введіть вагу нетто або об'єм нетто і вкажіть одиницю виміру (наприклад, г або мл).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1945,7 +1965,7 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Перед зважуванням видаліть залишки їжі, вимийте та висушіть пакувальну частину. Якщо можливо, використовуйте ваги з точністю до 0,1 г або 0,01 г.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -1956,19 +1976,19 @@
     "background_task_operation_unknown": "невідома операція",
     "background_task_operation_details": "детально про зміни",
     "background_task_operation_image": "завантажити світлину",
-    "background_task_operation_refresh": "refresh delayed after photo upload",
+    "background_task_operation_refresh": "оновлення відбувається із затримкою після завантаження фотографій",
     "background_task_run_started": "розпочато",
     "background_task_run_not_started": "ще не розпочато",
     "background_task_run_to_be_deleted": "to be deleted",
     "background_task_question_stop": "Do you want to stop that task ASAP?",
     "feed_back": "Відгук",
     "undo": "Undo",
-    "copy_email_to_clip_board": "Copy email to clipboard",
+    "copy_email_to_clip_board": "Скопіюйте лист до буфера обміну",
     "@copy_email_to_clip_board": {
         "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
     },
-    "please_send_us_an_email_to": "Please send us manually an email to",
-    "email_copied_to_clip_board": "Email copied to clipboard!",
+    "please_send_us_an_email_to": "Будь ласка, надішліть нам електронного листа на адресу",
+    "email_copied_to_clip_board": "Лист скопійовано в буфер обміну!",
     "select_accent_color": "Select Accent Color",
     "@select_accent_color": {
         "description": "Accent Color for the application in AMOLED mode."
@@ -2032,5 +2052,105 @@
     "contrast_low": "Низька",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_loader_not_found_title": "Product not found!",
+    "@product_loader_not_found_title": {
+        "description": "When fetching a product opened via a link and it doesn't exist"
+    },
+    "product_loader_not_found_message": "Товар з таким штрих-кодом не існує в нашій базі даних: {barcode}",
+    "@product_loader_not_found_message": {
+        "description": "When fetching a product opened via a link, it doesn't exist",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "product_loader_network_error_title": "Немає підключення до інтернету!",
+    "@product_loader_network_error_title": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "product_loader_network_error_message": "Переконайтеся, що ваш смартфон підключений до мережі WiFi або увімкнений мобільний зв'язок",
+    "@product_loader_network_error_message": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "Page not found!",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "Поверніться на головну сторінку",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
+    },
+    "download_data": "Download data",
+    "@download_data": {
+        "description": "App bar title for the download data page"
+    },
+    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "@download_top_products": {
+        "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "Downloading data\nThis may take a while",
+    "@download_in_progress": {
+        "description": "Download in progress"
+    },
+    "downloaded_products": "{num} products added",
+    "@downloaded_products": {
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "update_offline_data": "Update offline product data",
+    "@update_offline_data": {
+        "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "@update_local_database_sub": {
+        "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "Clear offline product data",
+    "@clear_local_database": {
+        "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "@clear_local_database_sub": {
+        "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "{num} products deleted",
+    "@deleted_products": {
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "loading": "Завантаження…",
+    "@loading": {
+        "description": "Loading…"
+    },
+    "know_more": "Know More",
+    "@know_more": {
+        "description": "Know More"
+    },
+    "offline_data_desc": "Click to know more about offline data",
+    "@offline_data_desc": {
+        "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "Offline product data",
+    "@offline_product_data_title": {
+        "description": "Offline Product Data"
+    },
+    "available_for_download": "{num} products available for immediate scaning",
+    "@available_for_download": {
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
     }
 }

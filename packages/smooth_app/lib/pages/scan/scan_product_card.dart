@@ -30,7 +30,11 @@ class ScanProductCard extends StatelessWidget {
       child: Hero(
         tag: product.barcode ?? '',
         child: HideableContainer(
-          child: SummaryCard(product, productPreferences),
+          child: SummaryCard(
+            product,
+            productPreferences,
+            attributeGroupsClickable: false,
+          ),
         ),
       ),
     );

@@ -426,9 +426,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Skanuj",
+    "scan": "Sesja skanowania",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "Historia skanowania",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "Wyszukiwanie",
     "@search": {
@@ -487,6 +491,14 @@
     "@add_product_information_button_label": {},
     "new_product": "Nowy Produkt",
     "@new_product": {},
+    "new_product_dialog_title": "Właśnie znalazłeś/znalazłaś nowy produkt!",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "Proszę zrób zdjęcia opakowania, aby dodać ten produkt do naszej wspólnej bazy danych",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "Zdjęcie produktu z przodu",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Potwierdź przesłanie zdjęcia produktu",
@@ -495,19 +507,19 @@
     },
     "confirm_button_label": "Potwierdź",
     "send_image_button_label": "Wyślij obraz",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "Zapisywanie obrazu…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "Przycinanie obrazu…",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "Zapisywanie lokalnej wersji…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_server": "Preparing a call to the server…",
+    "crop_page_action_server": "Przygotowywanie połączenia z serwerem…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
@@ -527,6 +539,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Wprowadź wartości odżywcze",
     "nutritional_facts_added": "Wartości odżywcze zostały dodane",
+    "categories_added": "Kategorie dodane",
+    "new_product_title_nutriscore": "Obliczanie Nutri-Score",
+    "new_product_subtitle_nutriscore": "Otrzymaj go, wypełniając kategorię żywności oraz wartości odżywcze",
+    "new_product_title_ecoscore": "Obliczanie Eco-Score",
+    "new_product_subtitle_ecoscore": "Otrzymaj go, wypełniając przynajmniej jedną kategorię",
+    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_title_pictures": "Zróbmy kilka zdjęć!",
+    "new_product_title_misc": "I trochę podstawowych danych…",
     "nutritional_facts_photo_uploaded": "Przesłano zdjęcie z listą wartości odżywczych",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Zdjęcie informacji dotyczących Recyklingu",
@@ -915,7 +935,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Rozpocznij skanowanie!",
+    "product_list_empty_title": "Rozpocznij skanowanie",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1328,11 +1348,11 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
-    "camera_flash_error_dialog_title": "An error occurred!",
+    "camera_flash_error_dialog_title": "Wystąpił błąd!",
     "@camera_flash_error_dialog_title": {
         "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
-    "camera_flash_error_dialog_message": "An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.",
+    "camera_flash_error_dialog_message": "Wystąpił błąd podczas zmiany stanu lampy błyskowej. Upewnij się, że latarka na Twoim smartfonie nie jest już włączona.",
     "@camera_flash_error_dialog_message": {
         "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
@@ -1409,7 +1429,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "Ok",
+    "dev_preferences_button_positive": "Dobrze",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
@@ -1599,11 +1619,11 @@
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
-    "edit_photo_language_not_this_one": "No image in that language yet",
+    "edit_photo_language_not_this_one": "Nie ma jeszcze obrazu w tym języku",
     "@edit_photo_language_not_this_one": {
         "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
     },
-    "edit_photo_language_none": "No image yet",
+    "edit_photo_language_none": "Jeszcze nie ma obrazu",
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
@@ -2032,5 +2052,105 @@
     "contrast_low": "Niski",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_loader_not_found_title": "Produkt nie znaleziony!",
+    "@product_loader_not_found_title": {
+        "description": "When fetching a product opened via a link and it doesn't exist"
+    },
+    "product_loader_not_found_message": "Produkt o następującym kodzie kreskowym nie istnieje w naszej bazie danych: {barcode}",
+    "@product_loader_not_found_message": {
+        "description": "When fetching a product opened via a link, it doesn't exist",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "product_loader_network_error_title": "Brak połączenia z internetem!",
+    "@product_loader_network_error_title": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "product_loader_network_error_message": "Proszę sprawdzić, czy Twój smartfon jest podłączony do sieci Wi-Fi lub czy jest włączony transfer danych komórkowych",
+    "@product_loader_network_error_message": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "Strona nie znaleziona!",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "Wróć do strony głównej",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
+    },
+    "download_data": "Pobierz dane",
+    "@download_data": {
+        "description": "App bar title for the download data page"
+    },
+    "download_top_products": "Pobierz najlepsze 1000 produktów w Twoim kraju do natychmiastowego skanowania",
+    "@download_top_products": {
+        "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "Pobieranie danych\nTo może chwilę potrwać",
+    "@download_in_progress": {
+        "description": "Download in progress"
+    },
+    "downloaded_products": "Dodano {num} produktów",
+    "@downloaded_products": {
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "update_offline_data": "Zaktualizuj dane produktów offline",
+    "@update_offline_data": {
+        "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "Zaktualizuj lokalną bazę danych produktów najnowszymi danymi z Open Food Facts",
+    "@update_local_database_sub": {
+        "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "Wyczyść dane produktów offline",
+    "@clear_local_database": {
+        "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "Wyczyść wszystkie lokalne dane produktów z aplikacji, aby zwolnić miejsce",
+    "@clear_local_database_sub": {
+        "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "Usunięto {num} produktów",
+    "@deleted_products": {
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "loading": "Ładowanie…",
+    "@loading": {
+        "description": "Loading…"
+    },
+    "know_more": "Dowiedz się więcej",
+    "@know_more": {
+        "description": "Know More"
+    },
+    "offline_data_desc": "Kliknij, aby dowiedzieć się więcej o danych offline",
+    "@offline_data_desc": {
+        "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "Dane produktów offline",
+    "@offline_product_data_title": {
+        "description": "Offline Product Data"
+    },
+    "available_for_download": "Dostępnych jest {num} produktów do natychmiastowego skanowania",
+    "@available_for_download": {
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
     }
 }

@@ -4,204 +4,204 @@
     "@sep": {
         "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
     },
-    "yes": "예",
+    "yes": "Yes",
     "@yes": {},
-    "add": "추가하기",
+    "add": "Add",
     "@add": {},
-    "account_delete_message": "계정을 삭제하시겠습니까?\n특별한 이유가 있다면 아래에 공유해주세요.",
+    "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
     "@account_delete_message": {},
-    "reason": "사유",
+    "reason": "Reason",
     "@reason": {},
-    "okay": "확인",
+    "okay": "ଠିକ୍ ଅଛି",
     "@okay": {},
-    "create": "만들기",
+    "create": "Create",
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "적용",
+    "applyButtonText": "Apply",
     "@applyButtonText": {},
-    "next_label": "다음",
+    "next_label": "Next",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "맨 위로 돌아가기",
-    "save": "저장",
-    "save_confirmation": "정말로 저장하시겠습니까?",
-    "skip": "건너뛰기",
-    "cancel": "취소",
+    "go_back_to_top": "Go back to top",
+    "save": "Save",
+    "save_confirmation": "Are you sure you want to save?",
+    "skip": "ବାଦ୍ ଦିଅ",
+    "cancel": "Cancel",
     "@cancel": {},
-    "ignore": "무시",
+    "ignore": "Ignore",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
-    "close": "닫기",
+    "close": "Close",
     "@close": {},
-    "no": "아니요",
+    "no": "No",
     "@no": {},
-    "stop": "중지",
+    "stop": "Stop",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
-    "calculate": "계산하기",
+    "calculate": "Calculate",
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "식품 설정 초기화",
+    "reset_food_prefs": "Reset food preferences",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
-    "error": "문제가 발생했습니다",
+    "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "오류가 발생했습니다",
+    "error_occurred": "ଏକ ତ୍ରୁଟି ଘଟିଛି",
     "@error_occurred": {},
-    "featureInProgress": "지금도 작업 중인 기능입니다. 지켜봐주세요.",
+    "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
-    "label_web": "웹에서 보기",
+    "label_web": "View on the web",
     "@label_web": {},
-    "learnMore": "더보기",
+    "learnMore": "ଅଧିକ ଜାଣନ୍ତୁ",
     "@learnMore": {},
-    "unknown": "알 수 없음",
+    "unknown": "Unknown",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "match_very_good": "아주 좋은 일치",
+    "match_very_good": "Very good match",
     "@match_very_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: very good match"
     },
-    "match_good": "적합",
+    "match_good": "Good match",
     "@match_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: good match"
     },
-    "match_poor": "호환성 낮음",
+    "match_poor": "Poor match",
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
-    "match_may_not": "부적합함",
+    "match_may_not": "May not match",
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
-    "match_does_not": "일치하지 않음",
+    "match_does_not": "Does not match",
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "호환성 알 수 없음",
+    "match_unknown": "Unknown match",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
-    "match_short_very_good": "아주 좋은 일치",
+    "match_short_very_good": "Very good match",
     "@match_short_very_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
     },
-    "match_short_good": "적합",
+    "match_short_good": "Good match",
     "@match_short_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
     },
-    "match_short_poor": "호환성 낮음",
+    "match_short_poor": "Poor match",
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
-    "match_short_may_not": "부적합함",
+    "match_short_may_not": "May not match",
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
-    "match_short_does_not": "일치하지 않음",
+    "match_short_does_not": "Does not match",
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "호환성 알 수 없음",
+    "match_short_unknown": "Unknown match",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
-    "licenses": "라이센스",
+    "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "찾는 항목",
+    "looking_for": "Looking for",
     "@looking_for": {
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Open Food Facts 사용을 환영합니다",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts는 지역사회 커뮤니티의 기여를 바탕으로 하는 글로벌 비영리 활동입니다.",
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "당신과 지구에 좋은 음식을 고르세요.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "당신의 선호도와 관련된 식품 데이터를 확인하세요.",
+    "productDataUtility": "See the food data relevant to your preferences.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "당신에게 좋은 음식을 선택하십시오.",
+    "healthCardUtility": "Choose foods that are good for you.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "지구에 좋은 음식을 선택하십시오.",
+    "ecoCardUtility": "Choose foods that are good for the planet.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "기여를 저장하려면 Open Food Facts 계정에 로그인하세요",
-    "incorrect_credentials": "잘못된 사용자 이름 또는 암호입니다.",
-    "login": "Username",
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "incorrect_credentials": "Incorrect username or password.",
+    "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_page_username_or_email": "사용자 이름 또는 이메일을 입력하십시오",
-    "login_page_password_error_empty": "비밀번호를 입력하십시오",
-    "create_account": "계정 생성",
+    "login_page_username_or_email": "Please enter username or e-mail",
+    "login_page_password_error_empty": "ଦୟାକରି ଗୋଟିଏ ପାସ୍‍ୱର୍ଡ଼ ପ୍ରଵେଶ କରନ୍ତୁ",
+    "create_account": "Create account",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
-    "sign_in": "가입하기",
+    "sign_in": "Sign in",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "해당 기능을 사용하려면 로그인해야 합니다.",
+    "sign_in_mandatory": "For that feature we need you to sign in.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
-    "sign_out": "로그아웃",
+    "sign_out": "Sign out",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "정말 로그아웃하시겠습니까?",
+    "sign_out_confirmation": "Are you sure you want to sign out?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
-    "password": "암호",
-    "forgot_password": "비밀번호 찾기",
+    "password": "Password",
+    "forgot_password": "Forgot password",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "프로필 보기",
+    "view_profile": "View profile",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
-    "reset_password": "비밀번호 재설정",
+    "reset_password": "Reset password",
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "비밀번호를 잊어버린 경우 사용자 이름 또는 이메일 주소를 입력하면 비밀번호 재설정 안내를 받을 수 있습니다. 또한 스팸 폴더를 확인하는 것을 잊지 마십시오.",
-    "username_or_email": "사용자 이름 또는 이메일",
+    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
+    "username_or_email": "Username or e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "계정과 연결된 이메일로 비밀번호를 초기화하는 링크가 전송되었습니다. 스팸함도 확인하시기 바랍니다",
-    "send_reset_password_mail": "비밀번호 변경",
+    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+    "send_reset_password_mail": "ପାସ୍‍ୱର୍ଡ଼ ବଦଳାନ୍ତୁ",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "내용을 입력해주세요",
+    "enter_some_text": "Please enter some text",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "회원가입",
+    "sign_up_page_title": "Sign Up",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "회원가입",
+    "sign_up_page_action_button": "Sign Up",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
@@ -209,17 +209,17 @@
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "축하합니다! 귀하의 계정이 방금 생성되었습니다.",
-    "sign_up_page_display_name_hint": "이름",
-    "sign_up_page_display_name_error_empty": "사용하고자 하는 이름을 입력하십시오",
-    "sign_up_page_email_hint": "이메일",
-    "sign_up_page_email_error_empty": "이메일이 필요합니다",
-    "sign_up_page_email_error_invalid": "이메일이 올바르지 않습니다",
-    "sign_up_page_username_hint": "사용자 이름: 모두가 볼 수 있어요",
-    "sign_up_page_username_error_empty": "사용자 이름을 입력하십시오",
-    "sign_up_page_username_error_invalid": "유효한 사용자 이름을 입력하십시오",
+    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
+    "sign_up_page_display_name_hint": "Name",
+    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
+    "sign_up_page_email_hint": "E-mail",
+    "sign_up_page_email_error_empty": "ଇ-ମେଲ୍ ଆଵଶ୍ୟକ ଅଟେ",
+    "sign_up_page_email_error_invalid": "ଅଵୈଧ ଇ-ମେଲ୍",
+    "sign_up_page_username_hint": "Username: Publicly visible",
+    "sign_up_page_username_error_empty": "Please enter a username",
+    "sign_up_page_username_error_invalid": "Please enter a valid username",
     "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
-    "sign_up_page_username_length_invalid": "사용자 이름은 {value}자를 초과할 수 없습니다",
+    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -227,21 +227,21 @@
             }
         }
     },
-    "sign_up_page_password_hint": "암호",
-    "sign_up_page_password_error_empty": "비밀번호를 입력하십시오",
-    "sign_up_page_password_error_invalid": "유효한 비밀번호를 입력하십시오 (최소 6자 이상)",
-    "sign_up_page_confirm_password_hint": "비밀번호 확인",
-    "sign_up_page_confirm_password_error_empty": "비밀번호를 확인하십시오",
-    "sign_up_page_confirm_password_error_invalid": "비밀번호가 일치하지 않습니다",
-    "sign_up_page_agree_text": "Open Food Facts 약관에 동의합니다",
+    "sign_up_page_password_hint": "Password",
+    "sign_up_page_password_error_empty": "ଦୟାକରି ଗୋଟିଏ ପାସ୍‍ୱର୍ଡ଼ ପ୍ରଵେଶ କରନ୍ତୁ",
+    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
+    "sign_up_page_confirm_password_hint": "Confirm Password",
+    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
+    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
+    "sign_up_page_agree_text": "I agree to the Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "이용 및 기여 약관",
+    "sign_up_page_terms_text": "terms of use and contribution",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
-    "sign_up_page_agree_url": "https://world-ko.openfoodfacts.org/terms-of-use",
+    "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
         "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
@@ -249,119 +249,119 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "계정을 만들 때 사용 약관에 동의하는 것은 필수이지만 앱을 통해 익명으로 기여할 수 있습니다.",
+    "sign_up_page_agree_error_invalid": "When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "저는 식품 생산자입니다",
-    "sign_up_page_producer_hint": "생산자/브랜드",
-    "sign_up_page_producer_error_empty": "생산자 또는 브랜드 이름을 입력해주십시오",
-    "sign_up_page_subscribe_checkbox": "Open Food Facts 뉴스레터를 구독하고 싶습니다 (언제든지 구독을 취소할 수 있습니다)",
+    "sign_up_page_producer_checkbox": "I am a food producer",
+    "sign_up_page_producer_hint": "Producer/brand",
+    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
     "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "@Settings": {},
-    "settingsTitle": "설정",
+    "settingsTitle": "Settings",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Theme",
+    "darkmode": "ଥିମ୍",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "어둡게",
+    "darkmode_dark": "ଗାଢ଼",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch (dark)"
     },
-    "darkmode_light": "밝게",
+    "darkmode_light": "ହାଲୁକା",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "시스템 기본값",
+    "darkmode_system_default": "ସିଷ୍ଟମ୍ ଡିଫଲ୍ଟ",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "기여해주셔서 감사합니다",
+    "thanks_for_contributing": "ଯୋଗଦାନ ପାଇଁ ଧନ୍ୟଵାଦ",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "기여자",
-    "support": "Support",
+    "contributors": "Contributors",
+    "support": "ସମର୍ଥନ",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Slack 채널에서 도움 요청",
+    "support_join_slack": "Ask for help in our Slack channel",
     "support_via_forum": "Ask for help on our forum",
-    "support_via_email": "이메일 전송",
-    "support_via_email_include_logs_dialog_title": "앱 로그를 전송할까요?",
-    "support_via_email_include_logs_dialog_body": "이메일에 앱 로그 파일을 첨부하시겠습니까?",
-    "termsOfUse": "이용 약관",
+    "support_via_email": "Send us an e-mail",
+    "support_via_email_include_logs_dialog_title": "Send app logs?",
+    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "termsOfUse": "ଵ୍ୟଵହାର ସର୍ତ୍ତାଵଳୀ",
     "@termsOfUse": {},
-    "about_this_app": "앱 정보",
+    "about_this_app": "ଏହି ଆପ୍ ଵିଷୟରେ",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "기여하기",
+    "contribute": "ଯୋଗଦାନ କରନ୍ତୁ",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "소프트웨어 개발",
+    "contribute_sw_development": "Software development",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "모든 Open Food Facts 제품의 코드는 GitHub에서 볼 수 있습니다. 코드를 재사용하거나(오픈 소스입니다), 지구의 모든 이들을 위해 앱 개선에 기여하는 것을 환영합니다.",
+    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "궁금한 점을 물어볼 수 있는 Open Food Facts Slack 채팅방에 참여하실 수 있습니다.",
+    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "개발자 모드를 활성화할까요?",
-    "contribute_develop_dev_mode_subtitle": "개발자 모드 활성화",
-    "contribute_donate_header": "Open Beauty Facts에게 기부하기",
+    "contribute_develop_dev_mode_title": "DEV Mode?",
+    "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
-    "contribute_improve_ProductsToBeCompleted": "완제품",
+    "contribute_improve_ProductsToBeCompleted": "Products to be completed",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "개선 중",
+    "contribute_improve_header": "Improving",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "데이터베이스는 이 프로젝트의 핵심입니다. 쉽고 빠르게 도움을 줄 수 있습니다. 모바일 앱을 내려받고, 제품을 추가하거나 개선할 수 있습니다.\n\n또한 Open Food Facts 웹 사이트에서는 아래와 같은 다양한 방법으로 기여할 수 있습니다: ",
+    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
     "@contribute_improve_text": {},
-    "contribute_translate_header": "번역하기",
+    "contribute_translate_header": "ଅନୁଵାଦ କରନ୍ତୁ",
     "@contribute_translate_header": {
         "description": "Button label + pop up window title: Shows information about helping by translating"
     },
-    "contribute_translate_link_text": "번역 시작",
+    "contribute_translate_link_text": "Start Translating",
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts는 160개 이상의 국가에서 생산된 상품을 포함하는 글로벌 프로젝트입니다. Open Food Facts는 지속적으로 진화하는 콘텐츠와 함께 수십 개의 언어로 번역됩니다.",
+    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
     "@contribute_translate_text": {},
-    "contribute_translate_text_2": "번역은 프로젝트의 핵심 작업 중 하나입니다",
+    "contribute_translate_text_2": "Translations is one of the key tasks of the project",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Open Food Facts를 친구들과 공유하세요",
+    "contribute_share_header": "Share Open Food Facts with your friends",
     "@contribute_share_header": {},
-    "contribute_share_content": "제가 사용하고 있는 앱인 Open Food Facts에 대해 알려드리고 싶었습니다. 음식이 건강과 환경에 미치는 영향을 개인화된 방식으로 얻을 수 있습니다. 포장의 바코드를 스캔하여 작동합니다. 마지막으로 무료이며 등록이 필요하지 않으며 해독되는 제품의 수를 늘리는 데 도움을 줄 수도 있습니다. 휴대폰용으로 다운로드할 수 있는 링크는 다음과 같습니다. https://openfoodfacts.app",
+    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
-    "tap_to_answer": "여기를 눌러 질문에 답하세요",
+    "tap_to_answer": "Tap here to answer questions",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "답변 저장 중",
+    "saving_answer": "Saving your answer",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "식품 투명성을 개선하고 보상을 받으세요",
+    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "기여에 대한 크레딧을 받으려면 Open Food Facts 계정에 로그인하세요.",
-    "tap_to_edit_search": "탭하여 검색하세요",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "tap_to_edit_search": "Tap to edit search",
     "@Personal preferences": {},
-    "myPreferences": "내 설정",
+    "myPreferences": "My preferences",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
@@ -373,123 +373,123 @@
     "@join_us": {
         "description": "Join which is actually Signup"
     },
-    "myPreferences_profile_title": "내 프로필",
-    "myPreferences_profile_subtitle": "Open Food Facts 기여자 계정을 관리합니다.",
-    "myPreferences_settings_title": "앱 설정",
+    "myPreferences_profile_title": "Your Profile",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_settings_title": "App Settings",
     "myPreferences_settings_subtitle": "Dark mode, Analytics…",
-    "myPreferences_food_title": "식품 설정",
-    "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
-    "myPreferences_food_comment": "음식에 대해 가장 중요한 정보를 선택하여 선호도에 따라 음식 순위를 매기고 관심 있는 정보를 먼저 보고 호환성 요약을 받으세요. 이러한 선호하는 음식은 기기에 남아 있으며 Open Food Facts 기고자 계정이 있는 경우 해당 계정과 연결되지 않습니다.",
-    "confirmResetPreferences": "식품 설정을 초기화하시겠습니까?",
+    "myPreferences_food_title": "Food Preferences",
+    "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "confirmResetPreferences": "Reset your food preferences?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "나만의 순위",
+    "myPersonalizedRanking": "My personalized ranking",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "모두",
-    "ranking_subtitle_match_yes": "당신을 위한 좋은 매치",
-    "ranking_subtitle_match_no": "호환성 매우 낮음",
-    "ranking_subtitle_match_maybe": "호환성 알 수 없음",
-    "refresh_with_new_preferences": "새로운 기본 설정으로 목록을 새로 고칩니다.",
+    "ranking_tab_all": "All",
+    "ranking_subtitle_match_yes": "A great match for you",
+    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_maybe": "Unknown match",
+    "refresh_with_new_preferences": "Refresh the list with your new preferences",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
-    "reloaded_with_new_preferences": "새로운 기본 설정으로 다시 로드됨",
+    "reloaded_with_new_preferences": "Reloaded with your new preferences",
     "@reloaded_with_new_preferences": {
         "description": "Snackbar title: Shows that the modified settings have been applied"
     },
     "@other": {},
-    "profile_navbar_label": "프로필",
+    "profile_navbar_label": "Profile",
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "스캔",
+    "scan_navbar_label": "Scan",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the scanning of products"
     },
-    "history_navbar_label": "최근 기록",
+    "history_navbar_label": "History",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
-    "category": "카테고리로 필터",
+    "category": "Filter by category",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "모두",
+    "category_all": "All",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
-    "category_search": "(카테고리 검색)",
-    "filter": "필터",
+    "category_search": "(category search)",
+    "filter": "Filter",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "스캔 세션",
+    "scan": "Scan session",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
-    "scan_history": "스캔 내역",
+    "scan_history": "Scan history",
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
-    "search": "검색",
+    "search": "Search",
     "@search": {
         "description": "Hint text of a search text input field"
     },
     "tab_for_more": "Tap to see more info…",
     "@Product": {},
-    "product": "생성물",
+    "product": "Product",
     "@product": {},
-    "unknownBrand": "알 수 없는 상표",
+    "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
-    "unknownProductName": "알 수 없는 상품명",
+    "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "새로고침",
+    "label_refresh": "Refresh",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "이미지",
-    "front_photo": "전면 사진",
+    "image": "Image",
+    "front_photo": "Front photo",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "ingredients": "성분",
+    "ingredients": "Ingredients",
     "@ingredients": {},
-    "ingredients_editing_instructions": "원래의 순서를 지켜라. 지정된 경우 백분율을 나타냅니다. 쉼표나 하이픈으로 구분하고, 성분에 괄호를 사용하고, 밑줄 사이에 알레르기 정보를 표시합니다.",
-    "ingredients_editing_error": "재료를 저장하지 못했습니다.",
-    "ingredients_editing_image_error": "새로운 재료 이미지를 가져오지 못했습니다.",
-    "ingredients_editing_title": "재료 수정",
-    "ingredients_photo": "재료 사진",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
+    "ingredients_editing_error": "Failed to save the ingredients.",
+    "ingredients_editing_image_error": "Failed to get a new ingredients image.",
+    "ingredients_editing_title": "Edit Ingredients",
+    "ingredients_photo": "Ingredients photo",
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "모든 포장 부품을 콤마 또는 라인 피드로 구분하여 수량(예: 1 또는 6), 재료(예: 플라스틱, 금속, 알루미늄), 크기(예: 33cl) 및 재활용 지침과 함께 나열합니다.\n예: 재활용할 유리병 1개, 버릴 플라스틱 코르크 1개",
-    "packaging_editing_error": "포장 사항을 저장하지 못했습니다.",
-    "packaging_editing_image_error": "새 포장 사진을 가져오지 못했습니다.",
-    "packaging_editing_title": "포장 편집",
-    "nutrition": "영양",
+    "packaging_editing_instructions": "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away",
+    "packaging_editing_error": "Failed to save the packaging.",
+    "packaging_editing_image_error": "Failed to get a new packaging image.",
+    "packaging_editing_title": "Edit Packaging",
+    "nutrition": "Nutrition",
     "@nutrition": {},
-    "nutrition_facts_photo": "영양 성분 사진",
+    "nutrition_facts_photo": "Nutrition facts photo",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "packaging_information": "포장 정보",
+    "packaging_information": "Packaging information",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
     },
-    "packaging_information_photo": "포장 정보 사진",
+    "packaging_information_photo": "Packaging information photo",
     "@packaging_information_photo": {},
-    "missing_product": "새 상품을 찾았습니다!",
+    "missing_product": "You found a new product!",
     "@missing_product": {},
-    "add_product_take_photos": "이 제품을 Open Food Facts에 추가하려면 포장 사진을 찍으세요.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "사진을 먼저 찍어주세요. 나중에 언제든지 제품을 완성할 수 있습니다.",
+    "add_product_take_photos_descriptive": "Please take some photos first. You may always complete the product at a later time.",
     "@add_product_take_photos_descriptive": {},
-    "add_product_information_button_label": "제품 정보 추가하기",
+    "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
-    "new_product": "새 상품",
+    "new_product": "New Product",
     "@new_product": {},
     "new_product_dialog_title": "You have just found a new product!",
     "@new_product_dialog_title": {
@@ -499,13 +499,13 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "front_packaging_photo_button_label": "상품 전면 사진",
+    "front_packaging_photo_button_label": "Product front photo",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "상품 전면 사진 업로드 확인",
+    "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
-    "confirm_button_label": "확인",
+    "confirm_button_label": "Confirm",
     "send_image_button_label": "Send image",
     "crop_page_action_saving": "Saving the image…",
     "@crop_page_action_saving": {
@@ -523,22 +523,22 @@
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
-    "front_packaging_photo_title": "전면 포장 사진",
-    "ingredients_photo_title": "재료 사진",
-    "nutritional_facts_photo_title": "영양 성분 사진",
-    "recycling_photo_title": "재활용 사진",
-    "other_interesting_photo_title": "다른 흥미로운 사진",
-    "front_photo_uploaded": "전면 사진 갱신됨",
+    "front_packaging_photo_title": "Front Packaging Photo",
+    "ingredients_photo_title": "Ingredients Photo",
+    "nutritional_facts_photo_title": "Nutrition Facts Photo",
+    "recycling_photo_title": "Recycling Photo",
+    "other_interesting_photo_title": "Other interesting photos",
+    "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
-    "ingredients_photo_button_label": "재료 사진",
+    "ingredients_photo_button_label": "Ingredients photo",
     "@ingredients_photo_button_label": {},
-    "ingredients_photo_uploaded": "재료 사진을 올렸습니다",
+    "ingredients_photo_uploaded": "Ingredients photo uploaded",
     "@ingredients_photo_uploaded": {},
-    "nutrition_cache_loading_error": "캐시에서 영양 성분을 불러올 수 없습니다",
-    "nutritional_facts_photo_button_label": "영양 성분 사진",
+    "nutrition_cache_loading_error": "Unable to load nutrients from cache",
+    "nutritional_facts_photo_button_label": "Nutrition facts photo",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "영양 성분 입력",
-    "nutritional_facts_added": "영양 성분 추가됨",
+    "nutritional_facts_input_button_label": "Input nutrition facts",
+    "nutritional_facts_added": "Nutrition facts added",
     "categories_added": "Categories added",
     "new_product_title_nutriscore": "Compute the Nutri-Score",
     "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
@@ -547,147 +547,147 @@
     "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
-    "nutritional_facts_photo_uploaded": "영양 성분 사진을 올렸습니다",
+    "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "재활용 정보 사진",
+    "recycling_photo_button_label": "Recycling information photo",
     "@recycling_photo_button_label": {},
-    "recycling_photo_uploaded": "재활용 사진을 올렸습니다",
+    "recycling_photo_uploaded": "Recycling photo uploaded",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "다른 흥미로운 사진",
+    "other_interesting_photo_button_label": "Other interesting photos",
     "@other_interesting_photo_button_label": {},
-    "other_photo_uploaded": "기타 사진을 올렸습니다",
+    "other_photo_uploaded": "Miscellaneous photo uploaded",
     "@other_photo_uploaded": {},
-    "retake_photo_button_label": "재촬영",
+    "retake_photo_button_label": "Retake",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
-    "selecting_photo": "사진 선택",
+    "selecting_photo": "Selecting photo",
     "@selecting_photo": {
         "description": "Progress indicator when the users takes a photo"
     },
-    "uploading_image": "사진을 서버에 올리는 중",
+    "uploading_image": "Uploading photo to the server",
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "전면 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_front": "Uploading front image to Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "재료 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "영양 성분 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "포장 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "기타 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_other": "Uploading other image to Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_generic": "Uploading image to Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
-    "score_add_missing_ingredients": "누락된 재료 추가",
+    "score_add_missing_ingredients": "Add missing ingredients",
     "score_add_missing_packaging_image": "Add missing packaging image",
-    "score_add_missing_nutrition_facts": "누락된 영양성분 추가",
-    "score_add_missing_product_category": "누락된 상품 카테고리 추가",
+    "score_add_missing_nutrition_facts": "Add missing nutrition facts",
+    "score_add_missing_product_category": "Add missing product category",
     "score_add_missing_product_countries": "Add missing product countries",
     "score_add_missing_product_emb": "Add missing product traceability codes",
     "score_add_missing_product_labels": "Add missing product labels",
     "score_add_missing_product_origins": "Add missing product origins",
     "score_add_missing_product_stores": "Add missing product stores",
-    "score_update_nutrition_facts": "영양 성분 갱신",
-    "nutrition_page_title": "영양 성분 정보",
-    "nutrition_page_unspecified": "영양성분표가 상품에 명시되어 있지 않습니다",
-    "nutrition_page_per_100g": "100g 당",
-    "nutrition_page_per_serving": "인분",
-    "nutrition_page_add_nutrient": "영양소 추가하기",
-    "nutrition_page_serving_size": "서빙 사이즈",
-    "nutrition_page_invalid_number": "잘못된 번호",
+    "score_update_nutrition_facts": "Update nutrition facts",
+    "nutrition_page_title": "Nutrition Facts",
+    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_serving": "per serving",
+    "nutrition_page_add_nutrient": "Add a nutrient",
+    "nutrition_page_serving_size": "Serving size",
+    "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server…",
-    "nutrition_page_update_done": "제품 업데이트됨",
-    "more_photos": "기타 흥미로운 사진",
+    "nutrition_page_update_done": "Product updated!",
+    "more_photos": "More interesting photos",
     "@more_photos": {},
-    "no_product_found": "상품 없음",
+    "no_product_found": "No product found",
     "@no_product_found": {},
-    "not_found": "찾을 수 없음:",
-    "searchPanelHeader": "첫 상품을 검색하거나 스캔",
+    "not_found": "not found:",
+    "searchPanelHeader": "Search or scan your first product",
     "@Product query status": {},
-    "refreshing_product": "상품 새로고치는 중...",
+    "refreshing_product": "Refreshing product",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
     },
-    "product_refreshed": "상품 새로고침 완료",
+    "product_refreshed": "Product refreshed",
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "더 이상 사용되지 않는 버전의 앱을 사용하고 있습니다.",
+    "deprecated_header": "You are using a deprecated version of the app.",
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
-    "click_here": "여기를 클릭",
+    "click_here": "Click here",
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
-    "download_new_version": "새 버전의 앱 다운로드",
+    "download_new_version": "Download the new version of the app",
     "@download_new_version": {
         "description": "Download new version of the app text"
     },
-    "could_not_refresh": "상품을 새로고침할 수 없음",
+    "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error": "네트워크 오류로 인해 이 제품에 대한 정보를 가져올 수 없습니다.",
-    "cached_results_from": "결과 보기:",
+    "product_internet_error": "Impossible to fetch information about this product due to a network error.",
+    "cached_results_from": "Show results from:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
-    "added_product_thanks": "상품을 추가해주셔서 감사합니다!",
+    "added_product_thanks": "Thank you for adding this product!",
     "@added_product_thanks": {},
-    "product_search_same_category": "카테고리 비교",
+    "product_search_same_category": "Compare to Category",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
-    "product_improvement_add_category": "Nutri-Score를 계산할 카테고리를 추가하세요.",
+    "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
     },
-    "product_improvement_add_nutrition_facts": "영양 성분을 추가하여 영양 점수 계산",
+    "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
     "@product_improvement_add_nutrition_facts": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
     },
-    "product_improvement_add_nutrition_facts_and_category": "영양 성분을 추가하여 영양 점수 계산",
+    "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "이 제품의 Nutri-Score를 계산할 수 없습니다. 예를 들어 비표준 카테고리 때문일 수 있습니다. 이것이 오류로 간주되면 당사에 문의하십시오.",
+    "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "영양 이미지가 더 이상 사용되지 않습니다. 새로고침하세요.",
+    "product_improvement_obsolete_nutrition_image": "The nutrition image is obsolete: please refresh it.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Eco-Score는 성분의 원산지를 고려합니다. 성분 목록 혹은 원산지 표시 사진을 찍거나, 상품 정보를 수정하여 원산지를 고려할 수 있도록 해주세요.",
+    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "국가를 선택하십시오",
+    "country_chooser_label": "Please choose a country",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country"
     },
-    "country_selection_explanation": "일부 환경 기능은 위치에 따라 다릅니다.",
+    "country_selection_explanation": "Some environmental features are location-specific",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
-    "product_removed_comparison": "비교에서 제거된 제품",
+    "product_removed_comparison": "Product removed from comparison",
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
@@ -699,25 +699,25 @@
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
-    "product_removed_history": "기록에서 제거된 제품",
+    "product_removed_history": "Product removed from history",
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
-    "product_could_not_remove": "상품을 제거할 수 없음",
+    "product_could_not_remove": "Could not remove product",
     "@product_could_not_remove": {
         "description": "Could not remove product from a list"
     },
     "@Lists": {},
-    "no_prodcut_in_list": "목록에 상품이 없습니다",
-    "no_product_in_section": "이 섹션에는 상품이 없습니다",
-    "recently_seen_products": "최근 기록",
-    "clear": "지우기",
+    "no_prodcut_in_list": "There is no product in this list",
+    "no_product_in_section": "There is no product in this section",
+    "recently_seen_products": "History",
+    "clear": "Clear",
     "@clear": {
         "description": "Clears a product list"
     },
-    "really_clear": "정말로 목록을 삭제하시겠습니까?",
+    "really_clear": "Do you really want to delete this list?",
     "@Plural": {},
-    "pct_match": "{percent}% 일치",
+    "pct_match": "{percent}% match",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
@@ -766,29 +766,29 @@
             "count": {}
         }
     },
-    "compare_products_mode": "비교",
+    "compare_products_mode": "Compare",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "compare_products_appbar_title": "제품 비교",
+    "compare_products_appbar_title": "Compare products",
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "하나 이상의 옵션을 선택하십시오.",
+    "compare_products_appbar_subtitle": "Please select at least two products",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
-    "retry_button_label": "다시 시도",
-    "connect_with_us": "소통하기",
-    "instagram": "인스타그램",
+    "retry_button_label": "Retry",
+    "connect_with_us": "Connect with us",
+    "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
-    "blog": "블로그",
+    "blog": "Blog",
     "faq": "FAQ",
-    "discover": "둘러보기",
-    "how_to_contribute": "기여하는 방법",
-    "hint_knowledge_panel_message": "카드의 아무 부분이나 눌러서 상세 정보를 볼 수 있습니다. 지금 해보세요!",
+    "discover": "ଆଵିଷ୍କାର କରନ୍ତୁ",
+    "how_to_contribute": "How to Contribute",
+    "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -796,27 +796,27 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Open Food Facts 자원 봉사자가 앱을 개선하도록 도와주세요. 익명 분석 보고서을 제출할지 여부는 귀하가 결정합니다.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "마음이 바뀌면 언제든지 설정에서 이 옵션을 활성화하거나 비활성화할 수 있습니다.",
+    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
-    "permissions_page_title": "카메라 액세스",
+    "permissions_page_title": "Camera access",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "휴대전화의 카메라로 바코드를 스캔하려면 접근을 승인하세요.",
+    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
-    "permissions_page_body2": "마음이 바뀌면 언제든지 설정에서 이 옵션을 활성화하거나 비활성화할 수 있습니다.",
+    "permissions_page_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
     "@permissions_page_body2": {
         "description": "second paragraph for the camera permission's page (onboarding)"
     },
-    "contact_form_body_android": "운영체제: Android (SDK Int: {sdkInt} / Release: {release})\n모델: {model}\n제품: {product}\n기기: {device}\n브랜드:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -846,7 +846,7 @@
             }
         }
     },
-    "contact_form_body_ios": "운영체제: iOS ({version})\n모델: {model}\n현지화 모델: {localizedModel}",
+    "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}",
     "@contact_form_body_ios": {
         "description": "Contact form content for iOS devices",
         "placeholders": {
@@ -864,7 +864,7 @@
             }
         }
     },
-    "contact_form_body": "{osContent}\n앱 버전:{appVersion}\n앱 빌드 번호:{appBuildNumber}\n앱 패키지 이름:{appPackageName}",
+    "contact_form_body": "{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}",
     "@contact_form_body": {
         "description": "Contact form content",
         "placeholders": {
@@ -886,15 +886,15 @@
             }
         }
     },
-    "authorize_button_label": "허가",
+    "authorize_button_label": "Authorise",
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
-    "refuse_button_label": "거절",
+    "refuse_button_label": "Refuse",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "다음에",
+    "ask_me_later_button_label": "Later",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
@@ -911,27 +911,27 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "2012년에\n협업을 위한\n스캔 앱을 개발했습니다",
+    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "10년이 되어감에 따라,\n스캔 앱을 처음부터\n다시 개발해나가고 있습니다!",
+    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
-    "onboarding_welcome_loading_dialog_title": "첫 예시 상품 불러오는 중",
+    "onboarding_welcome_loading_dialog_title": "Loading your first example product",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "귀하의 언어로 된 예시 제품이 없는 것 같습니다.",
+    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
     "@onboarding_welcome_loading_error": {
         "description": "Seems like there is no example product in your language"
     },
-    "product_list_your_ranking": "내 순위",
+    "product_list_your_ranking": "Your ranking",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "내역 없음",
+    "product_list_empty_icon_desc": "History not available",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
@@ -939,7 +939,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "스캔한 상품이 여기에 표시되며 해당 상품에 대한 자세한 정보를 확인할 수 있습니다",
+    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -957,32 +957,32 @@
             "count": {}
         }
     },
-    "loading_dialog_default_title": "데이터 다운로드 중",
+    "loading_dialog_default_title": "Downloading data",
     "@loading_dialog_default_title": {
         "description": "Default loading dialog title"
     },
-    "loading_dialog_default_error_message": "데이터를 다운로드할 수 없음",
+    "loading_dialog_default_error_message": "Could not download data",
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
-    "account_delete": "계정 삭제",
+    "account_delete": "Delete account",
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "account_deletion_subject": "계정 삭제하기",
+    "account_deletion_subject": "Delete my account",
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
-    "user_profile": "계정",
+    "user_profile": "Account",
     "@user_profile": {
         "description": "User account (if connected)"
     },
-    "user_profile_title_guest": "환영합니다!",
+    "user_profile_title_guest": "Welcome!",
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Open Food Facts 커뮤니티에 가입하려면 로그인 또는 가입하세요.",
-    "user_profile_title_id_email": "Open Food Facts 로그인: {email}",
+    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_title_id_email": "Open Food Facts login: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -991,7 +991,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "{id}님, 환영합니다!",
+    "user_profile_title_id_default": "Welcome {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -1000,11 +1000,11 @@
             }
         }
     },
-    "email_subject_account_deletion": "계정 삭제",
+    "email_subject_account_deletion": "Delete account",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "안녕하세요, 제 Open Food Facts 계정을 삭제해주세요: {userId}",
+    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1013,27 +1013,27 @@
             }
         }
     },
-    "settings_app_app": "애플리케이션",
-    "settings_app_data": "개인정보 및 추적",
-    "settings_app_camera": "카메라",
-    "settings_app_products": "제품",
-    "settings_app_miscellaneous": "기타",
+    "settings_app_app": "Application",
+    "settings_app_data": "Privacy & monitoring",
+    "settings_app_camera": "Camera",
+    "settings_app_products": "Products",
+    "settings_app_miscellaneous": "Miscellaneous",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_play_sound_title": "스캔 시 소리 재생",
+    "camera_play_sound_title": "Play a sound on scan",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "스캔을 성공할 때마다 신호음이 울립니다",
+    "camera_play_sound_subtitle": "Will beep on each successful scan",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "스캐너 모드",
+    "camera_mode_title": "Scanner mode",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
-    "camera_mode_subtitle": "스캐너에 문제가 있는 경우에만 이 값을 변경하십시오(바코드를 디코딩할 수 없음). 두 모드 사이를 전환하려면 누릅니다.\n현재는: {mode}",
+    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
     "@camera_mode_subtitle": {
         "description": "SubTitle for the mode for the camera/scanner",
         "placeholders": {
@@ -1042,13 +1042,13 @@
             }
         }
     },
-    "camera_mode_file_based": "안전 모드(기본값)",
-    "camera_mode_bytes_array_based": "빠른 모드",
-    "app_haptic_feedback_title": "진동 및 햅틱",
+    "camera_mode_file_based": "Safe mode (by default)",
+    "camera_mode_bytes_array_based": "Quick mode",
+    "app_haptic_feedback_title": "Vibration & Haptics",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "일부 작업 실행 후 진동(바코드 디코딩됨, 제품 제거됨…).",
+    "app_haptic_feedback_subtitle": "Vibrations after executing some actions (barcode decoded, product removed…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -1056,7 +1056,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "활성화되면 충돌 보고서가 Open Food Facts의 오류 추적 시스템에 자동으로 제출되므로 버그를 수정하여 앱을 개선할 수 있습니다.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1068,16 +1068,16 @@
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
-    "product_edit_photo_title": "사진 편집",
+    "product_edit_photo_title": "Edit Photo",
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
-    "permission_photo_error": "오류",
+    "permission_photo_error": "Error",
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "카메라를 사용하여 바코드를 스캔하도록 허용",
-    "permission_photo_denied_message": "향상된 경험을 위해 {appName} 카메라에 액세스하도록 허용하십시오. 바코드를 직접 스캔할 수 있습니다.",
+    "permission_photo_denied_title": "Allow camera use to scan barcodes",
+    "permission_photo_denied_message": "For an enhanced experience, please allow {appName} to access your camera. You will be able to directly scan barcodes.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -1086,39 +1086,39 @@
             }
         }
     },
-    "permission_photo_denied_button": "허용",
+    "permission_photo_denied_button": "Allow",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "권한 거부됨",
-    "permission_photo_denied_dialog_settings_message": "이전에 카메라 권한을 거부했으므로 설정에서 수동으로 허용해야 합니다.",
-    "permission_photo_denied_dialog_settings_button_open": "설정 열기",
-    "permission_photo_denied_dialog_settings_button_cancel": "취소",
+    "permission_photo_denied_dialog_settings_title": "Permission denied",
+    "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
+    "permission_photo_denied_dialog_settings_button_open": "Open settings",
+    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
     "permission_photo_none_found": "No camera detected",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
     },
-    "permission_photo_denied": "카메라 접근 권한 없음",
+    "permission_photo_denied": "No camera access granted",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "edit_product_label": "제품 정보 편집",
+    "edit_product_label": "Edit product",
     "@edit_product_label": {
         "description": "Edit product button label"
     },
-    "edit_product_form_item_barcode": "바코드",
+    "edit_product_form_item_barcode": "Barcode",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
-    "edit_product_form_item_details_title": "기본 정보",
+    "edit_product_form_item_details_title": "Basic details",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
     },
-    "edit_product_form_item_details_subtitle": "상품 이름, 브랜드, 양",
+    "edit_product_form_item_details_subtitle": "Product name, brand, quantity",
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Subtitle"
     },
-    "edit_product_form_item_other_details_title": "추가 정보",
+    "edit_product_form_item_other_details_title": "Additional details",
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
@@ -1126,15 +1126,15 @@
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
-    "edit_product_form_item_photos_title": "사진",
+    "edit_product_form_item_photos_title": "Photos",
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
-    "edit_product_form_item_photos_subtitle": "사진을 추가하거나 변경",
+    "edit_product_form_item_photos_subtitle": "Add or refresh photos",
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "라벨 및 인증",
+    "edit_product_form_item_labels_title": "Labels & Certifications",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
@@ -1142,47 +1142,47 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "상표",
+    "edit_product_form_item_labels_hint": "label",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_stores_title": "상점",
+    "edit_product_form_item_stores_title": "Stores",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "상점",
+    "edit_product_form_item_stores_hint": "store",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
-    "edit_product_form_item_origins_title": "근원",
+    "edit_product_form_item_origins_title": "Origins",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "스페인",
+    "edit_product_form_item_origins_hint": "Spain",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_explainer_1": "포장에서 찾을 수 있는 원산지 표시를 추가하십시오. 성분 목록에 직접 표시된 원산지에 대해 걱정할 필요가 없습니다.",
+    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "예: 아르헨티나산 소고기, 유럽 연합산 콩이 아닙니다.",
+    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "국가",
+    "edit_product_form_item_countries_title": "Country",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "스페인",
+    "edit_product_form_item_countries_hint": "Spain",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_explanations": "제품이 널리 사용되는 국가(해외 제품 전문 매장 제외).",
+    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_emb_codes_title": "생산경로 코드",
+    "edit_product_form_item_emb_codes_title": "Traceability codes",
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
@@ -1190,96 +1190,96 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_explanations": "유럽에서는 2개의 국가 이니셜 뒤에 숫자와 CE가 있는 타원으로 코드를 작성합니다.\n예: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
-    "edit_product_form_item_categories_title": "카테고리",
+    "edit_product_form_item_categories_title": "Categories",
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "카테고리",
+    "edit_product_form_item_categories_hint": "category",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_explainer_1": "가장 구체적인 범주만 표시하십시오. 상위 카테고리가 자동으로 추가됩니다.",
+    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "자동 완성에서 카테고리를 사용할 수 없는 경우에도 자유롭게 추가하면 귀하의 국가에서 Open Food Facts를 개선하는 데 도움이 됩니다.",
+    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "예시: 올리브유에 담긴 정어리, 농축액으로 만든 오렌지 주스",
+    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_confirmation": "페이지를 나가기 전에 변경 사항을 저장하시겠습니까?",
+    "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
     "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-    "edit_product_form_item_ingredients_title": "성분 및 원산지",
+    "edit_product_form_item_ingredients_title": "Ingredients & Origins",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
     },
-    "edit_product_form_item_add_valid_item_tooltip": "추가하기",
-    "edit_product_form_item_add_invalid_item_tooltip": "먼저 내용을 입력해주세요",
-    "edit_product_form_item_remove_item_tooltip": "제거",
+    "edit_product_form_item_add_valid_item_tooltip": "Add",
+    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
+    "edit_product_form_item_remove_item_tooltip": "Remove",
     "edit_product_form_item_packaging_title": "Recycling instructions photo",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_form_item_nutrition_facts_title": "영양 성분 표시",
+    "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
-    "edit_product_form_item_nutrition_facts_subtitle": "영양 성분, 알코올 포함...",
+    "edit_product_form_item_nutrition_facts_subtitle": "Nutrition, alcohol content…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "수정",
+    "edit_product_form_save": "Edit",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "product_field_website_title": "웹사이트",
+    "product_field_website_title": "Website",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "completed_basic_details_btn_text": "기본 세부 정보 완성",
-    "not_implemented_snackbar_text": "아직 구현되지 않았어요",
-    "category_picker_page_appbar_text": "카테고리",
-    "edit_ingredients_extrait_ingredients_btn_text": "성분 추출",
+    "completed_basic_details_btn_text": "Complete basic details",
+    "not_implemented_snackbar_text": "Not implemented yet",
+    "category_picker_page_appbar_text": "Categories",
+    "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
-    "edit_ingredients_refresh_photo_btn_text": "사진 새로고침",
+    "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "포장 사진에서 추출",
+    "edit_packaging_extract_btn_text": "Extract packaging",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
-    "edit_packaging_refresh_photo_btn_text": "사진 새로고침",
+    "edit_packaging_refresh_photo_btn_text": "Refresh photo",
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "edit_ocr_extract_failed": "이미지에서 텍스트를 감지하지 못했습니다.",
+    "edit_ocr_extract_failed": "Failed to detect text in image.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "user_list_dialog_new_title": "새 상품 목록",
+    "user_list_dialog_new_title": "New list of products",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
-    "user_list_dialog_rename_title": "목록 이름 변경",
+    "user_list_dialog_rename_title": "Rename list",
     "@user_list_dialog_rename_title": {
         "description": "Title of the 'rename user list' dialog"
     },
-    "user_list_subtitle_product": "목록",
+    "user_list_subtitle_product": "Lists",
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "목록에 제품 추가",
+    "user_list_add_product": "Add the product to your lists",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1291,47 +1291,47 @@
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
-    "user_list_button_add_product": "목록에 추가",
+    "user_list_button_add_product": "Add to list",
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "목록에 추가됨",
+    "added_to_list_msg": "Added to list",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "지우기",
+    "user_list_popup_clear": "Clear",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear list' popup"
     },
-    "user_list_popup_rename": "이름 변경",
+    "user_list_popup_rename": "Rename",
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "내 목록",
+    "user_list_name_hint": "My list",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "이름은 필수 항목입니다",
+    "user_list_name_error_empty": "Name is mandatory",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
-    "user_list_name_error_already": "이미 사용 중인 이름입니다",
+    "user_list_name_error_already": "That name is already used",
     "@user_list_name_error_already": {
         "description": "Validation error about the name that is already used for another list"
     },
-    "user_list_name_error_same": "같은 이름입니다",
+    "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "try_again": "다시 시도",
+    "try_again": "Try Again",
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
-    "there_was_an_error": "오류가 발생했습니다",
+    "there_was_an_error": "There was an error",
     "@there_was_an_error": {
         "description": "Label that presents a error"
     },
-    "category_picker_no_category_found_message": "{items}에 대한 카테고리를 찾을 수 없습니다",
+    "category_picker_no_category_found_message": "No category found for {items}",
     "@category_picker_no_category_found_message": {
         "description": "Label when no category is available",
         "placeholders": {
@@ -1340,11 +1340,11 @@
             }
         }
     },
-    "camera_enable_flash": "플래시 켜기",
+    "camera_enable_flash": "Enable flash",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
     },
-    "camera_disable_flash": "플래시 끄기",
+    "camera_disable_flash": "Disable flash",
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
@@ -1356,15 +1356,15 @@
     "@camera_flash_error_dialog_message": {
         "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
-    "category_picker_no_category_found_button": "돌아가기",
+    "category_picker_no_category_found_button": "Back",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "dev_preferences_screen_title": "개발자 모드",
+    "dev_preferences_screen_title": "DEV Mode",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_reset_onboarding_title": "온보딩 다시 시작",
+    "dev_preferences_reset_onboarding_title": "Restart onboarding",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
@@ -1372,15 +1372,15 @@
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
-    "dev_preferences_environment_switch_title": "openfoodfacts.org(PROD)와 테스트 환경 간 전환",
+    "dev_preferences_environment_switch_title": "Switch between openfoodfacts.org (PROD) and test env",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
     },
-    "dev_preferences_test_environment_title": "테스트 환경 매개변수",
+    "dev_preferences_test_environment_title": "Test environment parameters",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "현재 테스트 환경의 기본 URL: {url}",
+    "dev_preferences_test_environment_subtitle": "Base URL for current test env: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1389,56 +1389,56 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "테스트 환경 호스트",
+    "dev_preferences_test_environment_dialog_title": "Test environment host",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
-    "dev_preferences_ml_kit_title": "ML 키트 사용",
+    "dev_preferences_ml_kit_title": "Use ML Kit",
     "@dev_preferences_ml_kit_title": {
         "description": "User dev preferences - Enable ML Kit - Title"
     },
-    "dev_preferences_ml_kit_subtitle": "앱을 재시작해야 합니다",
+    "dev_preferences_ml_kit_subtitle": "then you have to restart this app",
     "@dev_preferences_ml_kit_subtitle": {
         "description": "User dev preferences - Enable ML Kit - Subtitle"
     },
-    "dev_preferences_product_additional_features_title": "상품 페이지에 버튼 더 표시",
+    "dev_preferences_product_additional_features_title": "Additional button on product page",
     "@dev_preferences_product_additional_features_title": {
         "description": "User dev preferences - Additional buttons on product page - Title"
     },
-    "dev_preferences_edit_ingredients_title": "지식 패널 버튼으로 재료 편집",
+    "dev_preferences_edit_ingredients_title": "Edit ingredients via a knowledge panel button",
     "@dev_preferences_edit_ingredients_title": {
         "description": "User dev preferences - Additional buttons on product page - Subtitle"
     },
-    "dev_preferences_export_history_title": "내보내기 기록",
+    "dev_preferences_export_history_title": "Export History",
     "@dev_preferences_export_history_title": {
         "description": "User dev preferences - Export history - Title"
     },
-    "dev_preferences_export_history_progress_error": "예외",
+    "dev_preferences_export_history_progress_error": "exception",
     "@dev_preferences_export_history_progress_error": {
         "description": "User dev preferences - Export history - Item - Error"
     },
-    "dev_preferences_export_history_progress_found": "상품 찾음",
+    "dev_preferences_export_history_progress_found": "product found",
     "@dev_preferences_export_history_progress_found": {
         "description": "User dev preferences - Export history - Item - Found"
     },
-    "dev_preferences_export_history_progress_not_found": "상품 없음",
+    "dev_preferences_export_history_progress_not_found": "product NOT found",
     "@dev_preferences_export_history_progress_not_found": {
         "description": "User dev preferences - Export history - Item - Not found"
     },
-    "dev_preferences_export_history_dialog_title": "내보내기 기록",
+    "dev_preferences_export_history_dialog_title": "Export history",
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "확인",
+    "dev_preferences_button_positive": "OK",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "취소",
+    "dev_preferences_button_negative": "Cancel",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
-    "dev_preferences_migration_title": "V1에서 데이터 이전",
-    "dev_preferences_migration_subtitle": "상태: {status}",
+    "dev_preferences_migration_title": "Data migration from V1",
+    "dev_preferences_migration_subtitle": "Status: {status}",
     "@dev_preferences_migration_subtitle": {
         "placeholders": {
             "status": {
@@ -1446,29 +1446,29 @@
             }
         }
     },
-    "dev_preferences_migration_status_already_done": "성공 / 신규 설치임",
-    "dev_preferences_migration_status_success": "성공",
-    "dev_preferences_migration_status_error": "오류",
-    "dev_preferences_migration_status_in_progress": "진행 중",
-    "dev_preferences_migration_status_required": "필요 (시작하려면 클릭)",
-    "dev_preferences_migration_status_not_started": "알 수 없음",
-    "dev_preferences_import_history_title": "가져오기 기록",
+    "dev_preferences_migration_status_already_done": "success or fresh install",
+    "dev_preferences_migration_status_success": "success",
+    "dev_preferences_migration_status_error": "error",
+    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_required": "required (click to start)",
+    "dev_preferences_migration_status_not_started": "unknown",
+    "dev_preferences_import_history_title": "Import History",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
     },
-    "dev_preferences_import_history_subtitle": "기록을 지우고 거기에 3개의 제품을 넣습니다.",
+    "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "dev_preferences_import_history_result_success": "완료",
+    "dev_preferences_import_history_result_success": "Done",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_scan_mode_title": "스캔 모드",
+    "dev_mode_scan_mode_title": "Scan Mode",
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "현재 스캔 모드: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "Current scan mode is: \"{mode}\"",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1477,35 +1477,35 @@
             }
         }
     },
-    "dev_mode_scan_mode_dialog_title": "스캔 모드",
+    "dev_mode_scan_mode_dialog_title": "Scan Mode",
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
-    "dev_mode_hide_ecoscore_title": "EcoScore 제외",
+    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_scan_camera_only": "카메라 스트림만, 스캔 없음",
+    "dev_mode_scan_camera_only": "Only camera stream, no scanning",
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "카메라 스트림 및 전체 이미지 전처리, 스캐닝 없음",
+    "dev_mode_scan_preprocess_full_image": "Camera stream and full image preprocessing, no scanning",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "카메라 스트림 및 하프 이미지 전처리, 스캐닝 없음",
+    "dev_mode_scan_preprocess_half_image": "Camera stream and half image preprocessing, no scanning",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "전체 이미지 스캐닝",
+    "dev_mode_scan_scan_full_image": "Full image scanning",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "하프 이미지 스캐닝",
+    "dev_mode_scan_scan_half_image": "Half image scanning",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
-    "product_search_no_more_results": "{totalSize} 개 제품을 모두 다운로드했습니다.",
+    "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -1514,7 +1514,7 @@
             }
         }
     },
-    "product_search_button_download_more": "더 많은 제품 {count} 개 다운로드\n이미 {totalSize}중 {downloaded} 다운로드했습니다.",
+    "product_search_button_download_more": "Download {count} more products\nAlready downloaded {downloaded} out of {totalSize}.",
     "@product_search_button_download_more": {
         "description": "Product search list - Button to download more results",
         "placeholders": {
@@ -1529,51 +1529,51 @@
             }
         }
     },
-    "user_search_contributor_title": "내가 추가한 상품",
+    "user_search_contributor_title": "Products I added",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "내가 편집한 상품",
+    "user_search_informer_title": "Products I edited",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "내가 사진을 추가한 상품",
+    "user_search_photographer_title": "Products I photographed",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "내 미완성 상품",
+    "user_search_to_be_completed_title": "My to-be-completed products",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "all_search_to_be_completed_title": "모든 미완성 상품",
+    "all_search_to_be_completed_title": "All to-be-completed products",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "edit_product_action_retake_picture": "사진 재촬영",
+    "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
     },
-    "edit_product_action_take_picture": "사진 촬영",
+    "edit_product_action_take_picture": "Take photo",
     "@edit_product_action_take_picture": {
         "description": "Product edition - FAB actions - take a picture"
     },
-    "edit_product_action_confirm": "확인",
+    "edit_product_action_confirm": "Confirm",
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "Open Food Facts 약관에 동의합니다 ",
+    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "이용 및 기여 약관",
+    "signup_page_terms_of_use_line2": "terms of use and contribution",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
-    "analytics_consent_image_semantic_label": "분석 아이콘",
+    "analytics_consent_image_semantic_label": "Analytics icon",
     "@analytics_consent_image_semantic_label": {
         "description": "Consent Analytics icon semantics label"
     },
-    "knowledge_panel_page_loading_error": "심각한 오류 발생: {error}",
+    "knowledge_panel_page_loading_error": "Fatal Error: {error}",
     "@knowledge_panel_page_loading_error": {
         "description": "Knowledge panel page template - Error while loading future",
         "placeholders": {
@@ -1582,7 +1582,7 @@
             }
         }
     },
-    "preferences_page_loading_error": "심각한 오류 발생: {error}",
+    "preferences_page_loading_error": "Fatal Error: {error}",
     "@preferences_page_loading_error": {
         "description": "Preferences page - Error while loading future",
         "placeholders": {
@@ -1591,11 +1591,11 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "기본 세부 정보 완성",
+    "summary_card_button_add_basic_details": "Complete basic details",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "수정",
+    "edit_photo_button_label": "Edit",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
@@ -1627,18 +1627,18 @@
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
-    "category_picker_screen_title": "카테고리",
+    "category_picker_screen_title": "Categories",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
-    "basic_details": "기본 정보",
-    "product_name": "상품 이름",
-    "add_basic_details_product_name_error": "상품 이름을 입력하세요",
-    "brand_name": "브랜드 이름",
-    "add_basic_details_brand_name_error": "브랜드 이름을 입력하세요",
-    "quantity": "수량 및 무게",
-    "barcode": "바코드",
-    "barcode_barcode": "바코드: {barcode}",
+    "basic_details": "Basic Details",
+    "product_name": "Product Name",
+    "add_basic_details_product_name_error": "Please enter the product name",
+    "brand_name": "Brand name",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
+    "quantity": "Quantity and weight",
+    "barcode": "Barcode",
+    "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
         "placeholders": {
@@ -1647,17 +1647,17 @@
             }
         }
     },
-    "barcode_invalid_error": "잘못된 바코드",
-    "basic_details_add_success": "기본 정보를 성공적으로 추가했습니다",
-    "basic_details_add_error": "기본 정보를 추가할 수 없습니다. 나중에 다시 시도해주세요",
+    "barcode_invalid_error": "Invalid barcode",
+    "basic_details_add_success": "Basic details added successfully",
+    "basic_details_add_error": "Unable to add basic details. Please try again after some time",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "confirm_clear": "전체 내역을 삭제하려고 합니다. 계속하시겠습니까?",
+    "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "confirm_clear_user_list": "목록({name})을 비우려고 합니다. 정말로 계속하시겠습니까?",
+    "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
         "placeholders": {
@@ -1666,7 +1666,7 @@
             }
         }
     },
-    "confirm_delete_user_list": "목록({name})을 삭제하려고 합니다. 정말로 계속하시겠습니까?",
+    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
     "@confirm_delete_user_list": {
         "description": "Asking about whether to delete the list or not",
         "placeholders": {
@@ -1675,7 +1675,7 @@
             }
         }
     },
-    "importance_label": "{name} 중요도: {id}",
+    "importance_label": "{name} importance: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {
@@ -1687,30 +1687,30 @@
             }
         }
     },
-    "user_list_all_title": "목록",
+    "user_list_all_title": "Lists",
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "첫 목록 만들기",
+    "user_list_all_empty": "Create your first list",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, =0{목록이 비었어요} =1{상품 1개} other{상품 {count}개}}",
+    "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
             "count": {}
         }
     },
-    "add_list_label": "목록 추가",
+    "add_list_label": "Add list",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
-    "open_food_preferences_tooltip": "선호하는 음식 편집",
+    "open_food_preferences_tooltip": "Edit your food preferences",
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "사진 추가",
+    "add_photo_button_label": "Add photo",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
@@ -1718,23 +1718,23 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
-    "choose_image_source_title": "사진 소스 선택",
+    "choose_image_source_title": "Choose image source",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "사진 소스를 선택해주세요",
+    "choose_image_source_body": "Please choose a image source",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },
-    "gallery_source_label": "갤러리",
+    "gallery_source_label": "Gallery",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
-    "share": "공유하기",
+    "share": "Share",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Open Food Facts에서 상품을 확인하세요: {url}",
+    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1752,37 +1752,37 @@
             }
         }
     },
-    "capture": "새 캡처",
+    "capture": "Capture New",
     "@capture": {
         "description": "Button label for taking a photo"
     },
-    "choose_from_gallery": "갤러리에서 선택",
+    "choose_from_gallery": "Choose from gallery",
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "이미지는 가능한 한 빨리 백그라운드에 업로드됩니다.",
+    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "expand_nutrition_facts": "영양 성분표 확장",
+    "expand_nutrition_facts": "Expand nutrition facts table",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "영양 성분표를 확장한 채로 유지",
-    "expand_ingredients": "재료 목록 확장",
+    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
+    "expand_ingredients": "Expand ingredients",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "재료 패널을 확장한 채로 유지",
-    "no_internet_connection": "인터넷 연결 없음",
+    "expand_ingredients_body": "Keep the ingredients panel expanded",
+    "no_internet_connection": "No internet connection",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "전 세계",
+    "world_results_label": "Entire world",
     "@world_results_label": {
         "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "검색을 세계로 확장",
+    "world_results_action": "Extend your search to the world",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
@@ -1790,7 +1790,7 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "clipboard_barcode_copy": "바코드를 클립보드에 복사",
+    "clipboard_barcode_copy": "Copy barcode to clipboard",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1800,16 +1800,16 @@
             }
         }
     },
-    "clipboard_barcode_copied": "{barcode} 바코드를 클립보드에 복사했습니다!",
-    "choose_app_language": "앱 언어 선택",
+    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
+    "choose_app_language": "Choose App Language",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "OpenFoodFacts 도움말",
+    "help_with_openfoodfacts": "Help with OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "이미지는 가능한 한 빨리 백그라운드에 업로드됩니다.",
+    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
@@ -1817,13 +1817,13 @@
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "contact@openfoodfacts.org로 직접 이메일을 보내주십시오.",
+    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "모든 이미지",
-    "selected_images": "이미지 선택하기",
-    "product_card_remove_product_tooltip": "제품 제거",
+    "all_images": "All Images",
+    "selected_images": "Selected Images",
+    "product_card_remove_product_tooltip": "Remove product",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
@@ -1831,7 +1831,7 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_result_title": "{grams} (또는 ml)의 영양 성분",
+    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -1840,15 +1840,15 @@
             }
         }
     },
-    "offline_data": "오프라인 데이터",
+    "offline_data": "Offline Data",
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "포함된 정보를 자동으로 추출하려면 이미지를 업로드하세요.",
+    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
-    "upload_image": "사진 업로드",
+    "upload_image": "Upload Photo",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -1860,33 +1860,33 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "이미지 다운로드를 실패했습니다.",
+    "image_download_error": "Failed to download image",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "이미지 URL이 설정되지 않아 이미지를 수정하지 못했습니다.",
+    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "선택 사항 기억하기",
+    "user_picture_source_remember": "Remember my choice",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "매번 선택하기",
+    "user_picture_source_select": "Select each time",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
-    "robotoff_continue": "계속하기",
+    "robotoff_continue": "Continue",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "show_password": "비밀번호 표시",
+    "show_password": "Show Password",
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "app_rating_dialog_title": "좋아요! 다른 사람들에게 당신이 이 앱에 대해 어떻게 생각하는지 알려주세요!",
-    "app_rating_dialog_positive_action": "앱 평가하기",
-    "app_rating_dialog_negative_action": "다음에",
+    "app_rating_dialog_title": "Great! Let others know what you think of this app!",
+    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_negative_action": "Later",
     "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
     "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
@@ -1917,7 +1917,7 @@
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_shape": "모양",
+    "edit_packagings_element_field_shape": "Shape",
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
@@ -1929,7 +1929,7 @@
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_material": "재료",
+    "edit_packagings_element_field_material": "Material",
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
@@ -2128,7 +2128,7 @@
             }
         }
     },
-    "loading": "로딩중…",
+    "loading": "Loading…",
     "@loading": {
         "description": "Loading…"
     },
