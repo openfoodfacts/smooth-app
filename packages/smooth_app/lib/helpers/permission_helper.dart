@@ -113,6 +113,7 @@ class DevicePermission {
   final Permission permission;
   final DevicePermissionStatus status;
 
+  // TODO(monsieurtanuki): check how relevant it is to maintain different kinds of statuses
   static DevicePermissionStatus _extractFromPermissionStatus(
     PermissionStatus status,
   ) {
@@ -127,6 +128,8 @@ class DevicePermission {
         return DevicePermissionStatus.limited;
       case PermissionStatus.permanentlyDenied:
         return DevicePermissionStatus.permanentlyDenied;
+      case PermissionStatus.provisional:
+        return DevicePermissionStatus.provisional;
     }
   }
 
@@ -145,6 +148,7 @@ enum DevicePermissionStatus {
   restricted,
   limited,
   permanentlyDenied,
+  provisional,
 
   /// Unknown means that a call to [PermissionListener.askPermission] is required
   unknown,
