@@ -36,8 +36,8 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
 
         if (questions.isNotEmpty && !_annotationVoted) {
           return InkWell(
-            onTap: () {
-              Navigator.push<void>(
+            onTap: () async {
+              await Navigator.push<void>(
                 context,
                 MaterialPageRoute<void>(
                   builder: (_) => QuestionPage(
@@ -95,13 +95,15 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
   }
 
   Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<RobotoffQuestion> questions =
-        await ProductQuestionsQuery(widget.product.barcode!).getQuestions();
+        await ProductQuestionsQuery(widget.product.barcode!)
+            .getQuestions(localDatabase);
     if (!mounted) {
       return null;
     }
     final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(context.read<LocalDatabase>());
+        RobotoffInsightHelper(localDatabase);
     _annotationVoted =
         await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     return questions;
@@ -110,13 +112,14 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
   Future<void> _updateProductUponAnswers() async {
     // Reload the product questions, they might have been answered.
     // Or the backend may have new ones.
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<RobotoffQuestion> questions =
         await _loadProductQuestions() ?? <RobotoffQuestion>[];
     if (!mounted) {
       return;
     }
     final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(context.read<LocalDatabase>());
+        RobotoffInsightHelper(localDatabase);
     if (questions.isEmpty) {
       await robotoffInsightHelper
           .removeInsightAnnotationsSavedForProdcut(widget.product.barcode!);

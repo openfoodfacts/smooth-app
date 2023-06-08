@@ -99,13 +99,6 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   Future<void> preExecute(final LocalDatabase localDatabase) async =>
       localDatabase.upToDate.addChange(uniqueId, _getProduct());
 
-  @override
-  Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
-  ) async =>
-      localDatabase.upToDate.terminate(uniqueId);
-
   /// Adds the background task about changing a product.
   static Future<void> addTask(
     final Product minimalistProduct, {
