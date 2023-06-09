@@ -98,7 +98,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<RobotoffQuestion> questions =
         await ProductQuestionsQuery(widget.product.barcode!)
-            .getQuestions(localDatabase);
+            .getQuestions(localDatabase, 3);
     if (!mounted) {
       return null;
     }
