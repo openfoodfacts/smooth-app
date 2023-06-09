@@ -426,7 +426,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan session",
+    "scan": "Skenovací párty",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -1879,6 +1879,13 @@
     "robotoff_continue": "Pokračovat",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "@robotoff_next_n_questions": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering",
+        "placeholders": {
+            "count": {}
+        }
     },
     "show_password": "Zobrazit heslo",
     "@show_password": {

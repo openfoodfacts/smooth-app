@@ -469,7 +469,7 @@
     "packaging_editing_error": "Failed to save the packaging.",
     "packaging_editing_image_error": "Failed to get a new packaging image.",
     "packaging_editing_title": "Edit Packaging",
-    "nutrition": "Nutrition",
+    "nutrition": "ପୋଷଣ",
     "@nutrition": {},
     "nutrition_facts_photo": "Nutrition facts photo",
     "@nutrition_facts_photo": {
@@ -1879,6 +1879,13 @@
     "robotoff_continue": "Continue",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
+    },
+    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "@robotoff_next_n_questions": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering",
+        "placeholders": {
+            "count": {}
+        }
     },
     "show_password": "Show Password",
     "@show_password": {

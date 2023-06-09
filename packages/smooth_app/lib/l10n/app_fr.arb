@@ -544,9 +544,9 @@
     "new_product_subtitle_nutriscore": "Merci de renseigner la catégorie de l'aliment et les données nutritionnelles",
     "new_product_title_ecoscore": "Calculez l'Eco-Score",
     "new_product_subtitle_ecoscore": "Merci de renseigner au moins la catégorie de l'aliment",
-    "new_product_additional_ecoscore": "Améliorez le calcul de l'Eco-Score grâce aux origines, au packaging & autres",
-    "new_product_title_pictures": "Prenez quelques photos",
-    "new_product_title_misc": "Quelques données générales…",
+    "new_product_additional_ecoscore": "Rendre le calcul de l'Eco-Score plus précis avec les origines géographiques, l'emballage et plus",
+    "new_product_title_pictures": "Prenons quelques photos !",
+    "new_product_title_misc": "Et quelques données de base…",
     "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Photo des informations de recyclage",
@@ -1880,7 +1880,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "{count,plural,  =1{Une question} other{{count} questions}} de plus !",
+    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
