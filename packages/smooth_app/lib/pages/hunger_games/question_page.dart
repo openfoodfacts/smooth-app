@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +37,9 @@ class _QuestionPageState extends State<QuestionPage>
       <String, InsightAnnotation>{};
   InsightAnnotation? _lastAnswer;
 
+  static const int _numberQuestionsInit = 3;
+  static const int _numberQuestionsNext = 10;
+
   late Future<List<RobotoffQuestion>> _questions;
   late final QuestionsQuery _questionsQuery;
   late final LocalDatabase _localDatabase;
@@ -55,13 +59,19 @@ class _QuestionPageState extends State<QuestionPage>
     if (widgetQuestions != null) {
       _questions = Future<List<RobotoffQuestion>>.value(widgetQuestions);
     } else {
-      _questions = _questionsQuery.getQuestions(_localDatabase);
+      _questions = _questionsQuery.getQuestions(
+        _localDatabase,
+        _numberQuestionsInit,
+      );
     }
   }
 
   void _reloadQuestions() {
     setState(() {
-      _questions = _questionsQuery.getQuestions(_localDatabase);
+      _questions = _questionsQuery.getQuestions(
+        _localDatabase,
+        _numberQuestionsNext,
+      );
       _currentQuestionIndex = 0;
     });
   }
@@ -101,29 +111,19 @@ class _QuestionPageState extends State<QuestionPage>
             end: Offset.zero,
           ).animate(animation);
 
-          if (child.key == ValueKey<int>(_currentQuestionIndex)) {
-            // Animate in the new question card.
-            return ClipRect(
-              child: SlideTransition(
-                position: inAnimation,
-                child: Padding(
-                  padding: const EdgeInsets.all(SMALL_SPACE),
-                  child: child,
-                ),
+          return ClipRect(
+            child: SlideTransition(
+              position: child.key == ValueKey<int>(_currentQuestionIndex)
+                  ? // Animate in the new question card.
+                  inAnimation
+                  // Animate out the old question card.
+                  : outAnimation,
+              child: Padding(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: child,
               ),
-            );
-          } else {
-            // Animate out the old question card.
-            return ClipRect(
-              child: SlideTransition(
-                position: outAnimation,
-                child: Padding(
-                  padding: const EdgeInsets.all(SMALL_SPACE),
-                  child: child,
-                ),
-              ),
-            );
-          }
+            ),
+          );
         },
         child: Container(
           key: ValueKey<int>(_currentQuestionIndex),
@@ -166,7 +166,11 @@ class _QuestionPageState extends State<QuestionPage>
   }) {
     if (questions.length == questionIndex) {
       return CongratsWidget(
-        shouldDisplayContinueButton: widget.shouldDisplayContinueButton,
+        continueButtonLabel: !widget.shouldDisplayContinueButton
+            ? null
+            : AppLocalizations.of(context).robotoff_next_n_questions(
+                _numberQuestionsNext,
+              ),
         anonymousAnnotationList: _anonymousAnnotationList,
         onContinue: _reloadQuestions,
       );

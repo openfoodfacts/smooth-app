@@ -14,12 +14,13 @@ class ProductQuestionsQuery extends QuestionsQuery {
   @override
   Future<List<RobotoffQuestion>> getQuestions(
     final LocalDatabase localDatabase,
+    final int count,
   ) async {
     final RobotoffQuestionResult result =
         await RobotoffAPIClient.getProductQuestions(
       barcode,
       ProductQuery.getLanguage(),
-      count: 3,
+      count: count,
     );
     if (result.questions?.isNotEmpty != true) {
       return <RobotoffQuestion>[];

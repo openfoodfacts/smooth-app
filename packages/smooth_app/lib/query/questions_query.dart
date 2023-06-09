@@ -7,5 +7,6 @@ abstract class QuestionsQuery {
 
   Future<List<RobotoffQuestion>> getQuestions(
     final LocalDatabase localDatabase,
+    final int count,
   );
 }

@@ -9,12 +9,13 @@ class RandomQuestionsQuery extends QuestionsQuery {
   @override
   Future<List<RobotoffQuestion>> getQuestions(
     final LocalDatabase localDatabase,
+    final int count,
   ) async {
     final RobotoffQuestionResult result =
         await RobotoffAPIClient.getRandomQuestions(
       ProductQuery.getLanguage(),
       OpenFoodAPIConfiguration.globalUser,
-      count: 3,
+      count: count,
       // TODO(monsieurtanuki): should use Country too
     );
 
