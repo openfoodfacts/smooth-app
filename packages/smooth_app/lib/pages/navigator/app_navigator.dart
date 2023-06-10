@@ -120,7 +120,10 @@ class _SmoothGoRouter {
                   throw Exception('No product provided!');
                 }
 
-                final Widget widget = ProductPage(product);
+                final Widget widget = ProductPage(
+                  product,
+                  withHeroAnimation: state.queryParameters['hero'] != 'false',
+                );
 
                 if (InheritedDataManager.find(context) == null) {
                   return InheritedDataManager(child: widget);
@@ -201,7 +204,7 @@ class _SmoothGoRouter {
               );
 
               if (state.extra is Product) {
-                return AppRoutes.PRODUCT(barcode);
+                return AppRoutes.PRODUCT(barcode, useHeroAnimation: false);
               } else {
                 return AppRoutes.PRODUCT_LOADER(barcode);
               }
@@ -331,8 +334,8 @@ class AppRoutes {
   static String get HOME => _InternalAppRoutes.HOME_PAGE.path;
 
   // Product details (a [Product] is mandatory in the extra)
-  static String PRODUCT(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode';
+  static String PRODUCT(String barcode, {bool useHeroAnimation = true}) =>
+      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode?hero=$useHeroAnimation';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode) =>
