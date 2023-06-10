@@ -255,22 +255,29 @@ class _CloseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      type: MaterialType.button,
-      shape: const CircleBorder(),
-      color: Theme.of(context).primaryColor,
-      child: InkWell(
-        customBorder: const CircleBorder(),
-        onTap: () => Navigator.maybePop(context),
-        child: Tooltip(
-          message: MaterialLocalizations.of(context).closeButtonTooltip,
-          child: Container(
-            width: kToolbarHeight,
-            height: kToolbarHeight,
-            alignment: Alignment.center,
-            child: const Icon(
-              Icons.close,
-              color: Colors.white,
+    final String tooltip = MaterialLocalizations.of(context).closeButtonTooltip;
+
+    return Semantics(
+      value: tooltip,
+      button: true,
+      excludeSemantics: true,
+      child: Material(
+        type: MaterialType.button,
+        shape: const CircleBorder(),
+        color: Theme.of(context).primaryColor,
+        child: InkWell(
+          customBorder: const CircleBorder(),
+          onTap: () => Navigator.maybePop(context),
+          child: Tooltip(
+            message: tooltip,
+            child: Container(
+              width: kToolbarHeight,
+              height: kToolbarHeight,
+              alignment: Alignment.center,
+              child: const Icon(
+                Icons.close,
+                color: Colors.white,
+              ),
             ),
           ),
         ),

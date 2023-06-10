@@ -47,35 +47,42 @@ class QuestionCard extends StatelessWidget {
         if (product == null) {
           return _buildQuestionShimmer();
         }
-        return Card(
-          elevation: 4,
-          clipBehavior: Clip.antiAlias,
-          shape: const RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ProductImageCarousel(
-                product,
-                height: screenSize.height / 6,
-                alternateImageUrl: question.imageUrl,
+        return Semantics(
+          value: '${question.question} ${question.value}',
+          readOnly: true,
+          child: ExcludeSemantics(
+            child: Card(
+              elevation: 4,
+              clipBehavior: Clip.antiAlias,
+              shape: const RoundedRectangleBorder(
+                borderRadius: ROUNDED_BORDER_RADIUS,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    ProductTitleCard(
-                      product,
-                      true,
-                      dense: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ProductImageCarousel(
+                    product,
+                    height: screenSize.height / 6,
+                    alternateImageUrl: question.imageUrl,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        ProductTitleCard(
+                          product,
+                          true,
+                          dense: true,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  _buildQuestionText(context, question),
+                ],
               ),
-              _buildQuestionText(context, question),
-            ],
+            ),
           ),
         );
       },
