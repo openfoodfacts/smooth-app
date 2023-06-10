@@ -170,7 +170,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           appBarTitle,
           maxLines: 2,
         ),
-        leading: const SmoothBackButton(),
       ),
       body: ListView(children: children),
     );
