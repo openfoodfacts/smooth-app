@@ -25,47 +25,46 @@ class QuestionAnswersOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     final double yesNoHeight = MediaQuery.of(context).size.width / (3 * 1.25);
 
-    return Expanded(
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Expanded(
-                child: SizedBox(
-                  height: yesNoHeight,
-                  child: _buildAnswerButton(
-                    context,
-                    insightAnnotation: InsightAnnotation.NO,
-                    backgroundColor: _noBackground,
-                    contentColor: _yesNoTextColor,
-                  ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Expanded(
+              child: SizedBox(
+                height: yesNoHeight,
+                child: _buildAnswerButton(
+                  context,
+                  insightAnnotation: InsightAnnotation.NO,
+                  backgroundColor: _noBackground,
+                  contentColor: _yesNoTextColor,
                 ),
               ),
-              Expanded(
-                child: SizedBox(
-                  height: yesNoHeight,
-                  child: _buildAnswerButton(
-                    context,
-                    insightAnnotation: InsightAnnotation.YES,
-                    backgroundColor: _yesBackground,
-                    contentColor: _yesNoTextColor,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            width: double.infinity,
-            child: _buildAnswerButton(
-              context,
-              insightAnnotation: InsightAnnotation.MAYBE,
-              backgroundColor: _maybeBackground,
-              contentColor: _maybeTextColor,
             ),
+            Expanded(
+              child: SizedBox(
+                height: yesNoHeight,
+                child: _buildAnswerButton(
+                  context,
+                  insightAnnotation: InsightAnnotation.YES,
+                  backgroundColor: _yesBackground,
+                  contentColor: _yesNoTextColor,
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: _buildAnswerButton(
+            context,
+            insightAnnotation: InsightAnnotation.MAYBE,
+            backgroundColor: _maybeBackground,
+            contentColor: _maybeTextColor,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -80,41 +79,51 @@ class QuestionAnswersOptions extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     String buttonText;
+    String hintText;
     IconData iconData;
     switch (insightAnnotation) {
       case InsightAnnotation.YES:
         buttonText = appLocalizations.yes;
+        hintText = appLocalizations.question_yes_button_accessibility_value;
         iconData = Icons.check;
         break;
       case InsightAnnotation.NO:
         buttonText = appLocalizations.no;
+        hintText = appLocalizations.question_no_button_accessibility_value;
         iconData = Icons.clear;
         break;
       case InsightAnnotation.MAYBE:
         buttonText = appLocalizations.skip;
+        hintText = appLocalizations.question_skip_button_accessibility_value;
         iconData = Icons.question_mark;
     }
 
-    return Padding(
-      padding: padding,
-      child: TextButton.icon(
-        onPressed: () => onAnswer(insightAnnotation),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(backgroundColor),
-          shape: MaterialStateProperty.all(
-            const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
+    return Semantics(
+      value: buttonText,
+      hint: hintText,
+      excludeSemantics: true,
+      button: true,
+      child: Padding(
+        padding: padding,
+        child: TextButton.icon(
+          onPressed: () => onAnswer(insightAnnotation),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(backgroundColor),
+            shape: MaterialStateProperty.all(
+              const RoundedRectangleBorder(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+              ),
             ),
           ),
-        ),
-        icon: Icon(
-          iconData,
-          color: contentColor,
-          size: 36,
-        ),
-        label: Text(
-          buttonText,
-          style: theme.textTheme.displayMedium!.apply(color: contentColor),
+          icon: Icon(
+            iconData,
+            color: contentColor,
+            size: 36,
+          ),
+          label: Text(
+            buttonText,
+            style: theme.textTheme.displayMedium!.apply(color: contentColor),
+          ),
         ),
       ),
     );
