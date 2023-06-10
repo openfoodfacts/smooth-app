@@ -18,5 +18,7 @@ abstract class Scanner {
             {int? eventValue, String? barcode})
         trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    String? toggleCameraModeTooltip,
+    String? toggleFlashModeTooltip,
   });
 }

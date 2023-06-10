@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -24,12 +23,16 @@ class ScannerZXing extends Scanner {
             {int? eventValue, String? barcode})
         trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    String? toggleCameraModeTooltip,
+    String? toggleFlashModeTooltip,
   }) {
     return _SmoothBarcodeScannerZXing(
       onScan: onScan,
       hapticFeedback: hapticFeedback,
       onCameraFlashError: onCameraFlashError,
       hasMoreThanOneCamera: hasMoreThanOneCamera,
+      toggleCameraModeTooltip: toggleCameraModeTooltip,
+      toggleFlashModeTooltip: toggleFlashModeTooltip,
     );
   }
 }
@@ -41,12 +44,17 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
     required this.hapticFeedback,
     required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
+    this.toggleCameraModeTooltip,
+    this.toggleFlashModeTooltip,
   });
 
   final Future<bool> Function(String) onScan;
   final Future<void> Function() hapticFeedback;
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
+
+  final String? toggleCameraModeTooltip;
+  final String? toggleFlashModeTooltip;
 
   @override
   State<StatefulWidget> createState() => _SmoothBarcodeScannerZXingState();
@@ -136,6 +144,8 @@ class _SmoothBarcodeScannerZXingState
                     if (_showFlipCameraButton)
                       IconButton(
                         icon: Icon(getCameraFlip()),
+                        tooltip: widget.toggleCameraModeTooltip ??
+                            'Switch between back and front camera',
                         color: Colors.white,
                         onPressed: () async {
                           widget.hapticFeedback.call();
@@ -153,6 +163,9 @@ class _SmoothBarcodeScannerZXingState
                         return IconButton(
                           icon:
                               Icon(flashOn ? Icons.flash_on : Icons.flash_off),
+                          enableFeedback: true,
+                          tooltip: widget.toggleFlashModeTooltip ??
+                              'Turn ON or OFF the flash of the camera',
                           color: Colors.white,
                           onPressed: () async {
                             widget.hapticFeedback.call();

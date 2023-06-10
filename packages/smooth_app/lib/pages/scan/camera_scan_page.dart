@@ -57,9 +57,11 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     if (!CameraHelper.hasACamera) {
       return Center(
-        child: Text(AppLocalizations.of(context).permission_photo_none_found),
+        child: Text(appLocalizations.permission_photo_none_found),
       );
     }
 
@@ -71,6 +73,8 @@ class CameraScannerPageState extends State<CameraScannerPage>
           onCameraFlashError: _onCameraFlashError,
           trackCustomEvent: AnalyticsHelper.trackCustomEvent,
           hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
+          toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
+          toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
         ),
         const Align(
           alignment: Alignment.topCenter,
