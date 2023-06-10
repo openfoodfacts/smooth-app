@@ -302,12 +302,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         },
       );
 
-  Future<void> _hungerGames() async => Navigator.push(
-        context,
-        MaterialPageRoute<QuestionPage>(
-          builder: (_) => const QuestionPage(),
-        ),
-      );
+  Future<void> _hungerGames() async => openQuestionPage(context);
 
   Widget _getListTile(
     final String title,

@@ -54,6 +54,7 @@ class QuestionCard extends StatelessWidget {
             borderRadius: ROUNDED_BORDER_RADIUS,
           ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ProductImageCarousel(
                 product,
@@ -63,6 +64,7 @@ class QuestionCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     ProductTitleCard(
                       product,
@@ -85,6 +87,7 @@ class QuestionCard extends StatelessWidget {
       color: robotoffBackground,
       padding: const EdgeInsets.all(SMALL_SPACE),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
             alignment: Alignment.center,

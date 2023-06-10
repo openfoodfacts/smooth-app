@@ -25,47 +25,46 @@ class QuestionAnswersOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     final double yesNoHeight = MediaQuery.of(context).size.width / (3 * 1.25);
 
-    return Expanded(
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Expanded(
-                child: SizedBox(
-                  height: yesNoHeight,
-                  child: _buildAnswerButton(
-                    context,
-                    insightAnnotation: InsightAnnotation.NO,
-                    backgroundColor: _noBackground,
-                    contentColor: _yesNoTextColor,
-                  ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Expanded(
+              child: SizedBox(
+                height: yesNoHeight,
+                child: _buildAnswerButton(
+                  context,
+                  insightAnnotation: InsightAnnotation.NO,
+                  backgroundColor: _noBackground,
+                  contentColor: _yesNoTextColor,
                 ),
               ),
-              Expanded(
-                child: SizedBox(
-                  height: yesNoHeight,
-                  child: _buildAnswerButton(
-                    context,
-                    insightAnnotation: InsightAnnotation.YES,
-                    backgroundColor: _yesBackground,
-                    contentColor: _yesNoTextColor,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            width: double.infinity,
-            child: _buildAnswerButton(
-              context,
-              insightAnnotation: InsightAnnotation.MAYBE,
-              backgroundColor: _maybeBackground,
-              contentColor: _maybeTextColor,
             ),
+            Expanded(
+              child: SizedBox(
+                height: yesNoHeight,
+                child: _buildAnswerButton(
+                  context,
+                  insightAnnotation: InsightAnnotation.YES,
+                  backgroundColor: _yesBackground,
+                  contentColor: _yesNoTextColor,
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: _buildAnswerButton(
+            context,
+            insightAnnotation: InsightAnnotation.MAYBE,
+            backgroundColor: _maybeBackground,
+            contentColor: _maybeTextColor,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
