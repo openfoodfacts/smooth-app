@@ -31,6 +31,8 @@ class ScannerZXing extends Scanner {
       hapticFeedback: hapticFeedback,
       onCameraFlashError: onCameraFlashError,
       hasMoreThanOneCamera: hasMoreThanOneCamera,
+      toggleCameraModeTooltip: toggleCameraModeTooltip,
+      toggleFlashModeTooltip: toggleFlashModeTooltip,
     );
   }
 }
