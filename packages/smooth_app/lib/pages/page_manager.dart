@@ -74,7 +74,7 @@ class PageManagerState extends State<PageManager> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<Widget> _tabs = <Widget>[
+    final List<Widget> tabs = <Widget>[
       _buildOffstageNavigator(BottomNavigationTab.Profile),
       _buildOffstageNavigator(BottomNavigationTab.Scan),
       _buildOffstageNavigator(BottomNavigationTab.History),
@@ -131,7 +131,7 @@ class PageManagerState extends State<PageManager> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
-        body: Stack(children: _tabs),
+        body: Stack(children: tabs),
         bottomNavigationBar: isProd
             ? bar
             : Banner(
