@@ -469,36 +469,41 @@ class _CompareProductsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    if (selectedBarcodes.length < 2) {
-      return EMPTY_WIDGET;
-    }
+    final bool enabled = selectedBarcodes.length >= 2;
 
-    return FloatingActionButton.extended(
-      label: Text(appLocalizations.compare_products_mode),
-      icon: const Icon(Icons.compare_arrows),
-      tooltip: appLocalizations.plural_compare_x_products(
-        selectedBarcodes.length,
+    return Opacity(
+      opacity: enabled ? 1.0 : 0.5,
+      child: FloatingActionButton.extended(
+        label: Text(appLocalizations.compare_products_mode),
+        icon: const Icon(Icons.compare_arrows),
+        tooltip: enabled
+            ? appLocalizations.plural_compare_x_products(
+                selectedBarcodes.length,
+              )
+            : appLocalizations.compare_products_appbar_subtitle,
+        onPressed: enabled
+            ? () async {
+                final List<String> list = <String>[];
+                for (final String barcode in barcodes) {
+                  if (selectedBarcodes.contains(barcode)) {
+                    list.add(barcode);
+                  }
+                }
+
+                await Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (_) => PersonalizedRankingPage(
+                      barcodes: list,
+                      title: appLocalizations.product_list_your_ranking,
+                    ),
+                  ),
+                );
+
+                onComparisonEnded?.call();
+              }
+            : null,
       ),
-      onPressed: () async {
-        final List<String> list = <String>[];
-        for (final String barcode in barcodes) {
-          if (selectedBarcodes.contains(barcode)) {
-            list.add(barcode);
-          }
-        }
-
-        await Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (_) => PersonalizedRankingPage(
-              barcodes: list,
-              title: appLocalizations.product_list_your_ranking,
-            ),
-          ),
-        );
-
-        onComparisonEnded?.call();
-      },
     );
   }
 }
