@@ -64,7 +64,10 @@ Future<void> _onSubmittedBarcode(
     );
     //ignore: use_build_context_synchronously
     AppNavigator.of(context).push(
-      AppRoutes.PRODUCT(fetchedProduct.product!.barcode!),
+      AppRoutes.PRODUCT(
+        fetchedProduct.product!.barcode!,
+        heroTag: 'search_${fetchedProduct.product!.barcode!}',
+      ),
       extra: fetchedProduct.product,
     );
   } else {

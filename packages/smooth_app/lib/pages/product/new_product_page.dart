@@ -35,10 +35,13 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class ProductPage extends StatefulWidget {
   const ProductPage(
     this.product, {
+    this.heroTag,
     this.withHeroAnimation = true,
   });
 
   final Product product;
+
+  final String? heroTag;
 
   // When using a deep link the Hero animation shouldn't be used
   final bool withHeroAnimation;
@@ -195,9 +198,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               horizontal: SMALL_SPACE,
             ),
             child: HeroMode(
-              enabled: widget.withHeroAnimation,
+              enabled: widget.withHeroAnimation &&
+                  widget.heroTag?.isNotEmpty == true,
               child: Hero(
-                tag: _barcode,
+                tag: widget.heroTag ?? '',
                 child: SummaryCard(
                   _product,
                   _productPreferences,

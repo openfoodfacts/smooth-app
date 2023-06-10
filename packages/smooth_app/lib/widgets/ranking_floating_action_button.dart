@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
@@ -23,6 +25,7 @@ class RankingFloatingActionButton extends StatelessWidget {
           children: <Widget>[
             SizedBox(width: MediaQuery.of(context).size.width * 0.09),
             FloatingActionButton.extended(
+              heroTag: 'ranking_fab_${Random(100)}',
               elevation: 12.0,
               icon: const Icon(rankingIconData),
               label: Text(AppLocalizations.of(context).myPersonalizedRanking),
