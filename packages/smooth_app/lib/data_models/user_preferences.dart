@@ -30,7 +30,10 @@ enum UserPictureSource {
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
-      : _sharedPreferences = sharedPreferences;
+      : _sharedPreferences = sharedPreferences {
+    onCrashReportingChanged = ValueNotifier<bool>(crashReports);
+    onAnalyticsChanged = ValueNotifier<bool>(userTracking);
+  }
 
   /// Singleton
   static UserPreferences? _instance;
@@ -46,8 +49,16 @@ class UserPreferences extends ChangeNotifier {
     return _instance!;
   }
 
-  static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
+  late ValueNotifier<bool> onCrashReportingChanged;
+  late ValueNotifier<bool> onAnalyticsChanged;
+
+  /// Whether the preferences are empty or not
   static const String _TAG_INIT = 'init';
+
+  /// The current version of preferences (1)
+  static const String _TAG_VERSION = 'prefs_version';
+  static const int _PREFS_CURRENT_VERSION = 1;
+  static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
   static const String _TAG_CURRENT_CONTRAST_MODE = 'contrastMode';
@@ -56,6 +67,7 @@ class UserPreferences extends ChangeNotifier {
       'lastVisitedOnboardingPage';
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
+  static const String _TAG_USER_TRACKING = 'user_tracking';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
 
@@ -84,11 +96,30 @@ class UserPreferences extends ChangeNotifier {
       'inAppReviewAlreadyAsked';
 
   Future<void> init(final ProductPreferences productPreferences) async {
+    await _onMigrate();
+
     if (_sharedPreferences.getBool(_TAG_INIT) != null) {
       return;
     }
     await productPreferences.resetImportances();
     await _sharedPreferences.setBool(_TAG_INIT, true);
+  }
+
+  /// Allow to migrate between versions
+  Future<void> _onMigrate() async {
+    final int? currentVersion = _sharedPreferences.getInt(_TAG_VERSION);
+
+    /// With version == null (or 0), [_TAG_USER_TRACKING] didn't exist
+    if (currentVersion == null) {
+      final bool? crashReporting =
+          _sharedPreferences.getBool(_TAG_CRASH_REPORTS);
+      if (crashReporting != null) {
+        await setUserTracking(crashReporting);
+      }
+
+      await _sharedPreferences.setInt(
+          _TAG_VERSION, UserPreferences._PREFS_CURRENT_VERSION);
+    }
   }
 
   String _getImportanceTag(final String variable) =>
@@ -123,13 +154,23 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> setUserTracking(final bool state) async {
+    await _sharedPreferences.setBool(_TAG_USER_TRACKING, state);
+    onAnalyticsChanged.value = state;
+    notifyListeners();
+  }
+
+  bool get userTracking =>
+      _sharedPreferences.getBool(_TAG_USER_TRACKING) ?? false;
+
   Future<void> setCrashReports(final bool state) async {
     await _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
+    onCrashReportingChanged.value = state;
     notifyListeners();
   }
 
   bool get crashReports =>
-      _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? true;
+      _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? false;
 
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
