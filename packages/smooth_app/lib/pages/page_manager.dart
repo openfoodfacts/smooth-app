@@ -39,7 +39,13 @@ class PageManagerState extends State<PageManager> {
   };
 
   BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
-  List<Widget> _tabs = <Widget>[];
+
+  /// To implement a lazy-loading algorithm to only load visible tabs, we
+  /// store a list of boolean if a tab have been visible at least one time.
+  final List<bool> _loadedTabs = List<bool>.generate(
+    BottomNavigationTab.values.length,
+    (_) => false,
+  );
 
   void _selectTab(BottomNavigationTab tabItem, int index) {
     if (tabItem == _currentPage) {
@@ -68,7 +74,7 @@ class PageManagerState extends State<PageManager> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    _tabs = <Widget>[
+    final List<Widget> tabs = <Widget>[
       _buildOffstageNavigator(BottomNavigationTab.Profile),
       _buildOffstageNavigator(BottomNavigationTab.Scan),
       _buildOffstageNavigator(BottomNavigationTab.History),
@@ -125,7 +131,7 @@ class PageManagerState extends State<PageManager> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
-        body: Stack(children: _tabs),
+        body: Stack(children: tabs),
         bottomNavigationBar: isProd
             ? bar
             : Banner(
@@ -139,8 +145,17 @@ class PageManagerState extends State<PageManager> {
   }
 
   Widget _buildOffstageNavigator(BottomNavigationTab tabItem) {
+    final bool offstage = _currentPage != tabItem;
+    final int tabPosition = BottomNavigationTab.values.indexOf(tabItem);
+
+    if (offstage && _loadedTabs[tabPosition] == false) {
+      return const SizedBox();
+    } else if (!offstage) {
+      _loadedTabs[tabPosition] = true;
+    }
+
     return Offstage(
-      offstage: _currentPage != tabItem,
+      offstage: offstage,
       child: Provider<BottomNavigationTab>.value(
         value: _currentPage,
         child: ScreenVisibilityDetector(
