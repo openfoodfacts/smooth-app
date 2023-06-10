@@ -33,9 +33,15 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage(this.product);
+  const ProductPage(
+    this.product, {
+    this.withHeroAnimation = true,
+  });
 
   final Product product;
+
+  // When using a deep link the Hero animation shouldn't be used
+  final bool withHeroAnimation;
 
   @override
   State<ProductPage> createState() => _ProductPageState();
@@ -188,13 +194,16 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             padding: const EdgeInsets.symmetric(
               horizontal: SMALL_SPACE,
             ),
-            child: Hero(
-              tag: _barcode,
-              child: SummaryCard(
-                _product,
-                _productPreferences,
-                isFullVersion: true,
-                showUnansweredQuestions: true,
+            child: HeroMode(
+              enabled: widget.withHeroAnimation,
+              child: Hero(
+                tag: _barcode,
+                child: SummaryCard(
+                  _product,
+                  _productPreferences,
+                  isFullVersion: true,
+                  showUnansweredQuestions: true,
+                ),
               ),
             ),
           ),
