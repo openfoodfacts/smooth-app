@@ -4,7 +4,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
@@ -36,23 +35,18 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
 
         if (questions.isNotEmpty && !_annotationVoted) {
           return InkWell(
-            onTap: () async {
-              await Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (_) => QuestionPage(
-                    product: widget.product,
-                    questions: questions.toList(),
-                    updateProductUponAnswers: _updateProductUponAnswers,
-                  ),
-                  fullscreenDialog: true,
-                ),
-              );
-            },
-            child: SmoothCard.angular(
-              margin: EdgeInsets.zero,
-              color: Theme.of(context).colorScheme.primary,
-              elevation: 0,
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            onTap: () => openQuestionPage(
+              context,
+              product: widget.product,
+              questions: questions.toList(),
+              updateProductUponAnswers: _updateProductUponAnswers,
+            ),
+            child: Ink(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: ANGULAR_BORDER_RADIUS,
+              ),
               padding: const EdgeInsets.all(
                 SMALL_SPACE,
               ),
@@ -70,9 +64,10 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
                             color: isDarkMode ? Colors.black : WHITE_COLOR,
                           ),
                     ),
-                    Container(
-                      padding:
-                          const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                        top: SMALL_SPACE,
+                      ),
                       child: Text(
                         appLocalizations.contribute_to_get_rewards,
                         style: Theme.of(context)

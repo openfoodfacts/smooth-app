@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -13,10 +15,28 @@ import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/query/questions_query.dart';
 import 'package:smooth_app/query/random_questions_query.dart';
-import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-class QuestionPage extends StatefulWidget {
-  const QuestionPage({
+Future<void> openQuestionPage(
+  BuildContext context, {
+  Product? product,
+  List<RobotoffQuestion>? questions,
+  Function()? updateProductUponAnswers,
+}) =>
+    showDialog<void>(
+      context: context,
+      barrierColor: Colors.black.withOpacity(0.7),
+      builder: (_) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+        child: _QuestionPage(
+          product: product,
+          questions: questions,
+          updateProductUponAnswers: updateProductUponAnswers,
+        ),
+      ),
+    );
+
+class _QuestionPage extends StatefulWidget {
+  const _QuestionPage({
     this.product,
     this.questions,
     this.updateProductUponAnswers,
@@ -25,13 +45,14 @@ class QuestionPage extends StatefulWidget {
   final Product? product;
   final List<RobotoffQuestion>? questions;
   final Function()? updateProductUponAnswers;
+
   bool get shouldDisplayContinueButton => product == null;
 
   @override
-  State<QuestionPage> createState() => _QuestionPageState();
+  State<_QuestionPage> createState() => _QuestionPageState();
 }
 
-class _QuestionPageState extends State<QuestionPage>
+class _QuestionPageState extends State<_QuestionPage>
     with SingleTickerProviderStateMixin, TraceableClientMixin {
   final Map<String, InsightAnnotation> _anonymousAnnotationList =
       <String, InsightAnnotation>{};
@@ -91,10 +112,19 @@ class _QuestionPageState extends State<QuestionPage>
           }
           return true;
         },
-        child: SmoothScaffold(
-          backgroundColor: Theme.of(context).colorScheme.background,
-          appBar: AppBar(),
-          body: _buildAnimationSwitcher(),
+        child: Stack(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.center,
+              child: _buildAnimationSwitcher(),
+            ),
+            Positioned.directional(
+              textDirection: Directionality.of(context),
+              top: 0.0,
+              start: SMALL_SPACE,
+              child: const _CloseButton(),
+            ),
+          ],
         ),
       );
 
@@ -179,6 +209,7 @@ class _QuestionPageState extends State<QuestionPage>
     final RobotoffQuestion question = questions[questionIndex];
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         QuestionCard(
           question,
@@ -215,6 +246,42 @@ class _QuestionPageState extends State<QuestionPage>
       insightId: insightId,
       insightAnnotation: insightAnnotation,
       widget: this,
+    );
+  }
+}
+
+class _CloseButton extends StatelessWidget {
+  const _CloseButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final String tooltip = MaterialLocalizations.of(context).closeButtonTooltip;
+
+    return Semantics(
+      value: tooltip,
+      button: true,
+      excludeSemantics: true,
+      child: Material(
+        type: MaterialType.button,
+        shape: const CircleBorder(),
+        color: Theme.of(context).primaryColor,
+        child: InkWell(
+          customBorder: const CircleBorder(),
+          onTap: () => Navigator.maybePop(context),
+          child: Tooltip(
+            message: tooltip,
+            child: Container(
+              width: kToolbarHeight,
+              height: kToolbarHeight,
+              alignment: Alignment.center,
+              child: const Icon(
+                Icons.close,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

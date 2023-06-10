@@ -74,6 +74,8 @@ class _ProductTitleCardName extends StatelessWidget {
       getProductName(product, appLocalizations),
       style: Theme.of(context).textTheme.headlineMedium,
       textAlign: TextAlign.start,
+      maxLines: 3,
+      overflow: TextOverflow.ellipsis,
     ).selectable(isSelectable: selectable);
   }
 }
