@@ -1902,7 +1902,7 @@
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Fat",
+    "edit_packagings_element_add": "Add a packaging component",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
