@@ -155,10 +155,11 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
-          callback: () async {
+          onAddProduct: () async {
             await _model.refresh();
             setState(() {});
           },
+          onRemoveProduct: (_) => _model.removeBarcode(barcode),
         );
       case ScannedProductState.THANKS:
         return const SmoothProductCardThanks();
