@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 
@@ -129,23 +129,10 @@ class _ProductTitleCardTrailing extends StatelessWidget {
     final Product product = context.read<Product>();
 
     if (removable && !selectable) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
       return Align(
         alignment: Alignment.centerRight,
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: () => onRemove?.call(context),
-          child: Tooltip(
-            message: appLocalizations.product_card_remove_product_tooltip,
-            child: const Padding(
-              padding: EdgeInsets.all(SMALL_SPACE),
-              child: Icon(
-                Icons.clear_rounded,
-                size: DEFAULT_ICON_SIZE,
-              ),
-            ),
-          ),
+        child: ProductCardCloseButton(
+          onRemove: onRemove,
         ),
       );
     } else {
@@ -157,5 +144,3 @@ class _ProductTitleCardTrailing extends StatelessWidget {
     }
   }
 }
-
-typedef OnRemoveCallback = void Function(BuildContext context);
