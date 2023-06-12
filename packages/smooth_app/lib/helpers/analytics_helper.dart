@@ -39,6 +39,10 @@ enum AnalyticsEvent {
     tag: 'could not find product',
     category: AnalyticsCategory.couldNotFindProduct,
   ),
+  ignoreProductNotFound(
+    tag: 'ignore product',
+    category: AnalyticsCategory.couldNotFindProduct,
+  ),
   openProductEditPage(
     tag: 'opened product edit page',
     category: AnalyticsCategory.productEdit,

@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
@@ -26,7 +27,14 @@ class SmoothProductCardNotFound extends StatelessWidget {
         children: <Widget>[
           Align(
             alignment: AlignmentDirectional.topEnd,
-            child: ProductCardCloseButton(onRemove: onRemoveProduct),
+            child: ProductCardCloseButton(onRemove: (BuildContext context) {
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.ignoreProductNotFound,
+                barcode: barcode,
+              );
+
+              onRemoveProduct?.call(context);
+            }),
           ),
           Expanded(
             child: Column(
@@ -75,9 +83,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
                         ),
                       );
 
-                      if (onAddProduct != null) {
-                        await onAddProduct!();
-                      }
+                      await onAddProduct?.call();
                     },
                   ),
                 ),
