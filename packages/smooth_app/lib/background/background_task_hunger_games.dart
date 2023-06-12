@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about answering a hunger games question.
-class BackgroundTaskHungerGames extends AbstractBackgroundTask {
+class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   const BackgroundTaskHungerGames._({
     required super.processName,
     required super.uniqueId,
@@ -24,21 +24,13 @@ class BackgroundTaskHungerGames extends AbstractBackgroundTask {
     required this.insightAnnotation,
   });
 
-  BackgroundTaskHungerGames._fromJson(Map<String, dynamic> json)
-      : this._(
-          processName: json['processName'] as String,
-          uniqueId: json['uniqueId'] as String,
-          barcode: json['barcode'] as String,
-          languageCode: json['languageCode'] as String,
-          user: json['user'] as String,
-          country: json['country'] as String,
-          stamp: json['stamp'] as String,
-          insightId: json['insightId'] as String,
-          insightAnnotation: json['insightAnnotation'] as int,
-        );
+  BackgroundTaskHungerGames.fromJson(Map<String, dynamic> json)
+      : insightId = json[_jsonTagInsightId] as String,
+        insightAnnotation = json[_jsonTagInsightAnnotation] as int,
+        super.fromJson(json);
 
-  /// Task ID.
-  static const String _PROCESS_NAME = 'HUNGER_GAMES';
+  static const String _jsonTagInsightId = 'insightId';
+  static const String _jsonTagInsightAnnotation = 'insightAnnotation';
 
   static const OperationType _operationType = OperationType.hungerGames;
 
@@ -46,30 +38,11 @@ class BackgroundTaskHungerGames extends AbstractBackgroundTask {
   final int insightAnnotation;
 
   @override
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'processName': processName,
-        'uniqueId': uniqueId,
-        'barcode': barcode,
-        'languageCode': languageCode,
-        'user': user,
-        'country': country,
-        'stamp': stamp,
-        'insightId': insightId,
-        'insightAnnotation': insightAnnotation,
-      };
-
-  /// Returns the deserialized background task if possible, or null.
-  static AbstractBackgroundTask? fromJson(final Map<String, dynamic> map) {
-    try {
-      final AbstractBackgroundTask result =
-          BackgroundTaskHungerGames._fromJson(map);
-      if (result.processName == _PROCESS_NAME) {
-        return result;
-      }
-    } catch (e) {
-      //
-    }
-    return null;
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> result = super.toJson();
+    result[_jsonTagInsightId] = insightId;
+    result[_jsonTagInsightAnnotation] = insightAnnotation;
+    return result;
   }
 
   /// Adds the background task about hunger games.
@@ -84,7 +57,7 @@ class BackgroundTaskHungerGames extends AbstractBackgroundTask {
       localDatabase,
       barcode,
     );
-    final AbstractBackgroundTask task = _getNewTask(
+    final BackgroundTaskBarcode task = _getNewTask(
       barcode,
       insightId,
       insightAnnotation.value,
@@ -104,7 +77,7 @@ class BackgroundTaskHungerGames extends AbstractBackgroundTask {
     final String uniqueId,
   ) =>
       BackgroundTaskHungerGames._(
-        processName: _PROCESS_NAME,
+        processName: _operationType.processName,
         uniqueId: uniqueId,
         barcode: barcode,
         languageCode: ProductQuery.getLanguage().offTag,
