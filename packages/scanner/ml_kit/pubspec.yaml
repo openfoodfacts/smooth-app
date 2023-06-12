@@ -11,7 +11,10 @@ dependencies:
     sdk: flutter
 
   visibility_detector: 0.4.0+2
-  mobile_scanner: 3.2.0
+  mobile_scanner:
+    git:
+      url: https://github.com/openfoodfacts/mobile_scanner.git
+      ref: 5aa2c11915467b19dfc5fd3a9e59641d2958ffeb
   scanner_shared:
     path: ../shared
 
