@@ -5,39 +5,26 @@ import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
+/// Carousel of product images.
 class ProductImageCarousel extends StatelessWidget {
-  /// Carousel of product images, or of just an [alternateImageUrl].
   const ProductImageCarousel(
     this.product, {
     required this.height,
     this.controller,
     this.onUpload,
-    this.alternateImageUrl,
   });
 
   final Product product;
   final double height;
   final ScrollController? controller;
   final Function(BuildContext)? onUpload;
-  final String? alternateImageUrl;
 
   @override
   Widget build(BuildContext context) {
-    final List<ProductImageData> productImagesData;
-    if (alternateImageUrl != null) {
-      productImagesData = <ProductImageData>[
-        ProductImageData(
-          imageUrl: alternateImageUrl,
-          imageField: ImageField.OTHER,
-          language: null,
-        ),
-      ];
-    } else {
-      productImagesData = getProductMainImagesData(
-        product,
-        ProductQuery.getLanguage(),
-      );
-    }
+    final List<ProductImageData> productImagesData = getProductMainImagesData(
+      product,
+      ProductQuery.getLanguage(),
+    );
     return SizedBox(
       height: height,
       child: ListView.builder(
