@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Log in op uw Open Food Facts-account om krediet te krijgen voor uw bijdragen",
+    "question_yes_button_accessibility_value": "Antwoord met ja",
+    "question_no_button_accessibility_value": "Antwoord met nee",
+    "question_skip_button_accessibility_value": "Sla deze vraag over",
     "tap_to_edit_search": "Tik om de zoekopdracht te bewerken",
     "@Personal preferences": {},
     "myPreferences": "Mijn voorkeuren",
@@ -1340,6 +1343,14 @@
             }
         }
     },
+    "camera_toggle_camera": "Schakel tussen de camera aan de achterkant en de voorkant",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "Zet de flitser van de camera AAN of UIT",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
+    },
     "camera_enable_flash": "Flits inschakelen",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
@@ -1880,7 +1891,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "Volgende {count,plural,  one {}=1{vraag} other{{count} vragen}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -1894,7 +1905,7 @@
     "app_rating_dialog_title": "Geweldig! Laat anderen weten wat je vindt van deze app!",
     "app_rating_dialog_positive_action": "Beoordeel de app",
     "app_rating_dialog_negative_action": "Later",
-    "app_rating_dialog_title_enjoying_app": "Geniet je van de app?",
+    "app_rating_dialog_title_enjoying_app": "Geniet je van deze app?",
     "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
     "not_really": "Niet echt",
     "app_rating_dialog_title_not_enjoying_app": "Het spijt ons dat te horen! Kunt u ons vertellen wat er is gebeurd?",
@@ -1976,7 +1987,7 @@
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "background_task_title": "Pending contributions",
+    "background_task_title": "In afwachting van bijdragen",
     "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
     "background_task_list_empty": "Geen lopende achtergrondtaken",
     "background_task_error_no_internet": "Fout met internetverbinding. Probeer het later.",

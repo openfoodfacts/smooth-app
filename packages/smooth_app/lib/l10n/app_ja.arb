@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Open Food Factsアカウントにサインインすることで、あなたの投稿に対する信用を得ることができます",
+    "question_yes_button_accessibility_value": "「はい」で回答",
+    "question_no_button_accessibility_value": "No で回答",
+    "question_skip_button_accessibility_value": "この質問をスキップ",
     "tap_to_edit_search": "タップして検索を編集",
     "@Personal preferences": {},
     "myPreferences": "好みの設定",
@@ -1340,6 +1343,14 @@
             }
         }
     },
+    "camera_toggle_camera": "前面カメラと背面カメラを切り替える",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "カメラのフラッシュをONまたはOFFにする",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
+    },
     "camera_enable_flash": "フラッシュを有効にする",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
@@ -1880,7 +1891,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "次 {count,plural,  =1{質問} other{{count} 質問}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -1894,7 +1905,7 @@
     "app_rating_dialog_title": "Great! Let others know what you think of this app!",
     "app_rating_dialog_positive_action": "アプリを評価する",
     "app_rating_dialog_negative_action": "後で",
-    "app_rating_dialog_title_enjoying_app": "このアプリをお楽しみいただけていますか？",
+    "app_rating_dialog_title_enjoying_app": "このアプリを気に入っていますか？",
     "app_rating_dialog_title_enjoying_positive_actions": "はい！",
     "not_really": "いいえ",
     "app_rating_dialog_title_not_enjoying_app": "申し訳ございません。何があったのか教えていただけますか？",
