@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/hunger_games/question_image_thumbnail.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Display of a Robotoff question text.
@@ -60,10 +60,11 @@ class QuestionCard extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  ProductImageCarousel(
-                    product,
+                  SizedBox(
                     height: screenSize.height / 6,
-                    alternateImageUrl: question.imageUrl,
+                    child: question.imageUrl == null
+                        ? EMPTY_WIDGET
+                        : QuestionImageThumbnail(question.imageUrl!),
                   ),
                   Padding(
                     padding:
