@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
@@ -32,62 +32,21 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
     required this.imageId,
   });
 
-  BackgroundTaskCrop._fromJson(Map<String, dynamic> json)
-      : this._(
-          processName: json['processName'] as String,
-          uniqueId: json['uniqueId'] as String,
-          barcode: json['barcode'] as String,
-          languageCode: json['languageCode'] as String,
-          user: json['user'] as String,
-          country: json['country'] as String,
-          imageId: json['imageId'] as int,
-          imageField: json['imageField'] as String,
-          croppedPath: json['croppedPath'] as String,
-          rotationDegrees: json['rotation'] as int,
-          cropX1: json['x1'] as int? ?? 0,
-          cropY1: json['y1'] as int? ?? 0,
-          cropX2: json['x2'] as int? ?? 0,
-          cropY2: json['y2'] as int? ?? 0,
-          stamp: json['stamp'] as String,
-        );
+  BackgroundTaskCrop.fromJson(Map<String, dynamic> json)
+      : imageId = json[_jsonTagImageId] as int,
+        super.fromJson(json);
 
-  /// Task ID.
-  static const String _PROCESS_NAME = 'IMAGE_CROP';
+  static const String _jsonTagImageId = 'imageId';
 
   static const OperationType _operationType = OperationType.crop;
 
   final int imageId;
 
   @override
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'processName': processName,
-        'uniqueId': uniqueId,
-        'barcode': barcode,
-        'languageCode': languageCode,
-        'user': user,
-        'country': country,
-        'imageId': imageId,
-        'imageField': imageField,
-        'croppedPath': croppedPath,
-        'stamp': stamp,
-        'rotation': rotationDegrees,
-        'x1': cropX1,
-        'y1': cropY1,
-        'x2': cropX2,
-        'y2': cropY2,
-      };
-
-  /// Returns the deserialized background task if possible, or null.
-  static AbstractBackgroundTask? fromJson(final Map<String, dynamic> map) {
-    try {
-      final AbstractBackgroundTask result = BackgroundTaskCrop._fromJson(map);
-      if (result.processName == _PROCESS_NAME) {
-        return result;
-      }
-    } catch (e) {
-      //
-    }
-    return null;
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> result = super.toJson();
+    result[_jsonTagImageId] = imageId;
+    return result;
   }
 
   /// Adds the background task about uploading a product image.
@@ -109,7 +68,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
       localDatabase,
       barcode,
     );
-    final AbstractBackgroundTask task = _getNewTask(
+    final BackgroundTaskBarcode task = _getNewTask(
       language,
       barcode,
       imageId,
@@ -146,7 +105,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
       BackgroundTaskCrop._(
         uniqueId: uniqueId,
         barcode: barcode,
-        processName: _PROCESS_NAME,
+        processName: _operationType.processName,
         imageId: imageId,
         imageField: imageField.offTag,
         croppedPath: croppedFile.path,

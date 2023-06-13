@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
@@ -48,6 +49,10 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                     taskId,
                   ),
                 );
+                String barcode = OperationType.getBarcode(taskId);
+                if (barcode == BackgroundTaskFullRefresh.noBarcode) {
+                  barcode = '';
+                }
                 return ListTile(
                   onTap: () async {
                     final bool? stopTask = await showDialog<bool>(
@@ -72,7 +77,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                     }
                   },
                   title: Text(
-                    '${OperationType.getBarcode(taskId)}'
+                    '$barcode'
                     ' (${OperationType.getOperationType(taskId)?.getLabel(
                           appLocalizations,
                         ) ?? appLocalizations.background_task_operation_unknown})',
