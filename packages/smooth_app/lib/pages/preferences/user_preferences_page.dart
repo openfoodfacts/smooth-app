@@ -165,9 +165,9 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     return SmoothScaffold(
       statusBarBackgroundColor: dark ? null : headerColor,
       brightness:
-      Theme.of(context).brightness == Brightness.light && Platform.isIOS
-          ? Brightness.dark
-          : Brightness.light,
+          Theme.of(context).brightness == Brightness.light && Platform.isIOS
+              ? Brightness.dark
+              : Brightness.light,
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
       appBar: AppBar(
