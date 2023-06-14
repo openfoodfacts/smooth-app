@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -52,7 +54,7 @@ abstract class ProductQuery {
     String? isoCode,
   }) async {
     isoCode ??= userPreferences.userCountryCode ??
-        WidgetsBinding.instance.window.locale.countryCode?.toLowerCase();
+        PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
     _country = CountryHelper.fromJson(isoCode);
     // we need this to run "world" queries
     OpenFoodAPIConfiguration.globalCountry = null;

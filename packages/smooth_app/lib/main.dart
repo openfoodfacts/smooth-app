@@ -5,7 +5,6 @@ import 'package:app_store_shared/app_store_shared.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -156,8 +155,7 @@ class _SmoothAppState extends State<SmoothApp> {
       UserManagementProvider();
 
   bool systemDarkmodeOn = false;
-  final Brightness brightness =
-      SchedulerBinding.instance.window.platformBrightness;
+  final Brightness brightness = PlatformDispatcher.instance.platformBrightness;
 
   // We store the argument of FutureBuilder to avoid re-initialization on
   // subsequent builds. This enables hot reloading. See
