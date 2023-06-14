@@ -10,6 +10,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
@@ -41,7 +42,15 @@ class ContinuousScanModel with ChangeNotifier {
 
   ProductList get productList => _productList;
 
+  /// List all barcodes scanned (even products being loaded or not found)
   List<String> getBarcodes() => _barcodes;
+
+  /// List only barcodes where the product exists
+  Iterable<String> getAvailableBarcodes() => _states
+      .where((MapEntry<String, ScannedProductState> entry) =>
+          entry.value == ScannedProductState.FOUND ||
+          entry.value == ScannedProductState.CACHED)
+      .keys;
 
   String? get latestConsultedBarcode => _latestConsultedBarcode;
 
@@ -79,6 +88,7 @@ class ContinuousScanModel with ChangeNotifier {
         _states[barcode] = ScannedProductState.CACHED;
         _latestScannedBarcode = barcode;
       }
+
       return true;
     } catch (e) {
       Logs.e('Refresh database error', ex: e);
@@ -271,7 +281,9 @@ class ContinuousScanModel with ChangeNotifier {
       barcode,
       false,
     );
+
     _barcodes.remove(barcode);
+    _states.remove(barcode);
 
     if (barcode == _latestScannedBarcode) {
       _latestScannedBarcode = null;

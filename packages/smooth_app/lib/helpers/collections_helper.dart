@@ -132,4 +132,7 @@ extension MapStringKeyExtensions<V> on Map<String, V> {
     final String? mapKey = keyStartingWith(key, ignoreCase: ignoreCase);
     return this[mapKey];
   }
+
+  Map<String, V> where(bool Function(MapEntry<String, V>) fn) =>
+      Map<String, V>.fromEntries(entries.where(fn));
 }
