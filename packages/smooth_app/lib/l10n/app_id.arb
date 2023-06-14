@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Masuk ke akun Open Food Facts, untuk mendapatkan kredit atas kontribusi Anda",
+    "question_yes_button_accessibility_value": "Jawab dengan ya",
+    "question_no_button_accessibility_value": "Jawab dengan tidak",
+    "question_skip_button_accessibility_value": "Lewati pertanyaan ini",
     "tap_to_edit_search": "Ketuk untuk menyunting pencarian",
     "@Personal preferences": {},
     "myPreferences": "Preferensi Saya",
@@ -1340,6 +1343,14 @@
             }
         }
     },
+    "camera_toggle_camera": "Beralih dari kamera belakang ke depan",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "HIDUPKAN atau MATIKAN flash kamera",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
+    },
     "camera_enable_flash": "Enable flash",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
@@ -1894,7 +1905,7 @@
     "app_rating_dialog_title": "Hebat! Beri tahu orang lain pendapat Anda tentang aplikasi ini!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Nanti",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_app": "Apakah Anda menyukai aplikasi ini?",
     "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
     "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",

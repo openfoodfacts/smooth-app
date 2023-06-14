@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Prihláste sa do svojho účtu Open Food Facts a získajte kredit za svoj príspevok",
+    "question_yes_button_accessibility_value": "Answer with yes",
+    "question_no_button_accessibility_value": "Answer with no",
+    "question_skip_button_accessibility_value": "Skip this question",
     "tap_to_edit_search": "Klepnutím upravíte vyhľadávanie",
     "@Personal preferences": {},
     "myPreferences": "My preferences",
@@ -1340,6 +1343,14 @@
             }
         }
     },
+    "camera_toggle_camera": "Switch between back and front camera",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
+    },
     "camera_enable_flash": "Enable flash",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
@@ -1894,7 +1905,7 @@
     "app_rating_dialog_title": "Skvelé! Dajte ostatným vedieť, čo si myslíte o tejto aplikácii!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Later",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
     "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
     "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",

@@ -4,7 +4,7 @@
     "@sep": {
         "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
     },
-    "yes": "Yes",
+    "yes": "ହଁ",
     "@yes": {},
     "add": "Add",
     "@add": {},
@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_yes_button_accessibility_value": "ହଁ ବୋଲି ଉତ୍ତର ଦେବା",
+    "question_no_button_accessibility_value": "ନାହିଁ ବୋଲି ଉତ୍ତର ଦେବା",
+    "question_skip_button_accessibility_value": "ଏହି ପ୍ରଶ୍ନଟିକୁ ବାଦ୍ ଦିଅ",
     "tap_to_edit_search": "Tap to edit search",
     "@Personal preferences": {},
     "myPreferences": "My preferences",
@@ -977,7 +980,7 @@
     "@user_profile": {
         "description": "User account (if connected)"
     },
-    "user_profile_title_guest": "Welcome!",
+    "user_profile_title_guest": "ସ୍ୱାଗତ!",
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
@@ -1340,6 +1343,14 @@
             }
         }
     },
+    "camera_toggle_camera": "Switch between back and front camera",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
+    },
     "camera_enable_flash": "Enable flash",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
@@ -1438,7 +1449,7 @@
         "description": "User dev preferences - Negative button label"
     },
     "dev_preferences_migration_title": "Data migration from V1",
-    "dev_preferences_migration_subtitle": "Status: {status}",
+    "dev_preferences_migration_subtitle": "ସ୍ଥିତି: {status}",
     "@dev_preferences_migration_subtitle": {
         "placeholders": {
             "status": {
@@ -1447,11 +1458,11 @@
         }
     },
     "dev_preferences_migration_status_already_done": "success or fresh install",
-    "dev_preferences_migration_status_success": "success",
-    "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
-    "dev_preferences_migration_status_required": "required (click to start)",
-    "dev_preferences_migration_status_not_started": "unknown",
+    "dev_preferences_migration_status_success": "ସଫଳ ହୋ‌ଇଛି",
+    "dev_preferences_migration_status_error": "ତ୍ରୁଟି",
+    "dev_preferences_migration_status_in_progress": "ଚାଲିଛି",
+    "dev_preferences_migration_status_required": "ଆଵଶ୍ୟକ (ଆରମ୍ଭ କରିବାକୁ କ୍ଲିକ୍ କରନ୍ତୁ)",
+    "dev_preferences_migration_status_not_started": "ଅଜ୍ଞାତ",
     "dev_preferences_import_history_title": "Import History",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
@@ -1894,7 +1905,7 @@
     "app_rating_dialog_title": "Great! Let others know what you think of this app!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Later",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_app": "ଆପଣ ଏହି ଆପ୍ ଉପଭୋଗ କରୁଛନ୍ତି ତ?",
     "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
     "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",

@@ -64,51 +64,51 @@
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "match_very_good": "Very good match",
+    "match_very_good": "Erittäin hyvä vastaavuus",
     "@match_very_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: very good match"
     },
-    "match_good": "Good match",
+    "match_good": "Hyvä vastaavuus",
     "@match_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: good match"
     },
-    "match_poor": "Poor match",
+    "match_poor": "Heikko vastaavuus",
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
-    "match_may_not": "May not match",
+    "match_may_not": "Ei ehkä vastaa",
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
-    "match_does_not": "Does not match",
+    "match_does_not": "Ei vastaa",
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "Unknown match",
+    "match_unknown": "Tuntematon vastaavuus",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
-    "match_short_very_good": "Very good match",
+    "match_short_very_good": "Erittäin hyvä vastaavuus",
     "@match_short_very_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
     },
-    "match_short_good": "Good match",
+    "match_short_good": "Hyvä vastaavuus",
     "@match_short_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
     },
-    "match_short_poor": "Poor match",
+    "match_short_poor": "Heikko vastaavuus",
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
-    "match_short_may_not": "May not match",
+    "match_short_may_not": "Ei ehkä vastaa",
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
-    "match_short_does_not": "Does not match",
+    "match_short_does_not": "Ei vastaa",
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "Unknown match",
+    "match_short_unknown": "Tuntematon vastaavuus",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Kirjaudu Open Food Facts -tilillesi, jos haluat tunnustusta työstäsi",
+    "question_yes_button_accessibility_value": "Vastaa kyllä",
+    "question_no_button_accessibility_value": "Vastaa ei",
+    "question_skip_button_accessibility_value": "Ohita tämä kysymys",
     "tap_to_edit_search": "Muokkaa hakua",
     "@Personal preferences": {},
     "myPreferences": "Mieltymykseni",
@@ -391,7 +394,7 @@
     "ranking_tab_all": "Kaikki",
     "ranking_subtitle_match_yes": "Hyvä osuma sinulle",
     "ranking_subtitle_match_no": "Heikko osuma",
-    "ranking_subtitle_match_maybe": "Unknown match",
+    "ranking_subtitle_match_maybe": "Tuntematon vastaavuus",
     "refresh_with_new_preferences": "Päivitä uudet ruokailutottumuksesi",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
@@ -426,11 +429,11 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan session",
+    "scan": "Skannausistunto",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
-    "scan_history": "Scan history",
+    "scan_history": "Skannaushistoria",
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
@@ -483,7 +486,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Löysit uuden tuotteen!",
     "@missing_product": {},
-    "add_product_take_photos": "Ota kuvia pakkauksesta lisääksesi tuotteen Open Food Factsiin.",
+    "add_product_take_photos": "Ota kuvia pakkauksesta lisätäksesi tuotteen Open Food Factsiin",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Ota kuvia ensin. Voit viimeistellä myöhemmin.",
     "@add_product_take_photos_descriptive": {},
@@ -491,11 +494,11 @@
     "@add_product_information_button_label": {},
     "new_product": "Uusi tuote",
     "@new_product": {},
-    "new_product_dialog_title": "You have just found a new product!",
+    "new_product_dialog_title": "Löysit juuri uuden tuotteen!",
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Ota valokuvia pakkauksesta lisätäksesi tämän tuotteen yhteistietokantaamme",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
@@ -507,19 +510,19 @@
     },
     "confirm_button_label": "Vahvista",
     "send_image_button_label": "Lähetä kuva",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "Tallennetaan kuvaa…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "Rajataan kuvaa…",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "Tallennetaan paikallinen versio…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_server": "Preparing a call to the server…",
+    "crop_page_action_server": "Valmistellaan palvelinkutsua…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
@@ -539,14 +542,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Lisää ravintosisältö",
     "nutritional_facts_added": "Ravintosisältö lisätty",
-    "categories_added": "Categories added",
-    "new_product_title_nutriscore": "Compute the Nutri-Score",
-    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
-    "new_product_title_ecoscore": "Compute the Eco-Score",
-    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
-    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
-    "new_product_title_pictures": "Let's take some pictures!",
-    "new_product_title_misc": "And some basic data…",
+    "categories_added": "Tuoteluokat lisätty",
+    "new_product_title_nutriscore": "Laske Nutri-Score",
+    "new_product_subtitle_nutriscore": "Hanki se täyttämällä ruokaluokka ja ravintoarvot",
+    "new_product_title_ecoscore": "Laske Eco-Score",
+    "new_product_subtitle_ecoscore": "Hanki se täyttämällä vähintään luokka",
+    "new_product_additional_ecoscore": "Tee Eco-Score-laskusta tarkempi alkuperillä, pakkauksella ja muilla",
+    "new_product_title_pictures": "Otetaan muutamia kuvia!",
+    "new_product_title_misc": "Ja joitakin perustietoja…",
     "nutritional_facts_photo_uploaded": "Ravintosisältökuva ladattu",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Kierrätyskuva",
@@ -631,7 +634,7 @@
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
-    "click_here": "Click here",
+    "click_here": "Paina tästä",
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
@@ -935,11 +938,11 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning",
+    "product_list_empty_title": "Aloita skannaaminen",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Luetut tuotteet ilmestyvät tänne ja voit katsoa niistä lisätietoja täällä",
+    "product_list_empty_message": "Skannatut tuotteet ilmestyvät tänne ja voit katsoa niistä lisätietoja täällä",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -1029,7 +1032,7 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Lukijatila",
+    "camera_mode_title": "Skanneritila",
     "@camera_mode_title": {
         "description": "Title for the mode for the camera/scanner"
     },
@@ -1340,6 +1343,14 @@
             }
         }
     },
+    "camera_toggle_camera": "Switch between back and front camera",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
+    },
     "camera_enable_flash": "Käytä salamaa",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
@@ -1464,11 +1475,11 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_scan_mode_title": "Lukijatila",
+    "dev_mode_scan_mode_title": "Skannaustila",
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "Lukijatila \"{mode}\" käytössä",
+    "dev_mode_scan_mode_subtitle": "Skannaustila \"{mode}\" käytössä",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1477,7 +1488,7 @@
             }
         }
     },
-    "dev_mode_scan_mode_dialog_title": "Lukijatila",
+    "dev_mode_scan_mode_dialog_title": "Skannaustila",
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
@@ -1485,23 +1496,23 @@
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_scan_camera_only": "Vain kamera – ei lukija – käytössä",
+    "dev_mode_scan_camera_only": "Vain kameravirta, ei skannausta",
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "Kamera ja täysi kuvan esikäsittely käynnissä, ei lukijaa",
+    "dev_mode_scan_preprocess_full_image": "Kamera ja täysi kuvan esikäsittely käynnissä, ei skannausta",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Kamera ja osittainen kuvan esikäsittely käynnissä, ei lukijaa",
+    "dev_mode_scan_preprocess_half_image": "Kameravirta ja puolikas esikäsittely, ei skannausta",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
-    "dev_mode_scan_scan_full_image": "Täysi lukeminen",
+    "dev_mode_scan_scan_full_image": "Täysi kuvan skannaus",
     "@dev_mode_scan_scan_full_image": {
         "description": "Scan mode - Scan full image"
     },
-    "dev_mode_scan_scan_half_image": "Osittaislukija käytössä",
+    "dev_mode_scan_scan_half_image": "Puolikuvan skannaus",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
@@ -1880,7 +1891,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "{count,plural,  =1{Seuraava kysymys} other{Seuraavat {count} kysymystä}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -1894,7 +1905,7 @@
     "app_rating_dialog_title": "Loistavaa! Kerro muille mitä ajattelet tästä sovelluksesta!",
     "app_rating_dialog_positive_action": "Arvioi sovellus",
     "app_rating_dialog_negative_action": "Myöhemmin",
-    "app_rating_dialog_title_enjoying_app": "Pidätkö sovelluksesta?",
+    "app_rating_dialog_title_enjoying_app": "Pidätkö tästä sovelluksesta?",
     "app_rating_dialog_title_enjoying_positive_actions": "Kyllä",
     "not_really": "En juurikaan",
     "app_rating_dialog_title_not_enjoying_app": "Ikävä kuulla! Voitko kertoa, mitä tapahtui?",
@@ -2060,11 +2071,11 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
-    "product_loader_not_found_title": "Product not found!",
+    "product_loader_not_found_title": "Tuotetta ei löydy!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
     },
-    "product_loader_not_found_message": "A product with the following barcode doesn't exist in our database: {barcode}",
+    "product_loader_not_found_message": "Tietokannassamme ei ole tuotetta, jolla on seuraava viivakoodi: {barcode}",
     "@product_loader_not_found_message": {
         "description": "When fetching a product opened via a link, it doesn't exist",
         "placeholders": {
@@ -2073,35 +2084,35 @@
             }
         }
     },
-    "product_loader_network_error_title": "No internet connection!",
+    "product_loader_network_error_title": "Ei internet-yhteyttä!",
     "@product_loader_network_error_title": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "product_loader_network_error_message": "Please check that your smartphone is on a WiFi network or has mobile data enabled",
+    "product_loader_network_error_message": "Tarkista, että älypuhelimesi on Wi-Fi-verkossa tai että mobiilidata on käytössä",
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "page_not_found_title": "Page not found!",
+    "page_not_found_title": "Sivua ei löydy!",
     "@page_not_found_title": {
         "description": "Title for a page not found (when an URL is not recognized)"
     },
-    "page_not_found_button": "Go back to the homepage",
+    "page_not_found_button": "Palaa etusivulle",
     "@page_not_found_button": {
         "description": "Button to go back to the homepage"
     },
-    "download_data": "Download data",
+    "download_data": "Tietojen lataaminen",
     "@download_data": {
         "description": "App bar title for the download data page"
     },
-    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "download_top_products": "Lataa maasi 1000 suosituinta tuotetta välitöntä skannausta varten",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_in_progress": "Downloading data\nThis may take a while",
+    "download_in_progress": "Ladataan tietoja\nTämä voi kestää jonkin aikaa",
     "@download_in_progress": {
         "description": "Download in progress"
     },
-    "downloaded_products": "{num} products added",
+    "downloaded_products": "{num} tuotetta lisätty",
     "@downloaded_products": {
         "description": "text to show when products added",
         "placeholders": {
@@ -2110,23 +2121,23 @@
             }
         }
     },
-    "update_offline_data": "Update offline product data",
+    "update_offline_data": "Offline-tuotetietojen päivitys",
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Päivitä paikallinen tuotetietokanta Open Food Factsin uusimmilla tiedoilla",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear offline product data",
+    "clear_local_database": "Offline-tuotetietojen tyhjennys",
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "clear_local_database_sub": "Vapauta tilaa tyhjentämällä kaikki sovelluksen paikalliset tuotetiedot",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
-    "deleted_products": "{num} products deleted",
+    "deleted_products": "{num} tuotetta poistettu",
     "@deleted_products": {
         "description": "text to show when products are deleted from local databse",
         "placeholders": {
@@ -2139,19 +2150,19 @@
     "@loading": {
         "description": "Loading…"
     },
-    "know_more": "Know More",
+    "know_more": "Lisätietoja",
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Click to know more about offline data",
+    "offline_data_desc": "Napsauta saadaksesi lisätietoja offline-tiedoista",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
-    "offline_product_data_title": "Offline product data",
+    "offline_product_data_title": "Offline-tuotetiedot",
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} products available for immediate scaning",
+    "available_for_download": "{num} tuotetta saatavilla välittömään skannaukseen",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {

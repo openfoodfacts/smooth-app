@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "כדאי להיכנס לחשבונך ב־Open Food Facts כדי לקבל הוקרה על התרומות שלך",
+    "question_yes_button_accessibility_value": "לענות בכן",
+    "question_no_button_accessibility_value": "לענות בלא",
+    "question_skip_button_accessibility_value": "לדלג על השאלה הזאת",
     "tap_to_edit_search": "יש לגעת לעריכת החיפוש",
     "@Personal preferences": {},
     "myPreferences": "ההעדפות שלי",
@@ -1340,6 +1343,14 @@
             }
         }
     },
+    "camera_toggle_camera": "החלפה בין המצלמה האחורית לקדמית",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "כיבוי או הפעלה של מבזק המצלמה",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
+    },
     "camera_enable_flash": "הפעלת מבזק",
     "@camera_enable_flash": {
         "description": "Enable flash (tooltip)"
@@ -1880,7 +1891,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "{count,plural, two {{count} השאלות הבאות}  many {{count} השאלות הבאות}=1{השאלה הבאה} other{{count} השאלות הבאות}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
