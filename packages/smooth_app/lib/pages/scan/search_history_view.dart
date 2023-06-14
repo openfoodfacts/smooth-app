@@ -68,7 +68,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                 TextSelection.fromPosition(TextPosition(offset: query.length));
 
             // If the keyboard is hidden, show it.
-            if (WidgetsBinding.instance.window.viewInsets.bottom == 0) {
+            if (View.of(context).viewInsets.bottom == 0) {
               widget.focusNode?.unfocus();
 
               WidgetsBinding.instance.addPostFrameCallback((_) {

@@ -37,50 +37,47 @@ class ProductImageServerButton extends StatelessWidget {
     if (!loggedIn) {
       return;
     }
+
+    List<int>? result;
     if (context.mounted) {
-    } else {
-      return;
-    }
-    final List<int>? result = await LoadingDialog.run<List<int>>(
-      future: OpenFoodAPIClient.getProductImageIds(
-        barcode,
-        user: ProductQuery.getUser(),
-      ),
-      context: context,
-      title: appLocalizations.edit_photo_select_existing_download_label,
-    );
-    if (result == null) {
-      return;
-    }
-    if (context.mounted) {
-    } else {
-      return;
-    }
-    if (result.isEmpty) {
-      await showDialog<void>(
+      result = await LoadingDialog.run<List<int>>(
+        future: OpenFoodAPIClient.getProductImageIds(
+          barcode,
+          user: ProductQuery.getUser(),
+        ),
         context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          body:
-              Text(appLocalizations.edit_photo_select_existing_downloaded_none),
-          actionsAxis: Axis.vertical,
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.okay,
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ),
+        title: appLocalizations.edit_photo_select_existing_download_label,
       );
-      return;
     }
-    await Navigator.push<void>(
-      context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => UploadedImageGallery(
-          barcode: barcode,
-          imageIds: result,
-          imageField: imageField,
-          language: language,
-        ),
-      ),
-    );
+
+    if (context.mounted) {
+      if (result?.isEmpty == true) {
+        await showDialog<void>(
+          context: context,
+          builder: (BuildContext context) => SmoothAlertDialog(
+            body: Text(
+                appLocalizations.edit_photo_select_existing_downloaded_none),
+            actionsAxis: Axis.vertical,
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.okay,
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+        );
+        return;
+      } else {
+        await Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => UploadedImageGallery(
+              barcode: barcode,
+              imageIds: result!,
+              imageField: imageField,
+              language: language,
+            ),
+          ),
+        );
+      }
+    }
   }
 }
