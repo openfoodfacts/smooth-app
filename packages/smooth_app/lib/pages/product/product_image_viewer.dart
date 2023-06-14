@@ -113,31 +113,59 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                     minScale: 0.2,
                     imageProvider: imageProvider,
                     heroAttributes: PhotoViewHeroAttributes(
-                      tag: imageProvider,
-                    ),
+                        tag: 'photo_${widget.imageField.offTag}',
+                        flightShuttleBuilder: (
+                          _,
+                          Animation<double> animation,
+                          HeroFlightDirection flightDirection,
+                          BuildContext fromHeroContext,
+                          BuildContext toHeroContext,
+                        ) {
+                          return AnimatedBuilder(
+                            animation: animation,
+                            builder: (_, __) {
+                              Widget widget;
+                              if (flightDirection == HeroFlightDirection.push) {
+                                widget = fromHeroContext.widget;
+                              } else {
+                                widget = toHeroContext.widget;
+                              }
+
+                              return ClipRRect(
+                                borderRadius:
+                                    BorderRadius.circular(1 - animation.value) *
+                                        ROUNDED_RADIUS.x,
+                                child: widget,
+                              );
+                            },
+                          );
+                        }),
                     backgroundDecoration: const BoxDecoration(
                       color: Colors.black,
                     ),
                   ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: LanguageSelector(
-                  setLanguage: widget.setLanguage,
-                  displayedLanguage: widget.language,
-                  selectedLanguages: selectedLanguages,
-                  foregroundColor: Colors.white,
+        SafeArea(
+          bottom: true,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: LanguageSelector(
+                    setLanguage: widget.setLanguage,
+                    displayedLanguage: widget.language,
+                    selectedLanguages: selectedLanguages,
+                    foregroundColor: Colors.white,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

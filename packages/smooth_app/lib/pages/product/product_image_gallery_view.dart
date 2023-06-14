@@ -99,6 +99,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           itemBuilder: (final BuildContext context, int index) {
             final MapEntry<ProductImageData, ImageProvider?> item =
                 _selectedImages[index];
+
             return SmoothListTileCard.image(
               imageProvider: item.value,
               title: Text(
@@ -109,6 +110,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 imageData: item.key,
                 initialImageIndex: index,
               ),
+              heroTag: 'photo_${item.key.imageField.offTag}',
             );
           },
         ),
