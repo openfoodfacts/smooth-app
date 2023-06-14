@@ -1,17 +1,20 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Zoomable full page of a question image.
 class QuestionImageFullPage extends StatelessWidget {
-  const QuestionImageFullPage(this.imageUrl);
+  const QuestionImageFullPage(this.question);
 
-  final String imageUrl;
+  final RobotoffQuestion question;
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        floatingActionButton: FloatingActionButton(
-          child: Icon(ConstantIcons.instance.getBackIcon()),
-          onPressed: () => Navigator.of(context).pop(),
+        appBar: AppBar(
+          title: AutoSizeText(
+            '${question.question!} (${question.value!})',
+            maxLines: 2,
+          ),
         ),
         body: ConstrainedBox(
           constraints: const BoxConstraints.expand(),
@@ -20,7 +23,7 @@ class QuestionImageFullPage extends StatelessWidget {
             maxScale: 5,
             child: Image(
               fit: BoxFit.contain,
-              image: NetworkImage(imageUrl),
+              image: NetworkImage(question.imageUrl!),
             ),
           ),
         ),

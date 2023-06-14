@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/hunger_games/question_image_full_page.dart';
 
 /// Thumbnail of a question image.
 class QuestionImageThumbnail extends StatelessWidget {
-  const QuestionImageThumbnail(this.imageUrl);
+  const QuestionImageThumbnail(this.question);
 
-  final String imageUrl;
+  final RobotoffQuestion question;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -16,12 +17,12 @@ class QuestionImageThumbnail extends StatelessWidget {
           onTap: () async => Navigator.of(context).push<void>(
             MaterialPageRoute<void>(
               builder: (BuildContext context) =>
-                  QuestionImageFullPage(imageUrl),
+                  QuestionImageFullPage(question),
               fullscreenDialog: true,
             ),
           ),
           child: Image(
-            image: NetworkImage(imageUrl),
+            image: NetworkImage(question.imageUrl!),
             fit: BoxFit.cover,
             height: double.infinity,
             errorBuilder: (_, __, ___) => EMPTY_WIDGET,
