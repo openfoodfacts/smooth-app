@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/widgets/screen_visibility.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
 enum BottomNavigationTab {
@@ -158,11 +157,9 @@ class PageManagerState extends State<PageManager> {
       offstage: offstage,
       child: Provider<BottomNavigationTab>.value(
         value: _currentPage,
-        child: ScreenVisibilityDetector(
-          child: TabNavigator(
-            navigatorKey: _navigatorKeys[tabItem]!,
-            tabItem: tabItem,
-          ),
+        child: TabNavigator(
+          navigatorKey: _navigatorKeys[tabItem]!,
+          tabItem: tabItem,
         ),
       ),
     );

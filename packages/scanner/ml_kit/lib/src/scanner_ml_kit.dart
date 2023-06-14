@@ -64,7 +64,7 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
 }
 
 class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   // just 1D formats and ios supported
   static const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
     BarcodeFormat.code39,
@@ -77,6 +77,8 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     BarcodeFormat.upcE,
   ];
 
+  static const ValueKey<String> _visibilityKey =
+      ValueKey<String>('VisibilityDetector');
   static const double _cornerPadding = 26;
 
   bool _isStarted = true;
@@ -93,6 +95,44 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     returnImage: false,
     autoStart: true,
   );
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    if (state == AppLifecycleState.paused) {
+      _stop();
+    } else if (state == AppLifecycleState.resumed) {
+      /// When the app is resumed (from the launcher for example), the camera is
+      /// always started and we can't prevent this behavior.
+      ///
+      /// To fix it, we check when the app is resumed if the camera is the
+      /// visible page and if that's not the case, we wait for the camera to be
+      /// initialized to stop it
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (ScreenVisibilityDetector.invisible(context)) {
+          _pauseCameraWhenInitialized();
+        }
+      });
+    }
+  }
+
+  Future<void> _pauseCameraWhenInitialized() async {
+    if (_controller.isStarting) {
+      return Future<void>.delayed(
+        const Duration(milliseconds: 250),
+        () => _pauseCameraWhenInitialized(),
+      );
+    }
+
+    _controller.stop();
+  }
 
   Future<void> _start() async {
     if (_isStarted) {
@@ -126,7 +166,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
-      key: const ValueKey<String>('VisibilityDetector'),
+      key: _visibilityKey,
       onVisibilityChanged: (final VisibilityInfo info) async {
         if (info.visibleBounds.height > 0.0) {
           await _start();
@@ -251,5 +291,12 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _controller.dispose();
+    super.dispose();
   }
 }
