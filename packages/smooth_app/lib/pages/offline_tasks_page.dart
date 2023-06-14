@@ -104,6 +104,6 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
       case BackgroundTaskManager.taskStatusStopAsap:
         return appLocalizations.background_task_run_to_be_deleted;
     }
-    return status!;
+    return status;
   }
 }
