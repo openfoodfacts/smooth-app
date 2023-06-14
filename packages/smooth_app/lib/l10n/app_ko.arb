@@ -1343,11 +1343,11 @@
             }
         }
     },
-    "camera_toggle_camera": "전면 및 후면 카메라 전환",
+    "camera_toggle_camera": "Troca entre camera de fundo e frente ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "카메라 플래시 켜거나 끄기",
+    "camera_toggle_flash": "Ligue ON ou OFF o flash da câmera",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },

@@ -1343,11 +1343,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Přepínání mezi zadní a přední kamerou",
+    "camera_toggle_camera": "Troca entre camera de fundo e frente ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Zapněte nebo vypněte blesk fotoaparátu",
+    "camera_toggle_flash": "Ligue ON ou OFF o flash da câmera",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },

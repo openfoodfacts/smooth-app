@@ -1343,11 +1343,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Arka ve ön kamera arasında geçiş yapın",
+    "camera_toggle_camera": "Troca entre camera de fundo e frente ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Kameranın flaşını AÇIN veya KAPATIN",
+    "camera_toggle_flash": "Ligue ON ou OFF o flash da câmera",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },

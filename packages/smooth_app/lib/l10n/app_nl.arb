@@ -1343,11 +1343,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Schakel tussen de camera aan de achterkant en de voorkant",
+    "camera_toggle_camera": "Troca entre camera de fundo e frente ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Zet de flitser van de camera AAN of UIT",
+    "camera_toggle_flash": "Ligue ON ou OFF o flash da câmera",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1891,7 +1891,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Volgende {count,plural, =1{vraag} other{{count} vragen}}",
+    "robotoff_next_n_questions": "Volgende {count,plural,  one {}=1{vraag} other{{count} vragen}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
