@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -12,6 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  go_router: 7.0.2
   barcode_widget: 2.0.3
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.5
@@ -30,7 +31,7 @@ dependencies:
   matomo_tracker: 2.0.0
   package_info_plus: 3.0.3
   device_info_plus: 8.1.0
-  permission_handler: 10.2.0
+  permission_handler: 10.3.0
   photo_view: 0.14.0
   uuid: 3.0.7
   provider: 6.0.5
@@ -45,15 +46,15 @@ dependencies:
     path: ../app_store/shared
   audioplayers: 3.0.1
   percent_indicator: 4.2.3
-  flutter_email_sender: 5.2.0
+  flutter_email_sender: ^6.0.0
   flutter_native_splash: 2.2.19
-  image: 4.0.16
+  image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.6
-  shared_preferences: 2.0.18
-  intl: 0.17.0
-  collection: 1.17.0
-  path: 1.8.2
+  shared_preferences: 2.1.1
+  intl: 0.18.0
+  collection: 1.17.1
+  path: 1.8.3
   path_provider: 2.0.13
   data_importer_shared:
     path: ../data_importer_shared
@@ -61,9 +62,10 @@ dependencies:
     path: ../data_importer
   share_plus: 6.3.4
   fimber: 0.6.6
-  shimmer: 2.0.0
+  shimmer: ^3.0.0
   lottie: 2.2.0
   webview_flutter: 3.0.4
+  flutter_custom_tabs: ^1.0.4
   flutter_image_compress: 1.1.3
 
   # According to the build variant, only one "app store" implementation must be added when building a release
@@ -94,7 +96,7 @@ dependencies:
 
 
 
-  openfoodfacts: 2.5.0
+  openfoodfacts: 2.5.2
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
@@ -106,7 +108,7 @@ dev_dependencies:
   flutter_launcher_icons: 0.13.1
   flutter_test:
     sdk: flutter
-  mockito: 5.3.2
+  mockito: 5.4.2
   path_provider_platform_interface: 2.0.6
   plugin_platform_interface: 2.1.4
   flutter_lints: 2.0.1

@@ -1,6 +1,6 @@
 import 'dart:io';
+import 'dart:ui';
 
-import 'package:flutter/material.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -37,7 +37,7 @@ class LaunchUrlHelper {
     }
 
     String? countryCode =
-        WidgetsBinding.instance.window.locale.countryCode?.toLowerCase();
+        PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
 
     if (countryCode == null) {
       countryCode = 'world.';

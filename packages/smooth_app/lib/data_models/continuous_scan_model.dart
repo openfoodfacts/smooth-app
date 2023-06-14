@@ -30,6 +30,7 @@ class ContinuousScanModel with ChangeNotifier {
       <String, ScannedProductState>{};
   final List<String> _barcodes = <String>[];
   final ProductList _productList = ProductList.scanSession();
+  final ProductList _scanHistory = ProductList.scanHistory();
   final ProductList _history = ProductList.history();
 
   String? _latestScannedBarcode;
@@ -104,6 +105,8 @@ class ContinuousScanModel with ChangeNotifier {
     if (code == null) {
       return false;
     }
+
+    code = _fixBarcodeIfNecessary(code);
 
     if (_latestScannedBarcode == code || _barcodes.contains(code)) {
       lastConsultedBarcode = code;
@@ -248,6 +251,7 @@ class ContinuousScanModel with ChangeNotifier {
     if (_latestFoundBarcode != barcode) {
       _latestFoundBarcode = barcode;
       await _daoProductList.push(productList, _latestFoundBarcode!);
+      await _daoProductList.push(_scanHistory, _latestFoundBarcode!);
       await _daoProductList.push(_history, _latestFoundBarcode!);
       _daoProductList.localDatabase.notifyListeners();
     }
@@ -279,5 +283,15 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> refresh() async {
     await _refresh();
     notifyListeners();
+  }
+
+  /// Sometimes the scanner may fail, this is a simple fix for now
+  /// But could be improved in the future
+  String _fixBarcodeIfNecessary(String code) {
+    if (code.length == 12) {
+      return '0$code';
+    } else {
+      return code;
+    }
   }
 }

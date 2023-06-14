@@ -94,6 +94,8 @@ class ProductQueryPageHelper {
         return productList.parameters;
       case ProductListType.SCAN_SESSION:
         return appLocalizations.scan;
+      case ProductListType.SCAN_HISTORY:
+        return appLocalizations.scan_history;
       case ProductListType.HISTORY:
         return appLocalizations.recently_seen_products;
     }

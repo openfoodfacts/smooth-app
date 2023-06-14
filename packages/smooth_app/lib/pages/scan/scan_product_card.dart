@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 
 class ScanProductCard extends StatelessWidget {
@@ -30,18 +30,20 @@ class ScanProductCard extends StatelessWidget {
       child: Hero(
         tag: product.barcode ?? '',
         child: HideableContainer(
-          child: SummaryCard(product, productPreferences),
+          child: SummaryCard(
+            product,
+            productPreferences,
+            attributeGroupsClickable: false,
+          ),
         ),
       ),
     );
   }
 
-  Future<void> _openProductPage(BuildContext context) async {
-    await Navigator.push<void>(
-      context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => ProductPage(product),
-      ),
+  void _openProductPage(BuildContext context) {
+    AppNavigator.of(context).push(
+      AppRoutes.PRODUCT(product.barcode!),
+      extra: product,
     );
   }
 }

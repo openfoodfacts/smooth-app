@@ -5,6 +5,7 @@ import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -24,7 +25,7 @@ class CameraScannerPage extends StatefulWidget {
 }
 
 class CameraScannerPageState extends State<CameraScannerPage>
-    with TraceableClientMixin, WidgetsBindingObserver {
+    with TraceableClientMixin {
   /// Audio player to play the beep sound on scan
   /// This attribute is only initialized when a camera is available AND the
   /// setting is set to ON
@@ -32,12 +33,6 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(this);
-  }
 
   @override
   void didChangeDependencies() {
@@ -57,26 +52,32 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     if (!CameraHelper.hasACamera) {
       return Center(
-        child: Text(AppLocalizations.of(context).permission_photo_none_found),
+        child: Text(appLocalizations.permission_photo_none_found),
       );
     }
 
-    return Stack(
-      children: <Widget>[
-        GlobalVars.barcodeScanner.getScanner(
-          onScan: _onNewBarcodeDetected,
-          hapticFeedback: () => SmoothHapticFeedback.click(),
-          onCameraFlashError: _onCameraFlashError,
-          trackCustomEvent: AnalyticsHelper.trackCustomEvent,
-          hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
-        ),
-        const Align(
-          alignment: Alignment.topCenter,
-          child: ScanHeader(),
-        ),
-      ],
+    return ScreenVisibilityDetector(
+      child: Stack(
+        children: <Widget>[
+          GlobalVars.barcodeScanner.getScanner(
+            onScan: _onNewBarcodeDetected,
+            hapticFeedback: () => SmoothHapticFeedback.click(),
+            onCameraFlashError: _onCameraFlashError,
+            trackCustomEvent: AnalyticsHelper.trackCustomEvent,
+            hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
+            toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
+            toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
+          ),
+          const Align(
+            alignment: Alignment.topCenter,
+            child: ScanHeader(),
+          ),
+        ],
+      ),
     );
   }
 
@@ -150,7 +151,6 @@ class CameraScannerPageState extends State<CameraScannerPage>
   @override
   void dispose() {
     _disposeSoundManager();
-    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 }

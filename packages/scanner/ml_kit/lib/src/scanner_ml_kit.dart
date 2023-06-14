@@ -21,6 +21,8 @@ class ScannerMLKit extends Scanner {
             {int? eventValue, String? barcode})
         trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    String? toggleCameraModeTooltip,
+    String? toggleFlashModeTooltip,
   }) {
     return _SmoothBarcodeScannerMLKit(
       onScan: onScan,
@@ -28,6 +30,8 @@ class ScannerMLKit extends Scanner {
       trackCustomEvent: trackCustomEvent,
       onCameraFlashError: onCameraFlashError,
       hasMoreThanOneCamera: hasMoreThanOneCamera,
+      toggleCameraModeTooltip: toggleCameraModeTooltip,
+      toggleFlashModeTooltip: toggleFlashModeTooltip,
     );
   }
 }
@@ -40,6 +44,8 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
     required this.trackCustomEvent,
     required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
+    this.toggleCameraModeTooltip,
+    this.toggleFlashModeTooltip,
   });
 
   final Future<bool> Function(String) onScan;
@@ -50,12 +56,15 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
 
+  final String? toggleCameraModeTooltip;
+  final String? toggleFlashModeTooltip;
+
   @override
   State<StatefulWidget> createState() => _SmoothBarcodeScannerMLKitState();
 }
 
 class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   // just 1D formats and ios supported
   static const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
     BarcodeFormat.code39,
@@ -68,6 +77,8 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     BarcodeFormat.upcE,
   ];
 
+  static const ValueKey<String> _visibilityKey =
+      ValueKey<String>('VisibilityDetector');
   static const double _cornerPadding = 26;
 
   bool _isStarted = true;
@@ -84,6 +95,44 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     returnImage: false,
     autoStart: true,
   );
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    if (state == AppLifecycleState.paused) {
+      _stop();
+    } else if (state == AppLifecycleState.resumed) {
+      /// When the app is resumed (from the launcher for example), the camera is
+      /// always started and we can't prevent this behavior.
+      ///
+      /// To fix it, we check when the app is resumed if the camera is the
+      /// visible page and if that's not the case, we wait for the camera to be
+      /// initialized to stop it
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (ScreenVisibilityDetector.invisible(context)) {
+          _pauseCameraWhenInitialized();
+        }
+      });
+    }
+  }
+
+  Future<void> _pauseCameraWhenInitialized() async {
+    if (_controller.isStarting) {
+      return Future<void>.delayed(
+        const Duration(milliseconds: 250),
+        () => _pauseCameraWhenInitialized(),
+      );
+    }
+
+    _controller.stop();
+  }
 
   Future<void> _start() async {
     if (_isStarted) {
@@ -115,124 +164,139 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
   }
 
   @override
-  Widget build(BuildContext context) => VisibilityDetector(
-        key: const ValueKey<String>('VisibilityDetector'),
-        onVisibilityChanged: (final VisibilityInfo info) async {
-          if (info.visibleBounds.height > 0.0) {
-            await _start();
-          } else {
-            await _stop();
-          }
-        },
-        child: Stack(
-          children: <Widget>[
-            MobileScanner(
-              controller: _controller,
-              fit: BoxFit.cover,
-              errorBuilder: (
-                BuildContext context,
-                MobileScannerException error,
-                Widget? child,
-              ) =>
-                  EMPTY_WIDGET,
-              onDetect: (final BarcodeCapture capture) async {
-                for (final Barcode barcode in capture.barcodes) {
-                  final String? string = barcode.displayValue;
-                  if (string != null) {
-                    await widget.onScan(string);
-                  }
+  Widget build(BuildContext context) {
+    return VisibilityDetector(
+      key: _visibilityKey,
+      onVisibilityChanged: (final VisibilityInfo info) async {
+        if (info.visibleBounds.height > 0.0) {
+          await _start();
+        } else {
+          await _stop();
+        }
+      },
+      child: Stack(
+        children: <Widget>[
+          MobileScanner(
+            controller: _controller,
+            fit: BoxFit.cover,
+            errorBuilder: (
+              BuildContext context,
+              MobileScannerException error,
+              Widget? child,
+            ) =>
+                EMPTY_WIDGET,
+            onDetect: (final BarcodeCapture capture) async {
+              for (final Barcode barcode in capture.barcodes) {
+                final String? string = barcode.displayValue;
+                if (string != null) {
+                  await widget.onScan(string);
                 }
-              },
+              }
+            },
+          ),
+          const Center(
+            child: Padding(
+              padding: EdgeInsets.all(_cornerPadding),
+              child: SmoothBarcodeScannerVisor(),
             ),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.all(_cornerPadding),
-                child: SmoothBarcodeScannerVisor(),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(_cornerPadding),
-                child: Row(
-                  mainAxisAlignment: _showFlipCameraButton
-                      ? MainAxisAlignment.spaceBetween
-                      : MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    if (_showFlipCameraButton)
-                      IconButton(
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(_cornerPadding),
+              child: Row(
+                mainAxisAlignment: _showFlipCameraButton
+                    ? MainAxisAlignment.spaceBetween
+                    : MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  if (_showFlipCameraButton)
+                    IconButton(
+                      enableFeedback: true,
+                      tooltip: widget.toggleCameraModeTooltip ??
+                          'Switch between back and front camera',
+                      color: Colors.white,
+                      icon: ValueListenableBuilder<CameraFacing>(
+                        valueListenable: _controller.cameraFacingState,
+                        builder: (
+                          BuildContext context,
+                          CameraFacing state,
+                          Widget? child,
+                        ) {
+                          switch (state) {
+                            case CameraFacing.front:
+                              return const Icon(Icons.camera_front);
+                            case CameraFacing.back:
+                              return const Icon(Icons.camera_rear);
+                          }
+                        },
+                      ),
+                      onPressed: () async {
+                        widget.hapticFeedback.call();
+                        await _controller.switchCamera();
+                      },
+                    ),
+                  ValueListenableBuilder<bool?>(
+                    valueListenable: _controller.hasTorchState,
+                    builder: (
+                      BuildContext context,
+                      bool? state,
+                      Widget? child,
+                    ) {
+                      if (state != true) {
+                        return const SizedBox.shrink();
+                      }
+                      return IconButton(
+                        enableFeedback: true,
+                        tooltip: widget.toggleFlashModeTooltip ??
+                            'Turn ON or OFF the flash of the camera',
                         color: Colors.white,
-                        icon: ValueListenableBuilder<CameraFacing>(
-                          valueListenable: _controller.cameraFacingState,
+                        icon: ValueListenableBuilder<TorchState>(
+                          valueListenable: _controller.torchState,
                           builder: (
                             BuildContext context,
-                            CameraFacing state,
+                            TorchState state,
                             Widget? child,
                           ) {
                             switch (state) {
-                              case CameraFacing.front:
-                                return const Icon(Icons.camera_front);
-                              case CameraFacing.back:
-                                return const Icon(Icons.camera_rear);
+                              case TorchState.off:
+                                return const Icon(
+                                  Icons.flash_off,
+                                  color: Colors.white,
+                                );
+                              case TorchState.on:
+                                return const Icon(
+                                  Icons.flash_on,
+                                  color: Colors.white,
+                                );
                             }
                           },
                         ),
                         onPressed: () async {
                           widget.hapticFeedback.call();
-                          await _controller.switchCamera();
-                        },
-                      ),
-                    ValueListenableBuilder<bool?>(
-                      valueListenable: _controller.hasTorchState,
-                      builder: (
-                        BuildContext context,
-                        bool? state,
-                        Widget? child,
-                      ) {
-                        if (state != true) {
-                          return const SizedBox.shrink();
-                        }
-                        return IconButton(
-                          color: Colors.white,
-                          icon: ValueListenableBuilder<TorchState>(
-                            valueListenable: _controller.torchState,
-                            builder: (
-                              BuildContext context,
-                              TorchState state,
-                              Widget? child,
-                            ) {
-                              switch (state) {
-                                case TorchState.off:
-                                  return const Icon(
-                                    Icons.flash_off,
-                                    color: Colors.white,
-                                  );
-                                case TorchState.on:
-                                  return const Icon(
-                                    Icons.flash_on,
-                                    color: Colors.white,
-                                  );
-                              }
-                            },
-                          ),
-                          onPressed: () async {
-                            widget.hapticFeedback.call();
 
-                            try {
-                              await _controller.toggleTorch();
-                            } catch (err) {
-                              widget.onCameraFlashError?.call(context);
-                            }
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
+                          try {
+                            await _controller.toggleTorch();
+                          } catch (err) {
+                            widget.onCameraFlashError?.call(context);
+                          }
+                        },
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _controller.dispose();
+    super.dispose();
+  }
 }

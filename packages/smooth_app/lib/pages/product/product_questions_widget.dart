@@ -4,7 +4,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
@@ -36,23 +35,18 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
 
         if (questions.isNotEmpty && !_annotationVoted) {
           return InkWell(
-            onTap: () {
-              Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (_) => QuestionPage(
-                    product: widget.product,
-                    questions: questions.toList(),
-                    updateProductUponAnswers: _updateProductUponAnswers,
-                  ),
-                  fullscreenDialog: true,
-                ),
-              );
-            },
-            child: SmoothCard.angular(
-              margin: EdgeInsets.zero,
-              color: Theme.of(context).colorScheme.primary,
-              elevation: 0,
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            onTap: () => openQuestionPage(
+              context,
+              product: widget.product,
+              questions: questions.toList(),
+              updateProductUponAnswers: _updateProductUponAnswers,
+            ),
+            child: Ink(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: ANGULAR_BORDER_RADIUS,
+              ),
               padding: const EdgeInsets.all(
                 SMALL_SPACE,
               ),
@@ -70,9 +64,10 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
                             color: isDarkMode ? Colors.black : WHITE_COLOR,
                           ),
                     ),
-                    Container(
-                      padding:
-                          const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                        top: SMALL_SPACE,
+                      ),
                       child: Text(
                         appLocalizations.contribute_to_get_rewards,
                         style: Theme.of(context)
@@ -95,13 +90,15 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
   }
 
   Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<RobotoffQuestion> questions =
-        await ProductQuestionsQuery(widget.product.barcode!).getQuestions();
+        await ProductQuestionsQuery(widget.product.barcode!)
+            .getQuestions(localDatabase, 3);
     if (!mounted) {
       return null;
     }
     final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(context.read<LocalDatabase>());
+        RobotoffInsightHelper(localDatabase);
     _annotationVoted =
         await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     return questions;
@@ -110,13 +107,14 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget> {
   Future<void> _updateProductUponAnswers() async {
     // Reload the product questions, they might have been answered.
     // Or the backend may have new ones.
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final List<RobotoffQuestion> questions =
         await _loadProductQuestions() ?? <RobotoffQuestion>[];
     if (!mounted) {
       return;
     }
     final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(context.read<LocalDatabase>());
+        RobotoffInsightHelper(localDatabase);
     if (questions.isEmpty) {
       await robotoffInsightHelper
           .removeInsightAnnotationsSavedForProdcut(widget.product.barcode!);

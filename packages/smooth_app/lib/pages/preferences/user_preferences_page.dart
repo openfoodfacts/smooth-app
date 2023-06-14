@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,14 +24,20 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 enum PreferencePageType {
-  ACCOUNT,
-  LISTS,
-  FOOD,
-  DEV_MODE,
-  SETTINGS,
-  CONTRIBUTE,
-  FAQ,
-  CONNECT,
+  ACCOUNT('account'),
+  LISTS('lists'),
+  FOOD('food'),
+  DEV_MODE('dev_mode'),
+  SETTINGS('settings'),
+  CONTRIBUTE('contribute'),
+  FAQ('faq'),
+  CONNECT('connect');
+
+  const PreferencePageType(this.tag);
+
+  /// A tag used when opening a new screen
+  /// eg: preferences/account
+  final String tag;
 }
 
 /// Preferences page: main or detailed.
@@ -156,7 +164,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     );
     return SmoothScaffold(
       statusBarBackgroundColor: dark ? null : headerColor,
-      brightness: Brightness.light,
+      brightness:
+          Theme.of(context).brightness == Brightness.light && Platform.isIOS
+              ? Brightness.dark
+              : Brightness.light,
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
       appBar: AppBar(
@@ -164,7 +175,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           appBarTitle,
           maxLines: 2,
         ),
-        leading: const SmoothBackButton(),
       ),
       body: ListView(children: children),
     );

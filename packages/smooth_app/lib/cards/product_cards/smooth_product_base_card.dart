@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 
 /// A common Widget for carrousel item cards.
@@ -47,3 +49,35 @@ class SmoothProductBaseCard extends StatelessWidget {
     );
   }
 }
+
+/// A simple button to express we can remove a card
+class ProductCardCloseButton extends StatelessWidget {
+  const ProductCardCloseButton({
+    this.onRemove,
+    super.key,
+  });
+
+  final OnRemoveCallback? onRemove;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return InkWell(
+      customBorder: const CircleBorder(),
+      onTap: () => onRemove?.call(context),
+      child: Tooltip(
+        message: appLocalizations.product_card_remove_product_tooltip,
+        child: const Padding(
+          padding: EdgeInsets.all(SMALL_SPACE),
+          child: Icon(
+            Icons.clear_rounded,
+            size: DEFAULT_ICON_SIZE,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+typedef OnRemoveCallback = void Function(BuildContext context);

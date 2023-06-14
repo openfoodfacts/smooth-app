@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -75,6 +74,22 @@ class ProductRefresher {
         version: ProductQuery.productQueryVersion,
       );
 
+  /// Returns the standard configuration for several barcodes product query.
+  ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
+    final List<String> barcodes, {
+    final List<ProductField>? fields,
+  }) =>
+      ProductSearchQueryConfiguration(
+        fields: fields ?? ProductQuery.fields,
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
+        parametersList: <Parameter>[
+          BarcodeParameter.list(barcodes),
+          PageSize(size: barcodes.length),
+        ],
+        version: ProductQuery.productQueryVersion,
+      );
+
   /// Fetches the product from the server and refreshes the local database.
   ///
   /// Silent version.
@@ -87,13 +102,39 @@ class ProductRefresher {
     return meta.product;
   }
 
+  /// Fetches the products from the server and refreshes the local database.
+  ///
+  /// Silent version.
+  Future<void> silentFetchAndRefreshList({
+    required final List<String> barcodes,
+    required final LocalDatabase localDatabase,
+  }) async =>
+      _fetchAndRefreshList(localDatabase, barcodes);
+
+  /// Fetches the product from the server and refreshes the local database.
+  /// In the case of an error, it will be send throw an [Exception]
+  /// Silent version.
+  Future<Product?> silentFetchAndRefreshWithException({
+    required final String barcode,
+    required final LocalDatabase localDatabase,
+  }) async {
+    final _MetaProductRefresher meta =
+        await _fetchAndRefresh(localDatabase, barcode);
+
+    if (meta.error != null) {
+      throw Exception(meta.error);
+    }
+
+    return meta.product;
+  }
+
   /// Fetches the product from the server and refreshes the local database.
   ///
   /// With a waiting dialog.
-  Future<void> fetchAndRefresh({
+  /// Returns true if successful.
+  Future<bool> fetchAndRefresh({
     required final String barcode,
     required final State<StatefulWidget> widget,
-    VoidCallback? onSuccessCallback,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final AppLocalizations appLocalizations =
@@ -105,23 +146,23 @@ class ProductRefresher {
       title: appLocalizations.refreshing_product,
     );
     if (fetchAndRefreshed == null) {
-      return;
-    }
-    if (!widget.mounted) {
-      return;
+      return false;
     }
     if (fetchAndRefreshed.product == null) {
-      await LoadingDialog.error(context: widget.context);
-      return;
+      if (widget.mounted) {
+        await LoadingDialog.error(context: widget.context);
+      }
+      return false;
     }
-    ScaffoldMessenger.of(widget.context).showSnackBar(
-      SnackBar(
-        content: Text(appLocalizations.product_refreshed),
-        duration: SnackBarDuration.short,
-      ),
-    );
-
-    onSuccessCallback?.call();
+    if (widget.mounted) {
+      ScaffoldMessenger.of(widget.context).showSnackBar(
+        SnackBar(
+          content: Text(appLocalizations.product_refreshed),
+          duration: SnackBarDuration.short,
+        ),
+      );
+    }
+    return true;
   }
 
   Future<_MetaProductRefresher> _fetchAndRefresh(
@@ -142,6 +183,32 @@ class ProductRefresher {
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
       return _MetaProductRefresher.error(e.toString());
+    }
+  }
+
+  /// Gets up-to-date products from the server.
+  ///
+  /// Returns the number of products, or null if error.
+  Future<int?> _fetchAndRefreshList(
+    final LocalDatabase localDatabase,
+    final List<String> barcodes,
+  ) async {
+    try {
+      final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+        ProductQuery.getUser(),
+        getBarcodeListQueryConfiguration(barcodes),
+      );
+      if (searchResult.products == null) {
+        return null;
+      }
+      await DaoProduct(localDatabase).putAll(searchResult.products!);
+      localDatabase.upToDate
+          .setLatestDownloadedProducts(searchResult.products!);
+      localDatabase.notifyListeners();
+      return searchResult.products!.length;
+    } catch (e) {
+      Logs.e('Refresh from server error', ex: e);
+      return null;
     }
   }
 }

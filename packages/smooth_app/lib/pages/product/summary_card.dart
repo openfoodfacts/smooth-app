@@ -16,11 +16,12 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/category_product_query.dart';
@@ -47,6 +48,7 @@ class SummaryCard extends StatefulWidget {
     this.isRemovable = true,
     this.isSettingClickable = true,
     this.isProductEditable = true,
+    this.attributeGroupsClickable = true,
   });
 
   final Product _product;
@@ -70,6 +72,10 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, the product will be editable
   final bool isProductEditable;
+
+  /// If true, all chips / groups are clickable
+  final bool attributeGroupsClickable;
+
   @override
   State<SummaryCard> createState() => _SummaryCardState();
 }
@@ -324,16 +330,14 @@ class _SummaryCardState extends State<SummaryCard> {
               .contains(ProductState.PRODUCT_NAME_COMPLETED.toBeCompletedTag) ||
           statesTags
               .contains(ProductState.QUANTITY_COMPLETED.toBeCompletedTag)) {
+        final ProductFieldEditor editor = ProductFieldDetailsEditor();
         summaryCardButtons.add(
           addPanelButton(
-            localizations.completed_basic_details_btn_text,
+            editor.getLabel(localizations),
             onPressed: () async => widget.isProductEditable
-                ? Navigator.push<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) =>
-                          AddBasicDetailsPage(_product),
-                    ),
+                ? editor.edit(
+                    context: context,
+                    product: _product,
                   )
                 : null,
           ),
@@ -444,14 +448,8 @@ class _SummaryCardState extends State<SummaryCard> {
           InkWell(
             borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
             onTap: widget.isSettingClickable
-                ? () async => Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const UserPreferencesPage(
-                          type: PreferencePageType.FOOD,
-                        ),
-                      ),
+                ? () => AppNavigator.of(context).push(
+                      AppRoutes.PREFERENCES(PreferencePageType.FOOD),
                     )
                 : null,
             child: Tooltip(
@@ -477,17 +475,20 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<Widget> attributeChips,
   ) {
     _totalPrintableRows -= (attributeChips.length / 2).ceil();
-    return Column(
-      children: <Widget>[
-        header,
-        Container(
-          alignment: Alignment.topLeft,
-          child: Wrap(
-            runSpacing: 16,
-            children: attributeChips,
+    return AbsorbPointer(
+      absorbing: !widget.attributeGroupsClickable,
+      child: Column(
+        children: <Widget>[
+          header,
+          Container(
+            alignment: Alignment.topLeft,
+            child: Wrap(
+              runSpacing: 16,
+              children: attributeChips,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

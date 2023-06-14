@@ -2,6 +2,7 @@ enum StoreLabel {
   GooglePlayStore,
   AppleAppStore,
   FDroid,
+  AmazonAppStore,
   Test,
 }
 

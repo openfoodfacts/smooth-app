@@ -82,92 +82,73 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
       _product,
       widget.imageField,
     );
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(MINIMUM_TOUCH_SIZE / 2),
-            child: imageProvider == null
-                ? Stack(
-                    children: <Widget>[
-                      const SizedBox.expand(child: PictureNotFound()),
-                      Center(
-                        child: Text(
-                          selectedLanguages.isEmpty
-                              ? appLocalizations.edit_photo_language_none
-                              : appLocalizations
-                                  .edit_photo_language_not_this_one,
-                          style: Theme.of(context)
-                                  .textTheme
-                                  .headlineMedium
-                                  ?.copyWith(color: Colors.black) ??
-                              const TextStyle(color: Colors.black),
-                          textAlign: TextAlign.center,
+
+    return SafeArea(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(MINIMUM_TOUCH_SIZE / 2),
+              child: imageProvider == null
+                  ? Stack(
+                      children: <Widget>[
+                        const SizedBox.expand(child: PictureNotFound()),
+                        Center(
+                          child: Text(
+                            selectedLanguages.isEmpty
+                                ? appLocalizations.edit_photo_language_none
+                                : appLocalizations
+                                    .edit_photo_language_not_this_one,
+                            style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium
+                                    ?.copyWith(color: Colors.black) ??
+                                const TextStyle(color: Colors.black),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
+                      ],
+                    )
+                  : PhotoView(
+                      minScale: 0.2,
+                      imageProvider: imageProvider,
+                      heroAttributes: PhotoViewHeroAttributes(
+                          tag: 'photo_${widget.imageField.offTag}',
+                          flightShuttleBuilder: (
+                            _,
+                            Animation<double> animation,
+                            HeroFlightDirection flightDirection,
+                            BuildContext fromHeroContext,
+                            BuildContext toHeroContext,
+                          ) {
+                            return AnimatedBuilder(
+                              animation: animation,
+                              builder: (_, __) {
+                                Widget widget;
+                                if (flightDirection ==
+                                    HeroFlightDirection.push) {
+                                  widget = fromHeroContext.widget;
+                                } else {
+                                  widget = toHeroContext.widget;
+                                }
+
+                                return ClipRRect(
+                                  borderRadius: BorderRadius.circular(
+                                          1 - animation.value) *
+                                      ROUNDED_RADIUS.x,
+                                  child: widget,
+                                );
+                              },
+                            );
+                          }),
+                      backgroundDecoration: const BoxDecoration(
+                        color: Colors.black,
                       ),
-                    ],
-                  )
-                : PhotoView(
-                    minScale: 0.2,
-                    imageProvider: imageProvider,
-                    heroAttributes: PhotoViewHeroAttributes(
-                      tag: imageProvider,
                     ),
-                    backgroundDecoration: const BoxDecoration(
-                      color: Colors.black,
-                    ),
-                  ),
+            ),
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: LanguageSelector(
-                  setLanguage: widget.setLanguage,
-                  displayedLanguage: widget.language,
-                  selectedLanguages: selectedLanguages,
-                  foregroundColor: Colors.white,
-                ),
-              ),
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: ProductImageServerButton(
-                  barcode: _barcode,
-                  imageField: widget.imageField,
-                  language: widget.language,
-                ),
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: ProductImageLocalButton(
-                  firstPhoto: imageProvider == null,
-                  barcode: _barcode,
-                  imageField: widget.imageField,
-                  language: widget.language,
-                ),
-              ),
-            ),
-          ],
-        ),
-        if (imageProvider != null)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -176,18 +157,68 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: _getUnselectImageButton(appLocalizations),
+                  child: LanguageSelector(
+                    setLanguage: widget.setLanguage,
+                    displayedLanguage: widget.language,
+                    selectedLanguages: selectedLanguages,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                  child: ProductImageServerButton(
+                    barcode: _barcode,
+                    imageField: widget.imageField,
+                    language: widget.language,
+                  ),
                 ),
               ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: _getEditImageButton(appLocalizations),
+                  child: ProductImageLocalButton(
+                    firstPhoto: imageProvider == null,
+                    barcode: _barcode,
+                    imageField: widget.imageField,
+                    language: widget.language,
+                  ),
                 ),
               ),
             ],
           ),
-      ],
+          if (imageProvider != null)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                    child: _getUnselectImageButton(appLocalizations),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                    child: _getEditImageButton(appLocalizations),
+                  ),
+                ),
+              ],
+            ),
+        ],
+      ),
     );
   }
 

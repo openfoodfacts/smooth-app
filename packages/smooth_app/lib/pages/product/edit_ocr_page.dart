@@ -22,7 +22,6 @@ import 'package:smooth_app/pages/product/product_image_server_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-// TODO(monsieurtanuki): rename file as `edit_ocr_page.dart`
 /// Editing with OCR a product field and the corresponding image.
 ///
 /// Typical use-cases: ingredients and packaging.
@@ -128,16 +127,30 @@ class _EditOcrPageState extends State<EditOcrPage> {
       _multilingualHelper.getCurrentLanguage(),
     );
 
+    final TextStyle appbarTextStyle = TextStyle(shadows: <Shadow>[
+      Shadow(
+        color: Theme.of(context).colorScheme.brightness == Brightness.light
+            ? Colors.white
+            : Colors.black,
+        offset: const Offset(0.5, 0.5),
+        blurRadius: 5.0,
+      )
+    ]);
+
     // TODO(monsieurtanuki): add WillPopScope / MayExitPage system
     return SmoothScaffold(
       extendBodyBehindAppBar: true,
       appBar: SmoothAppBar(
-        title: Text(_helper.getTitle(appLocalizations)),
+        title: Text(
+          _helper.getTitle(appLocalizations),
+          style: appbarTextStyle,
+        ),
         subTitle: _product.productName != null
             ? Text(
                 _product.productName!,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
+                style: appbarTextStyle,
               )
             : null,
         backgroundColor: Colors.transparent,
@@ -259,14 +272,14 @@ class _EditOcrPageState extends State<EditOcrPage> {
           ),
           Flexible(
             flex: 1,
-            child: SingleChildScrollView(
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.background,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: ANGULAR_RADIUS,
-                      topRight: ANGULAR_RADIUS,
-                    )),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.background,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: ANGULAR_RADIUS,
+                    topRight: ANGULAR_RADIUS,
+                  )),
+              child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(LARGE_SPACE),
                   child: Column(
@@ -295,8 +308,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                           ),
                         ),
                         maxLines: null,
-                        textInputAction: TextInputAction.done,
-                        onSubmitted: (_) async => _updateText(),
+                        textInputAction: TextInputAction.newline,
                       ),
                       const SizedBox(height: SMALL_SPACE),
                       ExplanationWidget(

@@ -3,14 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
@@ -548,14 +546,14 @@ class _SendAnonymousDataSettingState extends State<_SendAnonymousDataSetting> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     return UserPreferencesSwitchItem(
       title: appLocalizations.send_anonymous_data_toggle_title,
       subtitle: appLocalizations.send_anonymous_data_toggle_subtitle,
-      value: !MatomoTracker.instance.getOptOut(),
+      value: userPreferences.userTracking,
       onChanged: (final bool allow) async {
-        await AnalyticsHelper.setAnalyticsReports(allow);
-        setState(() {});
+        await userPreferences.setUserTracking(allow);
       },
     );
   }
@@ -575,7 +573,6 @@ class _CrashReportingSetting extends StatelessWidget {
       value: userPreferences.crashReports,
       onChanged: (final bool value) async {
         await userPreferences.setCrashReports(value);
-        AnalyticsHelper.setCrashReports(value);
       },
     );
   }

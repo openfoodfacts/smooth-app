@@ -43,7 +43,7 @@ class RobotoffInsightHelper {
         await DaoStringListMap(_localDatabase).getAll();
     for (final String barcode in records.keys) {
       final List<RobotoffQuestion> questions =
-          await ProductQuestionsQuery(barcode).getQuestions();
+          await ProductQuestionsQuery(barcode).getQuestions(_localDatabase, 1);
       if (questions.isEmpty) {
         await DaoStringListMap(_localDatabase).removeKey(barcode);
       }

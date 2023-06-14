@@ -9,20 +9,32 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/product/add_basic_details_page.dart';
+import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
+import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-const EdgeInsetsGeometry _ROW_PADDING_TOP = EdgeInsetsDirectional.only(
-  top: VERY_LARGE_SPACE,
-);
+const IconData _doneIcon = Icons.check;
+const IconData _todoIcon = Icons.add;
+
+TextStyle? _getTitleStyle(final BuildContext context) =>
+    Theme.of(context).textTheme.displaySmall;
+TextStyle? _getSubtitleStyle(final BuildContext context) => null;
+
+double _getScoreIconHeight(final BuildContext context) =>
+    MediaQuery.of(context).size.height * .2;
 
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
-  const AddNewProductPage(this.barcode);
+  const AddNewProductPage({
+    required this.barcode,
+  }) : assert(barcode != '');
 
   final String barcode;
 
@@ -33,6 +45,7 @@ class AddNewProductPage extends StatefulWidget {
 class _AddNewProductPageState extends State<AddNewProductPage> {
   // Just one file per main image field
   final Map<ImageField, File> _uploadedImages = <ImageField, File>{};
+
   // Many possible files for "other" image field
   final List<File> _otherUploadedImages = <File>[];
 
@@ -43,74 +56,77 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   final ProductList _history = ProductList.history();
 
-  /// Returns true if the [field] is valid (= not empty).
-  static bool _isProductFieldValid(final String? field) =>
-      field != null && field.trim().isNotEmpty;
-
-  /// Returns true if the [product] basic details are valid (= not empty).
-  static bool isProductBasicValid(final Product product) =>
-      _isProductFieldValid(product.productName) ||
-      _isProductFieldValid(product.brands);
+  final ProductFieldEditor _packagingEditor = ProductFieldPackagingEditor();
+  final ProductFieldEditor _ingredientsEditor =
+      ProductFieldOcrIngredientEditor();
+  final ProductFieldEditor _originEditor =
+      ProductFieldSimpleEditor(SimpleInputPageOriginHelper());
+  final ProductFieldEditor _categoryEditor =
+      ProductFieldSimpleEditor(SimpleInputPageCategoryHelper());
+  final ProductFieldEditor _labelEditor =
+      ProductFieldSimpleEditor(SimpleInputPageLabelHelper());
+  final ProductFieldEditor _detailsEditor = ProductFieldDetailsEditor();
+  late final List<ProductFieldEditor> _editors;
 
   bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
-  bool get _basicDetailsAdded => isProductBasicValid(_product);
 
-  bool _alreadyPushedtToHistory = false;
+  bool _alreadyPushedToHistory = false;
+
+  bool _ecoscoreExpanded = false;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = Product(barcode: widget.barcode);
+    _editors = <ProductFieldEditor>[
+      _packagingEditor,
+      _ingredientsEditor,
+      _originEditor,
+      _categoryEditor,
+      _labelEditor,
+      _detailsEditor,
+    ];
+    _initialProduct = Product(barcode: barcode);
     _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(widget.barcode);
+    _localDatabase.upToDate.showInterest(barcode);
     _daoProductList = DaoProductList(_localDatabase);
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(widget.barcode);
+    _localDatabase.upToDate.loseInterest(barcode);
     super.dispose();
   }
+
+  String get barcode => widget.barcode;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     context.watch<LocalDatabase>();
-    final ThemeData themeData = Theme.of(context);
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    final bool empty = _uploadedImages.isEmpty && _otherUploadedImages.isEmpty;
 
     _addToHistory();
 
     return SmoothScaffold(
       appBar: AppBar(
-        title: Text(appLocalizations.new_product),
-        automaticallyImplyLeading: empty,
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async => Navigator.maybePop(context),
-        label: Text(appLocalizations.finish),
-        icon: const Icon(Icons.done),
+        title: ListTile(
+          title: Text(_product.productName ?? appLocalizations.new_product),
+          subtitle: Text(barcode),
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          top: VERY_LARGE_SPACE,
-          start: VERY_LARGE_SPACE,
-          end: VERY_LARGE_SPACE,
+        padding: const EdgeInsetsDirectional.symmetric(
+          vertical: VERY_LARGE_SPACE,
         ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                appLocalizations.add_product_take_photos_descriptive,
-                style: themeData.textTheme.bodyLarge!
-                    .apply(color: themeData.colorScheme.onBackground),
-              ),
-              ..._buildImageCaptureRows(context),
-              _buildNutritionInputButton(),
-              _buildAddInputDetailsButton()
+              _buildCard(_getImageRows(context)),
+              _buildCard(_getNutriscoreRows(context)),
+              _buildCard(_getEcoscoreRows(context)),
+              _buildCard(_getMiscRows(context)),
+              const SizedBox(height: MINIMUM_TOUCH_SIZE),
             ],
           ),
         ),
@@ -120,62 +136,138 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   /// Adds the product to history if at least one of the fields is set.
   Future<void> _addToHistory() async {
-    if (_alreadyPushedtToHistory) {
+    if (_alreadyPushedToHistory) {
       return;
     }
-    // TODO(open): Add _nutritionFactsAdded , see (https://github.com/openfoodfacts/smooth-app/issues/3445)
-    if (_basicDetailsAdded ||
-        _uploadedImages.isNotEmpty ||
-        _otherUploadedImages.isNotEmpty) {
+    if (_isPopulated) {
       _product.productName = _product.productName?.trim();
       _product.brands = _product.brands?.trim();
-      await _daoProductList.push(_history, _product.barcode!);
-      _alreadyPushedtToHistory = true;
+      await _daoProductList.push(_history, barcode);
+      _alreadyPushedToHistory = true;
     }
   }
 
-  List<Widget> _buildImageCaptureRows(BuildContext context) {
+  /// Returns true if at least one field is populated.
+  bool get _isPopulated {
+    for (final ProductFieldEditor editor in _editors) {
+      if (editor.isPopulated(_product)) {
+        return true;
+      }
+    }
+    return _nutritionFactsAdded ||
+        _uploadedImages.isNotEmpty ||
+        _otherUploadedImages.isNotEmpty;
+  }
+
+  Widget _buildCard(
+    final List<Widget> children,
+  ) =>
+      SmoothCard(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: children,
+        ),
+      );
+
+  Attribute? _getAttribute(final String tag) =>
+      _product.getAttributes(<String>[tag])[tag];
+
+  List<Widget> _getNutriscoreRows(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NUTRISCORE);
+    return <Widget>[
+      Text(
+        appLocalizations.new_product_title_nutriscore,
+        style: _getTitleStyle(context),
+      ),
+      Text(
+        appLocalizations.new_product_subtitle_nutriscore,
+        style: _getSubtitleStyle(context),
+      ),
+      _buildCategoriesButton(context),
+      _buildNutritionInputButton(context),
+      Center(
+        child: SvgIconChip(
+          attribute?.iconUrl ?? ProductDialogHelper.unknownSvgNutriscore,
+          height: _getScoreIconHeight(context),
+        ),
+      ),
+    ];
+  }
+
+  List<Widget> _getEcoscoreRows(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
+    return <Widget>[
+      Text(
+        appLocalizations.new_product_title_ecoscore,
+        style: _getTitleStyle(context),
+      ),
+      Text(
+        appLocalizations.new_product_subtitle_ecoscore,
+        style: _getSubtitleStyle(context),
+      ),
+      _buildCategoriesButton(context),
+      Center(
+        child: SvgIconChip(
+          attribute?.iconUrl ?? ProductDialogHelper.unknownSvgEcoscore,
+          height: _getScoreIconHeight(context),
+        ),
+      ),
+      ListTile(
+        title: Text(appLocalizations.new_product_additional_ecoscore),
+        trailing: Icon(
+          _ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
+        ),
+        onTap: () => setState(() => _ecoscoreExpanded = !_ecoscoreExpanded),
+      ),
+      if (_ecoscoreExpanded) _buildEditorButton(context, _originEditor),
+      if (_ecoscoreExpanded) _buildEditorButton(context, _labelEditor),
+      if (_ecoscoreExpanded) _buildEditorButton(context, _packagingEditor),
+      if (_ecoscoreExpanded) _buildEditorButton(context, _ingredientsEditor),
+    ];
+  }
+
+  List<Widget> _getImageRows(final BuildContext context) {
     final List<Widget> rows = <Widget>[];
+    rows.add(
+      Text(
+        AppLocalizations.of(context).new_product_title_pictures,
+        style: _getTitleStyle(context),
+      ),
+    );
     // First build rows for buttons to ask user to upload images.
     for (final ImageField imageField
         in ImageFieldSmoothieExtension.orderedAll) {
       // Always add a button to "Add other photos" because there can be multiple
       // "other photos" uploaded by the user.
       if (imageField == ImageField.OTHER) {
-        rows.add(_buildAddImageButton(context, imageField));
+        rows.add(_buildImageButton(context, imageField, null));
         for (final File image in _otherUploadedImages) {
-          rows.add(_buildImageUploadedRow(context, imageField, image));
+          rows.add(_buildImageButton(context, imageField, image));
         }
         continue;
       }
 
       // Everything else can only be uploaded once
       final File? imageFile = _uploadedImages[imageField];
-      if (imageFile != null) {
-        rows.add(
-          _buildImageUploadedRow(
-            context,
-            imageField,
-            imageFile,
-          ),
-        );
-      } else {
-        rows.add(_buildAddImageButton(context, imageField));
-      }
+      rows.add(_buildImageButton(context, imageField, imageFile));
     }
     return rows;
   }
 
-  Widget _buildAddImageButton(BuildContext context, ImageField imageField) {
-    return Padding(
-      padding: _ROW_PADDING_TOP,
-      child: SmoothLargeButtonWithIcon(
-        text: imageField.getAddPhotoButtonText(AppLocalizations.of(context)),
-        icon: Icons.camera_alt,
-        onPressed: () async {
+  Widget _buildImageButton(
+    BuildContext context,
+    ImageField imageField,
+    final File? imageFile,
+  ) =>
+      _MyButton(
+        imageField.getAddPhotoButtonText(AppLocalizations.of(context)),
+        imageFile == null ? Icons.camera_alt : _doneIcon,
+        () async {
           final File? finalPhoto = await confirmAndUploadNewPicture(
             this,
-            barcode: widget.barcode,
+            barcode: barcode,
             imageField: imageField,
             language: ProductQuery.getLanguage(),
           );
@@ -189,103 +281,97 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             });
           }
         },
-      ),
-    );
-  }
-
-  Widget _buildImageUploadedRow(
-    BuildContext context,
-    ImageField imageField,
-    File image,
-  ) =>
-      _InfoAddedRow(
-        text: imageField.getAddPhotoButtonText(AppLocalizations.of(context)),
-        imgStart: image,
+        done: imageFile != null,
       );
 
-  Widget _buildNutritionInputButton() {
-    // if the nutrition image is null, ie no image , we return nothing
-    if (_product.imageNutritionUrl == null) {
-      return const SizedBox();
-    }
-    if (_nutritionFactsAdded) {
-      return _InfoAddedRow(
-          text: AppLocalizations.of(context).nutritional_facts_added);
-    }
+  Widget _buildNutritionInputButton(final BuildContext context) => _MyButton(
+        AppLocalizations.of(context).nutritional_facts_input_button_label,
+        Icons.filter_2,
+        // deactivated when the categories were not set beforehand
+        !_categoryEditor.isPopulated(_product)
+            ? null
+            : () async => NutritionPageLoaded.showNutritionPage(
+                  product: _product,
+                  isLoggedInMandatory: false,
+                  widget: this,
+                ),
+        done: _nutritionFactsAdded,
+      );
 
-    return Padding(
-      padding: _ROW_PADDING_TOP,
-      child: SmoothLargeButtonWithIcon(
-        text: AppLocalizations.of(context).nutritional_facts_input_button_label,
-        icon: Icons.edit,
-        onPressed: () async => NutritionPageLoaded.showNutritionPage(
-          product: Product(barcode: widget.barcode),
-          isLoggedInMandatory: false,
-          widget: this,
-        ),
+  Widget _buildEditorButton(
+    final BuildContext context,
+    final ProductFieldEditor editor, {
+    final IconData? forceIconData,
+  }) {
+    final bool done = editor.isPopulated(_product);
+    return _MyButton(
+      editor.getLabel(AppLocalizations.of(context)),
+      forceIconData ?? (done ? _doneIcon : _todoIcon),
+      () async => editor.edit(
+        context: context,
+        product: _product,
+        isLoggedInMandatory: false,
       ),
+      done: done,
     );
   }
 
-  Widget _buildAddInputDetailsButton() {
-    if (_basicDetailsAdded) {
-      return _InfoAddedRow(
-          text: AppLocalizations.of(context).basic_details_add_success);
-    }
+  Widget _buildCategoriesButton(final BuildContext context) =>
+      _buildEditorButton(
+        context,
+        _categoryEditor,
+        forceIconData: Icons.filter_1,
+      );
 
-    return Padding(
-      padding: _ROW_PADDING_TOP,
-      child: SmoothLargeButtonWithIcon(
-        text: AppLocalizations.of(context).completed_basic_details_btn_text,
-        icon: Icons.edit,
-        onPressed: () async => Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => AddBasicDetailsPage(
-              Product(barcode: widget.barcode),
-              isLoggedInMandatory: false,
-            ),
-          ),
-        ),
+  List<Widget> _getMiscRows(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return <Widget>[
+      Text(
+        appLocalizations.new_product_title_misc,
+        style: _getTitleStyle(context),
       ),
-    );
+      _buildEditorButton(context, _detailsEditor),
+    ];
   }
 }
 
-class _InfoAddedRow extends StatelessWidget {
-  const _InfoAddedRow({required this.text, this.imgStart});
+/// Standard button.
+class _MyButton extends StatelessWidget {
+  const _MyButton(
+    this.label,
+    this.iconData,
+    this.onPressed, {
+    required this.done,
+  });
 
-  final String text;
-  final File? imgStart;
+  final String label;
+  final IconData iconData;
+  final VoidCallback? onPressed;
+  final bool done;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
+    final bool dark = themeData.brightness == Brightness.dark;
+    final Color? darkGrey = Colors.grey[700];
+    final Color? lightGrey = Colors.grey[300];
     return Padding(
-      padding: _ROW_PADDING_TOP,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(
-            height: 50,
-            width: 50,
-            child: ClipRRect(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              child: imgStart == null
-                  ? null
-                  : Image.file(imgStart!, fit: BoxFit.cover),
-            ),
-          ),
-          Expanded(
-            child: Center(
-              child: Text(text, style: themeData.textTheme.bodyLarge),
-            ),
-          ),
-          Icon(
-            Icons.check,
-            color: themeData.bottomNavigationBarTheme.selectedItemColor,
-          )
-        ],
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      child: SmoothLargeButtonWithIcon(
+        text: label,
+        icon: iconData,
+        onPressed: onPressed,
+        trailing: Icons.edit,
+        backgroundColor: onPressed == null
+            ? (dark ? darkGrey : lightGrey)
+            : done
+                ? Colors.green[700]
+                : themeData.colorScheme.secondary,
+        foregroundColor: onPressed == null
+            ? (dark ? lightGrey : darkGrey)
+            : done
+                ? Colors.white
+                : themeData.colorScheme.onSecondary,
       ),
     );
   }

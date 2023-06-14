@@ -33,9 +33,15 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage(this.product);
+  const ProductPage(
+    this.product, {
+    this.withHeroAnimation = true,
+  });
 
   final Product product;
+
+  // When using a deep link the Hero animation shouldn't be used
+  final bool withHeroAnimation;
 
   @override
   State<ProductPage> createState() => _ProductPageState();
@@ -132,14 +138,18 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     );
   }
 
-  Future<void> _refreshProduct(BuildContext context) async =>
-      ProductRefresher().fetchAndRefresh(
-          barcode: _product.barcode!,
-          widget: this,
-          onSuccessCallback: () {
-            // Reset the carousel to the beginning
-            _carouselController.jumpTo(0.0);
-          });
+  Future<void> _refreshProduct(BuildContext context) async {
+    final bool success = await ProductRefresher().fetchAndRefresh(
+      barcode: _product.barcode!,
+      widget: this,
+    );
+    if (context.mounted) {
+      if (success) {
+        // Reset the carousel to the beginning
+        _carouselController.jumpTo(0.0);
+      }
+    }
+  }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
@@ -184,13 +194,16 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             padding: const EdgeInsets.symmetric(
               horizontal: SMALL_SPACE,
             ),
-            child: Hero(
-              tag: _barcode,
-              child: SummaryCard(
-                _product,
-                _productPreferences,
-                isFullVersion: true,
-                showUnansweredQuestions: true,
+            child: HeroMode(
+              enabled: widget.withHeroAnimation,
+              child: Hero(
+                tag: _barcode,
+                child: SummaryCard(
+                  _product,
+                  _productPreferences,
+                  isFullVersion: true,
+                  showUnansweredQuestions: true,
+                ),
               ),
             ),
           ),
@@ -207,46 +220,49 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     );
   }
 
-  Widget _buildWebsiteWidget(String website) => InkWell(
-        onTap: () async {
-          if (!website.startsWith('http')) {
-            website = 'http://$website';
-          }
-          LaunchUrlHelper.launchURL(website, false);
-        }, // _product.website!
-        child: buildProductSmoothCard(
-          header: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: SMALL_SPACE,
-              horizontal: LARGE_SPACE,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  AppLocalizations.of(context).product_field_website_title,
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-              ],
-            ),
-          ),
-          body: Padding(
+  Widget _buildWebsiteWidget(String website) => buildProductSmoothCard(
+        body: InkWell(
+          onTap: () async {
+            if (!website.startsWith('http')) {
+              website = 'http://$website';
+            }
+            LaunchUrlHelper.launchURL(website, false);
+          },
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          child: Container(
+            width: double.infinity,
             padding: const EdgeInsets.only(
-              bottom: LARGE_SPACE,
               left: LARGE_SPACE,
+              top: LARGE_SPACE,
+              bottom: LARGE_SPACE,
+              // To be perfectly aligned with arrows
+              right: 21.0,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Flexible(
-                    child: Text(
-                  website,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Colors.blue),
-                )),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        AppLocalizations.of(context)
+                            .product_field_website_title,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      Text(
+                        website,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.blue),
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.open_in_new),
               ],
             ),
           ),

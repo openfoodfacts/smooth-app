@@ -21,6 +21,7 @@ class SmoothListTileCard extends StatelessWidget {
     required ImageProvider? imageProvider,
     Widget? title,
     GestureTapCallback? onTap,
+    String? heroTag,
   }) : this(
           title: title,
           onTap: onTap,
@@ -28,6 +29,7 @@ class SmoothListTileCard extends StatelessWidget {
             width: VERY_LARGE_SPACE * 5,
             height: MEDIUM_SPACE * 5,
             imageProvider: imageProvider,
+            heroTag: heroTag,
           ),
         );
 

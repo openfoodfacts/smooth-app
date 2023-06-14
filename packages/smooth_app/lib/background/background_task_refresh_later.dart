@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -11,7 +11,7 @@ import 'package:smooth_app/query/product_query.dart';
 /// Typical use-case is after uploading an image. It takes roughly 10 minutes
 /// before Robotoff provides new questions: we should then refresh the product.
 /// cf. https://github.com/openfoodfacts/smooth-app/issues/3380
-class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
+class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
   const BackgroundTaskRefreshLater._({
     required super.processName,
     required super.uniqueId,
@@ -23,23 +23,11 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
     required this.timestamp,
   });
 
-  BackgroundTaskRefreshLater._fromJson(Map<String, dynamic> json)
-      : this._(
-          processName: json['processName'] as String,
-          uniqueId: json['uniqueId'] as String,
-          barcode: json['barcode'] as String,
-          languageCode: json['languageCode'] as String,
-          user: json['user'] as String,
-          country: json['country'] as String,
-          // dealing with when 'stamp' did not exist
-          stamp: json.containsKey('stamp')
-              ? json['stamp'] as String
-              : getStamp(json['barcode'] as String),
-          timestamp: json['timestamp'] as int,
-        );
+  BackgroundTaskRefreshLater.fromJson(Map<String, dynamic> json)
+      : timestamp = json[_jsonTagTimestamp] as int,
+        super.fromJson(json);
 
-  /// Task ID.
-  static const String _PROCESS_NAME = 'PRODUCT_REFRESH_LATER';
+  static const String _jsonTagTimestamp = 'timestamp';
 
   static const OperationType _operationType = OperationType.refreshLater;
 
@@ -52,41 +40,15 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
   final int timestamp;
 
   @override
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'processName': processName,
-        'uniqueId': uniqueId,
-        'barcode': barcode,
-        'languageCode': languageCode,
-        'user': user,
-        'country': country,
-        'stamp': stamp,
-        'timestamp': timestamp,
-      };
-
-  /// Returns the deserialized background task if possible, or null.
-  static BackgroundTaskRefreshLater? fromJson(final Map<String, dynamic> map) {
-    try {
-      final BackgroundTaskRefreshLater result =
-          BackgroundTaskRefreshLater._fromJson(map);
-      if (result.processName == _PROCESS_NAME) {
-        return result;
-      }
-    } catch (e) {
-      //
-    }
-    return null;
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> result = super.toJson();
+    result[_jsonTagTimestamp] = timestamp;
+    return result;
   }
 
   /// Here we change nothing, therefore we do nothing.
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
-
-  /// Here we change nothing, therefore we do nothing.
-  @override
-  Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
-  ) async {}
 
   /// Adds the background task about refreshing the product later.
   static Future<void> addTask(
@@ -97,7 +59,7 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
       localDatabase,
       barcode,
     );
-    final AbstractBackgroundTask task = _getNewTask(barcode, uniqueId);
+    final BackgroundTaskBarcode task = _getNewTask(barcode, uniqueId);
     await task.addToManager(localDatabase);
   }
 
@@ -111,16 +73,16 @@ class BackgroundTaskRefreshLater extends AbstractBackgroundTask {
   ) =>
       BackgroundTaskRefreshLater._(
         uniqueId: uniqueId,
-        processName: _PROCESS_NAME,
+        processName: _operationType.processName,
         barcode: barcode,
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
         timestamp: LocalDatabase.nowInMillis(),
-        stamp: getStamp(barcode),
+        stamp: _getStamp(barcode),
       );
 
-  static String getStamp(final String barcode) => '$barcode;refresh';
+  static String _getStamp(final String barcode) => '$barcode;refresh';
 
   /// Here we change nothing, therefore we do nothing.
   @override

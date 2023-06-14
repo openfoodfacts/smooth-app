@@ -218,7 +218,7 @@
     "sign_up_page_username_hint": "Usuari: visible públicament",
     "sign_up_page_username_error_empty": "Si us plau, introduïu un usuari",
     "sign_up_page_username_error_invalid": "Si us plau, introduïu un usuari vàlid",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
+    "sign_up_page_username_description": "El nom d'usuari no pot contenir espais, majúscules ni caràcters especials.",
     "sign_up_page_username_length_invalid": "L'usuari no pot excedir els {value} caràcters",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
@@ -257,31 +257,31 @@
     "sign_up_page_producer_hint": "Productor/marca",
     "sign_up_page_producer_error_empty": "Introduïu un nom de productor o marca",
     "sign_up_page_subscribe_checkbox": "M'agradaria subscriure'm al butlletí de notícies Open Food Facts (pots donar-te de baixa en qualsevol moment)",
-    "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
-    "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
-    "sign_up_page_provide_valid_email": "Please provide a valid email address.",
+    "sign_up_page_user_name_already_used": "El nom d'usuari ja existeix, trieu-ne un altre.",
+    "sign_up_page_email_already_exists": "ja existeix, inicieu sessió amb el compte o proveu amb un altre correu electrònic.",
+    "sign_up_page_provide_valid_email": "Introduïu una adreça electrònica vàlida.",
     "@Settings": {},
     "settingsTitle": "Preferències",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Theme",
+    "darkmode": "Tema",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
-    "darkmode_dark": "Dark",
+    "darkmode_dark": "Fosc",
     "@darkmode_dark": {
         "description": "Indicator inside the darkmode switch (dark)"
     },
-    "darkmode_light": "Light",
+    "darkmode_light": "Clar",
     "@darkmode_light": {
         "description": "Indicator inside the darkmode switch (light)"
     },
-    "darkmode_system_default": "System default",
+    "darkmode_system_default": "Per defecte del sistema",
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Gràcies per contribuir",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -292,12 +292,12 @@
     },
     "support_join_slack": "Ask for help in our Slack channel",
     "support_via_forum": "Ask for help on our forum",
-    "support_via_email": "Envieu-nos un correu-e",
+    "support_via_email": "Envieu-nos un correu electrònic",
     "support_via_email_include_logs_dialog_title": "Send app logs?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Condicions d'ús",
     "@termsOfUse": {},
-    "about_this_app": "About this app",
+    "about_this_app": "Quant a aquesta aplicació",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
@@ -306,7 +306,7 @@
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
-    "contribute_sw_development": "Software development",
+    "contribute_sw_development": "Desenvolupament de programari",
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
@@ -350,7 +350,7 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "saving_answer": "Saving your answer",
+    "saving_answer": "Desant la vostra resposta",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_yes_button_accessibility_value": "Answer with yes",
+    "question_no_button_accessibility_value": "Answer with no",
+    "question_skip_button_accessibility_value": "Skip this question",
     "tap_to_edit_search": "Tap to edit search",
     "@Personal preferences": {},
     "myPreferences": "Les meves preferències",
@@ -376,7 +379,7 @@
     "myPreferences_profile_title": "El vostre perfil",
     "myPreferences_profile_subtitle": "Gestiona el compte de col·laborador d'Open Food Facts.",
     "myPreferences_settings_title": "Configuració de l'App",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
+    "myPreferences_settings_subtitle": "Mode fosc, Analítiques…",
     "myPreferences_food_title": "Preferències alimentàries",
     "myPreferences_food_subtitle": "Triau quina informació dels aliments us importa més.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -389,8 +392,8 @@
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
     "ranking_tab_all": "Tots",
-    "ranking_subtitle_match_yes": "A great match for you",
-    "ranking_subtitle_match_no": "Very poor match",
+    "ranking_subtitle_match_yes": "Una bona coincidència per a vós",
+    "ranking_subtitle_match_no": "Coincidència molt pobra",
     "ranking_subtitle_match_maybe": "Unknown match",
     "refresh_with_new_preferences": "Refresh the list with your new preferences",
     "@refresh_with_new_preferences": {
@@ -426,9 +429,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Escàner",
+    "scan": "Scan session",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "Scan history",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "Cerca",
     "@search": {
@@ -446,7 +453,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "image": "Image",
+    "image": "Imatge",
     "front_photo": "Foto frontal",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
@@ -477,7 +484,7 @@
     },
     "packaging_information_photo": "Foto de la informació de l'embolcall",
     "@packaging_information_photo": {},
-    "missing_product": "You found a new product!",
+    "missing_product": "Heu trobat un nou producte!",
     "@missing_product": {},
     "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
@@ -487,6 +494,14 @@
     "@add_product_information_button_label": {},
     "new_product": "New Product",
     "@new_product": {},
+    "new_product_dialog_title": "You have just found a new product!",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "Product front photo",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Confirm upload of Product front photo",
@@ -525,8 +540,16 @@
     "nutrition_cache_loading_error": "Unable to load nutrients from cache",
     "nutritional_facts_photo_button_label": "Fotos dels valors nutricionals",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Input nutrition facts",
-    "nutritional_facts_added": "Nutrition facts added",
+    "nutritional_facts_input_button_label": "Introduïu valors nutricionals",
+    "nutritional_facts_added": "Afegits els valors nutricionals",
+    "categories_added": "Categories added",
+    "new_product_title_nutriscore": "Compute the Nutri-Score",
+    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
+    "new_product_title_ecoscore": "Compute the Eco-Score",
+    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
+    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_title_pictures": "Let's take some pictures!",
+    "new_product_title_misc": "And some basic data…",
     "nutritional_facts_photo_uploaded": "S'ha penjat una foto de dades nutricionals",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto informativa sobre el reciclatge",
@@ -585,7 +608,7 @@
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Informació nutricional",
     "nutrition_page_unspecified": "Les dades nutricionals no estan especificades en el producte",
-    "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_100g": "per 100 g",
     "nutrition_page_per_serving": "per porció",
     "nutrition_page_add_nutrient": "Afegir un nutrient",
     "nutrition_page_serving_size": "Mida de la porció",
@@ -754,7 +777,7 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Seleccioneu com a mínim dos productes",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
@@ -764,7 +787,7 @@
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Twitter",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
-    "blog": "Blog",
+    "blog": "Bloc",
     "faq": "FAQ",
     "discover": "Descobrir",
     "how_to_contribute": "How to Contribute",
@@ -878,7 +901,7 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "are_you_sure": "Are you sure?",
+    "are_you_sure": "N'esteu segur?",
     "@are_you_sure": {
         "description": "Are you sure?"
     },
@@ -911,11 +934,11 @@
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "History not available",
+    "product_list_empty_icon_desc": "Historial no disponible",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning!",
+    "product_list_empty_title": "Start scanning",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -971,7 +994,7 @@
             }
         }
     },
-    "user_profile_title_id_default": "Welcome {id}!",
+    "user_profile_title_id_default": "Benvingut/da {id}!",
     "@user_profile_title_id_default": {
         "description": "User login (when it's an id)",
         "placeholders": {
@@ -993,11 +1016,11 @@
             }
         }
     },
-    "settings_app_app": "Application",
+    "settings_app_app": "Aplicació",
     "settings_app_data": "Privacy & monitoring",
-    "settings_app_camera": "Camera",
+    "settings_app_camera": "Càmera",
     "settings_app_products": "Productes",
-    "settings_app_miscellaneous": "Miscellaneous",
+    "settings_app_miscellaneous": "Miscel·lània",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
@@ -1066,7 +1089,7 @@
             }
         }
     },
-    "permission_photo_denied_button": "Allow",
+    "permission_photo_denied_button": "Permet",
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -1138,7 +1161,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spain",
+    "edit_product_form_item_origins_hint": "Espanya",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1154,7 +1177,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spain",
+    "edit_product_form_item_countries_hint": "Espanya",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1307,7 +1330,7 @@
     "@try_again": {
         "description": "Label for buttons that try to repeat a failed action"
     },
-    "there_was_an_error": "There was an error",
+    "there_was_an_error": "S'ha produït un error",
     "@there_was_an_error": {
         "description": "Label that presents a error"
     },
@@ -1319,6 +1342,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_toggle_camera": "Switch between back and front camera",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
     },
     "camera_enable_flash": "Enable flash",
     "@camera_enable_flash": {
@@ -1509,15 +1540,15 @@
             }
         }
     },
-    "user_search_contributor_title": "Products I added",
+    "user_search_contributor_title": "Productes I afegits",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "Products I edited",
+    "user_search_informer_title": "Productes I editats",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "Products I photographed",
+    "user_search_photographer_title": "Productes I fotografiats",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
@@ -1860,6 +1891,13 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
+    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "@robotoff_next_n_questions": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering",
+        "placeholders": {
+            "count": {}
+        }
+    },
     "show_password": "Show Password",
     "@show_password": {
         "description": "Show hidden password in password field"
@@ -1867,7 +1905,7 @@
     "app_rating_dialog_title": "Perfecte! Feu que d'altres coneguin la vostra opinió d'aquesta aplicació!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Later",
-    "app_rating_dialog_title_enjoying_app": "Are You enjoying this app?",
+    "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
     "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
     "not_really": "Not really",
     "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
@@ -2032,5 +2070,105 @@
     "contrast_low": "Low",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_loader_not_found_title": "Product not found!",
+    "@product_loader_not_found_title": {
+        "description": "When fetching a product opened via a link and it doesn't exist"
+    },
+    "product_loader_not_found_message": "A product with the following barcode doesn't exist in our database: {barcode}",
+    "@product_loader_not_found_message": {
+        "description": "When fetching a product opened via a link, it doesn't exist",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "product_loader_network_error_title": "No internet connection!",
+    "@product_loader_network_error_title": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "product_loader_network_error_message": "Please check that your smartphone is on a WiFi network or has mobile data enabled",
+    "@product_loader_network_error_message": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "Page not found!",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "Go back to the homepage",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
+    },
+    "download_data": "Download data",
+    "@download_data": {
+        "description": "App bar title for the download data page"
+    },
+    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "@download_top_products": {
+        "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "Downloading data\nThis may take a while",
+    "@download_in_progress": {
+        "description": "Download in progress"
+    },
+    "downloaded_products": "{num} products added",
+    "@downloaded_products": {
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "update_offline_data": "Update offline product data",
+    "@update_offline_data": {
+        "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "@update_local_database_sub": {
+        "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "Clear offline product data",
+    "@clear_local_database": {
+        "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "@clear_local_database_sub": {
+        "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "{num} products deleted",
+    "@deleted_products": {
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "loading": "S'està carregant…",
+    "@loading": {
+        "description": "Loading…"
+    },
+    "know_more": "Know More",
+    "@know_more": {
+        "description": "Know More"
+    },
+    "offline_data_desc": "Click to know more about offline data",
+    "@offline_data_desc": {
+        "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "Offline product data",
+    "@offline_product_data_title": {
+        "description": "Offline Product Data"
+    },
+    "available_for_download": "{num} products available for immediate scaning",
+    "@available_for_download": {
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
     }
 }

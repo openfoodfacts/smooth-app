@@ -5,6 +5,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 
@@ -15,9 +16,11 @@ enum AnalyticsCategory {
   share(tag: 'share'),
   couldNotFindProduct(tag: 'could not find product'),
   productEdit(tag: 'product edit'),
-  list(tag: 'list');
+  list(tag: 'list'),
+  deepLink(tag: 'deep link');
 
   const AnalyticsCategory({required this.tag});
+
   final String tag;
 }
 
@@ -36,15 +39,23 @@ enum AnalyticsEvent {
     tag: 'could not find product',
     category: AnalyticsCategory.couldNotFindProduct,
   ),
+  ignoreProductNotFound(
+    tag: 'ignore product',
+    category: AnalyticsCategory.couldNotFindProduct,
+  ),
   openProductEditPage(
     tag: 'opened product edit page',
     category: AnalyticsCategory.productEdit,
   ),
-
   shareList(tag: 'shared a list', category: AnalyticsCategory.list),
-  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list);
+  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list),
+  productDeepLink(
+      tag: 'open a product from an URL', category: AnalyticsCategory.deepLink),
+  genericDeepLink(
+      tag: 'generic deep link', category: AnalyticsCategory.deepLink);
 
   const AnalyticsEvent({required this.tag, required this.category});
+
   final String tag;
   final AnalyticsCategory category;
 }
@@ -84,11 +95,25 @@ class AnalyticsHelper {
   AnalyticsHelper._();
 
   static bool _crashReports = false;
+  static _AnalyticsTrackingMode _analyticsReporting =
+      _AnalyticsTrackingMode.disabled;
 
   static String latestSearch = '';
 
-  /// Did the user allow the analytic reports?
-  static bool _allow = false;
+  static void linkPreferences(UserPreferences userPreferences) {
+    // Init the value
+    _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
+    _setCrashReports(userPreferences.onCrashReportingChanged.value);
+
+    // Listen to changes
+    userPreferences.onAnalyticsChanged.addListener(() {
+      _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
+    });
+
+    userPreferences.onCrashReportingChanged.addListener(() {
+      _setCrashReports(userPreferences.onCrashReportingChanged.value);
+    });
+  }
 
   static Future<void> initSentry({
     required Function()? appRunner,
@@ -111,17 +136,26 @@ class AnalyticsHelper {
     );
   }
 
-  static void setCrashReports(final bool crashReports) =>
+  /// Don't call this method directly, it is automatically updated via the
+  /// [UserPreferences]
+  static void _setCrashReports(final bool crashReports) =>
       _crashReports = crashReports;
 
-  static Future<void> setAnalyticsReports(final bool allow) async {
-    _allow = allow;
-
-    // F-Droid special case
-    if (GlobalVars.storeLabel == StoreLabel.FDroid && !allow) {
+  /// Don't call this method directly, it is automatically updated via the
+  /// [UserPreferences]
+  static Future<void> _setAnalyticsReports(final bool allow) async {
+    if (GlobalVars.storeLabel == StoreLabel.FDroid) {
+      _analyticsReporting = _AnalyticsTrackingMode.disabled;
       await MatomoTracker.instance.setOptOut(optout: true);
     } else {
+      if (allow) {
+        _analyticsReporting = _AnalyticsTrackingMode.enabled;
+      } else {
+        _analyticsReporting = _AnalyticsTrackingMode.anonymous;
+      }
+
       await MatomoTracker.instance.setOptOut(optout: false);
+      MatomoTracker.instance.setVisitorUserId(_uuid);
     }
   }
 
@@ -137,15 +171,15 @@ class AnalyticsHelper {
     final bool screenshotMode,
   ) async {
     if (screenshotMode) {
-      setCrashReports(false);
-      setAnalyticsReports(false);
+      _setCrashReports(false);
+      _setAnalyticsReports(false);
       return;
     }
     try {
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: 2,
-        visitorId: uuid,
+        visitorId: _uuid,
       );
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized
@@ -153,15 +187,21 @@ class AnalyticsHelper {
   }
 
   /// A UUID must be at least one 16 characters
-  static String? get uuid {
+  static String? get _uuid {
     // if user opts out then track anonymously with userId containg zeros
     if (kDebugMode) {
       return 'smoothie_debug--';
     }
-    if (!_allow) {
-      return '0' * 16;
+
+    switch (_analyticsReporting) {
+      case _AnalyticsTrackingMode.anonymous:
+        return '0' * 16;
+      case _AnalyticsTrackingMode.disabled:
+        return '';
+      case _AnalyticsTrackingMode.enabled:
+      default:
+        return OpenFoodAPIConfiguration.uuid;
     }
-    return OpenFoodAPIConfiguration.uuid;
   }
 
   static void trackEvent(
@@ -236,4 +276,15 @@ class AnalyticsHelper {
       return fallback;
     }
   }
+
+  static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
+}
+
+enum _AnalyticsTrackingMode {
+  // With the user consent
+  enabled,
+  // Without the user consent
+  anonymous,
+  // On F-Droid builds
+  disabled,
 }
