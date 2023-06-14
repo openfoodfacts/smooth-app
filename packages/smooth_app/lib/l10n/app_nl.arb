@@ -1891,7 +1891,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Volgende {count,plural,  one {}=1{vraag} other{{count} vragen}}",
+    "robotoff_next_n_questions": "Volgende {count,plural, =1{vraag} other{{count} vragen}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
