@@ -133,6 +133,6 @@ extension MapStringKeyExtensions<V> on Map<String, V> {
     return this[mapKey];
   }
 
-  Map<String, V> where(bool Function(MapEntry<String, V>) fn) =>
-      Map<String, V>.fromEntries(entries.where(fn));
+  Map<String, V> where(bool Function(MapEntry<String, V>) check) =>
+      Map<String, V>.fromEntries(entries.where(check));
 }
