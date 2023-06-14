@@ -3,28 +3,41 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/background/background_task_crop.dart';
-import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/background/background_task_hunger_games.dart';
-import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
-import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Abstract background task.
-abstract class AbstractBackgroundTask {
-  const AbstractBackgroundTask({
+abstract class BackgroundTask {
+  const BackgroundTask({
     required this.processName,
     required this.uniqueId,
-    required this.barcode,
     required this.languageCode,
     required this.user,
     required this.country,
     required this.stamp,
   });
+
+  BackgroundTask.fromJson(Map<String, dynamic> json)
+      : this(
+          processName: json[_jsonTagProcessName] as String,
+          uniqueId: json[_jsonTagUniqueId] as String,
+          languageCode: json[_jsonTagLanguageCode] as String,
+          user: json[_jsonTagUser] as String,
+          country: json[_jsonTagCountry] as String,
+          stamp: json[_jsonTagStamp] as String,
+        );
+
+  static const String _jsonTagProcessName = 'processName';
+  static const String _jsonTagUniqueId = 'uniqueId';
+  static const String _jsonTagLanguageCode = 'languageCode';
+  static const String _jsonTagUser = 'user';
+  static const String _jsonTagCountry = 'country';
+  static const String _jsonTagStamp = 'stamp';
+
+  static String getProcessName(final Map<String, dynamic> map) =>
+      map[_jsonTagProcessName] as String;
 
   /// Typically, similar to the name of the class that extends this one.
   ///
@@ -37,27 +50,24 @@ abstract class AbstractBackgroundTask {
   /// Generic task identifier, like "details:categories for barcode 1234", needed e.g. for task overwriting".
   final String stamp;
 
-  final String barcode;
   final String languageCode;
   final String user;
   final String country;
 
-  Map<String, dynamic> toJson();
-
-  /// Returns the deserialized background task if possible, or null.
-  static AbstractBackgroundTask? fromJson(final Map<String, dynamic> map) =>
-      BackgroundTaskDetails.fromJson(map) ??
-      BackgroundTaskImage.fromJson(map) ??
-      BackgroundTaskUnselect.fromJson(map) ??
-      BackgroundTaskHungerGames.fromJson(map) ??
-      BackgroundTaskCrop.fromJson(map) ??
-      BackgroundTaskRefreshLater.fromJson(map);
+  @mustCallSuper
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        _jsonTagProcessName: processName,
+        _jsonTagUniqueId: uniqueId,
+        _jsonTagLanguageCode: languageCode,
+        _jsonTagUser: user,
+        _jsonTagCountry: country,
+        _jsonTagStamp: stamp,
+      };
 
   /// Executes the background task: upload, download, update locally.
-  Future<void> execute(final LocalDatabase localDatabase) async {
-    await upload();
-    await _downloadAndRefresh(localDatabase);
-  }
+  Future<void> execute(final LocalDatabase localDatabase);
+
+  /// Executes the background task: upload, download, update locally.
 
   /// Runs _instantly_ temporary code in order to "fake" the background task.
   ///
@@ -79,10 +89,6 @@ abstract class AbstractBackgroundTask {
     final bool success,
   ) async =>
       localDatabase.upToDate.terminate(uniqueId);
-
-  /// Uploads data changes.
-  @protected
-  Future<void> upload();
 
   /// Returns true if the task may run now.
   ///
@@ -130,13 +136,6 @@ abstract class AbstractBackgroundTask {
 
   @protected
   User getUser() => User.fromJson(jsonDecode(user) as Map<String, dynamic>);
-
-  /// Downloads the whole product, updates locally.
-  Future<void> _downloadAndRefresh(final LocalDatabase localDatabase) async =>
-      ProductRefresher().silentFetchAndRefresh(
-        barcode: barcode,
-        localDatabase: localDatabase,
-      );
 
   /// Checks that everything is fine and fix things if needed + if possible.
   ///

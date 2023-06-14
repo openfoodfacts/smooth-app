@@ -85,6 +85,7 @@ class ProductRefresher {
         country: ProductQuery.getCountry(),
         parametersList: <Parameter>[
           BarcodeParameter.list(barcodes),
+          PageSize(size: barcodes.length),
         ],
         version: ProductQuery.productQueryVersion,
       );

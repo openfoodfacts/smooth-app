@@ -64,7 +64,7 @@ class QuestionCard extends StatelessWidget {
                     height: screenSize.height / 6,
                     child: question.imageUrl == null
                         ? EMPTY_WIDGET
-                        : QuestionImageThumbnail(question.imageUrl!),
+                        : QuestionImageThumbnail(question),
                   ),
                   Padding(
                     padding:
