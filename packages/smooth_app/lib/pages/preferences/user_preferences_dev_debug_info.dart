@@ -58,7 +58,7 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
   Widget build(BuildContext context) {
     return SmoothScaffold(
       appBar: AppBar(
-        title: const Text("Debug info's"),
+        title: const Text("Debugging information"),
         actions: <Widget>[
           IconButton(
               onPressed: () async {
