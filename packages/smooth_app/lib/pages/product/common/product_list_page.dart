@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -106,6 +108,7 @@ class _ProductListPageState extends State<ProductListPage>
     return SmoothScaffold(
       floatingActionButton: products.isEmpty
           ? FloatingActionButton.extended(
+              heroTag: 'compare_fab_${Random(100)}',
               icon: const Icon(CupertinoIcons.barcode),
               label: Text(appLocalizations.product_list_empty_title),
               onPressed: () =>

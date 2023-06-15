@@ -51,7 +51,10 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
 
       if (product != null && mounted) {
         navigator.pushReplacement(
-          AppRoutes.PRODUCT(widget.barcode),
+          AppRoutes.PRODUCT(
+            widget.barcode,
+            heroTag: 'product_${widget.barcode}',
+          ),
           extra: product,
         );
       } else {

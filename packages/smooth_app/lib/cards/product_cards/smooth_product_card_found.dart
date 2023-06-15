@@ -66,7 +66,10 @@ class SmoothProductCardFound extends StatelessWidget {
         onTap: onTap ??
             () {
               AppNavigator.of(context).push(
-                AppRoutes.PRODUCT(product.barcode!),
+                AppRoutes.PRODUCT(
+                  product.barcode!,
+                  heroTag: heroTag,
+                ),
                 extra: product,
               );
             },

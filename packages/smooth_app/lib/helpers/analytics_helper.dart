@@ -155,7 +155,10 @@ class AnalyticsHelper {
       }
 
       await MatomoTracker.instance.setOptOut(optout: false);
-      MatomoTracker.instance.setVisitorUserId(_uuid);
+
+      if (MatomoTracker.instance.initialized) {
+        MatomoTracker.instance.setVisitorUserId(_uuid);
+      }
     }
   }
 

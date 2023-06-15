@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -68,7 +70,8 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
             case LoadingStatus.LOADED:
               if (_model.product != null) {
                 return SmoothProductCardFound(
-                  heroTag: _model.product!.barcode!,
+                  heroTag:
+                      '${_model.product!.barcode!}_${Random().nextInt(100)}',
                   product: _model.product!,
                   onTap: widget.onTap,
                   onLongPress: widget.onLongPress,
