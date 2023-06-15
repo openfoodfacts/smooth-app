@@ -1,4 +1,6 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/background/background_task_offline_barcodes.dart';
+import 'package:smooth_app/background/background_task_offline_products.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
@@ -27,6 +29,8 @@ enum OperationType {
   hungerGames('H', 'HUNGER_GAMES'),
   refreshLater('R', 'PRODUCT_REFRESH_LATER'),
   offline('O', 'OFFLINE_PREDOWNLOAD'),
+  offlineBarcodes('B', 'OFFLINE_BARCODES'),
+  offlineProducts('P', 'OFFLINE_PRODUCTS'),
   fullRefresh('F', 'FULL_REFRESH'),
   details('D', 'PRODUCT_EDIT');
 
@@ -68,6 +72,10 @@ enum OperationType {
         return BackgroundTaskUnselect.fromJson(map);
       case offline:
         return BackgroundTaskOffline.fromJson(map);
+      case offlineBarcodes:
+        return BackgroundTaskOfflineBarcodes.fromJson(map);
+      case offlineProducts:
+        return BackgroundTaskOfflineProducts.fromJson(map);
       case fullRefresh:
         return BackgroundTaskFullRefresh.fromJson(map);
     }
@@ -91,6 +99,10 @@ enum OperationType {
       case OperationType.refreshLater:
         return 'Waiting 10 min before refreshing product to get all automatic edits';
       case OperationType.offline:
+        return 'Downloading top n products for offline usage';
+      case OperationType.offlineBarcodes:
+        return 'Downloading top n barcodes for offline usage';
+      case OperationType.offlineProducts:
         return 'Downloading top n products for offline usage';
       case OperationType.fullRefresh:
         return 'Refreshing the full local database';
