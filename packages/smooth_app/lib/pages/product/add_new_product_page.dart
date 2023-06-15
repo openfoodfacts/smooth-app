@@ -9,6 +9,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
@@ -107,27 +108,51 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
     _addToHistory();
 
-    return SmoothScaffold(
-      appBar: AppBar(
-        title: ListTile(
-          title: Text(_product.productName ?? appLocalizations.new_product),
-          subtitle: Text(barcode),
+    return WillPopScope(
+      onWillPop: () async {
+        if (_isPopulated) {
+          return true;
+        }
+        final bool? leaveThePage = await showDialog<bool>(
+          context: context,
+          builder: (final BuildContext context) => SmoothAlertDialog(
+            title: appLocalizations.new_product,
+            actionsAxis: Axis.vertical,
+            body: Text(appLocalizations.new_product_leave_message),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.yes,
+              onPressed: () => Navigator.of(context).pop(true),
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.of(context).pop(false),
+            ),
+          ),
+        );
+        return leaveThePage ?? false;
+      },
+      child: SmoothScaffold(
+        appBar: AppBar(
+          title: ListTile(
+            title: Text(_product.productName ?? appLocalizations.new_product),
+            subtitle: Text(barcode),
+          ),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsetsDirectional.symmetric(
-          vertical: VERY_LARGE_SPACE,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              _buildCard(_getImageRows(context)),
-              _buildCard(_getNutriscoreRows(context)),
-              _buildCard(_getEcoscoreRows(context)),
-              _buildCard(_getMiscRows(context)),
-              const SizedBox(height: MINIMUM_TOUCH_SIZE),
-            ],
+        body: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            vertical: VERY_LARGE_SPACE,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                _buildCard(_getImageRows(context)),
+                _buildCard(_getNutriscoreRows(context)),
+                _buildCard(_getEcoscoreRows(context)),
+                _buildCard(_getMiscRows(context)),
+                const SizedBox(height: MINIMUM_TOUCH_SIZE),
+              ],
+            ),
           ),
         ),
       ),
