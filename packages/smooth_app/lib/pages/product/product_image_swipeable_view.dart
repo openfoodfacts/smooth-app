@@ -91,6 +91,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
         foregroundColor: WHITE_COLOR,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         elevation: 0,
+        centerTitle: false,
         title: ValueListenableBuilder<int>(
           valueListenable: _currentImageDataIndex,
           builder: (_, int index, __) => Text(

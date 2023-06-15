@@ -360,7 +360,7 @@ class _SvgIcon extends StatelessWidget {
 }
 
 /// Barcodes only allowed have a length of 7, 8, 12 or 13 characters
-class _ProductBarcode extends StatelessWidget {
+class _ProductBarcode extends StatefulWidget {
   _ProductBarcode({required this.product, Key? key})
       : assert(product.barcode?.isNotEmpty == true),
         assert(isAValidBarcode(product.barcode)),
@@ -369,6 +369,16 @@ class _ProductBarcode extends StatelessWidget {
   static const double _barcodeHeight = 120.0;
 
   final Product product;
+
+  @override
+  State<_ProductBarcode> createState() => _ProductBarcodeState();
+
+  static bool isAValidBarcode(String? barcode) =>
+      barcode != null && <int>[7, 8, 12, 13].contains(barcode.length);
+}
+
+class _ProductBarcodeState extends State<_ProductBarcode> {
+  bool _isAnInvalidBarcode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -382,19 +392,27 @@ class _ProductBarcode extends StatelessWidget {
         vertical: SMALL_SPACE,
       ),
       barcode: _barcodeType,
-      data: product.barcode!,
+      data: widget.product.barcode!,
       color: brightness == Brightness.dark ? Colors.white : Colors.black,
-      errorBuilder: (final BuildContext context, String? _) => Text(
-        '${appLocalizations.edit_product_form_item_barcode}\n'
-        '${product.barcode}',
-        textAlign: TextAlign.center,
-      ),
-      height: _barcodeHeight,
+      errorBuilder: (final BuildContext context, String? _) {
+        if (!_isAnInvalidBarcode) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            setState(() => _isAnInvalidBarcode = true);
+          });
+        }
+
+        return Text(
+          '${appLocalizations.edit_product_form_item_barcode}\n'
+          '${widget.product.barcode}',
+          textAlign: TextAlign.center,
+        );
+      },
+      height: _isAnInvalidBarcode ? null : _ProductBarcode._barcodeHeight,
     );
   }
 
   Barcode get _barcodeType {
-    switch (product.barcode!.length) {
+    switch (widget.product.barcode!.length) {
       case 7:
       case 8:
         return Barcode.ean8();
@@ -405,7 +423,4 @@ class _ProductBarcode extends StatelessWidget {
         throw Exception('Unknown barcode type!');
     }
   }
-
-  static bool isAValidBarcode(String? barcode) =>
-      barcode != null && <int>[7, 8, 12, 13].contains(barcode.length);
 }

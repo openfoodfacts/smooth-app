@@ -91,6 +91,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       child: UnfocusWhenTapOutside(
         child: SmoothScaffold(
           appBar: SmoothAppBar(
+            centerTitle: false,
             title: AutoSizeText(
               getProductName(widget.product, appLocalizations),
               maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
