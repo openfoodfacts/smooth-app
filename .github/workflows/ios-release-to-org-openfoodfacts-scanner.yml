@@ -68,9 +68,9 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          #channel: stable
+          channel: stable
           cache: true
-          flutter-version: '3.7.12'
+          #flutter-version: '3.10.4'
           cache-key: current-stable
 
       - name: Flutter version    
