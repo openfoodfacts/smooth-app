@@ -498,6 +498,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+    "@new_product_leave_message": {
+        "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_dialog_description": "נא לצלם את האריזה כדי להוסיף \nאת המוצר הזה למסד הנתונים השיתופי שלנו",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
@@ -1343,11 +1347,11 @@
             }
         }
     },
-    "camera_toggle_camera": "החלפה בין המצלמה האחורית לקדמית",
+    "camera_toggle_camera": "החלפה בין המצלמה הקדמית לאחורית ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "כיבוי או הפעלה של מבזק המצלמה",
+    "camera_toggle_flash": "הפעלת או כיבוי מבזק המצלמה",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1838,6 +1842,18 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
+    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+    },
     "portion_calculator_description": "חישוב עובדות תזונתיות לכמות מסוימת",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
@@ -1891,7 +1907,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "{count,plural, two {{count} השאלות הבאות}  many {{count} השאלות הבאות}=1{השאלה הבאה} other{{count} השאלות הבאות}}",
+    "robotoff_next_n_questions": "{count,plural,  two {{count} השאלות הבאות}  many {{count} השאלות הבאות}=1{השאלה הבאה} other{{count} השאלות הבאות}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {

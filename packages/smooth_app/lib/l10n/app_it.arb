@@ -498,6 +498,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+    "@new_product_leave_message": {
+        "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_dialog_description": "Ti preghiamo di scattare delle foto dell'imballaggio per aggiungerlo al nostro database comune",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
@@ -1343,7 +1347,7 @@
             }
         }
     },
-    "camera_toggle_camera": "Passa alla telecamera posteriore o anteriore",
+    "camera_toggle_camera": "Oassa alla fotocamera posteriore o anteriore ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
@@ -1837,6 +1841,18 @@
     "product_card_remove_product_tooltip": "Rimuovi prodotto",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
     "portion_calculator_description": "Calcola i valori nutrizionali per una quantità specifica",
     "@portion_calculator_description": {
