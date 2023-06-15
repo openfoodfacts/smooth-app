@@ -339,7 +339,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         ListTile(
-          title: const Text("Debugging information"),
+          title: const Text('Debugging information'),
           onTap: () async => Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (BuildContext context) =>
                   const UserPreferencesDebugInfo())),
