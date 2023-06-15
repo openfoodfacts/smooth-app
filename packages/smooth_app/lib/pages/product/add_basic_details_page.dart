@@ -82,6 +82,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
         appBar: SmoothAppBar(
+          centerTitle: false,
           title: Text(appLocalizations.basic_details),
           subTitle: widget.product.productName != null
               ? Text(widget.product.productName!,

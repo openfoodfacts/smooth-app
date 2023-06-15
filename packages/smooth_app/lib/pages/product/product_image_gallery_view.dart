@@ -63,6 +63,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     _selectedImages = getSelectedImages(_product, ProductQuery.getLanguage());
     return SmoothScaffold(
       appBar: SmoothAppBar(
+        centerTitle: false,
         title: Text(appLocalizations.edit_product_form_item_photos_title),
         subTitle: _product.productName == null
             ? null

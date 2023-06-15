@@ -141,6 +141,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     return SmoothScaffold(
       extendBodyBehindAppBar: true,
       appBar: SmoothAppBar(
+        centerTitle: false,
         title: Text(
           _helper.getTitle(appLocalizations),
           style: appbarTextStyle,
