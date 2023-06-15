@@ -57,6 +57,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
         appBar: SmoothAppBar(
+          centerTitle: false,
           title:
               Text(appLocalizations.edit_product_form_item_other_details_title),
           subTitle: widget.product.productName != null

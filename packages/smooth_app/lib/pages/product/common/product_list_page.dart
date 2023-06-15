@@ -128,6 +128,7 @@ class _ProductListPageState extends State<ProductListPage>
                   icon: const Icon(Icons.compare_arrows),
                 ),
       appBar: SmoothAppBar(
+        centerTitle: _selectionMode ? false : null,
         actions: !(enableClear || enableRename)
             ? null
             : <Widget>[
