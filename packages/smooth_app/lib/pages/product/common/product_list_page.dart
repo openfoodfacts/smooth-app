@@ -471,8 +471,9 @@ class _CompareProductsButton extends StatelessWidget {
 
     final bool enabled = selectedBarcodes.length >= 2;
 
-    return Opacity(
+    return AnimatedOpacity(
       opacity: enabled ? 1.0 : 0.5,
+      duration: SmoothAnimationsDuration.brief,
       child: FloatingActionButton.extended(
         label: Text(appLocalizations.compare_products_mode),
         icon: const Icon(Icons.compare_arrows),

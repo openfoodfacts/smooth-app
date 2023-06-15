@@ -1838,6 +1838,18 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
+    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+    },
     "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
