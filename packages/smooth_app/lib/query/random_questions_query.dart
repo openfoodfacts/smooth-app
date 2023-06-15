@@ -11,12 +11,12 @@ class RandomQuestionsQuery extends QuestionsQuery {
     final LocalDatabase localDatabase,
     final int count,
   ) async {
-    final RobotoffQuestionResult result =
-        await RobotoffAPIClient.getRandomQuestions(
+    final RobotoffQuestionResult result = await RobotoffAPIClient.getQuestions(
       ProductQuery.getLanguage(),
-      OpenFoodAPIConfiguration.globalUser,
+      user: ProductQuery.getUser(),
+      country: ProductQuery.getCountry(),
       count: count,
-      // TODO(monsieurtanuki): should use Country too
+      questionOrder: RobotoffQuestionOrder.random,
     );
 
     if (result.questions?.isNotEmpty != true) {
