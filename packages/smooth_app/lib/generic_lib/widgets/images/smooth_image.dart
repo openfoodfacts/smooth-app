@@ -13,6 +13,7 @@ class SmoothImage extends StatelessWidget {
     this.color,
     this.decoration,
     this.fit,
+    this.heroTag,
   });
 
   final ImageProvider? imageProvider;
@@ -21,24 +22,33 @@ class SmoothImage extends StatelessWidget {
   final Color? color;
   final Decoration? decoration;
   final BoxFit? fit;
+  final String? heroTag;
 
   @override
-  Widget build(BuildContext context) => ClipRRect(
-        borderRadius: ROUNDED_BORDER_RADIUS,
-        child: Container(
-          decoration: decoration,
-          width: width,
-          height: height,
-          color: color,
-          child: imageProvider == null
-              ? const PictureNotFound()
-              : Image(
-                  image: imageProvider!,
-                  fit: fit ?? BoxFit.cover,
-                  loadingBuilder: _loadingBuilder,
-                ),
-        ),
-      );
+  Widget build(BuildContext context) {
+    Widget child = imageProvider == null
+        ? const PictureNotFound()
+        : Image(
+            image: imageProvider!,
+            fit: fit ?? BoxFit.cover,
+            loadingBuilder: _loadingBuilder,
+          );
+
+    if (heroTag != null) {
+      child = Hero(tag: heroTag!, child: child);
+    }
+
+    return ClipRRect(
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      child: Container(
+        decoration: decoration,
+        width: width,
+        height: height,
+        color: color,
+        child: child,
+      ),
+    );
+  }
 
   Widget _loadingBuilder(
     BuildContext _,

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -162,7 +164,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     );
     return SmoothScaffold(
       statusBarBackgroundColor: dark ? null : headerColor,
-      brightness: Brightness.light,
+      brightness:
+          Theme.of(context).brightness == Brightness.light && Platform.isIOS
+              ? Brightness.dark
+              : Brightness.light,
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
       appBar: AppBar(

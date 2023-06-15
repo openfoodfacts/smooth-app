@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -52,9 +52,9 @@ dependencies:
   auto_size_text: 3.0.0
   crop_image: 1.0.6
   shared_preferences: 2.1.1
-  intl: 0.17.0
-  collection: 1.17.0
-  path: 1.8.2
+  intl: 0.18.0
+  collection: 1.17.1
+  path: 1.8.3
   path_provider: 2.0.13
   data_importer_shared:
     path: ../data_importer_shared
@@ -108,7 +108,7 @@ dev_dependencies:
   flutter_launcher_icons: 0.13.1
   flutter_test:
     sdk: flutter
-  mockito: 5.3.2
+  mockito: 5.4.2
   path_provider_platform_interface: 2.0.6
   plugin_platform_interface: 2.1.4
   flutter_lints: 2.0.1

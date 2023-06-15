@@ -98,15 +98,14 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                           knowledgePanelTitleElement.subtitle!,
                           style:
                               WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
-                        ).selectable(),
+                        ).selectable(isSelectable: !isClickable),
                       ),
                   ],
                 );
               },
             ),
           ),
-          if (isClickable)
-            if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
+          if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
         ],
       ),
     );

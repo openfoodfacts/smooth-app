@@ -163,14 +163,25 @@ class _CountrySelectorState extends State<CountrySelector> {
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
-            child: ListTile(
-              leading: const Icon(Icons.public),
-              title: Text(
-                selectedCountry.name,
-                style: widget.textStyle ??
-                    Theme.of(context).textTheme.displaySmall,
-              ),
-              trailing: const Icon(Icons.arrow_drop_down),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const Icon(Icons.public),
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                    child: Text(
+                      selectedCountry.name,
+                      style: widget.textStyle ??
+                          Theme.of(context).textTheme.displaySmall,
+                    ),
+                  ),
+                ),
+                const Icon(Icons.arrow_drop_down),
+              ],
             ),
           ),
         );
