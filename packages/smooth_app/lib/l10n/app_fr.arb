@@ -552,6 +552,8 @@
     "new_product_title_ecoscore": "Calculez l'Eco-Score",
     "new_product_subtitle_ecoscore": "Merci de renseigner au moins la catégorie de l'aliment",
     "new_product_additional_ecoscore": "Rendre le calcul de l'Eco-Score plus précis avec les origines géographiques, l'emballage et plus",
+    "new_product_title_nova": "Calculez le Nova",
+    "new_product_subtitle_nova": "Merci de renseigner les ingrédients",
     "new_product_title_pictures": "Prenons quelques photos !",
     "new_product_title_misc": "Et quelques données de base…",
     "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",
