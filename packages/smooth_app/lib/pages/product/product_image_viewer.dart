@@ -156,15 +156,27 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             children: <Widget>[
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: LanguageSelector(
-                    setLanguage: widget.setLanguage,
-                    displayedLanguage: widget.language,
-                    selectedLanguages: selectedLanguages,
-                    foregroundColor: Colors.white,
+                  padding: const EdgeInsets.all(SMALL_SPACE),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(LARGE_SPACE),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 3,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(SMALL_SPACE),
+                      child: LanguageSelector(
+                        setLanguage: widget.setLanguage,
+                        displayedLanguage: widget.language,
+                        selectedLanguages: selectedLanguages,
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
           Row(

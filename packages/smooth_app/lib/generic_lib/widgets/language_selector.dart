@@ -50,25 +50,35 @@ class LanguageSelector extends StatelessWidget {
           await setLanguage(language);
         },
         borderRadius: ANGULAR_BORDER_RADIUS,
-        child: ListTile(
-          leading: Icon(
-            Icons.language,
-            color: foregroundColor,
-          ),
-          title: Text(
-            '$nameInLanguage ($nameInEnglish)',
-            softWrap: false,
-            overflow: TextOverflow.fade,
-            style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(color: foregroundColor) ??
-                TextStyle(color: foregroundColor),
-          ),
-          trailing: Icon(
-            Icons.arrow_drop_down,
-            color: foregroundColor,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.language,
+              color: foregroundColor,
+            ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                child: Text(
+                  '$nameInLanguage ($nameInEnglish)',
+                  softWrap: false,
+                  overflow: TextOverflow.fade,
+                  style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: foregroundColor) ??
+                      TextStyle(color: foregroundColor),
+                ),
+              ),
+            ),
+            Icon(
+              Icons.arrow_drop_down,
+              color: foregroundColor,
+            ),
+          ],
         ),
       ),
     );

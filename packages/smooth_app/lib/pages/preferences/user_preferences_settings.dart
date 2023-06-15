@@ -268,8 +268,15 @@ class _ApplicationSettings extends StatelessWidget {
             appLocalizations.country_chooser_label,
             style: themeData.textTheme.headlineMedium,
           ),
-          subtitle: CountrySelector(
-            textStyle: themeData.textTheme.bodyMedium,
+          subtitle: Padding(
+            padding: const EdgeInsets.only(
+              top: SMALL_SPACE,
+              bottom: SMALL_SPACE,
+              left: SMALL_SPACE,
+            ),
+            child: CountrySelector(
+              textStyle: themeData.textTheme.bodyMedium,
+            ),
           ),
           minVerticalPadding: MEDIUM_SPACE,
         ),
@@ -279,19 +286,26 @@ class _ApplicationSettings extends StatelessWidget {
             appLocalizations.choose_app_language,
             style: themeData.textTheme.headlineMedium,
           ),
-          subtitle: LanguageSelector(
-            setLanguage: (final OpenFoodFactsLanguage? language) async {
-              if (language != null) {
-                ProductQuery.setLanguage(
-                  context,
-                  userPreferences,
-                  languageCode: language.code,
-                );
-              }
-            },
-            selectedLanguages: <OpenFoodFactsLanguage>[
-              ProductQuery.getLanguage(),
-            ],
+          subtitle: Padding(
+            padding: const EdgeInsets.only(
+              top: SMALL_SPACE,
+              bottom: SMALL_SPACE,
+              left: SMALL_SPACE,
+            ),
+            child: LanguageSelector(
+              setLanguage: (final OpenFoodFactsLanguage? language) async {
+                if (language != null) {
+                  ProductQuery.setLanguage(
+                    context,
+                    userPreferences,
+                    languageCode: language.code,
+                  );
+                }
+              },
+              selectedLanguages: <OpenFoodFactsLanguage>[
+                ProductQuery.getLanguage(),
+              ],
+            ),
           ),
           minVerticalPadding: MEDIUM_SPACE,
         ),
