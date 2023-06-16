@@ -1308,7 +1308,7 @@
     },
     "user_list_popup_clear": "Clear your history",
     "@user_list_popup_clear": {
-        "description": "Short label of a 'clear list' popup"
+        "description": "Short label of a 'clear your history list' popup"
     },
     "user_list_popup_rename": "Rename",
     "@user_list_popup_rename": {
