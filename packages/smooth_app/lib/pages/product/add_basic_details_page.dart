@@ -4,10 +4,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
@@ -81,6 +81,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
+        fixKeyboard: true,
         appBar: SmoothAppBar(
           centerTitle: false,
           title: Text(appLocalizations.basic_details),
@@ -91,85 +92,76 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         ),
         body: Form(
           key: _formKey,
-          child: ListView(
-            children: <Widget>[
-              Align(
-                alignment: AlignmentDirectional.topStart,
-                child: ProductImageCarousel(
-                  _product,
-                  height: size.height * 0.20,
+          child: Scrollbar(
+            child: ListView(
+              children: <Widget>[
+                Align(
+                  alignment: AlignmentDirectional.topStart,
+                  child: ProductImageCarousel(
+                    _product,
+                    height: size.height * 0.20,
+                  ),
                 ),
-              ),
-              SizedBox(height: _heightSpace),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      appLocalizations.barcode_barcode(_product.barcode!),
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                    SizedBox(height: _heightSpace),
-                    if (_multilingualHelper.isMonolingual())
-                      SmoothTextFormField(
-                        controller: _productNameController,
-                        type: TextFieldTypes.PLAIN_TEXT,
-                        hintText: appLocalizations.product_name,
-                      )
-                    else
-                      Card(
-                        child: Column(
-                          children: <Widget>[
-                            _multilingualHelper.getLanguageSelector(setState),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SmoothTextFormField(
-                                controller: _productNameController,
-                                type: TextFieldTypes.PLAIN_TEXT,
-                                hintText: appLocalizations.product_name,
-                              ),
+                SizedBox(height: _heightSpace),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        appLocalizations.barcode_barcode(_product.barcode!),
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
                             ),
-                          ],
-                        ),
                       ),
-                    SizedBox(height: _heightSpace),
-                    SmoothTextFormField(
-                      controller: _brandNameController,
-                      type: TextFieldTypes.PLAIN_TEXT,
-                      hintText: appLocalizations.brand_name,
-                    ),
-                    SizedBox(height: _heightSpace),
-                    SmoothTextFormField(
-                      controller: _weightController,
-                      type: TextFieldTypes.PLAIN_TEXT,
-                      hintText: appLocalizations.quantity,
-                    ),
-                    SizedBox(height: _heightSpace),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: LARGE_SPACE,
-                ),
-                child: SmoothActionButtonsBar(
-                  negativeAction: SmoothActionButton(
-                    text: appLocalizations.cancel,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: false),
-                    ),
+                      SizedBox(height: _heightSpace),
+                      if (_multilingualHelper.isMonolingual())
+                        SmoothTextFormField(
+                          controller: _productNameController,
+                          type: TextFieldTypes.PLAIN_TEXT,
+                          hintText: appLocalizations.product_name,
+                        )
+                      else
+                        Card(
+                          child: Column(
+                            children: <Widget>[
+                              _multilingualHelper.getLanguageSelector(setState),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SmoothTextFormField(
+                                  controller: _productNameController,
+                                  type: TextFieldTypes.PLAIN_TEXT,
+                                  hintText: appLocalizations.product_name,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      SizedBox(height: _heightSpace),
+                      SmoothTextFormField(
+                        controller: _brandNameController,
+                        type: TextFieldTypes.PLAIN_TEXT,
+                        hintText: appLocalizations.brand_name,
+                      ),
+                      SizedBox(height: _heightSpace),
+                      SmoothTextFormField(
+                        controller: _weightController,
+                        type: TextFieldTypes.PLAIN_TEXT,
+                        hintText: appLocalizations.quantity,
+                      ),
+                      SizedBox(height: _heightSpace),
+                    ],
                   ),
-                  positiveAction: SmoothActionButton(
-                    text: appLocalizations.save,
-                    onPressed: () async => _exitPage(
-                      await _mayExitPage(saving: true),
-                    ),
-                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
+          ),
+        ),
+        bottomNavigationBar: ProductBottomButtonsBar(
+          onSave: () async => _exitPage(
+            await _mayExitPage(saving: true),
+          ),
+          onCancel: () async => _exitPage(
+            await _mayExitPage(saving: false),
           ),
         ),
       ),

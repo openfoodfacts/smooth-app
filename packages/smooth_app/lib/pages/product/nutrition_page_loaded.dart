@@ -8,11 +8,11 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
+import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
@@ -191,6 +191,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: SmoothScaffold(
+        fixKeyboard: true,
         appBar: SmoothAppBar(
           title: AutoSizeText(
             appLocalizations.nutrition_page_title,
@@ -209,36 +210,20 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
             horizontal: LARGE_SPACE,
             vertical: SMALL_SPACE,
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Flexible(
-                flex: 1,
-                child: Form(
-                  key: _formKey,
-                  child: Provider<List<FocusNode>>.value(
-                    value: focusNodes,
-                    child: ListView(children: children),
-                  ),
-                ),
-              ),
-              SmoothActionButtonsBar(
-                axis: Axis.horizontal,
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.save,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(saving: true),
-                  ),
-                ),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.cancel,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(saving: false),
-                  ),
-                ),
-              ),
-            ],
+          child: Form(
+            key: _formKey,
+            child: Provider<List<FocusNode>>.value(
+              value: focusNodes,
+              child: ListView(children: children),
+            ),
+          ),
+        ),
+        bottomNavigationBar: ProductBottomButtonsBar(
+          onSave: () async => _exitPage(
+            await _mayExitPage(saving: true),
+          ),
+          onCancel: () async => _exitPage(
+            await _mayExitPage(saving: false),
           ),
         ),
       ),

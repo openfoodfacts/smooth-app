@@ -213,6 +213,7 @@ class SmoothActionButtonsBar extends StatelessWidget {
     this.negativeAction,
     this.axis,
     this.order,
+    this.padding,
     super.key,
   }) : assert(positiveAction != null || negativeAction != null,
             'At least one action must be passed!');
@@ -229,6 +230,7 @@ class SmoothActionButtonsBar extends StatelessWidget {
   final SmoothActionButton? negativeAction;
   final Axis? axis;
   final SmoothButtonsBarOrder? order;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -250,13 +252,17 @@ class SmoothActionButtonsBar extends StatelessWidget {
         );
       }
 
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: actions,
+      return Padding(
+        padding: padding ?? EdgeInsets.zero,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: actions,
+        ),
       );
     } else {
-      return SizedBox(
+      return Container(
         width: double.infinity,
+        padding: padding ?? EdgeInsets.zero,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: actions,
