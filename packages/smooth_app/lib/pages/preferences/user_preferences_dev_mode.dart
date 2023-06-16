@@ -332,14 +332,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         ListTile(
           // Do not translate
-          title: const Text('Reset App Language'),
+          title: const Text('Reset app language'),
           onTap: () async {
             userPreferences.setAppLanguageCode(null);
             ProductQuery.setLanguage(context, userPreferences);
           },
         ),
         ListTile(
-          title: const Text("Debug info's"),
+          title: const Text('Debugging information'),
           onTap: () async => Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (BuildContext context) =>
                   const UserPreferencesDebugInfo())),
