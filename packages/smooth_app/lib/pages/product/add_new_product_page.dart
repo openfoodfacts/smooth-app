@@ -273,11 +273,23 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         forceIconData: Icons.filter_2,
         disabled: !_categoryEditor.isPopulated(_product),
       ),
-      Center(
-        child: SvgIconChip(
-          attribute?.iconUrl ?? ProductDialogHelper.unknownSvgNova,
-          height: _getScoreIconHeight(context),
-        ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          SvgIconChip(
+            attribute?.iconUrl ?? ProductDialogHelper.unknownSvgNova,
+            height: _getScoreIconHeight(context),
+          ),
+          Expanded(
+            child: Text(
+              attribute?.descriptionShort ??
+                  appLocalizations.new_product_desc_nova_unknown,
+              maxLines: 5,
+              style: _getTitleStyle(context),
+            ),
+          )
+        ],
       ),
     ];
   }
