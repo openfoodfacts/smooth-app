@@ -26,6 +26,8 @@ class ProductDialogHelper {
       'https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg';
   static const String unknownSvgEcoscore =
       'https://static.openfoodfacts.org/images/attributes/ecoscore-unknown.svg';
+  static const String unknownSvgNova =
+      'https://static.openfoodfacts.org/images/attributes/nova-group-unknown.svg';
 
   final String barcode;
   final BuildContext context;

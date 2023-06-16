@@ -149,6 +149,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                 _buildCard(_getImageRows(context)),
                 _buildCard(_getNutriscoreRows(context)),
                 _buildCard(_getEcoscoreRows(context)),
+                _buildCard(_getNovaRows(context)),
                 _buildCard(_getMiscRows(context)),
                 const SizedBox(height: MINIMUM_TOUCH_SIZE),
               ],
@@ -253,6 +254,46 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     ];
   }
 
+  List<Widget> _getNovaRows(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NOVA);
+    return <Widget>[
+      Text(
+        appLocalizations.new_product_title_nova,
+        style: _getTitleStyle(context),
+      ),
+      Text(
+        appLocalizations.new_product_subtitle_nova,
+        style: _getSubtitleStyle(context),
+      ),
+      _buildCategoriesButton(context),
+      _buildEditorButton(
+        context,
+        _ingredientsEditor,
+        forceIconData: Icons.filter_2,
+        disabled: !_categoryEditor.isPopulated(_product),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          SvgIconChip(
+            attribute?.iconUrl ?? ProductDialogHelper.unknownSvgNova,
+            height: _getScoreIconHeight(context),
+          ),
+          Expanded(
+            child: Text(
+              attribute?.descriptionShort ??
+                  appLocalizations.new_product_desc_nova_unknown,
+              maxLines: 5,
+              style: _getTitleStyle(context),
+            ),
+          )
+        ],
+      ),
+    ];
+  }
+
   List<Widget> _getImageRows(final BuildContext context) {
     final List<Widget> rows = <Widget>[];
     rows.add(
@@ -327,16 +368,19 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     final BuildContext context,
     final ProductFieldEditor editor, {
     final IconData? forceIconData,
+    final bool disabled = false,
   }) {
     final bool done = editor.isPopulated(_product);
     return _MyButton(
       editor.getLabel(AppLocalizations.of(context)),
       forceIconData ?? (done ? _doneIcon : _todoIcon),
-      () async => editor.edit(
-        context: context,
-        product: _product,
-        isLoggedInMandatory: false,
-      ),
+      disabled
+          ? null
+          : () async => editor.edit(
+                context: context,
+                product: _product,
+                isLoggedInMandatory: false,
+              ),
       done: done,
     );
   }
