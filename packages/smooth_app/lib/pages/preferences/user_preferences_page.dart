@@ -21,6 +21,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 enum PreferencePageType {
@@ -138,7 +139,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
 
     if (headerAsset == null) {
       return SmoothScaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           title: Text(
             appBarTitle,
             maxLines: 2,
@@ -170,7 +171,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
               : Brightness.light,
       contentBehindStatusBar: false,
       spaceBehindStatusBar: false,
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(
           appBarTitle,
           maxLines: 2,

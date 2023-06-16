@@ -14,6 +14,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
@@ -95,7 +96,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SmoothScaffold(
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(widget.title, overflow: TextOverflow.fade),
         actions: <Widget>[
           PopupMenuButton<String>(

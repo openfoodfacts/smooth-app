@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Widget to display swipeable product images of particular category.
@@ -86,7 +87,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
     }
     return SmoothScaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         backgroundColor: Colors.black,
         foregroundColor: WHITE_COLOR,
         systemOverlayStyle: SystemUiOverlayStyle.light,

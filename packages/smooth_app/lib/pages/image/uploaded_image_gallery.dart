@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Gallery of all images already uploaded, about a given product.
@@ -35,7 +36,7 @@ class UploadedImageGallery extends StatelessWidget {
     final double columnWidth = mediaQueryData.size.width * .45;
     return SmoothScaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(appLocalizations.edit_photo_select_existing_all_label),
         backgroundColor: Colors.black,
         foregroundColor: WHITE_COLOR,

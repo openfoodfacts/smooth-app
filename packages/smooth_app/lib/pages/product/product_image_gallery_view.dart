@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
@@ -72,9 +71,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
-        leading: SmoothBackButton(
-          onPressed: () => Navigator.maybePop(context),
-        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {

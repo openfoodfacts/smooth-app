@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 
 /// A custom [AppBar] with an action mode.
 /// If [action mode] is true, please provide at least an [actionModeTitle].
@@ -84,6 +85,8 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
+
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 100),
       transitionBuilder: (Widget child, Animation<double> animation) {
@@ -95,40 +98,54 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: child,
         );
       },
-      child: actionMode ? _createActionModeAppBar(context) : _createAppBar(),
+      child: actionMode
+          ? _createActionModeAppBar(context)
+          : _createAppBar(parentRoute),
     );
   }
 
-  Widget _createAppBar() => AppBar(
-        leading: leading,
-        automaticallyImplyLeading: automaticallyImplyLeading,
-        title: title != null
-            ? _AppBarTitle(title: title!, subTitle: subTitle)
-            : null,
-        actions: actions,
-        flexibleSpace: flexibleSpace,
-        bottom: bottom,
-        elevation: elevation,
-        scrolledUnderElevation: scrolledUnderElevation,
-        shadowColor: shadowColor,
-        surfaceTintColor: surfaceTintColor,
-        backgroundColor: backgroundColor,
-        foregroundColor: foregroundColor,
-        iconTheme: iconTheme,
-        actionsIconTheme: actionsIconTheme,
-        primary: primary,
-        centerTitle: centerTitle,
-        excludeHeaderSemantics: excludeHeaderSemantics,
-        titleSpacing: titleSpacing,
-        shape: shape,
-        toolbarOpacity: toolbarOpacity,
-        bottomOpacity: bottomOpacity,
-        toolbarHeight: toolbarHeight,
-        leadingWidth: leadingWidth,
-        toolbarTextStyle: toolbarTextStyle,
-        titleTextStyle: titleTextStyle,
-        systemOverlayStyle: systemOverlayStyle,
-      );
+  Widget _createAppBar(ModalRoute<dynamic>? parentRoute) {
+    final bool useCloseButton =
+        parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
+    Widget? leadingWidget = leading;
+    if (leadingWidget == null &&
+        automaticallyImplyLeading &&
+        parentRoute?.impliesAppBarDismissal == true &&
+        !useCloseButton) {
+      leadingWidget = const SmoothBackButton();
+    }
+
+    return AppBar(
+      leading: leadingWidget,
+      automaticallyImplyLeading: automaticallyImplyLeading,
+      title: title != null
+          ? _AppBarTitle(title: title!, subTitle: subTitle)
+          : null,
+      actions: actions,
+      flexibleSpace: flexibleSpace,
+      bottom: bottom,
+      elevation: elevation,
+      scrolledUnderElevation: scrolledUnderElevation,
+      shadowColor: shadowColor,
+      surfaceTintColor: surfaceTintColor,
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
+      iconTheme: iconTheme,
+      actionsIconTheme: actionsIconTheme,
+      primary: primary,
+      centerTitle: centerTitle,
+      excludeHeaderSemantics: excludeHeaderSemantics,
+      titleSpacing: titleSpacing,
+      shape: shape,
+      toolbarOpacity: toolbarOpacity,
+      bottomOpacity: bottomOpacity,
+      toolbarHeight: toolbarHeight,
+      leadingWidth: leadingWidth,
+      toolbarTextStyle: toolbarTextStyle,
+      titleTextStyle: titleTextStyle,
+      systemOverlayStyle: systemOverlayStyle,
+    );
+  }
 
   Widget _createActionModeAppBar(BuildContext context) => IconTheme(
         data: IconThemeData(color: PopupMenuTheme.of(context).color),

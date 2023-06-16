@@ -9,6 +9,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expa
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class KnowledgePanelPage extends StatefulWidget {
@@ -64,7 +65,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     return SmoothScaffold(
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(
           _getTitle(),
           maxLines: 2,
