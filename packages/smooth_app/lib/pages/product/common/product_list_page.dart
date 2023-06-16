@@ -199,24 +199,24 @@ class _ProductListPageState extends State<ProductListPage>
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    if (enableClear)
-                      PopupMenuItem<String>(
-                        value: _popupActionClear,
-                        child: Text(appLocalizations.user_list_popup_clear),
-                      ),
                     if (enableRename)
                       PopupMenuItem<String>(
                         value: _popupActionRename,
                         child: Text(appLocalizations.user_list_popup_rename),
                       ),
                     PopupMenuItem<String>(
-                      value: _popupActionOpenInWeb,
-                      child: Text(appLocalizations.label_web),
-                    ),
-                    PopupMenuItem<String>(
                       value: _popupActionShare,
                       child: Text(appLocalizations.share),
                     ),
+                    PopupMenuItem<String>(
+                      value: _popupActionOpenInWeb,
+                      child: Text(appLocalizations.label_web),
+                    ),
+                    if (enableClear)
+                      PopupMenuItem<String>(
+                        value: _popupActionClear,
+                        child: Text(appLocalizations.user_list_popup_clear),
+                      ),
                   ],
                 )
               ],

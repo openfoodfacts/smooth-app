@@ -1306,7 +1306,7 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Clear",
+    "user_list_popup_clear": "Clear your history",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear list' popup"
     },
