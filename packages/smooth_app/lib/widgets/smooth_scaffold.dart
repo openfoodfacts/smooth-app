@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -110,11 +109,8 @@ class SmoothScaffoldState extends ScaffoldState {
     }
 
     if ((widget as SmoothScaffold).fixKeyboard) {
-      double padding = MediaQuery.of(context).viewInsets.bottom;
-
-      if (DevicePreview.isEnabled(context)) {
-        padding -= MediaQuery.of(context).viewPadding.top;
-      }
+      final double padding = MediaQuery.of(context).viewInsets.bottom -
+          MediaQuery.of(context).viewPadding.bottom;
 
       if (padding > 0.0) {
         child = Padding(
