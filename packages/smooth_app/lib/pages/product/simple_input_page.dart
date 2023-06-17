@@ -99,7 +99,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
               maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
             ),
             subTitle: widget.product.barcode != null
-                ? Text(widget.product.barcode!)
+                ? ExcludeSemantics(
+                    excluding: true, child: Text(widget.product.barcode!))
                 : null,
           ),
           body: Padding(

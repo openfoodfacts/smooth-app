@@ -373,20 +373,24 @@ class _SmoothActionElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    return SmoothSimpleButton(
-      onPressed: buttonData.onPressed,
-      minWidth: buttonData.minWidth ?? 20.0,
-      // Ensures FittedBox not used then even the one word text overflows into next line,
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Text(
-          buttonData.text.toUpperCase(),
-          textAlign: TextAlign.center,
-          overflow: TextOverflow.ellipsis,
-          maxLines: buttonData.lines ?? 2,
-          style: themeData.textTheme.bodyMedium!.copyWith(
-            fontWeight: FontWeight.bold,
-            color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+    return Semantics(
+      value: buttonData.text,
+      button: true,
+      excludeSemantics: true,
+      child: SmoothSimpleButton(
+        onPressed: buttonData.onPressed,
+        minWidth: buttonData.minWidth ?? 20.0,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            buttonData.text.toUpperCase(),
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: buttonData.lines ?? 2,
+            style: themeData.textTheme.bodyMedium!.copyWith(
+              fontWeight: FontWeight.bold,
+              color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+            ),
           ),
         ),
       ),
@@ -413,35 +417,40 @@ class _SmoothActionFlatButton extends StatelessWidget {
           ),
         ),
       ),
-      child: TextButton(
-        onPressed: buttonData.onPressed,
-        style: TextButton.styleFrom(
-          shape: const RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
+      child: Semantics(
+        value: buttonData.text,
+        button: true,
+        excludeSemantics: true,
+        child: TextButton(
+          onPressed: buttonData.onPressed,
+          style: TextButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+            textStyle: themeData.textTheme.bodyMedium!.copyWith(
+              color: themeData.colorScheme.onPrimary,
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: SMALL_SPACE,
+            ),
           ),
-          textStyle: themeData.textTheme.bodyMedium!.copyWith(
-            color: themeData.colorScheme.onPrimary,
-          ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: SMALL_SPACE,
-          ),
-        ),
-        child: SizedBox(
-          height: buttonData.lines != null
-              ? VERY_LARGE_SPACE * buttonData.lines!
-              : null,
-          width: buttonData.minWidth,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              buttonData.text.toUpperCase(),
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: buttonData.textColor ?? themeData.colorScheme.primary,
+          child: SizedBox(
+            height: buttonData.lines != null
+                ? VERY_LARGE_SPACE * buttonData.lines!
+                : null,
+            width: buttonData.minWidth,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                buttonData.text.toUpperCase(),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: buttonData.textColor ?? themeData.colorScheme.primary,
+                ),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: buttonData.lines ?? 2,
               ),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: buttonData.lines ?? 2,
             ),
           ),
         ),
