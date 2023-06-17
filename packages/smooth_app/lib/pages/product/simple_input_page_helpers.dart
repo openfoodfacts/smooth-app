@@ -83,6 +83,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the hint of the "add" text field.
   String getAddHint(final AppLocalizations appLocalizations);
 
+  /// Returns the type of the text field (eg: label, category…).
+  String getTypeLabel(final AppLocalizations appLocalizations);
+
   /// Returns additional examples about the "add" text field.
   String? getAddExplanations(final AppLocalizations appLocalizations) => null;
 
@@ -167,6 +170,10 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_stores_hint;
 
   @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_stores_type;
+
+  @override
   TagType? getTagType() => null;
 
   @override
@@ -199,6 +206,10 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_origins_hint;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_origins_type;
 
   @override
   String? getAddExplanations(final AppLocalizations appLocalizations) =>
@@ -240,6 +251,10 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_hint;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_emb_codes_type;
 
   @override
   String getAddExplanations(final AppLocalizations appLocalizations) =>
@@ -291,6 +306,10 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_labels_hint;
 
   @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_labels_type;
+
+  @override
   TagType? getTagType() => TagType.LABELS;
 
   @override
@@ -340,6 +359,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_categories_hint;
 
   @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_categories_type;
+
+  @override
   TagType? getTagType() => TagType.CATEGORIES;
 
   @override
@@ -379,6 +402,10 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_hint;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_countries_type;
 
   @override
   String getAddExplanations(final AppLocalizations appLocalizations) =>

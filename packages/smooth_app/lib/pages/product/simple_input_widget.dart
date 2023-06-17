@@ -80,9 +80,13 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                     controller: widget.controller,
                   ),
                 ),
-                IconButton(
-                  onPressed: _onRemoveItem,
-                  icon: const Icon(Icons.add_circle),
+                Tooltip(
+                  message: appLocalizations.edit_product_form_item_add_action(
+                      widget.helper.getTypeLabel(appLocalizations)),
+                  child: IconButton(
+                    onPressed: _onAddItem,
+                    icon: const Icon(Icons.add_circle),
+                  ),
                 )
               ],
             );
@@ -110,7 +114,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                         .edit_product_form_item_remove_item_tooltip,
                     child: InkWell(
                       customBorder: const CircleBorder(),
-                      onTap: () => _onAddItem(term, position, child),
+                      onTap: () => _onRemoveItem(term, position, child),
                       child: const Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: MEDIUM_SPACE,
@@ -135,23 +139,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     );
   }
 
-  void _onAddItem(String term, int position, Widget child) {
-    if (widget.helper.removeTerm(term)) {
-      _listKey.currentState?.removeItem(position,
-          (_, Animation<double> animation) {
-        return FadeTransition(
-          opacity: animation,
-          child: SizeTransition(
-            sizeFactor: animation,
-            child: ListTile(title: child),
-          ),
-        );
-      });
-      SmoothHapticFeedback.lightNotification();
-    }
-  }
-
-  void _onRemoveItem() {
+  void _onAddItem() {
     final List<String> terms = widget.controller.text.split(',');
 
     bool atLeastOneAnimatedItem = false;
@@ -170,5 +158,21 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     }
 
     SmoothHapticFeedback.lightNotification();
+  }
+
+  void _onRemoveItem(String term, int position, Widget child) {
+    if (widget.helper.removeTerm(term)) {
+      _listKey.currentState?.removeItem(position,
+          (_, Animation<double> animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: SizeTransition(
+            sizeFactor: animation,
+            child: ListTile(title: child),
+          ),
+        );
+      });
+      SmoothHapticFeedback.lightNotification();
+    }
   }
 }
