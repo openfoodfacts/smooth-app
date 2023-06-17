@@ -70,46 +70,56 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
       duration: const Duration(seconds: 5),
       firstChild: EMPTY_WIDGET,
       secondChild: Builder(builder: (BuildContext context) {
-        final Widget child = _buildContent(context);
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        final Widget child = _buildContent(context, appLocalizations);
 
         // We need to differentiate with / without a Shimmer, because
         // [Shimmer] doesn't support [Ink]
         if (_state is _ProductQuestionsWithQuestions) {
-          return InkWell(
-            borderRadius: ANGULAR_BORDER_RADIUS,
-            onTap: () => openQuestionPage(
-              context,
-              product: widget.product,
-              questions:
-                  (_state as _ProductQuestionsWithQuestions).questions.toList(
-                        growable: false,
-                      ),
-              updateProductUponAnswers: _updateProductUponAnswers,
-            ),
-            child: Ink(
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-                borderRadius: ANGULAR_BORDER_RADIUS,
+          return Semantics(
+            value: appLocalizations.tap_to_answer_hint,
+            button: true,
+            excludeSemantics: true,
+            child: InkWell(
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              onTap: () => openQuestionPage(
+                context,
+                product: widget.product,
+                questions:
+                    (_state as _ProductQuestionsWithQuestions).questions.toList(
+                          growable: false,
+                        ),
+                updateProductUponAnswers: _updateProductUponAnswers,
               ),
-              padding: const EdgeInsets.all(
-                SMALL_SPACE,
+              child: Ink(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: ANGULAR_BORDER_RADIUS,
+                ),
+                padding: const EdgeInsets.all(
+                  SMALL_SPACE,
+                ),
+                child: child,
               ),
-              child: child,
             ),
           );
         } else {
-          return Shimmer.fromColors(
-            baseColor: GREY_COLOR,
-            highlightColor: WHITE_COLOR,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-                borderRadius: ANGULAR_BORDER_RADIUS,
+          return Semantics(
+            value: appLocalizations.robotoff_questions_loading_hint,
+            excludeSemantics: true,
+            child: Shimmer.fromColors(
+              baseColor: GREY_COLOR,
+              highlightColor: WHITE_COLOR,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: ANGULAR_BORDER_RADIUS,
+                ),
+                padding: const EdgeInsets.all(
+                  SMALL_SPACE,
+                ),
+                child: child,
               ),
-              padding: const EdgeInsets.all(
-                SMALL_SPACE,
-              ),
-              child: child,
             ),
           );
         }
@@ -117,8 +127,8 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     );
   }
 
-  Widget _buildContent(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  Widget _buildContent(
+      BuildContext context, AppLocalizations appLocalizations) {
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return SizedBox(

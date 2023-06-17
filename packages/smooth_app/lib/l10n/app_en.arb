@@ -350,6 +350,14 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "@tap_to_answer_hint": {
+        "description": "Hint for accessibility readers to answer Robotoff questions."
+    },
+    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "@robotoff_questions_loading_hint": {
+        "description": "Hint for accessibility readers while Robotoff questions are loaded"
+    },
     "saving_answer": "Saving your answer",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
