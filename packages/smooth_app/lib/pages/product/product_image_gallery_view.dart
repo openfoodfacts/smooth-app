@@ -55,7 +55,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
 
   @override
   Widget build(BuildContext context) {
-    BackgroundTaskManager(_localDatabase).run(); // no await
+    BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();

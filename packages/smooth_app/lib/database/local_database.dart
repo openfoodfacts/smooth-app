@@ -36,7 +36,7 @@ class LocalDatabase extends ChangeNotifier {
 
   @override
   void notifyListeners() {
-    BackgroundTaskManager(this).run(); // no await
+    BackgroundTaskManager.getInstance(this).run(); // no await
     super.notifyListeners();
   }
 

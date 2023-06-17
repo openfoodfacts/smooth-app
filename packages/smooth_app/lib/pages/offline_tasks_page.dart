@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
-import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/background/background_task_progressing.dart';
+import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -31,7 +31,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         actions: <Widget>[
           IconButton(
             onPressed: () => // no await
-                BackgroundTaskManager(localDatabase).run(),
+                BackgroundTaskManager.getInstance(localDatabase).run(),
             icon: const Icon(Icons.refresh),
           ),
         ],
@@ -49,9 +49,16 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                     taskId,
                   ),
                 );
-                String barcode = OperationType.getBarcode(taskId);
-                if (barcode == BackgroundTaskFullRefresh.noBarcode) {
-                  barcode = '';
+                final String barcode = OperationType.getBarcode(taskId);
+                final int? totalSize = OperationType.getTotalSize(taskId);
+                final int? soFarSize = OperationType.getSoFarSize(taskId);
+                final String info;
+                if (barcode != BackgroundTaskProgressing.noBarcode) {
+                  info = '$barcode ';
+                } else if (totalSize != null && soFarSize != null) {
+                  info = '${(100 * soFarSize) ~/ totalSize}% ';
+                } else {
+                  info = '';
                 }
                 return ListTile(
                   onTap: () async {
@@ -72,13 +79,13 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                       ),
                     );
                     if (stopTask == true) {
-                      await BackgroundTaskManager(localDatabase)
+                      await BackgroundTaskManager.getInstance(localDatabase)
                           .removeTaskAsap(taskId);
                     }
                   },
                   title: Text(
-                    '$barcode'
-                    ' (${OperationType.getOperationType(taskId)?.getLabel(
+                    '$info'
+                    '(${OperationType.getOperationType(taskId)?.getLabel(
                           appLocalizations,
                         ) ?? appLocalizations.background_task_operation_unknown})',
                   ),

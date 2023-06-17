@@ -48,8 +48,7 @@ class DaoWorkBarcode extends AbstractSqlDao {
     for (final Map<String, dynamic> row in queryResults) {
       return row['my_count'] as int;
     }
-    // not expected
-    return 0;
+    throw Exception('Cannot count table $_table for work $work');
   }
 
   /// Returns the next barcodes for that work.
@@ -130,7 +129,7 @@ class DaoWorkBarcode extends AbstractSqlDao {
     return localDatabase.database.delete(
       _table,
       where:
-          '$_columnWork = ? and barcode in(?${',?' * (barcodes.length - 1)})',
+          '$_columnWork = ? and $_columnBarcode in(?${',?' * (barcodes.length - 1)})',
       whereArgs: parameters,
     );
   }

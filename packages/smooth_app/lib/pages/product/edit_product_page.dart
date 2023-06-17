@@ -58,7 +58,7 @@ class _EditProductPageState extends State<EditProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    BackgroundTaskManager(_localDatabase).run(); // no await
+    BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);

@@ -1,14 +1,15 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/background/background_task_offline_barcodes.dart';
-import 'package:smooth_app/background/background_task_offline_products.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/background/background_task_download_products.dart';
 import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_hunger_games.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_offline.dart';
+import 'package:smooth_app/background/background_task_progressing.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/background/background_task_top_barcodes.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
@@ -46,14 +47,18 @@ enum OperationType {
   static const String _uniqueSequenceKey = 'OperationType';
 
   Future<String> getNewKey(
-    final LocalDatabase localDatabase,
-    final String barcode,
-  ) async {
+    final LocalDatabase localDatabase, {
+    final String? barcode = BackgroundTaskProgressing.noBarcode,
+    final int? totalSize,
+    final int? soFarSize,
+  }) async {
     final int sequentialId =
         await getNextSequenceNumber(DaoInt(localDatabase), _uniqueSequenceKey);
     return '$header'
         '$_transientHeaderSeparator$sequentialId'
-        '$_transientHeaderSeparator$barcode';
+        '$_transientHeaderSeparator$barcode'
+        '$_transientHeaderSeparator${totalSize == null ? '' : totalSize.toString()}'
+        '$_transientHeaderSeparator${soFarSize == null ? '' : soFarSize.toString()}';
   }
 
   BackgroundTask fromJson(Map<String, dynamic> map) {
@@ -73,9 +78,9 @@ enum OperationType {
       case offline:
         return BackgroundTaskOffline.fromJson(map);
       case offlineBarcodes:
-        return BackgroundTaskOfflineBarcodes.fromJson(map);
+        return BackgroundTaskTopBarcodes.fromJson(map);
       case offlineProducts:
-        return BackgroundTaskOfflineProducts.fromJson(map);
+        return BackgroundTaskDownloadProducts.fromJson(map);
       case fullRefresh:
         return BackgroundTaskFullRefresh.fromJson(map);
     }
@@ -118,6 +123,22 @@ enum OperationType {
   static String getBarcode(final String key) {
     final List<String> keyItems = key.split(_transientHeaderSeparator);
     return keyItems[2];
+  }
+
+  static int? getTotalSize(final String key) {
+    final List<String> keyItems = key.split(_transientHeaderSeparator);
+    if (keyItems.length <= 3) {
+      return null;
+    }
+    return int.tryParse(keyItems[3]);
+  }
+
+  static int? getSoFarSize(final String key) {
+    final List<String> keyItems = key.split(_transientHeaderSeparator);
+    if (keyItems.length <= 4) {
+      return null;
+    }
+    return int.tryParse(keyItems[4]);
   }
 
   static OperationType? getOperationType(final String key) {

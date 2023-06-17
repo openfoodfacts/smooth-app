@@ -26,13 +26,13 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode {
   });
 
   BackgroundTaskUpload.fromJson(Map<String, dynamic> json)
-      : imageField = json['imageField'] as String,
-        croppedPath = json['croppedPath'] as String,
-        rotationDegrees = json['rotation'] as int? ?? 0,
-        cropX1 = json['x1'] as int? ?? 0,
-        cropY1 = json['y1'] as int? ?? 0,
-        cropX2 = json['x2'] as int? ?? 0,
-        cropY2 = json['y2'] as int? ?? 0,
+      : imageField = json[_jsonTagImageField] as String,
+        croppedPath = json[_jsonTagCroppedPath] as String,
+        rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
+        cropX1 = json[_jsonTagX1] as int? ?? 0,
+        cropY1 = json[_jsonTagY1] as int? ?? 0,
+        cropX2 = json[_jsonTagX2] as int? ?? 0,
+        cropY2 = json[_jsonTagY2] as int? ?? 0,
         super.fromJson(json);
 
   final String imageField;

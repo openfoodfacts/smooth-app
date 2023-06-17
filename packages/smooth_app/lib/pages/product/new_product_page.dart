@@ -87,7 +87,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   Widget build(BuildContext context) {
-    BackgroundTaskManager(_localDatabase).run(); // no await
+    BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
     inheritedDataManager.setCurrentBarcode(_barcode);
