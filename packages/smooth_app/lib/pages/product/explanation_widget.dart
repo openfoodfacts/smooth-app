@@ -17,18 +17,21 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
   Widget build(BuildContext context) {
     return Semantics(
       value: widget.explanations,
-      child: InkWell(
-        excludeFromSemantics: true,
-        onTap: () => setState(() => _expanded = !_expanded),
-        child: AnimatedCrossFade(
-          duration: const Duration(milliseconds: 200),
-          crossFadeState:
-              _expanded ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-          firstChild: _ExpandedExplanation(
-            explanations: widget.explanations,
-          ),
-          secondChild: _CollapsedExplanation(
-            explanations: widget.explanations,
+      header: true,
+      child: BlockSemantics(
+        child: InkWell(
+          onTap: () => setState(() => _expanded = !_expanded),
+          child: AnimatedCrossFade(
+            duration: const Duration(milliseconds: 200),
+            crossFadeState: _expanded
+                ? CrossFadeState.showFirst
+                : CrossFadeState.showSecond,
+            firstChild: _ExpandedExplanation(
+              explanations: widget.explanations,
+            ),
+            secondChild: _CollapsedExplanation(
+              explanations: widget.explanations,
+            ),
           ),
         ),
       ),
