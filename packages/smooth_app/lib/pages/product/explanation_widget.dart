@@ -42,7 +42,6 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
 class _CollapsedExplanation extends StatelessWidget {
   const _CollapsedExplanation({
     required this.explanations,
-    super.key,
   });
 
   final String explanations;
@@ -63,7 +62,6 @@ class _CollapsedExplanation extends StatelessWidget {
 class _ExpandedExplanation extends StatelessWidget {
   const _ExpandedExplanation({
     required this.explanations,
-    super.key,
   });
 
   final String explanations;
