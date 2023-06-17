@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
@@ -67,7 +68,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
       crossFadeState: _state is _ProductQuestionsWithoutQuestions
           ? CrossFadeState.showFirst
           : CrossFadeState.showSecond,
-      duration: const Duration(seconds: 5),
+      duration: SmoothAnimationsDuration.long,
       firstChild: EMPTY_WIDGET,
       secondChild: Builder(builder: (BuildContext context) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -75,6 +76,8 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
 
         // We need to differentiate with / without a Shimmer, because
         // [Shimmer] doesn't support [Ink]
+        final Color backgroundColor = Theme.of(context).colorScheme.primary;
+
         if (_state is _ProductQuestionsWithQuestions) {
           return Semantics(
             value: appLocalizations.tap_to_answer_hint,
@@ -93,7 +96,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
               ),
               child: Ink(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: backgroundColor,
                   borderRadius: ANGULAR_BORDER_RADIUS,
                 ),
                 padding: const EdgeInsets.all(
@@ -108,11 +111,12 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
             value: appLocalizations.robotoff_questions_loading_hint,
             excludeSemantics: true,
             child: Shimmer.fromColors(
-              baseColor: GREY_COLOR,
-              highlightColor: WHITE_COLOR,
+              baseColor: backgroundColor,
+              highlightColor: WHITE_COLOR.withOpacity(0.5),
+              period: SmoothAnimationsDuration.long * 2,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: backgroundColor,
                   borderRadius: ANGULAR_BORDER_RADIUS,
                 ),
                 padding: const EdgeInsets.all(

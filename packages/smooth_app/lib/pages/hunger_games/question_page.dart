@@ -73,7 +73,7 @@ Future<void> openQuestionPage(
           ),
         );
       },
-      transitionDuration: const Duration(milliseconds: 300),
+      transitionDuration: SmoothAnimationsDuration.medium,
     );
 
 class _QuestionPage extends StatefulWidget {
