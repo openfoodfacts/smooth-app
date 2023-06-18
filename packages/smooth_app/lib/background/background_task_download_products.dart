@@ -32,7 +32,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   /// Download flag. Normal case: 0, meaning all fields are downloaded.
   final int downloadFlag;
 
-  /// Download flag mask: exclude KP field from the download.
+  /// Download flag mask: exclude the Knowledge Panels field from the download.
   static const int flagMaskExcludeKP = 1;
 
   static const String _jsonTagDownloadFlag = 'download_flag';
