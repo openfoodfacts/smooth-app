@@ -165,7 +165,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   /// That happens in two cases:
   /// * we don't have a corresponding local product yet
   /// * the product we already have locally does not have populated knowledge
-  /// panel fields (therefore we won't "erase" any local KP data)
+  /// panel fields (therefore we won't "erase" any local Knowledge Panels data)
   static Future<bool> _shouldBeUpdated(
     final DaoProduct daoProduct,
     final String barcode,
