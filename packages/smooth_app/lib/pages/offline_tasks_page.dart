@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
 class OfflineTaskPage extends StatefulWidget {
   const OfflineTaskPage();
@@ -23,7 +24,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
     final List<String> taskIds = localDatabase.getAllTaskIds();
     return Scaffold(
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(
           appLocalizations.background_task_title,
           maxLines: 2,

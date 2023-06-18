@@ -6,6 +6,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class UserPreferencesDebugInfo extends StatefulWidget {
@@ -57,7 +58,7 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: const Text('Debugging information'),
         actions: <Widget>[
           IconButton(

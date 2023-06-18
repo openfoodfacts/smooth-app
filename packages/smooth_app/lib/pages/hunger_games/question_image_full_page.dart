@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
 /// Zoomable full page of a question image.
 class QuestionImageFullPage extends StatelessWidget {
@@ -10,7 +11,7 @@ class QuestionImageFullPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           title: AutoSizeText(
             '${question.question!} (${question.value!})',
             maxLines: 2,

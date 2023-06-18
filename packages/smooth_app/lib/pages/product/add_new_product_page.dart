@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 const IconData _doneIcon = Icons.check;
@@ -132,7 +133,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         return leaveThePage ?? false;
       },
       child: SmoothScaffold(
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           title: ListTile(
             title: Text(_product.productName ?? appLocalizations.new_product),
             subtitle: Text(barcode),

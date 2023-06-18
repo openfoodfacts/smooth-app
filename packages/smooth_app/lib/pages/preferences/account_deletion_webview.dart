@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -49,7 +50,7 @@ class _AccountDeletionWebviewState extends State<AccountDeletionWebview> {
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
-      appBar: AppBar(),
+      appBar: SmoothAppBar(),
       body: WebView(
         initialUrl: _getUrl(),
       ),

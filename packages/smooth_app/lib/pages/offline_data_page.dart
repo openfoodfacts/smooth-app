@@ -9,6 +9,8 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class OfflineDataPage extends StatefulWidget {
   const OfflineDataPage({Key? key}) : super(key: key);
@@ -27,8 +29,8 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Scaffold(
-      appBar: AppBar(
+    return SmoothScaffold(
+      appBar: SmoothAppBar(
         title: Text(appLocalizations.offline_data),
       ),
       body: RefreshIndicator(

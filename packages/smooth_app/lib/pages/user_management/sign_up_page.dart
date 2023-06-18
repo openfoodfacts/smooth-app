@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -76,7 +77,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
     return SmoothScaffold(
       fixKeyboard: true,
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         title: Text(appLocalizations.sign_up_page_title),
         backgroundColor: Colors.transparent,
         elevation: 0,
