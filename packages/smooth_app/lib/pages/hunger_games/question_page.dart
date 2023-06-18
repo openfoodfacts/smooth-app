@@ -22,17 +22,58 @@ Future<void> openQuestionPage(
   List<RobotoffQuestion>? questions,
   Function()? updateProductUponAnswers,
 }) =>
-    showDialog<void>(
+    showGeneralDialog<void>(
       context: context,
       barrierColor: Colors.black.withOpacity(0.7),
-      builder: (_) => BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-        child: _QuestionPage(
-          product: product,
-          questions: questions,
-          updateProductUponAnswers: updateProductUponAnswers,
-        ),
-      ),
+      pageBuilder: (_, __, ___) => EMPTY_WIDGET,
+      transitionBuilder: (
+        BuildContext context,
+        Animation<double> a1,
+        Animation<double> a2,
+        Widget child,
+      ) {
+        return SafeArea(
+          child: Stack(
+            children: <Widget>[
+              Positioned.fill(
+                child: GestureDetector(
+                  excludeFromSemantics: true,
+                  onTap: () => Navigator.of(context).maybePop(),
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Transform.scale(
+                  scale: a1.value,
+                  child: Opacity(
+                    opacity: a1.value,
+                    child: SafeArea(
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                        child: _QuestionPage(
+                          product: product,
+                          questions: questions,
+                          updateProductUponAnswers: updateProductUponAnswers,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned.directional(
+                textDirection: Directionality.of(context),
+                top: 0.0,
+                start: SMALL_SPACE,
+                child: Opacity(
+                  opacity: a1.value,
+                  child: const _CloseButton(),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+      transitionDuration: SmoothAnimationsDuration.medium,
     );
 
 class _QuestionPage extends StatefulWidget {
@@ -112,20 +153,7 @@ class _QuestionPageState extends State<_QuestionPage>
           }
           return true;
         },
-        child: Stack(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.center,
-              child: _buildAnimationSwitcher(),
-            ),
-            Positioned.directional(
-              textDirection: Directionality.of(context),
-              top: 0.0,
-              start: SMALL_SPACE,
-              child: const _CloseButton(),
-            ),
-          ],
-        ),
+        child: Center(child: _buildAnimationSwitcher()),
       );
 
   AnimatedSwitcher _buildAnimationSwitcher() => AnimatedSwitcher(

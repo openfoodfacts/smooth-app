@@ -26,6 +26,7 @@ import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
+import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -57,6 +58,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
+  bool _keepRobotoffQuestionsAlive = true;
 
   bool scrollingUp = true;
 
@@ -202,11 +204,14 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                   widget.heroTag?.isNotEmpty == true,
               child: Hero(
                 tag: widget.heroTag ?? '',
-                child: SummaryCard(
-                  _product,
-                  _productPreferences,
-                  isFullVersion: true,
-                  showUnansweredQuestions: true,
+                child: KeepQuestionWidgetAlive(
+                  keepWidgetAlive: _keepRobotoffQuestionsAlive,
+                  child: SummaryCard(
+                    _product,
+                    _productPreferences,
+                    isFullVersion: true,
+                    showUnansweredQuestions: true,
+                  ),
                 ),
               ),
             ),
@@ -343,10 +348,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               Icons.edit,
               appLocalizations.edit_product_label,
               () async {
+                setState(() => _keepRobotoffQuestionsAlive = false);
+
                 AnalyticsHelper.trackEvent(
                   AnalyticsEvent.openProductEditPage,
                   barcode: _barcode,
                 );
+
                 await Navigator.push<void>(
                   context,
                   MaterialPageRoute<void>(
@@ -354,6 +362,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                         EditProductPage(_product),
                   ),
                 );
+
+                // Force Robotoff questions to be reloaded
+                setState(() => _keepRobotoffQuestionsAlive = true);
               },
             ),
             _buildActionBarItem(
