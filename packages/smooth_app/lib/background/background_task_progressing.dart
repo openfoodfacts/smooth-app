@@ -38,7 +38,7 @@ abstract class BackgroundTaskProgressing extends BackgroundTaskPaged {
   /// Work about downloading top products.
   static const String workOffline = 'O';
 
-  /// Work about downloading fresh products with KP.
+  /// Work about downloading fresh products with Knowledge Panels.
   static const String workFreshWithKP = 'K';
 
   /// Work about downloading fresh products without KP.
