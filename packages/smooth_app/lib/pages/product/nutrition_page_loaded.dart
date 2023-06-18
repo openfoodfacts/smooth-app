@@ -233,10 +233,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Widget _getServingField(final AppLocalizations appLocalizations) {
     final String value = _nutritionContainer.servingSize;
 
-    if (_servingController != null) {
-      _servingController!.text = value;
-    } else {
+    if (_servingController == null) {
       _servingController = TextEditingControllerWithInitialValue(text: value);
+      _servingController!.selection =
+          TextSelection.collapsed(offset: _servingController!.text.length - 1);
     }
 
     final TextEditingControllerWithInitialValue controller =
