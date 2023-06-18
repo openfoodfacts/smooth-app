@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
@@ -24,6 +25,8 @@ class SimpleInputWidget extends StatefulWidget {
 
 class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   late final FocusNode _focusNode;
+
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   final Key _autocompleteKey = UniqueKey();
 
   @override
@@ -77,50 +80,55 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                     controller: widget.controller,
                   ),
                 ),
-                IconButton(
-                  onPressed: () {
-                    if (widget.helper
-                        .addItemsFromController(widget.controller)) {
-                      setState(() {});
-                    }
-                  },
-                  icon: const Icon(Icons.add_circle),
+                Tooltip(
+                  message: appLocalizations.edit_product_form_item_add_action(
+                      widget.helper.getTypeLabel(appLocalizations)),
+                  child: IconButton(
+                    onPressed: _onAddItem,
+                    icon: const Icon(Icons.add_circle),
+                  ),
                 )
               ],
             );
           },
         ),
         Divider(color: themeData.colorScheme.onBackground),
-        ListView.builder(
-          itemCount: widget.helper.terms.length,
-          itemBuilder: (BuildContext context, int position) {
+        AnimatedList(
+          key: _listKey,
+          initialItemCount: widget.helper.terms.length,
+          itemBuilder: (
+            BuildContext context,
+            int position,
+            Animation<double> animation,
+          ) {
             final String term = widget.helper.terms[position];
+            final Widget child = Text(term);
+
             return KeyedSubtree(
               key: ValueKey<String>(term),
-              child: ListTile(
-                trailing: Tooltip(
-                  message: appLocalizations
-                      .edit_product_form_item_remove_item_tooltip,
-                  child: InkWell(
-                    customBorder: const CircleBorder(),
-                    onTap: () {
-                      if (widget.helper.removeTerm(term)) {
-                        setState(() {});
-                      }
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: MEDIUM_SPACE,
-                        vertical: SMALL_SPACE,
+              child: SizeTransition(
+                sizeFactor: animation,
+                child: ListTile(
+                  trailing: Tooltip(
+                    message: appLocalizations
+                        .edit_product_form_item_remove_item_tooltip,
+                    child: InkWell(
+                      customBorder: const CircleBorder(),
+                      onTap: () => _onRemoveItem(term, position, child),
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: MEDIUM_SPACE,
+                          vertical: SMALL_SPACE,
+                        ),
+                        child: Icon(Icons.delete),
                       ),
-                      child: Icon(Icons.delete),
                     ),
                   ),
+                  contentPadding: const EdgeInsetsDirectional.only(
+                    start: LARGE_SPACE,
+                  ),
+                  title: child,
                 ),
-                contentPadding: const EdgeInsetsDirectional.only(
-                  start: LARGE_SPACE,
-                ),
-                title: Text(term),
               ),
             );
           },
@@ -129,5 +137,42 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
         ),
       ],
     );
+  }
+
+  void _onAddItem() {
+    final List<String> terms = widget.controller.text.split(',');
+
+    bool atLeastOneAnimatedItem = false;
+    if (widget.helper.addItemsFromController(widget.controller)) {
+      for (final String term in terms) {
+        final int newPosition = widget.helper.terms.indexOf(term);
+        if (newPosition >= 0) {
+          _listKey.currentState?.insertItem(newPosition);
+          atLeastOneAnimatedItem = true;
+        }
+      }
+    }
+
+    if (!atLeastOneAnimatedItem) {
+      setState(() {});
+    }
+
+    SmoothHapticFeedback.lightNotification();
+  }
+
+  void _onRemoveItem(String term, int position, Widget child) {
+    if (widget.helper.removeTerm(term)) {
+      _listKey.currentState?.removeItem(position,
+          (_, Animation<double> animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: SizeTransition(
+            sizeFactor: animation,
+            child: ListTile(title: child),
+          ),
+        );
+      });
+      SmoothHapticFeedback.lightNotification();
+    }
   }
 }

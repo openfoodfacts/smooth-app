@@ -1116,6 +1116,15 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_form_item_add_action": "Add a new {itemType}",
+    "description": "Tooltip to show when the user long presses the (+) button",
+    "@edit_product_form_item_add_action": {
+        "placeholders": {
+            "itemType": {
+                "type": "String"
+            }
+        }
+    },
     "edit_product_form_item_barcode": "Barcode",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
@@ -1156,6 +1165,10 @@
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
+    "edit_product_form_item_labels_type": "label",
+    "@edit_product_form_item_labels_type": {
+        "description": "Product edition - Labels - input textfield label"
+    },
     "edit_product_form_item_stores_title": "Stores",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
@@ -1164,6 +1177,10 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_stores_type": "store",
+    "@edit_product_form_item_stores_type": {
+        "description": "Product edition - Stores - input textfield type"
+    },
     "edit_product_form_item_origins_title": "Origins",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
@@ -1171,6 +1188,10 @@
     "edit_product_form_item_origins_hint": "Spain",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_type": "country",
+    "@edit_product_form_item_origins_type": {
+        "description": "Product edition - Origins - input textfield type"
     },
     "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
     "@edit_product_form_item_origins_explainer_1": {
@@ -1188,6 +1209,10 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
+    "edit_product_form_item_countries_type": "country",
+    "@edit_product_form_item_countries_type": {
+        "description": "Product edition - Countries - input textfield type"
+    },
     "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
@@ -1200,6 +1225,10 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
+    "edit_product_form_item_emb_codes_type": "traceability code",
+    "@edit_product_form_item_emb_codes_type": {
+        "description": "Product edition - Traceability Codes - input textfield type"
+    },
     "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
@@ -1211,6 +1240,10 @@
     "edit_product_form_item_categories_hint": "category",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_type": "category",
+    "@edit_product_form_item_categories_type": {
+        "description": "Product edition - Categories - input textfield type"
     },
     "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
     "@edit_product_form_item_categories_explainer_1": {
