@@ -236,18 +236,20 @@ class _ProductListPageState extends State<ProductListPage>
             icon: const Icon(Icons.delete),
             onPressed: () async {
               if (_selectedBarcodes.isNotEmpty) {
-                debugPrint(_selectedBarcodes.toString());
                 await showDialog<bool>(
                   context: context,
                   builder: (BuildContext context) {
                     return SmoothAlertDialog(
                       body: Text(
-                          appLocalizations.confirm_clear_selected_user_list),
+                        appLocalizations.confirm_clear_selected_user_list,
+                      ),
                       positiveAction: SmoothActionButton(
                         onPressed: () async {
                           await daoProductList.bulkSet(
-                              productList, _selectedBarcodes.toList(),
-                              include: false);
+                            productList,
+                            _selectedBarcodes.toList(growable: false),
+                            include: false,
+                          );
                           await daoProductList.get(productList);
                           setState(() {});
                           if (!mounted) {
@@ -258,9 +260,7 @@ class _ProductListPageState extends State<ProductListPage>
                         text: appLocalizations.yes,
                       ),
                       negativeAction: SmoothActionButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
+                        onPressed: () => Navigator.of(context).pop(),
                         text: appLocalizations.no,
                       ),
                     );
@@ -268,18 +268,19 @@ class _ProductListPageState extends State<ProductListPage>
                 );
               } else {
                 await showDialog<bool>(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return SmoothAlertDialog(
-                        body:
-                            Text(appLocalizations.alert_select_items_to_clear),
-                        positiveAction: SmoothActionButton(
-                            onPressed: () async {
-                              Navigator.of(context).pop();
-                            },
-                            text: appLocalizations.okay),
-                      );
-                    });
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SmoothAlertDialog(
+                      body: Text(
+                        appLocalizations.alert_select_items_to_clear,
+                      ),
+                      positiveAction: SmoothActionButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        text: appLocalizations.okay,
+                      ),
+                    );
+                  },
+                );
               }
             },
           ),
