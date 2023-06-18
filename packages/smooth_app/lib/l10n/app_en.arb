@@ -2124,6 +2124,14 @@
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
+    "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+    "@download_top_n_products": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "download_in_progress": "Downloading data\nThis may take a while",
     "@download_in_progress": {
         "description": "Download in progress"

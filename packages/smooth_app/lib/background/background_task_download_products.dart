@@ -3,75 +3,105 @@ import 'dart:convert';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
-import 'package:smooth_app/background/background_task_full_refresh.dart';
-import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/background/background_task_progressing.dart';
+import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-/// Background subtask about downloading products.
-///
-/// For space reasons, we don't download the full products: we remove the
-/// knowledge panel fields.
-class BackgroundTaskOfflineProducts extends BackgroundTask {
-  BackgroundTaskOfflineProducts._({
+/// Background progressing task about downloading products.
+class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
+  BackgroundTaskDownloadProducts._({
     required super.processName,
     required super.uniqueId,
     required super.languageCode,
     required super.user,
     required super.country,
     required super.stamp,
+    required super.work,
+    required super.pageSize,
+    required super.totalSize,
+    required this.downloadFlag,
   });
 
-  BackgroundTaskOfflineProducts.fromJson(Map<String, dynamic> json)
-      : super.fromJson(json);
+  BackgroundTaskDownloadProducts.fromJson(Map<String, dynamic> json)
+      : downloadFlag = json[_jsonTagDownloadFlag] as int,
+        super.fromJson(json);
+
+  /// Download flag. Normal case: 0, meaning all fields are downloaded.
+  final int downloadFlag;
+
+  /// Download flag mask: exclude KP field from the download.
+  static const int flagMaskExcludeKP = 1;
+
+  static const String _jsonTagDownloadFlag = 'download_flag';
+
+  @override
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> result = super.toJson();
+    result[_jsonTagDownloadFlag] = downloadFlag;
+    return result;
+  }
 
   static const OperationType _operationType = OperationType.offlineProducts;
 
   static Future<void> addTask({
     required final LocalDatabase localDatabase,
+    required final String work,
+    required final int pageSize,
+    required final int totalSize,
+    required final int soFarSize,
+    required final int downloadFlag,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
-      BackgroundTaskFullRefresh.noBarcode,
+      soFarSize: soFarSize,
+      totalSize: totalSize,
+      work: work,
     );
     final BackgroundTask task = _getNewTask(
       uniqueId,
+      work,
+      pageSize,
+      totalSize,
+      downloadFlag,
     );
     await task.addToManager(localDatabase);
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
-      'Starting the download of the most popular products'; // TODO(monsieurtanuki): localize and add percentage
+  String? getSnackBarMessage(final AppLocalizations appLocalizations) => null;
 
   static BackgroundTask _getNewTask(
     final String uniqueId,
+    final String work,
+    final int pageSize,
+    final int totalSize,
+    final int downloadFlag,
   ) =>
-      BackgroundTaskOfflineProducts._(
+      BackgroundTaskDownloadProducts._(
         processName: _operationType.processName,
         uniqueId: uniqueId,
         languageCode: ProductQuery.getLanguage().offTag,
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
-        stamp: ';offlineProducts',
+        stamp: ';offlineProducts;$work',
+        work: work,
+        pageSize: pageSize,
+        totalSize: totalSize,
+        downloadFlag: downloadFlag,
       );
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
 
-  void myPrint(final String message) =>
-      print('${LocalDatabase.nowInMillis()}: $message');
-
-  static const String work = 'O';
-  static const int pageSize = 100;
-  static const int totalSize = 500;
+  @override
+  bool hasImmediateNextTask = false;
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
     final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
-    myPrint('DOWNLOAD barcodes');
     final List<String> barcodes = await daoWorkBarcode.getNextPage(
       work,
       pageSize,
@@ -84,39 +114,49 @@ class BackgroundTaskOfflineProducts extends BackgroundTask {
       ProductQuery.fields,
       growable: true,
     );
-    fields.remove(ProductField.KNOWLEDGE_PANELS);
+    if (downloadFlag & flagMaskExcludeKP != 0) {
+      fields.remove(ProductField.KNOWLEDGE_PANELS);
+    }
     final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
       ProductQuery.getUser(),
       ProductSearchQueryConfiguration(
         fields: fields,
         parametersList: <Parameter>[
-          const PageSize(size: pageSize),
+          PageSize(size: pageSize),
           const PageNumber(page: 1),
           BarcodeParameter.list(barcodes),
         ],
         language: ProductQuery.getLanguage(),
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
-        // https://fr.openfoodfacts.org/api/v2/search?page_size=1000&fields=code
       ),
     );
     final List<Product>? downloadedProducts = searchResult.products;
     if (downloadedProducts == null) {
-      myPrint('not supposed to happen!!!');
-      // TODO: not supposed to happen
-      return;
+      throw Exception('Something bad happened downloading products');
     }
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     for (final Product product in downloadedProducts) {
       if (await _shouldBeUpdated(daoProduct, product.barcode!)) {
         await daoProduct.put(product);
-        myPrint('added ${product.barcode}');
       }
     }
-    await daoWorkBarcode.deleteBarcodes(work, barcodes);
+    final int deleted = await daoWorkBarcode.deleteBarcodes(work, barcodes);
+    if (deleted == 0) {
+      // for some reason, it's already been taken care of.
+      return;
+    }
     final int remaining = await daoWorkBarcode.getCount(work);
     if (remaining > 0) {
-      await addTask(localDatabase: localDatabase);
+      hasImmediateNextTask = true;
+      await addTask(
+        localDatabase: localDatabase,
+        work: work,
+        pageSize: pageSize,
+        totalSize: totalSize,
+        soFarSize: totalSize - remaining,
+        downloadFlag: downloadFlag,
+      );
     }
   }
 

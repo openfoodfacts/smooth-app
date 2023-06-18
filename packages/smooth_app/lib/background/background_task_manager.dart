@@ -5,7 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
-import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
@@ -14,9 +14,14 @@ import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
 class BackgroundTaskManager {
-  BackgroundTaskManager(this.localDatabase);
+  BackgroundTaskManager._(this.localDatabase);
 
   final LocalDatabase localDatabase;
+
+  static BackgroundTaskManager? _instance;
+
+  static BackgroundTaskManager getInstance(final LocalDatabase localDatabase) =>
+      _instance ??= BackgroundTaskManager._(localDatabase);
 
   /// Returns [DaoInstantString] key for tasks.
   static String _taskIdToDaoInstantStringKey(final String taskId) =>
@@ -95,28 +100,32 @@ class BackgroundTaskManager {
   /// Minimum duration in millis between each run.
   static const int _minimumDurationBetweenRuns = 5 * 1000;
 
-  /// Returns true if we can run now.
-  ///
-  /// Will also set the "latest start timestamp".
-  /// With this, we can detect a run that went wrong.
-  /// Like, still running 1 hour later.
-  Future<bool> _canStartNow() async {
+  /// Returns the "now" timestamp if we can run now, or `null`.
+  int? _canStartNow() {
     final DaoInt daoInt = DaoInt(localDatabase);
     final int now = LocalDatabase.nowInMillis();
     final int? latestRunStart = daoInt.get(_lastStartTimestampKey);
     final int? latestRunStop = daoInt.get(_lastStopTimestampKey);
+    if (_running) {
+      // if pretending to be running but started a very very long time ago
+      if (latestRunStart != null &&
+          latestRunStart + _aLongEnoughTimeInMilliseconds < now) {
+        // we assume we can run now.
+        return now;
+      }
+      return null;
+    }
     // if the last run stopped correctly or was started a long time ago.
     if (latestRunStart == null ||
         latestRunStart + _aLongEnoughTimeInMilliseconds < now) {
       // if the last run stopped not enough time ago.
       if (latestRunStop != null &&
           latestRunStop + _minimumDurationBetweenRuns >= now) {
-        return false;
+        return null;
       }
-      await daoInt.put(_lastStartTimestampKey, now);
-      return true;
+      return now;
     }
-    return false;
+    return null;
   }
 
   /// Signals we've just finished working and that we're ready for a new run.
@@ -128,6 +137,8 @@ class BackgroundTaskManager {
     );
   }
 
+  bool _running = false;
+
   /// Runs all the pending tasks, and then smoothly ends.
   ///
   /// If a task fails, we continue with the other tasks: and we'll retry the
@@ -136,32 +147,49 @@ class BackgroundTaskManager {
   /// we can remove the failed task from the list: it would have been
   /// overwritten anyway.
   Future<void> run() async {
-    if (!await _canStartNow()) {
+    final int? now = _canStartNow();
+    if (now == null) {
       return;
     }
-    final List<BackgroundTask> tasks = await _getAllTasks();
-    for (final BackgroundTask task in tasks) {
-      await task.recover(localDatabase);
-    }
-    for (final BackgroundTask task in tasks) {
-      final String taskId = task.uniqueId;
-      try {
-        await _setTaskErrorStatus(taskId, taskStatusStarted);
-        await task.execute(localDatabase);
-        await _finishTask(taskId, success: true);
-      } catch (e) {
-        // Most likely, no internet, no reason to go on.
-        if (e.toString().startsWith('Failed host lookup: ')) {
-          await _setTaskErrorStatus(taskId, taskStatusNoInternet);
-          await _justFinished();
-          return;
-        }
-        debugPrint('Background task error ($e)');
-        Logs.e('Background task error', ex: e);
-        await _setTaskErrorStatus(taskId, '$e');
+    _running = true;
+
+    ///
+    /// Will also set the "latest start timestamp".
+    /// With this, we can detect a run that went wrong.
+    /// Like, still running 1 hour later.
+    final DaoInt daoInt = DaoInt(localDatabase);
+    await daoInt.put(_lastStartTimestampKey, now);
+    bool runAgain = true;
+    while (runAgain) {
+      runAgain = false;
+      final List<BackgroundTask> tasks = await _getAllTasks();
+      for (final BackgroundTask task in tasks) {
+        await task.recover(localDatabase);
       }
+      for (final BackgroundTask task in tasks) {
+        final String taskId = task.uniqueId;
+        try {
+          await _setTaskErrorStatus(taskId, taskStatusStarted);
+          await task.execute(localDatabase);
+          await _finishTask(taskId, success: true);
+          if (task.hasImmediateNextTask) {
+            runAgain = true;
+          }
+        } catch (e) {
+          // Most likely, no internet, no reason to go on.
+          if (e.toString().startsWith('Failed host lookup: ')) {
+            await _setTaskErrorStatus(taskId, taskStatusNoInternet);
+            await _justFinished();
+            return;
+          }
+          debugPrint('Background task error ($e)');
+          Logs.e('Background task error', ex: e);
+          await _setTaskErrorStatus(taskId, '$e');
+        }
+      }
+      await _justFinished();
     }
-    await _justFinished();
+    _running = false;
   }
 
   Future<void> _setTaskErrorStatus(

@@ -52,11 +52,13 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                 final String barcode = OperationType.getBarcode(taskId);
                 final int? totalSize = OperationType.getTotalSize(taskId);
                 final int? soFarSize = OperationType.getSoFarSize(taskId);
+                final String? workText = _getWorkText(taskId);
                 final String info;
                 if (barcode != BackgroundTaskProgressing.noBarcode) {
                   info = '$barcode ';
                 } else if (totalSize != null && soFarSize != null) {
-                  info = '${(100 * soFarSize) ~/ totalSize}% ';
+                  info =
+                      '${(100 * soFarSize) ~/ totalSize}% ${workText == null ? '' : '- $workText '}';
                 } else {
                   info = '';
                 }
@@ -112,5 +114,21 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         return appLocalizations.background_task_run_to_be_deleted;
     }
     return status;
+  }
+
+  String? _getWorkText(final String taskId) {
+    final String? work = OperationType.getWork(taskId);
+    switch (work) {
+      case null:
+      case '':
+        return null;
+      case BackgroundTaskProgressing.workOffline:
+        return 'Top products';
+      case BackgroundTaskProgressing.workFreshWithoutKP:
+        return 'Refresh products without KP';
+      case BackgroundTaskProgressing.workFreshWithKP:
+        return 'Refresh products with KP';
+    }
+    return 'Unknown work ($work)!';
   }
 }

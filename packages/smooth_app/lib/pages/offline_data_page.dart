@@ -18,6 +18,12 @@ class OfflineDataPage extends StatefulWidget {
 }
 
 class _OfflineDataPageState extends State<OfflineDataPage> {
+  /// Number of Top N products to download.
+  static const int _topNSize = 10000;
+
+  /// Page size for download operations.
+  static const int _pageSize = 100;
+
   @override
   Widget build(BuildContext context) {
     // TODO(ashaman999): replaace the header asset with a custom one for this page
@@ -51,9 +57,11 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
             ),
             _OfflinePageListTile(
               title: appLocalizations.download_data,
-              subtitle: appLocalizations.download_top_products,
+              subtitle: appLocalizations.download_top_n_products(_topNSize),
               onTap: () async => BackgroundTaskOffline.addTask(
                 widget: this,
+                pageSize: _pageSize,
+                totalSize: _topNSize,
               ),
               trailing: const Icon(Icons.download),
             ),
@@ -63,6 +71,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               trailing: const Icon(Icons.refresh),
               onTap: () async => BackgroundTaskFullRefresh.addTask(
                 widget: this,
+                pageSize: _pageSize,
               ),
             ),
             _OfflinePageListTile(

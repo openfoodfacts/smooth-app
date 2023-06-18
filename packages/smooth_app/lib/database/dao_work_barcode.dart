@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:smooth_app/database/abstract_sql_dao.dart';
+import 'package:smooth_app/database/bulk_manager.dart';
 import 'package:sqflite/sqflite.dart';
 
 /// Work table that contains barcodes.
@@ -71,7 +72,8 @@ class DaoWorkBarcode extends AbstractSqlDao {
     return result;
   }
 
-  Future<void> putAll(
+  /// Returns the number of inserted rows.
+  Future<int> putAll(
     final String work,
     final Iterable<String> barcodes,
   ) async =>
@@ -81,7 +83,6 @@ class DaoWorkBarcode extends AbstractSqlDao {
       );
 
   /// Returns the number of inserted rows by optimized bulk insert.
-  // TODO(monsieurtanuki): will work for less than 999 / 2 = 499 barcodes
   Future<int> _bulkInsert(
     final DatabaseExecutor databaseExecutor,
     final String work,
@@ -91,15 +92,29 @@ class DaoWorkBarcode extends AbstractSqlDao {
       return 0;
     }
     final List<String> parameters = <String>[];
+    int count = 0;
+
+    Future<void> rawInsert() async {
+      final int inserted = await databaseExecutor.rawInsert(
+        'insert into $_table(${_columns.join(',')}) '
+        'values(?,?)${',(?,?)' * (parameters.length ~/ 2 - 1)}',
+        parameters,
+      );
+      count += inserted;
+    }
+
     for (final String barcode in barcodes) {
       parameters.add(work);
       parameters.add(barcode);
+      if (parameters.length + 2 >= BulkManager.SQLITE_MAX_VARIABLE_NUMBER) {
+        await rawInsert();
+        parameters.clear();
+      }
     }
-    return databaseExecutor.rawInsert(
-      'insert into $_table(${_columns.join(',')}) '
-      'values(?,?)${',(?,?)' * (barcodes.length - 1)}',
-      parameters,
-    );
+    if (parameters.isNotEmpty) {
+      await rawInsert();
+    }
+    return count;
   }
 
   /// Deletes all barcodes for a given work.
@@ -115,8 +130,18 @@ class DaoWorkBarcode extends AbstractSqlDao {
   /// Deletes all barcodes for a given work.
   ///
   /// Returns the number of rows deleted.
-  // TODO(monsieurtanuki): will work for less than 999 - 1 = 998 barcodes
   Future<int> deleteBarcodes(
+    final String work,
+    final Iterable<String> barcodes,
+  ) async =>
+      localDatabase.database.transaction(
+        (final Transaction transaction) async =>
+            _bulkDelete(transaction, work, barcodes),
+      );
+
+  /// Returns the number of deleted rows by optimized bulk delete.
+  Future<int> _bulkDelete(
+    final DatabaseExecutor databaseExecutor,
     final String work,
     final Iterable<String> barcodes,
   ) async {
@@ -124,13 +149,30 @@ class DaoWorkBarcode extends AbstractSqlDao {
       return 0;
     }
     final List<String> parameters = <String>[];
+    int count = 0;
+
+    Future<void> rawDelete() async {
+      final int deleted = await databaseExecutor.delete(
+        _table,
+        where: '$_columnWork = ? '
+            'and $_columnBarcode in(?${',?' * (parameters.length - 2)})',
+        whereArgs: parameters,
+      );
+      count += deleted;
+    }
+
     parameters.add(work);
-    parameters.addAll(barcodes);
-    return localDatabase.database.delete(
-      _table,
-      where:
-          '$_columnWork = ? and $_columnBarcode in(?${',?' * (barcodes.length - 1)})',
-      whereArgs: parameters,
-    );
+    for (final String barcode in barcodes) {
+      parameters.add(barcode);
+      if (parameters.length + 1 >= BulkManager.SQLITE_MAX_VARIABLE_NUMBER) {
+        await rawDelete();
+        parameters.clear();
+        parameters.add(work);
+      }
+    }
+    if (parameters.isNotEmpty) {
+      await rawDelete();
+    }
+    return count;
   }
 }

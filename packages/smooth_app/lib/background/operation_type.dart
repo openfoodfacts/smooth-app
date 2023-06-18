@@ -51,6 +51,7 @@ enum OperationType {
     final String? barcode = BackgroundTaskProgressing.noBarcode,
     final int? totalSize,
     final int? soFarSize,
+    final String? work,
   }) async {
     final int sequentialId =
         await getNextSequenceNumber(DaoInt(localDatabase), _uniqueSequenceKey);
@@ -58,7 +59,8 @@ enum OperationType {
         '$_transientHeaderSeparator$sequentialId'
         '$_transientHeaderSeparator$barcode'
         '$_transientHeaderSeparator${totalSize == null ? '' : totalSize.toString()}'
-        '$_transientHeaderSeparator${soFarSize == null ? '' : soFarSize.toString()}';
+        '$_transientHeaderSeparator${soFarSize == null ? '' : soFarSize.toString()}'
+        '$_transientHeaderSeparator${work ?? ''}';
   }
 
   BackgroundTask fromJson(Map<String, dynamic> map) {
@@ -106,9 +108,9 @@ enum OperationType {
       case OperationType.offline:
         return 'Downloading top n products for offline usage';
       case OperationType.offlineBarcodes:
-        return 'Downloading top n barcodes for offline usage';
+        return 'Downloading top n barcodes';
       case OperationType.offlineProducts:
-        return 'Downloading top n products for offline usage';
+        return 'Downloading products';
       case OperationType.fullRefresh:
         return 'Refreshing the full local database';
     }
@@ -139,6 +141,14 @@ enum OperationType {
       return null;
     }
     return int.tryParse(keyItems[4]);
+  }
+
+  static String? getWork(final String key) {
+    final List<String> keyItems = key.split(_transientHeaderSeparator);
+    if (keyItems.length <= 5) {
+      return null;
+    }
+    return keyItems[5];
   }
 
   static OperationType? getOperationType(final String key) {
