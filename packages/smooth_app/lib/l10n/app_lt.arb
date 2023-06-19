@@ -350,6 +350,14 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "@tap_to_answer_hint": {
+        "description": "Hint for accessibility readers to answer Robotoff questions."
+    },
+    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "@robotoff_questions_loading_hint": {
+        "description": "Hint for accessibility readers while Robotoff questions are loaded"
+    },
     "saving_answer": "Išsaugomas jūsų atsakymas",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
@@ -498,6 +506,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_message": "Atrodo, kad nieko neįvedėte. Ar tikrai norite išeiti iš šio puslapio?",
+    "@new_product_leave_message": {
+        "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_dialog_description": "Nufotografuokite pakuotę, kad pridėtumėte šį produktą prie mūsų bendros duomenų bazės",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
@@ -548,6 +560,9 @@
     "new_product_title_ecoscore": "Apskaičiuoti „Eco-Score“",
     "new_product_subtitle_ecoscore": "Gaukite jį užpildę bent vieną kategoriją",
     "new_product_additional_ecoscore": "Padarykite Eco-Score skaičiavimą tikslesnį, nurodydami kilmę, pakuotę ir kt",
+    "new_product_title_nova": "Apskaičiuoti maisto apdorojimo lygį (NOVA)",
+    "new_product_subtitle_nova": "Gauti jį užpildžius maisto kategoriją ir ingredientus",
+    "new_product_desc_nova_unknown": "Maisto perdirbimo lygis nežinomas",
     "new_product_title_pictures": "Nufotografuokime kelias nuotraukas!",
     "new_product_title_misc": "Ir kai kurie pagrindiniai duomenys…",
     "nutritional_facts_photo_uploaded": "Įkelta Maistingumo lentelės nuotrauka",
@@ -1109,6 +1124,15 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_form_item_add_action": "Add a new {itemType}",
+    "description": "Tooltip to show when the user long presses the (+) button",
+    "@edit_product_form_item_add_action": {
+        "placeholders": {
+            "itemType": {
+                "type": "String"
+            }
+        }
+    },
     "edit_product_form_item_barcode": "Barkodas",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
@@ -1149,6 +1173,10 @@
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
+    "edit_product_form_item_labels_type": "etiketė",
+    "@edit_product_form_item_labels_type": {
+        "description": "Product edition - Labels - input textfield label"
+    },
     "edit_product_form_item_stores_title": "Parduotuvės",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
@@ -1157,6 +1185,10 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_stores_type": "parduotuvė",
+    "@edit_product_form_item_stores_type": {
+        "description": "Product edition - Stores - input textfield type"
+    },
     "edit_product_form_item_origins_title": "Kilmė",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
@@ -1164,6 +1196,10 @@
     "edit_product_form_item_origins_hint": "Ispanija",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_type": "šalis",
+    "@edit_product_form_item_origins_type": {
+        "description": "Product edition - Origins - input textfield type"
     },
     "edit_product_form_item_origins_explainer_1": "Pridėkite visas kilmės nuorodas, kurias rasite ant pakuotės. Jums nereikia jaudintis dėl kilmės, nurodytos tiesiogiai ingredientų sąraše.",
     "@edit_product_form_item_origins_explainer_1": {
@@ -1181,6 +1217,10 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
+    "edit_product_form_item_countries_type": "šalis",
+    "@edit_product_form_item_countries_type": {
+        "description": "Product edition - Countries - input textfield type"
+    },
     "edit_product_form_item_countries_explanations": "Šalys, kuriose produktas yra plačiai prieinamas (neįskaitant parduotuvių, kurių specializacija yra užsienio produktai).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
@@ -1193,6 +1233,10 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
+    "edit_product_form_item_emb_codes_type": "atsekamumo kodas",
+    "@edit_product_form_item_emb_codes_type": {
+        "description": "Product edition - Traceability Codes - input textfield type"
+    },
     "edit_product_form_item_emb_codes_explanations": "Europoje koduokite elipsės pavidalu su 2 šalių inicialais, po kurių seka skaičius ir CE.\nPavyzdžiai: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
@@ -1204,6 +1248,10 @@
     "edit_product_form_item_categories_hint": "kategorija",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_type": "kategorija",
+    "@edit_product_form_item_categories_type": {
+        "description": "Product edition - Categories - input textfield type"
     },
     "edit_product_form_item_categories_explainer_1": "Nurodykite tik konkrečiausią kategoriją. Tėvų kategorijos bus pridėtos automatiškai.",
     "@edit_product_form_item_categories_explainer_1": {
@@ -1302,9 +1350,9 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Clear",
+    "user_list_popup_clear": "Išvalyti savo istoriją",
     "@user_list_popup_clear": {
-        "description": "Short label of a 'clear list' popup"
+        "description": "Short label of a 'clear your history list' popup"
     },
     "user_list_popup_rename": "Pervardyti",
     "@user_list_popup_rename": {
@@ -1343,11 +1391,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Perjungti galinę kamerą į priekinę ir atvirkščiai",
+    "camera_toggle_camera": "Troca entre camera de fundo e frente ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Įjungti arba išjungti fotoaparato blykstę",
+    "camera_toggle_flash": "Ligue ON ou OFF o flash da câmera",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1837,6 +1885,18 @@
     "product_card_remove_product_tooltip": "Pašalinti produktą",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "scan_header_clear_button_tooltip": "Pašalinti visus produktus iš karuselės",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Nuskaitykite bent du produktus, kad juos palygintumėte",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Spustelėkite, kad palygintumėte nuskaitytus produktus",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
     "portion_calculator_description": "Apskaičiuokite konkretaus kiekio mitybos faktus",
     "@portion_calculator_description": {

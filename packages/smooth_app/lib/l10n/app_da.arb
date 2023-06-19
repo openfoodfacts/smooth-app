@@ -350,6 +350,14 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "tap_to_answer_hint": "Tryk her for at besvare spørgsmål om dette produkt",
+    "@tap_to_answer_hint": {
+        "description": "Hint for accessibility readers to answer Robotoff questions."
+    },
+    "robotoff_questions_loading_hint": "Afvent indlæsning af spørgsmål om dette produkt",
+    "@robotoff_questions_loading_hint": {
+        "description": "Hint for accessibility readers while Robotoff questions are loaded"
+    },
     "saving_answer": "Gemmer svaret",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
@@ -498,6 +506,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_message": "Ser ud til, at der ikke blev indtastet noget. Forlad siden alligevel, sikker?",
+    "@new_product_leave_message": {
+        "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_dialog_description": "Tag fotos af emballagen for føje produktet til den fælles databasen",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
@@ -548,6 +560,9 @@
     "new_product_title_ecoscore": "Beregn Øko-Score",
     "new_product_subtitle_ecoscore": "Få den ved at udfylde mindst én kategori",
     "new_product_additional_ecoscore": "Gør beregning af Øko-Score mere præcis med oprindelse, emballage mm.",
+    "new_product_title_nova": "Beregn fødevareforarbejdningsniveau (NOVA)",
+    "new_product_subtitle_nova": "Få det ved at udfylde fødevarekategori og ingredienser",
+    "new_product_desc_nova_unknown": "Fødevareforarbejdningsniveau ukendt",
     "new_product_title_pictures": "Lad os tage nogle fotos!",
     "new_product_title_misc": "Og nogle basisdata…",
     "nutritional_facts_photo_uploaded": "Næringsfaktafoto uploadet",
@@ -1109,6 +1124,15 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_form_item_add_action": "Tilføj en ny {itemType}",
+    "description": "Værktøjstip til at vise brugerens brug af langt tryk på knappen (+)",
+    "@edit_product_form_item_add_action": {
+        "placeholders": {
+            "itemType": {
+                "type": "String"
+            }
+        }
+    },
     "edit_product_form_item_barcode": "Stregkode",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
@@ -1149,6 +1173,10 @@
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
+    "edit_product_form_item_labels_type": "etiket",
+    "@edit_product_form_item_labels_type": {
+        "description": "Product edition - Labels - input textfield label"
+    },
     "edit_product_form_item_stores_title": "Butikker",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
@@ -1157,6 +1185,10 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_stores_type": "butik",
+    "@edit_product_form_item_stores_type": {
+        "description": "Product edition - Stores - input textfield type"
+    },
     "edit_product_form_item_origins_title": "Oprindelser",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
@@ -1164,6 +1196,10 @@
     "edit_product_form_item_origins_hint": "Spanien",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_type": "land",
+    "@edit_product_form_item_origins_type": {
+        "description": "Product edition - Origins - input textfield type"
     },
     "edit_product_form_item_origins_explainer_1": "Tilføj evt. oprindelsesangivelser fundet på emballagen. Man behøver ikke bekymre sig om oprindelse angivet direkte på ingredienslisten.",
     "@edit_product_form_item_origins_explainer_1": {
@@ -1181,6 +1217,10 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
+    "edit_product_form_item_countries_type": "land",
+    "@edit_product_form_item_countries_type": {
+        "description": "Product edition - Countries - input textfield type"
+    },
     "edit_product_form_item_countries_explanations": "Lande, hvori produktet er bredt tilgængeligt (fraset butikker specialiseret i udenlandske produkter).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
@@ -1193,6 +1233,10 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
+    "edit_product_form_item_emb_codes_type": "sporbarhedskode",
+    "@edit_product_form_item_emb_codes_type": {
+        "description": "Product edition - Traceability Codes - input textfield type"
+    },
     "edit_product_form_item_emb_codes_explanations": "I Europa er koden en ellipse med de 2 landeinitialer efterfulgt af et tal og CE.\nEks.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
@@ -1204,6 +1248,10 @@
     "edit_product_form_item_categories_hint": "kategori",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_type": "kategori",
+    "@edit_product_form_item_categories_type": {
+        "description": "Product edition - Categories - input textfield type"
     },
     "edit_product_form_item_categories_explainer_1": "Angiv kun den mest specifikke kategori. Overordnede kategorier tilføjes automatisk.",
     "@edit_product_form_item_categories_explainer_1": {
@@ -1302,9 +1350,9 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Ryd",
+    "user_list_popup_clear": "Ryd historikken",
     "@user_list_popup_clear": {
-        "description": "Short label of a 'clear list' popup"
+        "description": "Short label of a 'clear your history list' popup"
     },
     "user_list_popup_rename": "Omdøb",
     "@user_list_popup_rename": {
@@ -1343,11 +1391,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Skift mellem bag- og frontkamera",
+    "camera_toggle_camera": "Skift mellem for- og bagkamera ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Slå kamerablitz TIL eller FRA",
+    "camera_toggle_flash": "Slå kamerablitz TIL/FRA",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1837,6 +1885,18 @@
     "product_card_remove_product_tooltip": "Fjern produkt",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "scan_header_clear_button_tooltip": "Fjern alle produkter fra karrusellen",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Skan mindst to produkter for at sammenligne dem",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Klik for at sammenligne de skannede produkter",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
     "portion_calculator_description": "Beregn ernæringfakta for en bestemt mængde",
     "@portion_calculator_description": {

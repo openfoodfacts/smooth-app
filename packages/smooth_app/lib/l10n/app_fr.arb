@@ -350,6 +350,14 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "@tap_to_answer_hint": {
+        "description": "Hint for accessibility readers to answer Robotoff questions."
+    },
+    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "@robotoff_questions_loading_hint": {
+        "description": "Hint for accessibility readers while Robotoff questions are loaded"
+    },
     "saving_answer": "Enregistrement de votre réponse",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
@@ -359,9 +367,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Connectez-vous à votre compte Open Food Facts pour être crédité de vos contributions",
-    "question_yes_button_accessibility_value": "Answer with yes",
-    "question_no_button_accessibility_value": "Answer with no",
-    "question_skip_button_accessibility_value": "Skip this question",
+    "question_yes_button_accessibility_value": "Répondre par oui",
+    "question_no_button_accessibility_value": "Répondre par non",
+    "question_skip_button_accessibility_value": "Passer cette question",
     "tap_to_edit_search": "Appuyez pour modifier la recherche",
     "@Personal preferences": {},
     "myPreferences": "Mes préférences",
@@ -498,7 +506,7 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_leave_message": "Apparemment vous n'avez rien saisi. Voulez-vous vraiment quitter cette page ?",
+    "new_product_leave_message": "Il semble que vous n'ayez rien saisi. Voulez-vous vraiment quitter cette page ?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
@@ -552,9 +560,9 @@
     "new_product_title_ecoscore": "Calculez l'Eco-Score",
     "new_product_subtitle_ecoscore": "Merci de renseigner au moins la catégorie de l'aliment",
     "new_product_additional_ecoscore": "Rendre le calcul de l'Eco-Score plus précis avec les origines géographiques, l'emballage et plus",
-    "new_product_title_nova": "Calculez le niveau d'ultra-transformation (NOVA)",
-    "new_product_subtitle_nova": "Merci de renseigner la catégorie de l'aliment et les ingrédients",
-    "new_product_desc_nova_unknown": "Niveau d'ultra-transformation inconnu",
+    "new_product_title_nova": "Compute the food processing level (NOVA)",
+    "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
+    "new_product_desc_nova_unknown": "Degré de transformation des aliments inconnu",
     "new_product_title_pictures": "Prenons quelques photos !",
     "new_product_title_misc": "Et quelques données de base…",
     "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",
@@ -1116,6 +1124,15 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_form_item_add_action": "Add a new {itemType}",
+    "description": "Tooltip to show when the user long presses the (+) button",
+    "@edit_product_form_item_add_action": {
+        "placeholders": {
+            "itemType": {
+                "type": "String"
+            }
+        }
+    },
     "edit_product_form_item_barcode": "Code-barres",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
@@ -1156,6 +1173,10 @@
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
+    "edit_product_form_item_labels_type": "label",
+    "@edit_product_form_item_labels_type": {
+        "description": "Product edition - Labels - input textfield label"
+    },
     "edit_product_form_item_stores_title": "Magasins",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
@@ -1164,6 +1185,10 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_stores_type": "magasin",
+    "@edit_product_form_item_stores_type": {
+        "description": "Product edition - Stores - input textfield type"
+    },
     "edit_product_form_item_origins_title": "Origines",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
@@ -1171,6 +1196,10 @@
     "edit_product_form_item_origins_hint": "Espagne",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_type": "pays",
+    "@edit_product_form_item_origins_type": {
+        "description": "Product edition - Origins - input textfield type"
     },
     "edit_product_form_item_origins_explainer_1": "Ajoutez toutes les indications d'origine que vous pouvez trouver sur l'emballage. Vous n'avez pas à vous soucier des origines indiquées directement dans la liste des ingrédients.",
     "@edit_product_form_item_origins_explainer_1": {
@@ -1188,6 +1217,10 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
+    "edit_product_form_item_countries_type": "pays",
+    "@edit_product_form_item_countries_type": {
+        "description": "Product edition - Countries - input textfield type"
+    },
     "edit_product_form_item_countries_explanations": "Pays dans lesquels le produit est largement distribué (hors magasins spécialisés dans l'import).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
@@ -1200,6 +1233,10 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
+    "edit_product_form_item_emb_codes_type": "code de traçabilité",
+    "@edit_product_form_item_emb_codes_type": {
+        "description": "Product edition - Traceability Codes - input textfield type"
+    },
     "edit_product_form_item_emb_codes_explanations": "En Europe, le code est une ellipse contenant les deux initiales du pays suivies par un nombre et CE.\nExemples : EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
@@ -1211,6 +1248,10 @@
     "edit_product_form_item_categories_hint": "catégorie",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_type": "catégorie",
+    "@edit_product_form_item_categories_type": {
+        "description": "Product edition - Categories - input textfield type"
     },
     "edit_product_form_item_categories_explainer_1": "Indiquez uniquement la catégorie la plus spécifique. Les catégories parentes seront automatiquement ajoutées.",
     "@edit_product_form_item_categories_explainer_1": {
@@ -1309,9 +1350,9 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Effacer",
+    "user_list_popup_clear": "Clear your history",
     "@user_list_popup_clear": {
-        "description": "Short label of a 'clear list' popup"
+        "description": "Short label of a 'clear your history list' popup"
     },
     "user_list_popup_rename": "Renommer",
     "@user_list_popup_rename": {
@@ -1350,11 +1391,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Switch between back and front camera",
+    "camera_toggle_camera": "Basculer entre les caméras avant et arrière ",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "camera_toggle_flash": "Allumer ou éteindre le flash de l'appareil photo",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1845,6 +1886,18 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
+    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Veuillez scanner au moins deux produits pour les comparer",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Cliquez pour comparer les produits que vous avez scannés",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+    },
     "portion_calculator_description": "Calculer les valeurs nutritionnelles pour une quantité spécifique",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
@@ -1898,7 +1951,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "{count,plural,  =1{Une question} other{{count} questions}} de plus !",
+    "robotoff_next_n_questions": "{count,plural,  =1{Une question} other{{count} questions de plus !}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -1912,7 +1965,7 @@
     "app_rating_dialog_title": "Super ! Faites savoir aux autres ce que vous pensez de cette application !",
     "app_rating_dialog_positive_action": "Noter l'application",
     "app_rating_dialog_negative_action": "Plus tard",
-    "app_rating_dialog_title_enjoying_app": "Cette application vous plaît ?",
+    "app_rating_dialog_title_enjoying_app": "Appréciez-vous cette application ?",
     "app_rating_dialog_title_enjoying_positive_actions": "Ouais!",
     "not_really": "Pas vraiment",
     "app_rating_dialog_title_not_enjoying_app": "Nous sommes désolés d'entendre cela ! Pourriez-vous nous dire ce qu'il s'est passé ?",
