@@ -236,12 +236,26 @@ class _ProductListPageState extends State<ProductListPage>
             icon: const Icon(Icons.delete),
             onPressed: () async {
               if (_selectedBarcodes.isNotEmpty) {
-                await showDialog<bool>(
+                await showDialog<void>(
                   context: context,
                   builder: (BuildContext context) {
                     return SmoothAlertDialog(
-                      body: Text(
-                        appLocalizations.confirm_clear_selected_user_list,
+                      body: Container(
+                        padding: const EdgeInsets.only(left: SMALL_SPACE),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              appLocalizations.alert_clear_selected_user_list,
+                            ),
+                            const SizedBox(
+                              height: SMALL_SPACE,
+                            ),
+                            Text(
+                              appLocalizations.confirm_clear_selected_user_list,
+                            ),
+                          ],
+                        ),
                       ),
                       positiveAction: SmoothActionButton(
                         onPressed: () async {
@@ -251,23 +265,23 @@ class _ProductListPageState extends State<ProductListPage>
                             include: false,
                           );
                           await daoProductList.get(productList);
-                          setState(() {});
                           if (!mounted) {
                             return;
                           }
-                          Navigator.of(context).pop();
+                          setState(() {});
+                          Navigator.of(context).maybePop();
                         },
                         text: appLocalizations.yes,
                       ),
                       negativeAction: SmoothActionButton(
-                        onPressed: () => Navigator.of(context).pop(),
+                        onPressed: () => Navigator.of(context).maybePop(),
                         text: appLocalizations.no,
                       ),
                     );
                   },
                 );
               } else {
-                await showDialog<bool>(
+                await showDialog<void>(
                   context: context,
                   builder: (BuildContext context) {
                     return SmoothAlertDialog(
@@ -275,7 +289,7 @@ class _ProductListPageState extends State<ProductListPage>
                         appLocalizations.alert_select_items_to_clear,
                       ),
                       positiveAction: SmoothActionButton(
-                        onPressed: () => Navigator.of(context).pop(),
+                        onPressed: () => Navigator.of(context).maybePop(),
                         text: appLocalizations.okay,
                       ),
                     );
