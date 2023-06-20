@@ -11,6 +11,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     this.trailing,
     this.backgroundColor,
     this.foregroundColor,
+    this.textAlign,
   });
 
   final String text;
@@ -48,7 +49,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
             child: AutoSizeText(
               text,
               maxLines: 2,
-              textAlign: TextAlign.center,
+              textAlign,
               style: themeData.textTheme.bodyMedium!.copyWith(
                 color: _getForegroundColor(themeData),
               ),
