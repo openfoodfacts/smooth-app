@@ -14,6 +14,7 @@ import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
@@ -29,10 +30,12 @@ class EditOcrPage extends StatefulWidget {
   const EditOcrPage({
     required this.product,
     required this.helper,
+    required this.isLoggedInMandatory,
   });
 
   final Product product;
   final OcrHelper helper;
+  final bool isLoggedInMandatory;
 
   @override
   State<EditOcrPage> createState() => _EditOcrPageState();
@@ -102,6 +105,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
     final Product? changedProduct = _getMinimalistProduct();
     if (changedProduct == null) {
       return;
+    }
+    if (widget.isLoggedInMandatory) {
+      if (!await ProductRefresher().checkIfLoggedIn(context)) {
+        return;
+      }
     }
     AnalyticsHelper.trackProductEdit(
       _helper.getEditEventAnalyticsTag(),
@@ -248,9 +256,11 @@ class _EditOcrPageState extends State<EditOcrPage> {
                         padding:
                             const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                         child: ProductImageServerButton(
-                          barcode: widget.product.barcode!,
+                          product: _product,
                           imageField: _helper.getImageField(),
                           language: language,
+                          isLoggedInMandatory: widget.isLoggedInMandatory,
+                          borderWidth: 2,
                         ),
                       ),
                     ),
@@ -263,6 +273,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
                           barcode: widget.product.barcode!,
                           imageField: _helper.getImageField(),
                           language: language,
+                          isLoggedInMandatory: widget.isLoggedInMandatory,
+                          borderWidth: 2,
                         ),
                       ),
                     ),
