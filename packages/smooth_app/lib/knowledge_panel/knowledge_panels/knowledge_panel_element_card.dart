@@ -143,6 +143,7 @@ class _KnowledgePanelTextElementCard extends StatelessWidget {
               appLocalizations
                   .knowledge_panel_text_source(textElement.sourceText!),
               iconData: null,
+              textAlign: TextAlign.center,
               onPressed: () {
                 LaunchUrlHelper.launchURL(
                   textElement.sourceUrl!,

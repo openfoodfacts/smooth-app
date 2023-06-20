@@ -7,6 +7,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     required this.text,
     required this.icon,
     required this.onPressed,
+    this.textAlign,
     this.padding,
     this.trailing,
     this.backgroundColor,
@@ -15,6 +16,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
 
   final String text;
   final IconData icon;
+  final TextAlign? textAlign;
   final VoidCallback? onPressed;
   final EdgeInsets? padding;
   final IconData? trailing;
@@ -48,7 +50,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
             child: AutoSizeText(
               text,
               maxLines: 2,
-              textAlign: TextAlign.center,
+              textAlign: textAlign,
               style: themeData.textTheme.bodyMedium!.copyWith(
                 color: _getForegroundColor(themeData),
               ),
