@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
@@ -75,6 +76,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
 
   bool _ecoscoreExpanded = false;
 
+  bool _trackedPopulatedCategories = false;
+  bool _trackedPopulatedIngredients = false;
+  bool _trackedPopulatedNutrition = false;
+  bool _trackedPopulatedImages = false;
+
   @override
   void initState() {
     super.initState();
@@ -90,6 +96,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(barcode);
     _daoProductList = DaoProductList(_localDatabase);
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.openNewProductPage,
+      barcode: barcode,
+    );
   }
 
   @override
@@ -129,6 +139,12 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
             ),
           ),
         );
+        if (leaveThePage == true) {
+          AnalyticsHelper.trackEvent(
+            AnalyticsEvent.closeEmptyNewProductPage,
+            barcode: barcode,
+          );
+        }
         return leaveThePage ?? false;
       },
       child: SmoothScaffold(
@@ -250,7 +266,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       if (_ecoscoreExpanded) _buildEditorButton(context, _originEditor),
       if (_ecoscoreExpanded) _buildEditorButton(context, _labelEditor),
       if (_ecoscoreExpanded) _buildEditorButton(context, _packagingEditor),
-      if (_ecoscoreExpanded) _buildEditorButton(context, _ingredientsEditor),
+      if (_ecoscoreExpanded) _buildIngredientsButton(context),
     ];
   }
 
@@ -267,9 +283,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         style: _getSubtitleStyle(context),
       ),
       _buildCategoriesButton(context),
-      _buildEditorButton(
+      _buildIngredientsButton(
         context,
-        _ingredientsEditor,
         forceIconData: Icons.filter_2,
         disabled: !_categoryEditor.isPopulated(_product),
       ),
@@ -339,6 +354,13 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
           );
           if (finalPhoto != null) {
             setState(() {
+              if (!_trackedPopulatedImages) {
+                _trackedPopulatedImages = true;
+                AnalyticsHelper.trackEvent(
+                  AnalyticsEvent.imagesNewProductPage,
+                  barcode: barcode,
+                );
+              }
               if (imageField == ImageField.OTHER) {
                 _otherUploadedImages.add(finalPhoto);
               } else {
@@ -350,19 +372,30 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
         done: imageFile != null,
       );
 
-  Widget _buildNutritionInputButton(final BuildContext context) => _MyButton(
-        AppLocalizations.of(context).nutritional_facts_input_button_label,
-        Icons.filter_2,
-        // deactivated when the categories were not set beforehand
-        !_categoryEditor.isPopulated(_product)
-            ? null
-            : () async => NutritionPageLoaded.showNutritionPage(
-                  product: _product,
-                  isLoggedInMandatory: false,
-                  widget: this,
-                ),
-        done: _nutritionFactsAdded,
-      );
+  Widget _buildNutritionInputButton(final BuildContext context) {
+    if (!_trackedPopulatedNutrition) {
+      if (_nutritionFactsAdded) {
+        _trackedPopulatedNutrition = true;
+        AnalyticsHelper.trackEvent(
+          AnalyticsEvent.nutritionNewProductPage,
+          barcode: barcode,
+        );
+      }
+    }
+    return _MyButton(
+      AppLocalizations.of(context).nutritional_facts_input_button_label,
+      Icons.filter_2,
+      // deactivated when the categories were not set beforehand
+      !_categoryEditor.isPopulated(_product)
+          ? null
+          : () async => NutritionPageLoaded.showNutritionPage(
+                product: _product,
+                isLoggedInMandatory: false,
+                widget: this,
+              ),
+      done: _nutritionFactsAdded,
+    );
+  }
 
   Widget _buildEditorButton(
     final BuildContext context,
@@ -385,12 +418,22 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
     );
   }
 
-  Widget _buildCategoriesButton(final BuildContext context) =>
-      _buildEditorButton(
-        context,
-        _categoryEditor,
-        forceIconData: Icons.filter_1,
-      );
+  Widget _buildCategoriesButton(final BuildContext context) {
+    if (!_trackedPopulatedCategories) {
+      if (_categoryEditor.isPopulated(_product)) {
+        _trackedPopulatedCategories = true;
+        AnalyticsHelper.trackEvent(
+          AnalyticsEvent.categoriesNewProductPage,
+          barcode: barcode,
+        );
+      }
+    }
+    return _buildEditorButton(
+      context,
+      _categoryEditor,
+      forceIconData: Icons.filter_1,
+    );
+  }
 
   List<Widget> _getMiscRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -401,6 +444,28 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
       ),
       _buildEditorButton(context, _detailsEditor),
     ];
+  }
+
+  Widget _buildIngredientsButton(
+    final BuildContext context, {
+    final IconData? forceIconData,
+    final bool disabled = false,
+  }) {
+    if (!_trackedPopulatedIngredients) {
+      if (_ingredientsEditor.isPopulated(_product)) {
+        _trackedPopulatedIngredients = true;
+        AnalyticsHelper.trackEvent(
+          AnalyticsEvent.ingredientsNewProductPage,
+          barcode: barcode,
+        );
+      }
+    }
+    return _buildEditorButton(
+      context,
+      _ingredientsEditor,
+      forceIconData: forceIconData,
+      disabled: disabled,
+    );
   }
 }
 

@@ -16,6 +16,7 @@ enum AnalyticsCategory {
   share(tag: 'share'),
   couldNotFindProduct(tag: 'could not find product'),
   productEdit(tag: 'product edit'),
+  newProduct(tag: 'new product'),
   list(tag: 'list'),
   deepLink(tag: 'deep link');
 
@@ -46,6 +47,30 @@ enum AnalyticsEvent {
   openProductEditPage(
     tag: 'opened product edit page',
     category: AnalyticsCategory.productEdit,
+  ),
+  openNewProductPage(
+    tag: 'opened new product page',
+    category: AnalyticsCategory.newProduct,
+  ),
+  categoriesNewProductPage(
+    tag: 'set categories on new product page',
+    category: AnalyticsCategory.newProduct,
+  ),
+  nutritionNewProductPage(
+    tag: 'set nutrition facts on new product page',
+    category: AnalyticsCategory.newProduct,
+  ),
+  ingredientsNewProductPage(
+    tag: 'set ingredients on new product page',
+    category: AnalyticsCategory.newProduct,
+  ),
+  imagesNewProductPage(
+    tag: 'set at least one image on new product page',
+    category: AnalyticsCategory.newProduct,
+  ),
+  closeEmptyNewProductPage(
+    tag: 'closed new product page without any input',
+    category: AnalyticsCategory.newProduct,
   ),
   shareList(tag: 'shared a list', category: AnalyticsCategory.list),
   openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list),
