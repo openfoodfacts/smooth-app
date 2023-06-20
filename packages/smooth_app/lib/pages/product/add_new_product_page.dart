@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -44,7 +45,8 @@ class AddNewProductPage extends StatefulWidget {
   State<AddNewProductPage> createState() => _AddNewProductPageState();
 }
 
-class _AddNewProductPageState extends State<AddNewProductPage> {
+class _AddNewProductPageState extends State<AddNewProductPage>
+    with TraceableClientMixin {
   // Just one file per main image field
   final Map<ImageField, File> _uploadedImages = <ImageField, File>{};
 
@@ -80,6 +82,12 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   bool _trackedPopulatedIngredients = false;
   bool _trackedPopulatedNutrition = false;
   bool _trackedPopulatedImages = false;
+
+  @override
+  String get traceName => 'Opened add_new_product_page';
+
+  @override
+  String get traceTitle => 'add_new_product_page';
 
   @override
   void initState() {
