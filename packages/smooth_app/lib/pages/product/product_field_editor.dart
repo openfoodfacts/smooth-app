@@ -210,6 +210,7 @@ abstract class ProductFieldOcrEditor extends ProductFieldEditor {
         builder: (BuildContext context) => EditOcrPage(
           product: product,
           helper: helper,
+          isLoggedInMandatory: isLoggedInMandatory,
         ),
         fullscreenDialog: true,
       ),

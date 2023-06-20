@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
@@ -11,31 +12,45 @@ import 'package:smooth_app/query/product_query.dart';
 /// Button asking for a "server" photo (taken from what was already uploaded).
 class ProductImageServerButton extends StatelessWidget {
   const ProductImageServerButton({
-    required this.barcode,
+    required this.product,
     required this.imageField,
     required this.language,
+    required this.isLoggedInMandatory,
+    this.borderWidth,
   });
 
-  final String barcode;
+  final Product product;
   final ImageField imageField;
   final OpenFoodFactsLanguage language;
+  final bool isLoggedInMandatory;
+  final double? borderWidth;
+
+  static bool _hasServerImages(final Product product) =>
+      product.images?.isNotEmpty == true;
+
+  String get barcode => product.barcode!;
 
   @override
-  Widget build(BuildContext context) => EditImageButton(
-        iconData: Icons.image_search,
-        label: AppLocalizations.of(context)
-            .edit_photo_select_existing_button_label,
-        onPressed: () async => _actionGallery(context),
-      );
+  Widget build(BuildContext context) {
+    if (!_hasServerImages(product)) {
+      return EMPTY_WIDGET;
+    }
+    return EditImageButton(
+      iconData: Icons.image_search,
+      label:
+          AppLocalizations.of(context).edit_photo_select_existing_button_label,
+      onPressed: () async => _actionGallery(context),
+      borderWidth: borderWidth,
+    );
+  }
 
   Future<void> _actionGallery(final BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (!context.mounted) {
-      return;
-    }
-    final bool loggedIn = await ProductRefresher().checkIfLoggedIn(context);
-    if (!loggedIn) {
-      return;
+    if (isLoggedInMandatory) {
+      final bool loggedIn = await ProductRefresher().checkIfLoggedIn(context);
+      if (!loggedIn) {
+        return;
+      }
     }
 
     List<int>? result;

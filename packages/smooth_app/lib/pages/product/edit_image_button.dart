@@ -7,24 +7,35 @@ class EditImageButton extends StatelessWidget {
     required this.iconData,
     required this.label,
     required this.onPressed,
+    this.borderWidth,
   });
 
   final IconData iconData;
   final String label;
   final VoidCallback onPressed;
+  final double? borderWidth;
 
   @override
-  Widget build(BuildContext context) => OutlinedButton.icon(
-        icon: Icon(iconData),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-            Theme.of(context).colorScheme.background,
-          ),
-          shape: MaterialStateProperty.all(
-            const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-          ),
+  Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    return OutlinedButton.icon(
+      icon: Icon(iconData),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(colorScheme.background),
+        shape: MaterialStateProperty.all(
+          const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
         ),
-        onPressed: onPressed,
-        label: Text(label),
-      );
+        side: borderWidth == null
+            ? null
+            : MaterialStateBorderSide.resolveWith(
+                (_) => BorderSide(
+                  color: colorScheme.onBackground,
+                  width: borderWidth!,
+                ),
+              ),
+      ),
+      onPressed: onPressed,
+      label: Text(label),
+    );
+  }
 }

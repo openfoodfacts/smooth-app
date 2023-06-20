@@ -188,9 +188,10 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                   child: ProductImageServerButton(
-                    barcode: _barcode,
+                    product: _product,
                     imageField: widget.imageField,
                     language: widget.language,
+                    isLoggedInMandatory: true,
                   ),
                 ),
               ),
@@ -202,6 +203,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                     barcode: _barcode,
                     imageField: widget.imageField,
                     language: widget.language,
+                    isLoggedInMandatory: true,
                   ),
                 ),
               ),
