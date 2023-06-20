@@ -1391,11 +1391,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Troca entre camera de fundo e frente ",
+    "camera_toggle_camera": "Switch between back and front camera",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Ligue ON ou OFF o flash da câmera",
+    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1716,6 +1716,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
+    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
+    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
+    "alert_select_items_to_clear": "Please select one or more items to clear",
     "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",

@@ -231,6 +231,74 @@ class _ProductListPageState extends State<ProductListPage>
         actionModeTitle: Text(appLocalizations.compare_products_appbar_title),
         actionModeSubTitle:
             Text(appLocalizations.compare_products_appbar_subtitle),
+        actionModeActions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () async {
+              if (_selectedBarcodes.isNotEmpty) {
+                await showDialog<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SmoothAlertDialog(
+                      body: Container(
+                        padding: const EdgeInsets.only(left: SMALL_SPACE),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              appLocalizations.alert_clear_selected_user_list,
+                            ),
+                            const SizedBox(
+                              height: SMALL_SPACE,
+                            ),
+                            Text(
+                              appLocalizations.confirm_clear_selected_user_list,
+                            ),
+                          ],
+                        ),
+                      ),
+                      positiveAction: SmoothActionButton(
+                        onPressed: () async {
+                          await daoProductList.bulkSet(
+                            productList,
+                            _selectedBarcodes.toList(growable: false),
+                            include: false,
+                          );
+                          await daoProductList.get(productList);
+                          if (!mounted) {
+                            return;
+                          }
+                          setState(() {});
+                          Navigator.of(context).maybePop();
+                        },
+                        text: appLocalizations.yes,
+                      ),
+                      negativeAction: SmoothActionButton(
+                        onPressed: () => Navigator.of(context).maybePop(),
+                        text: appLocalizations.no,
+                      ),
+                    );
+                  },
+                );
+              } else {
+                await showDialog<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SmoothAlertDialog(
+                      body: Text(
+                        appLocalizations.alert_select_items_to_clear,
+                      ),
+                      positiveAction: SmoothActionButton(
+                        onPressed: () => Navigator.of(context).maybePop(),
+                        text: appLocalizations.okay,
+                      ),
+                    );
+                  },
+                );
+              }
+            },
+          ),
+        ],
       ),
       body: products.isEmpty
           ? Padding(

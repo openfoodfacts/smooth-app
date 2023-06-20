@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
@@ -26,6 +27,11 @@ class SimpleInputWidget extends StatefulWidget {
 class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   late final FocusNode _focusNode;
 
+  /// In order to add new items to the top of the list, we have our custom copy
+  /// Because the [AbstractSimpleInputPageHelper] always add new items to the
+  /// bottom of the list.
+  late final List<String> _localTerms;
+
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   final Key _autocompleteKey = UniqueKey();
 
@@ -34,6 +40,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     super.initState();
     _focusNode = FocusNode();
     widget.helper.reInit(widget.product);
+    _localTerms = List<String>.of(widget.helper.terms);
   }
 
   @override
@@ -95,13 +102,13 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
         Divider(color: themeData.colorScheme.onBackground),
         AnimatedList(
           key: _listKey,
-          initialItemCount: widget.helper.terms.length,
+          initialItemCount: _localTerms.length,
           itemBuilder: (
             BuildContext context,
             int position,
             Animation<double> animation,
           ) {
-            final String term = widget.helper.terms[position];
+            final String term = _localTerms[position];
             final Widget child = Text(term);
 
             return KeyedSubtree(
@@ -114,7 +121,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                         .edit_product_form_item_remove_item_tooltip,
                     child: InkWell(
                       customBorder: const CircleBorder(),
-                      onTap: () => _onRemoveItem(term, position, child),
+                      onTap: () => _onRemoveItem(term, child),
                       child: const Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: MEDIUM_SPACE,
@@ -140,38 +147,34 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   }
 
   void _onAddItem() {
-    final List<String> terms = widget.controller.text.split(',');
-
-    bool atLeastOneAnimatedItem = false;
     if (widget.helper.addItemsFromController(widget.controller)) {
-      for (final String term in terms) {
-        final int newPosition = widget.helper.terms.indexOf(term);
-        if (newPosition >= 0) {
-          _listKey.currentState?.insertItem(newPosition);
-          atLeastOneAnimatedItem = true;
-        }
-      }
-    }
-
-    if (!atLeastOneAnimatedItem) {
-      setState(() {});
+      // Add new items to the top of our list
+      final Iterable<String> newTerms = widget.helper.terms.diff(_localTerms);
+      final int newTermsCount = newTerms.length;
+      _localTerms.insertAll(0, newTerms);
+      _listKey.currentState?.insertAllItems(0, newTermsCount);
     }
 
     SmoothHapticFeedback.lightNotification();
   }
 
-  void _onRemoveItem(String term, int position, Widget child) {
+  void _onRemoveItem(String term, Widget child) {
     if (widget.helper.removeTerm(term)) {
-      _listKey.currentState?.removeItem(position,
-          (_, Animation<double> animation) {
-        return FadeTransition(
-          opacity: animation,
-          child: SizeTransition(
-            sizeFactor: animation,
-            child: ListTile(title: child),
-          ),
-        );
-      });
+      final int position = _localTerms.indexOf(term);
+      if (position >= 0) {
+        _localTerms.remove(term);
+        _listKey.currentState?.removeItem(position,
+            (_, Animation<double> animation) {
+          return FadeTransition(
+            opacity: animation,
+            child: SizeTransition(
+              sizeFactor: animation,
+              child: ListTile(title: child),
+            ),
+          );
+        });
+      }
+
       SmoothHapticFeedback.lightNotification();
     }
   }
