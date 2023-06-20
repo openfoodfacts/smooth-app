@@ -40,6 +40,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionMode = false,
     this.actionModeCloseTooltip,
     this.onLeaveActionMode,
+    this.ignoreSemanticsForSubtitle = false,
     Key? key,
   })  : assert(!actionMode || actionModeTitle != null),
         preferredSize =
@@ -78,6 +79,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   final TextStyle? toolbarTextStyle;
   final TextStyle? titleTextStyle;
   final SystemUiOverlayStyle? systemOverlayStyle;
+  final bool? ignoreSemanticsForSubtitle;
 
   final VoidCallback? onLeaveActionMode;
   final String? actionModeCloseTooltip;
@@ -161,6 +163,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
               ? _AppBarTitle(
                   title: actionModeTitle!,
                   subTitle: actionModeSubTitle,
+                  ignoreSemanticsForSubtitle: ignoreSemanticsForSubtitle,
                 )
               : null,
           actions: actionModeActions,
@@ -230,11 +233,13 @@ class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
     required this.title,
     required this.subTitle,
+    this.ignoreSemanticsForSubtitle,
     Key? key,
   }) : super(key: key);
 
   final Widget title;
   final Widget? subTitle;
+  final bool? ignoreSemanticsForSubtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -245,7 +250,10 @@ class _AppBarTitle extends StatelessWidget {
         if (subTitle != null)
           DefaultTextStyle(
             style: Theme.of(context).textTheme.bodyMedium ?? const TextStyle(),
-            child: subTitle!,
+            child: ExcludeSemantics(
+              excluding: ignoreSemanticsForSubtitle ?? false,
+              child: subTitle,
+            ),
           ),
       ],
     );

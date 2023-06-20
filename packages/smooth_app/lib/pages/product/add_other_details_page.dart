@@ -65,6 +65,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
               ? Text(widget.product.productName!,
                   overflow: TextOverflow.ellipsis, maxLines: 1)
               : null,
+          ignoreSemanticsForSubtitle: true,
         ),
         body: Form(
           key: _formKey,
@@ -76,11 +77,14 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
                   child: Column(
                     children: <Widget>[
-                      Text(
-                        appLocalizations.barcode_barcode(_product.barcode!),
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                      ExcludeSemantics(
+                        child: Text(
+                          appLocalizations.barcode_barcode(_product.barcode!),
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
                       ),
                       SizedBox(height: _heightSpace),
                       SmoothTextFormField(
