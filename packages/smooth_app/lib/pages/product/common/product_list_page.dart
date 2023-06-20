@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,7 +12,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -22,6 +24,7 @@ import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -80,12 +83,12 @@ class _ProductListPageState extends State<ProductListPage>
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ThemeData themeData = Theme.of(context);
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<String> products = productList.getList();
     final bool dismissible;
     switch (productList.listType) {
       case ProductListType.SCAN_SESSION:
+      case ProductListType.SCAN_HISTORY:
       case ProductListType.HISTORY:
       case ProductListType.USER:
         dismissible = productList.barcodes.isNotEmpty;
@@ -102,23 +105,30 @@ class _ProductListPageState extends State<ProductListPage>
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
 
-    final ThemeData theme = Theme.of(context);
-
     return SmoothScaffold(
-      floatingActionButton: _selectionMode || products.length <= 1
-          ? _CompareProductsButton(
-              selectedBarcodes: _selectedBarcodes,
-              barcodes: products,
-              onComparisonEnded: () {
-                setState(() => _selectionMode = false);
-              },
+      floatingActionButton: products.isEmpty
+          ? FloatingActionButton.extended(
+              heroTag: 'compare_fab_${Random(100)}',
+              icon: const Icon(CupertinoIcons.barcode),
+              label: Text(appLocalizations.product_list_empty_title),
+              onPressed: () =>
+                  InheritedDataManager.of(context).resetShowSearchCard(true),
             )
-          : FloatingActionButton.extended(
-              onPressed: () => setState(() => _selectionMode = true),
-              label: Text(appLocalizations.compare_products_mode),
-              icon: const Icon(Icons.compare_arrows),
-            ),
+          : _selectionMode || products.length <= 1
+              ? _CompareProductsButton(
+                  selectedBarcodes: _selectedBarcodes,
+                  barcodes: products,
+                  onComparisonEnded: () {
+                    setState(() => _selectionMode = false);
+                  },
+                )
+              : FloatingActionButton.extended(
+                  onPressed: () => setState(() => _selectionMode = true),
+                  label: Text(appLocalizations.compare_products_mode),
+                  icon: const Icon(Icons.compare_arrows),
+                ),
       appBar: SmoothAppBar(
+        centerTitle: _selectionMode ? false : null,
         actions: !(enableClear || enableRename)
             ? null
             : <Widget>[
@@ -189,24 +199,24 @@ class _ProductListPageState extends State<ProductListPage>
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    if (enableClear)
-                      PopupMenuItem<String>(
-                        value: _popupActionClear,
-                        child: Text(appLocalizations.user_list_popup_clear),
-                      ),
                     if (enableRename)
                       PopupMenuItem<String>(
                         value: _popupActionRename,
                         child: Text(appLocalizations.user_list_popup_rename),
                       ),
                     PopupMenuItem<String>(
-                      value: _popupActionOpenInWeb,
-                      child: Text(appLocalizations.label_web),
-                    ),
-                    PopupMenuItem<String>(
                       value: _popupActionShare,
                       child: Text(appLocalizations.share),
                     ),
+                    PopupMenuItem<String>(
+                      value: _popupActionOpenInWeb,
+                      child: Text(appLocalizations.label_web),
+                    ),
+                    if (enableClear)
+                      PopupMenuItem<String>(
+                        value: _popupActionClear,
+                        child: Text(appLocalizations.user_list_popup_clear),
+                      ),
                   ],
                 )
               ],
@@ -221,39 +231,94 @@ class _ProductListPageState extends State<ProductListPage>
         actionModeTitle: Text(appLocalizations.compare_products_appbar_title),
         actionModeSubTitle:
             Text(appLocalizations.compare_products_appbar_subtitle),
+        actionModeActions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () async {
+              if (_selectedBarcodes.isNotEmpty) {
+                await showDialog<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SmoothAlertDialog(
+                      body: Container(
+                        padding: const EdgeInsets.only(left: SMALL_SPACE),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              appLocalizations.alert_clear_selected_user_list,
+                            ),
+                            const SizedBox(
+                              height: SMALL_SPACE,
+                            ),
+                            Text(
+                              appLocalizations.confirm_clear_selected_user_list,
+                            ),
+                          ],
+                        ),
+                      ),
+                      positiveAction: SmoothActionButton(
+                        onPressed: () async {
+                          await daoProductList.bulkSet(
+                            productList,
+                            _selectedBarcodes.toList(growable: false),
+                            include: false,
+                          );
+                          await daoProductList.get(productList);
+                          if (!mounted) {
+                            return;
+                          }
+                          setState(() {});
+                          Navigator.of(context).maybePop();
+                        },
+                        text: appLocalizations.yes,
+                      ),
+                      negativeAction: SmoothActionButton(
+                        onPressed: () => Navigator.of(context).maybePop(),
+                        text: appLocalizations.no,
+                      ),
+                    );
+                  },
+                );
+              } else {
+                await showDialog<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SmoothAlertDialog(
+                      body: Text(
+                        appLocalizations.alert_select_items_to_clear,
+                      ),
+                      positiveAction: SmoothActionButton(
+                        onPressed: () => Navigator.of(context).maybePop(),
+                        text: appLocalizations.okay,
+                      ),
+                    );
+                  },
+                );
+              }
+            },
+          ),
+        ],
       ),
       body: products.isEmpty
-          ? Center(
+          ? Padding(
+              padding: const EdgeInsets.all(SMALL_SPACE),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Expanded(
-                    child: SvgPicture.asset(
-                      'assets/misc/empty-list.svg',
-                      package: AppHelper.APP_PACKAGE,
+                  SvgPicture.asset(
+                    'assets/misc/empty-list.svg',
+                    package: AppHelper.APP_PACKAGE,
+                    width: MediaQuery.of(context).size.width / 2,
+                  ),
+                  Text(
+                    appLocalizations.product_list_empty_message,
+                    textAlign: TextAlign.center,
+                    style: themeData.textTheme.bodyMedium?.apply(
+                      color: themeData.colorScheme.onBackground,
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.all(VERY_LARGE_SPACE)),
-                  SmoothSimpleButton(
-                    onPressed: () {
-                      InheritedDataManager.of(context)
-                          .resetShowSearchCard(true);
-                    },
-                    child: Text(appLocalizations.product_list_empty_title,
-                        style: theme.textTheme.headlineLarge?.copyWith(
-                          color: theme.colorScheme.onPrimary,
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                    child: Text(
-                      appLocalizations.product_list_empty_message,
-                      textAlign: TextAlign.center,
-                      style: themeData.textTheme.bodyMedium?.apply(
-                        color: colorScheme.onBackground,
-                      ),
-                    ),
-                  ),
+                  EMPTY_WIDGET,
                 ],
               ),
             )
@@ -441,15 +506,7 @@ class _ProductListPageState extends State<ProductListPage>
     try {
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
-        ProductSearchQueryConfiguration(
-          fields: ProductQuery.fields,
-          language: ProductQuery.getLanguage(),
-          country: ProductQuery.getCountry(),
-          parametersList: <Parameter>[
-            BarcodeParameter.list(barcodes),
-          ],
-          version: ProductQuery.productQueryVersion,
-        ),
+        ProductRefresher().getBarcodeListQueryConfiguration(barcodes),
       );
       final List<Product>? freshProducts = searchResult.products;
       if (freshProducts == null) {
@@ -484,36 +541,42 @@ class _CompareProductsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    if (selectedBarcodes.length < 2) {
-      return EMPTY_WIDGET;
-    }
+    final bool enabled = selectedBarcodes.length >= 2;
 
-    return FloatingActionButton.extended(
-      label: Text(appLocalizations.compare_products_mode),
-      icon: const Icon(Icons.compare_arrows),
-      tooltip: appLocalizations.plural_compare_x_products(
-        selectedBarcodes.length,
+    return AnimatedOpacity(
+      opacity: enabled ? 1.0 : 0.5,
+      duration: SmoothAnimationsDuration.brief,
+      child: FloatingActionButton.extended(
+        label: Text(appLocalizations.compare_products_mode),
+        icon: const Icon(Icons.compare_arrows),
+        tooltip: enabled
+            ? appLocalizations.plural_compare_x_products(
+                selectedBarcodes.length,
+              )
+            : appLocalizations.compare_products_appbar_subtitle,
+        onPressed: enabled
+            ? () async {
+                final List<String> list = <String>[];
+                for (final String barcode in barcodes) {
+                  if (selectedBarcodes.contains(barcode)) {
+                    list.add(barcode);
+                  }
+                }
+
+                await Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (_) => PersonalizedRankingPage(
+                      barcodes: list,
+                      title: appLocalizations.product_list_your_ranking,
+                    ),
+                  ),
+                );
+
+                onComparisonEnded?.call();
+              }
+            : null,
       ),
-      onPressed: () async {
-        final List<String> list = <String>[];
-        for (final String barcode in barcodes) {
-          if (selectedBarcodes.contains(barcode)) {
-            list.add(barcode);
-          }
-        }
-
-        await Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (_) => PersonalizedRankingPage(
-              barcodes: list,
-              title: appLocalizations.product_list_your_ranking,
-            ),
-          ),
-        );
-
-        onComparisonEnded?.call();
-      },
     );
   }
 }

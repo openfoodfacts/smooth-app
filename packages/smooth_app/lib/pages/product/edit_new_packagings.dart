@@ -6,12 +6,12 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -181,30 +181,12 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
         ),
       ),
     );
-    children.add(
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-        child: SmoothActionButtonsBar(
-          axis: Axis.horizontal,
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.save,
-            onPressed: () async => _exitPage(
-              await _mayExitPage(saving: true),
-            ),
-          ),
-          negativeAction: SmoothActionButton(
-            text: appLocalizations.cancel,
-            onPressed: () async => _exitPage(
-              await _mayExitPage(saving: false),
-            ),
-          ),
-        ),
-      ),
-    );
+
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
       child: UnfocusWhenTapOutside(
         child: SmoothScaffold(
+          fixKeyboard: true,
           appBar: SmoothAppBar(
             title: Text(appLocalizations.edit_packagings_title),
             subTitle: _product.productName != null
@@ -218,6 +200,14 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
           body: ListView(
             padding: const EdgeInsets.only(top: LARGE_SPACE),
             children: children,
+          ),
+          bottomNavigationBar: ProductBottomButtonsBar(
+            onSave: () async => _exitPage(
+              await _mayExitPage(saving: true),
+            ),
+            onCancel: () async => _exitPage(
+              await _mayExitPage(saving: false),
+            ),
           ),
         ),
       ),

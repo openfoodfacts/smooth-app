@@ -5,11 +5,11 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
@@ -41,6 +41,7 @@ class SimpleInputPage extends StatefulWidget {
 
 class _SimpleInputPageState extends State<SimpleInputPage> {
   final List<TextEditingController> _controllers = <TextEditingController>[];
+
   @override
   void initState() {
     super.initState();
@@ -90,46 +91,30 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       onWillPop: () async => _mayExitPage(saving: false),
       child: UnfocusWhenTapOutside(
         child: SmoothScaffold(
+          fixKeyboard: true,
           appBar: SmoothAppBar(
+            centerTitle: false,
             title: AutoSizeText(
               getProductName(widget.product, appLocalizations),
               maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
             ),
             subTitle: widget.product.barcode != null
-                ? Text(widget.product.barcode!)
+                ? ExcludeSemantics(
+                    excluding: true, child: Text(widget.product.barcode!))
                 : null,
           ),
           body: Padding(
             padding: const EdgeInsets.all(SMALL_SPACE),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Flexible(
-                  flex: 1,
-                  child: Scrollbar(
-                    child: ListView(children: simpleInputs),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: SmoothActionButtonsBar(
-                    axis: Axis.horizontal,
-                    positiveAction: SmoothActionButton(
-                      text: appLocalizations.save,
-                      onPressed: () async => _exitPage(
-                        await _mayExitPage(saving: true),
-                      ),
-                    ),
-                    negativeAction: SmoothActionButton(
-                      text: appLocalizations.cancel,
-                      onPressed: () async => _exitPage(
-                        await _mayExitPage(saving: false),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            child: Scrollbar(
+              child: ListView(children: simpleInputs),
+            ),
+          ),
+          bottomNavigationBar: ProductBottomButtonsBar(
+            onSave: () async => _exitPage(
+              await _mayExitPage(saving: true),
+            ),
+            onCancel: () async => _exitPage(
+              await _mayExitPage(saving: false),
             ),
           ),
         ),

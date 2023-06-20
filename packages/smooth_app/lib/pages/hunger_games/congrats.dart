@@ -11,13 +11,12 @@ import 'package:smooth_app/pages/user_management/login_page.dart';
 
 class CongratsWidget extends StatelessWidget {
   const CongratsWidget({
-    required this.shouldDisplayContinueButton,
+    required this.continueButtonLabel,
     required this.anonymousAnnotationList,
     this.onContinue,
-    super.key,
   });
 
-  final bool shouldDisplayContinueButton;
+  final String? continueButtonLabel;
   final VoidCallback? onContinue;
   final Map<String, InsightAnnotation> anonymousAnnotationList;
 
@@ -60,10 +59,10 @@ class CongratsWidget extends StatelessWidget {
                   return _buildSignInButton(context, appLocalizations);
                 }
               }),
-          if (shouldDisplayContinueButton)
+          if (continueButtonLabel != null)
             SmoothSimpleButton(
               onPressed: onContinue,
-              child: Text(appLocalizations.robotoff_continue),
+              child: Text(continueButtonLabel!),
             )
           else
             EMPTY_WIDGET,

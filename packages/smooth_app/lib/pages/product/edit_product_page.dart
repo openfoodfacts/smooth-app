@@ -18,14 +18,10 @@ import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/edit_ingredients_page.dart';
-import 'package:smooth_app/pages/product/edit_new_packagings.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
-import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
-import 'package:smooth_app/pages/product/ocr_packaging_helper.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
@@ -67,52 +63,63 @@ class _EditProductPageState extends State<EditProductPage> {
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final ThemeData theme = Theme.of(context);
+    final String productName = getProductName(_product, appLocalizations);
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            AutoSizeText(
-              getProductName(_product, appLocalizations),
-              minFontSize:
-                  theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
-                      13.0,
-              maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
-              style: theme.textTheme.titleLarge
-                  ?.copyWith(fontWeight: FontWeight.w500),
-            ),
-            if (_barcode.isNotEmpty)
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 250),
-                height: _barcodeVisibleInAppbar ? 14.0 : 0.0,
-                child: Text(
-                  _barcode,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.normal,
-                  ),
+        title: Semantics(
+          value: productName,
+          child: ExcludeSemantics(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                AutoSizeText(
+                  productName,
+                  minFontSize:
+                      theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
+                          13.0,
+                  maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
+                  style: theme.textTheme.titleLarge
+                      ?.copyWith(fontWeight: FontWeight.w500),
                 ),
-              ),
-          ],
+                if (_barcode.isNotEmpty)
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 250),
+                    height: _barcodeVisibleInAppbar ? 14.0 : 0.0,
+                    child: Text(
+                      _barcode,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
         ),
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.copy),
-            tooltip: appLocalizations.clipboard_barcode_copy,
-            onPressed: () {
-              Clipboard.setData(
-                ClipboardData(text: _barcode),
-              );
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    appLocalizations.clipboard_barcode_copied(_barcode),
+          Semantics(
+            button: true,
+            value: appLocalizations.clipboard_barcode_copy,
+            excludeSemantics: true,
+            child: IconButton(
+              icon: const Icon(Icons.copy),
+              tooltip: appLocalizations.clipboard_barcode_copy,
+              onPressed: () {
+                Clipboard.setData(
+                  ClipboardData(text: _barcode),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      appLocalizations.clipboard_barcode_copied(_barcode),
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           )
         ],
       ),
@@ -132,22 +139,10 @@ class _EditProductPageState extends State<EditProductPage> {
                   title: appLocalizations.edit_product_form_item_details_title,
                   subtitle:
                       appLocalizations.edit_product_form_item_details_subtitle,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-
-                    AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.basicDetails, _barcode);
-
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (_) => AddBasicDetailsPage(_product),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
+                  onTap: () async => ProductFieldDetailsEditor().edit(
+                    context: context,
+                    product: _product,
+                  ),
                 ),
                 _ListTitleItem(
                   leading: const Icon(Icons.add_a_photo_rounded),
@@ -185,24 +180,10 @@ class _EditProductPageState extends State<EditProductPage> {
                       const _SvgIcon('assets/cacheTintable/ingredients.svg'),
                   title:
                       appLocalizations.edit_product_form_item_ingredients_title,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.ingredients_and_Origins, _barcode);
-
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => EditOcrPage(
-                          product: _product,
-                          helper: OcrIngredientsHelper(),
-                        ),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
+                  onTap: () async => ProductFieldOcrIngredientEditor().edit(
+                    context: context,
+                    product: _product,
+                  ),
                 ),
                 _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
                 _ListTitleItem(
@@ -225,48 +206,19 @@ class _EditProductPageState extends State<EditProductPage> {
                 _ListTitleItem(
                   leading: const _SvgIcon('assets/cacheTintable/packaging.svg'),
                   title: appLocalizations.edit_packagings_title,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.packagingComponents, _barcode);
-
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => EditNewPackagings(
-                          product: _product,
-                        ),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
+                  onTap: () async => ProductFieldPackagingEditor().edit(
+                    context: context,
+                    product: _product,
+                  ),
                 ),
                 _ListTitleItem(
                   leading: const Icon(Icons.recycling),
                   title:
                       appLocalizations.edit_product_form_item_packaging_title,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(context)) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.recyclingInstructionsPhotos,
-                      _barcode,
-                    );
-
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => EditOcrPage(
-                          product: _product,
-                          helper: OcrPackagingHelper(),
-                        ),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
+                  onTap: () async => ProductFieldOcrPackagingEditor().edit(
+                    context: context,
+                    product: _product,
+                  ),
                 ),
                 _getSimpleListTileItem(SimpleInputPageStoreHelper()),
                 _getSimpleListTileItem(SimpleInputPageOriginHelper()),
@@ -307,25 +259,10 @@ class _EditProductPageState extends State<EditProductPage> {
       leading: helper.getIcon(),
       title: helper.getTitle(appLocalizations),
       subtitle: helper.getSubtitle(appLocalizations),
-      onTap: () async {
-        if (!await ProductRefresher().checkIfLoggedIn(context)) {
-          return;
-        }
-        AnalyticsHelper.trackProductEdit(
-          helper.getAnalyticsEditEvent(),
-          _barcode,
-        );
-        await Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => SimpleInputPage(
-              helper: helper,
-              product: _product,
-            ),
-            fullscreenDialog: true,
-          ),
-        );
-      },
+      onTap: () async => ProductFieldSimpleEditor(helper).edit(
+        context: context,
+        product: _product,
+      ),
     );
   }
 
@@ -434,7 +371,7 @@ class _SvgIcon extends StatelessWidget {
 }
 
 /// Barcodes only allowed have a length of 7, 8, 12 or 13 characters
-class _ProductBarcode extends StatelessWidget {
+class _ProductBarcode extends StatefulWidget {
   _ProductBarcode({required this.product, Key? key})
       : assert(product.barcode?.isNotEmpty == true),
         assert(isAValidBarcode(product.barcode)),
@@ -443,6 +380,16 @@ class _ProductBarcode extends StatelessWidget {
   static const double _barcodeHeight = 120.0;
 
   final Product product;
+
+  @override
+  State<_ProductBarcode> createState() => _ProductBarcodeState();
+
+  static bool isAValidBarcode(String? barcode) =>
+      barcode != null && <int>[7, 8, 12, 13].contains(barcode.length);
+}
+
+class _ProductBarcodeState extends State<_ProductBarcode> {
+  bool _isAnInvalidBarcode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -456,19 +403,27 @@ class _ProductBarcode extends StatelessWidget {
         vertical: SMALL_SPACE,
       ),
       barcode: _barcodeType,
-      data: product.barcode!,
+      data: widget.product.barcode!,
       color: brightness == Brightness.dark ? Colors.white : Colors.black,
-      errorBuilder: (final BuildContext context, String? _) => Text(
-        '${appLocalizations.edit_product_form_item_barcode}\n'
-        '${product.barcode}',
-        textAlign: TextAlign.center,
-      ),
-      height: _barcodeHeight,
+      errorBuilder: (final BuildContext context, String? _) {
+        if (!_isAnInvalidBarcode) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            setState(() => _isAnInvalidBarcode = true);
+          });
+        }
+
+        return Text(
+          '${appLocalizations.edit_product_form_item_barcode}\n'
+          '${widget.product.barcode}',
+          textAlign: TextAlign.center,
+        );
+      },
+      height: _isAnInvalidBarcode ? null : _ProductBarcode._barcodeHeight,
     );
   }
 
   Barcode get _barcodeType {
-    switch (product.barcode!.length) {
+    switch (widget.product.barcode!.length) {
       case 7:
       case 8:
         return Barcode.ean8();
@@ -479,7 +434,4 @@ class _ProductBarcode extends StatelessWidget {
         throw Exception('Unknown barcode type!');
     }
   }
-
-  static bool isAValidBarcode(String? barcode) =>
-      barcode != null && <int>[7, 8, 12, 13].contains(barcode.length);
 }

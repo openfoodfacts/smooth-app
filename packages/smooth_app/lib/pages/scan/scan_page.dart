@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -47,7 +48,10 @@ class _ScanPageState extends State<ScanPage> {
     }
 
     return SmoothScaffold(
-      brightness: Brightness.light,
+      brightness:
+          Theme.of(context).brightness == Brightness.light && Platform.isIOS
+              ? Brightness.dark
+              : null,
       body: SafeArea(
         child: Column(
           children: <Widget>[

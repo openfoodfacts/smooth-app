@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class UserPreferencesDebugInfo extends StatefulWidget {
@@ -22,6 +24,7 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
     'Country': ProductQuery.getCountry().toString(),
     'IsLoggedIn': ProductQuery.isLoggedIn().toString(),
     'UUID': OpenFoodAPIConfiguration.uuid.toString(),
+    'Matomo Visitor ID': AnalyticsHelper.matomoVisitorId,
     'QueryType': OpenFoodAPIConfiguration.globalQueryType.toString(),
     'UserAgent-name': '${OpenFoodAPIConfiguration.userAgent?.name}',
     'UserAgent-system': '${OpenFoodAPIConfiguration.userAgent?.system}',
@@ -55,8 +58,8 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
-      appBar: AppBar(
-        title: const Text("Debug info's"),
+      appBar: SmoothAppBar(
+        title: const Text('Debugging information'),
         actions: <Widget>[
           IconButton(
               onPressed: () async {

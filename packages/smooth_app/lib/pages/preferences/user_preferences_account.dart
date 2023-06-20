@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -15,6 +17,7 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -245,7 +248,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.add_circle_outline,
           context: context,
           localDatabase: localDatabase,
-          type: UserSearchType.CONTRIBUTOR,
+          myCount: _getMyCount(UserSearchType.CONTRIBUTOR),
         ),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
@@ -256,7 +259,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.edit,
           context: context,
           localDatabase: localDatabase,
-          type: UserSearchType.INFORMER,
+          myCount: _getMyCount(UserSearchType.INFORMER),
         ),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
@@ -267,7 +270,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.add_a_photo,
           context: context,
           localDatabase: localDatabase,
-          type: UserSearchType.PHOTOGRAPHER,
+          myCount: _getMyCount(UserSearchType.PHOTOGRAPHER),
         ),
         _buildProductQueryTile(
           productQuery: PagedUserProductQuery(
@@ -278,12 +281,18 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           iconData: Icons.more_horiz,
           context: context,
           localDatabase: localDatabase,
-          type: UserSearchType.TO_BE_COMPLETED,
+          myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
         ),
         _buildProductQueryTile(
           productQuery: PagedToBeCompletedProductQuery(),
           title: appLocalizations.all_search_to_be_completed_title,
           iconData: Icons.more_outlined,
+          context: context,
+          localDatabase: localDatabase,
+        ),
+        _buildProductLocalTile(
+          productList: ProductList.scanHistory(),
+          iconData: Icons.history,
           context: context,
           localDatabase: localDatabase,
         ),
@@ -390,13 +399,21 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     }
   }
 
+  Future<int?> _getMyLocalCount(
+    final ProductList productList,
+    final LocalDatabase localDatabase,
+  ) async {
+    await DaoProductList(localDatabase).get(productList);
+    return productList.barcodes.length;
+  }
+
   Widget _buildProductQueryTile({
     required final PagedProductQuery productQuery,
     required final String title,
     required final IconData iconData,
     required final BuildContext context,
     required final LocalDatabase localDatabase,
-    final UserSearchType? type,
+    final Future<int?>? myCount,
   }) =>
       _getListTile(
         title,
@@ -408,14 +425,38 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           editableAppBarTitle: false,
         ),
         iconData,
-        type: type,
+        myCount: myCount,
+      );
+
+  Widget _buildProductLocalTile({
+    required final ProductList productList,
+    required final IconData iconData,
+    required final BuildContext context,
+    required final LocalDatabase localDatabase,
+  }) =>
+      _getListTile(
+        ProductQueryPageHelper.getProductListLabel(productList, context),
+        () async {
+          await DaoProductList(localDatabase).get(productList);
+          if (!mounted) {
+            return;
+          }
+          await Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => ProductListPage(productList),
+            ),
+          );
+        },
+        iconData,
+        myCount: _getMyLocalCount(productList, localDatabase),
       );
 
   Widget _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
-    final UserSearchType? type,
+    final Future<int?>? myCount,
   }) =>
       Card(
         shape: RoundedRectangleBorder(
@@ -430,9 +471,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             borderRadius: BorderRadius.circular(15),
           ),
           leading: UserPreferencesListTile.getTintedIcon(leading, context),
-          trailing: (type != null)
-              ? FutureBuilder<int?>(
-                  future: _getMyCount(type),
+          trailing: myCount == null
+              ? null
+              : FutureBuilder<int?>(
+                  future: myCount,
                   builder:
                       (BuildContext context, AsyncSnapshot<int?> snapshot) {
                     if (snapshot.connectionState != ConnectionState.done) {
@@ -445,8 +487,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
                         ? EMPTY_WIDGET
                         : Text(snapshot.data.toString());
                   },
-                )
-              : null,
+                ),
         ),
       );
 }

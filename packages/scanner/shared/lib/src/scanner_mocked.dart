@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:scanner_shared/scanner_shared.dart';
 
 /// Empty implementation for an [AppStore]
@@ -18,6 +17,8 @@ class MockedScanner extends Scanner {
             {int? eventValue, String? barcode})
         trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    String? toggleCameraModeTooltip,
+    String? toggleFlashModeTooltip,
   }) =>
       Container();
 }

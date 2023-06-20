@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
 class OfflineTaskPage extends StatefulWidget {
   const OfflineTaskPage();
@@ -22,8 +24,18 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
     final List<String> taskIds = localDatabase.getAllTaskIds();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(appLocalizations.background_task_title),
+      appBar: SmoothAppBar(
+        title: Text(
+          appLocalizations.background_task_title,
+          maxLines: 2,
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => // no await
+                BackgroundTaskManager(localDatabase).run(),
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
       ),
       body: taskIds.isEmpty
           ? Center(
@@ -38,6 +50,10 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                     taskId,
                   ),
                 );
+                String barcode = OperationType.getBarcode(taskId);
+                if (barcode == BackgroundTaskFullRefresh.noBarcode) {
+                  barcode = '';
+                }
                 return ListTile(
                   onTap: () async {
                     final bool? stopTask = await showDialog<bool>(
@@ -62,7 +78,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                     }
                   },
                   title: Text(
-                    '${OperationType.getBarcode(taskId)}'
+                    '$barcode'
                     ' (${OperationType.getOperationType(taskId)?.getLabel(
                           appLocalizations,
                         ) ?? appLocalizations.background_task_operation_unknown})',
@@ -89,6 +105,6 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
       case BackgroundTaskManager.taskStatusStopAsap:
         return appLocalizations.background_task_run_to_be_deleted;
     }
-    return status!;
+    return status;
   }
 }

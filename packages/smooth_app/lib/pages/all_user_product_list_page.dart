@@ -12,6 +12,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page that lists all user product lists.
@@ -57,7 +58,7 @@ class _AllUserProductListLoadedState extends State<_AllUserProductListLoaded> {
     final ThemeData themeData = Theme.of(context);
     final List<String> userLists = widget.userLists;
     return SmoothScaffold(
-      appBar: AppBar(title: Text(appLocalizations.user_list_all_title)),
+      appBar: SmoothAppBar(title: Text(appLocalizations.user_list_all_title)),
       body: userLists.isEmpty
           ? Center(
               child: SingleChildScrollView(

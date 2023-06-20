@@ -14,6 +14,12 @@ class InheritedDataManager extends StatefulWidget {
         .data;
   }
 
+  static InheritedDataManagerState? find(BuildContext context) {
+    return context
+        .findAncestorWidgetOfExactType<_InheritedDataManagerProvider>()
+        ?.data;
+  }
+
   @override
   State<InheritedDataManager> createState() => InheritedDataManagerState();
 }

@@ -8,12 +8,24 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     required this.icon,
     required this.onPressed,
     this.padding,
+    this.trailing,
+    this.backgroundColor,
+    this.foregroundColor,
   });
 
   final String text;
   final IconData icon;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final EdgeInsets? padding;
+  final IconData? trailing;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
+
+  Color _getBackgroundColor(final ThemeData themeData) =>
+      backgroundColor ?? themeData.colorScheme.secondary;
+
+  Color _getForegroundColor(final ThemeData themeData) =>
+      foregroundColor ?? themeData.colorScheme.onSecondary;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +34,13 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
       minWidth: double.infinity,
       padding: padding ?? const EdgeInsets.all(10),
       onPressed: onPressed,
-      buttonColor: themeData.colorScheme.secondary,
+      buttonColor: _getBackgroundColor(themeData),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Icon(
             icon,
-            color: themeData.colorScheme.onSecondary,
+            color: _getForegroundColor(themeData),
           ),
           const Spacer(),
           Expanded(
@@ -37,11 +49,16 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
               text,
               maxLines: 2,
               style: themeData.textTheme.bodyMedium!.copyWith(
-                color: themeData.colorScheme.onSecondary,
+                color: _getForegroundColor(themeData),
               ),
             ),
           ),
           const Spacer(),
+          if (trailing != null)
+            Icon(
+              trailing,
+              color: _getForegroundColor(themeData),
+            ),
         ],
       ),
     );

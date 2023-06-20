@@ -15,47 +15,84 @@ class _ExplanationWidgetState extends State<ExplanationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (!_expanded) {
-      return _wrapListTitle(
-        ListTile(
-          title: Text(
-            widget.explanations,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+    return Semantics(
+      value: widget.explanations,
+      header: true,
+      child: BlockSemantics(
+        child: InkWell(
+          onTap: () => setState(() => _expanded = !_expanded),
+          child: AnimatedCrossFade(
+            duration: const Duration(milliseconds: 200),
+            crossFadeState: _expanded
+                ? CrossFadeState.showFirst
+                : CrossFadeState.showSecond,
+            firstChild: _ExpandedExplanation(
+              explanations: widget.explanations,
+            ),
+            secondChild: _CollapsedExplanation(
+              explanations: widget.explanations,
+            ),
           ),
-          trailing: const Icon(Icons.info_outline),
         ),
-        onTap: () => setState(() => _expanded = true),
-      );
-    }
+      ),
+    );
+  }
+}
+
+class _CollapsedExplanation extends StatelessWidget {
+  const _CollapsedExplanation({
+    required this.explanations,
+  });
+
+  final String explanations;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        explanations,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
+      trailing: const Icon(Icons.info_outline),
+    );
+  }
+}
+
+class _ExpandedExplanation extends StatelessWidget {
+  const _ExpandedExplanation({
+    required this.explanations,
+  });
+
+  final String explanations;
+
+  @override
+  Widget build(BuildContext context) {
     final List<Widget> result = <Widget>[];
-    final List<String> split = widget.explanations.split('\n');
+    final List<String> split = explanations.split('\n');
+
     bool first = true;
     for (final String item in split) {
       if (first) {
         first = false;
         result.add(
-          _wrapListTitle(
-            ListTile(
-              title: Text(item),
-              trailing: const Icon(Icons.expand_less),
+          ListTile(
+            title: Text(item),
+            // There is no collapse icon, so we just flip the expand one
+            trailing: const RotatedBox(
+              quarterTurns: 2,
+              child: Icon(Icons.expand_circle_down_outlined),
             ),
-            onTap: () => setState(() => _expanded = false),
           ),
         );
       } else {
         result.add(ListTile(title: Text(item)));
       }
     }
-    return Column(children: result);
-  }
 
-  Widget _wrapListTitle(final ListTile child, {VoidCallback? onTap}) =>
-      Material(
-        type: MaterialType.transparency,
-        child: InkWell(
-          onTap: onTap,
-          child: child,
-        ),
-      );
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: result,
+    );
+  }
 }

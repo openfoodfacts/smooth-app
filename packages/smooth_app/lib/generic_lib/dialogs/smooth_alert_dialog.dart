@@ -213,6 +213,7 @@ class SmoothActionButtonsBar extends StatelessWidget {
     this.negativeAction,
     this.axis,
     this.order,
+    this.padding,
     super.key,
   }) : assert(positiveAction != null || negativeAction != null,
             'At least one action must be passed!');
@@ -229,6 +230,7 @@ class SmoothActionButtonsBar extends StatelessWidget {
   final SmoothActionButton? negativeAction;
   final Axis? axis;
   final SmoothButtonsBarOrder? order;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -250,13 +252,17 @@ class SmoothActionButtonsBar extends StatelessWidget {
         );
       }
 
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: actions,
+      return Padding(
+        padding: padding ?? EdgeInsets.zero,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: actions,
+        ),
       );
     } else {
-      return SizedBox(
+      return Container(
         width: double.infinity,
+        padding: padding ?? EdgeInsets.zero,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: actions,
@@ -367,20 +373,24 @@ class _SmoothActionElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    return SmoothSimpleButton(
-      onPressed: buttonData.onPressed,
-      minWidth: buttonData.minWidth ?? 20.0,
-      // Ensures FittedBox not used then even the one word text overflows into next line,
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Text(
-          buttonData.text.toUpperCase(),
-          textAlign: TextAlign.center,
-          overflow: TextOverflow.ellipsis,
-          maxLines: buttonData.lines ?? 2,
-          style: themeData.textTheme.bodyMedium!.copyWith(
-            fontWeight: FontWeight.bold,
-            color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+    return Semantics(
+      value: buttonData.text,
+      button: true,
+      excludeSemantics: true,
+      child: SmoothSimpleButton(
+        onPressed: buttonData.onPressed,
+        minWidth: buttonData.minWidth ?? 20.0,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            buttonData.text.toUpperCase(),
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: buttonData.lines ?? 2,
+            style: themeData.textTheme.bodyMedium!.copyWith(
+              fontWeight: FontWeight.bold,
+              color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+            ),
           ),
         ),
       ),
@@ -407,35 +417,40 @@ class _SmoothActionFlatButton extends StatelessWidget {
           ),
         ),
       ),
-      child: TextButton(
-        onPressed: buttonData.onPressed,
-        style: TextButton.styleFrom(
-          shape: const RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
+      child: Semantics(
+        value: buttonData.text,
+        button: true,
+        excludeSemantics: true,
+        child: TextButton(
+          onPressed: buttonData.onPressed,
+          style: TextButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+            textStyle: themeData.textTheme.bodyMedium!.copyWith(
+              color: themeData.colorScheme.onPrimary,
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: SMALL_SPACE,
+            ),
           ),
-          textStyle: themeData.textTheme.bodyMedium!.copyWith(
-            color: themeData.colorScheme.onPrimary,
-          ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: SMALL_SPACE,
-          ),
-        ),
-        child: SizedBox(
-          height: buttonData.lines != null
-              ? VERY_LARGE_SPACE * buttonData.lines!
-              : null,
-          width: buttonData.minWidth,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              buttonData.text.toUpperCase(),
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: buttonData.textColor ?? themeData.colorScheme.primary,
+          child: SizedBox(
+            height: buttonData.lines != null
+                ? VERY_LARGE_SPACE * buttonData.lines!
+                : null,
+            width: buttonData.minWidth,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                buttonData.text.toUpperCase(),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: buttonData.textColor ?? themeData.colorScheme.primary,
+                ),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: buttonData.lines ?? 2,
               ),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: buttonData.lines ?? 2,
             ),
           ),
         ),

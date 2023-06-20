@@ -2,61 +2,41 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 
 enum ProductListType {
   /// API search by [SearchTerms] keywords
-  HTTP_SEARCH_KEYWORDS,
+  HTTP_SEARCH_KEYWORDS('http/search/keywords'),
 
   /// API search for [CategoryProductQuery] category
-  HTTP_SEARCH_CATEGORY,
+  HTTP_SEARCH_CATEGORY('http/search/category'),
 
   /// Current scan session; can be easily cleared by the end-user
-  SCAN_SESSION,
+  SCAN_SESSION('scan_session'),
+
+  /// Whole scan history; items may be removed by the end-user
+  SCAN_HISTORY('scan_history'),
 
   /// History of products seen by the end-user
-  HISTORY,
+  HISTORY('history'),
 
   /// End-user product list
-  USER,
+  USER('user'),
 
   /// End-user as a contributor
-  HTTP_USER_CONTRIBUTOR,
+  HTTP_USER_CONTRIBUTOR('http/user/contributor'),
 
   /// End-user as an informer
-  HTTP_USER_INFORMER,
+  HTTP_USER_INFORMER('http/user/informer'),
 
   /// End-user as a photographer
-  HTTP_USER_PHOTOGRAPHER,
+  HTTP_USER_PHOTOGRAPHER('http/user/photographer'),
 
   /// End-user for products to be completed
-  HTTP_USER_TO_BE_COMPLETED,
+  HTTP_USER_TO_BE_COMPLETED('http/user/to_be_completed'),
 
   /// For products to be completed, all of them.
-  HTTP_ALL_TO_BE_COMPLETED,
-}
+  HTTP_ALL_TO_BE_COMPLETED('http/all/to_be_completed');
 
-extension ProductListTypeExtension on ProductListType {
-  String get key {
-    switch (this) {
-      case ProductListType.HTTP_SEARCH_KEYWORDS:
-        return 'http/search/keywords';
-      case ProductListType.HTTP_SEARCH_CATEGORY:
-        return 'http/search/category';
-      case ProductListType.SCAN_SESSION:
-        return 'scan_session';
-      case ProductListType.HTTP_USER_CONTRIBUTOR:
-        return 'http/user/contributor';
-      case ProductListType.HTTP_USER_INFORMER:
-        return 'http/user/informer';
-      case ProductListType.HTTP_USER_PHOTOGRAPHER:
-        return 'http/user/photographer';
-      case ProductListType.HTTP_USER_TO_BE_COMPLETED:
-        return 'http/user/to_be_completed';
-      case ProductListType.HTTP_ALL_TO_BE_COMPLETED:
-        return 'http/all/to_be_completed';
-      case ProductListType.HISTORY:
-        return 'history';
-      case ProductListType.USER:
-        return 'user';
-    }
-  }
+  const ProductListType(this.key);
+
+  final String key;
 }
 
 class ProductList {
@@ -168,6 +148,8 @@ class ProductList {
 
   ProductList.scanSession() : this._(listType: ProductListType.SCAN_SESSION);
 
+  ProductList.scanHistory() : this._(listType: ProductListType.SCAN_HISTORY);
+
   ProductList.user(final String name)
       : this._(
           listType: ProductListType.USER,
@@ -245,6 +227,7 @@ class ProductList {
       case ProductListType.USER:
         return false;
       case ProductListType.SCAN_SESSION:
+      case ProductListType.SCAN_HISTORY:
       case ProductListType.HISTORY:
         return true;
     }
@@ -253,6 +236,7 @@ class ProductList {
   String getParametersKey() {
     switch (listType) {
       case ProductListType.SCAN_SESSION:
+      case ProductListType.SCAN_HISTORY:
       case ProductListType.HISTORY:
       case ProductListType.USER:
         return parameters;

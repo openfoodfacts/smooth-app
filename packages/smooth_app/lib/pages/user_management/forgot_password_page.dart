@@ -5,6 +5,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
@@ -68,7 +69,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     final Size size = MediaQuery.of(context).size;
 
     return SmoothScaffold(
-      appBar: AppBar(
+      appBar: SmoothAppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: IconThemeData(

@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/rendering.dart';
-import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
+import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
@@ -26,7 +27,7 @@ class BackgroundTaskManager {
       'taskError:$taskId';
 
   /// Adds a task to the pending task list.
-  Future<void> add(final AbstractBackgroundTask task) async {
+  Future<void> add(final BackgroundTask task) async {
     final String taskId = task.uniqueId;
     await DaoInstantString(localDatabase).put(
       _taskIdToDaoInstantStringKey(taskId),
@@ -48,7 +49,7 @@ class BackgroundTaskManager {
     final String taskId, {
     final bool success = false,
   }) async {
-    final AbstractBackgroundTask? task = _get(taskId);
+    final BackgroundTask? task = _get(taskId);
     if (task != null) {
       await task.postExecute(localDatabase, success);
     }
@@ -61,7 +62,7 @@ class BackgroundTaskManager {
   }
 
   /// Returns the related task, or null but that is unexpected.
-  AbstractBackgroundTask? _get(final String taskId) {
+  BackgroundTask? _get(final String taskId) {
     try {
       final String? json = DaoInstantString(localDatabase)
           .get(_taskIdToDaoInstantStringKey(taskId));
@@ -70,11 +71,16 @@ class BackgroundTaskManager {
         return null;
       }
       final Map<String, dynamic> map = jsonDecode(json) as Map<String, dynamic>;
-      return AbstractBackgroundTask.fromJson(map);
+      final String processName = BackgroundTask.getProcessName(map);
+      for (final OperationType operationType in OperationType.values) {
+        if (processName == operationType.processName) {
+          return operationType.fromJson(map);
+        }
+      }
     } catch (e) {
       // unexpected
-      return null;
     }
+    return null;
   }
 
   /// [DaoInt] key we use to store the latest start timestamp.
@@ -133,24 +139,12 @@ class BackgroundTaskManager {
     if (!await _canStartNow()) {
       return;
     }
-    final List<AbstractBackgroundTask> tasks = await _getAllTasks();
-    for (final AbstractBackgroundTask task in tasks) {
+    final List<BackgroundTask> tasks = await _getAllTasks();
+    for (final BackgroundTask task in tasks) {
       await task.recover(localDatabase);
     }
-    final Map<String, String> failedTaskFromStamps = <String, String>{};
-    for (final AbstractBackgroundTask task in tasks) {
-      final String stamp = task.stamp;
+    for (final BackgroundTask task in tasks) {
       final String taskId = task.uniqueId;
-      final String? previousFailedTaskId = failedTaskFromStamps[stamp];
-      if (previousFailedTaskId != null) {
-        // there was a similar task that failed previously and we can dismiss it
-        // as the current one would overwrite it.
-        // not only will we spare a to-be-overwritten call, but we avoid the
-        // "save latest change" and then "save initial change" dilemma.
-        _debugPrint('removing failed task $previousFailedTaskId');
-        await _finishTask(previousFailedTaskId);
-        failedTaskFromStamps.remove(stamp);
-      }
       try {
         await _setTaskErrorStatus(taskId, taskStatusStarted);
         await task.execute(localDatabase);
@@ -164,7 +158,6 @@ class BackgroundTaskManager {
         }
         debugPrint('Background task error ($e)');
         Logs.e('Background task error', ex: e);
-        failedTaskFromStamps[stamp] = taskId;
         await _setTaskErrorStatus(taskId, '$e');
       }
     }
@@ -221,16 +214,16 @@ class BackgroundTaskManager {
   /// We put in the list:
   /// * tasks that are not delayed (e.g. [BackgroundTaskRefreshLater])
   /// * only the latest task for a given stamp (except for OTHER uploads)
-  Future<List<AbstractBackgroundTask>> _getAllTasks() async {
+  Future<List<BackgroundTask>> _getAllTasks() async {
     _debugPrint('get all tasks/0');
-    final List<AbstractBackgroundTask> result = <AbstractBackgroundTask>[];
+    final List<BackgroundTask> result = <BackgroundTask>[];
     final List<String> list = localDatabase.getAllTaskIds();
     final List<String> removeTaskIds = <String>[];
     if (list.isEmpty) {
       return result;
     }
     for (final String taskId in list) {
-      final AbstractBackgroundTask? task = _get(taskId);
+      final BackgroundTask? task = _get(taskId);
       if (task == null) {
         // unexpected, but let's remove that null task anyway.
         _debugPrint('get all tasks/unexpected/$taskId');
@@ -272,7 +265,7 @@ class BackgroundTaskManager {
     }
     _debugPrint('get all tasks returned (begin)');
     int i = 0;
-    for (final AbstractBackgroundTask task in result) {
+    for (final BackgroundTask task in result) {
       _debugPrint('* task #${i++}: ${task.uniqueId} / ${task.stamp}');
     }
     _debugPrint('get all tasks returned (end)');

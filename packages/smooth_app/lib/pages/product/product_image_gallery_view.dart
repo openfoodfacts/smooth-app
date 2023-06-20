@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
@@ -63,6 +62,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     _selectedImages = getSelectedImages(_product, ProductQuery.getLanguage());
     return SmoothScaffold(
       appBar: SmoothAppBar(
+        centerTitle: false,
         title: Text(appLocalizations.edit_product_form_item_photos_title),
         subTitle: _product.productName == null
             ? null
@@ -71,9 +71,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
-        leading: SmoothBackButton(
-          onPressed: () => Navigator.maybePop(context),
-        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
@@ -99,6 +96,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
           itemBuilder: (final BuildContext context, int index) {
             final MapEntry<ProductImageData, ImageProvider?> item =
                 _selectedImages[index];
+
             return SmoothListTileCard.image(
               imageProvider: item.value,
               title: Text(
@@ -109,6 +107,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
                 imageData: item.key,
                 initialImageIndex: index,
               ),
+              heroTag: 'photo_${item.key.imageField.offTag}',
             );
           },
         ),

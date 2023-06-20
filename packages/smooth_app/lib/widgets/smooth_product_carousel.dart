@@ -18,6 +18,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -154,10 +155,11 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
-          callback: () async {
+          onAddProduct: () async {
             await _model.refresh();
             setState(() {});
           },
+          onRemoveProduct: (_) => _model.removeBarcode(barcode),
         );
       case ScannedProductState.THANKS:
         return const SmoothProductCardThanks();
@@ -232,12 +234,7 @@ class SearchCard extends StatelessWidget {
   }
 
   void _openSearchPage(BuildContext context) {
-    Navigator.push<Widget>(
-      context,
-      MaterialPageRoute<Widget>(
-        builder: (_) => SearchPage(),
-      ),
-    );
+    AppNavigator.of(context).push(AppRoutes.SEARCH);
   }
 }
 
@@ -264,6 +261,7 @@ class _SearchCardTagLine extends StatefulWidget {
 
 class _SearchCardTagLineState extends State<_SearchCardTagLine> {
   late Future<Map<String, dynamic>> _initTagLineData;
+
   @override
   void initState() {
     super.initState();

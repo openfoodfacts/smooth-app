@@ -11,7 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
 class SmoothProductCardFound extends StatelessWidget {
   const SmoothProductCardFound({
@@ -64,12 +64,13 @@ class SmoothProductCardFound extends StatelessWidget {
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: onTap ??
-            () async {
-              await Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => ProductPage(product),
+            () {
+              AppNavigator.of(context).push(
+                AppRoutes.PRODUCT(
+                  product.barcode!,
+                  heroTag: heroTag,
                 ),
+                extra: product,
               );
             },
         onLongPress: () {
@@ -77,81 +78,84 @@ class SmoothProductCardFound extends StatelessWidget {
         },
         child: Hero(
           tag: heroTag,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              color:
-                  backgroundColor ?? (isDarkMode ? Colors.black : Colors.white),
-            ),
-            child: SmoothCard(
-              elevation: elevation,
-              color: Colors.transparent,
-              padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-              child: Row(
-                children: <Widget>[
-                  SmoothMainProductImage(
-                    product: product,
-                    width: screenSize.width * 0.20,
-                    height: screenSize.width * 0.20,
-                  ),
-                  const Padding(
-                      padding:
-                          EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE)),
-                  Expanded(
-                    child: SizedBox(
-                      height: screenSize.width * 0.2,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            getProductName(product, appLocalizations),
-                            overflow: TextOverflow.ellipsis,
-                            style: themeData.textTheme.headlineMedium,
-                          ),
-                          Text(
-                            getProductBrands(product, appLocalizations),
-                            overflow: TextOverflow.ellipsis,
-                            style: themeData.textTheme.titleMedium,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Icon(
-                                Icons.circle,
-                                size: 15,
-                                color: helper.getButtonColor(isDarkMode),
-                              ),
-                              const Padding(
-                                padding: EdgeInsetsDirectional.only(
-                                    start: VERY_SMALL_SPACE),
-                              ),
-                              Expanded(
-                                child: FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  alignment: AlignmentDirectional.centerStart,
-                                  child: Text(
-                                    helper.getSubtitle(appLocalizations),
-                                    style: themeData.textTheme.bodyMedium,
+          child: Material(
+            type: MaterialType.transparency,
+            child: Ink(
+              decoration: BoxDecoration(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                color: backgroundColor ??
+                    (isDarkMode ? Colors.black : Colors.white),
+              ),
+              child: SmoothCard(
+                elevation: elevation,
+                color: Colors.transparent,
+                padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                child: Row(
+                  children: <Widget>[
+                    SmoothMainProductImage(
+                      product: product,
+                      width: screenSize.width * 0.20,
+                      height: screenSize.width * 0.20,
+                    ),
+                    const Padding(
+                        padding: EdgeInsetsDirectional.only(
+                            start: VERY_SMALL_SPACE)),
+                    Expanded(
+                      child: SizedBox(
+                        height: screenSize.width * 0.2,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              getProductName(product, appLocalizations),
+                              overflow: TextOverflow.ellipsis,
+                              style: themeData.textTheme.headlineMedium,
+                            ),
+                            Text(
+                              getProductBrands(product, appLocalizations),
+                              overflow: TextOverflow.ellipsis,
+                              style: themeData.textTheme.titleMedium,
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.circle,
+                                  size: 15,
+                                  color: helper.getButtonColor(isDarkMode),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsetsDirectional.only(
+                                      start: VERY_SMALL_SPACE),
+                                ),
+                                Expanded(
+                                  child: FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    alignment: AlignmentDirectional.centerStart,
+                                    child: Text(
+                                      helper.getSubtitle(appLocalizations),
+                                      style: themeData.textTheme.bodyMedium,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  const Padding(
-                    padding:
-                        EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                    child: Column(
-                      children: scores,
+                    const Padding(
+                      padding:
+                          EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                      child: Column(
+                        children: scores,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

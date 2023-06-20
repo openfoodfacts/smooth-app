@@ -11,7 +11,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/pages/product/add_new_product_page.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
 
 /// Dialog helper for product barcode search
@@ -26,6 +26,8 @@ class ProductDialogHelper {
       'https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg';
   static const String unknownSvgEcoscore =
       'https://static.openfoodfacts.org/images/attributes/ecoscore-unknown.svg';
+  static const String unknownSvgNova =
+      'https://static.openfoodfacts.org/images/attributes/nova-group-unknown.svg';
 
   final String barcode;
   final BuildContext context;
@@ -130,11 +132,8 @@ class ProductDialogHelper {
           ),
           positiveAction: SmoothActionButton(
             text: AppLocalizations.of(context).contribute,
-            onPressed: () => Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => AddNewProductPage(barcode),
-              ),
+            onPressed: () => AppNavigator.of(context).push(
+              AppRoutes.PRODUCT_CREATOR(barcode),
             ),
           ),
           negativeAction: SmoothActionButton(

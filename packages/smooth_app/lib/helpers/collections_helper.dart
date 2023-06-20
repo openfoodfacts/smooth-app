@@ -84,6 +84,10 @@ extension ListExtensions<T> on List<T> {
     }
     insert(position, element);
   }
+
+  Iterable<T> diff(Iterable<T> other) {
+    return where((T item) => !other.contains(item));
+  }
 }
 
 extension SetExtensions<T> on Set<T> {
@@ -132,4 +136,7 @@ extension MapStringKeyExtensions<V> on Map<String, V> {
     final String? mapKey = keyStartingWith(key, ignoreCase: ignoreCase);
     return this[mapKey];
   }
+
+  Map<String, V> where(bool Function(MapEntry<String, V>) check) =>
+      Map<String, V>.fromEntries(entries.where(check));
 }

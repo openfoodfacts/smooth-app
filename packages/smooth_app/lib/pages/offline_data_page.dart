@@ -1,93 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_full_refresh.dart';
+import 'package:smooth_app/background/background_task_offline.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/query/product_query.dart';
-
-import 'package:smooth_app/query/products_preload_helper.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class OfflineDataPage extends StatefulWidget {
   const OfflineDataPage({Key? key}) : super(key: key);
 
   @override
   State<OfflineDataPage> createState() => _OfflineDataPageState();
-}
-
-/// Updates the product in the localdatabse and returns the total number of products updated
-Future<int> updateLocalDatabaseFromServer(BuildContext context) async {
-  final LocalDatabase localDatabase = context.read<LocalDatabase>();
-  final DaoProduct daoProduct = DaoProduct(localDatabase);
-
-  /// We seperate the products into two lists, one for products that have a knowledge panel
-  /// and one for products that don't have a knowledge panel
-  final List<String> barcodes = await daoProduct.getAllKeys();
-  final List<String> productsWithoutKnowledgePanel = <String>[];
-  final List<String> completeProducts = <String>[];
-  for (int i = 0; i < barcodes.length; i++) {
-    final Product? productFromDb = await daoProduct.get(barcodes[i]);
-    if (productFromDb != null && productFromDb.knowledgePanels == null) {
-      productsWithoutKnowledgePanel.add(barcodes[i]);
-    } else {
-      completeProducts.add(barcodes[i]);
-    }
-  }
-  final List<ProductField> fieldsForCompleteProducts = ProductQuery.fields;
-  final List<ProductField> fieldsForProductsWithoutKnowledgePanel =
-      ProductQuery.fields;
-  fieldsForProductsWithoutKnowledgePanel.remove(ProductField.KNOWLEDGE_PANELS);
-  int totalUpdatedProducts = 0;
-
-  /// Config for the products that don't have a knowledge panel
-  final ProductSearchQueryConfiguration productSearchQueryConfiguration =
-      ProductSearchQueryConfiguration(
-    language: ProductQuery.getLanguage(),
-    country: ProductQuery.getCountry(),
-    fields: fieldsForProductsWithoutKnowledgePanel,
-    parametersList: <Parameter>[
-      BarcodeParameter.list(productsWithoutKnowledgePanel),
-    ],
-    version: ProductQuery.productQueryVersion,
-  );
-
-  final SearchResult result = await OpenFoodAPIClient.searchProducts(
-    ProductQuery.getUser(),
-    productSearchQueryConfiguration,
-  );
-  if (result.products != null) {
-    daoProduct.putAll(result.products!);
-    totalUpdatedProducts += result.products!.length;
-  }
-
-  /// Config for the complete products ie. products that have a knowledge panel
-  final ProductSearchQueryConfiguration
-      productSearchQueryConfigurationForFullProducts =
-      ProductSearchQueryConfiguration(
-    language: ProductQuery.getLanguage(),
-    country: ProductQuery.getCountry(),
-    fields: fieldsForCompleteProducts,
-    parametersList: <Parameter>[
-      BarcodeParameter.list(completeProducts),
-    ],
-    version: ProductQuery.productQueryVersion,
-  );
-
-  final SearchResult resultForFullProducts =
-      await OpenFoodAPIClient.searchProducts(
-    ProductQuery.getUser(),
-    productSearchQueryConfigurationForFullProducts,
-  );
-  if (resultForFullProducts.products != null) {
-    daoProduct.putAll(resultForFullProducts.products!);
-    totalUpdatedProducts += resultForFullProducts.products!.length;
-  }
-  return totalUpdatedProducts;
 }
 
 class _OfflineDataPageState extends State<OfflineDataPage> {
@@ -100,8 +29,8 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Scaffold(
-      appBar: AppBar(
+    return SmoothScaffold(
+      appBar: SmoothAppBar(
         title: Text(appLocalizations.offline_data),
       ),
       body: RefreshIndicator(
@@ -123,66 +52,33 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               daoProduct: daoProduct,
             ),
             _OfflinePageListTile(
-              title: 'Download Data',
-              subtitle:
-                  'Download the top 1000 products in your country for instant scanning',
-              onTap: () async {
-                final LocalDatabase localDatabase =
-                    context.read<LocalDatabase>();
-                final DaoProduct daoProduct = DaoProduct(localDatabase);
-                final int newlyAddedProducts = await LoadingDialog.run<int>(
-                      title: 'Downloading data\nThis may take a while',
-                      context: context,
-                      future:
-                          PreloadDataHelper(daoProduct).downloadTopProducts(),
-                    ) ??
-                    0;
-                // ignore: use_build_context_synchronously
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('$newlyAddedProducts products added'),
-                  ),
-                );
-                localDatabase.notifyListeners();
-              },
+              title: appLocalizations.download_data,
+              subtitle: appLocalizations.download_top_products,
+              onTap: () async => BackgroundTaskOffline.addTask(
+                widget: this,
+              ),
               trailing: const Icon(Icons.download),
             ),
             _OfflinePageListTile(
-              title: 'Update Offline Product Data',
-              subtitle:
-                  'Update the local product database with the latest data from server',
+              title: appLocalizations.update_offline_data,
+              subtitle: appLocalizations.update_local_database_sub,
               trailing: const Icon(Icons.refresh),
-              onTap: () async {
-                final int newlyAddedProducts = await LoadingDialog.run<int>(
-                      title: 'Downloading data\nThis may take a while',
-                      context: context,
-                      future: updateLocalDatabaseFromServer(context),
-                    ) ??
-                    0;
-                setState(() {});
-                if (mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        '$newlyAddedProducts products updated',
-                      ),
-                      duration: SnackBarDuration.brief,
-                    ),
-                  );
-                }
-              },
+              onTap: () async => BackgroundTaskFullRefresh.addTask(
+                widget: this,
+              ),
             ),
             _OfflinePageListTile(
-              title: 'Clear Offline Product Data',
-              subtitle:
-                  'Clear all local product data from your app to free up space',
+              title: appLocalizations.clear_local_database,
+              subtitle: appLocalizations.clear_local_database_sub,
               trailing: const Icon(Icons.delete),
               onTap: () async {
                 final int totalProductsDeleted = await daoProduct.deleteAll();
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('$totalProductsDeleted products deleted'),
+                      content: Text(
+                        appLocalizations.deleted_products(totalProductsDeleted),
+                      ),
                       duration: SnackBarDuration.brief,
                     ),
                   );
@@ -191,8 +87,8 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               },
             ),
             _OfflinePageListTile(
-              title: 'Know More',
-              subtitle: 'Click to know more about offline data',
+              title: appLocalizations.know_more,
+              subtitle: appLocalizations.offline_data_desc,
               trailing: const Icon(Icons.info),
               // ignore: avoid_returning_null_for_void
               onTap: () => null,
@@ -215,18 +111,20 @@ class _StatsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations applocalizations = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: ListTile(
-        title: const Text('Offline Product Data'),
+        title: Text(applocalizations.offline_product_data_title),
         subtitle: FutureBuilder<int>(
           future: daoProduct.getTotalNoOfProducts(),
           builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
             if (snapshot.hasData) {
               return Text(
-                  '${snapshot.data} products available for immediate scaning');
+                applocalizations.available_for_download(snapshot.data!),
+              );
             } else {
-              return const Text('Loading...');
+              return Text(applocalizations.loading);
             }
           },
         ),

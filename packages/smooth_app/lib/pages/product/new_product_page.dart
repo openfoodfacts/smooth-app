@@ -26,6 +26,7 @@ import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
+import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -33,9 +34,18 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage(this.product);
+  const ProductPage(
+    this.product, {
+    this.heroTag,
+    this.withHeroAnimation = true,
+  });
 
   final Product product;
+
+  final String? heroTag;
+
+  // When using a deep link the Hero animation shouldn't be used
+  final bool withHeroAnimation;
 
   @override
   State<ProductPage> createState() => _ProductPageState();
@@ -48,6 +58,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
+  bool _keepRobotoffQuestionsAlive = true;
 
   bool scrollingUp = true;
 
@@ -132,14 +143,18 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     );
   }
 
-  Future<void> _refreshProduct(BuildContext context) async =>
-      ProductRefresher().fetchAndRefresh(
-          barcode: _product.barcode!,
-          widget: this,
-          onSuccessCallback: () {
-            // Reset the carousel to the beginning
-            _carouselController.jumpTo(0.0);
-          });
+  Future<void> _refreshProduct(BuildContext context) async {
+    final bool success = await ProductRefresher().fetchAndRefresh(
+      barcode: _product.barcode!,
+      widget: this,
+    );
+    if (context.mounted) {
+      if (success) {
+        // Reset the carousel to the beginning
+        _carouselController.jumpTo(0.0);
+      }
+    }
+  }
 
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
@@ -184,13 +199,20 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             padding: const EdgeInsets.symmetric(
               horizontal: SMALL_SPACE,
             ),
-            child: Hero(
-              tag: _barcode,
-              child: SummaryCard(
-                _product,
-                _productPreferences,
-                isFullVersion: true,
-                showUnansweredQuestions: true,
+            child: HeroMode(
+              enabled: widget.withHeroAnimation &&
+                  widget.heroTag?.isNotEmpty == true,
+              child: Hero(
+                tag: widget.heroTag ?? '',
+                child: KeepQuestionWidgetAlive(
+                  keepWidgetAlive: _keepRobotoffQuestionsAlive,
+                  child: SummaryCard(
+                    _product,
+                    _productPreferences,
+                    isFullVersion: true,
+                    showUnansweredQuestions: true,
+                  ),
+                ),
               ),
             ),
           ),
@@ -207,46 +229,49 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     );
   }
 
-  Widget _buildWebsiteWidget(String website) => InkWell(
-        onTap: () async {
-          if (!website.startsWith('http')) {
-            website = 'http://$website';
-          }
-          LaunchUrlHelper.launchURL(website, false);
-        }, // _product.website!
-        child: buildProductSmoothCard(
-          header: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: SMALL_SPACE,
-              horizontal: LARGE_SPACE,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  AppLocalizations.of(context).product_field_website_title,
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-              ],
-            ),
-          ),
-          body: Padding(
+  Widget _buildWebsiteWidget(String website) => buildProductSmoothCard(
+        body: InkWell(
+          onTap: () async {
+            if (!website.startsWith('http')) {
+              website = 'http://$website';
+            }
+            LaunchUrlHelper.launchURL(website, false);
+          },
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          child: Container(
+            width: double.infinity,
             padding: const EdgeInsets.only(
-              bottom: LARGE_SPACE,
               left: LARGE_SPACE,
+              top: LARGE_SPACE,
+              bottom: LARGE_SPACE,
+              // To be perfectly aligned with arrows
+              right: 21.0,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Flexible(
-                    child: Text(
-                  website,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Colors.blue),
-                )),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        AppLocalizations.of(context)
+                            .product_field_website_title,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      Text(
+                        website,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.blue),
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.open_in_new),
               ],
             ),
           ),
@@ -323,10 +348,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               Icons.edit,
               appLocalizations.edit_product_label,
               () async {
+                setState(() => _keepRobotoffQuestionsAlive = false);
+
                 AnalyticsHelper.trackEvent(
                   AnalyticsEvent.openProductEditPage,
                   barcode: _barcode,
                 );
+
                 await Navigator.push<void>(
                   context,
                   MaterialPageRoute<void>(
@@ -334,6 +362,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                         EditProductPage(_product),
                   ),
                 );
+
+                // Force Robotoff questions to be reloaded
+                setState(() => _keepRobotoffQuestionsAlive = true);
               },
             ),
             _buildActionBarItem(

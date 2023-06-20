@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/abstract_background_task.dart';
+import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/data_models/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -32,7 +32,7 @@ enum BackgroundTaskDetailsStamp {
 }
 
 /// Background task that changes product details (data, but no image upload).
-class BackgroundTaskDetails extends AbstractBackgroundTask {
+class BackgroundTaskDetails extends BackgroundTaskBarcode {
   const BackgroundTaskDetails._({
     required super.processName,
     required super.uniqueId,
@@ -44,26 +44,11 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
     required this.inputMap,
   });
 
-  BackgroundTaskDetails._fromJson(Map<String, dynamic> json)
-      : this._(
-          processName: json['processName'] as String,
-          uniqueId: json['uniqueId'] as String,
-          barcode: json['barcode'] as String,
-          languageCode: json['languageCode'] as String,
-          user: json['user'] as String,
-          country: json['country'] as String,
-          inputMap: json['inputMap'] as String,
-          // dealing with when 'stamp' did not exist
-          stamp: json.containsKey('stamp')
-              ? json['stamp'] as String
-              : getStamp(
-                  json['barcode'] as String,
-                  '${Random().nextInt(1000000000)}',
-                ),
-        );
+  BackgroundTaskDetails.fromJson(Map<String, dynamic> json)
+      : inputMap = json[_jsonTagInputMap] as String,
+        super.fromJson(json);
 
-  /// Task ID.
-  static const String _PROCESS_NAME = 'PRODUCT_EDIT';
+  static const String _jsonTagInputMap = 'inputMap';
 
   static const OperationType _operationType = OperationType.details;
 
@@ -71,40 +56,15 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   final String inputMap;
 
   @override
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'processName': processName,
-        'uniqueId': uniqueId,
-        'barcode': barcode,
-        'languageCode': languageCode,
-        'user': user,
-        'country': country,
-        'inputMap': inputMap,
-        'stamp': stamp,
-      };
-
-  /// Returns the deserialized background task if possible, or null.
-  static BackgroundTaskDetails? fromJson(final Map<String, dynamic> map) {
-    try {
-      final BackgroundTaskDetails result = BackgroundTaskDetails._fromJson(map);
-      if (result.processName == _PROCESS_NAME) {
-        return result;
-      }
-    } catch (e) {
-      //
-    }
-    return null;
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> result = super.toJson();
+    result[_jsonTagInputMap] = inputMap;
+    return result;
   }
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async =>
       localDatabase.upToDate.addChange(uniqueId, _getProduct());
-
-  @override
-  Future<void> postExecute(
-    final LocalDatabase localDatabase,
-    final bool success,
-  ) async =>
-      localDatabase.upToDate.terminate(uniqueId);
 
   /// Adds the background task about changing a product.
   static Future<void> addTask(
@@ -118,7 +78,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
       localDatabase,
       minimalistProduct.barcode!,
     );
-    final AbstractBackgroundTask task = _getNewTask(
+    final BackgroundTaskBarcode task = _getNewTask(
       minimalistProduct,
       uniqueId,
       stamp,
@@ -142,7 +102,7 @@ class BackgroundTaskDetails extends AbstractBackgroundTask {
   ) =>
       BackgroundTaskDetails._(
         uniqueId: uniqueId,
-        processName: _PROCESS_NAME,
+        processName: _operationType.processName,
         barcode: minimalistProduct.barcode!,
         languageCode: ProductQuery.getLanguage().code,
         inputMap: jsonEncode(minimalistProduct.toJson()),

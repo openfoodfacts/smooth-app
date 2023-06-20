@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/hunger_games/question_image_thumbnail.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Display of a Robotoff question text.
@@ -23,10 +24,9 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Future<Product?> productFuture =
-        ProductRefresher().silentFetchAndRefresh(
-      barcode: question.barcode!,
-      localDatabase: context.read<LocalDatabase>(),
+    final Future<Product?> productFuture = _getProduct(
+      question.barcode!,
+      context.read<LocalDatabase>(),
     );
 
     final Size screenSize = MediaQuery.of(context).size;
@@ -47,33 +47,43 @@ class QuestionCard extends StatelessWidget {
         if (product == null) {
           return _buildQuestionShimmer();
         }
-        return Card(
-          elevation: 4,
-          clipBehavior: Clip.antiAlias,
-          shape: const RoundedRectangleBorder(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-          ),
-          child: Column(
-            children: <Widget>[
-              ProductImageCarousel(
-                product,
-                height: screenSize.height / 6,
-                alternateImageUrl: question.imageUrl,
+        return Semantics(
+          value: '${question.question} ${question.value}',
+          readOnly: true,
+          child: ExcludeSemantics(
+            child: Card(
+              elevation: 4,
+              clipBehavior: Clip.antiAlias,
+              shape: const RoundedRectangleBorder(
+                borderRadius: ROUNDED_BORDER_RADIUS,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: Column(
-                  children: <Widget>[
-                    ProductTitleCard(
-                      product,
-                      true,
-                      dense: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SizedBox(
+                    height: screenSize.height / 6,
+                    child: question.imageUrl == null
+                        ? EMPTY_WIDGET
+                        : QuestionImageThumbnail(question),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        ProductTitleCard(
+                          product,
+                          true,
+                          dense: true,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  _buildQuestionText(context, question),
+                ],
               ),
-              _buildQuestionText(context, question),
-            ],
+            ),
           ),
         );
       },
@@ -85,6 +95,7 @@ class QuestionCard extends StatelessWidget {
       color: robotoffBackground,
       padding: const EdgeInsets.all(SMALL_SPACE),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
             alignment: Alignment.center,
@@ -113,6 +124,20 @@ class QuestionCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Future<Product?> _getProduct(
+    final String barcode,
+    final LocalDatabase localDatabase,
+  ) async {
+    final Product? result = await DaoProduct(localDatabase).get(barcode);
+    if (result != null) {
+      return result;
+    }
+    return ProductRefresher().silentFetchAndRefresh(
+      barcode: question.barcode!,
+      localDatabase: localDatabase,
     );
   }
 

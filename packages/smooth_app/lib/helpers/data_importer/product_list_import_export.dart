@@ -6,6 +6,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Import / Export of product lists (with or without JSON).
@@ -68,14 +69,8 @@ class ProductListImportExport {
   ) async {
     final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
       ProductQuery.getUser(),
-      ProductSearchQueryConfiguration(
-        fields: ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
-        country: ProductQuery.getCountry(),
-        parametersList: <Parameter>[
-          BarcodeParameter.list(barcodes.toList(growable: false)),
-        ],
-        version: ProductQuery.productQueryVersion,
+      ProductRefresher().getBarcodeListQueryConfiguration(
+        barcodes.toList(growable: false),
       ),
     );
 

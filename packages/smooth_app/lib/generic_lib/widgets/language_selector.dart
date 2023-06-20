@@ -39,33 +39,46 @@ class LanguageSelector extends StatelessWidget {
     }
     final String nameInEnglish = _languages.getNameInEnglish(language);
     final String nameInLanguage = _languages.getNameInLanguage(language);
-    return InkWell(
-      onTap: () async {
-        final OpenFoodFactsLanguage? language = await openLanguageSelector(
-          context,
-          selectedLanguages: selectedLanguages,
-        );
-        await setLanguage(language);
-      },
-      borderRadius: ANGULAR_BORDER_RADIUS,
-      child: ListTile(
-        leading: Icon(
-          Icons.language,
-          color: foregroundColor,
-        ),
-        title: Text(
-          '$nameInLanguage ($nameInEnglish)',
-          softWrap: false,
-          overflow: TextOverflow.fade,
-          style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium
-                  ?.copyWith(color: foregroundColor) ??
-              TextStyle(color: foregroundColor),
-        ),
-        trailing: Icon(
-          Icons.arrow_drop_down,
-          color: foregroundColor,
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        onTap: () async {
+          final OpenFoodFactsLanguage? language = await openLanguageSelector(
+            context,
+            selectedLanguages: selectedLanguages,
+          );
+          await setLanguage(language);
+        },
+        borderRadius: ANGULAR_BORDER_RADIUS,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.language,
+              color: foregroundColor,
+            ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                child: Text(
+                  '$nameInLanguage ($nameInEnglish)',
+                  softWrap: false,
+                  overflow: TextOverflow.fade,
+                  style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: foregroundColor) ??
+                      TextStyle(color: foregroundColor),
+                ),
+              ),
+            ),
+            Icon(
+              Icons.arrow_drop_down,
+              color: foregroundColor,
+            ),
+          ],
         ),
       ),
     );

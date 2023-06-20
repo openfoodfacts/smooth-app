@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "Влез в акаунта си в Open Food Facts, за да запишеш своите приноси",
+    "question_yes_button_accessibility_value": "Answer with yes",
+    "question_no_button_accessibility_value": "Answer with no",
+    "question_skip_button_accessibility_value": "Skip this question",
     "tap_to_edit_search": "Докосни, за да редактираш търсенето",
     "@Personal preferences": {},
     "myPreferences": "Моите настройки",
@@ -426,9 +429,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Сканирай",
+    "scan": "Scan session",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "Scan history",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "Търсене",
     "@search": {
@@ -487,6 +494,14 @@
     "@add_product_information_button_label": {},
     "new_product": "Нов продукт",
     "@new_product": {},
+    "new_product_dialog_title": "Току-що намери нов продукт!",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "Моля, направи снимки на опаковката, за да добавиш този продукт към нашата обща база данни",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "Снимка на продукта отпред",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Потвърди качването на снимката на предната страна на продукта",
@@ -495,11 +510,11 @@
     },
     "confirm_button_label": "Потвърди",
     "send_image_button_label": "Изпрати снимката",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "Запазване на снимката…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "Изрязване на снимката…",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
@@ -527,6 +542,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Въведи хранителните стойности",
     "nutritional_facts_added": "Хранителните стойности са добавени",
+    "categories_added": "Categories added",
+    "new_product_title_nutriscore": "Изчисли Nutri-Score",
+    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
+    "new_product_title_ecoscore": "Изчисли Eco-Score",
+    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
+    "new_product_additional_ecoscore": "Направи изчисляването на Eco-Score по-прецизно с произход, опаковка и други",
+    "new_product_title_pictures": "Да направим няколко снимки!",
+    "new_product_title_misc": "И някои основни данни…",
     "nutritional_facts_photo_uploaded": "Снимката с хранителните стойности е качена",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Снимка с информацията за рециклиране",
@@ -915,7 +938,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Започни да сканираш!",
+    "product_list_empty_title": "Започни да сканираш",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1319,6 +1342,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_toggle_camera": "Switch between back and front camera",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
     },
     "camera_enable_flash": "Включи светкавицата",
     "@camera_enable_flash": {
@@ -1860,6 +1891,13 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
+    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "@robotoff_next_n_questions": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering",
+        "placeholders": {
+            "count": {}
+        }
+    },
     "show_password": "Покажи паролата",
     "@show_password": {
         "description": "Show hidden password in password field"
@@ -1867,7 +1905,7 @@
     "app_rating_dialog_title": "Страхотно! Кажи на другите какво мислиш за това приложениие!",
     "app_rating_dialog_positive_action": "Оцени приложението",
     "app_rating_dialog_negative_action": "По-късно",
-    "app_rating_dialog_title_enjoying_app": "Харесваш ли това приложение?",
+    "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
     "app_rating_dialog_title_enjoying_positive_actions": "Да!",
     "not_really": "Не особено",
     "app_rating_dialog_title_not_enjoying_app": "Съжаляваме да чуем това! Би ли ни казал какво се случи?",
@@ -2032,5 +2070,105 @@
     "contrast_low": "Low",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_loader_not_found_title": "Продъктът не е открит!",
+    "@product_loader_not_found_title": {
+        "description": "When fetching a product opened via a link and it doesn't exist"
+    },
+    "product_loader_not_found_message": "Продукт със следния баркод не съществува в нашата база данни: {barcode}",
+    "@product_loader_not_found_message": {
+        "description": "When fetching a product opened via a link, it doesn't exist",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "product_loader_network_error_title": "Няма връзка с интернет!",
+    "@product_loader_network_error_title": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "product_loader_network_error_message": "Моля, провери дали твоят смартфон има активирано WiFi или мобилни данни",
+    "@product_loader_network_error_message": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "Страницата не е намерена!",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "Go back to the homepage",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
+    },
+    "download_data": "Изтегляне на данните",
+    "@download_data": {
+        "description": "App bar title for the download data page"
+    },
+    "download_top_products": "Изтегли най-добрите 1000 продукта в твоята страна за незабавно сканиране",
+    "@download_top_products": {
+        "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "Изтегляне на данните\nТова може да отнеме известно време",
+    "@download_in_progress": {
+        "description": "Download in progress"
+    },
+    "downloaded_products": "{num} добавени продукта",
+    "@downloaded_products": {
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "update_offline_data": "Update offline product data",
+    "@update_offline_data": {
+        "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "Актуализирай базата данни с местни продукти с най-новите данни от Open Food Facts",
+    "@update_local_database_sub": {
+        "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "Clear offline product data",
+    "@clear_local_database": {
+        "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "@clear_local_database_sub": {
+        "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "{num} продукта са изтрити",
+    "@deleted_products": {
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "loading": "Зареждане…",
+    "@loading": {
+        "description": "Loading…"
+    },
+    "know_more": "Научи повече",
+    "@know_more": {
+        "description": "Know More"
+    },
+    "offline_data_desc": "Click to know more about offline data",
+    "@offline_data_desc": {
+        "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "Offline product data",
+    "@offline_product_data_title": {
+        "description": "Offline Product Data"
+    },
+    "available_for_download": "{num} налични продукта за незабавно сканиране",
+    "@available_for_download": {
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
     }
 }

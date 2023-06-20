@@ -359,6 +359,9 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
     "question_sign_in_text": "כדאי להיכנס לחשבונך ב־Open Food Facts כדי לקבל הוקרה על התרומות שלך",
+    "question_yes_button_accessibility_value": "לענות בכן",
+    "question_no_button_accessibility_value": "לענות בלא",
+    "question_skip_button_accessibility_value": "לדלג על השאלה הזאת",
     "tap_to_edit_search": "יש לגעת לעריכת החיפוש",
     "@Personal preferences": {},
     "myPreferences": "ההעדפות שלי",
@@ -426,9 +429,13 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "סריקה",
+    "scan": "מופע סריקה",
     "@scan": {
-        "description": "Page title: List type: Scanned products"
+        "description": "Page title: List type: Products in the scan session"
+    },
+    "scan_history": "היסטוריית סריקה",
+    "@scan_history": {
+        "description": "Page title: List type: Products in the whole scan history"
     },
     "search": "חיפוש",
     "@search": {
@@ -487,6 +494,14 @@
     "@add_product_information_button_label": {},
     "new_product": "מוצר חדש",
     "@new_product": {},
+    "new_product_dialog_title": "כרגע גילית מוצר חדש!",
+    "@new_product_dialog_title": {
+        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_description": "נא לצלם את האריזה כדי להוסיף \nאת המוצר הזה למסד הנתונים השיתופי שלנו",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
     "front_packaging_photo_button_label": "תמונת החזית של המוצר",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "לאשר את העלאת תמונת החזית של המוצר",
@@ -495,19 +510,19 @@
     },
     "confirm_button_label": "אישור",
     "send_image_button_label": "שליחת תמונה",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "התמונה נשמרת…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "התמונה נחתכת…",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "גרסה מקומית נשמרת…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_server": "Preparing a call to the server…",
+    "crop_page_action_server": "בהכנות לקריאה לשרת…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
@@ -527,6 +542,14 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "מילוי העובדות התזונתיות",
     "nutritional_facts_added": "נוספות עובדות תזונתיות",
+    "categories_added": "נוספו קטגוריות",
+    "new_product_title_nutriscore": "חישוב ה־Nutri-Score",
+    "new_product_subtitle_nutriscore": "אפשר לגלות אותו על ידי מילוי קטגוריית המזון והערכים התזונתיים",
+    "new_product_title_ecoscore": "חישוב ה־Eco-Score",
+    "new_product_subtitle_ecoscore": "אפשר לגלות את זה על ידי מילוי הקטגוריה לכל הפחות",
+    "new_product_additional_ecoscore": "אפשר לשפר את דיוק חישוב ה־Eco-Score על ידי הוספה של מקורות, אריזות ועוד",
+    "new_product_title_pictures": "בואו נצלם קצת!",
+    "new_product_title_misc": "וכמה נתונים בסיסיים…",
     "nutritional_facts_photo_uploaded": "תמונת הפירוט התזונתי נשלחה",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "תמונת פרטי המיחזור",
@@ -704,35 +727,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, two{לפני יומיים}  many {לפני {count} ימים} =1{אתמול} other{לפני {count} ימים}}",
+    "plural_ago_days": "לפני {count,plural, two {יומיים} many {{count} ימים} =1{יום} other{{count} ימים}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, two {לפני שעתיים} many {לפני {count} שעות} =1{לפני שעה} other{לפני {count} שעות}}",
+    "plural_ago_hours": "לפני {count,plural, two {שעתיים} many {{count} שעות} =1{שעה} other{{count} שעות}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, two {לפני {count} דקות} many {לפני {count} דקות} =0{לפני פחות מדקה} =1{לפני דקה} other{לפני {count} דקות}}",
+    "plural_ago_minutes": "לפני {count,plural, two {{count} דקות} many {{count} דקות} =0{פחות מדקה} =1{דקה} other{{count} דקות}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, two {לפני חודשיים} many {לפני {count} חודשים} =1{לפני חודש} other{לפני {count} חודשים}}",
+    "plural_ago_months": "לפני {count,plural, two {חודשיים} many {{count} חודשים} =1{חודש} other{{count} חודשים}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, two {לפני שבועיים} many {לפני {count} שבועות} =1{לפני שבוע} other{לפני {count} שבועות}}",
+    "plural_ago_weeks": "לפני {count,plural, two {שבועיים} many {{count} weeks ago} =1{שבוע} other{{count} שבועות}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -915,7 +938,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "הבה נתחיל בסריקה!",
+    "product_list_empty_title": "התחלה בסריקה",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -923,14 +946,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "{count,plural,  two {מוצרים מההיסטוריה שלך מתרעננים}  many {מוצרים מההיסטוריה שלך מתרעננים}=0{מוצר מההיסטוריה שלך מתרענן} =1{מוצר מההיסטוריה שלך מתרענן} other{מוצרים מההיסטוריה שלך מתרעננים}}",
+    "product_list_reloading_in_progress_multiple": "{count,plural, two {מוצרים מתרעננים} many {מוצרים מתרעננים} =0{מוצרים מתרענים} =1{מוצר מתרענן} other{מוצרים מתרעננים}} בהיסטוריה שלך",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "רענון ה{count,plural, two{מוצרים}  many{מוצרים}=0{מוצר} =1 {מוצר} other{מוצרים}} הושלם",
+    "product_list_reloading_success_multiple": "רענון ה{count,plural, two {מוצרים} many {מוצרים} =0{מוצר} =1{מוצר} other{מוצרים}} הושלם",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -1319,6 +1342,14 @@
                 "type": "String"
             }
         }
+    },
+    "camera_toggle_camera": "החלפה בין המצלמה האחורית לקדמית",
+    "@camera_toggle_camera": {
+        "description": "Explanation for the icon to switch between cameras"
+    },
+    "camera_toggle_flash": "כיבוי או הפעלה של מבזק המצלמה",
+    "@camera_toggle_flash": {
+        "description": "Explanation for the icon to turn on/off the flash"
     },
     "camera_enable_flash": "הפעלת מבזק",
     "@camera_enable_flash": {
@@ -1860,6 +1891,13 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
+    "robotoff_next_n_questions": "{count,plural, two {{count} השאלות הבאות}  many {{count} השאלות הבאות}=1{השאלה הבאה} other{{count} השאלות הבאות}}",
+    "@robotoff_next_n_questions": {
+        "description": "Shown when robotoff question are all answered and user wants to continue answering",
+        "placeholders": {
+            "count": {}
+        }
+    },
     "show_password": "הצגת סיסמה",
     "@show_password": {
         "description": "Show hidden password in password field"
@@ -2032,5 +2070,105 @@
     "contrast_low": "נמוכה",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_loader_not_found_title": "המוצר לא נמצא!",
+    "@product_loader_not_found_title": {
+        "description": "When fetching a product opened via a link and it doesn't exist"
+    },
+    "product_loader_not_found_message": "אין מוצר עם הברקוד הבא במסד הנתונים שלנו: {barcode}",
+    "@product_loader_not_found_message": {
+        "description": "When fetching a product opened via a link, it doesn't exist",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "product_loader_network_error_title": "אין חיבור לאינטרנט!",
+    "@product_loader_network_error_title": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "product_loader_network_error_message": "נא לבדוק שהטלפון החכם שלך מחובר לרשת אלחוטית או שחיבור הנתונים שלו פעיל",
+    "@product_loader_network_error_message": {
+        "description": "When fetching a product opened via a link and there is no connection"
+    },
+    "page_not_found_title": "העמוד לא נמצא!",
+    "@page_not_found_title": {
+        "description": "Title for a page not found (when an URL is not recognized)"
+    },
+    "page_not_found_button": "חזרה לעמוד הבית",
+    "@page_not_found_button": {
+        "description": "Button to go back to the homepage"
+    },
+    "download_data": "הורדת נתונים",
+    "@download_data": {
+        "description": "App bar title for the download data page"
+    },
+    "download_top_products": "אפשר להוריד את 1000 המוצרים המובילים במדינה שלך להאצת הסריקה",
+    "@download_top_products": {
+        "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_in_progress": "הנתונים מתקבלים\nעשוי לקחת זמן מה",
+    "@download_in_progress": {
+        "description": "Download in progress"
+    },
+    "downloaded_products": "נוספו {num} מוצרים",
+    "@downloaded_products": {
+        "description": "text to show when products added",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "update_offline_data": "עדכון נתוני מוצרים באופן בלתי מקוון",
+    "@update_offline_data": {
+        "description": "List tile title for the update offline data page"
+    },
+    "update_local_database_sub": "עדכון מסד הנתונים המקומי של המוצרים בנתונים העדכניים ביותר מ־Open Food Facts",
+    "@update_local_database_sub": {
+        "description": "Update the local product database with the latest data from server"
+    },
+    "clear_local_database": "פינוי נתוני מוצרים באופן בלתי מקוון",
+    "@clear_local_database": {
+        "description": "List tile title for the clear local database page"
+    },
+    "clear_local_database_sub": "פינוי כל נתוני המוצרים המקומיים מהיישומון שלך כדי לפנות מקום",
+    "@clear_local_database_sub": {
+        "description": "Clear all local product data from your app to free up space"
+    },
+    "deleted_products": "{num} מוצרים נמחקו",
+    "@deleted_products": {
+        "description": "text to show when products are deleted from local databse",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
+    },
+    "loading": "בטעינה…",
+    "@loading": {
+        "description": "Loading…"
+    },
+    "know_more": "מידע נוסף",
+    "@know_more": {
+        "description": "Know More"
+    },
+    "offline_data_desc": "לחיצה כאן תחשוף מידע נוסף על נתונים בלתי מקוונים",
+    "@offline_data_desc": {
+        "description": "Click to know more about offline data"
+    },
+    "offline_product_data_title": "נתוני מוצרים בלתי מקוונים",
+    "@offline_product_data_title": {
+        "description": "Offline Product Data"
+    },
+    "available_for_download": "{num} מוצרים זמינים לסריקה מיידית",
+    "@available_for_download": {
+        "description": "text to show details of products available for download",
+        "placeholders": {
+            "num": {
+                "type": "int"
+            }
+        }
     }
 }

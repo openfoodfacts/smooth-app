@@ -23,7 +23,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Starts from scratch with a new (or refreshed) [Product].
   void reInit(final Product product) {
     this.product = product;
-    _terms = List<String>.from(initTerms());
+    _terms = List<String>.from(initTerms(this.product));
     _changed = false;
     notifyListeners();
   }
@@ -35,10 +35,13 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// WARNING: this list must be copied; if not you may alter the product.
   /// cf. https://github.com/openfoodfacts/smooth-app/issues/3529
   @protected
-  List<String> initTerms();
+  List<String> initTerms(final Product product);
 
   /// Returns the current terms to be displayed.
   List<String> get terms => _terms;
+
+  /// Returns true if the field is populated.
+  bool isPopulated(final Product product) => initTerms(product).isNotEmpty;
 
   /// Returns true if the term was not in the list and then was added.
   bool addTerm(String term) {
@@ -79,6 +82,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns the hint of the "add" text field.
   String getAddHint(final AppLocalizations appLocalizations);
+
+  /// Returns the type of the text field (eg: label, category…).
+  String getTypeLabel(final AppLocalizations appLocalizations);
 
   /// Returns additional examples about the "add" text field.
   String? getAddExplanations(final AppLocalizations appLocalizations) => null;
@@ -145,7 +151,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() => splitString(product.stores);
+  List<String> initTerms(final Product product) => splitString(product.stores);
 
   @override
   void changeProduct(final Product changedProduct) =>
@@ -164,6 +170,10 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_stores_hint;
 
   @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_stores_type;
+
+  @override
   TagType? getTagType() => null;
 
   @override
@@ -179,7 +189,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() => splitString(product.origins);
+  List<String> initTerms(final Product product) => splitString(product.origins);
 
   @override
   void changeProduct(final Product changedProduct) =>
@@ -196,6 +206,10 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_origins_hint;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_origins_type;
 
   @override
   String? getAddExplanations(final AppLocalizations appLocalizations) =>
@@ -219,7 +233,8 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() => splitString(product.embCodes);
+  List<String> initTerms(final Product product) =>
+      splitString(product.embCodes);
 
   @override
   void changeProduct(final Product changedProduct) =>
@@ -236,6 +251,10 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_hint;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_emb_codes_type;
 
   @override
   String getAddExplanations(final AppLocalizations appLocalizations) =>
@@ -258,7 +277,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() =>
+  List<String> initTerms(final Product product) =>
       product.labelsTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
@@ -287,6 +306,10 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_labels_hint;
 
   @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_labels_type;
+
+  @override
   TagType? getTagType() => TagType.LABELS;
 
   @override
@@ -303,7 +326,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() =>
+  List<String> initTerms(final Product product) =>
       product.categoriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
@@ -336,6 +359,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_categories_hint;
 
   @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_categories_type;
+
+  @override
   TagType? getTagType() => TagType.CATEGORIES;
 
   @override
@@ -352,7 +379,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
-  List<String> initTerms() =>
+  List<String> initTerms(final Product product) =>
       product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
   @override
@@ -375,6 +402,10 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_hint;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_countries_type;
 
   @override
   String getAddExplanations(final AppLocalizations appLocalizations) =>

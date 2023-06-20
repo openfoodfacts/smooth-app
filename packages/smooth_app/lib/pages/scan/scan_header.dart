@@ -6,7 +6,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 
 class ScanHeader extends StatefulWidget {
   const ScanHeader();
@@ -32,9 +31,11 @@ class _ScanHeaderState extends State<ScanHeader> {
       ),
     );
 
+    final int validBarcodes = model.getAvailableBarcodes().length;
+    final bool compareFeatureAvailable = validBarcodes >= 2;
+
     return AnimatedOpacity(
-      opacity:
-          model.getBarcodes().isNotEmpty ? _visibleOpacity : _invisibleOpacity,
+      opacity: validBarcodes > 0 ? _visibleOpacity : _invisibleOpacity,
       duration: SmoothAnimationsDuration.brief,
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -50,48 +51,66 @@ class _ScanHeaderState extends State<ScanHeader> {
                   constraints: BoxConstraints(
                     maxWidth: constraints.maxWidth * 0.4,
                   ),
-                  child: ElevatedButton.icon(
-                    style: buttonStyle,
-                    icon: const Icon(Icons.cancel_outlined),
-                    onPressed: model.clearScanSession,
-                    label: Text(appLocalizations.clear),
+                  child: Tooltip(
+                    message: appLocalizations.scan_header_clear_button_tooltip,
+                    child: ElevatedButton.icon(
+                      style: buttonStyle,
+                      icon: const Icon(Icons.clear_all),
+                      onPressed: model.clearScanSession,
+                      label: Text(appLocalizations.clear),
+                    ),
                   ),
                 ),
                 ConstrainedBox(
                   constraints: BoxConstraints(
                     maxWidth: constraints.maxWidth * 0.6,
                   ),
-                  child: ElevatedButton.icon(
-                    style: buttonStyle,
-                    icon:
-                        const Icon(RankingFloatingActionButton.rankingIconData),
-                    onPressed: () async {
-                      final ContinuousScanModel model =
-                          context.read<ContinuousScanModel>();
-                      await model.refreshProductList();
-                      if (!mounted) {
-                        return;
-                      }
-                      await Navigator.push<void>(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              PersonalizedRankingPage(
-                            barcodes: model.productList.barcodes,
-                            title: ProductQueryPageHelper.getProductListLabel(
-                              model.productList,
-                              context,
+                  child: Tooltip(
+                    message: compareFeatureAvailable
+                        ? appLocalizations
+                            .scan_header_compare_button_valid_state_tooltip
+                        : appLocalizations
+                            .scan_header_compare_button_invalid_state_tooltip,
+                    child: AnimatedOpacity(
+                      opacity: compareFeatureAvailable ? 1.0 : 0.5,
+                      duration: SmoothAnimationsDuration.brief,
+                      child: ElevatedButton.icon(
+                        style: buttonStyle,
+                        icon: const Icon(Icons.compare_arrows),
+                        onPressed: compareFeatureAvailable
+                            ? () async {
+                                final ContinuousScanModel model =
+                                    context.read<ContinuousScanModel>();
+                                await model.refreshProductList();
+                                if (!mounted) {
+                                  return;
+                                }
+                                await Navigator.push<void>(
+                                  context,
+                                  MaterialPageRoute<void>(
+                                    builder: (BuildContext context) =>
+                                        PersonalizedRankingPage(
+                                      barcodes: model
+                                          .getAvailableBarcodes()
+                                          .toList(growable: false),
+                                      title: ProductQueryPageHelper
+                                          .getProductListLabel(
+                                        model.productList,
+                                        context,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                            : null,
+                        label: FittedBox(
+                          child: Text(
+                            appLocalizations.plural_compare_x_products(
+                              validBarcodes,
                             ),
+                            maxLines: 1,
                           ),
                         ),
-                      );
-                    },
-                    label: FittedBox(
-                      child: Text(
-                        appLocalizations.plural_compare_x_products(
-                          model.getBarcodes().length,
-                        ),
-                        maxLines: 1,
                       ),
                     ),
                   ),

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/consent_analytics_page.dart';
 import 'package:smooth_app/pages/onboarding/permissions_page.dart';
 import 'package:smooth_app/pages/onboarding/preferences_page.dart';
@@ -154,10 +155,7 @@ class OnboardingFlowNavigator {
     );
 
     if (page.isOnboardingComplete()) {
-      await Navigator.of(context).pushAndRemoveUntil(
-        route,
-        (Route<dynamic> route) => false,
-      );
+      AppNavigator.of(context).pushReplacement(AppRoutes.HOME);
     } else {
       await Navigator.of(context).push<void>(route);
     }
