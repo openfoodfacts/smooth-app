@@ -21,7 +21,7 @@ class EditImageButton extends StatelessWidget {
     return OutlinedButton.icon(
       icon: Icon(iconData),
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(colorScheme.background),
+        backgroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
         shape: MaterialStateProperty.all(
           const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
         ),
@@ -29,13 +29,16 @@ class EditImageButton extends StatelessWidget {
             ? null
             : MaterialStateBorderSide.resolveWith(
                 (_) => BorderSide(
-                  color: colorScheme.onBackground,
+                  color: colorScheme.primary,
                   width: borderWidth!,
                 ),
               ),
       ),
       onPressed: onPressed,
-      label: Text(label),
+      label: Padding(
+        padding: EdgeInsets.all(borderWidth ?? 0),
+        child: Text(label),
+      ),
     );
   }
 }
