@@ -84,6 +84,10 @@ extension ListExtensions<T> on List<T> {
     }
     insert(position, element);
   }
+
+  Iterable<T> diff(Iterable<T> other) {
+    return where((T item) => !other.contains(item));
+  }
 }
 
 extension SetExtensions<T> on Set<T> {
