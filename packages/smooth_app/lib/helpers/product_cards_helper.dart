@@ -157,7 +157,6 @@ List<Attribute> getFilteredAttributes(
 Widget addPanelButton(
   final String label, {
   final IconData? iconData,
-  final String? textAlign,
   required final Function() onPressed,
 }) =>
     Padding(
@@ -165,7 +164,6 @@ Widget addPanelButton(
       child: SmoothLargeButtonWithIcon(
         text: label,
         icon: iconData ?? Icons.add,
-        textAlign: textAlign ?? textAlign,
         onPressed: onPressed,
       ),
     );
