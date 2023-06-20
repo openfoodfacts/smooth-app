@@ -63,52 +63,63 @@ class _EditProductPageState extends State<EditProductPage> {
     context.watch<LocalDatabase>();
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     final ThemeData theme = Theme.of(context);
+    final String productName = getProductName(_product, appLocalizations);
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            AutoSizeText(
-              getProductName(_product, appLocalizations),
-              minFontSize:
-                  theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
-                      13.0,
-              maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
-              style: theme.textTheme.titleLarge
-                  ?.copyWith(fontWeight: FontWeight.w500),
-            ),
-            if (_barcode.isNotEmpty)
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 250),
-                height: _barcodeVisibleInAppbar ? 14.0 : 0.0,
-                child: Text(
-                  _barcode,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.normal,
-                  ),
+        title: Semantics(
+          value: productName,
+          child: ExcludeSemantics(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                AutoSizeText(
+                  productName,
+                  minFontSize:
+                      theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
+                          13.0,
+                  maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
+                  style: theme.textTheme.titleLarge
+                      ?.copyWith(fontWeight: FontWeight.w500),
                 ),
-              ),
-          ],
+                if (_barcode.isNotEmpty)
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 250),
+                    height: _barcodeVisibleInAppbar ? 14.0 : 0.0,
+                    child: Text(
+                      _barcode,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
         ),
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.copy),
-            tooltip: appLocalizations.clipboard_barcode_copy,
-            onPressed: () {
-              Clipboard.setData(
-                ClipboardData(text: _barcode),
-              );
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    appLocalizations.clipboard_barcode_copied(_barcode),
+          Semantics(
+            button: true,
+            value: appLocalizations.clipboard_barcode_copy,
+            excludeSemantics: true,
+            child: IconButton(
+              icon: const Icon(Icons.copy),
+              tooltip: appLocalizations.clipboard_barcode_copy,
+              onPressed: () {
+                Clipboard.setData(
+                  ClipboardData(text: _barcode),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      appLocalizations.clipboard_barcode_copied(_barcode),
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           )
         ],
       ),
