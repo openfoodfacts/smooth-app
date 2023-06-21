@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
-import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -57,7 +57,7 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
-      barcode,
+      barcode: barcode,
     );
     final BackgroundTaskBarcode task = _getNewTask(barcode, uniqueId);
     await task.addToManager(localDatabase);

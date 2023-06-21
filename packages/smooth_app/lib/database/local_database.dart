@@ -19,6 +19,7 @@ import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/dao_unzipped_product.dart';
+import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LocalDatabase extends ChangeNotifier {
@@ -35,7 +36,7 @@ class LocalDatabase extends ChangeNotifier {
 
   @override
   void notifyListeners() {
-    BackgroundTaskManager(this).run(); // no await
+    BackgroundTaskManager.getInstance(this).run(); // no await
     super.notifyListeners();
   }
 
@@ -58,7 +59,7 @@ class LocalDatabase extends ChangeNotifier {
     final String databasePath = join(databasesRootPath, 'smoothie.db');
     final Database database = await openDatabase(
       databasePath,
-      version: 2,
+      version: 3,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -108,5 +109,6 @@ class LocalDatabase extends ChangeNotifier {
   ) async {
     await DaoUnzippedProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
+    await DaoWorkBarcode.onUpgrade(db, oldVersion, newVersion);
   }
 }

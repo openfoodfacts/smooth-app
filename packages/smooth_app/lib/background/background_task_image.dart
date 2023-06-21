@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
-import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
@@ -72,7 +72,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
-      barcode,
+      barcode: barcode,
     );
     final BackgroundTaskBarcode task = _getNewTask(
       language,

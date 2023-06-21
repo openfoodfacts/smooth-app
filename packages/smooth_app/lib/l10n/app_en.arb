@@ -1826,6 +1826,14 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
+    "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
+    "@background_task_title_full_refresh": {
+        "description": "Snackbar message when a full refresh is started"
+    },
+    "background_task_title_top_n": "Starting the download of the most popular products",
+    "@background_task_title_top_n": {
+        "description": "Snackbar message when a download of the most popular products is started"
+    },
     "expand_nutrition_facts": "Expand nutrition facts table",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -2170,6 +2178,14 @@
     "download_top_products": "Download the top 1000 products in your country for instant scanning",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+    "@download_top_n_products": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
     },
     "download_in_progress": "Downloading data\nThis may take a while",
     "@download_in_progress": {

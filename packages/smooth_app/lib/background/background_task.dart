@@ -109,7 +109,7 @@ abstract class BackgroundTask {
     final State<StatefulWidget>? widget,
     final bool showSnackBar = true,
   }) async {
-    await BackgroundTaskManager(localDatabase).add(this);
+    await BackgroundTaskManager.getInstance(localDatabase).add(this);
     if (widget == null || !widget.mounted) {
       return;
     }
@@ -144,4 +144,10 @@ abstract class BackgroundTask {
   /// successfully completing the upload task, the transient file - that is just
   /// a static variable - won't be there at app restart. Unless you recover.
   Future<void> recover(final LocalDatabase localDatabase) async {}
+
+  /// Returns true if the task ends calling another task for immediate exec.
+  ///
+  /// We return true only in rare cases. Typically, when we split an task in
+  /// subtasks that call the next one at the end.
+  bool get hasImmediateNextTask => false;
 }

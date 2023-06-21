@@ -5,14 +5,17 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task.dart';
-import 'package:smooth_app/data_models/operation_type.dart';
+import 'package:smooth_app/background/background_task_download_products.dart';
+import 'package:smooth_app/background/background_task_paged.dart';
+import 'package:smooth_app/background/background_task_progressing.dart';
+import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about refreshing all the already downloaded products.
-class BackgroundTaskFullRefresh extends BackgroundTask {
+class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
   BackgroundTaskFullRefresh._({
     required super.processName,
     required super.uniqueId,
@@ -20,6 +23,7 @@ class BackgroundTaskFullRefresh extends BackgroundTask {
     required super.user,
     required super.country,
     required super.stamp,
+    required super.pageSize,
   });
 
   BackgroundTaskFullRefresh.fromJson(Map<String, dynamic> json)
@@ -27,28 +31,28 @@ class BackgroundTaskFullRefresh extends BackgroundTask {
 
   static const OperationType _operationType = OperationType.fullRefresh;
 
-  static const String noBarcode = 'NO_BARCODE';
-
   static Future<void> addTask({
     required final State<StatefulWidget> widget,
+    required final int pageSize,
   }) async {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
-      noBarcode,
     );
     final BackgroundTask task = _getNewTask(
       uniqueId,
+      pageSize,
     );
     await task.addToManager(localDatabase, widget: widget);
   }
 
   @override
   String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
-      'Starting the refresh of all the products locally stored'; // TODO(monsieurtanuki): localize
+      appLocalizations.background_task_title_full_refresh;
 
   static BackgroundTaskFullRefresh _getNewTask(
     final String uniqueId,
+    final int pageSize,
   ) =>
       BackgroundTaskFullRefresh._(
         processName: _operationType.processName,
@@ -57,11 +61,17 @@ class BackgroundTaskFullRefresh extends BackgroundTask {
         user: jsonEncode(ProductQuery.getUser().toJson()),
         country: ProductQuery.getCountry()!.offTag,
         stamp: ';fullRefresh',
+        pageSize: pageSize,
       );
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
+
+    await daoWorkBarcode
+        .deleteWork(BackgroundTaskProgressing.workFreshWithoutKP);
+    await daoWorkBarcode.deleteWork(BackgroundTaskProgressing.workFreshWithKP);
 
     // We separate the products into two lists, products with or without
     // knowledge panels
@@ -75,31 +85,25 @@ class BackgroundTaskFullRefresh extends BackgroundTask {
         productsWithKP.add(barcode);
       }
     }
-    if (productsWithoutKP.isNotEmpty) {
-      final List<ProductField> fieldsWithoutKP = List<ProductField>.from(
-        ProductQuery.fields,
-        growable: true,
-      );
-      fieldsWithoutKP.remove(ProductField.KNOWLEDGE_PANELS);
-
-      await _loadProducts(
-        barcodes: productsWithoutKP,
-        fields: fieldsWithoutKP,
-        daoProduct: daoProduct,
-      );
-    }
-
-    if (productsWithKP.isNotEmpty) {
-      await _loadProducts(
-        barcodes: productsWithKP,
-        fields: ProductQuery.fields,
-        daoProduct: daoProduct,
-      );
-    }
+    await _startDownloadTask(
+      barcodes: productsWithoutKP,
+      work: BackgroundTaskProgressing.workFreshWithoutKP,
+      localDatabase: localDatabase,
+      downloadFlag: BackgroundTaskDownloadProducts.flagMaskExcludeKP,
+    );
+    await _startDownloadTask(
+      barcodes: productsWithKP,
+      work: BackgroundTaskProgressing.workFreshWithKP,
+      localDatabase: localDatabase,
+      downloadFlag: 0,
+    );
   }
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {}
+
+  @override
+  bool hasImmediateNextTask = false;
 
   /// Returns true if we should download data without KP.
   ///
@@ -114,22 +118,25 @@ class BackgroundTaskFullRefresh extends BackgroundTask {
     return product != null && product.knowledgePanels == null;
   }
 
-  // TODO(monsieurtanuki): split (by 100 barcodes?) and loop
-  Future<void> _loadProducts({
+  Future<void> _startDownloadTask({
     required final List<String> barcodes,
-    required final List<ProductField> fields,
-    required final DaoProduct daoProduct,
+    required final String work,
+    required final LocalDatabase localDatabase,
+    required final int downloadFlag,
   }) async {
-    final SearchResult result = await OpenFoodAPIClient.searchProducts(
-      ProductQuery.getUser(),
-      ProductRefresher().getBarcodeListQueryConfiguration(
-        barcodes,
-        fields: fields,
-      ),
-    );
-    final List<Product>? downloadedProducts = result.products;
-    if (downloadedProducts?.isNotEmpty == true) {
-      await daoProduct.putAll(downloadedProducts!);
+    if (barcodes.isEmpty) {
+      return;
     }
+    hasImmediateNextTask = true;
+    final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
+    await daoWorkBarcode.putAll(work, barcodes);
+    await BackgroundTaskDownloadProducts.addTask(
+      localDatabase: localDatabase,
+      work: work,
+      pageSize: pageSize,
+      totalSize: barcodes.length,
+      soFarSize: 0,
+      downloadFlag: downloadFlag,
+    );
   }
 }
