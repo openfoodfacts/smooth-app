@@ -32,11 +32,13 @@ class ProductQueryPage extends StatefulWidget {
     required this.productListSupplier,
     required this.name,
     required this.editableAppBarTitle,
+    this.searchResult = true,
   });
 
   final ProductListSupplier productListSupplier;
   final String name;
   final bool editableAppBarTitle;
+  final bool searchResult;
 
   @override
   State<ProductQueryPage> createState() => _ProductQueryPageState();
@@ -204,6 +206,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           title: _AppBarTitle(
             name: widget.name,
             editableAppBarTitle: widget.editableAppBarTitle,
+            searchResult: widget.searchResult,
           ),
           actions: _getAppBarButtons(),
         ),
@@ -504,12 +507,13 @@ class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
     required this.name,
     required this.editableAppBarTitle,
+    this.searchResult = true,
     Key? key,
   }) : super(key: key);
 
   final String name;
   final bool editableAppBarTitle;
-
+  final bool searchResult;
   @override
   Widget build(BuildContext context) {
     final Widget child = AutoSizeText(
@@ -525,9 +529,23 @@ class _AppBarTitle extends StatelessWidget {
           Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
         },
         child: Tooltip(
-          message: appLocalizations.tap_to_edit_search,
-          child: child,
-        ),
+            message: appLocalizations.tap_to_edit_search,
+            child: searchResult
+                ? child
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        appLocalizations.product_search_same_category,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        name,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w200, fontSize: 15),
+                      )
+                    ],
+                  )),
       );
     } else {
       return child;
