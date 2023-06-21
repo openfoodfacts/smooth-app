@@ -52,7 +52,7 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
 
   @override
   String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
-      'Starting the download of the most popular products';
+      appLocalizations.background_task_title_top_n;
 
   static BackgroundTaskOffline _getNewTask(
     final String uniqueId,

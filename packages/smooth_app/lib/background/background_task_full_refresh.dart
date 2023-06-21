@@ -48,7 +48,7 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
 
   @override
   String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
-      'Starting the refresh of all the products locally stored';
+      appLocalizations.background_task_title_full_refresh;
 
   static BackgroundTaskFullRefresh _getNewTask(
     final String uniqueId,
