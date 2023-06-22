@@ -305,10 +305,10 @@ packages:
     dependency: "direct main"
     description:
       name: crop_image
-      sha256: "0b5b939106eb71cbb66d2b97e56d9ec3469d88b12324143439bf0911e4c9bf11"
+      sha256: "2c70294bdcb0f2fd8b7d660535b314eb5d2477000057e1f30db8295d1588c422"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.10"
   cross_file:
     dependency: transitive
     description:

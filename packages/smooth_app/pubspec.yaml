@@ -50,7 +50,7 @@ dependencies:
   flutter_native_splash: 2.2.19
   image: ^4.0.17
   auto_size_text: 3.0.0
-  crop_image: 1.0.6
+  crop_image: 1.0.10
   shared_preferences: 2.1.1
   intl: 0.18.0
   collection: 1.17.1
