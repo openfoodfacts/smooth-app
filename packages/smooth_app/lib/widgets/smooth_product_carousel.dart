@@ -26,9 +26,11 @@ import 'package:url_launcher/url_launcher_string.dart';
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
     this.containSearchCard = false,
+    this.onPageChangedTo,
   });
 
   final bool containSearchCard;
+  final Function(int page, String? productBarcode)? onPageChangedTo;
 
   static const EdgeInsetsGeometry carouselItemHorizontalPadding =
       EdgeInsetsDirectional.only(
@@ -49,44 +51,70 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   final CarouselController _controller = CarouselController();
   List<String> barcodes = <String>[];
   bool _returnToSearchCard = false;
+  String? _lastConsultedBarcode;
+  int? _carrouselMovingTo;
   int _lastIndex = 0;
 
   int get _searchCardAdjustment => widget.containSearchCard ? 1 : 0;
   late ContinuousScanModel _model;
 
   @override
-  void initState() {
-    super.initState();
-    _lastIndex = _searchCardAdjustment;
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _model = context.watch<ContinuousScanModel>();
+
+    if (!_controller.ready) {
+      return;
+    }
+
     barcodes = _model.getBarcodes();
+
+    if (barcodes.isEmpty) {
+      // Ensure to reset all variables
+      _lastConsultedBarcode = null;
+      _carrouselMovingTo = null;
+      _lastIndex = 0;
+      return;
+    } else if (_lastConsultedBarcode == _model.latestConsultedBarcode) {
+      // Prevent multiple irrelevant movements
+      return;
+    }
+
+    _lastConsultedBarcode = _model.latestConsultedBarcode;
     _returnToSearchCard = InheritedDataManager.of(context).showSearchCard;
     final int cardsCount = barcodes.length + _searchCardAdjustment;
-    if (_controller.ready) {
-      if (_returnToSearchCard && widget.containSearchCard && _lastIndex > 0) {
-        _controller.animateToPage(0);
-      } else if (_model.latestConsultedBarcode != null &&
-          _model.latestConsultedBarcode!.isNotEmpty) {
-        final int indexBarcode =
-            barcodes.indexOf(_model.latestConsultedBarcode!);
-        if (indexBarcode >= 0) {
-          final int indexCarousel = indexBarcode + _searchCardAdjustment;
-          _controller.animateToPage(indexCarousel);
-        } else {
-          if (_lastIndex > cardsCount) {
-            _controller.animateToPage(cardsCount);
-          } else {
-            _controller.animateToPage(_lastIndex);
-          }
-        }
+    if (_returnToSearchCard && widget.containSearchCard && _lastIndex > 0) {
+      _moveControllerTo(0);
+    } else if (_model.latestConsultedBarcode != null &&
+        _model.latestConsultedBarcode!.isNotEmpty) {
+      final int indexBarcode = barcodes.indexOf(_model.latestConsultedBarcode!);
+      if (indexBarcode >= 0) {
+        final int indexCarousel = indexBarcode + _searchCardAdjustment;
+        _moveControllerTo(indexCarousel);
       } else {
-        _controller.animateToPage(0);
+        if (_lastIndex > cardsCount) {
+          _moveControllerTo(cardsCount);
+        } else {
+          _moveControllerTo(_lastIndex);
+        }
       }
+    } else {
+      _moveControllerTo(0);
+    }
+  }
+
+  Future<void> _moveControllerTo(int page) async {
+    if (_carrouselMovingTo == null && _lastIndex != page) {
+      widget.onPageChangedTo?.call(
+        page,
+        page > _searchCardAdjustment
+            ? barcodes[page - _searchCardAdjustment]
+            : null,
+      );
+
+      _carrouselMovingTo = page;
+      _controller.animateToPage(page);
+      _carrouselMovingTo = null;
     }
   }
 
@@ -120,13 +148,16 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
               if (inheritedDataManager.showSearchCard) {
                 inheritedDataManager.resetShowSearchCard(false);
               }
+
               if (index > 0) {
                 if (reason == CarouselPageChangedReason.manual) {
                   _model.lastConsultedBarcode =
                       barcodes[index - _searchCardAdjustment];
+                  _lastConsultedBarcode = _model.latestConsultedBarcode;
                 }
               } else if (index == 0) {
                 _model.lastConsultedBarcode = null;
+                _lastConsultedBarcode = null;
               }
             },
           ),

@@ -123,6 +123,7 @@ class ContinuousScanModel with ChangeNotifier {
       lastConsultedBarcode = code;
       return false;
     }
+
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.scanAction,
       barcode: code,
