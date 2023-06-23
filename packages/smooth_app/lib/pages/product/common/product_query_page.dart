@@ -159,7 +159,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               : MainAxisAlignment.center,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 5),
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: RankingFloatingActionButton(
                 onPressed: () => Navigator.push<Widget>(
                   context,
@@ -537,10 +537,10 @@ class _AppBarTitle extends StatelessWidget {
                 ? child
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       Text(
                         appLocalizations.product_search_same_category,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Text(
                         name,
