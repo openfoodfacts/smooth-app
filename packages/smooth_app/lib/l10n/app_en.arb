@@ -534,6 +534,28 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
+    "crop_page_too_small_image_title": "The image is too small!",
+    "@crop_page_too_small_image_title": {
+        "description": "Title of a dialog warning the user that the image is too small for upload"
+    },
+    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "@crop_page_too_small_image_message": {
+        "description": "Message of a dialog warning the user that the image is too small for upload",
+        "placeholders": {
+            "expectedMinWidth": {
+                "type": "int"
+            },
+            "expectedMinHeight": {
+                "type": "int"
+            },
+            "actualWidth": {
+                "type": "int"
+            },
+            "actualHeight": {
+                "type": "int"
+            }
+        }
+    },
     "crop_page_action_server": "Preparing a call to the server…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"

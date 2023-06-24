@@ -15,6 +15,7 @@ import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
@@ -243,6 +244,61 @@ class _CropPageState extends State<CropPage> {
   }
 
   Future<File?> _saveFileAndExitTry() async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    // only for new image upload we have to check the minimum size.
+    if (widget.imageId == null) {
+      // Returns the size of the resulting cropped image.
+      Size getCroppedSize() {
+        switch (_controller.rotation) {
+          case CropRotation.up:
+          case CropRotation.down:
+            return Size(
+              _controller.crop.width * _image.width,
+              _controller.crop.height * _image.height,
+            );
+          case CropRotation.left:
+          case CropRotation.right:
+            return Size(
+              _controller.crop.width * _image.height,
+              _controller.crop.height * _image.width,
+            );
+        }
+      }
+
+      final Size croppedSize = getCroppedSize();
+      if (!BackgroundTaskImage.isPictureBigEnough(
+        croppedSize.width,
+        croppedSize.height,
+      )) {
+        final int width = croppedSize.width.floor();
+        final int height = croppedSize.height.floor();
+        await showDialog<void>(
+          context: context,
+          builder: (BuildContext context) => SmoothAlertDialog(
+            title: appLocalizations.crop_page_too_small_image_title,
+            body: Text(
+              appLocalizations.crop_page_too_small_image_message(
+                BackgroundTaskImage.minimumWidth,
+                BackgroundTaskImage.minimumHeight,
+                width,
+                height,
+              ),
+            ),
+            actionsAxis: Axis.vertical,
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.okay,
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+        );
+        return null;
+      }
+    }
+
+    if (!mounted) {
+      return null;
+    }
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoInt daoInt = DaoInt(localDatabase);
     final int sequenceNumber =
@@ -255,7 +311,7 @@ class _CropPageState extends State<CropPage> {
     );
 
     setState(
-      () => _progress = AppLocalizations.of(context).crop_page_action_server,
+      () => _progress = appLocalizations.crop_page_action_server,
     );
     if (widget.imageId == null) {
       // in this case, it's a brand new picture, with crop parameters.
@@ -312,21 +368,26 @@ class _CropPageState extends State<CropPage> {
     return croppedFile;
   }
 
-  Future<void> _saveFileAndExit() async {
+  Future<bool> _saveFileAndExit() async {
     setState(
       () => _progress = AppLocalizations.of(context).crop_page_action_saving,
     );
     try {
       final File? file = await _saveFileAndExitTry();
       _progress = null;
-      if (!mounted) {
-        return;
-      }
       if (file == null) {
-        setState(() {});
+        if (mounted) {
+          setState(() {});
+        }
+        return false;
       } else {
-        Navigator.of(context).pop<File>(file);
+        if (mounted) {
+          Navigator.of(context).pop<File>(file);
+        }
+        return true;
       }
+    } catch (e) {
+      return false;
     } finally {
       _progress = null;
     }
@@ -420,8 +481,7 @@ class _CropPageState extends State<CropPage> {
     }
 
     try {
-      await _saveFileAndExit();
-      return true;
+      return _saveFileAndExit();
     } catch (e) {
       if (mounted) {
         // not likely to happen, but you never know...

@@ -55,6 +55,14 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     return result;
   }
 
+  // cf. https://github.com/openfoodfacts/smooth-app/issues/4219
+  // TODO(monsieurtanuki): move to off-dart
+  static const int minimumWidth = 640;
+  static const int minimumHeight = 160;
+
+  static bool isPictureBigEnough(final num width, final num height) =>
+      width >= minimumWidth || height >= minimumHeight;
+
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
     final String barcode, {
@@ -213,19 +221,54 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Conversion factor to `int` from / to UI / background task.
   static const int cropConversionFactor = 1000000;
 
-  /// Returns true if a cropped operation is needed - after having performed it.
-  Future<bool> _crop(final File file) async {
+  /// Returns true if a crop operation is needed - after having performed it.
+  ///
+  /// Returns false if no crop operation is needed.
+  /// Returns null if the image (cropped or not) is too small.
+  Future<bool?> _crop(final File file) async {
+    final ui.Image full = await loadUiImage(await File(fullPath).readAsBytes());
     if (cropX1 == 0 &&
         cropY1 == 0 &&
         cropX2 == cropConversionFactor &&
         cropY2 == cropConversionFactor &&
         rotationDegrees == 0) {
+      if (!isPictureBigEnough(full.width, full.height)) {
+        return null;
+      }
       // in that case, no need to crop
       return false;
     }
-    final ui.Image full = await loadUiImage(
-      await File(fullPath).readAsBytes(),
-    );
+
+    Size getCroppedSize() {
+      final Rect cropRect = getResizedRect(
+        Rect.fromLTRB(
+          cropX1.toDouble(),
+          cropY1.toDouble(),
+          cropX2.toDouble(),
+          cropY2.toDouble(),
+        ),
+        1 / cropConversionFactor,
+      );
+      switch (CropRotationExtension.fromDegrees(rotationDegrees)!) {
+        case CropRotation.up:
+        case CropRotation.down:
+          return Size(
+            cropRect.width * full.height,
+            cropRect.height * full.width,
+          );
+        case CropRotation.left:
+        case CropRotation.right:
+          return Size(
+            cropRect.width * full.width,
+            cropRect.height * full.height,
+          );
+      }
+    }
+
+    final Size croppedSize = getCroppedSize();
+    if (!isPictureBigEnough(croppedSize.width, croppedSize.height)) {
+      return null;
+    }
     final ui.Image cropped = await CropController.getCroppedBitmap(
       crop: getResizedRect(
         Rect.fromLTRB(
@@ -253,7 +296,12 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   Future<void> upload() async {
     final String path;
     final String croppedPath = _getCroppedPath();
-    if (await _crop(File(croppedPath))) {
+    final bool? neededCrop = await _crop(File(croppedPath));
+    if (neededCrop == null) {
+      // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
+      return;
+    }
+    if (neededCrop) {
       path = croppedPath;
     } else {
       path = fullPath;
