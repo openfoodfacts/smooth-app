@@ -25,6 +25,7 @@ import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductQueryPage extends StatefulWidget {
@@ -201,16 +202,23 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             ),
           ],
         ),
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           backgroundColor: themeData.scaffoldBackgroundColor,
           elevation: 2,
           automaticallyImplyLeading: false,
           leading: const SmoothBackButton(),
           title: _AppBarTitle(
-            name: widget.name,
+            name: widget.searchResult
+                ? widget.name
+                : appLocalizations.product_search_same_category,
             editableAppBarTitle: widget.editableAppBarTitle,
-            searchResult: widget.searchResult,
           ),
+          subTitle: !widget.searchResult
+              ? _AppBarTitle(
+                  name: widget.name,
+                  editableAppBarTitle: widget.editableAppBarTitle,
+                )
+              : null,
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
@@ -510,13 +518,11 @@ class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
     required this.name,
     required this.editableAppBarTitle,
-    this.searchResult = true,
     Key? key,
   }) : super(key: key);
 
   final String name;
   final bool editableAppBarTitle;
-  final bool searchResult;
   @override
   Widget build(BuildContext context) {
     final Widget child = AutoSizeText(
@@ -528,28 +534,11 @@ class _AppBarTitle extends StatelessWidget {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
       return GestureDetector(
-        onTap: () {
-          Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
-        },
-        child: Tooltip(
-            message: appLocalizations.tap_to_edit_search,
-            child: searchResult
-                ? child
-                : Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        appLocalizations.product_search_same_category,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        name,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w200, fontSize: 15),
-                      )
-                    ],
-                  )),
-      );
+          onTap: () {
+            Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
+          },
+          child: Tooltip(
+              message: appLocalizations.tap_to_edit_search, child: child));
     } else {
       return child;
     }
