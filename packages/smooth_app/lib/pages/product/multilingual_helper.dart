@@ -30,45 +30,83 @@ class MultilingualHelper {
   final Map<OpenFoodFactsLanguage, String> _currentMultilingualTexts =
       <OpenFoodFactsLanguage, String>{};
 
+  /// Init of the translations.
+  ///
+  /// Here we try our best to find translations and a default language.
   void init({
     required final Map<OpenFoodFactsLanguage, String>? multilingualTexts,
     required final String? monolingualText,
+    final List<ProductImage>? selectedImages,
+    final ImageField? imageField,
+    OpenFoodFactsLanguage? productLanguage,
   }) {
+    void setMultilingualText(
+      final OpenFoodFactsLanguage language,
+      final String text,
+    ) =>
+        _initialMultilingualTexts[language] =
+            _currentMultilingualTexts[language] = text;
+
     _initialMonolingualText = monolingualText;
+
+    // potentially text for all localized images.
+    if (selectedImages != null && imageField != null) {
+      for (final ProductImage selectedImage in selectedImages) {
+        if (selectedImage.field == imageField &&
+            selectedImage.language != null) {
+          setMultilingualText(selectedImage.language!, '');
+        }
+      }
+    }
+
     // checking if we use the multilingual version...
     if (multilingualTexts != null) {
       for (final OpenFoodFactsLanguage language in multilingualTexts.keys) {
         final String name = getCleanText(multilingualTexts[language]);
         if (name.isNotEmpty) {
-          _initialMultilingualTexts[language] = name;
-          _currentMultilingualTexts[language] = name;
+          setMultilingualText(language, name);
         }
       }
-      if (_initialMultilingualTexts.isNotEmpty) {
-        // fallback
-        _currentLanguage = _initialMultilingualTexts.keys.first;
-        final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-        if (_initialMultilingualTexts.containsKey(language)) {
-          // best choice: the current app language
-          _currentLanguage = language;
-        } else {
-          // second best choice: the same language as the "main" text
-          for (final MapEntry<OpenFoodFactsLanguage, String> entry
-              in _initialMultilingualTexts.entries) {
-            if (entry.value == _initialMonolingualText) {
-              _currentLanguage = entry.key;
-            }
+    }
+
+    // trying to set the language, from multilingual texts
+    if (_initialMultilingualTexts.isNotEmpty) {
+      // fallback
+      _currentLanguage = _initialMultilingualTexts.keys.first;
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+      if (_initialMultilingualTexts.containsKey(language)) {
+        // best choice: the current app language
+        _currentLanguage = language;
+      } else {
+        // second best choice: the same language as the "main" text
+        for (final MapEntry<OpenFoodFactsLanguage, String> entry
+            in _initialMultilingualTexts.entries) {
+          if (entry.value == _initialMonolingualText) {
+            _currentLanguage = entry.key;
           }
         }
-        controller.text = _initialMultilingualTexts[_currentLanguage] ?? '';
       }
+
+      controller.text = _initialMultilingualTexts[_currentLanguage] ?? '';
+      return;
     }
+
+    if (_initialMonolingualText == null) {
+      // no initial text but at least we will have a language selector.
+      if (productLanguage == OpenFoodFactsLanguage.UNDEFINED) {
+        productLanguage = null;
+      }
+      _currentLanguage = productLanguage ?? ProductQuery.getLanguage();
+      setMultilingualText(_currentLanguage, '');
+      controller.text = '';
+      return;
+    }
+
     // Fallback: we may have old data where there are no translations.
-    if (_initialMultilingualTexts.isEmpty) {
-      controller.text = _initialMonolingualText ?? '';
-    }
+    controller.text = _initialMonolingualText!;
   }
 
+  // TODO(monsieurtanuki): we would be better off always never monolingual
   bool isMonolingual() => _initialMultilingualTexts.isEmpty;
 
   Widget getLanguageSelector(void Function(void Function()) setState) =>

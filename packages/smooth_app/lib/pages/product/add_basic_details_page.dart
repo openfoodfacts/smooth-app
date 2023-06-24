@@ -59,6 +59,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     _multilingualHelper.init(
       multilingualTexts: _product.productNameInLanguages,
       monolingualText: _product.productName,
+      productLanguage: _product.lang,
     );
   }
 
