@@ -8,7 +8,7 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
 class ScanHeader extends StatefulWidget {
-  const ScanHeader();
+  const ScanHeader({super.key});
 
   @override
   State<ScanHeader> createState() => _ScanHeaderState();
@@ -31,11 +31,11 @@ class _ScanHeaderState extends State<ScanHeader> {
       ),
     );
 
-    final int validBarcodes = model.getAvailableBarcodes().length;
-    final bool compareFeatureAvailable = validBarcodes >= 2;
+    final bool compareFeatureAvailable = model.compareFeatureAvailable;
 
     return AnimatedOpacity(
-      opacity: validBarcodes > 0 ? _visibleOpacity : _invisibleOpacity,
+      opacity:
+          model.compareFeatureEnabled ? _visibleOpacity : _invisibleOpacity,
       duration: SmoothAnimationsDuration.brief,
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -106,7 +106,7 @@ class _ScanHeaderState extends State<ScanHeader> {
                         label: FittedBox(
                           child: Text(
                             appLocalizations.plural_compare_x_products(
-                              validBarcodes,
+                              model.getAvailableBarcodes().length,
                             ),
                             maxLines: 1,
                           ),

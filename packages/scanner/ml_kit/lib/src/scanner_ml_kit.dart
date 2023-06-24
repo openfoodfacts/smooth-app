@@ -23,6 +23,7 @@ class ScannerMLKit extends Scanner {
     required bool hasMoreThanOneCamera,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
+    EdgeInsetsGeometry? contentPadding,
   }) {
     return _SmoothBarcodeScannerMLKit(
       onScan: onScan,
@@ -32,6 +33,7 @@ class ScannerMLKit extends Scanner {
       hasMoreThanOneCamera: hasMoreThanOneCamera,
       toggleCameraModeTooltip: toggleCameraModeTooltip,
       toggleFlashModeTooltip: toggleFlashModeTooltip,
+      contentPadding: contentPadding,
     );
   }
 }
@@ -46,6 +48,7 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
     required this.hasMoreThanOneCamera,
     this.toggleCameraModeTooltip,
     this.toggleFlashModeTooltip,
+    this.contentPadding,
   });
 
   final Future<bool> Function(String) onScan;
@@ -56,6 +59,7 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
 
+  final EdgeInsetsGeometry? contentPadding;
   final String? toggleCameraModeTooltip;
   final String? toggleFlashModeTooltip;
 
@@ -79,7 +83,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
 
   static const ValueKey<String> _visibilityKey =
       ValueKey<String>('VisibilityDetector');
-  static const double _cornerPadding = 26;
+  static const double _cornerPadding = 26.0;
 
   bool _isStarted = true;
 
@@ -194,10 +198,10 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
               }
             },
           ),
-          const Center(
-            child: Padding(
-              padding: EdgeInsets.all(_cornerPadding),
-              child: SmoothBarcodeScannerVisor(),
+          Center(
+            child: SmoothBarcodeScannerVisor(
+              cornerRadius: _cornerPadding,
+              contentPadding: widget.contentPadding,
             ),
           ),
           Align(
