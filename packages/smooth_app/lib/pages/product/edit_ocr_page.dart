@@ -61,6 +61,9 @@ class _EditOcrPageState extends State<EditOcrPage> {
     _multilingualHelper.init(
       multilingualTexts: _helper.getMultilingualTexts(widget.product),
       monolingualText: _helper.getMonolingualText(widget.product),
+      selectedImages: widget.product.selectedImages,
+      imageField: _helper.getImageField(),
+      productLanguage: widget.product.lang,
     );
   }
 
