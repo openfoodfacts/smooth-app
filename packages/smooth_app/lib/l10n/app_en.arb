@@ -2061,6 +2061,7 @@
     "background_task_title": "Pending contributions",
     "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
     "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_server_time_out": "Server timeout",
     "background_task_error_no_internet": "Internet connection error. Try later.",
     "background_task_operation_unknown": "unknown operation type",
     "background_task_operation_details": "detailed changes",
