@@ -63,6 +63,7 @@ class _ScanPageState extends State<ScanPage> {
       return const Center(child: CircularProgressIndicator.adaptive());
     }
 
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextDirection direction = Directionality.of(context);
 
     return SmoothScaffold(
@@ -115,7 +116,7 @@ class _ScanPageState extends State<ScanPage> {
                     }
 
                     SemanticsService.announce(
-                      'On new barcode scanned: $barcode',
+                      appLocalizations.scan_announce_new_barcode(barcode),
                       direction,
                       assertiveness: Assertiveness.assertive,
                     );
