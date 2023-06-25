@@ -22,10 +22,23 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
     required super.work,
     required super.pageSize,
     required super.totalSize,
+    required this.pageNumber,
   });
 
   BackgroundTaskTopBarcodes.fromJson(Map<String, dynamic> json)
-      : super.fromJson(json);
+      : pageNumber = json[_jsonTagPageNumber] as int? ?? 1,
+        super.fromJson(json);
+
+  final int pageNumber;
+
+  static const String _jsonTagPageNumber = 'pageNumber';
+
+  @override
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> result = super.toJson();
+    result[_jsonTagPageNumber] = pageNumber;
+    return result;
+  }
 
   static const OperationType _operationType = OperationType.offlineBarcodes;
 
@@ -35,6 +48,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
     required final int pageSize,
     required final int totalSize,
     required final int soFarSize,
+    final int pageNumber = 1,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
@@ -46,6 +60,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
       work,
       pageSize,
       totalSize,
+      pageNumber,
     );
     await task.addToManager(localDatabase);
   }
@@ -58,6 +73,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
     final String work,
     final int pageSize,
     final int totalSize,
+    final int pageNumber,
   ) =>
       BackgroundTaskTopBarcodes._(
         processName: _operationType.processName,
@@ -69,6 +85,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
         work: work,
         pageSize: pageSize,
         totalSize: totalSize,
+        pageNumber: pageNumber,
       );
 
   @override
@@ -79,72 +96,56 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
+    final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+      ProductQuery.getUser(),
+      ProductSearchQueryConfiguration(
+        fields: <ProductField>[ProductField.BARCODE],
+        parametersList: <Parameter>[
+          PageSize(size: pageSize),
+          PageNumber(page: pageNumber),
+          const SortBy(option: SortOption.POPULARITY),
+        ],
+        language: ProductQuery.getLanguage(),
+        country: ProductQuery.getCountry(),
+        version: ProductQuery.productQueryVersion,
+      ),
+    );
+    if (searchResult.products == null || searchResult.count == null) {
+      throw Exception('Cannot download top barcodes');
+    }
+    int newTotalSize = searchResult.count!;
+    if (newTotalSize > totalSize) {
+      newTotalSize = totalSize;
+    }
+    final Set<String> barcodes = <String>{};
+    for (final Product product in searchResult.products!) {
+      barcodes.add(product.barcode!);
+    }
     final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
-    final int soFarBefore = await daoWorkBarcode.getCount(work);
-    if (soFarBefore >= totalSize) {
-      // not likely
-      return;
-    }
-    final bool ok = await _getBarcodes(localDatabase);
-    if (!ok) {
-      // something failed, let's get out of here.
-      return;
-    }
+    await daoWorkBarcode.putAll(work, barcodes);
+    // if we haven't downloaded a full page, it means that there's no data left.
+    final bool fullPageDownloaded = barcodes.length == pageSize;
     final int soFarAfter = await daoWorkBarcode.getCount(work);
-    if (soFarAfter < totalSize) {
+    if (soFarAfter < newTotalSize && fullPageDownloaded) {
+      // we still have barcodes to download
       await addTask(
         localDatabase: localDatabase,
         work: work,
         pageSize: pageSize,
-        totalSize: totalSize,
+        totalSize: newTotalSize,
         soFarSize: soFarAfter,
+        pageNumber: pageNumber + 1,
       );
     } else {
+      // we have all the barcodes; now we need to download the products.
       await BackgroundTaskDownloadProducts.addTask(
         localDatabase: localDatabase,
         work: work,
         pageSize: pageSize,
-        totalSize: totalSize,
+        totalSize: soFarAfter,
         soFarSize: 0,
         downloadFlag: BackgroundTaskDownloadProducts.flagMaskExcludeKP,
       );
     }
-  }
-
-  /// Returns true if somehow we can go on with the process.
-  Future<bool> _getBarcodes(final LocalDatabase localDatabase) async {
-    final DaoWorkBarcode daoWorkBarcode = DaoWorkBarcode(localDatabase);
-    final int soFar = await daoWorkBarcode.getCount(work);
-    if (soFar >= totalSize) {
-      // we're done!
-      return true;
-    }
-    final int pageNumber = (soFar ~/ pageSize) + 1;
-    final ProductSearchQueryConfiguration queryConfig =
-        ProductSearchQueryConfiguration(
-      fields: <ProductField>[ProductField.BARCODE],
-      parametersList: <Parameter>[
-        PageSize(size: pageSize),
-        PageNumber(page: pageNumber),
-        const SortBy(option: SortOption.POPULARITY),
-      ],
-      language: ProductQuery.getLanguage(),
-      country: ProductQuery.getCountry(),
-      version: ProductQuery.productQueryVersion,
-    );
-    final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-      ProductQuery.getUser(),
-      queryConfig,
-    );
-    if (searchResult.products == null) {
-      // not expected
-      return false;
-    }
-    final List<String> barcodes = <String>[];
-    for (final Product product in searchResult.products!) {
-      barcodes.add(product.barcode!);
-    }
-    await daoWorkBarcode.putAll(work, barcodes);
-    return true;
   }
 }

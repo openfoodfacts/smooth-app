@@ -17,11 +17,6 @@ class DaoWorkBarcode extends AbstractSqlDao {
   static const String _columnWork = 'work';
   static const String _columnBarcode = 'barcode';
 
-  static const List<String> _columns = <String>[
-    _columnWork,
-    _columnBarcode,
-  ];
-
   static FutureOr<void> onUpgrade(
     final Database db,
     final int oldVersion,
@@ -95,9 +90,13 @@ class DaoWorkBarcode extends AbstractSqlDao {
     int count = 0;
 
     Future<void> rawInsert() async {
-      final int inserted = await databaseExecutor.rawInsert(
-        'insert into $_table(${_columns.join(',')}) '
-        'values(?,?)${',(?,?)' * (parameters.length ~/ 2 - 1)}',
+      if (parameters.isEmpty) {
+        return;
+      }
+      final int inserted = parameters.length ~/ 2;
+      await databaseExecutor.rawInsert(
+        'insert into $_table($_columnWork,$_columnBarcode) '
+        'values(?,?)${',(?,?)' * (inserted - 1)}',
         parameters,
       );
       count += inserted;
@@ -111,9 +110,7 @@ class DaoWorkBarcode extends AbstractSqlDao {
         parameters.clear();
       }
     }
-    if (parameters.isNotEmpty) {
-      await rawInsert();
-    }
+    await rawInsert();
     return count;
   }
 
@@ -152,6 +149,9 @@ class DaoWorkBarcode extends AbstractSqlDao {
     int count = 0;
 
     Future<void> rawDelete() async {
+      if (parameters.length < 2) {
+        return;
+      }
       final int deleted = await databaseExecutor.delete(
         _table,
         where: '$_columnWork = ? '
@@ -170,9 +170,7 @@ class DaoWorkBarcode extends AbstractSqlDao {
         parameters.add(work);
       }
     }
-    if (parameters.isNotEmpty) {
-      await rawDelete();
-    }
+    await rawDelete();
     return count;
   }
 }

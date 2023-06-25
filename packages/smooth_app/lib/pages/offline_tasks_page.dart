@@ -114,6 +114,11 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
       case BackgroundTaskManager.taskStatusStopAsap:
         return appLocalizations.background_task_run_to_be_deleted;
     }
+    // "startsWith" because there's some kind of "chr(13)" at the end.
+    if (status.startsWith(
+        'Exception: JSON expected, html found: <head><title>504 Gateway Time-out</title></head>')) {
+      return appLocalizations.background_task_error_server_time_out;
+    }
     return status;
   }
 
