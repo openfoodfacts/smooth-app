@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
@@ -30,14 +31,17 @@ class SmoothProductCardNotFound extends StatelessWidget {
         children: <Widget>[
           Align(
             alignment: AlignmentDirectional.topEnd,
-            child: ProductCardCloseButton(onRemove: (BuildContext context) {
-              AnalyticsHelper.trackEvent(
-                AnalyticsEvent.ignoreProductNotFound,
-                barcode: barcode,
-              );
+            child: ProductCardCloseButton(
+              onRemove: (BuildContext context) {
+                AnalyticsHelper.trackEvent(
+                  AnalyticsEvent.ignoreProductNotFound,
+                  barcode: barcode,
+                );
 
-              onRemoveProduct?.call(context);
-            }),
+                onRemoveProduct?.call(context);
+              },
+              iconData: CupertinoIcons.clear_circled,
+            ),
           ),
           Expanded(
             flex: 2,

@@ -54,10 +54,11 @@ class SmoothProductBaseCard extends StatelessWidget {
 class ProductCardCloseButton extends StatelessWidget {
   const ProductCardCloseButton({
     this.onRemove,
-    super.key,
+    this.iconData = Icons.clear_rounded,
   });
 
   final OnRemoveCallback? onRemove;
+  final IconData iconData;
 
   @override
   Widget build(BuildContext context) {
@@ -68,10 +69,10 @@ class ProductCardCloseButton extends StatelessWidget {
       onTap: () => onRemove?.call(context),
       child: Tooltip(
         message: appLocalizations.product_card_remove_product_tooltip,
-        child: const Padding(
-          padding: EdgeInsets.all(SMALL_SPACE),
+        child: Padding(
+          padding: const EdgeInsets.all(SMALL_SPACE),
           child: Icon(
-            Icons.clear_rounded,
+            iconData,
             size: DEFAULT_ICON_SIZE,
           ),
         ),
