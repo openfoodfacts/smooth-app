@@ -26,6 +26,8 @@ class CameraScannerPage extends StatefulWidget {
 
 class CameraScannerPageState extends State<CameraScannerPage>
     with TraceableClientMixin {
+  final GlobalKey<State<StatefulWidget>> _headerKey = GlobalKey();
+
   /// Audio player to play the beep sound on scan
   /// This attribute is only initialized when a camera is available AND the
   /// setting is set to ON
@@ -33,6 +35,7 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
   late ContinuousScanModel _model;
   late UserPreferences _userPreferences;
+  double? _headerHeight;
 
   @override
   void didChangeDependencies() {
@@ -42,6 +45,15 @@ class CameraScannerPageState extends State<CameraScannerPage>
       _model = context.watch<ContinuousScanModel>();
       _userPreferences = context.watch<UserPreferences>();
     }
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _headerHeight =
+            (_headerKey.currentContext?.findRenderObject() as RenderBox?)
+                ?.size
+                .height;
+      });
+    });
   }
 
   @override
@@ -71,10 +83,15 @@ class CameraScannerPageState extends State<CameraScannerPage>
             hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
             toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
             toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
+            contentPadding: _model.compareFeatureEnabled
+                ? EdgeInsets.only(top: _headerHeight ?? 0.0)
+                : null,
           ),
-          const Align(
+          Align(
             alignment: Alignment.topCenter,
-            child: ScanHeader(),
+            child: ScanHeader(
+              key: _headerKey,
+            ),
           ),
         ],
       ),

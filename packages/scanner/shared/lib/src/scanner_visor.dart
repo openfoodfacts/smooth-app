@@ -2,10 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SmoothBarcodeScannerVisor extends StatelessWidget {
-  const SmoothBarcodeScannerVisor({super.key});
+  const SmoothBarcodeScannerVisor({
+    required this.cornerRadius,
+    this.contentPadding,
+    super.key,
+  });
+
+  final double cornerRadius;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
-  Widget build(BuildContext context) => SizedBox.expand(
+  Widget build(BuildContext context) {
+    final EdgeInsetsGeometry contentPadding = _computePadding();
+
+    return AnimatedPadding(
+      padding: contentPadding,
+      // The duration is twice the time required to hide the header
+      duration: const Duration(milliseconds: 250),
+      curve: contentPadding.horizontal > cornerRadius * 2
+          ? Curves.easeOutQuad
+          : Curves.decelerate,
+      child: SizedBox.expand(
         child: CustomPaint(
           painter: _ScanVisorPainter(),
           child: Center(
@@ -16,7 +33,22 @@ class SmoothBarcodeScannerVisor extends StatelessWidget {
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
+
+  EdgeInsetsGeometry _computePadding() {
+    if (contentPadding == null) {
+      return EdgeInsets.all(cornerRadius);
+    } else {
+      return EdgeInsets.only(
+        top: cornerRadius / 4.0,
+        left: cornerRadius,
+        right: cornerRadius,
+        bottom: cornerRadius,
+      ).add(contentPadding!);
+    }
+  }
 }
 
 class _ScanVisorPainter extends CustomPainter {

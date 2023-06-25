@@ -25,6 +25,7 @@ class ScannerZXing extends Scanner {
     required bool hasMoreThanOneCamera,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
+    EdgeInsetsGeometry? contentPadding,
   }) {
     return _SmoothBarcodeScannerZXing(
       onScan: onScan,
@@ -33,6 +34,7 @@ class ScannerZXing extends Scanner {
       hasMoreThanOneCamera: hasMoreThanOneCamera,
       toggleCameraModeTooltip: toggleCameraModeTooltip,
       toggleFlashModeTooltip: toggleFlashModeTooltip,
+      contentPadding: contentPadding,
     );
   }
 }
@@ -46,6 +48,7 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
     required this.hasMoreThanOneCamera,
     this.toggleCameraModeTooltip,
     this.toggleFlashModeTooltip,
+    this.contentPadding,
   });
 
   final Future<bool> Function(String) onScan;
@@ -53,6 +56,7 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
 
+  final EdgeInsetsGeometry? contentPadding;
   final String? toggleCameraModeTooltip;
   final String? toggleFlashModeTooltip;
 
@@ -125,10 +129,10 @@ class _SmoothBarcodeScannerZXingState
               onQRViewCreated: _onQRViewCreated,
               formatsAllowed: _barcodeFormats,
             ),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.all(_cornerPadding),
-                child: SmoothBarcodeScannerVisor(),
+            Center(
+              child: SmoothBarcodeScannerVisor(
+                cornerRadius: _cornerPadding,
+                contentPadding: widget.contentPadding,
               ),
             ),
             Align(

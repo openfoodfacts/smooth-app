@@ -65,6 +65,7 @@ class ContinuousScanModel with ChangeNotifier {
     try {
       _daoProduct = DaoProduct(localDatabase);
       _daoProductList = DaoProductList(localDatabase);
+
       if (!await _refresh()) {
         return null;
       }
@@ -306,4 +307,13 @@ class ContinuousScanModel with ChangeNotifier {
       return code;
     }
   }
+
+  /// Whether we can show the user an interface to compare products
+  /// BUT it doesn't necessary we can't compare yet.
+  /// Please refer instead to [compareFeatureAvailable]
+  bool get compareFeatureEnabled => getAvailableBarcodes().isNotEmpty;
+
+  /// If we can compare products
+  /// (= meaning we have at least two existing products)
+  bool get compareFeatureAvailable => getAvailableBarcodes().length >= 2;
 }

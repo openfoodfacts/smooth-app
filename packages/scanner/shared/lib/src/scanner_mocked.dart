@@ -19,6 +19,7 @@ class MockedScanner extends Scanner {
     required bool hasMoreThanOneCamera,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
+    EdgeInsetsGeometry? contentPadding,
   }) =>
       Container();
 }
