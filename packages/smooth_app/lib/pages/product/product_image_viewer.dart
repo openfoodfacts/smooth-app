@@ -179,38 +179,41 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
               )
             ],
           ),
-          IntrinsicHeight(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                    child: ProductImageServerButton(
-                      product: _product,
-                      imageField: widget.imageField,
-                      language: widget.language,
-                      isLoggedInMandatory: true,
+          Container(
+            margin: EdgeInsets.only(bottom: SMALL_SPACE),
+            child: IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                      child: ProductImageServerButton(
+                        product: _product,
+                        imageField: widget.imageField,
+                        language: widget.language,
+                        isLoggedInMandatory: true,
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                    child: ProductImageLocalButton(
-                      firstPhoto: imageProvider == null,
-                      barcode: _barcode,
-                      imageField: widget.imageField,
-                      language: widget.language,
-                      isLoggedInMandatory: true,
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                      child: ProductImageLocalButton(
+                        firstPhoto: imageProvider == null,
+                        barcode: _barcode,
+                        imageField: widget.imageField,
+                        language: widget.language,
+                        isLoggedInMandatory: true,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           if (imageProvider != null)
