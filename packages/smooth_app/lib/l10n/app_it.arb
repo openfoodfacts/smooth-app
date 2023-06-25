@@ -350,6 +350,14 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "tap_to_answer_hint": "Tocca qui per rispondere alle domande su questo prodotto",
+    "@tap_to_answer_hint": {
+        "description": "Hint for accessibility readers to answer Robotoff questions."
+    },
+    "robotoff_questions_loading_hint": "Sei pregato di attendere durante il caricamento delle domande su questo prodotto",
+    "@robotoff_questions_loading_hint": {
+        "description": "Hint for accessibility readers while Robotoff questions are loaded"
+    },
     "saving_answer": "Salvataggio risposta",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
@@ -498,6 +506,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_message": "Sembra che tu non abbia inserito nulla. Desideri davvero abbandonare questa pagina?",
+    "@new_product_leave_message": {
+        "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_dialog_description": "Ti preghiamo di scattare delle foto dell'imballaggio per aggiungerlo al nostro database comune",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
@@ -521,6 +533,28 @@
     "crop_page_action_local": "Salvando una versione locale…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
+    },
+    "crop_page_too_small_image_title": "The image is too small!",
+    "@crop_page_too_small_image_title": {
+        "description": "Title of a dialog warning the user that the image is too small for upload"
+    },
+    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "@crop_page_too_small_image_message": {
+        "description": "Message of a dialog warning the user that the image is too small for upload",
+        "placeholders": {
+            "expectedMinWidth": {
+                "type": "int"
+            },
+            "expectedMinHeight": {
+                "type": "int"
+            },
+            "actualWidth": {
+                "type": "int"
+            },
+            "actualHeight": {
+                "type": "int"
+            }
+        }
     },
     "crop_page_action_server": "Preparando una chiamata al server…",
     "@crop_page_action_server": {
@@ -548,6 +582,9 @@
     "new_product_title_ecoscore": "Calcola l'Eco-Score",
     "new_product_subtitle_ecoscore": "Ottienilo compilando almeno una categoria",
     "new_product_additional_ecoscore": "Rendere il calcolo di Eco-Score più preciso con origini, imballaggi e altro ancora",
+    "new_product_title_nova": "Calcola il livello di trasformazione alimentare (NOVA)",
+    "new_product_subtitle_nova": "Ottienilo compilando la categoria e gli ingredienti dell'alimento",
+    "new_product_desc_nova_unknown": "Livello di trasformazione alimentare sconosciuto",
     "new_product_title_pictures": "Scattiamo delle foto!",
     "new_product_title_misc": "E dei dati essenziali…",
     "nutritional_facts_photo_uploaded": "Foto dei valori nutrizionali caricata",
@@ -1032,21 +1069,6 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Modalità scanner",
-    "@camera_mode_title": {
-        "description": "Title for the mode for the camera/scanner"
-    },
-    "camera_mode_subtitle": "Modificare questo valore solo se si riscontrano problemi con lo scanner (incapacità di decodificare i codici a barre). Premete per passare da una modalità all'altra.\nQuella attuale è: {mode}",
-    "@camera_mode_subtitle": {
-        "description": "SubTitle for the mode for the camera/scanner",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_mode_file_based": "Modalità provvisoria (per impostazione predefinita)",
-    "camera_mode_bytes_array_based": "Modalità rapida",
     "app_haptic_feedback_title": "Vibrazione e Tatto",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1109,6 +1131,15 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_form_item_add_action": "Aggiungi un nuovo {itemType}",
+    "description": "Descrizione del comando per mostrare quando l'utente preme a lungo il pulsante (+)",
+    "@edit_product_form_item_add_action": {
+        "placeholders": {
+            "itemType": {
+                "type": "String"
+            }
+        }
+    },
     "edit_product_form_item_barcode": "Codice a Barre",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
@@ -1149,6 +1180,10 @@
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
+    "edit_product_form_item_labels_type": "etichetta",
+    "@edit_product_form_item_labels_type": {
+        "description": "Product edition - Labels - input textfield label"
+    },
     "edit_product_form_item_stores_title": "Negozi",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
@@ -1157,6 +1192,10 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_stores_type": "negozio",
+    "@edit_product_form_item_stores_type": {
+        "description": "Product edition - Stores - input textfield type"
+    },
     "edit_product_form_item_origins_title": "Origini",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
@@ -1164,6 +1203,10 @@
     "edit_product_form_item_origins_hint": "Spagna",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_type": "paese",
+    "@edit_product_form_item_origins_type": {
+        "description": "Product edition - Origins - input textfield type"
     },
     "edit_product_form_item_origins_explainer_1": "Aggiungi eventuali indicazioni di provenienza che trovi sulla confezione. Non devi preoccuparti delle origini indicate direttamente nella lista degli ingredienti.",
     "@edit_product_form_item_origins_explainer_1": {
@@ -1181,6 +1224,10 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
+    "edit_product_form_item_countries_type": "paese",
+    "@edit_product_form_item_countries_type": {
+        "description": "Product edition - Countries - input textfield type"
+    },
     "edit_product_form_item_countries_explanations": "Paesi in cui il prodotto è ampiamente disponibile (esclusi i negozi specializzati in prodotti esteri).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
@@ -1193,6 +1240,10 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
+    "edit_product_form_item_emb_codes_type": "codice di tracciabilità",
+    "@edit_product_form_item_emb_codes_type": {
+        "description": "Product edition - Traceability Codes - input textfield type"
+    },
     "edit_product_form_item_emb_codes_explanations": "In Europa, codificare in un'ellisse con le 2 iniziali del paese seguite da un numero e CE.\nEsempi: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
@@ -1204,6 +1255,10 @@
     "edit_product_form_item_categories_hint": "categoria",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_type": "categoria",
+    "@edit_product_form_item_categories_type": {
+        "description": "Product edition - Categories - input textfield type"
     },
     "edit_product_form_item_categories_explainer_1": "Indica solo la categoria più specifica. Le categorie principali verranno aggiunte automaticamente.",
     "@edit_product_form_item_categories_explainer_1": {
@@ -1302,9 +1357,9 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Cancella",
+    "user_list_popup_clear": "Cancella la tua cronologia",
     "@user_list_popup_clear": {
-        "description": "Short label of a 'clear list' popup"
+        "description": "Short label of a 'clear your history list' popup"
     },
     "user_list_popup_rename": "Rinomina",
     "@user_list_popup_rename": {
@@ -1668,6 +1723,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
+    "alert_clear_selected_user_list": "Stai per cancellare gli articoli selezionati nella tua cronologia",
+    "confirm_clear_selected_user_list": "Sei sicuro di voler continuare?",
+    "alert_select_items_to_clear": "Sei pregato di selezionare uno o più articoli da rimuovere",
     "confirm_clear_user_list": "Stai per cancellare questo elenco ({name}): sei sicuro di voler continuare?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
@@ -1775,6 +1833,14 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
+    "background_task_title_full_refresh": "Avviando il ricaricamento di tutti i prodotti memorizzati localmente",
+    "@background_task_title_full_refresh": {
+        "description": "Snackbar message when a full refresh is started"
+    },
+    "background_task_title_top_n": "Avviando il download dei prodotti più popolari",
+    "@background_task_title_top_n": {
+        "description": "Snackbar message when a download of the most popular products is started"
+    },
     "expand_nutrition_facts": "Espandi la tabella dei valori nutrizionali",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1837,6 +1903,28 @@
     "product_card_remove_product_tooltip": "Rimuovi prodotto",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "@scan_announce_new_barcode": {
+        "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
+    "scan_header_clear_button_tooltip": "Rimuovi tutti i prodotti dalla sequenza",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Ti preghiamo di scansionare almeno due prodotti per confrontarli",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Clicca per confrontare i prodotti che hai scansionato",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
     "portion_calculator_description": "Calcola i valori nutrizionali per una quantità specifica",
     "@portion_calculator_description": {
@@ -1990,6 +2078,7 @@
     "background_task_title": "Contributi in sospeso",
     "background_task_subtitle": "I tuoi contributi sono salvati automaticamente sul nostro server, ma non sono sempre in tempo reale.",
     "background_task_list_empty": "Nessuna Attività in Background in Sospeso",
+    "background_task_error_server_time_out": "Server timeout",
     "background_task_error_no_internet": "Errore di connessione a Internet. Riprova più tardi.",
     "background_task_operation_unknown": "tipo di operazione sconosciuto",
     "background_task_operation_details": "modifiche dettagliate",
@@ -2107,6 +2196,14 @@
     "download_top_products": "Scarica i migliori 1000 prodotti nel tuo paese per la scansione istantanea",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_top_n_products": "Scarica i migliori {count,plural, other{{count} prodotti}} nel tuo paese, per la scansione istantanea",
+    "@download_top_n_products": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
     },
     "download_in_progress": "Scaricando i dati...\nPotrebbe volerci un po'",
     "@download_in_progress": {
