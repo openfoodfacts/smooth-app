@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
@@ -24,6 +25,8 @@ class SmoothProductCardNotFound extends StatelessWidget {
 
     return SmoothProductBaseCard(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Align(
             alignment: AlignmentDirectional.topEnd,
@@ -37,58 +40,37 @@ class SmoothProductCardNotFound extends StatelessWidget {
             }),
           ),
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    style: textTheme.headlineSmall,
-                    children: <InlineSpan>[
-                      TextSpan(
-                        text: appLocalizations.missing_product,
-                        style: textTheme.displayMedium,
-                      ),
-                      const WidgetSpan(
-                        alignment: PlaceholderAlignment.belowBaseline,
-                        baseline: TextBaseline.alphabetic,
-                        child: SizedBox(
-                          height: LARGE_SPACE,
-                        ),
-                      ),
-                      TextSpan(
-                        text: '\n${appLocalizations.add_product_take_photos}\n',
-                        style: textTheme.bodyMedium,
-                      ),
-                      TextSpan(
-                        text: '(${appLocalizations.barcode_barcode(barcode)})',
-                        style: textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
-                  child: SmoothLargeButtonWithIcon(
-                    text: appLocalizations.add_product_information_button_label,
-                    icon: Icons.add,
-                    padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-                    onPressed: () async {
-                      await Navigator.push<void>(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              AddNewProductPage(barcode: barcode),
-                        ),
-                      );
-
-                      await onAddProduct?.call();
-                    },
-                  ),
-                ),
-              ],
+            flex: 2,
+            child: AutoSizeText(
+              appLocalizations.missing_product,
+              style: textTheme.displayMedium,
+              textAlign: TextAlign.center,
             ),
+          ),
+          Expanded(
+            flex: 3,
+            child: AutoSizeText(
+              '\n${appLocalizations.add_product_take_photos}\n'
+              '(${appLocalizations.barcode_barcode(barcode)})',
+              style: textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          SmoothLargeButtonWithIcon(
+            text: appLocalizations.add_product_information_button_label,
+            icon: Icons.add,
+            padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+            onPressed: () async {
+              await Navigator.push<void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) =>
+                      AddNewProductPage(barcode: barcode),
+                ),
+              );
+
+              await onAddProduct?.call();
+            },
           ),
         ],
       ),
