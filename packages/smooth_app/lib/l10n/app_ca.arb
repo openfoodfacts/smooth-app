@@ -350,6 +350,14 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "@tap_to_answer_hint": {
+        "description": "Hint for accessibility readers to answer Robotoff questions."
+    },
+    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "@robotoff_questions_loading_hint": {
+        "description": "Hint for accessibility readers while Robotoff questions are loaded"
+    },
     "saving_answer": "Desant la vostra resposta",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
@@ -492,11 +500,15 @@
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Add product information",
     "@add_product_information_button_label": {},
-    "new_product": "New Product",
+    "new_product": "Nou producte",
     "@new_product": {},
-    "new_product_dialog_title": "You have just found a new product!",
+    "new_product_dialog_title": "Heu trobat un producte nou!",
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+    "@new_product_leave_message": {
+        "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
     "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
     "@new_product_dialog_description": {
@@ -510,7 +522,7 @@
     },
     "confirm_button_label": "Confirm",
     "send_image_button_label": "Send image",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "S'està desant la imatge…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
@@ -518,9 +530,31 @@
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "S'està desant una versió local…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
+    },
+    "crop_page_too_small_image_title": "The image is too small!",
+    "@crop_page_too_small_image_title": {
+        "description": "Title of a dialog warning the user that the image is too small for upload"
+    },
+    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "@crop_page_too_small_image_message": {
+        "description": "Message of a dialog warning the user that the image is too small for upload",
+        "placeholders": {
+            "expectedMinWidth": {
+                "type": "int"
+            },
+            "expectedMinHeight": {
+                "type": "int"
+            },
+            "actualWidth": {
+                "type": "int"
+            },
+            "actualHeight": {
+                "type": "int"
+            }
+        }
     },
     "crop_page_action_server": "Preparing a call to the server…",
     "@crop_page_action_server": {
@@ -548,6 +582,9 @@
     "new_product_title_ecoscore": "Compute the Eco-Score",
     "new_product_subtitle_ecoscore": "Get it by filling at least a category",
     "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_title_nova": "Compute the food processing level (NOVA)",
+    "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
+    "new_product_desc_nova_unknown": "Food processing level unknown",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
     "nutritional_facts_photo_uploaded": "S'ha penjat una foto de dades nutricionals",
@@ -614,7 +651,7 @@
     "nutrition_page_serving_size": "Mida de la porció",
     "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server…",
-    "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_update_done": "Producte actualitzat!",
     "more_photos": "Més fotos interessants",
     "@more_photos": {},
     "no_product_found": "Cap producte trobat",
@@ -630,7 +667,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "You are using a deprecated version of the app.",
+    "deprecated_header": "Esteu fent servir una versió obsoleta de l'aplicació.",
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
@@ -638,7 +675,7 @@
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
-    "download_new_version": "Download the new version of the app",
+    "download_new_version": "S'està descarregant la nova versió de l'aplicació",
     "@download_new_version": {
         "description": "Download new version of the app text"
     },
@@ -972,7 +1009,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "account_deletion_subject": "Delete my account",
+    "account_deletion_subject": "Suprimeix el meu compte",
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
@@ -1024,7 +1061,7 @@
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
     },
-    "camera_play_sound_title": "Play a sound on scan",
+    "camera_play_sound_title": "Reprodueix un so en escanejar",
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
@@ -1032,21 +1069,6 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Scanner mode",
-    "@camera_mode_title": {
-        "description": "Title for the mode for the camera/scanner"
-    },
-    "camera_mode_subtitle": "Only change this value, if you have some issues with the scanner (unable to decode barcodes). Tap to switch between the two modes.\nThe current one is: {mode}",
-    "@camera_mode_subtitle": {
-        "description": "SubTitle for the mode for the camera/scanner",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_mode_file_based": "Safe mode (by default)",
-    "camera_mode_bytes_array_based": "Quick mode",
     "app_haptic_feedback_title": "Vibration & Haptics",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1093,7 +1115,7 @@
     "@permission_photo_denied_button": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "permission_photo_denied_dialog_settings_title": "Permission denied",
+    "permission_photo_denied_dialog_settings_title": "Permís denegat",
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Obre la configuració",
     "permission_photo_denied_dialog_settings_button_cancel": "Cancel·lar",
@@ -1109,11 +1131,20 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_form_item_add_action": "Add a new {itemType}",
+    "description": "Tooltip to show when the user long presses the (+) button",
+    "@edit_product_form_item_add_action": {
+        "placeholders": {
+            "itemType": {
+                "type": "String"
+            }
+        }
+    },
     "edit_product_form_item_barcode": "Codi de barres",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
-    "edit_product_form_item_details_title": "Basic details",
+    "edit_product_form_item_details_title": "Detalls bàsics",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
     },
@@ -1125,7 +1156,7 @@
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
-    "edit_product_form_item_other_details_subtitle": "Website…",
+    "edit_product_form_item_other_details_subtitle": "Lloc web…",
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
@@ -1149,6 +1180,10 @@
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
+    "edit_product_form_item_labels_type": "etiqueta",
+    "@edit_product_form_item_labels_type": {
+        "description": "Product edition - Labels - input textfield label"
+    },
     "edit_product_form_item_stores_title": "Botigues",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
@@ -1157,6 +1192,10 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_stores_type": "botiga",
+    "@edit_product_form_item_stores_type": {
+        "description": "Product edition - Stores - input textfield type"
+    },
     "edit_product_form_item_origins_title": "Origins",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
@@ -1164,6 +1203,10 @@
     "edit_product_form_item_origins_hint": "Espanya",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_type": "país",
+    "@edit_product_form_item_origins_type": {
+        "description": "Product edition - Origins - input textfield type"
     },
     "edit_product_form_item_origins_explainer_1": "Afegiu qualsevol indicació d'origen que pugueu trobar a l'embalatge. No us haureu de preocupar pels orígens indicats directament a la llista d'ingredients.",
     "@edit_product_form_item_origins_explainer_1": {
@@ -1181,6 +1224,10 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
+    "edit_product_form_item_countries_type": "país",
+    "@edit_product_form_item_countries_type": {
+        "description": "Product edition - Countries - input textfield type"
+    },
     "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
@@ -1193,6 +1240,10 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
+    "edit_product_form_item_emb_codes_type": "codi de traçabilitat",
+    "@edit_product_form_item_emb_codes_type": {
+        "description": "Product edition - Traceability Codes - input textfield type"
+    },
     "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
@@ -1204,6 +1255,10 @@
     "edit_product_form_item_categories_hint": "categoria",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_type": "categoria",
+    "@edit_product_form_item_categories_type": {
+        "description": "Product edition - Categories - input textfield type"
     },
     "edit_product_form_item_categories_explainer_1": "Indicau només la categoria més concreta. Les categories arrel s'afegiran automàticament.",
     "@edit_product_form_item_categories_explainer_1": {
@@ -1218,8 +1273,8 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
-    "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
+    "edit_product_form_item_exit_confirmation_positive_button": "Desa els canvis",
+    "edit_product_form_item_exit_confirmation_negative_button": "Descarta els canvis",
     "edit_product_form_item_ingredients_title": "Ingredients & Origins",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title"
@@ -1278,7 +1333,7 @@
     "@user_list_dialog_rename_title": {
         "description": "Title of the 'rename user list' dialog"
     },
-    "user_list_subtitle_product": "Lists",
+    "user_list_subtitle_product": "Llistes",
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
@@ -1298,13 +1353,13 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "S'ha afegit a la llista",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Esborra",
+    "user_list_popup_clear": "Clear your history",
     "@user_list_popup_clear": {
-        "description": "Short label of a 'clear list' popup"
+        "description": "Short label of a 'clear your history list' popup"
     },
     "user_list_popup_rename": "Rename",
     "@user_list_popup_rename": {
@@ -1649,7 +1704,7 @@
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
     "barcode": "Codi de barres",
-    "barcode_barcode": "Barcode: {barcode}",
+    "barcode_barcode": "Codi de barres: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
         "placeholders": {
@@ -1668,6 +1723,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
+    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
+    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
+    "alert_select_items_to_clear": "Please select one or more items to clear",
     "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
@@ -1698,11 +1756,11 @@
             }
         }
     },
-    "user_list_all_title": "Lists",
+    "user_list_all_title": "Llistes",
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list",
+    "user_list_all_empty": "Creeu la vostra primera llista",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
@@ -1713,7 +1771,7 @@
             "count": {}
         }
     },
-    "add_list_label": "Add list",
+    "add_list_label": "Afegeix llista",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
@@ -1721,7 +1779,7 @@
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Add photo",
+    "add_photo_button_label": "Afegeix foto",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
@@ -1775,6 +1833,14 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
+    "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
+    "@background_task_title_full_refresh": {
+        "description": "Snackbar message when a full refresh is started"
+    },
+    "background_task_title_top_n": "Starting the download of the most popular products",
+    "@background_task_title_top_n": {
+        "description": "Snackbar message when a download of the most popular products is started"
+    },
     "expand_nutrition_facts": "Expand nutrition facts table",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1797,11 +1863,11 @@
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Copia",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "clipboard_barcode_copy": "Copy barcode to clipboard",
+    "clipboard_barcode_copy": "Copia el codi de barres al porta-retalls",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1812,7 +1878,7 @@
         }
     },
     "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
-    "choose_app_language": "Choose App Language",
+    "choose_app_language": "Trieu la llengua de l'aplicació",
     "@choose_app_language": {
         "description": "Choose Application Language"
     },
@@ -1832,11 +1898,33 @@
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
+    "all_images": "Totes les imatges",
     "selected_images": "Selected Images",
     "product_card_remove_product_tooltip": "Remove product",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
+    },
+    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "@scan_announce_new_barcode": {
+        "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
+    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
     "portion_calculator_description": "Calcula els valors nutricionals per a una quantitat específica",
     "@portion_calculator_description": {
@@ -1943,7 +2031,7 @@
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Ampolla",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -1955,7 +2043,7 @@
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Vidre",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
@@ -1990,6 +2078,7 @@
     "background_task_title": "Pending contributions",
     "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
     "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_error_server_time_out": "Server timeout",
     "background_task_error_no_internet": "Internet connection error. Try later.",
     "background_task_operation_unknown": "unknown operation type",
     "background_task_operation_details": "detailed changes",
@@ -2000,7 +2089,7 @@
     "background_task_run_to_be_deleted": "to be deleted",
     "background_task_question_stop": "Do you want to stop that task ASAP?",
     "feed_back": "Feedback",
-    "undo": "Undo",
+    "undo": "Desfés",
     "copy_email_to_clip_board": "Copy email to clipboard",
     "@copy_email_to_clip_board": {
         "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
@@ -2015,7 +2104,7 @@
     "@theme_amoled": {
         "description": "AMOLED theme mode."
     },
-    "color_blue": "Blue",
+    "color_blue": "Blau",
     "@color_blue": {
         "description": "Color Blue"
     },
@@ -2035,15 +2124,15 @@
     "@color_magenta": {
         "description": "Color Magenta"
     },
-    "color_orange": "Orange",
+    "color_orange": "Taronja",
     "@color_orange": {
         "description": "Color Orange"
     },
-    "color_pink": "Pink",
+    "color_pink": "Rosa",
     "@color_pink": {
         "description": "Color Pink"
     },
-    "color_red": "Red",
+    "color_red": "Vermell",
     "@color_red": {
         "description": "Color Red"
     },
@@ -2055,19 +2144,19 @@
     "@color_teal": {
         "description": "Color Teal"
     },
-    "text_contrast_mode": "Text Contrast",
+    "text_contrast_mode": "Contrast del text",
     "@text_contrast_mode": {
         "description": "Text Contrast Color Mode"
     },
-    "contrast_high": "High",
+    "contrast_high": "Alt",
     "@contrast_high": {
         "description": "High Contrast Text Color"
     },
-    "contrast_medium": "Medium",
+    "contrast_medium": "Mitjà",
     "@contrast_medium": {
         "description": "Medium Contrast Text Color"
     },
-    "contrast_low": "Low",
+    "contrast_low": "Baix",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
@@ -2107,6 +2196,14 @@
     "download_top_products": "Download the top 1000 products in your country for instant scanning",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+    "@download_top_n_products": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
     },
     "download_in_progress": "Downloading data\nThis may take a while",
     "@download_in_progress": {

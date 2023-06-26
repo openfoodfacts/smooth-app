@@ -350,6 +350,14 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
+    "tap_to_answer_hint": "Klepnutím sem odpovězte na otázky týkající se tohoto produktu",
+    "@tap_to_answer_hint": {
+        "description": "Hint for accessibility readers to answer Robotoff questions."
+    },
+    "robotoff_questions_loading_hint": "Počkejte prosím, než budou otázky k tomuto produktu načteny",
+    "@robotoff_questions_loading_hint": {
+        "description": "Hint for accessibility readers while Robotoff questions are loaded"
+    },
     "saving_answer": "Ukládání odpovědi",
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
@@ -498,6 +506,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_message": "Zdá se, že jste nic nezadali. Opravdu chcete opustit tuto stránku?",
+    "@new_product_leave_message": {
+        "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_dialog_description": "Pořiďte prosím fotografie obalu, abyste přidali tento produkt do naší společné databáze",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
@@ -521,6 +533,28 @@
     "crop_page_action_local": "Ukládání místní verze…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
+    },
+    "crop_page_too_small_image_title": "Obrázek je příliš malý!",
+    "@crop_page_too_small_image_title": {
+        "description": "Title of a dialog warning the user that the image is too small for upload"
+    },
+    "crop_page_too_small_image_message": "Minimální velikost v pixelech pro nahrávání obrázků je {expectedMinWidth}x{expectedMinHeight}. Aktuální obrázek je {actualWidth}x{actualHeight}.",
+    "@crop_page_too_small_image_message": {
+        "description": "Message of a dialog warning the user that the image is too small for upload",
+        "placeholders": {
+            "expectedMinWidth": {
+                "type": "int"
+            },
+            "expectedMinHeight": {
+                "type": "int"
+            },
+            "actualWidth": {
+                "type": "int"
+            },
+            "actualHeight": {
+                "type": "int"
+            }
+        }
     },
     "crop_page_action_server": "Příprava volání serveru…",
     "@crop_page_action_server": {
@@ -548,6 +582,9 @@
     "new_product_title_ecoscore": "Vypočítejte Eco-Score",
     "new_product_subtitle_ecoscore": "Získejte jej vyplněním alespoň kategorie",
     "new_product_additional_ecoscore": "Zpřesněte výpočet Eco-Score pomocí původu, balení a dalších údajů",
+    "new_product_title_nova": "Vypočítejte úroveň zpracování potravin (NOVA)",
+    "new_product_subtitle_nova": "Získejte ji vyplněním kategorie potravin a složek",
+    "new_product_desc_nova_unknown": "Neznámá úroveň průmyslového zpracování potraviny",
     "new_product_title_pictures": "Pojďme udělat pár fotek!",
     "new_product_title_misc": "A pár základních údajů…",
     "nutritional_facts_photo_uploaded": "Fotografie nutričních údajů byla nahrána",
@@ -727,42 +764,42 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural,  one {}  few {před {count} dny}  many {před {count} dny}=1{před jedním dnem} other{před {count} dny}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural,  one {}  few {před {count} hodinami}  many {před {count} hodinami}=1{před hodinou} other{před {count} hodinami}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural,  one {}  few {před {count} minutami}  many {před {count} minutami}=0{před méně než minutou} =1{před minutou} other{před {count} minutami}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
+    "plural_ago_months": "{count,plural,  one {}  few {před {count} měsíci}  many {před {count} měsíci}=1{před měsícem} other{před {count} měsíci}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
+    "plural_ago_weeks": "před {count,plural,  one {}  few {{count} týdny}  many {před {count} týdny}=1{týdnem} other{{count} týdny}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
+    "plural_compare_x_products": "{count,plural, =1{Porovnání jednoho produktu} other{Porovnání {count} produktů}}",
     "@plural_compare_x_products": {
         "description": "Button label to open a page to compare all selected products to each other",
         "placeholders": {
@@ -1032,21 +1069,6 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_mode_title": "Režim skenování",
-    "@camera_mode_title": {
-        "description": "Title for the mode for the camera/scanner"
-    },
-    "camera_mode_subtitle": "Tuto hodnotu změňte pouze v případě, že máte nějaké problémy se skenerem (nelze dekódovat čárové kódy). Klepnutím přepnete mezi oběma režimy.\nAktuální režim je: {mode}",
-    "@camera_mode_subtitle": {
-        "description": "SubTitle for the mode for the camera/scanner",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "camera_mode_file_based": "Bezpečný režim (výchozí)",
-    "camera_mode_bytes_array_based": "Rychlý režim",
     "app_haptic_feedback_title": "Vibrace a haptika",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
@@ -1109,6 +1131,15 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_form_item_add_action": "Přidat nový {itemType}",
+    "description": "Popisek, který se zobrazí, když uživatel dlouze stiskne tlačítko (+)",
+    "@edit_product_form_item_add_action": {
+        "placeholders": {
+            "itemType": {
+                "type": "String"
+            }
+        }
+    },
     "edit_product_form_item_barcode": "Čárový kód",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
@@ -1149,6 +1180,10 @@
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
+    "edit_product_form_item_labels_type": "štítek",
+    "@edit_product_form_item_labels_type": {
+        "description": "Product edition - Labels - input textfield label"
+    },
     "edit_product_form_item_stores_title": "Prodejny",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
@@ -1157,6 +1192,10 @@
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
+    "edit_product_form_item_stores_type": "prodejna",
+    "@edit_product_form_item_stores_type": {
+        "description": "Product edition - Stores - input textfield type"
+    },
     "edit_product_form_item_origins_title": "Původ",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
@@ -1164,6 +1203,10 @@
     "edit_product_form_item_origins_hint": "Španělsko",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
+    },
+    "edit_product_form_item_origins_type": "země",
+    "@edit_product_form_item_origins_type": {
+        "description": "Product edition - Origins - input textfield type"
     },
     "edit_product_form_item_origins_explainer_1": "Přidejte jakékoli označení původu, které najdete na obalu. Nemusíte se starat o původ uvedený přímo v seznamu přísad.",
     "@edit_product_form_item_origins_explainer_1": {
@@ -1181,6 +1224,10 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
+    "edit_product_form_item_countries_type": "země",
+    "@edit_product_form_item_countries_type": {
+        "description": "Product edition - Countries - input textfield type"
+    },
     "edit_product_form_item_countries_explanations": "Země, kde je produkt široce dostupný (nezahrnuje obchody specializované na zahraniční produkty).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
@@ -1193,6 +1240,10 @@
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
+    "edit_product_form_item_emb_codes_type": "kód EMB",
+    "@edit_product_form_item_emb_codes_type": {
+        "description": "Product edition - Traceability Codes - input textfield type"
+    },
     "edit_product_form_item_emb_codes_explanations": "V Evropě je kód v elipse s dvěna iniciálami země následovanými číslem a CE.\nPříklady: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
@@ -1204,6 +1255,10 @@
     "edit_product_form_item_categories_hint": "kategorie",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
+    },
+    "edit_product_form_item_categories_type": "kategorie",
+    "@edit_product_form_item_categories_type": {
+        "description": "Product edition - Categories - input textfield type"
     },
     "edit_product_form_item_categories_explainer_1": "Uveďte pouze nejkonkrétnější kategorii. Nadřazené kategorie budou přidány automaticky.",
     "@edit_product_form_item_categories_explainer_1": {
@@ -1302,9 +1357,9 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Vymazat",
+    "user_list_popup_clear": "Vymažte historii",
     "@user_list_popup_clear": {
-        "description": "Short label of a 'clear list' popup"
+        "description": "Short label of a 'clear your history list' popup"
     },
     "user_list_popup_rename": "Přejmenovat",
     "@user_list_popup_rename": {
@@ -1347,7 +1402,7 @@
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Zapněte nebo vypněte blesk fotoaparátu",
+    "camera_toggle_flash": "Zapnout nebo vypnout blesk kamery",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1668,6 +1723,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
+    "alert_clear_selected_user_list": "Chystáte se vymazat vybrané položky ve své historii",
+    "confirm_clear_selected_user_list": "Opravdu si přejete pokračovat?",
+    "alert_select_items_to_clear": "Vyberte jednu nebo více položek, které chcete vymazat",
     "confirm_clear_user_list": "Chystáte se vymazat tento seznam ({name}): opravdu chcete pokračovat?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
@@ -1775,6 +1833,14 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
+    "background_task_title_full_refresh": "Spouštění aktualizace všech lokálně uložených produktů",
+    "@background_task_title_full_refresh": {
+        "description": "Snackbar message when a full refresh is started"
+    },
+    "background_task_title_top_n": "Zahájení stahování nejoblíbenějších produktů",
+    "@background_task_title_top_n": {
+        "description": "Snackbar message when a download of the most popular products is started"
+    },
     "expand_nutrition_facts": "Rozbalit tabulku nutričních údajů",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1838,6 +1904,28 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
+    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "@scan_announce_new_barcode": {
+        "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
+        "placeholders": {
+            "barcode": {
+                "type": "String",
+                "description": "barcode"
+            }
+        }
+    },
+    "scan_header_clear_button_tooltip": "Odstranit všechny produkty z karuselu",
+    "@scan_header_clear_button_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
+    },
+    "scan_header_compare_button_invalid_state_tooltip": "Naskenujte prosím alespoň dva produkty a porovnejte je",
+    "@scan_header_compare_button_invalid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
+    },
+    "scan_header_compare_button_valid_state_tooltip": "Kliknutím porovnáte produkty, které jste naskenovali",
+    "@scan_header_compare_button_valid_state_tooltip": {
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+    },
     "portion_calculator_description": "Vypočítejte nutriční údaje pro konkrétní množství",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
@@ -1891,7 +1979,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "Další {count,plural,  one {}  few {{count} otázky}  many {{count} otázek}=1{otázka} other{{count} otázek}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -1990,6 +2078,7 @@
     "background_task_title": "Nevyřízené příspěvky",
     "background_task_subtitle": "Vaše příspěvky jsou automaticky uloženy na náš server, ale ne vždy v reálném čase.",
     "background_task_list_empty": "Žádné nevyřízené úkoly na pozadí",
+    "background_task_error_server_time_out": "Server timeout",
     "background_task_error_no_internet": "Chyba připojení k internetu. Zkuste to později.",
     "background_task_operation_unknown": "neznámý typ operace",
     "background_task_operation_details": "podrobné změny",
@@ -2107,6 +2196,14 @@
     "download_top_products": "Stáhněte si 1000 nejlepších produktů ve vaší zemi pro okamžité skenování",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
+    },
+    "download_top_n_products": "Stáhnout {count,plural,  one {nejlepší {count} produkt}  few {nejlepší {count} produkty}  many {nejlepších {count} produktů}other{nejlepších {count} produktů}} ve tvé zemi pro okamžité skenování",
+    "@download_top_n_products": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
     },
     "download_in_progress": "Stahování dat\nMůže to chvíli trvat",
     "@download_in_progress": {
