@@ -249,39 +249,41 @@ class _EditOcrPageState extends State<EditOcrPage> {
                   start: LARGE_SPACE,
                   end: LARGE_SPACE,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                        child: ProductImageServerButton(
-                          product: _product,
-                          imageField: _helper.getImageField(),
-                          language: language,
-                          isLoggedInMandatory: widget.isLoggedInMandatory,
-                          borderWidth: 2,
+                child: IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: SMALL_SPACE),
+                          child: ProductImageServerButton(
+                            product: _product,
+                            imageField: _helper.getImageField(),
+                            language: language,
+                            isLoggedInMandatory: widget.isLoggedInMandatory,
+                            borderWidth: 2,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                        child: ProductImageLocalButton(
-                          firstPhoto: !transientFile.isImageAvailable(),
-                          barcode: widget.product.barcode!,
-                          imageField: _helper.getImageField(),
-                          language: language,
-                          isLoggedInMandatory: widget.isLoggedInMandatory,
-                          borderWidth: 2,
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: SMALL_SPACE),
+                          child: ProductImageLocalButton(
+                            firstPhoto: !transientFile.isImageAvailable(),
+                            barcode: widget.product.barcode!,
+                            imageField: _helper.getImageField(),
+                            language: language,
+                            isLoggedInMandatory: widget.isLoggedInMandatory,
+                            borderWidth: 2,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
