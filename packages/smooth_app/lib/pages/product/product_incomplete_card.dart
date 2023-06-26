@@ -73,7 +73,7 @@ class ProductIncompleteCard extends StatelessWidget {
             colorScheme.onPrimary,
           ),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+            const RoundedRectangleBorder(borderRadius: ANGULAR_BORDER_RADIUS),
           ),
         ),
       ),
