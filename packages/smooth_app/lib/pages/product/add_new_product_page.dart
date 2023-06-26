@@ -17,7 +17,6 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
-import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -36,11 +35,25 @@ double _getScoreIconHeight(final BuildContext context) =>
 
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
-  const AddNewProductPage({
-    required this.barcode,
-  }) : assert(barcode != '');
+  AddNewProductPage.fromBarcode(
+    final String barcode, {
+    this.displayPictures = true,
+    this.displayMisc = true,
+    this.isLoggedInMandatory = false,
+  })  : assert(barcode != ''),
+        product = Product(barcode: barcode);
 
-  final String barcode;
+  const AddNewProductPage.fromProduct(
+    this.product, {
+    this.displayPictures = true,
+    this.displayMisc = true,
+    this.isLoggedInMandatory = true,
+  });
+
+  final Product product;
+  final bool displayPictures;
+  final bool displayMisc;
+  final bool isLoggedInMandatory;
 
   @override
   State<AddNewProductPage> createState() => _AddNewProductPageState();
@@ -71,9 +84,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   final ProductFieldEditor _labelEditor =
       ProductFieldSimpleEditor(SimpleInputPageLabelHelper());
   final ProductFieldEditor _detailsEditor = ProductFieldDetailsEditor();
+  final ProductFieldEditor _nutritionEditor = ProductFieldNutritionEditor();
   late final List<ProductFieldEditor> _editors;
-
-  bool get _nutritionFactsAdded => _product.nutriments?.isEmpty() == false;
 
   bool _alreadyPushedToHistory = false;
 
@@ -100,8 +112,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       _categoryEditor,
       _labelEditor,
       _detailsEditor,
+      _nutritionEditor,
     ];
-    _initialProduct = Product(barcode: barcode);
+    _initialProduct = widget.product;
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(barcode);
     _daoProductList = DaoProductList(_localDatabase);
@@ -117,7 +130,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     super.dispose();
   }
 
-  String get barcode => widget.barcode;
+  String get barcode => widget.product.barcode!;
 
   @override
   Widget build(BuildContext context) {
@@ -171,11 +184,11 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _buildCard(_getImageRows(context)),
+                if (widget.displayPictures) _buildCard(_getImageRows(context)),
                 _buildCard(_getNutriscoreRows(context)),
                 _buildCard(_getEcoscoreRows(context)),
                 _buildCard(_getNovaRows(context)),
-                _buildCard(_getMiscRows(context)),
+                if (widget.displayMisc) _buildCard(_getMiscRows(context)),
                 const SizedBox(height: MINIMUM_TOUCH_SIZE),
               ],
             ),
@@ -205,9 +218,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         return true;
       }
     }
-    return _nutritionFactsAdded ||
-        _uploadedImages.isNotEmpty ||
-        _otherUploadedImages.isNotEmpty;
+    if (widget.displayPictures) {
+      return _uploadedImages.isNotEmpty || _otherUploadedImages.isNotEmpty;
+    }
+    return false;
   }
 
   Widget _buildCard(
@@ -383,7 +397,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   Widget _buildNutritionInputButton(final BuildContext context) {
     if (!_trackedPopulatedNutrition) {
-      if (_nutritionFactsAdded) {
+      if (_nutritionEditor.isPopulated(_product)) {
         _trackedPopulatedNutrition = true;
         AnalyticsHelper.trackEvent(
           AnalyticsEvent.nutritionNewProductPage,
@@ -391,18 +405,11 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         );
       }
     }
-    return _MyButton(
-      AppLocalizations.of(context).nutritional_facts_input_button_label,
-      Icons.filter_2,
-      // deactivated when the categories were not set beforehand
-      !_categoryEditor.isPopulated(_product)
-          ? null
-          : () async => NutritionPageLoaded.showNutritionPage(
-                product: _product,
-                isLoggedInMandatory: false,
-                widget: this,
-              ),
-      done: _nutritionFactsAdded,
+    return _buildEditorButton(
+      context,
+      _nutritionEditor,
+      forceIconData: Icons.filter_2,
+      disabled: !_categoryEditor.isPopulated(_product),
     );
   }
 
@@ -421,7 +428,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           : () async => editor.edit(
                 context: context,
                 product: _product,
-                isLoggedInMandatory: false,
+                isLoggedInMandatory: widget.isLoggedInMandatory,
               ),
       done: done,
     );

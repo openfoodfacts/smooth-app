@@ -6,6 +6,7 @@ import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings.dart';
 import 'package:smooth_app/pages/product/edit_ocr_page.dart';
+import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
 import 'package:smooth_app/pages/product/ocr_packaging_helper.dart';
@@ -173,6 +174,28 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
       ),
     );
   }
+}
+
+class ProductFieldNutritionEditor extends ProductFieldEditor {
+  @override
+  bool isPopulated(final Product product) =>
+      product.nutriments?.isEmpty() == false;
+
+  @override
+  String getLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.nutritional_facts_input_button_label;
+
+  @override
+  Future<void> edit({
+    required final BuildContext context,
+    required final Product product,
+    final bool isLoggedInMandatory = true,
+  }) async =>
+      NutritionPageLoaded.showNutritionPage(
+        product: product,
+        isLoggedInMandatory: isLoggedInMandatory,
+        context: context,
+      );
 }
 
 abstract class ProductFieldOcrEditor extends ProductFieldEditor {
