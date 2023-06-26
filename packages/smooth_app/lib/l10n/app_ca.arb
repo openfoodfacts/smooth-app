@@ -584,7 +584,7 @@
     "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
     "new_product_title_nova": "Compute the food processing level (NOVA)",
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
-    "new_product_desc_nova_unknown": "Food processing level unknown",
+    "new_product_desc_nova_unknown": "Nivell de processament d'aliments desconegut",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
     "nutritional_facts_photo_uploaded": "S'ha penjat una foto de dades nutricionals",
@@ -1196,7 +1196,7 @@
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
     },
-    "edit_product_form_item_origins_title": "Origins",
+    "edit_product_form_item_origins_title": "Orígens",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },

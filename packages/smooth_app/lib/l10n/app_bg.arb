@@ -2207,7 +2207,7 @@
     },
     "download_in_progress": "Изтегляне на данните\nТова може да отнеме известно време",
     "@download_in_progress": {
-        "description": "Download in progress."
+        "description": "Download in progress"
     },
     "downloaded_products": "{num} добавени продукта",
     "@downloaded_products": {

@@ -1904,7 +1904,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Taranan yeni barkod: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2078,7 +2078,7 @@
     "background_task_title": "Bekleyen katkılar",
     "background_task_subtitle": "Katkılarınız otomatik olarak sunucumuza kaydedilir, ancak her zaman gerçek zamanlı olarak kaydedilmez.",
     "background_task_list_empty": "Bekleyen Arka Plan Görevi Yok",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Sunucu zaman aşımı",
     "background_task_error_no_internet": "İnternet bağlantısı hatası. Daha sonra tekrar deneyin.",
     "background_task_operation_unknown": "bilinmeyen işlem türü",
     "background_task_operation_details": "ayrıntılı değişiklikler",
