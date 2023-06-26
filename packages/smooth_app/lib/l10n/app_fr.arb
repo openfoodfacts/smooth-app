@@ -1979,7 +1979,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "{count,plural,  =1{Une question} other{{count} questions de plus !}}",
+    "robotoff_next_n_questions": "{count,plural,  =1{Une question} other{{count} questions}} de plus !",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
