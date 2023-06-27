@@ -95,7 +95,7 @@ class _SummaryCardState extends State<SummaryCard> {
     if (ProductIncompleteCard.isProductIncomplete(_initialProduct)) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
-        barcode: _initialProduct.barcode!,
+        barcode: _initialProduct.barcode,
       );
     }
   }
