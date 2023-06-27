@@ -1904,7 +1904,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Cod de bare nou scanat: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2078,7 +2078,7 @@
     "background_task_title": "Contribuții în așteptare",
     "background_task_subtitle": "Contribuțiile dvs. sunt salvate automat pe serverul nostru, dar nu întotdeauna în timp real.",
     "background_task_list_empty": "Nu există sarcini de fundal în așteptare",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Expirare server",
     "background_task_error_no_internet": "Eroare de conexiune la internet. Încercați mai târziu.",
     "background_task_operation_unknown": "tip de operație necunoscut",
     "background_task_operation_details": "modificări detaliate",

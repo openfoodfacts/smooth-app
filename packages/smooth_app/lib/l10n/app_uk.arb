@@ -1904,7 +1904,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Новий сканований штрих-код: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2078,7 +2078,7 @@
     "background_task_title": "Чекає на внесок",
     "background_task_subtitle": "Ваші внески зберігаються автоматично (але не завжди в режимі реального часу).",
     "background_task_list_empty": "Незавершених завдань немає",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Час очікування сервера",
     "background_task_error_no_internet": "Не вдалося підключитися до інтернету. Спробуйте пізніше.",
     "background_task_operation_unknown": "невідома операція",
     "background_task_operation_details": "детально про зміни",
