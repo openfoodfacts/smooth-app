@@ -48,6 +48,14 @@ enum AnalyticsEvent {
     tag: 'opened product edit page',
     category: AnalyticsCategory.productEdit,
   ),
+  openFastTrackProductEditPage(
+    tag: 'opened fast-track product edit page',
+    category: AnalyticsCategory.productEdit,
+  ),
+  showFastTrackProductEditCard(
+    tag: 'showed fast-track product edit card',
+    category: AnalyticsCategory.productEdit,
+  ),
   openNewProductPage(
     tag: 'opened new product page',
     category: AnalyticsCategory.newProduct,

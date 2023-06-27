@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -91,6 +92,12 @@ class _SummaryCardState extends State<SummaryCard> {
     _initialProduct = widget._product;
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
+    if (ProductIncompleteCard.isProductIncomplete(_initialProduct)) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.showFastTrackProductEditCard,
+        barcode: _initialProduct.barcode!,
+      );
+    }
   }
 
   @override

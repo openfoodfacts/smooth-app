@@ -35,25 +35,26 @@ double _getScoreIconHeight(final BuildContext context) =>
 
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
-  AddNewProductPage.fromBarcode(
-    final String barcode, {
-    this.displayPictures = true,
-    this.displayMisc = true,
-    this.isLoggedInMandatory = false,
-  })  : assert(barcode != ''),
-        product = Product(barcode: barcode);
+  AddNewProductPage.fromBarcode(final String barcode)
+      : assert(barcode != ''),
+        product = Product(barcode: barcode),
+        analyticsEvent = AnalyticsEvent.openNewProductPage,
+        displayPictures = true,
+        displayMisc = true,
+        isLoggedInMandatory = false;
 
   const AddNewProductPage.fromProduct(
     this.product, {
-    this.displayPictures = true,
-    this.displayMisc = true,
     this.isLoggedInMandatory = true,
-  });
+  })  : analyticsEvent = AnalyticsEvent.openFastTrackProductEditPage,
+        displayPictures = false,
+        displayMisc = false;
 
   final Product product;
   final bool displayPictures;
   final bool displayMisc;
   final bool isLoggedInMandatory;
+  final AnalyticsEvent analyticsEvent;
 
   @override
   State<AddNewProductPage> createState() => _AddNewProductPageState();
@@ -119,7 +120,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     _localDatabase.upToDate.showInterest(barcode);
     _daoProductList = DaoProductList(_localDatabase);
     AnalyticsHelper.trackEvent(
-      AnalyticsEvent.openNewProductPage,
+      widget.analyticsEvent,
       barcode: barcode,
     );
   }

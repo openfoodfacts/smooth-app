@@ -59,8 +59,6 @@ class ProductIncompleteCard extends StatelessWidget {
           MaterialPageRoute<void>(
             builder: (BuildContext context) => AddNewProductPage.fromProduct(
               product,
-              displayPictures: false,
-              displayMisc: false,
               isLoggedInMandatory: isLoggedInMandatory,
             ),
           ),
