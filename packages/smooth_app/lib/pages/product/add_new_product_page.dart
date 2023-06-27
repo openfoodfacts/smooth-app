@@ -33,12 +33,42 @@ TextStyle? _getSubtitleStyle(final BuildContext context) => null;
 double _getScoreIconHeight(final BuildContext context) =>
     MediaQuery.of(context).size.height * .2;
 
+/// Possible actions on that page.
+enum EditProductAction {
+  openPage,
+  leaveEmpty,
+  ingredients,
+  category,
+  nutritionFacts;
+}
+
+/// Events for each action, on the "add new product" page.
+const Map<EditProductAction, AnalyticsEvent> _addNewProductEvents =
+    <EditProductAction, AnalyticsEvent>{
+  EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
+  EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
+  EditProductAction.ingredients: AnalyticsEvent.ingredientsNewProductPage,
+  EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
+  EditProductAction.nutritionFacts: AnalyticsEvent.nutritionNewProductPage,
+};
+
+/// Events for each action, on the "fast-track edit product" page.
+const Map<EditProductAction, AnalyticsEvent> _fastTrackEditEvents =
+    <EditProductAction, AnalyticsEvent>{
+  EditProductAction.openPage: AnalyticsEvent.openFastTrackProductEditPage,
+  EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyFastTrackProductPage,
+  EditProductAction.ingredients: AnalyticsEvent.ingredientsFastTrackProductPage,
+  EditProductAction.category: AnalyticsEvent.categoriesFastTrackProductPage,
+  EditProductAction.nutritionFacts:
+      AnalyticsEvent.nutritionFastTrackProductPage,
+};
+
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
   AddNewProductPage.fromBarcode(final String barcode)
       : assert(barcode != ''),
         product = Product(barcode: barcode),
-        analyticsEvent = AnalyticsEvent.openNewProductPage,
+        events = _addNewProductEvents,
         displayPictures = true,
         displayMisc = true,
         isLoggedInMandatory = false;
@@ -46,7 +76,7 @@ class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage.fromProduct(
     this.product, {
     this.isLoggedInMandatory = true,
-  })  : analyticsEvent = AnalyticsEvent.openFastTrackProductEditPage,
+  })  : events = _fastTrackEditEvents,
         displayPictures = false,
         displayMisc = false;
 
@@ -54,7 +84,7 @@ class AddNewProductPage extends StatefulWidget {
   final bool displayPictures;
   final bool displayMisc;
   final bool isLoggedInMandatory;
-  final AnalyticsEvent analyticsEvent;
+  final Map<EditProductAction, AnalyticsEvent> events;
 
   @override
   State<AddNewProductPage> createState() => _AddNewProductPageState();
@@ -120,7 +150,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     _localDatabase.upToDate.showInterest(barcode);
     _daoProductList = DaoProductList(_localDatabase);
     AnalyticsHelper.trackEvent(
-      widget.analyticsEvent,
+      widget.events[EditProductAction.openPage]!,
       barcode: barcode,
     );
   }
@@ -164,7 +194,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         );
         if (leaveThePage == true) {
           AnalyticsHelper.trackEvent(
-            AnalyticsEvent.closeEmptyNewProductPage,
+            widget.events[EditProductAction.leaveEmpty]!,
             barcode: barcode,
           );
         }
@@ -401,7 +431,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       if (_nutritionEditor.isPopulated(_product)) {
         _trackedPopulatedNutrition = true;
         AnalyticsHelper.trackEvent(
-          AnalyticsEvent.nutritionNewProductPage,
+          widget.events[EditProductAction.nutritionFacts]!,
           barcode: barcode,
         );
       }
@@ -440,7 +470,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       if (_categoryEditor.isPopulated(_product)) {
         _trackedPopulatedCategories = true;
         AnalyticsHelper.trackEvent(
-          AnalyticsEvent.categoriesNewProductPage,
+          widget.events[EditProductAction.category]!,
           barcode: barcode,
         );
       }
@@ -472,7 +502,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       if (_ingredientsEditor.isPopulated(_product)) {
         _trackedPopulatedIngredients = true;
         AnalyticsHelper.trackEvent(
-          AnalyticsEvent.ingredientsNewProductPage,
+          widget.events[EditProductAction.ingredients]!,
           barcode: barcode,
         );
       }
