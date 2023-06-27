@@ -46,7 +46,7 @@
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "Nollaa ruokailutottumuksesi",
+    "reset_food_prefs": "Nollaa ruokamieltymykset",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -388,10 +388,10 @@
     "myPreferences_profile_subtitle": "Hallinoi Open Food Facts -tiliäsi.",
     "myPreferences_settings_title": "Sovellusasetukset",
     "myPreferences_settings_subtitle": "Tumma tila, tilastot…",
-    "myPreferences_food_title": "Ruokailutottumikseni",
+    "myPreferences_food_title": "Ruokamieltymykset",
     "myPreferences_food_subtitle": "Valitse, mikä ruoan tieto kiinnostaa eniten.",
-    "myPreferences_food_comment": "Valitse, mikä ruoan tieto kiinnostaa eniten, luokittele ruoat mieltymyksiesi mukaan, katso tieto, joka sinua kiinnostaa ja hanki yhteensopivuusyhteenveto. Nämä ruokailutottumukset ovat laitteellasi, eikä Open Food Facts -tililläsi, jos sinulla on sellainen.",
-    "confirmResetPreferences": "Nollaa ruokailutottumuksesi",
+    "myPreferences_food_comment": "Valitse sinulle tärkeimmät ruokatiedot, jotta voit järjestellä ruoat mieltymystesi mukaan, nähdä sinulle tärkeät tiedot ensin ja saada yhteensopivuusyhteenvedon. Nämä ruokamieltymykset pysyvät laitteessasi, eikä niitä yhdistetä Open Food Facts -osallistujatiliisi, jos sinulla on sellainen.",
+    "confirmResetPreferences": "Nollaa ruokamieltymyksesi?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
@@ -403,7 +403,7 @@
     "ranking_subtitle_match_yes": "Hyvä osuma sinulle",
     "ranking_subtitle_match_no": "Heikko osuma",
     "ranking_subtitle_match_maybe": "Tuntematon vastaavuus",
-    "refresh_with_new_preferences": "Päivitä uudet ruokailutottumuksesi",
+    "refresh_with_new_preferences": "Päivitä lista uusilla ruokamieltymyksilläsi",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -639,7 +639,7 @@
     "score_add_missing_product_category": "Lisää puuttuva tuoteluokka",
     "score_add_missing_product_countries": "Lisää valmistusmaa",
     "score_add_missing_product_emb": "Lisää jäljitettävyyskoodi",
-    "score_add_missing_product_labels": "Lisää etiketti",
+    "score_add_missing_product_labels": "Lisää puuttuvat merkit",
     "score_add_missing_product_origins": "Lisää alkuperä",
     "score_add_missing_product_stores": "Lisää kaupat",
     "score_update_nutrition_facts": "Päivitä ravintosisältö",
@@ -1168,7 +1168,7 @@
     "@edit_product_form_item_photos_subtitle": {
         "description": "Product edition - Photos - SubTitle"
     },
-    "edit_product_form_item_labels_title": "Etiketit ja todistukset",
+    "edit_product_form_item_labels_title": "Merkit ja sertifikaatit",
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
@@ -1829,7 +1829,7 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "Kuva ladataan taustalle mahdollisimman pian.",
+    "image_upload_queued": "Kuva lähetetään taustalla mahdollisimman pian.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
@@ -1886,7 +1886,7 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "Tuote päivitetään taustalle mahdollisimman pian.",
+    "product_task_background_schedule": "Tuote päivitetään taustalla mahdollisimman pian.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
