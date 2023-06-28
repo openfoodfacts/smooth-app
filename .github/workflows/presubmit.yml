@@ -3,9 +3,6 @@ name: SmoothApp Pre-Submit Tests
 on:
   pull_request:
 
-env:
-  FLUTTER_VERSION: '3.3.x'
-
 jobs:
   build:
     name: 'Analyze and test'
@@ -19,13 +16,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Get the flutter version from ./flutter-version.txt
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          #channel: stable
           cache: true
-          #flutter-version: '3.10.4'
-          cache-key: current-stable
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
 
       - run: flutter --version
 

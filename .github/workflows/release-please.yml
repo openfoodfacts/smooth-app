@@ -82,6 +82,17 @@ jobs:
           message: "Public release: ${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
           force_push_tag: true
 
+      # We need to add the VERSION_CODE to the release in order for F-Droid to have the same VERSION_CODE as the other Stores
+      - name: Create version file
+        run: echo ${{ env.VERSION_CODE }} > "./version-code.txt"
+
+      - name: Upload version code to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          file: ./version-code.txt
+          tag: "v${{ env.VERSION_NAME }}"
+          overwrite: true
+
       - name: Set output
         id: set_output
         run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=VERSION_CODE::${{ env.VERSION_CODE }}"
