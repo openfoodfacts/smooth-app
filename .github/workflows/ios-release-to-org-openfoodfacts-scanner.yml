@@ -66,7 +66,7 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
 
       # Get the flutter version from ./flutter-version.txt
-      - run: echo "FLUTTER_VERSION=$(cat flutter-version.text)" >> $GITHUB_OUTPUT
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
         id: flutter-version
 
       - name: Setup Flutter

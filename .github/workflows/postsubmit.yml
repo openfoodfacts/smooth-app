@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - "develop"
-
-env:
-  FLUTTER_VERSION: '3.3.x'
     
 jobs:
   build:
@@ -25,7 +22,7 @@ jobs:
           java-version: 11
 
       # Get the flutter version from ./flutter-version.txt
-      - run: echo "FLUTTER_VERSION=$(cat flutter-version.text)" >> $GITHUB_OUTPUT
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
         id: flutter-version
 
       - name: Setup Flutter
