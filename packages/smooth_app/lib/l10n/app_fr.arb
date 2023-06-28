@@ -350,11 +350,11 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "tap_to_answer_hint": "Appuyez ici pour répondre aux questions sur ce produit",
     "@tap_to_answer_hint": {
         "description": "Hint for accessibility readers to answer Robotoff questions."
     },
-    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "robotoff_questions_loading_hint": "Veuillez patienter pendant le chargement des questions sur ce produit",
     "@robotoff_questions_loading_hint": {
         "description": "Hint for accessibility readers while Robotoff questions are loaded"
     },
@@ -534,11 +534,11 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_too_small_image_title": "The image is too small!",
+    "crop_page_too_small_image_title": "L'image est trop petite !",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
     },
-    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "crop_page_too_small_image_message": "La taille minimale en pixels pour le téléchargement d'images est {expectedMinWidth}x{expectedMinHeight}. L'image actuelle est {actualWidth}x{actualHeight}.",
     "@crop_page_too_small_image_message": {
         "description": "Message of a dialog warning the user that the image is too small for upload",
         "placeholders": {
@@ -582,9 +582,9 @@
     "new_product_title_ecoscore": "Calculez l'Eco-Score",
     "new_product_subtitle_ecoscore": "Merci de renseigner au moins la catégorie de l'aliment",
     "new_product_additional_ecoscore": "Rendre le calcul de l'Eco-Score plus précis avec les origines géographiques, l'emballage et plus",
-    "new_product_title_nova": "Calculez le niveau d'ultra-transformation (NOVA)",
-    "new_product_subtitle_nova": "Merci de renseigner la catégorie de l'aliment et les ingrédients",
-    "new_product_desc_nova_unknown": "Niveau d'ultra-transformation inconnu",
+    "new_product_title_nova": "Calculer le niveau de transformation des aliments (NOVA)",
+    "new_product_subtitle_nova": "Obtenez-le en remplissant la catégorie alimentaire et les ingrédients",
+    "new_product_desc_nova_unknown": "Degré de transformation des aliments inconnu",
     "new_product_title_pictures": "Prenons quelques photos !",
     "new_product_title_misc": "Et quelques données de base…",
     "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",
@@ -1131,8 +1131,8 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
-    "edit_product_form_item_add_action": "Add a new {itemType}",
-    "description": "Tooltip to show when the user long presses the (+) button",
+    "edit_product_form_item_add_action": "Ajouter un nouveau {itemType}",
+    "description": "Infobulle à afficher lorsque l'utilisateur appuie longuement sur le bouton (+)",
     "@edit_product_form_item_add_action": {
         "placeholders": {
             "itemType": {
@@ -1357,7 +1357,7 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Clear your history",
+    "user_list_popup_clear": "Effacer votre historique",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear your history list' popup"
     },
@@ -1398,11 +1398,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Switch between back and front camera",
+    "camera_toggle_camera": "Basculer entre la caméra arrière et avant",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "camera_toggle_flash": "Allumer ou éteindre le flash de l'appareil photo",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1723,9 +1723,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
-    "alert_select_items_to_clear": "Please select one or more items to clear",
+    "alert_clear_selected_user_list": "Vous êtes sur le point d'effacer les éléments sélectionnés de votre historique",
+    "confirm_clear_selected_user_list": "Voulez-vous vraiment continuer ?",
+    "alert_select_items_to_clear": "Veuillez sélectionner un ou plusieurs éléments à effacer",
     "confirm_clear_user_list": "Vous êtes sur le point d'effacer cette liste ({name}) : êtes-vous sûr de vouloir continuer ?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
@@ -1904,7 +1904,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Nouveau code-barres scanné : {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -1914,7 +1914,7 @@
             }
         }
     },
-    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "scan_header_clear_button_tooltip": "Retirer tous les produits du carrousel",
     "@scan_header_clear_button_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
     },
@@ -2078,7 +2078,7 @@
     "background_task_title": "Contributions en attente",
     "background_task_subtitle": "Vos contributions sont automatiquement enregistrées sur notre serveur, mais pas toujours en temps réel.",
     "background_task_list_empty": "Aucune tâche d'arrière-plan en attente",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Timeout du serveur",
     "background_task_error_no_internet": "Erreur de connexion Internet. Essayez plus tard.",
     "background_task_operation_unknown": "type d'opération inconnu",
     "background_task_operation_details": "modifications détaillées",
