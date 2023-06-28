@@ -5,23 +5,18 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 
 /// "Add nutrition facts" button for user contribution.
-class AddNutritionButton extends StatefulWidget {
+class AddNutritionButton extends StatelessWidget {
   const AddNutritionButton(this.product);
 
   final Product product;
 
   @override
-  State<AddNutritionButton> createState() => _AddNutritionButtonState();
-}
-
-class _AddNutritionButtonState extends State<AddNutritionButton> {
-  @override
   Widget build(BuildContext context) => addPanelButton(
         AppLocalizations.of(context).score_add_missing_nutrition_facts,
         onPressed: () async => NutritionPageLoaded.showNutritionPage(
-          product: widget.product,
+          product: product,
           isLoggedInMandatory: true,
-          widget: this,
+          context: context,
         ),
       );
 }

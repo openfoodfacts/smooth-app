@@ -146,7 +146,7 @@ class _SmoothGoRouter {
                   '${_InternalAppRoutes.PRODUCT_CREATOR_PAGE.path}/:productId',
               builder: (BuildContext context, GoRouterState state) {
                 final String barcode = state.pathParameters['productId']!;
-                return AddNewProductPage(barcode: barcode);
+                return AddNewProductPage.fromBarcode(barcode);
               },
             ),
             GoRoute(

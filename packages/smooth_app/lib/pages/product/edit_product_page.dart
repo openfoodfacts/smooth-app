@@ -199,7 +199,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       await NutritionPageLoaded.showNutritionPage(
                         product: _product,
                         isLoggedInMandatory: true,
-                        widget: this,
+                        context: context,
                       );
                     }),
                 _getSimpleListTileItem(SimpleInputPageLabelHelper()),

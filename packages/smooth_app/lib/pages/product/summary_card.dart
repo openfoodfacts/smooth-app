@@ -9,21 +9,22 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/pages/navigator/app_navigator.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
+import 'package:smooth_app/pages/product/product_compatibility_header.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
+import 'package:smooth_app/pages/product/product_incomplete_card.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/summary_attribute_group.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -35,9 +36,6 @@ const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_LABELS,
   AttributeGroup.ATTRIBUTE_GROUP_ENVIRONMENT,
 ];
-
-// Each row in the summary card takes roughly 40px.
-const int _SUMMARY_CARD_ROW_HEIGHT = 40;
 
 class SummaryCard extends StatefulWidget {
   const SummaryCard(
@@ -85,10 +83,6 @@ class _SummaryCardState extends State<SummaryCard> {
   late final Product _initialProduct;
   late final LocalDatabase _localDatabase;
 
-  // Number of Rows that will be printed in the SummaryCard, initialized to a
-  // very high number for infinite rows.
-  int _totalPrintableRows = 10000;
-
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
 
@@ -98,6 +92,12 @@ class _SummaryCardState extends State<SummaryCard> {
     _initialProduct = widget._product;
     _localDatabase = context.read<LocalDatabase>();
     _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
+    if (ProductIncompleteCard.isProductIncomplete(_initialProduct)) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.showFastTrackProductEditCard,
+        barcode: _initialProduct.barcode,
+      );
+    }
   }
 
   @override
@@ -112,7 +112,11 @@ class _SummaryCardState extends State<SummaryCard> {
     _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
     if (widget.isFullVersion) {
       return buildProductSmoothCard(
-        header: _buildProductCompatibilityHeader(context),
+        header: ProductCompatibilityHeader(
+          product: _product,
+          productPreferences: widget._productPreferences,
+          isSettingClickable: widget.isSettingClickable,
+        ),
         body: Padding(
           padding: SMOOTH_CARD_PADDING,
           child: _buildSummaryCardContent(context),
@@ -127,7 +131,6 @@ class _SummaryCardState extends State<SummaryCard> {
   }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
-    _totalPrintableRows = parentHeight ~/ _SUMMARY_CARD_ROW_HEIGHT;
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: SMALL_SPACE,
@@ -142,7 +145,11 @@ class _SummaryCardState extends State<SummaryCard> {
               minHeight: parentHeight,
               maxHeight: double.infinity,
               child: buildProductSmoothCard(
-                header: _buildProductCompatibilityHeader(context),
+                header: ProductCompatibilityHeader(
+                  product: _product,
+                  productPreferences: widget._productPreferences,
+                  isSettingClickable: widget.isSettingClickable,
+                ),
                 body: Padding(
                   padding: SMOOTH_CARD_PADDING,
                   child: _buildSummaryCardContent(context),
@@ -193,13 +200,6 @@ class _SummaryCardState extends State<SummaryCard> {
       excludedAttributeIds,
     );
 
-    // Header takes 1 row.
-    // Product Title Tile takes 2 rows to render.
-    // Footer takes 1 row.
-    _totalPrintableRows -= 4;
-    // Each Score card takes about 1.5 rows to render.
-    _totalPrintableRows -= (1.5 * scoreAttributes.length).ceil();
-
     final List<Widget> displayedGroups = <Widget>[];
 
     // First, a virtual group with mandatory attributes of all groups
@@ -213,12 +213,11 @@ class _SummaryCardState extends State<SummaryCard> {
     );
     if (attributeChips.isNotEmpty) {
       displayedGroups.add(
-        _buildAttributeGroup(
-          _buildAttributeGroupHeader(
-            isFirstGroup: displayedGroups.isEmpty,
-            groupName: null,
-          ),
-          attributeChips,
+        SummaryAttributeGroup(
+          attributeChips: attributeChips,
+          isClickable: widget.attributeGroupsClickable,
+          isFirstGroup: displayedGroups.isEmpty,
+          groupName: null,
         ),
       );
     }
@@ -244,13 +243,13 @@ class _SummaryCardState extends State<SummaryCard> {
       );
       if (attributeChips.isNotEmpty) {
         displayedGroups.add(
-          _buildAttributeGroup(
-            _buildAttributeGroupHeader(
-                isFirstGroup: displayedGroups.isEmpty,
-                groupName: group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS
-                    ? group.name!
-                    : null),
-            attributeChips,
+          SummaryAttributeGroup(
+            attributeChips: attributeChips,
+            isClickable: widget.attributeGroupsClickable,
+            isFirstGroup: displayedGroups.isEmpty,
+            groupName: group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS
+                ? group.name!
+                : null,
           ),
         );
       }
@@ -362,6 +361,8 @@ class _SummaryCardState extends State<SummaryCard> {
             });
           },
         ),
+        if (ProductIncompleteCard.isProductIncomplete(_product))
+          ProductIncompleteCard(product: _product),
         ..._getAttributes(scoreAttributes),
         if (widget.isFullVersion) ProductQuestionsWidget(_product),
         attributesContainer,
@@ -403,131 +404,16 @@ class _SummaryCardState extends State<SummaryCard> {
     return attributes;
   }
 
-  Widget _buildProductCompatibilityHeader(BuildContext context) {
-    final MatchedProductV2 matchedProduct = MatchedProductV2(
-      _product,
-      widget._productPreferences,
-    );
-    final ProductCompatibilityHelper helper =
-        ProductCompatibilityHelper.product(matchedProduct);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool isDarkMode =
-        Theme.of(context).colorScheme.brightness == Brightness.dark;
-
-    return Ink(
-      decoration: BoxDecoration(
-        color: helper.getHeaderBackgroundColor(isDarkMode),
-        // Ensure that the header has the same circular radius as the SmoothCard.
-        borderRadius: const BorderRadius.only(
-          topLeft: ROUNDED_RADIUS,
-          topRight: ROUNDED_RADIUS,
-        ),
-      ),
-      child: Row(
-        children: <Widget>[
-          // Fake icon
-          const SizedBox(
-            width: kMinInteractiveDimension,
-          ),
-          Expanded(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: SMALL_SPACE,
-                  horizontal: SMALL_SPACE,
-                ),
-                child: Text(
-                  helper.getHeaderText(appLocalizations),
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: helper.getHeaderForegroundColor(isDarkMode),
-                      ),
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
-            onTap: widget.isSettingClickable
-                ? () => AppNavigator.of(context).push(
-                      AppRoutes.PREFERENCES(PreferencePageType.FOOD),
-                    )
-                : null,
-            child: Tooltip(
-              message: appLocalizations.open_food_preferences_tooltip,
-              triggerMode: widget.isSettingClickable
-                  ? TooltipTriggerMode.longPress
-                  : TooltipTriggerMode.tap,
-              child: const SizedBox.square(
-                dimension: kMinInteractiveDimension,
-                child: Icon(
-                  Icons.settings,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildAttributeGroup(
-    final Widget header,
-    final List<Widget> attributeChips,
-  ) {
-    _totalPrintableRows -= (attributeChips.length / 2).ceil();
-    return AbsorbPointer(
-      absorbing: !widget.attributeGroupsClickable,
-      child: Column(
-        children: <Widget>[
-          header,
-          Container(
-            alignment: Alignment.topLeft,
-            child: Wrap(
-              runSpacing: 16,
-              children: attributeChips,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   List<Widget> _buildAttributeChips(final List<Attribute> attributes) {
     final List<Widget> result = <Widget>[];
     for (final Attribute attribute in attributes) {
       final Widget? attributeChip =
           _buildAttributeChipForValidAttributes(attribute);
-      if (attributeChip != null && result.length / 2 < _totalPrintableRows) {
+      if (attributeChip != null) {
         result.add(attributeChip);
       }
     }
     return result;
-  }
-
-  Widget _buildAttributeGroupHeader({
-    required bool isFirstGroup,
-    String? groupName,
-  }) {
-    if (groupName != null) {
-      return Container(
-        alignment: Alignment.topLeft,
-        padding: const EdgeInsetsDirectional.only(
-            top: SMALL_SPACE, bottom: LARGE_SPACE),
-        child: Text(
-          groupName,
-          style:
-              Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.grey),
-        ),
-      );
-    }
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: isFirstGroup
-          ? EMPTY_WIDGET
-          : const Divider(
-              color: Colors.black12,
-            ),
-    );
   }
 
   Widget? _buildAttributeChipForValidAttributes(final Attribute attribute) {

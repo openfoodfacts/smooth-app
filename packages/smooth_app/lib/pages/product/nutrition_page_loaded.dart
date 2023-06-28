@@ -42,46 +42,40 @@ class NutritionPageLoaded extends StatefulWidget {
   static Future<void> showNutritionPage({
     required final Product product,
     required final bool isLoggedInMandatory,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    if (!widget.mounted) {
-      return;
-    }
     if (isLoggedInMandatory) {
-      // ignore: use_build_context_synchronously
-      if (!await ProductRefresher().checkIfLoggedIn(widget.context)) {
+      if (!await ProductRefresher().checkIfLoggedIn(context)) {
         return;
       }
     }
-    if (!widget.mounted) {
-      return;
-    }
-    final OrderedNutrientsCache? cache =
-        await OrderedNutrientsCache.getCache(widget.context);
-    if (!widget.mounted) {
-      return;
-    }
-    if (cache == null) {
-      ScaffoldMessenger.of(widget.context).showSnackBar(
-        SnackBar(
-          content: Text(
-            AppLocalizations.of(widget.context).nutrition_cache_loading_error,
+    if (context.mounted) {
+      final OrderedNutrientsCache? cache =
+          await OrderedNutrientsCache.getCache(context);
+      if (context.mounted) {
+        if (cache == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(context).nutrition_cache_loading_error,
+              ),
+            ),
+          );
+          return;
+        }
+        await Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => NutritionPageLoaded(
+              product,
+              cache.orderedNutrients,
+              isLoggedInMandatory: isLoggedInMandatory,
+            ),
+            fullscreenDialog: true,
           ),
-        ),
-      );
-      return;
+        );
+      }
     }
-    await Navigator.push<void>(
-      widget.context,
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) => NutritionPageLoaded(
-          product,
-          cache.orderedNutrients,
-          isLoggedInMandatory: isLoggedInMandatory,
-        ),
-        fullscreenDialog: true,
-      ),
-    );
   }
 }
 

@@ -69,7 +69,7 @@ class SmoothProductCardNotFound extends StatelessWidget {
                 context,
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) =>
-                      AddNewProductPage(barcode: barcode),
+                      AddNewProductPage.fromBarcode(barcode),
                 ),
               );
 

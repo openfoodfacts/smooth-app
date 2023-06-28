@@ -16,6 +16,7 @@ enum AnalyticsCategory {
   share(tag: 'share'),
   couldNotFindProduct(tag: 'could not find product'),
   productEdit(tag: 'product edit'),
+  productFastTrackEdit(tag: 'product fast track edit'),
   newProduct(tag: 'new product'),
   list(tag: 'list'),
   deepLink(tag: 'deep link');
@@ -47,6 +48,30 @@ enum AnalyticsEvent {
   openProductEditPage(
     tag: 'opened product edit page',
     category: AnalyticsCategory.productEdit,
+  ),
+  openFastTrackProductEditPage(
+    tag: 'opened fast-track product edit page',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
+  showFastTrackProductEditCard(
+    tag: 'showed fast-track product edit card',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
+  categoriesFastTrackProductPage(
+    tag: 'set categories on fast track product page',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
+  nutritionFastTrackProductPage(
+    tag: 'set nutrition facts on fast track product page',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
+  ingredientsFastTrackProductPage(
+    tag: 'set ingredients on fast track product page',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
+  closeEmptyFastTrackProductPage(
+    tag: 'closed new product page without any input',
+    category: AnalyticsCategory.productFastTrackEdit,
   ),
   openNewProductPage(
     tag: 'opened new product page',
