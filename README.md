@@ -76,7 +76,7 @@ Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
 </details>
 
 <br>
-
+ 
 ## About this Repository
 
 ![GitHub language count](https://img.shields.io/github/languages/count/openfoodfacts/smooth-app)
