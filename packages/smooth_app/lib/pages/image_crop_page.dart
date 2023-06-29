@@ -17,7 +17,7 @@ import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 
 /// Picks an image file from gallery or camera.
-Future<XFile?> pickImageFile(final State<StatefulWidget> widget) async {
+Future<XFile?> _pickImageFile(final State<StatefulWidget> widget) async {
   final UserPictureSource? source = await _getUserPictureSource(widget.context);
   if (source == null) {
     return null;
@@ -92,8 +92,9 @@ Future<File?> confirmAndUploadNewPicture(
   required final ImageField imageField,
   required final String barcode,
   required final OpenFoodFactsLanguage language,
+  required final bool isLoggedInMandatory,
 }) async {
-  final XFile? croppedPhoto = await pickImageFile(widget);
+  final XFile? croppedPhoto = await _pickImageFile(widget);
   if (croppedPhoto == null) {
     return null;
   }
@@ -109,6 +110,7 @@ Future<File?> confirmAndUploadNewPicture(
         inputFile: File(croppedPhoto.path),
         initiallyDifferent: true,
         language: language,
+        isLoggedInMandatory: isLoggedInMandatory,
       ),
       fullscreenDialog: true,
     ),

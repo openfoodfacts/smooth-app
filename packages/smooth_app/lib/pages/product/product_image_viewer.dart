@@ -32,12 +32,14 @@ class ProductImageViewer extends StatefulWidget {
     required this.imageField,
     required this.language,
     required this.setLanguage,
+    required this.isLoggedInMandatory,
   });
 
   final Product product;
   final ImageField imageField;
   final OpenFoodFactsLanguage language;
   final Future<void> Function(OpenFoodFactsLanguage? newLanguage) setLanguage;
+  final bool isLoggedInMandatory;
 
   @override
   State<ProductImageViewer> createState() => _ProductImageViewerState();
@@ -191,7 +193,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                     product: _product,
                     imageField: widget.imageField,
                     language: widget.language,
-                    isLoggedInMandatory: true,
+                    isLoggedInMandatory: widget.isLoggedInMandatory,
                   ),
                 ),
               ),
@@ -203,7 +205,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                     barcode: _barcode,
                     imageField: widget.imageField,
                     language: widget.language,
-                    isLoggedInMandatory: true,
+                    isLoggedInMandatory: widget.isLoggedInMandatory,
                   ),
                 ),
               ),
@@ -254,7 +256,10 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   Future<File?> _actionEditImage() async {
     final NavigatorState navigatorState = Navigator.of(context);
-    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
+    )) {
       return null;
     }
     // best possibility: with the crop parameters
@@ -296,7 +301,10 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   Future<void> _actionUnselect(final AppLocalizations appLocalizations) async {
     final NavigatorState navigatorState = Navigator.of(context);
 
-    if (!await ProductRefresher().checkIfLoggedIn(context)) {
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
+    )) {
       return;
     }
 
@@ -350,6 +358,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
             initiallyDifferent: false,
             initialCropRect: initialCropRect,
             initialRotation: initialRotation,
+            isLoggedInMandatory: widget.isLoggedInMandatory,
           ),
           fullscreenDialog: true,
         ),

@@ -21,6 +21,7 @@ class ProductImageSwipeableView extends StatefulWidget {
     super.key,
     required this.product,
     required this.initialImageIndex,
+    required this.isLoggedInMandatory,
   }) : imageField = null;
 
   /// Version with only one main [ImageField].
@@ -28,11 +29,13 @@ class ProductImageSwipeableView extends StatefulWidget {
     super.key,
     required this.product,
     required this.imageField,
+    required this.isLoggedInMandatory,
   }) : initialImageIndex = 0;
 
   final Product product;
   final int initialImageIndex;
   final ImageField? imageField;
+  final bool isLoggedInMandatory;
 
   @override
   State<ProductImageSwipeableView> createState() =>
@@ -121,6 +124,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
             }
             setState(() => _currentLanguage = newLanguage);
           },
+          isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
       ),
     );

@@ -46,11 +46,11 @@ class ProductImageServerButton extends StatelessWidget {
 
   Future<void> _actionGallery(final BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (isLoggedInMandatory) {
-      final bool loggedIn = await ProductRefresher().checkIfLoggedIn(context);
-      if (!loggedIn) {
-        return;
-      }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: isLoggedInMandatory,
+    )) {
+      return;
     }
 
     List<int>? result;
@@ -89,6 +89,7 @@ class ProductImageServerButton extends StatelessWidget {
               imageIds: result!,
               imageField: imageField,
               language: language,
+              isLoggedInMandatory: isLoggedInMandatory,
             ),
           ),
         );

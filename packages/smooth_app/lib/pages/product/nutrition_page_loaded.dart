@@ -44,10 +44,11 @@ class NutritionPageLoaded extends StatefulWidget {
     required final bool isLoggedInMandatory,
     required final BuildContext context,
   }) async {
-    if (isLoggedInMandatory) {
-      if (!await ProductRefresher().checkIfLoggedIn(context)) {
-        return;
-      }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: isLoggedInMandatory,
+    )) {
+      return;
     }
     if (context.mounted) {
       final OrderedNutrientsCache? cache =
@@ -135,7 +136,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       children.add(
         Padding(
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-          child: ImageField.NUTRITION.getPhotoButton(context, _product),
+          child: ImageField.NUTRITION.getPhotoButton(
+            context,
+            _product,
+            widget.isLoggedInMandatory,
+          ),
         ),
       );
       children.add(_getServingField(appLocalizations));

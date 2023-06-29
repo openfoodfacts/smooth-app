@@ -15,7 +15,13 @@ import 'package:smooth_app/services/smooth_services.dart';
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
   /// Checks if the user is logged in and opens a "please log in" dialog if not.
-  Future<bool> checkIfLoggedIn(final BuildContext context) async {
+  Future<bool> checkIfLoggedIn(
+    final BuildContext context, {
+    required bool isLoggedInMandatory,
+  }) async {
+    if (!isLoggedInMandatory) {
+      return true;
+    }
     if (ProductQuery.isLoggedIn()) {
       return true;
     }

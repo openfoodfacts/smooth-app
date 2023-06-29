@@ -26,9 +26,11 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class EditNewPackagings extends StatefulWidget {
   const EditNewPackagings({
     required this.product,
+    required this.isLoggedInMandatory,
   });
 
   final Product product;
+  final bool isLoggedInMandatory;
 
   @override
   State<EditNewPackagings> createState() => _EditNewPackagingsState();
@@ -102,7 +104,11 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
     children.add(
       Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
-        child: ImageField.PACKAGING.getPhotoButton(context, _product),
+        child: ImageField.PACKAGING.getPhotoButton(
+          context,
+          _product,
+          widget.isLoggedInMandatory,
+        ),
       ),
     );
     for (int index = 0; index < _helpers.length; index++) {
@@ -176,6 +182,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
             imageField: ImageField.OTHER,
             barcode: _barcode,
             language: ProductQuery.getLanguage(),
+            isLoggedInMandatory: widget.isLoggedInMandatory,
           ),
           iconData: Icons.add_a_photo,
         ),
