@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Нивото на обработка на храни не е известно",
     "new_product_title_pictures": "Да направим няколко снимки!",
     "new_product_title_misc": "И някои основни данни…",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Снимката с хранителните стойности е качена",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Снимка с информацията за рециклиране",

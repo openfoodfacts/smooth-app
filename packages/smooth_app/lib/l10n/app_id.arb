@@ -27,7 +27,7 @@
     "go_back_to_top": "Kembali ke atas",
     "save": "menyimpan ",
     "save_confirmation": "Apa Anda yakin ingin menyimpan?",
-    "skip": "Skip",
+    "skip": "Lewati",
     "cancel": "Batalkan",
     "@cancel": {},
     "ignore": "Abaikan",
@@ -40,7 +40,7 @@
     "@no": {},
     "stop": "Berhenti",
     "@stop": {},
-    "finish": "Finish",
+    "finish": "Selesai",
     "@finish": {},
     "calculate": "Hitung",
     "@calculate": {
@@ -286,7 +286,7 @@
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
     "contributors": "Kontributor",
-    "support": "Support",
+    "support": "Dukungan",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
@@ -534,11 +534,11 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_too_small_image_title": "The image is too small!",
+    "crop_page_too_small_image_title": "Gambar terlalu kecil!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
     },
-    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "crop_page_too_small_image_message": "Ukuran minimum piksel untuk unggahan gambar adalah {expectedMinWidth}x{expectedMinHeight}. Gambar ini {actualHeight}×{actualWidth}.",
     "@crop_page_too_small_image_message": {
         "description": "Message of a dialog warning the user that the image is too small for upload",
         "placeholders": {
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Tingkat pemrosesan makanan tidak diketahui",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
+    "hey_incomplete_product_message": "Ketuk untuk menjawab 3 pertanyaan SEKARANG untuk menghitung Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Foto informasi nilai gizi telah diunggah",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto informasi daur ulang",
@@ -1904,7 +1905,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Kode batang baru dipindai: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2078,7 +2079,7 @@
     "background_task_title": "Pending contributions",
     "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
     "background_task_list_empty": "No Pending Background Tasks",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Batas waktu server",
     "background_task_error_no_internet": "Internet connection error. Try later.",
     "background_task_operation_unknown": "unknown operation type",
     "background_task_operation_details": "detailed changes",

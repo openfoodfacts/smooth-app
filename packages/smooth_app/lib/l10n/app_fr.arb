@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Degré de transformation des aliments inconnu",
     "new_product_title_pictures": "Prenons quelques photos !",
     "new_product_title_misc": "Et quelques données de base…",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Photo des informations de recyclage",

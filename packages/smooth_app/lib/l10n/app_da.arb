@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Fødevareforarbejdningsniveau ukendt",
     "new_product_title_pictures": "Lad os tage nogle fotos!",
     "new_product_title_misc": "Og nogle basisdata…",
+    "hey_incomplete_product_message": "Tryk for at besvare 3 spørgsmål NU for at beregne Nutri-Score, Øko-Score samt Ultrabehandling (NOVA)!",
     "nutritional_facts_photo_uploaded": "Næringsfaktafoto uploadet",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Genbrugsoplysningsfoto",
@@ -1904,7 +1905,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Ny stregkode skannet: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2078,7 +2079,7 @@
     "background_task_title": "Afventende bidrag",
     "background_task_subtitle": "Bidragene auto-gemmes på vores server (dog ikke altid i realtid).",
     "background_task_list_empty": "Ingen afventende baggrundsopgaver",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Server-timeout",
     "background_task_error_no_internet": "Internetforbindelsesfejl. Forsøg senere.",
     "background_task_operation_unknown": "ukendt operationstype",
     "background_task_operation_details": "detaljerede ændringer",
