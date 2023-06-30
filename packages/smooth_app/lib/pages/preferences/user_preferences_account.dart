@@ -14,7 +14,6 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
-import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
@@ -306,13 +305,30 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         ),
         _getListTile(
           appLocalizations.account_delete,
-          () {
-            Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => AccountDeletionWebview(),
+          () async {
+            final bool? delete = await showDialog<bool>(
+              context: context,
+              builder: (BuildContext context) => SmoothAlertDialog(
+                title: appLocalizations.account_delete,
+                body: Text(
+                    'In order to delete your account, you need to sign in on the website, go to your settings and click on the "delete account" button.\nWould you like to open the website in a new window now?'),
+                actionsAxis: Axis.vertical,
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.yes,
+                  onPressed: () async => Navigator.of(context).pop(true),
+                ),
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.cancel,
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
               ),
             );
+            if (delete == true) {
+              return LaunchUrlHelper.launchURL(
+                'https://openfoodfacts.org/cgi/session.pl',
+                true,
+              );
+            }
           },
           Icons.delete,
         ),
