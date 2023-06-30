@@ -310,7 +310,7 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(
                 title: appLocalizations.account_delete,
-                body: Text(
+                body: const Text(
                     'In order to delete your account, you need to sign in on the website, go to your settings and click on the "delete account" button.\nWould you like to open the website in a new window now?'),
                 actionsAxis: Axis.vertical,
                 positiveAction: SmoothActionButton(
