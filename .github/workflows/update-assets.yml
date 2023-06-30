@@ -37,4 +37,6 @@ jobs:
         delete-branch: true
         title: 'chore: Update assets'
         body: |
-          Automated update of asset cache
+          ### What
+          - Automated update of asset cache (through update_assets.sh) whenever a change is detected on the sample product on Open Food Facts
+          
