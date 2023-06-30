@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Ruoan jalostusaste tuntematon",
     "new_product_title_pictures": "Otetaan muutamia kuvia!",
     "new_product_title_misc": "Ja joitakin perustietoja…",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Ravintosisältökuva ladattu",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Kierrätyskuva",

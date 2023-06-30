@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "食品加工レベル不明",
     "new_product_title_pictures": "写真を撮りましょう！",
     "new_product_title_misc": "そしていくつかの基本データ…",
+    "hey_incomplete_product_message": "今すぐタップして 3 つの質問に答えて、ニュートリ スコア、エコ スコア、およびウルトラ プロセッシング (NOVA) を計算してください。",
     "nutritional_facts_photo_uploaded": "栄養成分表の画像がアップロードされました",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "リサイクル情報の画像",

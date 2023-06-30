@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Рівень обробки їжі є невідомим",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
+    "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Eco-Score та ультра-обробки (ЗАРАЗ)!",
     "nutritional_facts_photo_uploaded": "Завантаження фотографій харчових фактів",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Фотографія з інформацією щодо перероблювання",
