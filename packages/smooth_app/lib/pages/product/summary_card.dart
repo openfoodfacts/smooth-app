@@ -6,6 +6,7 @@ import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -79,9 +80,8 @@ class SummaryCard extends StatefulWidget {
 }
 
 class _SummaryCardState extends State<SummaryCard> {
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
+  late final UpToDateManager _upToDateManager;
+  Product get _product => _upToDateManager.product;
 
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
@@ -89,27 +89,30 @@ class _SummaryCardState extends State<SummaryCard> {
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget._product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
-    if (ProductIncompleteCard.isProductIncomplete(_initialProduct)) {
+    _upToDateManager = UpToDateManager(
+      widget._product,
+      context.read<LocalDatabase>(),
+    );
+    if (ProductIncompleteCard.isProductIncomplete(
+      _upToDateManager.initialProduct,
+    )) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
-        barcode: _initialProduct.barcode,
+        barcode: _upToDateManager.barcode,
       );
     }
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
+    _upToDateManager.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
     if (widget.isFullVersion) {
       return buildProductSmoothCard(
         header: ProductCompatibilityHeader(
@@ -316,7 +319,7 @@ class _SummaryCardState extends State<SummaryCard> {
             iconData: Icons.leaderboard,
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
               name: categoryLabel!,
-              localDatabase: _localDatabase,
+              localDatabase: _upToDateManager.localDatabase,
               productQuery: CategoryProductQuery(categoryTag!),
               context: context,
             ),

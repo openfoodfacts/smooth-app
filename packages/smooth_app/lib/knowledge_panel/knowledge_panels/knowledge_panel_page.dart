@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -33,21 +34,21 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   @override
   String get traceName => 'Opened full knowledge panel page';
 
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
+  late final UpToDateManager _upToDateManager;
+  Product get _product => _upToDateManager.product;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
+    _upToDateManager.dispose();
     super.dispose();
   }
 
@@ -63,7 +64,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: Text(

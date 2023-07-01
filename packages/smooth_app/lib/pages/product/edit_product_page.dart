@@ -10,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/background_task_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -41,27 +41,26 @@ class EditProductPage extends StatefulWidget {
 class _EditProductPageState extends State<EditProductPage> {
   final ScrollController _controller = ScrollController();
   bool _barcodeVisibleInAppbar = false;
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
 
-  String get _barcode => _initialProduct.barcode!;
+  late final UpToDateManager _upToDateManager;
+  String get _barcode => _upToDateManager.barcode;
+  Product get _product => _upToDateManager.product;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
     _controller.addListener(_onScrollChanged);
   }
 
   @override
   Widget build(BuildContext context) {
-    BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
     final ThemeData theme = Theme.of(context);
     final String productName = getProductName(_product, appLocalizations);
 
@@ -312,7 +311,7 @@ class _EditProductPageState extends State<EditProductPage> {
   void dispose() {
     _controller.removeListener(_onScrollChanged);
     _controller.dispose();
-    _localDatabase.upToDate.loseInterest(_barcode);
+    _upToDateManager.dispose();
     super.dispose();
   }
 }

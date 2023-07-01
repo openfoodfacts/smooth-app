@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -35,15 +36,13 @@ class EditNewPackagings extends StatefulWidget {
 }
 
 class _EditNewPackagingsState extends State<EditNewPackagings> {
-  late final LocalDatabase _localDatabase;
   late final NumberFormat _decimalNumberFormat;
   late final NumberFormat _unitNumberFormat;
-  late Product _product;
-  late final Product _initialProduct;
+  late final UpToDateManager _upToDateManager;
+  String get _barcode => _upToDateManager.barcode;
+  Product get _product => _upToDateManager.product;
 
   late bool? _packagingsComplete;
-
-  String get _barcode => _initialProduct.barcode!;
 
   final List<EditNewPackagingsHelper> _helpers = <EditNewPackagingsHelper>[];
 
@@ -69,24 +68,26 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
     _decimalNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: true,
     );
     _unitNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: false,
     );
-    if (_initialProduct.packagings != null) {
-      _initialProduct.packagings!.forEach(_addPackagingToControllers);
+    if (_upToDateManager.initialProduct.packagings != null) {
+      _upToDateManager.initialProduct.packagings!
+          .forEach(_addPackagingToControllers);
     }
-    _packagingsComplete = _initialProduct.packagingsComplete;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
+    _packagingsComplete = _upToDateManager.initialProduct.packagingsComplete;
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
+    _upToDateManager.dispose();
     for (final EditNewPackagingsHelper helper in _helpers) {
       helper.dispose();
     }
@@ -97,7 +98,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
     final List<Widget> children = <Widget>[];
     children.add(
       Padding(

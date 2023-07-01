@@ -6,6 +6,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -98,9 +99,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   // Many possible files for "other" image field
   final List<File> _otherUploadedImages = <File>[];
 
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
+  late final UpToDateManager _upToDateManager;
+  Product get _product => _upToDateManager.product;
+
   late DaoProductList _daoProductList;
 
   final ProductList _history = ProductList.history();
@@ -145,10 +146,11 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       _detailsEditor,
       _nutritionEditor,
     ];
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(barcode);
-    _daoProductList = DaoProductList(_localDatabase);
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
+    _daoProductList = DaoProductList(_upToDateManager.localDatabase);
     AnalyticsHelper.trackEvent(
       widget.events[EditProductAction.openPage]!,
       barcode: barcode,
@@ -157,7 +159,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(barcode);
+    _upToDateManager.dispose();
     super.dispose();
   }
 
@@ -167,7 +169,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
 
     _addToHistory();
 

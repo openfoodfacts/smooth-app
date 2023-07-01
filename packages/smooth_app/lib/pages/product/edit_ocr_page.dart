@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -43,20 +44,20 @@ class EditOcrPage extends StatefulWidget {
 
 class _EditOcrPageState extends State<EditOcrPage> {
   final TextEditingController _controller = TextEditingController();
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
   late final MultilingualHelper _multilingualHelper;
+
+  late final UpToDateManager _upToDateManager;
+  Product get _product => _upToDateManager.product;
 
   OcrHelper get _helper => widget.helper;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
-
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
     _multilingualHelper = MultilingualHelper(controller: _controller);
     _multilingualHelper.init(
       multilingualTexts: _helper.getMultilingualTexts(widget.product),
@@ -69,7 +70,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_product.barcode!);
+    _upToDateManager.dispose();
     super.dispose();
   }
 
@@ -131,7 +132,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
     final TransientFile transientFile = TransientFile.fromProduct(
       _product,
       _helper.getImageField(),

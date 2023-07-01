@@ -7,10 +7,10 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -54,9 +54,10 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   final ScrollController _carouselController = ScrollController();
 
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
+  late final UpToDateManager _upToDateManager;
+  String get _barcode => _upToDateManager.barcode;
+  Product get _product => _upToDateManager.product;
+
   late ProductPreferences _productPreferences;
   bool _keepRobotoffQuestionsAlive = true;
 
@@ -68,14 +69,13 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   @override
   String get traceTitle => 'product_page';
 
-  String get _barcode => _initialProduct.barcode!;
-
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
@@ -83,20 +83,19 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
+    _upToDateManager.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
     inheritedDataManager.setCurrentBarcode(_barcode);
     final ThemeData themeData = Theme.of(context);
     _productPreferences = context.watch<ProductPreferences>();
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
 
     return SmoothScaffold(
       contentBehindStatusBar: true,

@@ -10,6 +10,7 @@ import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
@@ -44,24 +45,23 @@ class ProductImageViewer extends StatefulWidget {
 }
 
 class _ProductImageViewerState extends State<ProductImageViewer> {
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
+  late final UpToDateManager _upToDateManager;
+  String get _barcode => _upToDateManager.barcode;
+  Product get _product => _upToDateManager.product;
   late ProductImageData _imageData;
-
-  String get _barcode => _initialProduct.barcode!;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
+    _upToDateManager.dispose();
     super.dispose();
   }
 
@@ -69,7 +69,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
     _imageData = getProductImageData(
       _product,
       widget.imageField,
@@ -278,7 +278,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     imageFile = await downloadImageUrl(
       context,
       imageUrl,
-      DaoInt(_localDatabase),
+      DaoInt(_upToDateManager.localDatabase),
     );
     if (imageFile != null) {
       return _openCropPage(navigatorState, imageFile);
@@ -327,7 +327,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         widget: this,
         language: widget.language,
       );
-      _localDatabase.notifyListeners();
+      _upToDateManager.localDatabase.notifyListeners();
       navigatorState.pop();
     }
   }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -30,35 +30,33 @@ class ProductImageGalleryView extends StatefulWidget {
 }
 
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
-  late final LocalDatabase _localDatabase;
-  late final Product _initialProduct;
-  late Product _product;
+  late final UpToDateManager _upToDateManager;
+  String get _barcode => _upToDateManager.barcode;
+  Product get _product => _upToDateManager.product;
 
   late List<MapEntry<ProductImageData, ImageProvider?>> _selectedImages;
-
-  String get _barcode => _initialProduct.barcode!;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
+    _upToDateManager.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
     _selectedImages = getSelectedImages(_product, ProductQuery.getLanguage());
     return SmoothScaffold(
       appBar: SmoothAppBar(

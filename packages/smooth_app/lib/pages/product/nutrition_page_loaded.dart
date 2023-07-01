@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/up_to_date_manager.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -80,7 +81,10 @@ class NutritionPageLoaded extends StatefulWidget {
 }
 
 class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
-  late final LocalDatabase _localDatabase;
+  late final UpToDateManager _upToDateManager;
+  String get _barcode => _upToDateManager.barcode;
+  Product get _product => _upToDateManager.product;
+
   late final NumberFormat _decimalNumberFormat;
   late final NutritionContainer _nutritionContainer;
 
@@ -88,28 +92,25 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       <Nutrient, TextEditingControllerWithInitialValue>{};
   TextEditingControllerWithInitialValue? _servingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  late Product _product;
-  late final Product _initialProduct;
-
-  String get _barcode => _initialProduct.barcode!;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
+    _upToDateManager = UpToDateManager(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
-      product: _initialProduct,
+      product: _upToDateManager.initialProduct,
     );
     _decimalNumberFormat =
         SimpleInputNumberField.getNumberFormat(decimal: true);
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
+    _upToDateManager.dispose();
     for (final TextEditingControllerWithInitialValue controller
         in _controllers.values) {
       controller.dispose();
@@ -122,7 +123,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    _upToDateManager.refresh();
 
     final List<Widget> children = <Widget>[];
 
