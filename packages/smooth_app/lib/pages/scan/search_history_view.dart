@@ -49,43 +49,46 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       onDismissed: (DismissDirection direction) async =>
           _handleDismissed(context, query),
       background: Container(color: RED_COLOR),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 18, right: 21),
-        child: ListTile(
-          leading: const Padding(
-            padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
-            child: Icon(
-              Icons.search,
-              size: 18.0,
+      child: InkWell(
+        onTap: () => widget.onTap?.call(query),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 18, right: 21),
+          child: ListTile(
+            contentPadding: EdgeInsets.only(left: 18, right: 21),
+            leading: const Padding(
+              padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
+              child: Icon(
+                Icons.search,
+                size: 18.0,
+              ),
             ),
+            trailing: InkWell(
+              customBorder: const CircleBorder(),
+              onTap: () {
+                final TextEditingController controller =
+                    Provider.of<TextEditingController>(
+                  context,
+                  listen: false,
+                );
+      
+                controller.text = query;
+                controller.selection = TextSelection.fromPosition(
+                    TextPosition(offset: query.length));
+      
+                // If the keyboard is hidden, show it.
+                if (View.of(context).viewInsets.bottom == 0) {
+                  widget.focusNode?.unfocus();
+      
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    FocusScope.of(context).requestFocus(widget.focusNode);
+                  });
+                }
+              },
+              child: Icon(Icons.edit, size: 18.0),
+            ),
+            minLeadingWidth: 10,
+            title: Text(query, style: const TextStyle(fontSize: 20.0)),
           ),
-          trailing: InkWell(
-            customBorder: const CircleBorder(),
-            onTap: () {
-              final TextEditingController controller =
-                  Provider.of<TextEditingController>(
-                context,
-                listen: false,
-              );
-
-              controller.text = query;
-              controller.selection = TextSelection.fromPosition(
-                  TextPosition(offset: query.length));
-
-              // If the keyboard is hidden, show it.
-              if (View.of(context).viewInsets.bottom == 0) {
-                widget.focusNode?.unfocus();
-
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  FocusScope.of(context).requestFocus(widget.focusNode);
-                });
-              }
-            },
-            child: Icon(Icons.edit, size: 18.0),
-          ),
-          minLeadingWidth: 10,
-          title: Text(query, style: const TextStyle(fontSize: 20.0)),
-          onTap: () => widget.onTap?.call(query),
         ),
       ),
     );
