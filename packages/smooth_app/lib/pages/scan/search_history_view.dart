@@ -48,15 +48,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       direction: DismissDirection.endToStart,
       onDismissed: (DismissDirection direction) async =>
           _handleDismissed(context, query),
-      background: Container(
-          alignment: Alignment.centerRight,
-          color: RED_COLOR,
-          padding: const EdgeInsetsDirectional.only(end: 30),
-          child: const Icon(
-            Icons.delete,
-            color: Colors.white,
-          ),
-        ),
+      background: Container(color: RED_COLOR),
       child: InkWell(
         onTap: () => widget.onTap?.call(query),
         child: Padding(
