@@ -18,6 +18,7 @@ enum AnalyticsCategory {
   productEdit(tag: 'product edit'),
   productFastTrackEdit(tag: 'product fast track edit'),
   newProduct(tag: 'new product'),
+  robotoff(tag: 'robotoff'),
   list(tag: 'list'),
   deepLink(tag: 'deep link');
 
@@ -105,12 +106,30 @@ enum AnalyticsEvent {
     tag: 'closed new product page without any input',
     category: AnalyticsCategory.newProduct,
   ),
-  shareList(tag: 'shared a list', category: AnalyticsCategory.list),
-  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list),
+  shareList(
+    tag: 'shared a list',
+    category: AnalyticsCategory.list,
+  ),
+  openListWeb(
+    tag: 'open a list in wbe',
+    category: AnalyticsCategory.list,
+  ),
   productDeepLink(
-      tag: 'open a product from an URL', category: AnalyticsCategory.deepLink),
+    tag: 'open a product from an URL',
+    category: AnalyticsCategory.deepLink,
+  ),
   genericDeepLink(
-      tag: 'generic deep link', category: AnalyticsCategory.deepLink);
+    tag: 'generic deep link',
+    category: AnalyticsCategory.deepLink,
+  ),
+  questionVisible(
+    tag: 'question visible',
+    category: AnalyticsCategory.robotoff,
+  ),
+  questionClicked(
+    tag: 'question clicked',
+    category: AnalyticsCategory.robotoff,
+  );
 
   const AnalyticsEvent({required this.tag, required this.category});
 

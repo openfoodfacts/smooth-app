@@ -11,6 +11,7 @@ import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -32,6 +33,7 @@ import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/widget_height.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage(
@@ -56,9 +58,11 @@ class _ProductPageState extends State<ProductPage>
   final ScrollController _carouselController = ScrollController();
 
   late ProductPreferences _productPreferences;
+  late ProductQuestionsLayout questionsLayout;
   bool _keepRobotoffQuestionsAlive = true;
 
   bool scrollingUp = true;
+  double bottomPadding = 0.0;
 
   @override
   String get traceName => 'Opened product_page';
@@ -70,6 +74,7 @@ class _ProductPageState extends State<ProductPage>
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
+    questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
@@ -85,47 +90,69 @@ class _ProductPageState extends State<ProductPage>
     context.watch<LocalDatabase>();
     refreshUpToDate();
 
-    return SmoothScaffold(
-      contentBehindStatusBar: true,
-      spaceBehindStatusBar: false,
-      statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
-      body: Stack(
-        children: <Widget>[
-          NotificationListener<UserScrollNotification>(
-            onNotification: (UserScrollNotification notification) {
-              if (notification.direction == ScrollDirection.forward) {
-                if (!scrollingUp) {
-                  setState(() => scrollingUp = true);
+    return Provider<Product>.value(
+      value: upToDateProduct,
+      child: SmoothScaffold(
+        contentBehindStatusBar: true,
+        spaceBehindStatusBar: false,
+        statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
+        body: Stack(
+          children: <Widget>[
+            NotificationListener<UserScrollNotification>(
+              onNotification: (UserScrollNotification notification) {
+                if (notification.direction == ScrollDirection.forward) {
+                  if (!scrollingUp) {
+                    setState(() => scrollingUp = true);
+                  }
+                } else if (notification.direction == ScrollDirection.reverse) {
+                  if (scrollingUp) {
+                    setState(() => scrollingUp = false);
+                  }
                 }
-              } else if (notification.direction == ScrollDirection.reverse) {
-                if (scrollingUp) {
-                  setState(() => scrollingUp = false);
-                }
-              }
-              return true;
-            },
-            child: _buildProductBody(context),
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
-            child: SafeArea(
-              child: AnimatedContainer(
-                duration: SmoothAnimationsDuration.short,
-                width: kToolbarHeight,
-                height: kToolbarHeight,
-                decoration: BoxDecoration(
-                  color:
-                      scrollingUp ? themeData.primaryColor : Colors.transparent,
-                  shape: BoxShape.circle,
-                ),
-                child: Offstage(
-                  offstage: !scrollingUp,
-                  child: const SmoothBackButton(iconColor: Colors.white),
+                return true;
+              },
+              child: _buildProductBody(context),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
+              child: SafeArea(
+                child: AnimatedContainer(
+                  duration: SmoothAnimationsDuration.short,
+                  width: kToolbarHeight,
+                  height: kToolbarHeight,
+                  decoration: BoxDecoration(
+                    color: scrollingUp
+                        ? themeData.primaryColor
+                        : Colors.transparent,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Offstage(
+                    offstage: !scrollingUp,
+                    child: const SmoothBackButton(iconColor: Colors.white),
+                  ),
                 ),
               ),
             ),
-          )
-        ],
+            if (questionsLayout == ProductQuestionsLayout.banner)
+              Positioned.directional(
+                start: 0.0,
+                end: 0.0,
+                bottom: 0.0,
+                textDirection: Directionality.of(context),
+                child: MeasureSize(
+                  onChange: (Size size) {
+                    if (size.height != bottomPadding) {
+                      setState(() => bottomPadding = size.height);
+                    }
+                  },
+                  child: ProductQuestionsWidget(
+                    upToDateProduct,
+                    layout: ProductQuestionsLayout.banner,
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -211,60 +238,11 @@ class _ProductPageState extends State<ProductPage>
           _buildKnowledgePanelCards(),
           if (upToDateProduct.website != null &&
               upToDateProduct.website!.trim().isNotEmpty)
-            _buildWebsiteWidget(upToDateProduct.website!.trim()),
+            const _WebsiteCard(),
         ],
       ),
     );
   }
-
-  Widget _buildWebsiteWidget(String website) => buildProductSmoothCard(
-        body: InkWell(
-          onTap: () async {
-            if (!website.startsWith('http')) {
-              website = 'http://$website';
-            }
-            LaunchUrlHelper.launchURL(website, false);
-          },
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          child: Container(
-            width: double.infinity,
-            padding: const EdgeInsetsDirectional.only(
-              start: LARGE_SPACE,
-              top: LARGE_SPACE,
-              bottom: LARGE_SPACE,
-              // To be perfectly aligned with arrows
-              end: 21.0,
-            ),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        AppLocalizations.of(context)
-                            .product_field_website_title,
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
-                      const SizedBox(height: SMALL_SPACE),
-                      Text(
-                        website,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: Colors.blue),
-                      ),
-                    ],
-                  ),
-                ),
-                const Icon(Icons.open_in_new),
-              ],
-            ),
-          ),
-        ),
-      );
 
   Widget _buildKnowledgePanelCards() {
     final List<Widget> knowledgePanelWidgets = <Widget>[];
@@ -486,5 +464,72 @@ class _ProductPageState extends State<ProductPage>
         ),
       ),
     );
+  }
+}
+
+class _WebsiteCard extends StatelessWidget {
+  const _WebsiteCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final String website = _getWebsite(context);
+
+    return buildProductSmoothCard(
+        body: InkWell(
+          onTap: () => LaunchUrlHelper.launchURL(website, false),
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
+              top: LARGE_SPACE,
+              bottom: LARGE_SPACE,
+              // To be perfectly aligned with arrows
+              end: 21.0,
+            ),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        AppLocalizations.of(context)
+                            .product_field_website_title,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      Text(
+                        website,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.blue),
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.open_in_new),
+              ],
+            ),
+          ),
+        ),
+        margin: const EdgeInsets.only(
+          left: SMALL_SPACE,
+          right: SMALL_SPACE,
+          bottom: MEDIUM_SPACE,
+        ));
+  }
+
+  String _getWebsite(BuildContext context) {
+    String website = Provider.of<Product>(context).website!;
+
+    if (!website.startsWith('http')) {
+      website = 'http://$website';
+    }
+
+    return website;
   }
 }
