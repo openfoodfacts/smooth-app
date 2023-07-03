@@ -534,11 +534,11 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_too_small_image_title": "The image is too small!",
+    "crop_page_too_small_image_title": "L'immagine è troppo piccola!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
     },
-    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "crop_page_too_small_image_message": "La dimensione minima in pixel per il caricamento dell'immagine è {expectedMinWidth}x{expectedMinHeight}. L'immagine corrente è {actualWidth}x{actualHeight}.",
     "@crop_page_too_small_image_message": {
         "description": "Message of a dialog warning the user that the image is too small for upload",
         "placeholders": {
@@ -587,7 +587,7 @@
     "new_product_desc_nova_unknown": "Livello di trasformazione alimentare sconosciuto",
     "new_product_title_pictures": "Scattiamo delle foto!",
     "new_product_title_misc": "E dei dati essenziali…",
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Tocca ORA per rispondere a 3 domande e calcolare il Nutri-Score, l'Eco-Score e l'Ultra-trasformazione (NOVA)!",
     "nutritional_facts_photo_uploaded": "Foto dei valori nutrizionali caricata",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto delle istruzioni di riciclaggio",
@@ -1366,7 +1366,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "La mia lista",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1905,7 +1905,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Nuovo codice a barre scansionato: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2079,7 +2079,7 @@
     "background_task_title": "Contributi in sospeso",
     "background_task_subtitle": "I tuoi contributi sono salvati automaticamente sul nostro server, ma non sono sempre in tempo reale.",
     "background_task_list_empty": "Nessuna Attività in Background in Sospeso",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Timeout del server",
     "background_task_error_no_internet": "Errore di connessione a Internet. Riprova più tardi.",
     "background_task_operation_unknown": "tipo di operazione sconosciuto",
     "background_task_operation_details": "modifiche dettagliate",
