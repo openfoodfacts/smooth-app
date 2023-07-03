@@ -48,13 +48,20 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       direction: DismissDirection.endToStart,
       onDismissed: (DismissDirection direction) async =>
           _handleDismissed(context, query),
-      background: Container(color: RED_COLOR),
+      background: Container(
+          alignment: Alignment.centerRight,
+          color: RED_COLOR,
+          padding: const EdgeInsetsDirectional.only(end: 30),
+          child: const Icon(
+            Icons.delete,
+            color: Colors.white,
+          ),
+        ),
       child: InkWell(
         onTap: () => widget.onTap?.call(query),
         child: Padding(
-          padding: const EdgeInsets.only(left: 18, right: 21),
+          padding: const EdgeInsets.only(left: 18.0, right: 21.0),
           child: ListTile(
-            contentPadding: EdgeInsets.only(left: 18, right: 21),
             leading: const Padding(
               padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
               child: Icon(
@@ -70,21 +77,21 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                   context,
                   listen: false,
                 );
-      
+
                 controller.text = query;
                 controller.selection = TextSelection.fromPosition(
                     TextPosition(offset: query.length));
-      
+
                 // If the keyboard is hidden, show it.
                 if (View.of(context).viewInsets.bottom == 0) {
                   widget.focusNode?.unfocus();
-      
+
                   WidgetsBinding.instance.addPostFrameCallback((_) {
                     FocusScope.of(context).requestFocus(widget.focusNode);
                   });
                 }
               },
-              child: Icon(Icons.edit, size: 18.0),
+              child: const Icon(Icons.edit, size: 18.0),
             ),
             minLeadingWidth: 10,
             title: Text(query, style: const TextStyle(fontSize: 20.0)),
