@@ -52,7 +52,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       child: InkWell(
         onTap: () => widget.onTap?.call(query),
         child: Padding(
-          padding: const EdgeInsets.only(left: 18.0, right: 21.0),
+          padding: const EdgeInsets.only(left: 18.0, right: 13.0),
           child: ListTile(
             leading: const Padding(
               padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
@@ -83,7 +83,10 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                   });
                 }
               },
-              child: const Icon(Icons.edit, size: 18.0),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.edit, size: 18.0),
+              ),
             ),
             minLeadingWidth: 10,
             title: Text(query, style: const TextStyle(fontSize: 20.0)),
