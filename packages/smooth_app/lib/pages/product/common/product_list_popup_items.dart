@@ -18,6 +18,8 @@ abstract class ProductListPopupItem {
   String getTitle(final AppLocalizations appLocalizations);
 
   /// Action of the popup menu item.
+  ///
+  /// Returns a different product list if there are changes, else null.
   Future<ProductList?> doSomething({
     required final ProductList productList,
     required final LocalDatabase localDatabase,
@@ -86,16 +88,9 @@ class ProductListPopupRename extends ProductListPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-  }) async {
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final ProductList? renamedProductList =
-        await ProductListUserDialogHelper(daoProductList)
-            .showRenameUserListDialog(context, productList);
-    if (renamedProductList == null) {
-      return null;
-    }
-    return renamedProductList;
-  }
+  }) async =>
+      ProductListUserDialogHelper(DaoProductList(localDatabase))
+          .showRenameUserListDialog(context, productList);
 }
 
 /// Popup menu item for the product list page: share list.
