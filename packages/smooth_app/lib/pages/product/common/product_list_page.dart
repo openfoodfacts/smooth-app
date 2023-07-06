@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -7,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -16,20 +13,17 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
-import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
+import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
@@ -46,11 +40,6 @@ class _ProductListPageState extends State<ProductListPage>
   final Set<String> _selectedBarcodes = <String>{};
   bool _selectionMode = false;
 
-  static const String _popupActionClear = 'clear';
-  static const String _popupActionRename = 'rename';
-  static const String _popupActionOpenInWeb = 'openInWeb';
-  static const String _popupActionShare = 'share';
-
   @override
   String get traceName => 'Opened list_page';
 
@@ -62,6 +51,17 @@ class _ProductListPageState extends State<ProductListPage>
     super.initState();
     productList = widget.productList;
   }
+
+  final ProductListPopupItem _rename = ProductListPopupRename();
+  final ProductListPopupItem _clear = ProductListPopupClear();
+  final ProductListPopupItem _openInWeb = ProductListPopupOpenInWeb();
+  final ProductListPopupItem _share = ProductListPopupShare();
+  final ProductListPopupList _listScanSession =
+      ProductListPopupList(ProductList.scanSession());
+  final ProductListPopupList _listScanHistory =
+      ProductListPopupList(ProductList.scanHistory());
+  final ProductListPopupList _listHistory =
+      ProductListPopupList(ProductList.history());
 
   //returns bool to handle WillPopScope
   Future<bool> _handleUserBacktap() async {
@@ -108,7 +108,6 @@ class _ProductListPageState extends State<ProductListPage>
     return SmoothScaffold(
       floatingActionButton: products.isEmpty
           ? FloatingActionButton.extended(
-              heroTag: 'compare_fab_${Random(100)}',
               icon: const Icon(CupertinoIcons.barcode),
               label: Text(appLocalizations.product_list_empty_title),
               onPressed: () =>
@@ -132,96 +131,52 @@ class _ProductListPageState extends State<ProductListPage>
         actions: !(enableClear || enableRename)
             ? null
             : <Widget>[
-                PopupMenuButton<String>(
-                  onSelected: (final String action) async {
-                    switch (action) {
-                      case _popupActionClear:
-                        await showDialog<bool>(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return SmoothAlertDialog(
-                              body: Text(
-                                productList.listType == ProductListType.USER
-                                    ? appLocalizations.confirm_clear_user_list(
-                                        productList.parameters)
-                                    : appLocalizations.confirm_clear,
-                              ),
-                              positiveAction: SmoothActionButton(
-                                onPressed: () async {
-                                  await daoProductList.clear(productList);
-                                  await daoProductList.get(productList);
-                                  setState(() {});
-                                  if (!mounted) {
-                                    return;
-                                  }
-                                  Navigator.of(context).pop();
-                                },
-                                text: appLocalizations.yes,
-                              ),
-                              negativeAction: SmoothActionButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                text: appLocalizations.no,
-                              ),
-                            );
-                          },
-                        );
-                        break;
-                      case _popupActionRename:
-                        final ProductList? renamedProductList =
-                            await ProductListUserDialogHelper(daoProductList)
-                                .showRenameUserListDialog(context, productList);
-                        if (renamedProductList == null) {
-                          return;
-                        }
-                        setState(() => productList = renamedProductList);
-                        break;
-                      case _popupActionShare:
-                        final String url =
-                            shareProductList(products).toString();
-
-                        final RenderBox? box =
-                            context.findRenderObject() as RenderBox?;
-                        AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
-                        Share.share(
-                          appLocalizations.share_product_list_text(url),
-                          sharePositionOrigin:
-                              box!.localToGlobal(Offset.zero) & box.size,
-                        );
-
-                        break;
-                      case _popupActionOpenInWeb:
-                        AnalyticsHelper.trackEvent(AnalyticsEvent.openListWeb);
-                        launchUrl(shareProductList(products));
-                        break;
+                PopupMenuButton<ProductListPopupItem>(
+                  onSelected: (final ProductListPopupItem action) async {
+                    final ProductList? differentProductList =
+                        await action.doSomething(
+                      productList: productList,
+                      localDatabase: localDatabase,
+                      context: context,
+                    );
+                    if (differentProductList != null) {
+                      setState(() => productList = differentProductList);
                     }
                   },
-                  itemBuilder: (BuildContext context) =>
-                      <PopupMenuEntry<String>>[
-                    if (enableRename)
-                      PopupMenuItem<String>(
-                        value: _popupActionRename,
-                        child: Text(appLocalizations.user_list_popup_rename),
-                      ),
-                    PopupMenuItem<String>(
-                      value: _popupActionShare,
-                      child: Text(appLocalizations.share),
-                    ),
-                    PopupMenuItem<String>(
-                      value: _popupActionOpenInWeb,
-                      child: Text(appLocalizations.label_web),
-                    ),
-                    if (enableClear)
-                      PopupMenuItem<String>(
-                        value: _popupActionClear,
-                        child: Text(appLocalizations.user_list_popup_clear),
-                      ),
-                  ],
+                  itemBuilder: (BuildContext context) {
+                    final List<PopupMenuEntry<ProductListPopupItem>> result =
+                        <PopupMenuEntry<ProductListPopupItem>>[];
+                    final List<ProductListPopupList> orderedItems =
+                        <ProductListPopupList>[
+                      _listScanSession,
+                      _listScanHistory,
+                      _listHistory,
+                    ];
+                    // do not add the same type
+                    for (final ProductListPopupList item in orderedItems) {
+                      if (item.newProductList.listType !=
+                          productList.listType) {
+                        result.add(item.getMenuItem(appLocalizations));
+                      }
+                    }
+                    result.addAll(
+                      <PopupMenuEntry<ProductListPopupItem>>[
+                        const PopupMenuDivider(),
+                        if (enableRename) _rename.getMenuItem(appLocalizations),
+                        _share.getMenuItem(appLocalizations),
+                        _openInWeb.getMenuItem(appLocalizations),
+                        if (enableClear) _clear.getMenuItem(appLocalizations),
+                      ],
+                    );
+                    return result;
+                  },
                 )
               ],
         title: Text(
-          ProductQueryPageHelper.getProductListLabel(productList, context),
+          ProductQueryPageHelper.getProductListLabel(
+            productList,
+            appLocalizations,
+          ),
           overflow: TextOverflow.fade,
         ),
         actionMode: _selectionMode,
@@ -428,7 +383,7 @@ class _ProductListPageState extends State<ProductListPage>
             SnackBar(
               content: Text(
                 removed
-                    ? appLocalizations.product_removed_history
+                    ? appLocalizations.product_removed_list
                     : appLocalizations.product_could_not_remove,
               ),
               duration: SnackBarDuration.medium,

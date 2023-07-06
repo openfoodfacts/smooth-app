@@ -435,7 +435,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     required final LocalDatabase localDatabase,
   }) =>
       _getListTile(
-        ProductQueryPageHelper.getProductListLabel(productList, context),
+        ProductQueryPageHelper.getProductListLabel(
+          productList,
+          AppLocalizations.of(context),
+        ),
         () async {
           await DaoProductList(localDatabase).get(productList);
           if (!mounted) {
