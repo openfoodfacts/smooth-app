@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Voedselverwerkingsniveau onbekend",
     "new_product_title_pictures": "Laten we wat foto's maken!",
     "new_product_title_misc": "En enkele basisgegevens…",
+    "hey_incomplete_product_message": "Tik om 3 vragen NU te beantwoorden om de Nutri-Score, de Eco-Score & de Ultra-verwerking (NOVA) te berekenen!",
     "nutritional_facts_photo_uploaded": "Foto van voedingswaarden geüpload",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto van recyclen",
