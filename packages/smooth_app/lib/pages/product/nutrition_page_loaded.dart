@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/up_to_date_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -80,11 +80,8 @@ class NutritionPageLoaded extends StatefulWidget {
   }
 }
 
-class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
-  late final UpToDateManager _upToDateManager;
-  String get _barcode => _upToDateManager.barcode;
-  Product get _product => _upToDateManager.product;
-
+class _NutritionPageLoadedState extends State<NutritionPageLoaded>
+    with UpToDateMixin {
   late final NumberFormat _decimalNumberFormat;
   late final NutritionContainer _nutritionContainer;
 
@@ -96,13 +93,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   @override
   void initState() {
     super.initState();
-    _upToDateManager = UpToDateManager(
-      widget.product,
-      context.read<LocalDatabase>(),
-    );
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
-      product: _upToDateManager.initialProduct,
+      product: initialProduct,
     );
     _decimalNumberFormat =
         SimpleInputNumberField.getNumberFormat(decimal: true);
@@ -110,7 +104,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
   @override
   void dispose() {
-    _upToDateManager.dispose();
     for (final TextEditingControllerWithInitialValue controller
         in _controllers.values) {
       controller.dispose();
@@ -123,7 +116,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _upToDateManager.refresh();
+    refreshUpToDate();
 
     final List<Widget> children = <Widget>[];
 
@@ -136,7 +129,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       children.add(
         Padding(
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-          child: ImageField.NUTRITION.getPhotoButton(context, _product),
+          child: ImageField.NUTRITION.getPhotoButton(context, upToDateProduct),
         ),
       );
       children.add(_getServingField(appLocalizations));
@@ -190,11 +183,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
         appBar: SmoothAppBar(
           title: AutoSizeText(
             appLocalizations.nutrition_page_title,
-            maxLines: _product.productName?.isNotEmpty == true ? 1 : 2,
+            maxLines: upToDateProduct.productName?.isNotEmpty == true ? 1 : 2,
           ),
-          subTitle: _product.productName != null
+          subTitle: upToDateProduct.productName != null
               ? Text(
-                  _product.productName!,
+                  upToDateProduct.productName!,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 )
@@ -402,8 +395,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
       }
     }
 
-    final Product? changedProduct =
-        _getChangedProduct(Product(barcode: _barcode));
+    final Product? changedProduct = _getChangedProduct(
+      Product(barcode: barcode),
+    );
     if (changedProduct == null) {
       if (!mounted) {
         return false;
@@ -419,7 +413,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded> {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.nutrition_Facts,
-      _barcode,
+      barcode,
       true,
     );
     await BackgroundTaskDetails.addTask(

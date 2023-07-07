@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/data_models/up_to_date_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -40,9 +40,8 @@ class ProductImageSwipeableView extends StatefulWidget {
       _ProductImageSwipeableViewState();
 }
 
-class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
-  late final UpToDateManager _upToDateManager;
-
+class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
+    with UpToDateMixin {
   //Making use of [ValueNotifier] such that to avoid performance issues
   //while swiping between pages by making sure only [Text] widget for product title is rebuilt
   late final ValueNotifier<int> _currentImageDataIndex;
@@ -53,10 +52,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
   @override
   void initState() {
     super.initState();
-    _upToDateManager = UpToDateManager(
-      widget.product,
-      context.read<LocalDatabase>(),
-    );
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     _controller = PageController(
       initialPage: widget.initialImageIndex,
     );
@@ -65,20 +61,11 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
   }
 
   @override
-  void dispose() {
-    _upToDateManager.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _upToDateManager.refresh();
-    _selectedImages = getSelectedImages(
-      _upToDateManager.product,
-      _currentLanguage,
-    );
+    refreshUpToDate();
+    _selectedImages = getSelectedImages(upToDateProduct, _currentLanguage);
     if (widget.imageField != null) {
       _selectedImages.removeWhere(
         (

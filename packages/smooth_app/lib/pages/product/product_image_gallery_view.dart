@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/data_models/up_to_date_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -29,26 +29,14 @@ class ProductImageGalleryView extends StatefulWidget {
       _ProductImageGalleryViewState();
 }
 
-class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
-  late final UpToDateManager _upToDateManager;
-  String get _barcode => _upToDateManager.barcode;
-  Product get _product => _upToDateManager.product;
-
+class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
+    with UpToDateMixin {
   late List<MapEntry<ProductImageData, ImageProvider?>> _selectedImages;
 
   @override
   void initState() {
     super.initState();
-    _upToDateManager = UpToDateManager(
-      widget.product,
-      context.read<LocalDatabase>(),
-    );
-  }
-
-  @override
-  void dispose() {
-    _upToDateManager.dispose();
-    super.dispose();
+    initUpToDate(widget.product, context.read<LocalDatabase>());
   }
 
   @override
@@ -56,16 +44,19 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
-    _upToDateManager.refresh();
-    _selectedImages = getSelectedImages(_product, ProductQuery.getLanguage());
+    refreshUpToDate();
+    _selectedImages = getSelectedImages(
+      upToDateProduct,
+      ProductQuery.getLanguage(),
+    );
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
         title: Text(appLocalizations.edit_product_form_item_photos_title),
-        subTitle: _product.productName == null
+        subTitle: upToDateProduct.productName == null
             ? null
             : Text(
-                _product.productName!,
+                upToDateProduct.productName!,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
@@ -73,11 +64,14 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           AnalyticsHelper.trackProductEdit(
-              AnalyticsEditEvents.photos, _barcode, true);
+            AnalyticsEditEvents.photos,
+            barcode,
+            true,
+          );
           await confirmAndUploadNewPicture(
             this,
             imageField: ImageField.OTHER,
-            barcode: _barcode,
+            barcode: barcode,
             language: ProductQuery.getLanguage(),
           );
         },
@@ -86,7 +80,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
       ),
       body: RefreshIndicator(
         onRefresh: () async => ProductRefresher().fetchAndRefresh(
-          barcode: _barcode,
+          barcode: barcode,
           widget: this,
         ),
         child: ListView.builder(
@@ -122,7 +116,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView> {
         MaterialPageRoute<void>(
           builder: (_) => ProductImageSwipeableView(
             initialImageIndex: initialImageIndex,
-            product: _product,
+            product: upToDateProduct,
           ),
         ),
       );

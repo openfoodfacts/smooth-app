@@ -6,7 +6,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/up_to_date_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -92,15 +92,12 @@ class AddNewProductPage extends StatefulWidget {
 }
 
 class _AddNewProductPageState extends State<AddNewProductPage>
-    with TraceableClientMixin {
+    with TraceableClientMixin, UpToDateMixin {
   // Just one file per main image field
   final Map<ImageField, File> _uploadedImages = <ImageField, File>{};
 
   // Many possible files for "other" image field
   final List<File> _otherUploadedImages = <File>[];
-
-  late final UpToDateManager _upToDateManager;
-  Product get _product => _upToDateManager.product;
 
   late DaoProductList _daoProductList;
 
@@ -146,11 +143,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       _detailsEditor,
       _nutritionEditor,
     ];
-    _upToDateManager = UpToDateManager(
-      widget.product,
-      context.read<LocalDatabase>(),
-    );
-    _daoProductList = DaoProductList(_upToDateManager.localDatabase);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    initUpToDate(widget.product, localDatabase);
+    _daoProductList = DaoProductList(localDatabase);
     AnalyticsHelper.trackEvent(
       widget.events[EditProductAction.openPage]!,
       barcode: barcode,
@@ -158,18 +153,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   }
 
   @override
-  void dispose() {
-    _upToDateManager.dispose();
-    super.dispose();
-  }
-
-  String get barcode => widget.product.barcode!;
-
-  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _upToDateManager.refresh();
+    refreshUpToDate();
 
     _addToHistory();
 
@@ -205,7 +192,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       child: SmoothScaffold(
         appBar: SmoothAppBar(
           title: ListTile(
-            title: Text(_product.productName ?? appLocalizations.new_product),
+            title: Text(
+              upToDateProduct.productName ?? appLocalizations.new_product,
+            ),
             subtitle: Text(barcode),
           ),
         ),
@@ -237,8 +226,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       return;
     }
     if (_isPopulated) {
-      _product.productName = _product.productName?.trim();
-      _product.brands = _product.brands?.trim();
+      upToDateProduct.productName = upToDateProduct.productName?.trim();
+      upToDateProduct.brands = upToDateProduct.brands?.trim();
       await _daoProductList.push(_history, barcode);
       _alreadyPushedToHistory = true;
     }
@@ -247,7 +236,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   /// Returns true if at least one field is populated.
   bool get _isPopulated {
     for (final ProductFieldEditor editor in _editors) {
-      if (editor.isPopulated(_product)) {
+      if (editor.isPopulated(upToDateProduct)) {
         return true;
       }
     }
@@ -268,7 +257,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       );
 
   Attribute? _getAttribute(final String tag) =>
-      _product.getAttributes(<String>[tag])[tag];
+      upToDateProduct.getAttributes(<String>[tag])[tag];
 
   List<Widget> _getNutriscoreRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -342,7 +331,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       _buildIngredientsButton(
         context,
         forceIconData: Icons.filter_2,
-        disabled: !_categoryEditor.isPopulated(_product),
+        disabled: !_categoryEditor.isPopulated(upToDateProduct),
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -430,7 +419,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   Widget _buildNutritionInputButton(final BuildContext context) {
     if (!_trackedPopulatedNutrition) {
-      if (_nutritionEditor.isPopulated(_product)) {
+      if (_nutritionEditor.isPopulated(upToDateProduct)) {
         _trackedPopulatedNutrition = true;
         AnalyticsHelper.trackEvent(
           widget.events[EditProductAction.nutritionFacts]!,
@@ -442,7 +431,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       context,
       _nutritionEditor,
       forceIconData: Icons.filter_2,
-      disabled: !_categoryEditor.isPopulated(_product),
+      disabled: !_categoryEditor.isPopulated(upToDateProduct),
     );
   }
 
@@ -452,7 +441,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final IconData? forceIconData,
     final bool disabled = false,
   }) {
-    final bool done = editor.isPopulated(_product);
+    final bool done = editor.isPopulated(upToDateProduct);
     return _MyButton(
       editor.getLabel(AppLocalizations.of(context)),
       forceIconData ?? (done ? _doneIcon : _todoIcon),
@@ -460,7 +449,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           ? null
           : () async => editor.edit(
                 context: context,
-                product: _product,
+                product: upToDateProduct,
                 isLoggedInMandatory: widget.isLoggedInMandatory,
               ),
       done: done,
@@ -469,7 +458,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   Widget _buildCategoriesButton(final BuildContext context) {
     if (!_trackedPopulatedCategories) {
-      if (_categoryEditor.isPopulated(_product)) {
+      if (_categoryEditor.isPopulated(upToDateProduct)) {
         _trackedPopulatedCategories = true;
         AnalyticsHelper.trackEvent(
           widget.events[EditProductAction.category]!,
@@ -501,7 +490,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final bool disabled = false,
   }) {
     if (!_trackedPopulatedIngredients) {
-      if (_ingredientsEditor.isPopulated(_product)) {
+      if (_ingredientsEditor.isPopulated(upToDateProduct)) {
         _trackedPopulatedIngredients = true;
         AnalyticsHelper.trackEvent(
           widget.events[EditProductAction.ingredients]!,

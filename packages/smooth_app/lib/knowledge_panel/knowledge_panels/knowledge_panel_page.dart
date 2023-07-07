@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -27,29 +27,17 @@ class KnowledgePanelPage extends StatefulWidget {
 }
 
 class _KnowledgePanelPageState extends State<KnowledgePanelPage>
-    with TraceableClientMixin {
+    with TraceableClientMixin, UpToDateMixin {
   @override
   String get traceTitle => 'knowledge_panel_page';
 
   @override
   String get traceName => 'Opened full knowledge panel page';
 
-  late final UpToDateManager _upToDateManager;
-  Product get _product => _upToDateManager.product;
-
   @override
   void initState() {
     super.initState();
-    _upToDateManager = UpToDateManager(
-      widget.product,
-      context.read<LocalDatabase>(),
-    );
-  }
-
-  @override
-  void dispose() {
-    _upToDateManager.dispose();
-    super.dispose();
+    initUpToDate(widget.product, context.read<LocalDatabase>());
   }
 
   static KnowledgePanelPanelGroupElement? _groupElementOf(
@@ -64,7 +52,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    _upToDateManager.refresh();
+    refreshUpToDate();
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: Text(
@@ -82,7 +70,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
             ),
             child: KnowledgePanelExpandedCard(
               panelId: widget.panelId,
-              product: _product,
+              product: upToDateProduct,
               isInitiallyExpanded: true,
             ),
           ),
@@ -113,8 +101,10 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
         groupElement?.title!.isNotEmpty == true) {
       return groupElement!.title!;
     }
-    final KnowledgePanel? panel =
-        KnowledgePanelWidget.getKnowledgePanel(_product, widget.panelId);
+    final KnowledgePanel? panel = KnowledgePanelWidget.getKnowledgePanel(
+      upToDateProduct,
+      widget.panelId,
+    );
     if (panel?.titleElement?.title.isNotEmpty == true) {
       return (panel?.titleElement?.title)!;
     }

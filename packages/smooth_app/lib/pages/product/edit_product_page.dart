@@ -10,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/up_to_date_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -38,21 +38,14 @@ class EditProductPage extends StatefulWidget {
   State<EditProductPage> createState() => _EditProductPageState();
 }
 
-class _EditProductPageState extends State<EditProductPage> {
+class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
   final ScrollController _controller = ScrollController();
   bool _barcodeVisibleInAppbar = false;
-
-  late final UpToDateManager _upToDateManager;
-  String get _barcode => _upToDateManager.barcode;
-  Product get _product => _upToDateManager.product;
 
   @override
   void initState() {
     super.initState();
-    _upToDateManager = UpToDateManager(
-      widget.product,
-      context.read<LocalDatabase>(),
-    );
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     _controller.addListener(_onScrollChanged);
   }
 
@@ -60,9 +53,12 @@ class _EditProductPageState extends State<EditProductPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _upToDateManager.refresh();
+    refreshUpToDate();
     final ThemeData theme = Theme.of(context);
-    final String productName = getProductName(_product, appLocalizations);
+    final String productName = getProductName(
+      upToDateProduct,
+      appLocalizations,
+    );
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -83,12 +79,12 @@ class _EditProductPageState extends State<EditProductPage> {
                   style: theme.textTheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w500),
                 ),
-                if (_barcode.isNotEmpty)
+                if (barcode.isNotEmpty)
                   AnimatedContainer(
                     duration: const Duration(milliseconds: 250),
                     height: _barcodeVisibleInAppbar ? 14.0 : 0.0,
                     child: Text(
-                      _barcode,
+                      barcode,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.normal,
                       ),
@@ -108,12 +104,12 @@ class _EditProductPageState extends State<EditProductPage> {
               tooltip: appLocalizations.clipboard_barcode_copy,
               onPressed: () {
                 Clipboard.setData(
-                  ClipboardData(text: _barcode),
+                  ClipboardData(text: barcode),
                 );
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      appLocalizations.clipboard_barcode_copied(_barcode),
+                      appLocalizations.clipboard_barcode_copied(barcode),
                     ),
                   ),
                 );
@@ -124,7 +120,7 @@ class _EditProductPageState extends State<EditProductPage> {
       ),
       body: RefreshIndicator(
         onRefresh: () async => ProductRefresher().fetchAndRefresh(
-          barcode: _barcode,
+          barcode: barcode,
           widget: this,
         ),
         child: PrimaryScrollController(
@@ -132,15 +128,15 @@ class _EditProductPageState extends State<EditProductPage> {
           child: Scrollbar(
             child: ListView(
               children: <Widget>[
-                if (_ProductBarcode.isAValidBarcode(_product.barcode))
-                  _ProductBarcode(product: _product),
+                if (_ProductBarcode.isAValidBarcode(barcode))
+                  _ProductBarcode(product: upToDateProduct),
                 _ListTitleItem(
                   title: appLocalizations.edit_product_form_item_details_title,
                   subtitle:
                       appLocalizations.edit_product_form_item_details_subtitle,
                   onTap: () async => ProductFieldDetailsEditor().edit(
                     context: context,
-                    product: _product,
+                    product: upToDateProduct,
                   ),
                 ),
                 _ListTitleItem(
@@ -150,14 +146,16 @@ class _EditProductPageState extends State<EditProductPage> {
                       appLocalizations.edit_product_form_item_photos_subtitle,
                   onTap: () async {
                     AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.photos, _barcode);
+                      AnalyticsEditEvents.photos,
+                      barcode,
+                    );
 
                     await Navigator.push<void>(
                       context,
                       MaterialPageRoute<void>(
                         builder: (BuildContext context) =>
                             ProductImageGalleryView(
-                          product: _product,
+                          product: upToDateProduct,
                         ),
                         fullscreenDialog: true,
                       ),
@@ -181,7 +179,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       appLocalizations.edit_product_form_item_ingredients_title,
                   onTap: () async => ProductFieldOcrIngredientEditor().edit(
                     context: context,
-                    product: _product,
+                    product: upToDateProduct,
                   ),
                 ),
                 _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
@@ -194,9 +192,11 @@ class _EditProductPageState extends State<EditProductPage> {
                         .edit_product_form_item_nutrition_facts_subtitle,
                     onTap: () async {
                       AnalyticsHelper.trackProductEdit(
-                          AnalyticsEditEvents.nutrition_Facts, _barcode);
+                        AnalyticsEditEvents.nutrition_Facts,
+                        barcode,
+                      );
                       await NutritionPageLoaded.showNutritionPage(
-                        product: _product,
+                        product: upToDateProduct,
                         isLoggedInMandatory: true,
                         context: context,
                       );
@@ -207,7 +207,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   title: appLocalizations.edit_packagings_title,
                   onTap: () async => ProductFieldPackagingEditor().edit(
                     context: context,
-                    product: _product,
+                    product: upToDateProduct,
                   ),
                 ),
                 _ListTitleItem(
@@ -216,7 +216,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       appLocalizations.edit_product_form_item_packaging_title,
                   onTap: () async => ProductFieldOcrPackagingEditor().edit(
                     context: context,
-                    product: _product,
+                    product: upToDateProduct,
                   ),
                 ),
                 _getSimpleListTileItem(SimpleInputPageStoreHelper()),
@@ -233,11 +233,13 @@ class _EditProductPageState extends State<EditProductPage> {
                       return;
                     }
                     AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.otherDetails, _barcode);
+                      AnalyticsEditEvents.otherDetails,
+                      barcode,
+                    );
                     await Navigator.push<void>(
                       context,
                       MaterialPageRoute<void>(
-                        builder: (_) => AddOtherDetailsPage(_product),
+                        builder: (_) => AddOtherDetailsPage(upToDateProduct),
                         fullscreenDialog: true,
                       ),
                     );
@@ -260,7 +262,7 @@ class _EditProductPageState extends State<EditProductPage> {
       subtitle: helper.getSubtitle(appLocalizations),
       onTap: () async => ProductFieldSimpleEditor(helper).edit(
         context: context,
-        product: _product,
+        product: upToDateProduct,
       ),
     );
   }
@@ -281,13 +283,15 @@ class _EditProductPageState extends State<EditProductPage> {
           return;
         }
         AnalyticsHelper.trackProductEdit(
-            AnalyticsEditEvents.powerEditScreen, _barcode);
+          AnalyticsEditEvents.powerEditScreen,
+          barcode,
+        );
         await Navigator.push<void>(
           context,
           MaterialPageRoute<void>(
             builder: (BuildContext context) => SimpleInputPage.multiple(
               helpers: helpers,
-              product: _product,
+              product: upToDateProduct,
             ),
             fullscreenDialog: true,
           ),
@@ -311,7 +315,6 @@ class _EditProductPageState extends State<EditProductPage> {
   void dispose() {
     _controller.removeListener(_onScrollChanged);
     _controller.dispose();
-    _upToDateManager.dispose();
     super.dispose();
   }
 }

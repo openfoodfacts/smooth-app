@@ -10,7 +10,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/up_to_date_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -51,12 +51,9 @@ class ProductPage extends StatefulWidget {
   State<ProductPage> createState() => _ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
+class _ProductPageState extends State<ProductPage>
+    with TraceableClientMixin, UpToDateMixin {
   final ScrollController _carouselController = ScrollController();
-
-  late final UpToDateManager _upToDateManager;
-  String get _barcode => _upToDateManager.barcode;
-  Product get _product => _upToDateManager.product;
 
   late ProductPreferences _productPreferences;
   bool _keepRobotoffQuestionsAlive = true;
@@ -72,30 +69,21 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   @override
   void initState() {
     super.initState();
-    _upToDateManager = UpToDateManager(
-      widget.product,
-      context.read<LocalDatabase>(),
-    );
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
   }
 
   @override
-  void dispose() {
-    _upToDateManager.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
-    inheritedDataManager.setCurrentBarcode(_barcode);
+    inheritedDataManager.setCurrentBarcode(barcode);
     final ThemeData themeData = Theme.of(context);
     _productPreferences = context.watch<ProductPreferences>();
     context.watch<LocalDatabase>();
-    _upToDateManager.refresh();
+    refreshUpToDate();
 
     return SmoothScaffold(
       contentBehindStatusBar: true,
@@ -144,7 +132,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   Future<void> _refreshProduct(BuildContext context) async {
     final bool success = await ProductRefresher().fetchAndRefresh(
-      barcode: _product.barcode!,
+      barcode: barcode,
       widget: this,
     );
     if (context.mounted) {
@@ -161,7 +149,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoProductList(localDatabase).push(
       ProductList.history(),
-      _barcode,
+      barcode,
     );
     localDatabase.notifyListeners();
   }
@@ -172,7 +160,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
       onRefresh: () => ProductRefresher().fetchAndRefresh(
-        barcode: _barcode,
+        barcode: barcode,
         widget: this,
       ),
       child: ListView(
@@ -188,7 +176,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             heightFactor: 0.7,
             alignment: AlignmentDirectional.topStart,
             child: ProductImageCarousel(
-              _product,
+              upToDateProduct,
               height: 200,
               controller: _carouselController,
               onUpload: _refreshProduct,
@@ -206,7 +194,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                 child: KeepQuestionWidgetAlive(
                   keepWidgetAlive: _keepRobotoffQuestionsAlive,
                   child: SummaryCard(
-                    _product,
+                    upToDateProduct,
                     _productPreferences,
                     isFullVersion: true,
                     showUnansweredQuestions: true,
@@ -221,8 +209,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             daoProductList,
           ),
           _buildKnowledgePanelCards(),
-          if (_product.website != null && _product.website!.trim().isNotEmpty)
-            _buildWebsiteWidget(_product.website!.trim()),
+          if (upToDateProduct.website != null &&
+              upToDateProduct.website!.trim().isNotEmpty)
+            _buildWebsiteWidget(upToDateProduct.website!.trim()),
         ],
       ),
     );
@@ -279,14 +268,14 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   Widget _buildKnowledgePanelCards() {
     final List<Widget> knowledgePanelWidgets = <Widget>[];
-    if (_product.knowledgePanels != null) {
+    if (upToDateProduct.knowledgePanels != null) {
       final List<KnowledgePanelElement> elements =
-          KnowledgePanelWidget.getPanelElements(_product);
+          KnowledgePanelWidget.getPanelElements(upToDateProduct);
       for (final KnowledgePanelElement panelElement in elements) {
         final List<Widget> children = KnowledgePanelWidget.getChildren(
           context,
           panelElement: panelElement,
-          product: _product,
+          product: upToDateProduct,
           onboardingMode: false,
         );
         if (children.isNotEmpty) {
@@ -318,14 +307,14 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   Future<void> _shareProduct() async {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.shareProduct,
-      barcode: _barcode,
+      barcode: barcode,
     );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
     final String url = 'https://'
         '${ProductQuery.getCountry()!.offTag}.openfoodfacts.org'
-        '/product/$_barcode';
+        '/product/$barcode';
     Share.share(
       appLocalizations.share_product_text(url),
       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
@@ -351,14 +340,14 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
                 AnalyticsHelper.trackEvent(
                   AnalyticsEvent.openProductEditPage,
-                  barcode: _barcode,
+                  barcode: barcode,
                 );
 
                 await Navigator.push<void>(
                   context,
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) =>
-                        EditProductPage(_product),
+                        EditProductPage(upToDateProduct),
                   ),
                 );
 
@@ -410,7 +399,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList,
   ) =>
       FutureBuilder<List<String>>(
-        future: daoProductList.getUserLists(withBarcodes: <String>[_barcode]),
+        future: daoProductList.getUserLists(withBarcodes: <String>[barcode]),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<String>> snapshot,
