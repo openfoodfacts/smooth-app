@@ -35,10 +35,7 @@ class AppNavigator extends InheritedWidget {
   AppNavigator({
     Key? key,
     required Widget child,
-    List<NavigatorObserver>? observers,
-  })  : _router = _SmoothGoRouter(
-          observers: observers,
-        ),
+  })  : _router = _SmoothGoRouter(),
         super(key: key, child: child);
 
   // GoRouter is never accessible directly
@@ -89,7 +86,11 @@ class AppNavigator extends InheritedWidget {
 /// One drawback of the implementation is that we never know the base URL of the
 /// deep link (eg: es.openfoodfacts.org)
 class _SmoothGoRouter {
-  _SmoothGoRouter({
+  factory _SmoothGoRouter() {
+    return _singleton;
+  }
+
+  _SmoothGoRouter._internal({
     List<NavigatorObserver>? observers,
   }) {
     router = GoRouter(
@@ -237,6 +238,7 @@ class _SmoothGoRouter {
     );
   }
 
+  static final _SmoothGoRouter _singleton = _SmoothGoRouter._internal();
   late GoRouter router;
 
   // Indicates whether [_initAppLanguage] was already called
