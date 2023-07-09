@@ -12,11 +12,13 @@ class SmoothProductBaseCard extends StatelessWidget {
   const SmoothProductBaseCard({
     required this.child,
     this.backgroundColorOpacity,
+    this.margin,
     super.key,
   });
 
   final Widget child;
   final double? backgroundColorOpacity;
+  final EdgeInsets? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class SmoothProductBaseCard extends StatelessWidget {
             color: themeData.brightness == Brightness.light
                 ? Colors.white.withOpacity(backgroundColorOpacity ?? 1.0)
                 : Colors.black.withOpacity(backgroundColorOpacity ?? 1.0),
+            margin: margin,
             padding: padding,
             child: FittedBox(
               fit: BoxFit.scaleDown,

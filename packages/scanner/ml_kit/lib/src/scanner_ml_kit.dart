@@ -83,7 +83,6 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
 
   static const ValueKey<String> _visibilityKey =
       ValueKey<String>('VisibilityDetector');
-  static const double _cornerPadding = 26.0;
 
   bool _isStarted = true;
 
@@ -200,14 +199,15 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
           ),
           Center(
             child: SmoothBarcodeScannerVisor(
-              cornerRadius: _cornerPadding,
               contentPadding: widget.contentPadding,
             ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.all(_cornerPadding),
+              padding: const EdgeInsets.all(
+                SmoothBarcodeScannerVisor.CORNER_PADDING,
+              ),
               child: Row(
                 mainAxisAlignment: _showFlipCameraButton
                     ? MainAxisAlignment.spaceBetween
@@ -215,12 +215,14 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   if (_showFlipCameraButton)
-                    IconButton(
-                      enableFeedback: true,
+                    VisorButton(
+                      onTap: () async {
+                        widget.hapticFeedback.call();
+                        await _controller.switchCamera();
+                      },
                       tooltip: widget.toggleCameraModeTooltip ??
                           'Switch between back and front camera',
-                      color: Colors.white,
-                      icon: ValueListenableBuilder<CameraFacing>(
+                      child: ValueListenableBuilder<CameraFacing>(
                         valueListenable: _controller.cameraFacingState,
                         builder: (
                           BuildContext context,
@@ -235,10 +237,6 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                           }
                         },
                       ),
-                      onPressed: () async {
-                        widget.hapticFeedback.call();
-                        await _controller.switchCamera();
-                      },
                     ),
                   ValueListenableBuilder<bool?>(
                     valueListenable: _controller.hasTorchState,
@@ -250,12 +248,19 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                       if (state != true) {
                         return const SizedBox.shrink();
                       }
-                      return IconButton(
-                        enableFeedback: true,
+                      return VisorButton(
                         tooltip: widget.toggleFlashModeTooltip ??
                             'Turn ON or OFF the flash of the camera',
-                        color: Colors.white,
-                        icon: ValueListenableBuilder<TorchState>(
+                        onTap: () async {
+                          widget.hapticFeedback.call();
+
+                          try {
+                            await _controller.toggleTorch();
+                          } catch (err) {
+                            widget.onCameraFlashError?.call(context);
+                          }
+                        },
+                        child: ValueListenableBuilder<TorchState>(
                           valueListenable: _controller.torchState,
                           builder: (
                             BuildContext context,
@@ -276,15 +281,6 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                             }
                           },
                         ),
-                        onPressed: () async {
-                          widget.hapticFeedback.call();
-
-                          try {
-                            await _controller.toggleTorch();
-                          } catch (err) {
-                            widget.onCameraFlashError?.call(context);
-                          }
-                        },
                       );
                     },
                   ),

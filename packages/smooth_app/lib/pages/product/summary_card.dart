@@ -47,6 +47,7 @@ class SummaryCard extends StatefulWidget {
     this.isSettingClickable = true,
     this.isProductEditable = true,
     this.attributeGroupsClickable = true,
+    this.padding,
   });
 
   final Product _product;
@@ -73,6 +74,8 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, all chips / groups are clickable
   final bool attributeGroupsClickable;
+
+  final EdgeInsetsGeometry? padding;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -118,7 +121,7 @@ class _SummaryCardState extends State<SummaryCard> {
           isSettingClickable: widget.isSettingClickable,
         ),
         body: Padding(
-          padding: SMOOTH_CARD_PADDING,
+          padding: widget.padding ?? SMOOTH_CARD_PADDING,
           child: _buildSummaryCardContent(context),
         ),
         margin: EdgeInsets.zero,
@@ -132,10 +135,11 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: SMALL_SPACE,
-        vertical: VERY_SMALL_SPACE,
-      ),
+      padding: widget.padding ??
+          const EdgeInsets.symmetric(
+            horizontal: SMALL_SPACE,
+            vertical: VERY_SMALL_SPACE,
+          ),
       child: Stack(
         children: <Widget>[
           ClipRRect(
