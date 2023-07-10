@@ -506,7 +506,7 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+    "new_product_leave_message": "Изглежда, че не си въвел нищо. Наистина ли искаш да напуснеш тази страница?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
@@ -534,7 +534,7 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_too_small_image_title": "The image is too small!",
+    "crop_page_too_small_image_title": "Снимката е прекалено малка!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
     },
@@ -582,7 +582,7 @@
     "new_product_title_ecoscore": "Изчисли Eco-Score",
     "new_product_subtitle_ecoscore": "Get it by filling at least a category",
     "new_product_additional_ecoscore": "Направи изчисляването на Eco-Score по-прецизно с произход, опаковка и други",
-    "new_product_title_nova": "Compute the food processing level (NOVA)",
+    "new_product_title_nova": "Изчисли нивото на обработка на храната (NOVA)",
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "Нивото на обработка на храни не е известно",
     "new_product_title_pictures": "Да направим няколко снимки!",
@@ -1358,7 +1358,7 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Clear your history",
+    "user_list_popup_clear": "Изчистване на историята",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear your history list' popup"
     },
@@ -1366,7 +1366,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "Моят списък",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1399,11 +1399,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Switch between back and front camera",
+    "camera_toggle_camera": "Превключване между задна и предна камера",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "camera_toggle_flash": "Включване или изключване на светкавицата на камерата",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1724,8 +1724,8 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
+    "alert_clear_selected_user_list": "На път си да изчистиш избраните елементи от хронологията",
+    "confirm_clear_selected_user_list": "Сигурен ли си, че искаш да продължиш?",
     "alert_select_items_to_clear": "Please select one or more items to clear",
     "confirm_clear_user_list": "На път си да изчистиш този списък ({name}): сигурен ли си, че искаш да продължиш?",
     "@confirm_clear_user_list": {
@@ -1834,11 +1834,11 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
+    "background_task_title_full_refresh": "Стартиране на опресняването на всички продукти, съхранявани локално",
     "@background_task_title_full_refresh": {
         "description": "Snackbar message when a full refresh is started"
     },
-    "background_task_title_top_n": "Starting the download of the most popular products",
+    "background_task_title_top_n": "Започва изтеглянето на най-популярните продукти",
     "@background_task_title_top_n": {
         "description": "Snackbar message when a download of the most popular products is started"
     },
@@ -1905,7 +1905,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Нов сканиран баркод: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -1919,11 +1919,11 @@
     "@scan_header_clear_button_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
     },
-    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "scan_header_compare_button_invalid_state_tooltip": "Моля, сканирай поне два продукта, за да ги сравниш",
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
-    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "scan_header_compare_button_valid_state_tooltip": "Кликни, за да сравниш продуктите, които си сканирал",
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
