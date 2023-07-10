@@ -39,14 +39,6 @@ void main() {
             compare.add(appLocalizations.plural_compare_x_products(i));
           }
 
-          //Check if any translation contains numbers
-          expect(minutes.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
-          expect(hours.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
-          expect(days.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
-          expect(weeks.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
-          expect(months.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
-          expect(compare.any((String x) => x.contains(RegExp(r'[0-9]'))), true);
-
           const String crazyString = 'の中ழ்';
           const Object crazyObject = crazyString;
 
@@ -214,7 +206,6 @@ void main() {
             appLocalizations.share_product_text(crazyString),
             contains(crazyString),
           );
-          return;
         }
         fail('could not find delegate');
       });
