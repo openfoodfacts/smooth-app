@@ -6,7 +6,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 
 /// Category for Matomo Events
@@ -194,21 +193,16 @@ class AnalyticsHelper {
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
   static Future<void> _setAnalyticsReports(final bool allow) async {
-    if (GlobalVars.storeLabel == StoreLabel.FDroid) {
-      _analyticsReporting = _AnalyticsTrackingMode.disabled;
-      await MatomoTracker.instance.setOptOut(optout: true);
+    if (allow) {
+      _analyticsReporting = _AnalyticsTrackingMode.enabled;
     } else {
-      if (allow) {
-        _analyticsReporting = _AnalyticsTrackingMode.enabled;
-      } else {
-        _analyticsReporting = _AnalyticsTrackingMode.anonymous;
-      }
+      _analyticsReporting = _AnalyticsTrackingMode.anonymous;
+    }
 
-      await MatomoTracker.instance.setOptOut(optout: false);
+    await MatomoTracker.instance.setOptOut(optout: false);
 
-      if (MatomoTracker.instance.initialized) {
-        MatomoTracker.instance.setVisitorUserId(_uuid);
-      }
+    if (MatomoTracker.instance.initialized) {
+      MatomoTracker.instance.setVisitorUserId(_uuid);
     }
   }
 
