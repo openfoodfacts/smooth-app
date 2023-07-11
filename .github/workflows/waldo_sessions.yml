@@ -25,6 +25,10 @@ jobs:
           distribution: 'zulu'
           java-version: 11
 
+      # Get the flutter version from ./flutter-version.txt
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
