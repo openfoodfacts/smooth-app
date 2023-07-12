@@ -212,10 +212,10 @@ class _ProductListPageState extends State<ProductListPage>
                 ),
               ],
         title: AutoSizeText(
-          '${ProductQueryPageHelper.getProductListLabel(
+          ProductQueryPageHelper.getProductListLabel(
             productList,
             appLocalizations,
-          )} (liste)', // TODO localize here
+          ),
           maxLines: 2,
         ),
         actionMode: _selectionMode,
