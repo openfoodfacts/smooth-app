@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -9,10 +10,12 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
@@ -131,6 +134,62 @@ class _ProductListPageState extends State<ProductListPage>
         actions: !(enableClear || enableRename)
             ? null
             : <Widget>[
+                IconButton(
+                  icon: const Icon(CupertinoIcons.square_list),
+                  onPressed: () async {
+                    final ProductListPopupItem? action =
+                        await showSmoothModalSheet<ProductListPopupItem>(
+                      context: context,
+                      builder: (final BuildContext context) {
+                        final List<Widget> children = <Widget>[];
+                        final List<ProductListPopupList> orderedItems =
+                            <ProductListPopupList>[
+                          _listScanSession,
+                          _listScanHistory,
+                          _listHistory,
+                        ];
+                        // do not add the same type
+                        for (final ProductListPopupList item in orderedItems) {
+                          if (item.newProductList.listType !=
+                              productList.listType) {
+                            children.add(
+                              SmoothSimpleButton(
+                                child: Text(item.getTitle(appLocalizations)),
+                                onPressed: () =>
+                                    Navigator.of(context).pop(item),
+                              ),
+                            );
+                          }
+                        }
+                        return SmoothModalSheet(
+                          closeButton: true,
+                          title: appLocalizations.list_navbar_label,
+                          body: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: children,
+                          ),
+                        );
+                      },
+                    );
+                    if (action == null) {
+                      return;
+                    }
+                    if (context.mounted) {
+                      final ProductList? differentProductList =
+                          await action.doSomething(
+                        productList: productList,
+                        localDatabase: localDatabase,
+                        context: context,
+                      );
+                      if (context.mounted) {
+                        if (differentProductList != null) {
+                          setState(() => productList = differentProductList);
+                        }
+                      }
+                    }
+                  },
+                ),
                 PopupMenuButton<ProductListPopupItem>(
                   onSelected: (final ProductListPopupItem action) async {
                     final ProductList? differentProductList =
@@ -143,41 +202,21 @@ class _ProductListPageState extends State<ProductListPage>
                       setState(() => productList = differentProductList);
                     }
                   },
-                  itemBuilder: (BuildContext context) {
-                    final List<PopupMenuEntry<ProductListPopupItem>> result =
-                        <PopupMenuEntry<ProductListPopupItem>>[];
-                    final List<ProductListPopupList> orderedItems =
-                        <ProductListPopupList>[
-                      _listScanSession,
-                      _listScanHistory,
-                      _listHistory,
-                    ];
-                    // do not add the same type
-                    for (final ProductListPopupList item in orderedItems) {
-                      if (item.newProductList.listType !=
-                          productList.listType) {
-                        result.add(item.getMenuItem(appLocalizations));
-                      }
-                    }
-                    result.addAll(
+                  itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<ProductListPopupItem>>[
-                        const PopupMenuDivider(),
-                        if (enableRename) _rename.getMenuItem(appLocalizations),
-                        _share.getMenuItem(appLocalizations),
-                        _openInWeb.getMenuItem(appLocalizations),
-                        if (enableClear) _clear.getMenuItem(appLocalizations),
-                      ],
-                    );
-                    return result;
-                  },
-                )
+                    if (enableRename) _rename.getMenuItem(appLocalizations),
+                    _share.getMenuItem(appLocalizations),
+                    _openInWeb.getMenuItem(appLocalizations),
+                    if (enableClear) _clear.getMenuItem(appLocalizations),
+                  ],
+                ),
               ],
-        title: Text(
-          ProductQueryPageHelper.getProductListLabel(
+        title: AutoSizeText(
+          '${ProductQueryPageHelper.getProductListLabel(
             productList,
             appLocalizations,
-          ),
-          overflow: TextOverflow.fade,
+          )} (liste)', // TODO localize here
+          maxLines: 2,
         ),
         actionMode: _selectionMode,
         onLeaveActionMode: () {
