@@ -96,7 +96,7 @@ class _ScanHeaderState extends State<ScanHeader> {
                                       title: ProductQueryPageHelper
                                           .getProductListLabel(
                                         model.productList,
-                                        context,
+                                        appLocalizations,
                                       ),
                                     ),
                                   ),

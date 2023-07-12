@@ -79,9 +79,8 @@ class ProductQueryPageHelper {
 
   static String getProductListLabel(
     final ProductList productList,
-    final BuildContext context,
+    final AppLocalizations appLocalizations,
   ) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (productList.listType) {
       case ProductListType.HTTP_SEARCH_KEYWORDS:
       case ProductListType.HTTP_SEARCH_CATEGORY:
