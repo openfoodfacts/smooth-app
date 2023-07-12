@@ -3,7 +3,7 @@
 
 We have predefined run configurations for Android Studio and Visual Studio Code
 
-In order to run the application, make sure you are in the `packages/smooth_app` directory and run these commands :
+In order to run the application, make sure you are in the `packages/smooth_app` directory and run these commands:
 
 - `flutter pub get .`
 - On Android 🤖: flutter run -t lib/entrypoints/android/main_google_play.dart
@@ -15,7 +15,7 @@ In order to run the application, make sure you are in the `packages/smooth_app` 
   
 - Please ensure to add a before/after screenshot when doing a PR that has visual impacts.
 
-- Please name your pull request following this scheme: `type: What you did` this allows us to automatically generate the changelog
+- Please name your pull request following this scheme: `type: What you did` this allows us to automatically generate the changelog.
 Following `type`s are allowed:
 
   - `feat`, for Features
@@ -45,19 +45,17 @@ Following `type`s are allowed:
 
 [Track crashes](https://sentry.io/organizations/openfoodfacts/issues/?project=5376745)
 
-<br><br>
-
 ## Contributing - What can I work on ?
 
 Are you a developer? A graphic designer? Full of innovative ideas to help users improve their mode of consumption? Then join us!
 We are always looking for new contributors, if you're willing to help please let us know, we'll be pleased to introduce you to the project.
 
 - On GitHub, [you can start here to get some inspiration](https://github.com/openfoodfacts/smooth-app/issues/525)
-- You can join the Open Food Facts's Slack here : [Get an invite](https://slack.openfoodfacts.org) - [Open our Slack](https://openfoodfacts.slack.com).
+- You can join the Open Food Facts's Slack here: [Get an invite](https://slack.openfoodfacts.org) - [Open our Slack](https://openfoodfacts.slack.com).
 
 ### Weekly meetings
 
- We usually meet on Thursdays at 15:30 GMT (UTC) at <https://meet.google.com/gnp-frks-esc>. Please email pierre@openfoodfacts.org if you want to be added to the Calendar invite for convenience
+ We usually meet on Thursdays at 15:30 GMT (UTC) at <https://meet.google.com/gnp-frks-esc>. Please email pierre@openfoodfacts.org if you want to be added to the Calendar invite for convenience.
 
 ## Wiki & Doc
 
@@ -72,7 +70,7 @@ We are always looking for new contributors, if you're willing to help please let
 
 ## Custom dependencies (forked versions)
 
-- [g123k/plugins](https://github.com/g123k/plugins) - We use our own fork of the camera plugin to be able to hotfix problems in it we find.
+- [g123k/plugins](https://github.com/g123k/plugins) - We use our own fork of the camera plugin to be able to hotfix problems that we find in it.
 
 ## V1 Roadmap (Shipped on June 15th 2022 for Vivatech)
 
