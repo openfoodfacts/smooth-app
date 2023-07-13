@@ -157,6 +157,7 @@ List<Attribute> getFilteredAttributes(
 Widget addPanelButton(
   final String label, {
   final IconData? iconData,
+  final String? textAlign,
   required final Function() onPressed,
 }) =>
     Padding(
@@ -165,6 +166,7 @@ Widget addPanelButton(
         text: label,
         icon: iconData ?? Icons.add,
         onPressed: onPressed,
+        textAlign: iconData == null ? TextAlign.center : null,
       ),
     );
 
