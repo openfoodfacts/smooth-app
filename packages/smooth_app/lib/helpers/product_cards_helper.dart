@@ -165,8 +165,8 @@ Widget addPanelButton(
       child: SmoothLargeButtonWithIcon(
         text: label,
         icon: iconData ?? Icons.add,
-        textAlign: textAlign ?? textAlign,
         onPressed: onPressed,
+        textAlign: iconData == null ? TextAlign.center : null,
       ),
     );
 
