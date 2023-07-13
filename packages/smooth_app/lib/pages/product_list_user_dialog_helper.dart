@@ -22,7 +22,7 @@ class ProductListUserDialogHelper {
     final TextEditingController textEditingController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-    final List<String> lists = await daoProductList.getUserLists();
+    final List<String> lists = daoProductList.getUserLists();
     final String? title = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) {
@@ -93,7 +93,7 @@ class ProductListUserDialogHelper {
 
     final String initialName = initialProductList.parameters;
     textEditingController.text = initialName;
-    final List<String> lists = await daoProductList.getUserLists();
+    final List<String> lists = daoProductList.getUserLists();
     final String? newName = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
@@ -185,7 +185,7 @@ class ProductListUserDialogHelper {
     final BuildContext context,
     final Set<String> barcodes,
   ) async {
-    final List<String> lists = await daoProductList.getUserLists();
+    final List<String> lists = daoProductList.getUserLists();
 
     if (lists.isEmpty) {
       final bool? newListCreated = await showDialog<bool>(
@@ -198,8 +198,9 @@ class ProductListUserDialogHelper {
       return false;
     }
 
-    final List<String> selectedLists = await daoProductList.getUserLists(
-      withBarcodes: barcodes.toList(growable: false),
+    final List<String> selectedLists =
+        await daoProductList.getUserListsWithBarcodes(
+      barcodes.toList(growable: false),
     );
 
     return showDialog<bool?>(

@@ -10,14 +10,13 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/pages/all_product_list_page.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
@@ -28,6 +27,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+/// Displays the products of a product list, with access to other lists.
 class ProductListPage extends StatefulWidget {
   const ProductListPage(this.productList);
 
@@ -59,12 +59,6 @@ class _ProductListPageState extends State<ProductListPage>
   final ProductListPopupItem _clear = ProductListPopupClear();
   final ProductListPopupItem _openInWeb = ProductListPopupOpenInWeb();
   final ProductListPopupItem _share = ProductListPopupShare();
-  final ProductListPopupList _listScanSession =
-      ProductListPopupList(ProductList.scanSession());
-  final ProductListPopupList _listScanHistory =
-      ProductListPopupList(ProductList.scanHistory());
-  final ProductListPopupList _listHistory =
-      ProductListPopupList(ProductList.history());
 
   //returns bool to handle WillPopScope
   Future<bool> _handleUserBacktap() async {
@@ -137,55 +131,22 @@ class _ProductListPageState extends State<ProductListPage>
                 IconButton(
                   icon: const Icon(CupertinoIcons.square_list),
                   onPressed: () async {
-                    final ProductListPopupItem? action =
-                        await showSmoothModalSheet<ProductListPopupItem>(
-                      context: context,
-                      builder: (final BuildContext context) {
-                        final List<Widget> children = <Widget>[];
-                        final List<ProductListPopupList> orderedItems =
-                            <ProductListPopupList>[
-                          _listScanSession,
-                          _listScanHistory,
-                          _listHistory,
-                        ];
-                        // do not add the same type
-                        for (final ProductListPopupList item in orderedItems) {
-                          if (item.newProductList.listType !=
-                              productList.listType) {
-                            children.add(
-                              SmoothSimpleButton(
-                                child: Text(item.getTitle(appLocalizations)),
-                                onPressed: () =>
-                                    Navigator.of(context).pop(item),
-                              ),
-                            );
-                          }
-                        }
-                        return SmoothModalSheet(
-                          closeButton: true,
-                          title: appLocalizations.list_navbar_label,
-                          body: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: children,
-                          ),
-                        );
-                      },
+                    final ProductList? selected =
+                        await Navigator.push<ProductList>(
+                      context,
+                      MaterialPageRoute<ProductList>(
+                        builder: (BuildContext context) =>
+                            const AllProductListPage(),
+                        fullscreenDialog: true,
+                      ),
                     );
-                    if (action == null) {
+                    if (selected == null) {
                       return;
                     }
                     if (context.mounted) {
-                      final ProductList? differentProductList =
-                          await action.doSomething(
-                        productList: productList,
-                        localDatabase: localDatabase,
-                        context: context,
-                      );
+                      await DaoProductList(localDatabase).get(selected);
                       if (context.mounted) {
-                        if (differentProductList != null) {
-                          setState(() => productList = differentProductList);
-                        }
+                        setState(() => productList = selected);
                       }
                     }
                   },

@@ -287,10 +287,7 @@ class DaoProductList extends AbstractDao {
   }
 
   /// Returns the names of the user lists.
-  ///
-  /// Possibly restricted to the user lists that contains ALL the given barcodes.
-  Future<List<String>> getUserLists({List<String>? withBarcodes}) async {
-    // TODO(m123): change return type to a set
+  List<String> getUserLists() {
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
       final String tmp = key.toString();
@@ -298,22 +295,34 @@ class DaoProductList extends AbstractDao {
       if (productListType != ProductListType.USER) {
         continue;
       }
-      if (withBarcodes != null) {
-        final _BarcodeList? barcodeList = await _getBox().get(key);
-        if (barcodeList == null) {
-          continue;
+      result.add(getProductListParameters(tmp));
+    }
+    return result;
+  }
+
+  /// Returns the names of the user lists that contains ALL the given barcodes.
+  Future<List<String>> getUserListsWithBarcodes(
+    final List<String> withBarcodes,
+  ) async {
+    final List<String> result = <String>[];
+    for (final dynamic key in _getBox().keys) {
+      final String tmp = key.toString();
+      final ProductListType productListType = getProductListType(tmp);
+      if (productListType != ProductListType.USER) {
+        continue;
+      }
+      final _BarcodeList? barcodeList = await _getBox().get(key);
+      if (barcodeList == null) {
+        continue;
+      }
+      for (final String barcode in withBarcodes) {
+        if (!barcodeList.barcodes.contains(barcode)) {
+          break;
         }
-        for (final String barcode in withBarcodes) {
-          if (!barcodeList.barcodes.contains(barcode)) {
-            break;
-          }
-          if (withBarcodes.last == barcode) {
-            result.add(getProductListParameters(tmp));
-            break;
-          }
+        if (withBarcodes.last == barcode) {
+          result.add(getProductListParameters(tmp));
+          break;
         }
-      } else {
-        result.add(getProductListParameters(tmp));
       }
     }
     return result;
