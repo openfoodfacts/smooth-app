@@ -213,6 +213,8 @@ class _SmoothGoRouter {
             } else {
               return _openExternalLink(path);
             }
+          } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD.path) {
+            return AppRoutes.HOME;
           } else if (path != _InternalAppRoutes.HOME_PAGE.path) {
             return _openExternalLink(path);
           }
@@ -317,6 +319,19 @@ enum _InternalAppRoutes {
   EXTERNAL_PAGE('_external');
 
   const _InternalAppRoutes(this.path);
+
+  final String path;
+
+  @override
+  String toString() {
+    return path;
+  }
+}
+
+enum _ExternalRoutes {
+  MOBILE_APP_DOWNLOAD('/open-food-facts-mobile-app');
+
+  const _ExternalRoutes(this.path);
 
   final String path;
 
