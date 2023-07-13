@@ -197,8 +197,9 @@ class _SmoothDialogCrossButton extends StatelessWidget {
 }
 
 enum SmoothButtonsBarOrder {
-  /// If the [axis] is [Axis.horizontal], the positive button will be on the end
-  /// If the [axis] is [Axis.vertical], the positive button will be on the start
+  /// If the [axis] is [Axis.horizontal], the positive button will be at the end
+  /// If the [axis] is [Axis.vertical], the positive button will be at the first
+  /// position
   auto,
 
   /// Whatever the [axis] is, the positive button will always be at first place

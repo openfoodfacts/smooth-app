@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -324,8 +325,8 @@ class _UserEmptyListsState extends State<_UserEmptyLists> {
     return SmoothAlertDialog(
       body: Column(
         children: <Widget>[
-          const Icon(Icons.warning),
-          const SizedBox(height: VERY_SMALL_SPACE),
+          SvgPicture.asset('assets/misc/error.svg'),
+          const SizedBox(height: LARGE_SPACE),
           Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(
@@ -337,12 +338,15 @@ class _UserEmptyListsState extends State<_UserEmptyLists> {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
+                fontSize: 18.0,
               ),
             ),
           ),
-          const SizedBox(height: LARGE_SPACE * 2.5),
+          const SizedBox(height: LARGE_SPACE),
         ],
       ),
+      actionsAxis: Axis.vertical,
+      actionsOrder: SmoothButtonsBarOrder.auto,
       positiveAction: SmoothActionButton(
         onPressed: () async {
           final ProductList? productList =
