@@ -12,14 +12,9 @@ import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page that lists all product lists.
-class AllProductListPage extends StatefulWidget {
+class AllProductListPage extends StatelessWidget {
   const AllProductListPage();
 
-  @override
-  State<AllProductListPage> createState() => _AllProductListPageState();
-}
-
-class _AllProductListPageState extends State<AllProductListPage> {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -35,7 +30,7 @@ class _AllProductListPageState extends State<AllProductListPage> {
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
-      appBar: SmoothAppBar(title: Text('Select a list')),
+      appBar: SmoothAppBar(title: Text(appLocalizations.product_list_select)),
       body: ListView.builder(
         itemCount: productLists.length,
         itemBuilder: (final BuildContext context, final int index) {

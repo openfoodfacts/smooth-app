@@ -1773,6 +1773,10 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
+    "product_list_select": "Select a list",
+    "@product_list_select": {
+        "description": "Top title for the selection of a list"
+    },
     "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
     "@user_list_length": {
         "description": "Length of a user product list",
