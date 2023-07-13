@@ -123,23 +123,23 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       AnalyticsProductTracker(
         analyticsEvent: widget.events[EditProductAction.category]!,
         barcode: barcode,
-        check: () => _categoryEditor.isPopulated(_product),
+        check: () => _categoryEditor.isPopulated(upToDateProduct),
       ),
       AnalyticsProductTracker(
         analyticsEvent: widget.events[EditProductAction.ingredients]!,
         barcode: barcode,
-        check: () => _ingredientsEditor.isPopulated(_product),
+        check: () => _ingredientsEditor.isPopulated(upToDateProduct),
       ),
       AnalyticsProductTracker(
         analyticsEvent: widget.events[EditProductAction.nutritionFacts]!,
         barcode: barcode,
-        check: () => _nutritionEditor.isPopulated(_product),
+        check: () => _nutritionEditor.isPopulated(upToDateProduct),
       ),
       AnalyticsProductTracker(
         analyticsEvent: AnalyticsEvent.imagesNewProductPage,
         barcode: barcode,
         check: () =>
-            _otherCount > 0 || _helper.isOneMainImagePopulated(_product),
+            _otherCount > 0 || _helper.isOneMainImagePopulated(upToDateProduct),
       ),
     ];
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -243,7 +243,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       }
     }
     if (widget.displayPictures) {
-      return _helper.isOneMainImagePopulated(_product) || _otherCount > 0;
+      return _helper.isOneMainImagePopulated(upToDateProduct) ||
+          _otherCount > 0;
     }
     return false;
   }
@@ -272,14 +273,14 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         AppLocalizations.of(context).nutritional_facts_input_button_label,
         Icons.filter_2,
         // deactivated when the categories were not set beforehand
-        !_categoryEditor.isPopulated(_product)
+        !_categoryEditor.isPopulated(upToDateProduct)
             ? null
             : () async => NutritionPageLoaded.showNutritionPage(
-                  product: _product,
+                  product: upToDateProduct,
                   isLoggedInMandatory: widget.isLoggedInMandatory,
                   context: context,
                 ),
-        done: _nutritionEditor.isPopulated(_product),
+        done: _nutritionEditor.isPopulated(upToDateProduct),
       ),
       Center(
         child: AddNewProductScoreIcon(
@@ -312,19 +313,19 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       ),
       if (_ecoscoreExpanded)
         AddNewProductEditorButton(
-          _product,
+          upToDateProduct,
           _originEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
       if (_ecoscoreExpanded)
         AddNewProductEditorButton(
-          _product,
+          upToDateProduct,
           _labelEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
       if (_ecoscoreExpanded)
         AddNewProductEditorButton(
-          _product,
+          upToDateProduct,
           _packagingEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
@@ -370,7 +371,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     rows.add(AddNewProductTitle(appLocalizations.new_product_title_pictures));
     // Main 4 images first.
     final List<ProductImageData> productImagesData = getProductMainImagesData(
-      _product,
+      upToDateProduct,
       ProductQuery.getLanguage(),
       includeOther: false,
     );
@@ -428,83 +429,29 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         MaterialPageRoute<void>(
           builder: (_) => ProductImageSwipeableView.imageField(
             imageField: productImageData.imageField,
-            product: _product,
+            product: upToDateProduct,
             isLoggedInMandatory: widget.isLoggedInMandatory,
           ),
         ),
       ),
-
-  Widget _buildNutritionInputButton(final BuildContext context) {
-    if (!_trackedPopulatedNutrition) {
-      if (_nutritionEditor.isPopulated(upToDateProduct)) {
-        _trackedPopulatedNutrition = true;
-        AnalyticsHelper.trackEvent(
-          widget.events[EditProductAction.nutritionFacts]!,
-          barcode: barcode,
-        );
-      }
-    }
-    return _buildEditorButton(
-      context,
-      _nutritionEditor,
-      forceIconData: Icons.filter_2,
-      disabled: !_categoryEditor.isPopulated(upToDateProduct),
-    );
-  }
-
-  Widget _buildEditorButton(
-    final BuildContext context,
-    final ProductFieldEditor editor, {
-    final IconData? forceIconData,
-    final bool disabled = false,
-  }) {
-    final bool done = editor.isPopulated(upToDateProduct);
-    return _MyButton(
-      editor.getLabel(AppLocalizations.of(context)),
-      forceIconData ?? (done ? _doneIcon : _todoIcon),
-      disabled
-          ? null
-          : () async => editor.edit(
-                context: context,
-                product: upToDateProduct,
-                isLoggedInMandatory: widget.isLoggedInMandatory,
-              ),
       done: done,
     );
   }
 
-
   Widget _buildCategoriesButton(final BuildContext context) =>
       AddNewProductEditorButton(
-        _product,
+        upToDateProduct,
         _categoryEditor,
         forceIconData: Icons.filter_1,
         isLoggedInMandatory: widget.isLoggedInMandatory,
       );
-
-  Widget _buildCategoriesButton(final BuildContext context) {
-    if (!_trackedPopulatedCategories) {
-      if (_categoryEditor.isPopulated(upToDateProduct)) {
-        _trackedPopulatedCategories = true;
-        AnalyticsHelper.trackEvent(
-          widget.events[EditProductAction.category]!,
-          barcode: barcode,
-        );
-      }
-    }
-    return _buildEditorButton(
-      context,
-      _categoryEditor,
-      forceIconData: Icons.filter_1,
-    );
-  }
 
   List<Widget> _getMiscRows(final BuildContext context) => <Widget>[
         AddNewProductTitle(
           AppLocalizations.of(context).new_product_title_misc,
         ),
         AddNewProductEditorButton(
-          _product,
+          upToDateProduct,
           _detailsEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
@@ -516,52 +463,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final bool disabled = false,
   }) =>
       AddNewProductEditorButton(
-        _product,
+        upToDateProduct,
         _ingredientsEditor,
         forceIconData: forceIconData,
         disabled: disabled,
         isLoggedInMandatory: widget.isLoggedInMandatory,
       );
-
-
-/// Standard button.
-class _MyButton extends StatelessWidget {
-  const _MyButton(
-    this.label,
-    this.iconData,
-    this.onPressed, {
-    required this.done,
-  });
-
-  final String label;
-  final IconData iconData;
-  final VoidCallback? onPressed;
-  final bool done;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
-    final bool dark = themeData.brightness == Brightness.dark;
-    final Color? darkGrey = Colors.grey[700];
-    final Color? lightGrey = Colors.grey[300];
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: SmoothLargeButtonWithIcon(
-        text: label,
-        icon: iconData,
-        onPressed: onPressed,
-        trailing: Icons.edit,
-        backgroundColor: onPressed == null
-            ? (dark ? darkGrey : lightGrey)
-            : done
-                ? Colors.green[700]
-                : themeData.colorScheme.secondary,
-        foregroundColor: onPressed == null
-            ? (dark ? lightGrey : darkGrey)
-            : done
-                ? Colors.white
-                : themeData.colorScheme.onSecondary,
-      ),
-    );
-  }
 }

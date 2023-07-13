@@ -132,7 +132,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
           child: ImageField.NUTRITION.getPhotoButton(
             context,
-            _product,
+            upToDateProduct,
             widget.isLoggedInMandatory,
           ),
         ),
