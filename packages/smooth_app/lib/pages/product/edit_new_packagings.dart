@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -36,16 +37,12 @@ class EditNewPackagings extends StatefulWidget {
   State<EditNewPackagings> createState() => _EditNewPackagingsState();
 }
 
-class _EditNewPackagingsState extends State<EditNewPackagings> {
-  late final LocalDatabase _localDatabase;
+class _EditNewPackagingsState extends State<EditNewPackagings>
+    with UpToDateMixin {
   late final NumberFormat _decimalNumberFormat;
   late final NumberFormat _unitNumberFormat;
-  late Product _product;
-  late final Product _initialProduct;
 
   late bool? _packagingsComplete;
-
-  String get _barcode => _initialProduct.barcode!;
 
   final List<EditNewPackagingsHelper> _helpers = <EditNewPackagingsHelper>[];
 
@@ -71,24 +68,21 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     _decimalNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: true,
     );
     _unitNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: false,
     );
-    if (_initialProduct.packagings != null) {
-      _initialProduct.packagings!.forEach(_addPackagingToControllers);
+    if (initialProduct.packagings != null) {
+      initialProduct.packagings!.forEach(_addPackagingToControllers);
     }
-    _packagingsComplete = _initialProduct.packagingsComplete;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
+    _packagingsComplete = initialProduct.packagingsComplete;
   }
 
   @override
   void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
     for (final EditNewPackagingsHelper helper in _helpers) {
       helper.dispose();
     }
@@ -99,14 +93,14 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    refreshUpToDate();
     final List<Widget> children = <Widget>[];
     children.add(
       Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: ImageField.PACKAGING.getPhotoButton(
           context,
-          _product,
+          upToDateProduct,
           widget.isLoggedInMandatory,
         ),
       ),
@@ -122,7 +116,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
             deleteCallback: () =>
                 setState(() => _removePackagingAt(deleteIndex)),
             helper: _helpers[index],
-            categories: _product.categories,
+            categories: upToDateProduct.categories,
           ),
         ),
       );
@@ -180,7 +174,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
           onPressed: () async => confirmAndUploadNewPicture(
             this,
             imageField: ImageField.OTHER,
-            barcode: _barcode,
+            barcode: barcode,
             language: ProductQuery.getLanguage(),
             isLoggedInMandatory: widget.isLoggedInMandatory,
           ),
@@ -196,9 +190,9 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
           fixKeyboard: true,
           appBar: SmoothAppBar(
             title: Text(appLocalizations.edit_packagings_title),
-            subTitle: _product.productName != null
+            subTitle: upToDateProduct.productName != null
                 ? Text(
-                    _product.productName!,
+                    upToDateProduct.productName!,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   )
@@ -248,16 +242,16 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
       p1.numberOfUnits != p2.numberOfUnits;
 
   bool _hasPackagingsChanged(final List<ProductPackaging> packagings) {
-    if (_product.packagings == null) {
+    if (upToDateProduct.packagings == null) {
       return packagings.isNotEmpty;
     }
-    if (_product.packagings!.length != packagings.length) {
+    if (upToDateProduct.packagings!.length != packagings.length) {
       return true;
     }
     for (int i = 0; i < packagings.length; i++) {
       if (_isPackagingDifferent(
         packagings[i],
-        _product.packagings![i],
+        upToDateProduct.packagings![i],
       )) {
         return true;
       }
@@ -270,7 +264,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
   /// Parameter [saving] tells about the context: are we leaving the page,
   /// or have we clicked on the "save" button?
   Future<bool> _mayExitPage({required final bool saving}) async {
-    final Product changedProduct = Product(barcode: _barcode);
+    final Product changedProduct = Product(barcode: barcode);
     bool changed = false;
 
     final List<ProductPackaging> packagings = _getPackagingsFromControllers();
@@ -279,7 +273,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
       changedProduct.packagings = packagings;
     }
 
-    if (_packagingsComplete != _product.packagingsComplete) {
+    if (_packagingsComplete != upToDateProduct.packagingsComplete) {
       changed = true;
       changedProduct.packagingsComplete = _packagingsComplete;
     }
@@ -304,7 +298,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings> {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.packagingComponents,
-      _barcode,
+      barcode,
       true,
     );
 

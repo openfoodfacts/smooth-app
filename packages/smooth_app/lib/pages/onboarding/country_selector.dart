@@ -81,63 +81,81 @@ class _CountrySelectorState extends State<CountrySelector> {
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
                     return SmoothAlertDialog(
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 0.0,
+                        vertical: SMALL_SPACE,
+                      ),
                       body: SizedBox(
                         height: MediaQuery.of(context).size.height / 2,
                         width: MediaQuery.of(context).size.width,
                         child: Column(
                           children: <Widget>[
-                            SmoothTextFormField(
-                              type: TextFieldTypes.PLAIN_TEXT,
-                              prefixIcon: const Icon(Icons.search),
-                              controller: countryController,
-                              onChanged: (String? query) {
-                                setState(
-                                  () {
-                                    filteredList = _countryList
-                                        .where(
-                                          (Country item) =>
-                                              item.name.toLowerCase().contains(
-                                                    query!.toLowerCase(),
-                                                  ) ||
-                                              item.countryCode
-                                                  .toLowerCase()
-                                                  .contains(
-                                                    query.toLowerCase(),
-                                                  ),
-                                        )
-                                        .toList(growable: false);
-                                  },
-                                );
-                              },
-                              hintText: appLocalizations.search,
-                            ),
-                            Expanded(
-                              child: ListView.builder(
-                                itemBuilder: (BuildContext context, int index) {
-                                  final Country country = filteredList[index];
-                                  final bool selected =
-                                      country == selectedCountry;
-                                  return ListTile(
-                                    dense: true,
-                                    trailing: selected
-                                        ? const Icon(Icons.check)
-                                        : null,
-                                    title: Text(
-                                      country.name,
-                                      softWrap: false,
-                                      overflow: TextOverflow.fade,
-                                      style: selected
-                                          ? const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                            )
-                                          : null,
-                                    ),
-                                    onTap: () =>
-                                        Navigator.of(context).pop(country),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: SMALL_SPACE,
+                              ),
+                              child: SmoothTextFormField(
+                                type: TextFieldTypes.PLAIN_TEXT,
+                                prefixIcon: const Icon(Icons.search),
+                                controller: countryController,
+                                onChanged: (String? query) {
+                                  setState(
+                                    () {
+                                      filteredList = _countryList
+                                          .where(
+                                            (Country item) =>
+                                                item.name
+                                                    .toLowerCase()
+                                                    .contains(
+                                                      query!.toLowerCase(),
+                                                    ) ||
+                                                item.countryCode
+                                                    .toLowerCase()
+                                                    .contains(
+                                                      query.toLowerCase(),
+                                                    ),
+                                          )
+                                          .toList(growable: false);
+                                    },
                                   );
                                 },
-                                itemCount: filteredList.length,
-                                shrinkWrap: true,
+                                hintText: appLocalizations.search,
+                              ),
+                            ),
+                            Expanded(
+                              child: Scrollbar(
+                                child: ListView.builder(
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    final Country country = filteredList[index];
+                                    final bool selected =
+                                        country == selectedCountry;
+                                    return ListTile(
+                                      dense: true,
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                        horizontal: 16.0 + SMALL_SPACE,
+                                      ),
+                                      trailing: selected
+                                          ? const Icon(Icons.check)
+                                          : null,
+                                      title: Text(
+                                        country.name,
+                                        softWrap: false,
+                                        overflow: TextOverflow.fade,
+                                        style: selected
+                                            ? const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                              )
+                                            : null,
+                                      ),
+                                      onTap: () =>
+                                          Navigator.of(context).pop(country),
+                                    );
+                                  },
+                                  itemCount: filteredList.length,
+                                  shrinkWrap: true,
+                                ),
                               ),
                             )
                           ],
@@ -162,6 +180,9 @@ class _CountrySelectorState extends State<CountrySelector> {
           child: Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            padding: const EdgeInsets.symmetric(
+              vertical: SMALL_SPACE,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

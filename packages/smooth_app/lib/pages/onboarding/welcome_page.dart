@@ -96,7 +96,6 @@ class WelcomePage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.only(
-                          start: SMALL_SPACE,
                           bottom: VERY_SMALL_SPACE,
                         ),
                         child: Text(
