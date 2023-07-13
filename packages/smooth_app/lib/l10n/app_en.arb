@@ -2276,5 +2276,9 @@
                 "type": "int"
             }
         }
+    },
+    "country_selector_title": "Select your country:",
+    "@country_selector_title": {
+        "description": "Label written as the title of the dialog to select the user country"
     }
 }
