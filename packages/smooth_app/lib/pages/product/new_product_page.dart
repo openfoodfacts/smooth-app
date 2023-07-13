@@ -399,7 +399,7 @@ class _ProductPageState extends State<ProductPage>
     final DaoProductList daoProductList,
   ) =>
       FutureBuilder<List<String>>(
-        future: daoProductList.getUserLists(withBarcodes: <String>[barcode]),
+        future: daoProductList.getUserListsWithBarcodes(<String>[barcode]),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<String>> snapshot,

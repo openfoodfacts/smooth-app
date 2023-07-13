@@ -15,48 +15,23 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+// TODO(monsieurtanuki): confirm if still relevant with the new ProductListPage and AllProductListPage
 /// Page that lists all user product lists.
-class AllUserProductList extends StatelessWidget {
+class AllUserProductList extends StatefulWidget {
   const AllUserProductList();
 
   @override
-  Widget build(BuildContext context) {
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    return FutureBuilder<List<String>>(
-      future: daoProductList.getUserLists(),
-      builder: (
-        final BuildContext context,
-        final AsyncSnapshot<List<String>> snapshot,
-      ) {
-        if (snapshot.data != null) {
-          return _AllUserProductListLoaded(snapshot.data!);
-        }
-        return const Center(child: CircularProgressIndicator.adaptive());
-      },
-    );
-  }
+  State<AllUserProductList> createState() => _AllUserProductListState();
 }
 
-/// Page that lists all user product lists, with already loaded data.
-class _AllUserProductListLoaded extends StatefulWidget {
-  const _AllUserProductListLoaded(this.userLists);
-
-  final List<String> userLists;
-
-  @override
-  State<_AllUserProductListLoaded> createState() =>
-      _AllUserProductListLoadedState();
-}
-
-class _AllUserProductListLoadedState extends State<_AllUserProductListLoaded> {
+class _AllUserProductListState extends State<AllUserProductList> {
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData themeData = Theme.of(context);
-    final List<String> userLists = widget.userLists;
+    final List<String> userLists = daoProductList.getUserLists();
     return SmoothScaffold(
       appBar: SmoothAppBar(title: Text(appLocalizations.user_list_all_title)),
       body: userLists.isEmpty
