@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -39,25 +40,19 @@ class ProductImageSwipeableView extends StatefulWidget {
       _ProductImageSwipeableViewState();
 }
 
-class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
-  late final LocalDatabase _localDatabase;
+class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
+    with UpToDateMixin {
   //Making use of [ValueNotifier] such that to avoid performance issues
   //while swiping between pages by making sure only [Text] widget for product title is rebuilt
   late final ValueNotifier<int> _currentImageDataIndex;
   late List<MapEntry<ProductImageData, ImageProvider?>> _selectedImages;
   late PageController _controller;
-  late final Product _initialProduct;
-  late Product _product;
   late OpenFoodFactsLanguage _currentLanguage;
-
-  String get _barcode => _initialProduct.barcode!;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     _controller = PageController(
       initialPage: widget.initialImageIndex,
     );
@@ -66,17 +61,11 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView> {
   }
 
   @override
-  void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
-    _selectedImages = getSelectedImages(_product, _currentLanguage);
+    refreshUpToDate();
+    _selectedImages = getSelectedImages(upToDateProduct, _currentLanguage);
     if (widget.imageField != null) {
       _selectedImages.removeWhere(
         (

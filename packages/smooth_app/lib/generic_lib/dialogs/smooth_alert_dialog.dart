@@ -28,6 +28,7 @@ class SmoothAlertDialog extends StatelessWidget {
     this.actionsAxis,
     this.actionsOrder,
     this.close = false,
+    this.contentPadding,
   });
 
   final String? title;
@@ -37,6 +38,7 @@ class SmoothAlertDialog extends StatelessWidget {
   final SmoothActionButton? negativeAction;
   final Axis? actionsAxis;
   final SmoothButtonsBarOrder? actionsOrder;
+  final EdgeInsets? contentPadding;
 
   static const EdgeInsets _smallContentPadding = EdgeInsets.only(
     left: SMALL_SPACE,
@@ -55,8 +57,8 @@ class SmoothAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget content = _buildContent(context);
-    final EdgeInsets padding =
-        context.isSmallDevice() ? _smallContentPadding : _contentPadding;
+    final EdgeInsets padding = contentPadding ??
+        (context.isSmallDevice() ? _smallContentPadding : _contentPadding);
 
     return AlertDialog(
       scrollable: false,
@@ -87,6 +89,9 @@ class SmoothAlertDialog extends StatelessWidget {
       padding: EdgeInsetsDirectional.only(
         top: padding.bottom,
         start: SMALL_SPACE,
+        end: positiveAction != null && negativeAction != null
+            ? 0.0
+            : SMALL_SPACE,
       ),
       child: SmoothActionButtonsBar(
         positiveAction: positiveAction,
@@ -197,8 +202,9 @@ class _SmoothDialogCrossButton extends StatelessWidget {
 }
 
 enum SmoothButtonsBarOrder {
-  /// If the [axis] is [Axis.horizontal], the positive button will be on the end
-  /// If the [axis] is [Axis.vertical], the positive button will be on the start
+  /// If the [axis] is [Axis.horizontal], the positive button will be at the end
+  /// If the [axis] is [Axis.vertical], the positive button will be at the first
+  /// position
   auto,
 
   /// Whatever the [axis] is, the positive button will always be at first place

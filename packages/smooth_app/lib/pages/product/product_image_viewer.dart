@@ -10,6 +10,7 @@ import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
@@ -43,35 +44,23 @@ class ProductImageViewer extends StatefulWidget {
   State<ProductImageViewer> createState() => _ProductImageViewerState();
 }
 
-class _ProductImageViewerState extends State<ProductImageViewer> {
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
+class _ProductImageViewerState extends State<ProductImageViewer>
+    with UpToDateMixin {
   late ProductImageData _imageData;
-
-  String get _barcode => _initialProduct.barcode!;
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
-  }
-
-  @override
-  void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
-    super.dispose();
+    initUpToDate(widget.product, context.read<LocalDatabase>());
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    refreshUpToDate();
     _imageData = getProductImageData(
-      _product,
+      upToDateProduct,
       widget.imageField,
       widget.language,
       forceLanguage: true,
@@ -79,7 +68,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     final ImageProvider? imageProvider = _getTransientFile().getImageProvider();
     final Iterable<OpenFoodFactsLanguage> selectedLanguages =
         getProductImageLanguages(
-      _product,
+      upToDateProduct,
       widget.imageField,
     );
 
@@ -188,7 +177,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                   child: ProductImageServerButton(
-                    product: _product,
+                    product: upToDateProduct,
                     imageField: widget.imageField,
                     language: widget.language,
                     isLoggedInMandatory: true,
@@ -200,7 +189,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                   child: ProductImageLocalButton(
                     firstPhoto: imageProvider == null,
-                    barcode: _barcode,
+                    barcode: barcode,
                     imageField: widget.imageField,
                     language: widget.language,
                     isLoggedInMandatory: true,
@@ -278,7 +267,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     imageFile = await downloadImageUrl(
       context,
       imageUrl,
-      DaoInt(_localDatabase),
+      DaoInt(context.read<LocalDatabase>()),
     );
     if (imageFile != null) {
       return _openCropPage(navigatorState, imageFile);
@@ -289,7 +278,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
 
   TransientFile _getTransientFile() => TransientFile.fromProductImageData(
         _imageData,
-        _barcode,
+        barcode,
         widget.language,
       );
 
@@ -322,12 +311,12 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     );
     if (confirmed == true) {
       await BackgroundTaskUnselect.addTask(
-        _barcode,
+        barcode,
         imageField: widget.imageField,
         widget: this,
         language: widget.language,
       );
-      _localDatabase.notifyListeners();
+      context.read<LocalDatabase>().notifyListeners();
       navigatorState.pop();
     }
   }
@@ -343,7 +332,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
         MaterialPageRoute<File>(
           builder: (BuildContext context) => CropPage(
             language: widget.language,
-            barcode: _product.barcode!,
+            barcode: barcode,
             imageField: _imageData.imageField,
             inputFile: imageFile,
             imageId: imageId,
@@ -364,7 +353,7 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
     final File? imageFile = await downloadImageUrl(
       context,
       ImageHelper.getUploadedImageUrl(
-        _product.barcode!,
+        barcode,
         imageId,
         ImageSize.ORIGINAL,
       ),
@@ -385,10 +374,10 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
   }
 
   ProductImage? _getBestProductImage() {
-    if (_product.images == null) {
+    if (upToDateProduct.images == null) {
       return null;
     }
-    for (final ProductImage productImage in _product.images!) {
+    for (final ProductImage productImage in upToDateProduct.images!) {
       if (productImage.field != _imageData.imageField) {
         continue;
       }

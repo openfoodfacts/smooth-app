@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -41,11 +42,8 @@ class EditOcrPage extends StatefulWidget {
   State<EditOcrPage> createState() => _EditOcrPageState();
 }
 
-class _EditOcrPageState extends State<EditOcrPage> {
+class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   final TextEditingController _controller = TextEditingController();
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
   late final MultilingualHelper _multilingualHelper;
 
   OcrHelper get _helper => widget.helper;
@@ -53,10 +51,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
-
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     _multilingualHelper = MultilingualHelper(controller: _controller);
     _multilingualHelper.init(
       multilingualTexts: _helper.getMultilingualTexts(widget.product),
@@ -65,12 +60,6 @@ class _EditOcrPageState extends State<EditOcrPage> {
       imageField: _helper.getImageField(),
       productLanguage: widget.product.lang,
     );
-  }
-
-  @override
-  void dispose() {
-    _localDatabase.upToDate.loseInterest(_product.barcode!);
-    super.dispose();
   }
 
   /// Extracts data with OCR from the image stored on the server.
@@ -116,7 +105,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
     }
     AnalyticsHelper.trackProductEdit(
       _helper.getEditEventAnalyticsTag(),
-      _product.barcode!,
+      barcode,
       true,
     );
     await BackgroundTaskDetails.addTask(
@@ -131,9 +120,9 @@ class _EditOcrPageState extends State<EditOcrPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    refreshUpToDate();
     final TransientFile transientFile = TransientFile.fromProduct(
-      _product,
+      upToDateProduct,
       _helper.getImageField(),
       _multilingualHelper.getCurrentLanguage(),
     );
@@ -157,9 +146,9 @@ class _EditOcrPageState extends State<EditOcrPage> {
           _helper.getTitle(appLocalizations),
           style: appbarTextStyle,
         ),
-        subTitle: _product.productName != null
+        subTitle: upToDateProduct.productName != null
             ? Text(
-                _product.productName!,
+                upToDateProduct.productName!,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: appbarTextStyle,
@@ -259,7 +248,7 @@ class _EditOcrPageState extends State<EditOcrPage> {
                         padding:
                             const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                         child: ProductImageServerButton(
-                          product: _product,
+                          product: upToDateProduct,
                           imageField: _helper.getImageField(),
                           language: language,
                           isLoggedInMandatory: widget.isLoggedInMandatory,

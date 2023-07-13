@@ -68,10 +68,6 @@ We are always looking for new contributors, if you're willing to help please let
 - [Project Smoothie Landing page](https://github.com/openfoodfacts/smoothielanding)
 - Private app signing for iOS certificates repository - please ask @teolemon
 
-## Custom dependencies (forked versions)
-
-- [g123k/plugins](https://github.com/g123k/plugins) - We use our own fork of the camera plugin to be able to hotfix problems that we find in it.
-
 ## V1 Roadmap (Shipped on June 15th 2022 for Vivatech)
 
 - [x] We should be able to ship the Smoothie code to the main listing on Android and iOS
