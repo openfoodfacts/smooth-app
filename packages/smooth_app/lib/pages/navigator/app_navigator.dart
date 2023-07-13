@@ -321,11 +321,6 @@ enum _InternalAppRoutes {
   const _InternalAppRoutes(this.path);
 
   final String path;
-
-  @override
-  String toString() {
-    return path;
-  }
 }
 
 enum _ExternalRoutes {
@@ -334,11 +329,6 @@ enum _ExternalRoutes {
   const _ExternalRoutes(this.path);
 
   final String path;
-
-  @override
-  String toString() {
-    return path;
-  }
 }
 
 /// A list of internal routes to use with [AppNavigator]
@@ -356,21 +346,21 @@ class AppRoutes {
     bool useHeroAnimation = true,
     String? heroTag = '',
   }) =>
-      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
+      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE.path}/$barcode'
       '?heroAnimation=$useHeroAnimation'
       '&heroTag=$heroTag';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE.path}/$barcode';
 
   // Product creator or "add product" feature
   static String PRODUCT_CREATOR(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE.path}/$barcode';
 
   // App preferences
   static String PREFERENCES(PreferencePageType type) =>
-      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
+      '/${_InternalAppRoutes.PREFERENCES_PAGE.path}/${type.name}';
 
   // Search view
   static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE.path}';
