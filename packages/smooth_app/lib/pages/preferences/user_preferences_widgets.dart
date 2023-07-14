@@ -186,11 +186,17 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
       onTap: () async {
         final double itemHeight = (descriptions != null ? 15.0 : 0.0) +
             (5.0 * 2) +
+            1.0 +
             (56.0 + Theme.of(context).visualDensity.baseSizeAdjustment.dy);
 
+        final MediaQueryData queryData = MediaQueryData.fromView(
+            WidgetsBinding.instance.platformDispatcher.implicitView!);
+
+        // If there is not enough space, we use the scrolling sheet
         final T? res;
-        if (itemHeight * labels.length >
-            MediaQuery.of(context).size.height * 0.8) {
+        if ((itemHeight * labels.length +
+                SmoothModalSheetHeader.computeHeight(context, true)) >
+            (queryData.size.height * 0.9) - queryData.viewPadding.top) {
           res = await showSmoothDraggableModalSheet<T>(
               context: context,
               header: SmoothModalSheetHeader(title: title),
@@ -220,12 +226,14 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
         } else {
           res = await showSmoothModalSheet<T>(
             context: context,
+            minHeight: SmoothModalSheetHeader.computeHeight(context, false) +
+                itemHeight * labels.length,
             builder: (BuildContext context) {
               return SmoothModalSheet(
                 title: title,
                 bodyPadding: EdgeInsets.zero,
                 body: SizedBox(
-                  height: (itemHeight + 1.0) * labels.length,
+                  height: itemHeight * labels.length,
                   child: ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: labels.length,

@@ -6,13 +6,18 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 Future<T?> showSmoothModalSheet<T>({
   required BuildContext context,
   required WidgetBuilder builder,
+  double? minHeight,
 }) {
   return showModalBottomSheet<T>(
+    constraints:
+        minHeight != null ? BoxConstraints(minHeight: minHeight) : null,
+    isScrollControlled: minHeight != null,
     context: context,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
     ),
     builder: builder,
+    useSafeArea: true,
   );
 }
 
@@ -27,7 +32,8 @@ Future<T?> showSmoothDraggableModalSheet<T>({
     context: context,
     borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
     headerBuilder: (_) => header,
-    headerHeight: SmoothModalSheetHeader._computeHeight(context, header),
+    headerHeight:
+        SmoothModalSheetHeader.computeHeight(context, header.closeButton),
     bodyBuilder: bodyBuilder,
   );
 }
@@ -135,13 +141,13 @@ class SmoothModalSheetHeader extends StatelessWidget {
     );
   }
 
-  static double _computeHeight(
+  static double computeHeight(
     BuildContext context,
-    SmoothModalSheetHeader header,
+    bool hasCloseButton,
   ) {
     double size = VERY_SMALL_SPACE * 2;
 
-    if (header.closeButton == true) {
+    if (hasCloseButton == true) {
       size += (MEDIUM_SPACE * 2) + (Theme.of(context).iconTheme.size ?? 20.0);
     } else {
       size += Theme.of(context).textTheme.titleLarge?.fontSize ?? 15.0;
